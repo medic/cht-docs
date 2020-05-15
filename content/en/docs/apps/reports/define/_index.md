@@ -1,7 +1,6 @@
 ---
 title: "Defining Forms"
 weight: 1
-date: 2017-01-05
 description: >
   Instructions and schema for defining forms
 ---

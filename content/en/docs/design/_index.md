@@ -1,9 +1,7 @@
-
 ---
 title: "Design System"
 linkTitle: "Design System"
 weight: 4
-date: 2017-01-05
 description: >
   Design system for developers and designers of digital health applications.
 ---

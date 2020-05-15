@@ -1,7 +1,6 @@
 ---
 title: "User Permissions"
 weight: 5
-date: 2017-01-05
 description: >
   Assigning fine grained settings for user roles
 ---

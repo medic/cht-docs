@@ -1,7 +1,6 @@
 ---
 title: "User Roles"
 weight: 4
-date: 2017-01-05
 description: >
   Defining the user types to grant different permissions
 ---

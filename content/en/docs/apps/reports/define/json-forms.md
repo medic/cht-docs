@@ -2,7 +2,6 @@
 title: "Defining JSON Forms"
 linkTitle: "JSON Forms"
 weight: 2
-date: 2017-01-05
 description: >
   Instructions and schema for defining JSON forms
 ---

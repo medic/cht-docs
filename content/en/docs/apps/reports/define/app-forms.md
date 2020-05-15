@@ -2,7 +2,6 @@
 title: "Defining App Forms"
 linkTitle: "App Forms"
 weight: 1
-date: 2017-01-05
 description: >
   Instructions and schema for defining App forms
 ---

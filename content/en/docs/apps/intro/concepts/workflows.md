@@ -1,7 +1,6 @@
 ---
 title: Building Workflows
 linkTitle: "Workflows"
-date: 2020-04-09T16:50:16+02:00
 menu:
   docs:
     parent: 'docs'

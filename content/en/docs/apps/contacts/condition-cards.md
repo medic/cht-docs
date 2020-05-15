@@ -1,7 +1,6 @@
 ---
 title: "Defining Condition Cards"
 weight: 2
-date: 2017-01-05
 description: >
   Assigning fine grained settings for user roles
 ---

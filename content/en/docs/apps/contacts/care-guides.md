@@ -1,7 +1,6 @@
 ---
 title: "Defining Care Guides"
 weight: 3
-date: 2017-01-05
 description: >
   Setting the care guides that users can access from contact profiles
 ---

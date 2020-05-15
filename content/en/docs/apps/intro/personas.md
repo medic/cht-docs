@@ -1,7 +1,8 @@
 ---
-date: 2016-04-09T16:50:16+02:00
 title: User Personas
 weight: 3
+description: >
+  Global personas are based on “typical” users
 ---
 ## User Personas
 

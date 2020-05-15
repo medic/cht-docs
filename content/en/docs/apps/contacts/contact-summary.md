@@ -1,7 +1,6 @@
 ---
 title: "Defining Contact Summary"
 weight: 1
-date: 2017-01-05
 description: >
   Defining the fields shown in the contact's Summary card
 ---

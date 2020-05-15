@@ -2,7 +2,6 @@
 title: "Getting Started"
 linkTitle: "Getting Started"
 weight: 1
-date: 2017-01-05
 description: >
   An open source technology for a new model of healthcare that reaches everyone
 ---

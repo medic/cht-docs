@@ -1,7 +1,6 @@
 ---
 title: "Hierarchies"
 weight: 3
-date: 2017-01-05
 description: >
   Organizing people and places, and their relationship to one-another
 ---

@@ -1,7 +1,6 @@
 ---
 title: "Care Guides"
 weight: 1
-date: 2017-01-05
 description: >
   Taking health workers through care protocols and providing decision support
 ---

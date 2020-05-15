@@ -1,7 +1,5 @@
 ---
-date: 2020-04-09
 title: Messaging
-identifier: "messaging"
 weight: 5
 description: >
   Messaging for Care Coordination, Alerts, and Notifications
