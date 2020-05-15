@@ -18,6 +18,9 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 ## Publishing the documentation
 
+**Prerequisite**: Hugo installed with the "extended" Sass/SCSS version
+
+### Manual 
 1. Follow [the Docsy instructions](https://www.docsy.dev/docs/getting-started/#install-postcss) to install postcss
    1. `sudo npm install -D --save autoprefixer`
    2. `sudo npm install -D --save postcss-cli`
@@ -29,3 +32,7 @@ The documentation is built using Markdown pages, which can be converted into a n
    4. `cd public && git add --all && git commit -m "Publishing to gh-pages" && cd ..` Feel free to make a pertinent commit message!
    5. `git push upstream gh-pages`
 3. Repeat step 2 to update after any changes to master.
+
+### Scripted
+1. Run the script to publish to GitHub Pages
+   1. `./publish_to_ghpages.sh`
