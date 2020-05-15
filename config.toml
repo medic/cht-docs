@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://docs.communityhealthtoolkit.org/beta/"
 title = "Community Health Toolkit"
 
 enableRobotsTXT = true
