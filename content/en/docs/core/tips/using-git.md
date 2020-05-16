@@ -1,6 +1,6 @@
 ---
 title: "Using Git"
-linkTitle: "Git"
+linkTitle: "Using Git"
 weight: 13
 description: >
   Quick guide to using Git

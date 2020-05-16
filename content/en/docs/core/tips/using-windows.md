@@ -1,6 +1,6 @@
 ---
 title: "Developing on Windows"
-linkTitle: "Windows"
+linkTitle: "Windows Development"
 weight: 15
 description: >
   Notes for developing on Windows

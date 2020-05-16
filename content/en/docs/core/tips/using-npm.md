@@ -1,6 +1,6 @@
 ---
 title: "Using NPM"
-linkTitle: "NPM"
+linkTitle: "Using NPM"
 weight: 14
 description: >
   Quick guide to using NPM

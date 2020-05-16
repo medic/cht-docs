@@ -11,9 +11,9 @@ In this page we focus on how data flows through the various CHT components. CHT 
 
 ## Overview
 
-![overview](../img/data-flows-overview-1.png)
+![overview](../../img/data-flows-overview-1.png)
 
-![overview](../img/data-flows-overview-2.png)
+![overview](../../img/data-flows-overview-2.png)
 
 At a high level:
 
