@@ -9,7 +9,7 @@ menu:
 ---
 
 {{% pageinfo %}}
-The Community Health Toolkit is an open source technology for a new model of healthcare that reaches everyone. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. [Find out more here](../about)
+The Community Health Toolkit is an open source technology for a new model of healthcare that reaches everyone. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. [Find out more here](..)
 {{% /pageinfo %}}
 
 The Community Health Toolkit (CHT) is a project by a group of leading organizations who have come together to support the development of digital health initiatives in the hardest-to-reach areas. 
