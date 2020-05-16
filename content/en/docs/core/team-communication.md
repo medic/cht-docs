@@ -1,4 +1,10 @@
-# Internal product team communication
+---
+title: "Internal engineering team communications"
+linkTitle: "Communications"
+weight: 11
+description: >
+  Overview of communications of the CHT Core engineering team 
+---
 
 ## Daily
 

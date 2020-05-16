@@ -1,4 +1,10 @@
-# Transitions API
+---
+title: "Transitions API"
+linkTitle: "Transitions"
+weight: 4
+description: >
+  Overview of Transitions, JavaScript code that runs server-side when database documents change
+---
 
 A transition is javascript code that runs when a document is changed.  A
 transition can edit the changed doc or do anything server side code can do for

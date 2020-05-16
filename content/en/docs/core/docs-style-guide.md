@@ -1,31 +1,41 @@
-# Documentation Style Guide
+---
+title: "Documentation Style Guide"
+linkTitle: "Style Guide for Docs"
+weight: 10
+description: >
+  Editorial guidelines for writing developer documentation
+---
 
 This style guide provides a set of editorial guidelines for anyone writing developer documentation for Medic Mobile or Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 
 **Note:** medic-docs does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submiting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
 
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [Language](#language)
 - [General guidelines and best practices](#general-guidelines-and-best-practices)
-    - [Present tense](#present-tense)
-    - [Active voice](#active-voice)
-    - [Simple and direct language](#simple-and-direct-language)
-    - [Address the reader as "you"](#address-the-reader-as-you)
-    - [Latin phrases](#latin-phrases)
+  - [Present tense](#present-tense)
+  - [Active voice](#active-voice)
+  - [Simple and direct language](#simple-and-direct-language)
+  - [Address the reader as "you"](#address-the-reader-as-%22you%22)
+  - [Latin phrases](#latin-phrases)
 - [Practices to avoid](#practices-to-avoid)
-    - [Using "we"](#using-we)
-    - [Using jargon and idioms](#using-jargon-and-idioms)
-    - [Using statements about the future](#using-statements-about-the-future)
-    - [Using statements that will soon be out of date](#using-statements-that-will-soon-be-out-of-date)
+  - [Using "we"](#using-%22we%22)
+  - [Using jargon and idioms](#using-jargon-and-idioms)
+  - [Using statements about the future](#using-statements-about-the-future)
+  - [Using statements that will soon be out of date](#using-statements-that-will-soon-be-out-of-date)
 - [Formatting standards](#formatting-standards)
-    - [Angle brackets for placeholders](#angle-brackets-for-placeholders)
-    - [Bold for user interface elements](#bold-for-user-interface-elements)
-    - [Italics to define or introduce new terms](#italics-to-define-or-introduce-new-terms)
-    - [Code style For filenames, directories, and paths](#code-style-for-filenames-directories-and-paths)
-    - [British standard for punctuation inside quotes](#international-standard-for-punctuation-inside-quotes)
-    - [Inline code formatting](#inline-code-formatting)
-    - [Code snippet formatting](#code-snippet-formatting)
-    - [Medic Mobile word list](#medic-mobile-word-list)
+  - [Angle brackets for placeholders](#angle-brackets-for-placeholders)
+  - [Bold for user interface elements](#bold-for-user-interface-elements)
+  - [Italics to define or introduce new terms](#italics-to-define-or-introduce-new-terms)
+  - [Code style for filenames, directories, and paths](#code-style-for-filenames-directories-and-paths)
+  - [British standard for punctuation inside quotes](#british-standard-for-punctuation-inside-quotes)
+- [Inline code formatting](#inline-code-formatting)
+  - [Code style for inline code and commands](#code-style-for-inline-code-and-commands)
+- [Code snippet formatting](#code-snippet-formatting)
+  - [Don't include the command prompt](#dont-include-the-command-prompt)
+  - [Separate commands from output](#separate-commands-from-output)
+- [Medic Mobile word list](#medic-mobile-word-list)
 
 ## Language
 

@@ -1,4 +1,10 @@
-# Development Workflow
+---
+title: "Development Workflow"
+linkTitle: "Workflow"
+weight: 6
+description: >
+  Overview of the developement workflow
+---
 
 ## Code
 

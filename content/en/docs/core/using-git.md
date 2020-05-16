@@ -1,5 +1,10 @@
-
-# Using Git
+---
+title: "Using Git"
+linkTitle: "Git"
+weight: 13
+description: >
+  Quick guide to using Git
+---
 
 New to Git or need a refesher?
 

@@ -1,4 +1,10 @@
-# Releasing
+---
+title: "Releasing"
+linkTitle: "Releasing"
+weight: 7
+description: >
+  Instructions for releasing CHT tools
+---
 
 ## CHT core
 

@@ -1,4 +1,10 @@
-# Update dependencies
+---
+title: "Updating Dependencies"
+linkTitle: "Dependencies"
+weight: 8
+description: >
+  Process for updating dependencies
+---
 
 Every minor release we update dependencies to get the latest fixes and improvements. We do this early in the release cycle so that we have some more time to find regressions and issues. This is done on all folders with a package.json, including:
 

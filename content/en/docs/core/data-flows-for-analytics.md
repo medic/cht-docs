@@ -1,13 +1,19 @@
-# Data flows
+---
+title: "Data Flows for Analytics"
+linkTitle: "Data Flows"
+weight: 3
+description: >
+  Data flows through the various CHT components
+---
 
 In this page we focus on how data flows through the various CHT components. CHT is built to support the delivery of quality community health in hardest to reach areas. It is therefore designed to work in areas with low connectivity making it an offline-first toolkit. The architectural and technology choices in the stack are mostly guided by this principle which will be evident in the discussion of the data management pipeline.
 
 
 ## Overview
 
-![overview](img/data-flows-overview-1.png)
+![overview](../img/data-flows-overview-1.png)
 
-![overview](img/data-flows-overview-2.png)
+![overview](../img/data-flows-overview-2.png)
 
 At a high level:
 

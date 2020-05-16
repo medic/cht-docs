@@ -1,3 +1,11 @@
+---
+title: "Coding Style Guide"
+linkTitle: "Style Guide for Code"
+weight: 9
+description: >
+  Guidelines for writing code
+---
+
 This is a guide, not a law - use your discretion. Mostly based on [Felix Geisendörfer's](https://github.com/felixge/node-style-guide) guide with our own tweaks.
 
 ## Indention

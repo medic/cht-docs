@@ -1,4 +1,10 @@
-# Developing on Windows
+---
+title: "Developing on Windows"
+linkTitle: "Windows"
+weight: 15
+description: >
+  Notes for developing on Windows
+---
 
 We don't actively support development on Windows, instead preferring MacOS or Linux.
 

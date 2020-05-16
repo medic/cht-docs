@@ -1,5 +1,10 @@
-
-# Using npm
+---
+title: "Using NPM"
+linkTitle: "NPM"
+weight: 14
+description: >
+  Quick guide to using NPM
+---
 
 ## npm Orgs
 

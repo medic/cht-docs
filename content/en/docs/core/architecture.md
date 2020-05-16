@@ -1,10 +1,14 @@
-# Architecture of Medic Mobile instances
-
-This page gives details on the different pieces of a Medic Mobile project, how they interact, and what they're used for.
+---
+title: "Architecture of CHT Instances"
+linkTitle: "Architecture"
+weight: 1
+description: >
+  The different pieces of a CHT project, how they interact, and what they're used for
+---
 
 ## Overview
 
-![Architecture of a Medic Mobile project](img/architecture.png)
+![Architecture of a CHT project](../img/architecture.png)
 
 ## Server side
 

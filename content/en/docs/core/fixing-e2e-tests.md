@@ -1,3 +1,11 @@
+---
+title: "Fixing E2E Tests"
+linkTitle: "E2E Tests"
+weight: 12
+description: >
+  Tips for fixing e2e tests
+---
+
 # How to fix e2e tests
 
 End to end (e2e) tests can be really difficult to debug - sometimes they fail seemingly at random, and sometimes they only fail on certain environments (eg: ci but not locally). This can make reproducing and reliably fixing the issue challenging, so here are some tips to help!

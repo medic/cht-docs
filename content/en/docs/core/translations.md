@@ -1,6 +1,12 @@
-# How To Manage Translations
+---
+title: "How To Manage Translations"
+linkTitle: "Translations"
+weight: 5
+description: >
+  Process for managing translations in CHT Core
+---
 
-The Medic Mobile webapp is localized so that users can use it in the language of their choice. It is currently available in English, French, Hindi, Nepali, Spanish, and Swahili. The goal of this doc is to help our team manage these and future translations.
+Apps built with CHT Core are localized so that users can use it in the language of their choice. It is currently available in English, French, Hindi, Nepali, Spanish, and Swahili. The goal of this doc is to help our team manage these and future translations.
 
 ## Overview
 Like the rest of our code, the translation files live in our GitHub repo. These translation files are [properties](https://en.wikipedia.org/wiki/.properties) files, which are a series of keys and their corresponding values. We use the English file as our default, and as such contains the entire set of keys. If any key is missing from another language file the English value is used.
