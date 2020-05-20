@@ -1,4 +1,10 @@
-# The Professionalized CHW, Janet
+---
+title: "The Professionalized Community Health Worker (CHW), Janet"
+linkTitle: "CHW"
+weight: 1
+description: >
+  TK 
+---
 
 CHWs are the central users of apps built with the Core Framework. CHWs conduct household visits and are responsible for the health of their community. CHWs are known and trusted locally and typically live in and are chosen by their community. Their degree of health training, responsibilities, and support depends upon their country and program. The majority of CHWs are women, ranging from 25-60 years old. 
 
@@ -55,4 +61,3 @@ During her visits Janet carries her register, an education booklet, drugs and ot
 On days with her Supervisor, Janet might visit 20-25 homes. The Supervisor joins her at least once a month where they also conduct “health forums” together. Supervisors conduct technical procedures,such as taking BP, marking columns in the CHWs register and later copies this into their own during refresher trainings.
 
 A normal day lasts about 2 hours.
-

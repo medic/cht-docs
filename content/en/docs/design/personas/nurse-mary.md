@@ -1,4 +1,10 @@
-# Nurse, Mary
+---
+title: "Nurse, Mary"
+linkTitle: "Nurse"
+weight: 4
+description: >
+  TK
+---
 
 Nurses are stationed at the health facility and spend their days seeing patients. They are typically very busy and may see 50 or more patients a day. At the clinic, they sometimes deal with staff shortages, stock-outs, and poor internet connectivity. They help train and manage CHWs, particularly during monthly meetings at the facility. They are interested in seeing improvements in health metrics for the areas their facility serves. 
 
@@ -75,10 +81,3 @@ The day has not started or ended if she has not read the temperature of the ther
 Her monthly reports range from daily vaccine monitoring chart, to the ANC, immunization related records to the vaccine usage rates for the month. She places monthly based order for vaccine supplies based on the month’s usage, and must collect the vaccines from the sub-county headquarters before the end of the first week of the month. She attends a monthly visit organized by her supervisors at the sub-county district, at least monthly and frequently meets her colleagues during the irregular continuous education seminars organized by their supervisors.
 
 Nurse Mary faces a lot of challenges, but the most pressing is the workload coupled with the intensity of the nature of the work that she faces day in, day out. She is entitled to work a maximum of 45 hours a week, but is that really what happens?
-
-
-
-
-
-
-

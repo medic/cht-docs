@@ -1,7 +1,12 @@
-# Implementing and Government Partners
+---
+title: "Implementing and Government Partners"
+linkTitle: "Implementing and Government Partners"
+weight: 7
+description: >
+  TK
+---
 
 Implementing and Government Partners aim to increase access to quality, affordable care and to build a new model of care with demonstrated evidence for impact and scalability. They are interested in pioneering data-driven approaches to achieve the desired community health outcomes.
-
 
 ## About
 
@@ -48,4 +53,3 @@ TK
 - Have a good understanding of the health needs of communities and are accountable to the citizens
 - Have access to health systems data from deployment of a new model of care 
 - Have software developers in-house or are keen to build tech teams whose skills they want to sharpen in configuring/deploying the CHT
-

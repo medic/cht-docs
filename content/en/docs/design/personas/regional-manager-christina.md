@@ -1,7 +1,12 @@
-# Regional Manager, Christina
+---
+title: "Regional Manager, Christina"
+linkTitle: "Regional Manager"
+weight: 3
+description: >
+  TK
+---
 
 > “I heard that some branches have already had challenges with mobile phones.”
-
 
 ## About
 
@@ -56,7 +61,3 @@ Christina been working at BRAC for six years. She manages four branches and work
 - Provided with a company car and computer
 - Has a welcoming heart and accessible to employees
 - Team player
-
-
-
-

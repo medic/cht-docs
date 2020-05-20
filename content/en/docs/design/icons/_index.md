@@ -1,3 +1,13 @@
+---
+title: "Icon Library"
+linkTitle: "Icon Library"
+weight: 4
+description: >
+  Icons for use in CHT application based on our human centered design principles
+---
+
+We believe in making our simple but strong visual iconography open and accessible to all. We have assembled and designed these icons for use with the Community Health Toolkit based on our human centered design principles.
+
 ## About the Icon Library
 <img alt="Example Icons" style="border-width:0" src="https://static1.squarespace.com/static/5bd25eea65a707ad54c1e8ca/t/5bf4a3442b6a2841cd402a05/1542759243884/CHT-feature-overview-01.png?format=1000w" />
 

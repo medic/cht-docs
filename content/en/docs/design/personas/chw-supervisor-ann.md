@@ -1,4 +1,10 @@
-# CHW Supervisor, Ann
+---
+title: "CHW Supervisor, Ann"
+linkTitle: "CHW Supervisor"
+weight: 2
+description: >
+  TK
+---
 
 The CHW supervisor is the person who trains and supports CHWs and helps them meet their monthly goals. 
 

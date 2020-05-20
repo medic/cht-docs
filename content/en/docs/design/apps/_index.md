@@ -1,23 +1,10 @@
-# Configuration Best Practices
-
-This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app. 
-
-
-## Contents
-- [Forms](#forms)
-    - [Anatony of a Task](#anatomy-of-a-task)
-    - [Anatony of a Report](#anatomy-of-a-report)
-    - [Titles](#titles)
-    - [Icons](#icons)
-    - [Content and Layout](#content-and-layout)
-    - [Summary Page](#summary-page)
-- [Condition Cards](#condition-cards)
-    - [Guidelines](#guidelines)
-    - [Design Considerations](#design-considerations)
-- [Targets](#targets)
-    - [Guidelines](#guidelines)
-
-<br>
+---
+title: "Guidelines for App Developers"
+linkTitle: "Guidelines for App Developers"
+weight: 2
+description: >
+  This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app. 
+---
 
 ## Forms
 
