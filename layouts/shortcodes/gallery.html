@@ -40,7 +40,7 @@
 
   {{ range (readDir $path) where path.Ext (.Name) in .Get "ext" }}
 
-  {{ $src := print $url "/" .Name }}
+  {{ $src := print path.Join $url .Name }}
   <a href="{{ $src }}">
     <img src="{{ $src }}">
     <span>{{ (.Name) }}</span>
