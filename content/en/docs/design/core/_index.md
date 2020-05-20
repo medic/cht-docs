@@ -1,6 +1,6 @@
 ---
 title: "Guidelines for Core Developers"
-linkTitle: "Guidelines for Core Developers"
+linkTitle: "Core Development"
 weight: 3
 description: >
   This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app. 

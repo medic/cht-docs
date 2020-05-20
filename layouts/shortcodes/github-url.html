@@ -1,0 +1,12 @@
+{{ $path := print "content\\" .Site.Language.Lang "\\" .Page.Dir (.Get "src") }}
+{{ $pathFormatted := replace $path "\\" "/" }}
+{{ $gh_repo := ($.Page.Site.Params.github_repo) }}
+{{ $gh_subdir := ($.Page.Site.Params.github_subdir) }}
+{{ $gh_branch := (default "master" ($.Page.Site.Params.github_branch)) }}
+{{ if $gh_repo }}
+{{ $githubURL := printf "%s/tree/%s/%s" $gh_repo $gh_branch $pathFormatted }}
+{{ if $gh_subdir }}
+{{ $githubURL = printf "%s/tree/%s/%s/%s" $gh_repo $gh_branch $gh_subdir $pathFormatted }}
+{{ end }}
+{{ print $githubURL }}
+{{ end }}

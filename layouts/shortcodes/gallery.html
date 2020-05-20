@@ -1,0 +1,49 @@
+<style>
+  div.gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  div.gallery a {
+    display: block;
+    width: 200px;
+    margin: 1em;
+    flex-wrap: wrap;
+    text-align: center;
+    overflow: hidden
+  }
+
+  div.gallery a img {
+    display: block;
+    width: 200px;
+    clear: both;
+    float: left;
+    padding: 1em;
+    border: 2px #cccccc solid;
+  }
+
+  div.gallery a span {
+    display: block;
+    clear: left;
+    float: left;
+    margin-top: 0.4em;
+  }
+</style>
+
+<div class="gallery">
+  <!--
+  Based on: https://dev.to/sarmis/building-a-folder-based-gallery-for-hugo-4i8c
+  Modified to adjust styling and take site language into account
+ -->
+  {{ $path := print "content\\" .Site.Language.Lang "\\" .Page.Dir (.Get "src") }}
+  {{ $url  := print .Page.RelPermalink (.Get "src") }}
+
+  {{ range (readDir $path) where path.Ext (.Name) in .Get "ext" }}
+
+  {{ $src := print $url "/" .Name }}
+  <a href="{{ $src }}">
+    <img src="{{ $src }}">
+    <span>{{ (.Name) }}</span>
+  </a>
+  {{ end }}
+</div>
