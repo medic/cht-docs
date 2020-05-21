@@ -1,4 +1,4 @@
-{{ $path := print "content\\" .Site.Language.Lang "\\" .Page.Dir (.Get "src") }}
+{{ $path := print "content\\" .Site.Language.Lang "\\" .Page.File.Dir (.Get "src") }}
 {{ $pathFormatted := replace $path "\\" "/" }}
 {{ $gh_repo := ($.Page.Site.Params.github_repo) }}
 {{ $gh_subdir := ($.Page.Site.Params.github_subdir) }}
