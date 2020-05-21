@@ -35,12 +35,12 @@
   Based on: https://dev.to/sarmis/building-a-folder-based-gallery-for-hugo-4i8c
   Modified to adjust styling and take site language into account
  -->
-  {{ $path := print path.Join ((path.Join "content" .Site.Language.Lang) .Page.Dir (.Get "src")) }}
+  {{ $path := printf "%s/%s/%s%s" "content" .Site.Language.Lang .Page.File.Dir (.Get "src") }}
   {{ $url  := print .Page.RelPermalink (.Get "src") }}
 
-  {{ range (readDir $path) where path.Ext (.Name) in .Get "ext" }}
+  {{ range (readDir $path) }}
 
-  {{ $src := print path.Join $url .Name }}
+  {{ $src := printf "%s/%s" $url .Name }}
   <a href="{{ $src }}">
     <img src="{{ $src }}">
     <span>{{ (.Name) }}</span>
