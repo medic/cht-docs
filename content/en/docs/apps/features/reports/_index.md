@@ -46,4 +46,3 @@ The buttons at the bottom are configurable. The ones you see will depend on your
 - **Review**: Mark as “correct” or “has errors”
 - **Edit**: Opens the form to edit it
 - **Delete**: Deletes a report ( cannot be undone)
-

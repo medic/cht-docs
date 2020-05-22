@@ -11,8 +11,10 @@ Viewing permissions determine which page tabs a user sees in the app and which t
 
 ## Defining User Permissions
 
-Each user role must be given explicit access for each of the following permissions in the app settings.
+<!-- Each user role must be given explicit access for each of the following permissions in the app settings.
 
 |Property|Description|Default|
 |-------|---------|----------|
-| `placeholder` |  |  |
+| `placeholder` |  |  | -->
+
+{{% show-reference user-permissions %}}

@@ -19,11 +19,7 @@ Offline roles are for users who need to be able to access data on the go in the 
 
 Each user is assigned one of the defined roles. Roles can be defined using the App Management app, which is represented by the `roles` object of the `app-settings.json` file. Each role is defined by an identifier as the key, and an object with the following properties:
 
-|Property|Description|Required|
-|-------|---------|----------|
-| `name` | The translation key for this role | Yes |
-| `offline` | Determines if user will be an online or offline user. Set to `false` for users to be "online" users.  | No, default `true` |
-
+{{% show-reference user-roles.md %}}
 
 ### Sample Hierarchy "B"
 

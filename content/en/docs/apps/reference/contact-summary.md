@@ -1,13 +1,16 @@
 ---
-title: "Defining Contact Summary"
-weight: 1
+title: "Contact Summary"
+linkTitle: "Contact Summary"
+weight: 5
 description: >
-  Defining the fields shown in the contact's Summary card
+  Schema for contact profile summary card
+relevantLinks: >
+  docs/apps/features/contacts
+  docs/apps/concepts/hierarchies
 ---
- 
-Each field that can be shown on a contact's profile is defined as an object in the `fields` array of `contact-summary.templated.js`. The properties for each object determine how and when the field is shown.
 
-<!-- If you change this table, update the duplicate descriptions in ### Cards -->
+### `contact-summary.templated.js .fields[]`
+
 | property | type | description | required |
 |---|---|---|---|
 | `label` | `string` | A translation key which is shown with the field. | yes |
@@ -19,6 +22,3 @@ Each field that can be shown on a contact's profile is defined as an object in t
 | `context` | `object` | When `translate: true` and `value` uses [translation variables](https://angular-translate.github.io/docs/#/guide/06_variable-replacement), this value should provide the translation variables. | no |
 | `appliesIf` | `function()` or `boolean` | Return true if the field should be shown. | no |
 | `appliesToType` | `string[]` | Filters the contacts for which `appliesIf` will be evaluated. For example, `['person']` or `['clinic', 'health_center']`. | no |
- 
-See [How to configure profile pages]() for an example. 
-

@@ -1,20 +1,16 @@
 ---
-title: "Defining Tasks"
-weight: 1
+title: "Tasks"
+linkTitle: "Tasks"
+weight: 5
 description: >
-  Instructions and schema for defining tasks
+  Schema for tasks
+relevantLinks: >
+  docs/apps/features/tasks
+  docs/apps/concepts/workflows
+  docs/design/apps
 ---
 
-Tasks are configured in the `tasks.js` file. This file is a JavaScript module which defines an array of objects conforming to the Task schema detailed below. When defining tasks, all the data about contacts on the device (both people and places) along with all their reports are available. Tasks are available only for users of type "restricted to their place". Tasks can pull in fields from reports and pass data as inputs to the form that opens when the task is selected, enabling richer user experiences.
-
-{{% alert title="Note" %}}
-
-To build your tasks into your app, you must compile them into app-settings, then upload them to your instance.
-
-`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
-
-{{% /alert %}}
-
+### `tasks.js`
 
 | property | type | description | required |
 |---|---|---|---|
@@ -39,4 +35,4 @@ To build your tasks into your app, you must compile them into app-settings, then
 | `actions[n].modifyContent`| `function (content, contact, report)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. | no |
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
-| `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no |
+| `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
