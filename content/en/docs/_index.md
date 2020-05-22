@@ -1,7 +1,7 @@
 
 ---
-title: "Documentation for the Community Health Toolkit"
-linkTitle: "Community Health Toolkit"
+title: "Community Health Toolkit"
+linkTitle: "Documentation"
 identifier: "docs"
 <!-- menu:
   main:
