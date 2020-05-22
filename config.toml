@@ -58,11 +58,11 @@ description = "Digital health initiatives in the hardest-to-reach areas"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
-[languages.fr]
-title = "Community Health Toolkit"
-description = "Technologie open source pour un nouveau modèle de santé qui touche tout le monde."
-languageName ="Français"
-contentDir = "content/fr"
+# [languages.fr]
+# title = "Community Health Toolkit"
+# description = "Technologie open source pour un nouveau modèle de santé qui touche tout le monde."
+# languageName ="Français"
+# contentDir = "content/fr"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 
