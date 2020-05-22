@@ -1,5 +1,5 @@
 {{ $name := .Get 0 }}
-{{ $path := printf "content/%s/docs/apps/reference/%s.md" .Site.Language.Lang $name }}
+{{ $path := printf "/docs/apps/reference/%s" $name }}
 {{ with $.Site.GetPage $path }}
 {{ .Content }}
 {{ end }}
