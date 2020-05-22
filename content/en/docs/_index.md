@@ -1,11 +1,11 @@
 
 ---
-title: "Community Health Toolkit"
-linkTitle: "Documentation"
+title: "Documentation for the Community Health Toolkit"
+linkTitle: "Community Health Toolkit"
 identifier: "docs"
-menu:
+<!-- menu:
   main:
-    weight: 20
+    weight: 20 -->
 ---
 
 {{% pageinfo %}}

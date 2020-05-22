@@ -1,0 +1,5 @@
+{{ $name := .Get 0 }}
+{{ $path := printf "content/%s/docs/apps/reference/%s.md" .Site.Language.Lang $name }}
+{{ with $.Site.GetPage $path }}
+{{ .Content }}
+{{ end }}
