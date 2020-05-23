@@ -22,4 +22,4 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: ./publish_to_ghpages.sh
+      run: sudo ./publish_to_ghpages.sh
