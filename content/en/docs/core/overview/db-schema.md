@@ -3,7 +3,7 @@ title: "Database schema conventions"
 linkTitle: "Database Schema"
 weight: 2
 description: >
-  Schema for contact profile summary card
+  Schema for database objects
 relevantLinks: >
 ---
 
