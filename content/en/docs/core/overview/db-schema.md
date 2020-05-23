@@ -1,4 +1,11 @@
-# Database schema conventions
+---
+title: "Database schema conventions"
+linkTitle: "Database Schema"
+weight: 2
+description: >
+  Schema for contact profile summary card
+relevantLinks: >
+---
 
 CouchDB (and PouchDB in the browser) is a JSON-based NoSQL datastore that we use to store our data. While unlike SQL databases there is no enforced schema, code still follows conventions, and this document aims to describe the schema as defined by how our code operates.
 
