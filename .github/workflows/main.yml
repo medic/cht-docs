@@ -22,6 +22,4 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: |
-        chmod +x ./publish_to_ghpages.sh
-        ./publish_to_ghpages.sh
+      run: ./publish_to_ghpages.sh
