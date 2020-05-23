@@ -20,14 +20,14 @@ In this document "record" means a JSON object that resides in CouchDB or PouchDB
 |`type`|The general type of the document, see below|all user-created* documents|
 |`reported_date`|Numerical timestamp of when the document is first created|all user-created documents|
 
-* User-created documents here generally means contactables and reports, but may extend further.
+* User-created documents here generally means contacts and reports, but may extend further.
 
-## Contactables (Persons and Places)
+## Contacts (Persons and Places)
 
-Contactables are either places (e.g. clinic), groupings (e.g. family) or people (e.g. a patient or CHW).
+Contacts are either places (e.g. clinic), groupings (e.g. family) or people (e.g. a patient or CHW).
 
-The `type` property of contactable records depends on the version of Medic you are running:
- - If you are running 3.7 or later you get to [configure your contact hierarchy](https://github.com/medic/medic-docs/blob/master/configuration/app-settings.md#configuring-the-contact-hierarchy), and the `type` of contactables is `contact`, and the configured type is in the `contact_type` property.
+The `type` property of contact records depends on the version of Medic you are running:
+ - If you are running 3.7 or later you get to [configure your contact hierarchy](https://github.com/medic/medic-docs/blob/master/configuration/app-settings.md#configuring-the-contact-hierarchy), and the `type` of contacts is `contact`, and the configured type is in the `contact_type` property.
  - In earlier versions the type depended on hierarchical location of the contact. There are 3 hard coded place types: `district_hospital`, `health_centre` and `clinic` and one people type `person`. These place names are often meaningless (hence the configurable contact hierarchy in later versions) to the configured project, and are textually (ie in the UI not in data structures) renamed to mean other things. For example, as `clinic` is the lowest level it is often used to represent a family.
 
 ### Places
@@ -36,7 +36,7 @@ Represent either an actual physical location such as a clinic, or a grouping suc
 
 Unless a place is at the top of the hierarchy it has a `parent` place.
 
-Each location has a primary contact, which is a `person` contactable stored in the `contact` property.
+Each location has a primary contact, which is a `person` contact stored in the `contact` property.
 
 ### People
 
@@ -46,7 +46,7 @@ People always have a `parent` place.
 
 ### Parent hierachy representation
 
-Contactables **store** their parent hierarchy as a minified hierarchical structure, which records the `_id` of each parent up until the top of the hierarchy:
+Contacts **store** their parent hierarchy as a minified hierarchical structure, which records the `_id` of each parent up until the top of the hierarchy:
 
 ```js
 {
@@ -64,7 +64,7 @@ Contactables **store** their parent hierarchy as a minified hierarchical structu
 }
 ```
 
-Generally when contactables are **used** in the app they are first "hydrated", with the rest of the information filled in from their parent's place documents:
+Generally when contacts are **used** in the app they are first "hydrated", with the rest of the information filled in from their parent's place documents:
 
 ```js
 {
