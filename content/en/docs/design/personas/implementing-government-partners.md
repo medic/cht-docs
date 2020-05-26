@@ -3,10 +3,9 @@ title: "Implementing and Government Partners"
 linkTitle: "Implementing and Government Partners"
 weight: 7
 description: >
-  TK
+  Implementing and Government Partners aim to increase access to quality, affordable care and to build a new model of care with demonstrated evidence for impact and scalability. They are interested in pioneering data-driven approaches to achieve the desired community health outcomes.
 ---
 
-Implementing and Government Partners aim to increase access to quality, affordable care and to build a new model of care with demonstrated evidence for impact and scalability. They are interested in pioneering data-driven approaches to achieve the desired community health outcomes.
 
 ## About
 
