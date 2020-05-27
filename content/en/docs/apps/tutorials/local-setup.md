@@ -1,5 +1,6 @@
 ---
 title: "CHT Local Environment Setup"
+linkTitle: Local Setup
 weight: 1
 description: >
   Setting up a local environment to build and test CHT applications
