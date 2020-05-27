@@ -1,0 +1,9 @@
+{{ $related := .Site.Pages.Related . | first 5 }}{{/* Use .Site.Pages and not .Site.RegularPages to be able to link to list pages*/}}
+{{ with $related }}
+<h2>Related Content</h2>
+<ul>
+	{{ range . }}
+	<li><a href="{{ .RelPermalink }}">{{ .Parent.Title }} > {{ .Title }}</a></li>
+	{{ end }}
+</ul>
+{{ end }}

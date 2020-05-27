@@ -179,3 +179,11 @@ enable = false
 
 [Home]
 RelPermalink= "communityhealthtoolkit.org"
+
+[related]
+  treshold = 1
+  includeNewer = true
+  toLower = false
+ [[related.indices]]
+    name = "keywords"
+    weight = 1
