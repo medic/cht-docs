@@ -1,0 +1,6 @@
+{{ $page := .Get "page" }}
+{{ $anchor := .Get "anchor" }}
+{{ $title := .Get "title" }}
+{{ with $.Site.GetPage $page }}
+{{ printf "<em>See Also:</em> <a href=%s#%s>%s</a>" (ref . $page) $anchor $title | markdownify }}
+{{ end }}
