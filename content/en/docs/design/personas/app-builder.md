@@ -19,16 +19,22 @@ App builders and technical organizations have in-house or contracted software de
 
 ## Responsibilities
 
-TK
+- Build and deliver user experiences centered on the CHT
+- Steward the CHT app developer’s experience
+- CHT Capacity Builders
 
 ## Needs
 
 - Capacity and expertise with the CHT
+- Flexible technology (and tooling) to help build holistic digital health interventions
 
 ## Motivations
 
-TK
+- Build awesome and bug-free user experiences using the CHT.
+- Adoption of the CHT as the technology of choice for building community health apps.
+- Delivering effective interventions.
 
 ## Strengths and Assets
 
-TK
+- Diversity in skills sets: HCD, software development, database management, dashboard development.
+- Resourcefulness: bend the CHT's capabilities to meet a given need.
