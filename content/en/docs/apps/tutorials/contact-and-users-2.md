@@ -1,6 +1,6 @@
 ---
 title: "Contact and User Management - Part 2"
-weight: 1
+weight: 3
 description: >
   Creating and editing contacts and users with medic-conf
 ---
@@ -67,7 +67,7 @@ Create a CSV file named `users.csv` and add the details of the Users, CHW contac
 
 The value `place.parent` is the uuid of the Facility to which the CHW Area belongs to. You can get this value by selecting the Facility in the webapp and copying the last portion of the url.
 
-![facility uuid](images/facility-uuid.png "Facility uuid")
+![facility uuid](facility-uuid.png "Facility uuid")
 
 Run the command
 

@@ -50,7 +50,7 @@ npm install -g medic-conf
 
 You can confirm that the installation was successful by typing `medic-conf` in your terminal or command line.
 
-![confirm medic-conf](images/local-config-environment/confirm-medic-conf.png "Confirm medic-conf")
+![confirm medic-conf](confirm-medic-conf.png "Confirm medic-conf")
 
 ### 2. Install the Core Framework
 
@@ -64,7 +64,7 @@ docker-compose up
 
 Once the command is done running, navigate to `https://localhost` on a Google Chrome browser and login with the default username `medic` and default password `password`.
 
-![medic login](images/local-config-environment/medic-login.png "Medic login")
+![medic login](medic-login.png "Medic login")
 
 ### 3. Create and upload a blank project
 
@@ -76,7 +76,7 @@ cd cht-app-tutorials
 medic-conf initialise-project-layout
 ```
 
-![initialise project layout](images/local-config-environment/init-project-layout.png "Initialise project layout")
+![initialise project layout](init-project-layout.png "Initialise project layout")
 
 Then deploy the blank project onto your local test environment with the command:
 
@@ -88,7 +88,7 @@ medic-conf --url=https://medic:password@localhost --accept-self-signed-certs
 
 Once you have run the above command it should complete with the message: `INFO All actions completed.`.
 
-![all actions completed](images/local-config-environment/all-actions-completed.png "All actions completed")
+![all actions completed](all-actions-completed.png "All actions completed")
 
 ## Frequently Asked Questions
 
