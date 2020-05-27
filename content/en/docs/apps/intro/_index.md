@@ -34,7 +34,7 @@ As with any app, there is a limit to how much data can be stored locally, partic
 
 ### Made for Localization
 
-Apps can be customized for different deployments and types of workflows. We’re already using the framework in many countries around the world with localization settings.
+Apps can be customized for different deployments and types of workflows. We’re already using the framework in many countries around the world with [localization settings]({{< ref "localization" >}}).
 
 Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
 

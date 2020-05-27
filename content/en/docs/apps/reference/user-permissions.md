@@ -7,6 +7,7 @@ description: >
 relevantLinks: >
   docs/apps/concepts/user-permissions
   docs/apps/concepts/user-roles
+keywords: user-roles user-permissions
 ---
 
 ### `app_settings.json .permissions{}`

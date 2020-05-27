@@ -1,13 +1,16 @@
 ---
-title: "JSON Forms"
+title: "Defining JSON Forms"
 linkTitle: "JSON Forms"
 weight: 5
 description: >
-  Schema for JSON forms
+  Instructions and schema for defining JSON forms used for handling reports from SMS and external tools
 relevantLinks: >
   docs/apps/concepts/workflows
   docs/apps/features/interop
+keywords: workflows interop json-forms
 ---
+
+JSON Forms are used for parsing reports from formatted SMS, SIM applications, and Medic Collect. JSON form definitions are also used for interoperability with third-party systems. Each form is defined as an JSON form object according to the following schema. 
 
 ### `app_settings.json .forms[]`
 

@@ -3,6 +3,7 @@ title: Targets
 weight: 8
 description: >
   Dashboards to track metrics for an individual CHW or for an entire health facility
+keyword: targets
 ---
 <!-- ## Targets: Performance Dashboards -->
 

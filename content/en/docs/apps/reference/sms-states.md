@@ -5,6 +5,7 @@ weight: 5
 description: >
   Overview of the possible states of SMS messages
 relevantLinks: >
+keywords: messaging
 ---
 
 ## Interaction with SMS providers
