@@ -19,7 +19,7 @@ The information hierarchy is configured in the administration console. The hiera
 
 ### Sample Hierarchy with Places
 
-<img src="hierarch-with-places.png" width="23%" align="left" />
+<img src="hierarchy-with-places.png" width="23%" align="left" />
 
 This is an example of a simple hierarchy that includes a CHW Supervisor area, CHW area, and families as levels which serve as “places” or units of organizing people. 
 
@@ -27,7 +27,7 @@ User roles can be assigned to log in at any of these levels. For example, it wou
 
 ### Sample Hierarchy with People
 
-<img src="hierarch-with-people.png" width="23%" align="left" />
+<img src="hierarchy-with-people.png" width="23%" align="left" />
 
 The hierarchy can be modeled after the health system, health program and/or the community.  All people are associated with a place and these places can be associated to each other. 
 
