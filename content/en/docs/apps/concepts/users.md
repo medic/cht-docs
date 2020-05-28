@@ -10,13 +10,13 @@ The app uses roles and permissions to determine who has access to what data. Use
 
 ## Roles
 
-Some people in the app will also be app users. Differing levels of access and permissions are assigned to each persona. A user role is created to provide them with access to the information they need. Offline and online access, storage limitations, and data privacy are taken into account.
+Differing levels of access and permissions are assigned to each persona. A user role is created to provide them with access to the information they need. Offline and online access, storage limitations, and data privacy are taken into account.
 
 | Persona         | Hierarchy                                      | Device    | Permissions                                                                                                                                                                                                                                              |
 | :-------------- | :--------------------------------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Program Officer | Logs in as Admin                               | Computer  | Admin users, usually Program Officers, are online-only admin users not associated to a particular level. They have access to all people, places, and records in the app, but since they are online-only users, they cannot view any tasks or targets.    |
-| CHW Supervisors | Logs in at Health Facility level               | Tablet    | User at this level have offline access to view CHWs, fill out reports about them, and view tasks and targets related to them. Due to storage limitations, they aren’t able to view households or submit reports and review tasks and targets about them. |
-| CHWs            | Logs in at CHW Area level                      | Phone     | Users at this level have offline access to view households and family members, submit reports about them, and view tasks and targets about them.                                                                                                         |
+| CHW Supervisors | Logs in at Health Facility level               | Tablet    | User at this level have online and offline access to view CHWs, fill out reports about them, and view tasks and targets related to them. Due to storage limitations, they aren’t able to view households or submit reports and review tasks and targets about them. |
+| CHWs            | Logs in at CHW Area level                      | Phone     | Users at this level have online and offline access to view households and family members, submit reports about them, and view tasks and targets about them.                                                                                                         |
 | Family members  | Registered at Household level, does not log in | Messaging | Family members might include fathers, mothers, children, and other adults. The program model determines which family members should be registered in the app. However, they are not users of the app, and do not log in themselves.                      |
 
 {{% see-also page="docs/apps/reference/user-roles" anchor="" title="Defining User Roles" %}}
@@ -31,7 +31,7 @@ Offline roles are for users who need to be able to access data on the go in the 
 
 ## Permissions
 
-Roles are broad general collections of permissions. Permissions are fine grained settings that individually toggle on or off to allow a role to do a certain action or see a certain thing.
+User Permissions are settings that can be individually toggled on or off to allow a User Role to do a certain action or see a certain thing. System Admin’s can add as many User Role’s as needed to grant permissions to different user groups.
 
 {{% see-also page="docs/apps/reference/user-permissions" title="Defining User Permissions" %}}
 
