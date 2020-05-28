@@ -4,7 +4,7 @@ linkTitle: "CHT Applications"
 identifier: "apps"
 weight: 1
 description: >
-  Overview and reference for building digital health applications
+  Overview and reference for building digital health apps
 ---
 
 {{% pageinfo %}}
