@@ -15,6 +15,10 @@ App builders and technical organizations have in-house or contracted software de
 
 - Aligned with CHT principles and willing to contribute back to the CHT in the future
 - Believe in building open-source technologies
+- Integrity
+- Likeable personality
+- Open-mindedness
+- Strong work ethic
 
 
 ## Responsibilities
@@ -22,6 +26,8 @@ App builders and technical organizations have in-house or contracted software de
 - Build and deliver user experiences centered on the CHT
 - Steward the CHT app developer’s experience
 - CHT Capacity Builders
+- Technical support
+- Speak the language of the business
 
 ## Needs
 
@@ -30,11 +36,15 @@ App builders and technical organizations have in-house or contracted software de
 
 ## Motivations
 
-- Build awesome and bug-free user experiences using the CHT.
-- Adoption of the CHT as the technology of choice for building community health apps.
-- Delivering effective interventions.
+- Build awesome and bug-free user experiences using the CHT
+- Adoption of the CHT as the technology of choice for building community health apps
+- Delivering effective interventions
+- Novel projects or interventions
+- Developing skills
 
 ## Strengths and Assets
 
-- Diversity in skills sets: HCD, software development, database management, dashboard development.
-- Resourcefulness: bend the CHT's capabilities to meet a given need.
+- Diversity in skills sets: HCD, software development, database management, dashboard development
+- Resourcefulness: bend the CHT's capabilities to meet a given need
+- Passion for problem solving
+- An inquisitive mind
