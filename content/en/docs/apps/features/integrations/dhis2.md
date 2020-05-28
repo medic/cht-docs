@@ -1,6 +1,6 @@
+---
 title: "DHIS2 Integration"
 weight: 1
-weight: 2
 description: >
   Aggregate data export from CHT to DHIS2
 ---
@@ -57,7 +57,7 @@ There are a few very important considerations related to how you design workflow
 
 The CHT relies on your Place hierarchy to determine how data should be aggregated for DHIS2. As such, it’s important that you consider how Organization Units are configured in the DHIS2 instance that you need to integrate data into. If your CHT Place hierarchy does not align with the DHIS2 Organisation Unit structure, the CHT will not be able to aggregate data in the way DHIS2 needs it.
 
-See also: [Hierarchies]({{< ref "hierarchy" >}})
+See also: [Hierarchies]({{< ref "docs/apps/concepts/hierarchy" >}})
 
 ###### Data and Indicators
 

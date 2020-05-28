@@ -17,21 +17,21 @@ The information hierarchy is configured in the administration console. The hiera
 {{% see-also page="docs/apps/reference/hierarchy" title="Defining Hierarchy" %}}
 
 
-### Sample Hierarchy with Places
-
-<img src="hierarchy-with-places.png" width="23%" align="left" />
+### Places
 
 This is an example of a simple hierarchy that includes a CHW Supervisor area, CHW area, and families as levels which serve as “places” or units of organizing people. 
 
+![hierarchy-with-places.png](hierarchy-with-places.png)
+
 User roles can be assigned to log in at any of these levels. For example, it would be customary for a CHW to log in at the CHW Area level and view the families, and below that the people, i.e. patients or family members, who belong there.
 
-### Sample Hierarchy with People
-
-<img src="hierarchy-with-people.png" width="23%" align="left" />
+### People
 
 The hierarchy can be modeled after the health system, health program and/or the community.  All people are associated with a place and these places can be associated to each other. 
 
 For example, a Family Member is part of a Family. A Family and CHWs are part of a CHW Area. A Family Member, a Family, and CHWs are part of a CHW Supervisor Area. 
+
+![hierarchy-with-people.png](hierarchy-with-people.png)
 
 Additional hierarchy levels may be added as needed and each section of the hierarchy is configurable. For instance, many large projects have unbalanced hierarchies, which is to say, some parts of the hierarchy have more or different layers than others.
 The Admin level operates outside of the hierarchy structure and enables access to all levels and people within the hierarchy.
