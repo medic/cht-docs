@@ -3,7 +3,7 @@ title: "Getting Started"
 linkTitle: "Getting Started"
 weight: 1
 description: >
-  An Open Source Technology for a New Model of Healthcare That Reaches Everyone
+  An open source technology for a new model of healthcare that reaches everyone
 ---
 
 {{% pageinfo %}}
