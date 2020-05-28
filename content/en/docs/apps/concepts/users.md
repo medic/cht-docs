@@ -31,7 +31,7 @@ Offline roles are for users who need to be able to access data on the go in the 
 
 ## Permissions
 
-User Permissions are settings that can be individually toggled on or off to allow a User Role to do a certain action or see a certain thing. System Admin’s can add as many User Role’s as needed to grant permissions to different user groups.
+User Permissions are settings that can be individually toggled on or off to allow users with a particular Role to do a certain action or see a certain thing. CHT app developers and administrators can add as many User Roles as needed to grant permissions to different groups of users.
 
 {{% see-also page="docs/apps/reference/user-permissions" title="Defining User Permissions" %}}
 
