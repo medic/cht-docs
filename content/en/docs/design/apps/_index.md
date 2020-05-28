@@ -15,72 +15,88 @@ In this context, a form is any document with questions and blank spaces or selec
 
 While both Tasks and Reports are built with forms, there are key differences. Tasks are blank forms that need to be completed, while Reports are forms that have already been submitted. When a Task is completed and submitted, it automatically becomes a Report. 
 
+*Note: The icons and titles that we choose for Tasks remain the same when they become Reports.*
+
 <br>
 
 ### Anatomy of a Task
 
 The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks that need to be completed. When a task is finished, it will automatically clear from the **Tasks** list and move to **Reports**.
 
+<br>
+
 ![Anatomy of a Task](img/anatomy-task.png)
 
-**1.** The icon indicates the Task type.
+<br> 
 
-**2.** The first line of text is the **name** of the person whom the Task is about.
-
-**3.** The second line of text is the **title** of the Task. 
-
-**4.** If a task is due soon, the **number of days left** for the Task to be completed appears here. Tasks due today and overdue tasks that can still be done are defaulted to "Due today". These labels are configurable to make sure it is clear to CHWs that all visible tasks can be done at any time. 
-
-*Note: The icons and titles that we choose for Tasks remain the same when they become Reports.*
+Each Task has an icon on the left side which indicates what type of Task it is. <br>
+The first bold line of text is the name of the person or family that the Task is about. <br>
+The second line of text is the name of the Task. <br>
+The days left for the Task to be done is located in the upper right hand corner. <br>
+If a Task is overdue, the due date will be red. Tasks are listed in order of due date. <br>
 
 <br>
 
 
 ### Anatomy of a Report
 
+<br>
+
 ![Anatomy of a Report](img/anatomy-report.png)
 
-**1.** The icon indicates the Report type.
+<br>
 
-**2.** The first line of text is the **name** of ther person whom the Report is about.
+The first line of bold text is the name of the person whom the Report is about. <br>
+The second line of text is the title of the Report.<br>
+The third line of text is the hierarchy of place to which that person belongs. <br>
+In the upper right corner, a timestamp displays when the Report was submitted. 
 
-**3.** The second line of text is the **title** of the Report.
+Reports are sorted by submission date, with the most recently submitted Reports at the top. If a Report is unread, the timestamp will be bold blue and there will be a horizontal blue line above it. 
 
-**4.** The **timestamp** displays when the Report was submitted. 
-
-**5.** The bottom text is the hierarchy of **place** to which that person belongs. 
-
-Reports are listed by submission date. If a Report is unread, the timestamp will be bold blue and there will be a horizontal blue line above it. 
 
 <br>
 
 ### Titles
 
 The patient’s name should not be included in the form title. 
-
-> ❌**Don't do this:** "Beatrice Bass Delivery Follow-Up" <br>
-> ✅**Do this instead:** "Delivery Follow-Up"
+```
+❌ Don't do this: "Beatrice Bass Delivery Follow-Up"
+✅ Do this instead: "Delivery Follow-Up"
+```
 <br>
 
 Avoid generic words like “Visit” or “Report”. Every form can be a Report and often involves a visit, so including these words in the title doesn’t help differentiate it from other forms.
-
-> ❌**Don't do this:** "Delivery Follow-up Visit" <br>
-> ✅**Do this instead:** "Delivery Follow-Up" 
+```
+❌ Don't do this: "Delivery Follow-up Visit" 
+✅ Do this instead: "Delivery Follow-Up" 
+```
 <br>
 
 Each word in a title should be capitalized (Title Case). 
-
-> ❌**Don't do this:** "Delivery follow-up" <br>
-> ✅**Do this instead:** "Delivery Follow-Up" 
+```
+❌ Don't do this: "Delivery follow-up" <
+✅ Do this instead: "Delivery Follow-Up" 
+```
 <br>
 
 
 Keep form titles short and concise. Long titles will sometimes be truncated (cut off with an ellipsis) and the text at the end of the title might be lost. As a rough estimate, strive to keep titles **no longer than 40 characters** in length.
 
-> ❌**Don't do this:** "This Title Has Way More Than Forty Characters And Is Too Long" <br>
-> ✅**Do this instead:** "Title Is Less Than Forty Characters" 
+```
+❌ Don't do this: "This Title Has Way More Than Forty Characters And Is Too Long" 
+✅ Do this instead: "Title Is Less Than Forty Characters" 
+```
 <br>
 
+To help estimate how much text can be displayed before truncation, you can use the [low-fi mockups here](https://drive.google.com/open?id=1Lcjqs7OIxs5wKLrxGjg1JwvEf6a3UQ90M-X3Go0iptY). If you type your form name into the mockup you can get a rough idea of how much text will fit before truncation occurs. Please note that the mockups have been made with our smallest screen sizes in mind. Some users’ screens will be larger and will be able to display more text. 
+
+The screenshots here represent some of the smallest phones our users have. As you can see, on both the Tasks and Reports pages, titles less than about forty characters will fit in the space. Titles longer than about forty characters might be cut off with an ellipsis (...).
+
+<br>
+
+![Anatomy of a Report](img/history.png)
+
+<br>
 
 
 ### Icons
@@ -160,12 +176,16 @@ The Community Health Toolkit includes a collection of [60+ free icons](../icons)
 **Group Related Information** <br>
 Users think in batches, and long forms can feel overwhelming. By creating logical groups the user will make sense of the form much faster.
 
-> Ex. Visit Details, Danger Signs
+```
+Ex. Visit Details, Danger Signs
+```
 
 **Order the Form Logically and Only Ask What's Required**<br>
 Keep questions concise and in an intuitive sequence — they should be asked logically from a user’s perspective. This makes the flow from one set of questions to the next better resemble a conversation.
 
-> Ex. Is your patient still pregnant? :arrow_right: Did she attend the ANC visit? :arrow_right: Does she have danger signs? <br>
+```
+Ex. Is your patient still pregnant? → Did she attend the ANC visit? → Does she have danger signs? 
+```
 
 **Reflect Input Length in Field** <br>
 Employ this for fields that have a defined character count like phone numbers, zip codes, etc. 
@@ -203,7 +223,8 @@ After all of the required questions in a form are answered, a summary page is di
 
 *Note: The form is not submitted until the user scrolls to the end of the page and clicks “Submit”.*
 
-> All care guides are defined using [ODK XForms](https://opendatakit.github.io/xforms-spec/), an XML definition of the structure and format for a set of questions. Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [medic-conf](https://github.com/medic/medic-conf) command line configurer tool to convert them to XForm format. Because the XLSForms are converted directly to XForms, they essentially are the form, and so it’s important that the XLS be set up properly and consistently. Read more about configuring forms [here](https://github.com/medic/medic-docs/blob/master/configuration/forms.md#xforms).
+All care guides are defined using [ODK XForms](https://opendatakit.github.io/xforms-spec/), an XML definition of the structure and format for a set of questions. Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [medic-conf](https://github.com/medic/medic-conf) command line configurer tool to convert them to XForm format. Because the XLSForms are converted directly to XForms, they essentially are the form, and so it’s important that the XLS be set up properly and consistently. Read more about configuring forms [here](https://github.com/medic/medic-docs/blob/master/configuration/forms.md#xforms).
+
 
 #### Page Sections
 
@@ -221,10 +242,7 @@ Not all forms will have all summary sections, but the sections that appear shoul
 - Follow-ups scheduled (if applicable)
 - Submit button
 
->Specific recommendations by form type
-To be added as the reference app is finalized
 
-> From Ranju: I think it would be good to have a separate section for each form type. To include: how you title things and suggested order. We could bring screenshots of what we build for the ref app in here as recommendations.
 
 **Section Headers**
 
@@ -234,7 +252,8 @@ There are suggested orders, colors and icons for section headers. A section shou
 
 To ensure that headers only show when they have content the relevant condition for the section
 header should join the conditions of all the subfields.
-> Ex. {condition_a} OR {condition_b} OR {condition_c}
+
+``` Ex. {condition_a} OR {condition_b} OR {condition_c}```
 
 
 **Header Text**
@@ -293,7 +312,7 @@ H2: text with a colored line under it, centered <br>
 H3: left aligned text, simple grey line under it <br>
 H4: normal body text
 
-[INSERT IMAGE]
+![Summary](img/summary.png)
 
 **Other body text styling**
 
@@ -310,7 +329,9 @@ H4: normal body text
 *Note:  You’ll need to compensate for the extra padding left margin by moving the list to the
 left generally by `<ol style=”margin-left:1em”></ol>`. You can also customise the bullet style and position using what’s specified in the [HTML spec](https://www.w3schools.com/CSS/css_list.asp)*
 
-> Ex. `<ol style="list-style: decimal inside;"></ol>`
+```
+Ex. <ol style="list-style: decimal inside;"></ol>
+```
 
 
 ------------
@@ -321,6 +342,12 @@ A condition card is a configurable card that can be displayed on a profile that 
 
 This information can be organized into cards specific to a condition (e.g. pregnancy, malnutrition) as well as past conditions, and set to display for any length of the time.
 
+<br>
+
+![Condition Card](img/condition-cards.png)
+
+<br>
+
 
 ### Configurable Elements
 
@@ -329,7 +356,6 @@ This information can be organized into cards specific to a condition (e.g. pregn
 - Data point for the field 
 - Icon for the field, if desired
 
-![Condition Card](img/condition-card.png)
 
 ### Guidelines
 
@@ -346,7 +372,11 @@ This information can be organized into cards specific to a condition (e.g. pregn
 **Field Content**
 
 - Can include any information that was collected in a form or multiple forms about the person
-    > Ex. LMP, EDD, most recent case of malaria, past pregnancies and their delivery dates
+  
+ ```
+ Ex. LMP, EDD, most recent case of malaria, past pregnancies and their delivery dates
+ ```
+
 - Can display Notes
 - Data can be displayed in the following formats:
     - Number 
@@ -355,34 +385,56 @@ This information can be organized into cards specific to a condition (e.g. pregn
     - Date 
     - Text field 
 - Fields in cards are dynamic and will update as new information is submitted
-    > Ex. # of ANC visits so far, change in risk status
+
+```
+Ex. # of ANC visits so far, change in risk status
+```
+
 - Fields can include icons
-    > Ex. High risk status on an Active Pregnancy card
+
+```
+Ex. High risk status on an Active Pregnancy card
+```
 
 - Icons should be selected from Medic’s icon library and should be displayed at our standard 30 x 30 px size
 
 **Displaying Cards**
 
 - Can be configured to show and hide at the appropriate time
-    > Ex. Show the EDD of the current pregnancy until a delivery Report is received, show that a child is being treated for malnutrition until the treatment is complete, show that a child had malaria until 2 weeks after diagnosis
+
+```
+Ex. Show the EDD of the current pregnancy until a delivery Report is received, show that a child is being treated for malnutrition until the treatment is complete, show that a child had malaria until 2 weeks after diagnosis
+```
 
 - Condition cards can be configured to disappear at the end of the condition or persist for any length of time
     
 - Can be added to a person or place profile 
-    > Ex. Equity scorecard on household profile; CHW performance scorecard on CHW profile
+
+```
+Ex. Equity scorecard on household profile; CHW performance scorecard on CHW profile
+```
     
-## Design Considerations
+### Design Considerations
 
 - Group information related to the same condition so that the user can easily understand the relevance of the data and find what they are looking for. 
-    > Ex.  Pregnancy Card, Immunization Card
+
+```
+Ex.  Pregnancy Card, Immunization Card
+```
 
 - Consider what a user will do with the information before deciding to display it. More info isn’t necessarily better; what does a CHW need to know and how will they change their actions as a result? 
 
 - Past condition cards may be best displayed as a summary of multiple past conditions rather than individual conditions
-    > Ex.  Summary of past pregnancies rather than card for each past pregnancy
 
+```
+Ex.  Summary of past pregnancies rather than card for each past pregnancy
+```
 
->Use Case Specific Guidelines
+<br>
+
+![Past Pregnancies](img/past-pregnancies.png)
+
+<br>
 
 ------------
 
@@ -390,13 +442,19 @@ This information can be organized into cards specific to a condition (e.g. pregn
 
 The Targets tab shows key performance indicators. Progress numbers are calculated automatically by the app, and goals are set by the organization. We currently support two types of widgets: Counts and Percentage-based bars. 
 
+
 **Counts**
 
 - Counts show current totals and will update as reports are created
 - If there is a goal, it will be displayed to the right of the count. If the count is green, the goal has been met. If the count is red, the goal has not yet been met
 - Goals can only be met by exceeding them, you cannot set a goal which is met by being under the goal
 
-[Image]
+<br>
+
+![Targets](img/counts.png)
+
+<br>
+
 
 **Percentages**
 
@@ -404,7 +462,12 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 - If there is a goal, a line will be on the bar to mark the goal. If the bar is green, the goal has been met. If the bar is red, the goal has not yet been met. 
 - The text below the bar shows how the percentage is calculated, displaying the number of Reports that met the requirement out of the total number of Reports. 
 
-[Image] 
+<br>
+
+![Percentages](img/percentages.png)
+
+<br>
+
 
 **Configurable elements**
 
@@ -424,13 +487,15 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 - All text should be set in sentence case (meaning the first letter of first word is capitalized, all other words lowercase, except for acronyms)
 - If hyphenation is needed, words should only be broken at syllables
 
-> Ex. 
+```
+Ex. 
     - % Newborn Care Visit Within 72 hours → Newborn visits within 3 days
     - % of Under-5 Referrals Followed-up within 24 hours → U5 referral follow-ups within 1 day
     - % of Fever Tested with mRDT → Fever tested with mRDT
     - Pregnancies Registered This Month → Pregnancies registered
     - Births This Month → New births
     - Deliveries at Facility All Time → Deliveries at facility
+```
 
 **Subtitle**
 
@@ -441,13 +506,20 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 - Has to have a numerator and a denominator -- comparing two things, and not more than two at this time (can’t do: % of deliveries at (1) home unskilled vs. (2) home skilled vs. (3) facility. Any two of these would work though, including (1) all home deliveries vs. (2) facility deliveries).
 - It is possible to account for things that haven’t happened. For example, if you are measuring PNC visits that happened within 1 week of delivery, you can determine whether a particular woman should have had a PNC visit based on her EDD. 
 - There are several ways to account for things that have and haven’t happened, and happened late, depending on what you are trying to show.
-> Ex. Configurations for visit attendance:
-      - Of all the visits that happened, how many were on-time? (doesn’t look for visits that didn’t happen)<br>
-        - On-time = true, Late = false <br>
+
+```
+Ex. Configurations for visit attendance:
+
+      - Of all the visits that happened, how many were on-time? (doesn’t look for visits that didn’t happen)
+        - On-time = true, Late = false
+
       - Of all the visits that were supposed to happen, how many were on-time? <br>
-        - On-time = true, Late + didn’t happen = false <br>
-      - Of all the visits that were supposed to happen, how many actually occurred? (includes on-time and late as having happened)<br>
+        - On-time = true, Late + didn’t happen = false 
+
+      - Of all the visits that were supposed to happen, how many actually occurred? (includes on-time and late as having happened)
         - On-time + Late = true, Didn’t happen = false
+```
+
 - It’s not possible to total up forms from all household members or check to see if any family member had a form submitted this week and count that as the household being visited. If you want to count the households visited this month, you need a form submitted at the household level like a household visit form or a household survey form.
 - Denominator must be the same for both sides (e.g. kids in our immunization program). Can’t split it into kids <2 yrs on one side and kids <5 years on the other side.
 Bars must progress positively (ex. Visits completed, not visits missed) 
