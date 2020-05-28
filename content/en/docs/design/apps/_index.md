@@ -21,7 +21,7 @@ While both Tasks and Reports are built with forms, there are key differences. Ta
 
 The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks that need to be completed. When a task is finished, it will automatically clear from the **Tasks** list and move to **Reports**.
 
-![Anatomy of a Task](img/anatomy-task.svg)
+![Anatomy of a Task](img/anatomy-task.png)
 
 **1.** The icon indicates the Task type.
 
@@ -38,7 +38,7 @@ The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks tha
 
 ### Anatomy of a Report
 
-![Anatomy of a Report](img/anatomy-report.svg)
+![Anatomy of a Report](img/anatomy-report.png)
 
 **1.** The icon indicates the Report type.
 
@@ -170,13 +170,13 @@ Keep questions concise and in an intuitive sequence — they should be asked log
 **Reflect Input Length in Field** <br>
 Employ this for fields that have a defined character count like phone numbers, zip codes, etc. 
 
-![Input Length](img/input-length.svg) <br>
+![Input Length](img/input-length.png) <br>
 
 
 **Don’t Put Placeholder Or Helper Text Inside The Form Fields** <br>
 People go through forms quickly and if a field looks like it already has an answer they may accidentally miss it. Research shows that empty fields draw more attention than those with placeholder text.
 
-![Placeholder Text](img/no-placeholder-text.svg) <br>
+![Placeholder Text](img/no-placeholder-text.png) <br>
 
 **Distinguish Optional And Required Fields** <br>
 Users don’t always know what is implied by the required field marker ( * ). Instead, denoting what is optional is a preferred method, especially for forms with many required fields. If you do use asterisks, make the meaning of the symbol clear by stating “Fields with an asterisk ( * ) are mandatory.” <br>
@@ -184,17 +184,17 @@ Users don’t always know what is implied by the required field marker ( * ). In
 **Always Stack Radio Buttons And Checkboxes In A Single Vertical Column** <br>
 Placing the options underneath each other allows for easy scanning and makes it less likely that a user will completely overlook one of the options.
 
-![Radio Buttons](img/radio-buttons-stacked.svg) <br>
+![Radio Buttons](img/radio-buttons-stacked.png) <br>
 
 **Don’t Use Dropdowns If There Are Less Than Seven Options** <br>
 For smaller lists, use radio buttons instead of drop-down menus. Radio buttons have lower cognitive load because they make all options visible for easy comparison.
 
-![Radio vs Dropdown](img/radio-dropdown.svg) <br>
+![Radio vs Dropdown](img/radio-dropdown.png) <br>
 
 **Make Use Of Images** <br>
 Where it makes sense, use images to aid in the understanding of a question
 
-![Form Images](img/form-images.svg) <br>
+![Form Images](img/form-images.png) <br>
 
 
 ### Summary Page
@@ -329,7 +329,7 @@ This information can be organized into cards specific to a condition (e.g. pregn
 - Data point for the field 
 - Icon for the field, if desired
 
-![Condition Card](img/condition-card.svg)
+![Condition Card](img/condition-card.png)
 
 ### Guidelines
 
