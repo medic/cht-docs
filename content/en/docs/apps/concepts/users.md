@@ -1,6 +1,6 @@
 ---
 title: "Users"
-weight: 4
+weight: 5
 description: >
   Defining the user roles and their permissions
 keywords: users user-roles user-permissions
