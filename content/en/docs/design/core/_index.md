@@ -112,13 +112,19 @@ color: #333333
 ### Type sizes
 
 H1 is the highest hierarchical level of text, and should be used sparingly. It is used for the large text underneath percentage bars.
-![H1 example](https://lh5.googleusercontent.com/orBWLpTQPzbwkrCeXTZDSY1RLEpBpTEburtYYTCgGfntt6vDPelwDXue6rnxgT6uVa5r77YOcCg_uUxdwsS6KW6WoPfOVyGqfgTsQIrmPK2dYpn2hcgugbFnd6HlDEFXNixrxZdo)
+
 
 ```
 H1
 font-size: 24px (1.5rem)
 line-height: 2rem (32px)
 ```
+
+<br> 
+
+![H1](img/H1.png)
+
+<br> 
 
 <br>
 
@@ -130,6 +136,17 @@ font-size: 20px (1.25rem)
 Line-height: 1.75rem (26 px)
 ```
 
+<br> 
+
+![H2](img/H2.png)
+
+![H2](img/H2.2.png)
+
+![H2](img/H2.3.png)
+
+
+<br> 
+
 <br>
 
 H3 is the next lowest level, used for things like the titles of condition cards and section titles on the form summary page. 
@@ -140,6 +157,14 @@ font-size: 18px (1.125rem)
 line-height: 1.5rem (24px)
 ```
 
+<br> 
+
+![H3](img/H3.png)
+
+![H3](img/H3.2.png)
+
+<br> 
+
 <br>
 
 H4 is the default type size, and should be used for all normal body text throughout the app. Most text should be H4 in size - **when in doubt, use H4.**
@@ -149,6 +174,13 @@ H4 (body)
 font-size: 16px (1rem)
 line-height: 1.375rem (22px)
 ```
+<br> 
+
+![H4](img/H4.png)
+
+![H4](img/H4.2.png)
+
+<br> 
 
 <br>
 
@@ -159,3 +191,37 @@ H5 (small body)
 font-size: 14px (.875rem)
 line-height: 1.25rem (20px)
 ```
+<br> 
+
+![H5](img/H5.png)
+
+![H5](img/H5.2.png)
+
+![H5](img/H5.3.png)
+
+<br> 
+
+### Alignment
+
+Text in the app should be left-aligned by default unless otherwise specified. Left-aligned text is preferred as it provides a consistent and predictable starting place for each line of text, making text easier to read and scan.
+
+### Type style
+
+The H1 through H5 styles are used in both regular and bold weights, with the occasional italic or underlined styles. 
+Bold is used to add extra emphasis to items of importance such as patient/contact names and target titles. 
+
+Italic is rarely used except within Enketo forms, where it is used to differentiate explanatory text or suggested actions for the health worker. Avoid using both bold and italic at the same time. 
+
+The underlined style should only ever be used on actual links because of the general usability association between underlined text and hyperlinks. If you want to add emphasis to something, consider bold instead. If you are quoting the name of something, consider quotation marks instead.
+
+### Type color
+
+Most text in the app should be the @text-normal-color: @gray-ultra-dark color, as this has the best contrast and is easiest to read.
+The lighter text color (@text-secondary-color: @gray-dark) is used sparingly for text that is less important than the main body text, such as labels and condition card filters.
+Hyperlinked text is colored blue (@text-hyperlink-color: @blue-dark). On hover, it displays an underline. 
+
+
+## Components
+
+Coming soon
+
