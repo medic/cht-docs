@@ -1,5 +1,5 @@
 ---
-title: "DHIS2 Integration"
+title: "DHIS2"
 weight: 1
 description: >
    Aggregate data across multiple health workers and generate a file that can be imported into DHIS2
