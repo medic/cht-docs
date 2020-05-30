@@ -19,7 +19,7 @@ Differing levels of access and permissions are assigned to each persona. A user 
 | CHWs            | Logs in at CHW Area level                      | Phone     | Users at this level have online and offline access to view households and family members, submit reports about them, and view tasks and targets about them.                                                                                                         |
 | Family members  | Registered at Household level, does not log in | Messaging | Family members might include fathers, mothers, children, and other adults. The program model determines which family members should be registered in the app. However, they are not users of the app, and do not log in themselves.                      |
 
-{{% see-also page="docs/apps/reference/user-roles" anchor="" title="Defining User Roles" %}}
+{{% see-also page="apps/reference/user-roles" anchor="" title="Defining User Roles" %}}
 
 ### Online Users
 
@@ -33,6 +33,6 @@ Offline roles are for users who need to be able to access data on the go in the 
 
 User Permissions are settings that can be individually toggled on or off to allow users with a particular Role to do a certain action or see a certain thing. CHT app developers and administrators can add as many User Roles as needed to grant permissions to different groups of users.
 
-{{% see-also page="docs/apps/reference/user-permissions" title="Defining User Permissions" %}}
+{{% see-also page="apps/reference/user-permissions" title="Defining User Permissions" %}}
 
 Viewing permissions determine which page tabs a user sees in the app and which types of data they do and don’t have access to. User action permissions include who can create (e.g., create new users), who can delete (e.g., delete reports), who can edit (e.g., edit profiles), and who can export (e.g., export server logs).

@@ -13,4 +13,4 @@ To install the ANC Reference Application, follow the [easy installation instruct
 
 [![ANC Overview](preview-anc-ref-app-overview.png)](anc-reference-app-overview.pdf)
 
-If you want to modify our ANC Reference Application for your project or context, read our [configuration best practices]({{< ref "docs/design/apps" >}}) or learn how to [develop your own community health apps]({{< ref "docs/apps" >}}).
+If you want to modify our ANC Reference Application for your project or context, read our [configuration best practices]({{< ref "design/apps" >}}) or learn how to [develop your own community health apps]({{< ref "apps" >}}).
