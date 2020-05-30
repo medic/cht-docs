@@ -23,13 +23,13 @@ A CHT-enhanced version of the ODK XForm standard is supported.
 
 Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
 
-{{% see-also page="docs/apps/reference/contact-forms" anchor="care-guides" title="Passing contact data to care guides" %}}
+{{% see-also page="apps/reference/contact-forms" anchor="care-guides" title="Passing contact data to care guides" %}}
 
 A typical form ends with a summary group (eg `group_summary`, or `group_review`) where important information is shown to the user before they submit the form.
 
 In between the `inputs` and the closing group is the form flow - a collection of questions that can be grouped into pages. All data fields submitted with a form are stored, but often important information that will need to be accessed from the form is brought to the top level. To make sure forms are properly associated to a contact, make sure at least one of `place_id`, `patient_id`, and `patient_uuid` is stored at the top level of the form.
 
-{{% see-also page="docs/design/apps" anchor="content-and-layout" title="Content and Layout" %}}
+{{% see-also page="design/apps" anchor="content-and-layout" title="Content and Layout" %}}
 
 ## XLSForm
 

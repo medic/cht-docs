@@ -34,15 +34,15 @@ Have questions? Want to learn alongside a community of users? Join our [communit
 
 ## Reference App for Antenatal Care
 
-While our ANC Reference App can be used as is, most organizations and projects will want to configure and customize the app's tasks, care cuides, reports and even branding. These changes are not made at the Core Framework code level, but often still require technical skills and experience. To explore how we use forms to build the Tasks, Care Guides, and Reports that take health workers through care protocols and provide decision support for interactions with patients, read our [Configuration Best Practices Guide]({{< ref "docs/design/apps" >}}).
+While our ANC Reference App can be used as is, most organizations and projects will want to configure and customize the app's tasks, care cuides, reports and even branding. These changes are not made at the Core Framework code level, but often still require technical skills and experience. To explore how we use forms to build the Tasks, Care Guides, and Reports that take health workers through care protocols and provide decision support for interactions with patients, read our [Configuration Best Practices Guide]({{< ref "design/apps" >}}).
 
-[![ANC Confuguration](preview-configuration-best-practices-overview.png)]({{< ref "docs/design/apps" >}})
+[![ANC Confuguration](preview-configuration-best-practices-overview.png)]({{< ref "design/apps" >}})
 
 To learn how to add your own logo, project name, and more to our Reference App, read our [App Branding Guide](resources/app-branding-overview.pdf).
 
 [![App Branding Overview](preview-app-branding-overview.png)](resources/app-branding-overview.pdf)
 
-We are in the process of writing additional guides and clearer API documentation. Check out the [tutorials]({{< ref "docs/apps/tutorials" >}}) for more info.
+We are in the process of writing additional guides and clearer API documentation. Check out the [tutorials]({{< ref "apps/tutorials" >}}) for more info.
 
 ## Contributing to the Core Framework
 

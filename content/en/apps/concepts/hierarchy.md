@@ -15,7 +15,7 @@ A user logging into their app will see a custom set of people, tasks, reports, a
 
 The information hierarchy is configured in the administration console. The hierarchy levels can be given different titles depending on a particular health system’s program or reporting structures. 
 
-{{% see-also page="docs/apps/reference/hierarchy" title="Defining Hierarchy" %}}
+{{% see-also page="apps/reference/hierarchy" title="Defining Hierarchy" %}}
 
 
 ### Places
