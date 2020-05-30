@@ -10,17 +10,14 @@ relevantLinks: >
   docs/design/apps
 keywords: tasks workflows
 ---
+
+![task](task-with-description.png)
+
 Tasks are configured in the `tasks.js` file. This file is a JavaScript module which defines an array of objects conforming to the Task schema detailed below. When defining tasks, all the data about contacts on the device (both people and places) along with all their reports are available. Tasks are available only for users of type "restricted to their place". Tasks can pull in fields from reports and pass data as inputs to the form that opens when the task is selected, enabling richer user experiences.
 
-{{% alert title="Note" %}}
+{{% see-also page="docs/apps/features/tasks" title="Tasks Overview" %}}
 
-To build your tasks into your app, you must compile them into app-settings, then upload them to your instance.
-
-`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
-
-{{% /alert %}}
-
-### `tasks.js`
+## `tasks.js`
 
 | property | type | description | required |
 |---|---|---|---|
@@ -46,3 +43,168 @@ To build your tasks into your app, you must compile them into app-settings, then
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
+
+## Examples
+
+### Basic task
+
+#### tasks.js
+This example `tasks.js` generates two postnatal-visit tasks for each delivery form:
+
+```js
+module.exports = [
+  {
+    icon: 'mother-child',
+    title: 'task.postnatal_followup',
+    appliesTo: 'reports',
+    appliesToType: [ 'delivery' ],
+    actions: [ { form: 'postnatal_visit' } ],
+    events: [
+      {
+        days:7, start:2, end:2,
+      },
+      {
+        days:14, start:2, end:2,
+      }
+    ]
+  }
+];
+```
+
+### Advanced tasks using functions
+
+#### tasks.js
+```js
+const extras = require('./nools-extras');
+const { isFormFromArraySubmittedInWindow } = extras;
+
+module.exports = [
+  // PNC TASK 1: If a home delivery, needs clinic tasks
+  {
+    icon: 'mother-child',
+    title: [ { locale:'en', content:'Postnatal visit needed' } ],
+    appliesTo: 'reports',
+    appliesToType: [ 'D', 'delivery' ],
+    appliesIf: function(c, r) {
+      return isCoveredByUseCase(c.contact, 'pnc') &&
+          r.fields &&
+             r.fields.delivery_code &&
+             r.fields.delivery_code.toUpperCase() !== 'F';
+    },
+    actions: [{ 
+      form:'postnatal_visit',
+      // Pass content that will be used within the task form
+      modifyContent: function(content, c, r) {
+        content.delivery_place = 'home';
+      }
+    }],
+    events: [ {
+      days:0, start:0, end:4,
+    } ],
+    priority: {
+      level: 'high',
+      label: [ { locale:'en', content:'Home Birth' } ],
+    },
+    resolvedIf: function(c, r, event, dueDate) {
+      // Resolved if there a visit report received in time window or a newer pregnancy
+      return r.reported_date < extras.getNewestDeliveryTimestamp(c) ||
+             r.reported_date < extras.getNewestPregnancyTimestamp(c) ||
+             isFormFromArraySubmittedInWindow(c.reports, extras.postnatalForms,
+                 Utils.addDate(dueDate, -event.start).getTime(),
+                 Utils.addDate(dueDate,  event.end+1).getTime());
+    },
+  },
+
+  // Option 1a: Place-based task: Family survey when place is created, then every 6 months
+  {
+    icon: 'family',
+    title: 'task.family_survey.title',
+    appliesTo: 'contacts',
+    appliesToType: [ 'clinic' ],
+    actions: [ { form:'family_survey' } ],
+    events: [ {
+      id: 'family-survey',
+      days:0, start:0, end:14,
+    } ],
+    resolvedIf: function(c, r, event, dueDate) {
+      // Resolved if there a family survey received in time window
+      return isFormFromArraySubmittedInWindow(c.reports, 'family_survey',
+                 Utils.addDate(dueDate, -event.start).getTime(),
+                 Utils.addDate(dueDate,  event.end+1).getTime());
+    },
+  },
+
+  // Regular check for infants
+  {
+    icon: 'infant',
+    title: 'task.infant.title',
+    appliesTo: 'contacts',
+    appliesToType: [ 'person' ],
+    actions: [ { form:'infant_assessment' } ],
+    events: [ 
+      {
+        id: 'infant_asssessment-q1',
+        days:91, start:7, end:14,
+      },
+      {
+        id: 'infant_asssessment-q2',
+        days:182, start:7, end:14,
+      },
+      {
+        id: 'infant_asssessment-q3',
+        days:273, start:7, end:14,
+      },
+      {
+        id: 'infant_asssessment-q4',
+        days:365, start:7, end:14,
+      }
+    ]
+  },
+
+  // Option 2: Place-based task: Family survey every 6 months
+  {
+    icon: 'family',
+    title: 'task.family_survey.title',
+    appliesTo: 'contacts',
+    appliesToType: [ 'clinic' ],
+    appliesIf: extras.needsFamilySurvey, // function returns true if family doesn't have survey in previous 6 months
+    actions: [ { form:'family_survey' } ],
+    events: [ {
+      id: 'family-survey',
+      start:0, end:14,
+      dueDate: extras.getNextFamilySurveyDate  // function gets expected date of next family survey 
+    } ],
+    resolvedIf: function(c, r, event, dueDate) {
+      // Resolved if there a family survey received in time window
+      return isFormFromArraySubmittedInWindow(c.reports, 'family_survey',
+                 Utils.addDate(dueDate, -event.start).getTime(),
+                 Utils.addDate(dueDate,  event.end+1).getTime());
+    },
+  },
+
+]
+```
+
+#### nools-extras.js
+```js
+module.exports = {
+  isCoveredByUseCase: function (contact, usecase) {
+      // ...
+  },
+  getNewestDeliveryTimestamp: function (c) {
+      // ...
+  },
+  getNewestPregnancyTimestamp: function (c) {
+      // ...
+  },
+  isFormFromArraySubmittedInWindow: function (reports, formsArray, startTime, endTime) {
+      // ...
+  },
+};
+```
+
+## Build
+
+To build your tasks into your app, you must compile them into app-settings, then upload them to your instance.
+
+`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`

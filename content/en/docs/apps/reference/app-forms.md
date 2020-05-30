@@ -12,14 +12,49 @@ keywords: workflows app-forms
 
 App forms are used for care guides within the web app, whether accessed in browser or via the Android app. App forms are defined by the following files:
 
-- A XLSForm form definition, converted to the XForm (optional)
-- A XML form definition using the ODK XForm format
+- A XML form definition using a CHT-enhanced ODK XForm format
+- A XLSForm form definition, easier to write and converts to the XForm (optional)
 - Meta information in the `{form_name}.properties.json` file (optional)
 - Media files in the `{form_name}-media` directory (optional)
 
 ## XForm
 
-The ODK XForm standard is supported. Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. Additionally, some custom XLSForm types and appearances are available.
+A CHT-enhanced version of the ODK XForm standard is supported.
+
+Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
+
+{{% see-also page="docs/apps/reference/contact-forms" anchor="care-guides" title="Passing contact data to care guides" %}}
+
+A typical form ends with a summary group (eg `group_summary`, or `group_review`) where important information is shown to the user before they submit the form.
+
+In between the `inputs` and the closing group is the form flow - a collection of questions that can be grouped into pages. All data fields submitted with a form are stored, but often important information that will need to be accessed from the form is brought to the top level. To make sure forms are properly associated to a contact, make sure at least one of `place_id`, `patient_id`, and `patient_uuid` is stored at the top level of the form.
+
+{{% see-also page="docs/design/apps" anchor="content-and-layout" title="Content and Layout" %}}
+
+## XLSForm
+
+Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [medic-conf](https://github.com/medic/medic-conf) command line configurer tool to [convert them to XForm format](#build).
+
+| type | name | label | relevant | appearance | calculate | ... |
+|---|---|---|---|---|---|---|
+| begin group | inputs | Inputs | ./source = 'user' | field-list |
+| hidden | source |
+| hidden | source_id |
+| begin group | contact |
+| db:person | _id | Patient ID |  | db-object |
+| string | patient_id | Medic ID |  | hidden |
+| string | name | Patient Name |  | hidden |
+| end group
+| end group
+| calculate | _id | | | | ../inputs/contact/_id |
+| calculate | patient_id | | | | ../inputs/contact/patient_id |
+| calculate | name | | | | ../inputs/contact/name |
+| ...
+| begin group | group_summary | Summary |  | field-list summary |
+| note | r_patient_info | \*\*${patient_name}\*\* ID: ${r_patient_id} |
+| note | r_followup | Follow Up \<i class="fa fa-flag"\>\</i\> |
+| note | r_followup_note | ${r_followup_instructions} |
+| end group |
 
 ## Additional XForm Widgets
 
@@ -56,3 +91,32 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.person` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.place` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `user`, and `summary` are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario. | no |
+
+In this example properties file, the associated form would only show on a person's page, and only if their sex is unspecified or female and they are between 10 and 65 years old:
+
+```json
+  {
+    "title": [
+      {
+        "locale": "en",
+        "content": "New Pregnancy"
+      },
+      {
+        "locale": "hi",
+        "content": "नई गर्भावस्था"
+      }
+    ],
+    "icon": "pregnancy-1",
+    "context": {
+      "person": true,
+      "place": false,
+      "expression": "contact.type === 'person' && (!contact.sex || contact.sex === 'female') && (!contact.date_of_birth || (ageInYears(contact) >= 10 && ageInYears(contact) < 65))"
+    }
+  }
+```
+
+## Build
+    
+Convert and build the app forms into your application using the `convert-app-forms` and `upload-app-forms` actions in `medic-conf`.
+
+    medic-conf --local convert-app-forms upload-app-forms
