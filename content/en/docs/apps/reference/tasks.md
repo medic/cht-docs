@@ -44,13 +44,13 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
 
-## Examples
+## Code samples
 
 ### Basic task
 
-#### tasks.js
-This example `tasks.js` generates two postnatal-visit tasks for each delivery form:
+This sample `tasks.js` generates two postnatal-visit tasks for each delivery form. The tasks are due 7 and 14 days after the delivery report was submitted. Each task is displayed for 2 days before the due date and 2 days after the due date.
 
+#### tasks.js
 ```js
 module.exports = [
   {
@@ -73,7 +73,9 @@ module.exports = [
 
 ### Advanced tasks using functions
 
-#### tasks.js
+These samples show more complex tasks which use functions kepts in a separate `nools-extras.js` file
+
+#### `tasks.js`
 ```js
 const extras = require('./nools-extras');
 const { isFormFromArraySubmittedInWindow } = extras;
@@ -185,7 +187,7 @@ module.exports = [
 ]
 ```
 
-#### nools-extras.js
+#### `nools-extras.js`
 ```js
 module.exports = {
   isCoveredByUseCase: function (contact, usecase) {

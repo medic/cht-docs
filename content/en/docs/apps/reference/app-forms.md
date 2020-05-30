@@ -56,7 +56,7 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | note | r_followup_note | ${r_followup_instructions} |
 | end group |
 
-## Additional XForm Widgets
+## CHT XForm Widgets
 
 Some XForm widgets have been added or modified for use in the app:
 - **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages.
@@ -67,7 +67,7 @@ Some XForm widgets have been added or modified for use in the app:
 
 The code for these widgets can be found in the [Medic repo](https://github.com/medic/medic/tree/master/webapp/src/js/enketo/widgets).
 
-## Additional XPath Functions
+## CHT XPath Functions
 
 ### `difference-in-months`
 
@@ -92,8 +92,11 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.place` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `user`, and `summary` are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario. | no |
 
-In this example properties file, the associated form would only show on a person's page, and only if their sex is unspecified or female and they are between 10 and 65 years old:
+### Code sample
 
+In this sample properties file, the associated form would only show on a person's page, and only if their sex is unspecified or female and they are between 10 and 65 years old:
+
+#### `forms/app/pregnancy.properties.json`
 ```json
   {
     "title": [
