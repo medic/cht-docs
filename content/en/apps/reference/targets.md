@@ -10,17 +10,15 @@ relevantLinks: >
 keywords: targets workflows
 ---
 
+![Percentages](counts.png)
+
+![Percentages](percentages.png)
+
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 
-{{% alert title="Note" %}}
+{{% see-also page="apps/features/targets" title="Tasks Overview" %}}
 
-To build your targets into your app, you must compile them into app-settings, then upload them to your instance. 
-
-`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
-
-{{% /alert %}}
-
-### `targets.js`
+## `targets.js`
 
 | property | type | description | required |
 |---|---|---|---|
@@ -45,3 +43,98 @@ To build your targets into your app, you must compile them into app-settings, th
 | `dhis[n].dataElement` | `string` | The hash id of a data element configured in the DHIS2 data set you're integrating with | yes
 | `dhis[n].dataSet` | `string` | The hash id of the data set that contains the data element you're integrating with. If this is left undefined, the data element will appear in all data sets. | no
 | `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
+
+## Code Samples
+
+This sample `targets.js` generates three widgets, and uses functions written in the `targets-extras.js` file.
+
+### `targets.js`
+```js
+const { isHealthyDelivery, countReportsSubmittedInWindow } = require('./targets-extras');
+
+module.exports = [
+  // BIRTHS THIS MONTH
+  {
+    id: 'births-this-month',
+    type: 'count',
+    icon: 'infant',
+    goal: -1,
+    translation_key: 'targets.births.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+
+    appliesTo: 'reports',
+    appliesIf: isHealthyDelivery,
+    date: 'reported',
+  },
+
+  // % DELIVERIES ALL TIME WITH 1+ VISITS
+  {
+    id: 'delivery-with-min-1-visit',
+    type: 'percent',
+    icon: 'nurse',
+    goal: 100,
+    translation_key: 'targets.delivery_1_visit.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+
+    appliesTo: 'reports',
+    idType: 'report',
+    appliesIf: isHealthyDelivery,
+    passesIf: function(c, r) {
+      var visits = countReportsSubmittedInWindow(c.reports, antenatalForms, r.reported_date - MAX_DAYS_IN_PREGNANCY*MS_IN_DAY, r.reported_date);
+      return visits > 0;
+    },
+    date: 'now',
+  },
+
+  {
+    id: '2-home-visits-per-family',
+    icon: 'home-visit',
+    type: 'percent',
+    goal: 100,
+    translation_key: `target.2-home-visits-per-family`,
+    context: 'user.role === "chw"',
+    date: 'reported',
+
+    appliesTo: 'contacts',
+    appliesToType: 'person',
+    idType: contact => {
+      // Determines the target ids which will be in the group.
+      // eg. "family1~2000-02-15" and "family1~2000-02-16"
+      const householdVisitDates = new Set(contact.reports.map(report => toDateString(report.reported_date)));
+      const familyId = contact.contact.parent._id;
+      return Array.from(householdVisitDates).map(date => `${familyId}~${date}`);
+    },
+    groupBy: contact => contact.contact.parent._id,
+    passesIfGroupCount: { gte: 2 },
+  }
+]
+
+```
+
+### `targets-extras.js`
+```js
+module.exports = {
+  isHealthyDelivery(c, r) {
+    return r.form === 'D' ||
+        (r.form === 'delivery' && r.fields.pregnancy_outcome === 'healthy');
+  },
+
+  countReportsSubmittedInWindow(reports, form, start, end) {
+    var reportsFound = 0;
+    reports.forEach(function(r) {
+      if (form.indexOf(r.form) >= 0) {
+        if (r.reported_date >= start && r.reported_date <= end) {
+          reportsFound++;
+        }
+      }
+    });
+    return reportsFound;
+  },
+};
+```
+
+## Build
+
+To build your targets into your app, you must compile them into app-settings, then upload them to your instance. 
+
+`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
