@@ -11,11 +11,7 @@ keywords: hierarchy contacts care-guides
 ---
 
 
-A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Context](#care-guides).
-
-To update the Contact profiles for an app, changes must be compiled into `app-settings`, then uploaded.
-
-> `medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
+A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.
 
 ## Contact Summary
 
@@ -72,3 +68,88 @@ To show an App Form on a contact's profile, the form's `expression` field in its
 The context data is also available directly within the app forms' XForm calculations, as `instance('contact-summary')/context/${variable}`. For instance if `context.is_pregnant` is used in the contact summary, it can be accessed in an XForm field's calculation as `instance('contact-summary')/context/is_pregnant`. Note that these fields are not available when editing a previously completed form, or when accessing the form from outside of the profile page.
 
 <!-- TODO: See [How to configure profile pages]() and [How to build app forms]() for examples and more information. -->
+
+## Code samples
+
+The following samples show how fields, cards, and care guide context comes together in the `contact-summary.templated.js` file.
+
+### `contact-summary.templated.js`
+```js
+module.exports = {
+  context: {
+    use_cases: {
+      anc: isCoveredByUseCaseInLineage(lineage, 'anc'),
+      pnc: isCoveredByUseCaseInLineage(lineage, 'pnc'),
+    },
+  },
+
+  fields: [
+    { appliesToType:'person',  label:'patient_id', value:contact.patient_id, width: 4 },
+    { appliesToType:'person',  label:'contact.age', value:contact.date_of_birth, width: 4, filter: 'age' },
+    { appliesToType:'person',  label:'contact.parent', value:lineage, filter: 'lineage' },
+    { appliesToType:'!person', appliesIf:function() { return contact.parent && lineage[0]; }, label:'contact.parent', value:lineage, filter:'lineage' },
+  ],
+
+  cards: [
+    {
+      label: 'contact.profile.pregnancy',
+      appliesToType: 'report',
+      appliesIf: extras.isActivePregnancy,
+      fields: [
+        {
+          label: 'contact.profile.edd',
+          value: function(r) { return r.fields.edd_8601; },
+          filter: 'relativeDay',
+          width: 12
+        },
+        {
+          label: 'contact.profile.visit',
+          value: 'contact.profile.visits.of',
+          translate: true,
+          context: {
+            count: function(r) { return extras.getSubsequentVisits(r).length; },
+            total: 4,
+          },
+          width: 6,
+        },
+        {
+          label: 'contact.profile.risk.title',
+          value: function(r) { return extras.isHighRiskPregnancy(r) ? 'high':'normal';
+          },
+          translate: true,
+          width: 5,
+          icon: function(r) { return extras.isHighRiskPregnancy(r) ? 'risk' : ''; },
+        },
+      ],
+      modifyContext: function(ctx) {
+        ctx.pregnant = true; // don't show Create Pregnancy Report button
+      },
+    },
+  ],
+};
+```
+
+### `contact-summary-extras.js`
+
+```js
+module.exports = {
+  isActivePregnancy : function (r) {
+    // ...
+  },
+  isCoveredByUseCaseInLineage: function(lineage, usecase) {
+    // ...
+  },
+  isHighRiskPregnancy: function(pregnancy) {
+    // ...
+  },
+  getSubsequentVisits: function (r) {
+    // ...
+  },
+};
+```
+
+## Build
+
+To update the Contact profiles for an app, changes must be compiled into `app-settings`, then uploaded.
+
+`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
