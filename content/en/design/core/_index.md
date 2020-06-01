@@ -3,7 +3,7 @@ title: "Guidelines for Core Developers"
 linkTitle: "Core Development"
 weight: 3
 description: >
-  This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app. 
+  The standard aspects of our core framework for reuse to encourage consistency when building new components
 ---
 
 The purpose of this guide is to document the standard aspects of our core framework and provide tips for consideration when choosing a design to encourage consistency by listing existing elements that can be reused.
