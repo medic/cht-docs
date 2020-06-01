@@ -67,6 +67,30 @@ Some XForm widgets have been added or modified for use in the app:
 
 The code for these widgets can be found in the [Medic repo](https://github.com/medic/medic/tree/master/webapp/src/js/enketo/widgets).
 
+### Contact Selector Detailed
+
+Using a contact selector allows you to get data off the selected contact(person or place) or search for an existing contact. 
+
+When using with the appearance column set to `db-object`. The contact selector will display as a search box allowing you to search for the type of contact specified when building the report. EX: `db-person` will only search for contacts with type of person. 
+
+When used as a field you can pull the current contact. This is can be used to link reports to a person or place where you started the form from. Getting the data of `_id` or `patient_id` and setting those to `patient_id` or `patient_uuid` on the final report will link that report so it displays on their contact summary page. 
+
+Example of getting the data from the contact and assigning it to the fields neccessary to link the report. 
+
+| type | name | label | relevant | appearance | calculate | ... |
+|---|---|---|---|---|---|---|
+| begin group | inputs | Inputs | ./source = 'user' | field-list |
+| hidden | source |
+| hidden | source_id |
+| begin group | contact |
+| db:person | _id | Patient ID |  | db-object |
+| string | patient_id | Medic ID |  | hidden |
+| string | name | Patient Name |  | hidden |
+| end group
+| end group
+| calculate | patient_uuid | Patient UUID| ||../inputs/contact/_id|
+| calculate | patient_id | Patient ID| ||../inputs/contact/patient_id|
+ 
 ## CHT XPath Functions
 
 ### `difference-in-months`
