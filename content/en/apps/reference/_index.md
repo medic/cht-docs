@@ -1,7 +1,7 @@
 ---
 title: "Reference Documentation"
 linkTitle: "Reference"
-weight: 5
+weight: 7
 description: >
   Technical details of CHT app components for app developers 
 ---
