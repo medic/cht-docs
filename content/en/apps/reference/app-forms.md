@@ -79,17 +79,13 @@ Example of getting the data from the contact and assigning it to the fields necc
 
 | type | name | label | relevant | appearance | calculate | ... |
 |---|---|---|---|---|---|---|
-| begin group | inputs | Inputs | ./source = 'user' | field-list |
-| hidden | source |
-| hidden | source_id |
 | begin group | contact |
 | db:person | _id | Patient ID |  | db-object |
 | string | patient_id | Medic ID |  | hidden |
 | string | name | Patient Name |  | hidden |
 | end group
-| end group
-| calculate | patient_uuid | Patient UUID| ||../inputs/contact/_id|
-| calculate | patient_id | Patient ID| ||../inputs/contact/patient_id|
+| calculate | patient_uuid | Patient UUID| ||../contact/_id|
+| calculate | patient_id | Patient ID| ||../contact/patient_id|
  
 ## CHT XPath Functions
 
