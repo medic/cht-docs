@@ -1,6 +1,6 @@
 ---
 title: "Care Guides"
-weight: 2
+weight: 4
 description: >
   Taking health workers through care protocols and providing decision support
 keywords: care-guides

@@ -2,7 +2,7 @@
 title: "CHT Applications"
 linkTitle: "CHT Applications"
 identifier: "apps"
-weight: 1
+weight: 2
 description: >
   Overview and reference for building digital health apps
 ---
@@ -21,3 +21,5 @@ Developing an app using the Core Framework requires an understanding of:
 - XLSForms to setup actions and contacts
 
 This section provides an overview of CHT features, and the reference material for those looking to build applications with CHT Core.
+
+{{% see-also page="design/personas" title="Personas" %}}

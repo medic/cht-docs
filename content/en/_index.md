@@ -1,49 +1,55 @@
-
 ---
 title: "Community Health Toolkit"
 linkTitle: "Documentation"
 identifier: "docs"
+weight: 1
 menu:
   main:
-    weight: 20
+    weight: 1
 ---
+# Welcome to the Community Health Toolkit docs site!
 
 {{% pageinfo %}}
-The [Community Health Toolkit](https://communityhealthtoolkit.org) is an open source technology for a new model of healthcare that reaches everyone. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. [Find out more here](..)
+The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref apps >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
 {{% /pageinfo %}}
 
-The Community Health Toolkit (CHT) is a project by a group of leading organizations who have come together to support the development of digital health initiatives in the hardest-to-reach areas. 
 
-The CHT provides you with resources to design, build, deploy, and monitor digital tools for community health. It includes open source software frameworks and applications, guides to help design and use them, and a [community forum](https://forum.communityhealthtoolkit.org/) for collaboration and support.  Together, we envision a world where healthcare is of the highest attainable quality, equitable, accessible, and delivered by the people who are trusted most in their communities.  
+## Why work with the CHT?				
 
-With more than 24,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for advanced community health systems. 
+Community health systems can dramatically improve the accessibility, quality, speed, and equity of primary health care, but only if health workers are effectively equipped and supported. Advances in open source technology are making it easier and more affordable than ever to deliver impactful, dignified care in even the hardest-to-reach communities. 
 
-## Building Digital Health Tools
+With more than 27,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers. For more about the unique strengths of our open source community and the technology we’re building together, see [Why the CHT](why-the-cht)?
 
-The resources provided through the Community Health Toolkit can be used to build digital health apps used at the community, health facility, and health system level:
+{{< youtube SXN76-EZnsM >}}
 
-**At the community level,** community health workers (CHWs) use apps built with the CHT to register patients, conduct guided health assessments, screen for specific conditions and danger signs, and refer patients to health facilities.
+<br />
 
-**At the health facility level,** nurses and CHW supervisors use apps and admin consoles built with the CHT to coordinate care for patients with the CHWs, promote health practices in the community, and report health and service delivery statistics to health system officials
+## What can you build with the CHT?
 
-**At the health system level,** data managers and others use apps and admin consoles built with the CHT to collate and report on key community and health system data. Their work often involves following up with supervisors and nurses to verify data for accuracy and completion.
+The CHT provides you with resources to design, build, deploy, and monitor digital tools for community health. It includes open source software frameworks and applications, guides to help design and use them, and a [community forum](https://forum.communityhealthtoolkit.org/) for collaboration and support. The resources provided through the Community Health Toolkit can be used to build digital health apps used at the community, health facility, and health system level:
 
-![Community Health Apps Built with the CHT](appdemo-trio.gif)
+**At the community level**, community health workers (CHWs) use apps built with the CHT to register patients, conduct guided health assessments, screen for specific conditions and danger signs, and refer patients to health facilities.
 
-Have questions? Want to learn alongside a community of users? Join our [community forum](https://forum.communityhealthtoolkit.org) and let us know how we can help!
+**At the health facility level**, nurses and CHW supervisors use apps and admin consoles built with the CHT to coordinate care for patients with the CHWs, promote health practices in the community, and report health and service delivery statistics to health system officials
 
-## Reference App for Antenatal Care
+**At the health system level**, data managers and others use apps and admin consoles built with the CHT to collate and report on key community and health system data. Their work often involves following up with supervisors and nurses to verify data for accuracy and completion.
 
-While our ANC Reference App can be used as is, most organizations and projects will want to configure and customize the app's tasks, care cuides, reports and even branding. These changes are not made at the Core Framework code level, but often still require technical skills and experience. To explore how we use forms to build the Tasks, Care Guides, and Reports that take health workers through care protocols and provide decision support for interactions with patients, read our [Configuration Best Practices Guide]({{< ref "design/apps" >}}).
+![CHT App Demo](appdemo-trio.gif)
 
-[![ANC Confuguration](preview-configuration-best-practices-overview.png)]({{< ref "design/apps" >}})
+<br />
 
-To learn how to add your own logo, project name, and more to our Reference App, read our [App Branding Guide](resources/app-branding-overview.pdf).
+## Getting Started
 
-[![App Branding Overview](preview-app-branding-overview.png)](resources/app-branding-overview.pdf)
+1. For most people who are new to the CHT, it helps to watch some demo videos to get a sense of the different ways that people use CHT-Core to build custom digital health apps. Here are a few recent demos you can start with:
+   - Contact Tracing
+   - Educational Materials
+   - CovidCheck
+   - ANC Reference App
+1. If you’re a developer, you might want to dive right in to building a custom app. We recommend that you start by installing CHT-Core on your local machine, loading the ANC reference app [link], and loading some test data to play with. [insert tutorial links]. 
+1. If you’re considering whether you or your organization should invest more time in learning about the CHT, you might find that
 
-We are in the process of writing additional guides and clearer API documentation. Check out the [tutorials]({{< ref "apps/tutorials" >}}) for more info.
+<br />
 
-## Contributing to the Core Framework
-
-If you're interested in contributing to the development of the Core Framework, take a look at the [Core Framework's Github repository](https://github.com/medic/cht-core), follow the [development environment setup instructions](https://github.com/medic/medic/blob/master/DEVELOPMENT.md) and take a look at the [contribution guide](https://github.com/medic/medic/blob/master/CONTRIBUTING.md).
+{{% alert title="Have Questions?" %}}
+Want to learn alongside a community of users? Join our community forum and let us know how we can help! And if you like what you see, don’t forget to give us a star on Github :)
+{{% /alert %}}

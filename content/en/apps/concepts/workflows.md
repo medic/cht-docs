@@ -1,7 +1,7 @@
 ---
 title: Building Workflows
 linkTitle: "Workflows"
-weight: 3
+weight: 5
 description: >
   Building connections between people, actions, and data systems
 keywords: workflows
