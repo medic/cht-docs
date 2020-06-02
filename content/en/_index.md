@@ -3,9 +3,9 @@
 title: "Community Health Toolkit"
 linkTitle: "Documentation"
 identifier: "docs"
-<!-- menu:
+menu:
   main:
-    weight: 20 -->
+    weight: 20
 ---
 
 {{% pageinfo %}}
