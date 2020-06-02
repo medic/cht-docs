@@ -1,5 +1,5 @@
 ---
-title: "Defining Targets"
+title: "Targets"
 linkTitle: "Targets"
 weight: 5
 description: >

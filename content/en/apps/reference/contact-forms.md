@@ -1,5 +1,5 @@
 ---
-title: "Defining Contact Forms"
+title: "Contact Forms"
 linkTitle: "Contact Forms"
 weight: 5
 description: >

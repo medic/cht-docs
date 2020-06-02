@@ -1,5 +1,5 @@
 ---
-title: "Defining Collect Forms"
+title: "Collect Forms"
 linkTitle: "Collect Forms"
 weight: 5
 description: >

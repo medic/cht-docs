@@ -1,5 +1,5 @@
 ---
-title: "Defining JSON Forms"
+title: "JSON Forms"
 linkTitle: "JSON Forms"
 weight: 5
 description: >

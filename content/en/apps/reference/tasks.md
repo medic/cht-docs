@@ -1,5 +1,5 @@
 ---
-title: "Defining Tasks"
+title: "Tasks"
 linkTitle: "Tasks"
 weight: 5
 description: >

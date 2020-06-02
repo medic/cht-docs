@@ -1,5 +1,5 @@
 ---
-title: "Defining App Forms"
+title: "App Forms"
 linkTitle: "App Forms"
 weight: 5
 description: >

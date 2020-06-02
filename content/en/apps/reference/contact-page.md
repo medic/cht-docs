@@ -1,5 +1,5 @@
 ---
-title: "Defining Contact Pages"
+title: "Contact Pages"
 linkTitle: "Contact Pages"
 weight: 5
 description: >
