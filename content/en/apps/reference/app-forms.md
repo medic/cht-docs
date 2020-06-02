@@ -10,7 +10,9 @@ relevantLinks: >
 keywords: workflows app-forms
 ---
 
-App forms are used for care guides within the web app, whether accessed in browser or via the Android app. App forms are defined by the following files:
+App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "apps/features/reports" >}} ).
+
+App forms are defined by the following files:
 
 - A XML form definition using a CHT-enhanced ODK XForm format
 - A XLSForm form definition, easier to write and converts to the XForm (optional)

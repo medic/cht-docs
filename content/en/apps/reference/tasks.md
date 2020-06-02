@@ -71,7 +71,7 @@ module.exports = [
 ];
 ```
 
-### Advanced tasks using functions
+### Tasks with functions
 
 These samples show more complex tasks which use functions kepts in a separate `nools-extras.js` file
 
