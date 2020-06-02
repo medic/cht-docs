@@ -13,7 +13,7 @@ The features on the Messages tab are best supported on desktop and most often us
 
 ## Main List
 
-<img src="messages-main.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+<img src="messages-main.png" width="30%" align="right"/>
 
 On the main list of messages, the first line of bold text is the name and / or phone number of the sender. The second line is an excerpt from the most recent message, and the third line, if applicable, is the place(s) that the sender belongs to. 
 
@@ -25,7 +25,7 @@ To send a new message that starts a brand new conversation thread, select the â€
 
 ## Detail Page
 
-<img src="messages-detail.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+<img src="messages-detail.png" width="30%" align="right"/>
 
 Clicking on a message in the main list will take you to a detail tab where you can see the full text of the conversation. Underneath each individual message in the conversation, you will see the message status which tells you whether or not the message was successfully delivered or received and at what time.
 

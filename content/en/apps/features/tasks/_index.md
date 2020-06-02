@@ -12,7 +12,7 @@ Tasks help CHWs plan their day by prompting them to complete follow-up visits an
 
 ## Main List
 
-<img src="tasks-main.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+<img src="tasks-main.png" width="30%" align="right"/>
 
 On the Tasks tab is a consolidated list of tasks for all people and families that the user looks after. The task definition determines how long the task will show on this list before and after it is due.
 
@@ -40,7 +40,7 @@ When the user completes the care guide, the task will be cleared from the Tasks 
 
 ## Profile Page
 
-<img src="tasks-profile.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+<img src="tasks-profile.png" width="30%" align="right"/>
 
 Tasks are also accessed from a the People tab in the app.
 

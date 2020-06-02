@@ -19,7 +19,7 @@ Users can access their “people” and “places” from the People tab.
 
 ## Main List
 
-<img src="contacts-main-list.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+<img src="contacts-main-list.png" width="30%" align="right"/>
 
 
 The view on the right is what a logged-in CHW would see in when they access the “People” tab on a small screen. 
@@ -85,7 +85,7 @@ Configurable elements include:
 ### Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
 
-<img src="contacts-care-guides.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+<img src="contacts-care-guides.png" width="30%" align="right"/>
 
 
 “Care Guides” are dynamic forms that you can fill out for a person or place. You can access Care Guides by clicking on the + button at the bottom of a profile. For more info, see the [Care Guides overview page]({{% ref care-guides %}}). 
@@ -94,10 +94,11 @@ You’ll see different forms here depending on which person or place you’re vi
 
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.” 
 
+{{% see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" %}}
+
 <br clear="all">
 
 
-{{% see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" %}}
 
 <!-- TODO:
 ## Defining Contact Forms
