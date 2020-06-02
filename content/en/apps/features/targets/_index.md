@@ -15,11 +15,15 @@ Targets can be configured for any user that has offline access.
 
 ## Types of Widgets
 
+<img src="targets-main.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+
 There are two basic types of widgets: counts and percentages. Count widgets display a number while percentage widgets display a horizontal bar that represents 100%. Every element is configurable, including the text, the icon, the presence of a goal (or not), the value of the goal, the time frame, and the total number of widgets.
 
 The data for both widgets is calculated as either “this month” (resets back to 0 at the beginning of each month) or “all time” (a cumulative total). The time frame is per widget level so there can be a mix of date ranges on the Targets page. 
 
 Additionally, each widget can have a goal and there can be a mix of widgets with and without goals. If goals are set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules.
+
+<br clear="all">
 
 ### Count Widgets
 

@@ -9,6 +9,10 @@ App Management is an interface for non-technical administrative users. With it t
 
 The App Management pages are a desktop-only interface meant for users with a reliable internet connection.
 
+<br>
+<img src="admin-roles.png" width="75%" align="left" style="margin: 0px 40px 40px 0px"/>
+<br clear="all">
+
 ## Page Tabs
 
 These sections of the App can be configured from within the Admin Console:
@@ -22,6 +26,7 @@ These sections of the App can be configured from within the Admin Console:
 - **Icons**: View and edit icons used in the app
 - **Targets**: Modify performance or activity targets
 - **Roles & Permissions**: Fine tuned control of user roles and permissions
+
 
 ## App Management vs medic-conf
 

@@ -19,7 +19,8 @@ Users can access their “people” and “places” from the People tab.
 
 ## Main List
 
-<img src="contacts-main-list.png" width="23%" align="right" />
+<img src="contacts-main-list.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+
 
 The view on the right is what a logged-in CHW would see in when they access the “People” tab on a small screen. 
 
@@ -29,6 +30,7 @@ Because this list defaults to show the “places” below the user in the hierar
 
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage. 
 
+<br clear="all">
 
 ## Searching
 
@@ -65,8 +67,8 @@ The top card on all profiles contains general information for the contact. All t
 A “condition” card displays data on a profile that’s been submitted in a report about that person or place. Data can be pulled from one report or summarize many reports.
 
 <p float="left">
-  <img src="contacts-condition-card-1.png" width="23%" />
-  <img src="contacts-condition-card-2.png" width="23%" />
+  <img src="contacts-condition-card-1.png" width="30%" />
+  <img src="contacts-condition-card-2.png" width="30%" />
 </p>
 
 Condition cards can be permanent or conditional; set to appear only when a specific type of report is submitted. They can also be set to disappear when a condition is resolved or a certain amount of time has passed. You can have as many condition cards as you like, though we recommend keeping the user’s experience in mind.
@@ -83,13 +85,17 @@ Configurable elements include:
 ### Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
 
-<img src="contacts-care-guides.png" width="23%" align="right" />
+<img src="contacts-care-guides.png" width="30%" align="left" style="margin: 0px 40px 40px 0px"/>
+
 
 “Care Guides” are dynamic forms that you can fill out for a person or place. You can access Care Guides by clicking on the + button at the bottom of a profile. For more info, see the [Care Guides overview page]({{% ref care-guides %}}). 
 
 You’ll see different forms here depending on which person or place you’re viewing. For example, forms for families might include a “Family Survey.” Forms for adult women might include “New Pregnancy.” Forms for adult women who have had a pregnancy report, and no delivery yet reported, would also see “ANC visit.” Forms for children might include “Under-5 Assessment” or “Growth Monitoring.”
 
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.” 
+
+<br clear="all">
+
 
 {{% see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" %}}
 
