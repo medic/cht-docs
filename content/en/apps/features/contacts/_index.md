@@ -19,7 +19,7 @@ Users can access their “people” and “places” from the People tab.
 
 ## Main List
 
-<img src="contacts-main-list.png" width="23%" align="right" />
+{{< figure src="contacts-main-list.png" link="contacts-main-list.png" class="right col-6 col-lg-3" >}}
 
 The view on the right is what a logged-in CHW would see in when they access the “People” tab on a small screen. 
 
@@ -29,6 +29,7 @@ Because this list defaults to show the “places” below the user in the hierar
 
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage. 
 
+<br clear="all">
 
 ## Searching
 
@@ -42,12 +43,14 @@ To clear the search and return the default view, click on the refresh icon locat
 
 Clicking an item on the main list will open a profile where you can see detailed information about that person or place. At the top is general information like name and phone number.
 
-<p float="left">
-  <img src="contacts-profile-1.png" width="23%" />
-  <img src="contacts-profile-2.png" width="23%" />
-  <img src="contacts-profile-3.png" width="23%" />
-  <img src="contacts-profile-4.png" width="23%" />
-</p>
+<div class="container">
+  <div class="row">
+{{< figure src="contacts-profile-1.png" link="contacts-profile-1.png" class="col-6 col-lg-3" >}}
+{{< figure src="contacts-profile-2.png" link="contacts-profile-2.png" class="col-6 col-lg-3" >}}
+{{< figure src="contacts-profile-3.png" link="contacts-profile-3.png" class="col-6 col-lg-3" >}}
+{{< figure src="contacts-profile-4.png" link="contacts-profile-4.png" class="col-6 col-lg-3" >}}
+  </div>
+</div>
 
 If you’re viewing a place profile, you’ll see a list of people or places that belong to this place in the app hierarchy, such as family members. The star signifies the primary contact.
 
@@ -64,10 +67,12 @@ The top card on all profiles contains general information for the contact. All t
 
 A “condition” card displays data on a profile that’s been submitted in a report about that person or place. Data can be pulled from one report or summarize many reports.
 
-<p float="left">
-  <img src="contacts-condition-card-1.png" width="23%" />
-  <img src="contacts-condition-card-2.png" width="23%" />
-</p>
+<div class="container">
+  <div class="row">
+{{< figure src="contacts-condition-card-1.png" link="contacts-condition-card-1.png" class="col-6 col-lg-3" >}}
+{{< figure src="contacts-condition-card-2.png" link="contacts-condition-card-2.png" class="col-6 col-lg-3" >}}
+  </div>
+</div>
 
 Condition cards can be permanent or conditional; set to appear only when a specific type of report is submitted. They can also be set to disappear when a condition is resolved or a certain amount of time has passed. You can have as many condition cards as you like, though we recommend keeping the user’s experience in mind.
 
@@ -83,7 +88,8 @@ Configurable elements include:
 ### Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
 
-<img src="contacts-care-guides.png" width="23%" align="right" />
+{{< figure src="contacts-care-guides.png" link="contacts-care-guides.png" class="right col-6 col-lg-3" >}}
+
 
 “Care Guides” are dynamic forms that you can fill out for a person or place. You can access Care Guides by clicking on the + button at the bottom of a profile. For more info, see the [Care Guides overview page]({{% ref care-guides %}}). 
 
@@ -92,6 +98,10 @@ You’ll see different forms here depending on which person or place you’re vi
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.” 
 
 {{% see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" %}}
+
+<br clear="all">
+
+
 
 <!-- TODO:
 ## Defining Contact Forms
