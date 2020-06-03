@@ -8,7 +8,9 @@ description: >
 
 ## Summary of Page Tabs
 
-Page tabs are the primary method of navigating in your app. The number of tabs is variable depending on the user’s role and place in the hierarchy. For example, non-admin users don’t have Messages. The Reports tab is accessible to CHWs but often tucked away inside the secondary menu drawer.
+{{< figure src="page-tabs.png" link="page-tabs.png" class="right col-6 col-lg-3" >}}
+
+Page tabs are the primary way to navigate apps built with the Core Framework. The number of tabs is variable depending on the user’s role and place in the hierarchy. For example, non-admin users don’t have Messages. The Reports tab is accessible to CHWs but often located inside the secondary menu drawer.
 - **People​**: This is where profiles of districts, staff, CHWs and patients live
 - **Tasks​**: This is a list of upcoming visits, follow-ups, or other required tasks
 - **Targets**: Displays real-time visualizations of key activity and impact indicators
@@ -16,6 +18,8 @@ Page tabs are the primary method of navigating in your app. The number of tabs i
 - **Messages​**: A place for community-based staff to send and exchange messages
 
 ## The Menu Drawer
+
+{{< figure src="menu-drawer.png" link="menu-drawer.png" class="right col-6 col-lg-3" >}}
 
 Tap the menu icon in the upper right corner of the header to access other pages, edit personal settings, view sync status and more.
 - **Admin Console**: Change advanced app settings (only admin users will see this)
@@ -26,6 +30,8 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 - **Log Out**: Sign out of the app
 
 ## Sync Status
+
+{{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-3" >}}
 
 At the bottom of the menu is a notification which provides important about sync status. It lets you know whether reports are being submitted.
 
