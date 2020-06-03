@@ -1,7 +1,7 @@
 ---
 title: "Configurable Hierarchies"
 linkTitle: "Hierarchies"
-weight: 4
+weight: 6
 description: >
   Organizing people and places, and their relationship to one-another
 keywords: hierarchy

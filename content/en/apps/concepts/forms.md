@@ -1,7 +1,7 @@
 ---
 title: "Forms"
 linkTitle: "Forms"
-weight: 1
+weight: 3
 description: >
   Building block for all CHT apps
 keywords: app-forms contact-forms collect-forms json-forms
