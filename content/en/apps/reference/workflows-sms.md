@@ -167,10 +167,31 @@ Under the `patient_reports` key in app_settings, we can setup actions to take fo
 |`messages[].event_type`|An event that will trigger sending of this message. Typical values are: `report_accepted` when the report has been successfully validated, `registration_not_found` when the patient ID supplied in the report doesn't match any patient ID issued by Medic. `on_mute` and `on_unmute` are used in the context of muting as described [here](transitions.md#muting)|no|
 |`messages[].recipient`|Who the message should be sent to. Use `reporting_unit` for the sender of the report, `clinic` for clinic contact, and `parent` for the parent contact.|no|
 
-
-
 <!-- TODO 
 ## Case Reports
 ### `app_settings.json .case_reports[]`
 -->
 
+## Variables in outgoing SMS
+
+Outgoing messages can use [Mustache templating](https://mustache.github.io/mustache.5.html) to insert variables and specify data formats.
+
+All the fields on the report doc are available as variables. Additionally, the `contact` variable is the sender of the report.
+
+### Code sample
+
+The following translation label includes the `name` field of `contact`, along with the submitted `patient_name` field, and the generated `patient_id` field.
+
+#### `translations/messages-en.properties`
+```
+messages.registration.report_accepted = Thank you {{contact.name}} for registering {{patient_name}}. Their ID is {{patient_id}}.
+```
+
+### Date Format Filters
+The following filter functions are available for formating dates.
+
+|filter|description|
+|-------|---------|
+|`date` | Displays dates according to the `date_format` specified in app_settings. See [doc for Moment.js format](https://momentjs.com/docs/#/parsing/string-format/) for details.|
+|`datetime` | Displays dates according to the `reported_date_format` specified in app_settings. See [doc for Moment.js format](https://momentjs.com/docs/#/parsing/string-format/) for details.|
+|`bikram_sambat_date` | Displays dates in Bikram Sambat calendar (most commonly used calendar in Nepal). Currently display format is hardcoded to e.g. "१५ चैत २०७३".|
