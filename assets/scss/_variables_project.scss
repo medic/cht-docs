@@ -6,6 +6,10 @@ Add styles or override variables from the theme here.
 
 $primary: #5f7681;
 $dark: #4d616a;
+$info: #007AC0;
+$warning: #E33030;
+
+$build: $primary;
 
 /* Needed so that headers in blockquotes and notes don't draw up into previous content */
 h4[id]:before, h5[id]:before {
