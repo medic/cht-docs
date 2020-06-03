@@ -10,7 +10,7 @@ relevantLinks: >
 
 ## Intro
 
-This document should help you quickly install the necessary tools to download and run the Medic Mobile public docker image.
+This document should help you quickly install the necessary tools to download and run the public docker image for CHT applications.
 
 ## Download Docker
 
