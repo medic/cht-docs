@@ -15,7 +15,7 @@ Targets can be configured for any user that has offline access.
 
 ## Types of Widgets
 
-<img src="targets-main.png" width="30%" align="right"/>
+{{< figure src="targets-main.png" link="targets-main.png" class="right col-6 col-lg-3" >}}
 
 There are two basic types of widgets: counts and percentages. Count widgets display a number while percentage widgets display a horizontal bar that represents 100%. Every element is configurable, including the text, the icon, the presence of a goal (or not), the value of the goal, the time frame, and the total number of widgets.
 

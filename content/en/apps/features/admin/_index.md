@@ -9,8 +9,7 @@ App Management is an interface for non-technical administrative users. With it t
 
 The App Management pages are a desktop-only interface meant for users with a reliable internet connection.
 
-<br>
-<img src="admin-roles.png" width="75%" align="left" style="margin: 0px 40px 40px 0px"/>
+{{< figure src="admin-roles.png" link="admin-roles.png" class="col-12 col-lg-8" >}}
 <br clear="all">
 
 ## Page Tabs
