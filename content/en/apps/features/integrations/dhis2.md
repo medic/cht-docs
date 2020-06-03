@@ -3,6 +3,7 @@ title: "DHIS2"
 weight: 1
 description: >
    Send aggregate, patient, and event data to DHIS2
+keywords: dhis2
 ---
 
 Most health systems have regular reporting requirements for community-level activities. Health workers often carry around heavy logbooks to manually record all relevant activities. When it is time to submit their data, community health workers summarize what was recorded in their logbooks and share this information with their supervisors, who in turn create paper records of these totals across entire community units or health facilities. This paper record is often passed to yet another individual whose responsibility is to manually key in the data into a health information management system, such as DHIS2.
@@ -23,11 +24,9 @@ CHT Core supports integrations with DHIS2 in a variety of ways:
 6. Exposing an API for DHIS2 app developers to pull aggregate data from CHT Core
 7. Receiving data from DHIS2
 
-Sending patient, event, and pre-aggregated data can be achieved using the Outbound push feature. Receiving data from DHIS2 can be achieved using the [CHT Core Web API](https://github.com/medic/cht-core/tree/master/api). 
+Sending patient, event, and pre-aggregated data can be achieved using the [Outbound push]({{< ref "apps/reference/outbound" >}}) feature. Receiving data from DHIS2 can be achieved using the [CHT Core Web API](https://github.com/medic/cht-core/tree/master/api). 
 
 Aggregating data across multiple health workers requires a somewhat specific workflow and was designed with three key user personas in mind. The aggregate workflow is described in more detail below.
-
-{{% see-also page="apps/reference/outbound" title="Outbound Push" %}}
 
 ## Aggregate Workflow
 

@@ -1,11 +1,11 @@
 ---
-title: "Aggregating Data for DHIS2"
+title: "DHIS2 Integration"
 linkTitle: "DHIS2"
 weight: 5
 description: >
-  Instructions and schema for defining DHIS2 aggregate features
+  Instructions and schema for defining DHIS2 integrations
 relevantLinks: >
-keywords: dhis integration interoperability
+keywords: dhis2
 ---
 
 From 3.9.0 it is possible to integrate with DHIS2 by modifying the `dhisDataSets` property in `app_settings.json`. 

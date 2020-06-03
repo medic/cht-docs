@@ -1,9 +1,10 @@
 ---
 title: "DHIS2 Aggregate"
 linkTitle: "DHIS2 Aggregate"
-weight: 
+weight: 2
 description: >
   Design considerations and how to configure
+keywords: dhis2 
 ---
 
 One of the first things you’ll need to do is identify the specific [DHIS2 data set](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/data-sets-and-forms.html#what-is-a-data-set) that you plan to implement. You’ll need a list of all the [data elements](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/data-elements-and-custom-dimensions.html#data-elements) on that data set, a detailed understanding of how each is calculated, the frequency in which the data set is submitted (weekly, monthly, etc…), and for which [organisation units](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/organisation-units.html) the data set applies. You’ll also want to identify and engage the appropriate DHIS2 stakeholders to get access to DHIS2 metadata, test environments, and discuss workflows. The DHIS2 documentation site provides additional background and advice [here](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/integration-concepts.html#integration-concepts).
@@ -33,6 +34,8 @@ It’s important to understand each data element on the DHIS2 data set you want 
 
 *TIP: Once you obtain the list of data elements on the data set, be sure to go through them one by one and figure out how to calculate each one using information available in your CHT forms.*
 
+{{% see-also page="apps/concepts/forms" title="Forms" %}}
+
 ### Workflows and User Access
 
 The aggregate data workflow is really designed around 3 key user personas. You’ll need to make sure that your context can support those assumptions and will be able to have access to the appropriate features in the CHT and DHIS2. 
@@ -54,7 +57,7 @@ For the CHT to be able to export the file for DHIS2, it needs to know the specif
 
 Configure the data set in `app_settings.json`.
 
-{{% see-also page="apps/reference/dhis2" title="DHIS2 Reference" %}}
+{{% see-also page="apps/reference/dhis2" title="DHIS2 in App Settings" %}}
 
 ### Organisation units
 
@@ -62,21 +65,25 @@ Aggregation in the CHT is based on your Place hierarchy. As mentioned in the Hie
 
 *Update the contact document of each place you wish to map to an organisation unit. Add a `dhis.orgUnit` attribute.*
 
+{{% see-also page="apps/reference/contact-forms" title="Contact Forms" %}}
+
 ```json
 {
   "_id": "my_place",
   "type": "health_center",
   "dhis": {
-    "orgUnit": "HJiPOcmziQA",
+    "orgUnit": "HJiPOcmziQA"
   }
 }
 ```
 
 ### Data elements
 
-Calculations for DHIS2 indicators are done using CHT Target functionality. For each DHIS2 data element, you will need to configure a corresponding CHT Target and specify the ID of the DHIS2 data element.
+Calculations for DHIS2 indicators are done using CHT Target functionality. For each DHIS2 data element, you will need to configure a corresponding CHT Target and specify the ID of the DHIS2 data set and data element. If you do not include the data set, this data element will be included in every data set.
 
-*In `targets.js`, configure one or more data elements by setting the `dhis.dataElement` attribute in the target schema.*
+*In `targets.js`, configure one or more data elements by setting the `dhis.dataSet` and `dhis.dataElement` attributes in the target schema.*
+
+{{% see-also page="apps/reference/targets" title="Targets" %}}
 
 ```javascript
 module.export = [
@@ -92,7 +99,8 @@ module.export = [
     appliesIf: contact => !!contact,
     date: (contact) => contact.contact.date_of_birth,
     dhis: {
-      dataElement: 'kB0ZBFisE0e',
+      dataSet: 'VMuFODsyWaO',
+      dataElement: 'kB0ZBFisE0e'
     }
   },
 ];
@@ -101,6 +109,8 @@ module.export = [
 ### Users
 
 For the HRIO role, create a new user role and a new user with that role; or update an existing user role. To export DHIS2 metrics, users need to have the following permissions: `can_configure`, `can_export_all`, and `can_export_dhis`.
+
+{{% see-also page="apps/concepts/users" title="Users" %}}
 
 ## User experience
 
