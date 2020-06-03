@@ -1,14 +1,12 @@
 ---
-title: "Aggregating Data for DHIS2"
+title: "DHIS2 Integration"
 linkTitle: "DHIS2"
 weight: 5
 description: >
-  Instructions and schema for defining DHIS2 aggregate features
+  Instructions and schema for defining DHIS2 integrations
 relevantLinks: >
-keywords: dhis integration interoperability
+keywords: dhis2
 ---
-
-{{% see-also page="apps/features/integrations/dhis2" title="DHIS2 Integration" %}}
 
 ## `app_settings.js .dhisDataSets[]`
 
