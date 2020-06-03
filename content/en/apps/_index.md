@@ -20,6 +20,6 @@ Developing an app using the Core Framework requires an understanding of:
 - JSON format used to specify configuration
 - XLSForms to setup actions and contacts
 
-This section provides an overview of CHT features, and the reference material for those looking to build applications with CHT Core.
+This section provides an overview of CHT features, and the reference material for those looking to build applications with CHT Core. If you're looking for more context on the typical end users of CHT apps, you'll find more info in the CHT Design System.   
 
 {{% see-also page="design/personas" title="Personas" %}}

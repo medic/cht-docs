@@ -40,13 +40,16 @@ The CHT provides you with resources to design, build, deploy, and monitor digita
 
 ## Getting Started
 
-1. For most people who are new to the CHT, it helps to watch some demo videos to get a sense of the different ways that people use CHT-Core to build custom digital health apps. Here are a few recent demos you can start with:
-   - Contact Tracing
-   - Educational Materials
-   - CovidCheck
-   - ANC Reference App
-1. If you’re a developer, you might want to dive right in to building a custom app. We recommend that you start by installing CHT-Core on your local machine, loading the ANC reference app [link], and loading some test data to play with. [insert tutorial links]. 
-1. If you’re considering whether you or your organization should invest more time in learning about the CHT, you might find that
+**[Why the CHT?]({{< Why the CHT? >}})** is a great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might find it helpful to read about the [ANC Reference App](https://docs.communityhealthtoolkit.org/resource-overviews/anc-reference-app-overview.pdf), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software out for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
+
+
+**[CHT Applications]({{< CHT Applications >}})** has comprehensive reference material on CHT concepts and features, as well as tutorials and guides for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start.  
+
+
+[**CHT Core Framework**]({{< CHT Core Framework >}}) provides an overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< Core/Overview >}}, or outline of the [core development and release management process]({{< Core/Process >}}).  
+
+[**Design System**]({{< Design System >}}) includes an overview of key end user personas, shares notes on the CHT icon library, and documents configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when building your own community health app for a live deployment.
+ 
 
 <br />
 
