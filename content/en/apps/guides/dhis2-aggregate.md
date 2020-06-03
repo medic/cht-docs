@@ -72,16 +72,16 @@ Aggregation in the CHT is based on your Place hierarchy. As mentioned in the Hie
   "_id": "my_place",
   "type": "health_center",
   "dhis": {
-    "orgUnit": "HJiPOcmziQA",
+    "orgUnit": "HJiPOcmziQA"
   }
 }
 ```
 
 ### Data elements
 
-Calculations for DHIS2 indicators are done using CHT Target functionality. For each DHIS2 data element, you will need to configure a corresponding CHT Target and specify the ID of the DHIS2 data element.
+Calculations for DHIS2 indicators are done using CHT Target functionality. For each DHIS2 data element, you will need to configure a corresponding CHT Target and specify the ID of the DHIS2 data set and data element. If you do not include the data set, this data element will be included in every data set.
 
-*In `targets.js`, configure one or more data elements by setting the `dhis.dataElement` attribute in the target schema.*
+*In `targets.js`, configure one or more data elements by setting the `dhis.dataSet` and `dhis.dataElement` attributes in the target schema.*
 
 {{% see-also page="apps/reference/targets" title="Targets" %}}
 
@@ -99,7 +99,8 @@ module.export = [
     appliesIf: contact => !!contact,
     date: (contact) => contact.contact.date_of_birth,
     dhis: {
-      dataElement: 'kB0ZBFisE0e',
+      dataSet: 'VMuFODsyWaO',
+      dataElement: 'kB0ZBFisE0e'
     }
   },
 ];

@@ -16,7 +16,7 @@ keywords: targets workflows
 
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 
-{{% see-also page="apps/features/targets" title="Tasks Overview" %}}
+{{% see-also page="apps/features/targets" title="Targets Overview" %}}
 
 ## `targets.js`
 
@@ -39,7 +39,7 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 | `groupBy` | `function(contact, report)` returning string | Allows for target ids to be aggregated and scored in groups. Not required for most targets. Use with passesIfGroupCount. | no |
 | `passesIfGroupCount` | `object` | The criteria to determine if the target ids within a group should be counted as passing | yes when `groupBy` is defined |
 | `passesIfGroupCount.gte` | `number` | The group should be counted as passing if the number of target ids in the group is greater-than-or-equal-to this value | yes when `groupBy` is defined |
-| `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration](./dhis-integration.md) | no
+| `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration]({{< ref "apps/guides/dhis2-aggregate#configuration" >}}) | no
 | `dhis[n].dataElement` | `string` | The hash id of a data element configured in the DHIS2 data set you're integrating with | yes
 | `dhis[n].dataSet` | `string` | The hash id of the data set that contains the data element you're integrating with. If this is left undefined, the data element will appear in all data sets. | no
 | `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
