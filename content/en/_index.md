@@ -54,10 +54,10 @@ An overview and reference for development of the Core Framework of the Community
 An overview of key end user personas, shares notes on the CHT icon library, and documents configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when building your own community health app for a live deployment.
  
 ### Have Questions?
-Want to learn alongside a community of users? Join our community forum and let us know how we can help! And if you like what you see, don’t forget to give us a star on Github :)
+Want to learn alongside a community of users? Join our community forum and let us know how we can help! And if you like what you see, don’t forget to star [our Github repo](https://github.com/medic/cht-core) :)
 
 <br />
 
 {{% alert title="Feedback appreciated!" %}}
-This docs site is continually changing in response to great community feedback, 
+This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Documentation Issue** link in the upper right corner of your window.
 {{% /alert %}}
