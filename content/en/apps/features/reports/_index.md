@@ -5,7 +5,7 @@ description: >
   Reports for Data & Report Management
 ---
 
-The Reports tab is where you can access any data that was submitted. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferably for CHW users). 
+The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferably for CHW users). 
 
 The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the hierarchy. Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs.
 
@@ -15,7 +15,7 @@ The permissions set for your role and your placement in the hierarchy will deter
 
 The first line of bold text is the name of the person whom the report is about. The second line of text is the name of the report, and the third line of text is the hierarchy of place to which that person belongs. In the upper right corner, a timestamp displays when the report was submitted. Reports are sorted by submission date, with the most recent reports at the top. If a report is unread, the timestamp will be bold blue and there will be a horizontal blue line above it. 
 
-We have a “review” feature that allows managers to indicate whether a report has been reviewed and if it contains errors. If a manager has marked a report as “correct,” a green checkmark will show below the timestamp. If a report is marked as “has errors,” a red ‘X’ will show. This same icon is used for invalid SMS messages.
+Apps built with the Core Framework have a “review” feature that allows managers to indicate whether a report has been reviewed and if it contains errors. If a manager has marked a report as “correct,” a green checkmark will show below the timestamp. If a report is marked as “has errors,” a red ‘X’ will show. This same icon is used for invalid SMS messages.
 
 <br clear="all">
 
@@ -69,7 +69,7 @@ The buttons at the bottom are configurable. The ones you see will depend on your
 
 ## Defining Forms
 
-The reports shown in the app are the completed and submitted *forms*. These forms must be defined and included with the application. There are two types of form definitions for reports:
+The reports shown in your app are the completed and submitted *forms*. These forms must be defined and included with the application. There are two types of form definitions for reports:
 - **App forms**: actions within the app, such as a completed task, or an action on a contact's profile or reports tab. App forms are defined as [XForms]({{< ref "app-forms" >}}).
 - **JSON forms**: data coming from external channels such as SMS, or via interoperability with other tools. JSON forms are defined using a [JavaScript Object Notation schema]({{< ref "json-forms" >}}). 
 
