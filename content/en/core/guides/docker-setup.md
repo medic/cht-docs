@@ -1,4 +1,5 @@
-title: "Public Docker Image Setup"
+---
+title: "Docker Image Setup"
 linkTitle: "Docker Setup"
 weight: 
 description: >
