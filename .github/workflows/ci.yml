@@ -8,10 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo  Hello CHT!
-    - name: Run a multi-line script
-      run: |
-        echo  Test1,
-        echo test2.
+    - name:  Checkout  Documentation Code
+    - uses: actions/checkout@v2
+
+  - name: Setup hugo
+    uses: peaceiris/actions-hugo@v2
+    with:
+      hugo-version: "0.64.0"
+
+  - name: build
+    run: hugo
+  - name: Deploy
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      personal_token: ${{ secrets.DEPOLY_TO_SITE}}
+      external_repository: medic/medic.github.io
+      publish_dir: ./public
+      #   keep_files: true
+      user_name: nomulex
+      user_email: nomulex@gmail.com
+      publish_branch: beta
+    #   cname: example.com
