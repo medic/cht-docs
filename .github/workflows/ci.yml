@@ -1,0 +1,17 @@
+name: CHT Documentation Site Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo  Hello CHT!
+    - name: Run a multi-line script
+      run: |
+        echo  Test1,
+        echo test2.
