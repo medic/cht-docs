@@ -6,7 +6,7 @@ description: >
   Starting up your digital health apps
 ---
 
-The app runs on most any modern computer with the newest versions of Google Chrome or Mozilla Firefox.
+Apps built with the Core Framework runs on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
 
 ## Hardware & Software Requirements
 
@@ -25,6 +25,8 @@ The app also runs with an app on Android phones and tablets. It works best on de
 
 ### Downloading
 
+{{< figure src="download-app-store.png" link="download-app-store.png" class="right col-6 col-lg-3" >}}
+
 To download your app on a mobile device, first navigate to the Google Play Store. From there, click on the search icon in the upper right, and type in the custom name of your health app or project. Make sure the app shown is the correct one and then select it. Then, click on the “Install” button to begin the download. 
 
 ### Launching
@@ -32,6 +34,8 @@ To download your app on a mobile device, first navigate to the Google Play Store
 Once the download is complete, you can access your app via an app icon in your applications menu. Note that the icon, as well as the app name displayed, is customizable by the organization or project.
 
 ## Logging In
+
+{{< figure src="logging-in.png" link="logging-in.png" class="right col-6 col-lg-3" >}}
 
 When accessing your app for the very first time, a login page is displayed. Users enter a username and password that grant access to their customized app experience.
 

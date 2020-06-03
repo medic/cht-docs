@@ -8,6 +8,10 @@ relevantLinks: >
 keywords: dhis2
 ---
 
+From 3.9.0 it is possible to integrate with DHIS2 by modifying the `dhisDataSets` property in `app_settings.json`. 
+
+{{% see-also page="apps/features/integrations/dhis2" title="DHIS2 Integration" %}}
+
 ## `app_settings.js .dhisDataSets[]`
 
 |Property|Type|Description|Required|

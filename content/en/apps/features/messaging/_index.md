@@ -5,7 +5,7 @@ description: >
   Messaging for Care Coordination, Alerts, and Notifications
 ---
 
-Messaging is a quick way to coordinate with other health workers. The Messages tab allows users to send a SMS message to any person or group of people in the app. Common uses of messages are to ask questions, coordinate care logistics, provide encouragement or confirm training times.
+Messaging is a quick way to coordinate with other health workers. The Messages tab allows users to send a SMS message to any person or group of people in the app. Common uses of messages include asking questions, coordinating care logistics, providing encouragement or confirming training times.
 
 The main list is a combination of both outgoing and incoming messages. Messages exchanged with the same person or group are organized into a thread, similar to messages in a phone’s messaging app. 
 

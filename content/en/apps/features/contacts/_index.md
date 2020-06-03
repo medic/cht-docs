@@ -9,7 +9,7 @@ keywords: hierarchy contacts care-guides
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
 
-“People” is the generic name we use for individuals in the app. They can be patients, family members, nurses or health workers. Anyone with a profile in the app is a person.
+“People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
 “Places” is the generic name that represents a level in the hierarchy. “People” belong to “places” and “places” belong to other higher level “places” in the hierarchy.
 
@@ -23,7 +23,7 @@ Users can access their “people” and “places” from the People tab.
 
 The view on the right is what a logged-in CHW would see in when they access the “People” tab on a small screen. 
 
-The item at the top of the list is the “place” the user belongs to. Below that, we see a list of the “places” they serve, represented by families. Individual “people” are not shown here, but they will appear in search results. 
+The item at the top of the list is the “place” the user belongs to. Below that is a list of the “places” they serve, represented by families. Individual “people” are not shown here, but will appear in search results. 
 
 Because this list defaults to show the “places” below the user in the hierarchy, a CHW supervisor would see a different view. Instead of families, they might see a list of CHW Areas they manage. 
 
@@ -33,7 +33,7 @@ New “places” can be added to this level of the hierarchy by clicking on the 
 
 ## Searching
 
-Search for a “person” or “place” by clicking in the search area at the top of the screen. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
+Click in the search area at the top of the screen to search for a “person” or “place”. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
 
 After entering a search term, the list filters to show matching items. Searching will only return items that are lower than you in the hierarchy and that you have permission to view. 
 
