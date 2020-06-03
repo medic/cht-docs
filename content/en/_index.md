@@ -9,9 +9,9 @@ menu:
 ---
 # Welcome to the Community Health Toolkit docs site!
 
-{{% pageinfo %}}
+
 The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref apps >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
-{{% /pageinfo %}}
+
 
 
 ## Why work with the CHT?				
