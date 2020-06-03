@@ -1,5 +1,5 @@
 title: "Public Docker Image Setup"
-linkTitle: "Public Docker Image Setup"
+linkTitle: "Docker Setup"
 weight: 
 description: >
   Install tools to download and run the publicly available Docker image for CHT applications
