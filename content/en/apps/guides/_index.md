@@ -1,8 +1,8 @@
 ---
 title: Implementer Guides
-linkTitle: "Guides"
+linkTitle: "Quick Guides"
 weight: 6
 description: >
-  Guides for developing and managing key features of CHT apps
+  These quick guides address focused CHT app development topics
 ---
 
