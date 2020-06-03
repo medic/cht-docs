@@ -6,7 +6,7 @@ description: >
 keywords: users user-roles user-permissions
 ---
 
-The app uses roles and permissions to determine who has access to what data. User roles are general categories we use to assign a collection of broad permissions to users. There are two classes of roles: online and offline. Generally speaking, CHWs are usually offline users, while managers and nurses are usually online users. SMS users do not use the app, and thus do not have a user role.
+Apps built with the Core Framework use roles and permissions to determine who has access to what data. User roles are general categories you can use to assign a collection of broad permissions to users. There are two classes of roles: online and offline. Generally speaking, CHWs are usually offline users, while managers and nurses are usually online users. SMS users do not use the app, and thus do not have a user role.
 
 ## Roles
 
@@ -30,6 +30,8 @@ Online roles are for users who need access to a lot of data and need to maintain
 Offline roles are for users who need to be able to access data on the go in the field, don’t need to maintain the system, and don’t have a reliable internet connection. All the data they have access to will be synced to their device.
 
 ## Permissions
+
+{{< figure src="user-permissions.png" link="user-permissions.png" class="right col-6 col-lg-3" >}}
 
 User Permissions are settings that can be individually toggled on or off to allow users with a particular Role to do a certain action or see a certain thing. CHT app developers and administrators can add as many User Roles as needed to grant permissions to different groups of users.
 
