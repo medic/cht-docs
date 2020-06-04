@@ -34,7 +34,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.0.2
         if: ${{ failure() }}
         env:
-            SLACK_WEBHOOK: ${{ secrets.SLACK_WEB_HOOK }}
+            SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
             SLACK_CHANNEL: '#monitoring'
             SLACK_COLOR: '#3278BD'
             SLACK_ICON: ":flappingphone:"
