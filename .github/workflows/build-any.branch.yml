@@ -14,7 +14,7 @@ jobs:
           node-version: '12.x'
       - run: npm install
       - run: npm install -g postcss-cli
-     # - run: npm i -D autoprefixer
+      - run: npm i -D autoprefixer
 
       - name: Checkout submodules
         uses: srt32/git-actions@v0.0.3
@@ -30,12 +30,12 @@ jobs:
       - name: Build
         run: hugo
 
-      - name: Slack Notification
+      - name: Notify Failure
         uses: rtCamp/action-slack-notify@v2.0.2
         if: ${{ failure() }}
         env:
             SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-            SLACK_CHANNEL: '#monitoring'
+            SLACK_CHANNEL: '#cht-squad-docs'
             SLACK_COLOR: '#3278BD'
             SLACK_ICON: ":flappingphone:"
             SLACK_MESSAGE: 'Build Failed :Alert:'
