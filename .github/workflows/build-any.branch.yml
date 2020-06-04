@@ -1,0 +1,43 @@
+on: push
+name: Build Any Branch
+jobs:
+  BuildAnyBranch:
+    name: 
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Install Node depencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm install
+      - run: npm install -g postcss-cli
+      #- run: npm i -D autoprefixer
+
+      - name: Checkout submodules
+        uses: srt32/git-actions@v0.0.3
+        with:
+          args: git submodule update --init --recursive
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.71.1"
+          extended: true
+
+      - name: Build
+        run: hugo
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2.0.2
+        if: failure()
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEB_HOOK }}
+            SLACK_CHANNEL: '#monitoring'
+            SLACK_COLOR: '#3278BD'
+            SLACK_ICON: ":flappingphone:"
+            SLACK_MESSAGE: 'Test :Alert:'
+            SLACK_TITLE: CHT DOCS
+            SLACK_USERNAME: Medic-Bot
