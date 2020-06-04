@@ -13,8 +13,6 @@ Outbound push allows configurers to have the creation or editing of CouchDB docu
 
 These triggers can apply to all document types (not just common types such as reports or contacts) and as such care should be taken to only send the documents you intend (see configuration of `relevant_to` below).
 
-This feature is experimental, and may be replaced by some third party technology over time as we discover the feature-set we're looking for.
-
 ## Configuration
 
 For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config](./transitions.md#Configurations):
@@ -81,7 +79,7 @@ Here `password_key` is a key used to find the password in CouchDB's node-based c
 
 If you don't provide an authentication parameter then the request will be sent without authentication.
 
-As of 3.9, the `header` type is also supported, which sends authentication credentials via a HTTP request header: `Authorization: '<value>'`. The value is set in the CouchDB configuration, and referred to by the `value_key`, similarly to the `password_key`. The value must match the credentials needed for the third party tool, and is generally formatted as `<type> <credentials>`. For instance, to send data to RapidPro, the value in the configuration would be set to the complete RapidPro API Token: eg `Token 123456789abcdef`. 
+As of 3.9, the `header` type is also supported, which sends authentication credentials via a HTTP request header: `Authorization: '<value>'`. The value is set in the CouchDB configuration, and referred to by the `value_key`, similarly to the `password_key`. The value must match the credentials needed for the third party tool, and is generally formatted as `<type> <credentials>`. For instance, to send data to RapidPro, the value in the configuration would be set to the complete RapidPro API Token: eg `Token 123456789abcdef`.
 
 Header auth example:
 ```json
@@ -216,13 +214,48 @@ You can also add it via Fauxton:
  - Click `Create`
  - You should then be able to see your credential in the list of configuration shown\
 
-## Flow
+## How Outbound messages are sent
 
-Outbound pushes happen in two stages:
- - Sentinel picks up the report and runs transitions over it. Any outbound configuration that is relevant (via executing the `relevant_to` expression) will be added to a task queue
- - Every 5 minutes sentinel will check its task queue. For each outbound push that is queued, sentinel will perform the mapping and attempt to send the resulting payload (via POST) to the configured web address
-   - If the push succeeds it will be taken out of the task queue
-   - If the push fails (i.e. the response is not 2xx) it remains in the task queue, to be tried again in 5 minutes
+Send semantics have changed over the course of developing this feature, and are important to understand for your deployment to be successful.
+
+## In 3.10 and above
+
+ - Outbound messages are sent immediately
+ - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
+ - When it does finally send it will include any new changes to the document that have occurred in that time.
+ - **Documents can be sent again**, as long as the resulting payload (as defined in the configuration's `mapping` property) is different from the most recent outbound push performed for this document and configuration.
+
+It's important to understand that if your `mapping` configuration produces a different result every time it's run you may experience Outbound sending the "same" data many more times than you'd expect.
+
+For example, if you want a timestamp in your payload you could configure it like this:
+
+```json
+{
+  "timestamp": {"expr": "new Date()"}
+}
+```
+
+Outbound may send your request multiple times even if the user just hit save once. If this is a problem for your deployment, consider using values on the document itself that will not change every time your mapping is executed:
+
+```json
+{
+  "timestamp": "doc.timestamp"
+}
+```
+
+## In 3.9
+
+ - Outbound messages are sent immediately
+ - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
+ - When it does finally send it will include any new changes to the document that have occurred in that time.
+ - **Documents are only ever sent once for configuration**
+
+## In 3.4-3.8
+
+ - Outbound messages are added to a send queue that is executed once every 5 minutes or so.
+ - If there is an error in sending it will be kept in the queue to be retried in another 5 minutes.
+ - When it does finally send it will include any new changes to the document that have occurred in that time.
+ - Once the document has successfully sent if the document is changed again it will be sent again, using the same rules as above.
 
 ## Inbound?
 
