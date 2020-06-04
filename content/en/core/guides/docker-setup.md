@@ -7,11 +7,7 @@ description: >
 relevantLinks: >
 ---
 
-# Install
-
-## Intro
-
-This document should help you quickly install the necessary tools to download and run the public docker image for CHT applications.
+This document helps to quickly install the necessary tools to download and run the public docker image for CHT applications.
 
 ## Download Docker
 
