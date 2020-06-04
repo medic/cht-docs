@@ -14,7 +14,7 @@ jobs:
           node-version: '12.x'
       - run: npm install
       - run: npm install -g postcss-cli
-      #- run: npm i -D autoprefixer
+     # - run: npm i -D autoprefixer
 
       - name: Checkout submodules
         uses: srt32/git-actions@v0.0.3
@@ -32,7 +32,7 @@ jobs:
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2.0.2
-        if: failure()
+        if: ${{ failure() }}
         env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEB_HOOK }}
             SLACK_CHANNEL: '#monitoring'
