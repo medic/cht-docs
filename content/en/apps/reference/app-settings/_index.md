@@ -14,13 +14,13 @@ The `app_settings.json` file can be manually edited to modify individual setting
 Most sections are described on their own in the [Reference Documentation](..).
 
 ## Build
-{{% alert %}}
+
 To include your settings into your app, you must compile them to include modular components, then upload them to your instance.
 
 ```sh
 medic-conf --local compile-app-settings backup-app-settings upload-app-settings
 ```
-{{% /alert %}}
+
 
 ## Optional Settings
 

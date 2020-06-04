@@ -197,8 +197,7 @@ $ git remote add origin git@github.com:medic/medic-smsparser.git
 $ git push origin master
 ```
 
-### Notes
-
+{{% alert title="Note" %}}
 Once you understand a little about git internals, have a look at `git-filter-branch` manual (see also the checklist at the bottom):
 
   - [git-filter-branch - Rewrite branches](https://git-scm.com/docs/git-filter-branch)
@@ -208,3 +207,7 @@ Ferocious GC
   - [How to remove unreferenced blobs from my git repo](http://stackoverflow.com/questions/1904860/how-to-remove-unreferenced-blobs-from-my-git-repo/)
 
 Need to update the `rm -rf` command used there, the `git update-ref -d` that comes after takes care of most of that except the `refs/logs` part.  Will try next time.
+{{% /alert %}}
+
+
+

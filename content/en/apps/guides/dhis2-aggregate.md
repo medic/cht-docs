@@ -23,7 +23,10 @@ These considerations are summarized below.
 
 The CHT relies on your Place hierarchy to determine how data should be aggregated for DHIS2. As such, it’s important that you consider how organization units are configured in the DHIS2 instance that you need to integrate data into. If your CHT Place hierarchy does not align with the DHIS2 organisation unit structure, the CHT will not be able to aggregate data in the way DHIS2 needs it.
 
-*TIP: There should be a one-to-one relationship between DHIS2 organistion units and CHT places.*
+{{% alert title="Note" %}}
+There should be a one-to-one relationship between DHIS2 organistion units and CHT places.
+{{% /alert %}}
+
 
 {{% see-also page="apps/concepts/hierarchy" title="Hierarchies" %}}
 
@@ -32,7 +35,10 @@ The CHT relies on your Place hierarchy to determine how data should be aggregate
 
 It’s important to understand each data element on the DHIS2 data set you want to integrate data into and how each data element is calculated. When you are designing your forms in the CHT, you will need to make sure you are capturing information in your forms so that every data element on the chosen DHIS2 data set can be calculated within the CHT.
 
-*TIP: Once you obtain the list of data elements on the data set, be sure to go through them one by one and figure out how to calculate each one using information available in your CHT forms.*
+{{% alert title="Note" %}}
+Once you obtain the list of data elements on the data set, be sure to go through them one by one and figure out how to calculate each one using information available in your CHT forms.
+{{% /alert %}}
+
 
 {{% see-also page="apps/concepts/forms" title="Forms" %}}
 
@@ -63,7 +69,10 @@ Configure the data set in `app_settings.json`.
 
 Aggregation in the CHT is based on your Place hierarchy. As mentioned in the Hierarchies Design Considerations above, your Places must align with DHIS2 organisation units. You will need to specify the DHIS2 organisation unit's ID on the Place document in the CHT.
 
-*Update the contact document of each place you wish to map to an organisation unit. Add a `dhis.orgUnit` attribute.*
+{{% alert title="Note" %}}
+Update the contact document of each place you wish to map to an organisation unit. Add a `dhis.orgUnit` attribute.
+{{% /alert %}}
+
 
 {{% see-also page="apps/reference/contact-forms" title="Contact Forms" %}}
 
@@ -81,7 +90,11 @@ Aggregation in the CHT is based on your Place hierarchy. As mentioned in the Hie
 
 Calculations for DHIS2 indicators are done using CHT Target functionality. For each DHIS2 data element, you will need to configure a corresponding CHT Target and specify the ID of the DHIS2 data set and data element. If you do not include the data set, this data element will be included in every data set.
 
-*In `targets.js`, configure one or more data elements by setting the `dhis.dataSet` and `dhis.dataElement` attributes in the target schema.*
+{{% alert title="Note" %}}
+In `targets.js`, configure one or more data elements by setting the `dhis.dataSet` and `dhis.dataElement` attributes in the target schema.
+{{% /alert %}}
+
+
 
 {{% see-also page="apps/reference/targets" title="Targets" %}}
 
