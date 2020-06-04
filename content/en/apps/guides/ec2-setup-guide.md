@@ -61,12 +61,12 @@ sudo chmod 0600 ~/Downloads/name_of_file.pem
 
 ## Troubleshooting
 #### 1. Restarting processes
-- https://github.com/medic/medic-docs/blob/master/installation/self-hosting.md#how-to-access-container-retrieve-logs-isolate-security-groups
+- https://docs.communityhealthtoolkit.org/beta/apps/guides/self-hosting/#how-to-access-container-retrieve-logs-isolate-security-groups
 - https://github.com/medic/medic-os#service-management-scripts
 
 #### 2. Investigating logs
 - Log into container: https://docs.docker.com/engine/reference/commandline/exec/
-- Helpful docker commands: https://github.com/medic/medic-docs/blob/master/installation/public-docker-image-setup.md#helpful-docker-commands
+- Helpful docker commands: https://docs.communityhealthtoolkit.org/beta/core/guides/docker-setup/#helpful-docker-commands
 - Inside container, all appropriate logs can be found in: `/srv/storage/<service_name>/logs/*.log`
 
 #### 3.Upgrading the container
