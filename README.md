@@ -4,7 +4,13 @@
 
 This repo contains documentation for the Community Health Toolkit (CHT), and how to build digital health applications with [CHT Core](https://github.com/medic/cht-core).
 
-The documentation is built using Markdown pages, which can be converted into a navigatable website using a static-site-generator. The Hugo static-site-generator is being used with the Docsy theme as an example for now. To maintain portability content should be written in plain Markdown with limited use of HTML, custom shortcodes, and modifications to the theme. 
+The documentation is built using Markdown pages, which can be converted into a navigatable website using a static-site-generator. The Hugo static-site-generator is being used with the Docsy theme as an example for now. To maintain portability content should be written in plain Markdown with limited use of HTML, custom shortcodes, and modifications to the theme.
+
+## Installing Hugo
+
+The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo.
+
+To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version.
 
 ## Building the documentation
 
@@ -13,6 +19,7 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 2. Build your site:
    - `hugo server`
+   - If there are any errors, check that you have the latest version of Hugo, and are using the extended version.
 
 3. Preview your site in your browser at: http://localhost:1313/
 
@@ -20,7 +27,7 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 **Prerequisite**: Hugo installed with the "extended" Sass/SCSS version
 
-### Manual 
+### Manual
 1. Follow [the Docsy instructions](https://www.docsy.dev/docs/getting-started/#install-postcss) to install postcss
    1. `sudo npm install -D --save autoprefixer`
    2. `sudo npm install -D --save postcss-cli`
