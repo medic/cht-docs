@@ -6,9 +6,11 @@ description: >
   Integration for sending and receiving SMS
 relevantLinks: >
 ---
-These are forms that are used to create person or place types. Prior to version 3.7, CHT Core supported 4 contact types - 3 place types (clinic, health_center, district_hospital) and one person type (person). From version 3.7, we support an unlimited number of place and person types. Each contact-type should ideally have two forms; for creation and editing. 
+Contact forms are used to create person or place types. Prior to version 3.7, CHT Core supported 4 contact types - 3 place types (clinic, health_center, district_hospital) and one person type (person). From version 3.7, an unlimited number of place and person types are supported. Each contact-type should ideally have two forms; one for creation, and another for editing. 
 
 These forms are stored in the `forms/contact` subfolder of the project config directory. The naming convention used sould be `<contact_type_id-{create|edit}>.xlsx`. The `contact_type_id` prefix should match what's specified in the contact form settings page. 
+
+{{% see-also page="apps/reference/contact-forms" title="Reference Documentation for Contact Forms" %}}
 
 ## Person-type forms
 
@@ -20,7 +22,7 @@ These have the simplest structure since we are only creating one thing - the act
 
 Section 1 and 3 are optional. We can pull in details of the logged in user as shown in section 1 and use that to log some metadata on the created documents as shown in section 3.
 
-Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the `Configuring the contact hierarchy` section in the [app-settings documentation](app-settings.md). `parent`, `type`, `contact_type` and `name` attributes are mandatory for things to work correctly.
+Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the [Hierarchy]({{< ref "apps/reference/hierarchy" >}}) page. `parent`, `type`, `contact_type` and `name` attributes are mandatory for things to work correctly.
 
 ## Settings sheet
 
