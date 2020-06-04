@@ -1,13 +1,12 @@
 ---
-title: "Creating Additional Docs from App Forms"
-linkTitle: "Additional Docs"
+title: "Making Calls and Sending SMS from App Forms"
+linkTitle: "App Form SMS"
 weight: 
 description: >
-  Integration for sending and receiving SMS
+  Trigger calls and SMS from within the form, or send an SMS once submitted.
+
 relevantLinks: >
 ---
-
-App forms can be used to trigger calls and SMS from within the form, or send an SMS once submitted.
 
 ## Triggering Calls and SMS
 
