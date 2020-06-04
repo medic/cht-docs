@@ -12,7 +12,7 @@ This document helps to quickly install the necessary tools to download and run t
 ## Download Docker
 
 Ubuntu: 
-- *Note*: Install both below
+- Install both below
 - [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 - [Docker-Compose](https://docs.docker.com/compose/install/)
 
@@ -20,9 +20,9 @@ Mac OSX:
 - [Docker for Mac](https://download.docker.com/mac/stable/Docker.dmg)
 
 Windows:
-- *Note*: If you have Hyper-V Capability, please ensure it is enabled in order to run Linux Containers on Windows. If you are running your Windows Server in cloud services, please ensure it is running on [bare-metal](https://en.wikipedia.org/wiki/Bare_machine). You will not be able to run Linux Containers in Windows if the previous comments are not adhered due to nested virtualization. 
+- If you have Hyper-V Capability, please ensure it is enabled in order to run Linux Containers on Windows. If you are running your Windows Server in cloud services, please ensure it is running on [bare-metal](https://en.wikipedia.org/wiki/Bare_machine). You will not be able to run Linux Containers in Windows if the previous comments are not adhered due to nested virtualization. 
 - [Docker for Windows](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe)
-- *Note*: If you do not have Hyper-V capability, but your server still supports virtualization, ensure that is enabled in your BiOS, and install the following package:
+- If you do not have Hyper-V capability, but your server still supports virtualization, ensure that is enabled in your BiOS, and install the following package:
 - [Docker Toolbox using VirtualBox](https://github.com/docker/toolbox/releases)
 
 Run the installation and follow the instructions.
@@ -89,7 +89,11 @@ Inside the directory that you saved the above <project_name>-medic-os-compose.ym
 ```
 $ docker-compose -f <project_name>-medic-os-compose.yml up
 ```
-*Note* In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.
+{{% alert title="Note" %}}
+In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.
+{{% /alert %}}
+
+
 
 Once containers are setup, please run the following command from your host terminal:
 ```
@@ -152,7 +156,11 @@ services:
      - 8080:80
      - 444:443
 ```
-*Note*: You can substitute 8080, 444 with whichever ports are free on your host. You would now visit https://localhost:444 to visit your project.
+{{% alert title="Note" %}}
+You can substitute 8080, 444 with whichever ports are free on your host. You would now visit https://localhost:444 to visit your project.
+{{% /alert %}}
+
+
 
 ## Helpful Docker commands
 

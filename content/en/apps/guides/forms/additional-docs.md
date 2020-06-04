@@ -10,7 +10,16 @@ In version 2.13.0 and higher, you can configure app forms to generate additional
 
 ## Extra Docs
 
-- Extra docs can be added by defining structures in the model with the attribute db-doc="true". **Note that you must have lower-case `true` in your XLSform, even though Excel will default to `TRUE`.**
+Extra docs can be added by defining structures in the model with the attribute 
+
+```zsh
+db-doc="true"
+```
+
+{{% alert title="Note" %}}
+You must have lower-case `true` in your XLSform, even though Excel will default to `TRUE`.
+{{% /alert %}}
+
 
 ### Example Form Model
 

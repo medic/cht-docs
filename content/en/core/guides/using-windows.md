@@ -12,7 +12,9 @@ However, Microsoft has recently been stabilizing their [Windows Subsystem for Li
 
 Installation instructions are mostly the same as they written in [the README](https://github.com/medic/medic/blob/master/README.md) with a couple of caveats as of time of writing (2019-07-25), noted below.
 
-**Note**: both the Windows Subsystem for Linux and Medic's support for developing in it is very much in beta. These are advanced instructions, expect some understanding of linux and may not always work. Be patient and raise bugs as you find them!
+{{% alert title="Note" %}}
+Both the Windows Subsystem for Linux and Medic's support for developing in it is very much in beta. These are advanced instructions, expect some understanding of linux and may not always work. Be patient and raise bugs as you find them!
+{{% /alert %}}
 
 ## Installing Ubuntu in the Windows Subsystem for Linux.
 
@@ -20,7 +22,10 @@ For the rest of this document we're going to presume that you're using Ubuntu (1
 
 First, follow Microsoft's [instructions on enabling and installing linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). At the end of this process you should have a linux terminal.
 
-Note: for the rest of this tutorial **in linux** means code executing or performing actions in the WSL, while **in Windows** means code executing or performing actions in Windows natively.
+{{% alert title="Note" %}}
+For the rest of this tutorial **in linux** means code executing or performing actions in the WSL, while **in Windows** means code executing or performing actions in Windows natively.
+{{% /alert %}}
+
 
 ## CouchDB
 

@@ -15,14 +15,20 @@ You will get a ```Warning:medic-gateway is not set as the default messaging app 
 
 - If you're configuring medic-gateway(v1.00 and above) for use with hosted medic, with a URL of e.g. ```https://myproject.dev.medicmobile.org``` and a username of ```my_gateway_user``` and a password of ```topSecret```, fill in the settings as follows:
 
->***Instance name***: myproject [dev]   (if ```https://myproject.app...```, select 'app')
-***Username:*** my_gateway_user
-***Password:*** topSecret
+
+Instance name: `myproject [dev]`   (if ```https://myproject.app...```, select 'app')<br>
+Username: `my_gateway_user`<br>
+Password: `topSecret`
+
 
 ![configuration](gateway-config.png)
 
->**N:B** If you're configuring medic-gateway(v 0.62 and below - recommended if you have a non-medicmobile hosted instance) you will need to use the generic build of medic-gateway - links to download are [here](https://github.com/medic/medic-gateway/releases). Find out the value for webapp URL from your tech support then configure as below
+{{% alert title="Note" %}}
+If you're configuring medic-gateway(v 0.62 and below - recommended if you have a non-medicmobile hosted instance) you will need to use the generic build of medic-gateway - links to download are [here](https://github.com/medic/medic-gateway/releases). Find out the value for webapp URL from your tech support then configure as below
  **WebappUrl**: ```https://my_gateway_user:topSecret@myproject.some-subdomain.mydomain.org```
+{{% /alert %}}
+
+
 
  # Power Saving
 

@@ -36,7 +36,11 @@ curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic
 curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/africastalking.com:outgoing -d '"<at-api-key>"'
 ```
 
-_(Note that `couchdb@127.0.0.1` is the local node name, and may be different for you depending on your setup.)_
+{{% alert title="Note" %}}
+`couchdb@127.0.0.1` is the local node name, and may be different for you depending on your setup.
+{{% /alert %}}
+
+
 
 You can also add it via Fauxton:
  - Navigate to [the Config screen](http://localhost:5984/_utils/#/_config)
