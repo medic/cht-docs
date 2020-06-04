@@ -28,10 +28,6 @@ Another NodeJS service running on the server, sentinel performs actions called t
 
 A free and open source SQL database that we use for analytics queries for display in tools like klipfolio. We created a library called [couch2pg](https://github.com/medic/couch2pg) to replicate data from CouchDB into PostgreSQL.
 
-### [nginx](http://nginx.org)
-
-nginx proxies all requests to api and adds encryption and compression.
-
 ## Client side
 
 ### [cht-core](https://github.com/medic/cht-core)
@@ -61,11 +57,3 @@ An android app based on [Open Data Kit](https://opendatakit.org) to render xform
 ### [medic-conf](https://github.com/medic/medic-conf)
 
 A command line utility for uploading configuration and bulk importing of records.
-
-### SimApp
-
-A SimApp is a thin chip inserted under the SIM card and can be used to provide a menu for sending reports over SMS on feature phones. See [Tools for Basic Phones](http://medicmobile.org/tools).
-
-### [medic-reporter](https://github.com/medic/medic-reporter)
-
-A helper tool for sending reports directly to api for testing report submission without having to send an SMS through the gateway.
