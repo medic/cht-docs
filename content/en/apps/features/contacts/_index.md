@@ -58,7 +58,7 @@ Beneath that, you will find tasks for this person or place. At the very bottom i
 
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
 
-### Fields
+## Fields
 The top card on all profiles contains general information for the contact. All the fields shown in this summary card are configurable.
 
 {{% see-also page="contact-page" anchor="contact-summary" title="Defining Contact Summary" %}}
@@ -85,7 +85,7 @@ Configurable elements include:
 
 {{% see-also page="contact-page" anchor="condition-cards" title="Defining Condition Cards" %}}
 
-### Care Guides
+## Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
 
 {{< figure src="contacts-care-guides.png" link="contacts-care-guides.png" class="right col-6 col-lg-3" >}}
