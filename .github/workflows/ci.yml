@@ -47,16 +47,16 @@ jobs:
           user_email: medic-ci@github
           publish_branch: beta
 
-        - name: Success
-          uses: rtCamp/action-slack-notify@v2.0.2
-          if: ${{ success() }}
-          env:
-              SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-              SLACK_CHANNEL: '#cht-squad-docs'
-              SLACK_COLOR: '#3278BD'
-              SLACK_ICON: ":flappingphone:"
-              SLACK_MESSAGE: 'Deploy Succeeded :rocket:'
-              SLACK_TITLE: CHT DOCS
-              SLACK_USERNAME: Medic-Bot
+      - name: Success
+        uses: rtCamp/action-slack-notify@v2.0.2
+        if: ${{ success() }}
+        env:
+          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
+          SLACK_CHANNEL: '#cht-squad-docs'
+          SLACK_COLOR: '#3278BD'
+          SLACK_ICON: ":flappingphone:"
+          SLACK_MESSAGE: 'Deploy Succeeded :rocket:'
+          SLACK_TITLE: CHT DOCS
+          SLACK_USERNAME: Medic-Bot
 
         
