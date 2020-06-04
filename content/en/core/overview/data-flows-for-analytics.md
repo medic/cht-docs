@@ -52,9 +52,9 @@ Data copied over to PostgreSQL is first stored as raw json (document) making use
 
 Custom materialized views and functions are added specific to a deployment's needs. Generally the following naming convention is recommended:
 
-- _Formview_ as a view of raw forms
-- _Useview_ as a view of form data supporting a use case as defined by design
-- _Contactview_ as a view of people and places
+- _formview_ as a view of raw forms
+- _useview_ as a view of form data supporting a use case as defined by design
+- _contactview_ as a view of people and places
 - Database functions are used as a way to join as much relevant data as possible for easier querying in analytics or dashboard visualizations.
 
 Data in the views and functions mentioned in this section is as accurate as the accuracy of the SQL queries. Best practice is to begin the process of defining these objects at design in order to align analytics and dashboards requirements with workflows being deployed.
@@ -82,5 +82,4 @@ The [cht-core](https://github.com/medic/cht-core) is mostly data collection tool
 ## Backup
 
 The machines running each of CouchDB and PostgreSQL instances are backed up daily.
-
 
