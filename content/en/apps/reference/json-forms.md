@@ -12,7 +12,7 @@ keywords: workflows interop json-forms
 
 JSON Forms are used for parsing reports from formatted SMS, SIM applications, and Medic Collect. JSON form definitions are also used for interoperability with third-party systems. Each form is defined as an JSON form object according to the following schema. 
 
-### `app_settings.json .forms[]`
+## `app_settings.json .forms[]`
 
 | property | type | description | required |
 |---|---|---|---|
@@ -32,3 +32,45 @@ JSON Forms are used for parsing reports from formatted SMS, SIM applications, an
 | `fields.${field}.required` | boolean | Determines if a report without this field is considered valid. | no |
 | `public_form` | boolean | Determines if reports will be accepted from phone numbers not associated to a contact. Set to false if you want to reject reports from unknown senders. Default: true. | no |
 | `facility_reference` | string | The form field whose value is to be used to match the incoming report to a contact's `rc_code`. Useful when reports are sent on behalf of a facility by unknown or various phone numbers. Requires the [`update_clinics` transition](transitions.md#available-transitions). | no |
+
+## Code Sample
+
+The following form has two fields, one for the patient ID, another for notes.
+
+### `app_settings.json`
+```json
+  "forms": [
+    {
+      "F": {
+        "meta": {
+          "code": "F",
+          "icon": "risk",
+          "translation_key": "form.flag.title" // displayed in the webapp
+        },
+        "fields": {
+          "patient_id": { // this is used for the property name when the report doc is created
+            "labels": {
+              "short": { "translation_key": "form.flag.patient_id.short" }, // displayed in the webapp
+              "tiny": "pid" // used in form submission to bind values to fields - not required for all submission formats
+            },
+            "position": 0, // specifies where in the SMS this value should be
+            "type": "string",
+            "length": [ 5, 13 ],
+            "required": true
+          },
+          "notes": {
+            "labels": {
+              "short": { "translation_key": "form.flag.notes.short" },
+              "tiny": "form.flag.notes.tiny"
+            },
+            "position": 1,
+            "type": "string",
+            "length": [ 1, 100 ],
+            "required": false
+          }
+        },
+        "public_form": true
+      }
+    }
+  ]
+```

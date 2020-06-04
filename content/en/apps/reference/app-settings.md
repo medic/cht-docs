@@ -7,7 +7,11 @@ description: >
 keywords: settings
 ---
 
-Much of the configuration of the app is stored in the database in a document with id "settings". Most sections are described on their own in the [Reference Documentation](..).
+The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{< ref "apps/features/admin" >}}) app, which updates the same settings file in the database. 
+
+The `app_settings.json` file can be manually edited to modify individual settings. The code for some components, like tasks and targets, gets compiled into this file with the `compile-app-settings` action in the `medic-conf` tool. 
+
+Most sections are described on their own in the [Reference Documentation](..).
 
 ## Optional Settings
 

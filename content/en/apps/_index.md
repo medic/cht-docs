@@ -13,13 +13,11 @@ This section provides an overview and reference for building digital health appl
 
 From a technical perspective, developing a custom app begins with writing XForms, JSON, and JavaScript code that configures the Core Framework’s features to meet your organization’s needs. 
 
-The Core Framework allows you to define each element in your app in a modular way, and then specify when and how it should appear for different types of users, without having to modify the underlying Framework. Collectively, this customization is referred to as Configuration Code.
+The CHT Core Framework allows you to define each element in your app in a modular way, and then specify when and how it should appear for different types of users, without having to modify the underlying framework. Collectively, this customization is referred to as Configuration Code.
 
 Developing an app using the Core Framework requires an understanding of:
 - Javascript code and expressions
 - JSON format used to specify configuration
 - XLSForms to setup actions and contacts
 
-This section provides an overview of CHT features, and the reference material for those looking to build applications with CHT Core. If you're looking for more context on the typical end users of CHT apps, you'll find more info in the CHT Design System.   
-
-{{% see-also page="design/personas" title="Personas" %}}
+This section provides an overview of CHT features, and the reference material for those looking to build applications with CHT Core. If you're looking for more context on the typical end users of CHT apps, you'll find more info in the [CHT Design System]({{< ref "design" >}}).
