@@ -13,6 +13,15 @@ keywords: hierarchy contacts care-guides
 Contact profile pages display basic information about the contact along with their history and upcoming tasks.
 A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.
 
+The following variables are available:
+
+| variable | description |
+| --- | --- |
+| `contact` | Doc of the currently selected contact. This has minimal stubs for the `contact.parent`, so if you want to refer to a property on the parent use `lineage` below.|
+| `reports` | Array of reports for the contact.|
+| `lineage` | Array of the contacts parents (added in 2.13.0). `lineage[0]` is the parent, `lineage[1]` is the grandparent, etc. Each lineage entry has full information for the contact, so you can use `lineage[1].contact.phone` for example. |
+| `targetDoc` | Doc with [`target`]({{< ref "core/overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
+
 ## Contact Summary
 
 Each field that can be shown on a contact's profile is defined as an object in the `fields` array of `contact-summary.templated.js`. The properties for each object determine how and when the field is shown.
