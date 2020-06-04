@@ -1,9 +1,9 @@
 ---
-title: "DHIS2 Integration"
-linkTitle: "DHIS2"
+title: ".dhisDataSets"
+linkTitle: ".dhisDataSets"
 weight: 5
 description: >
-  Instructions and schema for defining DHIS2 integrations
+  **DHIS2 Integration**: Instructions and schema for defining DHIS2 integrations
 relevantLinks: >
 keywords: dhis2
 ---

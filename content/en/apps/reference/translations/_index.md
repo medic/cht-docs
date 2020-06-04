@@ -1,9 +1,9 @@
 ---
-title: "Localization"
-linkTitle: "Localization"
-weight: 5
+title: "translations"
+linkTitle: "translations"
+weight: 2
 description: >
-  Localization of CHT applications
+  **Localization**: Localized labels for CHT applications
 keywords: localization languages translations
 ---
 

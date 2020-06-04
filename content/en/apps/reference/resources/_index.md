@@ -1,9 +1,9 @@
 ---
-title: "Graphics"
-linkTitle: "Graphics"
-weight: 5
+title: "resources"
+linkTitle: "resources"
+weight: 2
 description: >
-  Including custom branding, logos, and icons
+  **Graphics**: Used for custom branding, logos, and icons
 keywords: icons branding
 ---
 

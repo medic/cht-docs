@@ -1,9 +1,9 @@
 ---
-title: "JSON Forms"
-linkTitle: "JSON Forms"
+title: ".forms"
+linkTitle: ".forms"
 weight: 5
 description: >
-  Instructions and schema for defining JSON forms used for handling reports from SMS and external tools
+  **JSON Forms**: Instructions and schema for defining JSON forms used for handling reports from SMS and external tools
 relevantLinks: >
   docs/apps/concepts/workflows
   docs/apps/features/interop

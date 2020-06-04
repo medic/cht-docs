@@ -1,6 +1,8 @@
 baseURL = "https://docs.communityhealthtoolkit.org/beta/"
 title = "Community Health Toolkit"
 
+refLinksErrorLevel = "WARNING"
+
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.

@@ -1,9 +1,9 @@
 ---
-title: "Contact Forms"
-linkTitle: "Contact Forms"
+title: "contact"
+linkTitle: "contact"
 weight: 5
 description: >
-  Defining the forms to create and edit contacts
+  **Contact Forms**: Used for creating and editing people and places
 relevantLinks: >
   docs/apps/features/contacts
   docs/apps/concepts/hierarchies

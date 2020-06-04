@@ -1,11 +1,11 @@
----
+<!-- ---
 title: "Functions"
 linkTitle: "Functions"
 weight: 5
 description: >
   Utility and helper functions for tasks, targets, and contact pages
 keywords: tasks targets contacts
----
+--- -->
 
 ## Utils
 Utility functions in the Core Framework can make common tasks much easier. These are available only for Tasks and Targets. To use the function call `Utils.<function-name>(<params>)`, for example `Utils.addDate(report.reported_date, 10)`.

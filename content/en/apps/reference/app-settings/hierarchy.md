@@ -1,9 +1,9 @@
 ---
-title: "Hierarchy"
-linkTitle: "Hierarchy"
+title: ".contact_types"
+linkTitle: ".contact_types"
 weight: 5
 description: >
-  Setting the types of places and people in the hierarchy
+  **Hierarchy**: Setting the types of places and people in the hierarchy
 relevantLinks: >
   docs/apps/concepts/hierarchy
 keywords: hierarchy contacts

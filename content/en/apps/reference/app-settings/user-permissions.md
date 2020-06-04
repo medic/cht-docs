@@ -1,9 +1,9 @@
 ---
-title: "User Permissions"
-linkTitle: "User Permissions"
+title: ".permissions"
+linkTitle: ".permissions"
 weight: 5
 description: >
-  Assigning fine grained settings for user roles
+  **User Permissions**: Assigning fine grained settings for user roles
 relevantLinks: >
   docs/apps/concepts/user-permissions
   docs/apps/concepts/user-roles

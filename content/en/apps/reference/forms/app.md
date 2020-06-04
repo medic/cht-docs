@@ -1,9 +1,9 @@
 ---
-title: "App Forms"
-linkTitle: "App Forms"
+title: "app"
+linkTitle: "app"
 weight: 5
 description: >
-  Instructions and schema for defining App forms
+  **App Forms**: Used to complete reports, tasks, and actions in the app
 relevantLinks: >
   docs/apps/concepts/workflows
   docs/design/apps
@@ -69,7 +69,7 @@ Some XForm widgets have been added or modified for use in the app:
 
 The code for these widgets can be found in the [Medic repo](https://github.com/medic/medic/tree/master/webapp/src/js/enketo/widgets).
 
-### Contact Selector Detailed
+### Contact Selector
 
 Using a contact selector allows you to get data off the selected contact(person or place) or search for an existing contact. 
 
@@ -99,6 +99,12 @@ Calculates the number of whole calendar months between two dates. This is often 
 
 In Enketo forms you have access to an XPath function to calculate the z-score value for a patient.
 
+## Uploading Binary Attachments
+
+Forms can include arbitrary binary data which is submitted and included in the doc as an attachment. If this is an image type it'll then be displayed inline in the report UI.
+
+To mark an element as having binary data add an extra column in the XLSForm called `instance::type` and specify `binary` in the element's row.
+
 ## Properties
 
 The meta information in the `{form_name}.properties.json` file defines the form's title and icon, as well as when and where the form should be available.
@@ -113,12 +119,6 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.person` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.place` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `user`, and `summary` are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario. | no |
-
-## Uploading Binary Attachments
-
-Forms can include arbitrary binary data which is submitted and included in the doc as an attachment. If this is an image type it'll then be displayed inline in the report UI.
-
-To mark an element as having binary data add an extra column in the XLSForm called `instance::type` and specify `binary` in the element's row.
 
 ### Code sample
 

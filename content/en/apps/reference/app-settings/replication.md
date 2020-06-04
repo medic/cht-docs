@@ -1,9 +1,9 @@
 ---
-title: "Replications"
-linkTitle: "Replications"
+title: ".replications"
+linkTitle: ".replications"
 weight: 5
 description: >
-  Instructions for defining replications
+  **Replications**: Instructions for defining replications
 keywords: replication
 ---
 

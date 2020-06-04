@@ -1,9 +1,9 @@
 ---
-title: "Tasks"
-linkTitle: "Tasks"
+title: "tasks.js"
+linkTitle: "tasks.js"
 weight: 5
 description: >
-  Instructions and schema for defining tasks
+  **Tasks**: Definition of tasks shown to app users
 relevantLinks: >
   docs/apps/features/tasks
   docs/apps/concepts/workflows

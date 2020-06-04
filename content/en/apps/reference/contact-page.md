@@ -1,9 +1,9 @@
 ---
-title: "Contact Pages"
-linkTitle: "Contact Pages"
+title: "contact-summary.templated.js"
+linkTitle: "contact-summary.templated.js"
 weight: 5
 description: >
-  Defining the content of contact pages
+  **Contact Pages**: Customizing the fields, cards, and actions on profile pages  
 relevantLinks: >
   docs/apps/features/contacts
   docs/apps/concepts/hierarchies

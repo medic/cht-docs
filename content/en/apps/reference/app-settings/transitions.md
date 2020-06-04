@@ -1,9 +1,9 @@
 ---
-title: "Sentinel Transitions"
-linkTitle: "Transitions"
+title: ".transitions"
+linkTitle: ".transitions"
 weight: 5
 description: >
-  Sentinel functions executed when database documents change
+  **Sentinel Transitions**: functions executed when database documents change
 relevantLinks: >
 ---
 

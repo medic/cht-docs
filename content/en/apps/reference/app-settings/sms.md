@@ -1,9 +1,9 @@
 ---
-title: "SMS settings"
-linkTitle: "SMS settings"
+title: ".sms"
+linkTitle: ".sms"
 weight: 5
 description: >
-  Instructions and schema for defining SMS settings
+  **SMS Settings**: Instructions and schema for defining SMS settings
 relevantLinks: >
   docs/apps/concepts/workflows
   docs/design/apps

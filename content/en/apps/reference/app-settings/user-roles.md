@@ -1,9 +1,9 @@
 ---
-title: "User Roles"
-linkTitle: "User Roles"
+title: ".roles"
+linkTitle: ".roles"
 weight: 5
 description: >
-  Defining the roles that can be assigned to users.
+  **User Roles**: Defining the roles that can be assigned to users.
 relevantLinks: >
   docs/apps/concepts/user-roles
   docs/apps/concepts/user-permissions

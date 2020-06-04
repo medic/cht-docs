@@ -1,9 +1,9 @@
 ---
-title: "Targets"
-linkTitle: "Targets"
+title: "targets.js"
+linkTitle: "targets.js"
 weight: 5
 description: >
-  Instructions and schema for defining Targets
+  **Targets**: Definition of target widgets calculated and seen in the app
 relevantLinks: >
   docs/apps/features/targets
   docs/design/apps

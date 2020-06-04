@@ -1,9 +1,9 @@
 ---
-title: Outbound push [beta]
-linkTitle: Outbound
+title: ".outbound"
+linkTitle: ".outbound"
 weight: 5
 description: >
-  Exchanging data between CHT applications and other tools
+  **Outbound Push**: Exchanging data between CHT applications and other tools
 relevantLinks: >
 ---
 

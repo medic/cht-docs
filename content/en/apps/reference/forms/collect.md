@@ -1,9 +1,9 @@
 ---
-title: "Collect Forms"
-linkTitle: "Collect Forms"
+title: "collect"
+linkTitle: "collect"
 weight: 5
 description: >
-  Instructions for defining forms used in Medic Collect
+  **Collect Forms**: Served to the Medic Collect application
 keywords: collect-forms collect
 ---
 
