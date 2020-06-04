@@ -56,7 +56,7 @@ jobs:
           SLACK_COLOR: '#3278BD'
           SLACK_ICON: ":flappingphone:"
           SLACK_MESSAGE: 'Deploy Succeeded :rocket:'
-          SLACK_TITLE: CHT DOCS
+          SLACK_TITLE: CHT DOCS  DEPLOY
           SLACK_USERNAME: Medic-Bot
 
         
