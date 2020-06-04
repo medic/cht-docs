@@ -3,7 +3,7 @@ title: "Event Based Surveillance"
 linkTitle: "Event Based Surveillance"
 weight: 
 description: >
-  capturing information about community events that are a risk to public health.
+  Capturing information about community events that are a risk to public health.
 keywords: EBS 
 ---
 
@@ -15,11 +15,11 @@ The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture o
 
 ## Problem Being Addressed
 
-Patient reporting through traditional primary health care channels is not well suited for detecting rapidly spreading outbreaks at a community scale. Timely detection of outbreaks and important public health events can be delayed or missed when relying on individual patient indicators. 
+Patient reporting through traditional primary health care channels is not well suited for detecting rapidly spreading outbreaks at a community scale. Timely detection of outbreaks and important public health events can be delayed or missed when relying on individual patient data and traditional health management information systems. 
 
 ## Solution Overview
 
-Event Based Surveillance with the CHT offers opportunities for rapid deployment and measurable community impact for reportable diseases, including COVID-19. Through more timely event data reporting and analysis, the CHT provides early indicators of emerging issues to community health managers. The CHT solution offers:
+Event Based Surveillance with the CHT offers opportunities for rapid deployment and measurable community impact for reportable diseases, including COVID-19. Through more timely event data reporting and analysis, the CHT provides early indicators of emerging issues to community health workers across the health system. The CHT solution offers:
 
 * Tiered reporting, verification, and escalation process, which can improve speed and quality of data
 * Signal data that can be mapped for data-driven decision-making
@@ -37,6 +37,6 @@ Event Based Surveillance with the CHT offers opportunities for rapid deployment 
 
 ## Workflow Example
 
-This is a simple workflow that enables CHWs to use SMS to report signal codes for specific health threats. The CHWs Supervisor can then verify the initial report and, if warranted, escalate to the sub-county for investigation and follow-up. This example reference workflow is designed to be flexible and can be combined with other, complimentary care workflows.
+This is a simple workflow that enables CHWs to use SMS to report signal codes for specific community health threats. The CHW Supervisor can then verify the initial report and, if warranted, escalate to the sub-county for investigation and follow-up. This example reference workflow is designed to be flexible and can be combined with other complimentary care workflows.
 
 ![workflow.png](workflow.png)
