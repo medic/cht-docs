@@ -43,6 +43,6 @@ jobs:
           personal_token: ${{ secrets.DEPOLY_TO_SITE}}
           external_repository: medic/medic.github.io
           publish_dir: ./public
-          user_name: nomulex
-          user_email: nomulex@gmail.com
+          user_name: medic-ci
+          user_email: medic-ci@github
           publish_branch: beta
