@@ -1,23 +1,23 @@
 name: CHT Documentation Site Build
 
-on: [push]
+on: 
+  push:
+    branches:
+      - master
 
 jobs:
   build:
 
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node-version: [12.x]
 
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Install Node depencies
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '12.x'
       - run: npm install
       - run: npm install -g postcss-cli
       - run: npm i -D autoprefixer
