@@ -38,6 +38,6 @@ jobs:
             SLACK_CHANNEL: '#monitoring'
             SLACK_COLOR: '#3278BD'
             SLACK_ICON: ":flappingphone:"
-            SLACK_MESSAGE: 'Test :Alert:'
+            SLACK_MESSAGE: 'Build Failed :Alert:'
             SLACK_TITLE: CHT DOCS
             SLACK_USERNAME: Medic-Bot
