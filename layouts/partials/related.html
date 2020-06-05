@@ -1,9 +1,45 @@
-{{ $related := .Site.Pages.Related . | first 5 }}{{/* Use .Site.Pages and not .Site.RegularPages to be able to link to list pages*/}}
-{{ with $related }}
+{{ $parent := .Page }}
+{{ with .Params.relatedContent }}
+{{ $pages := split . " " }}
 <h2>Related Content</h2>
-<ul>
-	{{ range . }}
-	<li><a href="{{ .RelPermalink }}">{{ .Parent.Title }} > {{ .Title }}</a></li>
+<div class="section-index">
+	{{ if $parent.Params.simple_list }}
+	{{/* If simple_list is true we show a bulleted list of subpages */}}
+	<ul>
+		{{ range $pages }}
+		{{ with $.Site.GetPage . }}
+		<li><a href="{{ .RelPermalink }}">{{- .Title -}}</a></li>
+		{{ end }}
+		{{ end }}
+	</ul>
+	{{ else }}
+	{{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
+	<hr class="panel-line">
+	{{ range $pages }}
+	{{ with $.Site.GetPage . }}
+	<div class="entry">
+		<h5>
+			<a href="{{ .RelPermalink }}">{{ template "relatedcontenttitle" (dict "p1" . "p2" .) }}</a>
+			{{/* <a href="{{ .RelPermalink }}">{{- .Title -}}</a> */}}
+		</h5>
+		<p>{{ .Description | markdownify }}</p>
+	</div>
 	{{ end }}
-</ul>
+	{{ end }}
+	{{ end }}
+</div>
+{{ end }}
+{{ define "relatedcontenttitle" }}
+	{{ if .p1.Parent }}
+		{{ if not .p1.Parent.IsHome }}
+		{{ template "relatedcontenttitle" (dict "p1" .p1.Parent "p2" .p2 )  }}
+		{{ end }}
+	{{ else if not .p1.IsHome }}
+		{{ template "relatedcontenttitle" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+	{{ end }}
+		{{ if not (eq .p1 .p2) }}
+		{{ .p1.LinkTitle }} >
+		{{ else }}
+		{{ .p1.Title }}
+		{{ end }}
 {{ end }}

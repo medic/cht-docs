@@ -1,7 +1,7 @@
 ---
 title: "Supported Versions"
 linkTitle: "Supported Versions"
-weight: 1
+weight: 6
 description: >
   Hardware requirements for CHT apps and supported versions of CHT Core
 relevantLinks: >

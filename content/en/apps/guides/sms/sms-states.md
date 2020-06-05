@@ -1,12 +1,12 @@
-<!-- ---
+---
 title: "SMS message states"
 linkTitle: "SMS States"
-weight: 5
+weight: 1
 description: >
   Overview of the possible states of SMS messages
 relevantLinks: >
 keywords: messaging
---- -->
+---
 
 ## Interaction with SMS providers
 
