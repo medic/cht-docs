@@ -63,12 +63,12 @@ sudo chmod 0600 ~/Downloads/name_of_file.pem
 
 ## Troubleshooting
 #### 1. Restarting processes
-- https://github.com/medic/medic-docs/blob/master/installation/self-hosting.md#how-to-access-container-retrieve-logs-isolate-security-groups
-- https://github.com/medic/medic-os#service-management-scripts
+- [How to access container, retrieve logs, isolate security groups]({{< ref "apps/guides/hosting/self-hosting#how-to-access-container-retrieve-logs-isolate-security-groups" >}})
+- [MedicOS service management scripts](https://github.com/medic/medic-os#service-management-scripts)
 
 #### 2. Investigating logs
-- Log into container: https://docs.docker.com/engine/reference/commandline/exec/
-- Helpful docker commands: https://github.com/medic/medic-docs/blob/master/installation/public-docker-image-setup.md#helpful-docker-commands
+- [Log into container](https://docs.docker.com/engine/reference/commandline/exec/)
+- [Helpful docker commands]({{< ref "core/guides/docker-setup#helpful-docker-commands" >}})
 - Inside container, all appropriate logs can be found in: `/srv/storage/<service_name>/logs/*.log`
 
 #### 3.Upgrading the container
@@ -77,7 +77,7 @@ sudo chmod 0600 ~/Downloads/name_of_file.pem
 - DO NOT REMOVE `/srv/storage/medic-core/`, `/srv/settings/medic-core/couchdb/local.ini`, wipe all other files in /srv [Note: Make script publicly accessibile]
 - Change the image tag to the newest image release version:
 https://github.com/medic/medic-docs/blob/master/installation/public-docker-image-setup.md#download-medic-mobile-image--setup-custom-docker-network
-- Change image tag in docker-compose file: https://github.com/medic/medic-docs/blob/master/installation/public-docker-image-setup.md#use-docker-compose
+- [Change image tag in docker-compose file]({{< ref "core/guides/docker-setup#use-docker-compose">}})
 - Launch new containers with appropriate COUCHDB_ADMIN_PASSWORD & HA_PASSWORD environment variables
 
 #### 4.Upgrading the webapp

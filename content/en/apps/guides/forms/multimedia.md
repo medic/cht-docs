@@ -13,7 +13,7 @@ relatedContent: >
 
 ## Multimedia Formats
 
-There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome](https://github.com/medic/medic-docs/blob/master/installation/supported-software.md#dependencies).
+There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "core/overview/supported-software#dependencies" >}}).
 
  **List of Supported formats** [video/audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility)
  [images](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
@@ -105,7 +105,7 @@ Here is an example of how it would look uploading a sample video for the form ab
 ``` curl -vX PUT https://user:pass@localhost/medic/form:multimedia/video.mp4?rev=11-a2ebf09cb9678c031859cd2c1da4b603 -k --data-binary @sample.mp4 -H "Content-Type: video/mp4" ```
 
 To use fauxton.
- 1. Navigate to fauxton. https://<server_name>/_utils
+ 1. Navigate to fauxton. `https://<server_name>/_utils`
  1. Click on the medic database.
  1. Locate the form document.
  1. Click add attachment
