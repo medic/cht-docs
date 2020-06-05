@@ -4,7 +4,8 @@ linkTitle: "Telemetry"
 weight: 
 description: >
   Performance data of certain user actions
-relevantLinks: >
+relatedContent: >
+  core/overview/data-flows-for-analytics
 ---
 
 _Introduced in v3.4.0_

@@ -4,7 +4,8 @@ linkTitle: "CouchDB Authentication"
 weight: 
 description: >
   Invalidating Sessions
-relevantLinks: >
+relatedContent: >
+  
 ---
 
 ### To invalidate a session in couchdb, there are two options:

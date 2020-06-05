@@ -4,7 +4,8 @@ linkTitle: "Self Hosting"
 weight: 
 description: >
   How to access container, retrieve logs, isolate security groups
-relevantLinks: > 
+relatedContent: >
+  apps/guides/hosting/ec2-setup-guide
 ---
 
  ## Self Hosting

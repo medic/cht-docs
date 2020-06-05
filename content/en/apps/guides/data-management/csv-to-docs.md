@@ -4,7 +4,9 @@ linkTitle: "CSV to Docs"
 weight: 
 description: >
   Seeding data with medic-conf
-relevantLinks: >
+relatedContent: >
+  apps/guides/forms/additional-docs
+  apps/reference/forms/contact
 ---
 
 

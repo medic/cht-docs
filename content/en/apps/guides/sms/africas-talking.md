@@ -4,7 +4,12 @@ linkTitle: "Africa's Talking"
 weight: 
 description: >
   Integration for sending and receiving SMS
-relevantLinks: >
+relatedContent: >
+  app-settings/sms
+  apps/guides/forms/app-form-sms
+  apps/guides/sms/sms-states
+  apps/guides/sms/message-loops
+  apps/guides/sms/shortcodes
 ---
 
 

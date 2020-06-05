@@ -4,7 +4,9 @@ linkTitle: "EC2 Setup"
 weight: 
 description: >
   Notes on how to set up EC2
-relevantLinks: > 
+relatedContent: >
+  apps/guides/hosting/self-hosting
+  apps/guides/database-management/couch2pg-oom-errors
 ---
 
 ## Configure self-hosting

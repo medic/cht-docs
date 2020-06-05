@@ -4,7 +4,9 @@ linkTitle: "Production Data"
 weight: 
 description: >
   How to copy data from an instance to a local CouchDB database and app
-relevantLinks: >
+relatedContent: >
+  apps/reference/app-settings/replication
+  apps/guides/replication
 ---
 
 Sometimes there will be a production problem that you need to dig into locally to solve. This guide explains how to:

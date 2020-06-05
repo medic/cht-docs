@@ -5,6 +5,9 @@ weight:
 description: >
   Settings for downloading copies of data onto a user's device.
 keywords: 
+relatedContent: >
+  apps/reference/app-settings/replication
+  apps/guides/replicating-production-data-locally
 ---
 
 Replication is what we call it when users download a copy of the data on to their device.

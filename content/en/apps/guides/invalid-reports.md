@@ -5,6 +5,8 @@ weight:
 description: >
   How to revalidate an invalid report
 keywords: 
+relatedContent: >
+  apps/features/reports
 ---
 
 You may encounter a dreaded case when reports coming in to a Medic Webapp instance have a red indicator instead of the green indicator.

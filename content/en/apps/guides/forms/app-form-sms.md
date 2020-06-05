@@ -5,7 +5,11 @@ weight:
 description: >
   Trigger calls and SMS from within the form, or send an SMS once submitted.
 
-relevantLinks: >
+relatedContent: >
+  apps/guides/forms/additional-docs
+  apps/guides/forms/contact-forms
+  apps/guides/forms/multimedia
+  apps/guides/gateway/configuration
 ---
 
 ## Triggering Calls and SMS
