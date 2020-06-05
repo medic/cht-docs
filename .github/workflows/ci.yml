@@ -37,6 +37,16 @@ jobs:
       - name: Build
         run: hugo
 
+      - name: Deploy to repo site for testing
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.DEPOLY_TO_SITE}}
+          external_repository: medic/beta
+          publish_dir: ./public
+          user_name: medic-ci
+          user_email: medic-ci@github
+          publish_branch: gh-pages
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
