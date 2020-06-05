@@ -22,7 +22,7 @@ These have the simplest structure since we are only creating one thing - the act
 
 Section 1 and 3 are optional. We can pull in details of the logged in user as shown in section 1 and use that to log some metadata on the created documents as shown in section 3.
 
-Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the [Hierarchy]({{< ref "apps/reference/hierarchy" >}}) page. `parent`, `type`, `contact_type` and `name` attributes are mandatory for things to work correctly.
+Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the [Hierarchy]({{< ref "apps/reference/app-settings/hierarchy" >}}) page. `parent`, `type`, `contact_type` and `name` attributes are mandatory for things to work correctly.
 
 ## Settings sheet
 

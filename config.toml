@@ -1,7 +1,7 @@
 baseURL = "https://docs.communityhealthtoolkit.org/beta/"
 title = "Community Health Toolkit"
 
-refLinksErrorLevel = "WARNING"
+refLinksErrorLevel = "ERROR"
 
 enableRobotsTXT = true
 

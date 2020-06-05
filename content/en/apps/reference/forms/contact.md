@@ -10,7 +10,7 @@ relevantLinks: >
 keywords: hierarchy contacts contact-forms
 ---
 
-Contact forms are used for the creation and editing of each contact. The type associated to people is `person`, and there are three types of places corresponding to levels in the app: `district_hospital` > `health_center` > `clinic`. The display names for the place levels can be changed via [custom translations]({{< ref "localization" >}}), and wherever they are defined in the contact forms. Each contact type has its own XForm where it defines the fields that it wants to store/edit for the contact:
+Contact forms are used for the creation and editing of each contact. The type associated to people is `person`, and there are three types of places corresponding to levels in the app: `district_hospital` > `health_center` > `clinic`. The display names for the place levels can be changed via [custom translations]({{< ref "apps/reference/translations" >}}), and wherever they are defined in the contact forms. Each contact type has its own XForm where it defines the fields that it wants to store/edit for the contact:
 
     - /forms/contact/person-create.xml
     - /forms/contact/person-edit.xml

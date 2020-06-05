@@ -77,7 +77,7 @@ Progressive Web Application (PWA) is another term for web apps that are built an
 
 <img src="localization.png" width="23%" align="right" />
 
-Apps can be customized for different deployments and types of workflows. The Core Framework has been used in dozens of countries around the world with [localization settings]({{< ref "localization" >}}).
+Apps can be customized for different deployments and types of workflows. The Core Framework has been used in dozens of countries around the world with [localization settings]({{< ref "apps/reference/translations" >}}).
 
 Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
 
