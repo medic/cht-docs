@@ -4,10 +4,10 @@ linkTitle: "tasks.js"
 weight: 5
 description: >
   **Tasks**: Definition of tasks shown to app users
-relevantLinks: >
-  docs/apps/features/tasks
-  docs/apps/concepts/workflows
-  docs/design/apps
+relatedContent: >
+  apps/features/tasks
+  apps/concepts/workflows
+  design/apps
 keywords: tasks workflows
 ---
 
