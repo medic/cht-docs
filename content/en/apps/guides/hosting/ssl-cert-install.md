@@ -5,6 +5,8 @@ weight:
 description: >
   SSL Cert Installation for Self-Hosting Setups
 relevantLinks: > 
+relatedContent: >
+  apps/guides/hosting/self-hosting
 ---
 
 

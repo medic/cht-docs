@@ -4,9 +4,9 @@ linkTitle: "targets.js"
 weight: 5
 description: >
   **Targets**: Definition of target widgets calculated and seen in the app
-relevantLinks: >
-  docs/apps/features/targets
-  docs/design/apps
+relatedContent: >
+  apps/features/targets
+  design/apps
 keywords: targets workflows
 ---
 

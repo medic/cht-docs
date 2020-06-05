@@ -5,6 +5,11 @@ weight:
 description: >
   Remove unneeded documents from offline users devices.
 keywords: 
+relatedContent: >
+  design/personas/chw-janet
+  apps/features/reports
+  apps/guides/invalid-reports
+  apps/reference/app-settings/patient_reports
 ---
 
 *Only available in 3.7.0 and above*

@@ -4,7 +4,8 @@ linkTitle: "SSH into Docker"
 weight: 
 description: >
   How to access a Docker image via the command line
-relevantLinks: >
+relatedContent: >
+  core/guides/docker-setup
 ---
 
 1. Work out the name of the AWS instance your Docker container is running in, eg: "development-2a-1"

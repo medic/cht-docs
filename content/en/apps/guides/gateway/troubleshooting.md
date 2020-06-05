@@ -4,6 +4,9 @@ linkTitle: "Troubleshooting"
 weight: 90
 description: >
   Guide to troubleshooting Gateway problems
+relatedContent: >
+  apps/guides/gateway/phones
+  apps/guides/gateway/configuration
 ---
 
 In a techlead heaven, we would have immeadiate physical access to gateway phones, but alas, most of the time we have to hand them over to the partner. Fortunately, comes this guide on debugging gateway problems.

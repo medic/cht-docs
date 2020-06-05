@@ -4,7 +4,12 @@ linkTitle: "Moving Contacts"
 weight: 
 description: >
   How to safely move contacts
-relevantLinks: >
+relatedContent: >
+  apps/features/contacts
+  apps/reference/app-settings/hierarchy
+  apps/tutorials/contact-and-users-2
+  apps/concepts/hierarchy
+
 ---
 
 Contacts are organized into a hierarchy. It is not straight-forward to move contacts from one position in the hierarchy to another because many copies of this hierarchy exist. Use the `move-contacts` action in [`medic-conf`](https://github.com/medic/medic-conf) to assign a new parent to contacts. This command will move the specified contact, all the contacts under that contact, and all reports created by any of those contacts. This action will download all documents that need to be updated, update the lineages within those documents, and then save the updated documents on your local disk. To commit those changes to the database, run the `upload-docs` action.

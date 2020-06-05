@@ -4,7 +4,8 @@ linkTitle: "Obtaining Logs"
 weight: 
 description: >
   How to obtain logs from an instance
-relevantLinks: >
+relatedContent: >
+  
 ---
 
 There are many places where useful logs reside. This details all those places, and the easiest way to get a hold of them.

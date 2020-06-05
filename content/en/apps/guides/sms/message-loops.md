@@ -4,7 +4,10 @@ linkTitle: "Message Loops"
 weight: 
 description: >
   How to avoid messaging loops
-relevantLinks: >
+relatedContent: >
+  apps/guides/forms/app-form-sms
+  apps/guides/sms/sms-states
+  apps/guides/sms/shortcodes
 ---
 Endless messaging loops can between the webapp and a mobile number via the gateway due to autoreplies from the webapp.
 

@@ -4,7 +4,7 @@ linkTitle: "RDBMS in Windows"
 weight: 
 description: >
   How to connect to the PostgreSQL server from Windows   
-relevantLinks: >
+relatedContent: >
 ---
 Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix systems. In Windows there are a couple of things you need to do to get it up and running. 
 

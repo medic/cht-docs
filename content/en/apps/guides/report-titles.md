@@ -4,7 +4,9 @@ linkTitle: "Report Titles"
 weight: 
 description: >
   Customizing the title shown in the Reports list
-relevantLinks: >
+relatedContent: >
+  apps/features/reports
+  apps/reference/app-settings/patient_reports
 ---
 
 _Added in 3.9.0_

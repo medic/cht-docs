@@ -4,7 +4,10 @@ linkTitle: "SMS States"
 weight: 1
 description: >
   Overview of the possible states of SMS messages
-relevantLinks: >
+relatedContent: >
+  apps/features/messaging
+  apps/guides/sms/message-loops
+  apps/reference/app-settings/sms
 keywords: messaging
 ---
 

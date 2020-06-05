@@ -4,7 +4,11 @@ linkTitle: "Contact Forms"
 weight: 
 description: >
   Integration for sending and receiving SMS
-relevantLinks: >
+relatedContent: >
+  apps/guides/forms/additional-docs
+  apps/guides/forms/multimedia
+  apps/guides/forms/app-form-sms
+  apps/guides/gateway/configuration
 ---
 Contact forms are used to create person or place types. Prior to version 3.7, CHT Core supported 4 contact types - 3 place types (clinic, health_center, district_hospital) and one person type (person). From version 3.7, an unlimited number of place and person types are supported. Each contact-type should ideally have two forms; one for creation, and another for editing. 
 
