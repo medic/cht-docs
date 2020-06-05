@@ -17,13 +17,15 @@ This style guide provides a set of editorial guidelines for anyone writing devel
   - [Present tense](#present-tense)
   - [Active voice](#active-voice)
   - [Simple and direct language](#simple-and-direct-language)
-  - [Address the reader as "you"](#address-the-reader-as-%22you%22)
+  - [Address the reader as "you"](#address-the-reader-as-you)
   - [Latin phrases](#latin-phrases)
 - [Practices to avoid](#practices-to-avoid)
-  - [Using "we"](#using-%22we%22)
+  - [Using "we"](#using-we)
   - [Using jargon and idioms](#using-jargon-and-idioms)
   - [Using statements about the future](#using-statements-about-the-future)
   - [Using statements that will soon be out of date](#using-statements-that-will-soon-be-out-of-date)
+- [Cross-referencing content](#cross-referencing-content)
+  - [Avoid broken links](#avoid-broken-links)
 - [Formatting standards](#formatting-standards)
   - [Grammar and punctuation in headers](#grammar-and-punctuation-in-headers)
   - [Angle brackets for placeholders](#angle-brackets-for-placeholders)
@@ -140,6 +142,33 @@ considered new in a few months.
   <tr><td>In version 3.4, ...</td><td>In the current version, ...</td></tr>
     <tr><td>The Log user statistics feature provides ...</td><td>The new Log user statistics feature provides ...</td></tr>
 </table>
+
+## Cross-referencing content
+
+Connecting readers to related content in different pages is an important aspect of documentation. There are three ways this can be done in the doc site:
+1. **Inline links**: a portion of any narrative text can link to another page. This should done using the markdown link notation. 
+   
+   For example, the text `linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!` yields: "linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!"
+2. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
+   
+   For example, `{{</* see-also page="design/icons" */>}}` will show as seen here: {{< see-also page="design/icons" >}}
+
+   A custom title and anchor can be provided. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
+
+3. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
+   ```
+   ---
+   title: Messaging
+   relatedContent: >
+    apps/guides/messaging/
+    design/apps/
+    ---
+   ``` 
+
+### Avoid broken links
+To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/cross-references/) for more details.
+
+For example,  `[Icon Library]({{</* relref "design/icons" */>}})` yields "[Icon Library]({{% relref "design/icons" %}})". Using the full path will avoid ambiguous references if a new page of the same is created. 
 
 ## Formatting standards
 
