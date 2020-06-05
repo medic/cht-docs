@@ -16,7 +16,7 @@ Sometimes there will be a production problem that you need to dig into locally t
 
 ## First, a note about data safety
 
-Production data is medical data. It's HIV statuses and pregnancies. It's important, and it's not yours. If you're downloading it, do so on an [encrypted drive](../support/securing-computers.md) and delete it once you're done with it.
+Production data is medical data. It's HIV statuses and pregnancies. It's important, and it's not yours. If you're downloading it, do so on an encrypted drive and delete it once you're done with it.
 
 ## Step 1: Get the data
 

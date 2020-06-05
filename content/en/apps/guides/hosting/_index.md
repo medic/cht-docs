@@ -2,5 +2,5 @@
 title: Hosting
 weight: 100
 description: >
- Hosting setup for the CHT.
+ Guides for hosting, maintaining, and monitoring CHT applications
 ---
