@@ -3,7 +3,10 @@ title: "Data Flows for Analytics"
 linkTitle: "Data Flows"
 weight: 3
 description: >
-  Data Flows Through The CHT for Analytics, Data Science & Impact Monitoring 
+  Data Flows Through The CHT for Analytics, Data Science & Impact Monitoring
+relatedContent: >
+  apps/guides/data
+  apps/guides/database
 ---
 
 
