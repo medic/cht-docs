@@ -16,13 +16,22 @@
 	{{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
 	<hr class="panel-line">
 	{{ range $pages }}
-	{{ with $.Site.GetPage . }}
+	{{ $path := trim . " \n" }}
+	{{ $page := $.Site.GetPage $path }}
+	{{ if not $page }}
+	{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
+	{{ warnf "[relatedContent] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $path $parent.File.Path }}
+	{{ else }}
+	{{ errorf "[relatedContent] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $path $parent.File.Path }}
+	{{ end }}
+	{{ end }}
+	{{ with $page }}
 	<div class="entry">
 		<h5>
-			<a href="{{ .RelPermalink }}">{{ template "relatedcontenttitle" (dict "p1" . "p2" .) }}</a>
+			<a href="{{ .RelPermalink }}">{{ template "relatedcontenttitle" (dict "p1" $page "p2" $page) }}</a>
 			{{/* <a href="{{ .RelPermalink }}">{{- .Title -}}</a> */}}
 		</h5>
-		<p>{{ .Description | markdownify }}</p>
+		<p>{{ $page.Description | markdownify }}</p>
 	</div>
 	{{ end }}
 	{{ end }}

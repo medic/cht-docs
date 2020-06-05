@@ -79,6 +79,9 @@ time_format_blog = "02.01.2006"
 copyright = "CHT"
 privacy_policy = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
 
+# Custom shortcodes and partial will error on broken references unless set to "WARNING"  
+linkErrorLevel = "WARNING"
+
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
 

@@ -1,6 +1,13 @@
 {{ $page := .Get "page" }}
 {{ $anchor := .Get "anchor" }}
 {{ $save := . }}
+{{ if not ( $.Site.GetPage $page ) }}
+{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
+{{ warnf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
+{{ else }}
+{{ errorf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
+{{ end }}
+{{ end }}
 {{ with $.Site.GetPage $page }}
 {{ $title := $save.Get "title" }}
 {{ if $title }}
