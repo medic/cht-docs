@@ -35,7 +35,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo
+        run: env HUGO_ENV="production" hugo --minify
 
       - name: Deploy to repo site for testing
         uses: peaceiris/actions-gh-pages@v3
