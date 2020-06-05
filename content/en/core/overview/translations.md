@@ -4,6 +4,8 @@ linkTitle: "Translations"
 weight: 5
 description: >
   Process for managing translations in CHT Core
+relatedContent: >  
+  apps/reference/translations
 ---
 
 Apps built with CHT Core are localized so that users can use it in the language of their choice. It is currently available in English, French, Hindi, Nepali, Spanish, and Swahili. The goal of this doc is to help our team manage these and future translations.
