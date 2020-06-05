@@ -4,6 +4,10 @@ linkTitle: Contacts + Users 1
 weight: 2
 description: >
   Creating and editing contacts and users in the CHT UI
+relatedContent: >
+  apps/concepts/users
+  core/overview/db-schema/#users
+  core/guides/users-bulk-load 
 ---
 
 ## Purpose of the tutorial
