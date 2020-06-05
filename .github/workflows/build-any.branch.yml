@@ -29,15 +29,3 @@ jobs:
 
       - name: Build
         run: hugo
-
-      - name: Notify Failure
-        uses: rtCamp/action-slack-notify@v2.0.2
-        if: ${{ failure() }}
-        env:
-            SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-            SLACK_CHANNEL: '#cht-squad-docs'
-            SLACK_COLOR: '#3278BD'
-            SLACK_ICON: ":flappingphone:"
-            SLACK_MESSAGE: 'Build Failed :Alert:'
-            SLACK_TITLE: CHT DOCS
-            SLACK_USERNAME: Medic-Bot

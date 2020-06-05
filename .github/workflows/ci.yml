@@ -35,7 +35,17 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo
+        run: env HUGO_ENV="production" hugo --minify
+
+      - name: Deploy to repo site for testing
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.DEPOLY_TO_SITE}}
+          external_repository: medic/beta
+          publish_dir: ./public
+          user_name: medic-ci
+          user_email: medic-ci@github
+          publish_branch: gh-pages
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -47,15 +57,15 @@ jobs:
           user_email: medic-ci@github
           publish_branch: beta
 
-      - name: Success
+      - name: Failed Deploy
         uses: rtCamp/action-slack-notify@v2.0.2
-        if: ${{ success() }}
+        if: ${{ failure() }}
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
           SLACK_CHANNEL: '#cht-squad-docs'
           SLACK_COLOR: '#3278BD'
           SLACK_ICON: ":flappingphone:"
-          SLACK_MESSAGE: 'Deploy Succeeded :rocket:'
+          SLACK_MESSAGE: 'Deploy Failed'
           SLACK_TITLE: CHT DOCS  DEPLOY
           SLACK_USERNAME: Medic-Bot
 

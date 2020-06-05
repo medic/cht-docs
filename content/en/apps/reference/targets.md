@@ -4,9 +4,9 @@ linkTitle: "targets.js"
 weight: 5
 description: >
   **Targets**: Definition of target widgets calculated and seen in the app
-relevantLinks: >
-  docs/apps/features/targets
-  docs/design/apps
+relatedContent: >
+  apps/features/targets
+  design/apps
 keywords: targets workflows
 ---
 
@@ -39,11 +39,13 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 | `groupBy` | `function(contact, report)` returning string | Allows for target ids to be aggregated and scored in groups. Not required for most targets. Use with passesIfGroupCount. | no |
 | `passesIfGroupCount` | `object` | The criteria to determine if the target ids within a group should be counted as passing | yes when `groupBy` is defined |
 | `passesIfGroupCount.gte` | `number` | The group should be counted as passing if the number of target ids in the group is greater-than-or-equal-to this value | yes when `groupBy` is defined |
-| `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration]({{< ref "apps/guides/dhis2-aggregate#configuration" >}}) | no
+| `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration]({{< ref "apps/guides/integrations/dhis2-aggregate#configuration" >}}) | no
 | `dhis[n].dataElement` | `string` | The hash id of a data element configured in the DHIS2 data set you're integrating with | yes
 | `dhis[n].dataSet` | `string` | The hash id of the data set that contains the data element you're integrating with. If this is left undefined, the data element will appear in all data sets. | no
 | `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
 | `aggregate` | `boolean` | As of 3.9, defines whether the target will be displayed on the TargetAggregates page | no |
+
+{{< readfile file="apps/reference/_partial_functions.md" markdown="true" >}}
 
 ## Code Samples
 

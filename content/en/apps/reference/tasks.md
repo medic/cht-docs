@@ -4,10 +4,10 @@ linkTitle: "tasks.js"
 weight: 5
 description: >
   **Tasks**: Definition of tasks shown to app users
-relevantLinks: >
-  docs/apps/features/tasks
-  docs/apps/concepts/workflows
-  docs/design/apps
+relatedContent: >
+  apps/features/tasks
+  apps/concepts/workflows
+  design/apps
 keywords: tasks workflows
 ---
 
@@ -43,6 +43,8 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
+
+{{< readfile file="apps/reference/_partial_functions.md" markdown="true" >}}
 
 ## Code samples
 

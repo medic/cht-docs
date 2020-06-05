@@ -12,7 +12,7 @@ The documentation site uses [Hugo](https://gohugo.io/), and specifically uses fe
 
 To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version.
 
-## Building the documentation
+## Building the Documentation
 
 1. Get local copies of the project submodules so you can build and run your site locally:
    - `git submodule update --init --recursive`
@@ -23,23 +23,8 @@ To install, follow the [installation instructions for your Operating System](htt
 
 3. Preview your site in your browser at: http://localhost:1313/
 
-## Publishing the documentation
+## Continuous Deployment
 
-**Prerequisite**: Hugo installed with the "extended" Sass/SCSS version
+All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to deploy the documentation site: [docs.communityhealthtoolkit.org/beta](https://docs.communityhealthtoolkit.org/beta)
 
-### Manual
-1. Follow [the Docsy instructions](https://www.docsy.dev/docs/getting-started/#install-postcss) to install postcss
-   1. `sudo npm install -D --save autoprefixer`
-   2. `sudo npm install -D --save postcss-cli`
-
-2. Follow [the Hugo intructions](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-and-deployment) for publishing a project to GitHub pages using the `gh-pages` branch
-   1. `rm -rf public`
-   2. `git worktree add -B gh-pages public upstream/gh-pages`
-   3. `hugo`
-   4. `cd public && git add --all && git commit -m "Publishing to gh-pages" && cd ..` Feel free to make a pertinent commit message!
-   5. `git push upstream gh-pages`
-3. Repeat step 2 to update after any changes to master.
-
-### Scripted
-1. Run the script to publish to GitHub Pages
-   1. `./publish_to_ghpages.sh`
+![CHT Documentation Site Build](https://github.com/medic/beta/workflows/CHT%20Documentation%20Site%20Build/badge.svg)

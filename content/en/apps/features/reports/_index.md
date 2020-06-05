@@ -70,7 +70,7 @@ The buttons at the bottom are configurable. The ones you see will depend on your
 ## Defining Forms
 
 The reports shown in your app are the completed and submitted *forms*. These forms must be defined and included with the application. There are two types of form definitions for reports:
-- **App forms**: actions within the app, such as a completed task, or an action on a contact's profile or reports tab. App forms are defined as [XForms]({{< ref "app-forms" >}}).
-- **JSON forms**: data coming from external channels such as SMS, or via interoperability with other tools. JSON forms are defined using a [JavaScript Object Notation schema]({{< ref "json-forms" >}}). 
+- **App forms**: actions within the app, such as a completed task, or an action on a contact's profile or reports tab. App forms are defined as [XForms]({{< ref "apps/reference/forms/app" >}}).
+- **JSON forms**: data coming from external channels such as SMS, or via interoperability with other tools. JSON forms are defined using a [JavaScript Object Notation schema]({{< ref "apps/reference/app-settings/forms" >}}). 
 
 
