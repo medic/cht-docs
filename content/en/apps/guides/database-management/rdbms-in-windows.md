@@ -1,5 +1,5 @@
 ---
-title: "Conncting to RDBMS in Windows"
+title: "Conncting to RDBMS from Windows"
 linkTitle: "RDBMS in Windows"
 weight: 
 description: >
@@ -52,7 +52,7 @@ Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix sy
 
 ![puttty-connect](putty-connect-final.png)
 
-If you are connecting to rdbms in order to use a posgres client. You may not need to tunnel the connection. The client can do it for you. 
+If you are connecting to rdbms in order to use a PostgreSQL client. You may not need to tunnel the connection. The client can do it for you. 
 
 ![rdbms_1](rdbms_connect_1.png)
 
