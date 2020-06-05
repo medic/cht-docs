@@ -75,14 +75,13 @@ sudo chmod 0600 ~/Downloads/name_of_file.pem
 - Backup all data (EBS) 
 - Log into container and stop all services
 - DO NOT REMOVE `/srv/storage/medic-core/`, `/srv/settings/medic-core/couchdb/local.ini`, wipe all other files in /srv [Note: Make script publicly accessibile]
-- Change the image tag to the newest image release version:
-https://github.com/medic/medic-docs/blob/master/installation/public-docker-image-setup.md#download-medic-mobile-image--setup-custom-docker-network
+- [Change the image tag to the newest image release version]({{< ref "core/guides/docker-setup#use-docker-compose" >}})
 - [Change image tag in docker-compose file]({{< ref "core/guides/docker-setup#use-docker-compose">}})
 - Launch new containers with appropriate COUCHDB_ADMIN_PASSWORD & HA_PASSWORD environment variables
 
 #### 4.Upgrading the webapp
 - Use Admin GUI page
-- CLI via horticulturalist: https://github.com/medic/medic-docs/blob/master/installation/self-hosting.md#links-to-medic-documentation-for-horticulturalist-for-upgrades
+- [CLI via horticulturalist]({{< ref "apps/guides/hosting/self-hosting#links-to-medic-documentation-for-horticulturalist-for-upgrades" >}})
 
 #### 4a. RDS help
 - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html
