@@ -3,7 +3,7 @@ title: "Impact Metrics"
 linkTitle: "Impact Metrics"
 weight: 
 description: >
-  A set of impact metrics across priority use cases for monitoring across the CHT
+  A set of impact metrics for priority use cases for monitoring across the CHT
 keywords: impact monitoring 
 relatedContent: >
   core/overview/data-flows-for-analytics
