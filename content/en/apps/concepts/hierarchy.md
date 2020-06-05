@@ -5,6 +5,8 @@ weight: 6
 description: >
   Organizing people and places, and their relationship to one-another
 keywords: hierarchy
+relatedContent: >
+  apps/concepts/hierarchy
 ---
 
 The Core Framework requires a hierarchy to organize the information in the app. It is often based on the hierarchy of a health system within a particular geographic region. 
