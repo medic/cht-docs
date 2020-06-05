@@ -27,7 +27,7 @@ In this document "record" means a JSON object that resides in CouchDB or PouchDB
 Contacts are either places (e.g. clinic), groupings (e.g. family) or people (e.g. a patient or CHW).
 
 The `type` property of contact records depends on the version of Medic you are running:
- - If you are running 3.7 or later you get to [configure your contact hierarchy](https://github.com/medic/medic-docs/blob/master/configuration/app-settings.md#configuring-the-contact-hierarchy), and the `type` of contacts is `contact`, and the configured type is in the `contact_type` property.
+ - If you are running 3.7 or later you get to [configure your contact hierarchy]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), and the `type` of contacts is `contact`, and the configured type is in the `contact_type` property.
  - In earlier versions the type depended on hierarchical location of the contact. There are 3 hard coded place types: `district_hospital`, `health_centre` and `clinic` and one people type `person`. These place names are often meaningless (hence the configurable contact hierarchy in later versions) to the configured project, and are textually (ie in the UI not in data structures) renamed to mean other things. For example, as `clinic` is the lowest level it is often used to represent a family.
 
 ### Places
@@ -120,7 +120,7 @@ Additionally, XML reports:
 
 ## Forms
 
-SMS forms are defined in [application config](https://github.com/medic/medic-docs/blob/master/configuration/app-settings.md#patient-reports).
+SMS forms are defined in [application config]({{< ref "apps/reference/app-settings/patient_reports#app_settingsjson-patient_reports" >}}).
 
 XML forms are stored in the database and have:
  - An `_id` of `form:<formname>`
@@ -163,7 +163,7 @@ Users then, can be represented by up to 3 docs:
 
  ## Tasks
 
-[Partner configuration code](https://github.com/medic/medic-docs/blob/master/configuration/developing-community-health-applications.md) running inside the Core Framework can cause tasks to appear within the Tasks tab. Each task in the tab is powered by a task document. Task documents are:
+[Partner configuration code]({{< ref "apps/reference/tasks#tasksjs" >}}) running inside the Core Framework can cause tasks to appear within the Tasks tab. Each task in the tab is powered by a task document. Task documents are:
 
 * updated only after the data for their emitting contact changes or every 7 days
 * created in the database for any task due within the last 60 days
@@ -211,7 +211,7 @@ stateHistory | Each time the state attribute changes, the time of the change is 
 ```
 
 ## Targets
-[Partner configuration code](https://github.com/medic/medic-docs/blob/master/configuration/developing-community-health-applications.md) can configure targets to appear within the Targets/Analytics tab. Target documents are:
+[Partner configuration code]({{< ref "apps/reference/targets#targetsjs" >}}) can configure targets to appear within the Targets/Analytics tab. Target documents are:
 
 * one per analytics reporting period
 * updated when the user loads the application or when they view the targets tab 
