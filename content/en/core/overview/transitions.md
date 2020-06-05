@@ -4,6 +4,8 @@ linkTitle: "Transitions"
 weight: 4
 description: >
   Overview of Transitions, JavaScript code that runs server-side when database documents change
+relatedContent: >  
+  core/overview/transitions
 ---
 
 A transition is javascript code that runs when a document is changed.  A
