@@ -4,6 +4,11 @@ linkTitle: Contacts + Users 2
 weight: 3
 description: >
   Creating and editing contacts and users with medic-conf
+relatedContent: >
+  apps/tutorials/contact-and-users-1
+  core/overview/db-schema/#users
+  core/guides/users-bulk-load
+  apps/concepts/users
 ---
 
 ## Purpose of the tutorial
