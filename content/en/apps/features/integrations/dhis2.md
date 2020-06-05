@@ -4,6 +4,9 @@ weight: 1
 description: >
    Send aggregate, patient, and event data to DHIS2
 keywords: dhis2
+relatedContent: >
+  apps/guides/integrations/dhis2-aggregate
+  apps/reference/app-settings/dhis2
 ---
 
 Most health systems have regular reporting requirements for community-level activities. Health workers often carry around heavy logbooks to manually record all relevant activities. When it is time to submit their data, community health workers summarize what was recorded in their logbooks and share this information with their supervisors, who in turn create paper records of these totals across entire community units or health facilities. This paper record is often passed to yet another individual whose responsibility is to manually key in the data into a health information management system, such as DHIS2.

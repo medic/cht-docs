@@ -5,6 +5,13 @@ weight: 4
 description: >
   The people and places that are being cared for
 keywords: hierarchy contacts care-guides
+relatedContent: >
+  apps/reference/forms/contact
+  apps/reference/contact-page
+  apps/guides/updates/moving-contacts
+  apps/tutorials/contact-and-users-1
+  apps/tutorials/contact-and-users-2
+  apps/examples/contact-tracing
 ---
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
