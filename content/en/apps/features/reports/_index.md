@@ -3,6 +3,10 @@ title: Reports
 weight: 6
 description: >
   Reports for Data & Report Management
+relatedContent: >
+  apps/reference/app-settings/patient_reports
+  apps/guides/data/invalid-reports
+  apps/guides/forms/report-titles
 ---
 
 The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferably for CHW users). 

@@ -4,6 +4,9 @@ weight: 8
 description: >
   Dashboards to track metrics for an individual CHW or for an entire health facility
 keyword: targets
+relatedContent: >
+  apps/reference/targets
+  apps/features/integrations/dhis2
 ---
 <!-- ## Targets: Performance Dashboards -->
 
