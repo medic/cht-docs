@@ -25,11 +25,14 @@ This style guide provides a set of editorial guidelines for anyone writing devel
   - [Using statements about the future](#using-statements-about-the-future)
   - [Using statements that will soon be out of date](#using-statements-that-will-soon-be-out-of-date)
 - [Formatting standards](#formatting-standards)
+  - [Grammar and punctuation in headers](#grammar-and-punctuation-in-headers)
   - [Angle brackets for placeholders](#angle-brackets-for-placeholders)
   - [Bold for user interface elements](#bold-for-user-interface-elements)
   - [Italics to define or introduce new terms](#italics-to-define-or-introduce-new-terms)
   - [Code style for filenames, directories, and paths](#code-style-for-filenames-directories-and-paths)
   - [British standard for punctuation inside quotes](#british-standard-for-punctuation-inside-quotes)
+  - [Notes and tips](#notes-and-tips)
+  - [Images](#images)
 - [Inline code formatting](#inline-code-formatting)
   - [Code style for inline code and commands](#code-style-for-inline-code-and-commands)
 - [Code snippet formatting](#code-snippet-formatting)
@@ -140,6 +143,11 @@ considered new in a few months.
 
 ## Formatting standards
 
+### Grammar and punctuation in headers
+
+Use title case for page `title`, and sentence case for `linkTitle` description. Do not end titles with periods.
+
+
 ### Angle brackets for placeholders
 
 Use angle brackets for placeholders. Tell the reader what a placeholder
@@ -179,6 +187,29 @@ represents.
   <tr><td>The doc in the database is a "record".</td><td>The doc in the database is a "record."</td></tr>
   <tr><td>The copy is called a "fork".</td><td>The copy is called a "fork."</td></tr>
 </table>
+
+### Notes and tips
+
+Make notes and tips stand out by using blockquote styling.
+
+{{% alert title="Note" %}}
+This is a sample note.
+{{% /alert %}}
+
+### Images
+
+Use the figure shortcode for images. This uses built-in styling that is responsive.
+
+<table>
+  <tr><th>Do</th><th>Don't</th></tr>
+  <tr><td>{{figure src="image.png" class="right col-6 col-lg-3"}}</td><td>img src="image.png" width="30%" align="right"</td></tr>
+</table>
+
+The image can also link to a file by using the link attribute.
+
+```
+{{figure src="image.png" link="image.png" class="right col-6 col-lg-3"}}
+```
 
 ## Inline code formatting
 
