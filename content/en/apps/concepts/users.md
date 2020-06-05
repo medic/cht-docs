@@ -7,7 +7,7 @@ keywords: users user-roles user-permissions
 relatedContent: >
   design/personas
   apps/tutorials/contact-and-users-1
-  tutorials/contact-and-users-2
+  apps/tutorials/contact-and-users-2
   core/guides/users-bulk-load
 ---
 
