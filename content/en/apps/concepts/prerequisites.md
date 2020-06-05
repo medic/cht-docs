@@ -3,7 +3,9 @@ title: "Prerequisites for App Development"
 linkTitle: "Prerequisites"
 weight: 9
 description: >
-  Tools and background skills that are helpful for developing CHT apps 
+  Tools and background skills that are helpful for developing CHT apps
+ relatedContent: > 
+  apps/tutorials/local-setup
 ---
 There are no set prerequisites for users of CHT apps, yet the following are helpful for developing CHT applications.
 
