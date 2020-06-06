@@ -3,7 +3,7 @@ title: "Contact Tracing"
 linkTitle: "Contact Tracing"
 weight: 
 description: >
-  A community surveillance tool to help control infectious disease outbreaks and mitigate secondary disease transmission.
+  A community surveillance tool to help control infectious disease outbreaks and mitigate secondary disease transmission
 keywords:  
 ---
 
