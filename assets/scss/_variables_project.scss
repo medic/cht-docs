@@ -34,3 +34,9 @@ h4[id]:before, h5[id]:before {
 h2, h3 {
   clear: both;
 }
+
+.one-liner {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

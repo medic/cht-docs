@@ -32,7 +32,7 @@
 			<a href="{{ .RelPermalink }}">{{ template "relatedcontenttitle" (dict "p1" $page "p2" $page) }}</a>
 			{{/* <a href="{{ .RelPermalink }}">{{- .Title -}}</a> */}}
 		</h5>
-		<p>{{ $page.Description | markdownify }}</p>
+		<p class="one-liner">{{ $page.Description | markdownify | plainify | safeHTML }}</p>{{/* removes markdown and html codes: test scenario: **bold & html char** */}}
 	</div>
 	{{ end }}
 	{{ end }}
@@ -50,6 +50,6 @@
 		{{ if not (eq .p1 .p2) }}
 		{{ .p1.LinkTitle }} >
 		{{ else }}
-		{{ .p1.Title }}
+		{{ .p1.LinkTitle }}
 		{{ end }}
 {{ end }}
