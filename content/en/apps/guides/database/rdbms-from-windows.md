@@ -1,10 +1,11 @@
 ---
 title: "Conncting to RDBMS from Windows"
-linkTitle: "RDBMS in Windows"
+linkTitle: "RDBMS from Windows"
 weight: 
 description: >
-  How to connect to the PostgreSQL server from Windows   
+  How to connect to the PostgreSQL RDBMS server from Windows   
 relatedContent: >
+  apps/guides/database/rdbms-from-mac
 ---
 Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix systems. In Windows there are a couple of things you need to do to get it up and running. 
 
