@@ -7,7 +7,7 @@ description: >
 keywords: EBS 
 ---
 
-The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture of information about community events that are a potential risk to public health. Deployed at the community-level, it is designed to: 
+The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture of information about community events that are a potential risk to public health. Deployed at the community level, this functionality is designed to: 
 
 * Achieve earliest possible detection of COVID-19 cases in communities
 * Provide visibility into signals, reports, and investigations centrally for follow-up
