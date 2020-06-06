@@ -8,13 +8,13 @@ relatedContent: >
   apps/guides/forms/additional-docs
   apps/guides/forms/multimedia
   apps/guides/forms/app-form-sms
-  apps/guides/gateway/configuration
+  apps/guides/messaging/gateway/configuration
 ---
 Contact forms are used to create person or place types. Prior to version 3.7, CHT Core supported 4 contact types - 3 place types (clinic, health_center, district_hospital) and one person type (person). From version 3.7, an unlimited number of place and person types are supported. Each contact-type should ideally have two forms; one for creation, and another for editing. 
 
 These forms are stored in the `forms/contact` subfolder of the project config directory. The naming convention used sould be `<contact_type_id-{create|edit}>.xlsx`. The `contact_type_id` prefix should match what's specified in the contact form settings page. 
 
-{{% see-also page="apps/reference/contact-forms" title="Reference Documentation for Contact Forms" %}}
+{{% see-also page="apps/reference/forms/contact" title="Reference Documentation for Contact Forms" %}}
 
 ## Person-type forms
 

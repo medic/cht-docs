@@ -6,7 +6,7 @@ description: >
   Notes on how to set up EC2
 relatedContent: >
   apps/guides/hosting/self-hosting
-  apps/guides/database-management/couch2pg-oom-errors
+  apps/guides/database/couch2pg-oom-errors
 ---
 
 ## Configure self-hosting

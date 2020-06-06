@@ -6,7 +6,7 @@ description: >
   Organizing people and places, and their relationship to one-another
 keywords: hierarchy
 relatedContent: >
-  apps/concepts/hierarchy
+  apps/reference/app-settings/hierarchy
 ---
 
 The Core Framework requires a hierarchy to organize the information in the app. It is often based on the hierarchy of a health system within a particular geographic region. 
@@ -17,7 +17,7 @@ A user logging into their app will see a custom set of people, tasks, reports, a
 
 The information hierarchy is configured in the administration console. The hierarchy levels can be given different titles depending on a particular health system’s program or reporting structures. 
 
-{{% see-also page="apps/reference/hierarchy" title="Defining Hierarchy" %}}
+{{% see-also page="apps/reference/app-settings/hierarchy" title="Defining Hierarchy" %}}
 
 
 ### Places

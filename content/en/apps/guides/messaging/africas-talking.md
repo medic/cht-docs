@@ -5,11 +5,11 @@ weight:
 description: >
   Integration for sending and receiving SMS
 relatedContent: >
-  app-settings/sms
+  apps/reference/app-settings/sms
   apps/guides/forms/app-form-sms
-  apps/guides/sms/sms-states
-  apps/guides/sms/message-loops
-  apps/guides/sms/shortcodes
+  apps/guides/messaging/sms-states
+  apps/guides/messaging/message-loops
+  apps/guides/messaging/shortcodes
 ---
 
 

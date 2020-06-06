@@ -5,8 +5,8 @@ weight: 20
 description: >
   List of Phones that work well with Medic Gateway
 relatedContent: >
-  apps/guides/gateway/troubleshooting
-  apps/guides/gateway/configuration
+  apps/guides/messaging/gateway/troubleshooting
+  apps/guides/messaging/gateway/configuration
 ---
 
 In order to implement the Medic Mobile Standard package at your site, you will require an Android device for the Medic gateway. You may use an existing Android device and are not required to purchase a new one. However, please note that the Android device must always stay in your organization’s office or facility, and must be connected to stable and continuous internet at all times.

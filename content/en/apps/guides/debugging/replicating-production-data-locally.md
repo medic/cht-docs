@@ -6,7 +6,7 @@ description: >
   How to copy data from an instance to a local CouchDB database and app
 relatedContent: >
   apps/reference/app-settings/replication
-  apps/guides/replication
+  apps/guides/performance/replication
 ---
 
 Sometimes there will be a production problem that you need to dig into locally to solve. This guide explains how to:

@@ -66,7 +66,7 @@ For the CHT to be able to export the file for DHIS2, it needs to know the specif
 
 Configure the data set in `app_settings.json`.
 
-{{% see-also page="apps/reference/dhis2" title="DHIS2 in App Settings" %}}
+{{% see-also page="apps/reference/app-settings/dhis2" title="DHIS2 in App Settings" %}}
 
 ### Organisation units
 
@@ -77,7 +77,7 @@ Update the contact document of each place you wish to map to an organisation uni
 {{% /alert %}}
 
 
-{{% see-also page="apps/reference/contact-forms" title="Contact Forms" %}}
+{{% see-also page="apps/reference/forms/contact" title="Contact Forms" %}}
 
 ```json
 {

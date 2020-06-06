@@ -6,7 +6,7 @@ description: >
   Overview of the possible states of SMS messages
 relatedContent: >
   apps/features/messaging
-  apps/guides/sms/message-loops
+  apps/guides/messaging/message-loops
   apps/reference/app-settings/sms
 keywords: messaging
 ---

@@ -7,7 +7,7 @@ description: >
 keywords: impact monitoring 
 relatedContent: >
   core/overview/data-flows-for-analytics
-  apps/guides/telemetry
+  apps/guides/performance/telemetry
 ---
 
 Impact monitoring is an essential part of both the Community Health Toolkit and Medic Mobile's processes and ethos. We are committed to harnessing data to: 

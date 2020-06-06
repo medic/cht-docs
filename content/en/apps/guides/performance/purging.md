@@ -8,7 +8,7 @@ keywords:
 relatedContent: >
   design/personas/chw-janet
   apps/features/reports
-  apps/guides/invalid-reports
+  apps/guides/data/invalid-reports
   apps/reference/app-settings/patient_reports
 ---
 

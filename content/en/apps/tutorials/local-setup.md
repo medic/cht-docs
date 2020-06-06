@@ -5,8 +5,8 @@ weight: 1
 description: >
   Setting up a local environment to build and test CHT applications
 relatedContent: >
-  core/overview/docker-setup
-  core/overview/using-windows
+  core/guides/docker-setup
+  core/guides/using-windows
 ---
 
 ## Purpose of the tutorial

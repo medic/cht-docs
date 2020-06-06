@@ -6,7 +6,7 @@ description: >
  Configuring shortcodes for SMS messaging
 relatedContent: >
   apps/reference/app-settings/sms
-  apps/guides/sms/sms-states
+  apps/guides/messaging/sms-states
 ---
 
 Shortcodes used for SMS messaging are generated on `doc.patient_id` against any document of `type` `person`. By default, these shortcodes start at 5 numeric digits long, and will increase in length as deemed necessary by the generation algorithm.

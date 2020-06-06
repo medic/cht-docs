@@ -8,7 +8,7 @@ relatedContent: >
   apps/guides/forms/additional-docs
   apps/guides/forms/app-form-sms
   apps/guides/forms/contact-forms
-  apps/guides/gateway/configuration
+  apps/guides/messaging/gateway/configuration
 ---
 
 ## Multimedia Formats
