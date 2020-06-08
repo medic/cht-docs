@@ -225,6 +225,10 @@ Make notes and tips stand out by using blockquote styling.
 This is a sample note.
 {{% /alert %}}
 
+`{{%/* alert title="Note" %}} 
+This is a sample note.
+{{% /alert */%}}`
+
 ### Images
 
 Use the figure shortcode for images. This uses built-in styling that is responsive.
