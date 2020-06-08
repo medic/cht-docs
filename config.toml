@@ -1,4 +1,4 @@
-baseURL = "https://docs.communityhealthtoolkit.org/beta/"
+baseURL = "https://docs.communityhealthtoolkit.org/"
 title = "Community Health Toolkit"
 
 refLinksErrorLevel = "ERROR"
