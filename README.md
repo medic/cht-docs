@@ -25,6 +25,6 @@ To install, follow the [installation instructions for your Operating System](htt
 
 ## Continuous Deployment
 
-All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to deploy the documentation site: [docs.communityhealthtoolkit.org/beta](https://docs.communityhealthtoolkit.org/beta)
+All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to deploy the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
 
-![CHT Documentation Site Build](https://github.com/medic/beta/workflows/CHT%20Documentation%20Site%20Build/badge.svg)
+![CHT Documentation Site Build](https://github.com/medic/cht-docs/workflows/CHT%20Documentation%20Site%20Build/badge.svg)
