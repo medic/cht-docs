@@ -50,14 +50,13 @@ In 3.10, we add the ability to limit replication depth for reports, in conjuncti
 
 ##### Contact Depth
 
-Depth is calculated relative to the user's home place, having the user's facility at depth = 0. Places and contacts that are parented by the facility are on depth = 1, and so on. 
+Contact depth is calculated relative to the user's home place, having the user's facility at depth = 0. Places and contacts that are parented by the facility are on depth = 1, and so on. 
 
 For example, considering the following contact hierarchy:
 ```
 district > health_center > clinic > area > family > patient
 ``` 
-
-and a `supervisor` at `health_center` level and the following configuration:
+a `supervisor` at `health_center` level, and the following configuration:
 ```json
 { "replication_depth": [{ "role": "supervisor_role", "depth": 2 }]}
 ``` 
@@ -76,19 +75,7 @@ With the following configuration:
 the `supervisor`'s docs change to:
 - (level 0) `health_center` + all reports about `health_center`
 - (level 1) contacts whose parent is `health_center` + all reports about these contacts
-- (level 1) `clinic` + all reports about `clinic`
-
-If a user's roles match multiple `replication_depth` configs, the one with the highest `depth` is selected.
-```json
-{ 
-  "replication_depth": [
-    { "role": "role1", "depth": 1 },
-    { "role": "role2", "depth": 2 },
-    { "role": "role3", "depth": 3 }
-  ]
-}
-``` 
-A user with `roles: ["role1", "role2", "role3"]` will have a replication depth of 3. 
+- (level 1) `clinic` + all reports about `clinic` 
 
 ##### Report Depth
 
@@ -118,7 +105,23 @@ the `supervisor`'s docs change to:
 - (level 2) contacts whose parent is `clinic` + reports about these contacts submitted by `supervisor`
 - (level 2) `family` + reports about `family` submitted by the `supervisor`
 
-If a user's roles match multiple `replication_depth` configs, the one with the highest `depth` is selected.   
+If `report_depth` is omitted, the user will have access to all reports about contacts they see. 
+
+If `report_depth` is higher than `depth`, it has no effect.  
+
+If `depth` is omitted, the rule is invalid and will be ignored. 
+
+If a user's roles match multiple `replication_depth` entries, the one with the highest `depth` is selected.
+```json
+{ 
+  "replication_depth": [
+    { "role": "role1", "depth": 1 },
+    { "role": "role2", "depth": 2 },
+    { "role": "role3", "depth": 3 }
+  ]
+}
+``` 
+A user with `roles: ["role1", "role2", "role3"]` will have a replication depth of 3. 
 
 ```json
 { 
@@ -131,11 +134,7 @@ If a user's roles match multiple `replication_depth` configs, the one with the h
 ``` 
 A user with `roles: ["role1", "role2", "role3"]` will have a replication depth of 5 and report replication depth of 2.
 
-If `report_depth` is omitted, the user will have access to all reports about contacts they see. 
 
-If `report_depth` is higher than `depth`, it has no effect.  
-
-If `depth` is omitted, the rule is invalid and will be ignored. 
 
 ### Supervisor signoff
 
