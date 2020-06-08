@@ -444,7 +444,7 @@ Supported `events_types` are:
 ### Accept case reports
 
 Allow reporting about case centric workflows by
-- validating the report ([configuration documentation](app-settings-validations.md)),
+- validating the report configuration documentation,
 - assigning the relevant place to the report if a registration with the given case_id exists,
 - clearing messages on the registration, and
 - generating response messages on the report.
