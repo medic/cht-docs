@@ -6,6 +6,7 @@ description: >
   Settings for downloading copies of data onto a user's device.
 keywords: 
 relatedContent: >
+  apps/reference/app-settings/replication_depth
   apps/guides/debugging/replicating-production-data-locally
 ---
 
