@@ -11,23 +11,23 @@ relatedContent: >
   apps/concepts/users
 ---
 
-## Purpose of the tutorial
+## Purpose of the Tutorial
 
 In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using medic-conf. If you haven't already, have a look at [part 1](creating-and-managing-users-and-contacts.md) of this tutorial for a useful overview of key concepts.
 
-## Brief overview of key concepts
+## Brief Overview of Key Concepts
 
-[**medic-conf**](https://github.com/medic/medic-conf) is a command-line interface tool to manage and configure your apps built using the Core Framework of the Community Health Toolkit.
+[*medic-conf*](https://github.com/medic/medic-conf) is a command-line interface tool to manage and configure your apps built using the Core Framework of the Community Health Toolkit.
 
 See more [key concepts](creating-and-managing-users-and-contacts.md#brief-overview-of-key-concepts) in part 1 of this tutorial.
 
-## Required resources
+## Required Resources
 
 You should have a functioning CHT instance and have medic-conf installed locally. Read [How to set up a CHT local configuration environment](setting_up_local_configuration_environment.md)
 
-## Implementation steps
+## Implementation Steps
 
-In these steps you are going to create a Health Facility, CHW areas, primary contacts for the CHW areas, and their associated users.
+In these steps you are going to create a Health Facility, CHW Areas, primary contacts for the CHW Areas, and their associated users.
 
 ### 1. Create Health Facilities (using medic-conf's csv-to-docs and upload-docs features)
 
@@ -35,7 +35,7 @@ To create contacts and their associated users with medic-conf, you will need to 
 
 For example, file named `place.district_hospital.csv` adds the property `"type":"district_hospital"` and a file named `person.clinic.csv` add the property `"type":"person"`
 
-Create a CSV file named `place.district_hospital.csv` and add the details of the health facilities you would like to create.
+Create a CSV file named `place.district_hospital.csv` and add the details of the Health Facilities you would like to create.
 
 | name                   |
 | ---                    |
@@ -63,7 +63,7 @@ Be sure to replace the values `<username>` and `<password>` with the actual user
 
 ### 2. Create CHW Areas, CHW Contacts and Users (using medic-conf's create-users feature)
 
-Next you are going to create CHW areas for the health facilities you created in the step above along with the CHW contacts and users for these CHW areas.
+Next you are going to create CHW Areas for the Health Facilities you created in the step above along with the CHW contacts and users for these CHW Areas.
 
 Create a CSV file named `users.csv` and add the details of the Users, CHW contacts, and CHW Areas you would like to create. Save this file in the base project directory.
 
@@ -71,7 +71,7 @@ Create a CSV file named `users.csv` and add the details of the Users, CHW contac
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | mmutiso | q3Z5-vH5 | district_admin | Mary Mutiso | 0712345678 | Mary Mutiso | 0712345678 | Female | 36 | health_center | Mary Mutiso's Area | `<facility uuid>` |
 
-The value `place.parent` is the uuid of the Facility to which the CHW Area belongs to. You can get this value by selecting the Facility in the webapp and copying the last portion of the url.
+The value `place.parent` is the uuid of the Facility to which the CHW Area belongs to. You can get this value by selecting the Health Facility in the webapp and copying the last portion of the url.
 
 ![facility uuid](facility-uuid.png "Facility uuid")
 
@@ -81,7 +81,7 @@ Run the command
 medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs create-users
 ```
 
-This will create the CHW area, the CHW contact, and the user that the CHW will use to log into the application.
+This will create the CHW Area, the CHW contact, and the user that the CHW will use to log into the application.
 
 ## Frequently Asked Questions
 

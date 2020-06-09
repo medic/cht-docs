@@ -9,7 +9,7 @@ relatedContent: >
   core/guides/using-windows
 ---
 
-## Purpose of the tutorial
+## Purpose of the Tutorial
 
 This tutorial will take you through setting up a local environment to build and test CHT applications. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
@@ -18,17 +18,17 @@ By the end of the tutorial you should be able to:
 - View the login page to CHT webapp on localhost
 - Upload default settings to localhost
 
-## Brief overview of key concepts
+## Brief Overview of Key Concepts
 
-**CHT Core Framework** The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are offline-first, and work on basic phones (via SMS), smartphones, tablets, and computers.
+*CHT Core Framework* The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are offline-first, and work on basic phones (via SMS), smartphones, tablets, and computers.
 
-**Medic Project Configurer** a.k.a ***medic-conf*** is command-line interface tool to manage and configure CHT apps.
+*Medic Project Configurer* a.k.a ***medic-conf*** is command-line interface tool to manage and configure CHT apps.
 
-**Docker** is a tool designed to make it easier to create, deploy, and run applications by using containers.  
+*Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.  
 
-**Containers** allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
+*Containers* allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
 
-## Required resources
+## Required Resources
 
 Before you begin, you need to have some useful software and tools that are required for things to work.
 
@@ -40,9 +40,9 @@ You also require Docker for your operating system:
 - [Docker for MacOS](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 - [Docker for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 
-## Implementation steps
+## Implementation Steps
 
-Now that you have the dependent tools and software install, you are ready to begin setting up your CHT local environment.
+Now that you have the dependent tools and software installed, you are ready to set up your CHT local environment.
 
 ### 1. Install medic-conf
 
@@ -70,7 +70,7 @@ Once the command is done running, navigate to `https://localhost` on a Google Ch
 
 ![medic login](medic-login.png "Medic login")
 
-### 3. Create and upload a blank project
+### 3. Create and Upload a Blank Project
 
 With `medic-conf` you can create a blank project. This provides you a template from which you can begin working on CHT. Just run:
 
