@@ -3,14 +3,14 @@ title: "Data Flows for Analytics"
 linkTitle: "Data Flows"
 weight: 3
 description: >
-  Data Flows Through The CHT for Analytics, Data Science & Impact Monitoring
+  An overview of data flows in the CHT for analytics, impact monitoring, and data science
 relatedContent: >
   apps/guides/data
   apps/guides/database
 ---
 
 
-In this section we focus on how data flows through the various components of the Community Health Toolkit. The CHT is built to support the delivery of quality community health care in the hardest to reach areas. The CHT is designed to work in areas with low connectivity, which means it is an offline-first toolkit. The architectural and technology choices in the stack are mostly guided by this principle, which will be evident in the discussion of the data management pipeline.
+In this section, we focus on how data flows through the various components of the Community Health Toolkit. The CHT is built to support the delivery of quality community health care at the last mile. The CHT is designed to work in areas with low connectivity, which means it is an offline-first toolkit for care provision. The architectural and technology choices in the stack are mostly guided by this principle, which will be evident in the discussion of the data management pipeline.
 
 
 
@@ -21,9 +21,9 @@ In this section we focus on how data flows through the various components of the
 At a high level:
 
 - Data are collected from the device of a health worker;
-- Data are pushed to an online instance from where data are available to other health workers, supervisors and decision makers;
-- Data are transferred to a relational database (PostgreSQL) using [couch2pg](https://github.com/medic/medic-couch2pg) and made available for impact monitoring, data science projects and visualizations;
-- Access to PostreSQL is given to relevant parties at this level, for example Research & Learning team members for impact monitoring and data science;
+- Data are pushed to an online instance from where data are available to other health workers, supervisors, and decision makers;
+- Data are transferred to a relational database (PostgreSQL) using [couch2pg](https://github.com/medic/medic-couch2pg) and made available for impact monitoring, data science projects, and visualizations;
+- Access to PostreSQL is given to relevant parties at this level, for example members of the Research & Learning team for impact monitoring and data science;
 - Visualization platforms, such as [Klipfolio](https://www.klipfolio.com/), are then connected to PostgreSQL from where program managers and other partner representatives can access visualizations of their data for decision-making
 
 
