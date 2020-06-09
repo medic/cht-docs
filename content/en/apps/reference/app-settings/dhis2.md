@@ -1,6 +1,6 @@
 ---
-title: ".dhisDataSets"
-linkTitle: ".dhisDataSets"
+title: ".dhis_data_sets"
+linkTitle: ".dhis_data_sets"
 weight: 5
 description: >
   **DHIS2 Integration**: Instructions and schema for defining DHIS2 integrations
