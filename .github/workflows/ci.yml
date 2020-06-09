@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
+        with:
+          submodules: recursive  # Fetch the Docsy theme
+          fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
       - name: Install Node depencies
         uses: actions/setup-node@v1
@@ -21,12 +24,6 @@ jobs:
       - run: npm install
       - run: npm install -g postcss-cli
       - run: npm i -D autoprefixer
-
-
-      - name: Checkout submodules
-        uses: srt32/git-actions@v0.0.3
-        with:
-          args: git submodule update --init --recursive
 
       - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
