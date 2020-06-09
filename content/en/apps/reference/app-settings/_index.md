@@ -42,7 +42,7 @@ The following settings do not need to be specified. They should only be defined 
 
 ## SMS Workflows
 
-Workflows involving SMS are configured by defining [schedules]({{< relref "schedules" >}}), [registrations]({{< relref "registrations" >}}), and [patient reports]({{< relref "patient_reports" >}}). Schedules of automated messages can be sent from the server at specificied times in the future, and reports can be associated to contacts.Forms can also be configured to clear the schedule, or silence it for a period of time.
+Workflows involving SMS are configured by defining [schedules]({{< relref "schedules" >}}), [registrations]({{< relref "registrations" >}}), [patient reports]({{< relref "patient_reports" >}}), and [case reports]({{< relref "case_reports" >}}). Schedules of automated messages can be sent from the server at specificied times in the future, and reports can be associated to contacts.Forms can also be configured to clear the schedule, or silence it for a period of time.
 
 ## Variables
 

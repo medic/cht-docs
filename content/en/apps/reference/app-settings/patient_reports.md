@@ -76,9 +76,3 @@ This sample shows a `V` report clearing schedules that have messages within 8 da
     }
   ]
 ```
-
-<!-- TODO 
-## Case Reports
-### `app_settings.json .case_reports[]`
--->
-
