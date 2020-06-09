@@ -7,9 +7,9 @@ relatedContent: >
   apps/concepts/prerequisites
 ---
 
-App Management is an interface for non-technical administrative users. With it they can manage users and make minor changes to the app, such as setting the SMS gateway phone number, and changing the default language for the app.
+*App Management* is an interface for non-technical administrative users. With it you can manage users and make minor changes to the app, such as setting the SMS gateway phone number, and changing the default language for the app.
 
-The App Management pages are a desktop-only interface meant for users with a reliable internet connection.
+The **App Management** pages are a desktop-only interface meant for users with a reliable internet connection.
 
 {{< figure src="admin-roles.png" link="admin-roles.png" class="col-12 col-lg-8" >}}
 <br clear="all">
@@ -31,9 +31,9 @@ These sections of the App can be configured from within the Admin Console:
 
 ## App Management vs medic-conf
 
-In general, everything that can be done in the Admin Console can also be done in command line tools, but not everything in the command line tools can be done in the Admin Console. 
+In general, everything that can be done in the **Admin Console** can also be done in command line tools, but not everything in the command line tools can be done in the **Admin Console**. 
 
-The Admin Console does not track changes. For most app development, we recommend using command line tools such as medic-conf and tracking files using a version control system.
+The **Admin Console** does not track changes. For most app development, using command line tools such as medic-conf and tracking files using a version control system is recommended
 
 **In Admin Console But Not Command Line Tools:**
 - User management
