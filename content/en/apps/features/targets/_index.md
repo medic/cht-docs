@@ -10,19 +10,19 @@ relatedContent: >
 ---
 <!-- ## Targets: Performance Dashboards -->
 
-Targets is a user dashboard or analytics tab. These widgets provide a summary or analysis of the data in reports that have been submitted. These widgets can be configured to track metrics for an individual CHW or for an entire health facility. Currently, the user must have access to the report in order to generate the widget with its data.
+*Targets* is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. These widgets can be configured to track metrics for an individual CHW or for an entire health facility. Currently, the user must have access to the submitted report in order to generate the widget with its data.
 
-For CHWs, the Targets tab can provide a quick summary of their progress towards their goals. For supervisors, nurses, and other facility-based users, these widgets might display important insights into how their community unit is performing.
+For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For supervisors, nurses, and other facility-based users, the **Targets** tab provides important insights into how their community is performing.
 
-Targets can be configured for any user that has offline access.
+Targets or goals can be configured for any user that has offline access.
 
 ## Types of Widgets
 
 {{< figure src="targets-main.png" link="targets-main.png" class="right col-6 col-lg-3" >}}
 
-There are two basic types of widgets: counts and percentages. Count widgets display a number while percentage widgets display a horizontal bar that represents 100%. Every element is configurable, including the text, the icon, the presence of a goal (or not), the value of the goal, the time frame, and the total number of widgets.
+There are two basic types of widgets: counts and percentages. *Count widgets* display a numeric sum while *percentage widgets* display progress along a horizontal bar that represents 100%. Every element of these widgets is configurable, including the text, the icon, the presence of a goal (or not), the value of the goal, the time frame, and the total number of widgets.
 
-The data for both widgets is calculated as either “this month” (resets back to 0 at the beginning of each month) or “all time” (a cumulative total). The time frame is per widget level so there can be a mix of date ranges on the Targets page. 
+The data for both widgets is calculated as either “this month” (resets back to 0 at the beginning of each month) or “all time” (a cumulative total). The time frame is per widget level so there can be a mix of date ranges on the **Targets** tab. 
 
 Additionally, each widget can have a goal and there can be a mix of widgets with and without goals. If goals are set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules.
 
