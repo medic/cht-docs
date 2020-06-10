@@ -48,7 +48,7 @@ People are both patients in the system and users of the system, such as CHWs or 
 
 People always have a `parent` place.
 
-### Parent hierachy representation
+### Parent hierarchy representation
 
 Contacts **store** their parent hierarchy as a minified hierarchical structure, which records the `_id` of each parent up until the top of the hierarchy:
 
@@ -95,6 +95,76 @@ Generally when contacts are **used** in the app they are first "hydrated", with 
 }
 ```
 
+As of version **3.10**, you can connect contacts with other documents via the `linked_docs` property. This allows the app to have access to these linked documents when the contact is **used**.
+
+Like the parent hierarchy, linked docs are stored as a minified object, where every linked doc is identified by a string tag and the UUID of the document it represents. 
+
+```js
+{
+  type: 'person',
+  name: 'A patient',
+  parent: {
+    _id: 'clinic-id',
+  },
+  linked_docs: {
+    custom_tag1: 'some-contact-id',
+    custom_tag2: 'other-contact-id',
+    custom_tag3: 'report-id',
+    ... // etc
+  },
+}
+```
+
+Linked docs are shallowly "hydrated" along with the parent hierarchy:
+
+```js
+{
+  type: 'person',
+  name: 'A patient',
+  parent: {
+    _id: 'clinic-id',
+    name: 'A clinic',
+    reported_date: 1234,
+    ... // etc
+    parent: {
+      _id: 'health_centre-id',
+      name: 'A Health Centre',
+      reported_date: 1134,
+      ... // etc
+      parent: {
+        _id: 'district_hospital-id',
+        name: 'THE District Hospital',
+        reported_date: 1034,
+        ... // etc
+      }
+    }
+  },
+  linked_docs: {
+    custom_tag1: {
+      _id: 'some-contact-id',
+      name: 'some contact',
+      type: 'person',
+      parent: { _id: 'other-clinic' },
+      reported_date: 4569,
+      ... // etc
+    },
+    custom_tag2: {
+      _id: 'other-contact-id',
+      name: 'other contact',
+      type: 'clinic',
+      parent: { _id: 'health_center' },
+      ... // etc
+    },
+    custom_tag3: {
+      _id: 'report-id',
+      form: 'FORM',
+      contact: { _id: 'submitter-id' },
+      ... // etc
+    },
+  },
+}
+```
+
 ## Reports
 
 Reports are created by users filling out and submitting forms, as well as sending in SMS.
@@ -121,6 +191,7 @@ Additionally, SMS reports:
 Additionally, XML reports:
  - Have the XML file that Enketo (the XForm renderer used) generates as an attachment
  - Have a `content_type` property of `xml`
+ 
 
 ## Forms
 
