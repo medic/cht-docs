@@ -28,18 +28,7 @@ Sometimes though you want to only access contacts near the top of the hierarchy.
 
 In 3.10, we add the ability to limit replication depth for reports, in conjunction with replication depth for contacts.
 
-##### Code sample 3.9 and earlier:
-
-```json
-{
-  "replication_depth": [
-    { "role": "district_manager", "depth": 1 },
-    { "role": "national_manager", "depth": 2 }
-  ]
-}
-```
-
-##### Code sample 3.10 and later:
+##### Code sample:
 ```json
 {
   "replication_depth": [
@@ -49,9 +38,11 @@ In 3.10, we add the ability to limit replication depth for reports, in conjuncti
 }
 ```
 
+{{% see-also page="apps/reference/app-settings/replication_depth" title="Replication Depth" %}}
+
 ##### Contact Depth
 
-Contact depth is calculated relative to the user's home place, having the user's facility at depth = 0. Places and contacts that are parented by the facility are on depth = 1, and so on. 
+Contact depth is calculated relative to the user's home place, having the user's facility at depth = 0. Places and contacts that are direct children the facility are on depth = 1, and so on. 
 
 For example, considering the following contact hierarchy:
 ```
@@ -59,24 +50,26 @@ district > health_center > clinic > area > family > patient
 ``` 
 a `supervisor` at `health_center` level, and the following configuration:
 ```json
-{ "replication_depth": [{ "role": "supervisor_role", "depth": 2 }]}
+{ "replication_depth": [{ "role": "supervisor_role", "depth": <variable> }]}
 ``` 
 
-The `supervisor` would download the following contacts and reports:
-- (level 0) `health_center` + all reports about `health_center`
-- (level 1) contacts whose parent is `health_center` +  all reports about these contacts
-- (level 1) `clinic` + all reports about `clinic`
-- (level 2) contacts whose parent is `clinic` + all reports about these contacts
-- (level 2) `family` + all reports about `family`
+The `supervisor` would download the following contacts and reports, depending on condigured depth:
 
-With the following configuration:
-```json
-{ "replication_depth": [{ "role": "supervisor_role", "depth": 1 }]}
-``` 
-the `supervisor`'s docs change to:
-- (level 0) `health_center` + all reports about `health_center`
-- (level 1) contacts whose parent is `health_center` + all reports about these contacts
-- (level 1) `clinic` + all reports about `clinic` 
+| Documents                                         | depth=0 | depth=1 | depth=2 | depth=3 |
+|---------------------------------------------------|---------|---------|---------|---------|
+| `health_center`                                   | ✔       | ✔       | ✔       | ✔       |
+| all reports about `health_center`                 | ✔       | ✔       | ✔       | ✔       |
+| person children of `health_center`                | ❌       | ✔       | ✔       | ✔       |
+| reports about person children of  `health_center` | ❌       | ✔       | ✔       | ✔       |
+| `clinic`                                          | ❌       | ✔       | ✔       | ✔       |
+| all reports about `clinic`                        | ❌       | ✔       | ✔       | ✔       |
+| person children of `clinic`                       | ❌       | ❌       | ✔       | ✔       |
+| reports about person children of `clinic` | ❌       | ❌       | ✔       | ✔       |
+| `family`                                          | ❌       | ❌       | ✔       | ✔       |
+| all reports about `family`                        | ❌       | ❌       | ✔       | ✔       |
+| person children of `family`                       | ❌       | ❌       | ❌       | ✔       |
+| reports about person children of `family`         | ❌       | ❌       | ❌       | ✔       |
+
 
 ##### Report Depth
 
@@ -85,26 +78,34 @@ It only works in conjunction with `depth`.
 
 Following the examples above:
 ```json
-{ "replication_depth": [{ "role": "supervisor_role", "depth": 2, "report_depth": 1 }]}
+{ "replication_depth": [{ "role": "supervisor_role", "depth": <variable>, "report_depth": <variable> }]}
 ```
 
 The `supervisor` would download the following contacts and reports:
-- (level 0) `health_center` + all reports about `health_center`
-- (level 1) contacts whose parent is `health_center` + all reports about these contacts
-- (level 1) `clinic` + all reports about `clinic`
-- (level 2) contacts whose parent is `clinic` + reports about `clinic` submitted by `supervisor`
-- (level 2) `family` +  reports about `family` submitted by the `supervisor`
 
-Similarly, with:
-```json
-{ "replication_depth": [{ "role": "supervisor_role", "depth": 2, "report_depth": 0 }]}
-``` 
-the `supervisor`'s docs change to:
-- (level 0) `health_center` + all reports about `health_center`
-- (level 1) contacts whose parent is `health_center` + reports about these contacts submitted by `supervisor`
-- (level 1) `clinic` + reports about `clinic` submitted by the `supervisor`
-- (level 2) contacts whose parent is `clinic` + reports about these contacts submitted by `supervisor`
-- (level 2) `family` + reports about `family` submitted by the `supervisor`
+| Documents                                                                   | depth=0 | depth=1 report_depth=0 | depth=2 report_depth=0 | depth=2 report_depth=1 | depth=2 report_depth=0 | depth=3 report_depth=1 | depth=3 report_depth=2 |
+|-----------------------------------------------------------------------------|---------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
+| `health_center`                                                             | ✔       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| all reports about `health_center`                                           | ✔       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| children of `health_center`                                          | ❌       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about children of `health_center`  submitted by `supervisor` | ❌       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about children of `health_center`  submitted by other users  | ❌       | ❌                       | ❌                       | ✔                       | ❌                       | ✔                       | ✔                       |
+| `clinic`                                                                    | ❌       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about `clinic` submitted by `supervisor`                            | ❌       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about `clinic` submitted by other users                             | ❌       | ❌                       | ❌                       | ✔                       | ❌                       | ✔                       | ✔                       |
+
+| Documents                                                                   | depth=0 | depth=1 report_depth=0 | depth=2 report_depth=0 | depth=2 report_depth=1 | depth=2 report_depth=0 | depth=3 report_depth=1 | depth=3 report_depth=2 |
+|-----------------------------------------------------------------------------|---------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
+| children of `clinic`                                                 | ❌       | ❌                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about children of `clinic` submitted by `supervisor`         | ❌       | ❌                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about children of `clinic` submitted by other users          | ❌       | ❌                       | ❌                       | ❌                       | ❌                       | ❌                       | ✔                       |
+| `family`                                                                    | ❌       | ❌                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about `family` submitted by `supervisor`                            | ❌       | ❌                       | ✔                       | ✔                       | ✔                       | ✔                       | ✔                       |
+| reports about `family` submitted by other users                             | ❌       | ❌                       | ❌                       | ❌                       | ❌                       | ❌                       | ✔                       |
+| children of `family`                                                 | ❌       | ❌                       | ❌                       | ❌                       | ❌                       | ✔                       | ✔                       |
+| reports about children of `family` submitted by `supervisor`         | ❌       | ❌                       | ❌                       | ❌                       | ❌                       | ✔                       | ✔                       |
+| reports about children of `family` submitted by other users          | ❌       | ❌                       | ❌                       | ❌                       | ❌                       | ❌                       | ❌                       |
+        
 
 If `report_depth` is omitted, the user will have access to all reports about contacts they see. 
 
