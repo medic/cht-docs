@@ -14,7 +14,7 @@ Targets is a user dashboard or analytics tab. The tab includes  widgets that pro
 
 For CHWs, the Targets tab can provide a quick summary of their progress towards their goals. For Supervisors, Nurses, and facility-based users, widgets might display important insights into how their community unit is performing.
 
-Note: Targets can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data.
+Note: Targets can be configured for any user that has online or offline capabilities. A user must have access to the report in order to generate the widget with its data.
 
 ## Types of Widgets
 
