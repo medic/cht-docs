@@ -3,7 +3,7 @@ title = "Community Health Toolkit"
 
 refLinksErrorLevel = "ERROR"
 
-enableRobotsTXT = true
+enableRobotsTXT = false
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
 theme = ["docsy"]
@@ -111,13 +111,13 @@ github_project_repo = "https://github.com/medic/cht-core"
 # github_subdir = ""
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-# gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+gcs_engine_id = "004290134484316368579:gvcrxmetz4s"
 
 # Enable Algolia DocSearch
 algolia_docsearch = false
 
 # Enable Lunr.js offline search
-offlineSearch = true
+offlineSearch = false
 
 # User interface configuration
 [params.ui]
