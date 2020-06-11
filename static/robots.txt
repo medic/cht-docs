@@ -1,0 +1,3 @@
+Sitemap: https://docs.communityhealthtoolkit.org/sitemap.xml
+User-agent: *
+Disallow:
