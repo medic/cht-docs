@@ -18,6 +18,8 @@
 	<hr class="panel-line">
 	{{ range $pages }}
 	{{ $path := trim . " \n" }}
+	{{ $anchor := index ( split $path "#" ) 1 }}
+	{{ $path := index ( split $path "#" ) 0 }}
 	{{ $page := $.Site.GetPage $path }}
 	{{ if not $page }}
 	{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
@@ -29,8 +31,7 @@
 	{{ with $page }}
 	<div class="entry">
 		<h5>
-			<a href="{{ .RelPermalink }}">{{ template "relatedcontenttitle" (dict "p1" $page "p2" $page) }}</a>
-			{{/* <a href="{{ .RelPermalink }}">{{- .Title -}}</a> */}}
+			<a href="{{ .RelPermalink }}{{ if $anchor }}{{ printf "#%s" $anchor }}{{ end }}">{{ template "relatedcontenttitle" (dict "p1" $page "p2" $page) }}{{ if $anchor }}{{ printf ": %s" ( $anchor | humanize | title )}}{{ end }}</a>
 		</h5>
 		<p class="one-liner">{{ $page.Description | markdownify | plainify | safeHTML }}</p>{{/* removes markdown and html codes: test scenario: **bold & html char** */}}
 	</div>
