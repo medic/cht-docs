@@ -2,7 +2,6 @@
 title: "API to interact with CHT Applications"
 linkTitle: "API"
 weight : 1
-type: "swagger"
 description: >
   RESTful Application Programming Interfaces for interacting with CHT applications from other software
 ---
