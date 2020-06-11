@@ -1,5 +1,5 @@
 ---
-title: ".case_reports"
+title: ".accept_case_reports"
 linkTitle: ".accept_case_reports"
 weight: 5
 description: >
