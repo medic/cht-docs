@@ -111,7 +111,7 @@ github_project_repo = "https://github.com/medic/cht-core"
 # github_subdir = ""
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "012757337822273591625:afn5s9moufw"
+gcs_engine_id = "004290134484316368579:gvcrxmetz4s"
 
 # Enable Algolia DocSearch
 algolia_docsearch = false
