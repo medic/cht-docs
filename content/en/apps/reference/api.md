@@ -3,7 +3,7 @@ title: "API to interact with CHT Applications"
 linkTitle: "API"
 weight : 1
 description: >
-  RESTful Application Programming Interfaces for interacting with CHT applications from other software
+  RESTful Application Programming Interfaces for integrating with CHT applications
 ---
 
 {{% pageinfo %}}
