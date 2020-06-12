@@ -6,7 +6,7 @@ description: >
 keyword: targets
 relatedContent: >
   apps/reference/targets
-  core/overview/db-schema/#targets
+  core/overview/db-schema#targets
   apps/features/integrations/dhis2
 ---
 <!-- ## Targets: Performance Dashboards -->
@@ -56,4 +56,3 @@ Aggregate target metrics show an overview of all CHWs. Metrics are configurable 
 Clicking on an aggregate widget navigates to a detailed view with a breakdown of target data by individual CHW. The individual performance of each CHW is displayed on the right. If a CHW is performing below the target goal, their value will be highlighted in red. 
 
 {{% alert title="Note" %}} The data displayed is based directly on CHW targets, thus subject to the same limitations. If a CHW has synced their data, but a manager has not synced, data displayed will not be up to date (also true in reverse). {{% /alert %}}
-
