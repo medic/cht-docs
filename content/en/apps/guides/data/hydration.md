@@ -83,11 +83,11 @@ The following properties are minified:
 1. `parent` and recursively, every ancestor
 1. `contact`
 1. `patient` and `place` are removed from reports
-1. *As of 3.10* `linked_docs`
+1. *As of 3.10* `linked_docs` when minifying a contact
 
 ### Hydration
 
-Hydration represents the inverse process to minification, where a stored id is replaced with the corresponding document's content. 
+Hydration represents the inverse process to minification, where a stored id representing a connected document is replaced with the corresponding document's content. 
   
 Minified doc: 
 ```json
@@ -167,17 +167,17 @@ when hydrated becomes:
 
 There are two types of hydration:
 * *shallow* hydration - when the id is replaced with the document's content
-* *deep* hydration - when the id is replaced with the document's content and, recursively, deeply hydrate every parent 
+* *deep* hydration - when the id is replaced with the document's content and, recursively, deeply hydrate every ancestor 
 
-##### A hydrated contact has
+###### A hydrated contact has
 
-- deeply hydrated parent
-- shallowly hydrated primary contact
-- *as of 3.10* shallowly hydrated linked docs
+- deeply hydrated `parent` along with every ancestor
+- shallowly hydrated primary `contact`
+- *as of 3.10* shallowly hydrated `linked_docs`
 
-##### A hydrated report has
-- a deeply hydrated submitter
-- a deeply hydrated patient
+###### A hydrated report has
+- a deeply hydrated submitter `contact`
+- a deeply hydrated `patient`
 
 
 
