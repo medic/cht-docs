@@ -11,19 +11,21 @@ relatedContent: >
 ---
 <!-- ## Targets: Performance Dashboards -->
 
-Targets is a user dashboard or analytics tab. The tab includes  widgets that provide a summary or analysis of the data in reports that have been submitted. Widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility. 
+*Targets* is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. Widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility. 
 
-For CHWs, the Targets tab can provide a quick summary of their progress towards their goals. For Supervisors, Nurses, and facility-based users, widgets might display important insights into how their community unit is performing.
+For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community is performing.
 
-{{% alert title="Note" %}} Targets can be configured for any user that has online or offline capabilities. A user must have access to the report in order to generate the widget with its data. {{% /alert %}}
+{{% alert title="Note" %}}
+Targets can be configured for any user that has online or offline capabilities. A user must have access to the submitted report in order to generate the widget with its data.
+{{% /alert %}}
 
 ## Types of Widgets
 
-There are two basic types of widgets: count and percent. Count widgets display a number while percent widgets display progress towards achieving a target. 
+There are two basic types of widgets: count and percent. *Count widgets* display a number while *percent widgets* display progress on a horizontal bar. 
 
-The data for both widgets is calculated as either “this month” (resets back to zero at the beginning of each month) or “all time” (a cumulative total). The data time frame is selected per widget so there can be a mix of ranges displayed on the Targets page.
+The data for both widgets is calculated as either “this month” (resets back to zero at the beginning of each month) or “all time” (a cumulative total). The data time frame is selected per widget so there can be a mix of ranges displayed on the **Targets** tab.
 
-Additionally, each widget can have a goal. If a goal is set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules. There can be a mix of widget types on a Target page that are displayed with or without goals.
+Additionally, each widget can have a goal. If a goal is set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules. There can be a mix of widget types on a Target tab that are displayed with or without goals.
 
 Each element of a widget is configurable, including: text, icon, presence of a goal, value of a goal, and time frame.
 
@@ -33,7 +35,7 @@ Each element of a widget is configurable, including: text, icon, presence of a g
 
 {{< figure src="mobile-count.png" link="mobile-count.png" class="right col-6 col-lg-3" >}}
 
-Count widgets show a tally of a particular report that has been submitted or data within a report that matches a set of criteria. For example, a count can be done for the number of active pregnancies, the number of facility-based deliveries, or the number of households registered that month.
+*Count widgets* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria. For example, a count can be done for the number of active pregnancies, the number of facility-based deliveries, or the number of households registered that month.
 
 A count without a goal displays a simple black number count. A count with a goal displays the value of the goal on the right side and a colored count in the center indicating progress towards achieving the goal. Progress is displayed in green if the count is equal to or above the goal, or in red if the count is below the goal.
 
@@ -60,6 +62,8 @@ Aggregate target metrics show an overview of all CHWs. Metrics are configurable 
 
 Clicking on an aggregate widget navigates to a detailed view with a breakdown of target data by individual CHW. The individual performance of each CHW is displayed on the right. If a CHW is performing below the target goal, their value will be highlighted in red. 
 
-{{% alert title="Note" %}} The data displayed is based directly on CHW targets, thus subject to the same limitations. If a CHW has synced their data, but a manager has not synced, data displayed will not be up to date (also true in reverse). {{% /alert %}}
+{{% alert title="Note" %}}
+The data displayed is based directly on CHW targets, thus subject to the same limitations. If a CHW has synced their data, but a manager has not synced, data displayed will not be up to date (also true in reverse).
+{{% /alert %}}
 
 
