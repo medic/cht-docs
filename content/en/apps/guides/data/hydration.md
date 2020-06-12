@@ -178,7 +178,6 @@ There are two types of hydration:
 ##### A hydrated report has
 - a deeply hydrated submitter
 - a deeply hydrated patient
-- *as of 3.10* shallowly hydrated linked docs
 
 
 
