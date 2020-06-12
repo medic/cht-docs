@@ -19,7 +19,7 @@
 	{{ range $pages }}
 	{{ $path := trim . " \n" }}
 	{{ $anchor := index ( split $path "#" ) 1 }}
-	{{ $path := index ( split $path "#" ) 0 }}
+	{{ $path := strings.TrimRight "/" ( index ( split $path "#" ) 0 ) }}
 	{{ $page := $.Site.GetPage $path }}
 	{{ if not $page }}
 	{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
