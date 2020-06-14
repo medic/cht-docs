@@ -453,7 +453,11 @@ Allow reporting about case centric workflows by
 
 ```json
 "registrations": [{
-  "form": "8"
+  "form": "8",
+  "events": [{
+    "name": "on_create",
+    "trigger": "add_case"
+  }]
 }],
 "accept_case_reports": [{
   "form": "SIGNOFF",
