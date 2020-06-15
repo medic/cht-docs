@@ -45,12 +45,10 @@ An optional goal can be set, such as “100% of patients with a fever should be 
 
 ## Supervisor View
 
-In version 3.9, a Supervisor view was introduced to provide actionable information for CHW coaching and performance management. Targets can be configured to be aggregated and synced to allow Supervisors to view the progress of their health workers towards their goals. Within a Supervisors hierarchy branch, they can view:
+Aggregate targets were introduced in v3.9 to provide Supervisors actionable information about their CHWs, and help with coaching and performance management. Aggregate targets combine the info for each CHW that a Supervisor manages. 
 
 {{< figure src="mobile-supervisor.png" link="mobile-supervisor.png" class="right col-4 col-lg-6" >}}
 
-Aggregate target metrics show an overview of all CHWs. Metrics are configurable based on project needs. For example, some values may be a percent, while others may be a tally. If the group of CHWs is performing on average below the goal, the metrics will be highlighted in red.
+Clicking on an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up.
 
-Clicking on an aggregate widget navigates to a detailed view with a breakdown of target data by individual CHW. The individual performance of each CHW is displayed on the right. If a CHW is performing below the target goal, their value will be highlighted in red. 
-
-{{% alert title="Note" %}} The data displayed is based directly on CHW targets, thus subject to the same limitations. If a CHW has synced their data, but a manager has not synced, data displayed will not be up to date (also true in reverse). {{% /alert %}}
+{{% alert title="Note" %}} Aggregate targets are based on the widgets seen by CHWs, and dependant and the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
