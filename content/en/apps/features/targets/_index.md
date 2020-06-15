@@ -21,7 +21,7 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 
 There are two basic types of widgets: count and percent. *Count widgets* display a numeric sum while *percent widgets* display progress towards achieving a target. 
 
-The data for both widgets is calculated as either “this month” (resets back to zero at the beginning of each month) or “all time” (a cumulative total). The data time frame is selected per widget so there can be a mix of ranges displayed on the **Targets** tab.
+The text, icon, goal, and time frame of each widget is easily configured. The time frame is set per widget, and set to show values for "this month" (resets back to zero at the beginning of each month) or "all time" (a cumulative total).
 
 Additionally, each widget can have a goal. If a goal is set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules. There can be a mix of widget types on a Target page that are displayed with or without goals.
 
