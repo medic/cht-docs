@@ -25,7 +25,6 @@ The text, icon, goal, and time frame of each widget is easily configured. The ti
 
 Additionally, each widget can have a goal. If a goal is set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules. There can be a mix of widget types on a Target page that are displayed with or without goals.
 
-Each element of a widget is configurable, including: text, icon, presence of a goal, value of a goal, and time frame.
 
 <br clear="all">
 
