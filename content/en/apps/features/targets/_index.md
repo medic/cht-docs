@@ -21,11 +21,9 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 
 There are two basic types of widgets: count and percent. *Count widgets* display a numeric sum while *percent widgets* display progress towards achieving a target. 
 
-The data for both widgets is calculated as either “this month” (resets back to zero at the beginning of each month) or “all time” (a cumulative total). The data time frame is selected per widget so there can be a mix of ranges displayed on the **Targets** tab.
+The text, icon, goal, and time frame of each widget is easily configured. The time frame is set per widget, and set to show values for "this month" (resets back to zero at the beginning of each month) or "all time" (a cumulative total).
 
-Additionally, each widget can have a goal. If a goal is set, the widgets have conditional color styling to show whether a goal is unmet (red) or met (green) based on configured rules. There can be a mix of widget types on a Target page that are displayed with or without goals.
 
-Each element of a widget is configurable, including: text, icon, presence of a goal, value of a goal, and time frame.
 
 <br clear="all">
 
@@ -41,18 +39,16 @@ A count without a goal displays a simple black number count. A count with a goal
 
 {{< figure src="mobile-percent.png" link="mobile-percent.png" class="right col-6 col-lg-3" >}}
 
-Percent widgets display a ratio of the number complete versus the total number possible for a given target. They provide insight into how much data of a particular report matches a specific criteria against data that does not match that same criteria. This is calculated based on a true / false statement. For example, newborns should be delivered in a facility (“true”) can be displayed next to newborns that were not delivered in a facility (“false”).
+Percent widgets display a ratio, which helps to provide insight into the proportion that matches a defined criteria. For example, the proportion of newborns delivered in a facility can be presented as a percent with respect to all registered deliveries.
 
 An optional goal can be set, such as “100% of patients with a fever should be given a malaria Rapid Diagnostic Test (mRDT),” to visualize progress towards achieving a target. Widget styling is configured to show green if the goal has been met and red if the goal has not been met. Next to the percent with a goal, the count of reports used in the calculation are shown (e.g. “16 of 20 with mRDT”). CHWs have found this helpful in interpreting target information.
 
 ## Supervisor View
 
-In version 3.9, a Supervisor view was introduced to provide actionable information for CHW coaching and performance management. Targets can be configured to be aggregated and synced to allow Supervisors to view the progress of their health workers towards their goals. Within a Supervisors hierarchy branch, they can view:
+Aggregate targets were introduced in v3.9 to provide Supervisors actionable information about their CHWs, and help with coaching and performance management. Aggregate targets combine the info for each CHW that a Supervisor manages. 
 
 {{< figure src="mobile-supervisor.png" link="mobile-supervisor.png" class="right col-4 col-lg-6" >}}
 
-Aggregate target metrics show an overview of all CHWs. Metrics are configurable based on project needs. For example, some values may be a percent, while others may be a tally. If the group of CHWs is performing on average below the goal, the metrics will be highlighted in red.
+Clicking on an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up.
 
-Clicking on an aggregate widget navigates to a detailed view with a breakdown of target data by individual CHW. The individual performance of each CHW is displayed on the right. If a CHW is performing below the target goal, their value will be highlighted in red. 
-
-{{% alert title="Note" %}} The data displayed is based directly on CHW targets, thus subject to the same limitations. If a CHW has synced their data, but a manager has not synced, data displayed will not be up to date (also true in reverse). {{% /alert %}}
+{{% alert title="Note" %}} Aggregate targets are based on the widgets seen by CHWs, and dependant and the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
