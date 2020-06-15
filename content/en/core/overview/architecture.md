@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-![Architecture of a CHT project](../../img/architecture.svg)
+![Architecture of a CHT project](../../img/architecture.png)
 
 ## Server side
 
