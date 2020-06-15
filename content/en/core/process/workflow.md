@@ -50,9 +50,9 @@ For more help with Git see: [Using Git](./using-git.md).
 - Release branches have the form `<major>.<minor>.x` and should be stable.
 - Feature branches have the form `<issue-number>-<issue-description>` and are work in progress.
 
-**Note**: When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from `master` into the release branch. Then use a pull request to make sure tests pass on Travis before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking).
+{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from `master` into the release branch. Then use a pull request to make sure tests pass on Travis before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
 
-# Issues
+## Issues
 
 Issues are managed in Github. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `medic` repository. If it is a security or sensitive issue it should be opened in the private `medic-projects` repository.
 
@@ -140,9 +140,56 @@ Regardless of what you do with the issue, please:
  - Remove the `Needs Triage` label once triage is complete
  - Document the reasoning by commenting in the issue. This will help reduce mistakes, as the reasoning will be available for everyone to read, and any mistakes there can be rectified.
  
-# Workflow for contributing to cht-docs
-Unlike the above development workflow, the workflow for contributing to [cht-docs](https://github.com/medic/cht-docs) does not involve release management and Acceptance Testing. In order to streamline the process of contributing to docs while still maintaining quality, please submit a pull request with any changes to [cht-docs](https://github.com/medic/cht-docs). One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready. 
+# Documentation Workflow
 
-Where possible, please follow our [docs style guide]({{< ref "docs-style-guide" >}}).
+This documentation site (and related [GitHub site](https://github.com/medic/medic.github.io)) is the CHT’s main resource for informing users on the product. It is designed to provide Community Health Toolkit users clear information on product functionality, as well as the necessary guidelines to accomplish key steps for setting up, deploying, and maintaining the product. 
 
+Documentation is a collaborative effort among all Community members. To improve information on the documentation site, we encourage commenting, asking questions, and sharing ideas for improvement.
 
+## Types of Documentation
+
+Documentation generally falls into three categories:
+
+### Feature Education
+Mainly prepared for a non-technical or semi-technical audience, it focuses on the [core features of the CHT]({{< ref "apps/features" >}}). Feature education includes summaries of feature functionality and screenshots with annotations or explanations of specific parts of the workflow as needed for added clarity. 
+
+### Technical Documentation
+Mainly prepared for a technical audience, it describes the [CHT Core Framework]({{< ref "core" >}}) and its [reference components]({{< ref "apps/reference" >}}). It includes information on technical implementation, design decisions, architecture descriptions, schemas, and source code. 
+
+### How-to Guides and Tutorials
+Mainly prepared for implementing partner capacity building, it includes best practices [quick guides]({{< ref "apps/guides" >}}) and [tutorials]({{< ref "apps/tutorials" >}}) on functional implementation of a feature (or group of features) and system configuration to assist users in completing specific objectives. 
+
+## Issues
+
+All documentation and technical documentation site issues are managed in [Github cht-docs](https://github.com/medic/cht-docs/issues). When creating issues, add the appropriate [labels](https://github.com/medic/cht-docs/labels) to help provide guidance to other community members.
+
+## Prioritization
+
+CHT documentation is treated similar to CHT code: the aim is to improve it as often as possible. Documentation is prioritized in three different ways:
+
+1. Feature education is completed at the time of releasing the related issue in GitHub. At the beginning of each release, an issue(s) is created, it is added to the release project, and a lead is assigned. 
+
+2. Technical documentation is completed at the time of closing the related issue in a GitHub release. 
+
+3. How-to guides and tutorials are prioritized alongside other product work as part of the roadmap planning process.
+
+## Writing
+
+We place a high importance on consistency and usability of CHT documentation. After all, the CHT is an open source software deployed in communities around the globe. The CHT [documentation style guide]({{< ref "docs-style-guide" >}}) will help you to write documentation in the most consistent and useful way.
+
+## Commits
+
+The main branch is master which must be kept stable so as not to impact other documentation writers. To achieve this we do (almost) all documentation changes in a branch and submit a PR for review. This means another documentation writer has signed off on the change before it hits the master branch.
+
+Format your commit messages according to Git standards. First line should be a short title/summary (50 characters or so) with more details in a separate paragraph (if needed).
+
+{{% alert title="Note" %}} Every commit message should be able to complete the following sentence:
+When applied, this commit will: {YOUR COMMIT MESSAGE} {{% /alert %}} 
+
+## Reviewing
+
+The documentation author should assign a reviewer for any documentation changes that are made. We use the following review structure:
+
+* Features education is reviewed by a Product Manager and a Community Manager 
+* Technical documentation is reviewed by an Engineer
+* How-to guides and tutorials are reviewed by a Capacity Building Manager and a Community Manager
