@@ -72,7 +72,7 @@ when minified, becomes:
   "contact": {
     "_id": "contact_id"
   },
-  "linked_contacts": {
+  "linked_docs": {
     "tag1": "sibling_id",
     "tag2": "supervisor_id"
   }
