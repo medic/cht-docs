@@ -173,7 +173,7 @@ There are two types of hydration:
 
 - deeply hydrated `parent` along with every ancestor
 - shallowly hydrated primary `contact`
-- *as of 3.10* shallowly hydrated `linked_docs`
+- shallowly hydrated `linked_docs` (*as of 3.10*)
 
 ###### A hydrated report has
 - a deeply hydrated submitter `contact`
