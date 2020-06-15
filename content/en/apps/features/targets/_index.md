@@ -39,7 +39,7 @@ A count without a goal displays a simple black number count. A count with a goal
 
 {{< figure src="mobile-percent.png" link="mobile-percent.png" class="right col-6 col-lg-3" >}}
 
-Percent widgets display a ratio of the number complete versus the total number possible for a given target. They provide insight into how much data of a particular report matches a specific criteria against data that does not match that same criteria. This is calculated based on a true / false statement. For example, newborns should be delivered in a facility (“true”) can be displayed next to newborns that were not delivered in a facility (“false”).
+Percent widgets display a ratio, which helps to provide insight into the proportion that matches a defined criteria. For example, the proportion of newborns delivered in a facility can be presented as a percent with respect to all registered deliveries.
 
 An optional goal can be set, such as “100% of patients with a fever should be given a malaria Rapid Diagnostic Test (mRDT),” to visualize progress towards achieving a target. Widget styling is configured to show green if the goal has been met and red if the goal has not been met. Next to the percent with a goal, the count of reports used in the calculation are shown (e.g. “16 of 20 with mRDT”). CHWs have found this helpful in interpreting target information.
 
