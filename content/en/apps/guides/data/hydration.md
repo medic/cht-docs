@@ -16,11 +16,11 @@ For example:
 
 {{% see-also page="core/overview/db-schema" title="DB Schema" %}}
 
-To optimize database storage, documents are "minified" when stored and are "hydrated" when they are "used" by the app.
+To optimize database storage, documents are "minified" when stored and are "hydrated" when they are used by the app.
 
 ### Minification
 
-Minification represents replacing a connected document's content with an object that ony contains its id.    
+Minification means replacing a linked document's content with an object that only contains its uuid. This is done to reduce duplication of data to save storage space on the client and server. Additionally, as we only have one copy of the data is easier to keep the information up to date.    
 
 Unminified object:
 ```json
@@ -82,8 +82,8 @@ when minified, becomes:
 The following properties are minified:
 1. `parent` and recursively, every ancestor
 1. `contact`
-1. `patient` and `place` are removed from reports
-1. *As of 3.10* `linked_docs` when minifying a contact
+1. `patient` and `place` are removed from reports. The `place_id`, `place_uuid`, `patient_id`, or `patient_uuid` fields are available in the document.
+1. `linked_docs` when minifying a contact (*as of `3.10.0`*)
 
 ### Hydration
 
@@ -104,7 +104,7 @@ Minified doc:
   "contact": {
     "_id": "contact_id"
   },
-  "linked_contacts": {
+  "linked_docs": {
     "tag1": "sibling_id",
     "tag2": "supervisor_id"
   }
