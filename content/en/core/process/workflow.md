@@ -142,7 +142,7 @@ Regardless of what you do with the issue, please:
  
 # Documentation Workflow
 
-This documentation site (and related [GitHub site](https://github.com/medic/medic.github.io)) is the CHT’s main resource for informing users on the product. It is designed to provide Community Health Toolkit users clear information on product functionality, as well as the necessary guidelines to accomplish key steps for setting up, deploying, and maintaining the product. 
+This Community Health Toolkit documentation site is the primary resource for partners, app designers, and developers looking to learn about, as well as to build digital health apps using the CHT. The documentation site includes product feature overviews, design resources, implementer guides, and technical reference documentation. 
 
 Documentation is a collaborative effort among all Community members. To improve information on the documentation site, we encourage commenting, asking questions, and sharing ideas for improvement.
 
