@@ -161,7 +161,7 @@ Mainly prepared for implementing partner capacity building, it includes best pra
 
 ## Issues
 
-All documentation and technical documentation site issues are managed in [Github cht-docs](https://github.com/medic/cht-docs/issues). When creating issues, add the appropriate [labels](https://github.com/medic/cht-docs/labels) to help provide guidance to other community members.
+All documentation and technical issues for the documentation site are managed in the [`cht-docs` repo on GitHub](https://github.com/medic/cht-docs/issues). When creating issues, add the appropriate [labels](https://github.com/medic/cht-docs/labels) to help provide guidance to other community members.
 
 ## Prioritization
 
