@@ -3,7 +3,7 @@ title: "Database document hydration"
 linkTitle: "Document hydration"
 weight: 2
 description: >
-    
+    Overview of database document hydration
 keywords: hydration schema  
 relatedContent: >
   core/overview/db-schema
