@@ -175,7 +175,7 @@ CHT documentation is treated similar to CHT code: the aim is to improve it as of
 
 ## Writing
 
-We place a high importance on consistency and usability of CHT documentation. After all, the CHT is an open source software deployed in communities around the globe. The CHT [documentation style guide]({{< ref "docs-style-guide" >}}) will help you to write documentation in the most consistent and useful way.
+We place a high importance on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "docs-style-guide" >}}) will help to write documentation in the most consistent and useful way.
 
 ## Commits
 
