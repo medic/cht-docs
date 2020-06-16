@@ -1163,6 +1163,7 @@ Content-Type: application/json
 
 ## Contacts by phone
 
+*Added in 3.10.0*
 Accepts a phone number parameter and returns fully hydrated contacts that match the requested phone number.
 If multiple contacts are found, all are returned.  When no matches are found, a 404 error is returned.
 Supports both GET and POST. 
