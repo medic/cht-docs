@@ -140,56 +140,85 @@ Regardless of what you do with the issue, please:
  - Remove the `Needs Triage` label once triage is complete
  - Document the reasoning by commenting in the issue. This will help reduce mistakes, as the reasoning will be available for everyone to read, and any mistakes there can be rectified.
  
-# Documentation Workflow
+# Contribute to CHT Documentation
 
-This Community Health Toolkit documentation site is the primary resource for partners, app designers, and developers looking to learn about, as well as to build digital health apps using the CHT. The documentation site includes product feature overviews, design resources, implementer guides, and technical reference documentation. 
+This Community Health Toolkit documentation site is the primary resource for partners, app designers, and developers looking to learn about, as well as build digital health apps using the CHT. The documentation site includes product feature overviews, design resources, implementer guides, and technical reference documentation. 
 
-Documentation is a collaborative effort among all Community members. To improve information on the documentation site, we encourage commenting, asking questions, and sharing ideas for improvement.
+Documentation is a collaborative effort among all Community members. CHT documentation contributors play an important role in:
 
-## Types of Documentation
+* Improving existing content through typo corrections, error fixes and better explanations through clearer writing and more examples.
 
-Documentation generally falls into three categories:
+* Creating new content through authoring guides and tutorials that help to educate the Community on the functional implementation of a feature (or group of features) to assist users in completing specific objectives.
 
-### Feature Education
-Mainly prepared for a non-technical or semi-technical audience, it focuses on the [core features of the CHT]({{< ref "apps/features" >}}). Feature education includes summaries of feature functionality and screenshots with annotations or explanations of specific parts of the workflow as needed for added clarity. 
+The CHT community  encourages contributions from diverse voices. Commenting, asking questions, and sharing ideas- whether you are experienced or new - is welcome!
 
-### Technical Documentation
-Mainly prepared for a technical audience, it describes the [CHT Core Framework]({{< ref "core" >}}) and its [reference components]({{< ref "apps/reference" >}}). It includes information on technical implementation, design decisions, architecture descriptions, schemas, and source code. 
+## Getting Started
 
-### How-to Guides and Tutorials
-Mainly prepared for implementing partner capacity building, it includes best practices [quick guides]({{< ref "apps/guides" >}}) and [tutorials]({{< ref "apps/tutorials" >}}) on functional implementation of a feature (or group of features) and system configuration to assist users in completing specific objectives. 
+Anyone can contribute to CHT documentation by opening an issue in the [cht-docs](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create documentation issue” links in the upper right corner of your window.
 
-## Issues
+### Contributing Basics
 
-All documentation and technical issues for the documentation site are managed in the [`cht-docs` repo on GitHub](https://github.com/medic/cht-docs/issues). When creating issues, add the appropriate [labels](https://github.com/medic/cht-docs/labels) to help provide guidance to other community members.
+* It is helpful to be comfortable with [git]({{< ref "core/guides/using-git" >}}) and [GitHub](https://lab.github.com/) to contribute to the CHT community.
+* The documentation source is in [GitHub](https://github.com/medic/cht-docs). You can find CHT documentation at /content/en/
+* Documentation is written in [Markdown](https://www.markdownguide.org/). 
+* The CHT site build uses [Hugo](https://gohugo.io/). You can also setup a [local clone](https://github.com/medic/cht-docs/blob/master/README.md#installing-hugo). 
 
-## Prioritization
-
-CHT documentation is treated similar to CHT code: the aim is to improve it as often as possible. Documentation is prioritized in three different ways:
-
-1. Feature education is completed at the time of releasing the related issue in GitHub. At the beginning of each release, an issue(s) is created, it is added to the release project, and a lead is assigned. 
-
-2. Technical documentation is completed at the time of closing the related issue in a GitHub release. 
-
-3. How-to guides and tutorials are prioritized alongside other product work as part of the roadmap planning process.
-
-## Writing
+## Writing Documentation
 
 We place a high importance on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "docs-style-guide" >}}) will help to write documentation in the most consistent and useful way.
 
-## Commits
+## Commits to GitHub
 
-The main branch is master which must be kept stable so as not to impact other documentation writers. To achieve this we do (almost) all documentation changes in a branch and submit a PR for review. This means another documentation writer has signed off on the change before it hits the master branch.
+The main branch is master which must be kept stable so as not to impact other documentation writers. To achieve this we do (almost) all documentation changes in a branch and submit a Pull Request for review. This means another documentation writer has signed off on the change before it hits the master branch.
 
 Format your commit messages according to Git standards. First line should be a short title/summary (50 characters or so) with more details in a separate paragraph (if needed).
 
 {{% alert title="Note" %}} Every commit message should be able to complete the following sentence:
 When applied, this commit will: {YOUR COMMIT MESSAGE} {{% /alert %}} 
 
-## Reviewing
+## Reviewing Pull Requests
 
-The documentation author should assign a reviewer for any documentation changes that are made. We use the following review structure:
+Documentation reviewers are automated by the [code owners](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners) mechanism. In general, Reviewers should:
 
-* Features education is reviewed by a Product Manager and a Community Manager 
-* Technical documentation is reviewed by an Engineer
-* How-to guides and tutorials are reviewed by a Capacity Building Manager and a Community Manager
+1. Read the PR description to understand the changes made, as well as any linked issues
+2. Review any comments by other reviewers
+3. Click the **Files changed** tab to see the files and lines changed
+4. Click on the + symbol beside the line you want to comment on.
+5. Add any comments you have about the line and click either **Add single comment** (if you have only one comment to make) or **Start a review** (if you have multiple comments to make).
+6. When finished, click **Review changes** at the top of the page. Here, you can add a summary of your review, approve the PR, comment or request changes as needed.
+7. Once all comments have been resolved, or changes are satisfactory, **Merge pull request** to complete the updates.
+
+{{% alert title="Note" %}} Additional Tips for Reviewers:
+* Use the [Style Guide]({{< ref "docs-style-guide" >}}) to maintain documentation consistency
+* Be empathetic to the author, commenting on positive aspects of PRs as well as changes
+* Ask clarifying questions where needed to avoid further confusion
+{{% /alert %}} 
+
+## Content Organization
+
+### CHT Applications
+
+If you’re an app developer and want to understand what goes into developing your own app, this is the place to start. It includes comprehensive reference materials useful for anyone interested in gaining insight into what features and configuration options are available. This section also includes a growing collection of guides and tutorials with best practices for deploying digital health apps with the Community Health Toolkit. 
+
+### CHT Core Framework
+
+If you’re an engineer and want to contribute to documenting the code base, this is the place to start. It provides an overview and reference for development of the Core Framework of the Community Health Toolkit. This section also includes guides for developing the CHT Core and an outline of the development and release management process. 
+
+### Design System
+
+If you’re an app designer or developer and want to contribute to defining a cohesive experience for all users, this is the place to start. These materials include more detail than an app builder or developer will need when just beginning to explore the CHT, but they become increasingly helpful when designing community health apps for scalability and consistent user experience.
+
+## Content Types
+
+### Features and Concepts
+
+Mainly prepared for a non-technical audience, these content types focus on application features and concepts that effect deployment of the CHT. It includes summaries of basic concepts for building the CHT, as well as feature functionality and screenshots with explanations of specific parts of the workflow.
+
+### Examples, Guides, and Tutorials
+
+Mainly prepared for implementing partner capacity building, these content types include best practices on functional implementation of a feature (or group of features), care workflows, and system configuration to assist users in completing specific objectives. 
+
+### Reference, Architecture, and Data Management
+
+Mainly prepared for a technical audience, these content types describe the CHT Core Framework and its reference components. It includes information on technical implementation, design decisions, architecture descriptions, schemas, and source code.
+
