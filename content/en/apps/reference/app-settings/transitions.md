@@ -4,7 +4,9 @@ linkTitle: ".transitions"
 weight: 5
 description: >
   **Sentinel Transitions**: functions executed when database documents change
-relevantLinks: >
+relatedContent: >
+  apps/guides/messaging/sms-recipients
+  
 ---
 
 When sentinel detects a document has changed it runs transitions against the doc. These transitions can be used to generate a short form patient id or assign a report to a facility.
