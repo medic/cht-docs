@@ -184,7 +184,7 @@ Documentation reviewers are automated by the [code owners](https://help.github.c
 1. Read the PR description to understand the changes made, as well as any linked issues
 2. Review any comments by other reviewers
 3. Select the **Files changed** tab to see the files and lines changed
-4. Click on the + symbol beside the line you want to comment on.
+4. Click the + symbol beside the line you want to comment on. To select multiple lines at once, hold shift then click and drag across multiple lines.
 5. Add any comments you have about the line and click either **Add single comment** (if you have only one comment to make) or **Start a review** (if you have multiple comments to make).
 6. When finished, click **Review changes** at the top of the page. Here, you can add a summary of your review, approve the PR, comment or request changes as needed.
 7. Once all comments have been resolved, or changes are satisfactory, **Merge pull request** to complete the updates.
