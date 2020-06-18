@@ -179,7 +179,7 @@ When applied, this commit will: {YOUR COMMIT MESSAGE} {{% /alert %}}
 
 ## Reviewing Pull Requests
 
-Documentation reviewers are automated by the [code owners](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners) mechanism. In general, Reviewers should:
+Documentation reviewers are automated by the [code owners](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners) mechanism. In general, reviewers should:
 
 1. Read the PR description to understand the changes made, as well as any linked issues
 2. Review any comments by other reviewers
