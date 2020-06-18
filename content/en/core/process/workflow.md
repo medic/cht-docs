@@ -172,7 +172,7 @@ We place a high importance on consistency and usability of CHT documentation so 
 
 The main branch is `master` which must be kept stable since it is deployed to the doc site. All documentation changes should be done in a branch with a Pull Request when ready for review. This means that a maintainer has signed off on the change before it hits the master branch.
 
-Format your commit messages according to Git standards. First line should be a short title/summary (50 characters or so) with more details in a separate paragraph (if needed).
+Format your commit messages according to the Git convention where the first line should be a short title/summary (50 characters or so) with more details in a separate paragraph (if needed).
 
 {{% alert title="Note" %}} Every commit message should be able to complete the following sentence:
 When applied, this commit will: {YOUR COMMIT MESSAGE} {{% /alert %}} 
