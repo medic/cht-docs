@@ -3,7 +3,7 @@ title: ".header_tabs"
 linkTitle: ".header_tabs"
 weight: 5
 description: >
-  Configuring app header menu tab icons
+  Configuring app header tab icons
 relevantContent: >
   apps/reference/resources
 keywords: icons
