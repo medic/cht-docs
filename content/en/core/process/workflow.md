@@ -170,7 +170,7 @@ We place a high importance on consistency and usability of CHT documentation so 
 
 ## Commits to GitHub
 
-The main branch is master which must be kept stable so as not to impact other documentation writers. To achieve this we do (almost) all documentation changes in a branch and submit a Pull Request for review. This means another documentation writer has signed off on the change before it hits the master branch.
+The main branch is `master` which must be kept stable since it is deployed to the doc site. All documentation changes should be done in a branch with a Pull Request when ready for review. This means that a maintainer has signed off on the change before it hits the master branch.
 
 Format your commit messages according to Git standards. First line should be a short title/summary (50 characters or so) with more details in a separate paragraph (if needed).
 
