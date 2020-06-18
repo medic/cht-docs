@@ -194,31 +194,3 @@ Documentation reviewers are automated by the [code owners](https://help.github.c
 * Be empathetic to the author, commenting on positive aspects of PRs as well as changes
 * Ask clarifying questions where needed to avoid further confusion
 {{% /alert %}} 
-
-## Content Organization
-
-### CHT Applications
-
-If you’re an app developer and want to understand what goes into developing your own app, this is the place to start. It includes comprehensive reference materials useful for anyone interested in gaining insight into what features and configuration options are available. This section also includes a growing collection of guides and tutorials with best practices for deploying digital health apps with the Community Health Toolkit. 
-
-### CHT Core Framework
-
-If you’re an engineer and want to contribute to documenting the code base, this is the place to start. It provides an overview and reference for development of the Core Framework of the Community Health Toolkit. This section also includes guides for developing the CHT Core and an outline of the development and release management process. 
-
-### Design System
-
-If you’re an app designer or developer and want to contribute to defining a cohesive experience for all users, this is the place to start. These materials include more detail than an app builder or developer will need when just beginning to explore the CHT, but they become increasingly helpful when designing community health apps for scalability and consistent user experience.
-
-## Content Types
-
-### Features and Concepts
-
-Mainly prepared for a non-technical audience, these content types focus on application features and concepts that effect deployment of the CHT. It includes summaries of basic concepts for building the CHT, as well as feature functionality and screenshots with explanations of specific parts of the workflow.
-
-### Examples, Guides, and Tutorials
-
-Mainly prepared for implementing partner capacity building, these content types include best practices on functional implementation of a feature (or group of features), care workflows, and system configuration to assist users in completing specific objectives. 
-
-### Reference, Architecture, and Data Management
-
-Mainly prepared for a technical audience, these content types describe the CHT Core Framework and its reference components. It includes information on technical implementation, design decisions, architecture descriptions, schemas, and source code.
