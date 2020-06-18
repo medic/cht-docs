@@ -155,7 +155,7 @@ The CHT community welcomes first-time contributors and experts alike. All commen
 
 ## Getting Started
 
-Anyone can contribute to CHT documentation by opening an issue in the [cht-docs](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create documentation issue” links in the upper right corner of your window.
+Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs`](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create documentation issue” links in the upper right corner of your window.
 
 ### Contributing Basics
 
