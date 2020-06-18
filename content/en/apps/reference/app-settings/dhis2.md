@@ -1,6 +1,6 @@
 ---
-title: ".dhisDataSets"
-linkTitle: ".dhisDataSets"
+title: ".dhis_data_sets"
+linkTitle: ".dhis_data_sets"
 weight: 5
 description: >
   **DHIS2 Integration**: Instructions and schema for defining DHIS2 integrations
@@ -8,11 +8,11 @@ relevantLinks: >
 keywords: dhis2
 ---
 
-From 3.9.0 it is possible to integrate with DHIS2 by modifying the `dhisDataSets` property in `app_settings.json`. 
+From 3.9.0 it is possible to integrate with DHIS2 by modifying the `dhis_data_sets` property in `app_settings.json`. 
 
 {{% see-also page="apps/features/integrations/dhis2" title="DHIS2 Integration" %}}
 
-## `app_settings.js .dhisDataSets[]`
+## `app_settings.js .dhis_data_sets[]`
 
 |Property|Type|Description|Required|
 |---|---|---|---|
@@ -26,7 +26,7 @@ Configure the `id` and `translation_key` of the DHIS2 data set. The `id` corresp
 ### `app_settings.js`
 
 ```json
-"dhisDataSets": [
+"dhis_data_sets": [
   {
     "id": "VMuFODsyWaO",
     "translation_key": "dhis.dataset.moh515"
