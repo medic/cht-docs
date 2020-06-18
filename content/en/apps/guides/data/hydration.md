@@ -167,7 +167,7 @@ when hydrated becomes:
 
 There are two types of hydration:
 * *shallow* hydration - when the id is replaced with the document's content
-* *deep* hydration - when the id is replaced with the document's content and, recursively, deeply hydrate every ancestor 
+* *deep* hydration - when the id is replaced with the document's content and, recursively, each ancestor is deeply hydrated 
 
 ###### A hydrated contact has
 
