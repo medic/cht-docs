@@ -5,7 +5,7 @@ weight: 5
 description: >
   **Sentinel Transitions**: functions executed when database documents change
 relatedContent: >
-  apps/guides/messaging/sms-recipients
+  apps/reference/sms-recipients
   
 ---
 
