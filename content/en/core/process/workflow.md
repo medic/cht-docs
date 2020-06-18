@@ -144,13 +144,14 @@ Regardless of what you do with the issue, please:
 
 This Community Health Toolkit documentation site is the primary resource for partners, app designers, and developers looking to learn about, as well as build digital health apps using the CHT. The documentation site includes product feature overviews, design resources, implementer guides, and technical reference documentation. 
 
-Documentation is a collaborative effort among all Community members. CHT documentation contributors play an important role in:
+Documentation is a collaborative effort among all community members. Contributors play an important role in:
 
-* Improving existing content through typo corrections, error fixes and better explanations through clearer writing and more examples.
+* Making suggestions for improvements
+* Reporting and correcting mistakes
+* Updating text and examples for clarity
+* Authoring guides and tutorials
 
-* Creating new content through authoring guides and tutorials that help to educate the Community on the functional implementation of a feature (or group of features) to assist users in completing specific objectives.
-
-The CHT community  encourages contributions from diverse voices. Commenting, asking questions, and sharing ideas- whether you are experienced or new - is welcome!
+The CHT community welcomes first-time contributors and experts alike. All comment, questions, and ideas are welcome!
 
 ## Getting Started
 
@@ -221,4 +222,3 @@ Mainly prepared for implementing partner capacity building, these content types 
 ### Reference, Architecture, and Data Management
 
 Mainly prepared for a technical audience, these content types describe the CHT Core Framework and its reference components. It includes information on technical implementation, design decisions, architecture descriptions, schemas, and source code.
-
