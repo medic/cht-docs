@@ -166,7 +166,7 @@ Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs
 
 ## Writing Documentation
 
-We place a high importance on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "docs-style-guide" >}}) will help to write documentation in the most consistent and useful way.
+A high degree of importance is put on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "docs-style-guide" >}}) will help to write documentation in the most consistent and useful way.
 
 ## Commits to GitHub
 
