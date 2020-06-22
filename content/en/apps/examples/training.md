@@ -44,11 +44,12 @@ These SMS and App based workflow examples illustrate how the CHT enables remote 
 
 ### Remote Training by SMS
 
-[![Watch the video](https://img.youtube.com/vi/-24pWKckXMk/maxresdefault.jpg)](https://youtu.be/-24pWKckXMk)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-24pWKckXMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ### Remote Training by App
 
-[![Watch the video](https://img.youtube.com/vi/pFEFIY_SA7M/maxresdefault.jpg)](https://youtu.be/pFEFIY_SA7M)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pFEFIY_SA7M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/13bFoyU2vhwPiOUiVWzUJ2urtAyR6_XKTxp0XASCLVko).
