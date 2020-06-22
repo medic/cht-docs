@@ -10,7 +10,7 @@ description: >
 
 ### Writing
 
-Where possible, follow our coding [style guide]({{< ref "contribute/docs/style-guide" >}}).
+Where possible, follow our [coding style guide]({{< ref "contribute/code/style-guide" >}}).
 
 Aim for self-documenting code. Where code cannot be made self-documenting add commenting. Usually comments are useful when they explain why some code exists, and should not be explaining what some code is doing. 
 
