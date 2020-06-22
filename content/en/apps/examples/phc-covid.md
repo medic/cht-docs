@@ -1,6 +1,6 @@
 ---
 title: "Primary Health Care Adaptations COVID-19"
-linkTitle: "PHC COVID-19"
+linkTitle: "PHC Adaptations COVID-19"
 weight: 
 description: >
   Primary health care workflow and training adaptations for COVID-19.
@@ -13,24 +13,27 @@ relatedContent: >
 
 The CHT’s Primary Health Care (PHC) workflows are easily adaptable to help communities and facilities strengthen continuity of routine primary care services during COVID-19. Adapting the CHT’s PHC workflows is designed to:
 
-* Limit physical contact between patients, CHW’s, and facility providers by modifying existing health assessments 
+* Address disruptions to PHC delivery within communities while keeping CHWs and patients safe
 * Offer remote patient and CHW support through call and text-first protocols
-* Contain transmission via embedded COVID-19 symptoms screening
+* Limit physical contact between patients, CHW’s, and facility providers by modifying existing health assessments 
+* Contain transmission via embedded COVID-19 symptom screening and referral protocols
 
 ## Problem Being Addressed
 
-Standard primary health care programs are not designed to cope with pandemics, such as COVID-19. Already vulnerable populations, for example patients who live in places that lack robust health care infrastructure or have comorbidities, face increased challenges when CHW’s and care facilities are unable to provide adequate services. 
+Most primary health care programs are not designed to address the specific health needs of pandemics, such as COVID-19. For CHWs and the communities they support, the impact of the pandemic has resulted in disruptions to much needed primary health care services, such as ANC, iCCM, and immunization. This is particularly devastating for already vulnerable populations, such as patients who live in places that lack robust health care infrastructure or have co-morbidities, who face increased challenges when CHWs and care facilities are unable to provide adequate services. 
 
-Health program administrators are rapidly adapting PHC programs to help respond to immediate patient and community health needs. Relying on CHWs and Supervisors to quickly learn and adhere to new care workflows on their own is a major challenge to successfully modifying PHC health programs to impact patients quickly and maintain the safety of health workers.
+In response, health program administrators are rapidly adapting digitally supported PHC programs to help respond to immediate patient and community health needs. Relying on CHWs and Supervisors to quickly learn and adhere to new care workflows on their own is a major challenge to successfully modifying PHC health programs to impact patients quickly and maintain the safety of health workers.
 
 ## Solution Overview
 
-Primary health care plays a vital role both in slowing the spread of COVID-19 and managing the care of patients at home with moderate cases. Building on the success of existing health programs and CHW patient relationships enables more effective responses to the specific health needs of their communities. Through adaptations to PHC workflows, health program administrators are able to:
+Maintaining primary health care is critical both in slowing the spread of COVID-19 and managing the care of patients at home with moderate cases, as well as ensuring that disruptions to PHC are addressed and that routine care is supported during the pandemic. Building on the success of existing digitally-supported health programs and CHW patient relationships enables more effective responses to the specific health needs of their communities. 
 
-* Support COVID-19 prevention, detection, and containment efforts
+Through adaptations to PHC workflows, health program administrators are able to:
+
+* Support COVID-19 prevention, detection, and containment efforts within communities
 * Create a coordinated approach that safely serves health workers, facilities, and communities 
-* Cater to non-emergent health conditions to reduce overburdening on hospital systems
-* Capture program learnings to create more robust and resilient health systems beyond supporting the immediate COVID-19 reponse 
+* Support home-based care for non-emergent COVID-19 cases to reduce overburdening on hospital systems
+* Capture program learnings to create more robust and resilient health systems beyond supporting the immediate COVID-19 reponse
 
 ## User Roles Example
 
