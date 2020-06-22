@@ -51,4 +51,4 @@ These SMS and App based workflow examples illustrate how the CHT enables remote 
 
 [![Watch the video](https://img.youtube.com/vi/pFEFIY_SA7M/maxresdefault.jpg)](https://youtu.be/pFEFIY_SA7M)
 
-More background information can be found in this [summary deck](https://docs.google.com/presentation/d/13bFoyU2vhwPiOUiVWzUJ2urtAyR6_XKTxp0XASCLVko/edit#slide=id.g849d570821_4_124).
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/13bFoyU2vhwPiOUiVWzUJ2urtAyR6_XKTxp0XASCLVko).
