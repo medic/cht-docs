@@ -30,16 +30,25 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 ## User Roles Example
 
-![user-roles.png](user-roles.png)
+![user-roles.png](training/user-roles.png) 
 
 ## Reporting Hierarchy Example
 
-![hierarchy.png](hierarchy.png)
+![hierarchy.png](training/hierarchy.png)
 
-## Workflow Example
+## Workflow Examples
 
-This SMS based workflow example illustrates how the CHT enables remote training, tasking and communication at scale. Training can be done using simple guides, audio/videos suitable for low bandwidth, or interactive experiences on personal devices. Training programs can be easily configured to suit specific health program needs.
+![workflow.png](training/workflow1.png)
 
-![workflow.png](workflow1.png)
+These SMS and App based workflow examples illustrate how the CHT enables remote training, tasking and communication at scale. Training can be done using simple guides, audio/videos suitable for low bandwidth, or interactive experiences on personal devices. Training programs can be easily configured to suit specific health program needs.
 
-![workflow.png](workflow2.png)
+### Remote Training by SMS
+
+[![Watch the video](https://img.youtube.com/vi/-24pWKckXMk/maxresdefault.jpg)](https://youtu.be/-24pWKckXMk)
+
+
+### Remote Training by App
+
+[![Watch the video](https://img.youtube.com/vi/pFEFIY_SA7M/maxresdefault.jpg)](https://youtu.be/pFEFIY_SA7M)
+
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/13bFoyU2vhwPiOUiVWzUJ2urtAyR6_XKTxp0XASCLVko).
