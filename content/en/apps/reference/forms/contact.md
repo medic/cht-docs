@@ -40,4 +40,4 @@ Here is an example of a `places.json` files:
 
 Convert and build the contact forms into your application using the `convert-contact-forms` and `upload-contact-forms` actions in `medic-conf`.
 
-> `medic-conf --local convert-contact-forms upload-contact-form`
+> `medic-conf --local convert-contact-forms upload-contact-forms`
