@@ -3,7 +3,7 @@ title: "Primary Health Care Adaptations COVID-19"
 linkTitle: "PHC Adaptations COVID-19"
 weight: 
 description: >
-  Primary health care workflow and training adaptations for COVID-19.
+  Primary health care workflow and training adaptations for COVID-19
 keywords:  
 relatedContent: >
   apps/examples/training
