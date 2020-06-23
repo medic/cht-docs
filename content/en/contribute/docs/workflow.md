@@ -34,7 +34,7 @@ When applied, this commit will: {YOUR COMMIT MESSAGE} {{% /alert %}}
 
 When your branch is ready for review, create a [Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request). If you know who you'd like to review the PR, you can assign them directly. If you are unsure, you can leave it to the maintainers to handle the PR. 
 
-{{% alert title="Note" %}}If the PR is part of an open issue in cht-core, add the [`Blocked: waiting on AT` label](https://github.com/medic/cht-docs/labels/Blocked%3A%20waiting%20on%20AT) so that the PR isn't accidentally merged prematurely, before the issue is acceptance tested and complete.{{% /alert %}} 
+{{% alert title="Note" %}}If the PR is part of an open issue in cht-core, add the [`Blocked: waiting on AT`](https://github.com/medic/cht-docs/labels/Blocked%3A%20waiting%20on%20AT) label so that the PR isn't accidentally merged prematurely, before the issue is acceptance tested and complete.{{% /alert %}} 
 
 ## Reviewing Pull Requests
 
