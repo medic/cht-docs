@@ -48,3 +48,5 @@ Through adaptations to PHC workflows, health program administrators are able to:
 This demo illustrates how a CHT workflow that currently supports PHC can be easily adapted to reflect a COVID-19 health program response. Remote support allows for the integration of new care protocols that follow “no touch” or “visual only” reviews, transition to call/text-first protocols, and embedding COVID-19 symptom screening within PHC workflows.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ic_sBf4KlYQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1DBbEc2R6-TwgD4pp_LjTmgGXAUzZzeVrYlrDzFdWqSI/edit?usp=sharing).
