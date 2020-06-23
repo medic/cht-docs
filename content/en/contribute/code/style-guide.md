@@ -1,6 +1,6 @@
 ---
 title: "Coding Style Guide"
-linkTitle: "Style Guide for Code"
+linkTitle: "Style Guide"
 weight: 9
 description: >
   Guidelines for writing code

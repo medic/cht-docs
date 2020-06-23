@@ -7,7 +7,7 @@ description: >
 keywords: workflows
 relatedContent: >
   apps/concepts/workflows
-  core/process/workflow
+  contribute/code/workflow
 ---
 
 Workflows can be defined within apps built with the Core Framework to connect actions and data with people. Forms are the main building block of tasks and messaging workflows, and are useful in creating reminders for follow-up visits or referrals.
