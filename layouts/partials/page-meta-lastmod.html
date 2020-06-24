@@ -1,0 +1,2 @@
+{{ T "post_last_mod"}} {{ .Lastmod.Format .Site.Params.time_format_default }}{{ with .GitInfo }}: <a  href="{{ $.Site.Params.github_repo }}/commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>{{end }}
+<div class="d-xl-none d-print-none meta-links">{{ partial "page-meta-links" . }}</div>
