@@ -1,6 +1,6 @@
 ---
-title: "Primary Health Care Adaptations COVID-19"
-linkTitle: "PHC COVID-19"
+title: "Primary Health Care Adaptations for COVID-19"
+linkTitle: "Adaptations for COVID-19"
 weight: 
 description: >
   Primary health care workflow and training adaptations for COVID-19.
@@ -11,15 +11,15 @@ relatedContent: >
   apps/concepts/care-guides
 ---
 
-The CHT’s Primary Health Care (PHC) workflows are easily adaptable to help communities and facilities strengthen continuity of routine primary care services during COVID-19. Adapting the CHT’s PHC workflows is designed to:
+Primary Health Care (PHC) workflows using the CHT are easily adaptable to help communities and facilities strengthen continuity of routine primary care services during COVID-19. Adapting PHC workflows is designed to:
 
-* Limit physical contact between patients, CHW’s, and facility providers by modifying existing health assessments 
+* Limit physical contact between patients, Community Health Workers (CHWs), and facility providers by modifying existing health assessments 
 * Offer remote patient and CHW support through call and text-first protocols
 * Contain transmission via embedded COVID-19 symptoms screening
 
 ## Problem Being Addressed
 
-Standard primary health care programs are not designed to cope with pandemics, such as COVID-19. Already vulnerable populations, for example patients who live in places that lack robust health care infrastructure or have comorbidities, face increased challenges when CHW’s and care facilities are unable to provide adequate services. 
+Standard primary health care programs are not designed to cope with pandemics, such as COVID-19. Already vulnerable populations, for example patients who live in places that lack robust health care infrastructure or have comorbidities, face increased challenges when CHWs and care facilities are unable to provide adequate services. 
 
 Health program administrators are rapidly adapting PHC programs to help respond to immediate patient and community health needs. Relying on CHWs and Supervisors to quickly learn and adhere to new care workflows on their own is a major challenge to successfully modifying PHC health programs to impact patients quickly and maintain the safety of health workers.
 
@@ -45,3 +45,5 @@ Primary health care plays a vital role both in slowing the spread of COVID-19 an
 This demo illustrates how a CHT workflow that currently supports PHC can be easily adapted to reflect a COVID-19 health program response. Remote support allows for the integration of new care protocols that follow “no touch” or “visual only” reviews, transition to call/text-first protocols, and embedding COVID-19 symptom screening within PHC workflows.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ic_sBf4KlYQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1DBbEc2R6-TwgD4pp_LjTmgGXAUzZzeVrYlrDzFdWqSI/edit#slide=id.g7f8f8792f7_0_0).
