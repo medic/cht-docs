@@ -48,8 +48,8 @@ These values can also be changed from the Admin console, on the Images page unde
 
 {{% alert title="Note" %}}  
 Selected Resource icons take precedence over selected FontAwesome icons.  
-If a selected Resource icon does not exist, the app will try to fall back to the configured (or default) FontAwesome icon.  
-If the selected FontAwesome icon does not exists, no icon will be displayed for the tab.    
+If the selected Resource icon does not exist, the default icon will be displayed.   
+If the selected FontAwesome icon does not exist, the default icon will be displayed.    
 If the selected Resource icon is not an `svg` that supports css color filling, the icon will have a static color for every state (inactive, active and hovered). Colors will change only for FontAwesome icons and css fillable `svg` icons.     
 The Admin console Resource icon dropdowns only supports selecting `svg` icons. If mismatched Resource Icons are selected, they will be deselected upon saving.     
 Resource icons images will be sized to `24 x 24px` when displayed. 
