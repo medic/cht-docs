@@ -17,7 +17,7 @@ In communities using digital health apps built with the CHT, health systems can 
 
 ## Overview
 
-The CHT Core Franework supports integrations with DHIS2 in a variety of ways:
+The CHT Core Framework supports integrations with DHIS2 in a variety of ways:
 
 1. Sending patient data
 2. Sending event data
