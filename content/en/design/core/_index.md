@@ -10,9 +10,9 @@ The purpose of this guide is to document the standard aspects of our core framew
 
 Changes to the styles in this document should go through product design and be implemented throughout the app before this document is updated. 
 
-Medic in-app sample: https://github.com/medic/medic/blob/master/webapp/src/templates/partials/theme.html
+View the [CHT Component library](https://codepen.io/n-orlowski/pen/YzwVeBQ)
 
-Bootstrap styles: https://getbootstrap.com/docs/4.3/components/alerts/
+![Component Library](img/components.png)
 
 
 ## Color
@@ -219,9 +219,3 @@ The underlined style should only ever be used on actual links because of the gen
 Most text in the app should be the @text-normal-color: @gray-ultra-dark color, as this has the best contrast and is easiest to read.
 The lighter text color (@text-secondary-color: @gray-dark) is used sparingly for text that is less important than the main body text, such as labels and condition card filters.
 Hyperlinked text is colored blue (@text-hyperlink-color: @blue-dark). On hover, it displays an underline. 
-
-
-## Components
-
-Coming soon
-
