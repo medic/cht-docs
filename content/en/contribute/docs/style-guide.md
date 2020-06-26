@@ -1,14 +1,16 @@
 ---
 title: "Documentation Style Guide"
-linkTitle: "Style Guide for Docs"
+linkTitle: "Style Guide"
 weight: 10
 description: >
-  Editorial guidelines for writing developer documentation
+  Editorial guidelines for writing documentation
 ---
 
-This style guide provides a set of editorial guidelines for anyone writing developer documentation for Medic Mobile or Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
+This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 
-**Note:** This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submiting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
+{{% alert title="Note" %}}
+This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submiting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
+{{% /alert %}}
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -27,6 +29,7 @@ This style guide provides a set of editorial guidelines for anyone writing devel
 - [Cross-referencing content](#cross-referencing-content)
   - [Avoid broken links](#avoid-broken-links)
 - [Formatting standards](#formatting-standards)
+  - [Use Markdown Notation](#use-markdown-notation)
   - [Grammar and punctuation in headers](#grammar-and-punctuation-in-headers)
   - [Angle brackets for placeholders](#angle-brackets-for-placeholders)
   - [Bold for user interface elements](#bold-for-user-interface-elements)
@@ -40,11 +43,11 @@ This style guide provides a set of editorial guidelines for anyone writing devel
 - [Code snippet formatting](#code-snippet-formatting)
   - [Don't include the command prompt](#dont-include-the-command-prompt)
   - [Separate commands from output](#separate-commands-from-output)
-- [Medic Mobile word list](#medic-mobile-word-list)
+- [Community Health Toolkit word list](#community-health-toolkit-word-list)
 
 ## Language
 
-Documentation for Medic Mobile and Community Health Toolkit projects is written is American English.
+Documentation for the Community Health Toolkit is written is American English.
 
 ## General guidelines and best practices
 
@@ -52,20 +55,18 @@ This section contains suggested best practices for clear, concise, and consisten
 
 ### Present tense
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>CouchDB converts this to a properly hashed password when you save.</td><td>CouchDB will convert this to a properly hashed password on save.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| CouchDB converts this to a properly hashed password when you save. | CouchDB will convert this to a properly hashed password on save. |
 
 Exception: Use future or past tense if it is required to convey the correct meaning.
 
 ### Active voice
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>Stop everything and delete the medic DB to clear your database.</td><td>Clear your db by stopping everything and deleting the medic DB.</td></tr>
-  <tr><td>Replicate your local production database into a new medic database to bootstrap your data.</td><td>Bootstrap your data by replicating your local PROD DB into a new medic database.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| Stop everything and delete the medic DB to clear your database. | Clear your db by stopping everything and deleting the medic DB. |
+| Replicate your local production database into a new medic database to bootstrap your data. | Bootstrap your data by replicating your local PROD DB into a new medic database. |
 
 Exception: Use passive voice if active voice leads to an awkward construction.
 
@@ -73,31 +74,28 @@ Exception: Use passive voice if active voice leads to an awkward construction.
 
 Use simple and direct language. Avoid using unnecessary phrases, such as saying "please."
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>To create a database, ...</td><td>In order to create a database, ...</td></tr>
-  <tr><td>See the configuration file.</td><td>Please see the configuration file.</td></tr>
-  <tr><td>View the logs.</td><td>With this next command, we'll view the logs.</td></tr>
+| Do | Don't |
+|---|---|
+| To create a database, ... | In order to create a database, ... |
+| See the configuration file. | Please see the configuration file. |
+| View the logs. | With this next command, we'll view the logs. |
 
-</table>
 
 ### Address the reader as "you"
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>You can create a database by ...</td><td>We'll create a database by ...</td></tr>
-    <tr><td>In the preceding output, you can see...</td><td>In the preceding output, we can see ...</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| You can create a database by ... | We'll create a database by ... |
+  | In the preceding output, you can see... | In the preceding output, we can see ... |
 
 ### Latin phrases
 
 Prefer English terms over Latin abbreviations.
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>For example, ...</td><td>e.g., ...</td></tr>
-  <tr><td>That is, ...</td><td>i.e., ...</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| For example, ... | e.g., ... |
+| That is, ... | i.e., ... |
 
 Exception: Use "etc." for et cetera.
 
@@ -108,23 +106,21 @@ Exception: Use "etc." for et cetera.
 Using "we" in a sentence can be confusing, because the reader might not know
 whether they're part of the "we" you're describing.
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>Version 3.0 includes ...</td><td>In version 3.0, we have added ...</td></tr>
-  <tr><td>Medic Mobile provides a new feature to reduce the time to load contacts.</td><td>We made several changes to reduce the time to load contacts.</td></tr>
-  <tr><td>This page teaches you how to use medic-gateway.</td><td>In this page, we are going to learn about medic-gateway.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| Version 3.0 includes ... | In version 3.0, we have added ... |
+| Medic Mobile provides a new feature to reduce the time to load contacts. | We made several changes to reduce the time to load contacts. |
+| This page teaches you how to use medic-gateway. | In this page, we are going to learn about medic-gateway. |
 
 ### Using jargon and idioms
 
 Some readers speak English as a second language. Avoid jargon and idioms to help them understand better.
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>To get started, ...</td><td>To get up and running with no fuss, ...</td></tr>
-  <tr><td>Internally, ...</td><td>Under the hood, ...</td></tr>
-    <tr><td>Create a new database.</td><td>Turn up a new database.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| To get started, ... | To get up and running with no fuss, ... |
+| Internally, ... | Under the hood, ... |
+  | Create a new database. | Turn up a new database. |
 
 ### Using statements about the future
 
@@ -137,11 +133,10 @@ information.
 Avoid words like "currently" and "new." A feature that is new today might not be
 considered new in a few months.
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>In version 3.4, ...</td><td>In the current version, ...</td></tr>
-    <tr><td>The Log user statistics feature provides ...</td><td>The new Log user statistics feature provides ...</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| In version 3.4, ... | In the current version, ... |
+  | The Log user statistics feature provides ... | The new Log user statistics feature provides ... |
 
 ## Cross-referencing content
 
@@ -172,6 +167,17 @@ For example,  `[Icon Library]({{</* relref "design/icons" */>}})` yields "[Icon 
 
 ## Formatting standards
 
+### Use Markdown Notation
+
+Documentation pages should be written in [Markdown notation](https://www.markdownguide.org/), and not contain HTML tags whenever possible.
+
+| Style | Do | Don't |
+|---|---|---|
+| _italic_ | `_italic_` or `*italic*` | `<i>italic</i>` or `<em>bold</em>` |
+| **bold** | `**bold**` | `<b>bold</b>` or `<strong>bold</strong>` |
+| table | `|...|` using [markdown tables](https://www.markdownguide.org/extended-syntax/#tables) | `<table><tr><td>...</td></tr></table>` | 
+
+
 ### Grammar and punctuation in headers
 
 Use title case for page `title`, and sentence case for `linkTitle` description. Do not end titles with periods.
@@ -182,40 +188,36 @@ Use title case for page `title`, and sentence case for `linkTitle` description. 
 Use angle brackets for placeholders. Tell the reader what a placeholder
 represents.
 
-1. Create a file named <code><project_name>-medic-os-compose.yml</code>. Where `<project_name>` is the name of one of your project.
+1. Create a file named `<project_name>-medic-os-compose.yml`. Where `<project_name>` is the name of one of your project.
 
 ### Bold for user interface elements
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>Click <b>Fork</b>.</td><td>Click "Fork".</td></tr>
-  <tr><td>Select <b>Other</b>.</td><td>Select 'Other'.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| Click **Fork**. | Click "Fork". |
+| Select **Other**. | Select 'Other'. |
 
 ### Italics to define or introduce new terms
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>By default CouchDB runs in <i>admin party</i> mode, which means you do not need users to read or edit any data.</td><td>By default CouchDB runs in "admin party" mode, which means you do not need users to read or edit any data.</td></tr>
-  <tr><td>The <i>keys</i> in <code>.properties</code> files are referred to as <i>terms</i> in POEditor.</td><td>The "keys" in .properties files are referred to as <b>terms</b> in POEditor.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| By default CouchDB runs in _admin party_ mode, which means you do not need users to read or edit any data. | By default CouchDB runs in "admin party" mode, which means you do not need users to read or edit any data. |
+| The _keys_ in `.properties` files are referred to as _terms_ in POEditor. | The "keys" in .properties files are referred to as **terms** in POEditor. |
 
 ### Code style for filenames, directories, and paths
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>Open <code>messages-en.properties</code> file.</td><td>Open messages-en.properties file.</td></tr>
-  <tr><td>The file is located in <code>/config/standard</code> directory.</td><td>The file is located in /config/standard directory.</td></tr>
-  <tr><td>Create <code>medic/translations/messages-en.properties</code> file.</td><td>Create medic/translations/messages-en.properties file.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| Open `messages-en.properties` file. | Open messages-en.properties file. |
+| The file is located in `/config/standard` directory. | The file is located in /config/standard directory. |
+| Create `medic/translations/messages-en.properties` file. | Create medic/translations/messages-en.properties file. |
 
 ### British standard for punctuation inside quotes
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>The doc in the database is a "record".</td><td>The doc in the database is a "record."</td></tr>
-  <tr><td>The copy is called a "fork".</td><td>The copy is called a "fork."</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| The doc in the database is a "record". | The doc in the database is a "record." |
+| The copy is called a "fork". | The copy is called a "fork." |
 
 ### Notes and tips
 
@@ -233,10 +235,9 @@ This is a sample note.
 
 Use the figure shortcode for images. This uses built-in styling that is responsive.
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>{{figure src="image.png" class="right col-6 col-lg-3"}}</td><td>img src="image.png" width="30%" align="right"</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| `{{figure src="image.png" class="right col-6 col-lg-3"}}` | `<img src="image.png" width="30%" align="right">` |
 
 The image can also link to a file by using the link attribute.
 
@@ -248,25 +249,23 @@ The image can also link to a file by using the link attribute.
 
 ### Code style for inline code and commands
 
-For inline code in an HTML document, use the `<code>` tag. In a Markdown
+For inline code in an HTML document, use the ``` tag. In a Markdown
 document, use the backtick (`).
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>The <code>grunt dev-webapp</code> command builds and deploys the webapp.</td><td>The "grunt dev-webapp" command creates a Deployment.</td></tr>
-  <tr><td>To upload the configuration from your current directory, use <code>medic-conf --local</code>.</td><td>To upload the configuration from your current directory, use "medic-conf --local".</td></tr>
-  <tr><td>Enclose code samples with triple backticks. <code>(```)</code></td><td>Enclose code samples with any other syntax.</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| The `grunt dev-webapp` command builds and deploys the webapp. | The "grunt dev-webapp" command creates a Deployment. |
+| To upload the configuration from your current directory, use `medic-conf --local`. | To upload the configuration from your current directory, use "medic-conf --local". |
+| Enclose code samples with triple backticks. `(```)` | Enclose code samples with any other syntax. |
 
 
 ## Code snippet formatting
 
 ### Don't include the command prompt
 
-<table>
-  <tr><th>Do</th><th>Don't</th></tr>
-  <tr><td>export COUCH_NODE_NAME=couchdb@127.0.0.1</td><td>$ export COUCH_NODE_NAME=couchdb@127.0.0.1</td></tr>
-</table>
+| Do | Don't |
+|---|---|
+| export COUCH_NODE_NAME=couchdb@127.0.0.1 | $ export COUCH_NODE_NAME=couchdb@127.0.0.1 |
 
 ### Separate commands from output
 
@@ -282,15 +281,15 @@ The output is similar to this:
 {"error":"unauthorized","reason":"Authentication required."}
 ```
 
-## Medic Mobile word list
+## Community Health Toolkit word list
 
-A list of Medic Mobile-specific terms and words to be used consistently across the site.
+A list of terms and words to be used consistently across the site.
 
-<table>
-  <tr><th>Term</th><th>Usage</th></tr>  
-  <tr><td>Docker</td><td>Docker should always be capitalized.</td></tr>
-  <tr><td>Medic Mobile</td><td>Medic Mobile should always be capitalized.</td></tr>
-  <tr><td>CouchDB</td><td>No space between Couch and DB. Do not use Couchdb, Couch DB or other variations.</td></tr>
-</table>
+| Term | Usage |
+|---|---|
+| Docker | Docker should always be capitalized. |
+| Community Health Toolkit | Community Health Toolkit should always be capitalized. |
+| CHT | Acronym for "Community Health Toolkit". |
+| CouchDB | No space between Couch and DB. Do not use Couchdb, Couch DB or other variations. |
 
 

@@ -50,7 +50,7 @@ A great place to start for high-level context on what our community is building 
 Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT apps. This section also includes quick guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start.  
 
 ### [CHT Core Framework]({{< ref "core" >}})
-An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}), or outline of the [core development and release management process]({{< ref "core/process" >}}).  
+An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).  
 
 ### [Design System]({{< ref "design" >}})
 An overview of key end user personas, notes on the CHT icon library, and configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when designing your own community health app for a live deployment.
