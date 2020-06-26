@@ -46,4 +46,4 @@ This demo illustrates how a CHT workflow that currently supports PHC can be easi
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ic_sBf4KlYQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1DBbEc2R6-TwgD4pp_LjTmgGXAUzZzeVrYlrDzFdWqSI/edit#slide=id.g7f8f8792f7_0_0).
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1DBbEc2R6-TwgD4pp_LjTmgGXAUzZzeVrYlrDzFdWqSI).
