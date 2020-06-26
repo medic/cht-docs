@@ -10,7 +10,10 @@ The purpose of this guide is to document the standard aspects of our core framew
 
 Changes to the styles in this document should go through product design and be implemented throughout the app before this document is updated. 
 
-View the [CHT Component library](https://codepen.io/communityhealthtoolkit/pen/jOWLmqw)
+## Component Library
+
+The [CHT Component Library](https://codepen.io/communityhealthtoolkit/pen/jOWLmqw) is collection of interface elements that can be reused across the CHT. This allows designers and developers to focus on solving challenges, rather than reinventing interface elements that are already in use. Each component includes interactive examples, best practices and guidelines to use the component correctly.
+
 
 ![Component Library](img/components.png)
 
