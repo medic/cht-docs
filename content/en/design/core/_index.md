@@ -10,7 +10,7 @@ The purpose of this guide is to document the standard aspects of our core framew
 
 Changes to the styles in this document should go through product design and be implemented throughout the app before this document is updated. 
 
-View the [CHT Component library](https://codepen.io/n-orlowski/pen/YzwVeBQ)
+View the [CHT Component library](https://codepen.io/communityhealthtoolkit/pen/jOWLmqw)
 
 ![Component Library](img/components.png)
 
