@@ -11,4 +11,4 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 - Learn to [build and host apps]({{% ref "apps" %}}), and share your experiences
 - [Share a new idea or question](https://forum.communityhealthtoolkit.org/) on our Forum
 
-The CHT community welcomes first-time contributors and experts alike. All comment, questions, and ideas are welcome!
+The CHT community welcomes first-time contributors and experts alike. All comments, questions, and ideas are welcome!
