@@ -143,7 +143,7 @@ Or using form-style parameters as `GET`:
 GET /api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=immunization_visit
 ```
 
-**NB:** this API is bound directly to this library. For more information on what queries you can perform with the search library, see [its documentation](https://github.com/medic/cht-core/tree/master/shared-lib/search).
+**NB:** this API is bound directly to this library. For more information on what queries you can perform with the search library, see [its documentation](https://github.com/medic/cht-core/tree/master/shared-libs/search).
 
 ### GET /api/v2/export/messages
 
@@ -950,7 +950,7 @@ Content-Type: application/json
 
 ### POST /api/v1/bulk-delete
 
-Bulk delete endpoint for deleting large numbers of documents. Docs will be batched into groups of 100 and will be sent sequentially to couch (new batch sent after the previous one has returned). The response will be chunked JSON (one batch at a time), so if you wish to get an indication of progress you will need to parse incomplete JSON (with a library such as this one https://github.com/indgov/partial-json-parser).
+Bulk delete endpoint for deleting large numbers of documents. Docs will be batched into groups of 100 and will be sent sequentially to couch (new batch sent after the previous one has returned). The response will be chunked JSON (one batch at a time), so if you wish to get an indication of progress you will need to parse incomplete JSON (with a library such as [`partial-json-parser`](https://github.com/indgov/partial-json-parser).
 
 #### Permissions
 
@@ -1076,7 +1076,7 @@ POST /api/v1/upgrade
 
 For potential forwards compatibility, you must pass the `namespace` and `application` as `medic`.
 
-The `version` should correspond to a release, pre-release or branch that has been pushed to our builds server (currently hard-coded to https://staging.dev.medicmobile.org/builds). This happens automatically upon a successful travis run.
+The `version` should correspond to a release, pre-release or branch that has been pushed to our builds server, which is currently hard-coded to `https://staging.dev.medicmobile.org/builds`. This happens automatically upon a successful travis run.
 
 Calling this endpoint will eventually cause api and sentinel to restart.
 
