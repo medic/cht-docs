@@ -49,7 +49,7 @@ The following transitions are available and executed in order.
 | update_scheduled_reports | If a report has a month/week/week_number, year and clinic then look for duplicates and update those instead. |
 | resolve_pending | Sets the state of pending messages to sent. It is useful during builds where we don't want any outgoing messages queued for sending. |
 | [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. |
-| [mark_for_outbound]({{% ref "apps/reference/app-settings/outbound/" %}}) | Enables outbound pushes. Available since 3.5.x |
+| [mark_for_outbound]({{% ref "apps/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
 
 ## Transition Configuration Guide
