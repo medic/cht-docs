@@ -32,7 +32,7 @@ JSON Forms are used for parsing reports from formatted SMS, SIM applications, an
 | `fields.${field}.length` | array with two integers | Inclusive range accepted for length of the field. | no |
 | `fields.${field}.required` | boolean | Determines if a report without this field is considered valid. | no |
 | `public_form` | boolean | Determines if reports will be accepted from phone numbers not associated to a contact. Set to false if you want to reject reports from unknown senders. Default: true. | no |
-| `facility_reference` | string | The form field whose value is to be used to match the incoming report to a contact's `rc_code`. Useful when reports are sent on behalf of a facility by unknown or various phone numbers. Requires the [`update_clinics` transition]({{% ref "apps/reference/app-settings/transitions/#muting" %}}). | no |
+| `facility_reference` | string | The form field whose value is to be used to match the incoming report to a contact's `rc_code`. Useful when reports are sent on behalf of a facility by unknown or various phone numbers. Requires the [`update_clinics` transition]({{% ref "apps/reference/app-settings/transitions#muting" %}}). | no |
 
 ## Code Sample
 
