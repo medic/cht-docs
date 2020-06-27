@@ -13,17 +13,17 @@ relatedContent: >
 
 ## Purpose of the Tutorial
 
-In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using medic-conf. If you haven't already, have a look at [part 1]({{< ref "apps/tutorials/contact-and-users-1" >}}) of this tutorial for a useful overview of key concepts.
+In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using medic-conf. If you haven't already, have a look at [part 1]({{% ref "apps/tutorials/contact-and-users-1" %}}) of this tutorial for a useful overview of key concepts.
 
 ## Brief Overview of Key Concepts
 
 [*medic-conf*](https://github.com/medic/medic-conf) is a command-line interface tool to manage and configure your apps built using the Core Framework of the Community Health Toolkit.
 
-See more [key concepts]({{< ref "apps/tutorials/contact-and-users-1#brief-overview-of-key-concepts" >}}) in part 1 of this tutorial.
+See more [key concepts]({{% ref "apps/tutorials/contact-and-users-1#brief-overview-of-key-concepts" %}}) in part 1 of this tutorial.
 
 ## Required Resources
 
-You should have a functioning CHT instance and have medic-conf installed locally. Read [How to set up a CHT local configuration environment]({{< ref "apps/tutorials/local-setup" >}})
+You should have a functioning CHT instance and have medic-conf installed locally. Read [How to set up a CHT local configuration environment]({{% ref "apps/tutorials/local-setup" %}})
 
 ## Implementation Steps
 
