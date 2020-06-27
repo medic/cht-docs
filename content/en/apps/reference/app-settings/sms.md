@@ -15,7 +15,7 @@ SMS settings are defined under the `sms` key, as an object supporting the follow
 ## `app_settings.json .sms`
 | property         | default       | description                                                                                                                                                                              |
 |------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| outgoing_service | medic-gateway | Defines the service to use to send SMS messages. Currently supports "medic-gateway" and "africas-talking". Read more about "africas-talking" configuration [here](../../guides/africas-talking). |
+| outgoing_service | medic-gateway | Defines the service to use to send SMS messages. Currently supports "medic-gateway" and "africas-talking". Read more about "africas-talking" configuration [here]({{% ref "apps/guides/messaging/africas-talking" %}}). |
 | duplicate_limit  | 5             | The number of identical sms message allowed to be sent to the same recipient.
 
 ## Code sample
