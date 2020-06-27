@@ -11,7 +11,7 @@ relatedContent: >
 
 Medic gateway supports Android 4.1 and above. To have it up and fully working, follow the below steps.
 
-- Install the app from the playstore from this [link](https://play.google.com/store/apps/details?id=medic.gateway.alert&hl=en) or by searching "Medic Gateway" on the Android Playstore.
+- Install the latest APK from the [releases](https://github.com/medic/medic-gateway/releases) in the `medic-gateway` repo.
 
 - Open the app.
 You will get a ```Warning:medic-gateway is not set as the default messaging app on this device``` if you are installing the app for the first time or afresh. Select ```HELP ME CHANGE``` and agree to the folloup system prompt about changing the default messaging app.
