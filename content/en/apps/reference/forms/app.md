@@ -120,6 +120,7 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.person` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.place` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `user`, and `summary` are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario. | no |
+| `context.permission` | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access. | no |
 
 ### Code sample
 
@@ -142,7 +143,8 @@ In this sample properties file, the associated form would only show on a person'
     "context": {
       "person": true,
       "place": false,
-      "expression": "contact.type === 'person' && (!contact.sex || contact.sex === 'female') && (!contact.date_of_birth || (ageInYears(contact) >= 10 && ageInYears(contact) < 65))"
+      "expression": "contact.type === 'person' && (!contact.sex || contact.sex === 'female') && (!contact.date_of_birth || (ageInYears(contact) >= 10 && ageInYears(contact) < 65))",
+      "permission": "can_register_pregnancies"
     }
   }
 ```
