@@ -12,7 +12,7 @@ relatedContent: >
 
 ## Purpose of the Tutorial
 
-In this tutorial you will learn how to create and edit contacts and their associated users in and application built with the CHT using the default contact creation forms. This will help you get familiar with the UI of the webapp as well as some features and functionality. If you are already comfortable with this, you can skip to [manipulating contacts and their associated documents using medic conf](creating-and-managing-users-and-contacts-with-medic-conf.md).
+In this tutorial you will learn how to create and edit contacts and their associated users in and application built with the CHT using the default contact creation forms. This will help you get familiar with the UI of the webapp as well as some features and functionality. If you are already comfortable with this, you can skip to [part 2, which covers manipulating contacts and their associated documents using medic conf]({{% ref "apps/tutorials/contact-and-users-2" %}}).
 
 ## Brief Overview of Key Concepts
 
@@ -35,7 +35,7 @@ In this tutorial you will learn how to create and edit contacts and their associ
 
 ## Required Resources
 
-You should have a functioning CHT instance with contact forms configured. Read [How to set up a CHT local configuration environment](setting_up_local_configuration_environment.md)
+You should have a functioning CHT instance with contact forms configured. Read [How to set up a CHT local configuration environment]({{% ref "apps/tutorials/local-setup" %}})
 
 ## Implementation Steps
 

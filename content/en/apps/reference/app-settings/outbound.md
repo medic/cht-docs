@@ -17,7 +17,7 @@ This feature is experimental, and may be replaced by some third party technology
 
 ## Configuration
 
-For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config](./transitions.md#Configurations):
+For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config]({{% ref "apps/reference/app-settings/transitions#available-transitions" %}}):
 ```json
 {
   "transitions": {

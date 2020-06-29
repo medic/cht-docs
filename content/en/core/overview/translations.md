@@ -20,9 +20,9 @@ Note that "keys" in .properties files are referred to as `terms` in POEditor.
 ## Adding new languages
 New languages must be added and configured in several places:
 - *In GitHub*
-  - Create a new [medic/translations/messages-XX.properties](https://github.com/medic/medic/blob/master/translations/) file, replacing XX with the 2 or 3 letter language code.
-  - Add the language to the [LOCAL_NAME_MAP in api](https://github.com/medic/medic-api/blob/master/translations.js#L10). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
-  - Import the moment language pack in the [root app.js file](https://github.com/medic/medic/blob/master/static/js/app.js#L25). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
+  - Create a new [ddocs/medic/_attachments/translations/messages-XX.properties](https://github.com/medic/cht-core/tree/master/ddocs/medic/_attachments/translations) file, replacing XX with the 2 or 3 letter language code.
+  - Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/master/api/src/translations.js#L8). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
+  - Import the moment language pack in the [root app.js file](https://github.com/medic/cht-core/blob/master/webapp/src/js/app.js#L39). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
 - *In POEditor*
   - In the [Medic Mobile project](https://poeditor.com/projects/view?id=33025), add the language
   - Add translations for a new language in the POEditor app

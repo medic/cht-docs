@@ -12,7 +12,7 @@ We use npm Orgs to organize our npm packages.  It provides a centralized way
 to manage a team's published npm packages and permissions.  Here are some
 guidelines when using this service.
 
-See [https://www.npmjs.com/docs/orgs/](https://www.npmjs.com/docs/orgs/) for more information.
+See npm's [Orgs docs](https://docs.npmjs.com/orgs/) for more information.
 
 Our organization is `medic` or using npm's notation, `@medic`.
 
@@ -60,4 +60,4 @@ For example if you fork `moment` and you can't get your changes merged upstream
 and need to publish a new package then modify the package name (in
 package.json) to specify a organizational scope, like `@medic/moment` and publish it.
 
-For more info see [Publishing an Org Scoped Package](https://www.npmjs.com/docs/orgs/publishing-an-org-scoped-package.html).
+For more info see [Publishing an Org Scoped Package](https://docs.npmjs.com/creating-and-publishing-an-org-scoped-package).
