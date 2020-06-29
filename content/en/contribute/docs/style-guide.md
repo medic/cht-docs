@@ -265,7 +265,7 @@ document, use the backtick (`).
 
 | Do | Don't |
 |---|---|
-| export COUCH_NODE_NAME=couchdb@127.0.0.1 | $ export COUCH_NODE_NAME=couchdb@127.0.0.1 |
+| `export COUCH_NODE_NAME=couchdb@127.0.0.1` | `$ export COUCH_NODE_NAME=couchdb@127.0.0.1` |
 
 ### Separate commands from output
 
