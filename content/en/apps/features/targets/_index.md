@@ -51,4 +51,10 @@ Aggregate targets were introduced in v3.9 to provide Supervisors actionable info
 
 Clicking on an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up.
 
+<br />
+<br />
+<br />
+<br />
+<br />
+
 {{% alert title="Note" %}} Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
