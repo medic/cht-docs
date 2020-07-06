@@ -233,16 +233,16 @@ This is a sample note.
 
 ### Images
 
-Use the figure shortcode for images. This uses built-in styling that is responsive.
+The figure shortcode is preferred for images as it uses built-in styling that is responsive, however Markdown syntax is also acceptable. Do not use html styling.
 
 | Do | Don't |
 |---|---|
-| `{{figure src="image.png" class="right col-6 col-lg-3"}}` | `<img src="image.png" width="30%" align="right">` |
+| `{{< figure src="image.png" class="right col-6 col-lg-3" >}}` | `<img src="image.png" width="30%" align="right">` |
 
 The image can also link to a file by using the link attribute.
 
 ```
-{{figure src="image.png" link="image.png" class="right col-6 col-lg-3"}}
+{{< figure src="image.png" link="image.png" class="right col-6 col-lg-3" >}}
 ```
 
 ## Inline code formatting
