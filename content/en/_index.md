@@ -44,16 +44,24 @@ The CHT provides you with resources to design, build, deploy, and monitor digita
 
 <br />
 ### Why the CHT?
-The [Why the CHT?]({{< ref "why-the-cht" >}}) page is a great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "apps/examples/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
+A great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "apps/examples/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
+
+{{< read-more page="why-the-cht" >}}
 
 ### CHT Applications
-Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT apps. This section also includes quick guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start. [Read more]({{< ref "apps" >}})
+Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT apps. This section also includes quick guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start. 
+
+{{< read-more page="apps" >}}
 
 ### CHT Core Framework
-[This section]({{< ref "core" >}}) overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}). 
+An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).
+
+{{< read-more page="core" >}} 
 
 ### Design System
-An overview of key end user personas, notes on the CHT icon library, and configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when designing your own community health app for a live deployment. [Read more]({{< ref "design" >}})
+An overview of key end user personas, notes on the CHT icon library, and configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when designing your own community health app for a live deployment.
+
+{{< read-more page="design" >}}
  
 ### Have Questions?
 Want to learn alongside a community of users? Join our community forum and let us know how we can help! And if you like what you see, don’t forget to star [our Github repo](https://github.com/medic/cht-core) :)

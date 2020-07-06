@@ -1,0 +1,27 @@
+<!--
+    This is technically identical to the 'see-also` template, but used differently. That said, likely
+    the styles for both should be kept in sync.
+    See https://github.com/medic/cht-docs/pull/203 for context
+-->
+{{ $page := .Get "page" }}
+{{ $anchor := .Get "anchor" }}
+{{ $save := . }}
+{{ if not ( $.Site.GetPage $page ) }}
+{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
+{{ warnf "[read-more] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
+{{ else }}
+{{ errorf "[read-more] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
+{{ end }}
+{{ end }}
+{{ with $.Site.GetPage $page }}
+{{ $title := $save.Get "title" }}
+{{ if and ($title) ($anchor) }}
+{{ printf "<p><em>Read More:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor $title | safeHTML }}
+{{ else if $title }}
+{{ printf "<p><em>Read More:</em> <a href=%s>%s</a></p>" (ref . $page) $title | safeHTML }}
+{{ else if $anchor }}
+{{ (printf "<p><em>Read More:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor .Title) | safeHTML }}
+{{ else }}
+{{ (printf "<p><em>Read More:</em> <a href=%s>%s</a></p>" (ref . $page) .Title) | safeHTML }}
+{{ end }}
+{{ end }}
