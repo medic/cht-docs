@@ -165,6 +165,15 @@ To avoid broken links always use `ref` or `relref` shortcodes for internal refer
 
 For example,  `[Icon Library]({{</* relref "design/icons" */>}})` yields "[Icon Library]({{% relref "design/icons" %}})". Using the full path will avoid ambiguous references if a new page of the same is created. 
 
+### Link paragraphs, not titles
+
+Whether using `ref` ,`relref` or inline links, do not link a title:
+
+| Do | Don't |
+|---|---|
+| ` Read more about [InnoDB here](https://en.wikipedia.org/wiki/InnoDB).` | `## [InnoDB here](https://en.wikipedia.org/wiki/InnoDB)` |
+| `The [Icon Library]({{</* relref "design/icons" */>}}) has many great icons.` | `## [Icon Library]({{</* relref "design/icons" */>}})` |
+
 ## Formatting standards
 
 ### Use Markdown Notation
