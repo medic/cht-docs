@@ -1,3 +1,8 @@
+<!--
+    This is technically identical to the 'read-more` template, but used differently. That said, likely
+    the styles for both should be kept in sync.
+    See https://github.com/medic/cht-docs/pull/203 for context
+-->
 {{ $page := .Get "page" }}
 {{ $anchor := .Get "anchor" }}
 {{ $save := . }}
@@ -10,9 +15,13 @@
 {{ end }}
 {{ with $.Site.GetPage $page }}
 {{ $title := $save.Get "title" }}
-{{ if $title }}
+{{ if and ($title) ($anchor) }}
 {{ printf "<p><em>See Also:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor $title | safeHTML }}
-{{ else }}
+{{ else if $title }}
+{{ printf "<p><em>See Also:</em> <a href=%s>%s</a></p>" (ref . $page) $title | safeHTML }}
+{{ else if $anchor }}
 {{ (printf "<p><em>See Also:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor .Title) | safeHTML }}
+{{ else }}
+{{ (printf "<p><em>See Also:</em> <a href=%s>%s</a></p>" (ref . $page) .Title) | safeHTML }}
 {{ end }}
 {{ end }}
