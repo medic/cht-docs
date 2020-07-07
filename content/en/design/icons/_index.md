@@ -17,6 +17,6 @@ Use the `forms_tasks_targets` folder to find PNG and SVG icons for application c
 
 NOTE: For those using medic-conf to upload resources, make sure you add the correct icons for people and places to your `resources.json` file. Otherwise, uploading resources will inadvertently remove your people and place icons. An issue is being raised in medic-conf to solve this. You'll need to define `medic-clinic`, `medic-health-center`, `medic-district-hospital` and `medic-person` in your `resources.json` and set them to the appropriate SVG files.
 
-The design team has put together a resource to help with best practices when selecting and using icons in configuration. Check out the [best practices](../apps/) to learn more about which icons can be used for which use cases and workflows.
+The design team has put together a resource to help with best practices when selecting and using icons in configuration. Check out the [best practices]({{< ref "apps" >}}) to learn more about which icons can be used for which use cases and workflows.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
