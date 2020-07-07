@@ -5,7 +5,6 @@ weight:
 description: >
   How to copy data from an instance to a local CouchDB database and app
 relatedContent: >
-  apps/reference/app-settings/replication
   apps/guides/performance/replication
 ---
 
