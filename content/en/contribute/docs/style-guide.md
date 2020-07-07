@@ -239,11 +239,11 @@ The figure shortcode is preferred for images as it uses built-in styling that is
 |---|---|
 | `{{< figure src="image.png" class="right col-6 col-lg-3" >}}` | `<img src="image.png" width="30%" align="right">` |
 
-The image can also link to a file by using the link attribute.
+It is good practice for the image to link to the image file so that a larger version can be viewed easily. This can be done using the `link` attribute with the `figure` shortcode, which is less error prone than adding a link to the markdown image notation.
 
-```
-{{< figure src="image.png" link="image.png" class="right col-6 col-lg-3" >}}
-```
+| Do | Don't |
+|---|---|
+| `{{< figure src="image.png" link="image.png" alt="Alt text" title="Image Title">}}` | `[![Alt text](image.png "Image Title")](image.png)` |
 
 ## Inline code formatting
 
@@ -291,5 +291,4 @@ A list of terms and words to be used consistently across the site.
 | Community Health Toolkit | Community Health Toolkit should always be capitalized. |
 | CHT | Acronym for "Community Health Toolkit". |
 | CouchDB | No space between Couch and DB. Do not use Couchdb, Couch DB or other variations. |
-
 
