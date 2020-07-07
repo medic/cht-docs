@@ -233,11 +233,12 @@ This is a sample note.
 
 ### Images
 
-The figure shortcode is preferred for images as it uses built-in styling that is responsive, however Markdown syntax is also acceptable. Do not use html styling.
+The [image markdown syntax](https://www.markdownguide.org/basic-syntax/#images-1) can be used for images, but if any styling is required use the built-in `figure` shortcode. With the `figure` shortcode [many fields are configurable](https://gohugo.io/content-management/shortcodes/#figure), and the position and size can be responsive with [Bootstrap grid classes](https://getbootstrap.com/docs/4.0/layout/grid/#responsive-classes). You should avoid using the HTML `img` tag in the documentation.
 
 | Do | Don't |
 |---|---|
 | `{{< figure src="image.png" class="right col-6 col-lg-3" >}}` | `<img src="image.png" width="30%" align="right">` |
+| `{{< figure src="image.png" class="right col-6 col-lg-3" >}}` | `<img src="image.png" style="width:30%; align:right;">` |
 
 It is good practice for the image to link to the image file so that a larger version can be viewed easily. This can be done using the `link` attribute with the `figure` shortcode, which is less error prone than adding a link to the markdown image notation.
 
@@ -291,4 +292,3 @@ A list of terms and words to be used consistently across the site.
 | Community Health Toolkit | Community Health Toolkit should always be capitalized. |
 | CHT | Acronym for "Community Health Toolkit". |
 | CouchDB | No space between Couch and DB. Do not use Couchdb, Couch DB or other variations. |
-
