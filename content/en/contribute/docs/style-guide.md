@@ -144,13 +144,18 @@ Connecting readers to related content in different pages is an important aspect 
 1. **Inline links**: a portion of any narrative text can link to another page. This should done using the markdown link notation. 
    
    For example, the text `linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!` yields: "linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!"
-2. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
+   
+1. **See Also** and **Read More**: the `see-also` and `read-more` shortcodes are available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
    
    For example, `{{</* see-also page="design/icons" */>}}` will show as seen here: {{< see-also page="design/icons" >}}
+   
+   The same can be done for `read-more` with `{{</* read-more page="design/icons" */>}}` will show as seen here: {{< read-more page="design/icons" >}} 
+   
+   A custom title and anchor can be provided with this as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
+   
+   Please use `see-also` when reference __related topics__ (e.g. [Workflows]({{< ref "apps/concepts/workflows" >}})) and use `read-more` when referencing the __same topic__ in more depth  (e.g. [Home Page]({{< ref "/" >}})) .  
 
-   A custom title and anchor can be provided. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
-
-3. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
+1. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
    ```
    ---
    title: Messaging
