@@ -38,6 +38,6 @@ Contact Tracing with the CHT offers a rapidly scalable surveillance strategy by 
 
 This demo illustrates how a CHT workflow for tracing of contacts of suspected or confirmed patient cases can be deployed to support a COVID-19 health program response. It works on both SMS and the CHT app. It can be combined with other care workflows and configured to suit specific health system needs, particularly in terms of tracer roles. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/I8bBeh80j-0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube I8bBeh80j-0 >}}
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1gG2CqndW5pWp6Lx_3t6haiqqO-wFY7_JJ4r246YbVEw)
