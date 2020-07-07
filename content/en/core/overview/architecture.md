@@ -18,7 +18,7 @@ A free and open source NoSQL database we use to store all our data, configuratio
 
 ### [api](https://github.com/medic/medic/tree/master/api)
 
-A NodeJS service which runs on the server as a wrapper around CouchDB. It provides some security, auditing, and integration APIs. It also includes a custom implementation of filtered replication to allow it to support more concurrent users.
+A NodeJS service which runs on the server as a wrapper around CouchDB. It provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users.
 
 ### [sentinel](https://github.com/medic/medic/tree/master/sentinel)
 
