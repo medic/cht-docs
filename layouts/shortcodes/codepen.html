@@ -5,7 +5,6 @@
 {{ $tab     := "result" }}{{/* html|css|js|result */}}
 {{ $theme   := 8862 }}{{/* create on codepen.io */}}
 {{ if .IsNamedParams }}
-{{ $id  := "" }}
 {{ $id  := .Get "id" }}
 {{ else }}
 {{ $id  := .Get 0 }}
