@@ -7,7 +7,11 @@
 {{ $tab     := "result" }}{{/* html|css|js|result */}}
 {{ $theme   := 8862 }}{{/* create on codepen.io */}}
 
-
+{{ if .IsNamedParams }}
+{{ $id  := .Get "id" }}
+{{ else }}
+{{ $id  := .Get 0 }}
+{{ end }}
 <script
     data-slug-hash="{{ .Get "id" }}"
     data-user="{{ or (.Get "user") $user }}"
