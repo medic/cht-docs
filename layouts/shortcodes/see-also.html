@@ -1,25 +1,23 @@
 <p>
-<em>{{ if .Get "prefix" }}{{ .Get "prefix" | safeHTML }}:{{ else }}See Also:{{ end }}</em>
-{{ $page := .Get "page" }}
-{{ $anchor := .Get "anchor" }}
-{{ $save := . }}
-{{ if not ( $.Site.GetPage $page ) }}
+<em>{{ if .Get "prefix" }}{{ .Get "prefix" | safeHTML }}: {{ else }}See Also: {{ end }}</em>{{/*
+*/}}{{ $page := .Get "page" }}{{/*
+*/}}{{ $save := . }}{{/*
+*/}}{{ $anchor := .Get "anchor" }}{{/*
+*/}}{{ if not ( $.Site.GetPage $page ) }}
 {{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
 {{ warnf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
 {{ else }}
 {{ errorf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
-{{ end }}
-{{ end }}
-{{ with $.Site.GetPage $page }}
-{{ $title := $save.Get "title" }}
-{{ if and ($title) ($anchor) }}
-1{{ printf "<a href=%s#%s>%s</a>" (ref . $page) $anchor $title | safeHTML }}
-{{ else if $title }}
-2{{ printf "<a href=%s>%s</a>" (ref . $page) $title | safeHTML }}
+{{ end }}{{ end }}{{ with $.Site.GetPage $page }}
+{{ $title := $save.Get "title" }}{{/*
+*/}}{{ if and ($title) ($anchor) }}
+{{ printf "<a href=%s#%s>%s</a>" (ref . $page) $anchor $title | safeHTML }}
+{{ else if $title }}{{/*
+*/}}{{ printf "<a href=%s>%s</a>" (ref . $page) $title | safeHTML }}
 {{ else if $anchor }}
-3{{ printf "<a href=%s#%s>%s</a>" (ref . $page) $anchor .Title | safeHTML }}
+{{ printf "<a href=%s#%s>%s</a>" (ref . $page) $anchor .Title | safeHTML }}
 {{ else }}
-4{{ printf "<a href=%s>%s</a>" (ref . $page) .Title | safeHTML }}
+{{ printf "<a href=%s>%s</a>" (ref . $page) .Title | safeHTML }}
 {{ end }}
 {{ end }}
 </p>

@@ -149,7 +149,7 @@ Connecting readers to related content in different pages is an important aspect 
    
    For example, `{{</* see-also page="design/icons" */>}}` will show as seen here: {{< see-also page="design/icons" >}}
    
-   You can also make the callout say "Read More" with the the `prefix` tag like so: `{{</* see-also pretext="read-more" page="design/icons" */>}}`. This will show as seen here: {{< see-also page="design/icons" pretext="read-more"  >}} 
+   You can also make the callout say "Read More" with the `prefix` tag: `{{</* see-also prefix="Read More" page="design/icons" */>}}`. This will show as seen here: {{< see-also page="design/icons" prefix="Read More" >}} 
    
    A custom title and anchor can be provided with this as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
    
