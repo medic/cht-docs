@@ -58,7 +58,7 @@ For more information on how these colors are applied in the app, see our [color 
 
 ## Typography
 
-The default app font is <a href="https://www.google.com/get/noto/">Noto Sans</a>. It is free, open source, supports 800 languages and was specifically designed for good web legibility. It is bundled with the app so that all users see the same font regardless of their particular device, language, browser, etc. This ensures a consistent experience for all users.
+The default app font is <a href="https://www.google.com/get/noto/">Noto Sans</a>. It is free, ocodepen source, supports 800 languages and was specifically designed for good web legibility. It is bundled with the app so that all users see the same font regardless of their particular device, language, browser, etc. This ensures a consistent experience for all users.
 
 Most text in the app should be the `@text-normal-color: @gray-ultra-dark color`.
 The lighter text color `@text-secondary-color: @gray-dark)` is used for labels and condition card filters.
@@ -74,44 +74,44 @@ H4 is the default type size, and should be used for all normal body text through
 
 H5 is a smaller body text size that we use sparingly in places where space is tight, such as timestamps in the upper right of content rows, condition card filter text, “belongs to” breadcrumbs, and targets goal labels.
 
-        {{% pen PoZObmY %}}
+        {{% codepen PoZObmY %}}
 
 ## Buttons
 Primary buttons are used for actions, such as “Next” and “Submit”. Secondary buttons are the alternative to the primary action, such as "Previous". Text links are used for less important or less commonly used actions, such as “Cancel”.
-        {{% pen WNrZKoz %}}
+        {{% codepen WNrZKoz %}}
 
 ## Checkboxes
 Use checkboxes to select multiple items within a form. When necessary, use a descriptive error state.
-        {{% pen YzwrRRV %}}
+        {{% codepen YzwrRRV %}}
 
 ## Radios
 Use radio buttons to select a single item within a form. When necessary, use a descriptive error state.
-        {{% pen RwrLqqZ %}}
+        {{% codepen RwrLqqZ %}}
 
 ## Inputs
 Use an input field as a basic text control to enable the user to type a small amount of text. The input size should reflect the amount of text a user is expected to enter. When necessary, use a descriptive error state.
-        {{% pen KKVXrYE %}}
+        {{% codepen KKVXrYE %}}
 
 ## Dropdowns
 Dropdowns are used within forms that have 7 or more options and as filters within tabs.
-        {{% pen xxZXJgK %}}
+        {{% codepen xxZXJgK %}}
 
 ## Modals
 Use modals when a user is exiting a flow where information may be lost or for experiences outside the main user flows.
-        {{% pen MWKEzbP %}}
+        {{% codepen MWKEzbP %}}
 
 ## Condition Cards
 Use these cards in contact summary pages to display an overview of tasks, people, reports, etc
-        {{% pen MWKEzyq %}}
+        {{% codepen MWKEzyq %}}
 
 ## Content Rows
 Content rows are used for tasks, messages, reports and people as an overview of the content name, description, date and/or priority.
-        {{% pen zYrEMqX %}}
+        {{% codepen zYrEMqX %}}
 
 ## Targets
 Targets include counts and percentages with and without goals.
-        {{% pen wvMrxOx %}}
+        {{% codepen wvMrxOx %}}
 
 ## Action Bars
 Use action bars to prompt new actions or workflows on relative pages.
-        {{% pen YzwEqpB %}}
+        {{% codepen YzwEqpB %}}
