@@ -60,9 +60,9 @@ For more information on how these colors are applied in the app, see our [color 
 
 The default app font is <a href="https://www.google.com/get/noto/">Noto Sans</a>. It is free, open source, supports 800 languages and was specifically designed for good web legibility. It is bundled with the app so that all users see the same font regardless of their particular device, language, browser, etc. This ensures a consistent experience for all users.
 
-Most text in the app should be the ```@text-normal-color: @gray-ultra-dark color```.
-The lighter text color ```@text-secondary-color: @gray-dark)``` is used for labels and condition card filters.
-Hyperlinked text color is ```@text-hyperlink-color: @blue-dark)```. 
+Most text in the app should be the `@text-normal-color: @gray-ultra-dark color`.
+The lighter text color `@text-secondary-color: @gray-dark)` is used for labels and condition card filters.
+Hyperlinked text color is `@text-hyperlink-color: @blue-dark)`. 
 
 H1 is the highest hierarchical level of text, and should be used sparingly. It is used for the large text underneath percentage bars.
 
