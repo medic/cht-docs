@@ -13,7 +13,7 @@
 {{ $id  := .Get 0 }}
 {{ end }}
 <script
-    data-slug-hash="{{ .Get "id" }}"
+    data-slug-hash="{{ $id }}"
     data-user="{{ or (.Get "user") $user }}"
     data-height="{{ or (.Get "height") $height }}"
     data-default-tab="{{ or (.Get "tab") $tab }}"
