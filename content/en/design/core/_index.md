@@ -78,40 +78,40 @@ H5 is a smaller body text size that we use sparingly in places where space is ti
 
 ## Buttons
 Primary buttons are used for actions, such as “Next” and “Submit”. Secondary buttons are the alternative to the primary action, such as "Previous". Text links are used for less important or less commonly used actions, such as “Cancel”.
-        {{% pen id="WNrZKoz" %}}
+        {{% pen WNrZKoz %}}
 
 ## Checkboxes
 Use checkboxes to select multiple items within a form. When necessary, use a descriptive error state.
-        {{% pen id="YzwrRRV" %}}
+        {{% pen YzwrRRV %}}
 
 ## Radios
 Use radio buttons to select a single item within a form. When necessary, use a descriptive error state.
-        {{% pen id="RwrLqqZ" %}}
+        {{% pen RwrLqqZ %}}
 
 ## Inputs
 Use an input field as a basic text control to enable the user to type a small amount of text. The input size should reflect the amount of text a user is expected to enter. When necessary, use a descriptive error state.
-        {{% pen id="KKVXrYE" %}}
+        {{% pen KKVXrYE %}}
 
 ## Dropdowns
 Dropdowns are used within forms that have 7 or more options and as filters within tabs.
-        {{% pen id="xxZXJgK" %}}
+        {{% pen xxZXJgK %}}
 
 ## Modals
 Use modals when a user is exiting a flow where information may be lost or for experiences outside the main user flows.
-        {{% pen id="MWKEzbP" %}}
+        {{% pen MWKEzbP %}}
 
 ## Condition Cards
 Use these cards in contact summary pages to display an overview of tasks, people, reports, etc
-        {{% pen id="MWKEzyq" %}}
+        {{% pen MWKEzyq %}}
 
 ## Content Rows
 Content rows are used for tasks, messages, reports and people as an overview of the content name, description, date and/or priority.
-        {{% pen id="zYrEMqX" %}}
+        {{% pen zYrEMqX %}}
 
 ## Targets
 Targets include counts and percentages with and without goals.
-        {{% pen id="wvMrxOx" %}}
+        {{% pen wvMrxOx %}}
 
 ## Action Bars
 Use action bars to prompt new actions or workflows on relative pages.
-        {{% pen id="YzwEqpB" %}}
+        {{% pen YzwEqpB %}}
