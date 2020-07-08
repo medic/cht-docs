@@ -661,7 +661,6 @@ will be undefined.
 | Key      | Description                                                                     |
 | -------- | ------------------------------------------------------------------------------- |
 | username | String identifier used for authentication.                                      |
-| password | Password string used for authentication. Only allowed to be set, not retrieved. |
 
 ##### Conditional
 
@@ -670,6 +669,9 @@ will be undefined.
 | roles   | Array of roles.                                                |
 | place   | Place identifier string (UUID) or object this user resides in. | Required if your roles contain `district_admin`. |
 | contact | A person object based on the form configured in the app.       | Required if your roles contain `district_admin`. |
+| password | Password string used for authentication. Only allowed to be set, not retrieved. | Required if `token_login` is not enabled fot the user |
+| token_login | A boolean representing whether or not the Login by SMS should be enabled for this user. | Available as of `3.10.x` |
+| phone    | Valid phone number | Required if `token_login` is enabled | 
 
 ##### Optional
 
@@ -677,9 +679,37 @@ will be undefined.
 | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | fullname | Full name                                                                                                                   |
 | email    | Email address                                                                                                               |
-| phone    | Phone number                                                                                                                |
 | language | Language preference. e.g. "sw" for Swahili                                                                                  |
 | known    | Boolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
+
+##### Login by SMS
+
+When creating or updating a user, sending a truthy value for the field `token_login` will enable Login by SMS for this user.
+This action resets the user's password to an unknown string, generates a complex 50 character token and a hash of the user's id.  
+Using these strings, a token-login URL is generated and is sent to the user by SMS, along with another (configurable) SMS that can contain additional information.
+Accessing this link, before its expiration time, will log the user in directly - without the need of any other credentials.  
+The link can only be accessed once, the token becomes invalid once it was used for one login.  
+The generated token expires after 24 hours, after which logging in is only possible by either disabling login by SMS or generating a new token.
+
+    
+The SMS messages are stored in a doc of a new type `token_login_sms`. These docs cannot be viewed as reports from the webapp, but their messages are visible in the Admin Message Queue page.   
+
+
+To disable login by SMS for a user, update the user sending `token_login` with a `false` value. 
+To regenerate the token, update the user sending `token_login` with a `true` value.
+
+| `token_login` | user state | action | 
+| ------------- | -----------| ------ |
+| undefined | new | None |
+| undefined | existent, no token | None | 
+| undefined | existent, with token | None. Login by SMS remains enabled. Token is unchanged. |
+| true | new | Login by SMS enabled. Token is generated and SMS is sent. | 
+| true | existent, no token | Password is reset. Login by SMS enabled. Token is generated and SMS is sent. | 
+| true | existent, with token | Password is reset. Login by SMS enabled. New token is generated and SMS is sent. Old token is invalid. |
+| false | new | None. | 
+| false | existent, no token | None. | 
+| false | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. | 
+
 
 ### GET /api/v1/users
 
