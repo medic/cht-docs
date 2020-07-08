@@ -153,7 +153,7 @@ Connecting readers to related content in different pages is an important aspect 
    
    A custom title and anchor can be provided with this as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
    
-   Please use `see-also` when reference __related topics__ (e.g. [Workflows]({{< ref "apps/concepts/workflows" >}})) and use `read-more` when referencing the __same topic__ in more depth  (e.g. [Home Page]({{< ref "/" >}})) .  
+   Please use `see-also` when reference _related topics_ (e.g. [Workflows]({{< ref "apps/concepts/workflows" >}})) and use `read-more` when referencing the _same topic_ in more depth  (e.g. [Home Page]({{< ref "/" >}})) .  
 
 1. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
    ```
