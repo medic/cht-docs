@@ -145,11 +145,11 @@ Connecting readers to related content in different pages is an important aspect 
    
    For example, the text `linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!` yields: "linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!"
    
-1. **See Also** and **Read More**: the `see-also` and `read-more` shortcodes are available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
+1. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
    
    For example, `{{</* see-also page="design/icons" */>}}` will show as seen here: {{< see-also page="design/icons" >}}
    
-   The same can be done for `read-more` with `{{</* read-more page="design/icons" */>}}` will show as seen here: {{< read-more page="design/icons" >}} 
+   You can also make the callout say "Read More" with the the `prefix` tag like so: `{{</* see-also pretext="read-more" page="design/icons" */>}}`. This will show as seen here: {{< see-also page="design/icons" pretext="read-more"  >}} 
    
    A custom title and anchor can be provided with this as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
    
