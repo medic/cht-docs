@@ -15,8 +15,8 @@
     <em>
     {{ ( or (.Get "prefix") "See Also" ) }}:
     </em>{{ with $.Site.GetPage $page }}
-    {{ $finaltile := .Title }}{{ $finalhref := (ref . $page) }}{{ $finalanchor := "null" }}{{ if $title }}{{ $finaltile = $title }}{{ end }}{{ if $anchor }}<a href="{{ $finalhref }}#{{ $anchor }}" >{{ $finaltile }}</a>
-    {{ else }}<a href="{{ $finalhref }}" >{{ $finaltile }}</a>
+    {{ $finaltitle := .Title }}{{ $finalhref := (ref . $page) }}{{ $finalanchor := "null" }}{{ if $title }}{{ $finaltitle = $title }}{{ end }}{{ if $anchor }}<a href="{{ $finalhref }}#{{ $anchor }}" >{{ $finaltitle }}</a>
+    {{ else }}<a href="{{ $finalhref }}" >{{ $finaltitle }}</a>
     {{ end }}
 </p>
 {{ end }}
