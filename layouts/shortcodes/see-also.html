@@ -1,3 +1,5 @@
+<p>
+<em>{{ if .Get "prefix" }}{{ .Get "prefix" | safeHTML }}:{{ else }}See Also:{{ end }}</em>
 {{ $page := .Get "page" }}
 {{ $anchor := .Get "anchor" }}
 {{ $save := . }}
@@ -10,9 +12,14 @@
 {{ end }}
 {{ with $.Site.GetPage $page }}
 {{ $title := $save.Get "title" }}
-{{ if $title }}
-{{ printf "<p><em>See Also:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor $title | safeHTML }}
+{{ if and ($title) ($anchor) }}
+1{{ printf "<a href=%s#%s>%s</a>" (ref . $page) $anchor $title | safeHTML }}
+{{ else if $title }}
+2{{ printf "<a href=%s>%s</a>" (ref . $page) $title | safeHTML }}
+{{ else if $anchor }}
+3{{ printf "<a href=%s#%s>%s</a>" (ref . $page) $anchor .Title | safeHTML }}
 {{ else }}
-{{ (printf "<p><em>See Also:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor .Title) | safeHTML }}
+4{{ printf "<a href=%s>%s</a>" (ref . $page) .Title | safeHTML }}
 {{ end }}
 {{ end }}
+</p>
