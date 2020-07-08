@@ -74,7 +74,7 @@ H4 is the default type size, and should be used for all normal body text through
 
 H5 is a smaller body text size that we use sparingly in places where space is tight, such as timestamps in the upper right of content rows, condition card filter text, “belongs to” breadcrumbs, and targets goal labels.
 
-        {{% codepen PoZObmY %}}
+        {{< codepen PoZObmY >}}
 
 ## Buttons
 Primary buttons are used for actions, such as “Next” and “Submit”. Secondary buttons are the alternative to the primary action, such as "Previous". Text links are used for less important or less commonly used actions, such as “Cancel”.
