@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="row td-search-result">
-<div class="col-12 col-md-8">{{/* Only change is to remove offset to match content pages */}}
+<div class="col-12 col-xl-10">
 <h2 class="ml-4">{{ .Title }}</h2>
 {{ with .Site.Params.gcs_engine_id }}
 <script>
@@ -14,7 +14,7 @@ var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(gcse, s);
 })();
 </script>
-			<gcse:searchresults-only></gcse:searchresults-only>
+			<gcse:searchresults-only defaultToRefinement="Documentation"></gcse:searchresults-only>
 {{ end }}
 </div>
 </section>
