@@ -14,7 +14,7 @@ The CHT has a range of CouchDB databases for storing different types of data. By
 
 The main database, used to store all contact and report data. Data access is protected by API to provide protection on a per document basis.
 
-{{% see-also page="core/overview/db-schema" %}}
+{{< see-also page="core/overview/db-schema" >}}
 
 ### medic-sentinel
 
@@ -41,7 +41,7 @@ Used for documents which are only relevant to a single user, including:
 
 - "feedback". Errors and exceptions caught in the browser, and user initiated feedback. Support staff must monitor these docs to detect any errors that are occurring on the client device.
 - "read". Records that a document has been opened in the browser so it can be marked as read in the UI.
-- "telemetry". Aggregate telemetry information for performance and usage metrics analysis. {{% see-also page="apps/guides/performance/telemetry" %}}
+- "telemetry". Aggregate telemetry information for performance and usage metrics analysis. {{< see-also page="apps/guides/performance/telemetry" >}}
 
 ### medic-users-meta
 
@@ -57,10 +57,10 @@ This is the standard CouchDB database used to configure user authentication and 
 
 Used to store documents on the client device to allow for offline-first access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
 
-{{% see-also page="apps/guides/performance/replication" %}}
+{{< see-also page="apps/guides/performance/replication" >}}
 
 ## PostgreSQL
 
 Used to store data for performant analytical queries such as impact and monitoring dashboards. The CHT uses [medic-couch2pg](https://github.com/medic/medic-couch2pg) to handle replication of docs from "medic", "medic-sentinel", and "medic-users-meta" databases into Postgres.
 
-{{% see-also page="core/overview/data-flows-for-analytics" %}}
+{{< see-also page="core/overview/data-flows-for-analytics" >}}
