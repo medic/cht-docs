@@ -237,14 +237,14 @@ The [image markdown syntax](https://www.markdownguide.org/basic-syntax/#images-1
 
 | Do | Don't |
 |---|---|
-| `{{< figure src="image.png" class="right col-6 col-lg-3" >}}` | `<img src="image.png" width="30%" align="right">` |
-| `{{< figure src="image.png" class="right col-6 col-lg-3" >}}` | `<img src="image.png" style="width:30%; align:right;">` |
+| `{{</* figure src="image.png" class="right col-6 col-lg-3" */>}}` | `<img src="image.png" width="30%" align="right">` |
+| `{{</* figure src="image.png" class="right col-6 col-lg-3" */>}}` | `<img src="image.png" style="width:30%; align:right;">` |
 
 It is good practice for the image to link to the image file so that a larger version can be viewed easily. This can be done using the `link` attribute with the `figure` shortcode, which is less error prone than adding a link to the markdown image notation.
 
 | Do | Don't |
 |---|---|
-| `{{< figure src="image.png" link="image.png" alt="Alt text" title="Image Title">}}` | `[![Alt text](image.png "Image Title")](image.png)` |
+| `{{</* figure src="image.png" link="image.png" alt="Alt text" title="Image Title" */>}}` | `[![Alt text](image.png "Image Title")](image.png)` |
 
 ## Inline code formatting
 
