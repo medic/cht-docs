@@ -22,11 +22,11 @@ The `patient_reports` key contains the actions to take when reports about people
 |`silence_type`|A comma separated list of schedules to mute.|no|
 |`silence_for`|Duration from when the report was submitted for which messages should be muted. It is structured as a string with an integer value followed by a space and the time unit. For instance `8 weeks` or `2 days`. The units available are `seconds`, `minutes`, `hours`, `days`, `weeks`, `months`, `years`, and their singular forms as well. When a message is muted all messages belonging to the same group will be muted, even if it falls outside of this time period. See `messages[].group` in _Schedules_ for related info.|no|
 |`fields`|Descriptive list of form fields. This is not currently used in the app, but can be a helpful annotation.|no|
-|`validations`|A set of validations to perform on incoming reports. More information about validation rules can be found [here]({{% ref "apps/reference/app-settings/#validations" %}}).|no|
+|`validations`|A set of validations to perform on incoming reports. More information about validation rules can be found [here]({{% ref "apps/reference/app-settings#validations" %}}).|no|
 |`validations.join_responses`|A boolean specifying whether validation messages should be combined into one message.|no|
 |`validations.list[]`|An array of validation rules a report should pass to be considered valid.|no|
 |`validations.list[].property`|Report field for which this validation rule will be applied.|no|
-|`validations.list[].rule`|Validation condition to be applied to the property field. More information about rules can be found [here]({{% ref "apps/reference/app-settings/#rules" %}}).|no|
+|`validations.list[].rule`|Validation condition to be applied to the property field. More information about rules can be found [here]({{% ref "apps/reference/app-settings#rules" %}}).|no|
 |`validations.list[].translation_key`|Translation key for the message reply to be sent if a report fails this rule.|no|
 |`messages`|An array of automated responses to incoming reports.|no|
 |`messages[].translation_key`|Translation key for the message text associated with this event|no|
