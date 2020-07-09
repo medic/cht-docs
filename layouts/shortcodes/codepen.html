@@ -1,0 +1,17 @@
+{{/* DEFAULTS */}}
+{{ $user    := "communityhealthtoolkit" }}
+{{ $height  := 400 }}
+{{ $tab     := "result" }}{{/* html|css|js|result */}}
+{{ $theme   := 8862 }}{{/* create on codepen.io */}}
+
+{{ $id      := cond ( .IsNamedParams ) ( .Get "id" ) ( .Get 0 ) }}
+<script
+    data-slug-hash="{{ $id }}"
+    data-user="{{ or (.Get "user") $user }}"
+    data-height="{{ or (.Get "height") $height }}"
+    data-default-tab="{{ or (.Get "tab") $tab }}"
+    data-theme-id="{{ or (.Get "theme") $theme }}"
+    class='codepen'
+    async
+    src="//codepen.io/assets/embed/ei.js"
+></script>
