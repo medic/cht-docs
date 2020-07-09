@@ -1,22 +1,19 @@
 {{ $save := . }}
-{{ $title := $save.Get "title" }}
 {{ $page := .Get "page" }}
 {{ $anchor := .Get "anchor" }}
+{{ $prefix :=  or ($save.Get "prefix") "See Also"  }}
 
-{{ if not ( $.Site.GetPage $page ) }}
+{{ with $.Site.GetPage $page }}
+    {{ $title := or ($save.Get "title") .Title }}
+    {{ $url := ref . $page }}
+    {{ with $anchor }}
+        {{ $url = print $url "#" $anchor }}
+    {{ end }}
+    <p><em>{{ $prefix }}</em>: <a href="{{ $url }}">{{ $title }}</a></p>
+{{ else }}
     {{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
         {{ warnf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
     {{ else }}
         {{ errorf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
     {{ end }}
-{{ end }}
-
-<p>
-    <em>
-    {{ ( or (.Get "prefix") "See Also" ) }}:
-    </em>{{ with $.Site.GetPage $page }}
-    {{ $finaltitle := .Title }}{{ $finalhref := (ref . $page) }}{{ $finalanchor := "null" }}{{ if $title }}{{ $finaltitle = $title }}{{ end }}{{ if $anchor }}<a href="{{ $finalhref }}#{{ $anchor }}" >{{ $finaltitle }}</a>
-    {{ else }}<a href="{{ $finalhref }}" >{{ $finaltitle }}</a>
-    {{ end }}
-</p>
 {{ end }}
