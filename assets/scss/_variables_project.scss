@@ -5,10 +5,10 @@ Add styles or override variables from the theme here.
 */
 
 $primary: #607682;
+$secondary: #F58301;
 $dark: #333F47;
 $info: #007AC0;
 $warning: #E33030;
-
 $build: $primary;
 
 /* Needed so that headers in blockquotes and notes don't draw up into previous content */
@@ -53,4 +53,9 @@ h2, h3 {
 
 .td-sidebar-nav__section-title a {
     color: #fff;
+}
+
+.td-sidebar-nav__section ul {
+    padding: 0;
+    margin: 0 0 0 0.5em;
 }
