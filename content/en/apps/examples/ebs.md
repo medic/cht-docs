@@ -37,6 +37,8 @@ Event Based Surveillance with the CHT offers opportunities for rapid deployment 
 
 ## Workflow Example
 
-This is a simple workflow that enables CHWs to use SMS to report signal codes for specific community health threats. The CHW Supervisor can then verify the initial report and, if warranted, escalate to the sub-county for investigation and follow-up. This example reference workflow is designed to be flexible and can be combined with other complimentary care workflows.
+This demo illustrates a workflow that enables CHWs to use SMS to report signal codes for specific community health threats. The CHW Supervisor can then verify the initial report and, if warranted, escalate to the sub-county for investigation and follow-up. It is designed to be flexible and can be combined with other complimentary care workflows.
 
-![workflow.png](workflow.png)
+{{< youtube 5uIEs4DQLRA >}} 
+
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1BvYA0c8vHlXdGiL1Ne9cbWM4rGaarUGz9SfckP3NWG4).
