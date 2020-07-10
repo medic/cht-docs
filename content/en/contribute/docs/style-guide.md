@@ -151,7 +151,7 @@ Connecting readers to related content in different pages is an important aspect 
    
    You can also make the callout say "Read More" with the `prefix` tag: `{{</* see-also prefix="Read More" page="design/icons" */>}}`. This will show as seen here: {{< see-also page="design/icons" prefix="Read More" >}} 
    
-   A custom title and anchor can be provided with this as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
+   A custom title and anchor can be provided as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
    
    Please use `see-also` when referencing _related topics_ , as seen in [Workflows]({{< ref "apps/concepts/workflows" >}}), and use `read-more` when referencing the _same topic_ in more depth, as in the [Home Page]({{< ref "/" >}}).  
 
