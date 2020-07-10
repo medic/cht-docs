@@ -1,18 +1,19 @@
+{{ $save := . }}
 {{ $page := .Get "page" }}
 {{ $anchor := .Get "anchor" }}
-{{ $save := . }}
-{{ if not ( $.Site.GetPage $page ) }}
-{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
-{{ warnf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
-{{ else }}
-{{ errorf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
-{{ end }}
-{{ end }}
+{{ $prefix :=  or ($save.Get "prefix") "See Also"  }}
+
 {{ with $.Site.GetPage $page }}
-{{ $title := $save.Get "title" }}
-{{ if $title }}
-{{ printf "<p><em>See Also:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor $title | safeHTML }}
+    {{ $title := or ($save.Get "title") .Title }}
+    {{ $url := ref . $page }}
+    {{ with $anchor }}
+        {{ $url = print $url "#" $anchor }}
+    {{ end }}
+    <p><em>{{ $prefix }}</em>: <a href="{{ $url }}">{{ $title }}</a></p>
 {{ else }}
-{{ (printf "<p><em>See Also:</em> <a href=%s#%s>%s</a></p>" (ref . $page) $anchor .Title) | safeHTML }}
-{{ end }}
+    {{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
+        {{ warnf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
+    {{ else }}
+        {{ errorf "[see-also] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $page $save.Page.File.Path }}
+    {{ end }}
 {{ end }}

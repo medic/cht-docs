@@ -68,7 +68,7 @@ From profiles, users can edit contact information, take actions, and, if viewing
 ## Fields
 The top card on all profiles contains general information for the contact. All the fields shown in this summary card are configurable.
 
-{{% see-also page="contact-page" anchor="contact-summary" title="Defining Contact Summary" %}}
+{{< see-also page="contact-page" anchor="contact-summary" title="Defining Contact Summary" >}}
 
 ### Condition Cards
 
@@ -90,7 +90,7 @@ Configurable elements include:
 - Icon for the field, if desired
 - Conditions under which to display
 
-{{% see-also page="contact-page" anchor="condition-cards" title="Defining Condition Cards" %}}
+{{< see-also page="contact-page" anchor="condition-cards" title="Defining Condition Cards" >}}
 
 ## Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
@@ -104,7 +104,7 @@ You’ll see different forms here depending on which person or place you’re vi
 
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.” 
 
-{{% see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" %}}
+{{< see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" >}}
 
 <br clear="all">
 

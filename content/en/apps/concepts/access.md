@@ -45,4 +45,4 @@ On desktop devices, the user must login again if they close the app tab or brows
 
 Users may log out by going to the options menu available in the top right corner of the app.
 
-{{% see-also page="apps/concepts/navigation" %}}
+{{< see-also page="apps/concepts/navigation" >}}

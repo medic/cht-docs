@@ -31,7 +31,7 @@ There should be a one-to-one relationship between DHIS2 organistion units and CH
 {{% /alert %}}
 
 
-{{% see-also page="apps/concepts/hierarchy" title="Hierarchies" %}}
+{{< see-also page="apps/concepts/hierarchy" title="Hierarchies" >}}
 
 
 ### Fields and calculations
@@ -43,7 +43,7 @@ Once you obtain the list of data elements on the data set, be sure to go through
 {{% /alert %}}
 
 
-{{% see-also page="apps/concepts/forms" title="Forms" %}}
+{{< see-also page="apps/concepts/forms" title="Forms" >}}
 
 ### Workflows and User Access
 
@@ -66,7 +66,7 @@ For the CHT to be able to export the file for DHIS2, it needs to know the specif
 
 Configure the data set in `app_settings.json`.
 
-{{% see-also page="apps/reference/app-settings/dhis2" title="DHIS2 in App Settings" %}}
+{{< see-also page="apps/reference/app-settings/dhis2" title="DHIS2 in App Settings" >}}
 
 ### Organisation units
 
@@ -77,7 +77,7 @@ Update the contact document of each place you wish to map to an organisation uni
 {{% /alert %}}
 
 
-{{% see-also page="apps/reference/forms/contact" title="Contact Forms" %}}
+{{< see-also page="apps/reference/forms/contact" title="Contact Forms" >}}
 
 ```json
 {
@@ -99,7 +99,7 @@ In `targets.js`, configure one or more data elements by setting the `dhis.dataSe
 
 
 
-{{% see-also page="apps/reference/targets" title="Targets" %}}
+{{< see-also page="apps/reference/targets" title="Targets" >}}
 
 ```javascript
 module.export = [
@@ -126,7 +126,7 @@ module.export = [
 
 For the HRIO role, create a new user role and a new user with that role; or update an existing user role. To export DHIS2 metrics, users need to have the following permissions: `can_configure`, `can_export_all`, and `can_export_dhis`.
 
-{{% see-also page="apps/concepts/users" title="Users" %}}
+{{< see-also page="apps/concepts/users" title="Users" >}}
 
 ## User experience
 
