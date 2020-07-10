@@ -49,13 +49,24 @@ h2, h3 {
 {
   clear: both;
 }
+.td-sidebar-nav {
+  &__section .show {
+          padding-left: .5rem!important;
+          // margin-left: 0.5rem!important;
+  }
+  &__section > ul {
+    padding-left:0!important;
+  }
 
-
-.td-sidebar-nav__section-title a {
-    color: #fff;
-}
-
-.td-sidebar-nav__section ul {
-    padding: 0;
-    margin: 0 0 0 0.5em;
+  .td-sidebar-link {
+    &__page.active {
+        color: $secondary!important;
+    }
+    &__section.active {
+      color: $primary!important;    
+    }
+    &__section.selected {
+      color: $secondary!important;
+    }
+  }
 }
