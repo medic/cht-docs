@@ -5,12 +5,20 @@ weight: 1
 description: >
   Managing CHT application settings
 relatedContent: >
-  
+  apps/reference/app-settings
+  apps/guides/performance/replication/#depth
+  core/overview/transitions 
 ---
 
 ## Purpose of the Tutorial
 
-This tutorial will take you through how to manage the CHT application settings, including; setting user roles and permissions, enabling and disabling transitions, configuring contact hierarchy and configuring replication.
+This tutorial will take you through how to manage the CHT application settings, including;
+
+- Setting user roles and permissions
+- Enabling and disabling transitions
+- Configuring contact hierarchy and configuring replication.
+
+App settings allow you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
 
 ## Brief Overview of Key Concepts
 
@@ -20,13 +28,13 @@ The settings which control CHT apps are defined in the *app_settings.json* file,
 
 *Roles* define permissions for users to perform access a group of app features and functionality.
 
-*[Replication depth](https://docs.communityhealthtoolkit.org/apps/guides/performance/replication/#depth)* is the number of levels a specific user role is able to replicate on their application.
+*Replication* is when users download a copy of the data on to their device. *[Replication depth](https://docs.communityhealthtoolkit.org/apps/guides/performance/replication/#depth)* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
 *[A transition](https://docs.communityhealthtoolkit.org/core/overview/transitions/)* is javascript code that runs when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
 ## Required Resources
 
-You should have a functioning CHT instance and have medic-conf installed locally. Read [How to set up a CHT local configuration environment](setting_up_local_configuration_environment.md)
+You should have a functioning CHT instance and have medic-conf installed locally. {{< see-also page="apps/tutorials/local-setup" title="How to set up a CHT local configuration environment" >}}
 
 ## Implementation Steps
 
@@ -85,7 +93,7 @@ In this example, the `generate_patient_id_on_people` and `death_reporting` trans
 
 ### 3. Set Hierarchy
 
-You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierachy configuration. You can modify existing contact types by editing the objects within the array. More information about the properties of each array object can be found [here](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/hierarchy/#).
+You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierachy configuration. You can modify existing contact types by editing the objects within the array. {{< see-also page="apps/reference/app-settings/hierarchy/" title="Hierarchy" >}}
 
 ```json
   "contact_types": [
@@ -173,7 +181,7 @@ To upload app settings to your local instance, run the following command:
 medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
-Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
 
 ## Frequently Asked Questions
 
