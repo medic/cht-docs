@@ -3,7 +3,6 @@ title: "Utils Functions"
 toc_hide: true
 ---
 
-## Utils
 Utility functions in the Core Framework can make common tasks much easier. These are available only for Tasks and Targets. To use the function call `Utils.<function-name>(<params>)`, for example `Utils.addDate(report.reported_date, 10)`.
 
 | Name | Description |
@@ -22,12 +21,4 @@ Utility functions in the Core Framework can make common tasks much easier. These
 
 Please open [an issue](https://github.com/medic/cht-core/issues/new) if you'd like other functions included.
 
-## Nools Extras
-Helper variables and functions can be defined in `nools-extras.js`, which is shared by both `tasks.js` and `targets.js`. The following are global variables that can be used:
-
-| Variable | Description |
-|---|---|
-| `c.contact` | The contact's doc. All contacts have `type` of either `person` or `place`.
-| `c.reports` | An array of all the reports submitted about the contact.
-| `console` | Useful for outputting _debugging_ statements. Should not be used in production code. |
-| `Utils` | Useful functions across projects are available, and describe in the Utils section. |
+Custom functions and variables can be written in [`nools-extra.js`]({{< ref "apps/reference/nools-extras" >}}), which is accessible to both Targets and Tasks.

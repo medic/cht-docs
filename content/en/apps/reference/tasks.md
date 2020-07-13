@@ -44,7 +44,8 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
 
-{{< read-content file="apps/reference/_partial_functions.md" >}}
+## Utils
+{{< read-content file="apps/reference/_partial_utils.md" >}}
 
 ## Code samples
 

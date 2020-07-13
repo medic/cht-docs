@@ -45,7 +45,8 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 | `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
 | `aggregate` | `boolean` | As of 3.9, defines whether the target will be displayed on the TargetAggregates page | no |
 
-{{< read-content file="apps/reference/_partial_functions.md" >}}
+## Utils
+{{< read-content file="apps/reference/_partial_utils.md" >}}
 
 ## Code Samples
 
