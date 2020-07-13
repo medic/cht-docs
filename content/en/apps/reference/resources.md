@@ -1,6 +1,6 @@
 ---
-title: "resources"
-linkTitle: "resources"
+title: "resources/"
+linkTitle: "resources/"
 weight: 2
 description: >
   **Graphics**: Used for custom branding, logos, and icons

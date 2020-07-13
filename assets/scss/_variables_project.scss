@@ -49,16 +49,36 @@ h2, h3 {
 {
   clear: both;
 }
+
+
 .td-sidebar-nav {
-  &__section .show {
-          padding-left: .5rem!important;
-          // margin-left: 0.5rem!important;
+  a.active {
+    font-weight: 700!important;
   }
-  &__section > ul {
-    padding-left:0!important;
+  &__section {
+    .show {
+      padding-left: .5rem;
+    }
+    > ul {
+      padding-left:0!important;
+    }
+  }
+
+  &__section-title {
+    a:after { 
+      content: "\23F5";
+      opacity: 0.5;
+    }
+    a.active:after { 
+      content: "\23F7";
+      opacity: 0.5;
+    }
   }
 
   .td-sidebar-link {
+    &__page {
+      font-weight: 400!important;
+    }
     &__page.active {
         color: $secondary!important;
     }
