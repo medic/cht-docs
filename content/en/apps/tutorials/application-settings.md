@@ -93,7 +93,7 @@ In this example, the `generate_patient_id_on_people` and `death_reporting` trans
 
 ### 3. Set Hierarchy
 
-You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierachy configuration. You can modify existing contact types by editing the objects within the array. {{< see-also page="apps/reference/app-settings/hierarchy/" title="Hierarchy" >}}
+You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierachy configuration. You can modify existing contact types by editing the objects within the array. {{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}
 
 ```json
   "contact_types": [
