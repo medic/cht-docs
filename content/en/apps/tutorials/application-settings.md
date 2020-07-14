@@ -6,7 +6,7 @@ description: >
   Managing CHT application settings
 relatedContent: >
   apps/reference/app-settings
-  apps/guides/performance/replication/#depth
+  apps/guides/performance/replication
   core/overview/transitions 
 ---
 
@@ -28,7 +28,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 *[Roles]({{< relref "apps/concepts/users#roles" >}})* define permissions for users to perform access a group of app features and functionality.
 
-*[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *[Replication depth]({{< relref "apps/guides/performance/replication#depth" >}})* refers to the number of levels within a hierarchy a specific user role is able to replicate.
+*[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
 *[Transitions]({{< relref "core/overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
