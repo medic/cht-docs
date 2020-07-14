@@ -24,11 +24,11 @@ App settings allow you to both persist information that is critical to the appli
 
 The settings which control CHT apps are defined in the *[app_settings.json]({{< relref "apps/reference/app-settings" >}})* file, and stored in the settings doc in the database.
 
-*[Permissions]({{< relref "apps/concepts/users/#permissions" >}})* are settings that control access to specific app features and functionality.
+*[Permissions]({{< relref "apps/concepts/users#permissions" >}})* are settings that control access to specific app features and functionality.
 
-*[Roles]({{< relref "apps/concepts/users/#roles" >}})* define permissions for users to perform access a group of app features and functionality.
+*[Roles]({{< relref "apps/concepts/users#roles" >}})* define permissions for users to perform access a group of app features and functionality.
 
-*[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *[Replication depth]({{< relref "apps/guides/performance/replication/#depth" >}})* refers to the number of levels within a hierarchy a specific user role is able to replicate.
+*[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *[Replication depth]({{< relref "apps/guides/performance/replication#depth" >}})* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
 *[Transitions]({{< relref "core/overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
