@@ -179,7 +179,7 @@ Configure the CHW role's depth to 2 by adding the following key/value pairs to t
 { "role": "chw", "depth": 2 }
 ```
 
-{{< see-also page="apps/guides/performance/replication/#depth" title="Replication Depth" >}}
+{{< see-also page="apps/guides/performance/replication#depth" title="Replication Depth" >}}
 
 ### 5. Upload App Settings
 
