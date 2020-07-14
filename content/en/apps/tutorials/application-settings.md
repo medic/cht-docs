@@ -22,15 +22,15 @@ App settings allow you to both persist information that is critical to the appli
 
 ## Brief Overview of Key Concepts
 
-The settings which control CHT apps are defined in the *app_settings.json* file, and stored in the settings doc in the database.
+The settings which control CHT apps are defined in the *[app_settings.json]({{< relref "apps/reference/app-settings" >}})* file, and stored in the settings doc in the database.
 
-*Permissions* are settings that control access to specific app features and functionality.
+*[Permissions]({{< relref "apps/concepts/users/#permissions" >}})* are settings that control access to specific app features and functionality.
 
-*Roles* define permissions for users to perform access a group of app features and functionality.
+*[Roles]({{< relref "apps/concepts/users/#roles" >}})* define permissions for users to perform access a group of app features and functionality.
 
-*Replication* is when users download a copy of the data on to their device. *[Replication depth](https://docs.communityhealthtoolkit.org/apps/guides/performance/replication/#depth)* refers to the number of levels within a hierarchy a specific user role is able to replicate.
+*[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *[Replication depth]({{< relref "apps/guides/performance/replication/#depth" >}})* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
-*[A transition](https://docs.communityhealthtoolkit.org/core/overview/transitions/)* is javascript code that runs when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
+*[Transitions]({{< relref "core/overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
 ## Required Resources
 
@@ -42,7 +42,7 @@ In this section, you will define a new role, set persmissions for the role, set 
 
 ### 1. Set Roles and Permissions
 
-To add a new role, edit the object corresponding to `"roles"` key in `app_settings.json`. Add the new role as a key and within it, have an object with key/value pairs indicating the translation key of the role and whether it is an online or offline role.
+To add a new role, edit the object corresponding to `"roles"` key in `app_settings.json`. Add the new role as a key and within it, have an object with key/value pairs indicating the translation key of the role and whether it is an online or offline role. 
 
 Configure a CHW role by adding the following snippet to the `"roles"` object:
 
@@ -53,7 +53,11 @@ Configure a CHW role by adding the following snippet to the `"roles"` object:
   }
 ```
 
-Set permissions for the new role by adding the role to the relevant permission in the `"permissions"` object. For instance, to grant the CHW role permission to create people, add the role to the array with the key `"can_create_people"`.
+{{< see-also page="apps/reference/app-settings/user-roles" title="Roles" >}}
+
+Set permissions for the new role by adding the role to the relevant permission in the `"permissions"` object.
+
+For instance, to grant the CHW role permission to create people, add the role to the array with the key `"can_create_people"`.
 
 ```json
   "permissions": {
@@ -69,9 +73,11 @@ Set permissions for the new role by adding the role to the relevant permission i
   }
 ```
 
+{{< see-also page="apps/reference/app-settings/user-permissions" title="Permissions" >}}
+
 ### 2. Set Transitions
 
-To enable or disable a transition, edit the object corresponding to the `"transitions"` key in `app_settings.json`. Enable the `transition` by setting its corresponding value to `true`, disable it by settings its value to `false`.
+To enable or disable a transition, edit the object corresponding to the `"transitions"` key in `app_settings.json`. Enable the `transition` by setting its corresponding value to `true`, disable it by settings its value to `false`. {{< see-also page="apps/reference/app-settings/transitions" title="Transitions" >}}
 
 ```json
   "transitions": {
@@ -172,6 +178,8 @@ Configure the CHW role's depth to 2 by adding the following key/value pairs to t
 ```json
 { "role": "chw", "depth": 2 }
 ```
+
+{{< see-also page="apps/guides/performance/replication/#depth" title="Replication Depth" >}}
 
 ### 5. Upload App Settings
 
