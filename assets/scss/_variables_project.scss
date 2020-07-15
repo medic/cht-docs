@@ -4,6 +4,9 @@ Add styles or override variables from the theme here.
 
 */
 
+// Make it easy to use theme variables
+@import "variables";
+
 $primary: #5f7681;
 $secondary: #F58301;
 $dark: #333F47;
@@ -50,43 +53,44 @@ h2, h3 {
   clear: both;
 }
 
+#td-section-nav {
+  .td-sidebar-nav {
+    &__section {
+      .show {
+        padding-left: .5rem;
+      }
+      ul {
+        padding-left:0;
+      }
+    }
 
-.td-sidebar-nav {
-  a.active {
-    font-weight: 700!important;
-  }
-  &__section {
-    .show {
-      padding-left: .5rem;
-    }
-    > ul {
-      padding-left:0!important;
-    }
-  }
-
-  &__section-title {
-    a:after { 
-      content: "\23F5";
-      opacity: 0.5;
-    }
-    a.active:after { 
-      content: "\23F7";
-      opacity: 0.5;
+    &__section-title {
+      a::after { 
+        content: "\23F5";
+        opacity: 0.5;
+      }
+      a.active::after { 
+        content: "\23F7";
+        opacity: 0.5;
+      }
     }
   }
-
   .td-sidebar-link {
     &__page {
-      font-weight: 400!important;
+      color: $gray-900;
+      font-weight: $font-weight-normal;
     }
     &__page.active {
-        color: $secondary!important;
+      color: $secondary;
+      font-weight: $font-weight-bold;
     }
     &__section.active {
-      color: $primary!important;    
+      color: $primary;    
     }
     &__section.selected {
-      color: $secondary!important;
+      color: $secondary;
     }
   }
 }
+
+
