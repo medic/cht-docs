@@ -668,7 +668,7 @@ will be undefined.
 | fullname | no | String | Full name  | 
 | email | no | String | Email address  |
 | language | no | String | Language preference. e.g. "sw" for Swahili |
-| known | no | Boolean | oolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
+| known | no | Boolean | Boolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
 
 ##### Login by SMS
 
