@@ -13,7 +13,7 @@ Login via SMS settings are defined under the `token_login` key, as an object sup
 | property         | type | required       | description                                                                                                                                                                              |
 |------------------|------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | enabled | Boolean | yes | Enables or disables token_login deployment-wide. When this is false, users can't be updated to use token_login and any requests to login with a token link will fail.  |
-| translation_key | String | yes if `message` is not defined | Translation key for the information (helper) sms message that the user receives, along with their token-login link |
+| translation_key | String | yes | Translation key for the information (helper) sms message that the user receives, along with their token-login link |
 
 ## Code sample
 
