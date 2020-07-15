@@ -39,6 +39,7 @@ The following settings do not need to be specified. They should only be defined 
 | outgoing_deny_with_alphas | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "apps/guides/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean. | true | 3.3.0 |
 | outgoing_deny_with_alphas | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "apps/guides/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean. | true | 3.3.0 |
 | task_day_limit | The number of days before a task is due to show the due date. | 4 | 3.9.0 |
+| app_url | The URL of the app, eg: "https://demo.app.medicmobile.org" | | 3.10.0 |
 
 ## SMS Workflows
 

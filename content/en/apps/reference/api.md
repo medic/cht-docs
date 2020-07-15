@@ -698,6 +698,7 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 | false | existent, no token | None. | 
 | false | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. Existent sessions are invalidated. | 
 
+This feature requires [`app_settings.app_url`]({{< relref "apps/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "apps/reference/app-settings/token_login.md" >}}) to be defined and enabled. 
 
 ### GET /api/v1/users
 

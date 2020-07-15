@@ -13,7 +13,6 @@ Login via SMS settings are defined under the `token_login` key, as an object sup
 | property         | type | required       | description                                                                                                                                                                              |
 |------------------|------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | enabled | Boolean | yes | Enables or disables token_login deployment-wide. When this is false, users can't be updated to use token_login and any requests to login with a token link will fail.  |
-| app_url | String | yes | The URL of the app, eg: "https://demo.app.medicmobile.org" |
 | translation_key | String | yes if `message` is not defined | Translation key for the information (helper) sms message that the user receives, along with their token-login link |
 
 ## Code sample
@@ -23,7 +22,6 @@ The definition takes the typical form below:
 ```json
 "token_login": {
   "enabled": true,
-  "app_url": "https://your-deployment-url.com/",
   "translation_key": "sms.token.login.help"
 }
 ```
