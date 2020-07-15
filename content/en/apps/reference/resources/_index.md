@@ -14,14 +14,12 @@ Add icons to the `resources` folder, and include them by name in the `resources.
     
 ```
  {
-   "resources": {
-     "icon-risk": "icon-healthcare-warning@2x.png",
-     "icon-treatment": "icon-healthcare-medicine@2x.png",
-     "medic-clinic": "medic-family.svg",
-     "medic-district-hospital": "medic-family.svg",
-     "medic-health-center": "medic-chw-area.svg",
-     "medic-person": "medic-person.svg"
-   }
+    "icon-risk": "icon-healthcare-warning@2x.png",
+    "icon-treatment": "icon-healthcare-medicine@2x.png",
+    "medic-clinic": "medic-family.svg",
+    "medic-district-hospital": "medic-family.svg",
+    "medic-health-center": "medic-chw-area.svg",
+    "medic-person": "medic-person.svg"
  }
 ```
 
