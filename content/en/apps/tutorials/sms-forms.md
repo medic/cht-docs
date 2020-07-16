@@ -45,7 +45,7 @@ SMS forms are defined using JSON in the `app_settings.json` file. Read [JSON for
 
 ### 1. Enable Transitions
 
-To ensure SMS forms function as expected, you will first need to able the following transitions in `app_settings.json`.
+To ensure SMS forms function as expected, you will first need to enable the following transitions in `app_settings.json`.
 
 ```json
   "update_clinics": true,
