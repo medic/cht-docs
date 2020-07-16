@@ -15,7 +15,7 @@ relatedContent: >
 
 ## Purpose of the Tutorial
 
-This tutorial will take you through how to build SMS forms for CHT applications including;
+This tutorial will take you through how to build SMS forms for CHT applications, including:
 
 - Defining SMS forms
 - Setting validation rules for SMS forms
