@@ -1,6 +1,6 @@
 ---
-title: "Building SMS forms"
-linkTitle: SMS forms
+title: "Building SMS Forms"
+linkTitle: SMS Forms
 weight: 1
 description: >
   Building CHT application SMS forms
@@ -15,7 +15,7 @@ SMS forms allow users to submit reports from any device including [feature phone
 
 ## Purpose of the Tutorial
 
-This tutorial will take you through how to build SMS forms for CHT applications including;
+This tutorial will take you through how to build SMS forms for CHT applications, including:
 
 - Defining SMS forms
 - Setting validation rules for SMS forms
@@ -37,17 +37,17 @@ SMS forms are defined in the *[app_settings.json]({{< relref "apps/reference/app
 
 ## Required Resources
 
-You should have a functioning CHT instance and have medic-conf installed locally. Read [How to set up a CHT local configuration environment]({{% ref "apps/tutorials/local-setup" %}}).
+You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}).
 
 You also need to have some prior knowledge on `app_settings.json`. Read [Managing CHT Application Settings]({{% ref "apps/tutorials/application-settings" %}}).
 
 ## Implementation Steps
 
-SMS forms are defined using json in the `app_settings.json` file. Read [JSON forms]({{% ref "apps/reference/app-settings/forms#app_settingsjson-forms" %}}).
+SMS forms are defined using JSON in the `app_settings.json` file. Read [JSON forms]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}).
 
 ### 1. Enable Transitions
 
-To ensure SMS forms function as expected, you will first need to able the following transitions in `app_settings.json`.
+To ensure SMS forms function as expected, you will first need to enable the following transitions in `app_settings.json`.
 
 ```json
   "update_clinics": true,
