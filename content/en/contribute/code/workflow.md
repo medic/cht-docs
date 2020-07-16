@@ -90,9 +90,16 @@ Issues in this column are ready to be acceptance tested by a Quality Assurance e
 
 Issues in this column are in the process of being acceptance tested by a Quality Assurance engineer. To complete AT:
 
+1. Verify the steps to reproduce are accurate
+   1. Update or add comment if steps are not easily understandable. 
 1. Install the PR branch to test against.
 2. If the issue fails AT then notify the original developer and move the issue back to "In progress".
-3. Once the issue passes AT move the issue to "Ready to merge" the notify the original developer to merge the PR.
+3. Once the issue passes AT
+   1. Document Data used. EX: Seed Data, cloned data, no data
+   1. Document Config used or changes to existing config. Add to ticket for use later if need be.
+   1. How was the issue verified? Console logs, page source, errors anywhere, execution steps.  LGTM should begin to be rarely used.
+   1. move the issue to "Ready to merge" the notify the original developer to merge the PR.
+
 
 ### Ready to merge
 
