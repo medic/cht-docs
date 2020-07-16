@@ -1,6 +1,6 @@
 ---
-title: "forms"
-linkTitle: "forms"
+title: "forms/"
+linkTitle: "forms/"
 weight: 2
 description: >
   **Forms**: All the App forms, Contact forms, and Collect forms
