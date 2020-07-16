@@ -1,6 +1,6 @@
 ---
-title: "Building SMS forms"
-linkTitle: SMS forms
+title: "Building SMS Forms"
+linkTitle: SMS Forms
 weight: 1
 description: >
   Building CHT application SMS forms
