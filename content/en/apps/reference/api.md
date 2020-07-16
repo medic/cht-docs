@@ -673,14 +673,14 @@ will be undefined.
 ##### Login by SMS
 
 When creating or updating a user, sending a truthy value for the field `token_login` will enable Login by SMS for this user.
-This action resets the user's password to an unknown string and generates a complex 50 character token, that is used to generate a token-login URL.
+This action resets the user's password to an unknown string and generates a complex 64 character token, that is used to generate a token-login URL.
 The URL is sent to the user's phone number by SMS, along with another (configurable) SMS that can contain additional information.
 Accessing this link, before its expiration time, will log the user in directly - without the need of any other credentials.  
 The link can only be accessed once, the token becomes invalid after being used for one login.  
 The token expires in 24 hours, after which logging in is only possible by either generating a new token, or disabling `token_login` and manually setting a password.
 
     
-The SMS messages are stored in a doc of a new type `token_login_sms`. These docs cannot be viewed as reports from the webapp, but their messages are visible in the Admin Message Queue page.   
+The SMS messages are stored in a doc of a new type `login_token`. These docs cannot be viewed as reports from the webapp, and can only be edited by admins, but their messages are visible in the Admin Message Queue page.    
 
 
 To disable login by SMS for a user, update the user sending `token_login` with a `false` value. 
@@ -698,7 +698,8 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 | false | existent, no token | None. | 
 | false | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. Existent sessions are invalidated. | 
 
-This feature requires [`app_settings.app_url`]({{< relref "apps/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "apps/reference/app-settings/token_login.md" >}}) to be defined and enabled. 
+This feature uses [`app_settings.app_url`]({{< relref "apps/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "apps/reference/app-settings/token_login.md" >}}) to be defined and enabled.
+If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct. 
 
 ### GET /api/v1/users
 
