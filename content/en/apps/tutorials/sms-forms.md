@@ -25,11 +25,11 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 ## Brief Overview of Key Concepts
 
-*[SMS forms]({{< relref "apps/reference/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
+*[SMS forms]({{< ref "apps/reference/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
 
-SMS forms are defined in the *[app_settings.json]({{< relref "apps/reference/app-settings" >}})* file, and stored in the settings doc in the database.
+SMS forms are defined in the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file, and stored in the settings doc in the database.
 
-*[SMS gateways]({{< relref "apps/guides/messaging/gateway" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
+*[SMS gateways]({{< ref "apps/guides/messaging/gateway" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
 
 *SMS aggregators* act as intermediaries between the mobile network operators and the CHT coreframework. They allow for greater customization of SMS workflows in the CHT.
 
@@ -39,11 +39,11 @@ SMS forms are defined in the *[app_settings.json]({{< relref "apps/reference/app
 
 You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}).
 
-You also need to have some prior knowledge on `app_settings.json`. Read [Managing CHT Application Settings]({{% ref "apps/tutorials/application-settings" %}}).
+You also need to have some [prior knowledge on `app_settings.json`]({{% ref "apps/tutorials/application-settings" %}}).
 
 ## Implementation Steps
 
-SMS forms are defined using JSON in the `app_settings.json` file. Read [JSON forms]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}).
+SMS forms are defined [using JSON]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}) in the `app_settings.json` file.
 
 ### 1. Enable Transitions
 
@@ -142,11 +142,9 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 ]
 ```
 
-{{% alert title="Note" %}} You can also define your own [validation rules]({{< relref "apps/reference/app-settings#validations" >}}).  {{% /alert %}}
+You can also define your own [validation rules]({{< ref "apps/reference/app-settings#validations" >}}).
 
-{{% alert title="Note" %}} `translation_key` represents the message that is sent out. This will be defined in a translations file (covered in the translations tutorial). {{% /alert %}}
-
-{{< see-also page="apps/reference/translations" title="Translations" >}}
+{{% alert title="Note" %}} `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "apps/reference/translations" >}}) file. {{% /alert %}}
 
 ### 3. Define a Person Registration Form
 
