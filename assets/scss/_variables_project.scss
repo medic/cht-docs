@@ -60,17 +60,13 @@ h2, h3 {
         padding-left: .5rem;
       }
       ul {
-        padding-left:0;
+        padding-left: 0;
       }
     }
 
     &__section-title {
-      a::after { 
-        content: "\23F5";
-        opacity: 0.5;
-      }
-      a.active::after { 
-        content: "\23F7";
+      i {
+        display: inline;  // prevent widowed icon
         opacity: 0.5;
       }
     }

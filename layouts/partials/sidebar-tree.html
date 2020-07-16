@@ -36,7 +36,9 @@
 <ul class="td-sidebar-nav__section pr-md-3">
 {{ if .section.Parent }}{{/* hide root from menu */}}
   <li class="td-sidebar-nav__section-title">
-    <a  href="{{ $s.RelPermalink }}" class="align-left pl-0 pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }}{{ if $selected}} selected{{ end }} td-sidebar-link td-sidebar-link__section">{{ $s.LinkTitle }}</a>
+    <a  href="{{ $s.RelPermalink }}" class="align-left pl-0 pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }}{{ if $selected}} selected{{ end }} td-sidebar-link td-sidebar-link__section">
+      {{ $s.LinkTitle }}&nbsp;&nbsp;{{ if $active}}<i class="fas fa-caret-down"></i>{{else}}<i class="fas fa-caret-right"></i>{{ end }}
+    </a>
   </li>
   <ul>
     <li class="collapse {{ if $show }}show{{ end }}" id="{{ $sid }}">
