@@ -16,7 +16,7 @@ keywords: targets workflows
 
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 
-{{% see-also page="apps/features/targets" title="Targets Overview" %}}
+{{< see-also page="apps/features/targets" title="Targets Overview" >}}
 
 ## `targets.js`
 
@@ -45,7 +45,8 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 | `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
 | `aggregate` | `boolean` | As of 3.9, defines whether the target will be displayed on the TargetAggregates page | no |
 
-{{< readfile file="apps/reference/_partial_functions.md" markdown="true" >}}
+## Utils
+{{< read-content file="apps/reference/_partial_utils.md" >}}
 
 ## Code Samples
 

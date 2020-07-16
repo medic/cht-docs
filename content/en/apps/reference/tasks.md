@@ -15,7 +15,7 @@ keywords: tasks workflows
 
 Tasks are configured in the `tasks.js` file. This file is a JavaScript module which defines an array of objects conforming to the Task schema detailed below. When defining tasks, all the data about contacts on the device (both people and places) along with all their reports are available. Tasks are available only for users of type "restricted to their place". Tasks can pull in fields from reports and pass data as inputs to the form that opens when the task is selected, enabling richer user experiences.
 
-{{% see-also page="apps/features/tasks" title="Tasks Overview" %}}
+{{< see-also page="apps/features/tasks" title="Tasks Overview" >}}
 
 ## `tasks.js`
 
@@ -44,7 +44,8 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
 
-{{< readfile file="apps/reference/_partial_functions.md" markdown="true" >}}
+## Utils
+{{< read-content file="apps/reference/_partial_utils.md" >}}
 
 ## Code samples
 

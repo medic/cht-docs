@@ -11,7 +11,7 @@ The settings which control CHT apps are defined in the `app_settings.json` file,
 
 The `app_settings.json` file can be manually edited to modify individual settings. The code for some components, like tasks and targets, gets compiled into this file with the `compile-app-settings` action in the `medic-conf` tool. 
 
-Most sections are described on their own in the [Reference Documentation](..).
+Most sections are described on their own in the [Reference Documentation]({{< ref "apps/reference" >}}).
 
 ## Build
 

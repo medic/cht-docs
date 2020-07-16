@@ -144,13 +144,18 @@ Connecting readers to related content in different pages is an important aspect 
 1. **Inline links**: a portion of any narrative text can link to another page. This should done using the markdown link notation. 
    
    For example, the text `linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!` yields: "linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!"
-2. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
+   
+1. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
    
    For example, `{{</* see-also page="design/icons" */>}}` will show as seen here: {{< see-also page="design/icons" >}}
+   
+   You can also make the callout say "Read More" with the `prefix` tag: `{{</* see-also prefix="Read More" page="design/icons" */>}}`. This will show as seen here: {{< see-also page="design/icons" prefix="Read More" >}} 
+   
+   A custom title and anchor can be provided as well. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
+   
+   Please use `see-also` when referencing _related topics_ , as seen in [Workflows]({{< ref "apps/concepts/workflows" >}}), and use `read-more` when referencing the _same topic_ in more depth, as in the [Home Page]({{< ref "/" >}}).  
 
-   A custom title and anchor can be provided. For example, `{{</* see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
-
-3. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
+1. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
    ```
    ---
    title: Messaging
@@ -164,6 +169,15 @@ Connecting readers to related content in different pages is an important aspect 
 To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/cross-references/) for more details.
 
 For example,  `[Icon Library]({{</* relref "design/icons" */>}})` yields "[Icon Library]({{% relref "design/icons" %}})". Using the full path will avoid ambiguous references if a new page of the same is created. 
+
+### Link paragraphs, not titles
+
+Whether using `ref` ,`relref` or inline links, do not link a title:
+
+| Do | Don't |
+|---|---|
+| ` Read more about [InnoDB here](https://en.wikipedia.org/wiki/InnoDB).` | `## [InnoDB here](https://en.wikipedia.org/wiki/InnoDB)` |
+| `The [Icon Library]({{</* relref "design/icons" */>}}) has many great icons.` | `## [Icon Library]({{</* relref "design/icons" */>}})` |
 
 ## Formatting standards
 

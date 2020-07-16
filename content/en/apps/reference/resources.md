@@ -21,7 +21,7 @@ Add icons to the `resources` folder, and include them by name in the resources.j
         "medic-person": "medic-person.svg"
     }
 
-{{% see-also page="design/icons" title="Icon Library" %}}
+{{< see-also page="design/icons" title="Icon Library" >}}
 
 ### Build  
 Build the icons into the application with the `upload-resources` action in `medic-conf`.

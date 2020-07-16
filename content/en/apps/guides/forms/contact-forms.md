@@ -14,7 +14,7 @@ Contact forms are used to create person or place types. Prior to version 3.7, CH
 
 These forms are stored in the `forms/contact` subfolder of the project config directory. The naming convention used sould be `<contact_type_id-{create|edit}>.xlsx`. The `contact_type_id` prefix should match what's specified in the contact form settings page. 
 
-{{% see-also page="apps/reference/forms/contact" title="Reference Documentation for Contact Forms" %}}
+{{< see-also page="apps/reference/forms/contact" title="Reference Documentation for Contact Forms" >}}
 
 ## Person-type forms
 
