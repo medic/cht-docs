@@ -41,7 +41,7 @@ You also need to have some prior knowledge on `app_settings.json` and transition
 
 ## Implementation Steps
 
-SMS forms are defined using json in the `app_settings.json` file. Read [JSON forms]({{% ref "apps/reference/app-settings/forms#app_settingsjson-forms" %}}).
+SMS forms are defined using JSON in the `app_settings.json` file. Read [JSON forms]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}).
 
 ### 1. Enable Transitions
 
