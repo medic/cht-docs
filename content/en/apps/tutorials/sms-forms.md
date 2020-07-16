@@ -35,7 +35,7 @@ SMS forms are defined in the *[app_settings.json]({{< relref "apps/reference/app
 
 ## Required Resources
 
-You should have a functioning CHT instance and have medic-conf installed locally. Read [How to set up a CHT local configuration environment]({{% ref "apps/tutorials/local-setup" %}}).
+You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}).
 
 You also need to have some prior knowledge on `app_settings.json` and transitions. Read [Set Transitions]({{% ref "apps/tutorials/application-settings#2-set-transitions" %}}).
 
