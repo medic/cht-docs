@@ -63,7 +63,7 @@ To ensure SMS forms function as expected, you will first need to enable the foll
 
 To define a form, edit the object corresponding to the `forms` key in `app_settings.json`.
 
-Add a household registration form by adding the form definition key and value(object) pair to the `forms` object as shown below.
+Add a household registration form by adding a key and object pair to the `forms` object as shown below.
 
 ```json
 "forms": {
@@ -148,7 +148,7 @@ You can also define your own [validation rules]({{< ref "apps/reference/app-sett
 
 ### 3. Define a Person Registration Form
 
-Add a person registration form by adding the form definition key and value(object) pair to the `forms` object as shown below.
+Add a person registration form by adding a key and object pair to the `forms` object as shown below.
 
 ```json
 "forms": {
@@ -294,7 +294,7 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 
 ### 4. Define a Report Submission form
 
-Add a report submission form by adding the form definition key and value(object) pair to the `forms` object as shown below.
+Add a report submission form by adding a key and object pair to the `forms` object as shown below.
 
 ```json
 "forms": {
