@@ -29,12 +29,15 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 - **Report Bug**: Let us know if something isn’t working or you encounter errors
 - **Log Out**: Sign out of the app
 
-## Sync Status
+### Sync Status
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-3" >}}
 
-At the bottom of the menu is a notification which provides important about sync status. It lets you know whether reports are being submitted.
+Data synchronisation is important for [offline users]({{ ref="users" }}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. "Sync" (synchronisation) is when data on the device is made to match the data on the server. Synchronisation consists of uploading all new or altered data on the device, and downloading new or altered data from the server. This may include the download of software updates when available.
 
-If the sync status is green and says “All reports synced,” your reports have been sent. This means you have successfully uploaded all of your data to the server. However, it doesn’t necessarily mean you have downloaded all of the most recent data from the server.
+At the bottom of the menu is a notification which provides important information about data synchronisation.
 
-If the indicator is red, it means there are still reports waiting to send. This means you have not successfully uploaded all of your  data to the server. You should check your internet and data connection.
+If the sync status is green and says “All reports synced,” this means you have successfully uploaded the most recent data on your device to the server. It also means that you downloaded the latest data from the server as of the time displayed. Note that there could be more recent data changes on the server, and it doesn't guarantee you are up to date.
+
+If the indicator is red, it means you have data changes waiting to be uploaded to the server. You should check your internet and data connection to ensure a successful sync.
+
