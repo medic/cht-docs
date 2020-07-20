@@ -4,20 +4,14 @@ linkTitle: "CHT Applications"
 identifier: "apps"
 weight: 2
 description: >
-  Overview and reference for building digital health apps
+  Overview and reference for building CHT applications
 ---
 
-{{% pageinfo %}}
-This section provides an overview and reference for building digital health applications with CHT Core.
-{{% /pageinfo %}}
+To create a digital health tool using the Community Health Toolkit - you'll want to build a CHT Application or re-use an existing CHT Application. The [CHT Core Framework]({{ ref="core" }}) provides a foundation on which many digital health tools can be conceptualised and built. A CHT Application takes that foundation and extends it to become a concrete digital health tool, digitizing the health workflows of a specific targeted community. 
 
-From a technical perspective, developing a custom app begins with writing XForms, JSON, and JavaScript code that configures the Core Framework’s features to meet your organization’s needs. 
+Since all CHT Applications share the same foundation, they also share capabilities and attributes. For example, all CHT Applications share a similar user-interface and share the same look-and-feel. All CHT Applications can be built to scale, can run across a variety of hardware, support offline-first experiences, and support most languages. These baseline capabilities are universal across all CHT Applications. Learn more about this in [Why the CHT?]({{ ref="why-the-cht" }})
 
-The CHT Core Framework allows you to define each element in your app in a modular way, and then specify when and how it should appear for different types of users, without having to modify the underlying framework. Collectively, this customization is referred to as Configuration Code.
+Although CHT Applications share the same foundation, their configurable nature allows them great diversity. Some examples of health interventions which have been digitized by CHT applications include antenatal care, postnatal care, integrated community case management, family planning, malnutrition, immunization, and epidemic response. 
 
-Developing an app using the Core Framework requires an understanding of:
-- Javascript code and expressions
-- JSON format used to specify configuration
-- XLSForms to setup actions and contacts
+This section provides an introduction to CHT Applications, provides some example CHT Applications, and provides reference materials for those wanting to build or adapt a CHT Application.
 
-This section provides an overview of CHT features, and the reference material for those looking to build applications with CHT Core. If you're looking for more context on the typical end users of CHT apps, you'll find more info in the [CHT Design System]({{< ref "design" >}}).
