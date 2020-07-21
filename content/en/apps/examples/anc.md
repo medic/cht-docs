@@ -38,7 +38,7 @@ Once a program [hierarchy]({{< relref "apps/concepts/hierarchy" >}}) of people a
 
 ## Pregnancy and Delivery Workflows
 
-Next, pregnancy and delivery care workflows are defined to connect form actions and data with people. Detailed documentation to ANC Reference App forms and task schedules are linked from the workflow diagrams below. Accompanying this documentation are tips and insights into the design decisions made along the way, and suggestions for how and where to customize the forms.
+Pregnancy and delivery care workflows are defined to connect form actions and data with people. Detailed documentation for these forms and task schedules are linked from the workflow diagrams below. Accompanying this documentation are tips and insights into the design decisions made along the way, and suggestions for how and where to customize the forms.
 
 [![Pregnancy Workflow](preview-pregnancy-workflow.png)](pregnancy-workflow.pdf)
 
