@@ -1045,6 +1045,7 @@ curl http://localhost:5988/api/v1/monitoring
 | `outbound_push.backlog` | Number | Number of changes yet to be processed by Outbound Push. |
 | `feedback.count` | Number | Number of feedback docs created usually indicative of client side errors. |
 | `conflict.count` | Number | Number of doc conflicts which need to be resolved manually. |
+| `replication_limit.count` | Number | Number of users that exceeded the replication limit of documents. |
 
 #### Errors
 
@@ -1232,3 +1233,44 @@ Content-Type: application/json
   }
 }
 ```
+
+
+## Replication Limit
+
+*Added in 3.11.0*
+Returns the quantity of documents that were replicated by each user.
+Accepts filtering by user name, when not provided, it returns all users.
+Supports GET.
+Only allowed for users with "_admin" role.
+
+### GET api/v1/log-replication-limit
+
+#### Query parameters
+
+| Name | Required | Description |   
+| -----  | -------- | ------ | 
+| user | false | User's name |
+
+ 
+#### Example
+
+```
+GET /api/v1/log-replication-limit?user=mary"
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "limit": 10000,
+    "users": {
+        "_id": "replication-count-mary",
+        "_rev": "5-cd3252e852ae075da216c3c3fe461291",
+        "user": "mary",
+        "date": 1595328973273,
+        "count": 58
+    }
+}
+```
+
