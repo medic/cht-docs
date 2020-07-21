@@ -33,7 +33,7 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-3" >}}
 
-Data synchronisation is important for [offline users]({{< ref="app/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. "Sync" (synchronisation) is when data on the device is made to match the data on the server. Synchronisation consists of uploading all new or altered data on the device, and downloading new or altered data from the server. This may include the download of software updates when available.
+Data synchronisation is important for [offline users]({{< ref="apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. "Sync" (synchronisation) is when data on the device is made to match the data on the server. Synchronisation consists of uploading all new or altered data on the device, and downloading new or altered data from the server. This may include the download of software updates when available.
 
 At the bottom of the menu is a notification which provides important information about data synchronisation.
 
