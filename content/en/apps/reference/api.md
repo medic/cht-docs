@@ -1088,7 +1088,7 @@ Stages an upgrade to the provided version. Does as much of the upgrade as possib
 
 Parameters are the same as `/api/v1/upgrade`.
 
-You know that an upgrade has been staged when the `horti-upgrade` document in CouchDB has `"staged": true`.
+You know that an upgrade has been staged when the `horti-upgrade` document in CouchDB has `"action": "stage"`.
 
 ### POST /api/v1/upgrade/complete
 
