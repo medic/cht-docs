@@ -5,7 +5,7 @@ weight:
 description: >
   How to secure android devices used in deployments
 relatedContent: >
-  apps/guides/debugging/replicating-production-data-locally
+  core/guides/replicating-production-data-locally
   apps/guides/hosting/ssl-cert-install
 
 ---

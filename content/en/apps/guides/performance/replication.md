@@ -7,7 +7,7 @@ description: >
 keywords: 
 relatedContent: >
   apps/reference/app-settings/replication_depth
-  apps/guides/debugging/replicating-production-data-locally
+  core/guides/replicating-production-data-locally
 ---
 
 Replication is what we call it when users download a copy of the data on to their device.
