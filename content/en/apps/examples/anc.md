@@ -50,6 +50,6 @@ Next, pregnancy and delivery care workflows are defined to connect form actions 
 
 The ANC Reference Application can be used ‘out-of-the-box’ to provide care. It is also a great way to learn about the CHT’s structure and workflows to help you understand how to use or modify it for your program needs. Here are a few additional resources to help get you started: 
 
-- View the [complete reference app configuration](https://github.com/medic/cht-core/tree/master/config/default/forms/app)
+- View the [complete reference app configuration](https://github.com/medic/cht-core/tree/master/config/default/)
 - Install the reference app following these [easy installation instructions](apps/tutorials/local-setup)
 - Modify the ANC Reference Application for your project context using [configuration best practices]({{< ref "design/apps" >}}) 
