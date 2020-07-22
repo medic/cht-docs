@@ -1,5 +1,5 @@
 ---
-title: "Community Health Toolkit"
+title: "Welcome to the Community Health Toolkit Docs Site!"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
@@ -7,12 +7,11 @@ menu:
   main:
     weight: 1
 ---
-# Welcome to the Community Health Toolkit docs site!
 
 {{% pageinfo %}}
 The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref apps >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
 
-**This site is being actively updated to make it as easy as possible to deploy CHT apps. Please [notify us](https://github.com/medic/cht-docs/issues/new) if you find any errors or inconsistencies.**
+**This documentation site is being actively updated to make it as easy as possible to deploy CHT apps. Please [notify us](https://github.com/medic/cht-docs/issues/new) if you find any errors or inconsistencies.**
 {{% /pageinfo %}}
 
 
