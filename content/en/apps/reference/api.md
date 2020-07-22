@@ -1243,7 +1243,7 @@ Accepts filtering by user name, when not provided, it returns all users.
 Supports GET.
 Only allowed for users with "_admin" role.
 
-### GET api/v1/log-replication-limit
+### GET /api/v1/users-doc-count
 
 #### Query parameters
 
