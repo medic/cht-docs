@@ -28,7 +28,7 @@ Users can access their “people” and “places” from the People tab.
 
 {{< figure src="contacts-main-list.png" link="contacts-main-list.png" class="right col-6 col-lg-3" >}}
 
-The view on the right is what a logged-in CHW would see in when they access the “People” tab on a small screen. 
+The view on the right is what a logged-in CHW would see when they access the “People” tab on a small screen. 
 
 The item at the top of the list is the “place” the user belongs to. Below that is a list of the “places” they serve, represented by families. Individual “people” are not shown here, but will appear in search results. 
 
