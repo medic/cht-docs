@@ -263,15 +263,15 @@ It is good practice for the image to link to the image file so that a larger ver
 
 ### Videos
 
-When embedding videos, use the `youtube` shortcode. The shortcode embeds a responsive Youtube video player that only requires the video ID, e.g.:
+When embedding videos, use the `youtube` shortcode to embed a responsive YouTube video player. 
 
-```
-https://www.youtube.com/watch?v=pFEFIY_SA7M
-```
-
-Copy the YouTube video ID that follows v= in the video’s URL and pass it to the youtube shortcode:
+Copy the YouTube video ID that follows `v=` in the video’s URL and pass it to the `youtube` shortcode. For instance, with `https://www.youtube.com/watch?v=pFEFIY_SA7M` the shortcode would be:
 
 `{{</* youtube pFEFIY_SA7M */>}}`
+
+And would display as seen here:
+
+{{< youtube pFEFIY_SA7M >}}
 
 ## Inline code formatting
 
