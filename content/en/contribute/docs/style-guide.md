@@ -38,6 +38,7 @@ This documentation site does not involve release management and acceptance testi
   - [British standard for punctuation inside quotes](#british-standard-for-punctuation-inside-quotes)
   - [Notes and tips](#notes-and-tips)
   - [Images](#images)
+  - [Videos](#videos)
 - [Inline code formatting](#inline-code-formatting)
   - [Code style for inline code and commands](#code-style-for-inline-code-and-commands)
 - [Code snippet formatting](#code-snippet-formatting)
@@ -259,6 +260,18 @@ It is good practice for the image to link to the image file so that a larger ver
 | Do | Don't |
 |---|---|
 | `{{</* figure src="image.png" link="image.png" alt="Alt text" title="Image Title" */>}}` | `[![Alt text](image.png "Image Title")](image.png)` |
+
+### Videos
+
+When embedding videos, use the `youtube` shortcode. The shortcode embeds a responsive Youtube video player that only requires the video ID, e.g.:
+
+```
+https://www.youtube.com/watch?v=pFEFIY_SA7M
+```
+
+Copy the YouTube video ID that follows v= in the video’s URL and pass it to the youtube shortcode:
+
+`{{</* youtube pFEFIY_SA7M */>}}`
 
 ## Inline code formatting
 
