@@ -1,9 +1,9 @@
 ---
-title: "Antenatal Care"
-linkTitle: "Antenatal Care"
+title: "Maternal and Newborn Health Reference App"
+linkTitle: "Maternal and Newborn Health App"
 weight: 1
 description: >
-  Antenatal care workflows for CHWs using a mobile app
+  Reference application for maternal and newborn care for CHW's using a mobile app
 relatedContent: >
   apps/concepts
   apps/reference/forms/app
@@ -20,11 +20,11 @@ Maternal health is the cornerstone of many community health programs. Pregnancy 
 
 ## Solution Overview
 
-The antenatal care (ANC) workflow helps ensure that women are safe and supported in a timely manner throughout their pregnancy. Early and timely ANC visits and increased coordination between CHWs and clinics lead to an increase in facility-based deliveries, which in turn has a strong correlation to maternal and newborn survival. Community Health Toolkit applications with ANC workflows are used by health workers and clinical staff to:
+The maternal and newborn health workflows help ensure that women are safe and supported in a timely manner throughout their pregnancy. Early and timely maternal health visits and improved coordination between CHWs and clinics lead to an increase in facility-based deliveries, which in turn has a strong correlation to maternal and newborn survival. Community Health Toolkit applications with maternal and newborn workflows are used by health workers and clinical staff to:
 
 - Provide on-time antenatal care visits
 - Educate at each stage of pregnancy
-- Screen and report danger signs
+- Screen and report mother and newborn danger signs
 - Refer and encourage facility delivery
 - Improve delivery rates in facilities with skilled care
 
@@ -48,8 +48,8 @@ Pregnancy and delivery care workflows are defined to connect form actions and da
 
 ## Additional Resources to Get Started
 
-Here are a few additional resources to help get you started with the ANC reference application.
+Here are a few additional resources to help get you started with the maternal and newborn health reference application.
 
 - View the [complete reference app configuration](https://github.com/medic/cht-core/tree/master/config/default/)
 - Install the reference app following these [easy installation instructions](apps/tutorials/local-setup)
-- Modify the ANC Reference Application for your project context using [configuration best practices]({{< ref "design/apps" >}}) 
+- Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/apps" >}}) 
