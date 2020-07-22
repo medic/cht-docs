@@ -1255,7 +1255,7 @@ Only allowed for users with "_admin" role.
 #### Example
 
 ```
-GET /api/v1/log-replication-limit?user=mary"
+GET /api/v1/users-doc-count?user=mary"
 ```
 
 ```
