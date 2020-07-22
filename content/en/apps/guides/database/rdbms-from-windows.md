@@ -1,5 +1,5 @@
 ---
-title: "Conncting to RDBMS from Windows"
+title: "Connecting to RDBMS from Windows"
 linkTitle: "RDBMS from Windows"
 weight: 
 description: >

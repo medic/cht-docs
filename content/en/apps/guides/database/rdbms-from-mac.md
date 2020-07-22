@@ -1,5 +1,5 @@
 ---
-title: "Conncting to RDBMS from MacOS"
+title: "Connecting to RDBMS from MacOS"
 linkTitle: "RDBMS from MacOS"
 weight: 
 description: >
