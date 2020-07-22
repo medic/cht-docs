@@ -1,26 +1,26 @@
 ---
-title: "Reference Application: ANC"
-linkTitle: "Reference Application: ANC"
+title: "Antenatal Care"
+linkTitle: "Antenatal Care"
 weight: 1
 description: >
-  Reference application for CHWs using a mobile app for antenatal care
+  Antenatal care workflows for CHWs using a mobile app
 relatedContent: >
   apps/concepts
   apps/reference/forms/app
   apps/reference/tasks
 ---
 
-The Standard Reference Application for antenatal care (ANC) provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration code and testing framework. The reference app can be deployed as-is or configured to meet unique community care requirements. Built off of ANC care guide best practices, it includes a foundation for CHT forms, workflows, and impact analytics.
-
-{{< see-also page="apps/concepts" title="Concepts that will help you understand how CHT applications are built" >}}
+{{% pageinfo %}}
+This Antenatal Care workflow is a "reference application" that provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration code and testing framework. It is a great way to learn about the CHT's foundation for forms, data fields, and analytics that can be easily customized to fit your programs context.
+{{% /pageinfo %}}
 
 ## Problem Being Addressed
 
-Maternal health is the cornerstone of many community health programs. Pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health) for women living in communities far from medical care. Additionally, the short window immediately after pregnancy is a critical time for catching life-threatening danger signs for the new mother and baby.
+Maternal health is the cornerstone of many community health programs. Pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health) for women living in communities far from medical care. Additionally, the short window immediately after pregnancy is a critical time for catching life-threatening danger signs for the new mother and baby. Newborns that are not delivered at a facility are much [less likely to survive and thrive](https://www.who.int/health-topics/newborn-health).
 
 ## Solution Overview
 
-The ANC workflow in this reference app helps ensure that women are safe and supported in a timely manner throughout their pregnancy. Early and timely antenatal care visits and increased coordination between CHWs and clinics lead to an increase in facility-based deliveries, which in turn has a strong correlation to maternal and newborn survival. CHT deployments of ANC workflows are used by health workers and clinical staff to:
+The antenatal care (ANC) workflow helps ensure that women are safe and supported in a timely manner throughout their pregnancy. Early and timely ANC visits and increased coordination between CHWs and clinics lead to an increase in facility-based deliveries, which in turn has a strong correlation to maternal and newborn survival. Community Health Toolkit applications with ANC workflows are used by health workers and clinical staff to:
 
 - Provide on-time antenatal care visits
 - Educate at each stage of pregnancy
@@ -30,7 +30,7 @@ The ANC workflow in this reference app helps ensure that women are safe and supp
 
 ## Forms Hierarchy
 
-Once a program [hierarchy]({{< relref "apps/concepts/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either. 
+Once a [hierarchy]({{< relref "apps/concepts/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either. 
 
 ![forms-hierarchy.png](forms-hierarchy.png)
 
@@ -46,9 +46,9 @@ Pregnancy and delivery care workflows are defined to connect form actions and da
 
 [![Delivery Workflow](preview-delivery-workflow.png)](delivery-workflow.pdf)
 
-## Getting Started with the ANC Reference Application
+## Additional Resources to Get Started
 
-The ANC Reference Application can be used ‘out-of-the-box’ to provide care. It is also a great way to learn about the CHT’s structure and workflows to help you understand how to use or modify it for your program needs. Here are a few additional resources to help get you started: 
+Here are a few additional resources to help get you started with the ANC reference application.
 
 - View the [complete reference app configuration](https://github.com/medic/cht-core/tree/master/config/default/)
 - Install the reference app following these [easy installation instructions](apps/tutorials/local-setup)
