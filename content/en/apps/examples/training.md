@@ -38,9 +38,23 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 ## Workflow Examples
 
-![workflow.png](workflow1.png)
+### Remote Login by App
+
+When creating users, the admin has the option to send a user their credentials via SMS using a magic link. By clicking the magic link to log in, the user is able to bypass having to enter their username and password, as it allows them to enter the app directly. If the app is not installed on their phone, the default SMS encourages users to download it. 
+
+{{% alert title="Note" %}}
+The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
+{{% /alert %}}
+
+![login.png](login.png)
+ 
+### Remote Training Overview
 
 These SMS and App based workflow examples illustrate how the CHT enables remote training, tasking and communication at scale. Training can be done using simple guides, audio/videos suitable for low bandwidth, or interactive experiences on personal devices. Training programs can be easily configured to suit specific health program needs.
+<br><br>
+
+![workflow.png](workflow1.png)
+
 
 ### Remote Training by SMS
 
