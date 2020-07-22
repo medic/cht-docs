@@ -3,7 +3,7 @@ title: "Contact Forms"
 linkTitle: "Contact Forms"
 weight: 
 description: >
-  Integration for sending and receiving SMS
+  Forms for creating contacts
 relatedContent: >
   apps/guides/forms/additional-docs
   apps/guides/forms/multimedia
@@ -28,7 +28,7 @@ Section 1 and 3 are optional. We can pull in details of the logged in user as sh
 
 Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the [Hierarchy]({{< ref "apps/reference/app-settings/hierarchy" >}}) page. `parent`, `type`, `contact_type` and `name` attributes are mandatory for things to work correctly.
 
-## Settings sheet
+### Settings sheet
 
 ![Person forms settings sheet](person-contact-form-settings.png)
 
