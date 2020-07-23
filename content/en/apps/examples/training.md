@@ -42,7 +42,7 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 When creating users, the admin has the option to send a user their credentials via SMS using a [magic link](https://hackernoon.com/magic-links-d680d410f8f7). This generates a new, random and complex password with a 24-hour expiry. 
 
-By clicking the magic link to log in, the user is able to bypass having to enter their username and password as it allows them to enter their project's instance directly. If the app is not installed on their phone, the default SMS encourages users to download it. 
+By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. If the app is not installed on their phone, the default SMS encourages users to download it. 
 
 To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
 
