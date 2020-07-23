@@ -38,18 +38,36 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 ## Workflow Examples
 
-![workflow.png](workflow1.png)
+### Remote Login by App
+
+When creating users, the admin has the option to send a user their credentials via SMS using a [magic link](https://hackernoon.com/magic-links-d680d410f8f7). This generates a new, random and complex password with a 24-hour expiry. 
+
+By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. If the app is not installed on their phone, the default SMS encourages users to download it. 
+
+To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
+
+{{% alert title="Note" %}}
+The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
+{{% /alert %}}
+
+![login.png](login.png)
+ 
+### Remote Training Overview
 
 These SMS and App based workflow examples illustrate how the CHT enables remote training, tasking and communication at scale. Training can be done using simple guides, audio/videos suitable for low bandwidth, or interactive experiences on personal devices. Training programs can be easily configured to suit specific health program needs.
+<br><br>
+
+![workflow.png](workflow1.png)
+
 
 ### Remote Training by SMS
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-24pWKckXMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube -24pWKckXMk >}}
 
 
 ### Remote Training by App
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pFEFIY_SA7M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube pFEFIY_SA7M >}}
 
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/13bFoyU2vhwPiOUiVWzUJ2urtAyR6_XKTxp0XASCLVko).
