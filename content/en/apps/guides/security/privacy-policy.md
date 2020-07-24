@@ -23,15 +23,17 @@ Add these HTML files to the `privacy-policies` folder in your configuration, and
 - Files that are not associated with a language will not be uploaded  
 {{< /alert >}}
 
-### Build  
-Build the privacy policies into the application with the `upload-privacy-policies` action in `medic-conf`.
 
-`medic-conf --local upload-resources`
+### Adding and Editing a Privacy Policy
 
+There are two ways to add or edit a privacy policy:
+ 
+1. Build the privacy policies into the application with the `upload-privacy-policies` action in `medic-conf`.
+```bash
+medic-conf --local upload-resources
+```
 
-### Update in the admin console
-
-Privacy policies can also be viewed and edited in the [Admin Console]({{ < relref "apps/features/admin" >}}), under `Display` > `Privacy Policies`
+2. Update and view privacy policies in the [Admin Console]({{< relref "apps/features/admin" >}}), under `Display` > `Privacy Policies`
 
 ### View In Webapp
 
@@ -39,9 +41,6 @@ When a privacy policy is configured for a language, users who load the app in th
 
 ![Accept privacy policy](accept-mobile.jpg)
 
-The app will load normally after acceptance. 
-To opt out, a user has to close their app or browser.  
-Once accepted, users will not be prompted to accept the same policy again. However, users will be prompted for acceptance again when the policy is updated or when they change their language.  
-An acceptance log is saved in the user-settings file and synced to the server, containing a history of privacy policies accepted by the user.    
+The app will load normally after acceptance. To opt out, a user has to close their app or browser. Once accepted, users will not be prompted to accept the same policy again. However, users will be prompted for acceptance again when the policy is updated or when they change their language. An acceptance log is saved in the `user-settings` file and synced to the server, containing a history of privacy policies accepted by the user.    
 
 
