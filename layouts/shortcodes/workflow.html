@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-12 col-sm-3">{{ .Get "condition" | markdownify }}</div>
+  <div class="d-none d-sm-flex col-1 align-self-center"><div><i class="fas fa-arrow-alt-circle-right"></i></div></div>
+  <div class="d-flex d-sm-none col-1"><i class="fas fa-long-arrow-alt-right"></i></div>
+  <div class="col-11 col-sm-3">{{ .Get "task" | markdownify }}</div>
+  <div class="d-none d-sm-flex col-1 align-self-center"><div><i class="fas fa-arrow-alt-circle-right"></i></div></div>
+  <div class="d-flex d-sm-none col-1"><i class="fas fa-long-arrow-alt-right"></i></div>
+  <div class="col-11 col-sm-4">{{ .Get "resolution" | markdownify }}</div>
+</div>
