@@ -42,9 +42,54 @@ Pregnancy and delivery care workflows are defined to connect form actions and da
 
 [![Pregnancy Workflow](preview-pregnancy-workflow.png)](pregnancy-workflow.pdf)
 
+**TEXT (left to right)**
+- Upon discovering a pregnancy, a CHW submits a [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) confirming a new pregnancy with the estimated gestational age.
+
+- At the 8 ANC touchpoints defined by the WHO, the CHW receives a [Pregnancy Home Visit Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi) to let her know that it’s time to check in on the pregnant woman. 
+
+- CHW submits [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit), demonstrating that she provided ANC counseling, gathered information from prior facility visits, and screened for danger signs.
+
+- A [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) is submitted with the gestational age unknown. 
+
+- A [Pregnancy Visit Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.2pls723gu6wl) appears every 2 weeks for 42 weeks. 
+
+- CHW submits [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit). If the gestational age is entered, the workflow will change to [Pregnancy Home Visit Tasks](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi).
+
+- A CHW submits a [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit) that includes an upcoming facility visit date.
+
+- A [Health Facility ANC Reminder Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.v3b7bata6j) 1 week ahead of the facility visit to remind the woman to attend.
+
+- CHW submits *Health Facility ANC Reminder Form*, confirming that she called or visited the woman to remind her of her upcoming facility visit. 
+
+- If the CHW notices danger signs at any time, then she submits a *Danger Sign Form* and immediately refers the patient to the facility.
+
+- A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.82ea7ww1x1k) will appear immediately and is due 3 days later. Tasks persists for 7 days after due date.
+
+- CHW submits a *Danger Sign Follow-Up Form*, verifying that she called or visited the woman to confirm that she attended the facility. If this is not received, another *Danger Sign Follow-Up Task* is triggered.
+
 <br /> 
 
 [![Delivery Workflow](preview-delivery-workflow.png)](delivery-workflow.pdf)
+
+**TEXT (left to right)**
+
+- A currently registered pregnant person has reached a gestational age of 42 weeks and has not had a miscarriage or a delivery reported.
+
+- A [Delivery Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.roycts63w3b8) requesting that the CHW check in on the woman to see whether she has delivered.
+
+- CHW submits a [Delivery Form](https://docs.google.com/drawings/d/1r4SkpSGWzvOZPv3-pFp9wS1k531MnWcbjzzC8U4tt0o/edit), confirming the pregnancy outcomes. Profiles are created for each baby that is alive. This “ends” the pregnancy workflow. 
+
+- A CHW submits a [Delivery Form](https://docs.google.com/drawings/d/1r4SkpSGWzvOZPv3-pFp9wS1k531MnWcbjzzC8U4tt0o/edit) that contains a danger sign for mom or baby, or reports that either mom or baby are “alive and unwell.”
+
+- A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.ojap92eg1e82) appears immediately and is due 3 days later. Persists for 7 days after due date.
+
+- The CHW calls or visits woman to confirm that she attended and submits a *Danger Sign Follow-Up Form*. If this is not received, another [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.ojap92eg1e82) is triggered.
+
+- If the CHW notices danger signs at any time, then she submits a *Danger Sign Form* and immediately refers the patient to the facility.
+
+- A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.ojap92eg1e82) will appear immediately and is due 3 days later. Tasks persists for 7 days after due date.
+
+- CHW submits *Danger Sign Follow-Up Form*, verifying that she called or visited the woman to confirm that she attended the facility. If this is not received, another [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.ojap92eg1e82) is triggered.
 
 ## Additional Resources to Get Started
 
