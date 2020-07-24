@@ -39,7 +39,7 @@ medic-conf --local upload-resources
 
 When a privacy policy is configured for a language, users who load the app in this language are prompted to accept the policy. 
 
-![Accept privacy policy](accept-mobile.jpg)
+![Accept privacy policy](accept-mobile.png)
 
 The app will load normally after acceptance. To opt out, a user has to close their app or browser. Once accepted, users will not be prompted to accept the same policy again. However, users will be prompted for acceptance again when the policy is updated or when they change their language. An acceptance log is saved in the `user-settings` file and synced to the server, containing a history of privacy policies accepted by the user.    
 
