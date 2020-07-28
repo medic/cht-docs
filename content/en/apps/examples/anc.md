@@ -43,9 +43,9 @@ Pregnancy and delivery care workflows are defined to connect form actions and da
 ### Pregnancy Workflow
 
 {{% workflow-table
-  image-1="pregnancy-1.png"
-  image-2="pregnancy-2.png"
-  image-3="pregnancy-3.png"
+  condition-image="pregnancy-1.png"
+  task-image="pregnancy-2.png"
+  resolution-image="pregnancy-3.png"
  %}}
   {{% workflow
         condition="Upon discovering a pregnancy, a CHW submits a [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) confirming a new pregnancy with the estimated gestational age."
