@@ -90,3 +90,20 @@ h2, h3 {
 }
 
 
+.workflow {
+  font-size: 90%;
+
+  .fas {
+    font-size: 2em;
+    color: $info;
+  }
+  
+  > .row:nth-child(n+2){
+    border-top: 1px solid #eee;
+    padding: 0.5rem 0;
+  }
+
+  > .row > div {
+    padding-top: 0.5rem;
+  }
+}
