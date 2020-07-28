@@ -72,9 +72,9 @@ Pregnancy and delivery care workflows are defined to connect form actions and da
 ### Delivery Workflow
 
 {{% workflow-table
-  image-1="delivery-1.png"
-  image-2="delivery-2.png"
-  image-3="delivery-3.png"
+  condition-image="delivery-1.png"
+  task-image="delivery-2.png"
+  resolution-image="delivery-3.png"
 %}}
   {{% workflow
         condition="A currently registered pregnant person has reached a gestational age of 42 weeks and has not had a miscarriage or a delivery reported."
