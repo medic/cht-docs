@@ -144,4 +144,4 @@ Some reports need to be signed off by a supervisor even though that supervisor d
 
 ### Sensitive documents
 
-We won't replicate documents that are about the user when the sender is someone the user can't access. For example, if a supervisor submits a report about one of their CHPs, that CHP won't be able to see it.
+We won't replicate reports that are `private` and are about the user when the sender is someone the user can't access. A report is private when it has a property `doc.fields.private` with a value of `true`. For example, if a supervisor submits a private report about one of their CHPs, that CHP won't be able to see it.
