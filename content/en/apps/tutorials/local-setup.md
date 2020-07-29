@@ -94,6 +94,16 @@ Once you have run the above command it should complete with the message: `INFO A
 
 ![all actions completed](all-actions-completed.png "All actions completed")
 
+### 4. Upload Test Data
+
+By default the CHT will have the reference application installed. To upload demo data you can use `medic-conf`:
+
+Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine, either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory you want to check the code out into: `git clone https://github.com/medic/cht-core.git`. This will create a `cht-core` directory.
+
+Navigate your terminal to the `config/default` directory of the `cht-core` directory. This is where the reference application is stored.
+
+Run the following `medic-conf` command: `medic-conf --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`. This first compiles and then uploads the shipped default test data to your local instance.
+
 ## Frequently Asked Questions
 
 - [How do I upgrade to a higher version of the webapp?](https://forum.communityhealthtoolkit.org/t/cant-upgrade-to-3-8-version/608)
