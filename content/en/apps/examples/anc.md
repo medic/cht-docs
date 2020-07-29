@@ -97,6 +97,6 @@ Pregnancy and delivery care workflows are defined to connect form actions and da
 
 Here are a few additional resources to help get you started with the maternal and newborn health reference application.
 
-- View the [complete reference app configuration](https://github.com/medic/cht-core/tree/master/config/default/)
-- Install the reference app following these [easy installation instructions](apps/tutorials/local-setup)
+- View the [configuration code for this reference app](https://github.com/medic/cht-core/tree/master/config/default/)
+- Install the reference app following these [easy installation instructions]({{< ref "apps/tutorials/local-setup" >}})
 - Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/apps" >}}) 
