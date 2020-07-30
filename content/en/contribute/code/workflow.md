@@ -73,28 +73,28 @@ Issues in this column are being actively worked on, which includes development, 
 Any code should be in a feature branch in each of the repositories you update. The name of the feature branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Once you're satisfied with your changes:
 
 1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message consise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
-2. If AT is required update the issue with AT instructions.
-3. Wait for the builds to succeed and ensure there are no conflicts with the `master` branch so the PR can be merged.
-4. Pick at least one Reviewer for the PR and work with them until the code passes review.
-5. If the issue requires AT then move the issue to "Ready for AT" for QA to test. Otherwise merge the PR, delete the branch, and close the issue.
+1. If AT is required update the issue with AT instructions.
+1. Wait for the builds to succeed and ensure there are no conflicts with the `master` branch so the PR can be merged.
+1. Pick at least one Reviewer for the PR and work with them until the code passes review.
+1. If the issue requires AT then move the issue to "Ready for AT" for QA to test. Otherwise merge the PR, delete the branch, and close the issue.
 
 ### Ready for AT
 
 Issues in this column are ready to be acceptance tested by a Quality Assurance engineer. When picking up an issue for AT:
 
 1. Check that the PR has no merge conflicts with `master` and all required builds have passed. If not, notify the original developer to fix the branch and find another issue to AT.
-2. Assign it to yourself.
-3. Move it to the "AT in progress" column
+1. Assign it to yourself.
+1. Move it to the "AT in progress" column
 
 ### AT in progress
 
 Issues in this column are in the process of being acceptance tested by a Quality Assurance engineer. To complete AT:
 
-1. Verify the steps to reproduce are accurate
-   1. Update or add comment if steps are not easily understandable. 
+
+1. Add or verify steps used to reproduce or execute the bug, feature, or improvement described in the ticket. 
 1. Install the PR branch to test against.
-2. If the issue fails AT then notify the original developer and move the issue back to "In progress".
-3. Once the issue passes AT
+1. If the issue fails AT then notify the original developer and move the issue back to "In progress".
+1. Once the issue passes AT
    1. Document Data used. EX: Seed Data, cloned data, no data
    1. Document Config used or changes to existing config. Add to ticket for use later if need be.
    1. How was the issue verified? Console logs, page source, errors anywhere, execution steps.  LGTM should begin to be rarely used.
