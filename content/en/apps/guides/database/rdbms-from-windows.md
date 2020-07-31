@@ -19,7 +19,7 @@ Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix sy
 
 ![Putty-gen-key-pair](puttygen-run-key-generate.png)
 
-4. Convert the key generated from ssh2 format to openssh. Puttygen supports this. Guide [here](https://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygenwindows-into-key-pairs-use?answertab=votes#tab-top)
+4. Convert the key generated from ssh2 format to openssh. Puttygen [supports this](https://stackoverflow.com/a/2224204).
 
 ```
 1. Open PuttyGen

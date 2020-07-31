@@ -25,7 +25,7 @@ A CHT-enhanced version of the ODK XForm standard is supported.
 
 Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
 
-{{< see-also page="apps/reference/forms/contact" anchor="care-guides" title="Passing contact data to care guides" >}}
+{{< see-also page="apps/reference/forms/contact" title="Passing contact data to care guides" >}}
 
 A typical form ends with a summary group (eg `group_summary`, or `group_review`) where important information is shown to the user before they submit the form.
 
@@ -113,7 +113,7 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 
 | property | description | required |
 |---|---|---|
-| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section](#localization). | yes |
+| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section]({{< relref "apps/reference/translations" >}}). | yes |
 | `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section](#icons) | yes |
 | `subject_key` | Override the default report list title with a custom translation key. The translation uses a summary of the report as the evaluation context so you can include report fields in your value, for example: `Case registration {{case_id}}`. Useful properties available in the summary include: `from` (the phone number of the sender), `phone` (the phone number of the report contact), `form` (the form code), `subject.name` (the name of the subject), and `case_id` (the generated case id). Defaults to the name of the report subject. | no |
 | `context` | The context defines when and where the form should be available in the app | no |

@@ -11,8 +11,7 @@ relatedContent: >
  ## Self Hosting
 
 ### How to access container, retrieve logs, isolate security groups
-* How to restart services: Link to medic-os documentation
-https://github.com/medic/medic-os#service-management-scripts
+* How to [restart services](https://github.com/medic/medic-os#user-content-service-management-scripts):
 `/boot/svc-<start/stop/restart> <service-name/medic-api/medic-sentinel/medic-core couchdb/medic-core nginx>`
 
 ### AWS docs for increasing disk size:
