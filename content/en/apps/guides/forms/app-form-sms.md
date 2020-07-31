@@ -44,7 +44,7 @@ When the form compaction fails or returns no content, no SMS will be sent.
 ### ODK compact record representation for SMS
 
 When `xml2sms` field value is Boolean `true`, the app will try to compact the form using this format. 
-To get forms sent in this format, follow the [ODK documentation](https://opendatakit.github.io/xforms-spec/#compact-record-representation-(for-sms)).
+To get forms sent in this format, follow the [ODK documentation](https://getodk.github.io/xforms-spec/#compact-record-representation-(for-sms)).
 
 ### Medic Custom SMS representation
 
