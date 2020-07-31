@@ -12,7 +12,7 @@ description: >
 
 ## medic-conf
 
-Follow the [instructions in the readme](https://github.com/medic/medic-conf/#releasing).
+Follow the [instructions in the readme](https://github.com/medic/medic-conf/#user-content-releasing).
 
 ## Android apps
 
