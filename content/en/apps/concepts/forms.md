@@ -5,6 +5,11 @@ weight: 3
 description: >
   Building block for all CHT apps
 keywords: app-forms contact-forms collect-forms json-forms
+relatedContent: >
+  apps/guides/forms
+  apps/reference/forms
+  apps/reference/app-settings/forms
+  apps/concepts/care-guides
 ---
 
 Forms are a building block of all CHT apps. They are used when creating or editing contacts, and when completing a care guide or survey within the app. Forms are also used to interpret SMS interactions with the CHT. 
