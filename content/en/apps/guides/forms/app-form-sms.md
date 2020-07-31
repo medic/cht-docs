@@ -38,7 +38,7 @@ Note that the SMS link notation can be interpreted differently from one phone to
 To define that an XForm should be converted to an SMS, add the field `xml2sms` to the form's CouchDB doc and assign it a truthy value (either a boolean or a string).  
 When submitting such a form, along with creating the report document, the app will try to compact the report's content into an SMS that would be sent to the configured Gateway phone number.
 
-There are two formats available - either using the [ODK's compact record representation for SMS](https://opendatakit.github.io/xforms-spec/#compact-record-representation-(for-sms)), or Medic's custom format.
+There are two formats available - either using the [ODK's compact record representation for SMS](https://getodk.github.io/xforms-spec/#compact-record-representation-(for-sms)), or Medic's custom format.
 When the form compaction fails or returns no content, no SMS will be sent.
 
 ### ODK compact record representation for SMS
