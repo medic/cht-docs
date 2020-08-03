@@ -4,6 +4,10 @@ weight: 4
 description: >
   Taking health workers through care protocols and providing decision support
 keywords: care-guides
+relatedContent: >
+  apps/concepts/forms
+  apps/features/tasks/#care-guides
+  apps/reference/contact-page/#care-guides
 ---
 
 ## Care Guides
