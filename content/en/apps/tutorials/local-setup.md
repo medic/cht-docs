@@ -96,7 +96,7 @@ Once you have run the above command it should complete with the message: `INFO A
 
 ### 4. Upload Test Data
 
-By default the CHT will have the reference application installed. To upload demo data you can use `medic-conf`:
+By default the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "apps/examples/anc" >}}) installed. To upload demo data you can use `medic-conf`:
 
 Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine, either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory you want to check the code out into: `git clone https://github.com/medic/cht-core.git`. This will create a `cht-core` directory.
 
