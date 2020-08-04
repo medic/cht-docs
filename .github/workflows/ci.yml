@@ -11,7 +11,7 @@ jobs:
   BuildAnyBranch:
     name:
     runs-on: ubuntu-18.04
-    steps:Z
+    steps:
       - name: Git checkout
         uses: actions/checkout@v2
         with:
