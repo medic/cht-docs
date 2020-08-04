@@ -10,6 +10,15 @@ jobs:
     name:
     runs-on: ubuntu-18.04
     steps:
+      - name: Check if if Master
+        if:   github.ref == 'refs/heads/master'
+        run: echo "This is Main"
+
+      # todo
+      - name: Check if 259-add-link-checker-to-ci
+        if:   github.ref == 'refs/heads/259-add-link-checker-to-ci'
+        run: echo "This is 259-add-link-checker-to-ci"
+
       - name: Git checkout
         uses: actions/checkout@v2
         with:
@@ -46,11 +55,7 @@ jobs:
 
       # todo - call errors out ...multi-line not OK?
       - name: Run Muffet link checkier
-        run: muffet http://localhost:1313 -t 15 -c 1 -f -e ".*demo\.app\.medicmobile\.org.*"  -e ".*download\.docker\.com.*"  -e ".*www\.npmjs\.com/org/medic/team/developers"  -e ".*github\.com/medic/cht-docs/issues/new.*"  -e ".*localhost:5984.*"
+        run: muffet http://localhost:1313 --buffer-size 50000 --timeout 15 --concurrency 1 --ignore-fragments -e ".*demo\.app\.medicmobile\.org.*"  -e ".*download\.docker\.com.*"  -e ".*www\.npmjs\.com/org/medic/team/developers"  -e ".*github\.com/medic/cht-docs/issues/new.*"  -e ".*localhost:5984.*"
 
       # todo - remove this comment:
       # muffet -f  -e ".*github\.com.*" -e  ".*demo\.app\.medicmobile\.org.*"  -e  ".*download\.docker\.com.*" -e ".*www\.npmjs\.com/org/medic/team/developers.*" -e ".*github\.com/medic/cht-docs/issues/new.*" -e ".*localhost:5984.*"  http://localhost:1313
-
-      # is this needed now that we build above when running `hugo server`?
-      - name: Build
-        run: hugo
