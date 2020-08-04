@@ -47,7 +47,7 @@ jobs:
 
       - name: Run Muffet link checkier
         run: muffet http://localhost:1313 \
-          -f # runs with out checking fragments (eg "https://example.com#foo"
+          -f \ # runs with out checking fragments (eg "https://example.com#foo"
           -e ".*github\.com.*" \ #  -e excludes sites based off regex
           -e ".*demo\.app\.medicmobile\.org.*" \
           -e ".*download\.docker\.com.*" \
