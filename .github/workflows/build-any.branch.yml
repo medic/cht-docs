@@ -46,7 +46,7 @@ jobs:
 
       # todo - call errors out ...multi-line not OK?
       - name: Run Muffet link checkier
-        run: muffet http://localhost:1313  -f  -e ".*github\.com.*"  -e ".*demo\.app\.medicmobile\.org.*"  -e ".*download\.docker\.com.*"  -e ".*www\.npmjs\.com/org/medic/team/developers.*"  -e ".*github\.com/medic/cht-docs/issues/new.*"  -e ".*localhost:5984.*"
+        run: muffet http://localhost:1313 -t 15 -f  -e ".*github\.com.*"  -e ".*demo\.app\.medicmobile\.org.*"  -e ".*download\.docker\.com.*"  -e ".*www\.npmjs\.com/org/medic/team/developers.*"  -e ".*github\.com/medic/cht-docs/issues/new.*"  -e ".*localhost:5984.*"
 
       # todo - remove this comment:
       # muffet -f  -e ".*github\.com.*" -e  ".*demo\.app\.medicmobile\.org.*"  -e  ".*download\.docker\.com.*" -e ".*www\.npmjs\.com/org/medic/team/developers.*" -e ".*github\.com/medic/cht-docs/issues/new.*" -e ".*localhost:5984.*"  http://localhost:1313
