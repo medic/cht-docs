@@ -35,7 +35,7 @@ The CHT provides you with resources to design, build, deploy, and monitor digita
 
 **At the health system level**, data managers and others use apps and admin consoles built with the CHT to collate and report on key community and health system data. Their work often involves following up with supervisors and nurses to verify data for accuracy and completion.
 
-<img src="appdemo-trio.gif" width=100%>
+<img src="appdemo-trio.gifs" width=100%>
 
 <br />
 
