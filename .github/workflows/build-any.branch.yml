@@ -34,20 +34,20 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.14' # Pinning to current version as of Aug 3, 2020 for stability
-
-      - name: Install Muffet
-      - run: go get -u github.com/raviqqe/muffet
-
-      - name: Serve Hugo site
-      - run: hugo server
-      - run: sleep 5 # taken from another muffet CI recipe - this makes sure hugo is full spun up and ready
-
-      - name: Run Muffet link checkier
-        run: |
-          muffet http://localhost:1313\
-          --ignore-fragments \
-          -exclude ".*github\.com.*|.*demo\.app\.medicmobile\.org.*|.*download\.docker\.com.*|" \
-          -exclude ".*www\.npmjs\.com/org/medic/team/developers.*|.*github\.com/medic/cht-docs/issues/new.*|.*localhost:5984.*" \
+#
+#      - name: Install Muffet
+#        run: go get -u github.com/raviqqe/muffet
+#
+#      - name: Serve Hugo site
+#      - run: hugo server
+#      - run: sleep 5 # taken from another muffet CI recipe - this makes sure hugo is full spun up and ready
+#
+#      - name: Run Muffet link checkier
+#        run: |
+#          muffet http://localhost:1313\
+#          --ignore-fragments \
+#          -exclude ".*github\.com.*|.*demo\.app\.medicmobile\.org.*|.*download\.docker\.com.*|" \
+#          -exclude ".*www\.npmjs\.com/org/medic/team/developers.*|.*github\.com/medic/cht-docs/issues/new.*|.*localhost:5984.*" \
 
       # todo - remove this comment:
       # muffet -f  -e ".*github\.com.*" -e  ".*demo\.app\.medicmobile\.org.*"  -e  ".*download\.docker\.com.*" -e ".*www\.npmjs\.com/org/medic/team/developers.*" -e ".*github\.com/medic/cht-docs/issues/new.*" -e ".*localhost:5984.*"  http://localhost:1313
