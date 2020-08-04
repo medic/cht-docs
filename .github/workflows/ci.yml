@@ -52,8 +52,7 @@ jobs:
           muffet http://localhost:1313 \
           --buffer-size 50000 --timeout 15 --concurrency 1 --ignore-fragments --exclude ".*demo\.app\.medicmobile\.org.*"  --exclude ".*download\.docker\.com.*"  --exclude ".*www\.npmjs\.com/org/medic/team/developers"  --exclude ".*github\.com/medic/cht-docs/issues/new.*"  --exclude ".*localhost:5984.*"
 
-      - name: Build if on Master
-        if:   github.ref == 'refs/heads/master'
+      - name: Build for production with minify
         run: env HUGO_ENV="production" hugo --minify
 
       # todo - uncomment before closing - push docs live
@@ -81,14 +80,15 @@ jobs:
           SLACK_TITLE: CHT DOCS DEPLOY
           SLACK_USERNAME: Medic-Bot
 
-      - name: Report errors to slack if on Master
-        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
-        uses: rtCamp/action-slack-notify@v2.0.2
-        env:
-          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-          SLACK_CHANNEL: '#cht-squad-docs'
-          SLACK_COLOR: '#3278BD'
-          SLACK_ICON: ":flappingphone:"
-          SLACK_MESSAGE: 'Deploy Failed'
-          SLACK_TITLE: CHT DOCS DEPLOY
-          SLACK_USERNAME: Medic-Bot
+      # todo - get working so that it actually reports on errors, uncomment before mergint to master
+#      - name: Report errors to slack if on Master
+#        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
+#        uses: rtCamp/action-slack-notify@v2.0.2
+#        env:
+#          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
+#          SLACK_CHANNEL: '#cht-squad-docs'
+#          SLACK_COLOR: '#3278BD'
+#          SLACK_ICON: ":flappingphone:"
+#          SLACK_MESSAGE: 'Deploy Failed'
+#          SLACK_TITLE: CHT DOCS DEPLOY
+#          SLACK_USERNAME: Medic-Bot
