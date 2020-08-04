@@ -34,10 +34,10 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.14' # Pinning to current version as of Aug 3, 2020 for stability
-#
-#      - name: Install Muffet
-#        run: go get -u github.com/raviqqe/muffet
-#
+
+      - name: Install Muffet
+        run: go get -u github.com/raviqqe/muffet
+
 #      - name: Serve Hugo site
 #      - run: hugo server
 #      - run: sleep 5 # taken from another muffet CI recipe - this makes sure hugo is full spun up and ready
