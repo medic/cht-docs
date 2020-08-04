@@ -38,16 +38,16 @@ jobs:
       - name: Install Muffet
         run: go get -u github.com/raviqqe/muffet
 
-      # todo - figure how to get this to run and then run muffet against this. CI stops when we run it and waits: "Press Ctrl+C to stop"
       - name: Serve Hugo site
-        run: hugo server&
+        run: hugo server& # run in background so CI doesn't hang waiting for ctrl + c
 
       - name: Sleep 5s to make sure hugo server is fully spun up
         run: sleep 5
 
+      # todo - call errors out ...multi-line not OK?
       - name: Run Muffet link checkier
         run: muffet http://localhost:1313 \
-          -f \ # runs with out checking fragments (eg "https://example.com#foo"
+          -f \ # runs with out checking fragments
           -e ".*github\.com.*" \ #  -e excludes sites based off regex
           -e ".*demo\.app\.medicmobile\.org.*" \
           -e ".*download\.docker\.com.*" \
