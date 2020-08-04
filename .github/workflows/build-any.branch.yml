@@ -41,12 +41,12 @@ jobs:
       - name: Serve Hugo site
         run: hugo server& # run in background so CI doesn't hang waiting for ctrl + c
 
-      - name: Sleep 5s to make sure hugo server is fully spun up
+      - name: Sleep to ensure hugo server is ready
         run: sleep 5
 
       # todo - call errors out ...multi-line not OK?
       - name: Run Muffet link checkier
-        run: muffet http://localhost:1313 -t 15 -f  -e ".*github\.com.*"  -e ".*demo\.app\.medicmobile\.org.*"  -e ".*download\.docker\.com.*"  -e ".*www\.npmjs\.com/org/medic/team/developers.*"  -e ".*github\.com/medic/cht-docs/issues/new.*"  -e ".*localhost:5984.*"
+        run: muffet http://localhost:1313 -t 15 -c 1 -f -e ".*demo\.app\.medicmobile\.org.*"  -e ".*download\.docker\.com.*"  -e ".*www\.npmjs\.com/org/medic/team/developers"  -e ".*github\.com/medic/cht-docs/issues/new.*"  -e ".*localhost:5984.*"
 
       # todo - remove this comment:
       # muffet -f  -e ".*github\.com.*" -e  ".*demo\.app\.medicmobile\.org.*"  -e  ".*download\.docker\.com.*" -e ".*www\.npmjs\.com/org/medic/team/developers.*" -e ".*github\.com/medic/cht-docs/issues/new.*" -e ".*localhost:5984.*"  http://localhost:1313
