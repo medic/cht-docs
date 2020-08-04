@@ -68,7 +68,7 @@ jobs:
 #          publish_branch: master
 
       # todo - remove this before merging to master ;)
-      - name: Report errors to slack if on Master
+      - name: Report errors to slack (mrjones-testing-channel) if on Master
         if:   ${{ failure() }} && github.ref != 'refs/heads/master'
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
