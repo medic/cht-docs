@@ -18,14 +18,13 @@ jobs:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      # todo - verify this is safe to remove - not sure why we need node here
-#      - name: Install Node depencies
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: '12.x'
-#      - run: npm install
-#      - run: npm install -g postcss-cli
-#      - run: npm i -D autoprefixer
+      - name: Install Node depencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm install
+      - run: npm install -g postcss-cli
+      - run: npm i -D autoprefixer
 
       - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
@@ -47,6 +46,7 @@ jobs:
       - name: Sleep so hugo server is ready
         run: sleep 5
 
+      # todo - decide on if we're gonna test against GH or not :(
       - name: Run Muffet link checkier
         run: |
           muffet http://localhost:1313 \
