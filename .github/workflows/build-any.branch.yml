@@ -46,7 +46,14 @@ jobs:
         run: sleep 5
 
       - name: Run Muffet link checkier
-        run: muffet http://localhost:1313 --ignore-fragments  -exclude ".*github\.com.*|.*demo\.app\.medicmobile\.org.*|.*download\.docker\.com.*|"  -exclude ".*www\.npmjs\.com/org/medic/team/developers.*|.*github\.com/medic/cht-docs/issues/new.*|.*localhost:5984.*" 
+        run: muffet http://localhost:1313 \
+          -f # runs with out checking fragments (eg "https://example.com#foo"
+          -e ".*github\.com.*" \ #  -e excludes sites based off regex
+          -e ".*demo\.app\.medicmobile\.org.*" \
+          -e ".*download\.docker\.com.*" \
+          -e ".*www\.npmjs\.com/org/medic/team/developers.*" \
+          -e ".*github\.com/medic/cht-docs/issues/new.*" \
+          -e ".*localhost:5984.*"
 
       # todo - remove this comment:
       # muffet -f  -e ".*github\.com.*" -e  ".*demo\.app\.medicmobile\.org.*"  -e  ".*download\.docker\.com.*" -e ".*www\.npmjs\.com/org/medic/team/developers.*" -e ".*github\.com/medic/cht-docs/issues/new.*" -e ".*localhost:5984.*"  http://localhost:1313
