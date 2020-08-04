@@ -38,9 +38,9 @@ jobs:
       - name: Install Muffet
         run: go get -u github.com/raviqqe/muffet
 
-#      - name: Serve Hugo site
-#      - run: hugo server
-#      - run: sleep 5 # taken from another muffet CI recipe - this makes sure hugo is full spun up and ready
+      - name: Serve Hugo site
+      - run: hugo server
+      - run: sleep 5 # taken from another muffet CI recipe - this makes sure hugo is full spun up and ready
 #
 #      - name: Run Muffet link checkier
 #        run: |
