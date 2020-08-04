@@ -38,10 +38,11 @@ jobs:
       - name: Install Muffet
         run: go get -u github.com/raviqqe/muffet
 
+      # todo - figure how to get this to run and then run muffet against this. CI stops when we run it and waits: "Press Ctrl+C to stop"
       - name: Serve Hugo site
-        run: hugo server
+        run: hugo server&
 
-      - name: Seep 5 to make sure hugo server is fully spun up
+      - name: Sleep 5s to make sure hugo server is fully spun up
         run: sleep 5
 
       - name: Run Muffet link checkier
