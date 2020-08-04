@@ -50,7 +50,16 @@ jobs:
       - name: Run Muffet link checkier
         run: |
           muffet http://localhost:1313 \
-          --buffer-size 50000 --timeout 15 --concurrency 1 --ignore-fragments --exclude ".*demo\.app\.medicmobile\.org.*"  --exclude ".*download\.docker\.com.*"  --exclude ".*www\.npmjs\.com/org/medic/team/developers"  --exclude ".*github\.com/medic/cht-docs/issues/new.*"  --exclude ".*localhost:5984.*"
+          --buffer-size 50000 \
+          --timeout 15 \
+          --concurrency 1 \
+          --ignore-fragments \
+          --exclude ".*demo\.app\.medicmobile\.org.*" \
+          --exclude ".*download\.docker\.com.*" \
+          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
+          --exclude ".*github\.com.*" \
+          --exclude ".*github\.com/medic/cht-docs/issues/new.*" \
+          --exclude ".*localhost:5984.*"
 
       - name: Build for production with minify
         run: env HUGO_ENV="production" hugo --minify
