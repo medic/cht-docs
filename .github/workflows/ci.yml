@@ -43,15 +43,17 @@ jobs:
         run: |
           muffet http://localhost:1313 \
           --buffer-size 50000 \
-          --timeout 15 \
+          --timeout 35 \
           --concurrency 1 \
           --ignore-fragments \
           --exclude ".*demo\.app\.medicmobile\.org.*" \
           --exclude ".*download\.docker\.com.*" \
           --exclude ".*www\.npmjs\.com/org/medic/team/developers"
-          --exclude ".*github\.com/medic/cht-.*/issues/new.*" \
-          --exclude ".*github\.com/medic/cht-.*/commit/.*" \
-          --exclude ".*github\.com/medic/cht-docs/edit/master/.*" \
+          --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
+          --exclude "https://github\.com/medic/cht-core/issues/new.*" \
+          --exclude "https://github\.com/medic/cht-core/commit.*" \
+          --exclude "https://github\.com/medic/cht-core/commit.*" \
+          --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
           --exclude ".*localhost:5984.*"
 
       - name: Install Node depencies for postcss-cli used in hugo prod build
