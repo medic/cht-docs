@@ -48,8 +48,10 @@ jobs:
           --ignore-fragments \
           --exclude ".*demo\.app\.medicmobile\.org.*" \
           --exclude ".*download\.docker\.com.*" \
-          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
-          --exclude ".*github\.com/medic/cht-docs/issues/new.*" \
+          --exclude ".*www\.npmjs\.com/org/medic/team/developers"
+          --exclude ".*github\.com/medic/cht-*/issues/new.*" \
+          --exclude ".*github.com/medic/cht-*/commit/.*" \
+          --exclude ".*github.com/medic/cht-docs/edit/master/.*" \
           --exclude ".*localhost:5984.*"
 
 
