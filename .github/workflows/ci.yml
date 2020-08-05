@@ -39,6 +39,7 @@ jobs:
         run: sleep 5
 
       # todo - decide on if we're gonna test against GH or not :(
+      # todo - i think include GH if we can grrrrrr - get the excludes below actually working!?!
       - name: Run Muffet link checkier
         run: |
           muffet http://localhost:1313 \
