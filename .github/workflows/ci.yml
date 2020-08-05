@@ -18,14 +18,6 @@ jobs:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Install Node depencies
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - run: npm install
-      - run: npm install -g postcss-cli
-      - run: npm i -D autoprefixer
-
       - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -57,11 +49,22 @@ jobs:
           --exclude ".*demo\.app\.medicmobile\.org.*" \
           --exclude ".*download\.docker\.com.*" \
           --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
-          --exclude ".*github\.com.*" \
           --exclude ".*github\.com/medic/cht-docs/issues/new.*" \
           --exclude ".*localhost:5984.*"
 
+
+      - name: Install Node depencies for postcss-cli used in hugo prod build
+        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm install
+      - run: npm install -g postcss-cli
+      - run: npm i -D autoprefixer
+
+      # this sets value for failure() below
       - name: Build for production with minify
+        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
       # todo - uncomment before closing - push docs live
@@ -83,13 +86,13 @@ jobs:
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
           SLACK_CHANNEL: '#mrjones-testing-channel'
-          SLACK_COLOR: '#3278BD'
-          SLACK_ICON: ":flappingphone:"
+#          SLACK_COLOR: '#3278BD'
+#          SLACK_ICON: ":flappingphone:"
           SLACK_MESSAGE: 'GH Action Testing Failed - zomg!'
-          SLACK_TITLE: CHT DOCS DEPLOY
-          SLACK_USERNAME: Medic-Bot
+#          SLACK_TITLE: CHT DOCS DEPLOY
+#          SLACK_USERNAME: Medic-Bot
 
-      # todo - get working so that it actually reports on errors, uncomment before mergint to master
+      # todo - get working so that it actually reports on errors, uncomment before merging to master
 #      - name: Report errors to slack if on Master
 #        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
 #        uses: rtCamp/action-slack-notify@v2.0.2
