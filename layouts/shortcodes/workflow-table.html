@@ -20,14 +20,19 @@
   {{- $title := .title -}}
   {{- $file := .file -}}
   {{- with $file -}}
-    {{- $fullpath := path.Join $context.Page.File.Dir $file -}}
+    {{- $fullpath := "" -}}
+    {{- if ne $context.Page.File.TranslationBaseName "_index" -}}
+      {{- $fullpath = path.Join $context.Page.File.Dir $context.Page.File.ContentBaseName $file -}}
+    {{- else -}}
+      {{- $fullpath = path.Join $context.Page.File.Dir $file -}}
+    {{- end -}}  
     {{- if fileExists $fullpath -}}
       <img src="{{ . }}" alt="{{ $title }}" />
     {{- else -}}
-      {{ errorf "File not found '%s-image'='%s': %s" (lower $title) . $context.Position }}
+      {{ errorf "File '%s' not found with '%s-image=\"%s\"': %s" $fullpath (lower $title) . $context.Position }}
     {{- end -}}
   {{- else -}}
     {{ warnf "Missing value for param '%s-image': %s" (lower $title) $context.Position }}
   {{- end -}}
-  <h5><strong>{{ title $title }}</strong></h5>
+  <h4>{{ title $title }}</h4>
 {{- end -}}
