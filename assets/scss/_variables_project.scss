@@ -103,7 +103,11 @@ h2, h3 {
     padding: 0.5rem 0;
   }
 
-  > .row > div {
-    padding-top: 0.5rem;
+  > .row > div.text {
+    padding-bottom: 0.5rem;
   }
+}
+
+.fa-rotate-45 {
+  transform: rotate(45deg);
 }
