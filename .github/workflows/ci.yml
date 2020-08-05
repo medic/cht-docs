@@ -8,7 +8,7 @@ on:
 
 name: Test site and push live if we're on Master
 jobs:
-  BuildAnyBranch:
+  BuildAnyBranch: # todo - change this and populate name below?
     name:
     runs-on: ubuntu-18.04
     steps:
