@@ -1,10 +1,33 @@
+{{/* Three header titles shown. Images can be shown with filename in current directory passed for each named arguments: condition-image, task-image, and resolution-image */}}
 <div class="container workflow align-items-center">
   <div class="row d-none d-sm-flex text-center">
-    <div class="col-3"><img src="{{ .Get "condition-image" }}" alt="Condition" /><h5><strong>Condition</strong></h5></div>
+    <div class="col-3 align-self-end">
+      {{ template "col-header" ( dict "context" . "title" "Condition" "file" (.Get "condition-image" ) ) }}
+    </div>
     <div class="col-1"></div>
-    <div class="col-3"><img src="{{ .Get "task-image" }}" alt="Task" /><h5><strong>Task</strong></h5></div>
+    <div class="col-3 align-self-end">
+      {{ template "col-header" ( dict "context" . "title" "Task" "file" (.Get "task-image" ) ) }}
+    </div>
     <div class="col-1"></div>
-    <div class="col-3"><img src="{{ .Get "resolution-image" }}" alt="Resolution" /><h5><strong>Resolution</strong></h5></div>
+    <div class="col-3 align-self-end">
+      {{ template "col-header" ( dict "context" . "title" "Resolution" "file" (.Get "resolution-image" ) ) }}
+    </div>
   </div>
   {{ .Inner }}
 </div>
+{{- define "col-header" -}}
+  {{- $context := .context -}}
+  {{- $title := .title -}}
+  {{- $file := .file -}}
+  {{- with $file -}}
+    {{- $fullpath := path.Join $context.Page.File.Dir $file -}}
+    {{- if fileExists $fullpath -}}
+      <img src="{{ . }}" alt="{{ $title }}" />
+    {{- else -}}
+      {{ errorf "File not found '%s-image'='%s': %s" (lower $title) . $context.Position }}
+    {{- end -}}
+  {{- else -}}
+    {{ warnf "Missing value for param '%s-image': %s" (lower $title) $context.Position }}
+  {{- end -}}
+  <h5><strong>{{ title $title }}</strong></h5>
+{{- end -}}
