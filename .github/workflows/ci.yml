@@ -29,11 +29,13 @@ jobs:
       - name: Install Muffet
         run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3 # Pinning to current version as of Aug 3, 2020 for stability
 
-      - name: Install Node, postcss-cli & autoprefixer for hugo prod build
+      - name: Install Node
         if:  github.ref == 'refs/heads/master'
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+
+      - name: npm install postcss-cli & autoprefixer for hugo prod build
         run: |
           npm install
           npm install -g postcss-cli
@@ -72,11 +74,11 @@ jobs:
     name: Push Live if Master
     needs: CheckLinks
     runs-on: ubuntu-18.04
+    if: github.ref == 'refs/heads/master'
     steps:
 
       # this sets value for failure() below
       - name: Build for production with minify
-        if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
 #      - name: Deploy to GH pages if on Master
