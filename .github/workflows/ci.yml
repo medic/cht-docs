@@ -6,7 +6,7 @@ on:
 name: Test site and push live if we're on Master
 jobs:
   BuildLinkCheckPushLive:
-    name: 
+    name:
     runs-on: ubuntu-18.04
     steps:
 
@@ -38,6 +38,7 @@ jobs:
           hugo server&
           sleep 5
 
+      # todo - put this in a bash script so users can easily run it locally?
       - name: Run Muffet link checkier
         run: |
           muffet http://localhost:1313 \
@@ -72,6 +73,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
+      # todo - uncomment
 #      - name: Deploy to GH pages if on Master
 #        if: github.ref == 'refs/heads/master'
 #        uses: peaceiris/actions-gh-pages@v3
@@ -83,6 +85,8 @@ jobs:
 #          user_email: medic-ci@github
 #          publish_branch: master
 
+      # todo - revert to #cht-squad-docs
+      # todo - figure why this is firing when there's no failures?!?!
       - name: Report errors to slack if on Master
         if: github.ref == 'refs/heads/master' && ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
