@@ -1,4 +1,10 @@
-{{/* Three header titles shown. Images can be shown with filename in current directory passed for each named arguments: condition-image, task-image, and resolution-image */}}
+{{/*
+  Three predefined header titles are shown, with optional images above.
+  Image paths relative to permalink are passed in named arguments:
+    - condition-image
+    - task-image
+    - resolution-image
+*/}}
 <div class="container workflow align-items-center">
   <div class="row d-none d-sm-flex text-center">
     <div class="col-3 align-self-end">
@@ -25,7 +31,7 @@
       {{- $fullpath = path.Join $context.Page.File.Dir $context.Page.File.ContentBaseName $file -}}
     {{- else -}}
       {{- $fullpath = path.Join $context.Page.File.Dir $file -}}
-    {{- end -}}  
+    {{- end -}}
     {{- if fileExists $fullpath -}}
       <img src="{{ . }}" alt="{{ $title }}" />
     {{- else -}}
