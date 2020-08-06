@@ -1,39 +1,36 @@
 on:
   push:
     branches:
-      - '*'
+      - '*' # we'll do conditional branch checking below to keep all this one CI file
 
 name: Test site and push live if we're on Master
 jobs:
-  Install:
-    name: Install prerequisites
+  BuildLinkCheckPushLive:
+    name: Set Build Env, Test Links, Build & Push Live
     runs-on: ubuntu-18.04
     steps:
-      - name: Git checkout
+
+      - name: Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup hugo
+      - name: Install hugo extended version
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.71.1"
           extended: true
 
-      - name: Install Go
+      # Pinning to current version as of Aug 3, 2020 for stability
+      - name: Install Go v1.14
         uses: actions/setup-go@v2
         with:
-          go-version: '1.14' # Pinning to current version as of Aug 3, 2020 for stability
+          go-version: '1.14'
 
-      - name: Install Muffet
-        run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3 # Pinning to current version as of Aug 3, 2020 for stability
-
-  CheckLinks:
-    name: Check Links
-    needs: Install
-    runs-on: ubuntu-18.04
-    steps:
+      # Pinning to current version as of Aug 3, 2020 for stability
+      - name: Install Muffet v1.3.3
+        run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep so hugo server is ready
       - name: Serve Hugo site
@@ -58,20 +55,14 @@ jobs:
           --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
           --exclude ".*localhost:5984.*"
 
-  PushLiveIfMaster:
-    name: Push Live if Master
-    needs: CheckLinks
-    runs-on: ubuntu-18.04
-#    if: github.ref == 'refs/heads/master'
-    if: github.ref == 'refs/heads/259-add-link-checker-to-ci'
-    steps:
-
       - name: Install Node
+        if: github.ref == 'refs/heads/master'
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
       - name: npm install postcss-cli & autoprefixer for hugo prod build
+        if: github.ref == 'refs/heads/master'
         run: |
           npm install
           npm install -g postcss-cli
@@ -79,10 +70,11 @@ jobs:
 
       # this sets value for failure() below
       - name: Build for production with minify
+        if:   github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
 #      - name: Deploy to GH pages if on Master
-#        if:   github.ref == 'refs/heads/master'
+#        if: github.ref == 'refs/heads/master'
 #        uses: peaceiris/actions-gh-pages@v3
 #        with:
 #          personal_token: ${{ secrets.DEPOLY_TO_SITE}}
@@ -91,15 +83,18 @@ jobs:
 #          user_name: medic-ci
 #          user_email: medic-ci@github
 #          publish_branch: master
-#
-#      - name: Report errors to slack if on Master
-#        if:   ${{ failure() }}
-#        uses: rtCamp/action-slack-notify@v2.0.2
-#        env:
-#          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
+
+      # todo - revert back to '#cht-squad-docs' and is master
+      - name: Report errors to slack if on Master
+#        if: ${{ failure() }} && github.ref == 'refs/heads/master'
+        if: ${{ failure() }} && github.ref == 'refs/heads/259-add-link-checker-to-ci'
+        uses: rtCamp/action-slack-notify@v2.0.2
+        env:
+          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
 #          SLACK_CHANNEL: '#cht-squad-docs'
-#          SLACK_COLOR: '#3278BD'
-#          SLACK_ICON: ":flappingphone:"
-#          SLACK_MESSAGE: 'Deploy Failed'
-#          SLACK_TITLE: CHT DOCS DEPLOY
-#          SLACK_USERNAME: Medic-Bot
+          SLACK_CHANNEL: '#mrjones-testing-channel'
+          SLACK_COLOR: '#3278BD'
+          SLACK_ICON: ":flappingphone:"
+          SLACK_MESSAGE: 'Deploy Failed'
+          SLACK_TITLE: CHT DOCS DEPLOY
+          SLACK_USERNAME: Medic-Bot
