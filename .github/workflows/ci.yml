@@ -57,13 +57,13 @@ jobs:
           --exclude ".*localhost:5984.*"
 
       - name: Install Node
-        if: github.ref == 'refs/heads/master'
+        if: ${{ github.ref == 'refs/heads/master' }}
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
       - name: npm install postcss-cli & autoprefixer for hugo prod build
-        if: github.ref == 'refs/heads/master'
+        if: ${{github.ref == 'refs/heads/master' }}
         run: |
           npm install
           npm install -g postcss-cli
@@ -75,7 +75,7 @@ jobs:
 
       # todo - uncomment
 #      - name: Deploy to GH pages if on Master
-#        if: github.ref == 'refs/heads/master'
+#        if: ${{ github.ref == 'refs/heads/master' }}
 #        uses: peaceiris/actions-gh-pages@v3
 #        with:
 #          personal_token: ${{ secrets.DEPOLY_TO_SITE}}
@@ -88,7 +88,7 @@ jobs:
       # todo - revert to #cht-squad-docs
       # todo - figure why this is firing when there's no failures?!?!
       - name: Report errors to slack if on Master
-        if: github.ref == 'refs/heads/master' && ${{ failure() }}
+        if: ${{ github.ref == 'refs/heads/master' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
