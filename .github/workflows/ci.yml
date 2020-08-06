@@ -29,18 +29,6 @@ jobs:
       - name: Install Muffet
         run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3 # Pinning to current version as of Aug 3, 2020 for stability
 
-      - name: Install Node
-        if:  github.ref == 'refs/heads/master'
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: npm install postcss-cli & autoprefixer for hugo prod build
-        run: |
-          npm install
-          npm install -g postcss-cli
-          npm i -D autoprefixer
-
   CheckLinks:
     name: Check Links
     needs: Install
@@ -76,6 +64,17 @@ jobs:
     runs-on: ubuntu-18.04
     if: github.ref == 'refs/heads/master'
     steps:
+      -
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: npm install postcss-cli & autoprefixer for hugo prod build
+        run: |
+          npm install
+          npm install -g postcss-cli
+          npm i -D autoprefixer
 
       # this sets value for failure() below
       - name: Build for production with minify
@@ -93,7 +92,7 @@ jobs:
 #          publish_branch: master
 #
 #      - name: Report errors to slack if on Master
-#        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
+#        if:   ${{ failure() }}
 #        uses: rtCamp/action-slack-notify@v2.0.2
 #        env:
 #          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
