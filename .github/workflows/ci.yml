@@ -16,15 +16,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
 
-      - name: delete me
-        run: pwd
-
-      - name: delete me 2
-        run: ls
-
-      - name: delete me 3 - fails
-        run: ls-this-isnt-a-command
-
+      # todo - remove this stanza
+      - name: All Branches - Test path to bash script
+        run: .github/scripts/deleteme.sh
 
       - name: All Branches - Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
@@ -56,7 +50,7 @@ jobs:
 
       # todo - put this in a bash script so users can easily run it locally?
       - name: All Branches - Run Muffet link checkier
-        run: ${{ env.GITHUB_WORKSPACE }}/.github/scripts/muffet.sh
+        run: .github/scripts/muffet.sh
 
       - name: Master Branch Only - Install Node 12.x
         if: ${{ github.ref == 'refs/heads/master' }}
