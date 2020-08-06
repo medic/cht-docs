@@ -1,3 +1,9 @@
+# Notes:
+#  - All software to do CI is  pinned so they don't get upgraded and break w/o us knowing why.
+#  - If you bump one version up to latest, please bump them all so we stay current!
+#  - Hugo builds the site twice: once for link checking and once minified for pushing live
+#  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
+
 on:
   push:
     branches:
@@ -40,29 +46,15 @@ jobs:
 
       # todo - put this in a bash script so users can easily run it locally?
       - name: All Branches - Run Muffet link checkier
-        run: |
-          muffet http://localhost:1313 \
-          --buffer-size 50000 \
-          --timeout 35 \
-          --concurrency 2 \
-          --ignore-fragments \
-          --exclude ".*demo\.app\.medicmobile\.org.*" \
-          --exclude ".*download\.docker\.com.*" \
-          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
-          --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
-          --exclude "https://github\.com/medic/cht-core/issues/new.*" \
-          --exclude "https://github\.com/medic/cht-docs/commit.*" \
-          --exclude "https://github\.com/medic/cht-core/commit.*" \
-          --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
-          --exclude ".*localhost:5984.*"
+        run: ${{ env.GITHUB_WORKSPACE }}/.github/scripts/muffet.sh
 
-      - name: Master Branch Only - Install Node
+      - name: Master Branch Only - Install Node 12.x
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
-      - name: Master Branch Only - install postcss-cli & autoprefixer for hugo build
+      - name: Master Branch Only - Install npm modules for hugo build
         if: ${{github.ref == 'refs/heads/master' }}
         run: |
           npm install
@@ -73,7 +65,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
-      - name: Master Branch Only - Deploy to GH pages if on Master
+      - name: Master Branch Only - Deploy to GH pages if
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
