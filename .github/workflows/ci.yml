@@ -1,15 +1,12 @@
 on:
   push:
     branches:
-      # todo - make this run on all branches as we have conditionals below to only push to prod if we're on master
-      - 259-add-link-checker-to-ci
-      # - '*'
-      # - '!master'
+      - '*'
 
 name: Test site and push live if we're on Master
 jobs:
-  BuildAnyBranch: # todo - change this and populate name below?
-    name:
+  Install:
+    name: Install prerequisites
     runs-on: ubuntu-18.04
     steps:
       - name: Git checkout
@@ -32,46 +29,55 @@ jobs:
       - name: Install Muffet
         run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3 # Pinning to current version as of Aug 3, 2020 for stability
 
-      - name: Serve Hugo site
-        run: hugo server& # run in background so CI doesn't hang waiting for ctrl + c
-
-      - name: Sleep so hugo server is ready
-        run: sleep 5
-
-      # todo - decide on if we're gonna test against GH or not :(
-      # todo - i think include GH if we can grrrrrr - get the excludes below actually working!?!
-      - name: Run Muffet link checkier
-        run: |
-          muffet http://localhost:1313 \
-          --buffer-size 50000 \
-          --timeout 35 \
-          --concurrency 2 \
-          --ignore-fragments \
-          --exclude ".*demo\.app\.medicmobile\.org.*" \
-          --exclude ".*download\.docker\.com.*" \
-          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
-          --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
-          --exclude "https://github\.com/medic/cht-core/issues/new.*" \
-          --exclude "https://github\.com/medic/cht-docs/commit.*" \
-          --exclude "https://github\.com/medic/cht-core/commit.*" \
-          --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
-          --exclude ".*localhost:5984.*"
-
-      - name: Install Node depencies for postcss-cli used in hugo prod build
+      - name: Install Node, postcss-cli & autoprefixer for hugo prod build
         if:  github.ref == 'refs/heads/master'
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm install
-      - run: npm install -g postcss-cli
-      - run: npm i -D autoprefixer
+        run: |
+          npm install
+          npm install -g postcss-cli
+          npm i -D autoprefixer
 
+  CheckLinks:
+    name: Check Links
+    needs: Install
+    runs-on: ubuntu-18.04
+    steps:
+
+      # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep so hugo server is ready
+      - name: Serve Hugo site
+        run: |
+          hugo server&
+          sleep 5
+
+#      - name: Run Muffet link checkier
+#        run: |
+#          muffet http://localhost:1313 \
+#          --buffer-size 50000 \
+#          --timeout 35 \
+#          --concurrency 2 \
+#          --ignore-fragments \
+#          --exclude ".*demo\.app\.medicmobile\.org.*" \
+#          --exclude ".*download\.docker\.com.*" \
+#          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
+#          --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
+#          --exclude "https://github\.com/medic/cht-core/issues/new.*" \
+#          --exclude "https://github\.com/medic/cht-docs/commit.*" \
+#          --exclude "https://github\.com/medic/cht-core/commit.*" \
+#          --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
+#          --exclude ".*localhost:5984.*"
+
+  PushLiveIfMaster:
+    name: Push Live if Master
+    needs: CheckLinks
+    runs-on: ubuntu-18.04
+    if: github.ref == 'refs/heads/master'
+    steps:
       # this sets value for failure() below
       - name: Build for production with minify
-        if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
-      # todo - uncomment before closing - push docs live
 #      - name: Deploy to GH pages if on Master
 #        if:   github.ref == 'refs/heads/master'
 #        uses: peaceiris/actions-gh-pages@v3
@@ -82,8 +88,7 @@ jobs:
 #          user_name: medic-ci
 #          user_email: medic-ci@github
 #          publish_branch: master
-
-      # todo - get working so that it actually reports on errors, uncomment before merging to master
+#
 #      - name: Report errors to slack if on Master
 #        if:   ${{ failure() }} && github.ref == 'refs/heads/master'
 #        uses: rtCamp/action-slack-notify@v2.0.2
@@ -94,4 +99,4 @@ jobs:
 #          SLACK_ICON: ":flappingphone:"
 #          SLACK_MESSAGE: 'Deploy Failed'
 #          SLACK_TITLE: CHT DOCS DEPLOY
-#          SLACK_USERNAME: Medic-Bot
+          SLACK_USERNAME: Medic-Bot
