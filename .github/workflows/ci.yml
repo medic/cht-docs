@@ -55,22 +55,25 @@ jobs:
           --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
           --exclude ".*localhost:5984.*"
 
+      # todo - revert back master
       - name: Install Node
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/259-add-link-checker-to-ci'
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
+      # todo - revert back to master
       - name: npm install postcss-cli & autoprefixer for hugo prod build
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/259-add-link-checker-to-ci'
         run: |
           npm install
           npm install -g postcss-cli
           npm i -D autoprefixer
 
+      # todo - revert back to master
       # this sets value for failure() below
       - name: Build for production with minify
-        if:   github.ref == 'refs/heads/master'
+        if:   github.ref == 'refs/heads/259-add-link-checker-to-ci'
         run: env HUGO_ENV="production" hugo --minify
 
 #      - name: Deploy to GH pages if on Master
