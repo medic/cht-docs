@@ -99,4 +99,4 @@ jobs:
 #          SLACK_ICON: ":flappingphone:"
 #          SLACK_MESSAGE: 'Deploy Failed'
 #          SLACK_TITLE: CHT DOCS DEPLOY
-          SLACK_USERNAME: Medic-Bot
+#          SLACK_USERNAME: Medic-Bot
