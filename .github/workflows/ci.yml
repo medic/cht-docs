@@ -1,12 +1,12 @@
 on:
   push:
     branches:
-      - '*' # we'll do conditional branch checking below to keep all this one CI file
+      - '*' # branch checking is below so all this is one CI file
 
 name: Test site and push live if we're on Master
 jobs:
   BuildLinkCheckPushLive:
-    name: Set Build Env, Test Links, Build & Push Live
+    name: 
     runs-on: ubuntu-18.04
     steps:
 
@@ -55,25 +55,21 @@ jobs:
           --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
           --exclude ".*localhost:5984.*"
 
-      # todo - revert back master
       - name: Install Node
-        if: github.ref == 'refs/heads/259-add-link-checker-to-ci'
+        if: github.ref == 'refs/heads/master'
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
-      # todo - revert back to master
       - name: npm install postcss-cli & autoprefixer for hugo prod build
-        if: github.ref == 'refs/heads/259-add-link-checker-to-ci'
+        if: github.ref == 'refs/heads/master'
         run: |
           npm install
           npm install -g postcss-cli
           npm i -D autoprefixer
 
-      # todo - revert back to master
-      # this sets value for failure() below
       - name: Build for production with minify
-        if:   github.ref == 'refs/heads/259-add-link-checker-to-ci'
+        if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
 #      - name: Deploy to GH pages if on Master
@@ -87,10 +83,8 @@ jobs:
 #          user_email: medic-ci@github
 #          publish_branch: master
 
-      # todo - revert back to '#cht-squad-docs' and is master
       - name: Report errors to slack if on Master
-#        if: ${{ failure() }} && github.ref == 'refs/heads/master'
-        if: ${{ failure() }} && github.ref == 'refs/heads/259-add-link-checker-to-ci'
+        if: github.ref == 'refs/heads/master' && ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
