@@ -41,30 +41,31 @@ jobs:
           hugo server&
           sleep 5
 
-#      - name: Run Muffet link checkier
-#        run: |
-#          muffet http://localhost:1313 \
-#          --buffer-size 50000 \
-#          --timeout 35 \
-#          --concurrency 2 \
-#          --ignore-fragments \
-#          --exclude ".*demo\.app\.medicmobile\.org.*" \
-#          --exclude ".*download\.docker\.com.*" \
-#          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
-#          --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
-#          --exclude "https://github\.com/medic/cht-core/issues/new.*" \
-#          --exclude "https://github\.com/medic/cht-docs/commit.*" \
-#          --exclude "https://github\.com/medic/cht-core/commit.*" \
-#          --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
-#          --exclude ".*localhost:5984.*"
+      - name: Run Muffet link checkier
+        run: |
+          muffet http://localhost:1313 \
+          --buffer-size 50000 \
+          --timeout 35 \
+          --concurrency 2 \
+          --ignore-fragments \
+          --exclude ".*demo\.app\.medicmobile\.org.*" \
+          --exclude ".*download\.docker\.com.*" \
+          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
+          --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
+          --exclude "https://github\.com/medic/cht-core/issues/new.*" \
+          --exclude "https://github\.com/medic/cht-docs/commit.*" \
+          --exclude "https://github\.com/medic/cht-core/commit.*" \
+          --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
+          --exclude ".*localhost:5984.*"
 
   PushLiveIfMaster:
     name: Push Live if Master
     needs: CheckLinks
     runs-on: ubuntu-18.04
-    if: github.ref == 'refs/heads/master'
+#    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/259-add-link-checker-to-ci'
     steps:
-      
+
       - name: Install Node
         uses: actions/setup-node@v1
         with:
