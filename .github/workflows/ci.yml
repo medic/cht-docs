@@ -10,36 +10,36 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
 
-      - name: Git checkout, including recursive call for Docsy theme
+      - name: All Branches - Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Install hugo extended v0.71.1
+      - name: All Branches - Install hugo extended v0.71.1
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.71.1"
           extended: true
 
       # Pinning to current version as of Aug 3, 2020 for stability
-      - name: Install Go v1.14
+      - name: All Branches - Install Go v1.14
         uses: actions/setup-go@v2
         with:
           go-version: '1.14'
 
       # Pinning to current version as of Aug 3, 2020 for stability
-      - name: Install Muffet v1.3.3
+      - name: All Branches - Install Muffet v1.3.3
         run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep so hugo server is ready
-      - name: Serve Hugo site
+      - name: All Branches - Serve Hugo site
         run: |
           hugo server&
           sleep 5
 
       # todo - put this in a bash script so users can easily run it locally?
-      - name: Run Muffet link checkier
+      - name: All Branches - Run Muffet link checkier
         run: |
           muffet http://localhost:1313 \
           --buffer-size 50000 \
@@ -56,24 +56,24 @@ jobs:
           --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
           --exclude ".*localhost:5984.*"
 
-      - name: Install Node
+      - name: Master Branch Only - Install Node
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
-      - name: npm install postcss-cli & autoprefixer for hugo prod build
+      - name: Master Branch Only - install postcss-cli & autoprefixer for hugo build
         if: ${{github.ref == 'refs/heads/master' }}
         run: |
           npm install
           npm install -g postcss-cli
           npm i -D autoprefixer
 
-      - name: Build for production with minify
+      - name: Master Branch Only - Build for prod with minify
         if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
-      - name: Deploy to GH pages if on Master
+      - name: Master Branch Only - Deploy to GH pages if on Master
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -84,9 +84,9 @@ jobs:
           user_email: medic-ci@github
           publish_branch: master
 
-      # todo - revert to #cht-squad-docs
-      - name: Report errors to slack if on Master
-        if: ${{ github.ref == 'refs/heads/master' && failure() }}
+      # todo - revert to #cht-squad-docs & master branch
+      - name: Master Branch Only - Report errors to slack if on Master
+        if: ${{ github.ref == 'refs/heads/259-add-link-checker-to-ci' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
