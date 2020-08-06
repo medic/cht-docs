@@ -4,7 +4,9 @@ linkTitle: "Remote Training"
 weight: 
 description: >
   App and care workflow training using remote capabilities.
-keywords: training onboarding 
+keywords: training onboarding
+relatedContent: >
+  apps/reference/app-settings/token_login/
 ---
 
 The CHT’s Remote Onboarding and Training functionality enables Supervisors and Administrators to train CHWs on care workflows and related app use without being physically present. It is designed for:
@@ -40,17 +42,21 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 ### Remote Login by App
 
-When creating users, the admin has the option to send a user their credentials via SMS using a [magic link](https://hackernoon.com/magic-links-d680d410f8f7). This generates a new, random and complex password with a 24-hour expiry. 
+When creating users, the admin has the option to send a user their credentials via SMS using a [magic link](https://hackernoon.com/magic-links-d680d410f8f7). This generates a new, random and complex password with a 24-hour expiry. If no gateway is set up, the message may be sent via another messaging app. 
 
-By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. If the app is not installed on their phone, the default SMS encourages users to download it. 
+![admin-magiclink](admin-magiclink.png)
+
+By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. If the app is not installed on their phone, it will open in their default browser.
+
+![login.png](login.png)
 
 To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
+
+![invalid.png](invalid.png)
 
 {{% alert title="Note" %}}
 The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
 {{% /alert %}}
-
-![login.png](login.png)
  
 ### Remote Training Overview
 
@@ -69,5 +75,6 @@ These SMS and App based workflow examples illustrate how the CHT enables remote 
 
 {{< youtube pFEFIY_SA7M >}}
 
+<br>
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/13bFoyU2vhwPiOUiVWzUJ2urtAyR6_XKTxp0XASCLVko).
