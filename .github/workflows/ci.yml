@@ -16,7 +16,7 @@ jobs:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Install hugo extended version
+      - name: Install hugo extended v0.71.1
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.71.1"
@@ -73,20 +73,18 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
-      # todo - uncomment
-#      - name: Deploy to GH pages if on Master
-#        if: ${{ github.ref == 'refs/heads/master' }}
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          personal_token: ${{ secrets.DEPOLY_TO_SITE}}
-#          external_repository: medic/medic.github.io
-#          publish_dir: ./public
-#          user_name: medic-ci
-#          user_email: medic-ci@github
-#          publish_branch: master
+      - name: Deploy to GH pages if on Master
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.DEPOLY_TO_SITE}}
+          external_repository: medic/medic.github.io
+          publish_dir: ./public
+          user_name: medic-ci
+          user_email: medic-ci@github
+          publish_branch: master
 
       # todo - revert to #cht-squad-docs
-      # todo - figure why this is firing when there's no failures?!?!
       - name: Report errors to slack if on Master
         if: ${{ github.ref == 'refs/heads/master' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
