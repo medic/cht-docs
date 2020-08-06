@@ -49,7 +49,7 @@ jobs:
           --ignore-fragments \
           --exclude ".*demo\.app\.medicmobile\.org.*" \
           --exclude ".*download\.docker\.com.*" \
-          --exclude ".*www\.npmjs\.com/org/medic/team/developers"
+          --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
           --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
           --exclude "https://github\.com/medic/cht-core/issues/new.*" \
           --exclude "https://github\.com/medic/cht-docs/commit.*" \
