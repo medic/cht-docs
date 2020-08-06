@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-18.04
     if: github.ref == 'refs/heads/master'
     steps:
-      -
+      
       - name: Install Node
         uses: actions/setup-node@v1
         with:
