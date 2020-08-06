@@ -16,6 +16,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
 
+      - name: delete me
+        run: pwd
+
+      - name: delete me 2
+        run: ls
+
+      - name: delete me 3 - fails
+        run: ls-this-isnt-a-command
+
+
       - name: All Branches - Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
         with:
