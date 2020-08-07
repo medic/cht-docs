@@ -52,8 +52,6 @@ By clicking the magic link to log in, the user is able to enter their project's 
 
 To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
 
-![invalid.png](invalid.png)
-
 {{% alert title="Note" %}}
 The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
 {{% /alert %}}
