@@ -76,7 +76,7 @@ jobs:
           user_email: medic-ci@github
           publish_branch: master
 
-      - name: Master Branch Only - Report errors to slack if on Master
+      - name: Master Branch Only - Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/master' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
