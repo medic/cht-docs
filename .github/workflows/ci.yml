@@ -65,7 +65,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
-      - name: Master Branch Only - Deploy to GH pages if
+      - name: Master Branch Only - Deploy to GH pages
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
