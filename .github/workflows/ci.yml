@@ -1,5 +1,5 @@
 # Notes:
-#  - All software to do CI is  pinned so they don't get upgraded and break w/o us knowing why.
+#  - All software installed below is pinned so they don't get upgraded and break w/o us knowing why.
 #  - If you bump one version up to latest, please bump them all so we stay current!
 #  - Hugo builds the site twice: once for link checking and once minified for pushing live
 #  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
@@ -44,7 +44,6 @@ jobs:
           hugo server&
           sleep 5
 
-      # todo - get this command working - bad path currently 
       - name: All Branches - Run Muffet link checkier
         shell: bash
         run: ./.github/scripts/muffet.sh
@@ -77,14 +76,12 @@ jobs:
           user_email: medic-ci@github
           publish_branch: master
 
-      # todo - revert to #cht-squad-docs & master branch
       - name: Master Branch Only - Report errors to slack if on Master
-        if: ${{ github.ref == 'refs/heads/259-add-link-checker-to-ci' && failure() }}
+        if: ${{ github.ref == 'refs/heads/master' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-#          SLACK_CHANNEL: '#cht-squad-docs'
-          SLACK_CHANNEL: '#mrjones-testing-channel'
+          SLACK_CHANNEL: '#cht-squad-docs'
           SLACK_COLOR: '#3278BD'
           SLACK_ICON: ":flappingphone:"
           SLACK_MESSAGE: 'Deploy Failed'

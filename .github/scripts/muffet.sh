@@ -1,4 +1,18 @@
 #!/bin/bash
+
+# This script is used in Github Actions to do link checking on commits to branches and master, so
+# please edit with care!  See ../workflows/ci.yml for specific usage.
+#
+# If you're doing local development and want to run link checkers locally, please use this script!
+# You'll need:
+# - install muffet - https://github.com/raviqqe/muffet
+# - make sure muffet is in your PATH
+# - run from root of this repo: ./.github/scripts/muffet.sh
+#
+# If we have errors from this script being too aggressive (see how large downloads on
+# download.docker.com are excluded below) you can add additional sites as needed. Please
+# use extremely granular URLs so as not to exclude more than we need to.
+
 muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 35 \
