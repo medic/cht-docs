@@ -23,6 +23,19 @@ To install, follow the [installation instructions for your Operating System](htt
 
 3. Preview your site in your browser at: http://localhost:1313/
 
+## Optional Link Checking
+
+We validate that all links on the docs site do not 404 by using a tool called [Muffet](https://github.com/raviqqe/muffet) along with  [Actions](https://github.com/features/actions).  If you're creating a lot of new links, or editing a lot of existing links, you may optionally run Muffet locally before pushing your commits.  This will save a lot of time of pushing a build, waiting for the Action to run, finding you have a broken link, fixing it, pushing a new change etc.
+
+  - Install [Go](https://golang.org/doc/install) as a prerequisite 
+  - Install Muffet: `go get -u github.com/raviqqe/muffet`
+  - Ensure you've run `hugo server` so your local docs instance is reachable at http://localhost:1313/
+  - Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/master/.github/scripts/muffet.sh) script.  If you're in the root of this repo, that'd be: `./.github/scripts/muffet.sh` 
+  
+It should take about 60 seconds and then if Muffet returns no output, you have no broken links, congrats! 
+
+_Note_: The `muffet.sh` script here is the identical script we run on GitHub. If you simply run `muffet http://localhost:1313` you will hit GitHub's rate limiting and get lots of [429's](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429). Our script intentionally reduces concurrency and excludes some repetitive GitHub URLs.
+
 ## Continuous Deployment
 
 All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to deploy the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
