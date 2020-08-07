@@ -5,6 +5,7 @@
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
 # You'll need:
+# - install go - https://golang.org/doc/install
 # - install muffet - https://github.com/raviqqe/muffet
 # - make sure muffet is in your PATH
 # - run from root of this repo: ./.github/scripts/muffet.sh
