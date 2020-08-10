@@ -39,4 +39,4 @@ _Note_: The `muffet.sh` script here is the identical script we run on GitHub. If
 
 ## Continuous Deployment
 
-All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to first check for any broken links (per above) and then deploy to the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
+All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to first check for any broken links ([per above](#link-checking-optional)) and then deploy to the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
