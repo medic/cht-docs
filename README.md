@@ -24,7 +24,7 @@ To install, follow the [installation instructions for your Operating System](htt
 1. Preview your site in your browser at: http://localhost:1313/
 1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes. 
 
-## Optional Link Checking
+## Link Checking [Optional]
 
 We validate that all links on the docs site work (do not 404) using a tool called [Muffet](https://github.com/raviqqe/muffet) along with  [Actions](https://github.com/features/actions).  If you're creating a lot of new links, or editing a lot of existing links, you may optionally run Muffet locally before pushing your commits.  This will save a lot of time of pushing a build, waiting for the Action to run, finding you have a broken link, fixing it, pushing a new change etc.
 
