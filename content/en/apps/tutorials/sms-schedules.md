@@ -6,20 +6,23 @@ description: >
   Building CHT application SMS forms
 relatedContent: >
   apps/reference/app-settings/schedules
+  apps/concepts/forms
+  apps/features/messaging
+  apps/guides/messaging
 
 ---
 
-SMS schedules allow you to send reminder messages at predetermined times. SMS schedules can be triggered by [SMS forms]({{< ref "apps/tutorials/sms-forms" >}}) or App forms.
+SMS schedules allow you to send reminder messages at predetermined times. These reminders serve as useful prompts for end-users to take specific actions. For example, a community health worker receiving an SMS reminding them to follow up on a pregnant woman who is due for her monthly clinic visit.
 
 ## Purpose of the Tutorial
 
-This tutorial takes you through how to set up SMS schedules for CHT applications. It uses a pregnancy registration workflow and follow-up reminders for a Community Health Worker as an example. The same methodology can be applied to other workflows and reminders as needed. 
-
-You will be setting up pregnancy follow up reminders for a pregnancy registration workflow that allows Community Health Workers to register new pregnancies for the household members and get reminders to follow up on the pregnancy.
+This tutorial takes you through how to set up SMS schedules for CHT applications. It uses a pregnancy registration workflow and follow-up reminders for a Community Health Worker as an example. The same methodology can be applied to other workflows and reminders as needed.
 
 ## Brief Overview of Key Concepts
 
 *[SMS schedules]({{< ref "apps/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times.
+
+SMS schedules can be triggered by *[SMS forms]({{< ref "apps/tutorials/sms-forms" >}})* or *App forms*.
 
 ## Required Resources
 
@@ -100,7 +103,7 @@ schedules: [
 
 {{< see-also page="apps/reference/app-settings/schedules" title="Schedule properties" >}}
 
-### 2. Assign the schedule
+### 2. Assign the Schedule
 
 In the `registrations` array where you have defined the pregnancy registration events, add an event to assign the `Pregnancy Follow Up Reminders` schedule. This will assign a new schedule for every pregnancy that is registered.
 
