@@ -13,7 +13,7 @@ SMS schedules allow you to send reminder messages at predetermined times. SMS sc
 
 ## Purpose of the Tutorial
 
-This tutorial will take you through how to set up SMS schedules for CHT applications.
+This tutorial takes you through how to set up SMS schedules for CHT applications. It uses a pregnancy registration workflow and follow-up reminders for a Community Health Worker as an example. The same methodology can be applied to other workflows and reminders as needed. 
 
 You will be setting up pregnancy follow up reminders for a pregnancy registration workflow that allows Community Health Workers to register new pregnancies for the household members and get reminders to follow up on the pregnancy.
 
