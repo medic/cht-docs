@@ -17,7 +17,7 @@ relatedContent: >
 
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
-“Places” is the generic name that represents a level in the [hierarchy]({{< ref "apps/concepts/hierarchy" >}}). “People” belong to “places” and “places” belong to other higher level “places” in the hierarchy. Depending on the context, a “place” might be a health facility and the “people” who get created at that level might be nurses. Most often for CHWs, these “places” are families. 
+“Places” is the generic name that represents a level in the [hierarchy]({{< ref "apps/concepts/hierarchy" >}}). “People” belong to “places”, and “places” belong to other higher level “places” in the hierarchy. A “place” could be a geographic area, like a district with the "people" associated to it being health officers. A "place" could also be a structure in the health system, such as a health facility, and the "people" associated to it being nurses. In deployments with CHWs, the lowest "place" in the hierarchy often represents individual households or families, and the individual members of that household are the "people" associated to it. 
 
 Users can access their “people” and “places” from the People tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific off-line user role to manage what [level of contact data]({{< ref "apps/guides/performance/replication#contact-depth" >}}) is copied to their device.
 
@@ -110,4 +110,3 @@ Health workers can use these Care Guides at any time. If the app has scheduled a
 <!-- TODO:
 ## Defining Contact Forms
 -->
-
