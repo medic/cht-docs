@@ -16,7 +16,7 @@ This "reference application" for maternal and newborn health provides a template
 
 ## Problem Being Addressed
 
-The Sustainable Development Goals (SDGs) explicitly call out the need for progress in maternal and newborn health across the world. Access to quality maternal and newborn care is the cornerstone of many community health programs. For many women living in communities at the last mile, pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health). There is a need for community health programs to support early pregnancy registration, consistent antenatal care (ANC) visits, and in-facility deliveries. In addition, the short time window following delivery for postnatal care (PNC) is a critical time for catching life-threatening danger signs for the new mother and baby. An integrated digital maternal and newborn health workflow enables screening and care provision for those newborns who are not delivered at a facility to ensure that they [survive and thrive](https://www.who.int/health-topics/newborn-health)
+Access to quality maternal and newborn care is the cornerstone of many community health programs. For many women living in communities at the last mile, pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health). There is a need for community health programs to support early pregnancy registration, consistent antenatal care (ANC) visits, and in-facility deliveries. In addition, the short time window following delivery for postnatal care (PNC) is a critical time for catching life-threatening danger signs for the new mother and baby. 
 
 ## Solution Overview
 
