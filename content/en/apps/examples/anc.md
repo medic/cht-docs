@@ -22,7 +22,7 @@ The Sustainable Development Goals (SDGs) explicitly call out the need for progre
 
 The maternal and newborn health workflow ensures that women receive the care that they need during their pregnancy with the support of CHWs. Early pregnancy registration, timely antenatal care visits, and improved care coordination between CHWs and clinics increase the likelihood that women will deliver in a facility with the support of skilled birth attendants. This ultimately will help save the lives of mothers and babies, as well as strengthen the maternal and newborn health services of the health system. Community Health Toolkit applications with maternal and newborn workflows are used by health workers and clinical staff to:
 
-- Pregnancy registration
+- Register pregnancies
 - Provide a schedule for on-time ANC visits
 - Education for the mother at each stage of pregnancy
 - Screen for and report danger signs in the pregnant woman and newborn
