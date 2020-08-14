@@ -24,7 +24,7 @@ The maternal and newborn health workflow ensures that women receive the care tha
 
 - Register pregnancies
 - Provide a schedule for on-time ANC visits
-- Education for the mother at each stage of pregnancy
+- Offer education for the mother at each stage of pregnancy
 - Screen for and report danger signs in the pregnant woman and newborn
 - Refer and encourage pregnant women to deliver at a facility 
 - Ensure on-time PNC visits for mother and newborn
