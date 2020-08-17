@@ -12,7 +12,7 @@ relatedContent: >
 
 ---
 
-SMS schedules allow you to send reminder messages at predetermined times. These reminders serve as useful prompts for end-users to take specific actions. For example, a community health worker receiving an SMS reminding them to follow up on a pregnant woman who is due for her monthly clinic visit.
+SMS schedules allow you to send reminder messages at predetermined times. These reminders serve as useful prompts for end-users to take specific actions.
 
 ## Purpose of the Tutorial
 
