@@ -22,7 +22,7 @@ This tutorial takes you through how to set up SMS schedules for CHT applications
 
 *[SMS schedules]({{< ref "apps/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times.
 
-SMS schedules can be triggered by *[SMS forms]({{< ref "apps/tutorials/sms-forms" >}})* or *App forms*.
+SMS schedules can be triggered by *[SMS forms]({{< ref "apps/tutorials/sms-forms" >}})* or *[App forms]({{< ref "apps/reference/forms/app" >}})*.
 
 ## Required Resources
 
