@@ -11,22 +11,23 @@ relatedContent: >
 ---
 
 {{% pageinfo %}}
-This "reference application" for maternal and newborn health provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration and test code. It can be used as is, or serve as a great way to learn about the CHT's foundation for forms, data fields, and analytics that can be easily customized to fit your context.
+This "reference application" for maternal and newborn health provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration, and test code. It can be used as is, or serve as a great way to learn about the CHT's foundation for forms, data fields, and analytics that can be easily customized to fit your context.
 {{% /pageinfo %}}
 
 ## Problem Being Addressed
 
-Maternal health is the cornerstone of many community health programs. Pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health) for women living in communities far from medical care. Additionally, the short window immediately after pregnancy is a critical time for catching life-threatening danger signs for the new mother and baby. Newborns that are not delivered at a facility are much [less likely to survive and thrive](https://www.who.int/health-topics/newborn-health).
+Access to quality maternal and newborn care is the cornerstone of many community health programs. For many women living in communities at the last mile, pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health). There is a need for community health programs to support early pregnancy registration, consistent antenatal care (ANC) visits, and in-facility deliveries. In addition, the short time window following delivery for postnatal care (PNC) is a critical time for catching life-threatening danger signs for the new mother and baby. 
 
 ## Solution Overview
 
-The maternal and newborn health workflows help ensure that women are safe and supported in a timely manner throughout their pregnancy. Early and timely maternal health visits and improved coordination between CHWs and clinics lead to an increase in facility-based deliveries, which in turn has a strong correlation to maternal and newborn survival. Community Health Toolkit applications with maternal and newborn workflows are used by health workers and clinical staff to:
+The maternal and newborn health workflow ensures that women receive the care that they need during their pregnancy with the support of CHWs. Early pregnancy registration, timely antenatal care visits, and improved care coordination between CHWs and clinics increase the likelihood that women will deliver in a facility with the support of skilled birth attendants. This ultimately will help save the lives of mothers and babies, as well as strengthen the maternal and newborn health services of the health system. Community Health Toolkit applications with maternal and newborn workflows are used by health workers and clinical staff to:
 
-- Provide on-time antenatal care visits
-- Educate at each stage of pregnancy
-- Screen and report mother and newborn danger signs
-- Refer and encourage facility delivery
-- Improve delivery rates in facilities with skilled care
+- Register pregnancies
+- Provide a schedule for on-time ANC visits
+- Offer education for the mother at each stage of pregnancy
+- Screen for and report danger signs in the pregnant woman and newborn
+- Refer and encourage pregnant women to deliver at a facility 
+- Ensure on-time PNC visits for mother and newborn
 
 ## Forms Hierarchy
 
@@ -38,7 +39,7 @@ Once a [hierarchy]({{< relref "apps/concepts/hierarchy" >}}) of people and place
 
 ## Workflows
 
-Pregnancy and delivery care workflows are defined to connect form actions and data with people. Detailed documentation for these forms and task schedules are linked from the workflow diagrams below. Accompanying this documentation are tips and insights into the design decisions made along the way, and suggestions for how and where to customize the forms.
+Both maternal and newborn care workflows are defined to connect form actions and data with people. Detailed documentation for these forms and task schedules are linked from the workflow diagrams below. Accompanying this documentation are tips and insights into the design decisions made along the way, and suggestions for how and where to customize the forms.
 
 ### Pregnancy Workflow
 
@@ -100,3 +101,4 @@ Here are a few additional resources to help get you started with the maternal an
 - View the [configuration code for this reference app](https://github.com/medic/cht-core/tree/master/config/default/)
 - Install the reference app following these [easy installation instructions]({{< ref "apps/tutorials/local-setup" >}})
 - Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/apps" >}}) 
+- Understand the basis for measuring the impact of maternal and newborn workflows by reviewing the World Health Organization's [Core Health Indicators](https://www.who.int/healthinfo/indicators/2018/en/)
