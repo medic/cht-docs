@@ -1,5 +1,5 @@
 ---
-title: Africa's Talking SMS Aggregator
+title: Africa’s Talking SMS Aggregator
 linkTitle: "Africa's Talking"
 weight: 
 description: >
