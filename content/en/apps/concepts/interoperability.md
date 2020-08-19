@@ -6,7 +6,7 @@ description: >
   Exchanging information between CHT Core and other systems
 keywords: interoperability integrations
 relatedContent: >
-  apps/guides/integrations
+  apps/features/integrations
 ---
 
 *Interoperability* and *Integration* are often used interchangeably but mean different things. [This article](https://www.linkedin.com/pulse/lets-talk-interoperability-vs-integration-mike-fleck) offers a useful delineation between the two.
