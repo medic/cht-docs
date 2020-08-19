@@ -38,7 +38,7 @@ In 3.10, we add the ability to limit replication depth for reports, in conjuncti
 }
 ```
 
-{{% see-also page="apps/reference/app-settings/replication_depth" title="Replication Depth" %}}
+{{< see-also page="apps/reference/app-settings/replication_depth" title="Replication Depth" >}}
 
 ##### Contact Depth
 
