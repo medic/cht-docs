@@ -3,8 +3,8 @@ title: "RapidPro"
 linkTitle: "RapidPro"
 weight: 
 description: >
-  Design considerations and how to configure
-keywords: dhis2 
+  Key concepts, design considerations, how to configure, and best practices
+keywords: rapidpro 
 relatedContent: >
   apps/features/integrations/rapidpro
 ---
@@ -19,14 +19,14 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 
 
 ### Flows
-{{< figure src="flow-concept.png" link="flow-concept.png" class="right col-5" >}}
+{{< figure src="flow-concept.png" link="flow-concept.png" class="right col-7 col-lg-5" >}}
 
 [Flows](https://help.nyaruka.com/en/articles/3120713-introduction-to-flows) are a series of steps you link together visually to define the interactions users will have. At any point in the flow, you can trigger actions such as sending an SMS, email, or calling external APIs. Flows are the base for RapidPro's other features.
 
 *Use Case Example:* Send an SMS to a patient asking if they are experiencing any new symptoms today. If so, let the patient know that a CHW will contact them. If not, let the patient know that they will receive another check-in message in three days and to contact their CHW if any new symptoms develop before then.
 
 
-*See Also:* [Mastering Flows](https://app.rapidpro.io/video/) and [How to Build a RapidPro Flow](https://youtu.be/WcFhpSFhFug).
+*Additional Resources:* [Mastering Flows](https://app.rapidpro.io/video/) and [How to Build a RapidPro Flow](https://youtu.be/WcFhpSFhFug).
 
 ### Campaigns
 
@@ -36,7 +36,7 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 
 *Use Case Example:* Send a daily check-in message to quarantined patients for 14 days to see if they have developed any symptoms.
 
-*See Also:* [Creating a Campaign](https://youtu.be/3tJPOoHxJXE)
+*Additional Resources:* [Creating a Campaign](https://youtu.be/3tJPOoHxJXE)
 
 ### Triggers
 
@@ -46,7 +46,7 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 
 *Use Case Example:* Start a health assessment Flow whenever a person sends the text `assessment` to a specific short code.
 
-*See Also:* [Creating a Keyword Trigger that starts a Flow](https://help.nyaruka.com/en/articles/1911101-creating-a-keyword-trigger-that-starts-a-flow)
+*Additional Resources:* [Creating a Keyword Trigger that starts a Flow](https://help.nyaruka.com/en/articles/1911101-creating-a-keyword-trigger-that-starts-a-flow)
 
 ## Workflow Design
 
@@ -77,11 +77,11 @@ A *sequence diagram* will help you identify the various actors in a given workfl
 
 The information below focuses on specific interactions between RapidPro and the CHT, it does not cover RapidPro specific configuration, consult RapidPro documentation and resources for that. Also, the examples and code snippets below are using TextIt, the hosted RapidPro service mentioned above.
 
-### Create RapidPro user in the CHT
+### Create RapidPro user in CHT
 
 For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "apps/concepts/users" >}}) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management]({{< ref "apps/features/admin/" >}}) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role]({{< ref "apps/concepts/users#roles" >}}).
 
-### Using Globals
+### Globals
 
 [Globals](https://blog.textit.in/global-variables) are shared values that can be referenced in flows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. They allow you to create a value once and use it repeatedly without having to reenter the value. Likewise, globals make updating a shared value much easier. Rather than manually changing a value everywhere it's used in your account, simply update the value found in your `Globals` page.
 
@@ -92,11 +92,11 @@ Once you have configured a Global value, you can easily use it in your flows lik
 ![Globals-Usage](globals-usage.png)
 
 
-### Triggering RapidPro flows
+### Start RapidPro Flow from CHT
 
-One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature in the CHT and invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/flow_starts) in RapidPro. 
+One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/flow_starts) in RapidPro. 
 
-Below is an example `outbound` config called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where the `symptom = no`. It will also pass a value for `self_quarantine_enrollment`.
+Below is an example `outbound` config in the CHT called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where `symptom = no`. It will also pass an extra date value for `self_quarantine_enrollment`.
 
 ```JSON
 {
@@ -113,7 +113,7 @@ Below is an example `outbound` config called `textit-self-quarantine` that will 
     },
     "mapping": {
       "flow": {
-        "expr": "<UUID of Flow in RP>'"
+        "expr": "<UUID of Flow in RapidPro>'"
       },
       "urns": {
         "expr": "[ 'tel:' + doc.fields.inputs.contact.phone ]",
@@ -130,11 +130,38 @@ Below is an example `outbound` config called `textit-self-quarantine` that will 
 ```
 
 
-### Posting data to the CHT
+### Save flow data to the CHT
 
-Once a user has completed a Flow in RapidPro, it is likely you will want to record some of the information collected in the CHT. This can be achieved by utilizing the [Call Webhook](https://help.nyaruka.com/en/articles/1911235-calling-a-webhook-new-editor) action in RapidPro.
+Once a user has completed a Flow in RapidPro, it is likely you will want to record some of the information collected in the RapidPro flow back in the CHT. This can be achieved by utilizing the [Call Webhook](https://help.nyaruka.com/en/articles/1911235-calling-a-webhook-new-editor) action in RapidPro.
 
-In the CHT, you'll first need to configure a [JSON Form]({{< ref "apps/reference/app-settings/forms" >}}) that includes all the required fields and fields from RapidPro that you want to send to the CHT.
+|Step |Application  |Config step |
+|-----|--|--|
+|1|CHT| Configure a [JSON Form]({{< ref "apps/reference/app-settings/forms" >}}) that includes the fields from RapidPro you want to send to the CHT.|
+|2|RapidPro|Add a *Call a Webhook* node.|
+|3|RapidPro|`POST` to the [records endpoint]({{< ref "apps/reference/api#post-apiv2records" >}}) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
+|4|RapidPro|Set a `Result Name`| 
+|5|RapidPro|Configure HTTP Headers to be `Content-Type` -> `application/json`|
+|6|RapidPro|Configure the `POST Body` (see example below)|
 
-From RapidPro, the Call Webhook action needs to POST to the [records endpoint]({{< ref "apps/reference/api#post-apiv2records" >}}) in the CHT.
+{{< figure src="post-to-cht.png" link="post-to-cht.png" >}}
 
+
+### Look up CHT data from RapidPro
+
+Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone]({{< ref "apps/reference/api#contacts-by-phone" >}}) API to get fully hydrated contacts associated to that phone number.
+
+
+
+## Best Practices
+
+### Messages
+
+1. If language options are included allow users to select their preference before beginning the flow
+2. Make sure the language and terminology of your messages are appropriate for the audience
+2. Use a personalized welcome message before asking users to take actions
+3. Keep content brief and relevant to the topic as to not overload the user 
+4. Make your response requests and calls-to-action clear
+4. Be cognizant of form collisions during assessments (ex. “0=no, 1=yes” if those numbers may also reference workflow codes, or “N=no” if “N” is the code to create a new person)
+5. Use standards in logic where possible (ex. The non-zero value is true; 0=false, 1=true, 0=no, 1=yes)
+6. Sign the first message with the partner’s name, or MOH for visibility
+7. Consider providing an option to revisit information again (ex. Text 123 to this number to receive these messages again)
