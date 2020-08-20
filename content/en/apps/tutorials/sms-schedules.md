@@ -1,9 +1,9 @@
 ---
-title: "Building SMS Forms"
+title: "Building SMS Schedules"
 linkTitle: SMS Schedules
 weight: 6
 description: >
-  Building CHT application SMS forms
+  Building CHT application SMS schedules
 relatedContent: >
   apps/reference/app-settings/schedules
   apps/concepts/forms
