@@ -94,7 +94,7 @@ Once you have configured a Global value, you can easily use it in your flows lik
 
 ### Start RapidPro Flow from CHT
 
-One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/flow_starts) in RapidPro. 
+One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro. 
 
 Below is an example `outbound` config in the CHT called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where `symptom = no`. It will also pass an extra date value for `self_quarantine_enrollment`.
 
