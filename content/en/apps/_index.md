@@ -15,7 +15,7 @@ Community Health Toolkit (CHT) Applications are digital health tools built using
 
 To create a digital health tool using the Community Health Toolkit, you'll need to build a CHT Application or re-use an existing CHT Application.
 
-CHT Applications have been built to support a range of health interventions including antenatal care, postnatal care, family planning, integrated community case management of childhood illness, malnutrition, immunization, and epidemic response. CHT Applications have been built to support users at all levels of the community health system including patients, CHWs, CHW supervisors, nurses, health facility staff, programme staff, researchers, and policy makers. Beyond the community, data from CHT Applications can integrate with the broader health system through integrations with software such as OpenMRS, DHIS2, and RapidPro.
+CHT Applications have been built to support a range of health interventions including antenatal care, postnatal care, family planning, integrated community case management of childhood illness, malnutrition, immunization, and epidemic response. CHT Applications have been built to support users at all levels of the community health system including patients, CHWs, CHW supervisors, nurses, health facility staff, program staff, researchers, and policy makers. Beyond the community-level, data from CHT Applications can integrate with the broader health system through integrations with software such as OpenMRS, DHIS2, and RapidPro.
 
 ## What skills are required
 
@@ -38,4 +38,3 @@ Technically speaking, CHT Applications consist of JSON files, XLSForms, JavaScri
 * Familiarity with Docker
 * Service monitoring
 * Use of command line tools
-
