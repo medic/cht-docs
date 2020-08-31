@@ -23,12 +23,12 @@ Building a CHT Application or altering an existing app is a technical undertakin
 
 ### To Build an App
 
-Technically speaking, CHT Applications consist of JSON files, XLSForms, JavaScript code, media (images/videos), and translations. Collectively, this is referred to as "configuration code". The following technical skills are necessary to work with configuration code.
+Technically speaking, CHT Applications consist of JSON files, XLSForms, JavaScript code, media (images/videos), and translations. Collectively, this is referred to as "configuration code". The following technical skills are necessary to work with all the aspects of configuration code.
 
-* XLSForms
-* JavaScript code and JavaScript expressions
-* JSON for specify configuration
-* Use of command line tools
+* Use of command line tools to compile and deploy configuration code
+* [XLSForms](http://xlsform.org) for building forms (to create contacts, add contact actions, complete tasks)
+* JSON for modifying settings
+* JavaScript for modifying tasks and targets
 
 ### To Deploy an App
 
