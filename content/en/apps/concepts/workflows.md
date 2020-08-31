@@ -6,7 +6,6 @@ description: >
   Building connections between people, actions, and data systems
 keywords: workflows
 relatedContent: >
-  apps/concepts/workflows
   contribute/code/workflow
 ---
 
