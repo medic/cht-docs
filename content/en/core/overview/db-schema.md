@@ -95,7 +95,7 @@ Generally when contacts are **used** in the app they are first "hydrated", with 
 }
 ```
 
-{{% see-also page="apps/guides/data/hydration" title="Document hydration" %}}
+{{< see-also page="apps/guides/data/hydration" title="Document hydration" >}}
 
 As of version **3.10**, you can connect contacts with other documents via the `linked_docs` property. This allows the app to have access to these linked documents when the contact is used.
 
