@@ -9,9 +9,9 @@ relatedContent: >
   apps/guides/forms/report-titles
 ---
 
-The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferably for CHW users). 
+The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferable for CHW users). 
 
-The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the hierarchy. Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs.
+The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the [hierarchy]({{< ref "apps/concepts/hierarchy" >}}). Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs. Advanced configuration options are available for a specific off-line user role to manage what [level of report data]({{< ref "apps/guides/performance/replication#report-depth" >}}) is copied to their device. 
 
 ## Main List
 
