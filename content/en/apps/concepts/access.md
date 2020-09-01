@@ -63,5 +63,4 @@ To recover a password, the user needs to contact the admin so that they may rege
 The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
 {{% /alert %}}
 
-{{< see-also page="apps/examples/training/" >}}
 
