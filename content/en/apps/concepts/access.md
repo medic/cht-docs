@@ -49,7 +49,7 @@ Users may log out by going to the options menu available in the top right corner
 
 ## Remote Login
 
-When creating users, the admin has the option to send a user their credentials via SMS using a [magic link](https://hackernoon.com/magic-links-d680d410f8f7). This generates a new, random and complex password with a 24-hour expiry. If no gateway is set up, the message may be sent via another messaging app. 
+When creating users, the admin has the option to send a user their credentials via SMS using a link. Clicking the link generates a new, random and complex password with a 24-hour expiry. If no gateway is set up, the message may be sent via another messaging app. 
 
 ![admin-magic-link](admin-magic-link.png)
 
