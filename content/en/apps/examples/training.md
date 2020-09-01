@@ -42,11 +42,7 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 ### Remote Login by App
 
-When creating users, the admin has the option to send a user their credentials via SMS using a link. Clicking the link generates a new, random and complex password with a 24-hour expiry.
-
-By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. 
-
-![magic-link](magic-link.png)
+Users may log into their app with a link sent to them via SMS. The link allows the user to directly enter their app, bypassing the need to enter their username and password.
 
 {{< see-also page="apps/concepts/access/#remote-login" >}}
 
