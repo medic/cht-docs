@@ -701,8 +701,6 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 This feature uses [`app_settings.app_url`]({{< relref "apps/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "apps/reference/app-settings/token_login.md" >}}) to be defined and enabled.
 If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct. 
 
-{{< see-also page="apps/concepts/access/#remote-login" >}}
-
 
 ### GET /api/v1/users
 

@@ -43,9 +43,6 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 ### Remote Login by App
 
 Users may log into their app with a link sent to them via SMS. The link allows the user to directly enter their app, bypassing the need to enter their username and password.
-
-{{< see-also page="apps/concepts/access/#remote-login" >}}
-
  
 ### Remote Training Overview
 
