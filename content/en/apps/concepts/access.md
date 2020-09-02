@@ -4,6 +4,7 @@ linkTitle: "Access"
 weight: 1
 description: >
   Starting up your digital health apps
+  
 ---
 
 Apps built with the Core Framework runs on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
@@ -62,5 +63,8 @@ To recover a password, the user needs to contact the admin so that they may rege
 {{% alert title="Note" %}}
 The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
 {{% /alert %}}
+
+{{< see-also page="apps/examples/training" >}}
+
 
 
