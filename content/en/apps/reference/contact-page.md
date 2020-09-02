@@ -39,7 +39,7 @@ Each field that can be shown on a contact's profile is defined as an object in t
 | `translate` | `boolean` | Whether or not to translate the `value`. Defaults to false. | no |
 | `context` | `object` | When `translate: true` and `value` uses [translation variables](https://angular-translate.github.io/docs/#/guide/06_variable-replacement), this value should provide the translation variables. | no |
 | `appliesIf` | `function()` or `boolean` | Return true if the field should be shown. | no |
-| `appliesToType` | `string[]` | Filters the contacts for which `appliesIf` will be evaluated. For example, `['person']` or `['clinic', 'health_center']`. | no |
+| `appliesToType` | `string[]` | Filters the contacts for which `appliesIf` will be evaluated. For example, `['person']` or `['clinic', 'health_center']`. It defaults to all types if it is not defined. | no |
 
 <!-- TODO: See [How to configure profile pages]() for an example.  -->
 
