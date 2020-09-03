@@ -19,7 +19,7 @@ App forms allow users to submit reports from Android devices
 
 This tutorial will take you through how to build App forms for CHT applications, including:
 
-- Authoring forms in Excel or Google sheets
+- Authoring forms in Excel, Google sheets or other spreadsheet applications.
 - Converting XLSForms to XForms
 - Uploading XForms to CHT
 
@@ -103,7 +103,7 @@ Add the following column names and rows to the settings sheet:
 
 ### 4. Convert the XLSForm and Upload the XForm
 
-Add the file to the `forms\app` subfolder in your project.
+Add the file to the `forms/app` subfolder in your project.
 
 ```text
 project-name
@@ -115,11 +115,11 @@ project-name
 To convert and upload the form to your local instance, run the following command from the root folder:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment.xlsx
+medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
 
 ## Next steps
 
-In the next tutorial, you will define the form `.properties.json` which will allow you to define the form’s title and icon, as well as when and where the form should be available.
+In the next tutorial, you will define the form `<form_id>.properties.json` which will allow you to define the form’s title and icon, as well as when and where the form should be available.
