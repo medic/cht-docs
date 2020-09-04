@@ -28,8 +28,15 @@ jobs:
           hugo-version: "0.71.1"
           extended: true
 
+      - name: All Branches - Install npm modules for Hugo
+        if: ${{github.ref == 'refs/heads/master' }}
+        run: |
+          npm install
+          npm install -g postcss-cli
+          npm i -D autoprefixer
+
       # Run "build" to catch errors as early as possible in CI
-      - name: All Branches - Build Hugo
+      - name: All Branches - Test For Broken Builds in Hugo
         run: hugo
 
       # Pinning to current version as of Aug 3, 2020 for stability
@@ -57,13 +64,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-
-      - name: Master Branch Only - Install npm modules for hugo build
-        if: ${{github.ref == 'refs/heads/master' }}
-        run: |
-          npm install
-          npm install -g postcss-cli
-          npm i -D autoprefixer
 
       - name: Master Branch Only - Build for prod with minify
         if: github.ref == 'refs/heads/master'
