@@ -8,7 +8,7 @@ relatedContent: >
   design/personas
   apps/tutorials/contact-and-users-1
   apps/tutorials/contact-and-users-2
-  core/guides/users-bulk-load
+  core/guides/users-bulk-loadddd
 ---
 
 Apps built with the Core Framework use roles and permissions to determine who has access to what data. User roles are general categories you can use to assign a collection of broad permissions to users. There are two classes of roles: online and offline. Generally speaking, CHWs are usually offline users, while managers and nurses are usually online users. SMS users do not use the app, and thus do not have a user role.
@@ -24,7 +24,9 @@ Differing levels of access and permissions are assigned to each persona. A user 
 | CHWs            | Logs in at CHW Area level                      | Phone     | Users at this level have online and offline access to view households and family members, submit reports about them, and view tasks and targets about them.                                                                                                         |
 | Family members  | Registered at Household level, does not log in | Messaging | Family members might include fathers, mothers, children, and other adults. The program model determines which family members should be registered in the app. However, they are not users of the app, and do not log in themselves.                      |
 
-{{< see-also page="apps/reference/app-settings/user-roles" anchor="" title="Defining User Roles" >}}
+{{< see-also page="apps/reference/app-settings/user-roles/" anchor="" title="Defining User Roles" >}}
+
+[foo]({{< relref "barfdsfs/bash" >}})
 
 ### Online Users
 
