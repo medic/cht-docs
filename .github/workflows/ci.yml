@@ -28,6 +28,10 @@ jobs:
           hugo-version: "0.71.1"
           extended: true
 
+      # Run "build" to catch errors as early as possible in CI
+      - name: All Branches - Build Hugo
+        run: hugo
+
       # Pinning to current version as of Aug 3, 2020 for stability
       - name: All Branches - Install Go v1.14
         uses: actions/setup-go@v2
