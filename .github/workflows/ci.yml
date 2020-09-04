@@ -29,7 +29,6 @@ jobs:
           extended: true
 
       - name: All Branches - Install npm modules for Hugo
-        if: ${{github.ref == 'refs/heads/master' }}
         run: |
           npm install
           npm install -g postcss-cli
