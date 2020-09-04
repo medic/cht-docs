@@ -28,6 +28,11 @@ jobs:
           hugo-version: "0.71.1"
           extended: true
 
+      - name: All Branches - Install Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
       - name: All Branches - Install npm modules for Hugo
         run: |
           npm install
@@ -57,12 +62,6 @@ jobs:
       - name: All Branches - Run Muffet link checker
         shell: bash
         run: ./.github/scripts/muffet.sh
-
-      - name: Master Branch Only - Install Node 12.x
-        if: ${{ github.ref == 'refs/heads/master' }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
 
       - name: Master Branch Only - Build for prod with minify
         if: github.ref == 'refs/heads/master'
