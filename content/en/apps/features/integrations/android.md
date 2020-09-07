@@ -11,7 +11,7 @@ The [CHT Android application](https://github.com/medic/medic-android/) can be la
 
 ## Sending a URL
 
-When the user clicks on send the URL to your CHT instance in an SMS, email, Whatsapp, or any other app, Android will prompt the user to choose whether to open it in the Android app or the browser. If the app is not installed then the the URL will be opened in the browser.
+When the user clicks on a link to a CHT instance from an SMS, email, WhatsApp, or any other app, Android will prompt the user to choose whether to open the URL in the Android app or the browser. If a CHT app is not installed then the URL will be opened in the browser.
 
 ![Android prompt](android-prompt.png "Android prompt screenshot")
 
