@@ -15,7 +15,7 @@ When the user clicks on a link to a CHT instance from an SMS, email, WhatsApp, o
 
 ![Android prompt](android-prompt.png "Android prompt screenshot")
 
-Users can choose "Always" to skip this prompt in future.
+Users can choose "Always" to skip this prompt in future. The prompt may look different depending on the version of Android being used.
 
 ## Using an intent
 
