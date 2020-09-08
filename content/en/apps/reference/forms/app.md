@@ -59,7 +59,7 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | end group |
 
 ## XPath
-We use [medic/openrosa-xpath-evaluator](https://github.com/medic/openrosa-xpath-evaluator) to evaluate xpath in Enketo forms. One non-standard feature is that you can concatenate string values with either the `+` operator but app builders are strongly discouraged from doing this as this feature has been deprecated. You can get more details about the XPath specification [here](https://www.w3.org/TR/xpath/) and supported ODK Spath operators [here](https://getodk.github.io/xforms-spec/#xpath-operators).
+We use [medic/openrosa-xpath-evaluator](https://github.com/medic/openrosa-xpath-evaluator) to evaluate xpath in Enketo forms. One non-standard feature is that you can concatenate string values with either the `+` operator but app builders are strongly discouraged from doing this as this feature has been deprecated and will be removed in a future version. Read more about the [XPath specification](https://www.w3.org/TR/xpath/) and supported [ODK XPath operators](https://getodk.github.io/xforms-spec/#xpath-operators).
 
 ## CHT XForm Widgets
 
