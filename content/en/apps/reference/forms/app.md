@@ -25,7 +25,7 @@ A CHT-enhanced version of the ODK XForm standard is supported.
 
 Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
 
-{{< see-also page="apps/reference/forms/contact" anchor="care-guides" title="Passing contact data to care guides" >}}
+{{< see-also page="apps/reference/forms/contact" title="Passing contact data to care guides" >}}
 
 A typical form ends with a summary group (eg `group_summary`, or `group_review`) where important information is shown to the user before they submit the form.
 
@@ -58,12 +58,15 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | note | r_followup_note | ${r_followup_instructions} |
 | end group |
 
+## XPath
+We use [medic/openrosa-xpath-evaluator](https://github.com/medic/openrosa-xpath-evaluator) to evaluate xpath in Enketo forms. One non-standard feature is that you can concatenate string values with either the `+` operator but app builders are strongly discouraged from doing this as this feature has been deprecated and will be removed in a future version. Read more about the [XPath specification](https://www.w3.org/TR/xpath/) and supported [ODK XPath operators](https://getodk.github.io/xforms-spec/#xpath-operators).
+
 ## CHT XForm Widgets
 
 Some XForm widgets have been added or modified for use in the app:
 - **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages.
 - **Countdown Timer**: A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `string` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
-- **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. To use create a field of type `db:{{contact_type}}` (eg `db:person`, `db:clinic`) with appearance `db-object`.
+- **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. In v3.10.0 or above, set the field type to `string` and appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. If no contact type appearance is specified then all contact types will be returned. For v3.9.0 and below, set the field type to `db:{{contact_type}}` and appearance to `db-object`.
 - **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
 - **Simprints registration**: Register a patient with the Simprints biometric tool. To include in a form create a `string` field with `appearance` of `simprints-reg`. Requires the Simprints app connected with hardware, or [mock app](https://github.com/medic/mocksimprints). Demo only, not ready for production since API key is hardcoded.
 
@@ -113,8 +116,8 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 
 | property | description | required |
 |---|---|---|
-| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section](#localization). | yes |
-| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section](#icons) | yes |
+| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section]({{< relref "apps/reference/translations" >}}). | yes |
+| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section]({{< relref "apps/reference/resources#icons" >}}) | yes |
 | `subject_key` | Override the default report list title with a custom translation key. The translation uses a summary of the report as the evaluation context so you can include report fields in your value, for example: `Case registration {{case_id}}`. Useful properties available in the summary include: `from` (the phone number of the sender), `phone` (the phone number of the report contact), `form` (the form code), `subject.name` (the name of the subject), and `case_id` (the generated case id). Defaults to the name of the report subject. | no |
 | `context` | The context defines when and where the form should be available in the app | no |
 | `context.person` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |

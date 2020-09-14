@@ -4,11 +4,14 @@ Add styles or override variables from the theme here.
 
 */
 
+// Make it easy to use theme variables
+@import "variables";
+
 $primary: #5f7681;
-$dark: #4d616a;
+$secondary: #F58301;
+$dark: #333F47;
 $info: #007AC0;
 $warning: #E33030;
-
 $build: $primary;
 
 /* Needed so that headers in blockquotes and notes don't draw up into previous content */
@@ -48,4 +51,63 @@ h2, h3 {
 .alert
 {
   clear: both;
+}
+
+#td-section-nav {
+  .td-sidebar-nav {
+    &__section {
+      .show {
+        padding-left: .5rem;
+      }
+      ul {
+        padding-left: 0;
+      }
+    }
+
+    &__section-title {
+      i {
+        display: inline;  // prevent widowed icon
+        opacity: 0.5;
+      }
+    }
+  }
+  .td-sidebar-link {
+    &__page {
+      color: $gray-900;
+      font-weight: $font-weight-normal;
+    }
+    &__page.active {
+      color: $secondary;
+      font-weight: $font-weight-bold;
+    }
+    &__section.active {
+      color: $primary;    
+    }
+    &__section.selected {
+      color: $secondary;
+    }
+  }
+}
+
+
+.workflow {
+  font-size: 90%;
+
+  .fas {
+    font-size: 2em;
+    color: $info;
+  }
+  
+  > .row:nth-child(n+2){
+    border-top: 1px solid #eee;
+    padding: 0.5rem 0;
+  }
+
+  > .row > div.text {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.fa-rotate-45 {
+  transform: rotate(45deg);
 }

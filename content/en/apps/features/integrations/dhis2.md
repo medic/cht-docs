@@ -64,7 +64,7 @@ HRIOs access the **CHT App Management** tab and select the appropriate *DHIS2 Da
 
 ## DHIS2 apps
 
-The CHT also includes an [API](https://github.com/medic/cht-core/tree/master/api#get-apiv2exportdhis) that can be called from other applications that returns DHIS2 Data Sets. This means that you can build a [DHIS2 app](https://docs.dhis2.org/master/en/developer/html/apps_creating_apps.html) that pulls data from the CHT and imports it electronically into DHIS2. This would allow **Data Entry** to control the process directly from DHIS2 without having to access the CHT.
+The CHT also includes an [API](https://github.com/medic/cht-core/tree/master/api) that can be called from other applications that returns DHIS2 Data Sets. This means that you can build a [DHIS2 app](https://docs.dhis2.org/master/en/developer/html/apps_creating_apps.html) that pulls data from the CHT and imports it electronically into DHIS2. This would allow **Data Entry** to control the process directly from DHIS2 without having to access the CHT.
 
 ![Data Entry](data-entry-2.png "Feature Overview Data Entry 2")
 

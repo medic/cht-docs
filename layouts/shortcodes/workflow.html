@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-12 col-sm-3 text"><h4 class="d-sm-none">Condition</h4>{{ .Get "condition" | markdownify }}</div>
+
+  <div class="col-1 d-none d-sm-flex align-self-center"><i class="fas fa-arrow-alt-circle-right"></i></div>
+  <div class="col-1 d-sm-none"><i class="fas fa-long-arrow-alt-right fa-rotate-45"></i></div>
+  <div class="col-11 col-sm-3 text"><h4 class="d-sm-none">Task</h4>{{ .Get "task" | markdownify }}</div>
+
+  <div class="col-1 d-none d-sm-flex align-self-center"><i class="fas fa-arrow-alt-circle-right"></i></div>
+  <div class="col-1 d-sm-none"><i class="fas fa-long-arrow-alt-right fa-rotate-45"></i></div>
+  <div class="col-11 col-sm-4 text"><h4 class="d-sm-none">Resolution</h4>{{ .Get "resolution" | markdownify }}</div>
+</div>

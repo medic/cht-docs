@@ -1,0 +1,44 @@
+{{/*
+  Three predefined header titles are shown, with optional images above.
+  Image paths relative to permalink are passed in named arguments:
+    - condition-image
+    - task-image
+    - resolution-image
+*/}}
+<div class="container workflow align-items-center">
+  <div class="row d-none d-sm-flex text-center">
+    <div class="col-3 align-self-end">
+      {{ template "col-header" ( dict "context" . "title" "Condition" "file" (.Get "condition-image" ) ) }}
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3 align-self-end">
+      {{ template "col-header" ( dict "context" . "title" "Task" "file" (.Get "task-image" ) ) }}
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3 align-self-end">
+      {{ template "col-header" ( dict "context" . "title" "Resolution" "file" (.Get "resolution-image" ) ) }}
+    </div>
+  </div>
+  {{ .Inner }}
+</div>
+{{- define "col-header" -}}
+  {{- $context := .context -}}
+  {{- $title := .title -}}
+  {{- $file := .file -}}
+  {{- with $file -}}
+    {{- $fullpath := "" -}}
+    {{- if ne $context.Page.File.TranslationBaseName "_index" -}}
+      {{- $fullpath = path.Join $context.Page.File.Dir $context.Page.File.ContentBaseName $file -}}
+    {{- else -}}
+      {{- $fullpath = path.Join $context.Page.File.Dir $file -}}
+    {{- end -}}
+    {{- if fileExists $fullpath -}}
+      <img src="{{ . }}" alt="{{ $title }}" />
+    {{- else -}}
+      {{ errorf "File '%s' not found with '%s-image=\"%s\"': %s" $fullpath (lower $title) . $context.Position }}
+    {{- end -}}
+  {{- else -}}
+    {{ warnf "Missing value for param '%s-image': %s" (lower $title) $context.Position }}
+  {{- end -}}
+  <h4>{{ title $title }}</h4>
+{{- end -}}

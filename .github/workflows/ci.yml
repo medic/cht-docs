@@ -1,40 +1,74 @@
-name: CHT Documentation Site Build
+# Notes:
+#  - All software installed below is pinned so they don't get upgraded and break w/o us knowing why.
+#  - If you bump one version up to latest, please bump them all so we stay current!
+#  - Hugo builds the site twice: once for link checking and once minified for pushing live
+#  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
 
-on: 
+on:
   push:
     branches:
-      - master
+      - '*' # branch checking is below so all this is one CI file
 
+name: Test site and push live if we're on Master
 jobs:
-  build:
-
+  BuildLinkCheckPushLive:
+    name:
     runs-on: ubuntu-18.04
-
     steps:
-      - name: Git checkout
+
+      - name: All Branches - Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Install Node depencies
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - run: npm install
-      - run: npm install -g postcss-cli
-      - run: npm i -D autoprefixer
-
-      - name: Setup hugo
+      - name: All Branches - Install hugo extended v0.71.1
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.71.1"
           extended: true
 
-      - name: Build
+      - name: All Branches - Install Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: All Branches - Install npm modules for Hugo
+        run: |
+          npm install
+          npm install -g postcss-cli
+          npm i -D autoprefixer
+
+      # Run "build" to catch errors as early as possible in CI
+      - name: All Branches - Test For Broken Builds in Hugo
+        run: hugo
+
+      # Pinning to current version as of Aug 3, 2020 for stability
+      - name: All Branches - Install Go v1.14
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.14'
+
+      # Pinning to current version as of Aug 3, 2020 for stability
+      - name: All Branches - Install Muffet v1.3.3
+        run: env GO111MODULE="on" go get github.com/raviqqe/muffet@1.3.3
+
+      # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep so hugo server is ready
+      - name: All Branches - Serve Hugo site
+        run: |
+          hugo server&
+          sleep 5
+
+      - name: All Branches - Run Muffet link checker
+        shell: bash
+        run: ./.github/scripts/muffet.sh
+
+      - name: Master Branch Only - Build for prod with minify
+        if: github.ref == 'refs/heads/master'
         run: env HUGO_ENV="production" hugo --minify
 
-      - name: Deploy
+      - name: Master Branch Only - Deploy to GH pages
+        if: ${{ github.ref == 'refs/heads/master' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPOLY_TO_SITE}}
@@ -44,16 +78,14 @@ jobs:
           user_email: medic-ci@github
           publish_branch: master
 
-      - name: Failed Deploy
+      - name: Master Branch Only - Report errors to Slack, if any
+        if: ${{ github.ref == 'refs/heads/master' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
-        if: ${{ failure() }}
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
           SLACK_CHANNEL: '#cht-squad-docs'
           SLACK_COLOR: '#3278BD'
           SLACK_ICON: ":flappingphone:"
           SLACK_MESSAGE: 'Deploy Failed'
-          SLACK_TITLE: CHT DOCS  DEPLOY
+          SLACK_TITLE: CHT DOCS DEPLOY
           SLACK_USERNAME: Medic-Bot
-
-        

@@ -4,6 +4,7 @@ linkTitle: "Access"
 weight: 1
 description: >
   Starting up your digital health apps
+  
 ---
 
 Apps built with the Core Framework runs on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
@@ -33,7 +34,7 @@ To download your app on a mobile device, first navigate to the Google Play Store
 
 Once the download is complete, you can access your app via an app icon in your applications menu. Note that the icon, as well as the app name displayed, is customizable by the organization or project.
 
-## Logging In
+## Login
 
 {{< figure src="logging-in.png" link="logging-in.png" class="right col-6 col-lg-3" >}}
 
@@ -46,3 +47,24 @@ On desktop devices, the user must login again if they close the app tab or brows
 Users may log out by going to the options menu available in the top right corner of the app.
 
 {{< see-also page="apps/concepts/navigation" >}}
+
+## Remote Login
+
+When creating users, the admin has the option to send a user their credentials via SMS using a link. Clicking the link generates a new, random and complex password with a 24-hour expiry. If no gateway is set up, the message may be sent via another messaging app. 
+
+![admin-magic-link](admin-magic-link.png)
+
+By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. If the app is not installed on their phone, it will open in their default browser.
+
+![magic-link](magic-link.png)
+
+To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
+
+{{% alert title="Note" %}}
+The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
+{{% /alert %}}
+
+{{< see-also page="apps/examples/training" >}}
+
+
+

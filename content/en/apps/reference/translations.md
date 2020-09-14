@@ -1,6 +1,6 @@
 ---
-title: "translations"
-linkTitle: "translations"
+title: "translations/"
+linkTitle: "translations/"
 weight: 2
 description: >
   **Localization**: Localized labels for CHT applications

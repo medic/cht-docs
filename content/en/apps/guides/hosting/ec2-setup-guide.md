@@ -62,7 +62,7 @@ sudo chmod 0600 ~/Downloads/name_of_file.pem
 ## Troubleshooting
 #### 1. Restarting processes
 - [How to access container, retrieve logs, isolate security groups]({{< ref "apps/guides/hosting/self-hosting#how-to-access-container-retrieve-logs-isolate-security-groups" >}})
-- [MedicOS service management scripts](https://github.com/medic/medic-os#service-management-scripts)
+- [MedicOS service management scripts](https://github.com/medic/medic-os#user-content-service-management-scripts)
 
 #### 2. Investigating logs
 - [Log into container](https://docs.docker.com/engine/reference/commandline/exec/)

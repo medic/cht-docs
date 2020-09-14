@@ -28,7 +28,7 @@ The aggregator also reports on the status of the messages it's sending.
 Both webapp and the aggregator store states/statuses of the messages to keep track of the exchange. They each have their set of statuses, which sometimes are called the same but do not mean the same thing. Watch out.
 
 ### Message statuses in medic-gateway
-See [https://github.com/medic/medic-gateway#content](https://github.com/medic/medic-gateway#content)
+See [https://github.com/medic/medic-gateway#content](https://github.com/medic/medic-gateway#user-content-content)
 
 ### Message states in medic
 

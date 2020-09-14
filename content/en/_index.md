@@ -1,5 +1,5 @@
 ---
-title: "Community Health Toolkit"
+title: "Welcome to the Community Health Toolkit Docs Site!"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
@@ -7,12 +7,11 @@ menu:
   main:
     weight: 1
 ---
-# Welcome to the Community Health Toolkit docs site!
 
 {{% pageinfo %}}
 The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref apps >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
 
-**This site is being actively updated to make it as easy as possible to deploy CHT apps. Please [notify us](https://github.com/medic/cht-docs/issues/new) if you find any errors or inconsistencies.**
+**This documentation site is being actively updated to make it as easy as possible to deploy CHT apps. Please [notify us](https://github.com/medic/cht-docs/issues/new) if you find any errors or inconsistencies.**
 {{% /pageinfo %}}
 
 
@@ -20,7 +19,7 @@ The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collecti
 
 Community health systems can dramatically improve the accessibility, quality, speed, and equity of primary health care, but only if health workers are effectively equipped and supported. Advances in open source technology are making it easier and more affordable than ever to deliver impactful, dignified care in even the hardest-to-reach communities. 
 
-With more than 27,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers. For more about the unique strengths of our open source community and the technology we’re building together, see [Why the CHT](why-the-cht)?
+With more than 27,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers. For more about the unique strengths of our open source community and the technology we’re building together, see [Why the CHT]({{< ref "/why-the-cht" >}}) ?
 
 {{< youtube SXN76-EZnsM >}}
 

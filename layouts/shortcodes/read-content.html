@@ -1,0 +1,4 @@
+{{ $path := .Get "file" }}
+{{ with $.Site.GetPage $path }}
+{{ .Content | markdownify }}
+{{ end }}

@@ -22,6 +22,6 @@ The easiest way is to use `medic-logs`, a tool that comes with [`medic-conf`](ht
 medic-logs anInstance gardener
 ```
 
-See [medic-logs documentation](https://github.com/medic/medic-conf#medic-logs) for more details.
+See [medic-logs documentation](https://github.com/medic/medic-conf#user-content-fetching-logs) for more details.
 
 This will download logs to your current directory. You will need to look through these logs to work out what is relevant.
