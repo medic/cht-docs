@@ -10,28 +10,82 @@ keywords: icons branding
 ## Icons
 Apps can be customized by defining the icons to use for tasks, targets, and contacts.
 
-Add icons to the `resources` folder, and include them by name in the resources.json file. 
-
-    {
-        "icon-risk": "icon-healthcare-warning@2x.png",
-        "icon-treatment": "icon-healthcare-medicine@2x.png",
-        "medic-clinic": "medic-family.svg",
-        "medic-district-hospital": "medic-health-center.svg",
-        "medic-health-center": "medic-chw-area.svg",
-        "medic-person": "medic-person.svg"
-    }
+Add icons to the `resources` folder, and include them by name in the `resources.json` file as the following example:
+    
+```
+ {
+    "icon-risk": "icon-healthcare-warning@2x.png",
+    "icon-treatment": "icon-healthcare-medicine@2x.png",
+    "medic-clinic": "medic-family.svg",
+    "medic-district-hospital": "medic-family.svg",
+    "medic-health-center": "medic-chw-area.svg",
+    "medic-person": "medic-person.svg"
+ }
+```
 
 {{< see-also page="design/icons" title="Icon Library" >}}
 
-### Build  
-Build the icons into the application with the `upload-resources` action in `medic-conf`.
+The folder and files structure would look like this:
 
-`medic-conf --local upload-resources`
+```
+./
+    resources.json
+    /resources
+        icon-healthcare-warning@2x.png
+        icon-healthcare-medicine@2x.png
+        medic-family.svg
+        medic-family.svg
+        medic-chw-area.svg
+        medic-person.svg
+
+```
+Finally run the command: `medic-conf --local upload-resources`
 
 ## Branding
 
-The site title, favicon, and header logo are configurable. The location to change these are in the Admin console on the images page under the branding tab. 
+The site title, favicon, and header logo are configurable. The location to change these are in the Admin console on the images page under the branding tab.
+
+Another way to configure these options is by using the `medic-conf`, add the favicon and the header logo in the `branding` folder, then include the options in the `branding.json` as the following example:
+```
+ {
+   "title": "My Clinic",
+   "resources": {
+     "logo": "logo.png",
+     "favicon": "favicon.ico"
+   }
+ }
+```
+The folder and files structure would look like this:
+
+```
+./
+    branding.json
+    /branding
+        logo.png
+        favicon.ico
+```
+Finally run the command: `medic-conf --local upload-branding`
 
 ## Partner logos
 
 Adding your partner logos can be done in the Admin console on the images page under the Partners tab. This will add partner logos on the about page. 
+
+Another way is by using the `medic-conf`, add the partners logo in the `partners` folder, then include them in the `partners.json` as the following example:
+```
+ {
+   "resources": {
+     "partnerA": "parnerA.png",
+     "partnerB": "parnerB.png"
+   }
+ }
+```
+The folder and files structure would look like this:
+
+```
+./
+    partners.json
+    /partners
+        parnerA.png
+        parnerB.png
+```
+Finally run the command: `medic-conf --local upload-partners`
