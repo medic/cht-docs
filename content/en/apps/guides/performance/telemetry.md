@@ -103,11 +103,10 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 
 While you can view the telemetry in the database with a tool like [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/), you may also want to export the data to JSON to further analyze or visualize it.  To do so:
 
-1. SSH to the instance where the CouchDB database is hosted
 1. `cd` to a directory where you want to run the export script
 1. Ensure all that both [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/get-npm) are installed and that the needed `node` libraries are installed: `npm install inquirer pouchdb-core fs path minimist pouchdb-adapter-http`
 1. Get a current copy of the script: `curl -s -o get_users_meta_docs.js https://raw.githubusercontent.com/medic/cht-core/master/scripts/get_users_meta_docs.js`
-1. Using your CouchDB admin username (`USERNAME`) and password (`PASSWORD`), run this command: `$ node scripts/get_users_meta_docs.js --mode interactive --type telemetry https://USERNAME:PASSWORD@COUCH_DB_SERVER/medic-users-meta`.
+1. Using your CouchDB admin username (`USERNAME`), password (`PASSWORD`) and server URL (`COUCH_DB_SERVER`), run this command: `$ node scripts/get_users_meta_docs.js --mode interactive --type telemetry https://USERNAME:PASSWORD@COUCH_DB_SERVER/medic-users-meta`.
 1. When prompted, select "Save all in working directory" then "Quit". This will save a file named `telemetry.json` containing all of the telemetry data in the current directory.
 
-From here, you can use `scp` to get the data to your analytics server or to your workstation for further analysis. If you do this exporting regularly, you can skip steps 3 and 4.  
+If you do this exporting regularly, you can skip steps 2 and 3.  
