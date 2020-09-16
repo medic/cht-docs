@@ -28,6 +28,10 @@ jobs:
           hugo-version: "0.71.1"
           extended: true
 
+      # Run "build" to catch errors as early as possible in CI
+      - name: All Branches - Show Hugo verison
+        run: hugo version
+
       - name: All Branches - Install Node 12.x
         uses: actions/setup-node@v1
         with:
@@ -36,9 +40,7 @@ jobs:
       - name: All Branches - Install npm modules for Hugo
         run: |
           npm install
-          npm install -g postcss
-          npm install -g postcss-cli
-          npm install -g autoprefixer
+          npm install -g postcss postcss-cli autoprefixer
 
       # Run "build" to catch errors as early as possible in CI
       - name: All Branches - Test For Broken Builds in Hugo
