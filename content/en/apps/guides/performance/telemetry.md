@@ -109,6 +109,6 @@ While you can view the telemetry in the database with a tool like [Fauxton](http
 
 Then to export the data is just one step:
 
-1. Using your CouchDB admin username (`USERNAME`), password (`PASSWORD`) and server URL (`COUCH_DB_SERVER`), run this command: `$ node scripts/get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCH_DB_SERVER/medic-users-meta > telemetry.json`
+1. Run the following command, replacing `USERNAME`, `PASSWORD`, and `COUCH_DB_SERVER` with your own values: `$ node get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCH_DB_SERVER/medic-users-meta > telemetry.json`
 
 This will save a file named `telemetry.json` containing all the telemetry data in the current directory. If you do this exporting regularly, you can skip steps 2 and 3.  
