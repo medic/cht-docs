@@ -107,8 +107,9 @@ While you can view the telemetry in the database with a tool like [Fauxton](http
 1. Ensure all that both [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/get-npm) are installed and that the needed `node` libraries are installed: `npm install inquirer pouchdb-core fs path minimist pouchdb-adapter-http`
 1. Get a current copy of the script: `curl -s -o get_users_meta_docs.js https://raw.githubusercontent.com/medic/cht-core/master/scripts/get_users_meta_docs.js` 
 
-Then to export the data is just one step:
+Then to export the data run this command, replacing `USERNAME`, `PASSWORD`, `COUCH_SERVER` and `COUCH_PORT`  with your own values: `node get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCH_DB_SERVER:COUCH_PORT/medic-users-meta > telemetry.json`. 
 
-1. Run the following command, replacing `USERNAME`, `PASSWORD`, and `COUCH_DB_SERVER` with your own values: `$ node get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCH_DB_SERVER/medic-users-meta > telemetry.json`
+For example, if your user was `admin`, your password was `pass`, your server was `localhost` and your port was `5984`, you would run `bash
+node get_users_meta_docs.js --mode batch --type telemetry https://admin:pass@localhost:5984/medic-users-meta > telemetry.json`
 
 This will save a file named `telemetry.json` containing all the telemetry data in the current directory. If you do this exporting regularly, you can skip steps 2 and 3.  
