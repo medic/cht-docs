@@ -101,7 +101,10 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 
 ## Export data to JSON
 
-While you can view the telemetry in the database with a tool like [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/), you may also want to export the data to JSON to further analyze or visualize it.  First make sure you meet all the prerequisites:
+{{% alert title="Note" %}}
+Telemetry data can be viewed directly in your browser with [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/) at `https://{{CHT_INSTANCE_URL}}/_utils`, and navigating the `medic-users-meta` database.
+{{% /alert %}}
+Follow the steps below to export all telemetry in JSON for further analysis or visualization:
 
 1. `cd` to a directory where you want to run the export script
 1. Ensure all that both [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/get-npm) are installed and that the needed `node` libraries are installed: `npm install inquirer pouchdb-core fs path minimist pouchdb-adapter-http`
