@@ -106,7 +106,7 @@ Telemetry data can be viewed directly in your browser with [Fauxton](https://cou
 {{% /alert %}}
 Follow the steps below to export all telemetry in JSON for further analysis or visualization:
 
-1. `cd` to a directory where you want to run the export script
+1. Open a command line terminal in the directory where you want to save the export files
 1. Ensure all that both [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/get-npm) are installed and that the needed `node` libraries are installed: `npm install inquirer pouchdb-core fs path minimist pouchdb-adapter-http`
 1. Get a current copy of the script: `curl -s -o get_users_meta_docs.js https://raw.githubusercontent.com/medic/cht-core/master/scripts/get_users_meta_docs.js` 
 
