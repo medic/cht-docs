@@ -19,7 +19,7 @@ You will be adding meta-data and context to an assessment workflow that allows C
 
 ## Brief Overview of Key Concepts
 
-*[Form context]({{< ref "apps/reference/forms/app/#formsappform_namepropertiesjson" >}})* defines when and where the form should be available in the app.
+*[Form context]({{< ref "apps/reference/forms/app#formsappform_namepropertiesjson" >}})* defines when and where the form should be available in the app.
 
 ## Required Resources
 
@@ -31,7 +31,7 @@ Create a new file in the same folder as your `assessment.xlsx` file and name it 
 
 ### 1. Define the Form's Title
 
-To add a title:
+Edit the `assessment.properties.json` file and add a `title` key with the value corresponding to what you want your title to be.
 
 ```json
 {
@@ -43,6 +43,16 @@ To add a title:
 
 Add a `resources` folder in your project folder and put your preferred icon for assessment in it. Name the icon file `icon-healthcare-assessment.png` if it is a `png` file or `icon-healthcare-assessment.svg` if it is an `svg` file.
 
+Create a `resources.json` *file* in your project folder and add key/value pairs for your icon resources.
+
+```json
+{
+  "icon-healthcare-assessment": "icon-healthcare-assessment.png"
+}
+```
+
+Add an `icon` key in the `assessment.properties.json` file. Pick the key of the icon you require from the `resources.json` file and add it as the `icon` value.
+
 ```json
 {
   "title": "Assessment",
@@ -51,6 +61,8 @@ Add a `resources` folder in your project folder and put your preferred icon for 
 ```
 
 ### 3. Define the Form's Context
+
+Add a `context` key in the `assessment.properties.json` file. Add an object with `person`, `place` and `expression` keys. Add the boolean value `true` for the `person` key, the boolean value `false` for the `place` key and the expression `ageInYears(contact) < 5` for the `expression` key.
 
 ```json
 {
