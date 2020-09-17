@@ -12,7 +12,7 @@ relatedContent: >
 
 ## Care Guides
 
-{{< figure src="care-guides.png" link="care-guides.png" class="right col-6 col-lg-3" >}}
+{{< figure src="care-guides.png" link="care-guides.png" class="right col-12 col-lg-6" >}}
 
 Forms are used to build “Care Guides” that take health workers through care protocols and provide decision support for their interactions with patients. App designers can use the basic form building functionality in a variety of ways. 
 
@@ -22,7 +22,7 @@ Care Guides provided in the CHT's Reference Applications can be configured for y
 
 ### Functionality
 
-{{< figure src="functionality.png" link="functionality.png" class="right col-6 col-lg-3" >}}
+{{< figure src="functionality.png" link="functionality.png" class="right col-12 col-lg-4" >}}
 
 Care Guides consists of questions grouped into pages. They are capable of presenting many different types of questions, skip logic, images, and videos. Validation rules can require certain questions to be answered or restrict answers to a specified type or range. 
 
@@ -32,7 +32,7 @@ Care Guides can include images for instructional purposes and can access a user�
 
 ### Summary
 
-{{< figure src="summary.png" link="summary.png" class="right col-6 col-lg-3" >}}
+{{< figure src="summary.png" link="summary.png" class="right col-12 col-lg-4" >}}
 
 After all of the required questions have been answered, a summary page can be displayed. 
 
@@ -44,7 +44,7 @@ The form is not submitted until the user scrolls to the very end of the summary 
 
 ### Examples
 
-{{< figure src="examples.png" link="examples.png" class="right col-6 col-lg-3" >}}
+{{< figure src="examples.png" link="examples.png" class="right col-12 col-lg-4" >}}
 
 - While a health worker is going through the form during the care visit, you can include a family planning question only if the person who the form is about is a woman and not pregnant.
 - You can include on-the-spot conversational prompts and advice for the CHW based on how they answer questions in the form. For instance, if a CHW answers “yes” to the question about a woman’s interest in family planning, text can automatically appear to provide information on her options.

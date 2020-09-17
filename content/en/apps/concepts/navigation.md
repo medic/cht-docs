@@ -8,18 +8,22 @@ description: >
 
 ## Summary of Page Tabs
 
-{{< figure src="page-tabs.png" link="page-tabs.png" class="right col-6 col-lg-3" >}}
-
 Page tabs are the primary way to navigate apps built with the Core Framework. The number of tabs is variable depending on the user’s role and place in the hierarchy. For example, non-admin users don’t have Messages. The Reports tab is accessible to CHWs but often located inside the secondary menu drawer.
-- **People​**: This is where profiles of districts, staff, CHWs and patients live
-- **Tasks​**: This is a list of upcoming visits, follow-ups, or other required tasks
-- **Targets**: Displays real-time visualizations of key activity and impact indicators
-- **Reports​**: A detailed history of all forms submitted by CHWs and other staff
+
+{{< figure src="tabs.gif" link="tabs.gif" class="left col-12 col-lg-7" >}}
+
+<br><br><br>
+
 - **Messages​**: A place for community-based staff to send and exchange messages
+- **Tasks​**: This is a list of upcoming visits, follow-ups, or other required tasks
+- **Reports​**: A detailed history of all forms submitted by CHWs and other staff
+- **People​**: This is where profiles of districts, staff, CHWs and patients live
+- **Targets**: Displays real-time visualizations of key activity and impact indicators
+
 
 ## The Menu Drawer
 
-{{< figure src="menu-drawer.png" link="menu-drawer.png" class="right col-6 col-lg-3" >}}
+{{< figure src="menu.png" link="menu.png" class="right col-6 col-lg-4" >}}
 
 Tap the menu icon in the upper right corner of the header to access other pages, edit personal settings, view sync status and more.
 - **Admin Console**: Change advanced app settings (only admin users will see this)
@@ -31,7 +35,7 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 ### Sync Status
 
-{{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-3" >}}
+{{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-4" >}}
 
 Data synchronisation is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. "Sync" (synchronisation) is when data on the device is made to match the data on the server. Synchronisation consists of uploading all new or altered data from the device to the server, and downloading new or altered data from the server to the device. This latter step may include the download of software updates to the CHT core or CHT app when available.
 
