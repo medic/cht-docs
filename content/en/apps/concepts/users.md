@@ -38,10 +38,10 @@ Offline roles are for users who need to be able to access data on-the-go in the 
 
 ## Permissions
 
-{{< figure src="user-permissions.png" link="user-permissions.png" class="right col-6 col-lg-3" >}}
-
 User Permissions are settings that can be individually toggled on or off to allow users with a particular Role to do a certain action or see a certain thing. CHT app developers and administrators can add as many User Roles as needed to grant permissions to different groups of users.
+
+Viewing permissions determine which page tabs a user sees in the app and which types of data they do and don’t have access to. User action permissions include who can create (e.g., create new users), who can delete (e.g., delete reports), who can edit (e.g., edit profiles), and who can export (e.g., export server logs).
 
 {{< see-also page="apps/reference/app-settings/user-permissions" title="Defining User Permissions" >}}
 
-Viewing permissions determine which page tabs a user sees in the app and which types of data they do and don’t have access to. User action permissions include who can create (e.g., create new users), who can delete (e.g., delete reports), who can edit (e.g., edit profiles), and who can export (e.g., export server logs).
+{{< figure src="/apps/features/admin/admin-roles.png" link="/apps/features/admin/admin-roles.png" class="left col-12 col-lg-10" >}}
