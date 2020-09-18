@@ -98,3 +98,28 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 | `dbInfo.db_name` | The name of the local database. |
 | `dbInfo.auto_compaction` | Whether or not auto compaction is set. |
 | `dbInfo.adapter` | The database adapter being used. |
+
+## Export data to JSON
+
+{{% alert title="Note" %}}
+Telemetry data can be viewed directly in your browser with [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/) at `https://{{CHT_INSTANCE_URL}}/_utils`, and navigating the `medic-users-meta` database.
+{{% /alert %}}
+
+To export all telemetry in JSON for further analysis or visualization, first meet these prerequisites:
+
+1. Ensure that both [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/get-npm) are installed and that the needed `node` libraries are installed: `npm install inquirer pouchdb-core fs path minimist pouchdb-adapter-http`
+1. Get a current copy of the export script: `curl -s -o get_users_meta_docs.js https://raw.githubusercontent.com/medic/cht-core/master/scripts/get_users_meta_docs.js` 
+
+To export the data open a terminal in the folder where you want to save the export, and run this command:
+ 
+```bash
+node get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCHDB_SERVER:COUCHDB_PORT/medic-users-meta > telemetry.json
+``` 
+
+For example, if your username is `admin`, your password is `pass`, your CouchDB server is `localhost` and your CouchDB port is `5984`, you would run: 
+
+```bash
+node get_users_meta_docs.js --mode batch --type telemetry https://admin:pass@localhost:5984/medic-users-meta > telemetry.json
+```
+
+This will save a file named `telemetry.json` containing all the telemetry data in the current directory. 
