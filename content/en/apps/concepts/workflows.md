@@ -13,21 +13,23 @@ Workflows can be defined within apps built with the Core Framework to connect ac
 
 ## Tasks
 
-{{< figure src="tasks.png" link="tasks.png" class="right col-6 col-lg-3" >}}
-
 Tasks within the app can drive a workflow, ensuring that the right actions are taken for people at the right time. Tasks indicate a recommended action to the user. They indicate who the user should perform the action with, and the recommended timeframe of that action. When the user taps the task, they are directed to a form where the details of the action are captured.
 
-Tasks can be triggered by a set of conditions, such as contact details or submitted reports. Tasks are accessible in the Tasks tab and the profile in the Contact tab, and initiate a follow up action to complete a form. More information on building app workflows is available in the [Tasks section]().
+Tasks can be triggered by a set of conditions, such as contact details or submitted reports. Tasks are accessible in the Tasks tab and the profile in the Contact tab, and initiate a follow up action to complete a form. More information on building app workflows is available in the [Tasks section]({{< ref "apps/features/tasks" >}}).
 
 Data submitted in one form can generate several tasks at once, for example, multiple ANC visits following one pregnancy registration. Some workflows involve a series of sequential forms and tasks, such as a child health assessment form, a follow up task scheduled 48 hours later, a referral form (only if the child’s condition hasn’t improved), and then a referral follow up task. Tasks are accessible on the Tasks tab, as well as the Tasks section of profiles. 
 {{< see-also page="apps/reference/tasks" title="Defining Tasks" >}}
 
-## SMS Messaging
+{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="left col-3 col-lg-3" >}}
+{{< figure src="tasks-desktop.png" link="tasks-desktop.png" class="left col-9 col-lg-9" >}}
 
-{{< figure src="messaging.png" link="messaging.png" class="right col-6 col-lg-3" >}}
+## SMS Messaging
 
 Workflows can include notifications and interactions with CHWs, nurses, supervisors, and patients via SMS. A report can trigger SMS messages to be sent immediately or upon a set schedule. Responses via SMS or the app can update the workflows.
 {{< see-also page="apps/reference/app-settings" anchor="sms-workflows" title="Defining SMS Workflows" >}}
+
+{{< figure src="messages-mobile.png" link="messages-mobile.png" class="left col-3 col-lg-3" >}}
+{{< figure src="messages-desktop.png" link="messages-desktop.png" class="left col-9 col-lg-9" >}}
 
 ## Interoperability 
 
