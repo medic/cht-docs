@@ -113,7 +113,7 @@ To export all telemetry in JSON for further analysis or visualization, first mee
 To export the data open a terminal in the folder where you want to save the export, and run this command:
  
 ```bash
-node get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCHDB_SERVER:COUCHDB_PORT/medic-users-meta > telemetry.json`
+node get_users_meta_docs.js --mode batch --type telemetry https://USERNAME:PASSWORD@COUCHDB_SERVER:COUCHDB_PORT/medic-users-meta > telemetry.json
 ``` 
 
 For example, if your username is `admin`, your password is `pass`, your CouchDB server is `localhost` and your CouchDB port is `5984`, you would run: 
