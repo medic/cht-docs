@@ -3,7 +3,7 @@ title: "Setting Form Properties"
 linkTitle: Form Properties
 weight: 8
 description: >
-  Setting Form Properties
+ How to set form properties that contain meta information related to App forms
 relatedContent: >
   apps/reference/forms/app/#formsappform_namepropertiesjson
 
