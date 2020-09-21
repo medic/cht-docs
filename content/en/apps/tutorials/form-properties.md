@@ -62,7 +62,7 @@ Add an `icon` key in the `assessment.properties.json` file. Pick the key of the 
 
 ### 3. Define the Form's Context
 
-Add a `context` key in the `assessment.properties.json` file. Add an object with `person`, `place` and `expression` keys. Add the boolean value `true` for the `person` key, the boolean value `false` for the `place` key and the expression `ageInYears(contact) < 5` for the `expression` key.
+First, add a `context` key in the `assessment.properties.json` file. Next, add an object with `person`, `place` and `expression` keys. Then, add the boolean value `true` for the `person` key, the boolean value `false` for the `place` key and the expression `ageInYears(contact) < 5` for the `expression` key.
 
 ```json
 {
