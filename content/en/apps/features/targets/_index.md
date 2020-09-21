@@ -15,6 +15,10 @@ relatedContent: >
 
 For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community unit is performing.
 
+{{< figure src="targets-mobile.png" link="targets-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="targets-desktop.png" link="targets-desktop.png" class="left col-9 col-lg-9" >}}
+
 {{% alert title="Note" %}} Targets or goals can be configured for any user that has online or offline capabilities. A user must have access to the report in order to generate the widget with its data. {{% /alert %}}
 
 ## Types of Widgets
@@ -29,7 +33,7 @@ The text, icon, goal, and time frame of each widget is easily configured. The ti
 
 ### Count Widgets
 
-{{< figure src="mobile-count.png" link="mobile-count.png" class="right col-6 col-lg-3" >}}
+{{< figure src="targets-count.png" link="targets-count.png" class="right col-7 col-lg-4" >}}
 
 Count widgets show a tally of a particular report that has been submitted or data within a report that matches a set of criteria. For example, a count can be done for the number of active pregnancies, the number of facility-based deliveries, or the number of households registered that month.
 
@@ -37,7 +41,7 @@ A count without a goal displays a simple black number count. A count with a goal
 
 ### Percent Widgets
 
-{{< figure src="mobile-percent.png" link="mobile-percent.png" class="right col-6 col-lg-3" >}}
+{{< figure src="targets-percentage.png" link="targets-percentage.png" class="right col-7 col-lg-4" >}}
 
 Percent widgets display a ratio, which helps to provide insight into the proportion that matches a defined criteria. For example, the proportion of newborns delivered in a facility can be presented as a percent with respect to all registered deliveries.
 
@@ -45,9 +49,10 @@ An optional goal can be set, such as “100% of patients with a fever should be 
 
 ## Supervisor View
 
+{{< figure src="targets-supervisor.png" link="targets-supervisor.png" class="right col-7 col-lg-6" >}}
+
 Aggregate targets were introduced in v3.9 to provide Supervisors actionable information about their CHWs, and help with coaching and performance management. Aggregate targets combine the info for each CHW that a Supervisor manages. 
 
-{{< figure src="mobile-supervisor.png" link="mobile-supervisor.png" class="right col-4 col-lg-6" >}}
 
 Clicking on an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up.
 

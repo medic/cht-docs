@@ -11,16 +11,21 @@ relatedContent: >
 
 Tasks help CHWs plan their day by prompting them to complete follow-up visits and other activities. The list might include upcoming scheduled ANC or Immunization visits, treatment or referral follow-ups, or other required activities such as a household survey.
 
+{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="tasks-desktop.png" link="tasks-desktop.png" class="left col-9 col-lg-9" >}}
+
 
 ## Main List
 
-{{< figure src="tasks-main.png" link="tasks-main.png" class="right col-6 col-lg-3" >}}
+{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="right col-6 col-lg-3" >}}
 
 On the Tasks tab is a consolidated list of tasks for all people and families that the user looks after. The task definition determines how long the task will show on this list before and after it is due.
 
 Each task has an icon on the left side which indicates which type of task it is. The first bold line of text is the person or family that the task is about. The second line of text is the name of the task. The due date for the task is located in the upper right hand corner. If a task is overdue, the due date will be red.
 
 Tasks are listed in order of due date. Tasks that are past due will appear at the top of the list. CHWs should strive to complete tasks before they are overdue. Many programs add targets to track task completion and timeliness.
+
 
 <br clear="all">
 

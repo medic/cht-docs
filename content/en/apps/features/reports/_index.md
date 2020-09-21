@@ -13,9 +13,13 @@ The Reports tab is where you can access submitted data. Depending on how often y
 
 The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the [hierarchy]({{< ref "apps/concepts/hierarchy" >}}). Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs. Advanced configuration options are available for a specific off-line user role to manage what [level of report data]({{< ref "apps/guides/performance/replication#report-depth" >}}) is copied to their device. 
 
+{{< figure src="reports-mobile.png" link="reports-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="reports-desktop.png" link="reports-desktop.png" class="left col-9 col-lg-9" >}}
+
 ## Main List
 
-{{< figure src="reports-main.png" link="reports-main.png" class="right col-6 col-lg-3" >}}
+{{< figure src="reports-mobile.png" link="reports-mobile.png" class="right col-6 col-lg-3" >}}
 
 The first line of bold text is the name of the person whom the report is about. The second line of text is the name of the report, and the third line of text is the hierarchy of place to which that person belongs. In the upper right corner, a timestamp displays when the report was submitted. Reports are sorted by submission date, with the most recent reports at the top. If a report is unread, the timestamp will be bold blue and there will be a horizontal blue line above it. 
 
