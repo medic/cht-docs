@@ -31,7 +31,7 @@ Create a new file in the same folder as your `assessment.xlsx` file and name it 
 
 ### 1. Define the Form's Title
 
-Edit the `assessment.properties.json` file and add a `title` key with the value corresponding to what you want your title to be.
+Edit the `assessment.properties.json` file and add a `title` key with the value corresponding to the desired file title.
 
 ```json
 {
