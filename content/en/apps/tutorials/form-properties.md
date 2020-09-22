@@ -6,6 +6,7 @@ description: >
  How to set form properties that contain meta information related to App forms
 relatedContent: >
   apps/reference/forms/app/#formsappform_namepropertiesjson
+  design/apps
 
 ---
 
@@ -51,6 +52,8 @@ Create a `resources.json` *file* in your project folder and add key/value pairs 
 }
 ```
 
+{{< see-also page="design/icons" title="Icon Library" >}}
+
 Add an `icon` key in the `assessment.properties.json` file. Pick the key of the icon you require from the `resources.json` file and add it as the `icon` value.
 
 ```json
@@ -93,3 +96,7 @@ medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-ce
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
 
 Once you successfully upload the `assessment.properties.json` file, 'Assessment' will appear as an action _only_ for person contacts who are less that 5 years old. Additionally, the `icon-healthcare-assessment` icon will now show alongside the action name.
+
+## Frequently Asked Questions
+
+- [Can you associate an icon to a xml form?](https://forum.communityhealthtoolkit.org/t/can-you-associate-an-icon-to-a-xml-form/88)
