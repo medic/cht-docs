@@ -21,9 +21,13 @@ relatedContent: >
 
 Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data]({{< ref "apps/guides/performance/replication#contact-depth" >}}) is downloaded and stored on their device.
 
+{{< figure src="people-mobile.png" link="people-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="people-desktop.png" link="people-desktop.png" class="left col-9 col-lg-9" >}}
+
 ## Main List
 
-{{< figure src="contacts-main-list.png" link="contacts-main-list.png" class="right col-6 col-lg-3" >}}
+{{< figure src="people-mobile.png" link="people-mobile.png" class="right col-6 col-lg-3" >}}
 
 The view on the right is what a logged-in CHW would see when they access the “People” tab on a small screen. 
 
@@ -37,6 +41,8 @@ New “places” can be added to this level of the hierarchy by clicking on the 
 
 ## Searching
 
+{{< figure src="search-mobile.png" link="search-mobile.png" class="right col-6 col-lg-3" >}}
+
 Click in the search area at the top of the screen to search for a “person” or “place”. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
 
 After entering a search term, the list filters to show matching items. Searching will only return items that are lower than you in the hierarchy and that you have permission to view. 
@@ -47,36 +53,39 @@ To clear the search and return the default view, click on the refresh icon locat
 
 Clicking an item on the main list will open a profile where you can see detailed information about that person or place. At the top is general information like name and phone number.
 
-<div class="container">
-  <div class="row">
-{{< figure src="contacts-profile-1.png" link="contacts-profile-1.png" class="col-6 col-lg-3" >}}
-{{< figure src="contacts-profile-2.png" link="contacts-profile-2.png" class="col-6 col-lg-3" >}}
-{{< figure src="contacts-profile-3.png" link="contacts-profile-3.png" class="col-6 col-lg-3" >}}
-{{< figure src="contacts-profile-4.png" link="contacts-profile-4.png" class="col-6 col-lg-3" >}}
-  </div>
-</div>
-
 If you’re viewing a place profile, you’ll see a list of people or places that belong to this place in the app hierarchy, such as family members. The star signifies the primary contact.
 
 Beneath that, you will find tasks for this person or place. At the very bottom is a history of submitted reports for this person or place.
 
+<div class="container">
+  <div class="row">
+{{< figure src="profile1.png" link="profile1.png" class="col-6 col-lg-3" >}}
+{{< figure src="profile2.png" link="profile2.png" class="col-6 col-lg-3" >}}
+{{< figure src="profile3.png" link="profile3.png" class="col-6 col-lg-3" >}}
+{{< figure src="profile4.png" link="profile4.png" class="col-6 col-lg-3" >}}
+  </div>
+</div>
+
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
 
 ## Fields
+
+### Contact Summary
+
 The top card on all profiles contains general information for the contact. All the fields shown in this summary card are configurable.
+
+<div class="container">
+  <div class="row">
+{{< figure src="bio1.png" link="bio1.png" class="col-6 col-lg-4" >}}
+{{< figure src="bio2.png" link="bio2.png" class="col-6 col-lg-4" >}}
+  </div>
+</div>
 
 {{< see-also page="contact-page" anchor="contact-summary" title="Defining Contact Summary" >}}
 
 ### Condition Cards
 
 A “condition” card displays data on a profile that’s been submitted in a report about that person or place. Data can be pulled from one report or summarize many reports.
-
-<div class="container">
-  <div class="row">
-{{< figure src="contacts-condition-card-1.png" link="contacts-condition-card-1.png" class="col-6 col-lg-3" >}}
-{{< figure src="contacts-condition-card-2.png" link="contacts-condition-card-2.png" class="col-6 col-lg-3" >}}
-  </div>
-</div>
 
 Condition cards can be permanent or conditional; set to appear only when a specific type of report is submitted. They can also be set to disappear when a condition is resolved or a certain amount of time has passed. You can have as many condition cards as you like, though we recommend keeping the user’s experience in mind.
 
@@ -87,12 +96,20 @@ Configurable elements include:
 - Icon for the field, if desired
 - Conditions under which to display
 
+<div class="container">
+  <div class="row">
+{{< figure src="condition-card1.png" link="condition-card1.png" class="col-6 col-lg-4" >}}
+{{< figure src="condition-card2.png" link="condition-card2.png" class="col-6 col-lg-4" >}}
+  </div>
+</div>
+
 {{< see-also page="contact-page" anchor="condition-cards" title="Defining Condition Cards" >}}
+
 
 ## Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
 
-{{< figure src="contacts-care-guides.png" link="contacts-care-guides.png" class="right col-6 col-lg-3" >}}
+{{< figure src="care-guides.png" link="care-guides.png" class="right col-6 col-lg-3" >}}
 
 
 “Care Guides” are dynamic forms that you can fill out for a person or place. You can access Care Guides by clicking on the + button at the bottom of a profile. For more info, see the [Care Guides overview page]({{% ref care-guides %}}). 

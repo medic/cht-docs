@@ -15,9 +15,13 @@ The main list is a combination of both outgoing and incoming messages. Messages 
 
 The features on the Messages tab are best supported on desktop and most often used by someone in a supervisor role.
 
+{{< figure src="messages-mobile.png" link="messages-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="messages-desktop.png" link="messages-desktop.png" class="left col-9 col-lg-9" >}}
+
 ## Main List
 
-{{< figure src="messages-main.png" link="messages-main.png" class="right col-6 col-lg-3" >}}
+{{< figure src="messages-mobile.png" link="messages-mobile.png" class="right col-6 col-lg-3" >}}
 
 On the main list of messages, the first line of bold text is the name and / or phone number of the sender. The second line is an excerpt from the most recent message, and the third line, if applicable, is the place(s) that the sender belongs to. 
 
