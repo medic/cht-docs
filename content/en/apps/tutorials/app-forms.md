@@ -15,8 +15,7 @@ relatedContent: >
 
 App forms allow users to submit reports from Android devices
 
-## Purpose of the Tutorial
-
+{{% pageinfo %}}
 This tutorial will take you through how to build App forms for CHT applications, including:
 
 - Authoring forms in Excel, Google sheets or other spreadsheet applications.
@@ -24,6 +23,7 @@ This tutorial will take you through how to build App forms for CHT applications,
 - Uploading XForms to CHT
 
 You will be building assessment workflow that allows Community Health Workers to conduct a health assessment for children under the age of 5.
+{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 

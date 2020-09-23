@@ -9,14 +9,15 @@ relatedContent: >
   core/guides/using-windows
 ---
 
-## Purpose of the Tutorial
-
+{{% pageinfo %}}
 This tutorial will take you through setting up a local environment to build and test CHT applications. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
 - View the login page to CHT webapp on localhost
 - Upload default settings to localhost
+{{% /pageinfo %}}
+
 
 ## Brief Overview of Key Concepts
 

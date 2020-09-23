@@ -35,18 +35,19 @@ Through adaptations to PHC workflows, health program administrators are able to:
 * Support home-based care for non-emergent COVID-19 cases to reduce overburdening on hospital systems
 * Capture program learnings to create more robust and resilient health systems beyond supporting the immediate COVID-19 reponse
 
-## User Roles Example
+## Users and Hierarchy Example
 
-![phc-covid-user.png](phc-covid-user.png)
-
-## Reporting Hierarchy Example
-
-![phc-covid-hierarchy.png](phc-covid-hierarchy.png)
+| User           | Location                               | Devices                             | Role                                                                                                                                                                                                                                              |
+| :------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------------------------------------------------- |
+| Program Staff  | Central, district or local offices      | Desktop, laptop and smartphones     | Oversee delivery of routine PHC services. Continually monitor care delivery for disruptions. Ensure compliance with program-specific, national and global care protocols.  |
+| CHW Supervisor | Community level, based at facilities   | Smartphone and personal phone       | Oversee CHWs and track completion of their remote training modules. Follow up with CHWs needing extra support. |
+| CHW            | Community level                        | Feature phone or smartphone         | Provide care to community using adapted PHC workflows. Complete remote training for new workflows. Enable home-based care and offer remote support through call and text-first protocols.|
+| Patient        | Community level                        |                                     | Seek care for non-emergent conditions. Examples: maternal and child health, other infectious diseases, non-communicable diseases.   |
 
 ## Workflow Example
 
 This demo illustrates how a CHT workflow that currently supports PHC can be easily adapted to reflect a COVID-19 health program response. Remote support allows for the integration of new care protocols that follow “no touch” or “visual only” reviews, transition to call/text-first protocols, and embedding COVID-19 symptom screening within PHC workflows.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ic_sBf4KlYQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube ic_sBf4KlYQ >}} <br>
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1DBbEc2R6-TwgD4pp_LjTmgGXAUzZzeVrYlrDzFdWqSI).
