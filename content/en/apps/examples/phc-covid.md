@@ -42,7 +42,7 @@ Through adaptations to PHC workflows, health program administrators are able to:
 | Program Staff  | Central, district or local offices      | Desktop, laptop and smartphones     | Oversee delivery of routine PHC services. Continually monitor care delivery for disruptions. Ensure compliance with program-specific, national and global care protocols.  |
 | CHW Supervisor | Community level, based at facilities   | Smartphone and personal phone       | Oversee CHWs and track completion of their remote training modules. Follow up with CHWs needing extra support. |
 | CHW            | Community level                        | Feature phone or smartphone         | Provide care to community using adapted PHC workflows. Complete remote training for new workflows. Enable home-based care and offer remote support through call and text-first protocols.|
-| Patient        | Community level                        |                                     | Seek care for non-emergent conditions, ex. maternal and child health and other infectious diseases, non-communicable diseases.   |
+| Patient        | Community level                        |                                     | Seek care for non-emergent conditions. Examples: maternal and child health, other infectious diseases, non-communicable diseases.   |
 
 ## Workflow Example
 
