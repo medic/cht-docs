@@ -10,9 +10,10 @@ relatedContent: >
   core/guides/users-bulk-load 
 ---
 
-## Purpose of the Tutorial
-
+{{% pageinfo %}}
 In this tutorial you will learn how to create and edit contacts and their associated users in and application built with the CHT using the default contact creation forms. This will help you get familiar with the UI of the webapp as well as some features and functionality. If you are already comfortable with this, you can skip to [part 2, which covers manipulating contacts and their associated documents using medic conf]({{% ref "apps/tutorials/contact-and-users-2" %}}).
+{{% /pageinfo %}}
+
 
 ## Brief Overview of Key Concepts
 
@@ -49,7 +50,7 @@ While logged in as an admin user, you will first create the Health Facility, CHW
 
 While logged into the CHT application, go to the **People tab** and select **New Health Facility**
 
-![new health facility](new-facility/select-new-facility.png "New health facility")
+![new health facility](new-facility/select-new-facility.png "New health facility") <br><br>
 
 There are 2 options for assigning a primary contact for the new Health Facility:
 
@@ -58,15 +59,15 @@ There are 2 options for assigning a primary contact for the new Health Facility:
 
 For now we will skip creating or assigning a primary contact so that we can focus on creating the new Health Facility.
 
-![skip primary contact](new-facility/skip-primary-contact.png "Skip primary contact")
+![skip primary contact](new-facility/skip-primary-contact.png "Skip primary contact") <br><br>
 
 Enter the details of the Health Facility and submit the form.
 
-![enter facility details](new-facility/enter-facility-name.png "Enter facility details")
+![enter facility details](new-facility/enter-facility-name.png "Enter facility details") <br><br>
 
 You should see the newly created Health Facility appear on the left hand side and when you select it, you will see details of the Health Facility appear on the right hand side.
 
-![created facility](new-facility/created-facility.png "Created facility")
+![created facility](new-facility/created-facility.png "Created facility") <br><br>
 
 #### Create CHW Area and CHW
 
@@ -74,41 +75,41 @@ We will now create a Place and the primary contact for the Place within one form
 
 Select the **Health Facility** on the left hand side. You will then select **New Area** on the right hand side.
 
-![new chw area](new-chw-area/new-chw-area.png "New CHW area")
+![new chw area](new-chw-area/new-chw-area.png "New CHW area") <br><br>
 
 Select the option that lets you create a new person within the form. This person will automatically become the primary contact for the created place.
 
-![create new person](new-chw-area/create-new-person.png "Create a new person")
+![create new person](new-chw-area/create-new-person.png "Create a new person") <br><br>
 
 Fill in the required fields and go to the next section.
 
-![fill fields](new-chw-area/fill-required-fields.png "Fill required fields")
+![fill fields](new-chw-area/fill-required-fields.png "Fill required fields") <br><br>
 
 You will get an option to name the Place after the created contact person or name it yourself. If you select **Yes**, the new place will be named `<contact-name>'s Area`. For example `Jane Doe's Area`.
 
-![name after contact](new-chw-area/name-after-primary-contact.png "Name after contact")
+![name after contact](new-chw-area/name-after-primary-contact.png "Name after contact") <br><br>
 
 Once you submit, a new CHW Area will be created. You should see on the right hand, the CHW Area name, the primary contact of the CHW Area, and the Health Facility that the CHW Area belongs to.
 
-![created area](new-chw-area/created-chw-area.png "Created CHW area")
+![created area](new-chw-area/created-chw-area.png "Created CHW area") <br><br>
 
 #### Create CHW Supervisor
 
 To create a primary contact for an existing Place (in this case, for the Health Facility that we created without a primary contact); select the Place and the select the **New Person** action.
 
-![new person](new-chw-supervisor/new-person.png "New person")
+![new person](new-chw-supervisor/new-person.png "New person") <br><br>
 
 A *new person form* will appear with an option to change the Place the new person will belong to. Once you submit this form, a new contact will be created in the Health Facility.
 
-![belongs to](new-chw-supervisor/belongs-to.png "Belongs to")
+![belongs to](new-chw-supervisor/belongs-to.png "Belongs to") <br><br>
 
 Finally, we will set the newly created person as a primary contact for the Health Facility they belong to. To do this, select the Health Facility and then select the **Edit** action.
 
-![edit facility](new-chw-supervisor/edit-facility.png "Edit facility")
+![edit facility](new-chw-supervisor/edit-facility.png "Edit facility") <br><br>
 
 You should see an edit form from which you can set the primary contact of the Health Facility. Click **Submit** to apply the changes.
 
-![set primary contact](new-chw-supervisor/set-primary-contact.png "Set primary contact")
+![set primary contact](new-chw-supervisor/set-primary-contact.png "Set primary contact") <br><br>
 
 ### 2. Create the CHW User
 
@@ -116,15 +117,15 @@ With the CHW and CHW Supervisor contacts created, you may want to log in as a CH
 
 Go to the **hamburger menu** and select **App Settings**.
 
-![app settings](new-chw-user/app-settings.png "App settings")
+![app settings](new-chw-user/app-settings.png "App settings") <br><br>
 
 When you are on the **App Settings** page, select **Users** on the right hand side and then select **Add User**.
 
-![add user](new-chw-user/add-user.png "Add user")
+![add user](new-chw-user/add-user.png "Add user") <br><br>
 
 You should now see an **Add User Form**. Fill in the user name, the select the role as **CHW** or **Regional Admin**. In the **Place** field, select the name of the CHW Area whose CHW you want to create a user for (you can search by typing the first few letters of the CHW Area name). Once that is done, under the **Associate Contact** field select the name of the CHW whose user you are creating. Finally, input a password and hit **Submit**.
 
-![user details](new-chw-user/fill-user-details.png "Fill user details")
+![user details](new-chw-user/fill-user-details.png "Fill user details") <br><br>
 
 Once this is done, you can logout and log into the app using the username and password that you just created.
 

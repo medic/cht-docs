@@ -10,8 +10,7 @@ relatedContent: >
   core/overview/transitions 
 ---
 
-## Purpose of the Tutorial
-
+{{% pageinfo %}}
 This tutorial will take you through how to manage the CHT application settings, including;
 
 - Setting user roles and permissions
@@ -19,6 +18,7 @@ This tutorial will take you through how to manage the CHT application settings, 
 - Configuring contact hierarchy and configuring replication.
 
 App settings allow you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
+{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 

@@ -31,13 +31,15 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 * Assess user training participation abandonment
 * Identify CHWs who need additional Supervisor support
 
-## User Roles Example
+## Users and Hierarchy Example
 
-![user-roles.png](user-roles.png) 
+| User                                 | Location                               | Devices                             | Role                                                                                                                                                                                                                                              |
+| :----------------------------------- | :------------------------------------- | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| National Officials and County Teams  | Central and district offices           | Desktop, laptop and smartphones     | Monitor central analytics regarding onboarding and training completion. Revisit content where needed.                                                 |
+| Sub-County Teams                     | Facilities or local office             | Tablet or smartphone                | Review CHW progress on aggregate, support CHW supervisors, and monitor location specific analytics.                                                   |
+| CHW Supervisors                      | Community level, based at facilities   | Smartphone                          | Verify CHW onboarding and training completion, follow up with those who have not. Complete their own onboarding and training tasks to new workflows.  |                                                                                                      |
+| CHWs                                 | Community level                        | Feature phones and some smartphones | Complete onboarding and training via SMS or app, provide feedback and ask for support where needed.                                                   |
 
-## Reporting Hierarchy Example
-
-![hierarchy.png](hierarchy.png)
 
 ## Workflow Examples
 
@@ -50,9 +52,6 @@ Users may log into their app with a link sent to them via SMS. The link allows t
 ### Remote Training Overview
 
 These SMS and App based workflow examples illustrate how the CHT enables remote training, tasking and communication at scale. Training can be done using simple guides, audio/videos suitable for low bandwidth, or interactive experiences on personal devices. Training programs can be easily configured to suit specific health program needs.
-<br><br>
-
-![workflow.png](workflow1.png)
 
 
 ### Remote Training by SMS
