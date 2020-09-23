@@ -32,7 +32,7 @@ Event Based Surveillance with the CHT offers opportunities for rapid deployment 
 
 | User                             | Location                               | Devices                             | Role                                                                                                                                                                                                                                              |
 | :------------------------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------------------------------------------------- |
-| National and District Officials  | Central and district offices           | Desktop, laptop and smartphones     | Monitor overall system and analytics regarding verified, investigaged and missing cases.           |
+| National and District Officials  | Central and district offices           | Desktop, laptop and smartphones     | Monitor overall system and analytics regarding verified, investigated and missing cases.           |
 | Sub-District Investigators       | Facilities or local offices            | Tablet or smartphone                | Investigate verified reports within 24 hours of signal report; add data to signal case.            |
 | CHW Supervisors                  | Community level, based at facilities   | Smartphones and personal phones     | Verify COVID-19 signals. Provide feedback and guidance to CHWs.                                    |
 | CHWs and Volunteers              | Community level                        | Feature phones and some smartphones | Detect and report signals. Provide guidance and health education to patients and families.         |
