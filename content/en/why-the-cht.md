@@ -82,6 +82,6 @@ Apps can be customized for different deployments and types of workflows. The Cor
 Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
 
 
-## Reference apps
+## Example and reference apps
 
 The Community Health Toolkit’s [Reference Apps]({{< ref "apps/examples" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.
