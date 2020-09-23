@@ -33,7 +33,7 @@ Contact Tracing with the CHT offers a rapidly scalable surveillance strategy by 
 | Data Entry  | Facility level       | Desktop, laptop or tablet           | Responsible for ensuring all contacts are traced. Create contact list based on confirmed cases. Assign contacts to Tracers for follow-up. Notified of unsuccessful traces and symptomatic cases. |
 | Tracer                | Community level      | Smartphone                          | Responsible for tracking contacts of confirmed case. View list of assigned contacts registered with Index Patient Screen contacts and submit Trace follow-up forms/tasks. |
 | COVID-19 Patient         | Community level      |                                     | Identified and contacted by staff to ensure all contacts are captured for follow-up. |
-| Contats               | Community level      | Feature phone                       | Receive notification alert upon registration of Tracer follow-up. Submit self-monitoring check during self-quarantine via SMS. Referred to care if symptomatic.  |
+| Contacts               | Community level      | Feature phone                       | Receive notification alert upon registration of Tracer follow-up. Submit self-monitoring check during self-quarantine via SMS. Referred to care if symptomatic.  |
 
 
 ## Workflow Example
