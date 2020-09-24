@@ -44,6 +44,7 @@ You also require Docker for your operating system:
 ## Implementation Steps
 
 Now that you have the dependent tools and software installed, you are ready to set up your CHT local environment.
+ 
 
 ### 1. Install medic-conf
 
@@ -53,9 +54,13 @@ Using npm on your terminal or command line, install medic-conf globally using th
 npm install -g medic-conf
 ```
 
+{{< figure src="confirm-medic-conf.png" link="confirm-medic-conf.png" class="right col-6 col-lg-8" >}}
+
 You can confirm that the installation was successful by typing `medic-conf` in your terminal or command line.
 
-![confirm medic-conf](confirm-medic-conf.png "Confirm medic-conf")
+ <br clear="all">
+
+*****
 
 ### 2. Install the Core Framework
 
@@ -67,9 +72,13 @@ Open your terminal or command line and navigate to the folder where you have you
 docker-compose up
 ```
 
+{{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
+
 Once the command is done running, navigate to `https://localhost` on a Google Chrome browser and login with the default username `medic` and default password `password`.
 
-![medic login](medic-login.png "Medic login")
+<br clear="all">
+
+ *****
 
 ### 3. Create and Upload a Blank Project
 
@@ -81,19 +90,22 @@ cd cht-app-tutorials
 medic-conf initialise-project-layout
 ```
 
-![initialise project layout](init-project-layout.png "Initialise project layout")
-
 Then deploy the blank project onto your local test environment with the command:
 
 ```zsh
 medic-conf --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
+{{< figure src="all-actions-completed.png" link="all-actions-completed.png" class="right col-6 col-lg-8" >}}
+
+
 `accept-self-signed-certs` tells medic-conf that it’s OK that the server’s certificate isn’t signed properly, which will be the case when using docker locally.
 
 Once you have run the above command it should complete with the message: `INFO All actions completed.`.
 
-![all actions completed](all-actions-completed.png "All actions completed")
+<br clear="all">
+
+ *****
 
 ### 4. Upload Test Data
 
