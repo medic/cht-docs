@@ -158,7 +158,7 @@ Go to the **hamburger menu** and select **App Settings**.
 
 {{< figure src="new-chw-user/add-user.png" link="new-chw-user/add-user.png" class="right col-6 col-lg-8" >}}
 
-When you are on the **App Settings** page, select **Users** on the right hand side and then select **Add User**.
+When you are on the **App Settings** page, select **Users** on the left-hand side and then select **Add User** on the right-hand side.
 
 <br clear="all">
 
