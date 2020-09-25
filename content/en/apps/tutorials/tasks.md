@@ -44,7 +44,7 @@ You should have a [functioning CHT instance with `medic-conf` installed locally]
 
 It is good practice to setup a reference document for the tasks that may be, but not limited to the format below.
 | Source  | UI Label | Condition  | Due Date | Resolved | Window period |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Assessment form  | Assessment follow up  | cough_duration > 3  | reported + 1 days  | When assessment follow up or another assessment report is submitted  | 7 days  |
 
 Create the task as per the detail above.
@@ -81,7 +81,7 @@ Create the task as per the detail above.
 }
 ```
 
-### 2. Create an assessment_follow_up form as specified below referenced by the task you created. Refer to the app-forms tutorial.
+### 2. Create an `assessment_follow_up` form as specified below referenced by the task you created. Refer to the app-forms tutorial.
 
 ##### Data fields
 
