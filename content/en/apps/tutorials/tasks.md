@@ -25,20 +25,20 @@ You will be configuring a task that allows Community Health Workers to conduct a
 
 ## Brief Overview of Key Concepts
 
-*[Tasks]({{< ref "apps/features/tasks/" >}})* gives a UI overview of tasks.
+*[Tasks]({{< ref "apps/features/tasks" >}})* gives a UI overview of tasks.
 
-*[Anatomy of a Task]({{< ref "design/apps/#anatomy-of-a-task" >}})* takes you through the anatomy of a task
+*[Anatomy of a Task]({{< ref "design/apps#anatomy-of-a-task" >}})* takes you through the anatomy of a task
 
-*[Task schema]({{< ref "apps/reference/tasks/#tasksjs" >}})* details a set of properties for tasks.
+*[Task schema]({{< ref "apps/reference/tasks#tasksjs" >}})* details a set of properties for tasks.
 
-*[Utils]({{< ref "apps/reference/tasks/#utils" >}})* define a set of utility functions in the Core Framework can make common tasks much easier.
+*[Utils]({{< ref "apps/reference/tasks#utils" >}})* define a set of utility functions in the Core Framework can make common tasks much easier.
 
-*[Nools extras]({{< ref "apps/reference/nools-extras/" >}})* where helper variables and functions for Tasks and Targets are defined.
+*[Nools extras]({{< ref "apps/reference/nools-extras" >}})* where helper variables and functions for Tasks and Targets are defined.
 
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) already and the [assessment form]({{< ref "apps/tutorials/app-forms.md#implementation-steps" >}}) setup.
+You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) already and the [assessment form]({{< ref "apps/tutorials/app-forms#implementation-steps" >}}) setup.
 
 ## Implementation Steps
 
