@@ -118,5 +118,5 @@ forms/app
 To build your tasks into your app, you must compile them into app-settings, then upload them to your instance. Remember to convert and upload your assessment_follow_up form
 
 ```zsh
-medic-conf --local compile-app-settings backup-app-settings upload-app-settings convert-app-forms upload-app-forms -- assessment_follow_up
+medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings backup-app-settings upload-app-settings convert-app-forms upload-app-forms -- assessment_follow_up
 ```
