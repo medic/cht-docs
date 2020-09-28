@@ -27,7 +27,7 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 *[SMS forms]({{< ref "apps/reference/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
 
-SMS forms are defined in the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file, and stored in the settings doc in the database.
+SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `medic-conf` tool, then stored in the settings doc in the database.
 
 *[SMS gateways]({{< ref "apps/guides/messaging/gateway" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
 

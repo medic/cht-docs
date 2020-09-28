@@ -20,7 +20,7 @@ This tutorial takes you through how to set up SMS schedules for CHT applications
 
 ## Brief Overview of Key Concepts
 
-*[SMS schedules]({{< ref "apps/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times.
+*[SMS schedules]({{< ref "apps/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `medic-conf` tool.
 
 SMS schedules can be triggered by *[SMS forms]({{< ref "apps/tutorials/sms-forms" >}})* or *[App forms]({{< ref "apps/reference/forms/app" >}})*.
 
