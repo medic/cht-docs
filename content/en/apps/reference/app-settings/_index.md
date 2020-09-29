@@ -9,7 +9,7 @@ keywords: settings
 
 The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{% ref "apps/features/admin" %}}) app, which updates the same settings file in the database. 
 
-The settings get compiled into this file with the `compile-app-settings` action in the `medic-conf` tool. The `app_settings/base_settings.json` file can be manually edited to modify individual settings. [`forms`]({{% ref "apps/reference/app-settings/forms" %}}) and [`schedules`]({{% ref "apps/reference/app-settings/schedules" %}}) sections can be defined in separate files named `app_settings/forms.json` and `app_settings/schedules.json` respectively. 
+The settings get compiled into the `app_settings.json` file with the `compile-app-settings` action in the `medic-conf` tool. Manually configurable settings are added to the `app_settings` folder at the root of the config folder. The `app_settings/base_settings.json` file can be manually edited to modify individual settings. [`forms`]({{% ref "apps/reference/app-settings/forms" %}}) and [`schedules`]({{% ref "apps/reference/app-settings/schedules" %}}) sections can be defined in separate files named `app_settings/forms.json` and `app_settings/schedules.json` respectively with the settings in the files overriding what might be already present in the `app_settings/base_settings.json` or `app_settings.json` files.
 
 Most sections are described on their own in the [Reference Documentation]({{< ref "apps/reference" >}}).
 
