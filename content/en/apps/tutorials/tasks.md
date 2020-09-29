@@ -1,7 +1,7 @@
 ---
 title: "Configuring Tasks"
-linkTitle: Tasks/Reminders
-weight: 7
+linkTitle: Tasks
+weight: 9
 description: >
   Configuring CHT tasks
 relatedContent: >
@@ -38,11 +38,12 @@ You will be configuring a task that allows Community Health Workers to conduct a
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) already and the [assessment form]({{< ref "apps/tutorials/app-forms#implementation-steps" >}}) setup.
+You should have a functioning [CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
 
 ## Implementation Steps
 
-It is good practice to setup a reference document for the tasks that may be, but not limited to the format below.
+It is good practice to set up a reference document for the tasks similar to the one below. Other formats may also be used.
+
 | Source  | UI Label | Condition  | Due Date | Resolved | Window period |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Assessment form  | Assessment follow up  | cough_duration > 3  | reported + 1 days  | When assessment follow up or another assessment report is submitted  | 7 days  |
@@ -110,13 +111,23 @@ Create the task as per the detail above.
 
 ##### Sub-folder
 
-```text
+```json
 forms/app
 ```
 
 #### Build
-To build your tasks into your app, you must compile them into app-settings, then upload them to your instance. Remember to convert and upload your assessment_follow_up form
+To build your tasks into your app, you must compile them into app-settings, then upload them to your instance. 
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings backup-app-settings upload-app-settings convert-app-forms upload-app-forms -- assessment_follow_up
+medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings backup-app-settings upload-app-settings
 ```
+
+Remember to convert and upload your assessment_follow_up form
+```zsh
+medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment_follow_up
+```
+
+## Frequently Asked Questions
+
+- [Tasks not appearing](https://forum.communityhealthtoolkit.org/t/tasks-not-appearing/537)
+- [How can I debug task rules?](https://forum.communityhealthtoolkit.org/t/how-can-i-debug-task-rules/108)
