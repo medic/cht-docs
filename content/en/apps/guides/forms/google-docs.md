@@ -1,6 +1,6 @@
 ---
-title: "Fetching forms from Google Docs"
-linkTitle: "Fetching forms from Google Docs"
+title: "Fetching forms from Google Drive"
+linkTitle: "Fetching forms from Google Drive"
 weight: 
 description: >
   Using medic-conf to obtain form files stored in Google Drive
