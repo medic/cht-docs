@@ -19,7 +19,7 @@ This action requires the following files in the top-level folder of your CHT app
 
 This JSON file contains key value pairs, where the key is the relative path and name for the downloaded file, and the value is the file's Google Drive File ID. 
 
-To get the ID for the form. Open the form in google sheets. The URL will look like this https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888 . The ID is the middle portion `12345ABCDEF`
+To get the File ID for the form open the form in Google Sheets. The URL will look something like `https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888` . The ID is the middle portion `12345ABCDEF`
 
 ```json
 {
