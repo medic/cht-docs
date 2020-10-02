@@ -17,7 +17,7 @@ This action requires the following files in the top-level folder of your CHT app
 
 ## forms-on-google-drive.json 
 
-This file should be a json file with a key value pair. The key being the folder/name of the doc when it gets saved locally. The value being the ID from the document saved in google drive. 
+This JSON file contains key value pairs, where the key is the relative path and name for the downloaded file, and the value is the file's Google Drive File ID. 
 
 To get the ID for the form. Open the form in google sheets. The URL will look like this https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888 . The ID is the middle portion `12345ABCDEF`
 
