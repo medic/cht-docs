@@ -28,3 +28,4 @@ muffet http://localhost:1313 \
   --exclude "https://github\.com/medic/cht-core/commit.*" \
   --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
   --exclude ".*localhost:5984.*"
+  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888"

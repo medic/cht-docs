@@ -17,7 +17,7 @@ This action requires two files in the folder you are going to execute this comma
 
 This file should be a json file with a key value pair. The key being the folder/name of the doc when it gets saved locally. The value being the ID from the document saved in google drive. 
 
-To get the ID for the form. Open the form in google sheets. The URL will look like this https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=1820319148 . The ID is the middle portion `12345ABCDEF`
+To get the ID for the form. Open the form in google sheets. The URL will look like this https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888 . The ID is the middle portion `12345ABCDEF`
 
 ```json
 {
