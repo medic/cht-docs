@@ -8,7 +8,7 @@ keywords: replications
 ---
 
 
-### Deprecation note: This is only available in versions 3.5.0 to 3.9.0. As of 3.10.0 this no longer configurable and happens nightly. 
+### Deprecation note: This is only available in versions 3.5.0 to 3.9.0. As of 3.10.0 this no longer configurable and happens nightly for user meta databases to a central meta data database. 
 
 Replications are defined under the `app_settings.replications` key as an array of replication objects. The definition takes the typical form below:
 
