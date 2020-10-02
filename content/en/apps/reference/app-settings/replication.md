@@ -3,7 +3,7 @@ title: ".replications [deprecated]"
 linkTitle: ".replications"
 weight: 5
 description: >
-  **Replications**: Configure replication of databases to a main meta database.
+  **Replications** [deprecated]: Configure replication of databases to a main meta database.
 keywords: replications
 ---
 
