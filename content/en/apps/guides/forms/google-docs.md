@@ -3,7 +3,7 @@ title: "Fetching forms from Google Docs"
 linkTitle: "Fetching forms from Google Docs"
 weight: 
 description: >
-  Using Medic-Conf to fetch files from Google Docs
+  Using medic-conf to obtain form files stored in Google Drive
 relatedContent: >
   apps/guides/forms/
 ---
@@ -51,4 +51,3 @@ With the files in place. Run `medic-conf fetch-forms-from-google-drive`
 Medic-conf will then prompt for an access code from your authenticated user. Follow the prompts through google's authentication and copy the access code into your command line. The forms will then be copied to the forms folder in the directory you are executing from. 
 
 *Note: If the browser does not launch own its own. Copy the URL and paste the authentication url into a browser and then follow the prompts.*
-
