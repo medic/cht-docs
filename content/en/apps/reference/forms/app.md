@@ -59,11 +59,11 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | end group |
 
 ## XPath
-We use [medic/openrosa-xpath-evaluator](https://github.com/medic/openrosa-xpath-evaluator) to evaluate xpath in Enketo forms. One non-standard feature is that you can concatenate string values with either the `+` operator but app builders are strongly discouraged from doing this as this feature has been deprecated and will be removed in a future version. 
+Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`medic/openrosa-xpath-evaluator`](https://github.com/medic/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
 
-To support more complex actions we also support [ODK Xpath Functions](https://getodk.github.io/xforms-spec/#xpath-functions) and [ODK XPath operators](https://getodk.github.io/xforms-spec/#xpath-operators). These allow you to perform programatic tasks in your forms. 
-
-Read more about the [XPath specification](https://www.w3.org/TR/xpath/)
+{{% alert title="Note" %}} 
+The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
+{{% /alert %}}
 
 
 
