@@ -9,7 +9,9 @@ relatedContent: >
 ---
 
 
-This action requires two files in the folder you are going to execute this command from. The files are `forms-on-google-drive.json` and  `.gdrive.secrets.json`. 
+To work collaboratively on form design it can be helpful to keep XLSForms in Google Drive. The `fetch-forms-from-google-drive` action downloads these XLSForms so that they can be converted to XForms and uploaded to your CHT app. 
+
+This action requires the following files in the top-level folder of your CHT app config: `forms-on-google-drive.json` and  `.gdrive.secrets.json`. 
 
 
 
