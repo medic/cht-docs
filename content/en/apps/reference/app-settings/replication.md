@@ -1,5 +1,5 @@
 ---
-title: ".replications"
+title: ".replications [deprecated]"
 linkTitle: ".replications"
 weight: 5
 description: >
