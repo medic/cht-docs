@@ -17,7 +17,7 @@ relatedContent: >
 
 ## Background (current situation, problem, and/or opportunity)
 
-Interviews can be a great way to empathize with your users because interviews can give you an in-depth understanding of the users’ values, perceptions, and experiences. They allow you to ask specific questions, while remaining open to exploring your participants’ points of view. They are also often combined with other user research methods, such as usability tests or surveys, so as to gain deeper insights into objective results by asking a user about them and to elicit the user’s subjective opinion on products or interactions.
+Interviews can be a great way to empathize with your users as they can provide an in-depth understanding of a users’ values, perceptions, and experiences. They allow you to ask specific questions while remaining open to exploring your participants’ points of view. They are also often combined with other user research methods, such as usability tests or surveys to gain deeper insights.
 
 ## Objectives
 
