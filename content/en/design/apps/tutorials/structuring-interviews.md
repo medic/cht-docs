@@ -32,7 +32,7 @@ By the end of the tutorial design thinkers will:
 - Gain knowledge on user interviews
 - Apply user interview best practices in their field of work
 
-## Brief overview of key concepts
+## Key Concepts
 
 - As the word implies, semi-structured interviews are somewhat structured in that you prepare a set of topics you would like to cover during the interview, but still open enough that you can follow leads in the conversation and change the order of topics.
 
@@ -76,7 +76,6 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
 
 
