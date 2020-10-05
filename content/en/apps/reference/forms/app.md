@@ -63,8 +63,8 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 
 | element | description |
 |---|---|
-| `start` | A timestamp of when the form entry was started, which is the time when the form is fully loaded. |
-| `end` | A timestamp of when the form entry ended, which is when the user hitting the Submit button. |
+| `start` | A timestamp of when the form entry was started, which occurs when the form is fully loaded. |
+| `end` | A timestamp of when the form entry ended, which is when the user hits the Submit button. |
 | `today` | Day on which the form entry was started. |
 
 ## XPath
