@@ -58,6 +58,15 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | note | r_followup_note | ${r_followup_instructions} |
 | end group |
 
+### Supported XLSForm Meta Fields
+[XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
+
+| element | description |
+|---|---|
+| `start` | A timestamp of when the form entry was started. |
+| `end` | A timestamp of when the form entry ended. |
+| `today` | Day of the survey. |
+
 ## XPath
 We use [medic/openrosa-xpath-evaluator](https://github.com/medic/openrosa-xpath-evaluator) to evaluate xpath in Enketo forms. One non-standard feature is that you can concatenate string values with either the `+` operator but app builders are strongly discouraged from doing this as this feature has been deprecated and will be removed in a future version. Read more about the [XPath specification](https://www.w3.org/TR/xpath/) and supported [ODK XPath operators](https://getodk.github.io/xforms-spec/#xpath-operators).
 
