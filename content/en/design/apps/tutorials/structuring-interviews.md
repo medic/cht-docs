@@ -34,7 +34,7 @@ By the end of the tutorial design thinkers will:
 
 ## Key Concepts
 
-- As the word implies, semi-structured interviews are somewhat structured in that you prepare a set of topics you would like to cover during the interview, but still open enough that you can follow leads in the conversation and change the order of topics.
+- As the term implies, semi-structured interviews are somewhat structured in that you prepare a set of topics you would like to cover during the interview, but that are still flexible enough that you can follow leads in the conversation and change the order of topics.
 
 - This means you have an interview guide with the questions or themes that you want to talk to the user about, but you are free to change the order of questions or to explore different topics that may arise during the interview. 
 
