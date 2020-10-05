@@ -54,7 +54,7 @@ By the end of the tutorial design thinkers will:
 
 When you conduct a user interview, it is important to consider the best way of ordering questions. Below are some tips on what to ask in the beginning, in the middle, and at the end of a user interview. 
 
-## Beginning
+### Beginning
 
 In the beginning of the interview, you should ask opening questions to set people at ease and build rapport. You should not ask about sensitive topics. Instead, focus on setting the stage and bringing your interviewees on board so they’re comfortable enough to be, and remain, open with you. Your questions  at this stage can include the following:
 - Brief participants what topics will be covered
@@ -76,5 +76,4 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
