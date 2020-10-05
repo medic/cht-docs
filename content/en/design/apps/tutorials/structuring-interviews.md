@@ -45,7 +45,7 @@ By the end of the tutorial design thinkers will:
   - In combination with user tests and formal experiments
   - In combination with observations
 
-## User Interview requirements
+## User Interview Requirements
 
 - A good interview requires preparation and careful consideration on the part of the interviewer.
 - It’s important to be aware of how to ask questions and how to listen in order to gain valid insights into your participant’s life and experiences
@@ -76,7 +76,6 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
 
 
