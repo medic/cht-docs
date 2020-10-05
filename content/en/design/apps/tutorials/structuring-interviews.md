@@ -70,10 +70,9 @@ In the middle of the interview, you’re hitting high gear. Having established a
 - Steer participants back on track if they go too far off topic.
 - Show that you have been listening. 
 
-## End
+### End
 
 At the end of the interview, you wrap up in a way that makes participants feel as though they have said what they wanted to say and that their answers are valuable. Things you should do include:
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
