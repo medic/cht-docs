@@ -21,7 +21,7 @@ Interviews can be a great way to empathize with your users as they can provide a
 
 ## Objectives
 
-- To understand pros and cons of semi structured qualitative interviews
+- To understand pros and cons of semi-structured qualitative interviews
 - To understand when to conduct user interviews
 - To understand how to structure user interviews
 
