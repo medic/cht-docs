@@ -25,7 +25,7 @@ Interviews can be a great way to empathize with your users because interviews ca
 - To understand when to conduct user interviews
 - To understand how to structure user interviews
 
-## Expected outcome
+## Expected Outcome
 
 By the end of the tutorial design thinkers will:
 
@@ -76,7 +76,6 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
 
 
