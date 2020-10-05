@@ -62,7 +62,7 @@ In the beginning of the interview, you should ask opening questions to set peopl
 - Asking “safe” questions such as what their role is in their organization
 - Asking concrete questions that are easy to answer
 
-## Middle
+### Middle
 
 In the middle of the interview, you’re hitting high gear. Having established a direct channel with your interviewees (the users), you move on and ask the bulk of your questions. The predetermined order of the questions may change based on the direction the conversation is taking. Some of the tips here include:
 - Keep the flow of the conversation as natural as possible, but cover the topics you want to cover.
@@ -76,7 +76,6 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
 
 
