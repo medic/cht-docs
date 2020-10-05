@@ -9,7 +9,7 @@ relatedContent: >
 ---
 
 
-{{% pageinfo %}}Understanding the people you are designing for is a paramount step in the design process, and so one way to achieve that is through conducting user interviews. This tutorial will help design thinkers to understand users’ experiences from their own point of view in terms of: 
+{{% pageinfo %}}Understanding the people you are designing for is a paramount step in the design process. One way to achieve that is through conducting user interviews. This tutorial will help design thinkers to understand users’ experiences from their own point of view in terms of: 
 
 - Why they use products in a certain way
 - How they feel about something
