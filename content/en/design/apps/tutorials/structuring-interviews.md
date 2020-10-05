@@ -1,5 +1,5 @@
 ---
-title: "Empathizing with users"
+title: "Empathizing With Users"
 linkTitle: Structuring user interviews
 weight: 1
 description: >
@@ -76,6 +76,5 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
 
