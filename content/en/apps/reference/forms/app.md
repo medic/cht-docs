@@ -63,9 +63,9 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 
 | element | description |
 |---|---|
-| `start` | A timestamp of when the form entry was started. |
-| `end` | A timestamp of when the form entry ended. |
-| `today` | Day of the survey. |
+| `start` | A timestamp of when the form entry was started, which is the time when the form is fully loaded. |
+| `end` | A timestamp of when the form entry ended, which is when the user hitting the Submit button. |
+| `today` | Day on which the form entry was started. |
 
 ## XPath
 We use [medic/openrosa-xpath-evaluator](https://github.com/medic/openrosa-xpath-evaluator) to evaluate xpath in Enketo forms. One non-standard feature is that you can concatenate string values with either the `+` operator but app builders are strongly discouraged from doing this as this feature has been deprecated and will be removed in a future version. Read more about the [XPath specification](https://www.w3.org/TR/xpath/) and supported [ODK XPath operators](https://getodk.github.io/xforms-spec/#xpath-operators).
