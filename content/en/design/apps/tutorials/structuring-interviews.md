@@ -50,7 +50,7 @@ By the end of the tutorial design thinkers will:
 - A good interview requires preparation and careful consideration on the part of the interviewer.
 - It’s important to be aware of how to ask questions and how to listen in order to gain valid insights into your participant’s life and experiences
 
-## How to structure user interviews
+## User Interview Structure
 
 When you conduct a user interview, it is important to consider the best way of ordering questions. Below are some tips on what to ask in the beginning, in the middle, and at the end of a user interview. 
 
@@ -76,7 +76,6 @@ At the end of the interview, you wrap up in a way that makes participants feel a
 - Asking if there is anything participants would like to add.
 - Telling your participants what you are going to do with their data and what the value is for them. 
 - Thanking them for taking the time to help with your research. 
-
 
 
 
