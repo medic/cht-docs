@@ -41,7 +41,7 @@ By the end of the tutorial design thinkers will:
 - User interviews can be very informative and helpful, but only if they are used correctly and for the right things. It’s important to know what you can expect to get out of interviews and what you shouldn’t expect to get out of interviews.
 
 - User interviews can be conducted for the following reasons:
-  - Exploration-before a clear concept has been defined or before a major redesign.
+  - Exploration – before a clear concept has been defined or before a major redesign.
   - In combination with user tests and formal experiments
   - In combination with observations
 
