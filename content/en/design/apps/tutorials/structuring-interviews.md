@@ -34,21 +34,20 @@ By the end of the tutorial design thinkers will:
 
 ## Key Concepts
 
-- As the term implies, semi-structured interviews are somewhat structured in that you prepare a set of topics you would like to cover during the interview, but that are still flexible enough that you can follow leads in the conversation and change the order of topics.
+As the term implies, semi-structured interviews are somewhat structured in that you prepare a set of topics you would like to cover during the interview, but that are still flexible enough that you can follow leads in the conversation and change the order of topics.
 
-- This means you have an interview guide with the questions or themes that you want to talk to the user about, but you are free to change the order of questions or to explore different topics that may arise during the interview. 
+This means you have an interview guide with the questions or themes that you want to talk to the user about, but you are free to change the order of questions or to explore different topics that may arise during the interview. 
 
-- User interviews can be very informative and helpful, but only if they are used correctly and for the right things. It’s important to know what you can expect to get out of interviews and what you shouldn’t expect to get out of interviews.
+User interviews can be very informative and helpful, but only if they are used correctly and for the right things. It’s important to know what you can expect to get out of interviews and what you shouldn’t expect to get out of interviews.
 
-- User interviews can be conducted for the following reasons:
-  - Exploration – before a clear concept has been defined or before a major redesign.
+User interviews can be conducted for the following reasons:
+  - Exploration – before a clear concept has been defined or before a major redesign
   - In combination with user tests and formal experiments
   - In combination with observations
 
 ## User Interview Requirements
 
-- A good interview requires preparation and careful consideration on the part of the interviewer.
-- It’s important to be aware of how to ask questions and how to listen in order to gain valid insights into your participant’s life and experiences
+A good interview requires preparation and careful consideration on the part of the interviewer. It’s important to be aware of how to ask questions and how to listen in order to gain valid insights into your participant’s life and experiences.
 
 ## User Interview Structure
 
@@ -65,14 +64,14 @@ In the beginning of the interview, you should ask opening questions to set peopl
 ### Middle
 
 In the middle of the interview, you’re hitting high gear. Having established a direct channel with your interviewees (the users), you move on and ask the bulk of your questions. The predetermined order of the questions may change based on the direction the conversation is taking. Some of the tips here include:
-- Keep the flow of the conversation as natural as possible, but cover the topics you want to cover.
-- Pick up on what participants have said earlier and get full replies to questions they have only partially answered.
-- Steer participants back on track if they go too far off topic.
-- Show that you have been listening. 
+- Keep the flow of the conversation as natural as possible, but cover the topics you want to cover
+- Pick up on what participants have said earlier and get full replies to questions they have only partially answered
+- Steer participants back on track if they go too far off topic
+- Show that you have been listening 
 
 ### End
 
 At the end of the interview, you wrap up in a way that makes participants feel as though they have said what they wanted to say and that their answers are valuable. Things you should do include:
-- Asking if there is anything participants would like to add.
-- Telling your participants what you are going to do with their data and what the value is for them. 
-- Thanking them for taking the time to help with your research. 
+- Asking if there is anything participants would like to add
+- Telling your participants what you are going to do with their data and what the value is for them
+- Thanking them for taking the time to help with your research 
