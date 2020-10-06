@@ -58,6 +58,15 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | note | r_followup_note | ${r_followup_instructions} |
 | end group |
 
+### Supported XLSForm Meta Fields
+[XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
+
+| element | description |
+|---|---|
+| `start` | A timestamp of when the form entry was started, which occurs when the form is fully loaded. |
+| `end` | A timestamp of when the form entry ended, which is when the user hits the Submit button. |
+| `today` | Day on which the form entry was started. |
+
 ## XPath
 Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`medic/openrosa-xpath-evaluator`](https://github.com/medic/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
 
