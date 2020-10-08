@@ -11,7 +11,7 @@ relatedContent: >
 
 The **App Management** pages are a desktop-only interface meant for users with a reliable internet connection.
 
-{{< figure src="admin-roles.png" link="admin-roles.png" class="col-12 col-lg-8" >}}
+{{< figure src="admin-roles.png" link="admin-roles.png" class="col-12 col-lg-10" >}}
 <br clear="all">
 
 ## Page Tabs

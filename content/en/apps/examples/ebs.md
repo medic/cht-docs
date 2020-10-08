@@ -27,18 +27,20 @@ Event Based Surveillance with the CHT offers opportunities for rapid deployment 
 * Health program continuity with the inclusion of pre-existing care workflows
 * System scalability through training CHWs remotely on their role and responsibilities
 
-## User Roles Example
 
-![user-roles.png](user-roles.png)
+## Users and Hierarchy Example
 
-## Reporting Hierarchy Example
-
-![hierarchy.png](hierarchy.png)
+| User                             | Location                               | Devices                             | Role                                                                                                                                                                                                                                              |
+| :------------------------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------------------------------------------------- |
+| National and District Officials  | Central and district offices           | Desktop, laptop and smartphones     | Monitor overall system and analytics regarding verified, investigated and missing cases.           |
+| Sub-District Investigators       | Facilities or local offices            | Tablet or smartphone                | Investigate verified reports within 24 hours of signal report; add data to signal case.            |
+| CHW Supervisors                  | Community level, based at facilities   | Smartphones and personal phones     | Verify COVID-19 signals. Provide feedback and guidance to CHWs.                                    |
+| CHWs and Volunteers              | Community level                        | Feature phones and some smartphones | Detect and report signals. Provide guidance and health education to patients and families.         |
 
 ## Workflow Example
 
 This demo illustrates a workflow that enables CHWs to use SMS to report signal codes for specific community health threats. The CHW Supervisor can then verify the initial report and, if warranted, escalate to the sub-county for investigation and follow-up. It is designed to be flexible and can be combined with other complimentary care workflows.
 
-{{< youtube 5uIEs4DQLRA >}} 
+{{< youtube 5uIEs4DQLRA >}} <br><br>
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1BvYA0c8vHlXdGiL1Ne9cbWM4rGaarUGz9SfckP3NWG4).

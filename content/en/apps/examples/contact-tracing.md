@@ -26,18 +26,20 @@ Contact Tracing with the CHT offers a rapidly scalable surveillance strategy by 
 * Referring symptomatic cases for skilled care following triage
 * Engaging in community education and follow-up during isolation
 
-## App User Roles Example
+## Users and Hierarchy Example
 
-![user-roles.png](user-roles.png)
+| User                  | Location             | Devices                             | Role                                                                                                                                                                                                                                              |
+| :-------------------- | :------------------- | :---------------------------------- | :------------------------------------------------------------------------------------------------- |
+| Data Entry  | Facility level       | Desktop, laptop or tablet           | Responsible for ensuring all contacts are traced. Create contact list based on confirmed cases. Assign contacts to Tracers for follow-up. Notified of unsuccessful traces and symptomatic cases. |
+| Tracer                | Community level      | Smartphone                          | Responsible for tracing and screening the contacts of the confirmed case upon notification, verifying symptomatic contacts on self-monitoring and escalating them for further investigation. |
+| COVID-19 Patient         | Community level      |                                     | Identified and contacted by staff to ensure all contacts are captured for follow-up. |
+| Contacts               | Community level      | Feature phone                       | Receive notification alert upon registration of Tracer follow-up. Submit self-monitoring check during self-quarantine via SMS. Referred to care if symptomatic.  |
 
-## Reporting Hierarchy Example
-
-![hierarchy.png](hierarchy.png)
 
 ## Workflow Example
 
 This demo illustrates how a CHT workflow for tracing of contacts of suspected or confirmed patient cases can be deployed to support a COVID-19 health program response. It works on both SMS and the CHT app. It can be combined with other care workflows and configured to suit specific health system needs, particularly in terms of tracer roles. 
 
-{{< youtube I8bBeh80j-0 >}}
+{{< youtube I8bBeh80j-0 >}} <br>
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1gG2CqndW5pWp6Lx_3t6haiqqO-wFY7_JJ4r246YbVEw)

@@ -12,7 +12,7 @@ Page tabs are the primary way to navigate apps built with the Core Framework. Th
 
 {{< figure src="tabs.gif" link="tabs.gif" class="left col-12 col-lg-7" >}}
 
-<br><br><br>
+<br><br><br><br>
 
 - **Messages​**: A place for community-based staff to send and exchange messages
 - **Tasks​**: This is a list of upcoming visits, follow-ups, or other required tasks
