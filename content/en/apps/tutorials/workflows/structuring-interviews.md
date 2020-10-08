@@ -1,9 +1,9 @@
 ---
-title: "Empathizing With Users"
-linkTitle: Structuring user interviews
+title: "How to Structure User Interviews"
+linkTitle: User Interviews
 weight: 1
 description: >
-  How to structure user interviews
+  Empathizing with users
 relatedContent: >
   design/personas
 ---
