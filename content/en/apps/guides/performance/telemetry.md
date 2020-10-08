@@ -123,3 +123,130 @@ node get_users_meta_docs.js --mode batch --type telemetry https://admin:pass@loc
 ```
 
 This will save a file named `telemetry.json` containing all the telemetry data in the current directory. 
+
+## Code Samples
+
+### Logged in from the browser
+```js
+{
+  "_id": "telemetry-2020-5-medic-016304ab-7167-4c97-93bb-a6626ef6128d",
+  "_rev": "1-90a94d76eb30ac47e2f498b80cf54cd1",
+  "type": "telemetry",
+  "metrics": {
+    "boot_time": {
+      "sum": 3879.43500012625,
+      "min": 308.0550000304356,
+      "max": 1110.6599999475293,
+      "count": 7,
+      "sumsqr": 2616858.529000253
+    },
+    "boot_time:1:to_first_code_execution": {
+      "sum": 2096.309999935329,
+      "min": 141.66500000283122,
+      "max": 558.6599999805912,
+      "count": 8,
+      "sumsqr": 672987.1618553334
+    },
+    "boot_time:2:to_bootstrap": {
+      "sum": 628.5150001058355,
+      "min": 70.50499995239079,
+      "max": 129.88000002223998,
+      "count": 7,
+      "sumsqr": 58704.48214660012
+    },
+    "boot_time:3:to_angular_bootstrap": {
+      "sum": 1415.5550000723451,
+      "min": 45.25000008288771,
+      "max": 787.9549999488518,
+      "count": 7,
+      "sumsqr": 732805.5498113176
+    },
+    "search:contacts:types": {
+      "sum": 3728.9899999741465,
+      "min": 96.60000004805624,
+      "max": 1134.1099999845028,
+      "count": 8,
+      "sumsqr": 2939824.639961114
+    },
+    "search:reports:subjectIds": {
+      "sum": 3825.224999745842,
+      "min": 27.304999995976686,
+      "max": 982.2900000144728,
+      "count": 25,
+      "sumsqr": 1461182.0137715642
+    }
+  },
+  "metadata": {
+    "year": 2020,
+    "month": 5,
+    "user": "medic",
+    "deviceId": "016304ab-7167-4c97-93bb-a6626ef6128d",
+    "versions": {
+      "app": "master",
+      "forms": {
+        "client_review": "2-51ad4bd1c86c18ea768196da8264147e",
+        "contact:clinic:create": "16-8dbb4dde6f8f9067e9cbed5b44ce5fd0",
+        "contact:clinic:edit": "2-c1c955042db963a95470bdf891bcef6f",
+        "contact:district_hospital:create": "2-42b8b579b38ca6c2978c238e7d9c78fe",
+        "contact:district_hospital:edit": "2-4360bb0eb6f6ff863849a07adac7e851",
+        "contact:health_center:create": "2-c9b86820479f211c8e505eba150c5203",
+        "contact:health_center:edit": "2-19b3da5f9f146be07ec1854a372e374b",
+        "contact:person:create": "2-230d39c41682da720b83e4909b138c9b",
+        "contact:person:edit": "6-75781492122157beb7c2451861970ece",
+        "death_report": "2-97cfa3cc24ee743dfea03c019d644bec",
+        "delivery": "2-adf37c0da7d5e58c8e4d27fc940f70e6",
+        "enroll": "10-13322d437e301f3c436e3b989a3fd384",
+        "no_contact": "4-0901afd126ec6c87fe952ca3c3a652ed",
+        "pnc_danger_sign_follow_up_baby": "2-12e8989f6774828bb10aa4b675bc43ff",
+        "pnc_danger_sign_follow_up_mother": "2-62f58b6e0ade10d70f15df73ddb6a025",
+        "pregnancy": "2-4fa3db96cae638c4cb041125c9970496",
+        "pregnancy_danger_sign": "2-49758bfd894fb5db6e719bff864f9da9",
+        "pregnancy_danger_sign_follow_up": "2-a9a2b6800d6f93e151a3a63359620976",
+        "pregnancy_facility_visit_reminder": "2-0e3deaf22966166d05bcf803615499c8",
+        "pregnancy_home_visit": "2-283eb323e61a7fc756bda61f9d9be382",
+        "referral_for_care": "2-627c6c21bd54e482133acc8188a71f8d",
+        "undo_death_report": "2-3a4ca8d678f0338d7044cb1bc35d103d"
+      }
+    }
+  },
+  "device": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36",
+    "hardwareConcurrency": 4,
+    "screen": {
+      "width": 1920,
+      "height": 1080
+    },
+    "deviceInfo": {}
+  },
+  "dbInfo": {
+    "db_name": "medic",
+    "purge_seq": "0-g1AAAAEzeJzLYWBg4MhgTmHgzcvPy09JdcjLz8gvLskBCjPlsQBJhgNA6v____ezEhnwqnsAUfefkLoFEHX7CalrgKibj1tdkgKQTLLHa2dSAkhNPX41DiA18XjVJDIkyUMUZAEAuYBi9g",
+    "update_seq": "1456-g1AAAAE2eJzLYWBg4MhgTmHgzcvPy09JdcjLz8gvLskBCjMlMiTJ____PytxAg4FSQpAMskerGYhLjUOIDXxYDVTcKlJAKmpB6tZhENNHguQZGgAUkBl87MSl-JVtwCibn9WYjtedQcg6u7jdj9E3QOIuv9ZSQwMjDVZAFZfZ6g",
+    "sizes": {
+      "file": 67196510,
+      "external": 65800620,
+      "active": 65357308
+    },
+    "other": {
+      "data_size": 65800620
+    },
+    "doc_del_count": 41,
+    "doc_count": 497,
+    "disk_size": 67196510,
+    "disk_format_version": 7,
+    "data_size": 65357308,
+    "compact_running": false,
+    "cluster": {
+      "q": 8,
+      "n": 1,
+      "w": 1,
+      "r": 1
+    },
+    "instance_start_time": "0",
+    "host": "http://localhost:5988/medic/",
+    "auto_compaction": false,
+    "adapter": "http"
+  }
+}
+```
+
