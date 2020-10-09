@@ -42,4 +42,4 @@ Convert and build the contact forms into your application using the `convert-con
 
 > `medic-conf --local convert-contact-forms upload-contact-forms`
 
-Starting in cht-core release 3.10, we can now use property files in contact forms to help with flxibly showing/hiding them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/contact#formsappform_namepropertiesjson" >}}).
+Starting in cht-core release 3.10, we can now configure property files in contact forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/contact#formsappform_namepropertiesjson" >}}).
