@@ -11,7 +11,7 @@ relatedContent: >
 ## Overview
 To avoid using ngrok or pagekite to allow remote access to your dev instance (https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#ngrok), you can use a remote linux server to terminate HTTPS connections with free Let's Encrypt certs and reverse proxy this traffic back to a local dev instance over an SSH tunnel:
 
-[<img src="https://user-images.githubusercontent.com/8253488/95509447-61aee500-0969-11eb-89e3-d6f56cb440e8.png" width=100% height=100%>](https://user-images.githubusercontent.com/8253488/95509447-61aee500-0969-11eb-89e3-d6f56cb440e8.png)
+[<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
 
 ## Prereqs
 This guide assume:
@@ -28,7 +28,7 @@ Be extra careful with this process! The end result will be that your development
 
 Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
 ## Steps
-1. Create a DNS entry.  Let's assume it's cht.example.com.  It should point to your Ubuntu server
+1. Create a DNS entry.  Let's assume it's cht.example.com.  It should point to the IP of your Ubuntu server. If you do not already have a domain name with DNS services that you can use, you can sign up for a free service to do this like [noip.com](https://www.noip.com/remote-access).
 1. On your Ubuntu server, create a new apache vhost in /etc/apache2/sites-available/100-cht.example.com.conf with the following contents:
     ```
     <VirtualHost *:80>
@@ -70,4 +70,4 @@ Never expose a development instance to the internet where you've replicated prod
 
 Your traffic is now flowing like this from the SSH command above:
 
-[<img src="https://user-images.githubusercontent.com/8253488/95509240-14327800-0969-11eb-8cb5-dad4fce0cbab.png" width=100% height=100%>](https://user-images.githubusercontent.com/8253488/95509240-14327800-0969-11eb-8cb5-dad4fce0cbab.png)
+[<img src="/apps/guides/debugging/images/ssh.ports.svg" width=100% height=100%>](/apps/guides/debugging/images/ssh.ports.svg)
