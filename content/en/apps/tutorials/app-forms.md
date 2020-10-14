@@ -7,9 +7,9 @@ description: >
 relatedContent: >
   apps/reference/forms/contact
   apps/reference/forms/app
-  design/apps/#forms
-  design/apps/#content-and-layout
-  design/apps/#summary-page
+  design/best-practices/#forms
+  design/best-practices/#content-and-layout
+  design/best-practices/#summary-page
 
 ---
 

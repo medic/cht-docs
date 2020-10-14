@@ -6,7 +6,7 @@ description: >
  How to set form properties that contain meta information related to App forms
 relatedContent: >
   apps/reference/forms/app/#formsappform_namepropertiesjson
-  design/apps
+  design/best-practices
 
 ---
 
