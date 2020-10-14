@@ -1,5 +1,5 @@
 ---
-title: "CHT Component Library"
+title: "Component Library"
 linkTitle: "Component Library"
 weight: 3
 description: >
