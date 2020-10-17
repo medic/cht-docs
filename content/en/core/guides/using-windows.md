@@ -10,7 +10,7 @@ We don't actively support development on Windows, instead preferring MacOS or Li
 
 However, Microsoft has recently been stabilizing their [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about), which appears to work reasonably well for development.
 
-Installation instructions are mostly the same as they written in [the README](https://github.com/medic/medic/blob/master/README.md) with a couple of caveats as of time of writing (2019-07-25), noted below.
+Installation instructions are mostly the same as they written in [the README](https://github.com/medic/cht-core/blob/master/README.md) with a couple of caveats as of time of writing (2019-07-25), noted below.
 
 {{% alert title="Note" %}}
 Both the Windows Subsystem for Linux and Medic's support for developing in it is very much in beta. These are advanced instructions, expect some understanding of linux and may not always work. Be patient and raise bugs as you find them!
