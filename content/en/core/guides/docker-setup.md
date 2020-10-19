@@ -43,7 +43,7 @@ version: '3.7'
 services:
   medic-os:
     container_name: medic-os
-    image: medicmobile/ medic-os:cht-3.9.0-rc.2
+    image: medicmobile/medic-os:latest
     volumes:
       - medic-data:/srv
     ports:
