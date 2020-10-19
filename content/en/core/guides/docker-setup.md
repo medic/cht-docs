@@ -60,7 +60,7 @@ services:
 
   haproxy:
     container_name: haproxy
-    image: medicmobile/haproxy:rc-1.17
+    image: medicmobile/haproxy:latest
     volumes:
       - medic-data:/srv    
     environment:
