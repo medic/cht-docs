@@ -66,7 +66,7 @@ Converting that CSV file to JSON docs with the `csv-to-docs` action would genera
 }
 ```
 
-#### Special notations
+### Special notations
 
 ##### Specifying property type
 
@@ -97,7 +97,23 @@ A special column type, `excluded`, is used for excluding a column from the final
 
 This can be useful if using a column for doc references.
 
-#### Including another doc
+#### Available types
+
+| type | outcome |
+| --------------------- | ----------------- |
+| date          | Creates a date using Date() in javascript |
+| rel-date      | Creates a date with the addition of number days to the current date. A negative number results in a future date. |
+| timestamp     | Sets the string passed in as a timestamp number |
+| rel-timestamp | Creates a timestamp that is offset by miliseconds against the current(NOW) timestamp. A negative number results in a future timestamp |
+| int           | Parses the value as an int using Number.parseInt() |
+| bool          | sets boolean value based on string passed |
+| string        | Sets the value as the string being interpurted. Can be omitted if values are only strings. |
+| float         | Sets value to Number.parseFloat() |
+
+
+
+
+### Including another doc
 
 Often times database documents need to include or refer to other documents in the database. This can be achieved with queries across CSV files, which is done by specifying a query in the column header. The query specifies the doc type (`person` or `place`) and matching condition.
 
