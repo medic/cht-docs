@@ -43,7 +43,7 @@ version: '3.7'
 services:
   medic-os:
     container_name: medic-os
-    image: medicmobile/medic-os:cht-3.7.0-rc.1
+    image: medicmobile/medic-os:latest
     volumes:
       - medic-data:/srv
     ports:
@@ -60,7 +60,7 @@ services:
 
   haproxy:
     container_name: haproxy
-    image: medicmobile/haproxy:rc-1.16
+    image: medicmobile/haproxy:latest
     volumes:
       - medic-data:/srv    
     environment:
@@ -97,7 +97,7 @@ In certain shells, docker-compose may not interpolate the admin password that wa
 
 Once containers are setup, please run the following command from your host terminal:
 ```
-$ docker exec -it medic-os /bin/bash -c "sed -i 's/--install=3.7.0/--complete-install/g' /srv/scripts/horticulturalist/postrun/horticulturalist"
+$ docker exec -it medic-os /bin/bash -c "sed -i 's/--install=3.9.0/--complete-install/g' /srv/scripts/horticulturalist/postrun/horticulturalist"
 $ docker exec -it medic-os /bin/bash -c "/boot/svc-stop medic-core openssh && /boot/svc-stop medic-rdbms && /boot/svc-stop medic-couch2pg"
 ```
 
@@ -149,7 +149,7 @@ In your compose file, change the ports under medic-os:
 services:
   medic-os:
     container_name: medic-os
-    image: medicmobile/medic-os:cht-3.7.0-rc.1
+    image: medicmobile/medic-os:latest
     volumes:
       - medic-data:/srv
     ports:

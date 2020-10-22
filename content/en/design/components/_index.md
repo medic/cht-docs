@@ -1,9 +1,9 @@
 ---
-title: "Guidelines for Core Developers"
-linkTitle: "Core Development"
+title: "Component Library"
+linkTitle: "Component Library"
 weight: 3
 description: >
-  The standard aspects of our core framework for reuse to encourage consistency when building new components
+  The standard aspects of our core framework for reuse to encourage consistency when building new pages or components
 ---
 
 The purpose of this guide is to document the standard aspects of our core framework and allow designers and developers to focus on solving challenges, rather than reinventing interface elements that are already in use.   Changes to the styles in this document should go through product design and be implemented throughout the app before this document is updated. 

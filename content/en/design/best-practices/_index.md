@@ -1,6 +1,6 @@
 ---
-title: "Guidelines for App Developers"
-linkTitle: "App Development"
+title: "Configuration Best Practices"
+linkTitle: "Best Practices"
 weight: 2
 description: >
   This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app. 
