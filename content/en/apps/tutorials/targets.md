@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/features/targets
   apps/reference/targets
-  design/apps/#anatomy-of-a-task
+  design/best-practices/#anatomy-of-a-task
 
 ---
 
