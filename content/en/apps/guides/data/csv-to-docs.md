@@ -108,7 +108,7 @@ This can be useful if using a column for doc references.
 | int           | Parses the value as an int using Number.parseInt() |
 | bool          | Sets boolean value based on string passed, either `"true"` or `"false"` |
 | string        | Sets the value as the string being interpreted. Can be omitted if values are only strings. |
-| float         | Sets value to Number.parseFloat() |
+| float         | Sets value using Number.parseFloat() |
 
 
 
