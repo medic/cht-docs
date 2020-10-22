@@ -104,7 +104,7 @@ This can be useful if using a column for doc references.
 | date          | Creates a date using Date() in javascript |
 | rel-date      | Creates a date with the addition of number days to the current date. A negative number results in a future date. |
 | timestamp     | Sets the string passed in as a timestamp number |
-| rel-timestamp | Creates a timestamp that is offset by miliseconds against the current(NOW) timestamp. A negative number results in a future timestamp |
+| rel-timestamp | Creates a timestamp that is offset by milliseconds against the current(NOW) timestamp. A negative number results in a future timestamp |
 | int           | Parses the value as an int using Number.parseInt() |
 | bool          | Sets boolean value based on string passed, either `"true"` or `"false"` |
 | string        | Sets the value as the string being interpreted. Can be omitted if values are only strings. |
