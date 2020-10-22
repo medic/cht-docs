@@ -39,7 +39,7 @@ Create a `targets.js` file (this may have already been created by the `initialis
 
 ### 1. Define an All-Time Target Widget
 
-Edit the `target.js` file to define an all-time widget as shown below:
+Edit the `targets.js` file to define an all-time widget as shown below:
 
 ```javascript
 module.exports = [
@@ -60,7 +60,7 @@ module.exports = [
 
 ### 2. Define a Monthly Target Widget
 
-Edit the `target.js` file and add another target widget definition object to define a monthly widget as shown below:
+Edit the `targets.js` file and add another target widget definition object to define a monthly widget as shown below:
 
 ```javascript
 module.exports = [
