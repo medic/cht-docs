@@ -103,7 +103,7 @@ This can be useful if using a column for doc references.
 | --------------------- | ----------------- |
 | date          | Creates a date using Date() in javascript |
 | rel-date      | Creates a date with the addition of number days to the current date. A negative number results in a future date. |
-| timestamp     | Sets the string passed in as a timestamp number |
+| timestamp     | Sets the string passed in as a timestamp number. If the timestamp in the csv is in milliseconds that will be used. If a date is passed it will be parsed and the milliseconds returned. EX: 04 Dec 1995 00:12:00 GMT becomes 818035920000 |
 | rel-timestamp | Creates a timestamp that is offset by milliseconds against the current(NOW) timestamp. A negative number results in a future timestamp |
 | int           | Parses the value as an int using Number.parseInt() |
 | bool          | Sets boolean value based on string passed, either `"true"` or `"false"` |
