@@ -107,7 +107,7 @@ This can be useful if using a column for doc references.
 | rel-timestamp | Creates a timestamp that is offset by miliseconds against the current(NOW) timestamp. A negative number results in a future timestamp |
 | int           | Parses the value as an int using Number.parseInt() |
 | bool          | sets boolean value based on string passed |
-| string        | Sets the value as the string being interpurted. Can be omitted if values are only strings. |
+| string        | Sets the value as the string being interpreted. Can be omitted if values are only strings. |
 | float         | Sets value to Number.parseFloat() |
 
 
