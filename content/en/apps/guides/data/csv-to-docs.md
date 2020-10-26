@@ -68,7 +68,7 @@ Converting that CSV file to JSON docs with the `csv-to-docs` action would genera
 
 ### Special notations
 
-##### Specifying property type
+#### Specifying property type
 
 By default, values are parsed as strings. To parse a CSV column as a different JSON type, append the JSON type name to the column definition, e.g.
 
