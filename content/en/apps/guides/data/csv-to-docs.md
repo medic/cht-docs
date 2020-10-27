@@ -66,9 +66,9 @@ Converting that CSV file to JSON docs with the `csv-to-docs` action would genera
 }
 ```
 
-#### Special notations
+### Special notations
 
-##### Specifying property type
+#### Specifying property type
 
 By default, values are parsed as strings. To parse a CSV column as a different JSON type, append the JSON type name to the column definition, e.g.
 
@@ -97,7 +97,23 @@ A special column type, `excluded`, is used for excluding a column from the final
 
 This can be useful if using a column for doc references.
 
-#### Including another doc
+#### Available types
+
+| type | outcome |
+| --------------------- | ----------------- |
+| date          | Creates a date using Date() in javascript |
+| rel-date      | Creates a date with the addition of number days to the current date. A negative number results in a past date. |
+| timestamp     | Sets the string passed in as a timestamp number. If the timestamp in the csv is in milliseconds that will be used. If a date is passed it will be parsed and the milliseconds returned. EX: 04 Dec 1995 00:12:00 GMT becomes 818035920000 |
+| rel-timestamp | Creates a timestamp that is offset by milliseconds against the current(NOW) timestamp. A negative number results in a past timestamp |
+| int           | Parses the value as an int using Number.parseInt() |
+| bool          | Sets boolean value based on string passed, either `"true"` or `"false"` |
+| string        | Sets the value as the string being interpreted. Can be omitted if values are only strings. |
+| float         | Sets value using Number.parseFloat() |
+
+
+
+
+### Including another doc
 
 Often times database documents need to include or refer to other documents in the database. This can be achieved with queries across CSV files, which is done by specifying a query in the column header. The query specifies the doc type (`person` or `place`) and matching condition.
 
