@@ -56,7 +56,7 @@ Users may log out by going to the options menu available in the top right corner
 {{< figure src="login-desktop.png" link="login-desktop.png" class="left col-9 col-lg-9" >}}
 
 
-## Remote Login
+## Magic Links for Logging In
 
 {{< figure src="admin.png" link="admin.png" class="right col-6 col-lg-9" >}}
 
