@@ -6,7 +6,7 @@ description: >
   **App Forms**: Used to complete reports, tasks, and actions in the app
 relevantLinks: >
   docs/apps/concepts/workflows
-  docs/design/apps
+  docs/design/best-practices
 keywords: workflows app-forms
 ---
 
@@ -31,7 +31,7 @@ A typical form ends with a summary group (eg `group_summary`, or `group_review`)
 
 In between the `inputs` and the closing group is the form flow - a collection of questions that can be grouped into pages. All data fields submitted with a form are stored, but often important information that will need to be accessed from the form is brought to the top level. To make sure forms are properly associated to a contact, make sure at least one of `place_id`, `patient_id`, and `patient_uuid` is stored at the top level of the form.
 
-{{< see-also page="design/apps" anchor="content-and-layout" title="Content and Layout" >}}
+{{< see-also page="design/best-practices" anchor="content-and-layout" title="Content and Layout" >}}
 
 ## XLSForm
 

@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/features/tasks
   apps/concepts/workflows
-  design/apps
+  design/best-practices
 keywords: tasks workflows
 ---
 

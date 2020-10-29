@@ -5,7 +5,7 @@ weight: 2
 description: >
   **Forms**: All the App forms, Contact forms, and Collect forms
 relevantLinks: >
-  docs/design/apps
+  docs/design/best-practices
 keywords: app-forms
 ---
 

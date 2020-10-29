@@ -54,7 +54,7 @@ Janet has a trusted boda driver who she uses to help her deliver drugs.
 
 ## A Day in the Life
 
-Janet is a CHW who has been working for BRAC for 2 years. She lives in Bembe Central, a periurban town. She visits 10 and 15 homes daily where mny of the families live in brick/clay huts reinforced with straw with no electricity, running water or internet connection.
+Janet is a CHW who has been working for BRAC for 2 years. She lives in Bembe Central, a periurban town. She visits 10 and 15 homes daily where many of the families live in brick/clay huts reinforced with straw with no electricity, running water or internet connection.
 
 Janet visits homes based off a list after she finishes her day job. There is no particular order, although she follows the register. While she may get some specific calls, most days she just visits homes and records her visits in the book. Some visits can be as quick as 2 minutes. She walks along a dirt road with her BRAC outfit making her stand out. She often calls out to her neighbors as she walks alon the road. In the rainy season — when diarrhea is often worse — these roads flood. Janet does not visit homes on these days.
 

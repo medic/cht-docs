@@ -6,7 +6,7 @@ description: >
   **Targets**: Definition of target widgets calculated and seen in the app
 relatedContent: >
   apps/features/targets
-  design/apps
+  design/best-practices
 keywords: targets workflows
 ---
 
