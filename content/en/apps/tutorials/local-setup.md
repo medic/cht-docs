@@ -10,7 +10,7 @@ relatedContent: >
 ---
 
 {{% pageinfo %}}
-This tutorial will take you through setting up a local environment to build and test CHT applications. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
+This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 3.9.1. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
@@ -28,6 +28,8 @@ By the end of the tutorial you should be able to:
 *Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.  
 
 *Containers* allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
+
+To read more about these concepts, see our [Docker Setup guide]({{< relref "core/guides/docker-setup" >}}).
 
 ## Required Resources
 
@@ -75,6 +77,8 @@ docker-compose up
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
 Once the command is done running, navigate to `https://localhost` on a Google Chrome browser and login with the default username `medic` and default password `password`.
+
+If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide
 
 <br clear="all">
 

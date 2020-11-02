@@ -35,48 +35,15 @@ CPUs: 2
 
 ## Use Docker-Compose:
 
-In the location you would like to host your configuration files, create a file titled <project_name>-medic-os-compose.yml with the following contents:
+In the location you would like to host your configuration files, create a file titled <project_name>-medic-os-compose.yml with the following contents. 
+
+One way to do this is using the `curl` command line tool. In this example we're creating a file called `test-docs-medic-os-compose.yml`:
 
 ```
-version: '3.7'
-
-services:
-  medic-os:
-    container_name: medic-os
-    image: medicmobile/medic-os:latest
-    volumes:
-      - medic-data:/srv
-    ports:
-     - 80:80
-     - 443:443
-    working_dir: /srv
-    depends_on:
-      - haproxy
-    networks:
-      - medic-net
-    environment:
-      - DOCKER_NETWORK_NAME=haproxy
-      - DOCKER_COUCHDB_ADMIN_PASSWORD=$DOCKER_COUCHDB_ADMIN_PASSWORD
-
-  haproxy:
-    container_name: haproxy
-    image: medicmobile/haproxy:latest
-    volumes:
-      - medic-data:/srv    
-    environment:
-      - COUCHDB_HOST=medic-os
-      - HA_PASSWORD=$DOCKER_COUCHDB_ADMIN_PASSWORD
-    networks:
-      - medic-net
-
-volumes:
-  medic-data:
-    name: medic-data
-
-networks:
-  medic-net:
-    name: medic-net
+curl -o test-docs-medic-os-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
 ```
+
+Alternately, if you do not have  `curl`, you can [right click this link](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml) and choose "Save link as..." and specify the correct location to save.
 
 Export a password for admin user named `medic`:
 ```
