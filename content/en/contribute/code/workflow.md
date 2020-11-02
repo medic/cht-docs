@@ -68,7 +68,7 @@ The issue is scheduled for release in this version but it needs some investigati
 
 ### Ready for dev
 
-Issues in this column have been scheduled to be released with this webapp version and are ready for development. The issue has all the detail needed to begin  development and it is free for anyone to start work on. If you start work on an issue assign it to yourself and move it to "Dev in progress".
+Issues in this column have been scheduled to be released with this webapp version and are ready for development. The issue has all the detail needed to begin development and it is free for anyone to start work on. If you start work on an issue, assign it to yourself and move it to "Dev in progress".
 
 ### Dev in progress
 
