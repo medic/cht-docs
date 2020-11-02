@@ -35,11 +35,15 @@ CPUs: 2
 
 ## Use Docker-Compose:
 
-In the location you would like to host your configuration files, create a file titled <project_name>-medic-os-compose.yml with the following contents. In this example we're creating a file called `test-docs-medic-os-compose.yml` via `curl`:
+In the location you would like to host your configuration files, create a file titled <project_name>-medic-os-compose.yml with the following contents. 
+
+One way to do this is using the `curl` command line tool. In this example we're creating a file called `test-docs-medic-os-compose.yml`:
 
 ```
 curl -o test-docs-medic-os-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
 ```
+
+Alternately, if you do not have  `curl`, you can [right click this link](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml) and choose "Save link as..." and specify the correct location to save.
 
 Export a password for admin user named `medic`:
 ```
