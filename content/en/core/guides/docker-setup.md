@@ -90,10 +90,6 @@ Clean data volume:
 
 After following the above three commands, you can re-run `docker-compose up` and create a fresh install (no previous data present)
 
-## Use Kitematic (GUI for Docker tools)
-
-
-
 ## Port Conflicts
 
 In case you are already running services on HTTP(80) and HTTPS(443), you will have to map new ports to the medic-os container.
