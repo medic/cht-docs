@@ -50,15 +50,18 @@ Now that you have the dependent tools and software installed, you are ready to s
 
 ### 1. Install medic-conf
 
-Using npm on your terminal or command line, install medic-conf globally using the following command;
+Using npm and python on your command line, install medic-conf and pyxform globally using the following commands:
 
 ```zsh
 npm install -g medic-conf
+sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
 {{< figure src="confirm-medic-conf.png" link="confirm-medic-conf.png" class="right col-6 col-lg-8" >}}
 
-You can confirm that the installation was successful by typing `medic-conf` in your terminal or command line.
+You can confirm that the installation was successful by typing `medic-conf` in your command line.
+
+If you have trouble installing `medic-conf`, see the application's [GitHub repository](https://github.com/medic/medic-conf) for more information.
 
  <br clear="all">
 
