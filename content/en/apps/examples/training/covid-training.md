@@ -7,7 +7,7 @@ description: >
 keywords: training onboarding 
 ---
 
-Three learning modules were created, both via the CHT and via SMS and messaging-based applications, to rapidly and remotely train CHWs on COVID-19. The combination of CHT and SMS enables Supervisors to train CHWs on workflows without being physically present, and cater to those without reliable data connection through SMS. Each learning module contains a quiz at the end to reinforce learning, which can be tracked by Supervisors. The application covers the below three modules:
+The COVID-19 pandemic has created unique challenges to providing in-person CHW training. To support CHWs, three learning modules were created to rapidly and remotely train them on COVID-19 safety protocols and patient care. Through CHT app and SMS deployments, Supervisors can now train CHWs on care workflows without being physically present. This example covers the following learning modules:
 
 * Health safety protocols for preventing the spread of COVID-19
 * Preventing the dissemination of misinformation about COVID-19
