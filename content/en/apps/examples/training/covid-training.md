@@ -3,7 +3,7 @@ title: "COVID-19 Education and Training for CHWs"
 linkTitle: "COVID-19 Training"
 weight: 
 description: >
-  App and SMS training for CHWs to combat COVID-19.
+ Training for CHWs to combat COVID-19.
 keywords: training onboarding 
 ---
 
