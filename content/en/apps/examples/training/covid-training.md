@@ -1,5 +1,5 @@
 ---
-title: "COVID-19 Digital Education"
+title: "COVID-19 Education and Training for CHWs"
 linkTitle: "COVID-19 Training"
 weight: 
 description: >
