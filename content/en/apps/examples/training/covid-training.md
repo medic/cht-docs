@@ -15,7 +15,7 @@ The COVID-19 pandemic has created unique challenges to providing in-person CHW t
 
 ## Problem Being Addressed
 
-Now, more than ever, it is important for health care workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. This training would traditionally be done in person, however health systems must adapt and still deliver this content in a timely and effective manner. A form-based application was designed using the CHT to deliver three learning modules, utilizing tasks to order the module and enable the CHW to progress through. 
+Now, more than ever, it is important for community health workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. This training would traditionally be done in person, however, due to public health concerns, travel and gatherings of people are limited. Health systems have been forced to quickly adapt to deliver training content in a safely distanced, timely, and effective manner.  
 Given COVID-19 is impacting even the hardest-to-reach communities, the modules can also be delivered via SMS to support CHWs who either don't have access to a smartphone or the CHT app, or don't have access to reliable data connection. 
 
 ## Solution Overview
