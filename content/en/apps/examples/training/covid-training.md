@@ -25,7 +25,7 @@ The CHT provides a flexible way to deliver timely COVID-19 remote training and e
 * Build on verifiable health safety guidance from the CDC and WHO
 * Were carefully crafted by [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/) team and vetted by a team of health experts at Stanford
 * Can be deployed using the CHT app or SMS workflows 
-* Capture assessment and understanding of knowledge through quizzes
+* Capture assessment and understanding of CHW knowledge through quizzes, which can be tracked by Supervisors
 
 ### User Roles Example
 
