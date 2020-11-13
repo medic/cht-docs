@@ -20,7 +20,7 @@ COVID-19's impact on the hardest-to-reach communities that often lack access to 
 
 ## Solution Overview
 
-The CHT application, combined with SMS workflow, offers a flexible way to deliver timely COVID-19 information to CHWs. The three learning modules:
+The CHT provides a flexible way to deliver timely COVID-19 remote training and education to CHWs. In collaboration with [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/), and vetted by a team of health experts at Stanford, a form-based application was designed to deliver three remote learning modules. Utilizing tasks to order the modules, CHWs can progress through training at their own pace. The training modules:
 
 * Build on verifiable health safety guidance from the CDC and WHO
 * Were carefully crafted by [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/) team and vetted by a team of health experts at Stanford
