@@ -16,7 +16,7 @@ The COVID-19 pandemic has created unique challenges to providing in-person CHW t
 ## Problem Being Addressed
 
 Now, more than ever, it is important for community health workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. This training would traditionally be done in person, however, due to public health concerns, travel and gatherings of people are limited. Health systems have been forced to quickly adapt to deliver training content in a safely distanced, timely, and effective manner.  
-Given COVID-19 is impacting even the hardest-to-reach communities, the modules can also be delivered via SMS to support CHWs who either don't have access to a smartphone or the CHT app, or don't have access to reliable data connection. 
+COVID-19's impact on the hardest-to-reach communities that often lack access to a reliable data connection, poses additional challenges to reaching the CHWs that provide care to people at the highest health risk. 
 
 ## Solution Overview
 
