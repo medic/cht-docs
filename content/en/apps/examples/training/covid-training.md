@@ -3,11 +3,15 @@ title: "COVID-19 Education and Training for CHWs"
 linkTitle: "COVID-19 Training"
 weight: 
 description: >
- Training for CHWs to combat COVID-19.
+ Training for Community Health Workers to combat COVID-19.
 keywords: training onboarding 
+relatedContent: >
+  apps/examples/training
+  apps/examples/phc-covid
+  apps/concepts/access/#magic-links-for-logging-in
 ---
 
-The COVID-19 pandemic has created unique challenges to providing in-person CHW training. To support CHWs, three learning modules were created to rapidly and remotely train them on COVID-19 safety protocols and patient care. Through CHT app and SMS deployments, Supervisors can now train CHWs on care workflows without being physically present. This example covers the following learning modules:
+The COVID-19 pandemic has created unique challenges to providing in-person Community Health Worker training. To support CHWs, three learning modules were created to rapidly and remotely train them on COVID-19 safety protocols and patient care. Through CHT app and SMS deployments, Supervisors can now train CHWs on care workflows without being physically present. This example covers the following learning modules:
 
 * Health safety protocols for preventing the spread of COVID-19
 * Preventing the dissemination of misinformation about COVID-19
@@ -15,40 +19,31 @@ The COVID-19 pandemic has created unique challenges to providing in-person CHW t
 
 ## Problem Being Addressed
 
-Now, more than ever, it is important for community health workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. This training would traditionally be done in person, however, due to public health concerns, travel and gatherings of people are limited. Health systems have been forced to quickly adapt to deliver training content in a safely distanced, timely, and effective manner.  
-COVID-19's impact on the hardest-to-reach communities that often lack access to a reliable data connection, poses additional challenges to reaching the CHWs that provide care to people at the highest health risk. 
+Now, more than ever, it is important for Community Health Workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. Training would traditionally be done in person, however, due to public health concerns, travel and gatherings of people are limited. Health systems have been forced to quickly adapt to deliver training content in a safely distanced, timely, and effective manner.  
 
 ## Solution Overview
 
 The CHT provides a flexible way to deliver timely COVID-19 remote training and education to CHWs. In collaboration with [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/), and vetted by a team of health experts at Stanford, a form-based application was designed to deliver three remote learning modules. Utilizing tasks to order the modules, CHWs can progress through training at their own pace. The training modules:
 
 * Build on verifiable health safety guidance from the CDC and WHO
-* Were carefully crafted by [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/) team and vetted by a team of health experts at Stanford
 * Can be deployed using the CHT app or SMS workflows 
 * Capture assessment and understanding of CHW knowledge through quizzes, which can be tracked by Supervisors
 
-### User Roles Example
+### Users and Hierarchy Example
 
-![user-roles.png](user-roles.png) 
+| User                             | Location                               | Devices                             | Role                                                                                                                                                                                                                                              |
+| :------------------------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------------------------------------------------- |
+| National Officials and County Teams  | Central and district offices           | Desktop, laptop and smartphones     | Monitor central analytics regarding onboarding and training completion. Revisit content where needed.           |
+| Sub-County Teams       | Facilities or local offices            | Tablet or smartphone                | Review CHW progress on aggregate. Support CHW supervisors and monitor location specific analytics.            |
+| CHW Supervisors                  | Community level, based at facilities   | Smartphones and personal phones     | Verify CHW onboarding and training completion. Follow-up with those who have not completed training. Complete their own onboarding and training tasks.                                    |
+| CHWs and Volunteers              | Community level                        | Feature phones and some smartphones | Complete onboarding and training via SMS or App. Provide feedback and ask for support where needed.         |
 
-### Reporting Hierarchy Example
+## Workflow Example
 
-![hierarchy.png](hierarchy.png)
-
-## Workflow Examples
-
-### Remote Training by App
-
-This demo illustrates how a CHT workflow can be easily adapted to integrate a sequence of learning modules through the usage of tasks. These modules can be delivered sequentially and learning can be tracked across CHWs. 
+This demo illustrates how a CHT workflow can be easily adapted to integrate a sequence of learning modules through the usage of tasks. These modules are designed to be delivered sequentially to promote engagement and absorption of content. Learning can be tracked across CHWs to inform opportunities to provide additional support. The sequence can also be modified to interact with the CHW through SMS, utilizing 'question and reply' text-based workflows.
+<br />
 
 {{< youtube pFEFIY_SA7M >}}
 
-### Remote Training by SMS
-
-The workflow involves interacting with the CHW through SMS and utilizing text-based feedback from the CHW, along with branching logic, to promote engagement and absorption of content. CHWs can be prompted with a question and reply via a message to assess understanding of content.
-
-![workflow.png](workflow1.png)
-
-## Download Additional Content
-
+<br />
 For more detailed information and to download detailed content, please reference the documentation for both the [CHT application](https://docs.google.com/document/d/1Vd6x_WwS-S_sekRQnvW1UAS_rWaTnaawITfeXgX6Sdg) and the [SMS and Messaging workflow](https://docs.google.com/document/d/1fPqZhl5gYoW_UJx6E3EWngWcICOH8mfmslo4r5JqmE0). These showcase the content, key considerations for adapting the content, and the technical implementation. 
