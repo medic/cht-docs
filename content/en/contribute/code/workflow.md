@@ -16,12 +16,9 @@ Aim for self-documenting code. Where code cannot be made self-documenting add co
 
 ### Pushing Code & Opening Pull Requests
 
-While working it is recommended that you push to your branch often. Others can see your progress, but will be aware it is a work-in-progress.
-
-To collaborate with others it is recommended that you use GitHub tooling, namely Pull Requests. When opening a pull request, consider the following:
-1. If your code is in a regular pull request, it is assumed to be done and only needing a review and testing as checks before merging. It is best to request a reviewer, but otherwise anyone may freely review your PR.
-1. If you code is in a draft PR, it is assumed to be a work-in-progress where collaboration is welcome, but best to communicate about specifics before assuming anything is complete.
-1. If you have pushed code to a remote branch without a pull request, it is assumed to be a work-in-progress where collaboration is unexpected.
+- If your code is in a regular pull request, it is assumed to be done and only needing a review and testing as checks before merging. It is best to request a reviewer, but otherwise anyone may freely review your PR.
+- If your code is in a draft PR, it is assumed to be a work-in-progress where collaboration is welcome, but best to communicate about specifics before assuming anything is complete.
+- If you have pushed code to a remote branch without a pull request, it is assumed to be a work-in-progress where collaboration is unexpected.
 
 A good workflow would be to work locally, pushing to a remote branch as you make progress, possibly open a draft PR for some initial collaboration on tricky parts, and once everything is done, convert the draft PR to a regular PR to be reviewed.
 
