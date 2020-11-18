@@ -9,9 +9,11 @@ relatedContent: >
 ---
 
 ## Overview
-To avoid using ngrok or pagekite to allow remote access to your dev instance (https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#ngrok), you can use a remote linux server to terminate HTTPS connections with free Let's Encrypt certs and reverse proxy this traffic back to a local dev instance over an SSH tunnel:
+When using a local [development environment](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md), you may want to share your work with other collaborators. You also may need to access the environment from your [mobile device](https://github.com/medic/medic-android/) which requires an SSL certificate (the "s" in "https"). By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
 
 [<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
+
+Once you have this web server set up, you many continue to use when ever you want by simply reconnecting to it via the secure tunnel.
 
 ## Prereqs
 This guide assume:
