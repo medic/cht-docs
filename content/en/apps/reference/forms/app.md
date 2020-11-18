@@ -115,7 +115,50 @@ Calculates the number of whole calendar months between two dates. This is often 
 
 ### `z-score`
 
-In Enketo forms you have access to an XPath function to calculate the z-score value for a patient.
+In Enketo forms you have access to an XPath function to calculate the z-score value for a patient. The function accesses table data stored in CouchDB.
+
+The `z-score` function takes four parameters: 
+- The name of z-score table to use, which corresponds to value of the database document's `_id` attribute.
+- Patient's sex, which corresponds to the data object's name. In the example below `male` for this parameter corresponds to `charts[].data.male` in the database document.
+- First parameter for the table lookup, such as age. Value maps to the `key` value in the database document.
+- Second parameter for the table lookup, such as height. Value is compared against the `points` in the databae document.
+
+#### Example Use
+[This example XForm form](https://github.com/medic/cht-core/blob/master/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
+
+`z-score('weight-for-age', ../my_sex, ../my_age, ../my_weight)`
+
+The data used by this function needs to be added to CouchDB. The example below shows the structure of the database document. It creates a `weight-for-age` table, where you can see that a male aged 0 at 2.08kg has a z-score of -3. Your database doc will be substantially larger, so you may find the [conversion script](https://github.com/medic/cht-core/blob/master/scripts/zscore-table-to-json.js) helpful to convert z-score tables to the required doc format.
+
+
+```json
+{
+  "_id": "zscore-charts",
+  "charts": [
+    {
+      "id": "weight-for-age",
+      "data": {
+        "male": [
+          {
+            "key": 0,
+            "points": [
+              1.701,
+              2.08,
+              2.459,
+              2.881,
+              3.346,
+              3.859,
+              4.419,
+              5.031,
+              5.642
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
 ## Uploading Binary Attachments
 
