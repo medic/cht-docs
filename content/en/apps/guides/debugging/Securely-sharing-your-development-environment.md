@@ -1,9 +1,9 @@
 ---
-title: "DIY ngrok/pagekite for Android app testing"
-linkTitle: "DIY ngrok/pagekite for Android app testing"
+title: "Securely sharing your development environment"
+linkTitle: "Securely sharing your development environment"
 weight: 
 description: >
-  SSH Tunnel to a Linux host for TLS termination
+  Use a publicly accessible Linux web server to forward https requests to your development environment
 relatedContent: >
   
 ---
