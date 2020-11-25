@@ -24,7 +24,7 @@ This guide assumes:
 * You have apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
 
-For reference any of the cheap servers out there (Digital Ocean has a $5/mo server https://digitalocean.com/) will enable you to do this. 
+For reference, any of the cheap servers out there (Digital Ocean has a $5/mo server https://digitalocean.com/) will enable you to do this. 
  
 ## Warning!!1!
 Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
