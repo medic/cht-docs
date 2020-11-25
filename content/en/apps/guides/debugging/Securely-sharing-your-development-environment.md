@@ -16,7 +16,7 @@ When using a local [development environment](https://github.com/medic/cht-core/b
 Once you have this web server set up, you many continue to use when ever you want by simply reconnecting to it via the secure tunnel.
 
 ## Prereqs
-This guide assume:
+This guide assumes:
 * You have a local dev instances set up of cht-core https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md
 * You have medic-android repo checked out and can compile the android app from scratch https://github.com/medic/medic-android/
 * You  have the generic Medic Mobile app installed on your android device https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US
