@@ -1,12 +1,18 @@
 ---
-title: "Securely sharing your development environment"
-linkTitle: "Securely sharing your development environment"
+title: "Securely Sharing Your Development Environment"
+linkTitle: "Securely Sharing Your Development Environment"
 weight: 
 description: >
   Use a publicly accessible Linux web server to forward https requests to your development environment
 relatedContent: >
   
 ---
+
+{{% alert title="Warning" %}} 
+Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
+
+Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
+{{% /alert %}}
 
 ## Overview
 When using a local [development environment](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md), you may want to share your work with other collaborators. You also may need to access the environment from your [mobile device](https://github.com/medic/medic-android/) which requires an SSL certificate (the "s" in "https"). By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
@@ -20,16 +26,12 @@ This guide assumes:
 * You have a local dev instance set up of cht-core https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md
 * You have medic-android repo checked out and can compile the android app from scratch https://github.com/medic/medic-android/
 * You  have the generic Medic Mobile app installed on your android device https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US
-* You have an Ubuntu >18.04 server with a public IP and a DNS entry that you can SSH into and have sudo on
+* You have a server running Ubuntu 18.04 or later with a public IP and a DNS entry that you can SSH into and have sudo on
 * You have apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
 
 For reference, any of the cheap servers out there (Digital Ocean has a $5/mo server https://digitalocean.com/) will enable you to do this. 
  
-## Warning!!1!
-Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
-
-Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
 ## Steps
 1. Create a DNS entry.  Let's assume it's `cht.domain.com`.  It should point to the IP of your Ubuntu server. If you do not already have a domain name with DNS services that you can use, you can sign up for a free service to do this like [noip.com](https://www.noip.com/remote-access).
 1. On your Ubuntu server, create a new apache vhost in `/etc/apache2/sites-available/100-cht.domain.com.conf` with the following contents:
