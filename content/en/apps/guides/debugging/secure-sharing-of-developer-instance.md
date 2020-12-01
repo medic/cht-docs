@@ -19,7 +19,7 @@ When using a local [development environment](https://github.com/medic/cht-core/b
 
 [<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
 
-Once you have this web server set up, you many continue to use when ever you want by simply reconnecting to it via the secure tunnel.
+Once you have this web server set up, you may continue to use it whenever you want by simply reconnecting to it via the secure tunnel.
 
 ## Prereqs
 This guide assumes:
