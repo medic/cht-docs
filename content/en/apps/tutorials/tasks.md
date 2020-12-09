@@ -8,7 +8,7 @@ relatedContent: >
   apps/features/tasks
   apps/reference/tasks
   apps/concepts/workflows
-  design/apps/#anatomy-of-a-task
+  design/best-practices/#anatomy-of-a-task
 
 ---
 
@@ -27,7 +27,7 @@ You will be configuring a task that allows Community Health Workers to conduct a
 
 *[Tasks]({{< ref "apps/features/tasks" >}})* gives a UI overview of tasks.
 
-*[Anatomy of a Task]({{< ref "design/apps#anatomy-of-a-task" >}})* takes you through the anatomy of a task
+*[Anatomy of a Task]({{< ref "design/best-practices/#anatomy-of-a-task" >}})* takes you through the anatomy of a task
 
 *[Task schema]({{< ref "apps/reference/tasks#tasksjs" >}})* details a set of properties for tasks.
 
