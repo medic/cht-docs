@@ -295,7 +295,7 @@ Suggested icons for each section:
 | ![Patient Details](../icons/forms_tasks_targets/SVGs/icon-people-person-general.svg) | Patient Details	|
 | ![Visit Information](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | Visit Information|
 | ![Pregnancy Specific](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | Pregnancy Specific|
-| ![Child Health Specific](../icons/forms_tasks_targets/SVGs/icon-people-child.svg) | Child Helath Specific|
+| ![Child Health Specific](../icons/forms_tasks_targets/SVGs/icon-people-child.svg) | Child Health Specific|
 | ![Signs and Symptoms](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Signs and Symptoms	|
 | ![Warnings and Referrals](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Warnings and Referrals|
 | ![Diagnosis and Treatment](../icons/forms_tasks_targets/SVGs/icon-healthcare-diagnosis.svg) | Diagnosis and Treatment	|
