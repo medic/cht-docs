@@ -299,7 +299,6 @@ Suggested icons for each section:
 | ![Signs and Symptoms](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Signs and Symptoms	|
 | ![Warnings and Referrals](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Warnings and Referrals|
 | ![Diagnosis and Treatment](../icons/forms_tasks_targets/SVGs/icon-healthcare-diagnosis.svg) | Diagnosis and Treatment	|
-| ![Education Info and Tips](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | Visit Information|
 | ![Follow Ups](../icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | Follow-Ups	|
 | ![General/Misc](../icons/forms_tasks_targets/SVGs/icon-healthcare-generic.svg) | Misc/General|
 
