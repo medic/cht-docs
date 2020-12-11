@@ -160,6 +160,10 @@ The data used by this function needs to be added to CouchDB. The example below s
 }
 ```
 
+### CHT Special Fields
+
+Set either `NationalQuintile` and/or `UrbanQuintile` on a form to associate this values to the people where the form was submitted. These fields should direct descendants of the fields on a report. 
+
 ## Uploading Binary Attachments
 
 Forms can include arbitrary binary data which is submitted and included in the doc as an attachment. If this is an image type it'll then be displayed inline in the report UI.
