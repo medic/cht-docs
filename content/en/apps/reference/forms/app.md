@@ -160,9 +160,9 @@ The data used by this function needs to be added to CouchDB. The example below s
 }
 ```
 
-### CHT Special Fields
+## CHT Special Fields
 
-Set either `NationalQuintile` and/or `UrbanQuintile` on a form to associate this values to the people where the form was submitted. These fields should direct descendants of the fields on a report. 
+The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="apps/guides/forms/wealth-quintiles" >}} 
 
 ## Uploading Binary Attachments
 

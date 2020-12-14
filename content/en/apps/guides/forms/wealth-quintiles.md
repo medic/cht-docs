@@ -9,11 +9,32 @@ relatedContent: >
 ---
 
 
-A few things are needed to get the data copied onto the family members. 
+Household surveys with questions about the home, possessions, and access to safe drinking water have been used to create equity score and improve the targeting of health services. This guide will cover how quintile information from a household survey can be used in customizing care for individual household members. For example, the equity quintile can be used to increase the number of pregnancy follow-ups for women in specific households, or to display specific notes or questions within patient forms.
 
-1. A report submitted with either `doc.fields.NationalQuintile` or `doc.fields.UrbanQuintile` or both. 
-1. An offline user that has the permission of `can_write_wealth_quintiles`. 
-1. Once the form is submitted the contact will then get the fields `"wealth_quintile_national"` and ` "wealth_quintile_urban"` if they are provided in the form.
+For quintile information from a household survey to be used for people in that household, a form about a place must contain `NationalQuintile` and/or `UrbanQuintile` fields at the top level. When that form is submitted all the people belonging to that place will get the corresponding `wealth_quintile_national` and `wealth_quintile_urban` fields. Those fields can then be used by forms, tasks, and contact profiles accordingly.
+
+Note that the `can_write_wealth_quintiles` permission is needed for the user that is submitting the form.
+
+### Sample form
+
+| type | name | label | relevant | appearance | calculate | ... |
+|---|---|---|---|---|---|---|				
+|begin group |	inputs |	Patients |||		./source = 'user'	field-list
+|string |	source |	Source | | hidden
+|string |	source_id |	Source ID | hidden |	
+|begin group |	contact |	NO_LABEL|				
+|db:person |	_id |  |	 |		db-object 
+|begin | group |	parent | NO_LABEL 			
+|begin group |	contact	| NO_LABEL		
+|string |	phone |	CHW Phone | | hidden
+|string |	name |	CHW Name | | hidden	
+|end group |						
+|end group |					
+|end group |						
+|end group |						
+|integer|	NationalQuintile|	National Quintile|		
+|integer|	UrbanQuintile	| Urban Quintile				
+|calculate|	place_id|	ID|	||			../inputs/contact/_id|
 
 
 ### Sample Report
@@ -26,7 +47,6 @@ A few things are needed to get the data copied onto the family members.
   "content_type": "xml",
   "fields": {
     "place_id": "23c7ab6e-6ea5-4f9f-9ffa-f00a1e30278d",
-    "place_name": "Medic Area",
     "NationalQuintile": "5",
     "UrbanQuintile": "3"
   }
