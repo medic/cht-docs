@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/concepts/users
   core/overview/db-schema
-  core/guides/users-bulk-load 
+  core/guides/users-bulk-load
 ---
 
 {{% pageinfo %}}
@@ -40,7 +40,7 @@ You should have a functioning CHT instance with contact forms configured. Read [
 
 ## Implementation Steps
 
-In this tutorial, you will work with the default contact forms and the default hierachy. The default hierarchy is illustrated above as part of the overview of key concepts.
+In this tutorial, you will work with the default contact forms and the default hierachy, which is illustrated above in the overview of key concepts.
 
 While logged in as an admin user, you will first create the Health Facility, CHW Supervisor, CHW Area, and CHW. You will then create the users for the CHW so that they can log in and create households and household members.
 
@@ -78,7 +78,7 @@ You should see the newly created Health Facility appear on the left hand side an
 
 ### 2. Create CHW Area and CHW
 
-We will now create a Place and the primary contact for the Place within one form. We want to create a CHW Area within the Health Facility that we previously created.
+We will now create a Place and the primary contact for it within one form. We want to create a CHW Area within the Health Facility that we previously created.
 
 <br clear="all">
 
@@ -108,7 +108,7 @@ You will get an option to name the Place after the created contact person or nam
 
 {{< figure src="new-chw-area/created-chw-area.png" link="new-chw-area/created-chw-area.png" class="right col-6 col-lg-8" >}}
 
-Once you submit, a new CHW Area will be created. You should see on the right hand, the CHW Area name, the primary contact of the CHW Area, and the Health Facility that the CHW Area belongs to.
+Once you submit, a new CHW Area will be created. On the right hand you should see the CHW Area name, the primary contact of the CHW Area, and the Health Facility that the CHW Area belongs to.
 
 <br clear="all">
 
@@ -120,13 +120,13 @@ Once you submit, a new CHW Area will be created. You should see on the right han
 
 {{< figure src="new-chw-supervisor/new-person.png" link="new-chw-supervisor/new-person.png" class="right col-6 col-lg-8" >}}
 
-To create a primary contact for an existing Place (in this case, for the Health Facility that we created without a primary contact); select the Place and the select the **New Person** action.
+To create a primary contact for an existing Place (in this case, for the Health Facility that we created without a primary contact); select the Place and then select the **New Person** action.
 
 <br clear="all">
 
 {{< figure src="new-chw-supervisor/belongs-to.png" link="new-chw-supervisor/belongs-to.png" class="right col-6 col-lg-8" >}}
 
-A *new person form* will appear with an option to change the Place the new person will belong to. Once you submit this form, a new contact will be created in the Health Facility.
+A *new person form* will appear with an option to change the Place the new person will belong to. A new contact will be created in the Health Facility when you submit this form.
 
 <br clear="all">
 
@@ -146,7 +146,7 @@ You should see an edit form from which you can set the primary contact of the He
 
 ### 4. Create the CHW User
 
-With the CHW and CHW Supervisor contacts created, you may want to log in as a CHW and perform some actions. To do this, let's create a CHW user that's linked to the CHW contact we created earlier.
+You may want to log in as a CHW and perform some actions now that the CHW and CHW Supervisor contacts are created; let's create a CHW user who's linked to the CHW contact we created earlier.
 
 <br clear="all">
 
@@ -164,7 +164,7 @@ When you are on the **App Settings** page, select **Users** on the left-hand sid
 
 {{< figure src="new-chw-user/fill-user-details.png" link="new-chw-user/fill-user-details.png" class="right col-6 col-lg-8" >}}
 
-You should now see an **Add User Form**. Fill in the user name, the select the role as **CHW** or **Regional Admin**. In the **Place** field, select the name of the CHW Area whose CHW you want to create a user for (you can search by typing the first few letters of the CHW Area name). Once that is done, under the **Associate Contact** field select the name of the CHW whose user you are creating. Finally, input a password and hit **Submit**.
+You should now see an **Add User Form**. Fill in the user name, then select the role as **CHW** or **Regional Admin**. In the **Place** field, select the name of the CHW Area whose CHW you want to create a user for (you can search by typing the first few letters of the CHW Area name). Once that is done, under the **Associate Contact** field select the name of the CHW whose user you are creating. Finally, input a password and hit **Submit**.
 
 <br clear="all">
 
