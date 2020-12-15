@@ -10,7 +10,7 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 ## Installing Hugo
 
-The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.71.1.
+The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.53 and later.
 
 To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version.
 
