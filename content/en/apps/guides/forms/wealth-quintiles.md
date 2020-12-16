@@ -8,7 +8,7 @@ relatedContent: >
 
 ---
 
-Introduced in 2.16.0
+_Introduced in v2.16.0_
 
 Household surveys with questions about the home, possessions, and access to safe drinking water have been used to create equity score and improve the targeting of health services. This guide will cover how quintile information from a household survey can be used in customizing care for individual household members. For example, the equity quintile can be used to increase the number of pregnancy follow-ups for women in specific households, or to display specific notes or questions within patient forms.
 
