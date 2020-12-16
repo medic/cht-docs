@@ -20,23 +20,9 @@ Note that the `can_write_wealth_quintiles` permission is needed for the user tha
 
 | type | name | label | relevant | appearance | calculate | ... |
 |---|---|---|---|---|---|---|				
-|begin group |	inputs |	Patients |||		./source = 'user'	field-list
-|string |	source |	Source | | hidden
-|string |	source_id |	Source ID | hidden |	
-|begin group |	contact |	NO_LABEL|				
-|db:person |	_id |  |	 |		db-object 
-|begin | group |	parent | NO_LABEL 			
-|begin group |	contact	| NO_LABEL		
-|string |	phone |	CHW Phone | | hidden
-|string |	name |	CHW Name | | hidden	
-|end group |						
-|end group |					
-|end group |						
-|end group |						
-|integer|	NationalQuintile|	National Quintile|		
-|integer|	UrbanQuintile	| Urban Quintile				
-|calculate|	place_id|	ID|	||			../inputs/contact/_id|
-
+| string | place_id | | | select-contact type-household
+| integer | NationalQuintile | National Quintile		
+| integer | UrbanQuintile | Urban Quintile
 
 ### Sample Report
 
