@@ -9,7 +9,7 @@ relatedContent: >
   apps/guides/integrations/oppia
 ---
 
-[OppiaMobile](https://digital-campus.org/oppiamobile) is an open source mobile learning platform built by Digital Campus specially designed for delivering learning content, multimedia, and quizzes in low-broadband settings. All the content and activities can be accessed and used when no internet connection is available, and users can earn points and badges for completing activities and watching videos. To learn more about the platform, check out the [overview](https://digital-campus.org/oppiamobile/developers), OppiaMobile on [Github](https://github.com/DigitalCampus), and their [documentation site](http://oppiamobile.readthedocs.io/en/latest). You can also join the OppiaMobile [Community Discussion Board](https://community.oppia-mobile.org).
+[OppiaMobile](https://digital-campus.org/oppiamobile) is an open source mobile learning platform built by Digital Campus specially designed for delivering learning content, multimedia, and quizzes in low connectivity settings. All the content and activities can be accessed and used when no internet connection is available, and users can earn points and badges for completing activities and watching videos. To learn more about the platform, check out the [overview](https://digital-campus.org/oppiamobile/developers), OppiaMobile on [Github](https://github.com/DigitalCampus), and their [documentation site](http://oppiamobile.readthedocs.io/en/latest). You can also join the OppiaMobile [Community Discussion Board](https://community.oppia-mobile.org).
 
 
 ## Overview
@@ -19,7 +19,7 @@ We provide a detailed example of the CHT<>OppiaMobile integration, including how
 
 
 ## Features
-This integration leverages the **remote onboarding, task & scheduling, and dashboard features** of the CHT core framework with the **curated, multimedia educational content** available via OppiaMobile’s learning platform. 
+This integration leverages the **remote onboarding, task & scheduling, and target features** of the CHT core framework with the **curated, multimedia educational content** available via OppiaMobile’s learning platform. 
 
 The CHT Core Framework & OppiaMobile integration currently supports the following capabilities and features:
 
