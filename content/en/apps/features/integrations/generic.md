@@ -10,20 +10,20 @@ relatedContent: >
   apps/features/integrations/openmrs
 ---
 
-The CHT Core Framework includes functionality that allows you to share data with any API-based system. App Builders have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom EMRs, and several other systems.  
+The CHT Core Framework includes functionality that allows sharing data with any API-based system. App Builders have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom EMRs, and several other systems.  
 
 ## Overview
 
 Integrating a CHT App into your digital health ecosystem starts with identifying an integration use case. It's important to first understand all the components present in the ecosystem (EMR, laboratory system, community health information system, etc) and then plan out what the workflow will look like operationally. It is important to consider what information is needed at each point, will it be available to them, what happens if it is not, is this workflow even useful for them.
 
-One of the biggest challanges in developing integrations between systems is patient matching and/or deduplication. Sometimes this can be controlled operationally, other times it requires complicated algorithms or human intervention.
+One of the biggest challenges in developing integrations between systems is patient matching and/or [deduplication](https://en.wikipedia.org/wiki/Data_deduplication). Sometimes this can be controlled operationally, other times it requires complicated algorithms or human intervention.
 
 Below are a few example integration use cases:
 
-1. **Lost to Follow-up**: EMR generates a list of patients that need to be followed up in the community, that list is sent to the CHT and healthworkers receive a task in the CHT to go find those patients and refer them to the health facility.
+1. **Lost to Follow-up**: EMR generates a list of patients that require follow-up in the community, that list is sent to the CHT and healthworkers receive a task in the CHT to find those patients and refer them to the health facility.
 2. **Referrals from the community**: When a CHW does an assessment and determines the patient should be referred to a health facility, send the referral information to the EMR.
 3. **Contact Tracing**: Similar to Lost to Follow-Up, the EMR generates a list of contacts to be followed up with and this is sent to the CHT so that a tracer can call those contacts to see if they have symptoms.
-4. **Interactive Messaging**: Integrate with a messaging platform such as RapidPro to allow community members to initiate self screening assessments which can then be sent to the CHT for further follow-up by a healthworker.
+4. **Interactive Messaging**: Integrate with a messaging platform (such as RapidPro) to allow community members to initiate self-screening assessments, which can then be sent to the CHT for follow-up by a healthworker.
 
 As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here]({{< ref "apps/guides/integrations/rapidpro#sequence-diagrams" >}}) is an example sequence diagram for an integration use case with RapidPro.
 
@@ -41,7 +41,7 @@ Broadly speaking, there are a number of different interactions that may occur be
 
 ## Sending data to other systems 
 
-Using the [outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privelages. 
+Using the [outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
 
 To send data to other systems from the CHT, you will need to do the following:
 
