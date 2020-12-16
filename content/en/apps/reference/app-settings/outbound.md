@@ -218,7 +218,7 @@ You can also add it via Fauxton:
 
 Send semantics have changed over the course of developing this feature, and are important to understand for your deployment to be successful.
 
-## In 3.10 and above
+### In 3.10 and above
 
  - Outbound messages are sent immediately
  - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
@@ -243,14 +243,14 @@ Outbound may send your request multiple times even if the user just hit save onc
 }
 ```
 
-## In 3.9
+### In 3.9
 
  - Outbound messages are sent immediately
  - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
  - When it does finally send it will include any new changes to the document that have occurred in that time.
  - **Documents are only ever sent once for configuration**
 
-## In 3.4-3.8
+### In 3.4-3.8
 
  - Outbound messages are added to a send queue that is executed once every 5 minutes or so.
  - If there is an error in sending it will be kept in the queue to be retried in another 5 minutes.
