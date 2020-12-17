@@ -160,6 +160,10 @@ The data used by this function needs to be added to CouchDB. The example below s
 }
 ```
 
+## CHT Special Fields
+
+The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="apps/guides/forms/wealth-quintiles" >}} 
+
 ## Uploading Binary Attachments
 
 Forms can include arbitrary binary data which is submitted and included in the doc as an attachment. If this is an image type it'll then be displayed inline in the report UI.
