@@ -261,6 +261,13 @@ It is good practice for the image to link to the image file so that a larger ver
 |---|---|
 | `{{</* figure src="image.png" link="image.png" alt="Alt text" title="Image Title" */>}}` | `[![Alt text](image.png "Image Title")](image.png)` |
 
+### Indicating location of items on the screen
+
+| Do | Don't |
+|---|---|
+|right-hand side|right hand side|
+|left-hand|left hand|
+
 ### Videos
 
 When embedding videos, use the `youtube` shortcode to embed a responsive YouTube video player. 
