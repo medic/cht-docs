@@ -46,14 +46,3 @@ A count without a goal displays a simple black number count. A count with a goal
 Percent widgets display a ratio, which helps to provide insight into the proportion that matches a defined criteria. For example, the proportion of newborns delivered in a facility can be presented as a percent with respect to all registered deliveries.
 
 An optional goal can be set, such as “100% of patients with a fever should be given a malaria Rapid Diagnostic Test (mRDT),” to visualize progress towards achieving a target. Widget styling is configured to show green if the goal has been met and red if the goal has not been met. Next to the percent with a goal, the count of reports used in the calculation are shown (e.g. “16 of 20 with mRDT”). CHWs have found this helpful in interpreting target information.
-
-## Supervisor View
-
-{{< figure src="targets-supervisor.png" link="targets-supervisor.png" class="right col-7 col-lg-6" >}}
-
-Aggregate targets were introduced in v3.9 to provide Supervisors actionable information about their CHWs, and help with coaching and performance management. Aggregate targets combine the info for each CHW that a Supervisor manages. 
-
-
-Clicking on an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up.
-
-{{% alert title="Note" %}} Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
