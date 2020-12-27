@@ -66,7 +66,7 @@ Hyperlinked text color is `@text-hyperlink-color: @blue-dark)`.
 
 H1 is the highest hierarchical level of text, and should be used sparingly. It is used for the large text underneath percentage bars.
 
-H2 is used as a header style for main content sections on the right hand side, such as a task title, the name of a person/place on their profile, or the title of a targets widget.
+H2 is used as a header style for main content sections on the right-hand side, such as a task title, the name of a person/place on their profile, or the title of a targets widget.
 
 H3 is used for titles of condition cards and section titles on the form summary page.
 
