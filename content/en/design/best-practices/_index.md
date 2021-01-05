@@ -121,7 +121,7 @@ The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "
 
 | Icon 	| ANC                                         	|
 |------	|:-----------------------------------------------	|
-| ![ANC](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANCE Follow-Up 	|
+| ![ANC](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANC Follow-Up 	|
 | ![ANC Danger](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | - ANC Danger Sign<br>- ANC Danger Sign Follow-Up|
 
 
