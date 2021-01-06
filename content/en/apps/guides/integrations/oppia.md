@@ -68,9 +68,33 @@ On completing the task configuration, the following command is used to compile a
 
 ```Medic-conf --instance=<instance> compile-app-settings upload-app-settings```
 
-The image below illustrates an example of a task configured for the educational modules:
+The code snippet below illustrates an example of a task configured for the educational modules:
 
-{{< figure src="code-tasks.png" link="code-tasks.png" class="left col-12 col-lg-9" >}}
+```javascript
+{
+    title: 'Community Health Academy',
+    name: 'cha-module-one-oppia',
+    contactLabel: 'Introduction To Covid-19',
+    icon:'icon-cha',
+    appliesTo: 'contacts',
+    appliesToType: ['person'],
+    appliesIf: c => c.contact.role === 'chw' && user.parent && user.parent.type === 'health_center',
+    actions: [{
+      form: 'cha_module_one'
+    }],
+    events: [{
+      dueDate: (event, c) => {
+        return Utils.addDate(new Date(c.contact.reported_date), 0);
+      },
+      start: 0,
+      end: 25550
+    }],
+    resolvedIf: function (c) {
+      return c.reports.some(report => report.form === 'cha_module_one' &&
+           Utils.getField(report, 'assessment_passed') === 'yes');
+    }
+  }
+```
 
 ### Targets
 
@@ -88,9 +112,51 @@ On completing the targets configuration, the following command is used to compil
 Medic-conf --instance=<instance> compile-app-settings upload-app-settings
 ```
 
-The image below shows a code snippet of an example of a target configured for the educational modules:
+Below is a code snippet for a target configured for the educational modules:
 
-{{< figure src="code-targets.png" link="code-targets.png" class="left col-12 col-lg-9" >}}
+```javascript
+{
+    id: 'training-modules-completed',
+    type: 'percent',
+    icon: 'icon-cha',
+    goal: 100,
+    context: 'user.role === "chw"',
+    translation_key: 'targets.training_completion.title',
+    subtitle_translation_key: 'targets.all_time.subtitle',
+    appliesTo: 'contacts',
+    appliesToType: ['person'],
+    appliesIf: function (contact) {
+      return getField(contact.contact, 'role') === 'chw';
+    },
+    idType: 'report',
+    passesIf: function(contact) {
+      return contact.reports || !contact.reports;
+    },
+    aggregate: true,
+    date: 'now',
+    emitCustom: (emit, original, contact) => {
+      const assessmentModules = ['cha_module_one','cha_module_two','cha_module_three'];
+      
+      for(let eligibleModule of assessmentModules){
+          emit(Object.assign({}, original, {
+            _id: `${eligibleModule}`,
+            pass: false
+        }));
+      }
+      const validReports = contact.reports.filter(report => ((assessmentModules.includes(report.form)) && report.fields.assessment_passed === 'yes'));
+
+      for (let report of validReports) {
+          const instance = Object.assign({}, original, {
+              _id: `${report.form}`,
+              pass: true
+          });
+          emit(instance);
+      }
+    }
+  }
+
+```
+
 
 ### Contact Summary
 
@@ -103,9 +169,41 @@ Cards are an array of objects which can be customized to group information viewe
   - Field name- title/label of a field;
   - Field value - value displayed for a field.
 
-The image below shows a code snippet of an example of a card configured for the educational modules:
+The code snippet below shows an example of a card configured for the educational modules:
 
-{{< figure src="code-contact-summary.png" link="code-contact-summary.png" class="left col-12 col-lg-9" >}}
+```javascript
+const isCHW = () => { return getField(contact, 'role') === 'chw'; };
+
+const hasCompletedModuleTraining = function (form) {
+  return reports && reports.some(report => report.form === form && report.fields.assessment_passed === 'yes');
+};
+
+const hasCompletedModuleOne = hasCompletedModuleTraining('cha_module_one');
+const hasCompletedModuleTwo = hasCompletedModuleTraining('cha_module_two');
+const hasCompletedModuleThree = hasCompletedModuleTraining('cha_module_three');
+
+const cards = [
+  {
+    label: 'contact.profile.training',
+    appliesToType: 'person',
+    appliesIf: isCHW,
+    fields: function () {
+      let fields = [];
+      const completedModuleOne = hasCompletedModuleOne ? 'Complete' : 'Incomplete';
+      const completedModuleTwo = hasCompletedModuleTwo ? 'Complete' : 'Incomplete';
+      const completedModuleThree = hasCompletedModuleThree ? 'Complete' : 'Incomplete';
+
+      fields.push(
+        { icon: 'icon-cha', label: 'Introduction To COVID-19', value: completedModuleOne, width: 6 },
+        { icon: 'icon-cha', label: 'COVID Care', value: completedModuleTwo, width: 6 },
+        { icon: 'icon-cha', label: 'COVID Misinformation', value: completedModuleThree, width: 6 }
+      );
+      return fields;
+    }
+  }
+]
+
+```
 
 <br clear="all">
 
@@ -117,16 +215,33 @@ This image shows the training card configured to show completion status of the e
 
 Context provides information to App Forms, which are initiated from the contact's profile page. To show an App Form on a contact’s profile, the form’s expression field in its properties file must evaluate to true for the contact. The context information from the profile is accessible as the variable `summary`. 
 
-The image below shows a code snippet that defines the context variables that can be accessed in the app forms:
+The code snippet below shows a definition of the context variables that can be accessed in the app forms:
 
-{{< figure src="code-forms.png" link="code-forms.png" class="left col-12 col-lg-9" >}}
+```javascript
+
+const context = {
+  hasCompletedModuleOne,
+  hasCompletedModuleTwo,
+  hasCompletedModuleThree,
+};
+
+```
 
 <br clear="all">
 
-The three variables `hasCompletedModuleOne`, `hasCompletedModuleTwo` and has `CompletedModuleThree` are used in the educational modules app forms to determine whether the user will access the forms through the care guide.
+The three variables `hasCompletedModuleOne`, `hasCompletedModuleTwo` and `hasCompletedModuleThree` are used in the educational modules app forms to determine whether the user will access the forms through the care guide.
 
-The image below shows an example of an App Form properties file, where the user can only access the form as a care guide if they have completed module one task. This is defined by the phrase `summary.hasCompletedModuleOne` in the expression statement.
+The code snippet below shows an example of App Form properties, where the user can only access the form as a care guide if they have completed module one task. This is defined by the phrase `summary.hasCompletedModuleOne` in the expression statement.
 
-{{< figure src="code-properties.png" link="code-properties.png" class="left col-12 col-lg-9" >}}
+```javascript
+{
+    "icon": "icon-person",
+    "context": {
+        "person": false,
+        "place": false,
+        "expression": "!contact || (contact.type === 'person' && user.parent.type === 'health_center' && user.role === 'chw' && contact.role === 'chw' && summary.hasCompletedModuleOne)"
+    }
+}
+```
 
 
