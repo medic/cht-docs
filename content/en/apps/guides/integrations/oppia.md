@@ -72,28 +72,28 @@ The code snippet below illustrates an example of a task configured for the educa
 
 ```javascript
 {
-    title: 'Community Health Academy',
-    name: 'cha-module-one-oppia',
-    contactLabel: 'Introduction To Covid-19',
-    icon:'icon-cha',
-    appliesTo: 'contacts',
-    appliesToType: ['person'],
-    appliesIf: c => c.contact.role === 'chw' && user.parent && user.parent.type === 'health_center',
-    actions: [{
-      form: 'cha_module_one'
-    }],
-    events: [{
-      dueDate: (event, c) => {
-        return Utils.addDate(new Date(c.contact.reported_date), 0);
-      },
-      start: 0,
-      end: 25550
-    }],
-    resolvedIf: function (c) {
-      return c.reports.some(report => report.form === 'cha_module_one' &&
-           Utils.getField(report, 'assessment_passed') === 'yes');
-    }
+  title: 'Community Health Academy',
+  name: 'cha-module-one-oppia',
+  contactLabel: 'Introduction To Covid-19',
+  icon:'icon-cha',
+  appliesTo: 'contacts',
+  appliesToType: ['person'],
+  appliesIf: c => c.contact.role === 'chw' && user.parent && user.parent.type === 'health_center',
+  actions: [{
+    form: 'cha_module_one'
+  }],
+  events: [{
+    dueDate: (event, c) => {
+      return Utils.addDate(new Date(c.contact.reported_date), 0);
+    },
+    start: 0,
+    end: 25550
+  }],
+  resolvedIf: function (c) {
+    return c.reports.some(report => report.form === 'cha_module_one' &&
+         Utils.getField(report, 'assessment_passed') === 'yes');
   }
+}
 ```
 
 ### Targets
@@ -116,44 +116,44 @@ Below is a code snippet for a target configured for the educational modules:
 
 ```javascript
 {
-    id: 'training-modules-completed',
-    type: 'percent',
-    icon: 'icon-cha',
-    goal: 100,
-    context: 'user.role === "chw"',
-    translation_key: 'targets.training_completion.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-    appliesTo: 'contacts',
-    appliesToType: ['person'],
-    appliesIf: function (contact) {
-      return getField(contact.contact, 'role') === 'chw';
-    },
-    idType: 'report',
-    passesIf: function(contact) {
-      return contact.reports || !contact.reports;
-    },
-    aggregate: true,
-    date: 'now',
-    emitCustom: (emit, original, contact) => {
-      const assessmentModules = ['cha_module_one','cha_module_two','cha_module_three'];
-      
-      for(let eligibleModule of assessmentModules){
-          emit(Object.assign({}, original, {
-            _id: `${eligibleModule}`,
-            pass: false
-        }));
-      }
-      const validReports = contact.reports.filter(report => ((assessmentModules.includes(report.form)) && report.fields.assessment_passed === 'yes'));
+  id: 'training-modules-completed',
+  type: 'percent',
+  icon: 'icon-cha',
+  goal: 100,
+  context: 'user.role === "chw"',
+  translation_key: 'targets.training_completion.title',
+  subtitle_translation_key: 'targets.all_time.subtitle',
+  appliesTo: 'contacts',
+  appliesToType: ['person'],
+  appliesIf: function (contact) {
+    return getField(contact.contact, 'role') === 'chw';
+  },
+  idType: 'report',
+  passesIf: function(contact) {
+    return contact.reports || !contact.reports;
+  },
+  aggregate: true,
+  date: 'now',
+  emitCustom: (emit, original, contact) => {
+    const assessmentModules = ['cha_module_one','cha_module_two','cha_module_three'];
+    
+    for(let eligibleModule of assessmentModules){
+        emit(Object.assign({}, original, {
+          _id: `${eligibleModule}`,
+          pass: false
+      }));
+    }
+    const validReports = contact.reports.filter(report => ((assessmentModules.includes(report.form)) && report.fields.assessment_passed === 'yes'));
 
-      for (let report of validReports) {
-          const instance = Object.assign({}, original, {
-              _id: `${report.form}`,
-              pass: true
-          });
-          emit(instance);
-      }
+    for (let report of validReports) {
+        const instance = Object.assign({}, original, {
+            _id: `${report.form}`,
+            pass: true
+        });
+        emit(instance);
     }
   }
+}
 
 ```
 
@@ -215,16 +215,14 @@ This image shows the training card configured to show completion status of the e
 
 Context provides information to App Forms, which are initiated from the contact's profile page. To show an App Form on a contact’s profile, the form’s expression field in its properties file must evaluate to true for the contact. The context information from the profile is accessible as the variable `summary`. 
 
-The code snippet below shows a definition of the context variables that can be accessed in the app forms:
+The code snippet below shows the context variables that can be accessed in the app forms:
 
 ```javascript
-
 const context = {
   hasCompletedModuleOne,
   hasCompletedModuleTwo,
   hasCompletedModuleThree,
 };
-
 ```
 
 <br clear="all">
@@ -235,12 +233,12 @@ The code snippet below shows an example of App Form properties, where the user c
 
 ```javascript
 {
-    "icon": "icon-person",
-    "context": {
-        "person": false,
-        "place": false,
-        "expression": "!contact || (contact.type === 'person' && user.parent.type === 'health_center' && user.role === 'chw' && contact.role === 'chw' && summary.hasCompletedModuleOne)"
-    }
+  "icon": "icon-person",
+  "context": {
+    "person": false,
+    "place": false,
+    "expression": "!contact || (contact.type === 'person' && user.parent.type === 'health_center' && user.role === 'chw' && contact.role === 'chw' && summary.hasCompletedModuleOne)"
+  }
 }
 ```
 
