@@ -19,7 +19,7 @@ The COVID-19 pandemic has created unique challenges to providing in-person Commu
 
 ## Problem Being Addressed
 
-Now, more than ever, it is important for Community Health Workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. Training would traditionally be done in person, however, due to public health concerns, travel and gatherings of people are limited. Health systems have been forced to quickly adapt to deliver training content in a safely distanced, timely, and effective manner.  
+It is important for Community Health Workers to stay safe and serve their communities by understanding effective health protocols for preventing the spread of COVID-19. Training would traditionally be done in person, however, due to public health concerns, travel and gatherings of people are limited. Health systems have been forced to quickly adapt to deliver training content in a safely distanced, timely, and effective manner.  
 
 ## Solution Overview
 
