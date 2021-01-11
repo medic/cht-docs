@@ -70,7 +70,7 @@ Enter the details of the Health Facility and submit the form.
 
 {{< figure src="new-facility/created-facility.png" link="new-facility/created-facility.png" class="right col-6 col-lg-8" >}}
 
-You should see the newly created Health Facility appear on the left hand side and when you select it, you will see details of the Health Facility appear on the right hand side.
+You should see the newly created Health Facility appear on the left-hand side and when you select it, you will see details of the Health Facility appear on the right-hand side.
 
 <br clear="all">
 
@@ -84,7 +84,7 @@ We will now create a Place and the primary contact for it within one form. We wa
 
 {{< figure src="new-chw-area/new-chw-area.png" link="new-chw-area/new-chw-area.png" class="right col-6 col-lg-8" >}}
 
-Select the **Health Facility** on the left hand side. You will then select **New Area** on the right hand side.
+Select the **Health Facility** on the left-hand side. You will then select **New Area** on the right-hand side.
 
 <br clear="all">
 
@@ -108,7 +108,7 @@ You will get an option to name the Place after the created contact person or nam
 
 {{< figure src="new-chw-area/created-chw-area.png" link="new-chw-area/created-chw-area.png" class="right col-6 col-lg-8" >}}
 
-Once you submit, a new CHW Area will be created. On the right hand you should see the CHW Area name, the primary contact of the CHW Area, and the Health Facility that the CHW Area belongs to.
+Once you submit, a new CHW Area will be created. On the right-hand you should see the CHW Area name, the primary contact of the CHW Area, and the Health Facility that the CHW Area belongs to.
 
 <br clear="all">
 
