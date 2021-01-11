@@ -56,9 +56,9 @@ Create the task as per the detail above.
 {
     name: 'cough-gt-3-days-follow-up',
     icon: 'icon-followup-general',
-    title: 'task.'cough_gt_3_days.follow_up',
+    title: 'task.cough_gt_3_days.follow_up',
     appliesTo: 'reports',
-    appliesToType: [‘assessment'],
+    appliesToType: ['assessment'],
     appliesIf: function(contact, report) {
       return r && r.fields.group_assessment && parseInt(r.fields.group_assessment)  > 3;
     },
