@@ -23,7 +23,7 @@ It is important for Community Health Workers to stay safe and serve their commun
 
 ## Solution Overview
 
-The CHT provides a flexible way to deliver timely COVID-19 remote training and education to CHWs. In collaboration with [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/), and vetted by a team of health experts at Stanford, a form-based application was designed to deliver three remote learning modules. Utilizing tasks to order the modules, CHWs can progress through training at their own pace. The training modules:
+The CHT provides a flexible way to deliver timely COVID-19 remote training and education to CHWs. In collaboration with [Stanford's Digital Medic Team](https://digitalmedic.stanford.edu/), and vetted by a team of health experts at Stanford, three remote learning modules were designed. CHWs can progress through training at their own pace, and receive tasks in their CHT app to encourage them to complete the modules. The training modules:
 
 * Build on verifiable health safety guidance from the CDC and WHO
 * Can be deployed using the CHT app or SMS workflows 
