@@ -10,7 +10,7 @@ relatedContent: >
   apps/features/integrations/dhis2
 ---
 
-Supervision and workforce management are important aspects to building and maintaining high performing community health systems. Supervisors help Community Health Workers to deliver quality healthcare services to their patients through: 1) building CHW care delivery knowledge and skills; 2) fostering a supportive work environment; and 3) supporting continuity of care between home-based care and community health centers or facilities. 
+Supervision and workforce management are important aspects to building and maintaining high-performing community health systems. Supervisors help Community Health Workers deliver quality healthcare services to their patients through: 1) building CHW care delivery knowledge and skills; 2) fostering a supportive work environment; and 3) supporting continuity of care between home-based care and community health centers or facilities. 
 
 The WHO’s [guidelines](https://www.who.int/hrh/community/guideline-health-support-optimize-hw-programmes/en/) on health policy and system support to optimize community-based health worker programmes emphasizes the importance of regular and systematic CHW supervision. Following these guidelines, the CHT is designed to enable Supervisors to provide personalized performance feedback during CHW supervision as well as track aggregate statistics. Data collected from completed [Care Guides]({{< relref "apps/concepts/care-guides" >}}) produce granular information that can be used to provide coaching to promote compliance with health program standards of practice and monitor outcomes.
 
