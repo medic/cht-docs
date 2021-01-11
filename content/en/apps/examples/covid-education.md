@@ -46,4 +46,5 @@ This demo illustrates how a CHT workflow can be easily adapted to integrate a se
 {{< youtube pFEFIY_SA7M >}}
 
 <br />
-For detailed information and content downloads, please reference the documentation for both the [CHT application](https://docs.google.com/document/d/1Vd6x_WwS-S_sekRQnvW1UAS_rWaTnaawITfeXgX6Sdg) and the [SMS and Messaging workflow](https://docs.google.com/document/d/1fPqZhl5gYoW_UJx6E3EWngWcICOH8mfmslo4r5JqmE0). These showcase the content, key considerations for adapting it, and the technical implementation. 
+
+More background on the SMS workflow content and key considerations for adapting it can be found in this [summary document](https://docs.google.com/document/d/1r6Aheao7Y0CW0P7d54HiEoouAVpOvoh3w-hJyXWCvFk/edit#heading=h.pqvvwz2eq9i2). 
