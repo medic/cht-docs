@@ -40,7 +40,7 @@ The CHT provides a flexible way to deliver timely COVID-19 remote training and e
 
 ## Workflow Example
 
-This demo illustrates how a CHT workflow can be easily adapted to integrate a sequence of learning modules through the usage of tasks. These modules are designed to be delivered sequentially to promote engagement and absorption of content. Learning can be tracked across CHWs to inform opportunities to provide additional support. The sequence can also be modified to interact with the CHW through SMS, utilizing 'question and reply' text-based workflows.
+This demo illustrates how a CHT workflow can be easily adapted to integrate a sequence of learning modules through the usage of tasks. These modules are designed to be delivered sequentially to promote engagement and absorption of content. Learning can be tracked across CHWs to inform opportunities to provide additional support. The sequence can also be modified to interact with the CHW through SMS, using question-and-answer text-based workflows.
 <br />
 
 {{< youtube pFEFIY_SA7M >}}
