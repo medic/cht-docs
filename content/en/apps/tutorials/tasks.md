@@ -56,11 +56,11 @@ Create the task as per the detail above.
 {
     name: 'cough-gt-3-days-follow-up',
     icon: 'icon-followup-general',
-    title: 'task.'cough_gt_3_days.follow_up',
+    title: 'task.cough_gt_3_days.follow_up',
     appliesTo: 'reports',
-    appliesToType: [‘assessment'],
+    appliesToType: ['assessment'],
     appliesIf: function(contact, report) {
-      return r && r.fields.group_assessment && parseInt(r.fields.group_assessment)  > 3;
+      return report && report.fields.group_assessment && parseInt(report.fields.group_assessment)  > 3;
     },
     actions: [
       {
@@ -76,8 +76,8 @@ Create the task as per the detail above.
         end: 7
       }
     ],
-    resolvedIf: function(c, r, event, dueDate) {
-      return isFormArraySubmittedInWindow(c.reports, ['assessment_follow_up'], dueDate, event, null, r._id);
+    resolvedIf: function(contact, report, event, dueDate) {
+      return isFormArraySubmittedInWindow(contact.reports, ['assessment_follow_up'], dueDate, event, null, report._id);
     }
 }
 ```
