@@ -26,25 +26,25 @@ These have the simplest structure since we are only creating one thing - the act
 
 Section 1 and 3 are optional. We can pull in details of the logged in user as shown in section 1 and use that to log some metadata on the created documents as shown in section 3.
 
-Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the [Hierarchy]({{< ref "apps/reference/app-settings/hierarchy" >}}) page. `parent`, `type`, `contact_type` and `name` attributes are mandatory for things to work correctly.
+Section 2 contains the core components of what will be saved in couchdb. The group name needs to match the contact type id specified in app_settings.json (if using the configurable hierarchy) or `person` if using the old-style hierarchy. To learn more about setting up configurable hieararchy, review the [Hierarchy]({{< ref "apps/reference/app-settings/hierarchy" >}}) page. `parent`, `type`, `contact_type` and `name` attributes are mandatory for the app to work correctly.
 
 ### Settings sheet
 
 ![Person forms settings sheet](person-contact-form-settings.png)
 
-We'll need to replace `PLACE_NAME` with a name that corresponds to the created contact type. We'll also need to replace `PLACE_TYPE` with the contact-type id specified in app_settings.json (for configurable ones) or `person`.
+Replace `PLACE_NAME` with a name that corresponds to the created contact type, and replace `PLACE_TYPE` with the contact-type id specified in app_settings.json (for configurable ones) or `person`.
 
 ## Place-type forms
 
 The main difference between place type and person type forms is that we can optionally create one or more person-type documents one of which can be linked to the created place as a contact.
 
-We'll look at a simple structure of a place forms showing all the necessary components
+Below is a simple structure of a place forms showing all the necessary components.
 
 ![Place forms survey sheet](place-contact-form-survey.png)
 
 Section 1 is similar to what has been described earlier for person forms.
 
-Section 2 specifies the contact that will be linked to the place being created. `parent`, `type` and `contact_type` and `name` are mandatory. This also applies to the place-type definition in section 4. `contact` on the other hand is not mandatory for the successful creation of a place. It usually more conventient to create a place and it's primary contact at the same time.
+Section 2 specifies the contact that will be linked to the place being created. `parent`, `type` and `contact_type` and `name` are mandatory. This also applies to the place-type definition in section 4. `contact` on the other hand is not mandatory for the successful creation of a place. It usually more conventient to create a place and its primary contact at the same time.
 
 You can also create additional contacts linked to the place being created when you have a structure similar to that shown in section 3.
 
