@@ -69,7 +69,9 @@ Create the following columns in the survey sheet and then add the following rows
 | end group   |                 |                             |          |                   |            |            |                     |                        |                |                               |         |
 | end group   |                 |                             |          |                   |            |            |                     |                        |                |                               |         |
 | end group   |                 |                             |          |                   |            |            |                     |                        |                |                               |         |
+| calculate   | patient_id    |                             |          |                   |            |            |                     | ../inputs/contact/_id |                |                               |         |
 | calculate   | patient_name    |                             |          |                   |            |            |                     | ../inputs/contact/name |                |                               |         |
+
 
 Add the following rows that define the data collection fields below the existing rows (leave out the column names):
 
