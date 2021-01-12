@@ -18,9 +18,9 @@ The importance of regular and systematic CHW supervision is emphasized by the WH
 
 {{< figure src="aggregate-supervisor.png" link="aggregate-supervisor.png" class="right col-7 col-lg-6" >}}
 
-For CHW Supervisors, the [Targets]({{< relref "apps/features/targets" >}}) tab provides important insights into how their community unit is progressing towards their goals. It presents Supervisors with actionable information about their CHWs, by aggregating data for each of the CHWs that a Supervisor manages and presenting it in an easily digestible format. This enables Supervisors to gain insight into how well their team of CHWs is working together to meet common goals.
+For CHW Supervisors, the [Targets]({{< relref "apps/features/targets" >}}) tab provides important insights into their community unit. It presents Supervisors with actionable information about their CHWs, by aggregating data for each of the CHWs that a Supervisor manages and presenting it in an easily digestible format. This enables Supervisors to gain insight into how well their team of CHWs is working together to meet common goals.
 
-Clicking on an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up for coaching and performance management.
+Selecting an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up for coaching and performance management.
 
 {{% alert title="Note" %}} Aggregate targets were introduced in v3.9. Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
 
@@ -30,7 +30,7 @@ Clicking on an aggregate widget opens the detailed view with the data for each i
 
 Program dashboards track, visualize, and share health progress with stakeholders more broadly. Supervisors can use program dashboards to help articulate their CHW cohorts activities and how they align with program impact standards and indicators. Summary statistics of CHW service area performance (e.g. number of home visits, number of protocol errors, etc) help to identify areas for continued improvement and deeper audits of care data. 
 
-The data that can be visualized is highly configurable, and depends on what data fields are configured in a particular CHT app’s forms. Dashboards can be built using any software that supports visualizing data in the widely used PostgreSQL database. Examples include the open source tool [Superset](https://superset.incubator.apache.org), as well as proprietary technologies like [Klipfolio](https://www.klipfolio.com) and [Tableau](https://www.tableau.com). 
+The data that can be visualized is highly configurable, and depends on what data fields are configured in a particular CHT app’s forms. Dashboards can be built using any software that supports visualizing data with the widely used PostgreSQL database. Examples include the open source tool [Superset](https://superset.incubator.apache.org), as well as proprietary technologies like [Klipfolio](https://www.klipfolio.com) and [Tableau](https://www.tableau.com). 
 
 ## DHIS2 Data Verification
 
