@@ -74,7 +74,7 @@ Avoid generic words like “Visit” or “Report”. Every form can be a Report
 
 Each word in a title should be capitalized (Title Case). 
 ```
-❌ Don't do this: "Delivery follow-up" <
+❌ Don't do this: "Delivery follow-up" 
 ✅ Do this instead: "Delivery Follow-Up" 
 ```
 <br>
@@ -129,7 +129,8 @@ The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "
 | Icon  	| PNC                                         	|
 |------	|:-----------------------------------------------	|
 | ![PNC](../icons/forms_tasks_targets/SVGs/icon-people-woman-baby.svg) | - PNC Registration<br>- PNC Visit or Missed Visit<br>- PNC Follow-Up|
-| ![PNC Danger](../icons/forms_tasks_targets/SVGs/icon-PNC-danger-sign.svg) | - PNC Danger Sign<br>- PNC Danger Sign Follow-Up|
+| ![PNC Danger Mother](../icons/forms_tasks_targets/SVGs/icon-PNC-danger-sign.svg) | - PNC Danger Sign<br>- PNC Danger Sign Follow-Up (Mother)|
+| ![PNC Danger Baby](../icons/forms_tasks_targets/SVGs/icon-PNC-baby-danger-sign.svg) | - PNC Danger Sign Follow-Up (Baby)|
 
 
 
