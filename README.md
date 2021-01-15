@@ -24,6 +24,33 @@ To install, follow the [installation instructions for your Operating System](htt
 1. Preview your site in your browser at: http://localhost:1313/
 1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes. 
 
+## MacOS Users
+
+MacOS users encountering the `fatal error: pipe failed` error when running `hugo server` need to run these commands:
+
+```shell
+sudo launchctl limit maxfiles 65535 200000
+ulimit -n 65535
+sudo sysctl -w kern.maxfiles=100000
+sudo sysctl -w kern.maxfilesperproc=65535
+```
+
+To ensure these calls are made every time before runing `hugo server`, consider using this script. Be sure to update the `HUGO_DIRECTORY` to match your install:
+
+```shell
+#!/bin/bash
+cd /Users/HUGO_DIRECTORY/cht-docs
+sudo launchctl limit maxfiles 65535 200000
+ulimit -n 65535
+sudo sysctl -w kern.maxfiles=100000
+sudo sysctl -w kern.maxfilesperproc=65535
+hugo server
+```
+
+Save this in file with the `.commmand` suffix (e.g. `cht-docs-server.command`) to enable an easy double clicking to start the server. 
+
+Note - be sure to enter your MacOS user password in the terminal when prompted. 
+
 ## Link Checking [Optional]
 
 We validate that all links on the docs site work (do not 404) using a tool called [Muffet](https://github.com/raviqqe/muffet) along with [Actions](https://github.com/features/actions). If you're creating a lot of new links, or editing a lot of existing links, you may optionally run Muffet locally before pushing your commits. Running Muffet locally can save time by exposing broken links before pushing a build since you can avoid waiting for the Action to run, finding you have a broken link, fixing it, and pushing a new change.
