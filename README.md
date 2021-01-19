@@ -22,34 +22,9 @@ To install, follow the [installation instructions for your Operating System](htt
    - `hugo server`
    - If there are any errors, check that you have the latest version of Hugo, and are using the extended version.
 1. Preview your site in your browser at: http://localhost:1313/
-1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes. 
+1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes.
 
-## MacOS Users
-
-MacOS users encountering the `fatal error: pipe failed` error when running `hugo server` need to run these commands:
-
-```shell
-sudo launchctl limit maxfiles 65535 200000
-ulimit -n 65535
-sudo sysctl -w kern.maxfiles=100000
-sudo sysctl -w kern.maxfilesperproc=65535
-```
-
-To ensure these calls are made every time before runing `hugo server`, consider using this script. Be sure to update the `HUGO_DIRECTORY` to match your install:
-
-```shell
-#!/bin/bash
-cd /Users/HUGO_DIRECTORY/cht-docs
-sudo launchctl limit maxfiles 65535 200000
-ulimit -n 65535
-sudo sysctl -w kern.maxfiles=100000
-sudo sysctl -w kern.maxfilesperproc=65535
-hugo server
-```
-
-Save this in file with the `.commmand` suffix (e.g. `cht-docs-server.command`) to enable an easy double clicking to start the server. 
-
-Note - be sure to enter your MacOS user password in the terminal when prompted. 
+MacOS users getting `fatal error: pipe failed`, please see our [Troubleshooting guide](./troubleshooting.md).
 
 ## Link Checking [Optional]
 
