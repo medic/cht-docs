@@ -84,5 +84,5 @@ From the SSH command in step 10 above:
 1. `8081` -  Remote port on cht.domain.com to listen to. This is the same port that apache redirects to in step 2 above.
 1. `127.0.0.1` - Host to send forwarded traffic to. In this case, your local machine.
 1. `5988` - Local port where traffic from step one will be sent. In this case, your instance of the CHT
-1. `cht.example.com` - Public domain where you have an SSH account and we'll attach port `8081` to from step 1.
+1. `cht.domain.com` - Public domain where you have an SSH account and we'll attach port `8081` to from step 1.
 
