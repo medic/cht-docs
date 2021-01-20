@@ -1,18 +1,32 @@
 ---
-title: "DIY ngrok/pagekite for Android app testing"
-linkTitle: "DIY ngrok/pagekite for Android app testing"
+title: "Securely Sharing Your Development Environment"
+linkTitle: "Securely Sharing Your Development Environment"
 weight: 
 description: >
-  SSH Tunnel to a Linux host for TLS termination
+  Use a publicly accessible Linux web server to forward https requests to your development environment
 relatedContent: >
   
 ---
 
+{{% alert title="Warning" %}} 
+Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
+
+Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
+{{% /alert %}}
+
 ## Overview
-To avoid using ngrok or pagekite to allow [remote access to your dev instance](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#ngrok), you can use a remote linux server to terminate HTTPS connections with free Let's Encrypt certs and reverse proxy this traffic back to a local dev instance over an SSH tunnel:
+When using a local [development environment](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md), you may want to share your work with other collaborators. You also may need to access the environment from your [mobile device](https://github.com/medic/medic-android/) which requires an SSL certificate (the "s" in "https"). By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
 
 [<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
 
+Once you have this web server set up, you may continue to use it whenever you want by simply reconnecting to it via the secure tunnel.
+
+## Prereqs
+This guide assumes:
+* You have a local dev instance set up of cht-core https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md
+* You have medic-android repo checked out and can compile the android app from scratch https://github.com/medic/medic-android/
+* You  have the generic Medic Mobile app installed on your android device https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US
+* You have a server running Ubuntu 18.04 or later with a public IP and a DNS entry that you can SSH into and have sudo on
 ## Prerequisites 
 
 This guide assume:
@@ -22,15 +36,8 @@ This guide assume:
 * You have apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
 
-For reference any of the cheap servers out there will enable you to do this (Digital Ocean has a [$5/mo server](https://digitalocean.com/)). 
-
-{{% alert title="Warning" %}} 
- Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
-{{% /alert %}}
-
-
-Be very mindful before exposing a development instance to the internet where production data has been replicated locally.
-
+For reference, any of the cheap servers out there (Digital Ocean has a $5/mo server https://digitalocean.com/) will enable you to do this. 
+ 
 ## Steps
 
 1. Create a DNS entry.  Let's assume it's `cht.domain.com`.  It should point to the IP of your Ubuntu server. If you do not already have a domain name with DNS services that you can use, you can sign up for a free service to do this like [noip.com](https://www.noip.com/remote-access).
