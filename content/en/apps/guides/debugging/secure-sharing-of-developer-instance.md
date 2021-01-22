@@ -30,8 +30,8 @@ This guide assume:
 * You have apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
 
-For reference, any of the cheap servers out there (Digital Ocean has a $5/mo server https://digitalocean.com/) will enable you to do this. 
- 
+The steps in this guide can be done on any of the cheap server providers out there (Digital Ocean has a $5/mo server https://digitalocean.com/).
+
 ## Steps
 
 1. Create a DNS entry.  Let's assume it's `cht.domain.com`.  It should point to the IP of your Ubuntu server. If you do not already have a domain name with DNS services that you can use, you can sign up for a free service to do this like [noip.com](https://www.noip.com/remote-access).
