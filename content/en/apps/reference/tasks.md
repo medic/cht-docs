@@ -21,7 +21,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 
 | property | type | description | required |
 |---|---|---|---|
-| `name`| `string` | A unique identifier for the task. Used for querying task completeness. | yes, unique |
+| `name`| `string` | A unique identifier for the task. Used for querying task completeness. | no |
 | `icon` | `string` | The icon to show alongside the task. Should correspond with a value defined in `resources.json`. | no |
 | `title` | `translation key` | The title of the task (labeled above). | yes |
 | `appliesTo` | `'contacts'` or `'reports'` | Do you want to emit one task per report, or one task per contact? This attribute controls the behavior of other properties herein. | yes |
@@ -64,19 +64,33 @@ module.exports = [
     actions: [ { form: 'postnatal_visit' } ],
     events: [
       {
-        days:7, start:2, end:2,
+        id: 'postnatal-followup-1',
+        days:7,
+        start:2,
+        end:2,
       },
       {
-        days:14, start:2, end:2,
+        id: 'postnatal-followup-2',
+        days:14, 
+        start:2,
+        end:2,
       }
-    ]
+    ],
+    resolvedIf: function (contact, report, event, dueDate) {
+      return Utils.isFormSubmittedInWindow(
+        contact.reports,
+        'delivery',
+        Utils.addDate(dueDate, -event.start).getTime(),
+        Utils.addDate(dueDate, event.end + 1).getTime()
+      );
+    };
   }
 ];
 ```
 
 ### Tasks with functions
 
-These samples show more complex tasks which use functions kepts in a separate `nools-extras.js` file
+These samples show more complex tasks which use functions kept in a separate `nools-extras.js` file
 
 #### `tasks.js`
 ```js
@@ -104,6 +118,7 @@ module.exports = [
       }
     }],
     events: [ {
+      id: 'postnatal-visit',
       days:0, start:0, end:4,
     } ],
     priority: {
