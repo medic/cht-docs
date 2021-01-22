@@ -17,4 +17,4 @@ The following global variables can be used:
 | `c.contact` | The contact's doc. All contacts have `type` of either `person` or `place`.
 | `c.reports` | An array of all the reports submitted about the contact.
 | `console` | Useful for outputting _debugging_ statements. Should not be used in production code. |
-| `Utils` | Useful functions across projects are available, and describe in the Utils section. |
+| `Utils` | Set of commonly used helper functions, described in the [Utils section]({{< ref "apps/reference/tasks/#utils" >}}). |
