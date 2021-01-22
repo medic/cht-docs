@@ -27,7 +27,7 @@ This guide assumes:
 * You have a local [dev instance](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md) set up of cht-core 
 * You  have the [generic Medic Mobile app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US) installed on your android device. This version allows you to enter a custom CHT URL on first run.
 * You have an Ubuntu >18.04 server with a public IP and a DNS entry that you can SSH into and have sudo on
-* You have apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
+* You have Apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
 
 For reference, any of the cheap servers out there (Digital Ocean has a $5/mo server https://digitalocean.com/) will enable you to do this. 
