@@ -23,7 +23,7 @@ Once you have this web server set up, you may continue to use it whenever you wa
 
 ## Prerequisites 
 
-This guide assume:
+This guide assumes:
 * You have a local [dev instance](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md) set up of cht-core 
 * You  have the [generic Medic Mobile app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US) installed on your android device. This version allows you to enter a custom CHT URL on first run.
 * You have an Ubuntu >18.04 server with a public IP and a DNS entry that you can SSH into and have sudo on
@@ -85,4 +85,3 @@ From the SSH command in step 10 above:
 1. `127.0.0.1` - Host to send forwarded traffic to. In this case, your local machine.
 1. `5988` - Local port where traffic from step one will be sent. In this case, your instance of the CHT
 1. `cht.domain.com` - Public domain where you have an SSH account and we'll attach port `8081` to from step 1.
-
