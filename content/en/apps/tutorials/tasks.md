@@ -80,7 +80,7 @@ Create the task as per the detail above.
       const startTime = Math.max(addDays(dueDate, -event.start).getTime(), report.reported_date);
       const endTime = addDays(dueDate, event.end + 1).getTime();
       return isFormArraySubmittedInWindow(
-        contact.reports, ['immunization_growth_follow_up'], startTime, endTime
+        contact.reports, ['assessment_follow_up'], startTime, endTime
       );
     }
 }
