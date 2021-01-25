@@ -21,7 +21,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 
 | property | type | description | required |
 |---|---|---|---|
-| `name`| `string` | A unique identifier for the task. Used for querying task completeness. | no |
+| `name`| `string` | A unique identifier for the task. Used for querying task completeness. | yes, unique |
 | `icon` | `string` | The icon to show alongside the task. Should correspond with a value defined in `resources.json`. | no |
 | `title` | `translation key` | The title of the task (labeled above). | yes |
 | `appliesTo` | `'contacts'` or `'reports'` | Do you want to emit one task per report, or one task per contact? This attribute controls the behavior of other properties herein. | yes |
