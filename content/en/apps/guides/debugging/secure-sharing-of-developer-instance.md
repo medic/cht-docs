@@ -30,7 +30,7 @@ This guide assumes:
 * You have Apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
 
-The steps in this guide can be done on any of the cheap server providers out there (Digital Ocean has a $5/mo server https://digitalocean.com/).
+The steps in this guide can be done on any of the cheap server providers out there ([Digital Ocean](https://digitalocean.com) has a $5/mo server).
 
 ## Steps
 
