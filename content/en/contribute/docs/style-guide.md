@@ -192,6 +192,29 @@ Documentation pages should be written in [Markdown notation](https://www.markdow
 | **bold** | `**bold**` | `<b>bold</b>` or `<strong>bold</strong>` |
 | table | `|...|` using [markdown tables](https://www.markdownguide.org/extended-syntax/#tables) | `<table><tr><td>...</td></tr></table>` | 
 
+### Tabular schedules
+
+Lists of supplement or vaccination schedules should be in markdown and use the green circle emoji (🟢). Leave cells empty when no action is needed. Add the `<div class="schedule-table"></div>` HTML before the table to make columns narrower. 
+
+{{% alert title="Note" %}}
+The `div` HTML snippet must come before markdown table in order for it to affect the table styling
+{{% /alert %}}
+
+A sample row in markdown:
+
+```markdown
+| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
+```
+
+
+A rendered sample table of a schedule with `<div class="schedule-table"></div>` HTML:
+
+<div class="schedule-table"></div>
+
+|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|------------|--|--|--|--|--|--|--|--|--|--|
+| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
+| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
 
 ### Grammar and punctuation in headers
 
