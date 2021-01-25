@@ -30,7 +30,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `contactLabel` | `string` or `function(contact, report)` | Controls the label describing the subject of the task. Defaults to the name of the contact (`contact.contact.name`). | no |
 | `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | yes |
 | `events` | `object[]` | An event is used to specify the timing of the task. | yes |
-| `events[n].id` | `string` | A descriptive identifier. Used for querying task completeness. | yes, unique |
+| `events[n].id` | `string` | A descriptive identifier. Used for querying task completeness. | yes if task has multiple events, unique |
 | `events[n].days` | `integer` | Number of days after the doc's `reported_date` that the event is due | yes, if `dueDate` is not set |
 | `events[n].dueDate` | `function(event, contact, report)` | Returns a `Date` object for the day when this event is due. | yes, if `days` is not set |
 | `events[n].start` | `integer` | Number of days to show the task before it is due. | yes |
@@ -64,19 +64,33 @@ module.exports = [
     actions: [ { form: 'postnatal_visit' } ],
     events: [
       {
-        days:7, start:2, end:2,
+        id: 'postnatal-followup-1',
+        days:7,
+        start:2,
+        end:2,
       },
       {
-        days:14, start:2, end:2,
+        id: 'postnatal-followup-2',
+        days:14, 
+        start:2,
+        end:2,
       }
-    ]
+    ],
+    resolvedIf: function (contact, report, event, dueDate) {
+      return Utils.isFormSubmittedInWindow(
+        contact.reports,
+        'delivery',
+        Utils.addDate(dueDate, -event.start).getTime(),
+        Utils.addDate(dueDate, event.end + 1).getTime()
+      );
+    };
   }
 ];
 ```
 
 ### Tasks with functions
 
-These samples show more complex tasks which use functions kepts in a separate `nools-extras.js` file
+These samples show more complex tasks which use functions kept in a separate `nools-extras.js` file
 
 #### `tasks.js`
 ```js
@@ -104,6 +118,7 @@ module.exports = [
       }
     }],
     events: [ {
+      id: 'postnatal-visit',
       days:0, start:0, end:4,
     } ],
     priority: {
