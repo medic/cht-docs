@@ -22,8 +22,8 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 
 | property | type | description | required |
 |---|---|---|---|
-| `id` | `string` | An identifier for the target. Used for querying task completeness. | yes, unique |
-| `icon` | `string` | The icon to show alongside the task. Should correspond with a value defined in `resources.json`. | no |
+| `id` | `string` | An identifier for the target. | yes, unique |
+| `icon` | `string` | The icon to show alongside the target. Should correspond with a value defined in `resources.json`. | no |
 | `translation_key` | `translation key` | Translation key for the title of this target. | no, but recommended |
 | `subtitle_translation_key` | `translation key` | Translation key for the subtitle of this target. If none supplied the subtitle will be blank. | no |
 | `percentage_count_translation_key` | `translation key` | Translation key for the percentage value detail shown at the bottom of the target, eg "(5 of 6 deliveries)". The translation context has `pass` and `total` variables available. If none supplied this defaults to `targets.count.default`. | no |
