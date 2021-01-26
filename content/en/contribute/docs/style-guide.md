@@ -203,9 +203,9 @@ For example, here is a sample vaccination schedules:
 |------------|--|--|--|--|--|--|--|--|--|--|
 | Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
 | Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-{{% /schedule-table %}}
 
-To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule-table */%}}` is used before and after the markdown table so that built-in styling can be applied. Here is the code for the above example:
+
+To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule-table */%}}` is used before the markdown table so that built-in styling can be applied. Here is the code for the above example:
 
 ```markdown
 {{%/* schedule-table */%}}
@@ -213,11 +213,10 @@ To achieve this use a markdown table with the green circle emoji (🟢) to mark 
 |------------|--|--|--|--|--|--|--|--|--|--|
 | Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
 | Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-{{%/* /schedule-table */%}}
 ```
 
 {{% alert title="Note" %}}
-The opening `{{%/* schedule-table */%}}` shortcode must come before markdown table followed by the closing `{{%/* /schedule-table */%}}` shortcode in order for it to correctly affect the table styling
+The opening `{{%/* schedule-table */%}}` shortcode must come before markdown table in order for it to correctly affect the table styling
 {{% /alert %}}
 
 ### Grammar and punctuation in headers
