@@ -194,27 +194,31 @@ Documentation pages should be written in [Markdown notation](https://www.markdow
 
 ### Tabular schedules
 
-Lists of supplement or vaccination schedules should be in markdown and use the green circle emoji (🟢). Leave cells empty when no action is needed. Add the `<div class="schedule-table"></div>` HTML before the table to make columns narrower. 
+Displaying the occurence of events over time in a workflow is often done using a table. To keep these consistent we recommend using the tabular schedule format.
 
-{{% alert title="Note" %}}
-The `div` HTML snippet must come before markdown table in order for it to affect the table styling
-{{% /alert %}}
+For example, here is a sample vaccination schedules:
 
-A sample row in markdown:
-
-```markdown
-| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
-```
-
-
-A rendered sample table of a schedule with `<div class="schedule-table"></div>` HTML:
-
-<div class="schedule-table"></div>
-
+{{% schedule-table %}}
 || 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
 |------------|--|--|--|--|--|--|--|--|--|--|
 | Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
 | Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+{{% /schedule-table %}}
+
+To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule-table */%}}` is used before and after the markdown table so that built-in styling can be applied. Here is the code for the above example:
+
+```markdown
+{{%/* schedule-table */%}}
+|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|------------|--|--|--|--|--|--|--|--|--|--|
+| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
+| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+{{%/* /schedule-table */%}}
+```
+
+{{% alert title="Note" %}}
+The opening `{{%/* schedule-table */%}}` shortcode must come before markdown table followed by the closing `{{%/* /schedule-table */%}}` shortcode in order for it to correctly affect the table styling
+{{% /alert %}}
 
 ### Grammar and punctuation in headers
 
