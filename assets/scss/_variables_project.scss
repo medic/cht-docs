@@ -89,12 +89,6 @@ h2, h3 {
   }
 }
 
-.td-main .td-content {
-  .schedule-table + table td  {
-    width: 3em ;
-  }
-}
-
 .workflow {
   font-size: 90%;
 
@@ -111,6 +105,10 @@ h2, h3 {
   > .row > div.text {
     padding-bottom: 0.5rem;
   }
+}
+
+.schedule-table + table td  {
+  width: 3em ;
 }
 
 .fa-rotate-45 {

@@ -194,29 +194,31 @@ Documentation pages should be written in [Markdown notation](https://www.markdow
 
 ### Tabular schedules
 
-Displaying the occurence of events over time in a workflow is often done using a table. To keep these consistent we recommend using the tabular schedule format.
+Displaying the occurrence of events over time in a workflow is often done using a table. To keep these consistent we recommend using the tabular schedule format.
 
 For example, here is a sample vaccination schedules:
 
-{{% schedule-table %}}
+{{% schedule %}}
 || 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
 |------------|--|--|--|--|--|--|--|--|--|--|
 | Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
 | Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+{{% /schedule %}}
 
 
-To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule-table */%}}` is used before the markdown table so that built-in styling can be applied. Here is the code for the above example:
+To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule */%}}` is used before and after the markdown table so that built-in styling can be applied. Here is the code for the above example:
 
 ```markdown
-{{%/* schedule-table */%}}
+{{%/* schedule */%}}
 || 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
 |------------|--|--|--|--|--|--|--|--|--|--|
 | Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
 | Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+{{%/* /schedule */%}}
 ```
 
 {{% alert title="Note" %}}
-The opening `{{%/* schedule-table */%}}` shortcode must come before markdown table in order for it to correctly affect the table styling
+The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table
 {{% /alert %}}
 
 ### Grammar and punctuation in headers
