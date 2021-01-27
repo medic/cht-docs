@@ -192,6 +192,34 @@ Documentation pages should be written in [Markdown notation](https://www.markdow
 | **bold** | `**bold**` | `<b>bold</b>` or `<strong>bold</strong>` |
 | table | `|...|` using [markdown tables](https://www.markdownguide.org/extended-syntax/#tables) | `<table><tr><td>...</td></tr></table>` | 
 
+### Tabular schedules
+
+Displaying the occurrence of events over time in a workflow is often done using a table. To keep these consistent we recommend using the tabular schedule format.
+
+For example, here is a sample vaccination schedules:
+
+{{% schedule %}}
+|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|------------|--|--|--|--|--|--|--|--|--|--|
+| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
+| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+{{% /schedule %}}
+
+
+To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule */%}}` is used before and after the markdown table so that built-in styling can be applied. Here is the code for the above example:
+
+```markdown
+{{%/* schedule */%}}
+|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|------------|--|--|--|--|--|--|--|--|--|--|
+| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
+| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+{{%/* /schedule */%}}
+```
+
+{{% alert title="Note" %}}
+The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table
+{{% /alert %}}
 
 ### Grammar and punctuation in headers
 

@@ -4,8 +4,8 @@ linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
 menu:
-  main:
-    weight: 1
+main:
+weight: 1
 ---
 
 {{% pageinfo %}}
@@ -15,9 +15,9 @@ The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collecti
 {{% /pageinfo %}}
 
 
-## Why work with the CHT?				
+## Why work with the CHT?
 
-Community health systems can dramatically improve the accessibility, quality, speed, and equity of primary health care, but only if health workers are effectively equipped and supported. Advances in open source technology are making it easier and more affordable than ever to deliver impactful, dignified care in even the hardest-to-reach communities. 
+Community health systems can dramatically improve the accessibility, quality, speed, and equity of primary health care, but only if health workers are effectively equipped and supported. Advances in open source technology are making it easier and more affordable than ever to deliver impactful, dignified care in even the hardest-to-reach communities.
 
 With more than 27,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers. For more about the unique strengths of our open source community and the technology we’re building together, see [Why the CHT]({{< ref "/why-the-cht" >}}) ?
 
@@ -48,20 +48,20 @@ A great place to start for high-level context on what our community is building 
 {{< see-also page="why-the-cht" prefix="Read More" >}}
 
 ### CHT Applications
-Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT apps. This section also includes quick guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start. 
+Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT apps. This section also includes quick guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start.
 
 {{< see-also page="apps" prefix="Read More" >}}
 
 ### CHT Core Framework
 An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).
 
-{{< see-also page="core" prefix="Read More" >}} 
+{{< see-also page="core" prefix="Read More" >}}
 
 ### Design System
 An overview of key end user personas, notes on the CHT icon library, and configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when designing your own community health app for a live deployment.
 
 {{< see-also page="design"  prefix="Read More" >}}
- 
+
 ### Have Questions?
 Want to learn alongside a community of users? Join our community forum and let us know how we can help! And if you like what you see, don’t forget to star [our Github repo](https://github.com/medic/cht-core) :)
 

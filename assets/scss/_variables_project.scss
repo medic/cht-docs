@@ -81,14 +81,13 @@ h2, h3 {
       font-weight: $font-weight-bold;
     }
     &__section.active {
-      color: $primary;    
+      color: $primary;
     }
     &__section.selected {
       color: $secondary;
     }
   }
 }
-
 
 .workflow {
   font-size: 90%;
@@ -97,7 +96,7 @@ h2, h3 {
     font-size: 2em;
     color: $info;
   }
-  
+
   > .row:nth-child(n+2){
     border-top: 1px solid #eee;
     padding: 0.5rem 0;
@@ -106,6 +105,10 @@ h2, h3 {
   > .row > div.text {
     padding-bottom: 0.5rem;
   }
+}
+
+.schedule + table td  {
+  width: 3em ;
 }
 
 .fa-rotate-45 {
