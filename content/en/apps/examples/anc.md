@@ -42,6 +42,8 @@ Once a [hierarchy]({{< relref "apps/concepts/hierarchy" >}}) of people and place
 
 {{< see-also page="apps/reference/forms/app" title="Controlling form properties" >}}
 
+{{< figure src="NCH form hierarchy-CHT.png" link="NCH form hierarchy-CHT.png" class="right col-12 col-lg-12" >}}
+
 ## Workflows
 
 Both maternal and newborn care workflows are defined to connect form actions and data with people. Detailed documentation for these forms and task schedules are linked from the workflow diagrams below. Accompanying this documentation are tips and insights into the design decisions made along the way, and suggestions for how and where to customize the forms.
