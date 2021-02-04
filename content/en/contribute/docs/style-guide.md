@@ -199,21 +199,21 @@ Displaying the occurrence of events over time in a workflow is often done using 
 For example, here is a sample vaccination schedules:
 
 {{% schedule %}}
-|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|| 6m | 12m | 18m | 2y | 2.5y | 3y | 3.5y | 4y | 4.5y | 5y |
 |------------|--|--|--|--|--|--|--|--|--|--|
-| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
-| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| Deworming  | |   | X | X | X | X |  | X | X | X |
+| Vitamin A  | X | X | X | X | X | X | X | X | X | X |
 {{% /schedule %}}
 
 
-To achieve this use a markdown table with the green circle emoji (🟢) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule */%}}` is used before and after the markdown table so that built-in styling can be applied. Here is the code for the above example:
+To achieve this use a markdown table with the letter X (`X`) to mark events, leaving cells empty when no action is needed. The shortcode `{{%/* schedule */%}}` is used before and after the markdown table so that built-in styling can be applied. Here is the code for the above example:
 
 ```markdown
 {{%/* schedule */%}}
-|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|| 6m | 12m | 18m | 2y | 2.5y | 3y | 3.5y | 4y | 4.5y | 5y |
 |------------|--|--|--|--|--|--|--|--|--|--|
-| Deworming  | |   | 🟢 | 🟢 | 🟢 | 🟢 |  | 🟢 | 🟢 | 🟢 |
-| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| Deworming  | |   | X | X | X | X |  | X | X | X |
+| Vitamin A  | X | X | X | X | X | X | X | X | X | X |
 {{%/* /schedule */%}}
 ```
 
