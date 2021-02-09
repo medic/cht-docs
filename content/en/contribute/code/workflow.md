@@ -87,7 +87,7 @@ Any code should be in a feature branch in each of the repositories you update. T
 1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
 1. If AT is required update the issue with AT instructions.
 1. Wait for the builds to succeed and ensure there are no conflicts with the `master` branch so the PR can be merged.
-1. Pick at least one Reviewer for the PR and work with them until the code passes review.
+1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can always collaborate on PRs even if they aren't an official Reviewer.
 1. If the issue requires AT then move the issue to "Ready for AT" for QA to test. Otherwise merge the PR, delete the branch, and close the issue.
 
 ### Ready for AT
