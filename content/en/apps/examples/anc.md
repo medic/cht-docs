@@ -56,24 +56,24 @@ Both maternal and newborn care workflows are defined to connect form actions and
   resolution-image="pregnancy-3.png"
  %}}
   {{% workflow
-        condition="Upon discovering a pregnancy, a CHW submits a [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) confirming a new pregnancy with the estimated gestational age."
-        task="At the 8 ANC touchpoints defined by the WHO, the CHW receives a [Pregnancy Home Visit Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi) to let her know that it’s time to check in on the pregnant woman."
-        resolution="CHW submits [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit), demonstrating that she provided ANC counseling, gathered information from prior facility visits, and screened for danger signs."
+        condition="The [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) is submitted with a new pregnancy and the estimated gestational age." 
+        task=" A [Pregnancy Home Visit Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi) appears. At the 8 ANC touchpoints the CHW receives a notification to let her know that it’s time to check in on the pregnant woman as defined by the WHO."  
+        resolution="The CHW submits a [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit), confirming that she provided ANC counseling, gathered information from prior facility visits, and screened for danger signs."
   %}}
   {{% workflow
-        condition="A [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) is submitted with the gestational age unknown."
+        condition="The [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) is submitted with the gestational age unknown."
         task="A [Pregnancy Visit Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.2pls723gu6wl) appears every 2 weeks for 42 weeks."
-        resolution="CHW submits [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit). If the gestational age is entered, the workflow will change to [Pregnancy Home Visit Tasks](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi)."
+        resolution="The CHW submits a [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit). If the gestational age is entered, the workflow will change to [Pregnancy Home Visit Tasks](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi)."
   %}}
   {{% workflow
-        condition="A CHW submits a [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit) that includes an upcoming facility visit date."
-        task="A [Health Facility ANC Reminder Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.v3b7bata6j) 1 week ahead of the facility visit to remind the woman to attend."
-        resolution="CHW submits *Health Facility ANC Reminder Form*, confirming that she called or visited the woman to remind her of her upcoming facility visit."
+        condition="The [Pregnancy Home Visit Form](https://docs.google.com/drawings/d/1_2i6XTMtMkrfQ6NFNjcEDwJPS8i0rEeQlaPgYQhacSw/edit) is submitted with an upcoming facility visit date."
+        task="A [Health Facility ANC Reminder Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.v3b7bata6j) appears 1 week ahead of the facility visit to remind the woman to attend."
+        resolution="The CHW submits a *Health Facility ANC Reminder Form*, confirming that she called or visited the woman to remind her of her upcoming facility visit."
   %}}
   {{% workflow
-        condition="If the CHW notices danger signs at any time, then she submits a *Danger Sign Form* and immediately refers the patient to the facility."
-        task="A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.82ea7ww1x1k) will appear immediately and is due 3 days later. Tasks persists for 7 days after due date."
-        resolution="CHW submits a *Danger Sign Follow-Up Form*, verifying that she called or visited the woman to confirm that she attended the facility. If this is not received, another *Danger Sign Follow-Up Task* is triggered."
+        condition="The *Danger Sign Form* is submitted with danger signs symptoms."
+        task="A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.82ea7ww1x1k) appears immediately. The task persists for 7 days after the due date."
+        resolution="The CHW submits a *Danger Sign Follow-Up Form*, confirming that she called or visited the woman to check if  she attended the facility."
   %}}
 {{% /workflow-table %}}
  
