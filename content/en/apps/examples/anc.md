@@ -202,23 +202,24 @@ Both maternal and newborn care workflows are defined to connect form actions and
 {{% schedule %}}
 || 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
 |------------|--|--|--|--|--|--|--|--|--|--|
-| Deworming  | | 🟢  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-| Vitamin A  | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+| Deworming  | | X  | X | X | X | X | X | X | X | X |
+| Vitamin A  | X | X | X | X | X | X | X | X | X | X |
 {{% /schedule %}}
 
 ## Immunization schedule
 
+{{% schedule %}}
 ||birth | 6 wk | 10 wk | 14 wk| 6 mo | 9 mo | 12 mo | 18 mo |         
 |------------|--|--|--|--|--|--|--|--|--|--|        
-| BCG  |🟢 |   |  |  |  |  |  |  |  | |       
-| Oral Polio Vaccine (OPV)  | 🟢 | 🟢 | 🟢 | 🟢 |  |  |  |  |  |  |       
-| RotaVirus vaccine  | | 🟢 | 🟢 |  |  |  |  |  |  |  |        
-| Pneumococcal vaccine  |  | 🟢 | 🟢 | 🟢 |  |  |  |  | |  |       
-| Pentavalent vaccine  |  | 🟢 | 🟢 | 🟢 |  |  |  |  |  |  |        
-| Inactivated Polio Vaccine (IPV)  |  |  |  | 🟢 |  |  |  |  |  |  |        
-| Measles vaccine  |  |  |  |  |  | 🟢 |  | 🟢 |  |  |        
-| Yellow fever vaccine  |  |  |  |  |  | 🟢 |  |  |  |  |       
-
+| BCG  |X |   |  |  |  |  |  |  |  | |       
+| Oral Polio Vaccine (OPV)  | X | X | X | X |  |  |  |  |  |  |       
+| RotaVirus vaccine  | | X | X |  |  |  |  |  |  |  |        
+| Pneumococcal vaccine  |  | X | X | X |  |  |  |  | |  |       
+| Pentavalent vaccine  |  | X | X | X |  |  |  |  |  |  |        
+| Inactivated Polio Vaccine (IPV)  |  |  |  | X |  |  |  |  |  |  |        
+| Measles vaccine  |  |  |  |  |  | X |  | X |  |  |        
+| Yellow fever vaccine  |  |  |  |  |  | X |  |  |  |  |       
+{{% /schedule %}}
 
 ## Additional Resources to Get Started
 
