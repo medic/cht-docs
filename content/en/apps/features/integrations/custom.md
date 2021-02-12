@@ -1,16 +1,18 @@
 ---
-title: "Generic"
+title: "Custom"
 weight: 1
 description: >
    Integrate with any system using RESTful APIs
-keywords: generic
+keywords: generic, custom, integrations
+aliases:
+    -    /apps/features/integrations/generic/
 relatedContent: >
   apps/features/integrations/dhis2
   apps/features/integrations/rapidpro
   apps/features/integrations/openmrs
 ---
 
-The CHT Core Framework includes functionality that allows sharing data with any API-based system. App Builders have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom EMRs, and several other systems.  
+The CHT Core Framework includes functionality that allows sharing data with any API-based system. Developers have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom electronic medical records (EMR), and several other systems.  
 
 ## Overview
 
@@ -29,7 +31,7 @@ As you design your use cases, creating a [sequence diagram](https://www.webseque
 
 ## Integration Design Patterns
 
-Broadly speaking, there are a number of different interactions that may occur between digital health systems. Below are some high level design patterns you'll likely encounter:
+There are a number of different interactions that may occur between digital health systems. Below are some common use cases:
 
 1. Creating a patient in the CHT creates that patient in another system
 2. Creating a patient in another system creates that patient in the CHT
@@ -41,7 +43,7 @@ Broadly speaking, there are a number of different interactions that may occur be
 
 ## Sending data to other systems 
 
-Using the [outbound]({{< ref "apps/reference/app-settings/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
+Using the [outbound push]({{< ref "apps/reference/app-settings/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
 
 To send data to other systems from the CHT, you will need to do the following:
 
