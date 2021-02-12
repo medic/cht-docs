@@ -161,7 +161,7 @@ MNCH workflows are defined to connect form actions and data with people. Detaile
       resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit."
       %}}
   {{% workflow
-       condition="The child assessment form is submitted with a yellow or red MUAC."
+       condition="The child assessment form is submitted with a red MUAC."
        task="A [malnutrition follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.9sln0fedxe4x) appears after 3 days. The task persists 3 days after the due date."
        resolution="The CHW submits a malnutrition follow up form confirming that the patient has attended the clinic visit." 
        %}} 
@@ -209,16 +209,16 @@ MNCH workflows are defined to connect form actions and data with people. Detaile
 ## Immunization schedule
 
 {{% schedule %}}
-||birth | 6 wk | 10 wk | 14 wk| 6 mo | 9 mo | 12 mo | 18 mo |         
-|------------|--|--|--|--|--|--|--|--|--|--|        
-| BCG  |X |   |  |  |  |  |  |  |  | |       
-| Oral Polio Vaccine (OPV)  | X | X | X | X |  |  |  |  |  |  |       
-| RotaVirus vaccine  | | X | X |  |  |  |  |  |  |  |        
-| Pneumococcal vaccine  |  | X | X | X |  |  |  |  | |  |       
-| Pentavalent vaccine  |  | X | X | X |  |  |  |  |  |  |        
-| Inactivated Polio Vaccine (IPV)  |  |  |  | X |  |  |  |  |  |  |        
-| Measles vaccine  |  |  |  |  |  | X |  | X |  |  |        
-| Yellow fever vaccine  |  |  |  |  |  | X |  |  |  |  |       
+||birth | 6w | 10w | 14w | 6m | 9m | 12m | 18m |         
+|-----------------------------------|----|----|---|----|--|---|--|---|        
+| BCG                               | X  |    |   |    |  |   |  |   |       
+| Oral Polio Vaccine (OPV)          | X  | X  | X | X  |  |   |  |   |       
+| RotaVirus vaccine                 |    | X  | X |    |  |   |  |   |        
+| Pneumococcal vaccine              |    | X  | X | X  |  |   |  |   |       
+| Pentavalent vaccine               |    | X  | X | X  |  |   |  |   |        
+| Inactivated Polio Vaccine (IPV)   |    |    |   | X  |  |   |  |   |        
+| Measles vaccine                   |    |    |   |    |  | X |  | X |        
+| Yellow fever vaccine              |    |    |   |    |  | X |  |   |
 {{% /schedule %}}
 
 ## Additional Resources to Get Started
