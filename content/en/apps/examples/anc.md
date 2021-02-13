@@ -136,71 +136,26 @@ MNCH workflows are defined to connect form actions and data with people. Detaile
   %}}
 
 {{% workflow
-    condition="The child assessment form is submitted with danger signs symptoms."
-    task="A [child referral follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.gwiatej2wjp) appears after 3 days. The task persists 3 days after the due date."
-    resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit." 
-   %}}
-{{% workflow
-     condition="The child assessment form is submitted with a fever that lasts 7+ days."
-     task="A [child referral follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.gwiatej2wjp) appears after 3 days. The task persists 3 days after the due date."
-     resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit."
-    %}}
-{{% workflow
-     condition="The child assessment form is submitted with a cough that lasts 14+ days." 
-     task="A [child referral follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.gwiatej2wjp) appears after 3 days. The task persists 3 days after the due date."
-     resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit." 
-     %}}
- {{% workflow
-     condition="The child assessment form is submitted with a number of breaths per minute >= 50 for children from 2 months to 1 year or the number of breaths per minute >= 40 for children from 1 to 5 years."
-     task="A [child referral follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.gwiatej2wjp) appears after 3 days. The task persists 3 days after the due date."
-     resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit." 
-     %}}
- {{% workflow
-      condition="The child assessment form is submitted with diarrhea symptoms."
-      task="A [child referral follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.gwiatej2wjp) appears after 3 days. The task persists 3 days after the due date." 
-      resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit."
-      %}}
-  {{% workflow
-       condition="The child assessment form is submitted with a red MUAC."
-       task="A [malnutrition follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.9sln0fedxe4x) appears after 3 days. The task persists 3 days after the due date."
-       resolution="The CHW submits a malnutrition follow up form confirming that the patient has attended the clinic visit." 
-       %}} 
-  {{% workflow
-        condition="The child assessment form is submitted with a fever that lasts less than 7 days and RDT that is positive."
-        task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
-        resolution="The CHW submits a child treatment follow up confirming the patient’s health status." 
-        %}}
-  {{% workflow
-         condition="The child assessment form is submitted with a fever that lasts less than 7 days and with a RDT that is negative or RDT not done."
-         task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
-         resolution="The CHW submits a child treatment follow up confirming the patient’s health status."
-         %}}
-  {{% workflow
-         condition="The child assessment form indicates that the patient has a cough less than 14 days."
-         task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
-         resolution="The CHW submits a child treatment follow up confirming the patient’s health status."
-         %}}
-  {{% workflow
-         condition="The child assessment form indicates that the patient has a cough less than 14 days and a fast breathing."
-         task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
-         resolution="The CHW submits a child treatment follow up confirming the patient’s health status."
-         %}}
-   {{% workflow
-         condition="The child assessment form is submitted with a diarrhea that lasts less than 14 days and with no blood."
-         task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
-         resolution="The CHW submits a child treatment follow up confirming the patient’s health status."
-         %}}
-  {{% workflow
-         condition="The child assessment form is submitted with a yellow MUAC."
-         task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
-         resolution="The CHW submits a child treatment follow up confirming the patient’s health status."
+        condition="A child assessment form is submitted with any of the following:<ul>          <li> danger signs symptoms          <li> fever that lasts 7+ days          <li> cough that lasts 14+ days          <li> fast breathing (50+ bpm, 40+ for infants)          <li> specific diarrhea symptoms</ul>"
+        task="A [child referral follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.gwiatej2wjp) appears 3 days after the assessment, and lasts for 3 days." 
+        resolution="The CHW submits a child referral follow up form confirming that the patient has attended the clinic visit."
   %}}
+  {{% workflow
+        condition="A child assessment form doesn’t trigger a referral, yet has one of the following condition:<ul>          <li> fever that lasts less than 7 days and RDT that is positive          <li> fever that lasts less than 7 days and with a RDT that is negative or RDT not done          <li> cough less than 14 days, without fast breathing          <li> diarrhea that lasts less than 14 days and with no blood          <li> yellow MUAC</ul>"
+        task="Two [child treatment follow up tasks](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.9sln0fedxe4x) are triggered. The first one 3 days and the second one 6 days after the reported date. The tasks should stay for 3 days after the due date."
+        resolution="The CHW submits a child treatment follow up confirming the patient’s health status."
+  %}}
+  {{% workflow
+        condition="A child assessment form doesn’t trigger a referral or treatment, yet has a red MUAC."
+        task="A [malnutrition follow up task](https://docs.google.com/document/d/1hC7gDsXxbjtoob2g36HNeuAReoWJDP2ffjQe7m6O-uY/edit#heading=h.u5ijb7zi3ei1) appears after 3 days. The task persists 3 days after the due date."
+        resolution="The CHW submits a malnutrition follow up form confirming that the patient has attended the clinic visit." 
+  %}} 
 {{% /workflow-table %}} 
 
 ## Supplement schedule
 
 {{% schedule %}}
-|| 6 mo | 12 mo | 18 mo | 2 yr | 2.5 yr | 3 yr | 3.5 yr | 4 yr | 4.5 yr | 5 yr |
+|| 6m | 12m | 18m | 2y | 2.5y | 3y | 3.5y | 4y | 4.5y | 5y |
 |------------|--|--|--|--|--|--|--|--|--|--|
 | Deworming  | | X  | X | X | X | X | X | X | X | X |
 | Vitamin A  | X | X | X | X | X | X | X | X | X | X |
