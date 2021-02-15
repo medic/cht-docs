@@ -60,7 +60,7 @@ Create the task as per the detail above.
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function(contact, report) {
-      return report && report.fields.group_assessment && parseInt(report.fields.group_assessment)  > 3;
+      return report && report.fields.group_assessment && parseInt(report.fields.group_assessment.cough_duration) > 3;
     },
     actions: [
       {
