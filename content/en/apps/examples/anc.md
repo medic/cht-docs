@@ -164,16 +164,16 @@ MNCH workflows are defined to connect form actions and data with people. Detaile
 ## Immunization schedule
 
 {{% schedule %}}
-||birth | 6w | 10w | 14w | 6m | 9m | 12m | 18m |         
-|-----------------------------------|----|----|---|----|--|---|--|---|        
-| BCG                               | X  |    |   |    |  |   |  |   |       
-| Oral Polio Vaccine (OPV)          | X  | X  | X | X  |  |   |  |   |       
-| RotaVirus vaccine                 |    | X  | X |    |  |   |  |   |        
-| Pneumococcal vaccine              |    | X  | X | X  |  |   |  |   |       
-| Pentavalent vaccine               |    | X  | X | X  |  |   |  |   |        
-| Inactivated Polio Vaccine (IPV)   |    |    |   | X  |  |   |  |   |        
-| Measles vaccine                   |    |    |   |    |  | X |  | X |        
-| Yellow fever vaccine              |    |    |   |    |  | X |  |   |
+||birth | 6w | 10w | 14w | 9m | 18m |         
+|-----------------------------------|----|----|---|----|---|---|        
+| BCG                               | X  |    |   |    |   |   |       
+| Oral Polio Vaccine (OPV)          | X  | X  | X | X  |   |   |       
+| RotaVirus vaccine                 |    | X  | X |    |   |   |        
+| Pneumococcal vaccine              |    | X  | X | X  |   |   |       
+| Pentavalent vaccine               |    | X  | X | X  |   |   |        
+| Inactivated Polio Vaccine (IPV)   |    |    |   | X  |   |   |        
+| Measles vaccine                   |    |    |   |    | X | X |        
+| Yellow fever vaccine              |    |    |   |    | X |   |
 {{% /schedule %}}
 
 ## Additional Resources to Get Started
