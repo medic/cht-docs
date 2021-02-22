@@ -67,7 +67,7 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 | Field | Description |
 |----|----|
 | `year` | The year the data was collected. Added in 3.4.0. |
-| `month` | The month the data was collected. Added in 3.4.0. |
+| `month` | The month the data was collected. Initially the month was 0 indexed (eg: 0=Jan, 1=Feb, ...), but from 3.8.0 [this bug was fixed](https://github.com/medic/cht-core/issues/5949) so it changed to 1 indexed (eg: 1=Jan, 2=Feb, ...). Added in 3.4.0. |
 | `user` | The username of the logged in user. Added in 3.4.0. |
 | `deviceId` | A unique key for this device. Added in 3.4.0. |
 | `versions.app` | The version of the webapp. Added in 3.5.0. |
