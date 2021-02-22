@@ -66,38 +66,38 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 
 | Field | Description |
 |----|----|
-| `year` | The year the data was collected. |
-| `month` | The month the data was collected. |
-| `user` | The username of the logged in user. |
-| `deviceId` | A unique key for this device. |
-| `versions.app` | The version of the webapp. |
-| `versions.forms.<form>` | The version of each form. |
-| `userAgent` | The userAgent string from the user's browser. |
-| `hardwareConcurrency` | The number of cores reported from the browser. |
-| `screen.width` | The width of the screen in pixels. |
-| `screen.height` | The height of the screen in pixels. |
-| `deviceInfo.app.version` | The version of the Android app. |
-| `deviceInfo.software.androidVersion` | The version of Android OS. |
-| `deviceInfo.software.osApiLevel` | The API of the Android OS. |
-| `deviceInfo.software.osVersion` | The version of Android OS (detailed). |
-| `deviceInfo.hardware.device` | The Android device name. |
-| `deviceInfo.hardware.model` | The Android model name. |
-| `deviceInfo.hardware.manufacturer` | The Android device manufacturer. |
-| `deviceInfo.hardware.hardware` | The Android device hardware. |
-| `deviceInfo.hardware.cpuInfo` | The Android device CPU information. |
-| `deviceInfo.storage.free` | The available storage on the device. |
-| `deviceInfo.storage.total` | The total storage on the device. |
-| `deviceInfo.ram.free` | The available RAM on the device. |
-| `deviceInfo.ram.total` | The total RAM on the device. |
-| `deviceInfo.ram.threshold` | The level of RAM at which certain services will be killed by Android. |
-| `deviceInfo.network.downSpeed` | The reported download speed of the network. |
-| `deviceInfo.network.upSpeed` | The reported upload speed of the network. |
-| `dbInfo.doc_count` | The number of docs in the local database. |
-| `dbInfo.update_seq` | The update sequence of the local database. |
-| `dbInfo.idb_attachment_format` | The format of database attachments. |
-| `dbInfo.db_name` | The name of the local database. |
-| `dbInfo.auto_compaction` | Whether or not auto compaction is set. |
-| `dbInfo.adapter` | The database adapter being used. |
+| `year` | The year the data was collected. Added in 3.4.0. |
+| `month` | The month the data was collected. Initially the month was 0 indexed (eg: 0=Jan, 1=Feb, ...), but from 3.8.0 [this bug was fixed](https://github.com/medic/cht-core/issues/5949) so it changed to 1 indexed (eg: 1=Jan, 2=Feb, ...). Added in 3.4.0. |
+| `user` | The username of the logged in user. Added in 3.4.0. |
+| `deviceId` | A unique key for this device. Added in 3.4.0. |
+| `versions.app` | The version of the webapp. Added in 3.5.0. |
+| `versions.forms.<form>` | The version of each form. Added in 3.5.0. |
+| `userAgent` | The userAgent string from the user's browser. Added in 3.4.0. |
+| `hardwareConcurrency` | The number of cores reported from the browser. Added in 3.4.0. |
+| `screen.width` | The width of the screen in pixels. Added in 3.4.0. |
+| `screen.height` | The height of the screen in pixels. Added in 3.4.0. |
+| `deviceInfo.app.version` | The version of the Android app. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.software.androidVersion` | The version of Android OS. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.software.osApiLevel` | The API of the Android OS. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.software.osVersion` | The version of Android OS (detailed). Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.hardware.device` | The Android device name. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.hardware.model` | The Android model name. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.hardware.manufacturer` | The Android device manufacturer. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.hardware.hardware` | The Android device hardware. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.hardware.cpuInfo` | The Android device CPU information. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.storage.free` | The available storage on the device. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.storage.total` | The total storage on the device. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.ram.free` | The available RAM on the device. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.ram.total` | The total RAM on the device. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.ram.threshold` | The level of RAM at which certain services will be killed by Android. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.network.downSpeed` | The reported download speed of the network. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.network.upSpeed` | The reported upload speed of the network. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `dbInfo.doc_count` | The number of docs in the local database. Added in 3.4.0. |
+| `dbInfo.update_seq` | The update sequence of the local database. Added in 3.4.0. |
+| `dbInfo.idb_attachment_format` | The format of database attachments. Added in 3.4.0. |
+| `dbInfo.db_name` | The name of the local database. Added in 3.4.0. |
+| `dbInfo.auto_compaction` | Whether or not auto compaction is set. Added in 3.4.0. |
+| `dbInfo.adapter` | The database adapter being used. Added in 3.4.0. |
 
 ## Export data to JSON
 
