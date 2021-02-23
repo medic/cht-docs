@@ -206,7 +206,7 @@ In this sample properties file, the associated form would only show on a person'
       }
     ],
     "icon": "pregnancy-1",
-    "hidden_fields": [ "private", "internal" ]
+    "hidden_fields": [ "private", "internal" ],
     "context": {
       "person": true,
       "place": false,
