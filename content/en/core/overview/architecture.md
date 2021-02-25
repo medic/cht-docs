@@ -35,28 +35,24 @@ A free and open source SQL database that we use for analytics queries for displa
 [cht-core](https://github.com/medic/cht-core) is composed of the following web applications:
 
 #### CHT Web Application
-The CHT Web Application is the main entry point for must users, providing a large variety of [features](https://docs.communityhealthtoolkit.org/apps/features/).
+The CHT Web Application is used by Community Health Workers and provides a large variety of [features](https://docs.communityhealthtoolkit.org/apps/features/).
 
-Click [here](https://github.com/medic/cht-core/tree/master/webapp) to see the application source code.
+View the source code in [our GitHub repository](https://github.com/medic/cht-core/tree/master/webapp).
 
 ##### Technology
-The CHT Web Application is [reactive](https://angular.io/guide/rx-library), responsive and a single page application built with [Angular](https://angular.io/) and [NgRx](https://ngrx.io) frameworks.
+The CHT Web Application is [reactive](https://angular.io/guide/rx-library), responsive and a single page application built with [Angular](https://angular.io/) and [NgRx](https://ngrx.io) frameworks. Additionally, it uses the following technology:
 
-It uses an offline first strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in [PouchDB](https://pouchdb.com) which replicates changes back and forth in the background with the server CouchDB.
-
-It uses [Enketo](https://enketo.org) to render configured xforms and help with styling and dynamic elements such as show/hide and validation rules.
-
-It uses the [Nools](https://github.com/C2FO/nools) rules engine to compute the upcoming tasks and monthly targets of the users.
-
-It uses the [Ngx-Bootstrap](https://github.com/valor-software/ngx-bootstrap) to integrate Bootstrap components in the Angular application.
-
-It uses the [Ngx-translate](https://github.com/ngx-translate/core) for Angular framework to automatically translate the application labels. See [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/) how to manage translations.
-
-It uses [Karma](https://github.com/karma-runner/karma) and [MochaJS](https://mochajs.org/) to run the [application’s unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)
-
-It uses [Protractor](https://www.protractortest.org/#/) to run the [application’s e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)
-
-It uses [Less](http://lesscss.org/) as a CSS preprocessor.
+| Technology                                                       | Usage                                                                                                                                                                                  |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [PouchDB](https://pouchdb.com)                                   | To implement an offline first strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
+| [Enketo](https://enketo.org)                                     | To render configured xforms and help with styling and dynamic elements such as show/hide and validation rules.                                                                         |
+| [Nools](https://github.com/C2FO/nools)                           | A rules engine to compute the upcoming tasks and monthly targets of the users.                                                                                                         |
+| [Ngx-Bootstrap](https://github.com/valor-software/ngx-bootstrap) | To integrate Bootstrap components in the Angular application.                                                                                                                          |
+| [Ngx-translate](https://github.com/ngx-translate/core)           | To automatically translate the labels from a Angular application. Read more about [how to configure translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/). |
+| [Karma](https://github.com/karma-runner/karma)                   | A test runner for [unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)                                                                                             |
+| [MochaJS](https://mochajs.org/)                                  | A test framework to run the [unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)                                                                                   |
+| [Protractor](https://www.protractortest.org/#/)                  | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                        |
+| [Less](http://lesscss.org/)                                      | A CSS preprocessor                                                                                                                                                                     |
 
 ##### Structure
 
@@ -68,34 +64,33 @@ The CHT Web Application has the following high level structure:
   - **/components**, **/directives**, **/pipes**, **/providers** and **/services**: Contain the reusable elements from [Angular](https://angular.io/) framework.
   - **/modals**: Contains the all application’s modals components.
   - **/modules**: Contains the application’s modules, each of them has components that are associated to the modules’ routing.
-- **/css**:  Contains the application’s style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor. 
-- **/fonts**: Contains the application fonts.
-- **/img**: Contains the application static images.
+- **/css**:  Contains the style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor. 
+- **/fonts**: Contains the fonts.
+- **/img**: Contains the static images.
+
 #### App Management
 [App Management](https://docs.communityhealthtoolkit.org/apps/features/admin/) is an interface for non-technical administrative users to manage users and settings.
 
-Click [here](https://github.com/medic/cht-core/tree/master/admin) to see the application source code.
+View the application source code in [our GitHub repository](https://github.com/medic/cht-core/tree/master/admin).
 
 ##### Technology
-App Management is a single page application built with [AngularJS](https://angularjs.org) framework and implements [Redux](https://github.com/reduxjs/redux) to manage a reactive state.
+App Management is a single page application built with [AngularJS](https://angularjs.org) framework and implements [Redux](https://github.com/reduxjs/redux) to manage a reactive state. Additionally, it uses the following technology:
 
-It uses [PouchDB](https://pouchdb.com) to store the data and it replicates changes back and forth in the background with the server CouchDB.
-
-It uses [Angular Translate](https://github.com/angular-translate/angular-translate) for AngularJS to automatically translate the application labels. See [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/) how to manage translations.  
-
-It uses [Karma](https://github.com/karma-runner/karma) and [MochaJS](https://mochajs.org/) to run the [application’s unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)
-
-It uses [Protractor](https://www.protractortest.org/#/) to run the [application’s e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)
-
-It uses [Less](http://lesscss.org/) as a CSS preprocessor.
+| Technology                                                                  | Usage                                                                                                                                                                                   |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Angular Translate](https://github.com/angular-translate/angular-translate) | To automatically translate the labels from a AngularJS application. Read more about [how to manage translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/). |
+| [Karma](https://github.com/karma-runner/karma)                              | A test runner for [unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)                                                                                               |
+| [MochaJS](https://mochajs.org/)                                             | A test framework to run the [unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)                                                                                     |
+| [Protractor](https://www.protractortest.org/#/)                             | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                         |
+| [Less](http://lesscss.org/)                                                 | A CSS preprocessor                                                                                                                                                                      |
 
 ##### Structure
-- **/css**: Contains the application’s style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor. 
-- **/js**: Contains the application JavaScript code. 
+- **/css**: Contains style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor. 
+- **/js**: Contains the JavaScript code. 
   - **/actions**, **/reducers** and **/selectors**: Contain the implementation of [Redux](https://github.com/reduxjs/redux). 
   - **/controllers**, **/directives**, **/filters** and **/services**: Contain the reusable elements from [AngularJS](https://angularjs.org) framework.
   - **/modules**: Contains the vanilla JavaScript scripts.
-- **/template**: Contains the application’s HTML templates that are used in the AngularJS components and directives.
+- **/template**: Contains the HTML templates that are used in the AngularJS components and directives.
 
 ### medic-android
 
