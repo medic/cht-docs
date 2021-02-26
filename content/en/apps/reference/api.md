@@ -298,6 +298,64 @@ Get the latest version of the NPYY form in JSON format.
 GET /api/v1/forms/NPYY.json
 ```
 
+### POST /api/v1/forms/validate
+
+*Added in 3.12.0*
+Validate the XForm passed.
+
+#### Headers
+
+| Key          | Value            | Description                    |
+| ------------ | ---------------- | ------------------------------ |
+| Content-Type | application/xml  | The form is sent in XML format |
+
+#### Examples
+
+```
+POST /api/v1/forms/validate HTTP/1.1
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xforms xmlns="http://openrosa.org/xforms/xformsList">
+  <xform>
+    <name>Visit</name>
+    <formID>ANCVisit</formID>
+    <hash>md5:1f0f096602ed794a264ab67224608cf4</hash>
+    <downloadUrl>http://medic.local/api/v1/forms/anc_visit.xml</downloadUrl>
+  </xform>
+  <xform>
+    <name>Registration with LMP</name>
+    <formID>PregnancyRegistration</formID>
+    <hash>md5:1f0f096602ed794a264ab67224608cf4</hash>
+    <downloadUrl>http://medic.local/api/v1/forms/anc_registration.xml</downloadUrl>
+  </xform>
+  <xform>
+    <name>Stop</name>
+    <formID>Stop</formID>
+    <hash>md5:1f0f096602ed794a264ab67224608cf4</hash>
+    <downloadUrl>http://medic.local/api/v1/forms/off.xml</downloadUrl>
+  </xform>
+</xforms>
+```
+
+Example response when the form passed the validations:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{ok: true}
+```
+
+Example response when the form failed the validations:
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{error: "Error transforming xml. xsltproc return ..."}
+```
+
 ## Records
 
 ### POST /api/v2/records
