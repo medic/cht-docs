@@ -29,7 +29,7 @@ At a high level:
 
 ## Details of the data flow
 
-The layout detailed here is specific to how Medic Mobile supports its CHT partners at the moment. It is replicable and can be deployed as is or tweaked independent of Medic Mobile either by modifying or replacing pieces of it with other options.
+The layout detailed here is specific to how Medic supports its CHT partners at the moment. It is replicable and can be deployed as is or tweaked independent of Medic either by modifying or replacing pieces of it with other options.
 
 ### Current infrastructure
 
@@ -71,7 +71,7 @@ As mentioned previously, formviews are built to present data in a structure simi
 The objects present here are not limited to views and functions. Additional tables can be added, for example providing mappings or supporting operations external to the functions available in the toolkit. In short, there is no limitation to the utility that can be added this level to support analytics and dashboards. That said, measures are taken to ensure controlled access, reliability and timely access of the data by the various parties. Some of these measures are:
 
 
-- Roles and users allocation and deallocation done by specific roles within partner technical teams with support from Medic Mobile as needed;
+- Roles and users allocation and deallocation done by specific roles within partner technical teams with support from Medic as needed;
 - Access control management is left to the partner technical teams where possible;
 - Dashboard data source refresh intervals set to align with project needs;
 - Update of the data sources monitored to ensure updating works as expected;
