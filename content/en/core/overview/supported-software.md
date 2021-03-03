@@ -7,9 +7,9 @@ description: >
 relevantLinks: >
 ---
 
-Medic Mobile supports minor versions of the Core Framework for three months after the next minor version is made available, and the latest minor of a major version for twelve months after the next major version is made available.
+Medic supports minor versions of the CHT Core Framework for three months after the next minor version is made available, and the latest minor of a major version for twelve months after the next major version is made available.
 
-Once a version is no longer supported it will not receive any further releases and upgrading may be required before Medic Mobile can investigate any issues.
+Once a version is no longer supported it will not receive any further releases and upgrading may be required before Medic can investigate any issues.
 
 | Version | Status | Release date | End of life |
 |----|----|----|----|
