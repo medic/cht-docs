@@ -9,7 +9,7 @@ relatedContent: >
   apps/guides/messaging/gateway/configuration
 ---
 
-In order to implement the Medic Mobile Standard package at your site, you will require an Android device for the Medic gateway. You may use an existing Android device and are not required to purchase a new one. However, please note that the Android device must always stay in your organization’s office or facility, and must be connected to stable and continuous internet at all times.
+In order to use SMS workflows with the CHT you will need an SMS gateway. For reliability an SMS Aggregator, such as [Africa's Talking]({{< ref "apps/guides/messaging/africas-talking" >}}), is recommended. When an SMS Aggregator is not available, an Android device running [Medic Gateway](https://github.com/medic/medic-gateway) can be used to send and receive SMS in your CHT appplication. You may use an existing Android device and are not required to purchase a new one. However, for more reliable sending and receiving of SMS, the Android device should be in your organization’s office or facility with a consistent internet connection.
 
 Below is a list of recommended Android devices across a range of prices. You may find these in local mobile equipment stores as well as online through Amazon and other e-commerce sites. 
 
@@ -28,7 +28,7 @@ Below is a list of recommended Android devices across a range of prices. You may
 - OnePlus 3T
 - Nexus 6
 
-*Devices marked with an asterisk have been tested and used by Medic Mobile and our partners before.
+*Devices marked with an asterisk have been tested and used by Medic and our partners.
 
 Android OS: We also support Android version 4.1 (Jelly Beans) and above. Details of the Android history can be found [here](https://en.wikipedia.org/wiki/Android_version_history). 
 

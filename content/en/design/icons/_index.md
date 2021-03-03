@@ -11,7 +11,7 @@ We believe in making our simple but strong visual iconography open and accessibl
 ## About the Icon Library
 <img alt="Example Icons" style="border-width:0" src="https://static1.squarespace.com/static/5bd25eea65a707ad54c1e8ca/t/5bf4a3442b6a2841cd402a05/1542759243884/CHT-feature-overview-01.png?format=1000w" />
 
-This collection of over 60 beautiful icons was made for use in Medic Mobile applications. We will continually update this library as new icons are developed for different workflows.
+This collection of over 60 beautiful icons was made for use in CHT applications. We will continually update this library as new icons are developed for different workflows.
 
 Use the `forms_tasks_targets` folder to find PNG and SVG icons for application code. All instances on 2.15.0 and later should be using SVG icons because they are smaller files. If your project has families or households as the lowest level of the hierarchy, use the `people_and_places` folder to swap out icons as needed so your hierarchy has the correct icons.
 

@@ -10,7 +10,7 @@ relatedContent: >
   apps/guides/performance/telemetry
 ---
 
-Impact monitoring is an essential part of both the Community Health Toolkit and Medic Mobile's processes and ethos. We are committed to harnessing data to: 
+Impact monitoring is an essential part of both the Community Health Toolkit and Medic's processes and ethos. We are committed to harnessing data to: 
 
 1. Support our partners in data-driven operational and strategic decision making
 2. Inform our product roadmap and organizational strategy, and 
@@ -20,7 +20,7 @@ As a member of the CHT community and potential CHT implementer, we encourage you
 
 ## Impact Metrics
 
-The following list of Impact Metrics is comprehensive; it includes all of the Impact Metric that Medic Mobile and one or more additional CHT implementers have decided to share with the general public across workflows:
+The following list of Impact Metrics is comprehensive; it includes all of the Impact Metric that Medic and one or more additional CHT implementers have decided to share with the general public across workflows:
 
 _Activity_
 - Total number of health workers using the CHT (total, per month)

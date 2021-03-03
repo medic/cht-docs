@@ -31,5 +31,5 @@ becomes:
    ...
 ```
 
-Note that `FORM_CODE` should be replaced with the form code as defined in the JSON forms version of the form. If the form code is `ABCD` the prefix value would be `J1!ABCD!`, resulting in `prefix="J1!ABCD!"`. In case you are curious, the `J1` lets the Medic Mobile server know that version 1 of the JavaRosa parser should be used on the incoming SMS.
+Note that `FORM_CODE` should be replaced with the form code as defined in the JSON forms version of the form. If the form code is `ABCD` the prefix value would be `J1!ABCD!`, resulting in `prefix="J1!ABCD!"`. In case you are curious, the `J1` lets the CHT server know that version 1 of the JavaRosa parser should be used on the incoming SMS.
 

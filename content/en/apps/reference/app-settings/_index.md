@@ -137,7 +137,7 @@ The available operators are:
 | () | nested blocks, eg: 'a && (b || c)' |
 
 ### Rules
-Validation settings may consist of Pupil.js rules and rules specific to Medic Mobile.
+Validation settings may consist of Pupil.js rules and rules specific to the CHT.
 These two types of rules cannot be combined as part of the same rule.
 
 Not OK:

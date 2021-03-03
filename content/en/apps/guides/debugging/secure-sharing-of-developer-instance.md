@@ -25,7 +25,7 @@ Once you have this web server set up, you may continue to use it whenever you wa
 
 This guide assumes:
 * You have a local [dev instance](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md) set up of cht-core 
-* You  have the [generic Medic Mobile app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US) installed on your Android device. This version allows you to enter a custom CHT URL on first run.
+* You  have the [generic Medic app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US) installed on your Android device. This version allows you to enter a custom CHT URL on first run.
 * You have an Ubuntu >18.04 server with a public IP and a DNS entry that you can SSH into and have sudo on
 * You have Apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
 * You have certbot installed from letsencrypt.org
@@ -72,8 +72,8 @@ The steps in this guide can be done on any of the cheap server providers out the
 1. On your local dev box, set up the SSH tunnel with: `ssh -NT -R 8081:127.0.0.1:5988 cht.domain.com`
 1. This assumes your local username is the same as it is on cht.domain.com. This command will hang and you may exit when down with `ctrl + c`
 1. In a browser, test again that you now see your local dev instance and it loads correctly at https://cht.domain.com 
-1. If needed, reset the Medic Mobile app on your phone so that it prompts which instance to use  
-1. In the app on your phone, choose "custom" for which instance to use and enter https://cht.domain.com. You should now see your local dev instance in the medic mobile android device.  Happy testing!
+1. If needed, reset the Medic app on your phone so that it prompts which instance to use  
+1. In the app on your phone, choose "custom" for which instance to use and enter https://cht.domain.com. You should now see your local dev instance in the Medic Android device.  Happy testing!
 
 ## Tunnel command breakdown
 

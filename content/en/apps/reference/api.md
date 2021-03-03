@@ -320,7 +320,7 @@ allow multiple content types to appear in a single `Content-Type` header.
 
 | Variable      | Description                                                                                                                                                                                         |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message       | Message string in a supported format like Muvuku or Textforms. Depending if your Medic Mobile instance is configured in forms-only mode or not you might receive an error if the form is not found. |
+| message       | Message string in a supported format like Muvuku or Textforms. Depending if your CHT instance is configured in forms-only mode or not you might receive an error if the form is not found. |
 | from          | Reporting phone number.                                                                                                                                                                             |
 | reported_date | Timestamp in MS since Unix Epoch of when the message was received on the gateway. Defaults to now.                                                                                                  |
 

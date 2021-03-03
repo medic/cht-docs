@@ -20,7 +20,7 @@ With thousands of health workers using these tools to support a million home vis
 
 ## The CHT Community
 
-The CHT is 100% open source--it always has been and always will be freely available as a public good. This is possible thanks to a diverse community of contributors that includes global health NGOs, technical organizations, governments, and research institutions, with the non-profit organization [Medic Mobile](https://medicmobile.org) serving as a technical steward. 
+The CHT is 100% open source--it always has been and always will be freely available as a public good. This is possible thanks to a diverse community of contributors that includes global health NGOs, technical organizations, governments, and research institutions, with the non-profit organization [Medic](https://medic.org) serving as a technical steward. 
 
 Our longterm focus on community-driven health systems, integrated care, and universal health coverage has surfaced innumerable insights that make the CHT unique. We're also deeply committed to [human-centered and participatory design](https://doi.org/10.1080/02681102.2019.1667289), as an approach to building technology with and for hard-to-reach communities. These principles have helped us to foster a remarkably dynamic and innovative community; learning and building with this community is one of the key reasons people decide to work with the CHT. 
 
@@ -33,7 +33,7 @@ Our longterm focus on community-driven health systems, integrated care, and univ
   <img src="partners/i-tech.png">
   <img src="partners/last-mile-health-new.png">
   <img src="partners/living-goods.png">
-  <img src="partners/medic-mobile.png">
+  <img src="partners/medic.png">
   <img src="partners/muso.png">
   <img src="partners/oppia-mobile.png">
   <img src="partners/paul-allen-comp-sci.png">
@@ -43,7 +43,7 @@ Our longterm focus on community-driven health systems, integrated care, and univ
   <img src="partners/UCSF.png">
 </div>
 
-If you’re contributing to the CHT and would like to see your organization’s logo featured here, please send an email to hello@medicmobile.org.
+If you’re contributing to the CHT and would like to see your organization’s logo featured here, please send an email to hello@medic.org.
 
 ## Speeding up app development with the CHT Core Framework
 
