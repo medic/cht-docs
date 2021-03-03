@@ -7,7 +7,7 @@ description: >
 relevantLinks: >
 ---
 
-*Outbound is only available in cht-core 3.5.0 and above*
+*Outbound is only available in CHT Core 3.5.0 and above*
 
 Outbound push allows configurers to have the creation or editing of CouchDB documents trigger outbound REST requests using the data in that document. For example, upon receiving a referral report you could send that referral to an external facility system that will manage and process that event.
 
