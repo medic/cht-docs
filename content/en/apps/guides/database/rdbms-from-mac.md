@@ -38,7 +38,7 @@ In the screenshot below:
 * `(c)` are the contents of your ***public*** key
 
 {{% alert title="Note" %}}
-You will need to provide the contents of `(c)` to your Medic Mobile contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address. This information is not sensitive and can be shared over slack, github, etc...
+You will need to provide the contents of `(c)` to your Medic contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address. This information is not sensitive and can be shared over slack, github, etc...
 {{% /alert %}}
 
 ![SSH Commands](ssh-commands.png)
