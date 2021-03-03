@@ -110,7 +110,7 @@ whether they're part of the "we" you're describing.
 | Do | Don't |
 |---|---|
 | Version 3.0 includes ... | In version 3.0, we have added ... |
-| Medic Mobile provides a new feature to reduce the time to load contacts. | We made several changes to reduce the time to load contacts. |
+| Medic provides a new feature to reduce the time to load contacts. | We made several changes to reduce the time to load contacts. |
 | This page teaches you how to use medic-gateway. | In this page, we are going to learn about medic-gateway. |
 
 ### Using jargon and idioms
