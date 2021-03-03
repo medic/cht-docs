@@ -13,7 +13,7 @@ Apps built with CHT Core are localized so that users can use it in the language 
 ## Overview
 Like the rest of our code, the translation files live in our GitHub repo. These translation files are [properties](https://en.wikipedia.org/wiki/.properties) files, which are a series of keys and their corresponding values. We use the English file as our default, and as such contains the entire set of keys. If any key is missing from another language file the English value is used.
 
-In order to collaboratively edit the translations we use POEditor.com. Translators can be given access to specific languages so that we can more effectively edit language text to be included in Medic Mobile. Once the text is ready it can be exported from POEditor to GitHub and included in the next release of our app.
+In order to collaboratively edit the translations we use POEditor.com. Translators can be given access to specific languages so that we can more effectively edit language text to be included in CHT Core. Once the text is ready it can be exported from POEditor to GitHub and included in the next release of our app.
 
 Note that "keys" in .properties files are referred to as `terms` in POEditor.
 
@@ -24,7 +24,7 @@ New languages must be added and configured in several places:
   - Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/master/api/src/translations.js#L8). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
   - Import the moment language pack in the [root app.js file](https://github.com/medic/cht-core/blob/master/webapp/src/js/app.js#L39). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
 - *In POEditor*
-  - In the [Medic Mobile project](https://poeditor.com/projects/view?id=33025), add the language
+  - In the [CHT Core project](https://poeditor.com/projects/view?id=33025), add the language
   - Add translations for a new language in the POEditor app
   - Export file from POEditor to GitHub, as described below
 
@@ -61,4 +61,4 @@ To be done *only* by updating messages-en.properties and importing to POEditor t
 
 ## Exporting changes from POEditor to GitHub
 To be done *only* by exporting all translations through the CLI tool.
-If you don't have an API token, please contact a Medic Mobile developer, product manager, or CTO. Please do not disclose this API token to anyone else.
+If you don't have an API token, please contact a Medic developer. Please do not disclose this API token to anyone else.
