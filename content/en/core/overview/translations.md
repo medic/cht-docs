@@ -34,7 +34,7 @@ In order to trace the addition of new terms and also updates to existing transla
 the default translation file (messages-en.properties) must be updated directly.
 Our GitHub repo provides with a [command line tool (CLI)](https://github.com/medic/medic/tree/master/scripts/poe) to
 import updates into the POEditor app.
-If you don't have an API token, please contact a Medic Mobile developer, product manager, or CTO. Please do not disclose this API token to anyone else.
+If you don't have an API token, please contact a Medic developer. Please do not disclose this API token to anyone else.
 
 ### Translating static text
 
