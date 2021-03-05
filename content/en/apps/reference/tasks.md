@@ -37,7 +37,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `events[n].end` | `integer` | Number of days to show the task after it is due. | yes |
 | `actions` | `object[]` | The actions (forms) that a user can access after clicking on a task. If you put multiple forms here, the user will see a task summary screen where they can select which action they would like to complete. | yes |
 | `actions[n].type` | `'report'` or `'contact'` | When `'report'`, the action opens the given form. When `'contact'`, the action redirects to a contact's profile page. Defaults to 'report'. | no |
-| `actions[n].form` | `string` | The code of the form that should open when you select the action. | yes |
+| `actions[n].form` | `string` | The code of the form that should open when you select the action. | yes, if `actions[n].type` is `'report'` |
 | `actions[n].label`| `translation key` | The label that should appear on the task summary screen if multiple actions are present. | no |
 | `actions[n].modifyContent`| `function (content, contact, report)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. | no |
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
