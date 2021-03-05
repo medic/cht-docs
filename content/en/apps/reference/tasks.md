@@ -83,7 +83,7 @@ module.exports = [
         Utils.addDate(dueDate, -event.start).getTime(),
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
-    };
+    }
   }
 ];
 ```
