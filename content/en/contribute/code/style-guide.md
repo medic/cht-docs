@@ -388,6 +388,31 @@ function isPercentage(val) {
 }
 ```
 
+## Avoid reduce
+
+Most uses of reduce have more readable alternatives.
+
+When supporting older browsers and node versions where some features aren't available `reduce` can still be useful but its use should be hidden behind a utility function or polyfill to help readability and make it easier to replace later.
+
+*Right:*
+
+```js
+const properties = [];
+elements.forEach(elem => {
+  properties.push(elem.a, elem.b);
+});
+```
+
+*Wrong:*
+
+```js
+const properties = elements.reduce((properties, elem) => {
+  return properties.concat(elem.a, elem.b);
+}, []);
+```
+
+Refer to [this YouTube video](https://youtu.be/qaGjS7-qWzg) for more examples.
+
 ## Adding documentation comments
 
 To add documentation comments that will be built using jsdocs, use
