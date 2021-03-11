@@ -64,8 +64,24 @@ Optionally, a Wi-FI Access Point (AP) may be deployed on the LAN.  This should n
 
 Deployments that don't have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general should likely not use an offline CHT server. This is a complex deployment where mistakes are easy to make unless proper training is in place. 
 
-## Benefits Over Reverse Proxy
+## Benefits Over Other Solutions
 
-Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/) your traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
+An offline deployment may consider substituting some requirements above with these other solutions.  Note that ngrok requires Internet connectivity so is not offline.
 
-This can help even in locations with Internet, but connectivity which is very slow, very expensive per megabyte, or both. 
+### ngrok
+
+Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), your traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
+
+This can help even in locations with Internet, but connectivity which is very slow, very expensive per megabyte, or both.
+
+### Self-Signed Certificates
+
+Another option you may consider is to [self-sign the certificates](https://gist.github.com/anand-k-p/851e57c3aa43e1e36df164f1c215609e) and then either bypass the warnings in browsers or install the new CA root certificate on your devices.  While this may work for a development environment with a single developer, it will be hard to scale to an environment where you'd like to easily provision many Android devices.  The work will be much more than just installing an APK form the Play Store (or the slightly harder side load process).
+
+This may only work on certain, older version of Android as well.
+
+### No DHCP or DNS Server
+
+To avoid installing both the DHCP and DNS servers, using an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) or [Daedalus](https://play.google.com/store/apps/details?id=org.itxtech.daedalus) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.  
+
+Like the self-signed certificate solution, this is hard to scale and would need to be complimented by editing `/etc/hosts` files on desktop browsers.
