@@ -30,7 +30,7 @@ Additionally, if users are going to migrate between offline locations with the s
 
 ## Requirements
 
-A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a  common name (CN) that matches the domain name:  
+A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name:  
 
 ### Static IP
 
