@@ -64,6 +64,6 @@ Deployments that don't have staff familiar with DNS, TLS Certs, DHCP, LAN topolo
 
 ## Benefits Over Reverse Proxy
 
-Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/) your traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meter away.
+Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/) your traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
 
 This can help even in locations with Internet, but connectivity which is very slow, very expensive per megabyte, or both. 
