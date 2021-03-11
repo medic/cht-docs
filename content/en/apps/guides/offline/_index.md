@@ -23,7 +23,7 @@ An offline CHT server is most appropriate for a development environment.  There 
 * Scale - What happens when the hardware deployed needs to be upgraded to increase capacity?
 * Updates - By definition TLS certificates expire and software needs to be updated - how will the deployment get these updates on a regular basis?
 * Security - While the TLS certificate will protect data on the LAN, is the server hard drive encrypted in the event of property theft? 
-* Privacy - The CHT inherently carries sensitive pateitn medical information in the database. Are there sufficient measures in place to protect this sensitive data?  
+* Privacy - The CHT inherently carries sensitive patient medical information in the database. Are there sufficient measures in place to protect this sensitive data?  
 
 Additionally, if users are going to migrate between offline locations with the same domain name, always ensure a different login and password is used. This will prevent a client from another CHT instance trying to synchronize with a CHT instance it shouldn't synchronize with, possibly causing data corruption.
 
