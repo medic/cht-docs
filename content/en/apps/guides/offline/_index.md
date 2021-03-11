@@ -3,7 +3,7 @@ title: "Offline CHT Server"
 linkTitle: "Offline CHT"
 weight: 100
 description: >
- Running an instance of CHT Core server with no Internet
+ Running an instance of CHT Core server with no internet connection
 ---
 
 ## Introduction
