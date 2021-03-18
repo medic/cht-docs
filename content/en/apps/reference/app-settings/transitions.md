@@ -471,7 +471,7 @@ Allow reporting about patient centric workflows by
   "summary": "",
   "description": "",
   "start_from": "reported_date",
-  "messages": [...]
+  "messages": []
 }],
 "patient_reports": [{
   "form": "pregnancy_visit",
