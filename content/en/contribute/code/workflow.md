@@ -22,6 +22,19 @@ Aim for self-documenting code. Where code cannot be made self-documenting add co
 
 A good workflow would be to work locally, pushing to a remote branch as you make progress, possibly open a draft PR for some initial collaboration on tricky parts, and once everything is done, convert the draft PR to a regular PR to be reviewed.
 
+### Updating The Issue With What You Actually Did
+
+Put something on the GitHub issue with what the final change actually was. This is important for multiple cases including:
+- Non-technical people may not understand the conversation thread on the issue. GitHub is a place that developers work, but it is also common to send non-technical people links to issues in GitHub.
+- The QA team should have a quick way to know where to start testing.
+- Issues with a lot of discussion of alternative solutions need a clear resolution and indication of which route was taken.
+
+Options for doing this:
+- Attach a short video - these are usually very well received and can often help people understand what happened much more clearly than a text description.
+- Screenshots - pictures with big arrows on them can quickly convey important things to look at. If you start to need multiple screenshots consider the video option instead.
+- Write up a few sentences - Be sure to consider a non-technical audience when writing this.
+
+
 ### Reviewing
 
 The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
