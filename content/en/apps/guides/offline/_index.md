@@ -6,6 +6,8 @@ description: >
  Running an instance of CHT Core server with no internet connection
 ---
 
+{{% alert title="Development only" %}} This guide is not meant for a produciton CHT instance.  Support may be added in the futre an offline CHT server in a production environment.  Please see the "Considerations" section below. {{% /alert %}}
+
 ## Introduction
 
 The CHT is built as an offline first application. This applies to clients, either  browsers or Android applications, connecting to the CHT server.  The server itself assumes it has Internet connectivity to provide services such as DNS, software updates and general use connectivity.  This document explores what it looks like when the CHT server is offline without these services available.
@@ -14,7 +16,7 @@ Running a CHT server offline requires no modifications to the CHT itself.  Inste
 
 ## Considerations
 
-An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline server in a production environment which are most often ignored for development.  Offline solution should have a plan in place for:
+An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline instance:
 
 * Alerting - How will alerts be sent in the case of downtime or degraded service? 
 * Power failures and unplanned restarts - Will the server cleanly restart such that the CHT resumes service correctly?
@@ -66,13 +68,19 @@ Deployments that don't have staff familiar with DNS, TLS Certs, DHCP, LAN topolo
 
 ## Benefits Over Other Solutions
 
-An offline deployment may consider substituting some requirements above with these other solutions.  Note that ngrok requires Internet connectivity so is not offline.
+An offline deployment may consider substituting some requirements above with these other solutions.  Note that ngrok and local-ip.co require Internet connectivity, so are not an offline solution.
 
 ### ngrok
 
 Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), your traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
 
 This can help even in locations with Internet, but connectivity which is very slow, very expensive per megabyte, or both.
+
+### local-ip.co 
+
+[local-ip.co](http://local-ip.co/) offers both the TLS certificate and private key for `*.my.local-ip.co`.  Additionally, the service has a DNS server that dynamically maps any IP you pass in the sub-sub-domain to the real world IP such that `192-168-0-1.my.local-ip.co` would resolve to `192.168.0.1`.  This can make it very handy to deploy a development instance where all HTTP traffic remains local (unlike `ngrok` above).  
+
+As the DNS traffic still needs to leave your network and return, it is not a viable solution for a truely offline CHT deployment.
 
 ### Self-Signed Certificates
 
