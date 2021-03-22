@@ -177,7 +177,8 @@ There are two types of hydration:
 
 ###### A hydrated report has
 - a deeply hydrated submitter `contact`
-- a deeply hydrated `patient`
+- a deeply hydrated `patient`, if the report has a `patient_id`/`patient_uuid`
+- a deeply hydrated `place`, if the report has a `place_id`
 
 
 
