@@ -9,7 +9,7 @@ relatedContent: >
   apps/guides/messaging/sms-states
 ---
 
-Shortcodes used for SMS messaging are generated on `doc.patient_id` against any document of `type` `person`. By default, these shortcodes start at 5 numeric digits long, and will increase in length as deemed necessary by the generation algorithm.
+Shortcodes used for SMS messaging are generated on `doc.patient_id` against any document of a `person` `type`, and on every `doc.place_id` against any document of a `place` `type`. By default, these shortcodes start at 5 numeric digits long, and will increase in length as deemed necessary by the generation algorithm.
 
 If the length is increased, this increase is stored in a CouchDB documented called `shortcode-id-length`:
 
