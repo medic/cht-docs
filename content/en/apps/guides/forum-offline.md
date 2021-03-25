@@ -46,7 +46,7 @@ _*  There will be other folders like `Documents` and `Pictures` as this is a Des
 
 1. Uncomment and set `WEBPASSWORD` to be a good password
 
-1. Edit `pi-hole-docker-compose.yml` so that it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-Hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password):
+1. Edit `pi-hole-docker-compose.yml` so that it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password):
       ```yml
           network_mode: host
           environment:
@@ -54,13 +54,13 @@ _*  There will be other folders like `Documents` and `Pictures` as this is a Des
             WEBPASSWORD: 'YOUR PASSWORD HERE'
       ```
    
-1. Start the Pi-Hole container: `docker-compose -f pi-hole-docker-compose.yml up --detach`. You should be able to browse to http://192.168.8.2/admin and login in to Pi_hole the using `WEBPASSWORD` you set above.
+1. Start the Pi-hole container: `docker-compose -f pi-hole-docker-compose.yml up --detach`. You should be able to browse to http://192.168.8.2/admin and login in to Pi-hole the using `WEBPASSWORD` you set above.
    
 1. Go to "Settings" -> "DHCP" and turn on DHCP, ensuring "range" and "router" are set to be correct for your LAN. It was 192.168.8.100 -  192.168.8.250 and 192.168.8.1 in my case
    
 1. Go to "Settings" -> "DNS" -> "Interface listening behavior" and set it to "Listen on all interfaces, permit all origins"
    
-1. Go to "Local DNS" -> "DNS Records" and add two entries for your CHT instance and Pi-Hole instance. These need to match matches the CN in your certificate.
+1. Go to "Local DNS" -> "DNS Records" and add two entries for your CHT instance and Pi-hole instance. These need to match matches the CN in your certificate.
       ```
       cht.my.local-ip.co 192.168.8.2
       dns.my.local-ip.co 192.168.8.2
@@ -92,7 +92,7 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
    
 1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up --detach`. This will create a number of files and folders, including the file edited in the next step.
 
-1. As Pi-Hole is running on port `80`, comment out the `server` listening on that port, so it looks like this:
+1. As Pi-hole is running on port `80`, comment out the `server` listening on that port, so it looks like this:
       ```yaml
        #server {
        #    listen         80;
@@ -114,7 +114,7 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
 
 In this example we're using the free certificates offered on [local-ip.co](http://local-ip.co). We'll store them in `./tls-certs` and share this between all the containers. For your deployment it is assumed you will provide your own certificates, but local-ip's are free to test with.
 
-1. Given our bare metal server is using upstream DNS and not the Pi-Hole, you may want to add an entry in the `/etc/hosts` file to aid testing locally:
+1. Given our bare metal server is using upstream DNS and not the Pi-hole, you may want to add an entry in the `/etc/hosts` file to aid testing locally:
     ```bash
     192.168.8.2     dns.my.local-ip.co
     192.168.8.2     cht.my.local-ip.co
@@ -145,9 +145,9 @@ In this example we're using the free certificates offered on [local-ip.co](http:
     ```
 
 
-### TLS on Pi-Hole
+### TLS on Pi-hole
 
-Pi-Hole uses `lighttpd` as its front end web server. These steps add an explicit host on port `8443` using our valid certificate:
+Pi-hole uses `lighttpd` as its front end web server. These steps add an explicit host on port `8443` using our valid certificate:
 
 1. Enter the `pihole` container with `docker exec -it pihole /bin/bash`
    
@@ -218,13 +218,13 @@ docker-compose -f pi-hole-docker-compose.yml down
 
 Now proceed to create the two services below.
 
-### Pi-Hole
+### Pi-hole
 
 1. Create a file `/etc/systemd/system/pihole-docker.service` with the contents:
       
       ```
       [Unit]
-      Description=Start Pi-Hole in Docker
+      Description=Start Pi-hole in Docker
       Requires=docker.service
       After=docker.service
       
