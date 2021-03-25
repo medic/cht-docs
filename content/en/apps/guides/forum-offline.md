@@ -90,7 +90,7 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
    
 1. Create the new shared `medic-srv` directory: `mkdir medic-srv`
    
-1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up -d`. This will create a number of files and folders, including the file edited in the next step.
+1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up --detach`. This will create a number of files and folders, including the file edited in the next step.
 
 1. As Pi-Hole is running on port `80`, comment out the `server` listening on that port, so it looks like this:
       ```yaml
@@ -232,7 +232,7 @@ Now proceed to create the two services below.
       Type=oneshot
       RemainAfterExit=yes
       WorkingDirectory=/root/
-      ExecStart=/usr/local/bin/docker-compose -f pi-hole-docker-compose.yml up -d
+      ExecStart=/usr/local/bin/docker-compose -f pi-hole-docker-compose.yml up --detach
       ExecStop=/usr/local/bin/docker-compose -f pi-hole-docker-compose.yml down
       TimeoutStartSec=0
       
@@ -259,7 +259,7 @@ Now proceed to create the two services below.
       Type=oneshot
       RemainAfterExit=yes
       WorkingDirectory=/root/
-      ExecStart=/usr/local/bin/docker-compose -f cht-docker-compose-local-host.yml up -d
+      ExecStart=/usr/local/bin/docker-compose -f cht-docker-compose-local-host.yml up --detach
       ExecStop=/usr/local/bin/docker-compose -f cht-docker-compose-local-host.yml down
       TimeoutStartSec=0
       
