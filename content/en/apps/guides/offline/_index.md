@@ -21,7 +21,7 @@ An offline CHT server is most appropriate for a development environment.  There 
 * Alerting - How will alerts be sent in the case of downtime or degraded service? 
 * Power failures and unplanned restarts - Will the server cleanly restart such that the CHT resumes service correctly?
 * Backups - What happens to the CHT data if there's a hard drive failure?  
-* Disaster Recovery - What happens if there is a flood at the facility and active and backup data on site are destroyed?
+* Disaster Recovery - What happens if there is a flood at the facility and on-site active and backup data are destroyed?
 * Scale - What happens when the hardware deployed needs to be upgraded to increase capacity?
 * Updates - By definition TLS certificates expire and software needs to be updated - how will the deployment get these updates on a regular basis?
 * Security - While the TLS certificate will protect data on the LAN, is the server hard drive encrypted in the event of property theft? 
@@ -42,7 +42,7 @@ The CHT server needs to be given a static IP so that DNS will always resolve to 
 
 Browsers might allow you to connect to a server with an invalid TLS certificate after you [bypass the warning](https://www.ssl.com/guide/troubleshooting-ssl-tls-browser-errors-and-warnings/).  This is not so for an Android app like [Medic Android App](https://github.com/medic/medic-android/) - it requires a valid TLS certificate to work correctly.  You will need to acquire a valid TLS certificate from a certificate authority (CA) and install it on your CHT server.
 
-It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) for this as they provide free certificates. Be cautioned that Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
+It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) for this because they provide free certificates. Be cautioned that Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
 
 After acquiring the certificate, if you are running a docker based CHT deployment, see [TLS instructions for Docker]({{< relref "/apps/guides/hosting/ssl-cert-install" >}}) to install the certificate. 
 
@@ -56,7 +56,7 @@ Most LANs will defer to the Internet Service Provider (ISP) to provide DNS, but 
 
 Any new client that connects to a network will get an IP address from a Dynamic Host Configuration Protocol (DHCP) server.  It is critical that the DHCP server for the LAN the CHT is on instructs all clients to use the DNS server configured above.  
 
-This is the final piece for any client, specifically Android clients, on the LAN to successfully connect to the CHT server and correctly use it's TLS certificate.  
+This is the final piece for any client, specifically Android clients, on the LAN to successfully connect to the CHT server and correctly use its TLS certificate.  
 
 ### Wi-Fi AP 
 
@@ -72,9 +72,9 @@ An offline deployment may consider substituting some requirements above with the
 
 ### ngrok
 
-Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), your traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
+Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
 
-This can help even in locations with Internet, but connectivity which is very slow, very expensive per megabyte, or both.
+This can help even in locations with Internet connectivity which is very slow, very expensive per megabyte, or both.
 
 ### local-ip.co 
 
@@ -84,12 +84,12 @@ As the DNS traffic still needs to leave your network and return, it is not a via
 
 ### Self-Signed Certificates
 
-Another option you may consider is to [self-sign the certificates](https://gist.github.com/anand-k-p/851e57c3aa43e1e36df164f1c215609e) and then either bypass the warnings in browsers or install the new CA root certificate on your devices.  While this may work for a development environment with a single developer, it will be hard to scale to an environment where you'd like to easily provision many Android devices.  The work will be much more than just installing an APK form the Play Store (or the slightly harder side load process).
+Another option to consider is to [self-sign the certificates](https://gist.github.com/anand-k-p/851e57c3aa43e1e36df164f1c215609e) and then either bypass the warnings in browsers or install the new CA root certificate on your devices.  While this may work for a development environment with a single developer, it will be hard to scale to an environment where you'd like to easily provision many Android devices.  The work will be much more than just installing an APK form the Play Store (or the slightly harder side load process).
 
 This may only work on certain, older version of Android as well.
 
 ### No DHCP or DNS Server
 
-To avoid installing both the DHCP and DNS servers, using an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) or [Daedalus](https://play.google.com/store/apps/details?id=org.itxtech.daedalus) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.  
+To avoid installing both the DHCP and DNS servers, an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) or [Daedalus](https://play.google.com/store/apps/details?id=org.itxtech.daedalus) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.  
 
 Like the self-signed certificate solution, this is hard to scale and would need to be complimented by editing `/etc/hosts` files on desktop browsers.
