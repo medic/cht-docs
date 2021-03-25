@@ -1,6 +1,6 @@
 ## Overview
 
-In this post we look at setting up an instance of the CHT server that is initially online, but ultimately is deployed fully offline so it can be configured.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
+In this post we look at setting up an instance of the CHT server that is initially online so it can be configured, but ultimately is deployed fully offline.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
 
 Our environment has the following setup:
   * A router with the IP `192.168.8.1`
