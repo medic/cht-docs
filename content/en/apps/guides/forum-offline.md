@@ -173,7 +173,7 @@ Pi-hole uses `lighttpd` as its front end web server. These steps add an explicit
       # Redirect HTTP to HTTPS
       $HTTP["scheme"] == "http" {
         $HTTP["host"] =~ ".*" {
-          url.redirect = (".*" => "https://%0:8443$root@chtbuntu:~#
+          url.redirect = (".*" => "https://%0:8443$0")
         }
       }
     }
