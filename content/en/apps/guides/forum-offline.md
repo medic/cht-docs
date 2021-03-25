@@ -125,9 +125,9 @@ In this example we're using the free certificates offered on [local-ip.co](http:
     cd tls-certs
     curl -s -o server.pem http://local-ip.co/cert/server.pem
     curl -s -o chain.pem http://local-ip.co/cert/chain.pem
+    curl -s -o server.key http://local-ip.co/cert/server.key
     cat server.key server.pem > lighttpd.key.and.pem.pem
     cat server.pem chain.pem > server.chained.pem
-    curl -s -o server.key http://local-ip.co/cert/server.key
     ```
    
 1. Add a mount point to both containers `medic-os` and `pihole` so that they can read these certs. In each `docker-compose` file in the `volumes:` section add a new entry on its own line: `- './tls-certs/:/etc/tls-certs/'`
