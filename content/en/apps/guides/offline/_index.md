@@ -6,7 +6,7 @@ description: >
  Running an instance of CHT Core server with no internet connection
 ---
 
-{{% alert title="Development only" %}} This guide is not meant for a produciton CHT instance.  Support may be added in the futre an offline CHT server in a production environment.  Please see the "Considerations" section below. {{% /alert %}}
+{{% alert title="Development only" %}} This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below. {{% /alert %}}
 
 ## Introduction
 
