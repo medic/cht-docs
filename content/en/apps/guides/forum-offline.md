@@ -9,7 +9,19 @@ Our environment has the following setup:
   * An Android device running Android 10 
   * An unbranded install of [medic-android 0.7.3](https://github.com/medic/medic-android/releases/download/v0.7.3/medic-android-v0.7.3-unbranded-webview-arm64-v8a-release.apk)
 
-Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`. 
+Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`.  You will end up with a folder that looks like this*:
+```bash
+cd;ls -l |egrep 'yml|etc|tls|srv'
+-rw-r--r-- 1 root             root              733 Mar 25 14:55 cht-docker-compose-local-host.yml
+drwxr-xr-x 2 root             root             4096 Mar 25 15:30 etc-dnsmasq.d
+drwxrwxr-x 3 systemd-coredump systemd-coredump 4096 Mar 25 15:56 etc-pihole
+drwxr-xr-x 8 root             root             4096 Mar 24 14:10 medic-srv
+-rw-r--r-- 1 root             root              776 Mar 19 12:42 pi-hole-docker-compose.yml
+drwxr-xr-x 2 root             root             4096 Mar 24 11:28 tls-certs
+
+```
+
+_*  There will be other folders like `Documents` and `Pictures` as this is a Desktop install. These can be ignored._
 
 **NOTE** - This is for development only.  It is not meant for a production environment.  Please see [this note](https://docs.communityhealthtoolkit.org/apps/guides/offline/) for more information.
 
@@ -77,7 +89,7 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
    
 1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://github.com/medic/cht-infrastructure/tree/master/self-hosting)
    
-1. In the same directory as your docker compose files, create the new shared `medic-srv` directory: `mkdir medic-srv`
+1. Create the new shared `medic-srv` directory: `mkdir medic-srv`
    
 1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up -d`. This will create a number of files and folders, including the file edited in the next step.
 
