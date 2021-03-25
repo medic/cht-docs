@@ -3,7 +3,7 @@ title: "Offline CHT Server"
 linkTitle: "Offline CHT"
 weight: 100
 description: >
- Running an instance of CHT Core server with no internet connection
+ Running an instance of CHT Core server with no Internet  connection
 ---
 
 {{% alert title="Development only" %}} This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below. {{% /alert %}}
@@ -80,7 +80,7 @@ This can help even in locations with Internet, but connectivity which is very sl
 
 [local-ip.co](http://local-ip.co/) offers both the TLS certificate and private key for `*.my.local-ip.co`.  Additionally, the service has a DNS server that dynamically maps any IP you pass in the sub-sub-domain to the real world IP such that `192-168-0-1.my.local-ip.co` would resolve to `192.168.0.1`.  This can make it very handy to deploy a development instance where all HTTP traffic remains local (unlike `ngrok` above).  
 
-As the DNS traffic still needs to leave your network and return, it is not a viable solution for a truely offline CHT deployment.
+As the DNS traffic still needs to leave your network and return, it is not a viable solution for a truly offline CHT deployment.
 
 ### Self-Signed Certificates
 
