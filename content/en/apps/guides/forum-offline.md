@@ -1,6 +1,6 @@
 ## Overview
 
-In this post we look at setting up an instance of the CHT server that is initially online, but ultimately is deployed fully offline so it can be configured.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
+In this post we look at setting up an instance of the CHT server that is initially online, but ultimately is deployed fully offline so it can be configured.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
 
 Our environment has the following setup:
   * A router with the IP `192.168.8.1`
@@ -162,7 +162,7 @@ Pi-Hole uses `lighttpd` as its front end web server. These steps add an explicit
 
 ### TLS on CHT
 
-CHT uses `nginx` as its front end web server. These steps follow the [CHT Self hosting guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting#ssl-certificate-installation) to install our valid certificate:
+CHT uses `nginx` as its front end web server. These steps follow the [CHT Self-hosting guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting#ssl-certificate-installation) to install our valid certificate:
 
 1. Enter the `medic-os` container with `docker exec -it medic-os /bin/bash`
    
