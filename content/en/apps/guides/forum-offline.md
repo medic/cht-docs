@@ -35,7 +35,7 @@ Unless otherwise specified, all commands are run on the Ubuntu server as the `ro
 
 1. Uncomment and set `WEBPASSWORD` to be a good password
 
-1. Edit `pi-hole-docker-compose.yml` so that it use `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-Hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password):
+1. Edit `pi-hole-docker-compose.yml` so that it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-Hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password):
       ```yml
           network_mode: host
           environment:
@@ -45,9 +45,9 @@ Unless otherwise specified, all commands are run on the Ubuntu server as the `ro
    
 1. Start the Pi-Hole container: `docker-compose -f pi-hole-docker-compose.yml up --detach`. You should be able to browse to http://192.168.8.2/admin and login in to Pi_hole the using `WEBPASSWORD` you set above.
    
-1. Go to Settings -> DHCP and turn on DHCP, ensuring range and router are set to be correct for your LAN. It was 192.168.8.100 -  192.168.8.250 and 192.168.8.1 in my case
+1. Go to "Settings" -> "DHCP" and turn on DHCP, ensuring "range" and "router" are set to be correct for your LAN. It was 192.168.8.100 -  192.168.8.250 and 192.168.8.1 in my case
    
-1. Go to Settings -> DNS -> Interface listening behavior and set it to "Listen on all interfaces, permit all origins"
+1. Go to "Settings" -> "DNS" -> "Interface listening behavior" and set it to "Listen on all interfaces, permit all origins"
    
 1. Go to "Local DNS" -> "DNS Records" and add two entries for your CHT instance and Pi-Hole instance. These need to match matches the CN in your certificate.
       ```
@@ -60,26 +60,39 @@ Unless otherwise specified, all commands are run on the Ubuntu server as the `ro
 
 ## CHT Server and Data
 
-Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting), this section provision a docker container and then configure it to preserve your data:
+Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting), this section provisions a docker container and then configures it to preserve your data as otherwise Docker does not keep it:
 
 > Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design. In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data.
 
-1. Get the latest [docker-compose file](https://raw.githubusercontent.com/medic/cht-infrastructure/master/self-hosting/main/docker-compose.yml) and save it to `cht-docker-compose-local-host.yml`. Edit it to remove the ports section and replace them with `network_mode: host` like we did above.  (This will work around an issue we're seeing with `nginx` [failing to start](https://forum.communityhealthtoolkit.org/t/problems-cht-local-setup/1147).)
+1. Get the latest [docker-compose file](https://raw.githubusercontent.com/medic/cht-infrastructure/master/self-hosting/main/docker-compose.yml) and save it to `cht-docker-compose-local-host.yml`. Edit it to:
    
-1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per the instructions
+      1. Remove the ports section and replace them with `network_mode: host` like we did above.  (This will work around an issue we're seeing with `nginx` [failing to start](https://forum.communityhealthtoolkit.org/t/problems-cht-local-setup/1147).)
+      1. Change the volume `- medic-data:/srv` to be `'./medic-srv:/srv'`. Note there are two instances of this volume - be sure to change them both.
+      1. Remove the shared volume declaration:
+         ```yml
+         volumes:
+             medic-data:
+                 name: medic-data
+         ```
    
-1. En the same directory as your docker compose files, create the new shared `medic-srv` directory: `mkdir medic-srv`
+1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://github.com/medic/cht-infrastructure/tree/master/self-hosting)
    
-1. Edit `cht-docker-compose-local-host.yml` to change the volume `- medic-data:/srv` to be `'./medic-srv:/srv'`. Note there are two instances of this volume - be sure to change them both.
+1. In the same directory as your docker compose files, create the new shared `medic-srv` directory: `mkdir medic-srv`
    
-1. Remove the shared volume declaration:
-      ```yml
-      volumes:
-          medic-data:
-              name: medic-data
+1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up -d`. This will create a number of files and folders, including the file edited in the next step.
+
+1. As Pi-Hole is running on port `80`, comment out the `server` listening on that port, so it looks like this:
+      ```yaml
+       #server {
+       #    listen         80;
+       #    server_name    _;
+       #    error_log /srv/storage/medic-core/nginx/logs/error.log;
+       #    location / {
+       #        return 301 https://$host$request_uri;
+       #    }
+       #}
       ```
-   
-1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up -d`
+   Restart the `nginx` server with `docker exec -it medic-os /boot/svc-restart medic-core nginx` to ensure the changes take effect. 
    
 1. CHT should be available at  `https://cht.my.local-ip.co`, but has an invalid certificate.  We'll fix this below.
 
