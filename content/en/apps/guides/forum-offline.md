@@ -86,7 +86,7 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
                  name: medic-data
          ```
    
-1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://github.com/medic/cht-infrastructure/tree/master/self-hosting)
+1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://github.com/medic/cht-infrastructure/tree/master/self-hosting#installing-with-a-compose-file)
    
 1. Create the new shared `medic-srv` directory: `mkdir medic-srv`
    
