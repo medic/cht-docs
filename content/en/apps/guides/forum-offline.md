@@ -9,10 +9,10 @@ Our environment has the following setup:
   * An Android device running Android 10 
   * An unbranded install of [medic-android 0.7.3](https://github.com/medic/medic-android/releases/download/v0.7.3/medic-android-v0.7.3-unbranded-webview-arm64-v8a-release.apk)
 
+Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`. 
 
 **NOTE** - This is for development only.  It is not meant for a production environment.  Please see [this note](https://docs.communityhealthtoolkit.org/apps/guides/offline/) for more information.
 
-Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`. 
 
 ## LAN & Server
 
