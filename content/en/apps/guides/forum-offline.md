@@ -11,14 +11,13 @@ Our environment has the following setup:
 
 Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`.  You will end up with a folder that looks like this*:
 ```bash
-cd;ls -l |egrep 'yml|etc|tls|srv'
--rw-r--r-- 1 root             root              733 Mar 25 14:55 cht-docker-compose-local-host.yml
-drwxr-xr-x 2 root             root             4096 Mar 25 15:30 etc-dnsmasq.d
-drwxrwxr-x 3 systemd-coredump systemd-coredump 4096 Mar 25 15:56 etc-pihole
-drwxr-xr-x 8 root             root             4096 Mar 24 14:10 medic-srv
--rw-r--r-- 1 root             root              776 Mar 19 12:42 pi-hole-docker-compose.yml
-drwxr-xr-x 2 root             root             4096 Mar 24 11:28 tls-certs
-
+/root
+   /cht-docker-compose-local-host.yml
+   /etc-dnsmasq.d
+   /etc-pihole
+   /medic-srv
+   /pi-hole-docker-compose.yml
+   /tls-certs
 ```
 
 _*  There will be other folders like `Documents` and `Pictures` as this is a Desktop install. These can be ignored._
