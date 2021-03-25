@@ -1,6 +1,6 @@
 ## Overview
 
-In this post we will look at setting up an instance of the CHT server that is initially online so it can be configured, but ultimately is deployed fully offline.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
+In this post we look at setting up an instance of the CHT server that is initially online, but ultimately is deployed fully offline so it can be configured.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
 
 Our environment has the following setup:
   * A router with the IP `192.168.8.1`
@@ -12,7 +12,7 @@ Our environment has the following setup:
 
 **NOTE** - This is for development only.  It is not meant for a production environment.  Please see [this note](https://docs.communityhealthtoolkit.org/apps/guides/offline/) for more information.
 
-Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location. 
+Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`. 
 
 ## LAN & Server
 
@@ -60,7 +60,7 @@ Unless otherwise specified, all commands are run on the Ubuntu server as the `ro
 
 ## CHT Server and Data
 
-Following the [CHT self hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting), this section provision a docker container and then configure it to preserve your data:
+Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting), this section provision a docker container and then configure it to preserve your data:
 
 > Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design. In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data.
 
@@ -88,7 +88,7 @@ Following the [CHT self hosted guide](https://github.com/medic/cht-infrastructur
 
 ### Prepare and mount certificates
 
-In this example we're using the free certificates offered on [local-ip.co](http://local-ip.co). We'll store them in `./tls-certs` and share this between all the containers. For your deployment it's assumed you will provide your own certificates, but local-ip's are free to test with.
+In this example we're using the free certificates offered on [local-ip.co](http://local-ip.co). We'll store them in `./tls-certs` and share this between all the containers. For your deployment it is assumed you will provide your own certificates, but local-ip's are free to test with.
 
 1. Given our bare metal server is using upstream DNS and not the Pi-Hole, you may want to add an entry in the `/etc/hosts` file to aid testing locally:
     ```bash
@@ -181,6 +181,93 @@ CHT uses `nginx` as its front end web server. These steps follow the [CHT Self h
 
 ## Boot Persistence
 
-TBD - but ensure all three containers restart across server reboots:
-* https://docs.docker.com/config/containers/start-containers-automatically/#use-a-process-manager
-* https://stackoverflow.com/questions/43671482/how-to-run-docker-compose-up-d-at-system-start-up
+While there are [many ways](https://docs.docker.com/config/containers/start-containers-automatically) to have Docker start at boot, we'll use the last recommendation, `systemd`, to do this.
+
+For all three containers in the two `.yml` files, ensure they have the `restart: unless-stopped` setting.  When coupled with the `systemd` service entry, this will ensure the service stays running if it restarts.
+
+Start by pulling down all the containers:
+
+```
+docker-compose -f cht-docker-compose-local-host.yml down
+docker-compose -f pi-hole-docker-compose.yml down
+```
+
+Now proceed to create the two services below.
+
+### Pi-Hole
+
+1. Create a file `/etc/systemd/system/pihole-docker.service` with the contents:
+      
+      ```
+      [Unit]
+      Description=Start Pi-Hole in Docker
+      Requires=docker.service
+      After=docker.service
+      
+      [Service]
+      Type=oneshot
+      RemainAfterExit=yes
+      WorkingDirectory=/root/
+      ExecStart=/usr/local/bin/docker-compose -f pi-hole-docker-compose.yml up -d
+      ExecStop=/usr/local/bin/docker-compose -f pi-hole-docker-compose.yml down
+      TimeoutStartSec=0
+      
+      [Install]
+      WantedBy=multi-user.target
+      ```
+   
+1. Reload `systemd` with `systemctl daemon-reload` and enable and start the service with `systemctl enable --now pihole-docker`
+   
+1. Ensure the service started by checking the status `systemctl status pihole-docker`
+
+
+### CHT
+
+1. Create a file `/etc/systemd/system/cht-docker.service` with the contents:
+      
+      ```
+      [Unit]
+      Description=Start CHT in Docker
+      Requires=docker.service
+      After=docker.service
+      
+      [Service]
+      Type=oneshot
+      RemainAfterExit=yes
+      WorkingDirectory=/root/
+      ExecStart=/usr/local/bin/docker-compose -f cht-docker-compose-local-host.yml up -d
+      ExecStop=/usr/local/bin/docker-compose -f cht-docker-compose-local-host.yml down
+      TimeoutStartSec=0
+      
+      [Install]
+      WantedBy=multi-user.target
+      ```
+   
+1. Reload `systemd` with `systemctl daemon-reload` and enable and start the service with `systemctl enable --now cht-docker`
+   
+1. Ensure the service started by checking the status `systemctl status cht-docker`
+
+
+### Test
+
+Reboot the bare metal computer and ensure all service restart successfully. 
+
+## Connecting devices
+
+Now that your CHT instance is available via DNS, DHCP and TLS, any device on the network can connect to it.
+
+### Android
+
+Any APKs downloaded directly from GitHub will need to [be sideloaded](https://developer.android.com/distribute/marketing-tools/alternative-distribution). Otherwise, normally APKs downloaded from the Play Store do not have this limitation: 
+
+1. Connect to the AP on your LAN
+1. Download the [latest build](https://github.com/medic/medic-android/releases/latest), `0.7.3` as of this writing.  
+1. After installing launching the APK, launch it and choose "Custom" for which CHT instance to use
+1. Enter `https://cht.my.local-ip.co` 
+
+### Desktop Browsers
+
+1. Connect to the AP on your LAN
+1. In a browser, go to [cht.my.local-ip.co](https://cht.my.local-ip.co). 
+
+Note: The CHT does not support the Safari browser on MacOS
