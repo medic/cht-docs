@@ -31,7 +31,7 @@ _*  There will be other folders like `Documents` and `Pictures` as this is a Des
 
 1. Set up an AP
 
-1. Install Ubuntu on bare metal. I chose [Ubuntu desktop](https://ubuntu.com/download/desktop) (vs [server](https://ubuntu.com/download/server)) so the server itself had a GUI I could use to configure settings.
+1. Install Ubuntu on bare metal. I chose [Ubuntu desktop](https://ubuntu.com/download/desktop) (vs [server](https://ubuntu.com/download/server)), so the server itself had a GUI I could use to configure settings.
 
 1. Assign static IP, I used `192.168.8.2` by using the [desktop GUI](https://pimylifeup.com/ubuntu-20-04-static-ip-address/#desktopstaticip).
 
@@ -46,12 +46,13 @@ _*  There will be other folders like `Documents` and `Pictures` as this is a Des
 
 1. Uncomment and set `WEBPASSWORD` to be a good password
 
-1. Edit `pi-hole-docker-compose.yml` so that it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password):
+1. Edit `pi-hole-docker-compose.yml` so that it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password). Finally, add an entry for `WEB_PORT` to be set to `8081`:
       ```yml
           network_mode: host
           environment:
             TZ: 'America/Chicago'
             WEBPASSWORD: 'YOUR PASSWORD HERE'
+            WEB_PORT: 8081
       ```
    
 1. Start the Pi-hole container: `docker-compose -f pi-hole-docker-compose.yml up --detach`. You should be able to browse to http://192.168.8.2/admin and login in to Pi-hole the using `WEBPASSWORD` you set above.
@@ -90,20 +91,7 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
    
 1. Create the new shared `medic-srv` directory: `mkdir medic-srv`
    
-1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up --detach`. This will create a number of files and folders, including the file edited in the next step.
-
-1. As Pi-hole is running on port `80`, comment out the `server` listening on that port, so it looks like this:
-      ```yaml
-       #server {
-       #    listen         80;
-       #    server_name    _;
-       #    error_log /srv/storage/medic-core/nginx/logs/error.log;
-       #    location / {
-       #        return 301 https://$host$request_uri;
-       #    }
-       #}
-      ```
-   Restart the `nginx` server with `docker exec -it medic-os /boot/svc-restart medic-core nginx` to ensure the changes take effect. 
+1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up --detach`.
    
 1. CHT should be available at  `https://cht.my.local-ip.co`, but has an invalid certificate.  We'll fix this below.
 
@@ -161,22 +149,22 @@ Pi-hole uses `lighttpd` as its front end web server. These steps add an explicit
       
       # Enable the SSL engine with a LE cert, only for this specific host
       $SERVER["socket"] == ":8443" {
-        ssl.engine = "enable"
-        ssl.pemfile = "/etc/tls-certs/lighttpd.key.and.pem.pem"
-        ssl.ca-file =  "/etc/tls-certs/chain.pem"
-        ssl.honor-cipher-order = "enable"
-        ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"
-        ssl.use-sslv2 = "disable"
-        ssl.use-sslv3 = "disable"
+         ssl.engine = "enable"
+         ssl.pemfile = "/etc/tls-certs/lighttpd.key.and.pem.pem"
+         ssl.ca-file =  "/etc/tls-certs/chain.pem"
+         ssl.honor-cipher-order = "enable"
+         ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"
+         ssl.use-sslv2 = "disable"
+         ssl.use-sslv3 = "disable"
       }
       
       # Redirect HTTP to HTTPS
       $HTTP["scheme"] == "http" {
-        $HTTP["host"] =~ ".*" {
-          url.redirect = (".*" => "https://%0:8443$0")
-        }
+         $HTTP["host"] =~ ".*" {
+            url.redirect = (".*" => "https://dns.my.local-ip.co:8443")
+         }
       }
-    }
+   }
     ```
    
 1. Restart the web server with `sudo service lighttpd restart`
@@ -295,3 +283,32 @@ Any APKs downloaded directly from GitHub will need to [be sideloaded](https://de
 1. In a browser, go to [cht.my.local-ip.co](https://cht.my.local-ip.co). 
 
 Note: The CHT does not support the Safari browser on MacOS
+
+
+## Summary
+
+If you run `docker ps` on your server, you should see 3 containers running:
+
+```bash
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED         STATUS                   PORTS     NAMES
+cbc032b8f5c1   pihole/pihole:latest                  "/s6-init"               3 minutes ago   Up 3 minutes (healthy)             pihole
+4c600ddcc4c6   medicmobile/medic-os:cht-3.9.0-rc.2   "/bin/bash -l /boot/…"   6 hours ago     Up 6 hours                         medic-os
+a69d06736cbb   medicmobile/haproxy:rc-1.17           "/entrypoint.sh -f /…"   6 hours ago     Up 6 hours                         haproxy
+```
+
+Your server should have a static IP of `192.168.8.2` with two DNS entries pointing to it of `dns.my.local-ip.co` and `cht.my.local-ip.co`.
+
+The following ports are accessible externally on the server:
+
+ * `8081` - `http` port for Pi-hole, redirects to https on `8443`
+ * `8443` - `https` port for Pi-hole web admin GUI
+ * `80` - `http` port for CHT, redirects to https on `443`
+ * `443` - `https` port for CHT application GUI
+   
+Additionally, the original ports for CHT are exposed, which presents a security issue and likely should be protected by [a firewall like `ufw`](https://help.ubuntu.com/community/UFW) but are handy to use for debugging the CHT:
+ * `5988` - `http` port for CHT application GUI
+ * `5984` - `http` port for [CouchDB's Fauxton](https://docs.couchdb.org/en/stable/fauxton/install.html#fauxton-visual-guide) admin GUI
+
+Best of all, all services like DNS and DHCP, are running locally, so the server can be run entirely offline.
+
+Please feel free to ask any questions on this write-up!
