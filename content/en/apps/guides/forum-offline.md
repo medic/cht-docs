@@ -1,11 +1,12 @@
 ## Overview
 
-In this post we look at setting up an instance of the CHT server that is initially online so it can be configured, but ultimately is deployed fully offline.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
+In this post we look at setting up an instance of the [CHT server](https://communityhealthtoolkit.org/) that is initially online so it can be configured, but ultimately is deployed fully offline.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
 
 Our environment has the following setup:
   * A router with the IP `192.168.8.1`
   * A WiFi access point (AP) (using the one in the router)
   * A CHT server running on Ubuntu 20.04 with a static IP of `192.168.8.2`
+  * A [Pi-hole](https://pi-hole.net/) server with DNS and DHCP services
   * An Android device running Android 10 
   * An unbranded install of [medic-android 0.7.3](https://github.com/medic/medic-android/releases/download/v0.7.3/medic-android-v0.7.3-unbranded-webview-arm64-v8a-release.apk)
 
@@ -22,11 +23,31 @@ Unless otherwise specified, all commands are run on the Ubuntu server as the `ro
 
 _*  There will be other folders like `Documents` and `Pictures` as this is a Desktop install. These can be ignored._
 
-**NOTE** - This is for development only.  It is not meant for a production environment.  Please see [this note](https://docs.communityhealthtoolkit.org/apps/guides/offline/) for more information.
+As a reminder, by default, containers do not store your files across reboots:
+
+> Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design. In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data.
+
+### Reverts
+
+If at any point you get stuck and want to start from scratch you can run these three commands. They will delete all containers, volumes and data directories:
+
+* `docker-compose -f pi-hole-docker-compose.yml down -v`
+* `docker-compose -f cht-docker-compose-local-host.yml down -v`
+* `rm -rf pi-hole-docker-compose.yml cht-docker-compose-local-host.yml etc-pihole etc-dnsmasq.d tls-certs etc-lighttpd`
+
+### Development
+
+This forum post is for development only.  It is not meant for a production environment.  Please see [this note](https://docs.communityhealthtoolkit.org/apps/guides/offline/) for more information.
 
 
 ## LAN & Server
 
+1. Given our bare metal server is using upstream DNS and not the Pi-hole, add two entries in the `/etc/hosts` file:
+    ```bash
+    192.168.8.2     dns.my.local-ip.co
+    192.168.8.2     cht.my.local-ip.co
+    ```
+   
 1. Set up a router that has DHCP turned off
 
 1. Set up an AP
@@ -46,7 +67,10 @@ _*  There will be other folders like `Documents` and `Pictures` as this is a Des
 
 1. Uncomment and set `WEBPASSWORD` to be a good password
 
-1. Edit `pi-hole-docker-compose.yml` so that it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password). Finally, add an entry for `WEB_PORT` to be set to `8081`:
+1. Edit `pi-hole-docker-compose.yml` so that:
+   1. it uses `host` mode by removing all ports and replace them with `network_mode: host` per the [Pi-hole docker docs](https://docs.pi-hole.net/docker/DHCP/#docker-pi-hole-with-host-networking-mode). 
+   1. Add an entry for `WEB_PORT` to be set to `8081`. 
+   1. The relevant section should look like this (it should not use `YOUR PASSWORD HERE` as the password):
       ```yml
           network_mode: host
           environment:
@@ -54,45 +78,65 @@ _*  There will be other folders like `Documents` and `Pictures` as this is a Des
             WEBPASSWORD: 'YOUR PASSWORD HERE'
             WEB_PORT: 8081
       ```
+   1. Add a mount point so `external.conf` persists: `- './etc-lighttpd/external.conf:/etc/lighttpd/external.conf'`
    
-1. Start the Pi-hole container: `docker-compose -f pi-hole-docker-compose.yml up --detach`. You should be able to browse to http://192.168.8.2/admin and login in to Pi-hole the using `WEBPASSWORD` you set above.
+1. Start the Pi-hole container: `docker-compose -f pi-hole-docker-compose.yml up --detach`. You should be able to browse to http://dns.my.local-ip.co:8081/admin and login in to Pi-hole the using `WEBPASSWORD` you set above.
    
-1. Go to "Settings" -> "DHCP" and turn on DHCP, ensuring "range" and "router" are set to be correct for your LAN. It was 192.168.8.100 -  192.168.8.250 and 192.168.8.1 in my case
+1. On the left most menu, go to "Settings" -> "DHCP" and turn on DHCP, ensuring "range" and "router" are set to be correct for your LAN. It was 192.168.8.201 -  192.168.8.251 and 192.168.8.1 in my case. Click "Save" on the bottom right.
    
-1. Go to "Settings" -> "DNS" -> "Interface listening behavior" and set it to "Listen on all interfaces, permit all origins"
+1. On the left most menu, go to "Settings" -> "DNS" -> "Interface listening behavior" and set it to "Listen on all interfaces, permit all origins". Click "Save" on the bottom right.
    
-1. Go to "Local DNS" -> "DNS Records" and add two entries for your CHT instance and Pi-hole instance. These need to match matches the CN in your certificate.
+1. On the left most menu, go to "Local DNS" -> "DNS Records" and add two entries for your CHT instance and Pi-hole instance. These need to match matches the CN in your certificate.
       ```
       cht.my.local-ip.co 192.168.8.2
       dns.my.local-ip.co 192.168.8.2
       ```
    
-1. Go to "Disable" and choose "Indefinitely" so there is no DNS filtering 
+1. On the left most menu, go to "Disable" and choose "Indefinitely" so there is no DNS filtering 
 
 
 ## CHT Server and Data
 
-Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting), this section provisions a docker container and then configures it to preserve your data as otherwise Docker does not keep it:
-
-> Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design. In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data.
+Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting), this section provisions a docker container and then configures it to preserve your data across reboots:
 
 1. Get the latest [docker-compose file](https://raw.githubusercontent.com/medic/cht-infrastructure/master/self-hosting/main/docker-compose.yml) and save it to `cht-docker-compose-local-host.yml`. Edit it to:
    
-      1. Remove the ports section and replace them with `network_mode: host` like we did above.  (This will work around an issue we're seeing with `nginx` [failing to start](https://forum.communityhealthtoolkit.org/t/problems-cht-local-setup/1147).)
-      1. Change the volume `- medic-data:/srv` to be `'./medic-srv:/srv'`. Note there are two instances of this volume - be sure to change them both.
-      1. Remove the shared volume declaration:
+      1. Remove the ports section and replace them with `network_mode: host` like we did above for Pi-hole.  (This will work around an issue we're seeing with `nginx` [failing to start](https://forum.communityhealthtoolkit.org/t/problems-cht-local-setup/1147).)
+         
+      1. remove two `networks:` lines from both containers:
+         ```html
+         networks:
+             - medic-net
+         ```
+         
+      1. Remove the networks declaration at the bottom of the file:
          ```yml
-         volumes:
-             medic-data:
-                 name: medic-data
+         networks:
+            medic-net:
+              name: medic-net
          ```
    
 1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://github.com/medic/cht-infrastructure/tree/master/self-hosting#installing-with-a-compose-file)
    
-1. Create the new shared `medic-srv` directory: `mkdir medic-srv`
-   
 1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up --detach`.
-   
+
+1. As we're in `host` mode for docker networking, we'll need to change the name of the proxy in `nginx` for couchdb:
+
+   1. Enter the `medic-os` container with `docker exec -it medic-os /bin/bash`
+   1. edit `/srv/settings/medic-core/nginx/nginx.conf` and change this `server` line from:
+      ```
+      upstream couchdb {
+         server haproxy:5984;
+      }
+      ```
+      to:
+         ```
+         upstream couchdb {
+            server localhost:5984;
+         }
+         ```
+   1. While still in the `medic-os` container, restart `nginx` with `/boot/svc-restart medic-core nginx` 
+
 1. CHT should be available at  `https://cht.my.local-ip.co`, but has an invalid certificate.  We'll fix this below.
 
 
@@ -102,11 +146,6 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
 
 In this example we're using the free certificates offered on [local-ip.co](http://local-ip.co). We'll store them in `./tls-certs` and share this between all the containers. For your deployment it is assumed you will provide your own certificates, but local-ip's are free to test with.
 
-1. Given our bare metal server is using upstream DNS and not the Pi-hole, you may want to add an entry in the `/etc/hosts` file to aid testing locally:
-    ```bash
-    192.168.8.2     dns.my.local-ip.co
-    192.168.8.2     cht.my.local-ip.co
-    ```
 1. Prepare the TLS certificates on the shared mount point:
     ```
     mkdir tls-certs
