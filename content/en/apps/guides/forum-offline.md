@@ -277,12 +277,15 @@ Any APKs downloaded directly from GitHub will need to [be sideloaded](https://de
 1. After installing launching the APK, launch it and choose "Custom" for which CHT instance to use
 1. Enter `https://cht.my.local-ip.co` 
 
+Note: Some configurations of [Android may not like being connected to an AP](https://source.android.com/devices/tech/connect/wifi-network-selection) with no Internet access. 
+
+
 ### Desktop Browsers
 
 1. Connect to the AP on your LAN
 1. In a browser, go to [cht.my.local-ip.co](https://cht.my.local-ip.co). 
 
-Note: The CHT does not support the Safari browser on MacOS
+Note: The CHT does not support the Safari browser on macOS
 
 
 ## Summary
