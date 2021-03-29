@@ -22,7 +22,7 @@ Follow these [instructions to create a new brand](https://github.com/medic/medic
 
 Use Fastlane to build and sign your APKs ready for publishing. Building can be done using CI (eg: GitHub Actions, travis ci). For reference, refer to [how Medic builds APKs using GitHub Actions](https://github.com/medic/medic-android/blob/master/.github/workflows/publish.yml).
 
-It's important to ensure you sign your APKs using the same certificate to ensure that upgrading to a new version goes smoothly.
+It's important to ensure you sign your APKs using the same certificate to ensure that upgrading to a new version goes smoothly. This certificate must be encrypted and backed up so it's not lost or exposed publically. For example, Medic has encrypted a certificate and stored it in the [medic-android](https://github.com/medic/medic-android/blob/master/secrets.tar.gz.enc) git repo, which is then decrypted for use during [CI build](https://github.com/medic/medic-android/blob/master/.github/workflows/publish.yml).
 
 ## Publishing
 
