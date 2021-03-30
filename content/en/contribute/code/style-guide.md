@@ -489,7 +489,6 @@ providing a length property for a collection class.
 ### Managing Secrets
 
 Secrets are encrypted for use for things like passwords or API keys and can be added at the org or repository level. They must be added by an admin. 
-See the full [documentation](https://docs.github.com/en/actions/reference/encrypted-secrets) on Github's site. 
 
 To access a secret you can use this format in your yml. 
 
@@ -502,13 +501,15 @@ steps:
       LAST_NAME: Octocat
 ```
 
+See the full [documentation](https://docs.github.com/en/actions/reference/encrypted-secrets) on Github's site. 
+
 ### Third Party Actions
 
 Actions allow us to leverage code written by others to do tasks at build time. The concept is similar to NPM and packages. 
 
 Follow the github actions best practices for security purposes. The main points in the security best [practices documents](https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions) are
 
-1. Pin actions to a full length commit SHA
+1. Pin actions to a full length commit SHA so any malicious or buggy updates are not silently included
 1. Audit the source code of the action
 1. Pin actions to a tag only if you trust the creator
 
