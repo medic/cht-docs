@@ -488,7 +488,7 @@ providing a length property for a collection class.
 
 ### Managing Secrets
 
-Secrets are encrypted for use for things like passwords or API keys. They can be added at the org, repo, or repository level. They must be added by an admin. 
+Secrets are encrypted for use for things like passwords or API keys and can be added at the org or repository level. They must be added by an admin. 
 See the full [documentation](https://docs.github.com/en/actions/reference/encrypted-secrets) on Github's site. 
 
 To access a secret you can use this format in your yml. 
@@ -511,7 +511,6 @@ Follow the github actions best practices for security purposes. The main points 
 1. Pin actions to a full length commit SHA
 1. Audit the source code of the action
 1. Pin actions to a tag only if you trust the creator
-
 
 
 
