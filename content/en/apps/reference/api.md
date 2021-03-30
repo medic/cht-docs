@@ -301,19 +301,21 @@ GET /api/v1/forms/NPYY.json
 ### POST /api/v1/forms/validate
 
 *Added in 3.12.0*
-Validate the XForm passed.
+Validate the XForm passed. Require the `can_configure` permission.
 
 #### Headers
 
-| Key          | Value            | Description                    |
-| ------------ | ---------------- | ------------------------------ |
-| Content-Type | application/xml  | The form is sent in XML format |
+| Key           | Value            | Description                    |
+| ------------- | ---------------- | ------------------------------ |
+| Content-Type  | application/xml  | The form is sent in XML format |
+| Authorization | Basic KEY        | KEY is the "basic" token       |
 
 #### Examples
 
 ```
 POST /api/v1/forms/validate HTTP/1.1
 Content-Type: application/xml
+Authorization: Basic XXXXXXXXXX
 
 <?xml version="1.0" encoding="UTF-8"?>
 <xforms xmlns="http://openrosa.org/xforms/xformsList">
