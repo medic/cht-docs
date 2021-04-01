@@ -9,7 +9,7 @@ relatedContent: >
   apps/guides/messaging/gateway/configuration
 ---
 
-In order to use SMS workflows with the CHT you will need an SMS gateway. For reliability an SMS Aggregator, such as [Africa's Talking]({{< ref "apps/guides/messaging/africas-talking" >}}) or RapidPro({{< ref "apps/guides/messaging/rapidpro" >}}), is recommended. When an SMS Aggregator is not available, an Android device running [Medic Gateway](https://github.com/medic/medic-gateway) can be used to send and receive SMS in your CHT appplication. You may use an existing Android device and are not required to purchase a new one. However, for more reliable sending and receiving of SMS, the Android device should be in your organization’s office or facility with a consistent internet connection.
+In order to use SMS workflows with the CHT you will need an SMS gateway. For reliability an SMS Aggregator, such as [Africa's Talking]({{< ref "apps/guides/messaging/africas-talking" >}}) or [RapidPro]({{< ref "apps/guides/messaging/rapidpro" >}}), is recommended. When an SMS Aggregator is not available, an Android device running [Medic Gateway](https://github.com/medic/medic-gateway) can be used to send and receive SMS in your CHT appplication. You may use an existing Android device and are not required to purchase a new one. However, for more reliable sending and receiving of SMS, the Android device should be in your organization’s office or facility with a consistent internet connection.
 
 Below is a list of recommended Android devices across a range of prices. You may find these in local mobile equipment stores as well as online through Amazon and other e-commerce sites. 
 
