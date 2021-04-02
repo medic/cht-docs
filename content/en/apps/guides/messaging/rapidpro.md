@@ -100,7 +100,6 @@ Update your app settings as follows.
       "url": "<RapidPro instance url>"
     }
   }
-  }
 }
 ```
 
