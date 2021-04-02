@@ -19,16 +19,16 @@ As of v3.11.0, SMS messages can be sent and received using [RapidPro](https://co
 
 ### Store globals
 
-Generate a long unique key to use as the `medic-api-key`.
+Generate a long unique key to use as the `cht_api_key`.
 
 Log in to your RapidPro dashboard, go to the globals page (`/globals/`) and create two globals with the following data:
 
 - name: `cht_url`, value: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`. The instance host should not include basic authentication.
-- name: `medic_api_key`, value: `<medic-api-key>`
+- name: `cht_api_key`, value: `<cht_api_key>`
 
 The names of these two globals are flexible, but in this document we will keep referring at the names defined above. 
 
-Then visit the RapidPro workspace settings page (`/org/home/`) and check your RapidPro API token (we'll refer to this as the `rapidpro-api-key`).
+Then visit the RapidPro workspace settings page (`/org/home/`) and check your RapidPro API token (we'll refer to this as the `rapidpro_api_key`).
 
 ### Create a new flow
 
@@ -64,7 +64,7 @@ Create a trigger (`/trigger/`) to start the new flow when a message is not handl
 
 For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "apps/guides/integrations/rapidpro" %}}). 
 
-## Medic configuration
+## CHT Core configuration
 
 ### API keys
 
@@ -73,8 +73,8 @@ The API keys should be treated as securely as a password as anyone with access t
 To add the credentials to the admin config you need to either [PUT the value using curl](https://docs.couchdb.org/en/stable/api/server/configuration.html#put--_node-node-name-_config-section-key) or similar:
 
 ```sh
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/rapidpro:incoming -d '"<medic-api-key>"'
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/rapidpro:outgoing -d '"<rapidpro-api-key>"'
+curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/rapidpro:incoming -d '"<cht_api_key>"'
+curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/rapidpro:outgoing -d '"<rapidpro_api_key>"'
 ```
 
 {{% alert title="Note" %}}
@@ -99,6 +99,7 @@ Update your app settings as follows.
     "rapidpro": {
       "url": "<RapidPro instance url>"
     }
+  }
   }
 }
 ```
