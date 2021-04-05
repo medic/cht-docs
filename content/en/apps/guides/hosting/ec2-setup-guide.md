@@ -1,6 +1,6 @@
 ---
-title: "EC2 Setup"
-linkTitle: "EC2 Setup"
+title: "EC2 Hosting"
+linkTitle: "EC2 Hosting"
 weight: 
 description: >
   Notes on how to set up EC2
