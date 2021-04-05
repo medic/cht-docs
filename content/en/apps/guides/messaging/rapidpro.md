@@ -13,7 +13,7 @@ relatedContent: >
 ---
 
 
-As of v3.11.0, SMS messages can be sent and received using [RapidPro](https://community.rapidpro.io/).
+As of v3.11.0, SMS messages can be sent and received using [RapidPro]({{% ref "apps/features/integrations/rapidpro" %}}) as an SMS Gateway. 
 
 ## RapidPro configuration
 
@@ -23,10 +23,10 @@ Generate a long unique key to use as the `cht_api_key`.
 
 Log in to your RapidPro dashboard, go to the globals page (`/globals/`) and create two globals with the following data:
 
-- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`. The instance host should not include basic authentication.
+- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`. For security the instance host **must not** include basic authentication.
 - name: `cht_api_key`, value: `<cht_api_key>`
 
-The names of these two globals are flexible, but in this document we will keep referring at the names defined above. 
+The names of these two global variables are arbitrary, but in this document we will keep referring to the names defined above. 
 
 Then visit the RapidPro workspace settings page (`/org/home/`) and check your RapidPro API token (we'll refer to this as the `rapidpro_api_key`).
 
@@ -110,5 +110,5 @@ If an action (sending a message or retrieving a status update) fails, it will be
 {{% /alert %}}
 
 {{% alert title="Caveat when switching outgoing message services" %}}
-When switching from another outgoing message service to RapidPro, or switching between RapidPro accounts or hosts, make sure that none of the outgoing messages on your instance, that have been relayed through the previous service, are in a non-final state ("received-by-gateway", "forwarded-by-gateway" or "sent"). CHT Core will request state updates for these messages from RapidPro, fail on every retry, and consume your request quota.  
+When switching from another outgoing message service to RapidPro, or switching between RapidPro accounts or hosts, make sure that all of the outgoing messages on your instance, that have been relayed through the previous service, are in a final state ("delivered", "failed", "denied", "cleared"). CHT Core will request state updates for non-final messages from RapidPro, which will fail on every retry and consume your request quota.
 {{% /alert %}}
