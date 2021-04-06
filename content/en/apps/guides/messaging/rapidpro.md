@@ -21,7 +21,7 @@ As of v3.11.0, SMS messages can be sent and received using [RapidPro]({{% ref "a
 
 Generate a long unique key to use as the `cht_api_key`.
 
-Log in to your RapidPro dashboard, go to the globals page (`/globals/`) and create two globals with the following data:
+Log in to your RapidPro dashboard, go to the globals page (`/global/`) and create two globals with the following data:
 
 - name: `cht_url`, value: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`. For security the instance host **must not** include basic authentication.
 - name: `cht_api_key`, value: `<cht_api_key>`
