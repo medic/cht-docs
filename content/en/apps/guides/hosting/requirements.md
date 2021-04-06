@@ -6,9 +6,10 @@ description: >
   Requirements for hosting CHT
 relatedContent: >
   apps/guides/hosting/self-hosting
+  core/guides/docker-setup
 ---
 
-Hosting a CHT instance in a cloud provider, like AWS, or on bare-metal requires you have sufficient hardware specifications, Docker and Docker Compose installed and other infrastructure requirements met.
+Hosting a CHT instance in a cloud provider like AWS or on bare-metal requires you have sufficient hardware specifications, Docker and Docker Compose installed and other infrastructure requirements met.
 
 ## Hardware Requirements
 
@@ -26,27 +27,15 @@ Install both `docker` and `docker-compose` to run the two `medic-os` and `haprox
 
 ### Linux
 
-Depending on which distro you run, install the docker packages from [here](https://docs.docker.com/engine/install/). 
-
-We have however, historically run most of our containers in Ubuntu:
-
-- [Docker CE](https://docs.docker.com/engine/install/ubuntu/)  
-
-- [Docker-compose](https://docs.docker.com/compose/install/)
+Depending on which distro you run, install the Docker packages from [Docker's Linux options](https://docs.docker.com/engine/install/#server).  Historically, Medic runs Ubuntu: see [Docker CE](https://docs.docker.com/engine/install/ubuntu/) and [Docker-compose](https://docs.docker.com/compose/install/) install pages.
 
 ### Windows 
 
-- [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
-- [Docker for Windows here](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe)  and [here](https://docs.docker.com/docker-for-windows/install/)
-
-Note: If you have Hyper-V Capability, please ensure it is enabled in order to run Linux Containers on Windows. If you are running your Windows Server in cloud services, please ensure it is running on [bare-metal](https://en.wikipedia.org/wiki/Bare_machine). You will not be able to run Linux Containers in Windows if the previous comments are not adhered due to nested virtualization.
-
-If you do not have Hyper-V capability, but your server still supports virtualization, ensure that is enabled in your BiOS, and install the following package: [Docker Toolbox using VirtualBox](https://github.com/docker/toolbox/releases)
+Docker Desktop for Windows needs either Hyper-V support or Windows Subsystem for Linux 2 (WSL 2).  [Docker's Windows Docker Desktop install page](https://docs.docker.com/docker-for-windows/install/) covers both scenarios. 
 
 ### macOS:
 
-See [Docker's page](https://docs.docker.com/docker-for-mac/install/) about how to install Docker Desktop for macOS.
+See [Docker's macOS Docker Desktop install page](https://docs.docker.com/docker-for-mac/install/).
 
 ### Verify install
 

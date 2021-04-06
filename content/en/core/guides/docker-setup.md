@@ -1,37 +1,17 @@
 ---
 title: "Docker Image Setup"
-linkTitle: "Docker Setup"
+linkTitle: "Docker Use"
 weight: 
 description: >
-  Install tools to download and run the publicly available Docker image for CHT applications
+  Download and run the publicly available Docker image for CHT applications
 relevantLinks: >
 ---
 
-This document helps to quickly install the necessary tools to download and run the public docker image for CHT applications.
+This document helps to download and run the public docker image for CHT applications.
 
-## Download Docker
+## Install Docker
 
-Ubuntu: 
-- Install both below
-- [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-- [Docker-Compose](https://docs.docker.com/compose/install/)
-
-Mac OSX:
-- [Docker for Mac](https://download.docker.com/mac/stable/Docker.dmg)
-
-Windows:
-- If you have Hyper-V Capability, please ensure it is enabled in order to run Linux Containers on Windows. If you are running your Windows Server in cloud services, please ensure it is running on [bare-metal](https://en.wikipedia.org/wiki/Bare_machine). You will not be able to run Linux Containers in Windows if the previous comments are not adhered due to nested virtualization. 
-- [Docker for Windows](https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe)
-- If you do not have Hyper-V capability, but your server still supports virtualization, ensure that is enabled in your BiOS, and install the following package:
-- [Docker Toolbox using VirtualBox](https://github.com/docker/toolbox/releases)
-
-Run the installation and follow the instructions.
-
-Launch Docker. 
-
-Performance Settings that can be changed:
-Memory: 4 GiB
-CPUs: 2
+Please be sure `docker` and `docker-compose` are [installed]({{< relref "apps/guides/hosting/requirements#docker" >}}). 
 
 ## Use Docker-Compose:
 
@@ -73,7 +53,7 @@ The second command stops extra services that you will not need.
 
 ### Visit your project
 
-Open a browser to: https://localhost
+Open a browser to: [https://localhost](https://localhost)
 
 You will have to click to through the SSL Security warning. Click Advanced -> Continue to site.
 
@@ -127,44 +107,51 @@ You can substitute 8080, 444 with whichever ports are free on your host. You wou
 
 ## Helpful Docker commands
 
-#### ssh into container/application & view specific service logs
+### Restart services
+`/boot/svc-<start/stop/restart> <service-name/medic-api/medic-sentinel/medic-core couchdb/medic-core nginx>`
 
-* ssh: `docker exec -it medic-os /bin/bash`
+See [medic-os docs](https://github.com/medic/medic-os#user-content-service-management-scripts) for more.
 
-#### Once inside container:
-* view couchdb logs: 
-  - #less /srv/storage/medic-core/couchdb/logs/startup.log
-* view medic-api logs: 
-  - #less /srv/storage/medic-api/logs/medic-api.log
-* view medic-sentinel logs: 
-  - #less /srv/storage/medic-sentinel/logs/medic-sentinel.log
+### Viewing logs inside `medic-os`
+
+To view logs, first run this to access a shell in the `medic-os` container: 
+ 
+* `docker exec -it medic-os /bin/bash`
+
+View CouchDB logs:
+* `less /srv/storage/medic-core/couchdb/logs/startup.log`
+
+View `medic-api` logs: 
+* `less /srv/storage/medic-api/logs/medic-api.log`
+
+View `medic-sentinel` logs: 
+* `less /srv/storage/medic-sentinel/logs/medic-sentinel.log`
+
+### Viewing default stderr/stdout logs
+
+* `sudo docker logs medic-os`
+* `sudo docker logs haproxy`
 
 
-#### View container stderr/stdout logs:
-* docker logs medic-os
-* docker logs haproxy
+### Clean Up
+
+List running containers: 
+* `sudo docker ps`
+
+List all available docker containers with their status
+* `sudo docker ps -a
+
+Stop container
+* `sudo docker stop <container_id>/<container_name>`
+
+Start container
+* `sudo docker start <container_id>`
+
+List all stopped containers 
+* `sudo docker ps -f "status=exited"`
 
 
-#### Clean Up
+### Prune entire Docker system
+Use this `prune` command when unable to launch the containers and need to restart from a clean slate. **WARNING:** This will delete all your unused images, containers, networks and volumes **including those not related to CHT**.
 
-```
-# list running containers
-docker ps
-
-# list all available docker containers with their status
-sudo docker ps -a
-
-# stop container
-docker stop <container_id>
-
-# start container
-docker start <container_id>
-
-# list all stoped containers 
-docker ps -f "status=exited"
-
-```
-
-#### Prune entire Docker system
-Use this prune command when unable to launch the containers and you'd like to restart from a clean slate. WARNING: This will delete all your unused images, containers, networks and volumes including those not related to CHT.
 ```docker system prune -a --volumes```
