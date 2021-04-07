@@ -11,36 +11,30 @@ relatedContent: >
 
 
 ## Requirements
-- Installed CHT-Core 3.x via docker-compose
-- Your own SSL certifications (Let's Encrypt)
+- Installed CHT-Core 3.x via either [Self Hosted]({{< relref "apps/guides/hosting/self-hosting" >}}), [EC2]({{< relref "apps/guides/hosting/ec2-setup-guide" >}}) or [Local Setup]({{< relref "apps/tutorials/local-setup" >}}), but must use `docker-compose`.
+- Your own SSL certifications like Let's Encrypt.
 
 ## Copy certs into medic-os container
 
-```
-Inside your server (you may need to use sudo before each command):
-$ docker ps
-$ docker cp /path/to/ssl.cert medic-os:/srv/settings/medic-core/nginx/private/ssl.crt
-$ docker cp /path/to/ssl.key medic-os:/srv/settings/medic-core/nginx/private/ssl.key
-```
+On your server  copy the `.crt` and `.key` files to the `medic-os` container. The existing self signed `.crt` and `.key` files will be overwitten:
 
-## Edit nginx configuration file
-```
-Inside the medic-os docker container:
-$ docker exec -it medic-os /bin/bash
-# sed -i "s|default.crt|ssl.crt|" /srv/settings/medic-core/nginx/nginx.conf
-# sed -i "s|default.key|ssl.key|" /srv/settings/medic-core/nginx/nginx.conf
+```bash
+sudo docker cp /path/to/ssl.crt medic-os:/srv/settings/medic-core/nginx/private/default.crt
+sudo docker cp /path/to/ssl.key medic-os:/srv/settings/medic-core/nginx/private/default.key
 ```
 
 ## Restart services
-```
-Inside medic-os container:
-$ docker exec -it medic-os /bin/bash
-# /boot/svc-restart medic-core nginx
+
+Now that the `.crt` and `.key` files are in place, restart `nginx` in the `medic-os` container with:
+
+```bash
+docker exec -it medic-os /boot/svc-restart medic-core nginx
 ```
 
 ## View Nginx Logs
-```
-Inside container:
-# cd /srv/storage/medic-core/nginx/logs/ 
-access.log error-ssl.log error.log startup.og
-```
+
+To troubleshoot any problems with the new certificates, after running `docker exec -it medic-os bash`, the `nginx` log files can be found in `/srv/storage/medic-core/nginx/logs/`, including:
+* access.log 
+* error-ssl.log 
+* error.log 
+* startup.log

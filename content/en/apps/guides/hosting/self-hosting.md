@@ -65,9 +65,9 @@ The first command fixes a postrun script for horticulturalist to prevent unique 
 
 ### Visit your project
 
-If you're running this on your local machine, then open a browser to https://localhost. Otherwise open a browser to the public IP of the host if it's running remotely.
+If you're running this on your local machine, then open a browser to [https://localhost](https://localhost). Otherwise open a browser to the public IP of the host if it's running remotely.
 
-You will have to click to through the SSL Security warning. Click Advanced -> Continue to site.
+You will have to click to through the SSL Security warning. Click "Advanced" -> "Continue to site".
 
 
 ### Clean up and re-install

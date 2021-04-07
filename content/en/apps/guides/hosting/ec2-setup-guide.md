@@ -13,7 +13,7 @@ relatedContent: >
 
 1. Create EC2 (use security best practices)
 
-    Based on the [CHT hardware requirements]({{< relref "apps/guides/hosting/requirements#hardware-requirements" >}}), start with a A1 Large instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
+        Based on the [CHT hardware requirements]({{< relref "apps/guides/hosting/requirements#hardware-requirements" >}}), start with a A1 Large instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
     
     ```
     sudo chmod 0600 ~/Downloads/name_of_file.pem
@@ -49,18 +49,18 @@ relatedContent: >
 1. DNS configuration
     - Point A records to Elastic IP given to Docker server
 
-5. Review SSL certs
+1. Review SSL certificates
     - Location of certs is `/srv/settings/medic-core/nginx/private/`
-    - Name the key file as `default.key` and the certificate file as `default.crt`
-    - Restarting nginx with new certs: `svc-restart medic-core nginx`
+    - Name the key file is `default.key` and the certificate file is `default.crt`
+    - See [SSL Certficates]({{< relref "apps/guides/hosting/ssl-cert-install">}}) to install new certificates
 
-6. Configure couch2pg
+1. Configure couch2pg
     - [Basic configuration](https://github.com/medic/medic-couch2pg/blob/master/README.md)
 
-7. Setup postgres to work with couch2pg
+1. Setup postgres to work with couch2pg
     - Creating the database, setting up permissions, exploring the tables and what they store
 
-8. Debugging couch2pg/postgres
+1. Debugging couch2pg/postgres
     - Understanding the log and what the entries mean
 
 ## Troubleshooting
@@ -69,11 +69,11 @@ relatedContent: >
     - [How to access container, retrieve logs, isolate security groups]({{< ref "apps/guides/hosting/self-hosting#how-to-access-container-retrieve-logs-isolate-security-groups" >}})
     - [MedicOS service management scripts](https://github.com/medic/medic-os#user-content-service-management-scripts)
 
-2. Investigating logs
+1. Investigating logs
     - [Helpful docker commands]({{< ref "core/guides/docker-setup#helpful-docker-commands" >}}) (includes getting shell on containers)
     - Inside container, all appropriate logs can be found in: `/srv/storage/<service_name>/logs/*.log`
 
-3. Upgrading the container
+1. Upgrading the container
     - Backup all data (EBS) 
     - Log into container and stop all services
     - DO NOT REMOVE `/srv/storage/medic-core/`, `/srv/settings/medic-core/couchdb/local.ini`, wipe all other files in `/srv` [Note: Make script publicly accessible]
@@ -81,11 +81,11 @@ relatedContent: >
     - [Change image tag in docker-compose file]({{< ref "core/guides/docker-setup#use-docker-compose">}})
     - Launch new containers with appropriate COUCHDB_ADMIN_PASSWORD & HA_PASSWORD environment variables
 
-4. Upgrading the webapp
+1. Upgrading the webapp
     - Use Admin GUI page
     - [CLI via horticulturalist]({{< ref "apps/guides/hosting/self-hosting#links-to-medic-documentation-for-horticulturalist-for-upgrades" >}})
 
-5. RDS help
+1. RDS help
 
     - [Amazon user guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
 
@@ -94,7 +94,7 @@ relatedContent: >
 1. Configure backups
     - [EBS Snapshot Lifecycle Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
 
-2. Restoring from backup
+1. Restoring from backup
     - Create volume from snapshot
     - Tag appropriately for backups
     - Mount volume to docker server
@@ -117,6 +117,3 @@ relatedContent: >
 * Steps to mounting a backup snapshot to the instance and restarting the application
 * Please see the second-half of “Increasing disk size” reference above
 * Setup a TLS cert & DNS registration
-
-
-
