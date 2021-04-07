@@ -1,7 +1,7 @@
 ---
 title: "Self Hosting"
 linkTitle: "Self Hosting"
-weight: 
+weight: 20
 description: >
   Hosting the CHT on bare-metal
 relatedContent: >

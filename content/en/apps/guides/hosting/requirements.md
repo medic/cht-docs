@@ -1,7 +1,7 @@
 ---
 title: "Requirements"
 linkTitle: "Requirements"
-weight: 
+weight: 5
 description: >
   Requirements for hosting CHT
 relatedContent: >

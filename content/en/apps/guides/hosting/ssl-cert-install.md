@@ -1,7 +1,7 @@
 ---
 title: "SSL Cert Install"
 linkTitle: "SSL Cert Install"
-weight: 
+weight: 40
 description: >
   SSL Cert Installation for Self-Hosting Setups
 relevantLinks: > 
