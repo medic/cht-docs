@@ -33,8 +33,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
 1. Create or Restore EBS Volume
 
-    - Create or [Restore](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-restoring-volume.html) your EBS Volume
-        - Be sure to tag appropriately
+    - Create or [Restore](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-restoring-volume.html) your EBS Volume, tagging appropriately, so it can be found later. 
     - Attach volume to EC2 instance
     - [Increase disk size](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html) (Optional)    
     - If you are using a newly created EBS Volume, you will have to format the disk appropriately:
