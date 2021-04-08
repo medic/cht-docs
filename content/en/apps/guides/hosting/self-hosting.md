@@ -17,7 +17,7 @@ The Community Health Toolkit (CHT) core framework has been packaged into a docke
 
 The CHT containers are installed using [docker compose](https://docs.docker.com/compose/reference/overview/) so that you can run multiple containers  as a single service.
 
-Start by choosing the location where you would like to save your compose configuration file.  Then create your docker compose file (docker-compose.yml) by cding into the correct directory and running:
+Start by choosing the location where you would like to save your compose configuration file.  Then create the `docker-compose.yml` file by `cd`ing into the correct directory and running:
 
 ```bash
 curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-infrastructure/master/self-hosting/main/docker-compose.yml
@@ -29,36 +29,33 @@ The install requires an admin password that it will configure in the database. Y
 
 `export DOCKER_COUCHDB_ADMIN_PASSWORD=myAwesomeCHTAdminPassword`
 
-You can then run docker-compose in the folder where you put your compose configuration yaml file as shown below.
+You can then run `docker-compose` in the folder where you put your compose  `docker-compose.yml` file. To start, run it interactively to see all the logs on screen and be able to stop the containers with `ctrl` + `c`:
 
 ```bash
-## run compose inside the configuration folder as root 
-
-sudo docker-compose -f docker-compose.yml up 
-
-## In detached mode 
-sudo docker-compose -f /path/to/docker-compose.yml up -d
-
+sudo docker-compose up 
 ```
 
-Note In certain shells, docker-compose may not interpolate the admin password that was exported above. Check if this is the case by searching the logs in the medic-os dockers instance. If the `docker logs medic-os` command below returns a user and password, then the export above failed, and you should use this user and password to complete the installation:
+If there are no errors, stop the containers with `ctrl` + `c` and then run it detached with `-d`:
+
+```bash
+sudo docker-compose up -d
+```
+
+Note In certain shells, `docker-compose` may not interpolate the admin password that was exported in `DOCKER_COUCHDB_ADMIN_PASSWORD`. Check if this is the case by searching the logs in the medic-os dockers instance. If the `docker logs medic-os` command below returns a user and password, then the export above failed, and you should use this user and password to complete the installation:
 
 ```bash
 docker logs medic-os  |grep 'New CouchDB Admin'
-[2020/09/10 18:49:03] Info: New CouchDB Administrative User: medic
-[2020/09/10 18:49:03] Info: New CouchDB Administrative Password: password
-
+Info: New CouchDB Administrative User: medic
+Info: New CouchDB Administrative Password: password
 ```
-You can keep monitoring the logs untill you get the `Setting up software (100% complete)` message. At this stage all containers are fully set up. 
 
+Monitor the logs until you get the `Setting up software (100% complete)` message. At this stage all containers are fully set up. 
 
 Once containers are setup, please run the following command from your host terminal:
 
 ```bash
-
 sudo docker exec -it medic-os /bin/bash -c "sed -i 's/--install=3.9.0/--complete-install/g' /srv/scripts/horticulturalist/postrun/horticulturalist"
 sudo docker exec -it medic-os /bin/bash -c "/boot/svc-disable medic-core openssh && /boot/svc-disable medic-rdbms && /boot/svc-disable medic-couch2pg"
-
 ```
 
 The first command fixes a postrun script for horticulturalist to prevent unique scenarios of re-install. The second command removes extra services that you will not need.
@@ -72,29 +69,16 @@ You will have to click to through the SSL Security warning. Click "Advanced" -> 
 
 ### Clean up and re-install
 
-You could have missed some of the instructions above and end with a bricked setup.  You can use the commands below to clean up and start afresh.
+If some  instructions were missed and there's a broken CHT deployment, use the commands below to start afresh:
 
-Stop containers:
+1. Stop containers:  `docker stop medic-os && docker stop haproxy`
+1. Remove containers: `docker rm medic-os && docker rm haproxy`
+1. Clean data volume:`docker volume rm medic-data`
 
-- `docker stop medic-os && docker stop haproxy`
+    Note: Running `docker-compose -f docker-compose.yml down -v`  would do all the above 3 steps
+1. Prune system: `docker system prune`
 
-Remove containers:
-
-- `docker rm medic-os && docker rm haproxy`
-
-Clean data volume:
-
-- `docker volume rm medic-data`
-
-Note: Running `docker-compose -f docker-compose.yml down -v`  would do all the above 3 steps
-
-Prune system:
-
-- `docker system prune`
-
-After following the above commands, you can re-run docker-compose up and create a fresh install (no previous data present)
-
-- `docker-compose -f docker-compose.yml up -d`
+After following the above commands, you can re-run docker-compose up and create a clean install:  `docker-compose -f docker-compose.yml up -d`
 
 ### Port Conflicts
 
@@ -111,7 +95,6 @@ On Mac (10.10 and above):
 You can either kill the service which is occupying HTTP/HTTPS ports, or run the container with forwarded ports that are free. In your compose file, change the ports under medic-os:
 
 ```yaml
-
 services:
   medic-os:
     container_name: medic-os
@@ -121,7 +104,6 @@ services:
     ports:
      - 8080:80
      - 444:443
-
 ```
 
 Turn off and remove all existing containers that were started:
@@ -134,10 +116,11 @@ Bring Up the containers in detached mode with the new forwarded ports.
 
 Note: You can  substitute 8080, 444 with whichever ports are free on your host. You would now visit https://localhost:444 to visit your project.
 
-
 ## Data storage & persistence
 
-Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design.  In order to persist your data when a container restarts you need to specify  the volumes that the container can use to store data. The CHT app stores all its data in the `/srv` folder.  This is the folder that you need to map to your volume before you spin up your containers. 
+{{% alert title="Note" %}} Containers that are already set up will lose all data when following the steps below to remap the `/srv` directory. {{% /alert %}}
+
+Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design.  In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data. The CHT app stores all its data in the `/srv` folder.  This is the folder that you need to map to your volume before you spin up your containers. 
 
 Ideally you should map this folder to a volume that is backed up regularly by your cloud hosting provider.
 
@@ -154,7 +137,7 @@ The example below shows how to map this folder in Ubuntu:
         image: medicmobile/medic-os:cht-3.9.0-rc.2
         volumes:
           - /srv:/srv
-    
+   
      ----
      haproxy:
         container_name: haproxy
@@ -163,7 +146,7 @@ The example below shows how to map this folder in Ubuntu:
           - /srv:/srv 
     ```
 
-Alternatively  you can create the /srv folder on any drive with enough space that is regularly backed up. You then just map the path to the folder in the compose file like this.
+Alternatively, can create the `/srv` folder on any drive with enough space that is regularly backed up. Then map the path to the folder in the compose file like this.
 
 ```yaml
 volumes:
@@ -171,5 +154,3 @@ volumes:
 ```
 
 Be sure to check the available storage space regularly and expand your volume when needed
-
-**Note** - if  containers are already set up, be sure to back up all data before changing the mount points to a backed up volume. Otherwise all data will be lost. 

@@ -6,6 +6,7 @@ description: >
   Requirements for hosting CHT
 relatedContent: >
   apps/guides/hosting/self-hosting
+  apps/guides/hosting/ec2-setup-guide
   core/guides/docker-setup
 ---
 
@@ -24,6 +25,10 @@ Depending on the scale of your operation these may need to be adjusted.
 ##  Docker
 
 Install both `docker` and `docker-compose` to run the two `medic-os` and `haproxy` containers.
+
+{{% alert title="Note" %}}
+Skip this step if you're following the  [EC2 guide]({{< relref "apps/guides/hosting/ec2-setup-guide#create-and-configure-ec2-instance" >}}) as `docker` and `docker-compose` are automatically installed when following the setup scripts. 
+{{% /alert %}}
 
 ### Linux
 

@@ -15,15 +15,15 @@ Please be sure `docker` and `docker-compose` are [installed]({{< relref "apps/gu
 
 ## Use Docker-Compose:
 
-In the location you would like to host your configuration files, create a file titled <project_name>-medic-os-compose.yml with the following contents. 
+In the location you would like to host your configuration files, create a file `docker-compose.yml`: 
 
-One way to do this is using the `curl` command line tool. In this example we're creating a file called `test-docs-medic-os-compose.yml`:
+1. Use the `curl` command line tool:
+    
+    ```
+    curl https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
+    ```
 
-```
-curl -o test-docs-medic-os-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
-```
-
-Alternately, if you do not have  `curl`, you can [right click this link](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml) and choose "Save link as..." and specify the correct location to save.
+1. Alternately, if you do not have  `curl`, you can [right click this link](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml) and choose "Save link as..." and specify the correct location to save.
 
 Export a password for admin user named `medic`:
 ```
@@ -32,9 +32,9 @@ export DOCKER_COUCHDB_ADMIN_PASSWORD=<random_pw>
 
 ### Launch docker-compose containers
 
-Inside the directory that you saved the above <project_name>-medic-os-compose.yml, run:
+Inside the directory that you saved the above `docker-compose.yml`, run:
 ```
-$ docker-compose -f <project_name>-medic-os-compose.yml up
+$ docker-compose -f docker-compose.yml up
 ```
 {{% alert title="Note" %}}
 In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.

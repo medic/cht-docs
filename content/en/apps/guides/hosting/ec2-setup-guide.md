@@ -9,45 +9,50 @@ relatedContent: >
   apps/guides/database/couch2pg-oom-errors
 ---
 
-## Configure Instance
+
+Most all production CHT instances are deployed on EC2.  Leveraging Elastic Compute Cloud (EC2) and Elastic Block Store (EBS), CHT instances can easily be scaled up with larger EC2 instances and have easy increased disk space, backup and restores with EBS.
+
+This guide will walk you through the process of creating an EC2 instance, mounting an EBS volume and provisioning Docker containers.
+
+## Create and Configure EC2 Instance 
 
 1. Create EC2 (use security best practices)
 
-        Based on the [CHT hardware requirements]({{< relref "apps/guides/hosting/requirements#hardware-requirements" >}}), start with a A1 Large instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
+    Review the [CHT hardware requirements]({{< relref "apps/guides/hosting/requirements#hardware-requirements" >}}) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
     
     ```
     sudo chmod 0600 ~/Downloads/name_of_file.pem
     ```
     
-    - [Create Elastic IP (EIP) and associate EIP to EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+    Create  an [Elastic IP (EIP) and associate the EIP to your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
+    
+    You should now be able to SSH into the EC2 instance using the EIP and the `.pem` file.
     
     `Goal`: SSH into instance
 
 
 1. Create or Restore EBS Volume
 
-    - Create EBS Volume
+    - Create or [Restore](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-restoring-volume.html) your EBS Volume
         - Be sure to tag appropriately
-    - [Restore EBS Volume](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-restoring-volume.html)
     - Attach volume to EC2 instance
-    - (Optional): [Increase disk size](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
-    
-    - If you are using a newly created EBS Volume, you will have to format the disk approriately:
+    - [Increase disk size](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html) (Optional)    
+    - If you are using a newly created EBS Volume, you will have to format the disk appropriately:
         1) SSH into instance
         2) Follow the instructions here: [Using EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
         3) Use `sudo mkfs -t ext4 <location>` in step 4
-        4) Mount disk to /srv
+        4) Mount disk to `/srv`
     
-    `Goal`: Mount EBS volume to /srv
+    `Goal`: Mount EBS volume to `/srv`
 
 1. Provision Docker server
 
-    - Follow README & Run scripts: [Prepare Self-Hosting System](https://github.com/medic/cht-infrastructure/tree/master/self-hosting/prepare-system)
+    Follow README & Run scripts in [cht-infrastructure repository](https://github.com/medic/cht-infrastructure/tree/master/self-hosting/prepare-system).
     
     `Goal`: CHT Application bootstraps and comes online
 
 1. DNS configuration
-    - Point A records to Elastic IP given to Docker server
+    - Point DNS `A` record to EIP given to Docker server in the prior step.
 
 1. Review SSL certificates
     - Location of certs is `/srv/settings/medic-core/nginx/private/`
@@ -55,7 +60,7 @@ relatedContent: >
     - See [SSL Certficates]({{< relref "apps/guides/hosting/ssl-cert-install">}}) to install new certificates
 
 1. Configure couch2pg
-    - [Basic configuration](https://github.com/medic/medic-couch2pg/blob/master/README.md)
+    See the [couch2pg basic configuration](https://github.com/medic/medic-couch2pg/blob/master/README.md) in the `medic-couch2pg` repository.
 
 1. Setup postgres to work with couch2pg
     - Creating the database, setting up permissions, exploring the tables and what they store
@@ -66,7 +71,7 @@ relatedContent: >
 ## Troubleshooting
 
 1. Restarting processes
-    - [How to access container, retrieve logs, isolate security groups]({{< ref "apps/guides/hosting/self-hosting#how-to-access-container-retrieve-logs-isolate-security-groups" >}})
+    - [How to access container, retrieve logs, restart services]({{< ref "core/guides/docker-setup#helpful-docker-commands" >}})
     - [MedicOS service management scripts](https://github.com/medic/medic-os#user-content-service-management-scripts)
 
 1. Investigating logs
