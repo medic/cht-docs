@@ -28,7 +28,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `appliesIf` | `function(contact, report)` | If `appliesTo: 'contacts'`, this function is invoked once per contact and `report` is undefined. If `appliesTo: 'reports'`, this function is invoked once per report. Return true if the task should appear for the given documents. | no |
 | `appliesToType` | `string[]` | Filters the contacts or reports for which `appliesIf` will be evaluated. If `appliesTo: 'reports'`, this is an array of form codes. If `appliesTo: 'contacts'`, this is an array of contact types. For example, `['person']` or `['clinic', 'health_center']`. For example, `['pregnancy']` or `['P', 'pregnancy']`. | no |
 | `contactLabel` | `string` or `function(contact, report)` | Controls the label describing the subject of the task. Defaults to the name of the contact (`contact.contact.name`). | no |
-| `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | yes |
+| `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | no, if any `actions[n].type` is `'report'` |
 | `events` | `object[]` | An event is used to specify the timing of the task. | yes |
 | `events[n].id` | `string` | A descriptive identifier. Used for querying task completeness. | yes if task has multiple events, unique |
 | `events[n].days` | `integer` | Number of days after the doc's `reported_date` that the event is due | yes, if `dueDate` is not set |
@@ -222,6 +222,55 @@ module.exports = {
   },
 };
 ```
+
+## Default resolvedIf method
+If you skip defining `resolvedIf` section in the task definition, it will default to defaultResolvedIf method which is equivalent to this:
+
+```js
+resolvedIf: function (c, r, event, dueDate) {
+  let start = 0;
+
+  //The first report type action's form 
+  var resolvingForm = taskDefinition.actions.find(action => action.type === 'report').form;
+
+  if (r) {//Report based task
+    //Either "start of the task window" or "after the report's reported date", whichever comes later
+    start = Math.max(Utils.addDate(dueDate, -event.start).getTime(), r.reported_date + 1);
+  }
+  else {//Contact based task
+    //Start of the task window
+    start = Utils.addDate(dueDate, -event.start).getTime();
+  }
+
+  //End of the task window
+  const end = Utils.addDate(dueDate, event.end + 1).getTime();
+
+  //Returns true if the contact has at least one report with matching form type
+  //that is submitted between start and end times (inclusive)
+  return Utils.isFormSubmittedInWindow(
+    c.reports,
+    resolvingForm,
+    start,
+    end
+  );
+},
+```
+
+You can also use `this.defaultResolvedIf` directly:
+
+```js
+resolvedIf: this.defaultResolvedIf,//Same as skipping resolvedIf
+```
+
+It is also possible to specify a resolving form type:
+
+```js
+resolvedIf: function (c, r, event, dueDate) {
+  return this.defaultResolvedIf(c, r, event, dueDate, 'delivery')
+}
+```
+
+You should specify the resolving form if you don't have an action with `type: 'report'`.
 
 ## Build
 
