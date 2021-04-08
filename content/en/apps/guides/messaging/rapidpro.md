@@ -1,9 +1,9 @@
 ---
-title: RapidPro SMS Gateway
+title: RapidPro Messaging Gateway
 linkTitle: "RapidPro"
 weight:
 description: >
-    Integration for sending and receiving SMS
+    Integration for sending and receiving messages
 relatedContent: >
     apps/reference/app-settings/sms
     apps/guides/forms/app-form-sms
