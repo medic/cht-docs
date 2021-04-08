@@ -20,8 +20,7 @@ The CHT containers are installed using [docker compose](https://docs.docker.com/
 Start by choosing the location where you would like to save your compose configuration file.  Then create the `docker-compose.yml` file by `cd`ing into the correct directory and running:
 
 ```bash
-curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-infrastructure/master/self-hosting/main/docker-compose.yml
-
+curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
 ```
 
 
