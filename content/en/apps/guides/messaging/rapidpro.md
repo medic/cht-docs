@@ -13,7 +13,7 @@ relatedContent: >
 ---
 
 
-As of v3.11.0, SMS messages can be sent and received using [RapidPro]({{% ref "apps/features/integrations/rapidpro" %}}) as an SMS Gateway. 
+As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "apps/features/integrations/rapidpro" %}}) as an messaging gateway. 
 
 ## RapidPro configuration
 
