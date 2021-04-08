@@ -1,6 +1,6 @@
 ---
-title: "EC2 Hosting"
-linkTitle: "EC2 Hosting"
+title: "AWS Hosting"
+linkTitle: "AWS Hosting"
 weight: 10
 description: >
   Hosting the CHT on Amazon EC2
