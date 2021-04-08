@@ -104,11 +104,7 @@ Update your app settings as follows.
 ```
 
 {{% alert title="Rate limiting" %}}
-The RapidPro API endpoints, which this integration relies on, are rate-limited. The number of messages that can be sent and the number of status updates that can be requested is limited. Check [RapidPro API reference](https://rapidpro.io/api/v2/) for more details.
+The RapidPro API endpoints are rate-limited, meaning that requests to send or check the status of messages beyond a certain number per hour will be blocked. The limit is currently 2500 actions per hour, and may change without notice. Check out the [RapidPro API reference](https://rapidpro.io/api/v2/#rate-limiting) for more details. If sending a message or retrieving a status update fails, it will be retried automatically again later.
 
-If an action (sending a message or retrieving a status update) fails, it will be retried again later.
-{{% /alert %}}
-
-{{% alert title="Caveat when switching outgoing message services" %}}
-When switching from another outgoing message service to RapidPro, or switching between RapidPro accounts or hosts, make sure that all of the outgoing messages on your instance, that have been relayed through the previous service, are in a final state ("delivered", "failed", "denied", "cleared"). CHT Core will request state updates for non-final messages from RapidPro, which will fail on every retry and consume your request quota.
+When the outgoing message service is set to RapidPro or the host/account are changed, CHT Core will request state updates for all messages that aren't in one of the final states: `delivered`, `failed`, `denied`, or `cleared`. Each of these request counts towards your quota. Since the messages are unlikely to exist on the new RapidPro service, these requests will fail on every retry and consume your request quota. It is therefore important that all outgoing messages have a final state before switching RapidPro accounts or hosts. The status can be set to `failed` for messages that should not be resent without user intervention, or to `scheduled` for those that should be automatically sent with the new RapidPro account.
 {{% /alert %}}
