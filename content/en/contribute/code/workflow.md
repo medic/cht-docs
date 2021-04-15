@@ -22,6 +22,10 @@ Aim for self-documenting code. Where code cannot be made self-documenting add co
 
 A good workflow would be to work locally, pushing to a remote branch as you make progress, possibly open a draft PR for some initial collaboration on tricky parts, and once everything is done, convert the draft PR to a regular PR to be reviewed.
 
+### Reviewing
+
+The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
+
 ### Updating The Issue With What You Actually Did
 
 Add a comment to the GitHub issue with what the final change actually was. This is important for multiple cases including:
@@ -33,11 +37,6 @@ Options for doing this:
 - Attach a short video - these are usually very well received and can often help people understand what happened much more clearly than a text description.
 - Screenshots - pictures with big arrows on them can quickly convey important things to look at. If you start to need multiple screenshots consider the video option instead.
 - Write up a few sentences - be sure to consider a non-technical audience when writing this.
-
-
-### Reviewing
-
-The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
 ### Testing
 
