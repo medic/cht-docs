@@ -38,6 +38,27 @@ Options for doing this:
 - Screenshots - pictures with big arrows on them can quickly convey important things to look at. If you start to need multiple screenshots consider the video option instead.
 - Write up a few sentences - be sure to consider a non-technical audience when writing this.
 
+An example of a good thorough comment/template is as follows:
+
+```
+### Acceptance testing
+
+1. Install branch `81-do-great-things`
+2. [a specific thing to be sure it has been set up correctly]
+3. ...
+
+
+### What was actually built
+
+[video|screenshots|text]
+
+
+### Documentation
+
+- [link](url)
+
+```
+
 ### Testing
 
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
