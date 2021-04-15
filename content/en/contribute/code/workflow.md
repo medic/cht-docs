@@ -67,6 +67,8 @@ An example of a good thorough comment/template is as follows:
 
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
 
+Those are minimums. Our ultimate goal is to have fully-automated release testing, allowing for fast, confident delivery of completed code. If your work would be included in a release/regression test, create an e2e test for it. QA engineers will use that as a template of sorts to create additional automated tests at their discretion.
+
 ### Migrating
 
 When the schema is changed you must also provide a migration so when instances are upgraded existing data is compatible with the new code.
