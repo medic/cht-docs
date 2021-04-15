@@ -24,7 +24,7 @@ A good workflow would be to work locally, pushing to a remote branch as you make
 
 ### Updating The Issue With What You Actually Did
 
-Put something on the GitHub issue with what the final change actually was. This is important for multiple cases including:
+Add a comment to the GitHub issue with what the final change actually was. This is important for multiple cases including:
 - Non-technical people may not understand the conversation thread on the issue. GitHub is a place that developers work, but it is also common to send non-technical people links to issues in GitHub.
 - The QA team should have a quick way to know where to start testing.
 - Issues with a lot of discussion of alternative solutions need a clear resolution and indication of which route was taken.
