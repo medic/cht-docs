@@ -32,7 +32,7 @@ Add a comment to the GitHub issue with what the final change actually was. This 
 Options for doing this:
 - Attach a short video - these are usually very well received and can often help people understand what happened much more clearly than a text description.
 - Screenshots - pictures with big arrows on them can quickly convey important things to look at. If you start to need multiple screenshots consider the video option instead.
-- Write up a few sentences - Be sure to consider a non-technical audience when writing this.
+- Write up a few sentences - be sure to consider a non-technical audience when writing this.
 
 
 ### Reviewing
