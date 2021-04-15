@@ -28,6 +28,10 @@ The author and reviewer should use this [guide to code reviewing](https://google
 
 ### Updating The Issue With What You Actually Did
 
+Add [labels](https://github.com/medic/cht-core/labels) to the GitHub issue as needed. At this stage, the two to look out for are:
+- `Breaking change`
+- `UI/UX`
+
 Add a comment to the GitHub issue with what the final change actually was. This is important for multiple cases including:
 - Non-technical people may not understand the conversation thread on the issue. GitHub is a place that developers work, but it is also common to send non-technical people links to issues in GitHub.
 - The QA team should have a quick way to know where to start testing.
