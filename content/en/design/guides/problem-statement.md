@@ -42,9 +42,9 @@ Example
 
 ### 3. Create a Point Of View Mad Lib
 
-You can articulate a POV by combining these three elements – user, need, and insight – as an actionable problem statement that will drive the rest of your design work. 
+You can articulate a POV by combining these three elements – user, need, and insight – as an actionable problem statement that will drive the rest of your design work.
 
-It’s surprisingly easy when you insert your findings in the POV Madlib below. 
+It’s surprisingly easy when you insert your findings in the POV Madlib below.
 
 You can articulate your POV by inserting your information about your user, the needs and your insights in the following sentence:
 
