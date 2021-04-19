@@ -1,9 +1,11 @@
 ---
-title: "App Privacy Policies"
-linkTitle: "Privacy Policies"
+title: "Adding Privacy Policies to CHT Apps"
+linkTitle: "Adding Privacy Policies"
 weight: 100
+aliases:
+  -    /apps/guides/security/
 description: >
-  Add privacy policies that users must accept before being allowed to use the app
+  Guide for adding privacy policies that users must accept before being allowed to use the app
 ---
 
 As of `3.10.0`, privacy policies can be customized for every language, by adding desired content into HTML files. 
