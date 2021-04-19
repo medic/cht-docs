@@ -1,9 +1,9 @@
 ---
 title: "Privacy & Data Protection Policy"
-linkTitle: "Privacy"
+linkTitle: "Policy"
 weight: 
 description: >
-  This is the current version of Medic Mobile’s Privacy and Data Protection Policy, which applies to the Community Health Toolkit.
+  Medic’s Privacy and Data Protection Policy, which applies to the Community Health Toolkit
 keywords: 
 relatedContent: >
   apps/reference/app-settings/patient_reports
@@ -13,7 +13,7 @@ relatedContent: >
 This policy is reviewed and updated periodically by our Responsible Data Working Group and is intended as a resource for the CHT community. 
 {{% /alert %}}
 
-If you have any questions, please reach out to our Data Protection Officer at support@medicmobile.org. 
+If you have any questions, please reach out to our Data Protection Officer at support@medic.org. 
 
 ## Table of Contents
 - [Our responsible data promise](#our-responsible-data-promise)
@@ -115,6 +115,5 @@ We work with every partner to make sure they are trained and equipped to handle 
 
 ## Inquiries with Medic Mobile’s Data Protection Officer
 
-For the purposes of this policy, Medic Mobile’s Chief Operations Officer serves as Medic Mobile’s Data Protection Officer. For any inquiries, please send an email to support@medicmobile.org with the words “Data Protection” in the subject line. 
-
+For the purposes of this policy, Medic Mobile’s Chief Operations Officer serves as Medic Mobile’s Data Protection Officer. For any inquiries, please send an email to support@medic.org with the words “Data Protection” in the subject line. 
 
