@@ -1,9 +1,9 @@
 ---
-title: "Building Condition Card"
-linkTitle: Condition Care
+title: "Building Condition Cards"
+linkTitle: Condition Cards
 weight: 12
 description: >
-  Building CHT application condition card
+  Building CHT application condition cards
 relatedContent: >
   apps/features/contacts#condition-cards
   apps/reference/contact-page#condition-cards
@@ -57,6 +57,10 @@ const allReports = reports;
 ### 2. Define `cards` and Add a Condition Card Object
 
 ```javascript
+const thisContact = contact;
+const thisLineage = lineage;
+const allReports = reports;
+
 const cards = [
   {
     label: 'contact.profile.assessment_history',
@@ -95,6 +99,38 @@ const cards = [
 Export the defined fields as shown below:
 
 ```javascript
+const thisContact = contact;
+const thisLineage = lineage;
+const allReports = reports;
+
+const cards = [
+  {
+    label: 'contact.profile.assessment_history',
+    appliesToType: 'report',
+    appliesIf: (report) => {
+      const assessmentForm = getNewestReport(allReports, assessmentForms);
+      return assessmentForm.reported_date >== report.reported_date;
+    },
+    fields: [
+      {
+        label: 'contact.profile.most_recent_assessment.date',
+        value: (report) => { 
+          return report.reported_date;
+        },
+        filter: 'simpleDate',
+        width: 6
+      },
+      {
+        label: 'contact.profile.cough',
+        value: (report) => {
+          return report.fields.cough;
+        },
+        width: 6,
+      }
+    ]
+  }
+];
+
 module.exports = {
   cards: cards
 };
