@@ -5,8 +5,8 @@ weight: 11
 description: >
   Building CHT application contact summary
 relatedContent: >
-  apps/features/contacts
-  apps/reference/contact-page#condition-cards
+  apps/features/contacts#contact-summary
+  apps/reference/contact-page#contact-summary
 ---
 
 {{% pageinfo %}}
