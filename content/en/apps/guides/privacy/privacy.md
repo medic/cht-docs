@@ -34,8 +34,8 @@ As a non-profit organization, Medic Mobile’s mission is to advance good health
 
 We use the concept of Responsible Data (RD) to outline our collective duty to prioritise and respond to the ethical, legal, social, and privacy-related challenges that come from using data in new and different ways in healthcare, advocacy, and social change. We have an obligation to account for unintended consequences of working with data by:
 
-1. Prioritising people’s rights to consent, privacy, security and ownership when using data in social change and advocacy efforts,
-2. Implementing values and practices of transparency and openness.
+1. Prioritising people’s rights to consent, privacy, security and ownership when using data in social change and advocacy efforts
+2. Implementing values and practices of transparency and openness
 
 As an organization, we promise to do our best to live up to these obligations. We promise to show initiative, to seek feedback, and to proactively seek out ways to work with data more responsibly. We promise to accompany patients, health workers, researchers, organizational partners, and our open source community in the journey from best intentions to best practices in data-driven projects. The purpose of Medic Mobile’s data policy is to help our organization deliver on this responsible data promise.
 
@@ -85,7 +85,7 @@ For purposes of this policy, protected health information (“PHI”) is defined
 
 Medic Mobile’s PHI policy requires that:
 1. Access to protected health information – and to devices containing protected health information – must be password protected. 
-2. Any and all protected health information must be stored and retrieved using a full-disk encryption system 
+2. Any and all protected health information must be stored and retrieved using a full-disk encryption system.
 3. Any device that connects to or uses any of Medic Mobile's mission-critical services must use a full-disk encryption system at all times. 
 4. When communicating information electronically, any and all protected health information must be protected using a secure transfer system. 
 5. Each person is responsible for his/her own compliance. If any person becomes aware of a violation of this policy, they have a duty to report the incident directly to Medic Mobile's People Operations Manager, and/or COO. 
@@ -116,6 +116,5 @@ We work with every partner to make sure they are trained and equipped to handle 
 ## Inquiries with Medic Mobile’s Data Protection Officer
 
 For the purposes of this policy, Medic Mobile’s Chief Operations Officer serves as Medic Mobile’s Data Protection Officer. For any inquiries, please send an email to support@medicmobile.org with the words “Data Protection” in the subject line. 
-
 
 
