@@ -1,9 +1,11 @@
 ---
-title: "App Privacy Policies"
-linkTitle: "Privacy Policies"
+title: "Adding Privacy Policies to Apps"
+linkTitle: "Adding Privacy Policies"
 weight: 100
+aliases:
+  -    /apps/guides/security/
 description: >
-  Add privacy policies that users must accept before being allowed to use the app
+  Guide for adding privacy policies that users must accept before being allowed to use the app
 ---
 
 As of `3.10.0`, privacy policies can be customized for every language, by adding desired content into HTML files. 
@@ -43,5 +45,4 @@ When a privacy policy is configured for a language, users who load the app in th
 ![Accept privacy policy](accept-mobile.png)
 
 The app will load normally after acceptance. The user cannot opt out or skip acceptance, meaning, if a privacy policy is configured, the app will be unusable until the user has accepted it. Once accepted, users will not be prompted to accept the same policy again. However, users will be prompted for acceptance again when the policy is updated or when they change their language. An acceptance log is saved in the `user-settings` file and synced to the server, containing a history of privacy policies accepted by the user.        
-
 
