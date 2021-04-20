@@ -22,7 +22,7 @@ New languages must be added and configured in several places:
 - *In GitHub*
   - Create a new [ddocs/medic/_attachments/translations/messages-XX.properties](https://github.com/medic/cht-core/tree/master/ddocs/medic/_attachments/translations) file, replacing XX with the 2 or 3 letter language code.
   - Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/master/api/src/translations.js#L8). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
-  - Import the moment language pack in the [root app.js file](https://github.com/medic/cht-core/blob/master/webapp/src/js/app.js#L39). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
+  - Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/3.11.x/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
 - *In POEditor*
   - In the [CHT Core project](https://poeditor.com/projects/view?id=33025), add the language
   - Add translations for a new language in the POEditor app
