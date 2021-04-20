@@ -1,6 +1,6 @@
 ---
 title: "Adding Privacy Policies to Apps"
-linkTitle: "Adding Privacy Policies"
+linkTitle: "Adding Policies"
 weight: 100
 aliases:
   -    /apps/guides/security/
