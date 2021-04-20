@@ -1,6 +1,6 @@
 ---
 title: "Privacy & Data Protection Policy"
-linkTitle: "Policy"
+linkTitle: "Medic’s Policy"
 weight: 
 description: >
   Medic’s Privacy and Data Protection Policy, which applies to the Community Health Toolkit
