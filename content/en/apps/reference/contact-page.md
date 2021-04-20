@@ -22,13 +22,13 @@ Helper variables and functions for the contact summary can be defined in `contac
 | `lineage` | An array of the contact's parents (2.13+), eg `lineage[0]` is the parent, `lineage[1]` is the grandparent, etc. Each lineage entry has full information for the contact, so you can use `lineage[1].contact.phone`. | 
 | `targetDoc` | Doc with [`target`]({{< ref "core/overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
 | `uhcStats` | Object containing UHC stats information. |
-| `uhcStats.uhcInterval` | Object containing the start and end date of UHC's month interval, it is based on the `uhc.visit_count.month_start_date` defined in the [app settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson). |
-| `uhcStats.uhcInterval.start` | Start date timestamp of UHC interval. |
-| `uhcStats.uhcInterval.end` | End date timestamp of UHC interval. |
+| `uhcStats.uhcInterval` | Object containing the start and end date of UHC reporting period, it is calculated from the `uhc.visit_count.month_start_date` defined in the [app settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson). |
+| `uhcStats.uhcInterval.start` | Timestamp, start date of the UHC reporting period. |
+| `uhcStats.uhcInterval.end` | Timestamp, end date of the UHC reporting period. |
 | `uhcStats.homeVisits` | Object containing the contact's home visits stats. The [contact's type](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/hierarchy/#app_settingsjson-contact_types) should have `count_visits` enabled and the [UHC visit count settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson) should be defined, additionally this information is only available for users that have `can_view_uhc_stats` permission and that are not System Administrators. |
-| `uhcStats.homeVisits.lastVisitedDate` | Date timestamp of contact's last home visit. |
-| `uhcStats.homeVisits.count` | Number of contact's home visits. |
-| `uhcStats.homeVisits.countGoal` | Home visit's goal, defined in the [UHC visit count settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson). |
+| `uhcStats.homeVisits.lastVisitedDate` | Timestamp, date of contact's last home visit. |
+| `uhcStats.homeVisits.count` | Number of contact's home visits in the current reporting interval. |
+| `uhcStats.homeVisits.countGoal` | Number, home visits goal, defined in the [UHC visit count settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson). |
 
 ## Contact Summary
 
