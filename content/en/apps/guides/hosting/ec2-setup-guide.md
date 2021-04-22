@@ -80,10 +80,15 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 1. Upgrading the container
     - Backup all data (EBS) 
     - Log into container and stop all services
-    - DO NOT REMOVE `/srv/storage/medic-core/`, `/srv/settings/medic-core/couchdb/local.ini`, wipe all other files in `/srv` [Note: Make script publicly accessible]
+    - To prepare for the upgrade, delete all other files in `/srv` EXCEPT for these three:
+        - `/srv/storage/medic-core/`
+        - `/srv/settings/medic-core/couchdb/local.ini`
+        - `/srv/settings/medic-core/couchdb/local.d` 
+      
+      The `medic-core` directory is where the CHT stores user data. CouchdDB uses both `local.ini` and `local.d` store configuration changes. Be sure not to delete these. 
     - [Change the image tag to the newest image release version]({{< ref "core/guides/docker-setup#use-docker-compose" >}})
     - [Change image tag in docker-compose file]({{< ref "core/guides/docker-setup#use-docker-compose">}})
-    - Launch new containers with appropriate COUCHDB_ADMIN_PASSWORD & HA_PASSWORD environment variables
+    - Launch new containers with appropriate `COUCHDB_ADMIN_PASSWORD` & `HA_PASSWORD` environment variables
 
 1. Upgrading the webapp
     - Use Admin GUI page
@@ -119,5 +124,5 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 * AWS CloudWatch and monitoring tab. Enable detailed monitoring (This costs more money)
 * Set up [Lifecycle Management for EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html#snapshot-lifecycle-console)
 * Steps to mounting a backup snapshot to the instance and restarting the application
-* Please see the second-half of “Increasing disk size” reference above
+* Please see the second-half of "Increasing disk size" reference above
 * Setup a TLS cert & DNS registration
