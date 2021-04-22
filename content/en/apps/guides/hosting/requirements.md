@@ -16,11 +16,11 @@ Hosting a CHT instance in a cloud provider like AWS or on bare-metal requires yo
 
 - 4 GiB RAM
 - 2 CPU/vCPU
-- 50 GB Hard Disk (SSD prefered)
+- 8 GB Hard Disk (SSD prefered)
 - SSL certificates ( To be able to use the CHT app on mobile)
 - Root Access 
 
-Depending on the scale of your operation these may need to be adjusted.
+Depending on the scale of your operation these may need to be adjusted. Be sure to monitor disk usage so that the 8 GB can be increased as needed.
 
 ##  Docker
 
