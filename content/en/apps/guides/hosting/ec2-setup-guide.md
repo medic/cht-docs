@@ -114,6 +114,8 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
 ## Increasing disk size
 
+Monitor disk usage so alerts are sent before all disk spaces is used up.  If free disk space falls below 40%, increase the disk space as follows:
+
 * Stop medic: `sudo supervisorctl stop medic`
 * Go to EBS in AWS and take a snapshot of the volume.
 * Modify the volume size (Increase it by 2x preferably). Wait until the modification succeeds.
