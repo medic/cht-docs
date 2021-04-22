@@ -1,6 +1,6 @@
 ---
 title: "Creating an Actionable Problem Statement"
-linkTitle: Actionable Problem Statement
+linkTitle: Problem Statement
 weight: 4
 description: >
   Creating an actionable problem statement
@@ -30,6 +30,10 @@ Select the most essential needs, which are the most important to fulfill.
 
 Work to express the insights developed through the synthesis of your gathered information.
 
+<br clear="all">
+
+ *****
+
 ### 2. Write Your Definitions Into a Point of View Template
 
 {{< figure src="pov-statement.png" link="pov-statement.png" >}}
@@ -39,6 +43,10 @@ Example
 | User | Needs | Insights |
 | ---- | ----- | -------- |
 | An adult person who lives in a city | To use a car for 10-60 minutes  1-4 trips per week | The user would not want to own his own car as it would be too expensive compared to his needs. He would like to share a car with others who have similar needs, however,  there are no easy and affordable solutions for him. It is important for the user to think and live green and to not own more than he truly needs. |
+
+<br clear="all">
+
+ *****
 
 ### 3. Create a Point Of View Mad Lib
 
@@ -51,6 +59,10 @@ You can articulate your POV by inserting your information about your user, the n
 [User . . . (descriptive)] needs [Need . . . (verb)] because [Insight . . . (compelling)]
 
 Example: An adult person who lives in the city… needs access to a shared car 1-4 times for 10-60 minutes per week … because he would rather share a car with more people as this is cheaper, more environmentally friendly, however it should still be easy for more people to share.
+
+<br clear="all">
+
+ *****
 
 ### 4. Make Sure That Your Point of View Meets the Requirements
 

@@ -1,7 +1,7 @@
 ---
 title: "Creating an Empathy Map"
 linkTitle: Empathy Map
-weight: 5
+weight: 3
 description: >
   Creating an empathy map
 relatedContent: >
@@ -30,13 +30,22 @@ Insight refers to a remarkable realization that can help you to solve the curren
 
 ### 1. Fill Out the Empathy Map
 
+{{< figure src="empathy-map.png" link="empathy-map.png" class="right col-6 col-lg-8" >}}
+
 Lay the four quadrants out on a table, draw them on paper or on a whiteboard.
+
 Review your notes, pictures, audio, and video from your research/fieldwork and fill out each of the four quadrants while defining and synthesising:
+
+<br clear="all">
 
 - What did the user SAY? Write down significant quotes and keywords that the user said.
 - What did the user DO? Describe which actions and behaviours you noticed or insert pictures or drawing.
 - What did the user THINK? Dig deeper. What do you think that your user might be thinking? What are their motivations, their goals, their needs, their desires? What does this tell you about his or her beliefs?
 - How did the user FEEL? What emotions might your user be feeling? Take subtle cues like body language and their choice of words and tone of voice into account.
+
+<br clear="all">
+
+ *****
 
 ### 2. Synthesise Needs
 
@@ -47,6 +56,10 @@ You should look for the following within your data to identify your users’ nee
 - Contradictions and inconsistencies. Once you’ve picked out the users’ traits, you should look for contradictions and inconsistencies between them. For example, there may be a disconnection between what a user says and does, or they might show a positive action but portray a negative emotion through a quote.
 
 Write down user’s needs.
+
+<br clear="all">
+
+ *****
 
 ### 3. Synthesise Insights
 

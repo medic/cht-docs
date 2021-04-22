@@ -51,6 +51,10 @@ Brief participants how their data will be used
 Asking “safe” questions such as what their role is in their organization
 Asking concrete questions that are easy to answer
 
+<br clear="all">
+
+ *****
+
 ### Middle
 
 In the middle of the interview, you’re hitting high gear. Having established a direct channel with your interviewees (the users), you move on and ask the bulk of your questions. The predetermined order of the questions may change based on the direction the conversation is taking. Some of the tips here include:
@@ -58,6 +62,10 @@ Keep the flow of the conversation as natural as possible, but cover the topics y
 Pick up on what participants have said earlier and get full replies to questions they have only partially answered.
 Steer participants back on track if they go too far off topic.
 Show that you have been listening.
+
+<br clear="all">
+
+ *****
 
 ### End
 

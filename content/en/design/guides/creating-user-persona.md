@@ -10,7 +10,7 @@ relatedContent: >
 
 ## Purpose Of the Tutorial
 
-The tutorial will take you through creation of personas from user research results as a way of synthesizing information.
+This guide will take you through creation of personas from user research results as a way of synthesizing information.
 
 ## Background
 
@@ -22,7 +22,7 @@ User persona is a generalized character that embodies a particular type of user.
 
 ## Steps
 
-### Step 1: Identify Elements to Include in a Persona
+### 1. Identify Elements to Include in a Persona
 
 There are six common pieces of information that make up a persona:
 
@@ -35,7 +35,11 @@ There are six common pieces of information that make up a persona:
 
 {{< figure src="user-persona-template.png" link="user-persona-template.png" >}}
 
-### Step 2: Create the Right Balance Between Research Data and Fictional Details
+<br clear="all">
+
+ *****
+
+### 2. Create the Right Balance Between Research Data and Fictional Details
 
 It’s important to pick precisely the right information to show in a persona. To do that, you only have to decide if a piece of information is relevant when making a design decision. This ensures the credibility and applicability of the information gathered about a user.
 

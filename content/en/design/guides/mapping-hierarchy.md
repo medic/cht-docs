@@ -1,7 +1,7 @@
 ---
 title: "Mapping User on the CHT Hierarchy"
-linkTitle: Mapping Users
-weight: 3
+linkTitle: Mapping Hierarchy
+weight: 5
 description: >
   Mapping users on the CHT hierarchy
 relatedContent: >
@@ -18,38 +18,51 @@ The tutorial will take you through mapping of users on CHT hierarchy, including:
 
 ## Brief Overview of Key Concepts
 
-User persona is a generalized character that embodies a particular type of user.
+A *[user persona]({{< ref "design/personas" >}})* is a generalized character that embodies a particular type of user.
 
 User roles are the activities that the user personas are expected to carry out.
 
-Hierarchy represents the reporting structures
+A hierarchy represents the reporting structure.
 
 ## Prerequisites/Required Resources
 
-User personas profiles
+[User personas profiles.]({{< ref "design/guides/creating-user-persona" >}})
+
+{{< see-also page="design/personas" title="Personas" >}}
 
 ## Steps
 
-In this section, you will define a hierarchy, define user persona roles and  map user personas to the hierarchy.
+In this section, you will define a hierarchy, define user persona roles and map user personas to the hierarchy.
 
 ### 1. Define the Hierarchy
 
 Identify reporting structure of the user personas in order to have a flawless flow of data from one level to another.
 
-The app hierarchy is often modeled after the health system, health program or community structure.  All people who are registered in the app must be associated with a place. These places are located in a hierarchy to other places.
+{{< figure src="app-hierarchy.jpg" link="app-hierarchy.jpg" class="right col-6 col-lg-8" >}}
 
 For instance, a family member is part of a household. A household and CHWs are part of a CHW area. A CHW area and nurses are part of a health facility. Additional levels may be added as needed. The admin level operates outside of the hierarchy and gives access to all levels and people.
 
-Examples:
-{{< figure src="app-hierarchy.jpg" link="app-hierarchy.jpg" >}}
+<br clear="all">
 
-{{< figure src="user-hierarchy.png" link="user-hierarchy.png" >}}
+<br clear="all">
+
+{{< figure src="user-hierarchy.png" link="user-hierarchy.png" class="right col-6 col-lg-8" >}}
+
+The app hierarchy is often modeled after the health system, health program or community structure. All people who are registered in the app must be associated with a place. These places are located in a hierarchy to other places.
+
+<br clear="all">
+
+ *****
 
 ### 2. Define the User Roles
 
 Determine all the actors within the system in terms of who will be doing what.
 
 {{< figure src="user-roles.png" link="user-roles.png" >}}
+
+<br clear="all">
+
+ *****
 
 ### 3. Map User Personas to the Hierarchy
 
