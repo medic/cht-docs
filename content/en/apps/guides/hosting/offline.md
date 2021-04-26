@@ -1,6 +1,6 @@
 ---
 title: "Offline CHT Server"
-linkTitle: "Offline CHT"
+linkTitle: "Offline Hosting"
 weight: 100
 description: >
  Running an instance of CHT Core server with no Internet  connection
@@ -16,23 +16,14 @@ Running a CHT server offline requires no modifications to the CHT itself.  Inste
 
 ## Considerations
 
-An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline instance:
-
-* Alerting - How will alerts be sent in the case of downtime or degraded service? 
-* Power failures and unplanned restarts - Will the server cleanly restart such that the CHT resumes service correctly?
-* Backups - What happens to the CHT data if there's a hard drive failure?  
-* Disaster Recovery - What happens if there is a flood at the facility and on-site active and backup data are destroyed?
-* Scale - What happens when the hardware deployed needs to be upgraded to increase capacity?
-* Updates - By definition TLS certificates expire and software needs to be updated - how will the deployment get these updates on a regular basis?
-* Security - While the TLS certificate will protect data on the LAN, is the server hard drive encrypted in the event of property theft? 
-* Privacy - The CHT inherently carries sensitive patient medical information in the database. Are there sufficient measures in place to protect this sensitive data?  
+An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline instance per our [existing requirements]({{< relref "requirements#considerations" >}}).
 
 Additionally, if users are going to migrate between offline locations with the same domain name, always ensure a different login and password is used. This will prevent a client from another CHT instance trying to synchronize with a CHT instance it shouldn't synchronize with, possibly causing data corruption.
 
 
 ## Requirements
 
-A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name:  
+ A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name. On top of the [existing requirements]({{< relref "requirements" >}}), also needed are:
 
 ### Static IP
 
