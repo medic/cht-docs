@@ -41,7 +41,7 @@ The aggregate workflow was designed specifically for CHWs, Supervisors, and Heal
 
 **HRIO (online user)**: Exports a file from the CHT and imports into DHIS2. Reviews data in DHIS2.
 
-### CHW
+### Community Health Workers
 
 CHWs support patients in their community by following care guides and recording responses in the CHT. The CHT calculates aggregate DHIS2 Data Values for each CHW based on rules configured in the CHT. CHWs can view these indicators on the Targets tab and should review them and sync at the end of the month.
 
@@ -49,13 +49,13 @@ CHWs support patients in their community by following care guides and recording 
 
 {{< see-also page="apps/features/targets" title="Targets" >}}
 
-### Supervisor
+### Supervisors
 
 In addition to their own targets, Supervisors can see the aggregate of each DHIS2 Data Value across *all* CHWs in their area from the *CHW Aggregate* view on the **Targets tab**. By tapping on a target, they can also see each CHW’s contribution towards that total. Supervisors can review and verify with CHWs that everyone has synced and that their data is correct. The Supervisor can communicate with the HRIO when everything has been validated.
 
 ![Supervisors](supervisor.png "Feature Overview Supervisors")
 
-### HRIO
+### Health Records Information Officers
 
 HRIOs access the **CHT App Management** tab and select the appropriate *DHIS2 Data Set, Organisation Unit,* and *Period*. They then *Export* a file that is formatted for DHIS2. HRIOs will need access to the **Import/Export** feature in DHIS2 so that they can **Import** the file. Once it has been imported into DHIS2, they review the data from the **Data Entry** screen in DHIS2.
 

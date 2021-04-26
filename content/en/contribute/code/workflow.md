@@ -26,9 +26,48 @@ A good workflow would be to work locally, pushing to a remote branch as you make
 
 The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
+### Updating The Issue With What You Actually Did
+
+Add [labels](https://github.com/medic/cht-core/labels) to the GitHub issue as needed. At this stage, the two to look out for are:
+- `Breaking change`
+- `UI/UX`
+
+Add a comment to the GitHub issue with what the final change actually was. This is important for multiple cases including:
+- Non-technical people may not understand the conversation thread on the issue. GitHub is a place that developers work, but it is also common to send non-technical people links to issues in GitHub.
+- The QA team should have a quick way to know where to start testing.
+- Issues with a lot of discussion of alternative solutions need a clear resolution and indication of which route was taken.
+
+Options for doing this:
+- Attach a short video - these are usually very well received and can often help people understand what happened much more clearly than a text description.
+- Screenshots - pictures with big arrows on them can quickly convey important things to look at. If you start to need multiple screenshots consider the video option instead.
+- Write up a few sentences - be sure to consider a non-technical audience when writing this.
+
+An example of a good thorough comment/template is as follows:
+
+```
+### Acceptance testing
+
+1. Install branch `81-do-great-things`
+2. [a specific thing to be sure it has been set up correctly]
+3. ...
+
+
+### What was actually built
+
+[video|screenshots|text]
+
+
+### Documentation
+
+- [link](url)
+
+```
+
 ### Testing
 
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
+
+Those are minimums. Our ultimate goal is to have fully-automated release testing, allowing for fast, confident delivery of completed code. If your work would be included in a release/regression test, create an e2e test for it. QA engineers will use that as a template of sorts to create additional automated tests at their discretion.
 
 ### Migrating
 

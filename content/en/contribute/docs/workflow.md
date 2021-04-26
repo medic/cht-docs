@@ -38,7 +38,7 @@ When your branch is ready for review, create a [Pull Request](https://help.githu
 
 ## Reviewing Pull Requests
 
-Documentation reviewers are automated by the [code owners](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners) mechanism. In general, reviewers should:
+In general, reviewers should:
 
 1. Read the PR description to understand the changes made, as well as any linked issues
 2. Review any comments by other reviewers
@@ -49,7 +49,8 @@ Documentation reviewers are automated by the [code owners](https://help.github.c
 7. Once all comments have been resolved, or changes are satisfactory, **Merge pull request** to complete the updates, and delete the branch.
 
 {{% alert title="Note" %}} Additional Tips for Reviewers:
-* Use the [Style Guide]({{< ref "contribute/docs/style-guide" >}}) to maintain documentation consistency
+* Use the [Style Guide]({{< ref "contribute/docs/style-guide" >}}) to maintain documentation quality
+* Compare content to pages within the same section and encourage consistency
 * Be empathetic to the author, commenting on positive aspects of PRs as well as changes
 * Ask clarifying questions where needed to avoid further confusion
 {{% /alert %}} 

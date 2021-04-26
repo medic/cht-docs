@@ -7,6 +7,8 @@ description: >
 relatedContent: >
   core/guides/docker-setup
   core/guides/using-windows
+  apps/guides/hosting/self-hosting
+  apps/guides/hosting/ec2-setup-guide
 ---
 
 {{% pageinfo %}}
@@ -35,13 +37,7 @@ To read more about these concepts, see our [Docker Setup guide]({{< relref "core
 
 Before you begin, you need to have some useful software and tools that are required for things to work.
 
-First off, install [nodejs](https://nodejs.org/en/) 8 or later and [npm](https://www.npmjs.com/get-npm).
-
-You also require Docker for your operating system:
-
-- [Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-- [Docker for MacOS](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-- [Docker for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+Install [nodejs](https://nodejs.org/en/) 8 or later and [npm](https://www.npmjs.com/get-npm). As well, [install `docker` and `docker-compose`]({{< relref "apps/guides/hosting/requirements#docker" >}}).
 
 ## Implementation Steps
 
