@@ -1,9 +1,9 @@
 ---
-title: "Offline CHT Server"
+title: "Offline Hosting of CHT Server"
 linkTitle: "Offline Hosting"
 weight: 100
 description: >
- Running an instance of CHT Core server with no Internet  connection
+ Deploying and hosting CHT Core server instances without Internet connectivity
 ---
 
 {{% alert title="Note" %}} This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below. {{% /alert %}}
