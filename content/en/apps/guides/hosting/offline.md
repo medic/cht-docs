@@ -18,7 +18,7 @@ Running a CHT server offline requires no modifications to the CHT itself.  Inste
 
 An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline instance per our [existing requirements]({{< relref "requirements#considerations" >}}).
 
-Additionally, if users are going to migrate between offline locations with the same domain name, always ensure a different login and password is used. This will prevent a client from another CHT instance trying to synchronize with a CHT instance it shouldn't synchronize with, possibly causing data corruption.
+Additionally, if users are going to migrate between offline locations with the same domain name, always ensure different login and passwords are used for all users across instances. This will prevent a client from another CHT instance trying to synchronize with a CHT instance it shouldn't synchronize with, possibly causing data corruption or privacy issues through unintended data access.
 
 
 ## Requirements
