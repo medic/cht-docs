@@ -62,9 +62,7 @@ An offline deployment may consider substituting some requirements above with the
 
 ### ngrok
 
-Aside from the obvious benefit of not requiring Internet connectivity, when an offline solution is deployed, traffic stays 100% local.  When using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away.
-
-This can help even in locations with Internet connectivity which is very slow, very expensive per megabyte, or both.
+When an offline solution is deployed, traffic stays 100% local, whereas when using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away. This can help when Internet connectivity is very slow, very expensive per megabyte, or both.
 
 ### local-ip.co 
 
