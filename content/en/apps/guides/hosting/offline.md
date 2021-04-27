@@ -6,7 +6,9 @@ description: >
  Deploying and hosting CHT Core server instances without Internet connectivity
 ---
 
-{{% alert title="Note" %}} This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below. {{% /alert %}}
+{{% alert title="Note" %}} This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below. 
+ 
+ Proceed only if you have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general. This is a complex deployment where mistakes are easy to make unless proper training is in place. {{% /alert %}}
 
 ## Introduction
 
@@ -50,11 +52,7 @@ Any new client that connects to a network will get an IP address from a Dynamic 
 
 ### Wi-Fi AP 
 
-Optionally, a Wi-FI Access Point (AP) may be deployed on the LAN.  This should not be a router, but a simple AP so as  not introduce a DHCP or DNS server that could conflict with the two configured above. An AP will enable a device without Ethernet, such as an Android phone, to easily connect to the CHT server.
-
-### Expertise
-
-Deployments that don't have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general should likely not use an offline CHT server. This is a complex deployment where mistakes are easy to make unless proper training is in place. 
+A Wi-FI Access Point (AP) needs to be deployed on the LAN so Android devices can connect to the CHT.  This can be an AP included with the router or a standalone AP. If the AP is standalone, check that any DHCP or DNS servers that could conflict with the one above are disabled.
 
 ## Benefits Over Other Solutions
 
