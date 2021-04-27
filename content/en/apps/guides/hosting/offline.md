@@ -47,7 +47,6 @@ Most LANs will defer to the Internet Service Provider (ISP) to provide DNS, but 
 
 Any new client that connects to a network will get an IP address from a Dynamic Host Configuration Protocol (DHCP) server.  It is critical that the DHCP server for the LAN the CHT is on instructs all clients to use the DNS server configured above.  
 
-This is the final piece for any client, specifically Android clients, on the LAN to successfully connect to the CHT server and correctly use its TLS certificate.  
 
 ### Wi-Fi AP 
 
