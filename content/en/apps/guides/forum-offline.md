@@ -1,6 +1,6 @@
 ## Overview
 
-In this post we look at setting up an instance of the [CHT server](https://communityhealthtoolkit.org/) that is initially online so it can be configured, but ultimately is deployed fully offline.  We'll be using the information from the newly published [Offline CHT Server](https://docs.communityhealthtoolkit.org/apps/guides/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://github.com/medic/cht-infrastructure/tree/master/self-hosting).
+In this post we look at setting up an instance of the [CHT server](https://communityhealthtoolkit.org/) that is initially online so it can be configured, but ultimately is deployed fully offline.  We'll be using the information from the newly published [Offline CHT Server](hhttps://docs.communityhealthtoolkit.org/apps/guides/hosting/offline/) guide in the CHT docs as well as the existing guide on [how to deploy a self-hosted CHT server](https://docs.communityhealthtoolkit.org/apps/guides/hosting/self-hosting/).
 
 Our environment has the following setup:
   * A router with the IP `192.168.8.1`
@@ -8,7 +8,7 @@ Our environment has the following setup:
   * A CHT server running on Ubuntu 20.04 with a static IP of `192.168.8.2`
   * A [Pi-hole](https://pi-hole.net/) server with DNS and DHCP services
   * An Android device running Android 10 
-  * An unbranded install of [medic-android 0.7.3](https://github.com/medic/medic-android/releases/download/v0.7.3/medic-android-v0.7.3-unbranded-webview-arm64-v8a-release.apk)
+  * An unbranded install of [medic-android 0.8.0](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile)
 
 Unless otherwise specified, all commands are run on the Ubuntu server as the `root` user.  All commands should be run from the same location of `/root`.  You will end up with a folder that looks like this*:
 ```bash
@@ -39,7 +39,7 @@ If at any point you get stuck and want to start from scratch you can run these t
 
 ### Development
 
-This forum post is for development only.  It is not meant for a production environment.  Please see [this note](https://docs.communityhealthtoolkit.org/apps/guides/offline/) for more information.
+This forum post is for development only.  It is not meant for a production environment.  Please see [the note at the top of the Offline Hosting document](https://docs.communityhealthtoolkit.org/apps/guides/hosting/offline/) for more information.
 
 
 ## LAN & Server
@@ -174,7 +174,7 @@ To set up the Pi-hole with a certificate that persists, we'll use a file based o
 
 ## CHT Server
 
-Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting) and the [official docker-compose file](https://raw.githubusercontent.com/medic/cht-infrastructure/master/self-hosting/main/docker-compose.yml), this section provisions a docker container and then configures it to preserve your data across reboots:
+Following the [CHT self-hosted guide](https://docs.communityhealthtoolkit.org/apps/guides/hosting/ssl-cert-install/) and the [official docker-compose file](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml), this section provisions a docker container and then configures it to preserve your data across reboots:
 
 
 1. Create a file called `cht-docker-compose-local-host.yml` with this contents:
@@ -214,13 +214,13 @@ Following the [CHT self-hosted guide](https://github.com/medic/cht-infrastructur
         name: medic-data
     ```
 
-1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://github.com/medic/cht-infrastructure/tree/master/self-hosting#installing-with-a-compose-file)
+1. Export the `DOCKER_COUCHDB_ADMIN_PASSWORD` per [the instructions](https://docs.communityhealthtoolkit.org/apps/guides/hosting/self-hosting/#installing-with-a-compose-file)
    
 1. Start the CHT docker instance: `docker-compose -f cht-docker-compose-local-host.yml up --detach`.
 
 ### nginx
 
-CHT uses `nginx` as its front end web server. These steps follow the [CHT Self-hosting guide](https://github.com/medic/cht-infrastructure/tree/master/self-hosting#ssl-certificate-installation) to install our valid certificate and fix an `nginx` configuration based on our `host` networking mode:
+CHT uses `nginx` as its front end web server. These steps follow the [CHT Self-hosting guide](https://docs.communityhealthtoolkit.org/apps/guides/hosting/ssl-cert-install/) to install our valid certificate and fix an `nginx` configuration based on our `host` networking mode:
 
 1. Enter the `medic-os` container with `docker exec -it medic-os /bin/bash`
 
@@ -388,4 +388,4 @@ Additionally, the original ports for CHT are exposed, which presents a security 
 
 Best of all, all services like DNS and DHCP, are running locally, so the server can be run entirely offline.
 
-Please feel free to ask any questions on this write-up!`
+Please feel free to ask any questions on this write-up!
