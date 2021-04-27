@@ -184,7 +184,7 @@ Reports about people should have one or more of:
  - A patient shortcode, found at `doc.patient_id` or `doc.fields.patient_id`
  - A patient record's `_id`, found at `doc.patient_uuid` or `doc.fields.patient_uuid`, as well as potientially in the same locations as the shortcode
 
-Reports about places should have a `doc.place_id`.
+Reports about places should have a place's shortcode, found at `doc.place_id` or `doc.fields.place_id`.
 
 Additionally, SMS reports:
  - Have an `sms_message` property which contains, among other things, the raw SMS

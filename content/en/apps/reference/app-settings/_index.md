@@ -43,7 +43,8 @@ The following settings do not need to be specified. They should only be defined 
 
 ## SMS Workflows
 
-Workflows involving SMS are configured by defining [schedules]({{% relref "schedules" %}}), [registrations]({{% relref "registrations" %}}), [patient reports]({{% relref "patient_reports" %}}), and [case reports]({{% relref "accept_case_reports" %}}). Schedules of automated messages can be sent from the server at specificied times in the future, and reports can be associated to contacts.Forms can also be configured to clear the schedule, or silence it for a period of time.
+Workflows involving SMS are configured by defining [schedules]({{% relref "schedules" %}}), [registrations]({{% relref "registrations" %}}), [patient reports]({{% relref "patient_reports" %}}), and [case reports]({{% relref "accept_case_reports" %}}). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
+As of `3.11.0`, places are valid subjects for any SMS workflows.
 
 ## SMS recipient resolution
 
@@ -61,21 +62,21 @@ An outgoing SMS message configuration has the following fields:
 |-----|-----------|
 |*empty*| submitter |
 |`reporting_unit`| submitter | 
-|`parent`| primary contact of the patient's/submitter's place's parent (`patient.parent.parent.contact`) | 
-|`grandparent`| primary contact of the patient's/submitter's place's grandparent (`patient.parent.parent.parent.contact`) |
-|`clinic`| primary contact of the `clinic` in the patient's/submitter's lineage | 
-|`health_center`| primary contact of the `health_center` in the patient's/submitter's lineage | 
-|`district`| primary contact of the `district_hospital` in the patient's/submitter's lineage |
-|`ancestor:<contact_type>`| primary contact of the place of the requested type in the patient's/submitter's lineage |
-|`link:<tag>`| Linked doc that has requested `tag` in the patient's / submitter's lineage (direct mapping, not to primary contact). *As of 3.10.x*| 
-|`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the patient's/submitter's lineage. *As of 3.10.x* | 
+|`parent`| primary contact of the subject's/submitter's place's parent (`patient.parent.parent.contact`) | 
+|`grandparent`| primary contact of the subject's/submitter's place's grandparent (`patient.parent.parent.parent.contact`) |
+|`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage | 
+|`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage | 
+|`district`| primary contact of the `district_hospital` in the subject's/submitter's lineage |
+|`ancestor:<contact_type>`| primary contact of the place of the requested type in the subject's/submitter's lineage |
+|`link:<tag>`| Linked doc that has requested `tag` in the subject's / submitter's lineage (direct mapping, not to primary contact). *As of 3.10.x*| 
+|`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* | 
 | *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` | 
 | *valid phone number* | requested phone number |
 
 {{% alert title="Note" %}} 
 - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
 - if there is no submitter phone number available, the actual `recipient` property value will be used
-- when mapping a contact phone number, `patient` lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
+- when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
 - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
 {{% /alert %}}
 
@@ -89,13 +90,13 @@ The message context object consists of:
 |*every `fields` property from the original report* | eg: if the report has `fields.test = 'test'` then `context.test = 'test'` |
 | patient | deeply hydrated patient contact (resolved from `patient_id`, `fields.patient_id` or `fields.patient_uuid`) |
 | patient_name | patient's name |  
-| place | deeply hydrated place document (resolved from `place_id`) - *only available in `registration` transition, when creating the place via SMS* |
+| place | deeply hydrated place document (resolved from `place_id` or `fields.place_id`) |
 | contact | deeply hydrated submitter contact | 
-| parent | deeply hydrated `health_center` type document from the patient's or submitter's lineage |
-| grandparent | deeply hydrated `district_hospital` type document from the patient's or submitter's lineage |
-| clinic | deeply hydrated `clinic` type document from the patient's or submitter's lineage |
-| health_center | deeply hydrated `health_center` type document from the patient's or submitter's lineage |
-| district_hospital | deeply hydrated `district_hospital` type document from the patient's or submitter's lineage |
+| parent | deeply hydrated `health_center` type document from the subject's or submitter's lineage |
+| grandparent | deeply hydrated `district_hospital` type document from the subject's or submitter's lineage |
+| clinic | deeply hydrated `clinic` type document from the subject's or submitter's lineage |
+| health_center | deeply hydrated `health_center` type document from the subject's or submitter's lineage |
+| district_hospital | deeply hydrated `district_hospital` type document from the subject's or submitter's lineage |
 
 
 ## Variables

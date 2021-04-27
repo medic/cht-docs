@@ -125,16 +125,16 @@ it should have no outside dependencies - like used variables, required modules o
 This function takes four parameters:
  - `userCtx`, an object with the user's `roles` as fields. For more information read the [documentation for the User Context Object](https://docs.couchdb.org/en/stable/json-structure.html#userctx-object).
  - `contact`, the contact document of a patient or other contact who has reports about them.
- - `reports`, an array of all reports for that patient that are present on the server.
+ - `reports`, an array of all reports for that subject that are present on the server.
  - `messages`, an array of sms messages that the contact has sent or received
 
 And should return an array of `_id` values for docs you would like to be purged 
 (or `undefined` / nothing if you don't wish to purge anything). 
 Only ids of docs that were passed to the function are valid for purging: you are not allowed to purge other documents.
 
-In the cases of reports that do not have patients or their patients are not found, the `purge` function
+In the cases of reports that do not have subjects or their subjects are not found, the `purge` function
 will receive an empty object as `contact`. 
-In the cases of reports about deleted patients, the `purge` function will receive a `{ _deleted: true }`
+In the cases of reports about deleted contacts, the `purge` function will receive a `{ _deleted: true }`
 object as the `contact`. 
 
 ### Schedule configuration

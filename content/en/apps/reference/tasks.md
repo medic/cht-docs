@@ -39,7 +39,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `actions[n].type` | `'report'` or `'contact'` | When `'report'`, the action opens the given form. When `'contact'`, the action redirects to a contact's profile page. Defaults to 'report'. | no |
 | `actions[n].form` | `string` | The code of the form that should open when you select the action. | yes, if `actions[n].type` is `'report'` |
 | `actions[n].label`| `translation key` | The label that should appear on the task summary screen if multiple actions are present. | no |
-| `actions[n].modifyContent`| `function (content, contact, report)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. | no |
+| `actions[n].modifyContent`| `function (content, contact, report, event)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. | no |
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
@@ -113,8 +113,9 @@ module.exports = [
     actions: [{ 
       form:'postnatal_visit',
       // Pass content that will be used within the task form
-      modifyContent: function(content, c, r) {
+      modifyContent: function(content, c, r, event) {
         content.delivery_place = 'home';
+        content.event_id = event.id;
       }
     }],
     events: [ {

@@ -13,9 +13,10 @@ Once a version is no longer supported it will not receive any further releases a
 
 | Version | Status | Release date | End of life |
 |----|----|----|----|
-| 3.10.x | Current | 9-Sep-2020 | TBA |
-| 3.9.x | Current | 19-Jun-2020 | 9-Dec-2020 |
-| 3.8.x | Current | 11-Feb-2020 | 19-Sep-2020 |
+| 3.11.x | Current | 21-Apr-2021 | TBA |
+| 3.10.x | Current | 9-Sep-2020 | 21-Jul-2021 |
+| 3.9.x | EOL | 19-Jun-2020 | 9-Dec-2020 |
+| 3.8.x | EOL | 11-Feb-2020 | 19-Sep-2020 |
 | 3.7.x | EOL | 22-Oct-2019 | 11-Jun-2020 |
 | 3.6.x | EOL | 17-Jul-2019 | 24-Mar-2020 |
 | 3.5.x | EOL | 27-Jun-2019 | 17-Oct-2019 |

@@ -43,7 +43,7 @@ Data is collected in the community at the point of care, i.e. the community heal
 - Webapp -> PouchDB / CouchDB
 - Text forms / sms -> SMS gateway / SMS aggregator -> CouchDB
 
-The mobile app and webapp, when deployed for offline first use, use a local database namely PouchDB. Similar to CouchDB, it is a document-oriented database. The data collected in PouchDB is synced to an online CouchDB upon the user connecting to the internet. Local storage is not applicable to SMS; instead, an [SMS gateway](https://github.com/medic/medic-gateway) or an [SMS aggregator](https://africastalking.com) is used to help get the data to an online CouchDB instance.
+The mobile app and webapp, when deployed for offline first use, use a local database namely PouchDB. Similar to CouchDB, it is a document-oriented database. The data collected in PouchDB is synced to an online CouchDB upon the user connecting to the internet. Local storage is not applicable to SMS; instead, an [SMS gateway](https://github.com/medic/medic-gateway) or an SMS aggregator (for example [Africa's Talking](https://africastalking.com)) is used to help get the data to an online CouchDB instance.
 
 Ultimately all the data ends up in a CouchDB instance deployed in the cloud whether through data synchronization with PouchDB local to the health workers devices, use of SMS aggregators or gateway. It should be mentioned that you can have a deployment supported by all of webapp, mobile app and SMS and have all the data end up in the same CouchDB instance.
 
