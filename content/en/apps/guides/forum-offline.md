@@ -261,6 +261,14 @@ CHT's docker image has the version of CHT that was current at the time it was ma
 
 1. When it is done upgrading, click "Reload application"
 
+
+### Install CHT Android application
+
+Now that your CHT server instance is up, you can prepare your Android device by installing the Medic Mobile app.  Note that we won't configure it, as we want to do that entirely offline: 
+
+1. Install the [latest version](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile), `0.8.0` as of this writing.
+
+
 ## Boot Persistence
 
 We'll use `systemd` to have containers perist across reboots per the [docker docs](https://docs.docker.com/config/containers/start-containers-automatically). Start by pulling down all the containers:
@@ -328,13 +336,6 @@ Now proceed to create the two services below.
 ### Test
 
 Reboot the bare metal computer and ensure all service restart successfully. 
-
-
-## Install CHT Android application
-
-Any APKs downloaded directly from GitHub will need to [be sideloaded](https://developer.android.com/distribute/marketing-tools/alternative-distribution). Otherwise, APKs downloaded from the Play Store do not have this limitation: 
-
-1. Download the [latest build](https://github.com/medic/medic-android/releases/latest), `0.7.3` as of this writing. 
 
 
 ## Connecting devices
