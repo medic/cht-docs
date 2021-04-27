@@ -33,7 +33,7 @@ The CHT server needs to be given a static IP so that DNS will always resolve to 
 
 Browsers might allow you to connect to a server with an invalid TLS certificate after you [bypass the warning](https://www.ssl.com/guide/troubleshooting-ssl-tls-browser-errors-and-warnings/). Android apps however, like [Medic Android App](https://github.com/medic/medic-android/), require a valid TLS certificate to work correctly, therefore you would need to acquire a valid TLS certificate from a certificate authority (CA) and install it on your CHT server.
 
-It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) for this because they provide free certificates. Be cautioned that Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
+It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) to acquire certificates because they provide free certificates. Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
 
 After acquiring the certificate, if you are running a docker based CHT deployment, see [TLS instructions for Docker]({{< relref "/apps/guides/hosting/ssl-cert-install" >}}) to install the certificate. 
 
