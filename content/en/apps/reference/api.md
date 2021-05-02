@@ -727,7 +727,6 @@ will be undefined.
 | token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 | 
 | fullname | no | String | Full name  | 
 | email | no | String | Email address  |
-| language | no | String | Language preference. e.g. "sw" for Swahili |
 | known | no | Boolean | Boolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
 
 ##### Login by SMS
@@ -788,10 +787,7 @@ Content-Type: application/json; charset=utf-8
     "id": "org.couchdb.user:admin",
     "rev": "10-6486428924d11781c107ea74de6b63b6",
     "type": "admin",
-    "username": "admin",
-    "language": {
-      "code": "en"
-    }
+    "username": "admin"
   },
   {
     "id": "org.couchdb.user:demo",
@@ -799,9 +795,6 @@ Content-Type: application/json; charset=utf-8
     "type": "district-manager",
     "fullname": "Example User",
     "username": "demo",
-    "language": {
-      "code": "en"
-    },
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
