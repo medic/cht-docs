@@ -223,54 +223,22 @@ module.exports = {
 };
 ```
 
-## Default resolvedIf method
-If you skip defining `resolvedIf` section in the task definition, it will default to defaultResolvedIf method which is equivalent to this:
+### Default resolvedIf method
+If you skip defining `resolvedIf` section in the task definition, it will default to the `defaultResolvedIf` method. You can only skip the section if you have at least one action with `report` type.
+
+The `defaultResolvedIf` method looks for reports assigned to the contact, and returns `true` if it finds any report that matches the `form` defined in your first action with `report` type. Only the reports submitted during a specific time period are considered:
+- For a contact-based task, the period is the same as the task window period i.e. when the task is visible.
+- For a report based task, the period is determined between `start` and `end` as:
+  - `start`: the latest date between start of the task's window and one millisecond after the report's reported date
+  - `end`: end of the task window
+
+You can also use `this.definition.defaultResolvedIf` inside the `resolvedIf` definition and optionally add more conditions:
 
 ```js
-resolvedIf: function (c, r, event, dueDate) {
-  let start = 0;
-
-  //The first report type action's form 
-  var resolvingForm = taskDefinition.actions.find(action => action.type === 'report').form;
-
-  if (r) {//Report based task
-    //Either "start of the task window" or "after the report's reported date", whichever comes later
-    start = Math.max(Utils.addDate(dueDate, -event.start).getTime(), r.reported_date + 1);
-  }
-  else {//Contact based task
-    //Start of the task window
-    start = Utils.addDate(dueDate, -event.start).getTime();
-  }
-
-  //End of the task window
-  const end = Utils.addDate(dueDate, event.end + 1).getTime();
-
-  //Returns true if the contact has at least one report with matching form type
-  //that is submitted between start and end times (inclusive)
-  return Utils.isFormSubmittedInWindow(
-    c.reports,
-    resolvingForm,
-    start,
-    end
-  );
-},
-```
-
-You can also use `this.defaultResolvedIf` directly:
-
-```js
-resolvedIf: this.defaultResolvedIf,//Same as skipping resolvedIf
-```
-
-It is also possible to specify a resolving form type:
-
-```js
-resolvedIf: function (c, r, event, dueDate) {
-  return this.defaultResolvedIf(c, r, event, dueDate, 'delivery')
+resolvedIf: function (contact, report, event, dueDate) {
+  return this.defaultResolvedIf(contact, report, event, dueDate) && otherConditions;
 }
 ```
-
-You should specify the resolving form if you don't have an action with `type: 'report'`.
 
 ## Build
 
