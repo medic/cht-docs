@@ -26,9 +26,7 @@ A hierarchy represents the reporting structure.
 
 ## Prerequisites/Required Resources
 
-[User personas profiles.]({{< ref "design/guides/creating-user-persona" >}})
-
-{{< see-also page="design/personas" title="Personas" >}}
+[Personas.]({{< ref "design/personas" >}})
 
 ## Steps
 
