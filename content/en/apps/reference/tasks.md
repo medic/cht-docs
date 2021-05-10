@@ -229,7 +229,7 @@ If the `resolvedIf` is undefined in an action of type `report`, then `resolvedIf
 The `defaultResolvedIf` method returns `true` if it finds any report assigned to the contact that matches the `form` defined in the action of type `report`. Only the reports submitted during a specific time period are considered:
 - For a contact-based task, the period is the same as the task window period i.e. when the task is visible.
 - For a report based task, the period is determined between `start` and `end` as:
-  - `start`: the latest date between start of the task's window and one millisecond after the report's reported date
+  - `start`: the latest date between start of the task window and one millisecond after the report's reported date
   - `end`: end of the task window
 
 You can also use `this.definition.defaultResolvedIf` inside the `resolvedIf` definition and optionally add more conditions:
