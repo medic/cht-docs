@@ -4,5 +4,9 @@
   "dependencies": {
     "postcss-cli": "7.1.2",
     "autoprefixer": "9.8.6"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ]
 }
