@@ -33,8 +33,8 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: All Branches - Install npm modules for Hugo
-        run: npm install
+      - name: All Branches - Install npm modules for Hugo directly from package-lock.json
+        run: npm ci
 
       # Run "build" to catch errors as early as possible in CI
       - name: All Branches - Test For Broken Builds in Hugo
