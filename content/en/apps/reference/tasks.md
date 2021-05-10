@@ -226,7 +226,7 @@ module.exports = {
 ### Default resolvedIf method
 If the `resolvedIf` is undefined in an action of type `report`, then `resolvedIf` is going to default to `defaultResolvedIf` method.
 
-The `defaultResolvedIf` method looks for reports assigned to the contact, and returns `true` if it finds any report that matches the `form` defined in your first action with `report` type. Only the reports submitted during a specific time period are considered:
+The `defaultResolvedIf` method returns `true` if it finds any report assigned to the contact that matches the `form` defined in the action of type `report`. Only the reports submitted during a specific time period are considered:
 - For a contact-based task, the period is the same as the task window period i.e. when the task is visible.
 - For a report based task, the period is determined between `start` and `end` as:
   - `start`: the latest date between start of the task's window and one millisecond after the report's reported date
