@@ -224,7 +224,7 @@ module.exports = {
 ```
 
 ### Default resolvedIf method
-If you skip defining `resolvedIf` section in the task definition, it will default to the `defaultResolvedIf` method. You can only skip the section if you have at least one action with `report` type.
+If the `resolvedIf` is undefined in an action of type `report`, then `resolvedIf` is going to default to `defaultResolvedIf` method.
 
 The `defaultResolvedIf` method looks for reports assigned to the contact, and returns `true` if it finds any report that matches the `form` defined in your first action with `report` type. Only the reports submitted during a specific time period are considered:
 - For a contact-based task, the period is the same as the task window period i.e. when the task is visible.
