@@ -153,3 +153,16 @@ volumes:
 ```
 
 Be sure to check the available storage space regularly and expand your volume when needed
+
+## Backup
+
+As mentioned above, regular backups should be made of the `/srv` directory to have holistic and easy to restore copies of all important data and the current CHT version installed.  To backup just the data and not the CHT, make copies of `/srv/storage/medic-core/`.  This directory includes 4 key sub-directies:
+
+* ./couchdb
+* ./openssh
+* ./nginx
+* ./passwd
+
+To make backups of just CouchDB data outside of the CHT docker infrastructure, please see [CouchDB's Backup docs for 2.3.1](https://docs.couchdb.org/en/2.3.1/maintenance/backups.html). Please note:
+* CouchDB data files are in `/srv/storage/medic-core/couchdb/data` in the `medic-os` container.
+* Backing up via [replication is discouraged](https://github.com/medic/cht-core/issues/7086#issuecomment-834112523), use file backups instead.
