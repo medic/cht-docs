@@ -21,6 +21,14 @@ Helper variables and functions for the contact summary can be defined in `contac
 | `reports` | An array of reports for the contact. | 
 | `lineage` | An array of the contact's parents (2.13+), eg `lineage[0]` is the parent, `lineage[1]` is the grandparent, etc. Each lineage entry has full information for the contact, so you can use `lineage[1].contact.phone`. | 
 | `targetDoc` | Doc with [`target`]({{< ref "core/overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
+| `uhcStats` | Object containing UHC stats information. |
+| `uhcStats.uhcInterval` | Object containing the start and end date of UHC reporting period, it is calculated from the `uhc.visit_count.month_start_date` defined in the [app settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson). |
+| `uhcStats.uhcInterval.start` | Timestamp, start date of the UHC reporting period. |
+| `uhcStats.uhcInterval.end` | Timestamp, end date of the UHC reporting period. |
+| `uhcStats.homeVisits` | Object containing the contact's home visits stats. The [contact's type](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/hierarchy/#app_settingsjson-contact_types) should have `count_visits` enabled and the [UHC visit count settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson) should be defined, additionally this information is only available for users that have `can_view_uhc_stats` permission and that are not System Administrators. |
+| `uhcStats.homeVisits.lastVisitedDate` | Timestamp, date of contact's last home visit. |
+| `uhcStats.homeVisits.count` | Number of contact's home visits in the current reporting interval. |
+| `uhcStats.homeVisits.countGoal` | Number, home visits goal, defined in the [UHC visit count settings](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/#app_settingsjson). |
 
 ## Contact Summary
 
@@ -93,10 +101,10 @@ module.exports = {
   },
 
   fields: [
-    { appliesToType:'person',  label:'patient_id', value:contact.patient_id, width: 4 },
-    { appliesToType:'person',  label:'contact.age', value:contact.date_of_birth, width: 4, filter: 'age' },
-    { appliesToType:'person',  label:'contact.parent', value:lineage, filter: 'lineage' },
-    { appliesToType:'!person', appliesIf:function() { return contact.parent && lineage[0]; }, label:'contact.parent', value:lineage, filter:'lineage' },
+    { appliesToType: 'person',  label: 'patient_id', value: contact.patient_id, width: 4 },
+    { appliesToType: 'person',  label: 'contact.age', value: contact.date_of_birth, width: 4, filter: 'age' },
+    { appliesToType: 'person',  label: 'contact.parent', value: lineage, filter: 'lineage' },
+    { appliesToType: '!person', appliesIf: function() { return contact.parent && lineage[0]; }, label: 'contact.parent', value: lineage, filter: 'lineage' },
   ],
 
   cards: [
@@ -107,7 +115,7 @@ module.exports = {
       fields: [
         {
           label: 'contact.profile.edd',
-          value: function(r) { return r.fields.edd_8601; },
+          value: function(report) { return report.fields.edd_8601; },
           filter: 'relativeDay',
           width: 12
         },
@@ -116,18 +124,17 @@ module.exports = {
           value: 'contact.profile.visits.of',
           translate: true,
           context: {
-            count: function(r) { return extras.getSubsequentVisits(r).length; },
+            count: function(report) { return extras.getSubsequentVisits(report).length; },
             total: 4,
           },
           width: 6,
         },
         {
           label: 'contact.profile.risk.title',
-          value: function(r) { return extras.isHighRiskPregnancy(r) ? 'high':'normal';
-          },
+          value: function(report) { return extras.isHighRiskPregnancy(report) ? 'high' : 'normal'; },
           translate: true,
           width: 5,
-          icon: function(r) { return extras.isHighRiskPregnancy(r) ? 'risk' : ''; },
+          icon: function(report) { return extras.isHighRiskPregnancy(report) ? 'risk' : ''; },
         },
       ],
       modifyContext: function(ctx) {
@@ -142,16 +149,16 @@ module.exports = {
 
 ```js
 module.exports = {
-  isActivePregnancy : function (r) {
+  isActivePregnancy : function(report) {
     // ...
   },
   isCoveredByUseCaseInLineage: function(lineage, usecase) {
     // ...
   },
-  isHighRiskPregnancy: function(pregnancy) {
+  isHighRiskPregnancy: function(report) {
     // ...
   },
-  getSubsequentVisits: function (r) {
+  getSubsequentVisits: function(report) {
     // ...
   },
 };
