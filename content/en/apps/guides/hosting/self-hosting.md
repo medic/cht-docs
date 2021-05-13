@@ -165,4 +165,4 @@ As mentioned above, regular backups should be made of the `/srv` directory to ha
 
 To make backups of just CouchDB data outside of the CHT docker infrastructure, please see [CouchDB's Backup docs for 2.3.1](https://docs.couchdb.org/en/2.3.1/maintenance/backups.html). Please note:
 * CouchDB data files are in `/srv/storage/medic-core/couchdb/data` in the `medic-os` container.
-* Backing up via [replication is discouraged](https://github.com/medic/cht-core/issues/7086#issuecomment-834112523), use file backups instead.
+* Backing up via replication is discouraged as restored DBs can cause offline users to restart replication from zero. Use file backups instead.
