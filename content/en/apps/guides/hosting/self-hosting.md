@@ -156,7 +156,7 @@ Be sure to check the available storage space regularly and expand your volume wh
 
 ## Backup
 
-As mentioned above, regular backups should be made of the `/srv` directory to have holistic and easy to restore copies of all important data and the current CHT version installed.  To backup just the data and not the CHT, make copies of `/srv/storage/medic-core/`.  This directory includes 4 key sub-directies:
+Regular backups should be made of the `/srv` directory to have holistic and easy to restore copies of all important data and the current CHT version installed.  To backup just the data and not the CHT, make copies of `/srv/storage/medic-core/`.  This directory includes 4 key sub-directies:
 
 * ./couchdb
 * ./openssh
