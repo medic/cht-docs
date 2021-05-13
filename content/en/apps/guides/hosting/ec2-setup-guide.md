@@ -83,7 +83,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
     - To prepare for the upgrade, delete all other files in `/srv` EXCEPT for `/srv/storage/medic-core/`
       
       The `medic-core` directory is where the CHT stores user data. Of key importance is `./couchdb/local.in` and `./medic-core/couchdb/local.d/` where custom CouchDB configuration is stored.
-    - [Change the image tag to the newest image release version]({{< ref "core/guides/docker-setup#use-docker-compose" >}})  
+    - [Change the image tag to the newest image release version]({{< ref "core/guides/docker-setup#use-docker-compose" >}})
     - [Change image tag in docker-compose file]({{< ref "core/guides/docker-setup#use-docker-compose">}})
     - Launch new containers with appropriate `COUCHDB_ADMIN_PASSWORD` & `HA_PASSWORD` environment variables
 
