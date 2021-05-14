@@ -10,11 +10,15 @@ relatedContent: >
 
 _Introduced in v3.4.0_
 
-The app collects performance data on certain user actions which is then aggregated each day and replicated to the server (versions prior to v3.4.12 do aggregate in a monthly basis instead of daily). This can be used to evaluate the performance of the code and configuration and to evaluate where improvements can be made.
+The app collects performance data on certain user actions which is then aggregated each day and replicated to the server. This can be used to evaluate the performance of the code and configuration and to evaluate where improvements can be made.
 
-The aggregate doc for the previous day is created when the first telemetry item is recorded each month. This is stored in the `medic-user-<username>-meta` database on the device and replicated to the server when an internet connection is available. This user specific server db is then replicated into the `medic-users-meta` database which holds all aggregate telemetry docs for all users.
+The aggregate doc for the previous day is created when the first telemetry item is recorded each day. This is stored in the `medic-user-<username>-meta` database on the device and replicated to the server when an internet connection is available. This user specific server db is then replicated into the `medic-users-meta` database which holds all aggregate telemetry docs for all users.
 
 The aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<day>-<username>-<uuid>`.
+
+{{% alert title="Note" %}}
+Versions prior to v3.12.0 do aggregate in a monthly basis instead of daily, and the aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<username>-<uuid>`.
+{{% /alert %}}
 
 ## Performance data
 
