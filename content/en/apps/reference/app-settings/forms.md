@@ -10,9 +10,9 @@ relevantLinks: >
 keywords: workflows interop json-forms
 ---
 
-JSON forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `medic-conf` tool. JSON Forms are used for parsing reports from formatted SMS, SIM applications, and Medic Collect. JSON form definitions are also used for interoperability with third-party systems. Each form is defined as an JSON form object according to the following schema. 
+JSON forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `medic-conf` tool. JSON Forms are used for parsing reports from formatted SMS, SIM applications, and Medic Collect. JSON form definitions are also used for interoperability with third-party systems. Each form is defined as an JSON form object according to the following schema. The key for each object is required to be capitalized. 
 
-## `app_settings.json .forms[]`
+## `app_settings.json .forms{}`
 
 | property | type | description | required |
 |---|---|---|---|
@@ -40,38 +40,47 @@ The following form has two fields, one for the patient ID, another for notes.
 
 ### `app_settings.json`
 ```json
-  "forms": [
-    {
-      "F": {
-        "meta": {
-          "code": "F",
-          "icon": "risk",
-          "translation_key": "form.flag.title" // displayed in the webapp
+"forms": {
+  "F": {
+    "meta": {
+      "code": "F",
+      "icon": "risk",
+      "translation_key": "form.flag.title" // displayed in the webapp
+    },
+    "fields": {
+      "patient_id": { // this is used for the property name when the report doc is created
+        "labels": {
+          "short": {
+            "translation_key": "form.flag.patient_id.short"
+          }, // displayed in the webapp
+          "tiny": "pid" // used in form submission to bind values to fields - not required for all submission formats
         },
-        "fields": {
-          "patient_id": { // this is used for the property name when the report doc is created
-            "labels": {
-              "short": { "translation_key": "form.flag.patient_id.short" }, // displayed in the webapp
-              "tiny": "pid" // used in form submission to bind values to fields - not required for all submission formats
-            },
-            "position": 0, // specifies where in the SMS this value should be
-            "type": "string",
-            "length": [ 5, 13 ],
-            "required": true
+        "position": 0, // specifies where in the SMS this value should be
+        "type": "string",
+        "length": [
+          5,
+          13
+        ],
+        "required": true
+      },
+      "notes": {
+        "labels": {
+          "short": {
+            "translation_key": "form.flag.notes.short"
           },
-          "notes": {
-            "labels": {
-              "short": { "translation_key": "form.flag.notes.short" },
-              "tiny": "form.flag.notes.tiny"
-            },
-            "position": 1,
-            "type": "string",
-            "length": [ 1, 100 ],
-            "required": false
-          }
+          "tiny": "form.flag.notes.tiny"
         },
-        "public_form": true
+        "position": 1,
+        "type": "string",
+        "length": [
+          1,
+          100
+        ],
+        "required": false
       }
-    }
-  ]
+    },
+    "public_form": true
+  }
+}
+
 ```
