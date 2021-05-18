@@ -1,7 +1,7 @@
 ---
 title: "Message Loops"
 linkTitle: "Message Loops"
-weight: 
+weight: 90
 description: >
   How to avoid messaging loops
 relatedContent: >
@@ -11,7 +11,7 @@ relatedContent: >
 ---
 Endless messaging loops can between the webapp and a mobile number via the gateway due to autoreplies from the webapp.
 
-See the [Github Issue](https://github.com/medic/medic/issues/750).
+See the [Github Issue](https://github.com/medic/cht-core/issues/750).
 
 **Solution:** Add the offending number(e.g `800` or `SAFARICOM`) to the `Outgoing Deny List` in the webapp's `app_settings` configuration file.
 

@@ -4,6 +4,8 @@ linkTitle: "Africa's Talking"
 weight: 
 description: >
   Integration for sending and receiving SMS
+aliases:
+  -    /apps/guides/messaging/africas-talking
 relatedContent: >
   apps/reference/app-settings/sms
   apps/guides/forms/app-form-sms
@@ -14,8 +16,6 @@ relatedContent: >
 
 
 As of v3.6.0, SMS messages can be sent and received using the [Africa's Talking](https://africastalking.com) service.
-
-![SMS Aggregator Workflow](sms-aggregator-workflow.svg)
 
 ## Africa's Talking configuration
 

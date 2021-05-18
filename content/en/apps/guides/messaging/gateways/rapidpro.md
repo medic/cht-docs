@@ -1,9 +1,11 @@
 ---
 title: RapidPro Messaging Gateway
 linkTitle: "RapidPro"
-weight:
+weight: 20
 description: >
     Integration for sending and receiving messages
+aliases:
+  -    /apps/guides/messaging/rapidpro
 relatedContent: >
     apps/reference/app-settings/sms
     apps/guides/forms/app-form-sms

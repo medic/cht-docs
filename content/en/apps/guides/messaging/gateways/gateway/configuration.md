@@ -4,9 +4,11 @@ linkTitle: "Configuration"
 weight: 10
 description: >
   Configuring medic-gateway
+aliases:
+  -    /apps/guides/messaging/gateway/configuration
 relatedContent: >
-  apps/guides/messaging/gateway/troubleshooting
-  apps/guides/messaging/gateway/phones
+  apps/guides/messaging/gateways/gateway/troubleshooting
+  apps/guides/messaging/gateways/gateway/phones
 ---
 
 Medic gateway supports Android 4.1 and above. To have it up and fully working, follow the below steps.

@@ -1,7 +1,7 @@
 ---
 title: "SMS message states"
 linkTitle: "SMS States"
-weight: 1
+weight: 20
 description: >
   Overview of the possible states of SMS messages
 relatedContent: >
@@ -13,7 +13,7 @@ keywords: messaging
 
 ## Interaction with SMS providers
 
-[Medic](https://github.com/medic/medic) can use [medic-gateway](https://github.com/medic/medic-gateway) and third party aggregators to send and receive SMS messages.
+[CHT Applications](https://github.com/medic/cht-core) can use [medic-gateway](https://github.com/medic/medic-gateway) and third party aggregators to send and receive SMS messages.
 
 When an SMS report comes in from a user, [medic-sentinel](https://github.com/medic/medic-sentinel) adds the appropriate list of scheduled messages (to be sent at a future date) to the report doc.
 
