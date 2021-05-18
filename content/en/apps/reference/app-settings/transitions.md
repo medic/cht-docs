@@ -580,7 +580,7 @@ Supported `events_types` are:
 Adds a contact’s info to a data record so as to attribute an incoming SMS message or report to the appropriate contact. 
 
 #### Configuration
-As of version 3.12 you can add configuration to send a message whenever a contact match fails while runnin this transition. Configuration is stored in the `update_clinics` field of app_settings.json as a list of objects connecting forms to messages. Every object should have this structure:
+As of version 3.12 you can add configuration to send a message whenever a contact match fails while running this transition. Configuration is stored in the `update_clinics` field of app_settings.json as a list of objects connecting forms to messages. Every object should have this structure:
 
 | Property | Description |
 |---|---|
@@ -594,6 +594,7 @@ Supported `events_types` are:
 | `sys.facility_not_found` | Facility not found |
 
 If this configuration is not set then the message defaults to what is set in the `messages.generic.sys.facility_not_found` key.
+
 ##### Example
 ```json
 "update_clinics": [
