@@ -9,7 +9,6 @@ relatedContent: >
   apps/guides/forms/additional-docs
   apps/guides/forms/contact-forms
   apps/guides/forms/multimedia
-  apps/guides/messaging/gateway/configuration
 ---
 
 ## Triggering Calls and SMS
