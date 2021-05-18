@@ -1,7 +1,7 @@
 ---
 title: Africa’s Talking SMS Aggregator
 linkTitle: "Africa's Talking"
-weight: 
+weight: 20
 description: >
   Integration for sending and receiving SMS
 aliases:

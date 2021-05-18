@@ -30,7 +30,7 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `medic-conf` tool, then stored in the settings doc in the database.
 
-*[SMS gateways]({{< ref "apps/guides/messaging/gateway" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
+*[SMS gateways]({{< ref "apps/guides/messaging/gateways" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
 
 *SMS aggregators* act as intermediaries between the mobile network operators and the CHT coreframework. They allow for greater customization of SMS workflows in the CHT.
 
