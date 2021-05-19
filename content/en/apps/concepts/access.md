@@ -22,7 +22,7 @@ On desktop devices, there is no need to download anything. Simply go to a web br
 
 ## Accessing on Mobile
 
-The app also runs with an app on Android phones and tablets. It works best on devices running version 5.1 or later with at least 8 GB of internal memory (16 GB for supervisors) and minimum 1 GHz RAM.
+The app also runs with an app on Android phones and tablets. It works best on devices running version 5.1 or later with at least 8 GB of internal memory (16 GB for supervisors) and minimum 1 GB RAM.
 
 ### Downloading and Launching
 
