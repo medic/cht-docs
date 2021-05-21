@@ -1090,7 +1090,7 @@ Content-Type: application/json
 
 ### GET /api/v1/monitoring
 
-Used to retrieve a range of metrics about the instance. While the output is human readable this is intended for automated monitoring allowing for tracking trends over time and alerting about potential issues.
+Used to retrieve a range of metrics about the instance. While the output is human-readable this is intended for automated monitoring allowing for tracking trends over time and alerting about potential issues.
 
 #### Permissions
 
@@ -1121,9 +1121,11 @@ curl http://localhost:5988/api/v1/monitoring
 | `date.current` | Number | The current server date in millis since the epoch, useful for ensuring the server time is correct. |
 | `date.uptime` | Number | How long API has been running. |
 | `sentinel.backlog` | Number | Number of changes yet to be processed by Sentinel. |
-| `messaging.outgoing.due` | Number | The number of messages due to be sent. |
-| `messaging.outgoing.scheduled` | Number | The number of messages scheduled to be sent in the future. |
-| `messaging.outgoing.muted` | Number | The number of messages that are muted and therefore will not be sent. |
+| `messaging.outgoing.state.due` | Number | The number of messages due to be sent. |
+| `messaging.outgoing.state.scheduled` | Number | The number of messages scheduled to be sent in the future. |
+| `messaging.outgoing.state.muted` | Number | The number of messages that are muted and therefore will not be sent. |
+| `messaging.outgoing.state.delivered` | Number | The number of messages that have been delivered or sent. As of 3.12.x. |
+| `messaging.outgoing.state.failed` | Number | The number of messages have failed to be delivered. As of 3.12.x |
 | `outbound_push.backlog` | Number | Number of changes yet to be processed by Outbound Push. |
 | `feedback.count` | Number | Number of feedback docs created usually indicative of client side errors. |
 | `conflict.count` | Number | Number of doc conflicts which need to be resolved manually. |
@@ -1132,7 +1134,76 @@ curl http://localhost:5988/api/v1/monitoring
 #### Errors
 
 - A metric of `""` (for string values) or `-1` (for numeric values) indicates an error occurred while querying the metric - check the API logs for details.
-- If no response or an error response is received the the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
+- If no response or an error response is received the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
+
+
+### GET /api/v2/monitoring
+
+Available as of 3.12.x.
+Used to retrieve a range of metrics about the instance. While the output is human-readable this is intended for automated monitoring allowing for tracking trends over time and alerting about potential issues.
+
+#### Permissions
+
+No permissions required.
+
+#### Examples
+
+##### JSON format
+
+```
+curl http://localhost:5988/api/v2/monitoring
+
+{"version":{"app":"3.12.0","node":"v10.16.0","couchdb":"2.3.1"},"couchdb":{"medic":{"name":"medic","update_sequence":5733,"doc_count":278,"doc_del_count":32,"fragmentation":1.0283517758420173}...
+```
+
+#### Response content
+
+| JSON path | Type | Description |
+| --------- | ----------------- | ---- |
+| `version.app` | String | The version of the webapp. |
+| `version.node` | String | The version of NodeJS. |
+| `version.couchdb` | String | The version of CouchDB. |
+| `couchdb.<dbname>.name` | String | The name of the db, usually one of "medic", "medic-sentinel", "medic-users-meta", "_users". |
+| `couchdb.<dbname>.update_sequence` | Number | The number of changes in the db. |
+| `couchdb.<dbname>.doc_count` | Number | The number of docs in the db. |
+| `couchdb.<dbname>.doc_del_count` | Number | The number of deleted docs in the db. |
+| `couchdb.<dbname>.fragmentation` |  Number | The fragmentation of the db, lower is better, "1" is no fragmentation. |
+| `date.current` | Number | The current server date in millis since the epoch, useful for ensuring the server time is correct. |
+| `date.uptime` | Number | How long API has been running. |
+| `sentinel.backlog` | Number | Number of changes yet to be processed by Sentinel. |
+| `messaging.outgoing.total.due` | Number | The number of messages due to be sent. |
+| `messaging.outgoing.total.scheduled` | Number | The number of messages scheduled to be sent in the future. |
+| `messaging.outgoing.total.muted` | Number | The number of messages that are muted and therefore will not be sent. |
+| `messaging.outgoing.total.delivered` | Number | The number of messages that have been delivered or sent. |
+| `messaging.outgoing.total.failed` | Number | The number of messages have failed to be delivered. |
+| `messaging.outgoing.seven_days.due` | Number | The number of messages due to be sent in the last seven days. |
+| `messaging.outgoing.seven_days.scheduled` | Number | The number of messages that were scheduled to be sent in the last seven days. |
+| `messaging.outgoing.seven_days.muted` | Number | The number of messages that were due in the last seven days and are muted. |
+| `messaging.outgoing.seven_days.delivered` | Number | The number of messages that were due in the last seven days and have been delivered or sent. |
+| `messaging.outgoing.seven_days.failed` | Number | The number of messages that were due in the last seven days and have failed to be delivered. |
+| `messaging.outgoing.last_hundred.pending` | Object | Counts within last 100 messages that have received status updates, and are one of the "pending" statuses | 
+| `messaging.outgoing.last_hundred.pending.pending` | Number | Number of messages that are pending | 
+| `messaging.outgoing.last_hundred.pending.forwarded-to-gateway` | Number | Number of messages that are forwarded-to-gateway |
+| `messaging.outgoing.last_hundred.pending.received-by-gateway` | Number | Number of messages that are received-by-gateway |
+| `messaging.outgoing.last_hundred.pending.forwarded-by-gateway` | Number | Number of messages that are forwarded-by-gateway |
+| `messaging.outgoing.last_hundred.final` | Object | Counts within last 100 messages that have received status updates,  and are in one of the "final" statuses |
+| `messaging.outgoing.last_hundred.final.sent` | Number | Number of messages that are sent | 
+| `messaging.outgoing.last_hundred.final.delivered` | Number | Number of messages that are delivered |
+| `messaging.outgoing.last_hundred.final.failed` | Number | Number of messages that are failed |
+| `messaging.outgoing.last_hundred.muted` | Object | Counts within last 100 messages that have received status updates, and are in one of the "muted" statuses |
+| `messaging.outgoing.last_hundred.final.denied` | Number | Number of messages that are denied | 
+| `messaging.outgoing.last_hundred.final.cleared` | Number | Number of messages that are cleared |
+| `messaging.outgoing.last_hundred.final.muted` | Number | Number of messages that are muted |
+| `messaging.outgoing.last_hundred.final.duplicate` | Number | Number of messages that are duplicate |
+| `outbound_push.backlog` | Number | Number of changes yet to be processed by Outbound Push. |
+| `feedback.count` | Number | Number of feedback docs created usually indicative of client side errors. |
+| `conflict.count` | Number | Number of doc conflicts which need to be resolved manually. |
+| `replication_limit.count` | Number | Number of users that exceeded the replication limit of documents. |
+
+#### Errors
+
+- A metric of `""` (for string values) or `-1` (for numeric values) indicates an error occurred while querying the metric - check the API logs for details.
+- If no response or an error response is received the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
 
 ## Upgrades
 
