@@ -1181,7 +1181,7 @@ curl http://localhost:5988/api/v2/monitoring
 | `messaging.outgoing.seven_days.muted` | Number | The number of messages that were due in the last seven days and are muted. |
 | `messaging.outgoing.seven_days.delivered` | Number | The number of messages that were due in the last seven days and have been delivered or sent. |
 | `messaging.outgoing.seven_days.failed` | Number | The number of messages that were due in the last seven days and have failed to be delivered. |
-| `messaging.outgoing.last_hundred.pending` | Object | Counts within last 100 messages that have received status updates, and are one of the "pending" statuses | 
+| `messaging.outgoing.last_hundred.pending` | Object | Counts within last 100 messages that have received status updates, and are one of the "pending" group statuses | 
 | `messaging.outgoing.last_hundred.pending.pending` | Number | Number of messages that are pending | 
 | `messaging.outgoing.last_hundred.pending.forwarded-to-gateway` | Number | Number of messages that are forwarded-to-gateway |
 | `messaging.outgoing.last_hundred.pending.received-by-gateway` | Number | Number of messages that are received-by-gateway |
@@ -1426,4 +1426,3 @@ Content-Type: application/json
     }
 }
 ```
-
