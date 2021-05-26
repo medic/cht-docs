@@ -1090,6 +1090,7 @@ Content-Type: application/json
 
 ### GET /api/v1/monitoring
 
+*Deprecated in 3.12.x in favor of [/api/v2/monitoring](#get-apiv2monitoring)*  
 Used to retrieve a range of metrics about the instance. While the output is human-readable this is intended for automated monitoring allowing for tracking trends over time and alerting about potential issues.
 
 #### Permissions
@@ -1181,16 +1182,16 @@ curl http://localhost:5988/api/v2/monitoring
 | `messaging.outgoing.seven_days.muted` | Number | The number of messages that were due in the last seven days and are muted. |
 | `messaging.outgoing.seven_days.delivered` | Number | The number of messages that were due in the last seven days and have been delivered or sent. |
 | `messaging.outgoing.seven_days.failed` | Number | The number of messages that were due in the last seven days and have failed to be delivered. |
-| `messaging.outgoing.last_hundred.pending` | Object | Counts within last 100 messages that have received status updates, and are one of the "pending" statuses | 
+| `messaging.outgoing.last_hundred.pending` | Object | Counts within last 100 messages that have received status updates, and are one of the "pending" group  statuses | 
 | `messaging.outgoing.last_hundred.pending.pending` | Number | Number of messages that are pending | 
 | `messaging.outgoing.last_hundred.pending.forwarded-to-gateway` | Number | Number of messages that are forwarded-to-gateway |
 | `messaging.outgoing.last_hundred.pending.received-by-gateway` | Number | Number of messages that are received-by-gateway |
 | `messaging.outgoing.last_hundred.pending.forwarded-by-gateway` | Number | Number of messages that are forwarded-by-gateway |
-| `messaging.outgoing.last_hundred.final` | Object | Counts within last 100 messages that have received status updates,  and are in one of the "final" statuses |
+| `messaging.outgoing.last_hundred.final` | Object | Counts within last 100 messages that have received status updates,  and are in one of the "final" group statuses |
 | `messaging.outgoing.last_hundred.final.sent` | Number | Number of messages that are sent | 
 | `messaging.outgoing.last_hundred.final.delivered` | Number | Number of messages that are delivered |
 | `messaging.outgoing.last_hundred.final.failed` | Number | Number of messages that are failed |
-| `messaging.outgoing.last_hundred.muted` | Object | Counts within last 100 messages that have received status updates, and are in one of the "muted" statuses |
+| `messaging.outgoing.last_hundred.muted` | Object | Counts within last 100 messages that have received status updates, and are in one of the "muted" group statuses |
 | `messaging.outgoing.last_hundred.final.denied` | Number | Number of messages that are denied | 
 | `messaging.outgoing.last_hundred.final.cleared` | Number | Number of messages that are cleared |
 | `messaging.outgoing.last_hundred.final.muted` | Number | Number of messages that are muted |
