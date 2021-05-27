@@ -28,7 +28,7 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 | `appliesIf` | `function(contact, report)` | If `appliesTo: 'contacts'`, this function is invoked once per contact and `report` is undefined. If `appliesTo: 'reports'`, this function is invoked once per report. Return true if the task should appear for the given documents. | no |
 | `appliesToType` | `string[]` | Filters the contacts or reports for which `appliesIf` will be evaluated. If `appliesTo: 'reports'`, this is an array of form codes. If `appliesTo: 'contacts'`, this is an array of contact types. For example, `['person']` or `['clinic', 'health_center']`. For example, `['pregnancy']` or `['P', 'pregnancy']`. | no |
 | `contactLabel` | `string` or `function(contact, report)` | Controls the label describing the subject of the task. Defaults to the name of the contact (`contact.contact.name`). | no |
-| `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | yes |
+| `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | no, if any `actions[n].type` is `'report'` |
 | `events` | `object[]` | An event is used to specify the timing of the task. | yes |
 | `events[n].id` | `string` | A descriptive identifier. Used for querying task completeness. | yes if task has multiple events, unique |
 | `events[n].days` | `integer` | Number of days after the doc's `reported_date` that the event is due | yes, if `dueDate` is not set |
@@ -222,6 +222,23 @@ module.exports = {
       // ...
   },
 };
+```
+
+### Default resolvedIf method
+If the `resolvedIf` is undefined in an action of type `report`, then `resolvedIf` is going to default to `defaultResolvedIf` method.
+
+The `defaultResolvedIf` method returns `true` if it finds any report assigned to the contact that matches the `form` defined in the action of type `report`. Only the reports submitted during a specific time period are considered:
+- For a contact-based task, the period is the same as the task window period i.e. when the task is visible.
+- For a report based task, the period is determined between `start` and `end` as:
+  - `start`: the latest date between start of the task window and one millisecond after the report's reported date
+  - `end`: end of the task window
+
+You can also use `this.definition.defaultResolvedIf` inside the `resolvedIf` definition and optionally add more conditions:
+
+```js
+resolvedIf: function (contact, report, event, dueDate) {
+  return this.defaultResolvedIf(contact, report, event, dueDate) && otherConditions;
+}
 ```
 
 ## Build
