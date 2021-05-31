@@ -85,7 +85,7 @@ Some XForm widgets have been added or modified for use in the app:
 - **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
 - **Simprints registration**: Register a patient with the Simprints biometric tool. To include in a form create a `string` field with `appearance` of `simprints-reg`. Requires the Simprints app connected with hardware, or [mock app](https://github.com/medic/mocksimprints). Demo only, not ready for production since API key is hardcoded.
 
-The code for these widgets can be found in the [Medic repo](https://github.com/medic/medic/tree/master/webapp/src/js/enketo/widgets).
+The code for these widgets can be found in the [CHT Core Framework repo](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
 
 ### Contact Selector
 
