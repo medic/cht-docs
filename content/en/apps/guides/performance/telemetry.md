@@ -10,11 +10,15 @@ relatedContent: >
 
 _Introduced in v3.4.0_
 
-The app collects performance data on certain user actions which is then aggregated over each calendar month and replicated to the server. This can be used to evaluate the performance of the code and configuration and to evaluate where improvements can be made.
+The app collects performance data on certain user actions which is then aggregated each day and replicated to the server. This can be used to evaluate the performance of the code and configuration and to evaluate where improvements can be made.
 
-The aggregate doc for the previous month is created when the first telemetry item is recorded each month. This is stored in the `medic-user-<username>-meta` database on the device and replicated to the server when an internet connection is available. This user specific server db is then replicated into the `medic-users-meta` database which holds all aggregate telemetry docs for all users.
+The aggregate doc for the previous day is created when the first telemetry item is recorded each day. This is stored in the `medic-user-<username>-meta` database on the device and replicated to the server when an internet connection is available. This user specific server db is then replicated into the `medic-users-meta` database which holds all aggregate telemetry docs for all users.
 
-The aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<username>-<uuid>`.
+The aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<day>-<username>-<uuid>`.
+
+{{% alert title="Note" %}}
+Versions prior to v3.12.0 do aggregate in a monthly basis instead of daily, and the aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<username>-<uuid>`.
+{{% /alert %}}
 
 ## Performance data
 
@@ -85,6 +89,7 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 |----|----|
 | `year` | The year the data was collected. Added in 3.4.0. |
 | `month` | The month the data was collected. Initially the month was 0 indexed (eg: 0=Jan, 1=Feb, ...), but from 3.8.0 [this bug was fixed](https://github.com/medic/cht-core/issues/5949) so it changed to 1 indexed (eg: 1=Jan, 2=Feb, ...). Added in 3.4.0. |
+| `day` | The day of the month the data was collected. Added in 3.12.0. |
 | `user` | The username of the logged in user. Added in 3.4.0. |
 | `deviceId` | A unique key for this device. Added in 3.4.0. |
 | `versions.app` | The version of the webapp. Added in 3.5.0. |
@@ -144,6 +149,7 @@ This will save a file named `telemetry.json` containing all the telemetry data i
 ## Code Samples
 
 ### Logged in from the browser
+
 ```js
 {
   "_id": "telemetry-2020-5-medic-016304ab-7167-4c97-93bb-a6626ef6128d",
@@ -196,6 +202,7 @@ This will save a file named `telemetry.json` containing all the telemetry data i
   "metadata": {
     "year": 2020,
     "month": 5,
+    "day": 20,
     "user": "medic",
     "deviceId": "016304ab-7167-4c97-93bb-a6626ef6128d",
     "versions": {
@@ -266,4 +273,3 @@ This will save a file named `telemetry.json` containing all the telemetry data i
   }
 }
 ```
-
