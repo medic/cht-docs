@@ -34,7 +34,7 @@ The following transitions are available and executed in order.
 | Key | Description |
 |---|---|
 | maintain_info_document | Records metadata about the document such as when it was replicated. Enabled by default. |
-| update_clinics | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. |
+| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
 | [registration](#registration) | For registering a patient or place to a schedule. Performs some validation and creates the patient document if the patient does not already exist. Can create places (as of 3.8.x). Can assign schedules to places (as of 3.11.x) |
 | [accept_patient_reports](#accept-patient-reports) | Validates reports about a patient or place and silences relevant reminders. |
 | [accept_case_reports](#accept-case-reports) | Validates reports about a case, assigns the associated place_uuid, and silences relevant reminders. Available since 3.9.0 |
@@ -570,6 +570,51 @@ Supported `events_types` are:
         "event_type": "sender_not_found",
         "recipient": "reporting_unit",
         "translation_key": "messages.other.sender_not_found"
+      }
+    ]
+  }
+]
+```
+
+### update_clinics
+Adds a contact’s info to a data record so as to attribute an incoming SMS message or report to the appropriate contact. 
+
+#### Configuration
+As of version 3.12 you can add configuration to send a message whenever a contact match fails while running this transition. Configuration is stored in the `update_clinics` field of app_settings.json as a list of objects connecting forms to messages. Every object should have this structure:
+
+| Property | Description |
+|---|---|
+| `form` | Form code. |
+| `messages` | List of tasks/errors that will be created, determined by `event_type`. | 
+
+Supported `events_types` are:
+
+| Event Type | Trigger |
+|---|---|
+| `sys.facility_not_found` | Facility not found |
+
+If this configuration is not set then the message defaults to what is set in the `messages.generic.sys.facility_not_found` key.
+
+##### Example
+```json
+"update_clinics": [
+  {
+    "form": "FORM",
+    "messages": [
+      {
+        "event_type": "sys.facility_not_found",
+        "recipient": "reporting_unit",
+        "translation_key": "sys.facility_not_found"
+      }
+    ]
+  },
+  {
+    "form": "OTHER",
+    "messages": [
+      {
+        "event_type": "sys.facility_not_found",
+        "recipient": "reporting_unit",
+        "translation_key": "messages.other.facility_not_found"
       }
     ]
   }
