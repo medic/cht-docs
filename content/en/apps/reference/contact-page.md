@@ -47,7 +47,7 @@ Each field that can be shown on a contact's profile is defined as an object in t
 | `translate` | `boolean` | Whether or not to translate the `value`. Defaults to false. | no |
 | `context` | `object` | When `translate: true` and `value` uses [translation variables](https://angular-translate.github.io/docs/#/guide/06_variable-replacement), this value should provide the translation variables. | no |
 | `appliesIf` | `function()` or `boolean` | Return true if the field should be shown. | no |
-| `appliesToType` | `string[]` | Filters the contacts for which `appliesIf` will be evaluated. For example, `['person']` or `['clinic', 'health_center']`. | no |
+| `appliesToType` | `string[]` | Filters the contacts for which `appliesIf` will be evaluated. For example, `['person']` or `['clinic', 'health_center']`. It defaults to all types if it is not defined. | no |
 
 <!-- TODO: See [How to configure profile pages]() for an example.  -->
 
@@ -61,7 +61,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 | property | type | description | required |
 |---|---|---|--|
 | `label` | `translation key` | Label on top of card. | yes |
-| `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Please, note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. | no |
+| `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Please, note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. It defaults to all types if it is not defined. | no |
 | `appliesIf` | `function()` or `boolean` | Return true if the field should be shown. | no |
 | `modifyContext` | `function(context)` | Used to modify or add data which is passed as input to forms filled from the contact page. | no |
 | `fields` | `Array[]` of fields | The content of the card. | yes |
