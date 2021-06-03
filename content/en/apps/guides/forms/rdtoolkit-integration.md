@@ -4,7 +4,6 @@ linkTitle: "RDToolkit Integration"
 weight:
 description: >
 Integration for the Rapid Diagnostic Toolkit (RDToolkit)
-relatedContent: >
 keywords: RDToolkit RDT
 
 ---
