@@ -197,4 +197,5 @@ Once the forms, the task and the translation are ready, use [medic-conf](https:/
 * [Build and upload translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/#build)
 * [Convert and upload forms](https://docs.communityhealthtoolkit.org/apps/reference/forms/app/#build)
 * [Build and upload tasks](https://docs.communityhealthtoolkit.org/apps/reference/tasks/#build)
+
 Alternatively the assets can be uploaded by using the [App Manager app](https://docs.communityhealthtoolkit.org/apps/features/admin/).
