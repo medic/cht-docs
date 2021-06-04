@@ -11,13 +11,13 @@ keywords: RDToolkit RDT
 _Introduced in v3.12.0_
 
 CHT has an integration with [Rapid Diagnostic Toolkit (RDToolkit)](https://github.com/dimagi/rd-toolkit) which is an Android app developed by Dimagi that facilitates the use of Rapid Diagnostic Test (RDT) in global health care. 
-The integration is only available in the CHT Android app and consist of two Enketo widgets (rdtoolkit-provision and rdtoolkit-capture) that are used in XForms to provision RDT and capture results.
+The integration is only available in the CHT Android app and consists of two Enketo widgets (rdtoolkit-provision and rdtoolkit-capture) that are used in XForms to provision RDT and capture results.
 
 ## Create the XForms
 It is required to create one form for provisioning RDT and one form for capturing RDT results, see [the documentation](https://docs.communityhealthtoolkit.org/apps/tutorials/app-forms/) for more details about app forms.
 
 ### Provisioning RDT form
-It is required to add the following labels in the “appearance” tag:
+The following labels are required in the “appearance” tag:
 * `rdtoolkit-provision`: To attach the Enketo widget that connects with the RDToolkit app.
 * `rdtoolkit-action-btn`: To attach the action button that provisions RDT, this button will open the RDToolkit app.
 
@@ -38,7 +38,7 @@ This form has the following mandatory fields:
     * The group of RDT that users can select when provisioning RDT by using RDToolkit app.
     * The available options can be found in the [RDToolkit app source code](https://github.com/dimagi/rd-toolkit).
     * Assign a group name to enable all the RDT associated with the group, example: `mal_pf`.
-    * Assign individual RDT names to limit the options available for the user, separated by one space, example: “sd_bioline_mal_pf_pv carestart_mal_pf_pv”.
+    * Assign individual RDT names to limit the options available for the user, separated by one space, example: `sd_bioline_mal_pf_pv carestart_mal_pf_pv`.
 
 Optional fields:
 * `rdtoolkit_api_url` | Text
@@ -57,7 +57,7 @@ Optional fields:
 ![Provisioning RDT form](rdtoolkit-povision-form.png)
 
 ### Capturing RDT result form
-It is required to add the following labels in the “appearance” tag:
+The following labels are required in the “appearance” tag:
 * `rdtoolkit-capture`: To attach the Enketo widget that connects with the RDToolkit app.
 * `rdtoolkit-action-btn`: To attach the action button that captures the RDT result, this button will open the RDToolkit.
 
@@ -115,7 +115,7 @@ The following is an example of a task implementation:
   icon: 'icon-follow-up',
   title: 'task.rdtoolkit.capture.title',
   appliesTo: 'reports',
-  appliesToType: ['rdtoolkit-provision'], // form
+  appliesToType: ['rdtoolkit-provision'], // The form associated with the task creation.
   appliesIf: (contact, report) => {
     return !!(getField(report, 'data.__patient_id') && getField(report, 'data.rdtoolkit_session_id'));
   },
