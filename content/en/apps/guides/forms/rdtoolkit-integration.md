@@ -115,7 +115,7 @@ The following is an example of a task implementation:
   icon: 'icon-follow-up',
   title: 'task.rdtoolkit.capture.title',
   appliesTo: 'reports',
-  appliesToType: ['rdtoolkit-provision'], // The form associated with the task creation.
+  appliesToType: ['rdtoolkit-provision'], // The form associated with the creation of tasks.
   appliesIf: (contact, report) => {
     return !!(getField(report, 'data.__patient_id') && getField(report, 'data.rdtoolkit_session_id'));
   },
