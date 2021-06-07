@@ -24,34 +24,43 @@ The following labels are required in the “appearance” tag:
 This form has the following mandatory fields:
 * `patient_uuid` | Text
     * Patient's unique ID in the system.
+    * Defined in the root level.
     * Auto filled when using the contact lookup field.
 * `patient_id` | Text
     * Patient's representative ID, for example, can be the ID in the health facility's records.
+    * Defined in the root level.
     * Auto filled when using the contact lookup field.
 * `patient_name` | Text
     * Patient's first name and / or last name
+    * Defined in the root level.
     * Auto filled when using the contact lookup field.
 * `rdtoolkit_session_id` | Text
     * The unique ID for the RD Test.
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 * `rdtoolkit_filter` | Text
     * The group of RDT that users can select when provisioning RDT by using RDToolkit app.
+    * Defined in the `data` group level.
     * The available options can be found in the [RDToolkit app source code](https://github.com/dimagi/rd-toolkit).
     * Assign a group name to enable all the RDT associated with the group, example: `mal_pf`.
     * Assign individual RDT names to limit the options available for the user, separated by one space, example: `sd_bioline_mal_pf_pv carestart_mal_pf_pv`.
 
 Optional fields:
 * `rdtoolkit_api_url` | Text
-     * API URL that will receive the RDT results, sent by RDToolkit app via `POST`. See [RDToolkit app source code](https://github.com/dimagi/rd-toolkit) for more details.
+    * API URL that will receive the RDT results, sent by RDToolkit app via `POST`. See [RDToolkit app source code](https://github.com/dimagi/rd-toolkit) for more details.
+    * Defined in the `data` group level.
 * `rdtoolkit_state` | Text
-     * The RDT status.
-     * Auto filled by the CHT integration.
+    * The RDT status.
+    * Defined in the `data` group level.
+    * Auto filled by the CHT integration.
 * `rdtoolkit_time_started` | Text
-     * The date and time when the RDT started.
-     * Auto filled by the CHT integration.
+    * The date and time when the RDT started.
+    * Defined in the `data` group level.
+    * Auto filled by the CHT integration.
 * `rdtoolkit_time_resolved` | Text
-     * The date and time when the RDT result is ready to capture.
-     * Auto filled by the CHT integration.
+    * The date and time when the RDT result is ready to capture.
+    * Defined in the `data` group level.
+    * Auto filled by the CHT integration.
 
 ### Sample form for provisioning RDT
 ![Provisioning RDT form](rdtoolkit-povision-form.png)
@@ -64,24 +73,31 @@ The following labels are required in the “appearance” tag:
 This form has the following mandatory fields:
 * `patient_uuid` | Text
     * Patient's unique ID in the system.
+    * Defined in the root level.
     * Auto filled when using the contact lookup field.
 * `patient_id` | Text
     * Patient's representative ID, for example, can be the ID in the health facility's records.
+    * Defined in the root level.
     * Auto filled when using the contact lookup field.
 * `patient_name` | Text
     * Patient's first name and / or last name
+    * Defined in the root level.
     * Auto filled when using the contact lookup field.
 * `rdtoolkit_session_id` | Text
     * The unique ID for the RDT.
+    * Defined in the root level.
     * Auto filled by CHT integration.
 * `rdtoolkit_results` | Text
     * JSON representation of the RDT result
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 * `rdtoolkit_results_description` | Text
     * Translation of the results
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 * `rdtoolkit_image` | Text
     * Base64 image encoding.
+    * Defined in the `data` group level.
     * Auto filled by CHT integration and will render the image.
     * **appearance**: hidden
     * **instance::type**: binary
@@ -89,15 +105,19 @@ This form has the following mandatory fields:
 Optional fields:
 * `rdtoolkit_state` | Text
     * The RDT status.
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 * `rdtoolkit_time_started` | Text
     * The date and time when RDT started.
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 * `rdtoolkit_time_resolved` | Text
     * The date and time when the RDT result is ready to capture.
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 * `rdtoolkit_time_read` | Text
     * The date and time when RDT result was captured.
+    * Defined in the `data` group level.
     * Auto filled by CHT integration.
 
 ### Sample form for capturing RDT results
