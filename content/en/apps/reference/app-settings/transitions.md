@@ -13,7 +13,7 @@ When sentinel detects a document has changed it runs transitions against the doc
 ## Configuration
 
 By default all transitions are disabled. They can be enabled by configuring the `transitions` property to have a key with the transitions name and a `truthy` value. 
-As of version 3.12.0 some transitions will partially run on the client for offline users. To opt out from client-side transitions, add a `"client: false"` property to the transition configuration.
+As of version 3.12.0 some transitions will partially run on the client for offline users. To opt out from client-side transitions, add a `"client_side: false"` property to the transition configuration.
 
 ```json
 {
@@ -22,7 +22,7 @@ As of version 3.12.0 some transitions will partially run on the client for offli
     "b": true,
     "c": { "disable": false },
     "d": { "disable": true },
-    "e": { "client": false }
+    "e": { "client_side": false }
   }
 }
 ```
