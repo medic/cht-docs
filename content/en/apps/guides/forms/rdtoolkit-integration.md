@@ -17,9 +17,8 @@ The integration is only available in the CHT Android app and consists of two Enk
 It is required to create one form for provisioning RDT and one form for capturing RDT results, see [the documentation](https://docs.communityhealthtoolkit.org/apps/tutorials/app-forms/) for more details about app forms.
 
 ### Provisioning RDT form
-The following labels are required in the “appearance” tag:
-* `rdtoolkit-provision`: To attach the Enketo widget that connects with the RDToolkit app.
-* `rdtoolkit-action-btn`: To attach the action button that provisions RDT, this button will open the RDToolkit app.
+The following label is required in the `appearance` tag of `data` group:
+* `rdtoolkit-provision`: To attach the Enketo widget that connects with the RDToolkit app to provision RDT.
 
 This form has the following mandatory fields:
 * `patient_uuid` | Text
@@ -66,9 +65,8 @@ Optional fields:
 ![Provisioning RDT form](rdtoolkit-povision-form.png)
 
 ### Capturing RDT result form
-The following labels are required in the “appearance” tag:
-* `rdtoolkit-capture`: To attach the Enketo widget that connects with the RDToolkit app.
-* `rdtoolkit-action-btn`: To attach the action button that captures the RDT result, this button will open the RDToolkit.
+The following label is required in the `appearance` tag of `data` group:
+* `rdtoolkit-capture`: To attach the Enketo widget that connects with the RDToolkit app to capture RDT result.
 
 This form has the following mandatory fields:
 * `patient_uuid` | Text
