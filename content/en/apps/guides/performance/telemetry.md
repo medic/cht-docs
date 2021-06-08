@@ -98,7 +98,9 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 | `hardwareConcurrency` | The number of cores reported from the browser. Added in 3.4.0. |
 | `screen.width` | The width of the screen in pixels. Added in 3.4.0. |
 | `screen.height` | The height of the screen in pixels. Added in 3.4.0. |
-| `deviceInfo.app.version` | The version of the Android app. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.app.version` | The version name of the Android app. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
+| `deviceInfo.app.packageName` | The package name of the Android app. Only captured when running in the Android wrapper v0.9.0+. Added in 3.12.0. |
+| `deviceInfo.app.versionCode` | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. Only captured when running in the Android wrapper v0.9.0+. Added in 3.12.0. |
 | `deviceInfo.software.androidVersion` | The version of Android OS. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
 | `deviceInfo.software.osApiLevel` | The API of the Android OS. Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
 | `deviceInfo.software.osVersion` | The version of Android OS (detailed). Only captured when running in the Android wrapper v0.4.0+. Added in 3.8.0. |
