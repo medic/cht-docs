@@ -163,7 +163,7 @@ If no errors output above, certificates successfully installed.
 
 The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.my.local-ip.co`.  See the [local-ip.co](http://local-ip.co/) site to read more about these free to use certificates. 
 
-When using `medic-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.my.local-ip.co`. As well, you can now use this URL to test in the Android APK.
+When using `medic-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.my.local-ip.co`. As well, you can now use this URL to test with the CHT Android app.
 
 ## Frequently Asked Questions
 
