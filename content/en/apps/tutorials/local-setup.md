@@ -110,6 +110,8 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 ### 4. Create and Upload a Blank Project
 
+{{% alert title="Note" %}} This step will erase the default Maternal & Newborn Health Reference Application. {{% /alert %}}
+
 With `medic-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
 
 ```shell
@@ -130,8 +132,6 @@ medic-conf --url=https://medic:password@localhost --accept-self-signed-certs
 `accept-self-signed-certs` tells medic-conf that it’s OK that the server’s certificate isn’t signed properly, which will be the case when using docker locally.
 
 Once you have run the above command it should complete with the message: `INFO All actions completed.`.
-
-Note: This will erase the default Maternal & Newborn Health Reference Application.
 
 <br clear="all">
 
