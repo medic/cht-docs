@@ -35,9 +35,12 @@ To read more about these concepts, see our [Docker Setup guide]({{< relref "core
 
 ## Required Resources
 
-Before you begin, you need to have some useful software and tools that are required for things to work.
+Before you begin, you need to have some useful software and tools that are required for things to work:
 
-Install [nodejs](https://nodejs.org/en/) 8 or later, [npm](https://www.npmjs.com/get-npm), [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/) and [`docker` and `docker-compose`]({{< relref "apps/guides/hosting/requirements#docker" >}}).
+* [nodejs](https://nodejs.org/en/) 8 or later
+* [npm](https://www.npmjs.com/get-npm)
+* [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
+* [docker and docker-compose]({{< relref "apps/guides/hosting/requirements#docker" >}}).
 
 ## Implementation Steps
 
