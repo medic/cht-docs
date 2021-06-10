@@ -110,7 +110,7 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 ### 4. Create and Upload a Blank Project
 
-With `medic-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. Just run:
+With `medic-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
 
 ```shell
 mkdir cht-app-tutorials
