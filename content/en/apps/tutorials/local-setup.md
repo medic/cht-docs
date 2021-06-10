@@ -50,7 +50,7 @@ Now that you have the dependent tools and software installed, you are ready to s
 
 ### 1. Install the Core Framework
 
-Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine, either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory you want to check the code out into: `git clone https://github.com/medic/cht-core.git`. This will create a `cht-core` directory.  
+Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine. This can be done either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory where you want the CHT code: `git clone https://github.com/medic/cht-core.git`. Checking out the repo will create a `cht-core` directory.  
 
 Open your terminal or command line and navigate to `cht-core` directory which is where the `docker-compose.yml` file is. Run the command:
 
