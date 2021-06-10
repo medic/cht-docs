@@ -60,7 +60,7 @@ docker-compose up
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once the command is done running, navigate to [https://localhost](https://localhost) on a Google Chrome browser and login with the default username `medic` and default password `password`. You will get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost". This error can be fixed in step 5 below.
+Once the command is done running, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. You will get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost". This error can be fixed in step 5 below.
 
 If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide.
 
