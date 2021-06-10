@@ -146,7 +146,9 @@ To install a valid certificate, open a terminal in the `cht-core` directory. Ens
 ./scripts/add-local-ip-certs-to-docker.sh
 ```
 
-You can see a `curl` call made before and after installing the certificate picture left.  The output of the script looks like this:
+To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.  
+
+The output of `add-local-ip-certs-to-docker.sh` looks like this:
 
 ```
 Debug: Service 'medic-core/nginx' exited with status 143
