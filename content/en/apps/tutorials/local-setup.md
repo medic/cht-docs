@@ -64,7 +64,7 @@ Once the command is done running, navigate to [https://localhost](https://localh
 
 If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide.
 
-This CHT instance is empty and has no data in it.  While you're free to explore and add your own, in step 3 below we'll upload sample data.  Proceed to step 2 to install `medic-conf` which is needed to upload the test data.
+This CHT instance is empty and has no data in it.  While you're free to explore and add your own data, in step 3 below we'll upload sample data.  Proceed to step 2 to install `medic-conf` which is needed to upload the test data.
 
 <br clear="all">
 
