@@ -52,7 +52,7 @@ Now that you have the dependent tools and software installed, you are ready to s
 
 Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine. This can be done either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory where you want the CHT code: `git clone https://github.com/medic/cht-core.git`. Checking out the repo will create a `cht-core` directory.  
 
-Open your terminal and navigate to `cht-core` directory which is where the `docker-compose.yml` file is. Run the command:
+Open your terminal and navigate to the `cht-core` directory, where you should see the `docker-compose.yml` file. Run the command:
 
 ```shell
 docker-compose up
