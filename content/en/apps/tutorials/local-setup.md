@@ -52,7 +52,7 @@ Now that you have the dependent tools and software installed, you are ready to s
 
 Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine, either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory you want to check the code out into: `git clone https://github.com/medic/cht-core.git`. This will create a `cht-core` directory.  
 
-Open your terminal or command line and navigate to `cht-core` directory which is where the `docker-compose.yml` file is. Run the command:
+Open your terminal and navigate to `cht-core` directory which is where the `docker-compose.yml` file is. Run the command:
 
 ```shell
 docker-compose up
@@ -72,7 +72,7 @@ This CHT instance is empty and has no data in it.  While you're free to explore 
 
 ### 2. Install medic-conf
 
-Using npm and python on your command line, install medic-conf and pyxform globally using the following commands:
+Using npm and python on your terminal, install medic-conf and pyxform globally using the following commands:
 
 ```shell
 npm install -g medic-conf
@@ -81,7 +81,7 @@ sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1
 
 {{< figure src="confirm-medic-conf.png" link="confirm-medic-conf.png" class="right col-6 col-lg-8" >}}
 
-You can confirm that the installation was successful by typing `medic-conf` in your command line.
+You can confirm that the installation was successful by typing `medic-conf` in your terminal.
 
 If you have trouble installing `medic-conf`, see the application's [GitHub repository](https://github.com/medic/medic-conf) for more information.
 
