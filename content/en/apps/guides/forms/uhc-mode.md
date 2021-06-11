@@ -20,7 +20,7 @@ The date last visited is colored red whenever the date is 30 days or more in the
 
 The date of the last visit is displayed and contacts can be sorted by last visit date to allow the CHW plan their work.
 
-![Contact sort](person-contact-form-survey.png)
+![Contact sort](sort-dropdown.png)
 
 "Date last visited" and "visits this month" are two completely different data points:
 - Date last visited is calculated based upon a rolling count of "how many days ago" and is not tied to the calendar at all.
