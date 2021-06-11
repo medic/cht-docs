@@ -141,7 +141,7 @@ Once you have run the above command it should complete with the message: `INFO A
 
 {{< figure src="local-ip.TLS.png" link="local-ip.TLS.png" class="right col-6 col-lg-8" >}}
 
-With the blank project deployed to your CHT instance, you're ready to start writing your first app.  A big part of authoring an app is testing it on a mobile device, likely using the unbranded [Android APK](https://github.com/medic/cht-android).  In order to test in the APK, your CHT instance needs a valid TLS certificate which the default docker version does not have.
+With the blank project deployed to your CHT instance, you're ready to start writing your first app.  A big part of authoring an app is testing it on a mobile device, likely using the unbranded version of [CHT Android](https://github.com/medic/cht-android).  In order to test in the APK, your CHT instance needs a valid TLS certificate which the default docker version does not have.
 
 To install a valid certificate, open a terminal in the `cht-core` directory. Ensure the `medic-os` container is running and make this call:
 
