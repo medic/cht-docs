@@ -44,33 +44,10 @@ You need to prepare your resources (icons and application ID) then add the new a
 
 ### 2. Compiling and testing the APK
 
-1. Plug in your phone. Check it's detected with `adb devices`
-2. Execute: `make` (will also push app unto phone) using the `SDK command line`
-3. To build and deploy APKs for all configured brands, execute: `make branded`
-4. To test, execute: `./gradlew connected[Flavor]WebviewDebugAndroidTest` . Eg `./gradlew connectedUnbrandedWebviewDebugAndroidTest` or `./gradlew connectedMedicmobilegammaWebviewDebugAndroidTest`. At the moment we have tests only in these 2 flavors: unbranded and medicmobilegamma.
-5. To avoid failures running the tests, previous versions of the app should be uninstalled first, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can make the tests to fail, and Android needs to have English as default language.
+1. Plug in your phone. Ensure that it is detected within `adb devices`
+2. Execute: `make` using the SDK command line. (This will also push the app onto your phone.)
+3. Execute: `make branded` to build and deploy APKs for all configured brands.
+4. Execute: `./gradlew connected[Flavor]WebviewDebugAndroidTest` to run tests. For example, `./gradlew connectedUnbrandedWebviewDebugAndroidTest` or `./gradlew connectedMedicmobilegammaWebviewDebugAndroidTest`. At the moment we have tests only in these 2 flavors: unbranded and medicmobilegamma.
+5. Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail. Android needs to have English as the default language.
 
-## APKs
-
-For compatibility with a wide range of devices the build script produces multiple APKs. To help you pick which APK to install you can find information about the version of Android and the CPU in the About section of the phone's settings menu.
-
-The APKs are named as follows: `cht-android-{version}-{brand}-{rendering-engine}-{instruction-set}-release.apk`
-
-| Rendering engine | Instruction set | Android version | Notes |
-|------------------|-----------------|-----------------|--|
-| `webview`        | `arm64-v8a`     | 10+             |  Preferred. Use this APK if possible. |
-| `webview`        | `armeabi-v7a`   | 10+             | Built but not compatible with any devices. Ignore this APK. |
-| `xwalk`          | `arm64-v8a`     | 4.4 - 9         |  |
-| `xwalk`          | `armeabi-v7a`   | 4.4 - 9         |  |
-
-## Publishing to the Play Store
-
-When publishing to the Google Play Store upload all APKs and it will automatically choose the right one for the target device. However, when sideloading the application it is essential to pick the correct APK or the application may crash.
-
-Publishing is makes your Android application available to users. It involves two main tasks:
-
-1. You prepare the application for release.
-2. You release the application to users.
-
-Refer to these [guidelines](https://developer.android.com/studio/publish) to publish your application.
-
+![medic-android set up on Android Studio](android-wrapper.png "Medic Android set up on Android Studio")
