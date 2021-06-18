@@ -1,7 +1,7 @@
 ---
 title: "Building CHT Android Flavors"
 linkTitle: CHT Android Flavors
-weight: 12
+weight: 13
 description: >
   Building CHT Android Flavors
 relatedContent: >
@@ -37,17 +37,17 @@ You need to prepare your resources (icons and application ID) then add the new a
 
 ### 1. Adding the new brand/application
 
-1. Clone the [cht-android](https://github.com/medic/cht-android) repo
-2. add `productFlavors { <new_brand> { ... } }` in `build.gradle`
-3. add icons, strings etc. in `src/<new_brand>`
-4. to enable automated deployments, add the `new_brand` to `.github/workflows/publish.yml`
+- Clone the [cht-android](https://github.com/medic/cht-android) repo
+- add `productFlavors { <new_brand> { ... } }` in `build.gradle`
+- add icons, strings etc. in `src/<new_brand>`
+- to enable automated deployments, add the `new_brand` to `.github/workflows/publish.yml`
 
 ### 2. Compiling and testing the APK
 
-1. Plug in your phone. Ensure that it is detected within `adb devices`
-2. Execute: `make` using the SDK command line. (This will also push the app onto your phone.)
-3. Execute: `make branded` to build and deploy APKs for all configured brands.
-4. Execute: `./gradlew connected[Flavor]WebviewDebugAndroidTest` to run tests. For example, `./gradlew connectedUnbrandedWebviewDebugAndroidTest` or `./gradlew connectedMedicmobilegammaWebviewDebugAndroidTest`. At the moment we have tests only in these 2 flavors: unbranded and medicmobilegamma.
-5. Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail. Android needs to have English as the default language.
+- Plug in your phone. Ensure that it is detected within `adb devices`
+- Execute: `make` using the SDK command line. (This will also push the app onto your phone.)
+- Execute: `make branded` to build and deploy APKs for all configured brands.
+- Execute: `./gradlew connected[Flavor]WebviewDebugAndroidTest` to run tests. For example, `./gradlew connectedUnbrandedWebviewDebugAndroidTest` or `./gradlew connectedMedicmobilegammaWebviewDebugAndroidTest`. At the moment we have tests only in these 2 flavors: unbranded and medicmobilegamma.
+- Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail. Android needs to have English as the default language.
 
 ![medic-android set up on Android Studio](android-wrapper.png "Medic Android set up on Android Studio")
