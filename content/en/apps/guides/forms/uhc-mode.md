@@ -16,7 +16,7 @@ visits made to a household and highlighting households which haven't met their v
 
 {{< figure src="UHC.gif" link="UHC.gif" alt="UHC mode screenshot" title="UHC mode in use" >}}
 
-The date last visited is colored red whenever the date is 30 days or more in the past. The date last visited is displayed as a relative date. Visits that happened today will say "Visited today", visits that happened yesterday will say "Visited yesterday". This period is described in terms of "days" up until two months, so "Visited 3 days ago" or "visited 36 days ago". After two months, we simply say "2 months" or "3 months".
+The date last visited is colored red whenever the date is 30 days or more in the past. The date last visited is displayed as a relative date. This period is described in terms of "days" up until two months, so "Visited 3 days ago" or "Visited 36 days ago". After two months, we simply say "2 months" or "3 months".
 
 The date of the last visit is displayed and contacts can be sorted by last visit date to allow the CHW plan their work.
 
