@@ -28,7 +28,7 @@ The date of the last visit is displayed and contacts can be sorted by last visit
 
 ## Configuration
 
-Any patient- or household-level form or forms can be used to update the date last visited. You may run into performance issues if you configure this to look at forms submitted very frequently. For example, we expect five forms submitted only once a month to work better than two forms submitted every day.
+Any patient- or household-level form or forms can be used to update the date last visited. You may run into performance issues if you configure this to look at forms submitted very frequently. For example, five forms submitted only once a month would work better than two forms submitted every day.
 
 ### UHC Permissions
 
