@@ -194,6 +194,9 @@ You may want to further configure a service that relays feedback to the CHT. Fee
 
 Exceptions thrown during processing can be added to a queue and presented on an interface for action. The erroring data may then be re-queued. You need to consider what works best at this point, but for convenience purposes, it makes sense for a backend user to resolve such errors.
 
+Sample OpenMRS handler scripts include:
+1. [PIH Malawi's EMR handler](https://github.com/kmatiya/emr-yendanafe-test-script)
+2. [KenyaEMR handler](https://github.com/palladiumkenya/openmrs-module-afyastat)
 
 ### OpenMRS to CHT
 
