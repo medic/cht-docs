@@ -44,7 +44,7 @@ To view UHC metrics, the `can_view_uhc_stats` permission needs to be granted to 
 
 ### Forms
 
-Next you need to indicate which forms should be included in the calculation of the date last visited. You can use forms at the person or household level. A field called `visited_contact_uuid` needs to be added to forms used to track visits. This should be a calculate field that contains the household (clinic level place) UUID of the visited contact. Make sure this is a top-level field (not in any group and should be in `doc.fields.visited_contact_uuid` when the form is submitted.
+Indicate which forms should be included in the calculation of the date last visited. You can use forms at the person or household level. Add the `visited_contact_uuid` field to forms to track visits. This should be a `calculate` field that contains the household (clinic level place) UUID of the visited contact. Ensure this is a top-level field (not in any group) and should be in `doc.fields.visited_contact_uuid` when the form is submitted.
 
 ### Settings
 
