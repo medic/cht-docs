@@ -11,7 +11,7 @@ keywords: user-roles user-permissions
 ---
 
 Permissions are defined by the `permissions` object in the `base_settings.json` file. Permissions can also be configured using the App Management app.
-Each permission is defined in terms of an array of user role identifiers that have the permission granted.
+Each permission is defined as an array of user role identifiers that have the permission granted.
 
 {{< see-also page="apps/reference/app-settings/user-roles" title="User roles" >}}
 
