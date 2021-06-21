@@ -22,7 +22,7 @@ The date of the last visit is displayed and contacts can be sorted by last visit
 
 {{< figure src="sort-dropdown.png" link="sort-dropdown.png" alt="Contact sorting screenshot" title="Contact sorting in UHC mode" >}}
 
-"Date last visited" and "visits this month" are two completely different data points:
+"Date last visited" and "Visits this month" are different data points:
 - Date last visited is calculated based upon a rolling count of "how many days ago" and is not tied to the calendar at all.
 - Visits this month are tied directly to the calendar.
 
