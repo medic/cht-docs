@@ -48,7 +48,7 @@ Indicate which forms should be included in the calculation of the date last visi
 
 ### Settings
 
-Finally, the app needs to know when to begin counting visits for a month, what the visit goal is for a household and the default contact sort. This information is defined in `base_settings.json`
+Information on when to begin counting visits, household visit goals, and default contact sorting is defined in `base_settings.json`.
 
 | Setting              | Description | Default | Version |
 |----------------------|---------|---------|---------|
