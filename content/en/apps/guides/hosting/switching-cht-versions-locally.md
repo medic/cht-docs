@@ -12,7 +12,7 @@ relatedContent: >
 
 ## TLDR;
 
-When developing configuration locally, especially when working with multiple projects with different versions, it is sometimes convinient to:
+When developing configuration locally, especially when working with multiple projects with different versions, it is sometimes convenient to:
 
 - Persist a database for each project when working across multiple projects.
 - Start the right version of cht-core when working across different projects.
