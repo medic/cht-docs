@@ -42,6 +42,7 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | begin group | inputs | Inputs | ./source = 'user' | field-list |
 | hidden | source |
 | hidden | source_id |
+| hidden | task_id | Task_ID
 | begin group | contact |
 | db:person | _id | Patient ID |  | db-object |
 | string | patient_id | Medic ID |  | hidden |
