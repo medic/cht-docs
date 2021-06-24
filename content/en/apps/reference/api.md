@@ -1131,6 +1131,7 @@ curl http://localhost:5988/api/v1/monitoring
 | `feedback.count` | Number | Number of feedback docs created usually indicative of client side errors. |
 | `conflict.count` | Number | Number of doc conflicts which need to be resolved manually. |
 | `replication_limit.count` | Number | Number of users that exceeded the replication limit of documents. |
+| `connected_users.count` | Number | Number of users that have connected to the api in a given numbner of days. The period defaults to 7 days but this can be changed by adding `connected_user_interval` as a query parameter e.g. `http://localhost:5988/api/v1/monitoring?connected_user_interval=14`  |
 
 #### Errors
 
@@ -1200,6 +1201,7 @@ curl http://localhost:5988/api/v2/monitoring
 | `feedback.count` | Number | Number of feedback docs created usually indicative of client side errors. |
 | `conflict.count` | Number | Number of doc conflicts which need to be resolved manually. |
 | `replication_limit.count` | Number | Number of users that exceeded the replication limit of documents. |
+| `connected_users.count` | Number | Number of users that have connected to the api in a given numbner of days. The period defaults to 7 days but this can be changed by adding `connected_user_interval` as a query parameter e.g. `http://localhost:5988/api/v2/monitoring?connected_user_interval=14`  |
 
 #### Errors
 
