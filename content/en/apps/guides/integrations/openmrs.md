@@ -1,13 +1,13 @@
 ---
 title: "OpenMRS"
-weight: 2
+linkTitle: "OpenMRS"
+weight:
 description: >
    Exchange patient-level data with systems based on the OpenMRS platform
 keywords: openmrs
 relatedContent: >
   apps/features/integrations/custom
-  apps/features/integrations/rapidpro
-  apps/features/integrations/dhis2
+  apps/features/integrations/openmrs
 ---
 
 [OpenMRS](https://openmrs.org) is an open source electronic medical record system used in dozens of countries. Integrating CHT apps with OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
@@ -37,28 +37,28 @@ As you design your usecases, bear in mind that at the heart of OpenMRS is the [C
 
 ## Getting started
 
-While OpenMRS has an out-of-the-box API that handles data sent to it, the CHT might require custom data marshalling it meets the requirements for processing in OpenMRS. Similarly, it might be necessary to setup services that process data from OpenMRS to an acceptable CHT format. In the following sections, we focus more on the general procedure for setting up custom modules and services. 
+The [CHT API]({{< ref "apps/reference/api" >}}) and [OpenMRS API](https://rest.openmrs.org/#openmrs-rest-api) are used for integration. However, the APIs do not do data cleaning and formatting out-of-the-box. Therefore, both systems require custom solutions that ochestrate the functionality to transform exchanged data to be accepted. In the following sections, we focus more on the general procedure for setting up custom modules and services. 
 
 ### CHT to OpenMRS
 
-This section focuses on a simple process and/or the best practices to send data to OpenMRS.
+This section focuses on a simple process and the best practices to send data to OpenMRS.
 
 #### Mapping forms
 
-The first thing is to define forms to capture data. Forms can be contact or app, which translate to patient and encounter (observation, lab request, referral ...etc) respectively. Forms are defined using the XLS Form standard.
+The first thing is to define forms to capture data. Forms can be contact or app, which translate to patient and encounter (for example, observation, lab request, and referral) respectively. Forms are defined using the XLS Form standard.
 Some of the best practices here include adopting a convention that results in minimum disruption (or that would require minimal processing) of the concept dictionary.
 
 1. **Defining contact forms**
 
-Here, you need to capture the basic details required for registering a patient, and/or a patient contact in OpenMRS. Here goes a sample naming convention; demographic details such as person name could be  defined as follows (under field name):
+Here, you need to capture the basic details required for registering a patient or a patient contact in OpenMRS. Below is a sample naming convention for demographic details such as a person's name (under field name):
 
 `patient_familyName` for family_name, 
 `patient_firstName` for first_name,
 `patient_middleName` for middle_name
 
-Another example of patient identifiers could take the form `_IdentiferType_humanReadableName_IdentifierTypeUuid`, for example, national Id identifier type definition would be: `patient_identifierType_nationalId_49af6cdc-7968-4abb-bf46-de10d7f4859f`
+Another example of patient identifiers could take the form `_IdentiferType_humanReadableName_IdentifierTypeUuid`. For example, national Id identifier type definition would be, `patient_identifierType_nationalId_49af6cdc-7968-4abb-bf46-de10d7f4859f`.
 
-Sample form definition could be as follows:
+A sample form definition could be as follows:
 
 | type                          | name              | label                              | required | relevant            | appearance | constraint | constraint_message  | calculation | choice_filter  | hint | default |
 | ----------------------------- | ----------------- | ---------------------------------- | -------- | ------------------- | ---------- | ---------- | ------------------- | ----------- | -------------- | ---- | ------- |
@@ -70,7 +70,7 @@ Sample form definition could be as follows:
 | end group                     |                   |                                    |          |                     |            |            |                     |             |                |      |         |
 
 
-Sample payload would be as follows:
+A sample payload would be as follows:
 
 
 ```text
@@ -134,7 +134,7 @@ Remember to convert and upload your forms
 medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
-Remember to setup the [outbound push]({{< ref "apps/reference/app-settings/outbound" >}}) modules to send data to OpenMRS.
+**Note**: Remember to setup the [Outbound push]({{< ref "apps/reference/app-settings/outbound" >}}) modules to send data to OpenMRS.
 
 
 #### Handling the data
@@ -143,7 +143,7 @@ After collecting data using the forms defined above, the next step is to process
 
 1. **Cleaning**
 
-First the data has to be transformed to an OpenMRS-compatible format, before it is queued. This means that you need to define custom RESTful endpoints if not already existing, that would be utilized by the Outbound push modules configured above. Transformation basically involves extracting form data into an object. Most importantly, `discriminators`, which are like flags appended to form data to inform the type of data being processed. For example a `registration` discriminator implies that we're dealing with demographic details. Sample transformed payload is shown below.
+First, the data has to be transformed to an OpenMRS-compatible format before it is queued. This means that you need to define custom RESTful endpoints if not already existing, that would be utilized by the Outbound push modules configured above. Transformation basically involves extracting form data into an object. Most importantly, `discriminators`, which are like flags appended to form data to inform the type of data being processed. For example, a `registration` discriminator implies that we're dealing with demographic details. A sample transformed payload is shown below:
 
 ```text
 {
@@ -192,7 +192,7 @@ You may want to further configure a service that relays feedback to the CHT. Fee
 
 #### Error Handling
 
-Exceptions thrown during processing can be added to a queue and presented on an interface for action. The erroring data may then be re-queued. You need to consider what works best at this point, but for convenience purposes, it makes sense for a backend user to resolve such errors.
+Exceptions thrown during processing can be added to a queue and presented on an interface for action. The erring data may then be re-queued. You need to consider what works best at this point. For convenience, it makes sense for a backend user to resolve such errors.
 
 Sample OpenMRS handler scripts include:
 1. [PIH Malawi's EMR handler](https://github.com/kmatiya/emr-yendanafe-test-script)
