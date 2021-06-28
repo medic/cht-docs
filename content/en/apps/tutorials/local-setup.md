@@ -35,27 +35,53 @@ To read more about these concepts, see our [Docker Setup guide]({{< relref "core
 
 ## Required Resources
 
-Before you begin, you need to have some useful software and tools that are required for things to work.
+Before you begin, you need to have some useful software and tools that are required for things to work:
 
-Install [nodejs](https://nodejs.org/en/) 8 or later and [npm](https://www.npmjs.com/get-npm). As well, [install `docker` and `docker-compose`]({{< relref "apps/guides/hosting/requirements#docker" >}}).
+* [nodejs](https://nodejs.org/en/) 8 or later
+* [npm](https://www.npmjs.com/get-npm)
+* [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
+* [docker and docker-compose]({{< relref "apps/guides/hosting/requirements#docker" >}}).
 
 ## Implementation Steps
 
 Now that you have the dependent tools and software installed, you are ready to set up your CHT local environment.
  
 
-### 1. Install medic-conf
 
-Using npm and python on your command line, install medic-conf and pyxform globally using the following commands:
+### 1. Install the Core Framework
 
-```zsh
+Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine. This can be done either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory where you want the CHT code: `git clone https://github.com/medic/cht-core.git`. Checking out the repo will create a `cht-core` directory.  
+
+Open your terminal and navigate to the `cht-core` directory, where you should see the `docker-compose.yml` file. Run the command:
+
+```shell
+docker-compose up
+```
+
+{{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
+
+Once the command is done running, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. You will get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost". This error can be fixed in step 5 below.
+
+If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide.
+
+This CHT instance is empty and has no data in it.  While you're free to explore and add your own data, in step 3 below we'll upload sample data.  Proceed to step 2 to install `medic-conf` which is needed to upload the test data.
+
+<br clear="all">
+
+ *****
+
+### 2. Install medic-conf
+
+Using npm and python on your terminal, install medic-conf and pyxform globally using the following commands:
+
+```shell
 npm install -g medic-conf
 sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
 {{< figure src="confirm-medic-conf.png" link="confirm-medic-conf.png" class="right col-6 col-lg-8" >}}
 
-You can confirm that the installation was successful by typing `medic-conf` in your command line.
+You can confirm that the installation was successful by typing `medic-conf` in your terminal.
 
 If you have trouble installing `medic-conf`, see the application's [GitHub repository](https://github.com/medic/medic-conf) for more information.
 
@@ -63,31 +89,32 @@ If you have trouble installing `medic-conf`, see the application's [GitHub repos
 
 *****
 
-### 2. Install the Core Framework
+### 3. Upload Test Data
 
-Download the [docker-compose.yml](https://github.com/medic/cht-core/blob/master/docker-compose.yml) file to a folder of your choice. Be sure to place it in a folder that's easy to find on terminal or command line.
+By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "apps/examples/anc" >}}) installed. To upload demo data you can use `medic-conf`:
 
-Open your terminal or command line and navigate to the folder where you have your [docker-compose.yml](https://github.com/medic/cht-core/blob/master/docker-compose.yml) file and run the command:
+{{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
-```zsh
-docker-compose up
+- Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
+- Run the following `medic-conf` command to compile and upload default test data to your local instance: 
+
+```shell  
+medic-conf --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`.
 ```
 
-{{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
-
-Once the command is done running, navigate to `https://localhost` on a Google Chrome browser and login with the default username `medic` and default password `password`.
-
-If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide
+With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
 
 <br clear="all">
 
  *****
 
-### 3. Create and Upload a Blank Project
+### 4. Create and Upload a Blank Project
 
-With `medic-conf` you can create a blank project. This provides you a template from which you can begin working on CHT. Just run:
+{{% alert title="Note" %}} This step will erase the default Maternal & Newborn Health Reference Application. {{% /alert %}}
 
-```zsh
+With `medic-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
+
+```shell
 mkdir cht-app-tutorials
 cd cht-app-tutorials
 medic-conf initialise-project-layout
@@ -95,7 +122,7 @@ medic-conf initialise-project-layout
 
 Then deploy the blank project onto your local test environment with the command:
 
-```zsh
+```shell
 medic-conf --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
@@ -110,13 +137,33 @@ Once you have run the above command it should complete with the message: `INFO A
 
  *****
 
-### 4. Upload Test Data
+### 5. Optional: Install Valid TLS Certificate  
 
-By default the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "apps/examples/anc" >}}) installed. To upload demo data you can use `medic-conf`:
+{{< figure src="local-ip.TLS.png" link="local-ip.TLS.png" class="right col-6 col-lg-8" >}}
 
-- Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine, either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory you want to check the code out into: `git clone https://github.com/medic/cht-core.git`. This will create a `cht-core` directory.
-- Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
-- Run the following `medic-conf` command to compile and upload default test data to your local instance: `medic-conf --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`.
+With the blank project deployed to your CHT instance, you're ready to start writing your first app.  A big part of authoring an app is testing it on a mobile device, likely using the unbranded version of [CHT Android](https://github.com/medic/cht-android).  In order to test in the APK, your CHT instance needs a valid TLS certificate which the default docker version does not have.
+
+To install a valid certificate, open a terminal in the `cht-core` directory. Ensure the `medic-os` container is running and make this call:
+
+```shell
+./scripts/add-local-ip-certs-to-docker.sh
+```
+
+To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.  
+
+The output of `add-local-ip-certs-to-docker.sh` looks like this:
+
+```
+Debug: Service 'medic-core/nginx' exited with status 143
+Info: Service 'medic-core/nginx' restarted successfully
+Success: Finished restarting services in package 'medic-core'
+
+If no errors output above, certificates successfully installed.
+```
+
+The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.my.local-ip.co`.  See the [local-ip.co](http://local-ip.co/) site to read more about these free to use certificates. 
+
+When using `medic-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.my.local-ip.co`. As well, you can now use this URL to test with the CHT Android app.
 
 ## Frequently Asked Questions
 

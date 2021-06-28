@@ -12,7 +12,8 @@ When sentinel detects a document has changed it runs transitions against the doc
 
 ## Configuration
 
-By default all transitions are disabled. They can be enabled by configuring the `transitions` property to have a key with the transitions name and a `truthy` value, eg:
+By default all transitions are disabled. They can be enabled by configuring the `transitions` property to have a key with the transitions name and a `truthy` value. 
+As of version 3.12.0 some transitions will partially run on the client for offline users. To opt out from client-side transitions, add a `"client_side: false"` property to the transition configuration.
 
 ```json
 {
@@ -20,12 +21,13 @@ By default all transitions are disabled. They can be enabled by configuring the 
     "a": { },
     "b": true,
     "c": { "disable": false },
-    "d": { "disable": true }
+    "d": { "disable": true },
+    "e": { "client_side": false }
   }
 }
 ```
 
-In this example the `d` transition will not be applied, but the other three will be.
+In this example the `d` transition will not be applied, `a`, `b` `c` will be applied on the server and on the client, while `e` will only be applied on the server. 
 
 ## Available transitions
 
@@ -49,7 +51,7 @@ The following transitions are available and executed in order.
 | [update_notifications](#update_notifications) | **Deprecated in 3.2.x** Mutes or unmutes scheduled messages based on configuration. |
 | update_scheduled_reports | If a report has a month/week/week_number, year and clinic then look for duplicates and update those instead. |
 | resolve_pending | Sets the state of pending messages to sent. It is useful during builds where we don't want any outgoing messages queued for sending. |
-| [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. |
+| [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. Is partially applied on the client, as of 3.12.0. |
 | [mark_for_outbound]({{% ref "apps/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
 
@@ -352,24 +354,47 @@ No custom configuration for `generate_patient_id_on_people`.
 
 Implements muting/unmuting of persons and places. Supports multiple forms for each action, for webapp and sms workflows.
 
-Muting action:
+##### Muting action 
 
-- updates target contact and all its descendants<sup>[1]</sup>, setting the `muted` property equal to the current `date` in ISO format<sup>[2]</sup>
+As of 3.12.0, client-side muting only runs on new reports or new contacts, before they are saved in the local database:
+
+- updates the target contact and all its descendants<sup>[10]</sup>, setting the `muted` property equal to the device's current `date` in ISO format<sup>[8]</sup>. 
+- adds/updates the `muting_history`<sup>[11]</sup> property on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
+
+Server-side:
+
+- updates the target contact and all its descendants<sup>[1]</sup>, setting the `muted` property equal to the current `date` in ISO format<sup>[2]</sup>. If the contact was already muted by a client, the `muted` date will be overwritten. The client-side `muting_history` will have a copy of the client-side muting date.
 - adds a `muting_history` entry to Sentinel `info` docs for every updated contact<sup>[7]</sup>
 - updates all connected registrations<sup>[3]</sup>, changing the state of all unsent<sup>[4]</sup> `scheduled_tasks` to `muted`
+- as of 3.12.0, updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
+- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report<sup>[9]</sup>. 
 
-Unmuting action:
+##### Unmuting action:
 
-- updates target contact's topmost muted ancestor<sup>[1][5]</sup> and all its descendants, removing the `muted` property
+As of 3.12.0, client-side unmuting only runs on new reports before they are saved in the local database:
+
+- updates the target contact's topmost muted ancestor<sup>[10][5]</sup> and all its descendants, removing the `muted` property.
+- adds/updates the `muting_history`<sup>[9]</sup> property on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
+
+Server-side:
+
+- updates the target contact's topmost muted ancestor<sup>[1][5]</sup> and all its descendants, removing the `muted` property
 - adds a `muting_history` entry to Sentinel `info` docs for every updated contact<sup>[7]</sup>
 - updates all connected registrations<sup>[3]</sup>, changing the state of all present/future<sup>[6]</sup> `muted` `scheduled_tasks` to `scheduled`
+- as of 3.12.0, updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
+- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report<sup>[10]</sup>.
 
-[1] Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
-[2] The date represents the moment Sentinel has processed the muting action
-[3] target contact and descendants' registrations
-[4] `scheduled_tasks` being in either `scheduled` or `pending` state
-[5] Because the muted state is inherited, unmuting cascades upwards to the highest level muted ancestor. If none of the ancestors is muted, unmuting cascades downwards only.
-[6] `scheduled_tasks` which are due today or in the future. All `scheduled_tasks` with a due date in the past will remain unchanged.
+[1] Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).  
+[2] The date represents the moment Sentinel has processed the muting action  
+[3] target contact and descendants' registrations  
+[4] `scheduled_tasks` being in either `scheduled` or `pending` state  
+[5] Because the muted state is inherited, unmuting cascades upwards to the highest level muted ancestor. If none of the ancestors is muted, unmuting cascades downwards only.  
+[6] `scheduled_tasks` which are due today or in the future. All `scheduled_tasks` with a due date in the past will remain unchanged.  
+[8] The date represents the device's date when the report is processed.  
+[9] Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.    
+[10] The updated contacts are limited to the contacts available on the device.  
 
 ##### [7] Muting history
 Each time the `muted` state of a contact changes, an entry is added to a `muting_history` list saved in Sentinel `info` docs (stored as an array property with the same name).
@@ -380,6 +405,23 @@ Entries in `muting_history` contain the following information:
 | muted | Boolean representing the muted state |
 | date | Date in ISO Format |
 | report_id | An `_id` reference to the report that triggered the action |
+
+
+##### [11] Client-side Muting history as of 3.12.0
+Each time the client changes the `muted` state of a contact, an entry is added to a `muting_history` property on the contact's doc. The `last_update` entry is also changed to `client_side`.
+The `muting_history` property contains the following information:
+
+| Property | Values | Description | 
+| --- | ---- | ---- |
+| last_update | `server_side` or `client_side` | Updated every time a service updates the contact, with the corresponding value | 
+| server_side | Object |  |
+| server_side.muted | `true` or `false` | Last known server-side muting state |
+| server_side.date | Date in ISO format | Last known server-side muting/unmuting date | 
+| client_side | Array | Client-side muting/unmuting events list. <br> New events are pushed at the end of this list and it should never be re-ordered. <br>The list represents the "chronological" order in which the reports that triggered muting were created. | 
+| client_side[].muted | `true` or `false` | Client-side muting state | 
+| client_side[].date | Date in ISO format | Client-side muting/unmuting date |
+| client_side[].report_id | uuid | The uuid  of the muting/unmuting report that triggered the update |
+
 
 #### Configuration
 Configuration is stored in the `muting` field of `app_settings.json`.
@@ -401,6 +443,16 @@ Supported `events_types` are:
 | `already_unmuted` | On `unmute` action, when target contact is already unmuted |
 | `contact_not_found` | Either mute or unmute actions when target contact is not found |
 
+
+{{% alert title="Note" %}}
+When muting events are processed both client-side and server-side, there is no guarantee that the state of the database will be the same between the two processing events. Some possible cases where the data is changed in significant ways, that will affect the final muting state are:  
+- updated muting settings between client and server processing of the same report / contact
+- editing the muting/unmuting reports before they are synced, but after the transition ran locally, that either change the target contact or change the validity of the report
+- deleting muting/unmuting reports before they are synced   
+- validation rules that depend on database data (for example using the "exists" rule, which will run over different data sets, a report could be valid for the client but invalid for the server and the other way around).
+- conflicts that overwrite `muting_history` for contacts
+- delayed sync for some docs (either contacts or reports) could exacerbate the above because of the "replay" behavior.
+{{% /alert %}}
 
 ##### Example
 
