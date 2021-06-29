@@ -47,6 +47,9 @@ Tasks are configured in the `tasks.js` file. This file is a JavaScript module wh
 ## Utils
 {{< read-content file="apps/reference/_partial_utils.md" >}}
 
+## CHT API
+{{< read-content file="apps/reference/_partial_cht_api.md" >}}
+
 ## Code samples
 
 ### Basic task
