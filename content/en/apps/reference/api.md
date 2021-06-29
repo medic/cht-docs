@@ -965,7 +965,7 @@ HTTP/1.1 200 OK
 
 ### GET /api/v1/users-info
 
-Returns the number of documents an offline user would replicate, along with a `warn` flag if this number exceeds the recommended limit (now set at 10 000).
+Returns the total number of documents an offline user would replicate (`total_docs`), the number of docs excluding tasks the user would replicate (`warn_docs`), along with a `warn` flag if this number exceeds the recommended limit (now set at 10 000).
 
 When the authenticated requester has an offline role, it returns the requester doc count.
 ###### Example
@@ -979,6 +979,7 @@ Content-Type: application/json
 
 {
   "total_docs": 5678,
+  "warn_docs": 4852,
   "warn": false,
   "limit: 10000
 }
@@ -993,6 +994,8 @@ When the requester has an online role, the following query parameters are accept
 | facility_id | String identifier representing the uuid of the user's facility  | true |
 | role | String identifier representing the user role - must be configured as an offline role. Accepts valid UTF-8 JSON array for multiple of roles. | true |
 | contact_id | String identifier representing the uuid of the user's associated contact | false | 
+
+When requested as an online user, the number of tasks are never counted and never returned, so `warn_docs` is always equal to `total_docs`. 
  
 ###### Example
 
@@ -1006,6 +1009,7 @@ Content-Type: application/json
 
 {
   "total_docs": 10265,
+  "warn_docs": 10265,
   "warn": true,
   "limit: 10000
 }
