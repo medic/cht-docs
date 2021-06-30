@@ -134,7 +134,7 @@ Remember to convert and upload your forms
 medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
-**Note**: Remember to setup the [Outbound push]({{< ref "apps/reference/app-settings/outbound" >}}) modules to send data to OpenMRS.
+{{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "apps/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}
 
 
 #### Handling the data
