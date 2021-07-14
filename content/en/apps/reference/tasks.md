@@ -248,4 +248,4 @@ resolvedIf: function (contact, report, event, dueDate) {
 
 To build your tasks into your app, you must compile them into app-settings, then upload them to your instance.
 
-`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
+`cht --local compile-app-settings backup-app-settings upload-app-settings`

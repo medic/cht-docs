@@ -3,24 +3,24 @@ title: "CSV to Docs"
 linkTitle: "CSV to Docs"
 weight: 
 description: >
-  Seeding data with medic-conf
+  Seeding data with cht-conf
 relatedContent: >
   apps/guides/forms/additional-docs
   apps/reference/forms/contact
 ---
 
 
-## Seeding data with medic-conf
+## Seeding data with cht-conf
 
-Users, contacts, and report data can be specified in comma-separated value (CSV) files, then converted to JavaScript Object Notation (JSON) files and uploaded into your instance using [medic-conf](https://github.com/medic/medic-conf). This documentation will cover the CSV notation used, fetching CSV files from Google Sheets, converting the CSV files into JSON docs, and then uploading the data from the JSON files to your instance.
+Users, contacts, and report data can be specified in comma-separated value (CSV) files, then converted to JavaScript Object Notation (JSON) files and uploaded into your instance using [cht-conf](https://github.com/medic/cht-conf). This documentation will cover the CSV notation used, fetching CSV files from Google Sheets, converting the CSV files into JSON docs, and then uploading the data from the JSON files to your instance.
 
 ### Converting CSVs
 
-Running `medic-conf` with the `csv-to-docs` action converts CSV files from the `csv` folder into JSON docs to be uploaded to your instance. The JSON files are stored in the `json_docs` folder. Instructions for creating the CSV files are in sections below.
+Running `cht-conf` with the `csv-to-docs` action converts CSV files from the `csv` folder into JSON docs to be uploaded to your instance. The JSON files are stored in the `json_docs` folder. Instructions for creating the CSV files are in sections below.
 
 ### Uploading CSVs
 
-Running `medic-conf` with the `upload-docs` action will upload the JSON docs that were generated from the CSV files to your instance. For example, running `medic-conf --local upload-docs` will upload the converted docs into your local instance. The target location `--local` can be replaced with an instance or URL. See [medic-conf](https://github.com/medic/medic-conf) for detailed instructions.
+Running `cht-conf` with the `upload-docs` action will upload the JSON docs that were generated from the CSV files to your instance. For example, running `cht --local upload-docs` will upload the converted docs into your local instance. The target location `--local` can be replaced with an instance or URL. See [cht-conf](https://github.com/medic/cht-conf) for detailed instructions.
 
 
 ### Creating CSV files for Contacts, Reports
@@ -305,9 +305,9 @@ p_hc1"username","password","roles","contact","phone","place"
 
 ### Using CSV files on Google Drive
 
-Individual Google Sheets can be used for each CSV file, which can be exported manually to CSV file format, or linked to your project to be downloaded by medic-conf.
+Individual Google Sheets can be used for each CSV file, which can be exported manually to CSV file format, or linked to your project to be downloaded by cht-conf.
 
-To fetch the files from Google Drive run the `fetch-csvs-from-google-drive` action in medic-conf. This will download the CSV files specified in the `csvs-on-google-drive.json` file, and place them into the `csv` folder.
+To fetch the files from Google Drive run the `fetch-csvs-from-google-drive` action in cht-conf. This will download the CSV files specified in the `csvs-on-google-drive.json` file, and place them into the `csv` folder.
 
 #### Linking to Google Drive
 
@@ -321,7 +321,7 @@ The file `csvs-on-google-drive.json` in your project's home directory will consi
 
 ### Google Drive authentication
 
-Medic-conf leverages Google authentication to access Google Drive. You will need to create a client_secrets file named `.gdrive.secrets.json` and place it in your working directory, and [create a token](https://developers.google.com/identity/protocols/OAuth2InstalledApp).
+Cht-conf leverages Google authentication to access Google Drive. You will need to create a client_secrets file named `.gdrive.secrets.json` and place it in your working directory, and [create a token](https://developers.google.com/identity/protocols/OAuth2InstalledApp).
 
 Create the `.gdrive.secrets.json` file by downloading the `client_secrets.json` from Google. You will need a `CLIENT_ID`, `CLIENT_SECRET` and `REDIRECT_URL`. You can find these pieces of information by going to the Developer Console, clicking your project --> APIs & auth --> credentials --> Download JSON. This will download the credentials but will need modified to be in this structure. 
 

@@ -15,7 +15,7 @@ This collection of over 60 beautiful icons was made for use in CHT applications.
 
 Use the `forms_tasks_targets` folder to find PNG and SVG icons for application code. All instances on 2.15.0 and later should be using SVG icons because they are smaller files. If your project has families or households as the lowest level of the hierarchy, use the `people_and_places` folder to swap out icons as needed so your hierarchy has the correct icons.
 
-NOTE: For those using medic-conf to upload resources, make sure you add the correct icons for people and places to your `resources.json` file. Otherwise, uploading resources will inadvertently remove your people and place icons. An issue is being raised in medic-conf to solve this. You'll need to define `medic-clinic`, `medic-health-center`, `medic-district-hospital` and `medic-person` in your `resources.json` and set them to the appropriate SVG files.
+NOTE: For those using cht-conf to upload resources, make sure you add the correct icons for people and places to your `resources.json` file. Otherwise, uploading resources will inadvertently remove your people and place icons. An issue is being raised in cht-conf to solve this. You'll need to define `medic-clinic`, `medic-health-center`, `medic-district-hospital` and `medic-person` in your `resources.json` and set them to the appropriate SVG files.
 
 The design team has put together a resource to help with best practices when selecting and using icons in configuration. Check out the [best practices]({{< ref "design/best-practices#icons"  >}}) to learn more about which icons can be used for which use cases and workflows.
 

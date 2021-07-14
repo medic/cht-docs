@@ -28,7 +28,7 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 *[SMS forms]({{< ref "apps/reference/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
 
-SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `medic-conf` tool, then stored in the settings doc in the database.
+SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool, then stored in the settings doc in the database.
 
 *[SMS gateways]({{< ref "apps/guides/messaging/gateways" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
 
@@ -38,7 +38,7 @@ SMS forms are defined in either the `base_settings.json` or the `app_settings/fo
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}).
+You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}).
 
 You also need to have some [prior knowledge on `app_settings.json`]({{% ref "apps/tutorials/application-settings" %}}).
 
@@ -404,7 +404,7 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 To upload app settings to your local instance, run the following command:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}

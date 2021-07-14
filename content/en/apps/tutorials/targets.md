@@ -31,7 +31,7 @@ You will be adding target widgets that will allow Community Health Workers to tr
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
 
 ## Implementation Steps
 
@@ -100,7 +100,7 @@ module.exports = [
 To compile and upload app settings to your local instance, run the following command:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}

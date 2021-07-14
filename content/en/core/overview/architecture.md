@@ -106,6 +106,6 @@ App Management is a single page application built with [AngularJS](https://angul
 
 [medic-collect](https://github.com/medic/medic-collect) is an android app based on [Open Data Kit](https://opendatakit.org) to render xforms on the phone and send reports in to medic-gateway over SMS or directly to api over mobile data.
 
-### medic-conf
+### cht-conf
 
-[medic-conf](https://github.com/medic/medic-conf) is a command line utility for uploading configuration and bulk importing of records.
+[cht-conf](https://github.com/medic/cht-conf) is a command line utility for uploading configuration and bulk importing of records.

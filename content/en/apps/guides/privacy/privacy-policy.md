@@ -22,9 +22,9 @@ Add these HTML files to the `privacy-policies` folder in your configuration, and
 
 There are two ways to add or edit a privacy policy:
  
-1. Build the privacy policies into the application with the `upload-privacy-policies` action in `medic-conf`.
+1. Build the privacy policies into the application with the `upload-privacy-policies` action in `cht-conf`.
 ```bash
-medic-conf --local upload-privacy-policies
+cht --local upload-privacy-policies
 ```
 
 2. Update and view privacy policies in the [Admin Console]({{< relref "apps/features/admin" >}}), under `Display` > `Privacy Policies`

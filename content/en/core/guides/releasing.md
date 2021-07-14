@@ -10,9 +10,9 @@ description: >
 
 [Create an issue](https://github.com/medic/cht-core/issues/new/choose) for either a Major/Minor or Patch release issue template and assign it to the release manager to follow the process.
 
-## medic-conf
+## cht-conf
 
-Follow the [instructions in the readme](https://github.com/medic/medic-conf/#user-content-releasing).
+Follow the [instructions in the readme](https://github.com/medic/cht-conf/#user-content-releasing).
 
 ## Android apps
 

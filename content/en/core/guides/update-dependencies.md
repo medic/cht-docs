@@ -15,7 +15,7 @@ Every minor release we update dependencies to get the latest fixes and improveme
   - /sentinel
   - /shared-libs/*
   - /webapp
-- medic-conf
+- cht-conf
 
 ## Steps
 

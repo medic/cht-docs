@@ -131,7 +131,7 @@ Here is a sample form snippet followed by sample select list in the choices work
 
 Remember to convert and upload your forms
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
 {{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "apps/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}

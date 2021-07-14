@@ -29,11 +29,11 @@ These sections of the App can be configured from within the Admin Console:
 - **Roles & Permissions**: Fine tuned control of user roles and permissions
 
 
-## App Management vs medic-conf
+## App Management vs cht-conf
 
 In general, everything that can be done in the **Admin Console** can also be done in command line tools, but not everything in the command line tools can be done in the **Admin Console**. 
 
-The **Admin Console** does not track changes. For most app development, using command line tools such as medic-conf and tracking files using a version control system is recommended
+The **Admin Console** does not track changes. For most app development, using command line tools such as cht-conf and tracking files using a version control system is recommended
 
 **In Admin Console But Not Command Line Tools:**
 - User management

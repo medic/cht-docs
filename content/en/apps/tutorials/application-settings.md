@@ -34,7 +34,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 ## Required Resources
 
-You should have a functioning CHT instance and have medic-conf installed locally. {{< see-also page="apps/tutorials/local-setup" title="How to set up a CHT local configuration environment" >}}
+You should have a functioning CHT instance and have cht-conf installed locally. {{< see-also page="apps/tutorials/local-setup" title="How to set up a CHT local configuration environment" >}}
 
 ## Implementation Steps
 
@@ -186,7 +186,7 @@ Configure the CHW role's depth to 2 by adding the following key/value pairs to t
 To upload app settings to your local instance, run the following command:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
+cht-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
