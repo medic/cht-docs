@@ -4,13 +4,7 @@
 #  - Hugo builds the site twice: once for link checking and once minified for pushing live
 #  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
 
-on:
-  push:
-    branches:
-      - '*' # branch checking is below so all this is one CI file
-  pull_request:
-    branches:
-      -  '*' # branch checking is below so all this is one CI file
+on: [push, pull_request]
 
 name: Test site and push live if we're on Master
 jobs:
