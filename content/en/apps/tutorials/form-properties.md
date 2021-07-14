@@ -84,13 +84,13 @@ First, add a `context` key in the `assessment.properties.json` file. Next, add a
 Run the following command from the root folder to upload the resources folder and `resources.json` file:
 
 ```zsh
-cht-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
 ```
 
 Run the following command from the root folder to upload the `assessment.properties.json` file:
 
 ```zsh
-cht-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-forms -- assessment
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-forms -- assessment
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
