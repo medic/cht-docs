@@ -1,48 +1,57 @@
-﻿# Building A Death Report Workflow
+﻿# Death Reporting
 
-#### Guide for setting up a comprehensive death report workflow.
+#### Guide for setting up a comprehensive death report workflow
 
-This tutorial will take you through setting up a comprehensive death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
+{{% pageinfo %}}
+In this tutorial you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
 By the end of the tutorial you should be able to:
 
-- View the death report menu
-- Open, fill and submit a death report form for a contact
-- Display all the deceased contacts of an area
+- Mark a contact as deceased
+- Make app updates which are commonly desired for dead contacts
+{{% /pageinfo %}}
+
+## Brief Overview of Key Concepts
+
+When a contact is marked as deceased within the CHT, the contact will be hidden by default on the contacts tab.
+
+{{< figure src="facility-uuid.png" link="facility-uuid.png" class="right col-6 col-lg-8" >}}	
 
 ## Required resources
 
-Before you begin you need to :
+You will need to:
 
-1. have a working CHT development environment (see docs or this)
-2. Know how to build an app form in the CHT ([https://docs.communityhealthtoolkit.org/apps/tutorials/app-forms/](https://docs.communityhealthtoolkit.org/apps/tutorials/app-forms/))
-3. know how to set form properties ([https://docs.communityhealthtoolkit.org/apps/tutorials/form-properties/](https://docs.communityhealthtoolkit.org/apps/tutorials/form-properties/))
-4. know how to configure tasks ([https://docs.communityhealthtoolkit.org/apps/tutorials/tasks/](https://docs.communityhealthtoolkit.org/apps/tutorials/tasks/))
-5. know about targets ([https://docs.communityhealthtoolkit.org/apps/tutorials/targets/](https://docs.communityhealthtoolkit.org/apps/tutorials/targets/))
-
-We will briefly explain most of these concepts on the fly, but it is important to understand them well in order to get the most out of this guide.
+1. [Configure your application hierarchy]({{% ref "apps/tutorials/application-settings" %}})
+2. [Create some contacts]({{% ref "apps/tutorials/contact-and-users-1" %}})
+3. [Know how to create an app form]({{% ref "apps/tutorials/app-forms" %}})
+4. [Know how to set form properties]({{% ref "apps/tutorials/form-properties" %}})
 
 ## Implementation Steps
 
-### 1. Layout the form
+1. Create a new app form with a name like "Death Report". This will be used to flag a contact as deceased.
+2. Set the form properties to show for contacts that can die.
+3. Enable the [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}).
+4. Make some recommended updates to tasks, targets, and contact-summary.
 
-To create the form view, the first step is to create the XLSX file that best matches the proposed design. It should be noted that a death report form is not very long (usually two pages, one for filling in the elements of the report and another for the summary). An example death form XLSX file below:
+### 1. Create the death form
 
-| name | label |
-| ---- | ----- |
-|      |       |
+Create a [new app form]({{% ref "apps/tutorials/app-forms" %}}) with your desired experience for reporting a death. Or you can use the `death_report.xlsx` and `death_report.properties.json` files [from this reference application](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
 
-Then you have to compile the form through the medic-conf tool to convert it into a view in the application.
-The form compilation phase then generates two additional files. An <form_code>.xml file which actually corresponds to the file loaded and interpreted by the CHT for the view and another <form_code> .properties.json file. <form_code> being the form identifier (very often the identifier is also the name of the lowercase form with spaces replaced by underscores). We will not touch the XML file, it is just a file generated directly from the XLSX file. The file that interests us for the rest is the <form_code> .properties.json.
+If you want to ask the user for the date of the contact's death, using a field of type `date`. This information will be used in step 3.
 
 ### 2. Edit the form properties.json file
 
-The <form_name>.properties.json file allows you to add logic that ensures that the right action appears for the right contacts (people and places). For instance, a death form will only appear for person contacts on the CHT who are alive. You can learn more about form properties here ([https://docs.communityhealthtoolkit.org/apps/tutorials/form-properties/](https://docs.communityhealthtoolkit.org/apps/tutorials/form-properties/))
-In our case, if the file doesn’t already exist, you’ll create a file named <form_name>.properties.json in the forms/app folder. Then open that file and add the following code.
+It doesn't really make sense to have "places" in your hierarchy that can be deceased. It also doesn't make sense for somebody who is dead to die again. But can the administration of a health facility die? That is for you to decide.
+
+This snippet is an example properties file which constrains the death form to show only for contacts which:
+
+1. Have a [contact_type with "person: true"]({{% ref "apps/reference/app-settings/hierarchy" %}})
+2. Are currently alive
+3. Are patients within a family
 
 ```json
 {
 	"context":  {
-		"expression":  "contact.type === 'person' && summary.alive && !summary.muted && user.parent.type === 'health_center'",
+		"expression":  "!contact.date_of_death && user.parent.contact_type === 'family'",
 		"person":  true,
 		"place":  false
 	},
@@ -51,28 +60,14 @@ In our case, if the file doesn’t already exist, you’ll create a file named <
 		{
 			"locale":  "en",
 			"content":  "Report death"
-		},
-		{
-			"locale":  "fr",
-			"content":  "Signaler un décès"
 		}
 	]
 }
 ```
 
-The code below is made up of 3 sections (context, icon and title):
+### 3. Enable the death_reporting transition
 
-- the context is the section which allows to define the display rules of the form. In our case we have 3 rules which basically allow us to restrict our form to person type contact who are alive, not muted and who belong to a health center. This rule is not fixed and needs to be adapted. But for the most part this is what we need for a death form.
-- the icon is the part where we define the icon of the death form. This icon appears in the actions menu next to the button that opens the death form.
-- the title is the part where we define the title of the action button that opens the death form. In our case we have an array of two elements in the title section. This is to manage the translations. Our two elements correspond to the titles in English and French.
-
-### 3. Edit the app_settings.json file
-
-As the name suggests, all the settings that control our application are done in this file. For more information on this file, please refer to [this documentation page](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/). It is a very large file, but there is just a small part that interests us in this file and that is the part of the transitions.
-
-Transitions are functions executed when database documents change. When sentinel detects a document has changed it runs transitions against the doc. These transitions can be used to generate a short form patient id or assign a report to a facility.
-
-We need to declare transitions for our death reporting workflow. To do this, look for the `transitions` section in the `app_settings.json` file. If the section exists, add the following code `"death_reporting": true` else create the section and add the previous code. At the end, the transitions should look like this :
+Enable the [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}) transition.
 
 ```json
 "transitions": {
@@ -81,7 +76,7 @@ We need to declare transitions for our death reporting workflow. To do this, loo
  }
 ```
 
-Just below the transitions, add the following code:
+Add the following section:
 
 ```json
 "death_reporting": {
@@ -92,10 +87,67 @@ Just below the transitions, add the following code:
  }
 ```
 
-### 4. Work on the contact summary files
+ The `date_field` is optional. If a date of death is not provided, the date of the death report will be used. If your form has a field of type `date` asking for the date of the contact, use a path to that field in `date_field`.
 
-### 5. Disable tasks and targets
+### 4. Test the system
 
-### 6. Prevent the display of other forms for deceased persons
+1. Create a contact that you expect to be able to die. View the contact's profile in the contacts tab.
+2. Click on the "+ New Action" tab. You should see your "Death Report" form there with an appropriate title and icon.
+3. Select and complete your Death Report.
+4. View the "place" containing the deceased contact in the contacts tab. The contact will not appear as "deceased"
+5. Sync your documents (this pushes the death report to the server)
+6. Sync your documents again (this pulls down the transitioned contact document from the server)
+7. The contact should now be hidden and accessable only via the "View deceased" flyout
+8. If you specified a `date_field` in Step 3, confirm that the `date_of_death` attribute on the deceased contact matches the selected date in the death report.
 
-### 7. Work on translations
+### Recommended updates
+
+#### Disable tasks for deceased contacts
+
+If a contact is dead, you probably don't want to recommend that your users complete [Tasks]({{% ref "apps/features/tasks" %}}) for them. You can update your tasks's [appliesIf]({{% ref "apps/reference/tasks#tasksjs" %}}) function
+
+```javascript
+{
+  appliesIf: (contact) => !contact.date_of_death && myLogic,
+}
+```
+
+#### Prevent the display of other forms for deceased persons
+
+You typically don't want to do health assessments for deceased patients, so you'll need to update your other app form's `properties.json` files to not display for dead contacts.
+
+```json
+{
+	"context":  {
+		"expression":  "!contact.date_of_death && myLogic",
+    ...
+	},
+}
+```
+
+#### Condition card for "Date of Death"
+
+On your [contact page]({{% ref "apps/reference/apps/reference/contact-page" %}}) you might want to add a condition card to display the date of the patient's death.
+
+```javascript
+const cards = [
+  {
+    label: 'contact.profile.death.title',
+    appliesToType: 'person',
+    appliesIf: () => contact && contact.date_of_date,
+    fields: () => ([
+      { 
+        label: 'contact.profile.death.date', 
+        value: contact.date_of_death, 
+        filter: 'simpleDate', 
+        translate: false, 
+        width: 6
+      }
+    ]),
+  }
+];
+```
+
+## Undoing a death report
+
+Create a new app form to undo a death report. Add it to `undo_deceased_forms` (similar to `mark_deceased_forms`) in app_settings step 3 above.
