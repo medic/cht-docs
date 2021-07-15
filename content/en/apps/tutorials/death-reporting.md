@@ -1,4 +1,14 @@
-﻿# Death Reporting
+﻿---
+title: "Building Death Report Workflows"
+linkTitle: Death Report Workflow
+weight: 11
+description: >
+  Building Death Report Workflows
+relatedContent: >
+  apps/reference/app-settings/transitions#death_reporting
+---
+
+# Death Reporting
 
 #### Guide for setting up a comprehensive death report workflow
 
@@ -6,17 +16,17 @@
 In this tutorial you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
 By the end of the tutorial you should be able to:
 
-- Mark a contact as deceased
-- Make app updates which are commonly desired for dead contacts
+- Mark select contacts as deceased
+- Make relevant app updates for dead contacts
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
 When a contact is marked as deceased within the CHT, the contact will be hidden by default on the contacts tab.
 
-{{< figure src="facility-uuid.png" link="facility-uuid.png" class="right col-6 col-lg-8" >}}	
+{{< figure src="contacts-tab-with-deceased.png" link="contacts-tab-with-deceased.png" class="right col-6 col-lg-8" >}}	
 
-## Required resources
+## Required Resources
 
 You will need to:
 
@@ -32,13 +42,13 @@ You will need to:
 3. Enable the [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}).
 4. Make some recommended updates to tasks, targets, and contact-summary.
 
-### 1. Create the death form
+### 1. Create the Death Form
 
 Create a [new app form]({{% ref "apps/tutorials/app-forms" %}}) with your desired experience for reporting a death. Or you can use the `death_report.xlsx` and `death_report.properties.json` files [from this reference application](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
 
 If you want to ask the user for the date of the contact's death, using a field of type `date`. This information will be used in step 3.
 
-### 2. Edit the form properties.json file
+### 2. Edit the Form Properties.json File
 
 It doesn't really make sense to have "places" in your hierarchy that can be deceased. It also doesn't make sense for somebody who is dead to die again. But can the administration of a health facility die? That is for you to decide.
 
@@ -65,7 +75,7 @@ This snippet is an example properties file which constrains the death form to sh
 }
 ```
 
-### 3. Enable the death_reporting transition
+### 3. Enable the `death_reporting` Transition
 
 Enable the [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}) transition.
 
@@ -89,7 +99,7 @@ Add the following section:
 
  The `date_field` is optional. If a date of death is not provided, the date of the death report will be used. If your form has a field of type `date` asking for the date of the contact, use a path to that field in `date_field`.
 
-### 4. Test the system
+### 4. Test
 
 1. Create a contact that you expect to be able to die. View the contact's profile in the contacts tab.
 2. Click on the "+ New Action" tab. You should see your "Death Report" form there with an appropriate title and icon.
@@ -104,17 +114,18 @@ Add the following section:
 
 #### Disable tasks for deceased contacts
 
-If a contact is dead, you probably don't want to recommend that your users complete [Tasks]({{% ref "apps/features/tasks" %}}) for them. You can update your tasks's [appliesIf]({{% ref "apps/reference/tasks#tasksjs" %}}) function
+If a contact is dead, you probably don't want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "apps/reference/tasks#tasksjs" %}}).
 
 ```javascript
 {
   appliesIf: (contact) => !contact.date_of_death && myLogic,
+  ...
 }
 ```
 
 #### Prevent the display of other forms for deceased persons
 
-You typically don't want to do health assessments for deceased patients, so you'll need to update your other app form's `properties.json` files to not display for dead contacts.
+You typically don't want to do things like health assessments for deceased patients. If this is the case, so you'll need to update your other app form's `properties.json` files to only display for alive contacts.
 
 ```json
 {
@@ -127,7 +138,7 @@ You typically don't want to do health assessments for deceased patients, so you'
 
 #### Condition card for "Date of Death"
 
-On your [contact page]({{% ref "apps/reference/apps/reference/contact-page" %}}) you might want to add a condition card to display the date of the patient's death.
+On your [contact page]({{% ref "apps/reference/apps/reference/contact-page" %}}) you may want to add a condition card to display the date of the patient's death.
 
 ```javascript
 const cards = [
@@ -150,4 +161,4 @@ const cards = [
 
 ## Undoing a death report
 
-Create a new app form to undo a death report. Add it to `undo_deceased_forms` (similar to `mark_deceased_forms`) in app_settings step 3 above.
+To undo a death report, you'll need to create a new app form to undo the death report. Add it to `undo_deceased_forms` (similar to `mark_deceased_forms`) in app_settings step 3 above.
