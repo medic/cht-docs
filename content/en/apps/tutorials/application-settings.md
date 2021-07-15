@@ -186,7 +186,7 @@ Configure the CHW role's depth to 2 by adding the following key/value pairs to t
 To upload app settings to your local instance, run the following command:
 
 ```zsh
-cht-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
