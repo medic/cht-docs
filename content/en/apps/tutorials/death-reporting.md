@@ -46,13 +46,13 @@ You will need to:
 
 Create a [new app form]({{% ref "apps/tutorials/app-forms" %}}) with your desired experience for reporting a death. Or you can use the `death_report.xlsx` and `death_report.properties.json` files [from this reference application](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
 
-If you want to ask the user for the date of the contact's death, using a field of type `date`. This information will be used in step 3.
+If you want to ask the user for the date of the contact's death, use a field of type `date`. This information will be used in step 3.
 
 ### 2. Edit the Form Properties.json File
 
-It doesn't really make sense to have "places" in your hierarchy that can be deceased. It also doesn't make sense for somebody who is dead to die again. But can the administration of a health facility die? That is for you to decide.
+It doesn't make sense to have "places" in your hierarchy that can be deceased. It also doesn't make sense for somebody who is dead to die again. But can the administration of a health facility die? That is for you to decide.
 
-This snippet is an example properties file which constrains the death form to show only for contacts which:
+This snippet is an example [form properties file]({{% ref "apps/tutorials/form-properties" %}}) which constrains the death form to show only for contacts which:
 
 1. Have a [contact_type with "person: true"]({{% ref "apps/reference/app-settings/hierarchy" %}})
 2. Are currently alive
