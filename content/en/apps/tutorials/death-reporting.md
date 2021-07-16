@@ -46,7 +46,7 @@ You will need to:
 
 Create a [new app form]({{% ref "apps/tutorials/app-forms" %}}) with your desired experience for reporting a death. Or you can use the `death_report.xlsx` and `death_report.properties.json` files [from this reference application](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
 
-If you want to ask the user for the date of the contact's death, use a field of type `date`. This information will be used in step 3.
+It is common to want to know the date of death, place of death, or cause of death when reporting a death. If you want to ask date of the contact's death, use a field of type `date`. This information will be used again in step 3.
 
 ### 2. Edit the Form Properties.json File
 
@@ -54,9 +54,9 @@ It doesn't make sense to have "places" in your hierarchy that can be deceased. I
 
 This snippet is an example [form properties file]({{% ref "apps/tutorials/form-properties" %}}) which constrains the death form to show only for contacts which:
 
-1. Have a [contact_type with "person: true"]({{% ref "apps/reference/app-settings/hierarchy" %}})
-2. Are currently alive
-3. Are patients within a family
+1. Are currently alive
+2. Are within a family
+3. Have a [contact_type with "person: true"]({{% ref "apps/reference/app-settings/hierarchy" %}})
 
 ```json
 {
@@ -77,18 +77,16 @@ This snippet is an example [form properties file]({{% ref "apps/tutorials/form-p
 
 ### 3. Enable the `death_reporting` Transition
 
-Enable the [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}) transition.
+The [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}) will process your death report and update the deceased contact document by adding a `date_of_death` attribute to the document.
+
+
+To enable death reporting:
 
 ```json
 "transitions": {
     ...,
     "death_reporting": true
- }
-```
-
-Add the following section:
-
-```json
+ },
 "death_reporting": {
     "mark_deceased_forms": [
       "death_report"
@@ -109,12 +107,13 @@ Add the following section:
 6. Sync your documents again (this pulls down the transitioned contact document from the server)
 7. The contact should now be hidden and accessable only via the "View deceased" flyout
 8. If you specified a `date_field` in Step 3, confirm that the `date_of_death` attribute on the deceased contact matches the selected date in the death report.
+9. Create contacts that you **do not expect** to be able to die. View the contact's profiles and confirm the "Death Report" does not show in the "+ New Action" tab.
 
 ### Recommended updates
 
 #### Disable tasks for deceased contacts
 
-If a contact is dead, you probably don't want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "apps/reference/tasks#tasksjs" %}}).
+If a contact is dead, you may want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "apps/reference/tasks#tasksjs" %}}).
 
 ```javascript
 {
@@ -125,7 +124,7 @@ If a contact is dead, you probably don't want to disable the majority of tasks f
 
 #### Prevent the display of other forms for deceased persons
 
-You typically don't want to do things like health assessments for deceased patients. If this is the case, so you'll need to update your other app form's `properties.json` files to only display for alive contacts.
+You typically don't want users doing actions like "health assessment" for deceased contacts. You can achieve this by updating your other app form's `properties.json` files to only display for alive contacts.
 
 ```json
 {
@@ -158,6 +157,10 @@ const cards = [
   }
 ];
 ```
+
+#### Targets
+
+Should your targets count deceased contacts in the denominator? This change is left as an exercise for the reader.
 
 ## Undoing a death report
 
