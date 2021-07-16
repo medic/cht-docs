@@ -25,7 +25,7 @@ By the end of the tutorial you should be able to:
 
 *CHT Core Framework* The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are offline-first, and work on basic phones (via SMS), smartphones, tablets, and computers.
 
-*Medic Project Configurer* a.k.a ***medic-conf*** is command-line interface tool to manage and configure CHT apps.
+*CHT Project Configurer* a.k.a ***cht-conf*** is command-line interface tool to manage and configure CHT apps.
 
 *Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.  
 
@@ -64,26 +64,26 @@ Once the command is done running, navigate to [https://localhost](https://localh
 
 If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide.
 
-This CHT instance is empty and has no data in it.  While you're free to explore and add your own data, in step 3 below we'll upload sample data.  Proceed to step 2 to install `medic-conf` which is needed to upload the test data.
+This CHT instance is empty and has no data in it.  While you're free to explore and add your own data, in step 3 below we'll upload sample data.  Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 
 <br clear="all">
 
  *****
 
-### 2. Install medic-conf
+### 2. Install cht-conf
 
-Using npm and python on your terminal, install medic-conf and pyxform globally using the following commands:
+Using npm and python on your terminal, install cht-conf and pyxform globally using the following commands:
 
 ```shell
-npm install -g medic-conf
-sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
+npm install -g cht-conf
+sudo python -m pip install git+https://github.com/medic/pyxform.git@cht-conf-1.17#egg=pyxform-medic
 ```
 
-{{< figure src="confirm-medic-conf.png" link="confirm-medic-conf.png" class="right col-6 col-lg-8" >}}
+{{< figure src="confirm-cht-conf.png" link="confirm-cht-conf.png" class="right col-6 col-lg-8" >}}
 
-You can confirm that the installation was successful by typing `medic-conf` in your terminal.
+You can confirm that the installation was successful by typing `cht` in your terminal.
 
-If you have trouble installing `medic-conf`, see the application's [GitHub repository](https://github.com/medic/medic-conf) for more information.
+If you have trouble installing `cht-conf`, see the application's [GitHub repository](https://github.com/medic/cht-conf) for more information.
 
  <br clear="all">
 
@@ -91,15 +91,15 @@ If you have trouble installing `medic-conf`, see the application's [GitHub repos
 
 ### 3. Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "apps/examples/anc" >}}) installed. To upload demo data you can use `medic-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "apps/examples/anc" >}}) installed. To upload demo data you can use `cht-conf`:
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
 - Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
-- Run the following `medic-conf` command to compile and upload default test data to your local instance: 
+- Run the following `cht-conf` command to compile and upload default test data to your local instance: 
 
 ```shell  
-medic-conf --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`.
+cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`.
 ```
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
@@ -112,24 +112,24 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 {{% alert title="Note" %}} This step will erase the default Maternal & Newborn Health Reference Application. {{% /alert %}}
 
-With `medic-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
+With `cht-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
 
 ```shell
 mkdir cht-app-tutorials
 cd cht-app-tutorials
-medic-conf initialise-project-layout
+cht initialise-project-layout
 ```
 
 Then deploy the blank project onto your local test environment with the command:
 
 ```shell
-medic-conf --url=https://medic:password@localhost --accept-self-signed-certs
+cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
 {{< figure src="all-actions-completed.png" link="all-actions-completed.png" class="right col-6 col-lg-8" >}}
 
 
-`accept-self-signed-certs` tells medic-conf that it’s OK that the server’s certificate isn’t signed properly, which will be the case when using docker locally.
+`accept-self-signed-certs` tells cht-conf that it’s OK that the server’s certificate isn’t signed properly, which will be the case when using docker locally.
 
 Once you have run the above command it should complete with the message: `INFO All actions completed.`.
 
@@ -163,7 +163,7 @@ If no errors output above, certificates successfully installed.
 
 The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.my.local-ip.co`.  See the [local-ip.co](http://local-ip.co/) site to read more about these free to use certificates. 
 
-When using `medic-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.my.local-ip.co`. As well, you can now use this URL to test with the CHT Android app.
+When using `cht-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.my.local-ip.co`. As well, you can now use this URL to test with the CHT Android app.
 
 ## Frequently Asked Questions
 

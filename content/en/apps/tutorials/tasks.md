@@ -38,7 +38,7 @@ You will be configuring a task that allows Community Health Workers to conduct a
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
 
 ## Implementation Steps
 
@@ -123,12 +123,12 @@ forms/app
 To build your tasks into your app, you must compile them into app-settings, then upload them to your instance. 
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings backup-app-settings upload-app-settings
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings backup-app-settings upload-app-settings
 ```
 
 Remember to convert and upload your assessment_follow_up form
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment_follow_up
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment_follow_up
 ```
 
 ## Frequently Asked Questions

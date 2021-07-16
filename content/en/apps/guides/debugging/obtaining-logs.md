@@ -16,12 +16,12 @@ To check if there are relevant logs open up the developer console. The shortcut 
 
 ## Server logs
 
-The easiest way is to use `medic-logs`, a tool that comes with [`medic-conf`](https://github.com/medic/medic-conf):
+The easiest way is to use `cht-logs`, a tool that comes with [`cht-conf`](https://github.com/medic/cht-conf):
 
 ```
-medic-logs anInstance gardener
+cht-logs anInstance gardener
 ```
 
-See [medic-logs documentation](https://github.com/medic/medic-conf#user-content-fetching-logs) for more details.
+See [cht-logs documentation](https://github.com/medic/cht-conf#user-content-fetching-logs) for more details.
 
 This will download logs to your current directory. You will need to look through these logs to work out what is relevant.

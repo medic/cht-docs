@@ -10,7 +10,7 @@ relatedContent: >
 keywords: workflows
 ---
 
-Schedules are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `medic-conf` tool.
+Schedules are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool.
 
 The `schedules` key contains an array of schedule objects, each representing the messages to send based on a registration.
 

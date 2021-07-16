@@ -318,7 +318,7 @@ document, use the backtick (`).
 | Do | Don't |
 |---|---|
 | The `grunt dev-webapp` command builds and deploys the webapp. | The "grunt dev-webapp" command creates a Deployment. |
-| To upload the configuration from your current directory, use `medic-conf --local`. | To upload the configuration from your current directory, use "medic-conf --local". |
+| To upload the configuration from your current directory, use `cht --local`. | To upload the configuration from your current directory, use "cht --local". |
 | Enclose code samples with triple backticks. `(```)` | Enclose code samples with any other syntax. |
 
 

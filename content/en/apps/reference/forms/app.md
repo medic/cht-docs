@@ -35,7 +35,7 @@ In between the `inputs` and the closing group is the form flow - a collection of
 
 ## XLSForm
 
-Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [medic-conf](https://github.com/medic/medic-conf) command line configurer tool to [convert them to XForm format](#build).
+Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [cht-conf](https://github.com/medic/cht-conf) command line configurer tool to [convert them to XForm format](#build).
 
 | type | name | label | relevant | appearance | calculate | ... |
 |---|---|---|---|---|---|---|
@@ -218,6 +218,6 @@ In this sample properties file, the associated form would only show on a person'
 
 ## Build
     
-Convert and build the app forms into your application using the `convert-app-forms` and `upload-app-forms` actions in `medic-conf`.
+Convert and build the app forms into your application using the `convert-app-forms` and `upload-app-forms` actions in `cht-conf`.
 
-    medic-conf --local convert-app-forms upload-app-forms
+    cht --local convert-app-forms upload-app-forms

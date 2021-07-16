@@ -24,7 +24,7 @@ You will be adding meta-data and context to an assessment workflow that allows C
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
 
 ## Implementation Steps
 
@@ -84,13 +84,13 @@ First, add a `context` key in the `assessment.properties.json` file. Next, add a
 Run the following command from the root folder to upload the resources folder and `resources.json` file:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
 ```
 
 Run the following command from the root folder to upload the `assessment.properties.json` file:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-forms -- assessment
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-forms -- assessment
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}

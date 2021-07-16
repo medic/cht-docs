@@ -35,7 +35,7 @@ You will be building assessment workflow that allows Community Health Workers to
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) already.
+You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) already.
 
 ## Implementation Steps
 
@@ -117,7 +117,7 @@ project-name
 To convert and upload the form to your local instance, run the following command from the root folder:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}

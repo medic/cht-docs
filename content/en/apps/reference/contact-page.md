@@ -172,4 +172,4 @@ module.exports = {
 
 To update the Contact profiles for an app, changes must be compiled into `app-settings`, then uploaded.
 
-`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
+`cht --local compile-app-settings backup-app-settings upload-app-settings`
