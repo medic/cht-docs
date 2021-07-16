@@ -138,7 +138,7 @@ You typically don't want to do things like health assessments for deceased patie
 
 #### Condition card for "Date of Death"
 
-On your [contact page]({{% ref "apps/reference/apps/reference/contact-page" %}}) you may want to add a condition card to display the date of the patient's death.
+On your [contact page]({{% ref "apps/reference/contact-page" %}}) you may want to add a condition card to display the date of the patient's death.
 
 ```javascript
 const cards = [
