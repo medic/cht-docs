@@ -18,14 +18,13 @@ Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/r
 After meeting these requirements, download the two developer YAML files in the directory you want to store them:
 
 ```shell script
-curl -o docker-compose-developer-base.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose-developer-base.yml
-curl -o docker-compose-developer-storage.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
+curl -o docker-compose-developer.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose-developer-base.yml
 ```
 
 To start the first developer CHT instance, run `docker-compose` and specify the two files that were just download:
 
 ```shell script
-docker-compose -f docker-compose-developer-base.yml -f docker-compose-developer-storage.yml up
+docker-compose -f docker-compose-developer.yml up
 ```
 
 This script may take some minutes to fully start depending on the speed of the Internet connection speed of the bare metal host.  After it has completed, the CHT should be accessible on [https://localhost](https://localhost).
@@ -34,21 +33,14 @@ This script may take some minutes to fully start depending on the speed of the I
 
 After running the first instance of the CHT, it's easy to run as many more as are needed.  This is achieved by specifying different:
 
-* ports for `HTTP` and `HTTPS` traffic (`CHT_HTTP` and `CHT_HTTPS`)
-* storage volume to keep all the CHT data (`CHT_DATA`)
+* port for `HTTP` redirects (`CHT_HTTP`)
+* port for `HTTPS` traffic (`CHT_HTTPS`)
 * project to for the docker compose call (`-p PROJECT`)
 
-Assuming you want to start a new project called `the_second`, copy the volume YAML file to a new one then replace the volume name inside it with sed:
+Assuming you want to start a new project called `the_second` and  start the instance on `HTTP` port `8081` and `HTTPS` port `8443`, this would be the command:
 
 ```shell script
-cp docker-compose-developer-storage.yml docker-compose-developer-the_second-storage.yml`
-sed -e 's/medic-data/the_second/' -i docker-compose-developer-the_second-storage.yml
-```
-
-Now start the instance on `CHT_HTTP` and `CHT_HTTPS` ports, a new project, and  the same `CHT_DATA` volume name used in the `sed` command above:
-
-```shell
-CHT_DATA=the_second CHT_HTTP=8081 CHT_HTTPS=8443 docker-compose -p the_second -f docker-compose-developer-base.yml -f docker-compose-developer-the_second-storage.yml up
+CHT_HTTP=8081 CHT_HTTPS=8443 docker-compose -p the_second -f docker-compose-developer.yml up
 ```
 
 The second instance is now accessible at  [https://localhost:8443](https://localhost:8443).

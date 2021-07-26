@@ -34,7 +34,7 @@ export DOCKER_COUCHDB_ADMIN_PASSWORD=<random_pw>
 
 Inside the directory that you saved the above `docker-compose.yml`, run:
 ```
-$ docker-compose -f docker-compose.yml up
+$ docker-compose up
 ```
 {{% alert title="Note" %}}
 In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.
