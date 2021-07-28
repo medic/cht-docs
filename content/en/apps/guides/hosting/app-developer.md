@@ -18,7 +18,7 @@ Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/r
 After meeting these requirements, download the developer YAML file in the directory you want to store them:
 
 ```shell script
-curl -o docker-compose-developer.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose-developer-base.yml
+curl -o docker-compose-developer.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose-developer.yml
 ```
 
 To start the first developer CHT instance, run `docker-compose` and specify the file that was just download:
