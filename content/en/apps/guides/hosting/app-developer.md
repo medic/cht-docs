@@ -27,7 +27,7 @@ To start the first developer CHT instance, run `docker-compose` and specify the 
 docker-compose -f docker-compose-developer.yml up
 ```
 
-This may take some minutes to fully start depending on the speed of the Internet connection and speed of the bare-metal host.  After it has completed, the CHT should be accessible on [https://localhost](https://localhost).
+This may take some minutes to fully start depending on the speed of the Internet connection and speed of the bare-metal host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost](https://localhost).
 
 When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" (see [screenshot](/apps/tutorials/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
 
