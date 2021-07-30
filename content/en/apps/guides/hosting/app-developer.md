@@ -91,5 +91,3 @@ Using the above two configurations, these URLs could work to avoid the cookie co
 * [https://127.0.0.2:8443](https://127.0.0.2:8443)
 
 This would result in the domains being `127.0.0.1` and `127.0.0.2` from the CHT's perspective.
-
-Another work around is to use incognito mode, [browser containers](https://support.mozilla.org/en-US/kb/containers) or different browsers.
