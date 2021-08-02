@@ -49,7 +49,7 @@ The second instance is now accessible at  [https://localhost:8443](https://local
 
 ## The `.env` file 
 
-Often times it's convenient to use revision control, like GitHub, to store and publish changes in a CHT app.  A nice compliment to this is store the specifics on how to run the `docker-compose` command for each app. By using a shared `docker-compose` configuration for all developers on the same app, it avoids any port collisions and enables all developers to have a unified configuration.
+Often times it's convenient to use revision control, like GitHub, to store and publish changes in a CHT app.  A nice compliment to this is to store the specifics on how to run the `docker-compose` command for each app. By using a shared `docker-compose` configuration for all developers on the same app, it avoids any port collisions and enables all developers to have a unified configuration.
 
 Using the above `the_second` sample project, we can create another directory to host this project's configuration:
 
