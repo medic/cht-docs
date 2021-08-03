@@ -95,7 +95,7 @@ To enable death reporting:
  }
 ```
 
- The `date_field` is optional. If a date of death is not provided, the date of the death report will be used. If your form has a field of type `date` asking for the date of the contact, use a path to that field in `date_field`.
+ The `date_field` is optional. If a date of death is not provided, the date of the death report will be used. If your form has a field of type `date` asking for the date of the contact's death, use a path to that field in `date_field`.
 
 ### 4. Test
 
