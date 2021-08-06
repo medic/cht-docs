@@ -484,6 +484,23 @@ providing a length property for a collection class.
 
 [sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
 
+## NPM Dependencies
+
+When picking version ranges we set an exact minimum version and an upper limit of the next major. This makes it easy to update dependencies without hitting breaking changes. In NPM this is done by using the `^` character which is the default setting for NPM.
+
+Occasionally it is required to set an exact version to avoid an undeclared breaking change or some other issue, in this case the dependency can be specified exactly.
+
+*Right:*
+
+- `"^6.5.3"` - preferred
+- `"6.5.3"` - if required
+
+*Wrong:*
+
+- `">6.5.3"` - risks picking up breaking changes in the next major
+- `"*"` - as above but also doesn't specify a minimum
+- `"~6.5.3"` - too restrictive on the upper limit
+
 ## Github Actions
 
 ### Managing Secrets
