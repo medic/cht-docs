@@ -111,11 +111,13 @@ Example of getting the data from the contact and assigning it to the fields necc
  
 ### Android App Launcher
 
-_Available in +3.13.0 and in Android device only_
+_Available in +3.13.0_
 
-Use the Android App Launcher widget in an app form to configure an Android intent to launch an app installed in the mobile device, the widget will send values from input fields type `text` to the app and will assign the app's response into output fields type `text`, the only supported field type is `text`. The widget will display automatically a button to launch the app.
+This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. 
 
-To define the widget, create a `group` with the appearance `android-app-launcher`, then define the [Android intent](https://developer.android.com/reference/android/content/Intent) fields with type `text`, these fields (action, category, type, uri, packageName and flags) are optional. Every Android app have specific ways of launching with intents, check that information in the app's site and assign the corresponding values in the `default` column, see example below:
+Use the Android App Launcher widget in a form to configure an intent to launch an Android app installed in the mobile device. The widget will send values from input fields type `text` to the app and will assign the app's response into output fields type `text`. The only supported field type is `text`. The widget will automatically display a button to launch the app.
+
+To define the widget, create a `group` with the appearance `android-app-launcher`, then define the [Android intent](https://developer.android.com/reference/android/content/Intent) fields with type `text`. The fields `action`, `category`, `type`, `uri`, `packageName` and `flags` are optional. Every Android app has specific ways of launching with intents, so check the app's documentation and assign the corresponding values in the `default` column. See example below:
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
