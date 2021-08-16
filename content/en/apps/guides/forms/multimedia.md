@@ -111,3 +111,15 @@ To use fauxton.
  1. Upload the multimedia file and ensure the name matches what has been defined in the form.
 
 
+ ### Uploading with CHT-conf
+
+ Multimedia files can be uploaded when running CHT-conf to upload your forms. 
+ 
+ To include the files:
+  
+  1. Create a directory `{form_name}-media`. EX: `config/default/forms/app/delivery-media` 
+  1. Add multimedia files to  `{form_name}-media\image.png`.  EX: `config/default/forms/app/delivery-media/health_baby.png` 
+  1. Run `cht-conf upload-app-forms`
+  1. Confirm image is uploaded in CHT app.
+
+

@@ -17,7 +17,7 @@ App forms are defined by the following files:
 - A XML form definition using a CHT-enhanced ODK XForm format
 - A XLSForm form definition, easier to write and converts to the XForm (optional)
 - Meta information in the `{form_name}.properties.json` file (optional)
-- Media files in the `{form_name}-media` directory (optional)
+- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "apps/guides/forms/multimedia" >}} ).
 
 ## XForm
 
