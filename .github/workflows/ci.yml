@@ -11,6 +11,7 @@ jobs:
   BuildLinkCheckPushLive:
     name:
     runs-on: ubuntu-18.04
+    timeout-minutes: 15
     steps:
 
       - name: All Branches - Git checkout, including recursive call for Docsy theme
