@@ -134,4 +134,12 @@ You need to prepare your resources (icons and application ID) then add the new a
 
 {{% alert title="Note" %}} Ensure you upload the `.pepk` file so that the optimized `.apk` generated can be configured to use the same signing and upload signatures by Google. {{% /alert %}}
 
+### 5. Updating the Play Store App
+
+{{% alert title="Note" %}} It is mandatory that you update files using the same extension, i.e. ff the app was released as an APK instead of AAB, you must upload it as an APK file. {{% /alert %}}
+
+- Rebuild the signed updated AAB or APK file to a new version
+- Follow the steps in `4.` above
+
+
 ![medic-android set up on Android Studio](android-wrapper.png "Medic Android set up on Android Studio")
