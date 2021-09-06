@@ -45,62 +45,13 @@ You need to prepare your resources (icons and application ID) then add the new a
 ### 1. Adding the new brand/application
 
 - Clone the [cht-android](https://github.com/medic/cht-android) repo
-- add `productFlavors { <new_brand> { ... } }` in `build.gradle` e.g.
-```
-  new_brand {
-    dimension = 'brand'
-    applicationId = 'org.medicmobile.webapp.mobile.new_brand'
-  }
-```
-- add icons, strings etc. in `src/<new_brand>`. The `src/new_brand/res/values/strings.xml` file is mandatory, e.g.
-```
-  <?xml version="1.0" encoding="utf-8"?>
-  <resources>
-    <string name="app_name">New Brand</string>
-    <string name="app_host">new_brand.app.medicmobile.org</string>
-  </resources>
-```
-- to enable automated deployments, add the `new_brand` to `.github/workflows/publish.yml`
-```
-  - name: Unpack secrets new_brand
-    env:
-      ANDROID_SECRETS_KEY: ${{ secrets.ANDROID_SECRETS_KEY_NEW_BRAND }}
-      ANDROID_SECRETS_IV: ${{ secrets.ANDROID_SECRETS_IV_NEW_BRAND }}
-    run: make org=new_brand keydec
-
-  - name: Assemble new_brand
-    uses: maierj/fastlane-action@v1.4.0
-    with:
-      lane: build
-      options: '{ "flavor": "new_brand" }'
-    env:
-      ANDROID_KEYSTORE_PATH: new_brand.keystore
-      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_NEW_BRAND }}
-      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_NEW_BRAND }}
-
-  - name: Bundle new_brand
-    uses: maierj/fastlane-action@v1.4.0
-    with:
-      lane: bundle
-      options: '{ "flavor": "new_brand" }'
-    env:
-      ANDROID_KEYSTORE_PATH: new_brand.keystore
-      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_NEW_BRAND }}
-      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_NEW_BRAND }}
-```
+- Add `productFlavors { <new_brand> { ... } }` in `build.gradle`
+- Add icons, strings etc. in `src/<new_brand>`. The `src/new_brand/res/values/strings.xml` file is mandatory
+- To enable automated deployments, add the `new_brand` to `.github/workflows/publish.yml`
 
 ### 2. Building the APK and AAB files
 
 - Execute: `make org=new_brand keygen` to generate the `keystore`
-- Export the six `secrets` generated to your local environment
-```
-  export ANDROID_KEYSTORE_PASSWORD_NEW_BRAND=dd8668...
-  export ANDROID_KEY_PASSWORD_NEW_BRAND=dd8668...
-  export ANDROID_SECRETS_IV_NEW_BRAND=88d9c2dea7a9...
-  export ANDROID_SECRETS_KEY_NEW_BRAND=2824d02d2bc221f5844b8fe1d928211dcbbc...
-  export ANDROID_KEYSTORE_PATH_NEW_BRAND=new_brand.keystore
-  export ANDROID_KEY_ALIAS_NEW_BRAND=medicmobile
-```
 - Execute: `make org=new_brand keyrm-all` to clean all the files generated to repeat `keystore` generation (optional) 
 - Execute: `make org=new_brand keydec` to decrypt contents of the `keystore` (optional) 
 - Execute: `make org=new_brand keyprint` to see the certificate content, like the org name, the certificate fingerprints, etc.
@@ -115,7 +66,7 @@ You need to prepare your resources (icons and application ID) then add the new a
 
 - Plug in your phone. Ensure that it is detected within `adb devices`
 - Execute: `make` using the SDK command line. (This will also push the app onto your phone.)
-- Execute: `make test` to run unit tests(static checks ara also executed).
+- Execute: `make test` to run unit tests (static checks are also executed).
 - Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail. Android needs to have English as the default language.
 - Execute: `make test-ui` or `make test-ui-gamma`
 
@@ -136,7 +87,7 @@ You need to prepare your resources (icons and application ID) then add the new a
 
 ### 5. Updating the Play Store App
 
-{{% alert title="Note" %}} It is mandatory that you update files using the same extension, i.e. ff the app was released as an APK instead of AAB, you must upload it as an APK file. {{% /alert %}}
+{{% alert title="Note" %}} It is mandatory that you update files using the same extension, i.e. if the app was released as an APK instead of AAB, you must upload it as an APK file. {{% /alert %}}
 
 - Rebuild the signed updated AAB or APK file to a new version
 - Follow the steps in `4.` above
