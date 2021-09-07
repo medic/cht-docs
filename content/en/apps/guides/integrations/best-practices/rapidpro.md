@@ -68,8 +68,8 @@ Tips and best practices are listed below
 {
   "patient_uuid": "0123...",
   "language": "en",
-  "tb": "true",
-  "covid": "mild",
+  "tb": "true",
+  "covid": "mild",
   ...
 }
 ```
