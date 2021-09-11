@@ -52,11 +52,22 @@ This second video shows the right side of the workflow above to capture RDT resu
     <source src="capture.webm" type="video/webm" >
 </video>
 
+## Reports and Dashboards
+
+Like all applications written for the CHT, there are built in mechanism to retrieve raw and aggregate data to generate reports and dashboards:
+
+ * **In app targets:** Gives a CHW, or a supervisor of many CHW's, aggregate views about any field or collection of fields on forms gathered. The limitation is that they're on device and thus the permissions need to be in place and data needs to be synchronized between devices. See docs https://docs.communityhealthtoolkit.org/apps/features/targets/
+ * **API Calls:** Given that all raw forms captured are in JSON and given we know the data model well, yoy can easily do daily API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs for records as well as monitoring metadata. https://docs.communityhealthtoolkit.org/apps/reference/api/#get-apiv2exportreports https://docs.communityhealthtoolkit.org/apps/reference/api/#get-apiv2monitoring
+ * **Postgres queries:** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched daily or hourly from the CHT. https://github.com/medic/cht-couch2pg
+ * **3rd party integrations:** We have used both Klipfolio and, more recently, Superset to create more user friendly dashboards than any of the above options offer.  They talk to the Postgres server as the back end.
+
 ## Technical walkthrough
 
-You can find the code for this application is found in the `config` directory Medic's main [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19). Shown below is a filtered file structure of the COVID19 app where you'll want to focus your customization efforts:
+You can find the code for this application is found in the `config` directory Medic's main [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).
 
 ### Directory structure
+
+Shown below is a filtered file structure of the COVID-19 app where you'll want to focus your customization efforts:
 
 ```
 ├── forms
@@ -74,23 +85,202 @@ The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms 
 
 To read more about how these files all work together, see [app forms]({{< ref "apps/reference/forms/app" >}}), [contact forms]({{< ref "apps/reference/forms/contact" >}}), and [task]({{< ref "apps/reference/tasks" >}}) reference documentation
 
-### JSON from API calls
+### JSON Reference 
+
+While likely too verbose for humans to read, these unredacted sample JSON documents from the COVID-19 application can be used for reference to know where to find fields when querying the CHT API or Postgres.
+
+#### Provision 
 
 ```json
 {
-  "_id": "08e17566-bbaf-43fa-9f1b-98d98402d0c3",
-  "_rev": "2-274fc716e451afaf291b8a0ab4209bea",
+ "_id": "8ef8b4c4-59fc-4139-b760-64414637ed65",
+ "_rev": "2-f64dd6048aebaf8f9bbaa38452640cf3",
+ "form": "covid19_rdt_provision",
+ "type": "data_record",
+ "content_type": "xml",
+ "reported_date": 1631312469783,
+ "contact": {
+  "_id": "d0bd9d0e-7a6e-4424-baea-f2ad13cc6e27",
+  "parent": {
+   "_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+   "parent": {
+    "_id": "5821ca69-af9d-4245-8495-64092e2ed7f1"
+   }
+  }
+ },
+ "from": "+13125551211",
+ "hidden_fields": [
+  "patient_age_in_years",
+  "patient_age_in_months",
+  "patient_age_in_days",
+  "provision",
+  "summary",
+  "meta"
+ ],
+ "fields": {
+  "inputs": {
+   "meta": {
+    "location": {
+     "lat": "",
+     "long": "",
+     "error": "",
+     "message": ""
+    },
+    "deprecatedID": ""
+   },
+   "user": {
+    "contact_id": "d0bd9d0e-7a6e-4424-baea-f2ad13cc6e27",
+    "facility_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+    "name": "CHW123"
+   },
+   "source": "contact",
+   "contact": {
+    "_id": "bf3b7049-219d-44ef-a2a4-1647b75157e1",
+    "patient_id": "34150",
+    "first_name": "Jessica",
+    "last_name": "Whitehouse",
+    "name": "Jessica Whitehouse",
+    "date_of_birth": "1984-06-05",
+    "sex": "female",
+    "phone": "+13125551222",
+    "phone_alternate": "+13125551233",
+    "address": "45 Frank ST, Kent Town",
+    "parent": {
+     "_id": "a894c6b9-d4be-428e-a855-27cd8082be3c",
+     "name": "Jessica Whitehouse's Household",
+     "address": "",
+     "parent": {
+      "_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+      "name": "Blue Tree Health Center",
+      "address": "23 Willard ST, Kent Town"
+     }
+    }
+   }
+  },
+  "patient_uuid": "bf3b7049-219d-44ef-a2a4-1647b75157e1",
+  "patient_name": "Jessica Whitehouse",
+  "patient_age_in_years": "37",
+  "patient_age_in_months": "447",
+  "patient_age_in_days": "13611",
+  "age": "37 years old",
+  "preview_time_expired": "15:41:01 on 10 Sep, 2021",
+  "test-reference": {
+   "session_id": "0faf0709-3c5f-405c-a692-1e0c96166782",
+   "test_id": "69f30b96-c9cd-4a4e-acd2-72933f8b564b",
+   "facility_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+   "facility_name": "Blue Tree Health Center",
+   "facility_address": "23 Willard ST, Kent Town",
+   "facility_confirm_ask": "yes",
+   "test_reason": "symptomatic",
+   "symptoms": "sore_throat cough loss_of_taste_or_smell",
+   "days_since_symptoms_began": "4"
+  },
+  "spec-lot": {
+   "specimen_type": "nasopharyngeal",
+   "rdt_lot": "LOT12BA",
+   "rdt_lot_expiry_date": "2021-09-17",
+   "additional_notes": "All seals intact, all doses kept at correct temperature."
+  },
+  "provision": {
+   "rdtoolkit-provision": {
+    "action": "org.rdtoolkit.action.Provision",
+    "note_instructions_provision": "",
+    "android-app-inputs": {
+     "rdt_session_id": "69f30b96-c9cd-4a4e-acd2-72933f8b564b",
+     "rdt_config_bundle": {
+      "rdt_config_classifier_mode": "PRE_POPULATE",
+      "rdt_config_session_type": "TWO_PHASE",
+      "rdt_config_provision_mode": "CRITERIA_SET_AND",
+      "rdt_config_provision_mode_data": "sars_cov2",
+      "rdt_config_flavor_one": "bf3b7049-219d-44ef-a2a4-1647b75157e1",
+      "rdt_config_flavor_two": "Jessica Whitehouse",
+      "rdt_config_cloudworks_dns": ""
+     }
+    },
+    "android-app-outputs": {
+     "rdt_session_bundle": {
+      "rdt_session_state": "RUNNING",
+      "rdt_session_time_started": "1631312461680",
+      "rdt_session_time_resolved": "1631313361680",
+      "rdt_session_time_expired": "1631313661680",
+      "rdt_session_test_profile": "premier_medical_sure_status_c19"
+     }
+    },
+    "preview_session_state": "RUNNING"
+   },
+   "note_continue_1": "",
+   "note_continue_2": ""
+  },
+  "summary": {
+   "syndrome_test_type": "COVID-19",
+   "rdt_loinc_code": "94558-4",
+   "rdt_loinc_long_common_name": "SARS-CoV-2 (COVID-19) Ag [Presence] in Respiratory specimen by Rapid immunoassay",
+   "summary_header": "",
+   "summary_details": "",
+   "summary_name": "",
+   "summary_info": "",
+   "summary_test_name": "",
+   "summary_test_expire": ""
+  },
+  "meta": {
+   "instanceID": "uuid:e21e1079-462b-4f56-9a33-c1e9e22a6643"
+  }
+ },
+ "geolocation_log": [
+  {
+   "timestamp": 1631312469904,
+   "recording": {
+    "latitude": 5.9949813,
+    "longitude": -5.0980983,
+    "altitude": 706.7633651675733,
+    "accuracy": 16.44700050354004,
+    "altitudeAccuracy": null,
+    "heading": null,
+    "speed": null
+   }
+  }
+ ],
+ "geolocation": {
+  "latitude": 5.9949813,
+  "longitude": -5.0980983,
+  "altitude": 706.7633651675733,
+  "accuracy": 16.44700050354004,
+  "altitudeAccuracy": null,
+  "heading": null,
+  "speed": null
+ },
+ "_attachments": {
+  "content": {
+   "content_type": "application/xml",
+   "revpos": 1,
+   "digest": "md5-VkGDlztsrWtyqNI6X4U9Yg==",
+   "length": 5612,
+   "stub": true
+  }
+ }
+}
+```
+
+#### Capture 
+
+```json
+{
+  "_id": "a5f92d70-a3c0-4684-8ee7-fe435b49c974",
+  "_rev": "1-a6cac66d104d779d91e7cfe16a2ee970",
   "form": "covid19_rdt_capture",
   "type": "data_record",
   "content_type": "xml",
-  "reported_date": 1631119994462,
+  "reported_date": 1631313478618,
   "contact": {
-    "_id": "541dec2f-f489-4a8a-bfad-f2c17a3cc54e",
+    "_id": "d0bd9d0e-7a6e-4424-baea-f2ad13cc6e27",
     "parent": {
-      "_id": "efcb2a10-371b-4c5f-a1ca-a043fc4bdae4"
+      "_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+      "parent": {
+        "_id": "5821ca69-af9d-4245-8495-64092e2ed7f1"
+      }
     }
   },
-  "from": "",
+  "from": "+13125551211",
   "hidden_fields": [
     "inputs",
     "patient_age_in_years",
@@ -110,71 +300,71 @@ To read more about how these files all work together, see [app forms]({{< ref "a
     "inputs": {
       "source": "task",
       "contact": {
-        "_id": "ebf0f37f-0813-4d80-bba4-d260c80454cc",
-        "patient_id": "45858",
-        "first_name": "p",
-        "last_name": "1",
-        "name": "p 1",
-        "date_of_birth": "1999-07-08",
+        "_id": "bf3b7049-219d-44ef-a2a4-1647b75157e1",
+        "patient_id": "34150",
+        "first_name": "Jessica",
+        "last_name": "Whitehouse",
+        "name": "Jessica Whitehouse",
+        "date_of_birth": "1984-06-05",
         "sex": "female",
-        "phone": "",
-        "phone_alternate": "",
-        "address": "",
+        "phone": "+13125551222",
+        "phone_alternate": "+13125551233",
+        "address": "45 Frank ST, Kent Town",
         "parent": {
-          "_id": "efcb2a10-371b-4c5f-a1ca-a043fc4bdae4",
-          "name": "chw's Health Facility",
+          "_id": "a894c6b9-d4be-428e-a855-27cd8082be3c",
+          "name": "Jessica Whitehouse's Household",
           "address": "",
           "parent": {
-            "_id": "",
-            "name": "",
-            "address": ""
+            "_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+            "name": "Blue Tree Health Center",
+            "address": "23 Willard ST, Kent Town"
           }
         }
       }
     },
-    "patient_uuid": "ebf0f37f-0813-4d80-bba4-d260c80454cc",
-    "patient_name": "p 1",
-    "patient_age_in_years": "22",
-    "patient_age_in_months": "266",
-    "patient_age_in_days": "8098",
-    "age": "22 years old",
+    "patient_uuid": "bf3b7049-219d-44ef-a2a4-1647b75157e1",
+    "patient_name": "Jessica Whitehouse",
+    "patient_age_in_years": "37",
+    "patient_age_in_months": "447",
+    "patient_age_in_days": "13611",
+    "age": "37 years old",
     "test-information": {
-      "session_id": "747bed8f-be46-47c3-8b00-153773b93aa3",
-      "administrator_id": "541dec2f-f489-4a8a-bfad-f2c17a3cc54e",
-      "administrator_name": "chw",
-      "test_id": "91a610c5-dcaa-4ed3-8a96-e8518b065726",
-      "facility_id": "efcb2a10-371b-4c5f-a1ca-a043fc4bdae4",
-      "facility_name": "chw's Health Facility",
-      "facility_address": "",
+      "session_id": "0faf0709-3c5f-405c-a692-1e0c96166782",
+      "administrator_id": "d0bd9d0e-7a6e-4424-baea-f2ad13cc6e27",
+      "administrator_name": "mrjones",
+      "test_id": "69f30b96-c9cd-4a4e-acd2-72933f8b564b",
+      "facility_id": "ca70460f-157d-415c-82a8-beeddaee54be",
+      "facility_name": "Blue Tree Health Center",
+      "facility_address": "23 Willard ST, Kent Town",
       "facility_test_setting": "",
       "other_test_setting": "",
-      "test_reason": "",
-      "symptoms": "",
-      "days_since_symptoms_began": "",
-      "specimen_type": "",
+      "test_reason": "symptomatic",
+      "symptoms": "sore_throat cough loss_of_taste_or_smell",
+      "days_since_symptoms_began": "4",
+      "specimen_type": "nasopharyngeal",
       "specimen_type_other": "",
-      "rdt_lot": "",
-      "rdt_lot_expiry_date": "",
-      "additional_notes": ""
+      "rdt_lot": "LOT12BA",
+      "rdt_lot_expiry_date": "2021-09-17",
+      "additional_notes": "All seals intact, all doses kept at correct temperature."
     },
     "capture": {
       "rdtoolkit-capture": {
         "action": "org.rdtoolkit.action.Capture",
         "note_instructions_provision": "",
         "android-app-inputs": {
-          "rdt_session_id": "91a610c5-dcaa-4ed3-8a96-e8518b065726"
+          "rdt_session_id": "69f30b96-c9cd-4a4e-acd2-72933f8b564b"
         },
         "android-app-outputs": {
           "rdt_session_bundle": {
             "rdt_session_state": "QUEUED",
-            "rdt_session_time_started": "1631119916048",
-            "rdt_session_time_resolved": "1631120816048",
-            "rdt_session_time_expired": "1631121116048",
+            "rdt_session_time_started": "1631312461680",
+            "rdt_session_time_resolved": "1631313361680",
+            "rdt_session_time_expired": "1631313661680",
             "rdt_session_test_profile": "premier_medical_sure_status_c19",
             "rdt_session_result_bundle": {
-              "rdt_session_result_time_read": "1631119948709",
+              "rdt_session_result_time_read": "1631313440887",
               "rdt_session_result_extra_images": {
-                "cropped": "/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAA++-----[SNIP]-----++ 0TbwhcjevKAAyiLk1ovjcllsACnVttsuV9LeQAKhP0tDjB3bAAipRvYopXtAAFSakq8GcZOFtAAFcUpLL0a/dQAB//9k="
+                "cropped": "/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAIQAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9+-----SNIP-----+SkUbNztxB28pg/3WxqNihXn/ZSlB//Z"
               },
               "rdt_session_result_map": {
                 "sars_cov2": "sars_cov2_pos"
@@ -191,9 +381,9 @@ To read more about how these files all work together, see [app forms]({{< ref "a
       "repeat_test": "no"
     },
     "summary": {
-      "time_started": "8 Sep, 2021 at 09:51:56",
-      "time_read": "8 Sep, 2021 at 09:52:28",
-      "time_expired": "8 Sep, 2021 at 10:11:56",
+      "time_started": "10 Sep, 2021 at 15:21:01",
+      "time_read": "10 Sep, 2021 at 15:37:20",
+      "time_expired": "10 Sep, 2021 at 15:41:01",
       "results_expired": "FALSE",
       "result": "Positive",
       "summary_header": "",
@@ -205,46 +395,48 @@ To read more about how these files all work together, see [app forms]({{< ref "a
       "summary_image": ""
     },
     "meta": {
-      "instanceID": "uuid:3eca0524-7c0a-42af-b24b-10a36895a7f1",
-      "deprecatedID": "uuid:2a0d369a-cfbd-4e90-9363-572da8bb6f77"
+      "instanceID": "uuid:3225ed73-209f-4ddf-864a-ee0e4d2a51e3",
+      "deprecatedID": ""
     }
   },
   "geolocation_log": [
     {
-      "timestamp": 1631119994567,
+      "timestamp": 1631313478752,
       "recording": {
-        "code": 2,
-        "message": "application does not have sufficient geolocation permissions."
-      }
-    },
-    {
-      "timestamp": 1631120467993,
-      "recording": {
-        "code": 2,
-        "message": "application does not have sufficient geolocation permissions."
+        "latitude": 5.9950304,
+        "longitude": -5.0981426,
+        "altitude": 706.6073668124792,
+        "accuracy": 11.522000312805176,
+        "altitudeAccuracy": null,
+        "heading": null,
+        "speed": null
       }
     }
   ],
   "geolocation": {
-    "code": 2,
-    "message": "application does not have sufficient geolocation permissions."
+    "latitude": 5.9950304,
+    "longitude": -5.0981426,
+    "altitude": 706.6073668124792,
+    "accuracy": 11.522000312805176,
+    "altitudeAccuracy": null,
+    "heading": null,
+    "speed": null
   },
   "_attachments": {
     "user-file/covid19_rdt_capture/summary/summary_image": {
       "content_type": "image/png",
-      "revpos": 2,
-      "digest": "md5-dZxbM8jQzME+PwdIzwtuYw==",
-      "length": 87452,
+      "revpos": 1,
+      "digest": "md5-H537gv0l2mOyltmyzBRaZA==",
+      "length": 211302,
       "stub": true
     },
     "content": {
       "content_type": "application/xml",
-      "revpos": 2,
-      "digest": "md5-wSrSIxP/xGs6Ud+ImX8peg==",
-      "length": 121504,
+      "revpos": 1,
+      "digest": "md5-cwJDPyvLshux7nfuJxjnzQ==",
+      "length": 287073,
       "stub": true
     }
   }
 }
 ```
-
