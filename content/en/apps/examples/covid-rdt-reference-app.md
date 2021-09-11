@@ -32,9 +32,18 @@ There are three main components to this application:
 
 {{< figure src="flow.png" link="flow.png" class="right col-12 col-lg-12" >}}
 
-## Example Videos
+## Training Materials
 
-### Provision
+Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "apps/examples/covid-education" >}}) if needed.
+
+
+### Images
+
+27 high resolutions images taken from a demonstration CHW device are [available for download](CHT.COVID-19.RDT.Images.zip). These cover the entire usage of the reference app.  
+
+### Videos
+
+#### Provision 
 
 This first video shows the left side of the workflow above to provision an RDT for a patient.  The CHW is shown finding Jessica Whitehouse's contact and choosing a new action of "RDT Covid-19 - Provision".  The CHW then does pre-test set up, checking Jessica's symptoms and location and confirming the test method and lot information. You can see the CHW launching the RD-Toolkit, reading the instructions and then, starting the session and timer.  With the RD-Toolkit sending back all the information to the CHT, a task "Capture Covid-19 RDT" can be seen in the CHT for the CHW to follow up on when the RD-Timer has completed. The last part of the video shows the completed provision report in the CHT:
 
@@ -43,7 +52,7 @@ This first video shows the left side of the workflow above to provision an RDT f
     <source src="provision.webm" type="video/webm" >
 </video>
 
-### Capture
+#### Capture
 
 This second video shows the right side of the workflow above to capture RDT results for a patient.  The CHW is shown viewing the "Capture Covid-19 RDT" task after the 15 minute time from the RD-Timer has completed. After click the task, the CHW is brought to the CHT form which has the session information for the RD-Toolkit already loaded.  The test results are recorded and then returned to the CHT from the RD-Toolkit. The last part of the video shows the completed capture report in the CHT, including the prognosis and image of the RDT:
 
