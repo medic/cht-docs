@@ -61,16 +61,23 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `rules-engine:tasks:dirty-contacts` | Number of "dirty" contacts[1] when fetching tasks in the rules-engine. Added in 3.9 | 
 | `rules-engine:ensureTaskFreshness:cancel` | The time taken to cancel the automated task freshness thread in the rules-engine. This event is only recorded when the thread is cancelled before executing the refresh. Added in 3.9 | 
 | `rules-engine:ensureTargetFreshness:cancel` | The time taken to cancel the automated target freshness thread in the rules-engine. This event is only recorded when the thread is cancelled before executing the refresh. Added in 3.9 |
+| `rules-engine:tasks-breakdown:some-contacts` | The time taken to fetch the tasks breakdown by status for some contacts. Added in 3.13. |
 | `replication:user-initiated`  | Number of times the user clicked "Sync now". Added in 3.12. | 
 | `replication:<database>:<direction>:success` | Time taken to replicate, when replication was successful. Added in 3.12. | 
 | `replication:<database>:<direction>:failure` | Time taken to replicate, when replication failed. Added in 3.12. | 
 | `replication:<database>:<direction>:failure:reason:offline:client` | Number of times replication failed because of connection errors, and the app detects the client is offline. Added in 3.12. | 
-|  `replication:<database>:<direction>:failure:reason:offline:server` | Number of times replication failed because of connection errors, and the app detects the client is online. Added in 3.12. | 
+| `replication:<database>:<direction>:failure:reason:offline:server` | Number of times replication failed because of connection errors, and the app detects the client is online. Added in 3.12. | 
 | `replication:<database>:<direction>:failure:reason:error` | Number of times replication failed because of errors other than connection errors. Added in 3.12. |
 | `replication:<database>:<direction>:docs` | Number of replicated docs. For `medic` replication, stores number of "read" docs, for `meta` replication, stores sum of read docs for every direction. Added in 3.12. | 
 | `replication:medic:<direction>:ms-since-last-replicated-date` | Time between a replication attempt and the last successful replication. Only recorded for medic database, every time replication is attempted. Added in 3.12. | 
 | `replication:medic:<direction>:denied` | Number of times replication was denied[2]. Added in 3.12. | 
-    
+| `tasks:group:all-tasks` | Total number of tasks for the household (includes all statuses), when displaying household tasks page. Added in 3.13. | 
+| `tasks:group:cancelled` | Number of cancelled tasks for the household, when displaying household tasks page. Added in 3.13. | 
+| `tasks:group:ready` | Number of tasks in "Ready" state for the household, when displaying household tasks page. Added in 3.13. |
+| `tasks:group:ready:<task_title>` | Breakdown of "Ready" tasks by `task_title` for the household, when displaying household tasks page. Added in 3.13. |
+| `tasks:group:modal:confirm` | Number times the user confirms navigation away from the household tasks page. Added in 3.13. |
+| `tasks:group:modal:reject` | Number times the user rejects navigation away from the household tasks page. Added in 3.13. |
+
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
 
