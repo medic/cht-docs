@@ -65,9 +65,33 @@ This second video shows the right side of the workflow above to capture RDT resu
 Like all applications written for the CHT, there are built in mechanism to retrieve raw and aggregate data to generate reports and dashboards:
 
  * **[In app targets]({{< ref "apps/features/targets" >}}):** Gives a CHW, or a supervisor of many CHW's, aggregate views about any field or collection of fields on forms gathered. The limitation is that they're on device and thus the permissions need to be in place and data needs to be synchronized between devices. 
- * **API Calls:** Given that all raw forms captured are in JSON and given we know the data model well, you can easily do daily API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for records]({{< ref "apps/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "apps/reference/api#get-apiv2monitoring" >}}). 
+ * **API Calls:** Given that all raw forms captured are in JSON and given we know the data model well, you can easily do daily API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports]({{< ref "apps/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "apps/reference/api#get-apiv2monitoring" >}}). 
  * **[Postgres queries](https://github.com/medic/cht-couch2pg):** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched daily or hourly from the CHT. 
  * **3rd party integrations:** We have used both [Klipfolio](https://www.klipfolio.com/) and, more recently, [Superset](https://superset.incubator.apache.org/) to create more user-friendly dashboards than any of the above options offer.  They talk to the Postgres server as the back end.
+
+
+### Sample API call
+
+All calls to the API need to be authenticated. Be sure to follow our documentation on how to do this, but otherwise you need to use a login with `admin` permissions with this stucture: `http://LOGIN:PASSWORD@HOSTNAME`. If you had deployed this application without any customizations, you would have these forms available as seen by calling the [forms API]({{< ref "apps/reference/api#get-apiv1forms" >}}) (`/api/v1/forms`):
+
+* contact:clinic:create.xml
+* contact:clinic:edit.xml
+* contact:district_hospital:create.xml
+* contact:district_hospital:edit.xml
+* contact:health_center:create.xml
+* contact:health_center:edit.xml
+* contact:person:create.xml
+* contact:person:edit.xml
+* covid19_rdt_capture.xml
+* covid19_rdt_provision.xml
+
+The last two forms can be used to query [the reports API ]({{< ref "apps/reference/api#get-apiv2exportreports" >}}) to get RDT provions and captures.  To get all the capture reports into a file called `output.csv`, you would use this call:
+
+```shell
+curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
+```
+
+{{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text.  These may give you an error when opening them in a spreadsheet application. LibreOffice 6.4.x gave an error while Excel Pro Plus 2016 did not. Be sure to programmatically process these into image files as needed.{{% /alert %}}
 
 ## Technical walkthrough
 
