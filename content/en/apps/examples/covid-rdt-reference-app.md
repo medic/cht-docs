@@ -34,7 +34,7 @@ There are three main components to this application:
 
 ## Training Materials
 
-Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "apps/examples/covid-education" >}}) if needed. As well, the RD-Toolkit as in app instructions for how to use specific RDTs. 
+Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "apps/examples/covid-education" >}}) if needed. As well, the RD-Toolkit as in app instructions for how to use specific RDTs.  
 
 ### Images
 
@@ -64,10 +64,10 @@ This second video shows the right side of the workflow above to capture RDT resu
 
 Like all applications written for the CHT, there are built in mechanism to retrieve raw and aggregate data to generate reports and dashboards:
 
- * **In app targets:** Gives a CHW, or a supervisor of many CHW's, aggregate views about any field or collection of fields on forms gathered. The limitation is that they're on device and thus the permissions need to be in place and data needs to be synchronized between devices. See docs https://docs.communityhealthtoolkit.org/apps/features/targets/
- * **API Calls:** Given that all raw forms captured are in JSON and given we know the data model well, yoy can easily do daily API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs for records as well as monitoring metadata. https://docs.communityhealthtoolkit.org/apps/reference/api/#get-apiv2exportreports https://docs.communityhealthtoolkit.org/apps/reference/api/#get-apiv2monitoring
- * **Postgres queries:** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched daily or hourly from the CHT. https://github.com/medic/cht-couch2pg
- * **3rd party integrations:** We have used both Klipfolio and, more recently, Superset to create more user friendly dashboards than any of the above options offer.  They talk to the Postgres server as the back end.
+ * **[In app targets]({{< ref "apps/features/targets" >}}):** Gives a CHW, or a supervisor of many CHW's, aggregate views about any field or collection of fields on forms gathered. The limitation is that they're on device and thus the permissions need to be in place and data needs to be synchronized between devices. 
+ * **API Calls:** Given that all raw forms captured are in JSON and given we know the data model well, you can easily do daily API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for records]({{< ref "apps/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "apps/reference/api#get-apiv2monitoring" >}}). 
+ * **[Postgres queries](https://github.com/medic/cht-couch2pg):** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched daily or hourly from the CHT. 
+ * **3rd party integrations:** We have used both [Klipfolio](https://www.klipfolio.com/) and, more recently, [Superset](https://superset.incubator.apache.org/) to create more user-friendly dashboards than any of the above options offer.  They talk to the Postgres server as the back end.
 
 ## Technical walkthrough
 
