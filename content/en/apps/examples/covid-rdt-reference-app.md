@@ -7,7 +7,7 @@ description: >
 relatedContent: >
 ---
 
-Medic has worked with [FIND](https://www.finddx.org) to provide a reference implementation of a rapid diagnostic tests (RDTs) for COVID-19 application.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT.
+Medic has worked with [FIND](https://www.finddx.org) to provide a reference application of rapid diagnostic tests (RDTs) for COVID-19 in the CHT.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT.
 
 You can find the code for this application is found in the `config` directory Medic's main [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).
 
