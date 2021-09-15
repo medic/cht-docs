@@ -9,6 +9,8 @@ relatedContent: >
 
 Medic has worked with [FIND](https://www.finddx.org) to provide a reference implementation of a rapid diagnostic tests (RDTs) for COVID-19 application.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT.
 
+You can find the code for this application is found in the `config` directory Medic's main [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).
+
 ## Problem Being Addressed
 
 The original call for proposals best describes why Medic created this app: 
@@ -41,6 +43,8 @@ Medic is providing images and videos for use in training CHWs on how to use the 
 27 high resolutions images taken from a demonstration CHW device are [available for download](CHT.COVID-19.RDT.Images.zip). These cover the entire usage of the reference app.  
 
 ### Videos
+
+Provided here are two videos of the Provision and Capture forms in the COVID-19 application.
 
 #### Provision 
 
@@ -91,13 +95,20 @@ The last two forms can be used to query [the reports API ]({{< ref "apps/referen
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
 ```
 
-{{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text.  These may give you an error when opening them in a spreadsheet application. LibreOffice 6.4.x gave an error while Excel Pro Plus 2016 did not. Be sure to programmatically process these into image files as needed.{{% /alert %}}
+### Base64 image extraction
 
-## Technical walkthrough
+To extract the binary image from the ASCII value in a report, you can view it in the CHT or you use a script to do so.  Here's an example of using Bash utilities (`sed`, `cut`, `tr` and `base64`) in Linux to get the image in the 1st row of data after the column headers into the file `image.jpg`. 
 
-You can find the code for this application is found in the `config` directory Medic's main [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).
+```shell
+sed '2q;d' output.csv | cut -d',' -f15 | tr -d '"' | base64 -d > image.jpg
+```
 
-### Directory structure
+When retrieving [JSON](#capture-1), this value is found in `capture.android-app-outputs.rdt_session_bundle.rdt_session_result_bundle.rdt_session_result_extra_images.cropped` field.
+
+{{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed. {{% /alert %}}
+
+
+## Directory structure
 
 Shown below is a filtered file structure of the COVID-19 app where you'll want to focus your customization efforts:
 
@@ -117,11 +128,11 @@ The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms 
 
 To read more about how these files all work together, see [app forms]({{< ref "apps/reference/forms/app" >}}), [contact forms]({{< ref "apps/reference/forms/contact" >}}), and [task]({{< ref "apps/reference/tasks" >}}) reference documentation
 
-### JSON Reference 
+## JSON Reference 
 
 While likely too verbose for humans to read, these unredacted sample JSON documents from the COVID-19 application can be used for reference to know where to find fields when querying the CHT API or Postgres.
 
-#### Provision 
+### Provision 
 
 ```json
 {
@@ -293,7 +304,10 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 }
 ```
 
-#### Capture 
+### Capture 
+
+{{% alert title="Note" %}}The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).{{% /alert %}}
+ 
 
 ```json
 {
