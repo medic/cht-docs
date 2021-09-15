@@ -84,8 +84,10 @@ Some XForm widgets have been added or modified for use in the app:
 - **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. In v3.10.0 or above, set the field type to `string` and appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. If no contact type appearance is specified then all contact types will be returned. For v3.9.0 and below, set the field type to `db:{{contact_type}}` and appearance to `db-object`.
 - **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
 - **Simprints registration**: Register a patient with the Simprints biometric tool. To include in a form create a `string` field with `appearance` of `simprints-reg`. Requires the Simprints app connected with hardware, or [mock app](https://github.com/medic/mocksimprints). Demo only, not ready for production since API key is hardcoded.
+- **Display Base64 Image**: Available in +3.13.0. To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
+- **Android App Launcher**: Available in +3.13.0 and in Android device only. A widget to launch an Android app that receives and sends data back to an app form in CHT-Core. See more details in the [Android App Launcher](#android-app-launcher).
 
-The code for these widgets can be found in the [CHT Core Framework repo](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
+The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
 
 ### Contact Selector
 
@@ -107,6 +109,99 @@ Example of getting the data from the contact and assigning it to the fields necc
 | calculate | patient_uuid | Patient UUID| ||../contact/_id|
 | calculate | patient_id | Patient ID| ||../contact/patient_id|
  
+### Android App Launcher
+
+_Available in +3.13.0_
+
+This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. 
+
+Use the Android App Launcher widget in a form to configure an intent to launch an Android app installed in the mobile device. The widget will send values from input fields type `text` to the app and will assign the app's response into output fields type `text`. The only supported field type is `text`. The widget will automatically display a button to launch the app.
+
+To define the widget, create a `group` with the appearance `android-app-launcher`, then define the [Android intent](https://developer.android.com/reference/android/content/Intent) fields with type `text`. The fields `action`, `category`, `type`, `uri`, `packageName` and `flags` are optional. Every Android app has specific ways of launching with intents, so check the app's documentation and assign the corresponding values in the `default` column. See example below:
+
+| type | name | label | appearance | repeat_count | default | ... |
+|---|---|---|---|---|---|---|
+| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
+| text | category | NO_LABEL |  |  |  | ... |
+| text | type | NO_LABEL |  |  |  | ... |
+| text | uri | NO_LABEL |  |  |  | ... |
+| text | packageName | NO_LABEL |  |  |  | ... |
+| text | flags | NO_LABEL |  |  |  | ... |
+| ... | ... | ... | ... | ... | ... | ... |
+| end group | camara-app |  |  |  |  | ... |
+
+To define the widget's input fields and send data as Android Intent's `extras`, create a group inside the widget with the appearance `android-app-inputs`. In order to assign the app's response to the widget's output fields, create a group with the appearance `android-app-outputs`.
+
+**Important to remember:** The fields inside the input and the output groups should to match in name and location to what the Android app receives and returns, otherwise the communication between the widget and the Android app won't work properly.
+
+| type | name | label | appearance | repeat_count | default | ... |
+|---|---|---|---|---|---|---|
+| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
+| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| text | location | Location |  |  |  | ... |
+| text | destination | Destination |  |  |  | ... |
+| end group | camara-app-inputs |  |  |  |  | ... |
+| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| text | picture | Picture |  |  |  | ... |
+| text | date | Date |  |  |  | ... |
+| end group | camara-app-outputs |  |  |  |  | ... |
+| ... | ... | ... | ... | ... | ... | ... |
+| end group | camara-app |  |  |  |  | ... |
+
+To instruct the widget to process nested data objects, create a new group inside the input or the output group with the appearance `android-app-object`. Objects cannot be assigned to a field, it should be a group with fields to map the properties to fields that share the same name.
+
+**Important to remember:** The nested group's name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the nested object.
+
+| type | name | label | appearance | repeat_count | default | ... |
+|---|---|---|---|---|---|---|
+| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
+| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| text | location | Location |  |  |  | ... |
+| begin group | photo_configuration | NO_LABEL | android-app-object |  |  | ... |
+| text | aperture | Aperture |  |  |  | ... |
+| text | shutter_speed | Shutter Speed |  |  |  | ... |
+| end group | photo_configuration |  |  |  |  | ... |
+| end group | camara-app-inputs |  |  |  |  | ... |
+| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| text | picture | Picture |  |  |  | ... |
+| text | date | Date |  |  |  | ... |
+| end group | camara-app-outputs |  |  |  |  | ... |
+| ... | ... | ... | ... | ... | ... | ... |
+| end group | camara-app |  |  |  |  | ... |
+
+To instruct the widget to process an array of strings or numbers, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. To process an array of objects, use the appearance `android-app-object-list` instead.
+
+**Important to remember:** The `repeat`'s name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the array.
+
+| type | name | label | appearance | repeat_count | default | ... |
+|---|---|---|---|---|---|---|
+| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
+| text | flags | NO_LABEL |  |  | 268435456 | ... |
+| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| text | location | Location |  |  |  | ... |
+| begin repeat | photo_filters | NO_LABEL | android-app-value-list | 2 |  | ... |
+| text | filter | Filter |  |  |  | ... |
+| end repeat |  |  |  |  |  | ... |
+| end group | camara-app-inputs |  |  |  |  | ... |
+| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| text | date | Date |  |  |  | ... |
+| begin repeat | capture | NO_LABEL | android-app-object-list | 3 |  | ... |
+| text | light_percentage | Light |  |  |  | ... |
+| text | contrast_percentage | Contrast |  |  |  | ... |
+| begin group | patient_details | NO_LABEL | android-app-object |  |  | ... |
+| text | picture | Patient picture |  |  |  | ... |
+| text | patient_id | Patient ID |  |  |  | ... |
+| text | patient_name | Patient name |  |  |  | ... |
+| end group | patient_details |  |  |  |  | ... |
+| end repeat |  |  |  |  |  | ... |
+| end group | camara-app-outputs |  |  |  |  | ... |
+| ... | ... | ... | ... | ... | ... | ... |
+| end group | camara-app |  |  |  |  | ... |
+
 ## CHT XPath Functions
 
 ### `difference-in-months`
@@ -159,6 +254,17 @@ The data used by this function needs to be added to CouchDB. The example below s
   ]
 }
 ```
+
+### `parse-timestamp-to-date`
+
+_Available in +3.13.0._
+
+Use this function to parse from a timestamp number to a date. This is useful when using other XForm utility functions that receive date type as parameter, see example below:
+
+| type | name | label | calculation | default | ... |
+|------|------|-------|-------------|---------|-----|
+| string | start_date_time | NO_LABEL |    | 1628945040308 |
+| string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
 
 ## CHT Special Fields
 
