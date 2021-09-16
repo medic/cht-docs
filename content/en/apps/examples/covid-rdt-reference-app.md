@@ -27,7 +27,7 @@ This reference app provides a base layer of functionality that you can easily cu
  * Provisioning COVID-19 RDT tests 
  * Capturing COVID-19 RDT results
  * Storing all RDT data, including pictures, in the CHT
- * Best practices of Health Facility, CHW, patient and RDT hierarchy in the CHT
+ * Best practices for RDT workflows in the CHT
  
  Your instance of CHT needs to be on v3.13+ which has features developed to support this reference application, including:
  
