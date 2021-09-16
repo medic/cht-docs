@@ -5,9 +5,12 @@ weight:
 description: >
  A customizable CHT application with support for 3rd party RDT integration   
 relatedContent: >
+  apps/reference/forms/app/#android-app-launcher
+  apps/reference/forms/app/#cht-xform-widgets
+  apps/reference/forms/app/#parse-timestamp-to-date
 ---
 
-Medic has worked with [FIND](https://www.finddx.org) to provide a reference application of rapid diagnostic tests (RDTs) for COVID-19 in the CHT.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT.
+Medic has worked with [FIND](https://www.finddx.org) to provide a reference application for rapid diagnostic tests (RDTs) for COVID-19 in the CHT.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT. 
 
 You can find the code for this application in Medic's main [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).
 
@@ -20,10 +23,19 @@ The original call for proposals best describes why Medic created this app:
 ## Solution Overview
 
 This reference app provides a base layer of functionality that you can easily customize to meet the needs of your health program.  Specifically, this application has examples of:
+
  * Provisioning COVID-19 RDT tests 
  * Capturing COVID-19 RDT results
  * Storing all RDT data, including pictures, in the CHT
  * Best practices of Health Facility, CHW, patient and RDT hierarchy in the CHT
+ 
+ Your instance of CHT needs to be on v3.13+ which has features developed to support this reference application, including:
+ 
+  * **Display Base64 Image** - show ASCII encoded images inline
+  * **Android App Launcher** - integrate with third party apps like the RD-Toolkit
+  * **Parse Timestamp to Date** -  convert epoch time stamps (`1628945040308`) to your desired format (`Sun Mar 19 13:25:08`).
+  
+  For more information on these features, see the ["Related Content"](#related-content).
 
 ## Workflow
 
@@ -54,7 +66,7 @@ This first video shows the left side of the workflow above to provision an RDT f
   use raw HTML for now as hugo youtube short codes show 16:9 ration 
   box instead of mobile portrait ~9:16
 -->
-<iframe id="ytplayer" type="text/html" width="290" height="610" src="https://www.youtube.com/embed/PGC0Mp6KtU4" frameborder="0"></iframe>
+<iframe id="ytplayer" type="text/html" width="290" height="610" src="https://www.youtube.com/embed/FlhZ-KQIfdY" frameborder="0"></iframe>
 
 #### Capture
 
@@ -64,7 +76,7 @@ This second video shows the right side of the workflow above to capture RDT resu
   use raw HTML for now as hugo youtube short codes show 16:9 ration 
   box instead of mobile portrait ~9:16
 -->
-<iframe id="ytplayer" type="text/html" width="290" height="610" src="https://www.youtube.com/embed/18BuswCJ0y8" frameborder="0"></iframe>
+<iframe id="ytplayer" type="text/html" width="290" height="610" src="https://www.youtube.com/embed/LC9gR3N8o80" frameborder="0"></iframe>
 
 ## Reports and Dashboards
 
