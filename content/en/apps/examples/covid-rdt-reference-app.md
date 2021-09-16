@@ -10,7 +10,7 @@ relatedContent: >
   apps/reference/forms/app/#parse-timestamp-to-date
 ---
 
-Medic has worked with [FIND](https://www.finddx.org) to provide a reference application for rapid diagnostic tests (RDTs) for COVID-19 in the CHT.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT. 
+Medic has worked with [FIND](https://www.finddx.org) to provide a reference application using rapid diagnostic tests (RDT) for COVID-19 testing with the CHT.  By leveraging the expertise of third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), you can customize this application in your current or future deployment of the CHT. 
 
 You can find the code for this application in the [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).
 
