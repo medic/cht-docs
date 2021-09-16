@@ -70,7 +70,7 @@ This first video shows the left side of the workflow above to provision an RDT f
 
 #### Capture
 
-This second video shows the right side of the workflow above to capture RDT results for a patient.  The CHW is shown viewing the "Capture Covid-19 RDT" task after the 15 minute time from the RD-Timer has completed. After click the task, the CHW is brought to the CHT form which has the session information for the RD-Toolkit already loaded.  The test results are recorded and then returned to the CHT from the RD-Toolkit. The last part of the video shows the completed capture report in the CHT, including the prognosis and image of the RDT:
+This second video shows the right side of the workflow above to capture RDT results for a patient.  The CHW is shown viewing the "Capture Covid-19 RDT" task after the 15 minute timer from the RD-Toolkit app has completed. After selecting the task, the CHW is brought to the CHT form which has the session information for the RD-Toolkit already loaded.  The test results are recorded and then returned to the CHT from the RD-Toolkit. The last part of the video shows the completed capture report in the CHT, including the result and image of the RDT:
 
 <!-- 
   use raw HTML for now as hugo youtube short codes show 16:9 ration 
