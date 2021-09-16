@@ -143,7 +143,7 @@ The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms 
 
 To read more about how these files all work together, see [app forms]({{< ref "apps/reference/forms/app" >}}), [contact forms]({{< ref "apps/reference/forms/contact" >}}), and [task]({{< ref "apps/reference/tasks" >}}) reference documentation
 
-## JSON Reference 
+## Example form submission
 
 While likely too verbose for humans to read, these unredacted sample JSON documents from the COVID-19 application can be used for reference to know where to find fields when querying the CHT API or Postgres.
 
