@@ -91,24 +91,36 @@ Like all applications written for the CHT, there are built in mechanism to retri
 
 ### Sample API call
 
-All calls to the API need to be authenticated. Be sure to follow our documentation on how to do this, but otherwise you need to use a login with `admin` permissions with this stucture: `http://LOGIN:PASSWORD@HOSTNAME`. If you had deployed this application without any customizations, you would have these forms available as seen by calling the [forms API]({{< ref "apps/reference/api#get-apiv1forms" >}}) (`/api/v1/forms`):
+Start with finding out the names of the forms you can get reports from. If you had deployed this application without any customizations, you would have these forms available as seen by calling the [forms API]({{< ref "apps/reference/api#get-apiv1forms" >}}):
 
-* contact:clinic:create.xml
-* contact:clinic:edit.xml
-* contact:district_hospital:create.xml
-* contact:district_hospital:edit.xml
-* contact:health_center:create.xml
-* contact:health_center:edit.xml
-* contact:person:create.xml
-* contact:person:edit.xml
-* covid19_rdt_capture.xml
-* covid19_rdt_provision.xml
+```shell
+curl "http://LOGIN:PASSWORD@HOSTNAME/api/v1/forms" | jq
+```
+
+The resulting JSON is formatted by `jq` for you to get an easy to read list.
+
+```json
+[
+  "contact:clinic:create.xml",
+  "contact:clinic:edit.xml",
+  "contact:district_hospital:create.xml",
+  "contact:district_hospital:edit.xml",
+  "contact:health_center:create.xml",
+  "contact:health_center:edit.xml",
+  "contact:person:create.xml",
+  "contact:person:edit.xml",
+  "covid19_rdt_capture.xml",
+  "covid19_rdt_provision.xml"
+]
+```
 
 The last two forms can be used to query [the reports API ]({{< ref "apps/reference/api#get-apiv2exportreports" >}}) to get RDT provions and captures.  To get all the capture reports into a file called `output.csv`, you would use this call:
 
 ```shell
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
 ```
+
+{{% alert title="Note" %}}All calls to the API need to be authenticated. Be sure to follow our documentation on how to do this, but otherwise you need to use a login with `admin` permissions with this stucture: `http://LOGIN:PASSWORD@HOSTNAME`.{{% /alert %}}
 
 ### Base64 image extraction
 
