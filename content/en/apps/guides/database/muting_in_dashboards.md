@@ -83,4 +83,4 @@ Now you can query the table above (`mute_timeline`) to check if the contact was 
 
 ```
 
-What this does is check if a record exists for this contact where they were muted earlier or on EXAMPLE_DATE and unmuted on or after the EXAMPLE_DATE. So for our earlier example where a contact was muted on February and unmuted on May if we pass February, March or April as `EXAMPLE_DATE`, we find a record because our unmuted_on is always greater than `EXAMPLE_DATE`. If we pass May going foward, we find no records that match our condition.
+This query checks if a record exists for this contact where they were muted earlier or on `EXAMPLE_DATE` and unmuted on or after the `EXAMPLE_DATE`. For the earlier example where the contact was muted in February and unmuted in May if we pass February, March, or April as `EXAMPLE_DATE`, we find a record because our `unmuted_on` is always greater than `EXAMPLE_DATE`. If we pass May going forward, we find no records that match our condition.
