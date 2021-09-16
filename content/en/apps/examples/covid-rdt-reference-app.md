@@ -80,7 +80,7 @@ This second video shows the right side of the workflow above to capture RDT resu
 
 ## Reports and Dashboards
 
-Like all applications written for the CHT, there are built in mechanism to retrieve raw and aggregate data to generate reports and dashboards:
+Like all applications written for the CHT, there are built in mechanism to retrieve raw and aggregate data to generate reports and dashboards. Here are some ways that the data can be accessed:
 
  * **[In app targets]({{< ref "apps/features/targets" >}}):** Gives a CHW, or a supervisor of many CHW's, aggregate views about any field or collection of fields on forms gathered. The limitation is that they're on device and thus the permissions need to be in place and data needs to be synchronized between devices. 
  * **API Calls:** Given that all raw forms captured are in JSON and given we know the data model well, you can easily do daily API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports]({{< ref "apps/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "apps/reference/api#get-apiv2monitoring" >}}). 
