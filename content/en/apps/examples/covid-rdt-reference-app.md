@@ -1,6 +1,6 @@
 ---
-title: "COVID-19 RDT Reference Application"
-linkTitle: "COVID-19 RDT"
+title: "Reference Application using RDT for COVID-19 Testing"
+linkTitle: "COVID-19 Testing"
 weight: 
 description: >
  A customizable CHT application with support for 3rd party RDT integration   
