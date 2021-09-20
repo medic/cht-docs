@@ -134,6 +134,8 @@ while read -r line; do
 done < output.csv
 ```
 
+This code snippet is good just to validate data ad hoc, but more likely you'll be doing either an extract-transform-load (ETL) process into a 3rd party system, or just raw bulk import w/ no ETL and then on display show the base64 as an image, as we do in the CHT.
+
 When retrieving [JSON](#capture-1), this value is found in `capture.android-app-outputs.rdt_session_bundle.rdt_session_result_bundle.rdt_session_result_extra_images.cropped` field.
 
 {{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed. {{% /alert %}}
