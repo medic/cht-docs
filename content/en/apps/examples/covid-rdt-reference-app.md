@@ -124,10 +124,14 @@ curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filt
 
 ### Base64 image extraction
 
-To extract the binary image from the ASCII value in a report, you can view it in the CHT or you use a script to do so.  Here's an example of using Bash utilities (`sed`, `cut`, `tr` and `base64`) in Linux to get the image in the 1st row of data after the column headers into the file `image.jpg`. 
+To extract the binary image from the ASCII value in a report, you can view it in the CHT or you can use a script to do so.  Here's an example of using Bash utilities (`sed`, `cut`, `tr` and `base64`) in Linux to loop over each line of the `output.csv` file from [the above call](#sample-api-call) to reports API. This results in numbered binary image files called `imageNUMBER.jpg` for each line in the export: 
 
 ```shell
-sed '2q;d' output.csv | cut -d',' -f15 | tr -d '"' | base64 -d > image.jpg
+i=1 n=0
+while read -r line; do
+  ((n >= i )) && echo $line | cut -d',' -f15 | tr -d '"' | base64 -d > image$n.jpg
+  ((n++))
+done < output.csv
 ```
 
 When retrieving [JSON](#capture-1), this value is found in `capture.android-app-outputs.rdt_session_bundle.rdt_session_result_bundle.rdt_session_result_extra_images.cropped` field.
