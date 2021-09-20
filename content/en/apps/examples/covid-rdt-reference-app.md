@@ -120,7 +120,7 @@ The last two forms can be used to query [the reports API ]({{< ref "apps/referen
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
 ```
 
-{{% alert title="Note" %}}All calls to the API need to be authenticated. Be sure to follow our documentation on how to do this, but otherwise you need to use a login with `admin` permissions with this stucture: `http://LOGIN:PASSWORD@HOSTNAME`.{{% /alert %}}
+{{% alert title="Note" %}}As all API calls need to be authenticated, be sure to use a login with admin permissions with this structure: `http://LOGIN:PASSWORD@HOSTNAME`.{{% /alert %}}
 
 ### Base64 image extraction
 
