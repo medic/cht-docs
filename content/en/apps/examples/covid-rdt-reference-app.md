@@ -141,7 +141,7 @@ When retrieving [JSON](#capture-1), this value is found in `capture.android-app-
 {{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed. {{% /alert %}}
 
 
-## Customizing the reference app
+## Customizing the application
 
 These are the files in the COVID-19 app where you'll want to focus your customization efforts:
 
