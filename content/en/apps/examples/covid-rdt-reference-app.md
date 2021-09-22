@@ -1,9 +1,9 @@
 ---
-title: "Reference Application using RDT for COVID-19 Testing"
+title: "COVID-19 Testing with Rapid Diagnostic Tests"
 linkTitle: "COVID-19 Testing"
 weight: 
 description: >
- A customizable CHT application with support for 3rd party RDT integration   
+ CHT example application that uses a third party app to capture the result of a Rapid Diagnostic Test.
 relatedContent: >
   apps/reference/forms/app/#android-app-launcher
   apps/reference/forms/app/#cht-xform-widgets
