@@ -134,7 +134,7 @@ while read -r line; do
 done < output.csv
 ```
 
-This code snippet is good just to validate data ad hoc, but more likely you'll be doing either an extract-transform-load (ETL) process into a 3rd party system, or just raw bulk import w/ no ETL and then on display show the base64 as an image, as we do in the CHT.
+This code snippet is good just to validate data ad hoc, but more likely you'll be doing either an extract-transform-load (ETL) process into a third-party system, or just import the raw contents and then display the base64 as an image, as done in the CHT.
 
 When retrieving [JSON](#capture-1), this value is found in `capture.android-app-outputs.rdt_session_bundle.rdt_session_result_bundle.rdt_session_result_extra_images.cropped` field.
 
