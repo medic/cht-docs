@@ -39,7 +39,7 @@ For more information on these features, see the ["Related Content"](#related-con
 
 Additional requirements for this application beyond CHT 3.13, include [CHT Android 0.10.0](https://github.com/medic/cht-android) or later and Dimagi's [RD-Toolkit 0.9.8](https://github.com/dimagi/rd-toolkit/) or later. 
 
-While this application utilizes the RD-Toolkit, the integration features in the CHT Core and CHT Android are generic.  This means you could use a different RDT Android application if you prefer. Beyond the scope of RDTs, you may use any application that is supported.  To read more about this feature, see the [forms reference documentation]({{< ref "apps/reference/forms/app#android-app-launcher" >}}). 
+While this application calls the RD-Toolkit, the integration features in the CHT Core and CHT Android are generic.  This means you could use a different RDT Android application if you prefer. Beyond the scope of RDTs, you could use this integration feature to launch any other Android app to perform an action and save the result in the CHT. To read more about this feature, see the [Android App Launcher section in the Forms reference documentation]({{< ref "apps/reference/forms/app#android-app-launcher" >}}). 
 
 ## Workflow
 
