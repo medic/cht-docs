@@ -1,5 +1,5 @@
 ---
-title: "Contact Muting Guideline in SQL queries"
+title: "Contact Muting in SQL queries"
 linkTitle: "Contact Muting in SQL queries"
 weight: 
 description: >
@@ -7,14 +7,14 @@ description: >
 relevantLinks: >
 ---
 
-When a contact gets muted, two of [many things](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/transitions/#muting) happen:
+When a contact gets muted, two of [many things]({{< ref "apps/reference/app-settings/transitions#muting" >}}) happen: 
 
 - The target contact and all of its descendants have a `muted` property set equal to the date they were muted
 - an entry is added to the contact's `muting_history` in sentinel's info docs
 
-When building dashboards on KlipFolio, you might need to exclude these muted contacts from analytics. An easy way to do this is to check the contact's `muted` property which when present has the date value of when the contact was muted and when absent means that the contact is not muted. This works work when you're only interested in the seeing the latest data but it gets a little bit complicated when you want to look at a contact's mute state from a certain period in the past. 
+When building dashboards on Superset, Klipfolio, or other data visualization platforms, you might need to exclude these muted contacts from the visualized data. An easy way to do this is to check the contact's `muted` property which when present has the date value of when the contact was muted and when absent means that the contact is not muted. This works when you are only interested in seeing the latest data but it gets complicated when you want to look at a contact's mute state from a certain period in the past.
 
-For example, Say a contact was muted on February and unmuted on May; If you check the contact's mute state in March from June, you'd find that the contact would not have the muted property as it would have been removed during the `unmute` in May. This is where the `muting_history` comes in. A contact's `muting_history` contains all mute and unmute events stored in a json array. An example of the mute/unmute entries
+For example, if a contact was muted in February and unmuted in May; If you check the contact's mute state in March from June, you'd find that the contact would not have the muted property as it would have been removed during the `unmute` in May. This is where the `muting_history` comes in. A contact's `muting_history` contains all mute and unmute events stored in a JSON array. An example of the mute/unmute entries is shown below:
 
 ```json
 {
@@ -57,7 +57,7 @@ If you extract this data into a separate table you can get a timeline that you c
 
 ```
 
-to get a result set like below
+The query above will give you a result set like the one below:
 
 ```
 contact_uuid | muted_on      |  muted | report_id
@@ -69,7 +69,7 @@ contact_uuid | muted_on      |  muted | report_id
 
 ```
 
-Now you can query the table above (`mute_timeline`) to check if the contact was muted in a certain period in time like 
+You can query the table above (`mute_timeline`) to check if the contact was muted in a certain period in time as shown below:
 
 ```sql
     SELECT 
