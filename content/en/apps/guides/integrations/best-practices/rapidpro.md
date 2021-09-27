@@ -12,13 +12,13 @@ relatedContent: >
 
 
 ### Introduction
-[RapidPro](https://app.rapidpro.io/) is the Open Source version of Textit, developed by UNICEF and Nyaruka, to  visually build workflow logic targeting mobile-based services. Here, we detail the best practices when working on a RapidPro deployment. Top of the list is to review RapidPro’s documentation to familiarize with various components including the [API](https://rapidpro.io/api/v2/). Next, we focus on various components or stages in the deployment process.
+[RapidPro](https://app.rapidpro.io/) is the open-source platform that powers of Textit, developed by UNICEF and Nyaruka, to visually build workflow logic targeting mobile-based services. Here, we detail the best practices when working on a RapidPro deployment. Top of the list is to review RapidPro’s documentation to familiarize with various components including the [API](https://rapidpro.io/api/v2/). Next, we focus on various components or stages in the deployment process.
 
 ### Workspaces
 Primarily identifying a company or project, a workspace contains models for a set of RapidPro users. We recommend that you set up `staging` and `production` workspaces so that builds, tests and updates can proceed safely before and after deployment.
 
 ### SMS Messaging Channels
-- RapidPro supports both Android channels and SMS aggregators. Note that Android channels have a messaging limit of 330 outgoing messages per hour. Ensure that you install the maximum number of SMS packs and follow the following best practices when using Android channels:
+- RapidPro supports both Android channels and SMS aggregators. Note that Android channels have a messaging limit of 330 outgoing messages per hour. Ensure that you install the maximum number of SMS packs (available in the  RapidPro SMS Channel Android app) and follow the following best practices when using Android channels:
    1. Prevent the Android Channel from going to sleep.
       Some steps to achieve this are available on [dontkillmyapp](https://dontkillmyapp.com):
       - Do not optimize battery usage.
@@ -38,12 +38,12 @@ Primarily identifying a company or project, a workspace contains models for a se
 
 ### Flow design
 Tips and best practices are listed below:
- - If possible, have less than 10 questions. Long surveys may either lead to low completion rates or rushed responses that affects the data quality.
+- If possible, have less than 10 questions. Long surveys may either lead to low completion rates or rushed responses that affects the data quality.
 - Close ended questions are better and easier to respond and handle in RapidPro since respondents only have to send a number or letter such as 1 for “Yes”, 2 for “No”. 
 - Avoid sensitive questions since privacy cannot be guaranteed over SMS and where it is common to share phones.
 - Include intro and outro messages. Intro messages serve the purpose of giving the survey details such as the background of the survey, the number of questions, data protection, whether there shall be follow up, SMS billing, etc. Outro messages are helpful to notify respondents that they survey is over and commonly include thank you notes.
 - Include questions that give the respondent an opportunity to opt-in or out of the survey. If they opt out, do not send a follow-up text.
-- Keep it short, to the size of one SMS (160 characters). Longer messages will be split may not display well on the recipients’ devices. It is recommended that you retain the same message length as you localize to multiple languages. Truncate appropriately if long contact names included in the message push the length beyond the limit.
+- Keep it short, to the size of one SMS (160 characters). Longer messages will be split may not display well on the recipients’ devices since Mobile Network Operators (MNOs) cannot guarantee that the multi-parts shall be delivered in the desired order. It is recommended that you retain the same message length as you localize to multiple languages. Truncate appropriately if long contact names included in the message push the length beyond the limit.
 
 ### Flow programming
 - Use skip logic to ask relevant questions only. For example, number of children only if they have children.
@@ -53,14 +53,14 @@ Tips and best practices are listed below:
 - Translate all messages, especially when deploying in a multi-lingual environment. This ensures that respondents fully understand the survey in their language.
 - Beware of the timing of the surveys that directly affects response rates. From experience, sending questions when respondents are busy with their errands during the day ultimately leads to low response rates as opposed to evenings when they are done for the day.
 - Make sure you handle unsolicited responses by redirecting such to, for example, a flow that eventually alerts concerned individuals such as reports of an outbreak.
-- It is recommended to use [timeouts](https://help.nyaruka.com/en/articles/2492419-adding-timeouts-to-a-flow) or [pauses](https://blog.textit.in/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps to remind them to respond or ask them to respond at a later time.
+- It is recommended to use [timeouts](https://help.nyaruka.com/en/articles/2492419-adding-timeouts-to-a-flow) or [pauses](https://blog.textit.in/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows..
 
 ### Configuration
 - Persist a unique identifier for each respondent entering the flows. This identifier shall be used to link flow runs to the recipients to make data analysis smooth.
 - Use consistent language and message design patterns to maintain a consistent experience and conversation. For example, if including a contact name at the beginning of a message, keep it that way for all messages including the localized messages.
 - Be mindful of when you save data back to the CHT. This should happen at major milestones in a flow, for example, end of a flow or before sending a payload to an API endpoint.
 - Use `globals`, shared values that can be referenced inflows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. This prevents re-entry of values in various components and allows flows to be shared easily in staging and production environments.
-- Beware of concurrency that is not supported in RapidPro. Concurrency refers to a situation whereby one contact participates in more than one flows at the same time. Whenever this happens, the former flow shall be interrupted in favor of the latter. This can result in respondents exiting flows before completion, which is a confusing user experience and results in poor survey data. A master flow that spins up individual flows may be useful to consider. 
+- Beware of concurrency that is not supported in RapidPro. Concurrency refers to a situation whereby one contact participates in more than one flow at the same time. Whenever this happens, the former flow shall be interrupted in favor of the latter. This can result in respondents exiting flows before completion, which is a confusing user experience and results in poor survey data. A master flow that spins up individual flows may be useful to consider. 
 
 ### Testing
 Testing includes manual and scripted.
@@ -69,10 +69,10 @@ _Manual testing_
    - Telegram is an effective, free, convenient tool for testing that is great for developers and quick testing.
    - Prior to release, it is crucial that you test the workflow as close to production as possible. It is recommended to use the production messaging channels, to especially check messaging fidelity.
    - It is recommended that you run a pilot prior to scaling a deployment. Remember, this shall expose the flows to real respondents and be helpful towards uncovering details such as text display among others.
-   - In order to prevent breakages in flows test end-to-end and fully as even minor edits/changes can have unpredictable impacts. Check that the entire flow is not impacted by the change prior to releasing in production.
+   - In order to prevent breakages in flows, run full end-to-end tests as edits/changes can have unpredictable impacts. Check that the entire flow is not impacted by the change prior to releasing in production.
 
 _Scripted testing_
-These tests cover the parts that are inaccessible via manual tests. They include units that test individual components and end-to-end tests that test a flow from start to end. As a best practice, the following test pattern is recommended:
+These tests cover the parts that are inaccessible via manual tests. They include units that test individual components and end-to-end tests that test a flow from start to end. As a best practice, the following test pattern using the [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/) is recommended:
    - Create contact doc via cht-conf-test-harness
    - PUT docs into localhost API
    - Trigger RapidPro flow
