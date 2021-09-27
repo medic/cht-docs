@@ -70,7 +70,7 @@ This first video shows the left side of the workflow above to provision an RDT f
   use raw HTML for now as hugo youtube short codes show 16:9 ration 
   box instead of mobile portrait ~9:16
 -->
-<iframe id="ytplayer" type="text/html" width="290" height="610" src="https://www.youtube.com/embed/FlhZ-KQIfdY" frameborder="0"></iframe>
+<iframe id="ytplayer" type="text/html" width="342" height="610" src="https://www.youtube.com/embed/3o5d7p9O9OE" frameborder="0"></iframe>
 
 #### Capture
 
@@ -80,7 +80,7 @@ This second video shows the right side of the workflow above to capture RDT resu
   use raw HTML for now as hugo youtube short codes show 16:9 ration 
   box instead of mobile portrait ~9:16
 -->
-<iframe id="ytplayer" type="text/html" width="290" height="610" src="https://www.youtube.com/embed/LC9gR3N8o80" frameborder="0"></iframe>
+<iframe id="ytplayer" type="text/html" width="342" height="610" src="https://www.youtube.com/embed/gpExUOJ6eQ0" frameborder="0"></iframe>
 
 ## Reports and Dashboards
 
