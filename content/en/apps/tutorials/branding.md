@@ -146,6 +146,9 @@ We will then add a `header_tabs` key within app_settings with the following stru
 
 The above assumes you have the following resource icons already in your instance (either uploaded or out-of-the-box): `medic-health-center`, `icon-treatment`. 
 
+Finally run the command: `cht --url=<intance-url> upload-app-settings`
+
+
 {{< see-also page="apps/reference/resources" title="Icons" >}} 
 
 #### Using the admin interface
@@ -154,3 +157,66 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Header I
 
 ![](menu.png)
 ![](header_icons.png)
+
+### 4. App Icons
+
+Apps can be customised by defining the icons to use for tasks, targets, contacts or forms on the action bar.
+
+Add icons to the `resources` folder, and include them by name in the `resources.json` file as the following example:
+
+```
+ {
+    "icon-risk": "icon-healthcare-warning@2x.png",
+    "icon-treatment": "icon-healthcare-medicine@2x.png",
+    "medic-clinic": "medic-family.svg",
+    "medic-district-hospital": "medic-family.svg",
+    "medic-health-center": "medic-chw-area.svg",
+    "medic-person": "medic-person.svg"
+ }
+```
+
+{{< see-also page="design/icons" title="Icon Library" >}}
+
+The folder and files structure would look like this:
+
+```
+./
+    resources.json
+    /resources
+        icon-healthcare-warning@2x.png
+        icon-healthcare-medicine@2x.png
+        medic-family.svg
+        medic-family.svg
+        medic-chw-area.svg
+        medic-person.svg
+
+```
+Finally run the command: `cht --local upload-resources`
+
+To modify the icon used in contacts, we will need to edit the icon subkey in app_settings.json (under contact_types). You will modify app_settings.json with the following contents:
+
+```json
+{
+  ...
+  "contact_types": [
+      {
+        "id": "person",
+        "name_key": "contact.type.person",
+        "group_key": "contact.type.person.plural",
+        "create_key": "contact.type.person.new",
+        "edit_key": "contact.type.person.edit",
+        "primary_contact_key": "person.field.contact",
+        "icon": "medic-person",
+        "create_form": "form:contact:person:create",
+        "edit_form": "form:contact:person:edit"
+      },
+      ...
+  ]
+}
+```
+
+Finally run the command: `cht --local upload-app-settings`
+
+To customise the icons used in tasks or the action bar, we will need to edit a form propteries file and add an icon property as outline in [form properties]({{< ref "apps/tutorials/form-properties" >}}) tutorial.
+
+To customise the icons used in targets, we will need to add an icon property in a target's defunition as shown in the [targets]({{< ref "apps/tutorials/targets" >}}) tutorial.
