@@ -56,7 +56,7 @@ Tips and best practices are listed below:
 ### Flow programming
 - Use skip logic to ask relevant questions only. For example, number of children only if they have children.
 - Automate error messages to validate responses. For example, `You submitted an invalid response. Reply 1 for “Yes”, 2 for “No”`. These can be customized.
-- Reduce spammy messaging by using reminders and follow-up messages selectively on respondents by first differentiating those that completed a flow versus those that did not.
+- Reduce unnecessary messaging by using reminders and follow-up messages selectively on respondents by first differentiating those that completed a flow versus those that did not.
 - Customize messages as much as possible by pre-populating information already known such as name, to target respondents, especially when phones are shared among clients.
 - Translate all messages, especially when deploying in a multi-lingual environment. This ensures that respondents fully understand the survey in their language.
 - Beware of the timing of the surveys that directly affects response rates. From experience, sending questions when respondents are busy with their errands during the day ultimately leads to low response rates as opposed to evenings when they are done for the day.
