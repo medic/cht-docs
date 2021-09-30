@@ -9,7 +9,7 @@ relevantLinks: >
 
 Medic supports minor versions of the CHT Core Framework for three months after the next minor version is made available, and the latest minor of a major version for twelve months after the next major version is made available.
 
-Once a version is no longer supported it will not receive any further releases and upgrading may be required before Medic can investigate any issues.
+Once a version is no longer supported it will not receive any further patch releases and upgrading to a supported version will be required to resolve any issues you have.
 
 | Version | Status | Release date | End of life |
 |----|----|----|----|
@@ -32,7 +32,7 @@ Once a version is no longer supported it will not receive any further releases a
 
 # Dependencies
 
-| medic | Node | CouchDB | Browsers | SMS bridge | Android | medic-android | medic-couch2pg |
+| cht-core | NodeJS | CouchDB | Browsers | SMS bridge | Android OS | cht-android | cht-couch2pg |
 |----|----|----|----|----|----|----|---|
 | **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 | **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | medic-gateway | 4.4+ | Any | 2.0 < 3.0 |
