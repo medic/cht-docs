@@ -43,7 +43,12 @@ For example, if a contact was muted in February and unmuted in May; If you check
 If you extract this data into a separate table you can get a timeline that you can use to check if the contact was muted at a certain point in the past. An example of this approach is shown below where the data is first extracted using the query:
 
 ```sql
-    SELECT x.contact_uuid, date AS muted_on, muted, report_id FROM(
+    SELECT 
+        contact_muting_history.contact_uuid, 
+        date AS muted_on, 
+        muted, 
+        report_id 
+    FROM (
         SELECT 
             doc ->> 'doc_id' AS contact_uuid,
             couchdb.doc ->> 'muting_history' AS muting_history
@@ -52,22 +57,20 @@ If you extract this data into a separate table you can get a timeline that you c
         WHERE
             doc ->> 'type' :: text = 'info'
             AND doc ->> 'muting_history' IS NOT NULL
-    ) x
-    CROSS JOIN LATERAL json_populate_recordset(null::record, x.muting_history::json) AS (date text, muted bool, report_id uuid);
+    ) contact_muting_history
+    CROSS JOIN LATERAL json_populate_recordset(null::record, contact_muting_history.muting_history::json) AS (date text, muted bool, report_id uuid);
 
 ```
 
 The query above will give you a result set like the one below:
 
-```
-contact_uuid | muted_on      |  muted | report_id
--------------------------------------------
-1 | 2021-06-07T13:41:11.119Z | True   | *****
-2 | 2020-12-24T18:02:53.190Z | True   | *****
-3 | 2021-01-24T17:36:31.917Z | True   | *****
-3 | 2021-04-15T16:56:05.984Z | False  | *****
+| contact_uuid | muted_on | muted | report_id |
+| --- | --- | --- | --- |
+| 1 | 2021-06-07T13:41:11.119Z | True   | ***** |
+| 2 | 2020-12-24T18:02:53.190Z | True   | ***** |
+| 3 | 2021-01-24T17:36:31.917Z | True   | ***** |
+| 3 | 2021-04-15T16:56:05.984Z | False  | ***** |
 
-```
 
 You can query the table above (`mute_timeline`) to check if the contact was muted in a certain period in time as shown below:
 
