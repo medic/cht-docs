@@ -80,9 +80,9 @@ You can query the table above (`mute_timeline`) to check if the contact was mute
     FROM
         mute_timeline
     WHERE
-        contact_uuid = *****
-        AND date_trunc('day',muted_on) <= date_trunc('day', EXAMPLE_DATE)
-        AND unmuted_on >= (date_trunc('day', EXAMPLE_DATE) + '1 day'::interval))
+        contact_uuid = ***** AND 
+        date_trunc('day',muted_on) <= date_trunc('day', EXAMPLE_DATE) AND 
+        unmuted_on >= (date_trunc('day', EXAMPLE_DATE) + '1 day'::interval)
 
 ```
 
