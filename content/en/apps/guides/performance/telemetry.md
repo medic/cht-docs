@@ -39,8 +39,13 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time` | The overall boot time including loading the code, purging, and accessing the database. |
 | `boot_time:1:to_first_code_execution` | The time between the page loading and the JavaScript starting to run. |
 | `boot_time:2:to_bootstrap` | The time between JavaScript starting and the bootstrapping (purging, initial replication, etc) to complete. |
+| `boot_time:2_1:to_replication` | The time it takes to complete the replication. Added in 3.14. |
+| `boot_time:2_2:to_purge` | The time it takes to complete the DB purge. Added in 3.14. |
+| `boot_time:2_3:to_purge_meta` | The time it takes to complete the Meta purge. Added in 3.14. |
 | `boot_time:3:to_angular_bootstrap` | The time between bootstrapping completing and the webapp being ready to use. |
 | `boot_time:4:to_db_warmed` | The time between the webapp being ready to use and the database being ready to use. |
+| `boot_time:purgedDB:<boolean>` | `boot_time:purgedDB:true` if DB was purged, `boot_time:purgedDB:false` if DB wasn't purged. Added in 3.14. |
+| `boot_time:purgedMeta:<boolean>` | `boot_time:purgedMeta:true` if Meta was purged, `boot_time:purgedMeta:false` if Meta wasn't purged. Added in 3.14. |
 | `enketo:reports:<form>:<action>:<component>` | The time taken to fill in Enketo forms. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
 | `enketo:contacts:<form>:add:<component>` | As above but for Contact creation forms. |
 | `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. |
@@ -77,6 +82,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `tasks:group:ready:<task_title>` | Breakdown of "Ready" tasks by `task_title` for the household, when displaying household tasks page. Added in 3.13. |
 | `tasks:group:modal:confirm` | Number times the user confirms navigation away from the household tasks page. Added in 3.13. |
 | `tasks:group:modal:reject` | Number times the user rejects navigation away from the household tasks page. Added in 3.13. |
+| `user_settings:language:<language_code>` | The selected language by the user, example: `user_settings:language:en`. Added in 3.14. |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
