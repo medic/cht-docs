@@ -46,7 +46,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time:4:to_db_warmed` | The time between the webapp being ready to use and the database being ready to use. |
 | `boot_time:purging:<boolean>` | `boot_time:purging:true` when purging ran successfully on device startup, `boot_time:purging:false` when purging did not run. Added in 3.14. |
 | `boot_time:purging_failed` | The purging failed when running on device startup. Added in 3.14. |
-| `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` otherwise. Added in 3.14. |
+| `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. |
 | `enketo:reports:<form>:<action>:<component>` | The time taken to fill in Enketo forms. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
 | `enketo:contacts:<form>:add:<component>` | As above but for Contact creation forms. |
