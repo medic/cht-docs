@@ -114,6 +114,7 @@ module.exports = [{
   }],
 }];
 ```
+
 **What is this code doing?**
 
 * `icon` - The icon can be set to any available [resource]({{< ref "apps/reference/resources" >}}).
@@ -123,15 +124,13 @@ module.exports = [{
 * `!c.contact.muted` - The contact must be unmuted
 * `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`. This is a "short-hand" which is equivalent to `appliesIf: c => c.contact.contact_type === 'patient'`.
 
-## Next Steps
+## Up Next
 As an exercise:
 
 1. Try to upload and test these changes to the task.
 2. Was selecting `appliesTo: 'contacts'` the right choice? Can this task be written with `appliesTo: 'reports'`?
 
 In [Part 3]({{< ref "apps/tutorials/tasks-3" >}}), we will look at some more advanced tasks.
-
-
 
 ## Resources
 

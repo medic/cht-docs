@@ -23,7 +23,7 @@ This guide will explain how to write a task which prompts CHW users to complete 
 
 ## Prerequisites
 
-* Complete the [Building App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) - Tasks prompt users to _complete activities_ by opening an app form. The app forms tutorial produces an _assessment_ app form which we will use here. You can also use an [example app form](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
+* Complete the [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) - Tasks prompt users to _complete activities_ by opening an app form. The app forms tutorial produces an _assessment_ app form which we will use here. You can also elect to substitute that with any [example app form](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
 * Complete the [Contact and User Management - Part 1 Tutorial]({{< ref "apps/tutorials/contact-and-users-2" >}}) to create a hierarchy of contacts and an offline CHW user. 
 
 ## A simple task
@@ -50,7 +50,7 @@ The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an ar
 
 * `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule. We will look at this more in [Configuring Tasks - Part 4]({{ < ref "apps/tutorials/tasks-4" >}}).
 * `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices/#anatomy-of-a-task" >}}).
-* `appliesTo` - We will be looking at this in-depth in [Configuring Tasks - Part 2]({{ < ref "apps/tutorials/tasks-4" >}}). For now, we use `contacts` because we want one task _per contact_.
+* `appliesTo` - We will be looking at this in-depth in [Configuring Tasks - Part 2]({{ < ref "apps/tutorials/tasks-2" >}}). For now, we use `contacts` because we want one task _per contact_.
 * `actions` - Actions control what happens when the user "selects" the task (clicks on it or touches it). We want to have the single option of completing the _assessment form_.
 * `events` - This controls the task's schedule. We want a single event because this is a one-time follow-up. 
 * `events[0].days` - The task is due 7 days after the contact's creation date.
