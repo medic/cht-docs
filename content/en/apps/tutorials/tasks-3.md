@@ -56,7 +56,7 @@ And then in `tasks.js` we can analyse this solution:
 const { DateTime } = require('luxon');
 
 module.exports = {
-  name: 'pnc_followup',
+  name: 'pnc-after-pregnancy',
   icon: 'icon-follow-up',
   title: 'task.pnc_followup',
   appliesTo: 'contacts',
@@ -69,17 +69,17 @@ module.exports = {
     if (userIsChw && !isDead && !isMuted) {
       const mostRecentPregnancy = Utils.getMostRecentReport(contact.reports, 'pregnancy');
       const calculatedLmp = mostRecentPregnancy && Utils.getField(mostRecentPregnancy, 'g_details.estimated_lmp');
-      this.lmp = calculatedLmp && DateTime.fromFormat(calculatedLmp, 'yyyy-MM-dd')
+      this.lmp = calculatedLmp && DateTime.fromFormat(calculatedLmp, 'yyyy-MM-dd');
       
       return this.lmp && this.lmp.isValid;
     }
   },
   events: [12, 20, 26, 30, 34, 36, 38, 40] // follow-up weeks after LMP
     .map(weekAfterLmp => ({
-      id: `pnc-week${week}`,
+      id: `pnc-week-${weekAfterLmp}`,
       start: weekAfterLmp > 30 ? 6 : 7,
       end: weekAfterLmp > 30 ? 7 : 14,
-      dueDate: function (event, contact, report) {
+      dueDate: function () {
         return this.lmp.plus({ weeks: weekAfterLmp }).toJsDate();
       }
     })),
@@ -152,3 +152,5 @@ In this sample app form `survey`, the value of `t_followup_count` is bound in th
 | end group   |                    |                             |          |                   |            |            |                     |                                            |
 | calculate   | is_first_followup  |                             |          |                   |            |            |                     | if(${t_follow_up_count}='1',true,false)   |
 
+## Next Steps
+In [Part 4]({{< ref "apps/tutorials/tasks-4" >}}), we will look at the analytic capabilities of the tasks system.
