@@ -7,8 +7,8 @@ description: >
 relatedContent: >
   apps/reference/tasks
   apps/guides/data/hydration
-  core/overview/db-schema/#contacts-persons-and-places
-  core/overview/db-schema/#reports
+  core/overview/db-schema#contacts-persons-and-places
+  core/overview/db-schema#reports
   apps/tutorials/tasks-1
 
 ---
@@ -34,8 +34,8 @@ There are several relevant facts about CHT applications which should be clear be
 The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
 {{% /alert %}}
 
-1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents](< ref "core/overview/db-schema/#contacts-persons-and-places" >).
-2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents](< ref "core/overview/db-schema/#reports" >).
+1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents](< ref "core/overview/db-schema#contacts-persons-and-places" >).
+2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents](< ref "core/overview/db-schema#reports" >).
 3. Documents are stored [minified]({{< ref "apps/guides/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
 4. Settings which control the documents which are available on the user's device are an important considerations to remember for tasks (eg [replication depth]("apps/guides/performance/replication#depth") or [purging]({{{< ref="apps/guides/performance/purging" >}})) since the tasks system can only process docs which are present on the device.
 

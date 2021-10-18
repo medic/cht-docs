@@ -8,7 +8,7 @@ relatedContent: >
   apps/tutorials/tasks-1
   apps/tutorials/tasks-2
   apps/tutorials/tasks-3
-  core/overview/db-schema/#tasks
+  core/overview/db-schema#tasks
   core/overview/data-flows-for-analytics
 ---
 
@@ -27,7 +27,7 @@ This tutorial will guide you through working with the data which results from ta
 * [Data Flows for Analytics]({{< ref "core/overview/data-flows-for-analytics" >}})
 
 ## Querying task data
-The task system running on each user's device is powered by [task documents]({{ < ref "core/overview/db-schema/#tasks" >}}) and those task documents sync to the server and to postgres just like a contact or a report. For more information, check out [data flows for analytics]({{< ref "core/overview/data-flows-for-analytics" >}}). Having task documents in Postgres allows system administrators to analyse how users are interacting with tasks.
+The task system running on each user's device is powered by [task documents]({{ < ref "core/overview/db-schema#tasks" >}}) and those task documents sync to the server and to postgres just like a contact or a report. For more information, check out [data flows for analytics]({{< ref "core/overview/data-flows-for-analytics" >}}). Having task documents in Postgres allows system administrators to analyse how users are interacting with tasks.
 
 ### First Assessment Completion Rate
 Working with the _First Assessment_ task from [Configuring Tasks - Part 2]({{< ref "apps/tutorials/tasks-2" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
@@ -69,8 +69,8 @@ module.exports = [{
 ```
 
 **What is this code doing?**
-* `useview_task` - This is a materialized view created automatically by the medic-couch2pg service. It is an intuitive view of the data from the [task document schema]({{< ref "core/overview/db-schema/#tasks" >}}).
-* `task_state` - The meaning of each task state is explained in the [task document schema]({{< ref "core/overview/db-schema/#tasks" >}}).
+* `useview_task` - This is a materialized view created automatically by the medic-couch2pg service. It is an intuitive view of the data from the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
+* `task_state` - The meaning of each task state is explained in the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
 * `WHERE title` - The _name_ attribute in the [task.js schema]({{< ref "apps/reference/tasks#tasksjs" >}}) is used exclusively in the task's backend data. Here we limit the query to task documents resulting from our named task. The `title` in postgres maps to the `name` in JavaScript not the `title` in JavaScript - which is confusing.
 * `WHERE duedate` - One task document is created per event and this task has one event per contact which is due 7 days after the contact's creation date. Here we limit the query to task documents which are _due in the last 3 calendar months_.
 

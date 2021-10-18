@@ -127,7 +127,7 @@ We're using the `this.lmp` value which was calculated and saved in the `appliesI
 4. A pregnancy visit should be skipped if an _assessment followup_ is completed within the scheduled window for the pregancy visit.
 ```
 
-`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "apps/reference/tasks/#default-resolvedif-method" >}}). 
+`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "apps/reference/tasks#default-resolvedif-method" >}}). 
 
 This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "apps/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
 
