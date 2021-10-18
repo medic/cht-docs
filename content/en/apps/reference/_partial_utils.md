@@ -20,5 +20,3 @@ Utility functions in the Core Framework can make common tasks much easier. These
 | `MS_IN_DAY` | A constant for the number of milliseconds in a day. |
 
 Please open [an issue](https://github.com/medic/cht-core/issues/new) if you'd like other functions included.
-
-Custom functions and variables can be written in [`nools-extra.js`]({{< ref "apps/reference/nools-extras" >}}), which is accessible to both Targets and Tasks.

@@ -117,7 +117,7 @@ If a contact is dead, you may want to disable the majority of tasks for that con
 
 ```javascript
 {
-  appliesIf: (contact) => !contact.date_of_death && myLogic,
+  appliesIf: (contact) => !contact.contact.date_of_death && myLogic,
   ...
 }
 ```
