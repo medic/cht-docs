@@ -12,7 +12,7 @@ relatedContent: >
 
 ---
 
-Tasks prompt users to complete activities on a programmatic schedule. This _Configuring Tasks_ tutorial series is a practical guide to the creation and management of tasks.
+Tasks prompt users to complete activities on a programmatic schedule. The appearance, behaviour, and schedule of tasks are all controlled through the JavaScript in the `tasks.js` file.
 
 {{% pageinfo %}}
 This guide will explain how to write a task which prompts users to complete an _assessment_ [app form]{{< ref "apps/tutorials/app-forms" >}} for all new patients within 7 days of registration.
@@ -28,7 +28,7 @@ This guide will explain how to write a task which prompts users to complete an _
 
 ## A simple task
 
-The appearance, behaviour, and schedule of tasks are all controlled through the JavaScript in the `tasks.js` file. Let's start in that file with a simple first task:
+Let's start with a simple first task:
 
 ```javascript
 module.exports = [{
@@ -77,7 +77,7 @@ Tasks are only available to [offline users]({{< ref "apps/concepts/users/#offlin
 
 Create a new contact in the hierarchy and navigate to the `Tasks` tab. You should see the new `assessment-after-registration` task!
 
-![first-task](first-task.jpg "First Assessment Task")
+{{< figure src="simple-task.png" link="simple-task.png" class="right col-6 col-lg-8" >}}
 
 Next, test a few of the expected behaviours for the task:
 
