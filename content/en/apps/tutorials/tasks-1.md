@@ -73,7 +73,7 @@ cht --url=https://<username>:<password>@localhost compile-app-settings upload-ap
 
 ## Testing the task
 
-Tasks are only available to [offline users]({{< ref "apps/concepts/users/#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "apps/tutorials/contact-and-users-2" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
+Tasks are only available to [offline users]({{< ref "apps/concepts/users#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "apps/tutorials/contact-and-users-2" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
 
 Create a new contact in the hierarchy and navigate to the `Tasks` tab. You should see the new `assessment-after-registration` task!
 
