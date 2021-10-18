@@ -13,7 +13,7 @@ relatedContent: >
 {{% pageinfo %}}
 This tutorial will take you through customising some graphical elements of CHT core.
 
-We will cover site branding, partner logos, header tab icons, and app icons (used in tasks, targets and contacts)
+You will cover site branding, partner logos, header tab icons, and app icons (used in tasks, targets, and contacts).
 
 {{% /pageinfo %}}
 
@@ -24,7 +24,7 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 ## Implementation Steps
 
 ### 1. Site branding
-We have the ability to modify the app title, logo and favicon.
+You have the ability to modify the app title, logo, and favicon.
 
 {{< figure src="branding_elements.png" link="branding_elements.png" class="center col-6 col-lg-8" >}}
 
@@ -63,16 +63,14 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 ![](images.png)
 
 {{% alert title="Note" %}} 
-
 If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
 
-Images used for the logo should be less than 100KB, transparent, have a high contrast, and horizonal in shape with ratio of about 3.5:1. We recommend SVG or PNG as an alternative image format.
-
+Images used for the logo should be less than 100KB, transparent, have high contrast, and be horizontal in shape with a ratio of about 3.5:1. We recommend SVG or PNG as an alternative image format.
 {{% /alert %}}
 
 ### 2. Partner logos
 
- If you would like to display a collection of logos representing all of the organizations and funders involved in a project, we have created a new space for these at the bottom of the About page which can be reached through `Menu > About`.
+If you would like to display a collection of logos representing all of the organizations and funders involved in a project, there is a space for these at the bottom of the About page. This page can be accessed through; `Menu > About`
 
  {{< figure src="about_page.png" link="about_page.png" class="center col-6 col-lg-8" >}}
 
@@ -147,8 +145,6 @@ We will then add a `header_tabs` key within app_settings with the following stru
 The above assumes you have the following resource icons already in your instance (either uploaded or out-of-the-box): `medic-health-center`, `icon-treatment`. 
 
 Finally run the command: `cht --url=<intance-url> upload-app-settings`
-
-
 {{< see-also page="apps/reference/resources" title="Icons" >}} 
 
 #### Using the admin interface
@@ -164,7 +160,7 @@ Apps can be customised by defining the icons to use for tasks, targets, contacts
 
 Add icons to the `resources` folder, and include them by name in the `resources.json` file as the following example:
 
-```
+```json
  {
     "icon-risk": "icon-healthcare-warning@2x.png",
     "icon-treatment": "icon-healthcare-medicine@2x.png",
@@ -193,7 +189,7 @@ The folder and files structure would look like this:
 ```
 Finally run the command: `cht --local upload-resources`
 
-To modify the icon used in contacts, we will need to edit the icon subkey in app_settings.json (under contact_types). You will modify app_settings.json with the following contents:
+To modify the icon used in contacts, you will need to edit the icon subkey in app_settings.json (under contact_types). You will modify app_settings.json with the following contents:
 
 ```json
 {
@@ -217,6 +213,6 @@ To modify the icon used in contacts, we will need to edit the icon subkey in app
 
 Finally run the command: `cht --local upload-app-settings`
 
-To customise the icons used in tasks or the action bar, we will need to edit a form propteries file and add an icon property as outline in [form properties]({{< ref "apps/tutorials/form-properties" >}}) tutorial.
+To customise the icons used in tasks or the action bar, you will need to edit a form properties file and add an icon property as outline in [form properties]({{< ref "apps/tutorials/form-properties" >}}) tutorial.
 
-To customise the icons used in targets, we will need to add an icon property in a target's defunition as shown in the [targets]({{< ref "apps/tutorials/targets" >}}) tutorial.
+To customise the icons used in targets, you will need to add an icon property in a target's definition as shown in the [targets]({{< ref "apps/tutorials/targets" >}}) tutorial.
