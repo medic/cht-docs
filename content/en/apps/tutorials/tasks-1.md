@@ -88,8 +88,8 @@ Next, test a few of the expected behaviours for the task:
 
 Hint: Remember to reset your system clock to be accurate when you are done testing.
 
-## Up Next
-While you're testing, you might notice a few bugs. In [Part 2]({{< ref "apps/tutorials/tasks-2" >}}), we will build a deeper understanding of the tasks system and fix these bugs.
+## Some problems
+While you're testing, you might notice a few oddities. In [Part 2]({{< ref "apps/tutorials/tasks-2" >}}), we will take a deeper look.
 
 ## Resources
 
