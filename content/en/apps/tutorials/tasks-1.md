@@ -53,9 +53,9 @@ The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an ar
 * `appliesTo` - We will be looking at this in-depth in [Configuring Tasks - Part 2]({{ < ref "apps/tutorials/tasks-2" >}}). For now, we use `contacts` because we want one task _per contact_.
 * `actions` - Actions control what happens when the user "selects" the task (clicks on it or touches it). We want to have the single option of completing the _assessment form_.
 * `events` - This controls the task's schedule. We want a single event because this is a one-time follow-up. 
-* `events[0].days` - The task event is due 7 days after the contact's creation date.
-* `events[0].start` - The task event should appear 7 days before the due date, or immediately when the contact is created.
-* `events[0].end` - The task event should disappear the day after the due date.
+* `events[0].days` - The task is due 7 days after the contact's creation date.
+* `events[0].start` - The task should appear 7 days before the due date, or immediately when the contact is created.
+* `events[0].end` - The task should disappear the day after the due date.
 
 ## Uploading the task
 
@@ -89,7 +89,13 @@ Next, test a few of the expected behaviours for the task:
 Hint: Remember to reset your system clock to be accurate when you are done testing.
 
 ## Up Next
-While you're testing, you might notice a few edge case bugs. In [Part 2]({{< ref "apps/tutorials/tasks-2" >}}), we will build a deeper understanding of the tasks system to fix these bugs.
+While you're testing, you might notice a few bugs. In [Part 2]({{< ref "apps/tutorials/tasks-2" >}}), we will build a deeper understanding of the tasks system and fix these bugs.
+
+## Resources
+
+* [Task Features]({{< ref "apps/features/tasks" >}})* gives an overview of tasks.
+* [Anatomy of a Task]({{< ref "design/best-practices/#anatomy-of-a-task" >}})* takes you through how a user experiences a task. We will be controlling the visual anatomy
+* [Task.js Schema]({{< ref "apps/reference/tasks#tasksjs" >}})* details a set of properties for tasks.
 
 ## Frequently Asked Questions
 
