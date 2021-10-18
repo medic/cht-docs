@@ -32,7 +32,7 @@ There are several relevant facts about CHT applications which should be clear be
 
 {{% alert title="Key Point" %}}
 The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
-{{% /alert }}
+{{% /alert %}}
 
 1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents](< ref "core/overview/db-schema/#contacts-persons-and-places" >).
 2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents](< ref "core/overview/db-schema/#reports" >).
