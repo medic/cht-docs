@@ -15,7 +15,7 @@ relatedContent: >
 Tasks prompt users to complete activities on a programmatic schedule. This _Configuring Tasks_ tutorial series is a practical guide to the creation and management of tasks.
 
 {{% pageinfo %}}
-This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]{{< ref "apps/tutorials/app-forms" >}} for new patients within 7 days of registration.
+This guide will explain how to write a task which prompts users to complete an _assessment_ [app form]{{< ref "apps/tutorials/app-forms" >}} for all new patients within 7 days of registration.
 
 - Creating a straight-forward task
 - Running and testing that task
@@ -88,8 +88,37 @@ Next, test a few of the expected behaviours for the task:
 
 Hint: Remember to reset your system clock to be accurate when you are done testing.
 
-## Some problems
-While you're testing, you might notice a few oddities. In [Part 2]({{< ref "apps/tutorials/tasks-2" >}}), we will take a deeper look.
+## Making some minor improvements
+
+Problems:
+
+1. The task looks plain. This is maybe fine when there is only one task in the system, but it becomes useful to visually differentiate tasks with an icon.
+2. The task triggers for every contact in the hierarchy including the _CHW Areas_, the _CHW_, and _Health Clinics_. It doesn't make sense for the CHW to do a "first assessment" for a place, to do a "first assessment" of themselves.
+3. The task triggers for muted and dead contacts
+
+```javascript
+module.exports = [{
+  name: 'assessment-after-registration',
+  title: 'First Assessment',
+  icon: 'icon-healthcare',
+  appliesTo: 'contacts',
+  appliesToType: ['patient'],
+  appliesIf: c => !c.contact.date_of_death && !c.contact.muted,
+  actions: [{ form: 'assessment' }],
+  events: [{
+    start: 7,
+    days: 7,
+    end: 0,
+  }],
+}];
+```
+**What is this code doing?**
+
+* `icon` - The icon can be set to the handle of any available [resource]({{< ref "apps/reference/resources" >}}).
+* `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`.
+* `appliesIf` - The task's event schedule will be created only if this JavaScript function returns true. We don't want the task to ever appear for dead or muted contacts. See the [death reporting tutorial]({{< ref "apps/tutorials/../../death-reporting" >}}) for more details.
+
+As an exercise, try to upload and test these changes to the task.
 
 ## Resources
 
