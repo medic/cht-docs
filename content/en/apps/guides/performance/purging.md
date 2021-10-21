@@ -182,24 +182,30 @@ Purging does not touch documents in the `medic` database, everything is done in 
 The purge databases names contain an md5 of the JSON representation of a list of unique roles. 
 They also contain a `_local/info` doc where the roles are listed in clear text.
 
-As of **3.14.0**, contacts that have more than 20.000 associated reports + messages will be skipped, and none of their associated
-reports and messages will be purged. A single contact that has more than 20.000 associated records most likely points
+As of **3.14.0**, contacts that have more than 20,000 associated reports + messages will be skipped, and none of their associated
+reports and messages will be purged. A single contact that has more than 20,000 associated records most likely points
 to a configuration issue. Skipped contacts' ids are reported both in logs and in `purgelog` files (see below). 
 
-A `purgelog` document is saved in the `medic-sentinel` database after every purge. The purgelog has a meaningful 
-id: `purgelog:<timestamp>`, where `timestamp` represents the moment when purging was completed. The doc
-also contains a property `roles` with the collection of roles purging has run for, and a `duration` property
-representing the time it took to run purge, in ms.
-As of **3.14.0**, `purgelog` documents have an additional property `skipped_contacts` that contains the list of contacts
-ids that were skipped, due to having too many associated records. 
+A `purgelog` document is saved in the `medic-sentinel` database after every purge. The purgelog has a meaningful
+id: `purgelog:<timestamp>`, where `timestamp` represents the moment when purging was completed.
+As of **3.14.0**, every time purging fails to complete due to an error, a `purgelog:error` document is saved in the
+`medic-sentinel` database. The ids of these documents are similarly meaningful: `purgelog:error:<timestamp>`. 
+
+`purgelog` docs have the following properties:
+
+| property | value type | description | 
+| ----- | ----- | ----- |
+| `date` | ISO formatted date | The moment when purging was completed | 
+| `roles` | Map | A map of roles lists and their hashes that purging has run for |
+| `duration` | Number | Time it took to run purging, in ms. | 
+| `skipped_contacts` | Array | Available since **3.14.0** List of contacts ids that were skipped, due to having too many associated records.  | 
+| `error` | String | Available since **3.14.0** Describes the error that caused purging to fail. Only present in `purgelog:error` docs. |  
+
 You can retrieve a list of all your purge logs, descending from newest to oldest, with this request: 
 
 `https(s)://<host>/medic-sentinel/_all_docs?end_key="purgelog:"&start_key="purgelog:\ufff0"&descending=true`
 
-As of **3.14.0**, every time purging fails to complete due to an error, a `purgelog:error` document is saved in the 
-`medic-sentinel` database. The ids of these documents are also meaningful: `purgelog:error:<timestamp>` and their contents
-are the same as `purgelog` docs, except they also include an `error` field which describes the error.
-You can retrieve a list of all your purge errors, descending from newest to oldest, with this request:
+You can retrieve a list of all your purge logs with errors, descending from newest to oldest, with this request:
 
 `https(s)://<host>/medic-sentinel/_all_docs?end_key="purgelog:error:"&start_key="purgelog:error:\ufff0"&descending=true`
 
