@@ -16,4 +16,4 @@ Follow the [instructions in the readme](https://github.com/medic/cht-conf/#user-
 
 ## Android apps
 
-Follow the instructions in the [Android / Releasing]({{< ref "core/guides/android/releasing" >}}) section.
+Follow the instructions in the [Android > Releasing]({{< ref "core/guides/android/releasing" >}}) section.

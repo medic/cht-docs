@@ -1,9 +1,9 @@
 ---
 title: "Building CHT Android Flavors"
 linkTitle: CHT Android Flavors
-weight: 13
+weight: 3
 description: >
-  Building CHT Android Flavors
+  Branding the CHT Android with "Flavors" Apps
 relatedContent: >
   core/
 ---
@@ -93,4 +93,4 @@ You need to prepare your resources (icons and application ID) then add the new a
 - Follow the steps in `4.` above
 
 
-![medic-android set up on Android Studio](android-wrapper.png "Medic Android set up on Android Studio")
+![medic-android set up on Android Studio](android-studio-branding.png "CHT Android set up on Android Studio")
