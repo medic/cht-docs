@@ -25,14 +25,14 @@ To proceed you need to have ready, the following:
 
 - Title of the application
 - Logo 512x512, typically a version of the partner logo e.g. square design icons
-- URL is needed in the product flavor
+- URL of the CHT instance is needed in the product flavor
 
 ## Required Resources
 
 You should have a functioning [Android SDK](https://developer.android.com/studio/releases/platform-tools) installed. You will also need an image asset studio to create the icon resources required. The [Android image asset studio](https://developer.android.com/studio/write/image-asset-studio) is easily available.
 
 Additionally, the following command tools are required:
-- Java 11
+- Java 11+
 - keytool
 - apksigner
 - openssl
