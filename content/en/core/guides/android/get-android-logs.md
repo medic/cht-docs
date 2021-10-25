@@ -1,7 +1,7 @@
 ---
 title: "Get Android Logs"
 linkTitle: "Get Android Logs"
-weight: 
+weight: 2
 description: >
   Notes for getting logs using ADB
 ---

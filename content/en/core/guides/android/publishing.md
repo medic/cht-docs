@@ -1,32 +1,14 @@
 ---
-title: "Android App Publishing"
-linkTitle: "Android App Publishing"
-weight: 
+title: "Publishing"
+linkTitle: "Publishing"
+weight: 4
 description: >
-  How to building and publishing Android applications
+  Instructions for Publishing Android Apps
+relatedContent: >
+  core/guides/android/releasing
 ---
 
-## Building
-
-### Branding
-
-You can overwrite aspects of the generic Android app by providing your own brand. Common elements to overwrite are:
-
-- The URL of your CHT server so users don't have to type it in post install
-- The app logo and title
-- Translations for your supported languages
-
-Follow these [instructions to create a new brand](https://github.com/medic/medic-android/#adding-new-brands).
-
-### Building APKs
-
-Use Fastlane to build and sign your APKs ready for publishing. Building can be done using CI (eg: GitHub Actions, travis ci). For reference, refer to [how Medic builds APKs using GitHub Actions](https://github.com/medic/medic-android/blob/master/.github/workflows/publish.yml).
-
-It's important to ensure you sign your APKs using the same certificate to ensure that upgrading to a new version goes smoothly. This certificate must be encrypted and backed up so it's not lost or exposed publically. For example, Medic has encrypted a certificate and stored it in the [medic-android](https://github.com/medic/medic-android/blob/master/secrets.tar.gz.enc) git repo, which is then decrypted for use during [CI build](https://github.com/medic/medic-android/blob/master/.github/workflows/publish.yml).
-
-## Publishing
-
-There are many different ways to publish APKs for installation.
+Once [released]({{< ref "core/guides/android/releasing" >}}) the app, there are many different ways to publish APKs for installation.
 
 ### Google Play Store
 
@@ -35,6 +17,11 @@ The Play Store has the advantage of being installed on all Android phones by def
 One of the downsides is it can be more difficult to get your app published and it may be removed in future if it's found to not comply with future requirements.
 
 Follow these instructions to [publish your app](https://support.google.com/googleplay/android-developer/answer/9859751?hl=en).
+
+
+#### New App in the Play Store
+
+Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is the `<brand>_private_key.pepk` file generated when following the instructions of [New brand](#new-brand) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
 
 ### Side loading
 

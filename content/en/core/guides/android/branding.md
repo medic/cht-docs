@@ -1,11 +1,9 @@
 ---
 title: "Building CHT Android Flavors"
 linkTitle: CHT Android Flavors
-weight: 3
+weight: 13
 description: >
   Branding the CHT Android with "Flavors" Apps
-relatedContent: >
-  core/
 ---
 
 {{% pageinfo %}}
@@ -70,27 +68,6 @@ You need to prepare your resources (icons and application ID) then add the new a
 - Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail. Android needs to have English as the default language.
 - Execute: `make test-ui` or `make test-ui-gamma`
 
-### 4. Releasing
+### 4. [Releasing]({{< ref "core/guides/android/releasing" >}})
 
-#### Alpha for release testing
-
-- Ensure tests have passed and merge to `master`
-- Create a git tag starting with `v` and ending with the alpha version, e.g. `v1.2.3-alpha.1` and push the tag to GitHub.
-- The release-ready `APKs` are available for side-loading from GitHub Releases, along with the `AABs` required by Google Play Store.
-
-
-#### Releasing in the Play Store
-
-- [Upload your App to the Play Console](https://developer.android.com/studio/publish/upload-bundle)
-
-{{% alert title="Note" %}} Ensure you upload the `.pepk` file so that the optimized `.apk` generated can be configured to use the same signing and upload signatures by Google. {{% /alert %}}
-
-### 5. Updating the Play Store App
-
-{{% alert title="Note" %}} It is mandatory that you update files using the same extension, i.e. if the app was released as an APK instead of AAB, you must upload it as an APK file. {{% /alert %}}
-
-- Rebuild the signed updated AAB or APK file to a new version
-- Follow the steps in `4.` above
-
-
-![medic-android set up on Android Studio](android-studio-branding.png "CHT Android set up on Android Studio")
+### 5. [Publishing]({{< ref "core/guides/android/publishing" >}})

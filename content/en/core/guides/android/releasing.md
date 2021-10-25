@@ -1,12 +1,14 @@
 ---
 title: "Releasing"
 linkTitle: "Releasing"
-weight: 7
+weight: 3
 description: >
   Instructions for releasing Android Apps
+relatedContent: >
+  core/guides/android/publishing
 ---
 
-All medic Android projects automatically build, sign, and publish builds via Github Actions or Travis. The following guide applies to any of these apps (links pointing to the release sections):
+All medic Android projects automatically build, sign, and release builds via Github Actions or Travis. The following guide applies to any of these apps (links pointing to the release sections):
 
    * [cht-android](https://github.com/medic/cht-android/releases)
    * [cht-gateway](https://github.com/medic/cht-gateway/releases)
@@ -26,12 +28,7 @@ All medic Android projects automatically build, sign, and publish builds via Git
 ## Final for users
 
 1. The exact same process from Step 1 to 3 above, but name it without any suffix, e.gg. `v1.2.3`.
-3. Publish in the Play Store. For the CHT-Android app, the "reference" apps must be published: Unbranded, Simprints, and Gamma flavors.
-4. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
+2. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps must be published in the Play Store: Unbranded, Simprints, and Gamma flavors.
+3. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
 
-**NOTE**: if the release only contains a new flavor but is based in the last version, tag it with a number suffix separated with a `-`, e.g. `v1.2.3-1`. In this case there is no need to publish again the reference apps.
-
-
-### New App in the Play Store
-
-Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is the `<brand>_private_key.pepk` file generated when following the instructions of [New brand](#new-brand) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
+**NOTE**: if the release only contains a new flavor but is based in the last version, tag it with a number suffix separated with a `-`, e.g. `v1.2.3-1`. In this case there is no need to publish again the reference apps, or to announce the release in the forum.
