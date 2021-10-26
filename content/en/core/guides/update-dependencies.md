@@ -40,7 +40,7 @@ Then for each folder go through these steps.
 - Make sure the version of `webapp/jquery` is the same as `webapp/enketo-core/jquery`.
 - Make sure the version of `api/enketo-xslt` is the same as `webapp/enketo-core/enketo-transformer/enketo-xslt`.
 - Don't update `loadash/core` since 4.17.21 is failing, this is an [open issue](https://github.com/lodash/lodash/issues/4904) in their repository.
-- Don't update `helmet` since it is not supporting NodeJS 8 anymore. Their minimum is NodeJS 10+.
+- Don't update `helmet` since it is not supporting NodeJS 8 anymore. Its minimum is NodeJS 10+.
 - If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue to upgrade just that dependency. Don't hold up all the other upgrades you've made.
 
 ## Troubleshooting
