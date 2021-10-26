@@ -29,7 +29,7 @@ Password: `topSecret`
 ![configuration](gateway-config.png)
 
 {{% alert title="Note" %}}
-If you're configuring cht-gateway (v0.62 and below - recommended if you have a non-_Medic_ hosted instance) you will need to use the generic build of cht-gateway - links to download are [here](https://github.com/medic/cht-gateway/releases). Find out the value for webapp URL from your tech support then configure as below
+If you're configuring cht-gateway (v0.6.2 and below - recommended if you have a non-_Medic_ hosted instance) you will need to use the generic build of cht-gateway - links to download are [here](https://github.com/medic/cht-gateway/releases). Find out the value for webapp URL from your tech support then configure as below
  **WebappUrl**: ```https://my_gateway_user:topSecret@myproject.some-subdomain.mydomain.org```
 {{% /alert %}}
 
