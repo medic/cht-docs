@@ -15,8 +15,9 @@ Finally, you will learn how to assemble the app, run the tests, and how to choos
 
 ## Requirements
 
-- Java 11+ (it works with OpenJDK versions).
-- Android Studio, or at least the command line tools from the [Android SDK](https://developer.android.com/studio#command-tools).
+- Java 11+ (it works with OpenJDK versions). The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
+- Android Studio, or at least the command line tools from the [Android SDK](https://developer.android.com/studio#command-tools). The binary folders also need to be added to the `$PATH`, and `$ANDROID_HOME` pointing to the root of the SDK.
+- The `adb` command. Old SDK distributions used to have it pre-packaged, now you have to install it with the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) from the Android Studio, or from the CLI version in the SDK command line tools: `sdkmanager --install platform-tools`. After install it, ensure it's also in the `$PATH` variable, the manager normally install it under the `$ANDROID_HOME/platform-tools/` folder.
 - The source code. To run all the tests in the CHT Android app you need to clone also the submodules: `git clone --recurse-submodules https://github.com/medic/cht-android.git`.
 - The `make` command.
 - If you are going to build a new flavor you also need to have installed `xxd` and `openssl`.
