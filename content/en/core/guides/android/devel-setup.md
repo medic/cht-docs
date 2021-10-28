@@ -15,14 +15,68 @@ Finally, you will learn how to assemble the app, run the tests, and how to choos
 
 ## Requirements
 
-- Java 11+ (it works with OpenJDK versions). The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
-- Android Studio, or at least the command line tools from the [Android SDK](https://developer.android.com/studio#command-tools). The binary folders also need to be added to the `$PATH`, and `$ANDROID_HOME` pointing to the root of the SDK.
-- The `adb` command. Old SDK distributions used to have it pre-packaged, now you have to install it with the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) from the Android Studio, or from the CLI version in the SDK command line tools: `sdkmanager --install platform-tools`. After install it, ensure it's also in the `$PATH` variable, the manager normally install it under the `$ANDROID_HOME/platform-tools/` folder.
+- Java 11+ (it works with OpenJDK versions).
+- Android SDK, and optionally Android Studio.
+- The `adb` command for debugging and get the logs.
 - The source code. To run all the tests in the CHT Android app you need to clone also the submodules: `git clone --recurse-submodules https://github.com/medic/cht-android.git`.
 - The `make` command.
 - If you are going to build a new flavor you also need to have installed `xxd` and `openssl`.
 
 **Gradle** is also used but it's downloaded and installed in the user space the first time `make` is executed. You can also build and launch the app with [Android Studio](#android-studio).
+
+Bellow are the instructions of how to install and setup some of the tools required.
+
+
+## Install
+
+
+### Java
+
+Java 11 or above need to be installed. The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
+
+To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and once enabled any version of Java the command takes care of adding it to the `$PATH` and to set the `$JAVA_HOME` variable.
+
+
+### Android Studio and the SDK
+
+Android Studio is the full package with the IDE based on IntelliJ IDEA, the Android SDK and the SDK Manager with the UI to manage different packages visually, while the SDK alone only includes the command line tools like the `sdkmanager` CLI.
+
+You don't need the IDE to build the app or to install a "debug" version in a device, or get the logs, but it's recommended if you also want to debug the app or modify the code.
+
+- Android Studio: download from https://developer.android.com/studio
+- Command line tools only: download from https://developer.android.com/studio#command-tools
+
+If you install Android Studio it's still recommended to download and setup the command line tools separately to be able to use them without the IDE.
+
+The binary folder of the command also need to be added to the `$PATH`, and `$ANDROID_HOME` pointing to the root of the SDK. Moreover, the SDK requires to be stored in the `$ANDROID_HOME` and inside a folder called `latest`.
+
+Here are the steps from the command line you can follow to install the CLI tools once downloaded the zip file:
+
+```bash
+$ mkdir -p Android/Sdk/cmdline-tools
+$ unzip commandlinetools-linux-7583922_latest.zip
+$ mv cmdline-tools/ Android/Sdk/cmdline-tools/latest/
+```
+
+Then, to add the environment variables required, you can add the following to your `~/.bashrc` file:
+
+```bash
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+```
+
+### Debug tool `adb`
+
+Old SDK distributions used to have it pre-packaged, now you have to install it separately. Once installed SDK following the steps above, you can install the latest version of `adb` with:
+
+```
+$ sdkmanager --install platform-tools
+```
+
+If you also installed Android Studio you can use the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) instead.
+
+Finally edit again the `$PATH` environment variable to add the adb path: `$ANDROID_HOME/platform-tools`.
+
 
 ## Flavor selection
 
