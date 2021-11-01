@@ -28,14 +28,14 @@ Remember that when the app is created in the Play Store, it's required to choose
 This method gives an app developer full control over installation. It is also possible to do the installation without an internet connection which makes it ideal for remote installation, or to save bandwidth when performing multiple installs.
 
 1. In the phone settings select the option to "Allow installation of non-Market applications"
-2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table](https://github.com/medic/medic-android#apks).
+2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/devel-setup#apks" >}}).
 3. Select to install the APK.
 
 ### F-Droid
 
 F-Droid is a free open source application store which gives the app developer more control over the listing. As it isn't installed on Android devices by default it takes a little more effort to set up originally, but is easier than manually sideloading.
 
-We are still investigating the viability of this distribution method, but in the meantime you can [learn more on their website](https://f-droid.org/en/).
+We are still investigating the viability of this distribution method, but in the meantime you can learn more on their [website](https://f-droid.org).
 
 ### Mobile Device Management
 

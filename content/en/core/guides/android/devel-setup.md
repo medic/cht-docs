@@ -8,7 +8,7 @@ relatedContent: >
   core/guides/android/releasing
 ---
 
-The following instructions allows you to setup a development environment for the **CHT Android** apps, to either contribute to the project or just add a new flavor (branded app).
+The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, to either contribute to the project or just add a new flavor (branded app).
 
 Finally, you will learn how to assemble the app, run the tests, and how to choose the right artifacts when installing or publishing the apps.
 
@@ -34,12 +34,12 @@ Bellow are the instructions of how to install and setup some of the tools requir
 
 Java 11 or above need to be installed. The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
 
-To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and once enabled any version of Java the command takes care of adding it to the `$PATH` and to set the `$JAVA_HOME` variable.
+To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and the command takes care of adding the selected JDK to the `$PATH` variable and to set the `$JAVA_HOME` variable.
 
 
 ### Android Studio and the SDK
 
-Android Studio is the full package with the IDE based on IntelliJ IDEA, the Android SDK and the SDK Manager with the UI to manage different packages visually, while the SDK alone only includes the command line tools like the `sdkmanager` CLI.
+Android Studio is the full package: the IDE based on IntelliJ IDEA, the Android SDK and the SDK Manager with the UI to manage different packages visually, while the SDK alone only includes the command line tools like the `sdkmanager` CLI.
 
 You don't need the IDE to build the app or to install a "debug" version in a device, or get the logs, but it's recommended if you also want to debug the app or modify the code.
 
@@ -78,7 +78,9 @@ If you also installed Android Studio you can use the [SDK Manager](https://devel
 Finally edit again the `$PATH` environment variable to add the adb path: `$ANDROID_HOME/platform-tools`.
 
 
-## Flavor selection
+## Development
+
+### Flavor selection
 
 Some `make` targets support the flavor and the rendering engine as `make flavor=[Flavor][Engine] [task]`, where `[Flavor]` is the branded version with the first letter capitalized and the `[Engine]` is either `Webview` or `Xwalk`. The `[task]` is the action to execute: `deploy`, `assemble`, `lint`, etc.
 
@@ -86,7 +88,7 @@ The default value for `flavor` is `UnbrandedWebview`, e.g. executing `make deplo
 
 See the [Makefile](https://github.com/medic/cht-android/blob/master/Makefile) for more details.
 
-## Build and assemble
+### Build and assemble
 
     $ make assemble
 
@@ -100,41 +102,45 @@ To create the `.aab` bundle file, use `make bundle`, although signed versions ar
 
 To clean the APKs and compiled resources: `make clean`.
 
-## Static checks
+### Testing
+
+To execute unit tests: `make test` (static checks are also executed).
+
+#### Static checks
 
 To only execute the **linter checks**, run: `make lint`. To perform the same checks for the _XView_ source code, use: `make flavor=UnbrandedXwalk lint` instead.
 
-## Testing
-
-To execute unit tests: `make test` (static checks ara also executed).
-
-### Instrumentation Tests (UI Tests)
+#### Instrumentation Tests (UI Tests)
 
 These tests run on your device.
 
-1. Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can make the tests fail.
+1. Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail.
 2. Select English as default language in the device.
 3. Ensure you meet all the [Requirements](#requirements).
 4. Execute: `make test-ui-all`.
 
-### Shell tests
+#### Shell tests
 
 The project has bash tests that verify the Make targets used to create and manage the keystores used to sign the apps. Use `make test-bash-keystore` to run them. In CI they are executed in Linux and MacOS VMs.
 
 If you get an error like `make: ./src/test/bash/bats/bin/bats: Command not found`, it's because you cloned the project without the `--recurse-submodules` git argument. Execute first `git submodule update --init` to clone
 the submodules within the cht-android folder.
 
-### Connecting to the server locally
+#### Connecting to the server locally
 
 Refer to the [CHT Core Developer Guide](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#testing-locally-with-devices).
 
-## Android Studio
+### Android Studio
 
-The [Android Studio](https://developer.android.com/studio) can be used to build and launch the app instead. Be sure to select the right flavor and rendering engine from the _Build Variants_ dialog (see [Build and run your app](https://developer.android.com/studio/run)). To launch the app in an emulator, you need to uncomment the code that has the strings for the `x86` or the `x86_64` architecture in the `android` / `splits` / `include` sections of the `build.gradle` file.
+The [Android Studio](https://developer.android.com/studio) can be used to build and launch the app instead. Be sure to select the right flavor and rendering engine from the _Build Variants_ dialog (see [Change the build variant](https://developer.android.com/studio/run#changing-variant)). To launch the app in an emulator, you need to uncomment the code that has the strings for the `x86` or the `x86_64` architecture in the `android` / `splits` / `include` sections of the `build.gradle` file.
 
-## Android App Bundles
+### Artifact formats
 
-The build script produces multiple AABs for publishing to the **Google Play Store**, so the generated `.aab` files need to be uploaded instead of the `.apk` files if the Play Store require so. Old apps published for the first time before Aug 1,  2021 can be updated with the APK format.
+When building the app there are two output formats you can use: Android App Bundle or APK.
+
+#### Android App Bundles
+
+The [publish](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml) script in CI produces multiple AABs for publishing to the **Google Play Store**, so the generated `.aab` files need to be uploaded instead of the `.apk` files if the Play Store require so. Old apps published for the first time before Aug 1,  2021 can be updated with the APK format.
 
 For each flavor two bundles are generated, one for each rendering engine: _Webview_ and _Xwalk_. When distributing via the Play Store using the bundle files, upload all AABs and it will automatically choose the right one for the target device.
 
@@ -145,9 +151,9 @@ The AABs are named as follows: `cht-android-{version}-{brand}-{rendering-engine}
 | `webview`        | 10+             |
 | `xwalk`          | 4.4 - 9         |
 
-## APKs
+#### APKs
 
-For compatibility with a wide range of devices, the build script produces multiple APKs. The two variables are the instruction set used by the device's CPU, and the supported Android version. When sideloading the application, it is essential to pick the correct APK or the application may crash.
+For compatibility with a wide range of devices, the [publish](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml) script in CI produces multiple APKs. The two variables are the instruction set used by the device's CPU, and the supported Android version. When sideloading the application, it is essential to pick the correct APK or the application may crash.
 
 If distributing APKs via the Play Store, upload all APKs and it will automatically choose the right one for the target device.
 
