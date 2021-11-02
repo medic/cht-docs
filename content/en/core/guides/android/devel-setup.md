@@ -8,19 +8,19 @@ relatedContent: >
   core/guides/android/releasing
 ---
 
-The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, to either contribute to the project or just add a new flavor (branded app).
+The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, to either contribute to the project or just add a new flavor (branded app). Most of the instructions also applies to the **[CHT Gateway](https://github.com/medic/cht-gateway)** app (the differences are highlighted in the guide).
 
 Finally, you will learn how to assemble the app, run the tests, and how to choose the right artifacts when installing or publishing the apps.
 
 
 ## Requirements
 
-- Java 11+ (it works with OpenJDK versions).
+- Java 11+ for CHT Android, Java 8+ for CHT Gateway (OpenJDK versions work).
 - Android SDK, and optionally Android Studio.
 - The `adb` command for debugging and get the logs.
 - The source code. To run all the tests in the CHT Android app you need to clone also the submodules: `git clone --recurse-submodules https://github.com/medic/cht-android.git`.
 - The `make` command.
-- If you are going to build a new flavor you also need to have installed `xxd` and `openssl`.
+- If you are going to build a new flavor (CHT Android), you also need to have installed `xxd` and `openssl`.
 
 **Gradle** is also used but it's downloaded and installed in the user space the first time `make` is executed. You can also build and launch the app with [Android Studio](#android-studio).
 
@@ -32,9 +32,9 @@ Bellow are the instructions of how to install and setup some of the tools requir
 
 ### Java
 
-Java 11 or above need to be installed. The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
+Java 11+ needs to be installed. The CHT Gateway can be also compiled with Java 8, but you can use the same Java 11 used for the CHT Android apps. The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
 
-To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and the command takes care of adding the selected JDK to the `$PATH` variable and to set the `$JAVA_HOME` variable.
+To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and the command takes care of adding the selected JDK to the `$PATH` variable and to set the `$JAVA_HOME` variable when switching across different versions.
 
 
 ### Android Studio and the SDK
@@ -82,6 +82,8 @@ Finally edit again the `$PATH` environment variable to add the adb path: `$ANDRO
 
 ### Flavor selection
 
+_Only CHT Android_
+
 Some `make` targets support the flavor and the rendering engine as `make flavor=[Flavor][Engine] [task]`, where `[Flavor]` is the branded version with the first letter capitalized and the `[Engine]` is either `Webview` or `Xwalk`. The `[task]` is the action to execute: `deploy`, `assemble`, `lint`, etc.
 
 The default value for `flavor` is `UnbrandedWebview`, e.g. executing `make deploy` will assemble and install that flavor, while executing `make flavor=MedicmobilegammaXwalk deploy` will do the same for the _Medicmobilegamma_ brand and the `Xwalk` engine.
@@ -89,6 +91,10 @@ The default value for `flavor` is `UnbrandedWebview`, e.g. executing `make deplo
 See the [Makefile](https://github.com/medic/cht-android/blob/master/Makefile) for more details.
 
 ### Build and assemble
+
+To build and assemble the CHT Gateway use `make build`.
+
+For CHT Android app use:
 
     $ make assemble
 
@@ -108,11 +114,15 @@ To execute unit tests: `make test` (static checks are also executed).
 
 #### Static checks
 
+_Only CHT Android_
+
 To only execute the **linter checks**, run: `make lint`. To perform the same checks for the _XView_ source code, use: `make flavor=UnbrandedXwalk lint` instead.
 
-#### Instrumentation Tests (UI Tests)
+#### Instrumentation Tests
 
-These tests run on your device.
+_Only CHT Android_
+
+The UI tests run on a device.
 
 1. Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail.
 2. Select English as default language in the device.
@@ -121,12 +131,16 @@ These tests run on your device.
 
 #### Shell tests
 
+_Only CHT Android_
+
 The project has bash tests that verify the Make targets used to create and manage the keystores used to sign the apps. Use `make test-bash-keystore` to run them. In CI they are executed in Linux and MacOS VMs.
 
 If you get an error like `make: ./src/test/bash/bats/bin/bats: Command not found`, it's because you cloned the project without the `--recurse-submodules` git argument. Execute first `git submodule update --init` to clone
 the submodules within the cht-android folder.
 
 #### Connecting to the server locally
+
+_Only CHT Android_
 
 Refer to the [CHT Core Developer Guide](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#testing-locally-with-devices).
 
@@ -139,6 +153,8 @@ The [Android Studio](https://developer.android.com/studio) can be used to build 
 When building the app there are two output formats you can use: Android App Bundle or APK.
 
 #### Android App Bundles
+
+_Only CHT Android_
 
 The [publish](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml) script in CI produces multiple AABs for publishing to the **Google Play Store**, so the generated `.aab` files need to be uploaded instead of the `.apk` files if the Play Store require so. Old apps published for the first time before Aug 1,  2021 can be updated with the APK format.
 
