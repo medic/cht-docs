@@ -20,7 +20,7 @@ Finally, you will learn how to assemble the app, run the tests, and how to choos
 - The `adb` command for debugging and get the logs.
 - The source code. To run all the tests in the CHT Android app you need to clone also the submodules: `git clone --recurse-submodules https://github.com/medic/cht-android.git`.
 - The `make` command.
-- If you are going to build a new flavor (CHT Android), you also need to have installed `xxd` and `openssl`.
+- If you are going to build a new flavor (CHT Android), you also need to have installed: `head`, `xxd`, `openssl` and `apksigner`.
 
 **Gradle** is also used but it's downloaded and installed in the user space the first time `make` is executed. You can also build and launch the app with [Android Studio](#android-studio).
 
@@ -76,6 +76,16 @@ $ sdkmanager --install platform-tools
 If you also installed Android Studio you can use the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) instead.
 
 Finally edit again the `$PATH` environment variable to add the adb path: `$ANDROID_HOME/platform-tools`.
+
+### `apksigner`
+
+This tool is used automatically by the Android SDK for signing APKs, and to check the certificate of a given APK, so chances are that after installing the SDK following the steps above you already have it installed, but not configured in the `$PATH` that is needed to manually check APKs signature.
+
+The CLI is part of other CLI tolls under the `build-tools` package, and multiple build tools package can be installed, so check what versions you have under the `$ANDROID_HOME/build-tools` folder, and add the most up to date to the `$PATH` folder. E.g. if you have the version 30.0.3 installed in you computer, apksigner should be installed at `$ANDROID_HOME/build-tools/30.0.3/apksigner`, so add the `$ANDROID_HOME/build-tools/30.0.3` folder to the `$PATH` variable.
+
+In case you don't have it installed or want to install a newer version, checkout the versions available with `sdkmanager --list`. You will see a table with a list of installed and available packages, not just the build tools.
+
+To install the version 31.0.0: `sdkmanager --install 'build-tools;31.0.0'`. Then update or add it to the `$PATH` variable.
 
 
 ## Development

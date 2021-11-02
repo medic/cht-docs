@@ -35,4 +35,4 @@ All medic Android projects automatically build, sign, and release builds via Git
 
 _Only CHT Android_
 
-If the release only contains a new flavor but is based in the last version, tag it with the same version that the last one plus a number suffix separated with a `-`, e.g. if the last version was `v1.2.3`, tag it as `v1.2.3-1`. In this case there is no need to publish again the reference apps in the Play Store, or to announce the release in the forum if it's not relevant.
+If the release only contains a new flavor but is based on the last version, tag it with the same version that the last one plus a number suffix separated with a `-`, e.g. if the last version was `v1.2.3`, tag it as `v1.2.3-1`. In this case there is no need to publish again the reference apps in the Play Store, or to announce the release in the forum if isn't relevant.
