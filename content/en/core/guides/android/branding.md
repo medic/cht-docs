@@ -11,63 +11,64 @@ This tutorial will take you through building a CHT Android Application off the e
 
 The cht-android application is a thin wrapper to load the CHT Core Framework web application in a webview.
 
-You will be adding a new android flavor based off the [cht-android](https://github.com/medic/cht-android).
-
+You will be adding a new android flavor based off the [CHT Android](https://github.com/medic/cht-android).
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
-A native Android container for Community Health Toolkit (CHT), it allows the application to be hardcoded to a specific CHT deployment and have a partner specific logo and display name.
+The CHT Android is a native Android container for the Community Health Toolkit (CHT). The repo contains a "flavored" configuration, where each "flavor" or "brand" is an app. All apps have the same code and features, but can be customized, hard-coding a specific CHT deployment and have a partner specific logo and display name.
 
-To proceed you need to have ready, the following:
+## Add a new Brand
 
-- Title of the application
-- Logo 512x512, typically a version of the partner logo e.g. square design icons
-- URL of the CHT instance is needed in the product flavor
+Adding a new _"brand"_ or _"flavor"_ requires to follow these steps:
 
-## Required Resources
+1. Check you meet the [Required Resources](#1-required-resources).
 
-You should have a functioning [Android SDK](https://developer.android.com/studio/releases/platform-tools) installed. You will also need an image asset studio to create the icon resources required. The [Android image asset studio](https://developer.android.com/studio/write/image-asset-studio) is easily available.
+2. Add the new brand in the source code.
 
-Additionally, the following command tools are required:
-- Java 11+
-- keytool
-- apksigner
-- openssl
-- base16
+3. Generate a new keystore if there is no one.
 
-## Implementation Steps
+4. Test locally and create a pull request with the changes
 
-You need to prepare your resources (icons and application ID) then add the new application to the *src* folder and *gradle*.
+5. [Release]({{< ref "core/guides/android/releasing#new-flavor-release" >}}) the new flavor.
 
-### 1. Adding the new brand/application
+6. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store or whatever channel.
 
-- Clone the [cht-android](https://github.com/medic/cht-android) repo
-- Add `productFlavors { <new_brand> { ... } }` in `build.gradle`
-- Add icons, strings etc. in `src/<new_brand>`. The `src/new_brand/res/values/strings.xml` file is mandatory
-- To enable automated deployments, add the `new_brand` to `.github/workflows/publish.yml`
 
-### 2. Building the APK and AAB files
+### 1. Required Resources
 
-- Execute: `make org=new_brand keygen` to generate the `keystore`
-- Execute: `make org=new_brand keyrm-all` to clean all the files generated to repeat `keystore` generation (optional) 
-- Execute: `make org=new_brand keydec` to decrypt contents of the `keystore` (optional) 
-- Execute: `make org=new_brand keyprint` to see the certificate content, like the org name, the certificate fingerprints, etc.
-- Execute: `make org=new_brand flavor=New_brandWebview assemble` to build the Webview versions of the `.apk` files
-- Execute: `make keyprint-apk` to verify the files were signed with the right signature
-- Execute: `make org=new_brand flavor=New_brandWebview bundle` to build the `.aab` files
-- Execute: `make keyprint-aab` to verify the files were signed with the right signature
+To proceed you need to have ready the following:
+
+- The URL of your CHT server so users don't have to type it in post install.
+- The app logo and title.
+- Translations for your supported languages (most flavors don't need to customize translations though).
+
+Also be sure to have a working **[Development Environment]({{< ref "core/guides/android/devel-setup" >}})**.
+
+#### Play Store assets
+
+If you are going to publish the app in the **Play Store**, Google will require to provide the following to list the app:
+
+- A description of the app.
+- A shorter description (80 characters).
+- Logo 512x512px, typically a version of the partner logo e.g. square design icons.
+- A background image.
+- Screenshots.
+
+Google is constantly changing the requirments to publish in the Play Store, it's a good practice to check in advance whether all the requirements are met (checkout _[Add preview assets...](https://support.google.com/googleplay/android-developer/answer/9866151)_).
+
+##### Test data
+
+When publishing for the first time in the Play Store, a reviewer from Google will try to check whether the permission requested by the app follows the Play Store rules. The CHT Android app has enabled by default location request permissions, and the workflow to request the permission follows the strict rules imposed by Google, but they won't be aware that your _flavored_ app is based on the CHT Android, so you have to provide Google with instructions of how to test the app, specifically how to test the location request.
+
+To do so, give them instructions of how to login with the app (with a real username and password), and the basic steps to reach the location request, like open up a form.
+
+Once approved you can delete the "test" user, Google conduct the tests only the first time, or when a new permission request is added to the app.
+
+
+
+
+### TODO
+
 
 {{% alert title="Note" %}} Since files generated here are signed with the same key you generated, the files and key can be uploaded to the Play Store later and any file generated locally following the steps above will be compatible with any installation made from the Play Store. {{% /alert %}}
-
-### 3. Testing
-
-- Plug in your phone. Ensure that it is detected within `adb devices`
-- Execute: `make` using the SDK command line. (This will also push the app onto your phone.)
-- Execute: `make test` to run unit tests (static checks are also executed).
-- Uninstall previous versions of the app, otherwise an `InstallException: INSTALL_FAILED_VERSION_DOWNGRADE` can cause tests to fail. Android needs to have English as the default language.
-- Execute: `make test-ui` or `make test-ui-gamma`
-
-### 4. [Releasing]({{< ref "core/guides/android/releasing" >}})
-
-### 5. [Publishing]({{< ref "core/guides/android/publishing" >}})

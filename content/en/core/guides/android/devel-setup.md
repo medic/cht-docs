@@ -8,9 +8,12 @@ relatedContent: >
   core/guides/android/releasing
 ---
 
+
+{{% pageinfo %}}
 The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, to either contribute to the project or just add a new flavor (branded app). Most of the instructions also applies to the **[CHT Gateway](https://github.com/medic/cht-gateway)** app (the differences are highlighted in the guide).
 
 Finally, you will learn how to assemble the app, run the tests, and how to choose the right artifacts when installing or publishing the apps.
+{{% /pageinfo %}}
 
 
 ## Requirements
