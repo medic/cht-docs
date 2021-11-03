@@ -15,7 +15,7 @@ Never expose a development instance to the internet where you've replicated prod
 {{% /alert %}}
 
 ## Overview
-When using a local [development environment](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md), you may want to share your work with other collaborators. You also may need to access the environment from your [mobile device](https://github.com/medic/medic-android/) which requires an SSL certificate (the "s" in "https"). By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
+When using a local [development environment](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md), you may want to share your work with other collaborators. You also may need to access the environment from your [mobile device](https://github.com/medic/cht-android) which requires an SSL certificate (the "s" in "https"). By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
 
 [<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
 
@@ -73,7 +73,7 @@ The steps in this guide can be done on any of the cheap server providers out the
 1. This assumes your local username is the same as it is on cht.domain.com. This command will hang and you may exit when down with `ctrl + c`
 1. In a browser, test again that you now see your local dev instance and it loads correctly at https://cht.domain.com 
 1. If needed, reset the Medic app on your phone so that it prompts which instance to use  
-1. In the app on your phone, choose "custom" for which instance to use and enter https://cht.domain.com. You should now see your local dev instance in the Medic Android device.  Happy testing!
+1. In the app on your phone, choose "custom" for which instance to use and enter https://cht.domain.com. You should now see your local dev instance in the CHT Android device.  Happy testing!
 
 ## Tunnel command breakdown
 

@@ -458,7 +458,7 @@ If submitting JSON and corresponding form is not found on the server you will re
 
 ### POST /api/sms
 
-Endpoint used by medic-gateway to send sms messages. More documentation in [the medic-gateway repo](https://github.com/medic/medic-gateway/blob/master/README.md).
+Endpoint used by cht-gateway to send sms messages. More documentation in the [cht-gateway repo](https://github.com/medic/cht-gateway/blob/master/README.md).
 
 ## People
 
@@ -466,7 +466,7 @@ Endpoint used by medic-gateway to send sms messages. More documentation in [the 
 
 Use JSON in the request body to specify a person's details.
 
-Note: this does not accomodate having a `place` field on your form and will likely be revised soon.
+Note: this does not accommodate having a `place` field on your form and will likely be revised soon.
 
 ##### Required
 

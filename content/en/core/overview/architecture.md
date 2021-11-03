@@ -104,7 +104,7 @@ CHT Web Application works in the browser or wrapped in the [CHT Android](https:/
 
 ### medic-collect
 
-[Medic Collect](https://github.com/medic/medic-collect) is an android app based on [Open Data Kit](https://opendatakit.org) to render xforms on the phone and send reports in to medic-gateway over SMS or directly to api over mobile data.
+[Medic Collect](https://github.com/medic/medic-collect) is an android app based on [Open Data Kit](https://opendatakit.org) to render xforms on the phone and send reports in to cht-gateway over SMS or directly to api over mobile data.
 
 ### cht-conf
 

@@ -13,7 +13,7 @@ keywords: messaging
 
 ## Interaction with SMS providers
 
-[CHT Applications](https://github.com/medic/cht-core) can use [medic-gateway](https://github.com/medic/medic-gateway) and third party aggregators to send and receive SMS messages.
+[CHT Applications](https://github.com/medic/cht-core) can use [Medic Gateway](https://github.com/medic/cht-gateway) and third party aggregators to send and receive SMS messages.
 
 When an SMS report comes in from a user, [medic-sentinel](https://github.com/medic/medic-sentinel) adds the appropriate list of scheduled messages (to be sent at a future date) to the report doc.
 
@@ -27,8 +27,8 @@ The aggregator also reports on the status of the messages it's sending.
 
 Both webapp and the aggregator store states/statuses of the messages to keep track of the exchange. They each have their set of statuses, which sometimes are called the same but do not mean the same thing. Watch out.
 
-### Message statuses in medic-gateway
-See [https://github.com/medic/medic-gateway#content](https://github.com/medic/medic-gateway#user-content-content)
+### Message statuses in cht-gateway
+See [https://github.com/medic/cht-gateway#content](https://github.com/medic/cht-gateway#user-content-content)
 
 ### Message states in medic
 
@@ -46,7 +46,7 @@ See [https://github.com/medic/medic-gateway#content](https://github.com/medic/me
 | cleared | This will not be sent as a report has triggered an event to stop it. This can happen if a patient visit has occurred before the visit reminder is sent. |
 | muted | This will not be sent as the task has been deliberately stopped. Messages in this state can be unmuted by user action. |
 
-## Timeline of the medic-gateway protocol for webapp-originating message
+## Timeline of the cht-gateway protocol for webapp-originating message
 
 Read the table below like a vertical timeline : each time an event happens, the states/statuses corresponding to the message get updated.
 
