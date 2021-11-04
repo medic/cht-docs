@@ -6,9 +6,10 @@ description: >
   Instructions for Publishing Android Apps
 relatedContent: >
   core/guides/android/releasing
+  core/guides/android/branding
 ---
 
-Once [released]({{< ref "core/guides/android/releasing" >}}) the app, there are many different ways to publish APKs for installation.
+Once [released]({{< ref "core/guides/android/releasing" >}}) the app, there are many different ways to publish the binaries for installation.
 
 ### Google Play Store
 
@@ -22,6 +23,10 @@ Follow these instructions to [publish your app](https://support.google.com/googl
 #### New App in the Play Store
 
 Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is `<brand>_private_key.pepk` generated when following the instructions of [New brand]({{< ref "core/guides/android/branding" >}}) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
+
+{{% alert title="Note" %}}
+New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "core/guides/android/devel-setup#artifact-formats" >}}) section.
+{{% /alert %}}
 
 ### Side loading
 

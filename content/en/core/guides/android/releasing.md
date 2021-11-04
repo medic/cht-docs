@@ -6,6 +6,7 @@ description: >
   Instructions for releasing Android Apps
 relatedContent: >
   core/guides/android/publishing
+  core/guides/android/branding
 ---
 
 All Medic's android projects automatically build, sign, and release builds via Github Actions or Travis. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
