@@ -13,7 +13,7 @@ keywords: messaging
 
 ## Interaction with SMS providers
 
-[CHT Applications](https://github.com/medic/cht-core) can use [Medic Gateway](https://github.com/medic/cht-gateway) and third party aggregators to send and receive SMS messages.
+[CHT Applications](https://github.com/medic/cht-core) can use [CHT Gateway](https://github.com/medic/cht-gateway) and third party aggregators to send and receive SMS messages.
 
 When an SMS report comes in from a user, [medic-sentinel](https://github.com/medic/medic-sentinel) adds the appropriate list of scheduled messages (to be sent at a future date) to the report doc.
 
