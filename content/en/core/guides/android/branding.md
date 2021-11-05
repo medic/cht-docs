@@ -45,7 +45,7 @@ To proceed you need to have ready the following:
 - The app logo and title.
 - Translations for your supported languages (most flavors don't need to customize translations though).
 
-Also be sure to have a working **[Development Environment]({{< ref "core/guides/android/devel-setup" >}})**.
+Also be sure to have a working **[Development Environment]({{< ref "core/guides/android/development-setup" >}})**.
 
 #### Play Store assets
 

@@ -9,7 +9,7 @@ description: >
 With Android 4.1 (aka Jelly Bean) and upwards the full system log is only visible if you have root.  
 To get logs, you have to use `adb logcat` via a computer.
 
-To **install** the `adb` command follow the instructions under the [Development Environment > Debug tool adb]({{< ref "core/guides/android/devel-setup#debug-tool-adb" >}}) section.
+To **install** the `adb` command follow the instructions under the [Development Environment > Debug tool adb]({{< ref "core/guides/android/development-setup#debug-tool-adb" >}}) section.
 
 ## Configure on-device USB debugging
 

@@ -25,7 +25,7 @@ Follow these instructions to [publish your app](https://support.google.com/googl
 Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is `<brand>_private_key.pepk` generated when following the instructions of [New brand]({{< ref "core/guides/android/branding" >}}) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
 
 {{% alert title="Note" %}}
-New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "core/guides/android/devel-setup#artifact-formats" >}}) section.
+New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "core/guides/android/development-setup#artifact-formats" >}}) section.
 {{% /alert %}}
 
 ### Side loading
@@ -33,7 +33,7 @@ New apps cannot longer be uploaded with the APK format in the Play Store. Apps c
 This method gives an app developer full control over installation. It is also possible to do the installation without an internet connection which makes it ideal for remote installation, or to save bandwidth when performing multiple installs.
 
 1. In the phone settings select the option to "Allow installation of non-Market applications"
-2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/devel-setup#apks" >}}).
+2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/development-setup#apks" >}}).
 3. Select to install the APK.
 
 ### F-Droid
