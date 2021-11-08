@@ -92,19 +92,19 @@ App Management is a single page application built with [AngularJS](https://angul
   - **/modules**: Contains the vanilla JavaScript scripts.
 - **/template**: Contains the HTML templates that are used in the AngularJS components and directives.
 
-### medic-android
+### cht-android
 
-[medic-android](https://github.com/medic/medic-android) application works in the browser or wrapped in the medic-android app which allows for project branding, sets the project URL, and hides browser elements like the URL bar.
+CHT Web Application works in the browser or wrapped in the [CHT Android](https://github.com/medic/cht-android) app which allows for project branding, sets the project URL, and hides browser elements like the URL bar.
 
 ## Other applications
 
-### medic-gateway
+### cht-gateway
 
-[Medic Gateway](https://github.com/medic/medic-gateway) is an android app for sending and receiving SMS messages. Each SMS enabled project has one gateway running. It polls an api endpoint to write incoming SMS into the CouchDB and retrieve outgoing SMS to send.
+[Medic Gateway](https://github.com/medic/cht-gateway) is an android app for sending and receiving SMS messages. Each SMS enabled project has one gateway running. It polls an api endpoint to write incoming SMS into the CouchDB and retrieve outgoing SMS to send.
 
 ### medic-collect
 
-[medic-collect](https://github.com/medic/medic-collect) is an android app based on [Open Data Kit](https://opendatakit.org) to render xforms on the phone and send reports in to medic-gateway over SMS or directly to api over mobile data.
+[Medic Collect](https://github.com/medic/medic-collect) is an android app based on [Open Data Kit](https://opendatakit.org) to render xforms on the phone and send reports in to cht-gateway over SMS or directly to api over mobile data.
 
 ### cht-conf
 

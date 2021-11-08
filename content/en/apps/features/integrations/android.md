@@ -7,7 +7,7 @@ relatedContent: >
   apps/reference/app-settings/token_login
 ---
 
-The [CHT Android application](https://github.com/medic/medic-android/) can be launched by clicking on a link or invoking an intent in another Android app. This is useful for enabling login by SMS, directing a user to a specific page, and integrating between Android applications.
+The [CHT Android application](https://github.com/medic/cht-android) can be launched by clicking on a link or invoking an intent in another Android app. This is useful for enabling login by SMS, directing a user to a specific page, and integrating between Android applications.
 
 ## Sending a URL
 
