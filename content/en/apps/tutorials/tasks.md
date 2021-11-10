@@ -90,8 +90,13 @@ Create the task as per the detail above.
 
 ##### Data fields
 
+
 | type                          | name              | label                              | required | relevant            | appearance | constraint | constraint_message  | calculation | choice_filter  | hint | default |
 | ----------------------------- | ----------------- | ---------------------------------- | -------- | ------------------- | ---------- | ---------- | ------------------- | ----------- | -------------- | ---- | ------- |
+| begin group                   | contact           | Contact |
+| hidden                        | name              | name  |
+| end group|
+| calculate                     | patient_name      | NO_LABEL  |   |   |   |   |   | ../contact/name   |   |   |
 | begin group                   | group_assessment  | Assessment                         |          |                     |            |            |                     |             |                |      |         |
 | select_one yes_no             | visited_hf             | Did ${patient_name} go to a health facility for treatment? | yes      |                     |            |            |                     |             |                |      |         |
 | select_one progress_since_last_visit   | progress    | How is ${patient_name}'s condition since the last visit?     | yes      | ${visited_hf} = 'yes'    |            |            |                     |             |                |      |         |
