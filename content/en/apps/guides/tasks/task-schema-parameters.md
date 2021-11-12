@@ -2,7 +2,7 @@
 title: "Understanding the parameters in the Task Schema"
 linkTitle: Task Schema Parameters
 description: >
-  Understanding the data which is passed into Task and Target interfaces
+  Understanding the data which is passed into Task interfaces
 relatedContent: >
   apps/reference/tasks
   apps/guides/data/hydration
@@ -25,14 +25,14 @@ Let's synthesize some knowledge about CHT applications to help clarify what is h
 . All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents](< ref "core/overview/db-schema#contacts-persons-and-places" >).
 2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents](< ref "core/overview/db-schema#reports" >).
 3. Documents are stored [minified]({{< ref "apps/guides/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
-4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]("apps/guides/performance/replication#depth") or [purging]({{{< ref "apps/guides/performance/purging" >}})) since both tasks and targets can only process docs which are present on the device.
+4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]("apps/guides/performance/replication#depth") or [purging]({{{< ref "apps/guides/performance/purging" >}})) since both tasks can only process docs which are present on the device.
 
 {{% alert title="Key Point" %}}
-The code in `tasks.js` and `targets.js` runs on the user's devices, not in the cloud and not on a server.
+The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
 {{% /alert %}}
 
 ## An important constraint of the tasks system
-Every contact and every report on the user's device is processed by tasks and targets.  That said, it is important to remember that this processing is scoped to happen **one contact at a time**. The code in `tasks.js` and `targets.js` knows about one contact, but it is not possible to simultaneously know about that contact's siblings, descendents, ancestors, etc. 
+Every contact and every report on the user's device is processed by tasks.  That said, it is important to remember that this processing is scoped to happen **one contact at a time**. The code in `tasks.js` knows about one contact, but it is not possible to simultaneously know about that contact's siblings, descendents, ancestors, etc. 
 
 With this constraint in mind, we can infer that tasks cannot know the answer to questions like:
 
