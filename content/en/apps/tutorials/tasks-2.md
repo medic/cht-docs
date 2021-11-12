@@ -1,139 +1,136 @@
 ---
-title: "Configuring Tasks - Part 2 - appliesTo and appliesIf"
-linkTitle: Tasks 2
-weight: 9
+title: "Configuring A Complex Task (Optional)"
+linkTitle: Complex Tasks
 description: >
-  A tutorial to fix bugs in the task in Part 1 using the appliesIf predicate function. Builds a deep understanding of the data available within the task system and constraints impacting the design of tasks.
+  Configuring a more complex task
 relatedContent: >
-  apps/reference/tasks
-  apps/guides/data/hydration
-  core/overview/db-schema#contacts-persons-and-places
-  core/overview/db-schema#reports
   apps/tutorials/tasks-1
+  apps/reference/tasks
+  apps/reference/_partial_utils
+  apps/examples/anc
 
 ---
 
-Tasks prompt users to complete activities on a programmatic schedule. This _Configuring Tasks_ tutorial series is a practical guide to the creation and management of tasks.
-
 {{% pageinfo %}}
-This tutorial will guide you through writing your first `appliesIf` predicate function.
+Tasks prompt users to complete activities on a programmatic schedule. This tutorial will guide you through the development of an advanced task. This is an _optional_ tutorial and is not required to _get started_ with CHT Application development.
 
-- Understanding the data which is available in the task system and important constraints
-- Understand the special significance of the appliesTo attribute
-- Apply this theory to improve the task from [Part 1]({{< ref "apps/tutorials/tasks-1" >}})
+- Create a task with a complex follow-up schedule
+- Use a 3rd party JavaScript library `luxon` to make Date/Time calculations easier
+- Pass information from the task into the action _app form_
+- Custom logic for resolving a task
 {{% /pageinfo %}}
 
 ## Prerequisites
 
-* [Configuring Tasks - Part 1]({{< ref "apps/tutorials/tasks-1" >}})
+* [Configuring Tasks]({{< ref "apps/tutorials/tasks-1" >}})
+* [Maternal and Newborn Health Reference App]({{< ref "apps/examples/anc" >}})
 
-## Understanding the data which is available in the tasks system
-There are several relevant facts about CHT applications which should be clear before writing tasks:
+## Scenario
 
-{{% alert title="Key Point" %}}
-The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
-{{% /alert %}}
+This scenario is loosely based on the _Pregnancy Visit Task_ from the [Maternal and Newborn Health Reference App]({{< ref "apps/examples/anc" >}}). 
 
-1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents](< ref "core/overview/db-schema#contacts-persons-and-places" >).
-2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents](< ref "core/overview/db-schema#reports" >).
-3. Documents are stored [minified]({{< ref "apps/guides/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
-4. Settings which control the documents which are available on the user's device are an important considerations to remember for tasks (eg [replication depth]("apps/guides/performance/replication#depth") or [purging]({{{< ref "apps/guides/performance/purging" >}})) since the tasks system can only process docs which are present on the device.
+We expectations for the task are:
 
-### An important constraint of the tasks system
-Every contact and every report on the user's device is processed by the tasks system -- but this processing is scoped to happen **one contact at a time**. The code in `tasks.js` knows everything about one contact at a time, but it knows nothing about that contact's siblings, descendents, ancestors, etc. 
+1. Only CHW users should be prompted to complete pregnancy visits
+2. Pregnancy visits should appear for pregnant patients after their pregnancy registration
+3. Pregnancy visits should be scheduled eight times between the last mentrual period (LMP) and delivery.
+4. A pregnancy visit should be skipped if an _assessment followup_ is completed within the scheduled window for the pregancy visit.
+5. The first pregnancy visit should prompt the CHW to ask some additional questions
 
-With this constraint in mind, we can infer that tasks cannot know the answer to questions like:
+## Developing the task
 
-* Is the sibling of this patient ill?
-* Does this family have active patients?
-* Are there cases of tuberculosis in a neighbouring household?
+This solution relies on the library [luxon](https://moment.github.io/luxon) for parsing and manipulating dates and times. Let's start by installing it locally:
 
-## The special significance of the appliesTo attribute
-
-The [task.js schema]({{< ref "apps/reference/tasks#tasksjs" >}}) includes the noteworthy attribute `appliesTo` which has two options: `contacts` and `reports`. This attribute is important! It changes the algorithm used to process the task, and the meaning of other attributes in the schema.
-
-{{% alert title="Hint" %}}
-`appliesTo` is important. When you're ready to write a task, one of the first thing you must decide is the `appliesTo` value.
-{{% /alert %}}
-
-The below algorithmic pseudocode explains the relationship between `appliesTo` and the attributes `appliesIf` and `appliesToType`:
-
-### appliesTo: 'contacts'
-```pseudocode
-algorithm appliesTo is 'contacts'
-  for contact of contacts:
-    if contact.type is in task.appliesToType:
-      if task.appliesIf(contact):
-        create task events 
+```zsh
+npm install --save-dev luxon
 ```
 
-* `appliesToType` filters based on the contact document's `contact_type` value
-* `appliesIf` predicate is called once per contact (even if that contact has no reports)
-* `appliesIf(c)` is passed information about the contact (`c.contact`), and an array of all the contact's reports (`c.reports`)
-* `events[].dueDate` defaults to the contact's creation date
-* Results in up to one task schedule per contact
-
-### appliesTo: 'reports'
-```pseudocode
-algorithm appliesTo is 'reports'
-  for contact of contacts:
-    for report of contact.reports:
-      if report.form is in task.appliesToType:
-        if task.appliesIf(contact, report):
-          create task events
-```
-
-* `appliesToType` filters based on the report document's `form` value
-* `appliesIf` predicate is called once per report
-* `appliesIf(c, report)` is passed information about the contact (`c.contact`), an array of all the contact's reports (`c.reports`), and the current report being iterated on `report`
-* `events[].dueDate` defaults to the report's creation date
-* Can result in multiple, potentially overlapping task schedules per contact
-
-## Improving the simple task from Part 1
-
-In [Configuring Tasks - Part 1]({{< ref "apps/tutorials/tasks-1" >}}) we created a simple task which prompts users to complete an _assessment_ app form for new patients within 7 days of registration.
-
-With the role of predicates in the tasks system now clarified, we can fix a few of the bugs from Part 1:
-
-1. The task should trigger for patients only. But when testing, you'll notice the task is triggering for every contact in the hierarchy including _CHW Areas_, and the _CHW herself_. 
-2. If you login as a supervisor user, you'll see the task but this was only supposed to trigger for CHWs.
-3. If you mute a contact or [report the contact dead]({{< ref "apps/tutorials/death-reporting" >}}), the task will remain visible.
-4. The task is visually plain. When there are many tasks in the system, it becomes useful to visually differentiate tasks with an icon.
+And then in `tasks.js` we can analyse this solution:
 
 ```javascript
-module.exports = [{
-  name: 'assessment-after-registration',
-  title: 'First Assessment',
-  icon: 'icon-healthcare',
+const { DateTime } = require('luxon');
+
+module.exports = {
+  name: 'pnc-after-pregnancy',
+  icon: 'icon-follow-up',
+  title: 'task.pnc_followup',
   appliesTo: 'contacts',
   appliesToType: ['patient'],
-  appliesIf: c => user.parent && user.parent.contact_type === 'chw_area' && !c.contact.date_of_death && !c.contact.muted,
-  actions: [{ form: 'assessment' }],
-  events: [{
-    start: 7,
-    days: 7,
-    end: 0,
-  }],
-}];
+  appliesIf: function (contact) {
+    const userIsChw = user.parent && user.parent.contact_type === 'chw_area';
+    const isDead = contact.contact.date_of_death;
+    const isMuted = contact.contact.muted;
+
+    if (userIsChw && !isDead && !isMuted) {
+      const mostRecentPregnancy = Utils.getMostRecentReport(contact.reports, 'pregnancy');
+      const calculatedLmp = mostRecentPregnancy && Utils.getField(mostRecentPregnancy, 'g_details.estimated_lmp');
+      this.lmp = calculatedLmp && DateTime.fromFormat(calculatedLmp, 'yyyy-MM-dd');
+      
+      return this.lmp && this.lmp.isValid;
+    }
+  },
+  events: [12, 20, 26, 30, 34, 36, 38, 40] // follow-up weeks after LMP
+    .map(weekAfterLmp => ({
+      id: `pnc-week-${weekAfterLmp}`,
+      start: weekAfterLmp > 30 ? 6 : 7,
+      end: weekAfterLmp > 30 ? 7 : 14,
+      dueDate: function () {
+        return this.lmp.plus({ weeks: weekAfterLmp }).toJsDate();
+      }
+    })),
+  resolvedIf: function (contact, report, event, dueDate) {
+    const start = Utils.addDate(dueDate, -event.start).getTime();
+    const end = Utils.addDate(dueDate, event.end + 1).getTime();
+    const pncInWindow = Utils.isFormSubmittedInWindow(contact.reports, 'pnc_followup', start, end);
+    const assessmentInWindow = Utils.isFormSubmittedInWindow(contact.reports, 'assessment_followup', start, end);
+    return pncInWindow || assessmentInWindow;
+  },
+  actions: [{
+    form: 'pnc_followup',
+    modifyContent: function (content, contact, report, event) {
+      const followupCount = this.definition.events.findIndex(e => event.id === e.id) + 1;
+      content.t_followup_count = followupCount.toString();
+    }
+  }]
+};
 ```
 
-**What is this code doing?**
+## What is this code doing?
+### AppliesIf
+```
+1. Only CHW users should be prompted to complete pregnancy visits
+2. Pregnancy visits should appear for pregnant patients after their pregnancy registration
+```
 
-* `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`. This `appliesToType` is a _short-hand_ equivalent to `appliesIf: c => c.contact.contact_type === 'patient'`.
-* `appliesIf` - A predicate which gates the creation of the task's event schedule
-* `user.parent.contact_type` - The user is a CHW iff their parent is of type `chw_area`. The user object is hydrated.
-* `!c.contact.date_of_death` - The contact must be alive
-* `!c.contact.muted` - The contact must be unmuted
+This function starts with the standard stuff from the [Configuring Tasks Tutorial]({{< ref "apps/tutorials/tasks-1" >}}). We want to confirm the user is a CHW, and the patient is alive and unmuted.
 
-As an exercise:
+Then, the code searches through each contact's reports to find the most recent (_newest_) pregnancy registration using the [Utils helper library]({{< ref "apps/reference/_partial_utils" >}}). It gets that report's value for `report.fields.g_details.estimated_lmp`, which is a date string calculated by the app form. It parses that string using the luxon library and returns true if it is a valid date.
 
-1. Try to upload and test these changes to the task.
-2. Was selecting `appliesTo: 'contacts'` the right choice? Can this task be written with `appliesTo: 'reports'`?
+Defining `lmp` as a property of `this`, _stores_ the LMP DateTime and we will use that value later.
 
-## Up Next
-In [Part 3]({{< ref "apps/tutorials/tasks-3" >}}), we will look at an example of a more complex task.
+### Events
+```
+3. Pregnancy visits should be scheduled eight times between the last mentrual period (LMP) and delivery.
+```
 
-## Frequently Asked Questions
+This is a recurring task, unlike the one-time task we wrote in [Configuring Tasks Tutorial]({{< ref "apps/tutorials/tasks-1" >}}). This task is going to appear once 12 weeks after the estimated LMP date, again after 20 weeks, and again 6 more times. The `dueDate` on the event says that the task event is due _a variable number of weeks after the estimated LMP_. The time the CHW has to complete the visit is shorter toward the end of the schedule.
 
-- [Tasks for online users](https://forum.communityhealthtoolkit.org/t/tasks-for-online-users/574)
-- [How can I debug task rules?](https://forum.communityhealthtoolkit.org/t/how-can-i-debug-task-rules/108)
+We're using the `this.lmp` value which was calculated and saved in the `appliesIf` function.
+
+## ResolvedIf
+```
+4. A pregnancy visit should be skipped if an _assessment followup_ is completed within the scheduled window for the pregancy visit.
+```
+
+`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "apps/reference/tasks#default-resolvedif-method" >}}). 
+
+This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "apps/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
+
+We will be looking at `resolvedIf` and the concept of _task completion_ in more depth in [Configuring Tasks - Part 4]({{ < ref "apps/tutorials/tasks-4" >}}).
+
+## Actions
+```
+5. The first pregnancy visit should prompt the CHW to ask some additional questions
+```
+
+The `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). Check out the guide for [Passing data from a task into the app form]({{< ref "apps/guides/tasks/pass-data-to-form" >}}).

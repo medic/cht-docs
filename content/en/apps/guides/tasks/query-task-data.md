@@ -1,25 +1,20 @@
 ---
-title: "Configuring Tasks - Part 4 - Querying task data"
-linkTitle: Tasks 4
-weight: 9
+title: "Querying Task Documents"
+linkTitle: Querying Task Documents 
 description: >
-  Working with the data which results from tasks. Notes on the performance implications of tasks.
+  Querying the data which results from an example task. Notes on the performance implications of tasks.
 relatedContent: >
   apps/tutorials/tasks-1
-  apps/tutorials/tasks-2
-  apps/tutorials/tasks-3
   core/overview/db-schema#tasks
   core/overview/data-flows-for-analytics
 ---
 
-Tasks prompt users to complete activities on a programmatic schedule. This _Configuring Tasks_ tutorial series is a practical guide to the creation and management of tasks.
-
 {{% pageinfo %}}
-This tutorial will guide you through working with the data which results from tasks
+This guide explains the data which results from tasks and how to query it.
 
 - Write a PostgreSQL query to examine task data
 - Build deeper understanding of task data
-- Present considerations of which task authors should remain mindful
+- Present some data considerations of which task authors should remain mindful
 {{% /pageinfo %}}
 
 ## Prerequisites
@@ -30,7 +25,7 @@ This tutorial will guide you through working with the data which results from ta
 The task system running on each user's device is powered by [task documents]({{ < ref "core/overview/db-schema#tasks" >}}) and those task documents sync to the server and to postgres just like a contact or a report. For more information, check out [data flows for analytics]({{< ref "core/overview/data-flows-for-analytics" >}}). Having task documents in Postgres allows system administrators to analyse how users are interacting with tasks.
 
 ### First Assessment Completion Rate
-Working with the _First Assessment_ task from [Configuring Tasks - Part 2]({{< ref "apps/tutorials/tasks-2" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
+Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "apps/tutorials/tasks-1" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
 
 Let's query data from the last three months to see how the _first assessment_ task is behaving in production:
 
@@ -49,7 +44,7 @@ ORDER BY 1, 2
 ;
 ```
 
-For convenience, here is the task definition from the _First Assessment_ in Part 2:
+For convenience, here is the task definition from the _First Assessment_ task in the tutorial:
 
 ```javascript
 module.exports = [{
