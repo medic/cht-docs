@@ -36,7 +36,7 @@ Then for each folder go through these steps.
 - Don't update `bootstrap` to 4+ as it has many breaking changes. One day we will either raise an issue to upgrade it or migrate off it, but that is outside the scope of this change.
 - Don't update `bootstrap-daterangepicker`.
 - Don't update `select2` as the latest patch always seems to fail.
-- Don't update `jquery` to 5.6.0+ as the `select2` search input looses focus on click event, this is an [open issue](https://github.com/select2/select2/issues/5993) in their repository.
+- Don't update `jquery` to 3.6.0+ as the `select2` search input looses focus on click event, this is an [open issue](https://github.com/select2/select2/issues/5993) in their repository.
 - Make sure the version of `webapp/jquery` is the same as `webapp/enketo-core/jquery`.
 - Make sure the version of `api/enketo-xslt` is the same as `webapp/enketo-core/enketo-transformer/enketo-xslt`.
 - Don't update `loadash/core` since 4.17.21 is failing, this is an [open issue](https://github.com/lodash/lodash/issues/4904) in their repository.
