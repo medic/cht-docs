@@ -48,7 +48,7 @@ cd /srv/storage/gardener/logs/
 ls -lt   
 grep api/sms medic_medic_medic-api4.log
 ```
-If the above steps don't yield the problem, get the Android logs using the steps outlined in the doc [in this link]({{< ref "core/guides/get-android-logs" >}}), note the make/model/android version their gateway handset is and escalate with those details to the PM/project techlead.
+If the above steps don't yield the problem, get the Android logs using the steps outlined in the doc [in this link]({{< ref "core/guides/android/get-android-logs" >}}), note the make/model/android version their gateway handset is and escalate with those details to the PM/project techlead.
 
 {{% alert title="Note" %}}
 Insist on screenshots even for the most trivial things that partners insist they have performed as you asked. They are also good for giving you a mental image of what is happenning on the phone remotely.

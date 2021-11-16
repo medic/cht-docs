@@ -35,9 +35,9 @@ Once a version is no longer supported it will not receive any further patch rele
 | cht-core | NodeJS | CouchDB | Browsers | SMS bridge | Android OS | cht-android | cht-couch2pg |
 |----|----|----|----|----|----|----|---|
 | **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
-| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | medic-gateway | 4.4+ | Any | 2.0 < 3.0 |
-| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | medic-gateway | 4.4+ | 0.4.5+ | 3.0+ |
-| **4.x** | 16.0+ | 2.x | Chrome and Firefox latest | medic-gateway | 5.0+ | 1.0+ | 3.0+ |
+| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | 2.0 < 3.0 |
+| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 3.0+ |
+| **4.x** | 16.0+ | 2.x | Chrome and Firefox latest | cht-gateway | 5.0+ | 1.0+ | 3.0+ |
 
 # Hardware requirements
 
