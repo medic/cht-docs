@@ -10,6 +10,11 @@ relatedContent: >
   core/guides/docker-setup
 ---
 
+
+{{% alert title="Note" %}}
+For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For CHT development, Linux or macOS may be used. Windows can be used for either, but without recommendation.
+{{% /alert %}}
+
 Hosting a CHT instance in a cloud provider like AWS or on bare-metal requires you have sufficient hardware specifications, Docker and Docker Compose installed and other infrastructure requirements met.
 
 ## Hardware Requirements
