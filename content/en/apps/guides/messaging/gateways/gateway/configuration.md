@@ -11,9 +11,9 @@ relatedContent: >
   apps/guides/messaging/gateways/gateway/phones
 ---
 
-Medic gateway supports Android 4.1 and above. To have it up and fully working, follow the below steps.
+Medic gateway supports Android 4.1 and above. To have it up and fully working, follow the 3 steps below.
 
-1. Install the latest APK from the [releases](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo.
+1. Install the latest APK from the [releases page](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo.
 
 2. Open the app.
 if you are installing the app for the first time or afresh, you will get a ```Warning:medic-gateway is not set as the default messaging app on this device``` . Select ```HELP ME CHANGE``` and agree to the follow-up system prompt about changing the default messaging app.
