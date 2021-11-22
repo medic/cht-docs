@@ -11,19 +11,19 @@ relatedContent: >
   apps/guides/messaging/gateways/gateway/phones
 ---
 
-Medic gateway supports Android 4.1 and above. To have it up and fully working, follow the 3 steps below.
+CHT gateway supports Android 4.1 and above. To have it up and fully working, follow the 3 steps below.
 
 1. Install the latest APK from the [releases page](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo.
 
 2. Open the app.
 if you are installing the app for the first time or afresh, you will get a ```Warning:medic-gateway is not set as the default messaging app on this device``` . Select ```HELP ME CHANGE``` and agree to the follow-up system prompt about changing the default messaging app.
 
-3. Configure the app. If you're configuring cht-gateway(v1.00 and above) for use with hosted medic, with a URL of e.g. ```https://myproject.dev.medicmobile.org``` and a username of ```my_gateway_user``` and a password of ```topSecret```, fill in the settings as follows:
+3. Configure the app. If you're configuring cht-gateway(v1.00 and above) for use with hosted medic, with a URL of e.g. ```https://myproject.dev.medicmobile.org``` and a username of ```gateway``` and a password of ```topSecret```, fill in the settings as follows:
 
 
 Instance name: `myproject [dev]`   (if ```https://myproject.app...```, select 'app')<br>
-Username: `my_gateway_user`<br>
-Password: `topSecret`
+Username: `gateway`(_Since_ [V1.2.1](https://github.com/medic/cht-gateway/releases/tag/v1.2.1) _medic gateway versions this field is not present in the app. The user `gateway` is assumed_.)<br>
+Password: `topSecret`(_This should be the password for the `gateway` username as set up in the project web instance_)
 
 
 ![configuration](gateway-config.png)
@@ -45,4 +45,4 @@ If you're configuring cht-gateway (v0.6.2 and below - recommended if you have a 
 
 * `WiFi > MORE > Keep WiFi on during sleep > ALWAYS (increases battery usage)`
 * `Smart Manager > Battery > App Power Saving > OFF`, or
-* `Smart Manager > Battery > App Power Saving > Detail > Medic Gateway > Disable`
+* `Smart Manager > Battery > App Power Saving > Detail > CHT Gateway > Disable`
