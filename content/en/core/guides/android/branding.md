@@ -91,7 +91,7 @@ Each branded app has an identifier (_id_) that is used to identify and configure
    </resources>
    ```
 
-3. Enable automated builds of the APKs and AABs: add the `new_brand` flavor in [.github/workflows/publish.yml](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml). The _Unpack secrets  ..._ task unpacks and decrypts the secret file with the keystore (next section), The _Assemble ..._ task takes care of generating the `.apk` files for sideloading, and the _Bundle ..._ task is responsible of generating the `.aab` files for publishing in the Play Store (you can skip the last if your are not going to publish in the Play Store):
+3. Enable automated builds of the APKs and AABs: add the `new_brand` flavor in [.github/workflows/publish.yml](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml). The _Unpack secrets  ..._ task unpacks and decrypts the secret file with the keystore (next section), The _Assemble ..._ task takes care of generating the `.apk` files for sideloading, and the _Bundle ..._ task is responsible of generating the `.aab` files for publishing in the Play Store (you can skip the last if you are not going to publish in the Play Store):
 
    ```yml
        - name: Unpack secrets new_brand
