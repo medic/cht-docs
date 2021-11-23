@@ -57,6 +57,8 @@ Open a browser to: [https://localhost](https://localhost)
 
 You will have to click to through the SSL Security warning. Click Advanced -> Continue to site.
 
+Read about [CHT Applications]({{< relref "apps" >}}) to build and deploy your app.
+
 ### Delete & Re-Install
 
 Stop containers:
