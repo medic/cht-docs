@@ -25,7 +25,11 @@ Tasks prompt users to complete activities on a programmatic schedule. This guide
 * Complete the [Contact and User Management - Part 1 Tutorial]({{< ref "apps/tutorials/contact-and-users-2" >}}) to create a hierarchy of contacts and an offline CHW user. 
 * Read [Understanding the data available in tasks and targets]({{< ref "apps/guides/tasks/task-schema-parameters" >}})
 
-## A simple task
+## Implementation Steps
+
+Create a `tasks.js` file (this may have already been created by the `initialise-project-layout` command).
+
+### 1. Define a Simple Task
 
 The appearance, behaviour, and schedule of tasks are all controlled through the JavaScript in the `tasks.js` file. Let's start in that file with a simple first task:
 
