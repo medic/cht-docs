@@ -101,7 +101,7 @@ Next, test a few of the expected behaviours for the task:
 * The task should not appear only for patients - not for places or CHWs.
 * If you mute a contact or [report the contact dead]({{< ref "apps/tutorials/death-reporting" >}}), the task should disappear.
 
-Hint: Remember to reset your system clock to be accurate when you are done testing.
+{{% alert title="Note" %}} Remember to reset your system clock to be accurate when you are done testing. {{% /alert %}}
 
 ## Frequently Asked Questions
 
