@@ -22,7 +22,7 @@ Tasks prompt users to complete activities on a programmatic schedule. This tutor
 
 ## Prerequisites
 
-* [Configuring Tasks]({{< ref "apps/tutorials/tasks-1" >}})
+* [Building a simple task]({{< ref "apps/tutorials/tasks-1" >}})
 * [Maternal and Newborn Health Reference App]({{< ref "apps/examples/anc" >}})
 
 ## Scenario
