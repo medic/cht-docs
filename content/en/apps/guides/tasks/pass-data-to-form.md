@@ -18,7 +18,7 @@ This guide explains how to pass data from a task into the action _application fo
 ## Prerequisites
 
 * [Complex Tasks Tutorial]({{< ref "apps/tutorials/tasks-2" >}})
-* [Application Forms Tutorial]{{< ref "apps/tutorials/app-forms" >}}
+* [Application Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}})
 
 ## Scenario
 
