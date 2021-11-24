@@ -1,5 +1,5 @@
 ---
-title: "Configuring A Simple Task"
+title: "Building A Simple Task"
 linkTitle: Tasks
 weight: 9
 description: >
