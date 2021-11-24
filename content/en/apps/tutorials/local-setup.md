@@ -78,7 +78,7 @@ Using npm and python on your terminal, install cht-conf and pyxform globally usi
 
 ```shell
 npm install -g cht-conf
-sudo python -m pip install git+https://github.com/medic/pyxform.git@cht-conf-1.17#egg=pyxform-medic
+sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
 {{< figure src="confirm-cht-conf.png" link="confirm-cht-conf.png" class="right col-6 col-lg-8" >}}
