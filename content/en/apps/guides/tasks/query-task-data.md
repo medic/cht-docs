@@ -22,7 +22,9 @@ This guide explains the data which results from tasks and how to query it.
 * [Data Flows for Analytics]({{< ref "core/overview/data-flows-for-analytics" >}})
 
 ## Querying task data
-The task system running on each user's device is powered by [task documents]({{ < ref "core/overview/db-schema#tasks" >}}) and those task documents sync to the server and to postgres just like a contact or a report. For more information, check out [data flows for analytics]({{< ref "core/overview/data-flows-for-analytics" >}}). Having task documents in Postgres allows system administrators to analyse how users are interacting with tasks.
+The task system running on each user's device is powered by [task documents]({{< ref "core/overview/db-schema#tasks" >}}) and those task documents sync to the server and to PostgreSQL just like a contact or a report. Having task documents in PostgreSQL allows system administrators to analyse how users are interacting with tasks.
+
+{{< see-also page="core/overview/data-flows-for-analytics" title="Data flows for analytics" >}}
 
 ### First Assessment Completion Rate
 Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "apps/tutorials/tasks-1" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
