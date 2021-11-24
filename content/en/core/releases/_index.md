@@ -3,6 +3,7 @@ title: "Release notes and information"
 linkTitle: "Releases"
 weight: 2
 description: >
+no_list: true
 ---
 
 ## 3.x
