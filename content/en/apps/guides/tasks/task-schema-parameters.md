@@ -22,10 +22,13 @@ This guide explains the parameters available in the Task Schema and important co
 
 Let's synthesize some knowledge about CHT applications to help clarify what is happening within the task system:
 
-. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents](< ref "core/overview/db-schema#contacts-persons-and-places" >).
-2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents](< ref "core/overview/db-schema#reports" >).
+1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}) or [schema for contact documents]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
+
+2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) or the [schema for report documents]({{< ref "core/overview/db-schema#reports" >}}).
+
 3. Documents are stored [minified]({{< ref "apps/guides/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
-4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]("apps/guides/performance/replication#depth") or [purging]({{{< ref "apps/guides/performance/purging" >}})) since both tasks can only process docs which are present on the device.
+
+4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]({{< ref "apps/guides/performance/replication#depth" >}}) or [purging]({{< ref "apps/guides/performance/purging" >}})) since both tasks can only process docs which are present on the device.
 
 {{% alert title="Key Point" %}}
 The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
