@@ -1,8 +1,8 @@
 ---
-title: "Configuring A Complex Task (Optional)"
+title: "Building A Complex Task (Optional)"
 linkTitle: Complex Tasks
 description: >
-  Configuring a more complex task
+  Building a more complex task
 relatedContent: >
   apps/tutorials/tasks-1
   apps/reference/tasks
