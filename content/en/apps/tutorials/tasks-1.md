@@ -83,7 +83,7 @@ or for a faster experience, compile and upload only the relevant changes:
 cht --url=https://<username>:<password>@localhost compile-app-settings upload-app-settings
 ```
 
-## Testing the task
+### 3. Testing the Task
 
 Tasks are only available to [offline users]({{< ref "apps/concepts/users#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "apps/tutorials/contact-and-users-1" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
 
