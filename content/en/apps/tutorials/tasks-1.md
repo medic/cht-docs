@@ -13,7 +13,7 @@ relatedContent: >
 ---
 
 {{% pageinfo %}}
-Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]{{< ref "apps/tutorials/app-forms" >}} for new patients within 7 days of registration.
+Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]({{< ref "apps/tutorials/app-forms" >}}) for new patients within 7 days of registration.
 
 - Creating a straight-forward task
 - Running and testing that task
