@@ -69,7 +69,7 @@ The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an ar
 * `events[0].start` - The task event should appear 7 days before the due date, or immediately when the contact is created.
 * `events[0].end` - The task event should disappear the day after the due date.
 
-## Uploading the task
+### 2. Uploading the Task
 
 To run the `tasks.js` code, you'll need to load the code into your running CHT application. 
 
