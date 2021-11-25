@@ -128,6 +128,14 @@ Then deploy the blank project onto your local test environment with the command:
 cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
+If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs, then you need to restart the docker-compose and try again.
+
+```shell
+npm ci
+docker-compose restart
+cht --url=https://medic:password@localhost --accept-self-signed-certs
+```
+
 {{< figure src="all-actions-completed.png" link="all-actions-completed.png" class="right col-6 col-lg-8" >}}
 
 
