@@ -240,7 +240,7 @@ You can also use `this.definition.defaultResolvedIf` inside the `resolvedIf` def
 
 ```js
 resolvedIf: function (contact, report, event, dueDate) {
-  return this.defaultResolvedIf(contact, report, event, dueDate) && otherConditions;
+  return this.definition.defaultResolvedIf(contact, report, event, dueDate) && otherConditions;
 }
 ```
 
