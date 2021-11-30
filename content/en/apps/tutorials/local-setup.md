@@ -37,7 +37,7 @@ To read more about these concepts, see our [Docker Setup guide]({{< relref "core
 
 Before you begin, you need to have some useful software and tools that are required for things to work:
 
-* [nodejs](https://nodejs.org/en/) from version 8 to 12
+* [nodejs](https://nodejs.org/en/) version 12
 * [npm](https://www.npmjs.com/get-npm)
 * [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
 * [docker and docker-compose]({{< relref "apps/guides/hosting/requirements#docker" >}}).
