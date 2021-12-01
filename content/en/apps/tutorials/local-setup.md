@@ -37,7 +37,7 @@ To read more about these concepts, see our [Docker Setup guide]({{< relref "core
 
 Before you begin, you need to have some useful software and tools that are required for things to work:
 
-* [nodejs](https://nodejs.org/en/) 8 or later
+* [nodejs](https://nodejs.org/en/) version 12
 * [npm](https://www.npmjs.com/get-npm)
 * [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
 * [docker and docker-compose]({{< relref "apps/guides/hosting/requirements#docker" >}}).
@@ -45,7 +45,7 @@ Before you begin, you need to have some useful software and tools that are requi
 ## Implementation Steps
 
 Now that you have the dependent tools and software installed, you are ready to set up your CHT local environment.
- 
+
 
 
 ### 1. Install the Core Framework
@@ -60,7 +60,9 @@ docker-compose up
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once the command is done running, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. You will get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost". This error can be fixed in step 5 below.
+Once the command is done running, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. You will get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
+If you are using Mac you will not be able to find the "Proceed to localhost" link in Chrome, to bypass that error just click anywhere on the denial page and type "thisisunsafe".
+This error can be fixed in step 5 below.
 
 If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in our Docker Setup guide.
 
@@ -76,7 +78,7 @@ Using npm and python on your terminal, install cht-conf and pyxform globally usi
 
 ```shell
 npm install -g cht-conf
-sudo python -m pip install git+https://github.com/medic/pyxform.git@cht-conf-1.17#egg=pyxform-medic
+sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
 {{< figure src="confirm-cht-conf.png" link="confirm-cht-conf.png" class="right col-6 col-lg-8" >}}
@@ -96,7 +98,7 @@ By default, the CHT will have the [Maternal & Newborn Health Reference Applicati
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
 - Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
-- Run the following `cht-conf` command to compile and upload default test data to your local instance: 
+- Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
 ```shell  
 cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`.
@@ -123,6 +125,14 @@ cht initialise-project-layout
 Then deploy the blank project onto your local test environment with the command:
 
 ```shell
+cht --url=https://medic:password@localhost --accept-self-signed-certs
+```
+
+If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs, then you need to restart the docker-compose and try again.
+
+```shell
+npm ci
+docker-compose restart
 cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
@@ -161,7 +171,7 @@ Success: Finished restarting services in package 'medic-core'
 If no errors output above, certificates successfully installed.
 ```
 
-The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.my.local-ip.co`.  See the [local-ip.co](http://local-ip.co/) site to read more about these free to use certificates. 
+The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.my.local-ip.co`.  See the [local-ip.co](http://local-ip.co/) site to read more about these free to use certificates.
 
 When using `cht-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.my.local-ip.co`. As well, you can now use this URL to test with the CHT Android app.
 
