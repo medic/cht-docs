@@ -28,9 +28,10 @@ All Medic's android projects automatically build, sign, and release builds via G
 
 ## Production release
 
-1. Create a release in GitHub from the release branch so it shows up under the [Releases tab](https://github.com/medic/cht-android/releases) with the naming convention `v<major>.<minor>.<patch>`. This will create the git tag automatically. Include the release notes from the [CHANGELOG](https://github.com/medic/cht-android/blob/master/CHANGELOG.md) in the description of the release.
-2. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store.
-3. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
+1. Repeat step 2-3 from the above [alpha release section](#alpha-for-release-testing) with the naming convention `v<major>.<minor>.<patch>`.
+2. The CI build for the tag will create a new draft release on GitHub.  Include the release notes from the CHANGELOG in the description of the release and publish the release on GitHub.
+3. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store.
+4. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
 
 ## New flavor release
 
