@@ -137,6 +137,11 @@ will receive an empty object as `contact`.
 In the cases of reports about deleted contacts, the `purge` function will receive a `{ _deleted: true }`
 object as the `contact`. 
 
+As of **3.9.0**, `task` documents that are in a terminal state (`Cancelled`, `Completed`, `Failed`) are purged 
+if their `end_date` is more than 60 days ago (relative to server date).   
+As of **3.9.0**, `target` documents are purged if their reporting period is more than 6 months ago (relative to server date).   
+Purging `task` and `target` documents happens automatically on every purge run. The intervals and required states are not configurable.  
+
 ### Schedule configuration
 
 You must set a schedule for purging to run server-side.
@@ -177,13 +182,32 @@ Purging does not touch documents in the `medic` database, everything is done in 
 The purge databases names contain an md5 of the JSON representation of a list of unique roles. 
 They also contain a `_local/info` doc where the roles are listed in clear text.
 
-A `purgelog` document is saved in `medic-sentinel` after every purge. The purgelog has a meaningful 
-ID: `purgelog:<timestamp>`, where timestamp represents the moment when purge was completed. The doc
-also contains a property `roles` with the collection of roles purge has run for, and a `duration` property
-representing the time it took to run purge, in ms.
+As of **3.14.0**, contacts that have more than 20,000 associated reports + messages will be skipped, and none of their associated
+reports and messages will be purged. A single contact that has more than 20,000 associated records most likely points
+to a configuration issue. Skipped contacts' ids are reported both in logs and in `purgelog` files (see below). 
+
+A `purgelog` document is saved in the `medic-sentinel` database after every purge. The purgelog has a meaningful
+id: `purgelog:<timestamp>`, where `timestamp` represents the moment when purging was completed.
+As of **3.14.0**, every time purging fails to complete due to an error, a `purgelog:error` document is saved in the
+`medic-sentinel` database. The ids of these documents are similarly meaningful: `purgelog:error:<timestamp>`. 
+
+`purgelog` docs have the following properties:
+
+| property | value type | description | 
+| ----- | ----- | ----- |
+| `date` | ISO formatted date | The moment when purging was completed | 
+| `roles` | Map | A map of roles lists and their hashes that purging has run for |
+| `duration` | Number | Time it took to run purging, in ms. | 
+| `skipped_contacts` | Array | Available since **3.14.0** List of contacts ids that were skipped, due to having too many associated records.  | 
+| `error` | String | Available since **3.14.0** Describes the error that caused purging to fail. Only present in `purgelog:error` docs. |  
+
 You can retrieve a list of all your purge logs, descending from newest to oldest, with this request: 
 
 `https(s)://<host>/medic-sentinel/_all_docs?end_key="purgelog:"&start_key="purgelog:\ufff0"&descending=true`
+
+You can retrieve a list of all your purge logs with errors, descending from newest to oldest, with this request:
+
+`https(s)://<host>/medic-sentinel/_all_docs?end_key="purgelog:error:"&start_key="purgelog:error:\ufff0"&descending=true`
 
 Purging is reversible. If you update your purge function, when running purge the old invalid
 purges will be deleted. This does not mean that devices will automatically re-download documents that
