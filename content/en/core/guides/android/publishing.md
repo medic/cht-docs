@@ -17,8 +17,11 @@ The Play Store has the advantage of being installed on all Android phones by def
 
 One of the downsides is it can be more difficult to get your app published and it may be removed in future if it's found to not comply with future requirements.
 
-Follow these instructions to [publish your app](https://support.google.com/googleplay/android-developer/answer/9859751?hl=en).
+Follow these instructions to [publish your app](https://support.google.com/googleplay/android-developer/answer/9859751?hl=en).  In the [Google Play Console](https://play.google.com/console), for each flavor to publish, create a new `Production` release:
 
+  - Upload app bundles (from the GitHub Release) for the flavor
+  - Use the new cht-android version as the Release name
+  - Add a one sentence summary of the CHANGELOG entry as the Release notes.
 
 #### New App in the Play Store
 
