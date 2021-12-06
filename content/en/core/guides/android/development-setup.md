@@ -10,7 +10,7 @@ relatedContent: >
 
 
 {{% pageinfo %}}
-The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, to either contribute to the project or just add a new flavor (branded app). Most of the instructions also applies to the **[CHT Gateway](https://github.com/medic/cht-gateway)** app (the differences are highlighted in the guide).
+The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, and the **[CHT Gateway](https://github.com/medic/cht-gateway)** app as well.
 
 Finally, you will learn how to assemble the app, run the tests, and how to choose the right artifacts when installing or publishing the apps.
 {{% /pageinfo %}}
@@ -18,7 +18,7 @@ Finally, you will learn how to assemble the app, run the tests, and how to choos
 
 ## Requirements
 
-- Java 11+ for CHT Android, Java 8+ for CHT Gateway (OpenJDK versions work).
+- Java 11+ (OpenJDK versions work).
 - Android SDK, and optionally Android Studio.
 - The `adb` command for debugging and get the logs.
 - The source code. To run all the tests in the CHT Android app you need to clone also the submodules: `git clone --recurse-submodules https://github.com/medic/cht-android.git`.
@@ -35,7 +35,7 @@ Bellow are the instructions of how to install and setup some of the tools requir
 
 ### Java
 
-Java 11+ needs to be installed. The CHT Gateway can be also compiled with Java 8, but you can use the same Java 11 used for the CHT Android apps. The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
+Java 11+ needs to be installed. The `bin/` folder of the JDK must added into the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
 
 To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and the command takes care of adding the selected JDK to the `$PATH` variable and to set the `$JAVA_HOME` variable when switching across different versions.
 
@@ -105,13 +105,11 @@ See the [Makefile](https://github.com/medic/cht-android/blob/master/Makefile) fo
 
 ### Build and assemble
 
-To build and assemble the CHT Gateway use `make build`.
-
-For CHT Android app use:
+To build and assemble the apps within the console use:
 
     $ make assemble
 
-The command above builds and assembles the _debug_ and _release_ APKs of the Unbranded version of the app.
+The command above builds and assembles the _debug_ and _release_ APKs of the apps, and for the CHT-Android project the Unbranded flavor is built and assembled by default.
 
 Each APK will be generated and stored in `build/outputs/apk/[flavor]/[debug|release]/`, for example after assembling the _Medicmobilegamma_ flavor with `make flavor=Medicmobilegamma assemble`, the _release_ versions of the APKs generated are stored in `build/outputs/apk/medicmobilegamma/release/`.
 
