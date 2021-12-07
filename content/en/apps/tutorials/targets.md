@@ -42,7 +42,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ |
 | Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 10 |
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ |
-| Assessment form  | % Population with cough  | Total number of assessment reports with cough submitted/Total number of assessment reports submitted  | Percent | This month | _ |
+| Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ |
 | Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 |
 | Assessment form  | % Household with >=2 assessments  | Total number of households with at least two submitted assessment forms/Total number of households  | Percent | This month | _ |
 
@@ -105,8 +105,33 @@ Edit the `targets.js` file and add the target widget as shown below:
       return Utils.getField(report, 'group_assessment.cough') === 'yes';
     },
     idType: 'contact',
-    date: 'now'
+    date: 'reported'
   }
+```
+
+### 4. Define the Cough Percentage Widget
+This widget calculates the percentage patients assessed that have been indicated to have a cough this month, regardless of the number of reports submitted for them.
+Edit the `targets.js` file and add the target widget as shown below:
+
+```javascript
+  {
+    id: 'percentage-contacts-with-cough-this-month',
+    type: 'percent',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.assessments.percentage.cough.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact) {
+      return contact.contact && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+    },
+    passesIf: function(contact, report) {
+      return Utils.getField(report, 'group_assessment.cough') === 'yes';
+    },
+    idType: 'contact',
+    date: 'reported'
+  },
 ```
 {{< see-also page="apps/reference/targets" title="Targets overview" >}}
 
@@ -149,9 +174,26 @@ module.exports = [
       return Utils.getField(report, 'group_assessment.cough') === 'yes';
     },
     idType: 'contact',
-    date: 'now'
+    date: 'reported'
   },
-
+  {
+    id: 'percentage-contacts-with-cough-this-month',
+    type: 'percent',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.assessments.percentage.cough.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact) {
+      return contact.contact && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+    },
+    passesIf: function(contact, report) {
+      return Utils.getField(report, 'group_assessment.cough') === 'yes';
+    },
+    idType: 'contact',
+    date: 'reported'
+  },
 ];
 ```
 
