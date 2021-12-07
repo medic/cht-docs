@@ -37,21 +37,23 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 
 It is good practice to set up a reference document outlining the specifications of the target widgets similar to the one below. Other formats may also be used.
 
-| Source  | UI Label | Definition  | Type | Reporting Period |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| Assessment form  | Total Assessments | Total number of assessment reports submitted  | Count | All time |
-| Assessment form  | Total Assessments this month | Total number of assessment reports submitted this month | Count | This month |
-| Assessment form  | % Population with Cough  | Total number of assessment reports submitted  | Percent | This month |
+| Source  | UI Label | Definition  | Type | Reporting Period | Goal |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ |
+| Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 10 |
+| Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ |
+| Assessment form  | % Population with cough  | Total number of assessment reports with cough submitted/Total number of assessment reports submitted  | Percent | This month | _ |
+| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two submitted assessment forms/Total number of households  | Percent | This month | _ |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
 
 ### 1. Define an All-Time Target Widget
-
+This widget counts the total number of assessment reports that have been submitted by the user from the time that they started reporting.
 Edit the `targets.js` file to define the total assessments all-time widget as shown below:
 
 ```javascript
-module.exports = [
   {
     id: 'assessments-all-time',
     type: 'count',
@@ -59,52 +61,56 @@ module.exports = [
     goal: -1,
     translation_key: 'targets.assessments.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
-
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     date: 'now'
   }
-];
 ```
 
-### 2. Define a Monthly Target Widget
-
+### 2. Define the Total Assessments Monthly Target Widget
+This widget counts the total number of assessment reports that have been submitted by the user for this month.
 Edit the `targets.js` file and add another target widget definition object to define the total assessments monthly widget as shown below:
 
 ```javascript
-module.exports = [
-  {
-    id: 'assessments-all-time',
-    type: 'count',
-    icon: 'icon-healthcare-assessment',
-    goal: -1,
-    translation_key: 'targets.assessments.title',
-    subtitle_translation_key: 'targets.all_time.subtitle',
-
-    appliesTo: 'reports',
-    appliesToType: ['assessment'],
-    date: 'now'
-  },
   {
     id: 'assessments-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: -1,
+    goal: 10,
     translation_key: 'targets.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
-
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     date: 'reported'
   }
-];
 ```
 
 {{% alert title="Note" %}} All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`. {{% /alert %}}
 
-### 3. Define a Percentage Widget
+### 3. Define the Cough Count Widget
+This widget calculates the total number of patients assessed that have been indicated to have a cough this month, regardless of the number of reports submitted for them. Note that `idType` indicates that we are counting based on the contact.
+Edit the `targets.js` file and add the target widget as shown below:
 
-Edit the `targets.js` file and add a percentage target widget definition object to define the percentage of contacts within the month that have a cough as shown below:
+```javascript
+  {
+    id: 'total-contacts-with-cough-this-month',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.assessments.percentage.cough.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'group_assessment.cough') === 'yes';
+    },
+    idType: 'contact',
+    date: 'now'
+  }
+```
+{{< see-also page="apps/reference/targets" title="Targets overview" >}}
+
+The final content of the targets file should be similar the one below:
 
 ```javascript
 module.exports = [
@@ -129,28 +135,25 @@ module.exports = [
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     date: 'reported'
-  }
+  },
   {
-    id: 'contacts-with-cough-this-month',
-    type: 'percent',
+    id: 'total-contacts-with-cough-this-month',
+    type: 'count',
     icon: 'icon-healthcare-assessment',
     goal: -1,
     translation_key: 'targets.assessments.percentage.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
-    appliesTo: 'contacts',
-    appliesToType: ['person'],
-    appliesIf: function(contact) {
-      return contact.parent && contact.parent.parent && contact.parent.parent.parent
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    appliesIf: function (contact, report) {
+      return Utils.getField(report, 'group_assessment.cough') === 'yes';
     },
-    passessIf: function (contact) {
-      return contact.reports.some(report => report.form === 'assessment' && Utils.getField(report, 'group_assessment.cough' === 'yes'))
-    },
-    date: 'reported'
-  }
+    idType: 'contact',
+    date: 'now'
+  },
+
 ];
 ```
-
-{{< see-also page="apps/reference/targets" title="Targets overview" >}}
 
 ### 4. Compile and Upload App Settings
 
