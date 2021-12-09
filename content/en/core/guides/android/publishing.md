@@ -23,7 +23,9 @@ Follow these instructions to [publish your app](https://support.google.com/googl
   - Use the new cht-android version as the Release name
   - Add a one sentence summary of the CHANGELOG entry as the Release notes.
 
-(Note that published apps are not immediately available to users on the Play Store. Confirm, via the Google Play Console, that the release is available before officially announcing it (this could take hours or days).)
+{{% alert title="Note" %}}
+Published apps are not immediately available to users on the Play Store. Confirm, via the Google Play Console, that the release is available before officially announcing it (this could take hours or days).
+{{% /alert %}}
 
 #### New App in the Play Store
 
