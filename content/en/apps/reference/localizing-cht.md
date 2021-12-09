@@ -7,11 +7,8 @@ description: >
 keywords: localization languages translations
 ---
 
-Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian. In the `app_settings.json` file the default language for the application is set, along with a separate default language for outgoing messages that are sent via SMS. 
+Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.
 
-{{% alert title="Note" color="info" %}}
-Please open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the app into a different language, as we can work together to make that language available to the community.
-{{% /alert %}}
 
 ## Localizing CHT Elements
 1. CHT Instance text - for non-admin users, this is the text that falls under **Messages**, **Tasks**, **Reports**, **People** and **Targets**.
@@ -19,8 +16,27 @@ To localize instance text, change the default system language
 
 ![configuration](change-system-language.png)
 
-Use the instructions outlined [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/) to translate forms, report field labels, target names, contact names etc.
-The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language. 
+Use the instructions outlined [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/#translations) to  change the instance language.
+
+
+After changing the instance language, the various elements will behave like this:
+_**Messages**_
+The language 
+
+_**Tasks**_
+
+_**Reports**_
+
+_**People**_
+
+_**Targets**_
+
+_**App Management - Admin Area**_
+This will still remain in English even after changing the default language.
+
+
+
+**Note**: The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language. 
 2. Outgoing Texts - These are the SMS notifications/replies that go to CHVs and Supervisors phones in projects that incorporate SMS workflows.
 To change the language of outgoing texts to a particular CHV/Supervisor to say for Example Kiswahili(Swahili), 
 i). First in app settings, when configuring replies, add Swahili(sw) under `locales`. Like so:
@@ -69,3 +85,9 @@ ii) Set up the translation for the message. For example:
 iii) Change the CHVs language
 
 ![configuration](change-user-language.png)
+
+### Translating CHT to another language
+
+{{% alert title="Note" color="info" %}}
+Please open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the app into a different language, as we can work together to make that language available to the community.
+{{% /alert %}}
