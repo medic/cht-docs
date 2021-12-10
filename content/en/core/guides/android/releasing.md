@@ -26,11 +26,12 @@ All Medic's android projects automatically build, sign, and release builds via G
 5. Announce the release in _#quality-assurance_.
 
 
-## Final for users
+## Production release
 
-1. The exact same process from Step 1 to 3 above, but name it without any suffix, e.gg. `v1.2.3`.
-2. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps must be published in the Play Store: Unbranded, Simprints, and Gamma flavors.
-3. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
+1. Repeat step 2-3 from the above [alpha release section](#alpha-for-release-testing) with the naming convention `v<major>.<minor>.<patch>`.
+2. The CI build for the tag will create a new draft release on GitHub.  Include the release notes from the CHANGELOG in the description of the release and publish the release on GitHub.
+3. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store.
+4. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
 
 ## New flavor release
 
