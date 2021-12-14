@@ -1,13 +1,29 @@
 ---
 title: "CHT Localization/"
 linkTitle: "cht-localization/"
-weight: 2
+weight: 1
 description: >
-  **Localization**: Localizing the CHT Application
-keywords: localization languages translations
+  Setting up a local environment to build and test CHT applications
+relatedContent: >
+  core/guides/docker-setup
+  core/guides/using-windows
+  apps/guides/hosting/self-hosting
+  apps/guides/hosting/ec2-setup-guide
 ---
 
+{{% pageinfo %}}
 Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.
+
+This tutorial will take you through localizing the language of CHT applications on CHT version 3.9.1. This includes setting up the instance text as well as outgoing texts to the desired language.
+
+By the end of the tutorial you should be able to:
+
+- Change the CHT instance text to another language; in our case: Swahili
+- Change outgoing texts to another language: Swahili in our case.
+{{% /pageinfo %}}
+
+
+
 
 
 ## Localizing CHT Elements
