@@ -44,7 +44,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ |
 | Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ |
 | Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 |
-| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two assessment forms/Total number of households | Percent | This month | _ |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | This month | 20 |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
@@ -158,6 +158,50 @@ Edit the `targets.js` file and add the target widget as shown below:
     }
   },
 ```
+
+### 6. Define Households with Assessments Widget
+This widget calculates the number of households that have two or more patients assessed this month. Note that we use `emitCustom` emit a custom target instance object. The target instance ID is replaced by the household ID so as to count households.
+Edit the `targets.js` file and add the target widget as shown below:
+
+```javascript
+
+//Define a function to get the household ID
+const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
+
+//Define a function to determine if contact is patient
+const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+
+ {
+    id: 'households-with-gt2-assessments-this-month',
+    type: 'percent',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.households.with.gt2.assessments.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'contacts',
+    appliesToType: ['person', 'clinic'], //Since we need the total number of households as denominator
+    date: 'now',
+    emitCustom: (emit, original, contact) => {
+      const householdId = getHouseholdId(contact);
+      if (isPatient(contact)) {
+        if (contact.reports.some(report => report.form === 'assessment')) {
+          emit(Object.assign({}, original, const targetInstance = {
+            _id: householdId, //Emits a passing target instance with the household as the target instance ID
+            pass: true
+          }));
+        }
+      }
+      if(contact.contact && contact.contact.type === 'clinic') { //This represents the denominator, which is the total number of households
+        emit(Object.assign({}, original,
+          _id: householdId,
+          pass: false, //Set to false so that it is counted as denominator
+        }));
+      }
+    },
+    groupBy: contact => getHouseholdId(contact),
+    passesIfGroupCount: { gte: 2 },
+  }
+```
 {{< see-also page="apps/reference/targets" title="Targets overview" >}}
 
 The final content of the targets file should be similar the one below:
@@ -179,7 +223,7 @@ module.exports = [
     id: 'assessments-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: -1,
+    goal: 10,
     translation_key: 'targets.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
