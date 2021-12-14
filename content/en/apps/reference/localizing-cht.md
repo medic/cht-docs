@@ -21,15 +21,67 @@ Use the instructions outlined [here](https://docs.communityhealthtoolkit.org/app
 
 After changing the instance language, the various elements will behave like this:
 _**Messages**_
-The language 
+In Messages, the time counter text and text that shows the user how to navigate the tab changes.
+
+There are no user configurable changes that can be done to this tab.
+
+See below example for Swahili.
+
+![configuration](messages-tab-language.png)
 
 _**Tasks**_
+You can localize the task header by adding the appropriate translation in the `messages-{language-code}.properties file.
+
+e.g to translate the below delivery task title to Swahili
+```
+{
+    name: 'anc-home-visit-delivery',
+    icon: 'icon-pregnancy',
+    title: 'task.anc.delivery.title',
+``` 
+
+Add the below code to the messages-sw.properties file
+```
+task.anc.delivery.title = Kazi ya Kujifungua
+```
+![configuration](localize-tasks.png)
 
 _**Reports**_
+You can localize the report field names by adding the appropriate translation in the `messages-{language-code}.properties` file.
+
+e.g to change the date of birth field to Swahili, in `messages-sw.properties` file, add this:
+
+```
+contact.type.date_of_birth = Siku ya Kuzaliwa
+```
+![configuration](localize-reports.png)
+
+
+e.g 
 
 _**People**_
+To localize the contact labels, add the appropriate translation in `messages-{language-code}.properties` file.
+
+e.g to change the chv name field to Swahili, in `messages-sw.properties` file, add this:
+
+```
+contact.type.district_hospital = Kituo Cha Afya
+```
 
 _**Targets**_
+You can localize the names of the targets by adding the appropriate translation in the `messages-{language-code}.properties file.
+
+e.g to change the `Number of fever cases managed` target to Swahili on the instance, adding the appropriate translation in the `messages-sw.properties` file. i.e
+
+```
+targets.fever_cases_managed.title = Idadi ya kesi za homa kusimamiwa
+```
+
+_**App Forms**_
+To localize an app form to say the Kiswahili language, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
+
+![configuration](app-forms-localization.png)
+
 
 _**App Management - Admin Area**_
 This will still remain in English even after changing the default language.
