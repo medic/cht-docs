@@ -44,7 +44,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ |
 | Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ |
 | Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 |
-| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two submitted assessment forms/Total number of households  | Percent | This month | _ |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two assessment forms/Total number of households | Percent | This month | _ |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
@@ -97,7 +97,7 @@ Edit the `targets.js` file and add the target widget as shown below:
     type: 'count',
     icon: 'icon-healthcare-assessment',
     goal: -1,
-    translation_key: 'targets.assessments.percentage.cough.title',
+    translation_key: 'targets.assessments.total.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
@@ -131,6 +131,31 @@ Edit the `targets.js` file and add the target widget as shown below:
     },
     idType: 'contact',
     date: 'reported'
+  }
+```
+
+### 5. Define Households with Assessments Widget
+This widget calculates the number of households that have patients assessed this month. Note that we use `emitCustom` emit a custom target instance object. We filter based on reports, and use the contact information from the reports to emit target instances. The target instance ID is replaced by the household ID so as to count households.
+Edit the `targets.js` file and add the target widget as shown below:
+
+```javascript
+ {
+    id: 'households-with-assessments-this-month',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: 4,
+    translation_key: 'targets.households.with.assessments.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    date: 'reported',
+    emitCustom: (emit, original, contact) => {
+      const householdId = contact.contact && contact.contact.parent._id;
+      emit(Object.assign({}, original, {
+        _id: householdId,
+        pass: true
+      }));
+    }
   },
 ```
 {{< see-also page="apps/reference/targets" title="Targets overview" >}}
@@ -166,7 +191,7 @@ module.exports = [
     type: 'count',
     icon: 'icon-healthcare-assessment',
     goal: -1,
-    translation_key: 'targets.assessments.percentage.cough.title',
+    translation_key: 'targets.assessments.total.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
@@ -194,6 +219,24 @@ module.exports = [
     idType: 'contact',
     date: 'reported'
   },
+  {
+    id: 'households-with-assessments-this-month',
+    type: 'count',
+    icon: 'icon-healthcare-assessment',
+    goal: 4,
+    translation_key: 'targets.households.with.assessments.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'reports',
+    appliesToType: ['assessment'],
+    date: 'reported',
+    emitCustom: (emit, original, contact) => {
+      const householdId = contact.contact && contact.contact.parent._id;
+      emit(Object.assign({}, original, {
+        _id: householdId,
+        pass: true
+      }));
+    }
+  }
 ];
 ```
 
