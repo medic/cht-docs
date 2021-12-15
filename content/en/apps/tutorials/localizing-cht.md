@@ -166,4 +166,4 @@ iii) Change the CHVs language in app management > users > [Choose CHV username e
 
 ### Translating CHT to another language
 
-To translate CHT to a new language - we have English, Swahili ...follow the steps outlined [here](https://docs.communityhealthtoolkit.org/core/overview/translations/) for reference.
+To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here](https://docs.communityhealthtoolkit.org/core/overview/translations/) for reference.
