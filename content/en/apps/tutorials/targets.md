@@ -29,6 +29,8 @@ You will be adding target widgets that will allow Community Health Workers to tr
 
 *Percent widgets* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
 
+*[Target schema]({{< ref "apps/reference/targets#targetsjs" >}})* details a set of properties for targets.
+
 ## Required Resources
 
 You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
@@ -37,14 +39,14 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 
 It is good practice to set up a reference document outlining the specifications of the target widgets similar to the one below. Other formats may also be used.
 
-| Source  | UI Label | Definition  | Type | Reporting Period | Goal |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ |
-| Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 10 |
-| Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ |
-| Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ |
-| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 |
-| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | This month | 20 |
+| Source  | UI Label | Definition  | Type | Reporting Period | Goal | DHIS |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ | No |
+| Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 10 | No |
+| Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ | No |
+| Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ | No |
+| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 | Yes |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | This month | 20 | No |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
@@ -120,6 +122,7 @@ Edit the `targets.js` file and add the target widget as shown below:
     icon: 'icon-healthcare-assessment',
     goal: -1,
     translation_key: 'targets.assessments.percentage.cough.title',
+    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
@@ -155,6 +158,10 @@ Edit the `targets.js` file and add the target widget as shown below:
         _id: householdId,
         pass: true
       }));
+    },
+    dhis: { //codes should respond to code on DHIS site
+      dataSet: 'VMuFODsyWaO',
+      dataElement: 'kB0ZBFisE0e'
     }
   },
 ```
@@ -179,7 +186,7 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
     translation_key: 'targets.households.with.gt2.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'contacts',
-    appliesToType: ['person', 'clinic'], //Since we need the total number of households as denominator
+    appliesToType: ['person', 'clinic'], //Need the total number of households as denominator
     date: 'now',
     emitCustom: (emit, original, contact) => {
       const householdId = getHouseholdId(contact);
@@ -194,7 +201,7 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
       if(contact.contact && contact.contact.type === 'clinic') { //This represents the denominator, which is the total number of households
         emit(Object.assign({}, original,
           _id: householdId,
-          pass: false, //Set to false so that it is counted as denominator
+          pass: false, //Set to false so that it is counted in the denominator
         }));
       }
     },
@@ -204,9 +211,15 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
 ```
 {{< see-also page="apps/reference/targets" title="Targets overview" >}}
 
-The final content of the targets file should be similar the one below:
+Include the functions and replace appropriately in the file. The final content of the targets file should be similar the one below:
 
 ```javascript
+//Define a function to get the household ID
+const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
+
+//Define a function to determine if contact is patient
+const isPatient = (contact) => contact.contact && contact.contact.type === 'person' && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+
 module.exports = [
   {
     id: 'assessments-all-time',
@@ -252,10 +265,11 @@ module.exports = [
     goal: -1,
     translation_key: 'targets.assessments.percentage.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
+    percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
     appliesTo: 'reports',
     appliesToType: ['assessment'],
     appliesIf: function (contact) {
-      return contact.contact && contact.contact.parent && contact.contact.parent.parent && contact.contact.parent.parent.parent;
+      return isPatient(contact);
     },
     passesIf: function(contact, report) {
       return Utils.getField(report, 'group_assessment.cough') === 'yes';
@@ -274,17 +288,67 @@ module.exports = [
     appliesToType: ['assessment'],
     date: 'reported',
     emitCustom: (emit, original, contact) => {
-      const householdId = contact.contact && contact.contact.parent._id;
+      const householdId = getHouseholdId(contact);
       emit(Object.assign({}, original, {
         _id: householdId,
         pass: true
       }));
+    },
+    dhis: { //codes should respond to codes on DHIS site
+      dataSet: 'VMuFODsyWaO',
+      dataElement: 'kB0ZBFisE0e'
     }
+  },
+  {
+    id: 'households-with-gt2-assessments-this-month',
+    type: 'percent',
+    icon: 'icon-healthcare-assessment',
+    goal: -1,
+    translation_key: 'targets.households.with.gt2.assessments.title',
+    subtitle_translation_key: 'targets.this_month.subtitle',
+    appliesTo: 'contacts',
+    appliesToType: ['person', 'clinic'], //Need the total number of households as denominator
+    date: 'now',
+    emitCustom: (emit, original, contact) => {
+      const householdId = getHouseholdId(contact);
+      if (isPatient(contact)) {
+        if (contact.reports.some(report => report.form === 'assessment')) {
+          emit(Object.assign({}, original, const targetInstance = {
+            _id: householdId, //Emits a passing target instance with the household as the target instance ID
+            pass: true
+          }));
+        }
+      }
+      if(contact.contact && contact.contact.type === 'clinic') { //This represents the denominator, which is the total number of households
+        emit(Object.assign({}, original,
+          _id: householdId,
+          pass: false, //Set to false so that it is counted in the denominator
+        }));
+      }
+    },
+    groupBy: contact => getHouseholdId(contact),
+    passesIfGroupCount: { gte: 2 },
   }
 ];
 ```
+### 7. Upload translations
+Ensure that translation keys are in the translations file. Add the following translation keys and their values in the `messages-en.properties` file.
 
-### 4. Compile and Upload App Settings
+```
+targets.assessments.title = Total assessments
+targets.assessments.total.cough.title = Total population with cough
+targets.assessments.percentage.cough.title = % Population with cough
+targets.households.with.assessments.title = Total households with assessments
+targets.households.with.gt2.assessments.title = % Household with >=2 assessments
+targets.assessments.percentage.with.cough = {{pass}} of {{total}} with cough
+```
+To upload *[translations]({{< ref "apps/reference/translations#translations" >}})* to your local instance, run the following command:
+
+```zsh
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
+```
+
+### 8. Compile and Upload App Settings
 
 To compile and upload app settings to your local instance, run the following command:
 
