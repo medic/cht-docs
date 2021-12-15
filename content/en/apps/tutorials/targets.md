@@ -16,7 +16,7 @@ This tutorial will take you through how to build target widgets.
 
 Target widgets provide a summary or analysis of the data in submitted reports.
 
-You will be adding target widgets that will allow Community Health Workers to track the number of assessments done.
+You will be adding target widgets that will allow Community Health Workers (CHWs) to track various metrics based on assessment reports submitted.
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
@@ -46,7 +46,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ | No |
 | Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ | No |
 | Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 | Yes |
-| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | This month | 20 | No |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | All time | 20 | No |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
@@ -90,7 +90,7 @@ Edit the `targets.js` file and add another target widget definition object to de
 {{% alert title="Note" %}} All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`. {{% /alert %}}
 
 ### 3. Define the Cough Count Widget
-This widget calculates the total number of patients assessed that have been indicated to have a cough this month, regardless of the number of reports submitted for them. Note that `idType` indicates that we are counting based on the contact.
+This widget calculates the total number of patients assessed that have been indicated to have a cough this month, regardless of the number of reports submitted for them. Note that `idType` counts the contact IDs.
 Edit the `targets.js` file and add the target widget as shown below:
 
 ```javascript
@@ -137,8 +137,8 @@ Edit the `targets.js` file and add the target widget as shown below:
   }
 ```
 
-### 5. Define Households with Assessments Widget
-This widget calculates the number of households that have patients assessed this month. Note that we use `emitCustom` emit a custom target instance object. We filter based on reports, and use the contact information from the reports to emit target instances. The target instance ID is replaced by the household ID so as to count households.
+### 5. Define Total Households with Assessments Widget
+This widget calculates the number of households that have patients assessed this month. Note that `emitCustom` emits a custom target instance object. Filter based on reports, and use the contact information from the reports to emit target instances. The target instance ID is the household ID.
 Edit the `targets.js` file and add the target widget as shown below:
 
 ```javascript
@@ -159,7 +159,7 @@ Edit the `targets.js` file and add the target widget as shown below:
         pass: true
       }));
     },
-    dhis: { //codes should respond to code on DHIS site
+    dhis: { //The IDs should correspond to the IDs on DHIS site
       dataSet: 'VMuFODsyWaO',
       dataElement: 'kB0ZBFisE0e'
     }
@@ -167,7 +167,7 @@ Edit the `targets.js` file and add the target widget as shown below:
 ```
 
 ### 6. Define Households with Assessments Widget
-This widget calculates the number of households that have two or more patients assessed this month. Note that we use `emitCustom` emit a custom target instance object. The target instance ID is replaced by the household ID so as to count households.
+This widget calculates the number of households that have two or more patients assessed this month. Use `emitCustom` to emit a custom target instance object. The target instance ID is the household ID.
 Edit the `targets.js` file and add the target widget as shown below:
 
 ```javascript
@@ -206,10 +206,10 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
       }
     },
     groupBy: contact => getHouseholdId(contact),
-    passesIfGroupCount: { gte: 2 },
+    passesIfGroupCount: { gte: 2 }
   }
 ```
-{{< see-also page="apps/reference/targets" title="Targets overview" >}}
+### 7. Final targets.js file
 
 Include the functions and replace appropriately in the file. The final content of the targets file should be similar the one below:
 
@@ -331,7 +331,21 @@ module.exports = [
   }
 ];
 ```
-### 7. Upload translations
+
+{{< see-also page="apps/reference/targets" title="Targets overview" >}}
+
+### 8. Compile and Upload App Settings
+
+To compile and upload app settings to your local instance, run the following command:
+
+```zsh
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
+```
+
+{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+
+
+### 8. Upload translations
 Ensure that translation keys are in the translations file. Add the following translation keys and their values in the `messages-en.properties` file.
 
 ```
@@ -347,16 +361,6 @@ To upload *[translations]({{< ref "apps/reference/translations#translations" >}}
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
 ```
-
-### 8. Compile and Upload App Settings
-
-To compile and upload app settings to your local instance, run the following command:
-
-```zsh
-cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
-```
-
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
 
 ## Frequently Asked Questions
 
