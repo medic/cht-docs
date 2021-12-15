@@ -1,9 +1,9 @@
 ---
 title: "CHT Localization/"
-linkTitle: "cht-localization/"
+linkTitle: "Localizing CHT"
 weight: 1
 description: >
-  Setting up a local environment to build and test CHT applications
+ How to localize the CHT platform to the preferred language
 relatedContent: >
   core/overview/translations
   apps/reference/translations
