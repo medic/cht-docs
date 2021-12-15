@@ -5,10 +5,8 @@ weight: 1
 description: >
   Setting up a local environment to build and test CHT applications
 relatedContent: >
-  core/guides/docker-setup
-  core/guides/using-windows
-  apps/guides/hosting/self-hosting
-  apps/guides/hosting/ec2-setup-guide
+  core/overview/translations
+  apps/reference/translations
 ---
 
 {{% pageinfo %}}
@@ -22,13 +20,23 @@ By the end of the tutorial you should be able to:
 - Change outgoing texts to another language: Swahili in our case.
 {{% /pageinfo %}}
 
+## Brief Overview of Key Concepts
 
+*Localization* this is  setting up the desired language in CHT for the end user.
 
+*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/#translations).
 
+## Required Resources
 
-## Localizing CHT Elements
-1. CHT Instance text - for non-admin users, this is the text that falls under **Messages**, **Tasks**, **Reports**, **People** and **Targets**.
-To localize instance text, change the default system language
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [messages-sw.properties]({{< ref "apps/reference/translations" >}}) file.
+
+## Implementation Steps
+
+Create a new file in the 'translations/' folder called messages-sw.properties
+
+1. Localize CHT Elements to Swahili
+_**CHT Instance text**_ - for non-admin users, this is the text that falls under **Messages**, **Tasks**, **Reports**, **People** and **Targets**.
+To localize instance text to Swahili, change the default system language to `Swahili`.
 
 ![configuration](change-system-language.png)
 
@@ -39,14 +47,12 @@ After changing the instance language, the various elements will behave like this
 _**Messages**_
 In Messages, the time counter text and text that shows the user how to navigate the tab changes.
 
-There are no user configurable changes that can be done to this tab.
-
-See below example for Swahili.
+See below example for Swahili localization.
 
 ![configuration](messages-tab-language.png)
 
 _**Tasks**_
-You can localize the task header by adding the appropriate translation in the `messages-{language-code}.properties file.
+You can localize the task header by adding the appropriate translation in the `messages-sw.properties file.
 
 e.g to translate the below delivery task title to Swahili
 ```
@@ -93,7 +99,7 @@ e.g to change the `Number of fever cases managed` target to Swahili on the insta
 targets.fever_cases_managed.title = Idadi ya kesi za homa kusimamiwa
 ```
 
-_**App Forms**_
+#### 2. App Forms
 To localize an app form to say the Kiswahili language, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
 
 ![configuration](app-forms-localization.png)
@@ -105,8 +111,12 @@ This will still remain in English even after changing the default language.
 
 
 **Note**: The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language. 
-2. Outgoing Texts - These are the SMS notifications/replies that go to CHVs and Supervisors phones in projects that incorporate SMS workflows.
-To change the language of outgoing texts to a particular CHV/Supervisor to say for Example Kiswahili(Swahili), 
+### 3. Outgoing Texts
+
+These are the SMS notifications/replies that go to CHVs and Supervisors phones in projects that incorporate SMS workflows.
+
+To change the language of outgoing texts to a particular CHV/Supervisor to Swahili: 
+
 i). First in app settings, when configuring replies, add Swahili(sw) under `locales`. Like so:
 ```
 "locales": [
@@ -132,7 +142,7 @@ i). First in app settings, when configuring replies, add Swahili(sw) under `loca
     }
 ``` 
 
-ii) Set up the translation for the message. For example:
+ii) Set up the translation for the reply message. For example:
 ```
 "messages": [
         {
@@ -150,12 +160,10 @@ ii) Set up the translation for the message. For example:
           "recipient": "reporting_unit"
         },
 ``` 
-iii) Change the CHVs language
+iii) Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language 
 
 ![configuration](change-user-language.png)
 
 ### Translating CHT to another language
 
-{{% alert title="Note" color="info" %}}
-Please open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the app into a different language, as we can work together to make that language available to the community.
-{{% /alert %}}
+To translate CHT to a new language - we have English, Swahili ...follow the steps outlined [here](https://docs.communityhealthtoolkit.org/core/overview/translations/) for reference.
