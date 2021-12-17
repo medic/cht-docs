@@ -3,7 +3,7 @@ title: "CHT Localization/"
 linkTitle: "Localizing CHT"
 weight: 1
 description: >
- How to localize the CHT platform to the preferred language
+ How to localize the CHT platform to Swahili
 relatedContent: >
   core/overview/translations
   apps/reference/translations
@@ -12,38 +12,46 @@ relatedContent: >
 {{% pageinfo %}}
 Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.
 
-This tutorial will take you through localizing the language of CHT applications on CHT version 3.9.1. This includes setting up the instance text as well as outgoing texts to the desired language.
+This tutorial will take you through localizing CHT to Swahili on CHT version 3.9.1. This includes setting up the instance text as well as outgoing texts to Swahili.
 
 By the end of the tutorial you should be able to:
 
-- Change the CHT instance text to another language; in our case: Swahili
-- Change outgoing texts to another language: Swahili in our case.
+- Change the CHT instance text to Swahili.
+- Change outgoing texts to Swahili.
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
 *Localization* this is  setting up the desired language in CHT for the end user.
 
-*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/#translations).
+*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here]({{< ref "../reference/translations/#translations" >}}).
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [messages-sw.properties]({{< ref "apps/reference/translations" >}}) file.
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [messages-sw.properties]({{< ref "../reference/translations" >}}) file.
 
 ## Implementation Steps
 
 Create a new file in the 'translations/' folder called messages-sw.properties
 
-1. Localize CHT Elements to Swahili
+### 1. Localize CHT Elements to Swahili
 _**CHT Instance text**_ - for non-admin users, this is the text that falls under **Messages**, **Tasks**, **Reports**, **People** and **Targets**.
 To localize instance text to Swahili, change the default system language to `Swahili`.
 
+Go to App Management > Display > Languages > Default Language(Change to Swahili)
+
 ![configuration](change-system-language.png)
 
-Use the instructions outlined [here](https://docs.communityhealthtoolkit.org/apps/reference/translations/#translations) to  change the instance language.
+Create a message-sw.properties file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
+
+After creating a messages-sw.properties file, to upload the initial draft or after any changes, use the below command to upload to your local CHT instance:
+
+```
+cht --local upload-custom-translations
+```
 
 
-After changing the instance language, the various elements will behave like this:
+After changing the instance language to Swahili, the various elements will behave like this:
 _**Messages**_
 In Messages, the time counter text and text that shows the user how to navigate the tab changes.
 
@@ -100,13 +108,13 @@ targets.fever_cases_managed.title = Idadi ya kesi za homa kusimamiwa
 ```
 
 #### 2. App Forms
-To localize an app form to say the Kiswahili language, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
+To localize an app form to Swahili, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
 
 ![configuration](app-forms-localization.png)
 
 
 _**App Management - Admin Area**_
-This will still remain in English even after changing the default language.
+This will still remain in English even after changing the default language to Swahili.
 
 
 
@@ -160,10 +168,10 @@ ii) Set up the translation for the reply message. For example:
           "recipient": "reporting_unit"
         },
 ``` 
-iii) Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language 
+iii) Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language > Pick Swahili 
 
 ![configuration](change-user-language.png)
 
 ### Translating CHT to another language
 
-To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here](https://docs.communityhealthtoolkit.org/core/overview/translations/) for reference.
+To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "core/overview/translations" >}}) for reference.
