@@ -6,3 +6,4 @@ tech-doc-hugo
 
 .DS_Store
 .idea
+.hugo_build.lock
