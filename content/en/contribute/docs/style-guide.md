@@ -111,7 +111,7 @@ whether they're part of the "we" you're describing.
 |---|---|
 | Version 3.0 includes ... | In version 3.0, we have added ... |
 | Medic provides a new feature to reduce the time to load contacts. | We made several changes to reduce the time to load contacts. |
-| This page teaches you how to use medic-gateway. | In this page, we are going to learn about medic-gateway. |
+| This page teaches you how to use cht-gateway. | In this page, we are going to learn about cht-gateway. |
 
 ### Using jargon and idioms
 
@@ -318,7 +318,7 @@ document, use the backtick (`).
 | Do | Don't |
 |---|---|
 | The `grunt dev-webapp` command builds and deploys the webapp. | The "grunt dev-webapp" command creates a Deployment. |
-| To upload the configuration from your current directory, use `medic-conf --local`. | To upload the configuration from your current directory, use "medic-conf --local". |
+| To upload the configuration from your current directory, use `cht --local`. | To upload the configuration from your current directory, use "cht --local". |
 | Enclose code samples with triple backticks. `(```)` | Enclose code samples with any other syntax. |
 
 

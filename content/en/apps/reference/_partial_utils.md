@@ -12,7 +12,7 @@ Utility functions in the Core Framework can make common tasks much easier. These
 | `getLmpDate(doc)` | Attempts to work out the LMP from the given doc. If no LMP is given it defaults to four weeks before the reported_date. |
 | `getSchedule(name)` | Returns the task schedule with the given name from the configuration. |
 | `getMostRecentTimestamp(reports, form)` | Returns the reported_date of the most recent of the reports with form ID matching the given form. |
-| `getMostRecentReport(reports, form)` | Like `getMostRecentTimestamp` but returns the report, not just the reported_date. |
+| `getMostRecentReport(reports, form)` | Like `getMostRecentTimestamp` but returns the report, not just the reported_date. From CHT v3.14.0, it also accepts an array of forms. |
 | `isFormSubmittedInWindow(reports, form, start, end)` | Returns true if any of the given reports are for the given form and were reported after start and before end. |
 | `isFirstReportNewer(firstReport, secondReport)` | Returns true if the firstReport was reported before the secondReport. |
 | `isDateValid(date)` | Returns true if the given date is a validate JavaScript Date. |
@@ -20,5 +20,3 @@ Utility functions in the Core Framework can make common tasks much easier. These
 | `MS_IN_DAY` | A constant for the number of milliseconds in a day. |
 
 Please open [an issue](https://github.com/medic/cht-core/issues/new) if you'd like other functions included.
-
-Custom functions and variables can be written in [`nools-extra.js`]({{< ref "apps/reference/nools-extras" >}}), which is accessible to both Targets and Tasks.

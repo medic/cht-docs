@@ -37,8 +37,8 @@ Translations for XForms are defined within the forms themselves. The XLSForm not
 
 Custom translations from the properties files are added to the app with the `upload-custom-translations` action.
 
-`medic-conf --local upload-custom-translations`
+`cht --local upload-custom-translations`
     
 Updated translations from forms need to be added with the actions to upload forms.
 
-`medic-conf --local upload-contact-forms upload-app-forms`
+`cht --local upload-contact-forms upload-app-forms`

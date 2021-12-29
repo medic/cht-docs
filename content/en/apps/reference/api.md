@@ -458,7 +458,7 @@ If submitting JSON and corresponding form is not found on the server you will re
 
 ### POST /api/sms
 
-Endpoint used by medic-gateway to send sms messages. More documentation in [the medic-gateway repo](https://github.com/medic/medic-gateway/blob/master/README.md).
+Endpoint used by cht-gateway to send sms messages. More documentation in the [cht-gateway repo](https://github.com/medic/cht-gateway/blob/master/README.md).
 
 ## People
 
@@ -466,7 +466,7 @@ Endpoint used by medic-gateway to send sms messages. More documentation in [the 
 
 Use JSON in the request body to specify a person's details.
 
-Note: this does not accomodate having a `place` field on your form and will likely be revised soon.
+Note: this does not accommodate having a `place` field on your form and will likely be revised soon.
 
 ##### Required
 
@@ -727,7 +727,6 @@ will be undefined.
 | token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 | 
 | fullname | no | String | Full name  | 
 | email | no | String | Email address  |
-| language | no | String | Language preference. e.g. "sw" for Swahili |
 | known | no | Boolean | Boolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
 
 ##### Login by SMS
@@ -788,10 +787,7 @@ Content-Type: application/json; charset=utf-8
     "id": "org.couchdb.user:admin",
     "rev": "10-6486428924d11781c107ea74de6b63b6",
     "type": "admin",
-    "username": "admin",
-    "language": {
-      "code": "en"
-    }
+    "username": "admin"
   },
   {
     "id": "org.couchdb.user:demo",
@@ -799,9 +795,6 @@ Content-Type: application/json; charset=utf-8
     "type": "district-manager",
     "fullname": "Example User",
     "username": "demo",
-    "language": {
-      "code": "en"
-    },
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -965,7 +958,7 @@ HTTP/1.1 200 OK
 
 ### GET /api/v1/users-info
 
-Returns the number of documents an offline user would replicate, along with a `warn` flag if this number exceeds the recommended limit (now set at 10 000).
+Returns the total number of documents an offline user would replicate (`total_docs`), the number of docs excluding tasks the user would replicate (`warn_docs`), along with a `warn` flag if this number exceeds the recommended limit (now set at 10 000).
 
 When the authenticated requester has an offline role, it returns the requester doc count.
 ###### Example
@@ -979,6 +972,7 @@ Content-Type: application/json
 
 {
   "total_docs": 5678,
+  "warn_docs": 4852,
   "warn": false,
   "limit: 10000
 }
@@ -993,6 +987,8 @@ When the requester has an online role, the following query parameters are accept
 | facility_id | String identifier representing the uuid of the user's facility  | true |
 | role | String identifier representing the user role - must be configured as an offline role. Accepts valid UTF-8 JSON array for multiple of roles. | true |
 | contact_id | String identifier representing the uuid of the user's associated contact | false | 
+
+When requested as an online user, the number of tasks are never counted and never returned, so `warn_docs` is always equal to `total_docs`. 
  
 ###### Example
 
@@ -1006,6 +1002,7 @@ Content-Type: application/json
 
 {
   "total_docs": 10265,
+  "warn_docs": 10265,
   "warn": true,
   "limit: 10000
 }

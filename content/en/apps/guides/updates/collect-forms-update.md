@@ -15,9 +15,9 @@ To do over the air Medic Collect form updates via HTTP rather than sending APKs 
 
 ![Name property](xform_name_settings.png)
 
-1. Upload the forms to the instance using `Medic-Conf` Using the `upload-collect-forms` [action](https://github.com/medic/medic-conf/blob/master/src/cli/supported-actions.js) as shown below.
+1. Upload the forms to the instance using `cht-conf` Using the `upload-collect-forms` [action](https://github.com/medic/cht-conf/blob/master/src/cli/supported-actions.js) as shown below.
 ```
-medic-conf --instance=user:pass@instancename.app.medicmobile.org upload-collect-forms
+cht --instance=user:pass@instancename.app.medicmobile.org upload-collect-forms
 ```
 3. Go to the Collect App. Delete All forms then go to `Get Blank Form` and select all the forms you need.
 
@@ -40,4 +40,4 @@ Should bring a list like this one
 ![Xform List](xform_list.png)
 
 
-Go through the list and see which form has  a missing `<name>` or `<formID>` property. Add it and reuploadthe forms using `medic-conf` again.
+Go through the list and see which form has  a missing `<name>` or `<formID>` property. Add it and reupload the forms using `cht-conf` again.

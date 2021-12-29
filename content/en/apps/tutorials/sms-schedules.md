@@ -20,7 +20,7 @@ This tutorial takes you through how to set up SMS schedules for CHT applications
 
 ## Brief Overview of Key Concepts
 
-*[SMS schedules]({{< ref "apps/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `medic-conf` tool.
+*[SMS schedules]({{< ref "apps/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool.
 
 SMS schedules can be triggered by *[SMS forms]({{< ref "apps/tutorials/sms-forms" >}})* or *[App forms]({{< ref "apps/reference/forms/app" >}})*.
 
@@ -172,7 +172,7 @@ The final result should look like this:
 To upload app settings to your local instance, run the following command:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}

@@ -34,7 +34,7 @@ export DOCKER_COUCHDB_ADMIN_PASSWORD=<random_pw>
 
 Inside the directory that you saved the above `docker-compose.yml`, run:
 ```
-$ docker-compose -f docker-compose.yml up
+$ docker-compose up
 ```
 {{% alert title="Note" %}}
 In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.
@@ -57,6 +57,8 @@ Open a browser to: [https://localhost](https://localhost)
 
 You will have to click to through the SSL Security warning. Click Advanced -> Continue to site.
 
+Read about [CHT Applications]({{< relref "apps" >}}) to build and deploy your app.
+
 ### Delete & Re-Install
 
 Stop containers:
@@ -72,7 +74,7 @@ After following the above three commands, you can re-run `docker-compose up` and
 
 ## Port Conflicts
 
-In case you are already running services on HTTP(80) and HTTPS(443), you will have to map new ports to the medic-os container.
+In case you are already running services on HTTP(80) and HTTPS(443), you will have to map new ports to the `medic-os` container.
 
 Turn down and remove all existing containers that were started: 
 * `docker-compose down && docker-compose rm`
@@ -87,17 +89,11 @@ On Mac (10.10 and above):
 sudo lsof -iTCP -sTCP:LISTEN -n -P | grep ':<port>'
 ```
 You can either kill the service which is occupying HTTP/HTTPS ports, or run the container with forwarded ports that are free.
-In your compose file, change the ports under medic-os:
+Stop your containers and relaunch with different ports. Here it's shown launching them with ports `8080` and `8443`:
+
+
 ```
-services:
-  medic-os:
-    container_name: medic-os
-    image: medicmobile/medic-os:latest
-    volumes:
-      - medic-data:/srv
-    ports:
-     - 8080:80
-     - 444:443
+CHT_HTTP=8080 CHT_HTTPS=8443 docker-compose up
 ```
 {{% alert title="Note" %}}
 You can substitute 8080, 444 with whichever ports are free on your host. You would now visit https://localhost:444 to visit your project.
@@ -139,7 +135,7 @@ List running containers:
 * `sudo docker ps`
 
 List all available docker containers with their status
-* `sudo docker ps -a
+* `sudo docker ps -a`
 
 Stop container
 * `sudo docker stop <container_id>/<container_name>`

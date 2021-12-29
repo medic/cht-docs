@@ -26,7 +26,7 @@ The *properties* for each object determine how and when the field is shown.
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `medic-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), and completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), and completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
 
 ## Implementation Steps
 
@@ -100,7 +100,7 @@ module.exports = {
 To compile and upload app settings to your local instance, run the following command:
 
 ```zsh
-medic-conf --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}

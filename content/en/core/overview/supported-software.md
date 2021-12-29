@@ -9,12 +9,14 @@ relevantLinks: >
 
 Medic supports minor versions of the CHT Core Framework for three months after the next minor version is made available, and the latest minor of a major version for twelve months after the next major version is made available.
 
-Once a version is no longer supported it will not receive any further releases and upgrading may be required before Medic can investigate any issues.
+Once a version is no longer supported it will not receive any further patch releases and upgrading to a supported version will be required to resolve any issues you have.
 
 | Version | Status | Release date | End of life |
 |----|----|----|----|
-| 3.11.x | Current | 21-Apr-2021 | TBA |
-| 3.10.x | Current | 9-Sep-2020 | 21-Jul-2021 |
+| 3.13.x | Current | 29-Sep-2021 | TBA |
+| 3.12.x | Current | 28-Jul-2021 | 29-Dec-2021 |
+| 3.11.x | Current | 21-Apr-2021 | 28-Oct-2021 |
+| 3.10.x | EOL | 9-Sep-2020 | 21-Jul-2021 |
 | 3.9.x | EOL | 19-Jun-2020 | 9-Dec-2020 |
 | 3.8.x | EOL | 11-Feb-2020 | 19-Sep-2020 |
 | 3.7.x | EOL | 22-Oct-2019 | 11-Jun-2020 |
@@ -30,12 +32,12 @@ Once a version is no longer supported it will not receive any further releases a
 
 # Dependencies
 
-| medic | Node | CouchDB | Browsers | SMS bridge | Android | medic-android | medic-couch2pg |
+| cht-core | NodeJS | CouchDB | Browsers | SMS bridge | Android OS | cht-android | cht-couch2pg |
 |----|----|----|----|----|----|----|---|
 | **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
-| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | medic-gateway | 4.4+ | Any | 2.0 < 3.0 |
-| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | medic-gateway | 4.4+ | 0.4.5+ | 3.0+ |
-| **4.x** | 16.0+ | 2.x | Chrome and Firefox latest | medic-gateway | 5.0+ | 1.0+ | 3.0+ |
+| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | 2.0 < 3.0 |
+| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 3.0+ |
+| **4.x** | 16.0+ | 2.x | Chrome and Firefox latest | cht-gateway | 5.0+ | 1.0+ | 3.0+ |
 
 # Hardware requirements
 

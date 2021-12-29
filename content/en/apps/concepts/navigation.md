@@ -45,3 +45,11 @@ If the sync status is green and says “All reports synced,” this means you ha
 
 If the indicator is red, it means you have data changes waiting to be uploaded to the server. You should check your internet and data connection to ensure a successful sync.
 
+<aside class="right col-6 col-lg-4">
+{{< figure src="sync-inprogress.jpg" link="sync-inprogress.jpg" >}}
+{{< figure src="sync-failure.jpg" link="sync-failure.jpg" >}}
+{{< figure src="sync-successful.jpg" link="sync-successful.jpg" >}}
+</aside>
+
+Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen.  
+It will also allow to retry the sync process in case of failure.

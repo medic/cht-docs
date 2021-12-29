@@ -48,6 +48,9 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 ## Utils
 {{< read-content file="apps/reference/_partial_utils.md" >}}
 
+## CHT API
+{{< read-content file="apps/reference/_partial_cht_api.md" >}}
+
 ## Code Samples
 
 This sample `targets.js` generates three widgets, and uses functions written in the `targets-extras.js` file.
@@ -141,4 +144,4 @@ module.exports = {
 
 To build your targets into your app, you must compile them into app-settings, then upload them to your instance. 
 
-`medic-conf --local compile-app-settings backup-app-settings upload-app-settings`
+`cht --local compile-app-settings backup-app-settings upload-app-settings`

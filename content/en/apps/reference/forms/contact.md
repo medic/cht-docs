@@ -21,7 +21,7 @@ Contact forms are used for the creation and editing of each contact. The type as
     - /forms/contact/district_hospital-create.xml
     - /forms/contact/district_hospital-edit.xml
     
-To create the above XForm files it is recommended to use XLSForms. Also, if the contact forms will be similar for all places, you can use a `PLACE_TYPE-create.xlsx` file for creation, a `PLACE_TYPE-edit.xlsx` for editing, and have `medic-conf` generate the individual forms. For this you would also need `forms/contact/places.json`, where you would define the place names. From the XLSForm you can refer to the place type with `PLACE_TYPE`, and the place name with `PLACE_NAME`. You can even use the place type for conditional behaviour in the form. The base files needed would therefore be:
+To create the above XForm files it is recommended to use XLSForms. Also, if the contact forms will be similar for all places, you can use a `PLACE_TYPE-create.xlsx` file for creation, a `PLACE_TYPE-edit.xlsx` for editing, and have `cht-conf` generate the individual forms. For this you would also need `forms/contact/places.json`, where you would define the place names. From the XLSForm you can refer to the place type with `PLACE_TYPE`, and the place name with `PLACE_NAME`. You can even use the place type for conditional behaviour in the form. The base files needed would therefore be:
 
 
     - /forms/contact/person-create.xlsx
@@ -38,8 +38,8 @@ Here is an example of a `places.json` files:
       "district_hospital": "District Hospital"
     }
 
-Convert and build the contact forms into your application using the `convert-contact-forms` and `upload-contact-forms` actions in `medic-conf`.
+Convert and build the contact forms into your application using the `convert-contact-forms` and `upload-contact-forms` actions in `cht-conf`.
 
-> `medic-conf --local convert-contact-forms upload-contact-forms`
+> `cht --local convert-contact-forms upload-contact-forms`
 
-Starting in cht-core release 3.10, we can now configure property files in contact forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/contact#formsappform_namepropertiesjson" >}}).
+Starting in cht-core release 3.10, we can now configure property files in contact forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/app#formsappform_namepropertiesjson" >}}).

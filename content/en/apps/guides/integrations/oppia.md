@@ -20,16 +20,16 @@ The training modules configuration consists of five main components:
 
 ### App Forms
 
-The CHT application uses [XLSForms]({{< ref "apps/reference/forms/app" >}}) (app forms), which are a simplified method of setting up form configurations using Excel (or Libre Office Calc, Google sheets, etc). The forms contain the questions/content that the user will interact with, including [web links](https://oppiamobile.readthedocs.io/en/latest/implementers/integration/launch_from_other_app.html) that enable the users to navigate from the CHT application to a specific course in OppiaMobile. App forms are typically created in the `project-folder > forms > app` directory of a project. If the content requires a user to access any form of media, then a media folder for the specific form is created and named after the form. For example, to add video content for a form module_one.xlsx, save the video file to the following directory: `project-folder > forms > app > module_one-media > video`. Once the forms are set up with content, the forms are converted to XForms, which are in xml format. To limit access of App Forms to certain contacts, an App Forms must have a properties file, which defines when and for whom certain forms should be accessed. Once configured, the forms are uploaded to an instance using the medic-configurer with the following commands, which upload specific forms and all forms respectively:
+The CHT application uses [XLSForms]({{< ref "apps/reference/forms/app" >}}) (app forms), which are a simplified method of setting up form configurations using Excel (or Libre Office Calc, Google sheets, etc). The forms contain the questions/content that the user will interact with, including [web links](https://oppiamobile.readthedocs.io/en/latest/implementers/integration/launch_from_other_app.html) that enable the users to navigate from the CHT application to a specific course in OppiaMobile. App forms are typically created in the `project-folder > forms > app` directory of a project. If the content requires a user to access any form of media, then a media folder for the specific form is created and named after the form. For example, to add video content for a form module_one.xlsx, save the video file to the following directory: `project-folder > forms > app > module_one-media > video`. Once the forms are set up with content, the forms are converted to XForms, which are in xml format. To limit access of App Forms to certain contacts, an App Forms must have a properties file, which defines when and for whom certain forms should be accessed. Once configured, the forms are uploaded to an instance using the CHT configurer with the following commands, which upload specific forms and all forms respectively:
 
 ```
-Medic-conf --instance=<instance> convert-app-forms upload-app-forms -- <form1> <form2>
+cht --instance=<instance> convert-app-forms upload-app-forms -- <form1> <form2>
 ```
 
 or
 
 ```
-Medic-conf --instance=<instance> convert-app-forms upload-app-forms
+cht --instance=<instance> convert-app-forms upload-app-forms
 ```
 
 The image below shows an example of an XLSForm configured for the Educational Modules:
@@ -66,7 +66,7 @@ This image shows the outcome of the button configuration:
 
 On completing the task configuration, the following command is used to compile and upload  the applications settings (tasks, targets, contact-summary, form properties):
 
-```Medic-conf --instance=<instance> compile-app-settings upload-app-settings```
+```cht --instance=<instance> compile-app-settings upload-app-settings```
 
 The code snippet below illustrates an example of a task configured for the educational modules:
 
@@ -109,7 +109,7 @@ The users also have access to [targets]({{< ref "apps/reference/targets" >}}). T
 On completing the targets configuration, the following command is used to compile and upload  the applications settings (tasks, targets, contact-summary, form properties):
 
 ```
-Medic-conf --instance=<instance> compile-app-settings upload-app-settings
+cht --instance=<instance> compile-app-settings upload-app-settings
 ```
 
 Below is a code snippet for a target configured for the educational modules:
