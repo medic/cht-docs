@@ -32,7 +32,13 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 
 ## Implementation Steps
 
-Create a new file in the 'translations/' folder called messages-sw.properties
+Create a new file in the 'translations/' folder called `messages-sw.properties`.
+
+After an edit or addition of a translation, upload the current `messages-sw.properties` onto your local environment using the below command.
+
+```
+cht --url=https://medic:password@localhost --upload-custom-translations
+```
 
 ### 1. Localize CHT Elements to Swahili
 _**CHT Instance text**_ - for non-admin users, this is the text that falls under **Messages**, **Tasks**, **Reports**, **People** and **Targets**.
@@ -42,9 +48,9 @@ Go to App Management > Display > Languages > Default Language(Change to Swahili)
 
 ![configuration](change-system-language.png)
 
-Create a message-sw.properties file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
+Create a `message-sw.properties` file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
 
-After creating a messages-sw.properties file, to upload the initial draft or after any changes, use the below command to upload to your local CHT instance:
+After creating a `messages-sw.properties` file, to upload the initial draft or after any changes, use the below command to upload to your local CHT instance:
 
 ```
 cht --local upload-custom-translations
@@ -52,7 +58,9 @@ cht --local upload-custom-translations
 
 
 After changing the instance language to Swahili, the various elements will behave like this:
+
 _**Messages**_
+
 In Messages, the time counter text and text that shows the user how to navigate the tab changes.
 
 See below example for Swahili localization.
@@ -60,7 +68,8 @@ See below example for Swahili localization.
 ![configuration](messages-tab-language.png)
 
 _**Tasks**_
-You can localize the task header by adding the appropriate translation in the `messages-sw.properties file.
+
+You can localize the task header by adding the appropriate translation in the `messages-sw.properties` file.
 
 e.g to translate the below delivery task title to Swahili
 ```
@@ -70,13 +79,14 @@ e.g to translate the below delivery task title to Swahili
     title: 'task.anc.delivery.title',
 ``` 
 
-Add the below code to the messages-sw.properties file
+Add the below code to the `messages-sw.properties` file
 ```
 task.anc.delivery.title = Kazi ya Kujifungua
 ```
 ![configuration](localize-tasks.png)
 
 _**Reports**_
+
 You can localize the report field names by adding the appropriate translation in the `messages-{language-code}.properties` file.
 
 e.g to change the date of birth field to Swahili, in `messages-sw.properties` file, add this:
@@ -90,6 +100,7 @@ contact.type.date_of_birth = Siku ya Kuzaliwa
 e.g 
 
 _**People**_
+
 To localize the contact labels, add the appropriate translation in `messages-{language-code}.properties` file.
 
 e.g to change the chv name field to Swahili, in `messages-sw.properties` file, add this:
@@ -99,6 +110,7 @@ contact.type.district_hospital = Kituo Cha Afya
 ```
 
 _**Targets**_
+
 You can localize the names of the targets by adding the appropriate translation in the `messages-{language-code}.properties file.
 
 e.g to change the `Number of fever cases managed` target to Swahili on the instance, adding the appropriate translation in the `messages-sw.properties` file. i.e
@@ -125,7 +137,7 @@ These are the SMS notifications/replies that go to CHVs and Supervisors phones i
 
 To change the language of outgoing texts to a particular CHV/Supervisor to Swahili: 
 
-i). First in app settings, when configuring replies, add Swahili(sw) under `locales`. Like so:
+i). First in the `app_settings.json`, when configuring replies, add Swahili(sw) under `locales`. Like so:
 ```
 "locales": [
     {
