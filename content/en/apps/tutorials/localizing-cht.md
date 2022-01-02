@@ -55,7 +55,7 @@ After creating a `messages-sw.properties` file, to upload the initial draft or a
 ```
 cht --local upload-custom-translations
 ```
-
+The default Swahili translations that come pre-added to CHT can be found [here](https://github.com/medic/cht-core/blob/master/ddocs/medic/_attachments/translations/messages-sw.properties).
 
 After changing the instance language to Swahili, the various elements will behave like this:
 
@@ -103,11 +103,13 @@ _**People**_
 
 To localize the contact labels, add the appropriate translation in `messages-{language-code}.properties` file.
 
-e.g to change the chv name field to Swahili, in `messages-sw.properties` file, add this:
+e.g to change the people name label translation from the default Swahili translation of `Watu` to `Watu wa enelo hili hapa`, in `messages-sw.properties` file, add this:
 
 ```
-contact.type.district_hospital = Kituo Cha Afya
+contact.type.person = Mtu wa eneo hili hapa
+contact.type.person.plural = Watu wa eneo hili hapa
 ```
+![configuration](watu-wa-hili-hapa-eneo.png)
 
 _**Targets**_
 
