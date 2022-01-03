@@ -115,11 +115,18 @@ _**Targets**_
 
 You can localize the names of the targets by adding the appropriate translation in the `messages-{language-code}.properties file.
 
-e.g to change the `Number of fever cases managed` target to Swahili on the instance, adding the appropriate translation in the `messages-sw.properties` file. i.e
+e.g to add the `Growth Monitoring` target title in Swahili on the instance, add the appropriate translation in the `messages-sw.properties` file. i.e
 
 ```
 targets.fever_cases_managed.title = Idadi ya kesi za homa kusimamiwa
 ```
+*Before adding the Swahili target label*
+
+![configuration](growth-monitoring-before.png)
+
+*After adding the Swahili target label*
+
+![configuration](growth-monitoring-after.png)
 
 #### 2. App Forms
 To localize an app form to Swahili, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
