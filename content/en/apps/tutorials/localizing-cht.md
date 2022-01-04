@@ -131,7 +131,16 @@ targets.fever_cases_managed.title = Idadi ya kesi za homa kusimamiwa
 #### 2. App Forms
 To localize an app form to Swahili, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
 
-![configuration](app-forms-localization.png)
+*New Person app form XLS configuration*
+![configuration](new-person-xls-form.png)
+
+*Screenshot of default English translation*
+
+![configuration](new-person-form-english.png)
+
+*Screenshot of form after switching CHV language to Kiswahili*
+
+![configuration](new-person-form-swahili.png)
 
 
 _**App Management - Admin Area**_
