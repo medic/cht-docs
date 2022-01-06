@@ -45,7 +45,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 2 | No |
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ | No |
 | Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ | No |
-| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 | Yes |
+| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 2 | Yes |
 | Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | All time | 20 | No |
 
 
@@ -150,7 +150,7 @@ Edit the `targets.js` file and add the target widget as shown below:
     id: 'households-with-assessments-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: 4,
+    goal: 2,
     translation_key: 'targets.households.with.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
@@ -170,7 +170,11 @@ Edit the `targets.js` file and add the target widget as shown below:
   },
 ```
 
-### 6. Define Households with Assessments Widget
+The images below show the resulting `count` target widgets, with the figures varying depending on the number of assessment reports submitted for household members. Note the difference in appearance based on whether the `goal` is achieved.
+
+![goal not achieved](household_assessments_zero_reports.png) ![goal achieved](household_assessments_reached_goal.png)
+
+### 6. Define Percentage Households with >=2 Assessments Widget
 This widget calculates the number of households that have two or more patients assessed this month. Use `emitCustom` to emit a custom target instance object. The target instance ID is the household ID.
 Edit the `targets.js` file and add the target widget as shown below:
 
@@ -188,7 +192,7 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
     icon: 'icon-healthcare-assessment',
     goal: -1,
     translation_key: 'targets.households.with.gt2.assessments.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
+    subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'contacts',
     appliesToType: ['person', 'clinic'], //Need the total number of households as denominator
     date: 'now',
@@ -285,7 +289,7 @@ module.exports = [
     id: 'households-with-assessments-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: 4,
+    goal: 2,
     translation_key: 'targets.households.with.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
@@ -309,7 +313,7 @@ module.exports = [
     icon: 'icon-healthcare-assessment',
     goal: -1,
     translation_key: 'targets.households.with.gt2.assessments.title',
-    subtitle_translation_key: 'targets.this_month.subtitle',
+    subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'contacts',
     appliesToType: ['person', 'clinic'], //Need the total number of households as denominator
     date: 'now',
