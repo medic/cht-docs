@@ -39,9 +39,9 @@ New apps cannot longer be uploaded with the APK format in the Play Store. Apps c
 
 This method gives an app developer full control over installation. It is also possible to do the installation without an internet connection which makes it ideal for remote installation, or to save bandwidth when performing multiple installs.
 
-1. In the phone settings select the option to "Allow installation of non-Market applications"
-2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/development-setup#apks" >}}).
-3. Select to install the APK.
+1. In the phone settings [select the option](https://www.tech-recipes.com/rx/22616/android-allow-installation-of-non-market-apps/) to "Allow installation of non-Market applications"
+2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/development-setup#apks" >}}).  This is likely easiest done by using the phone's browser to navigate to the download page.
+3. After downloading, you should be prompted to install the APK.
 
 ### F-Droid
 
