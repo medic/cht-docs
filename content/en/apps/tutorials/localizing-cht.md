@@ -121,11 +121,11 @@ _**People**_
 
 To localize the contact labels, add the appropriate translation in `messages-{language-code}.properties` file.
 
-e.g to change the people name label translation from the default Swahili translation of `Watu` to `Watu wa enelo hili hapa`, in `messages-sw.properties` file, add this:
+e.g to change the people name label translation from the default Swahili translation of `Watu` to `Watu wa hili hapa eneo`, in `messages-sw.properties` file, add this:
 
 ```
-contact.type.person = Mtu wa eneo hili hapa
-contact.type.person.plural = Watu wa eneo hili hapa
+contact.type.person = Mtu wa hili hapa eneo
+contact.type.person.plural = Watu wa hili hapa eneo
 ```
 
 *Before*
@@ -143,7 +143,7 @@ You can localize the names of the targets by adding the appropriate translation 
 e.g to add the `Growth Monitoring` target title in Swahili on the instance, add the appropriate translation in the `messages-sw.properties` file. i.e
 
 ```
-targets.fever_cases_managed.title = Idadi ya kesi za homa kusimamiwa
+targets.growth_monitoring.title = Ufuatiliaji wa ukuaji
 ```
 *Before adding the Swahili target label*
 
