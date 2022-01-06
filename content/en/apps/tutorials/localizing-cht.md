@@ -50,7 +50,7 @@ Go to App Management > Display > Languages > Default Language(Change to Swahili)
 
 Create a `message-sw.properties` file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
 
-After creating a `messages-sw.properties` file, to upload the initial draft or after any changes, use the below command to upload to your local CHT instance:
+Populate the `messages-sw.properties` file with the appropriate translation strigs and upload it using the below command:
 
 ```
 cht --local upload-custom-translations
@@ -61,11 +61,17 @@ After changing the instance language to Swahili, the various elements will behav
 
 _**Messages**_
 
-In Messages, the time counter text and text that shows the user how to navigate the tab changes.
+In Messages, the time counter text and navigation text changes.
 
 See below example for Swahili localization.
 
-![configuration](messages-tab-language.png)
+*English text*
+
+![configuration](messages-tab-language-en.png)
+
+*Swahili Translation*
+
+![configuration](messages-tab-language-sw.png)
 
 _**Tasks**_
 
@@ -83,7 +89,13 @@ Add the below code to the `messages-sw.properties` file
 ```
 task.anc.delivery.title = Kazi ya Kujifungua
 ```
-![configuration](localize-tasks.png)
+
+*Default English  text*
+
+![configuration](localize-tasks-en.png)
+
+*Swahili translation*
+![configuration](localize-tasks-sw.png)
 
 _**Reports**_
 
@@ -94,7 +106,13 @@ e.g to change the date of birth field to Swahili, in `messages-sw.properties` fi
 ```
 contact.type.date_of_birth = Siku ya Kuzaliwa
 ```
-![configuration](localize-reports.png)
+*Before*
+
+![configuration](localize-reports-en.png)
+
+*Swahili Translation*
+
+![configuration](localize-reports-sw.png)
 
 
 e.g 
@@ -109,7 +127,14 @@ e.g to change the people name label translation from the default Swahili transla
 contact.type.person = Mtu wa eneo hili hapa
 contact.type.person.plural = Watu wa eneo hili hapa
 ```
-![configuration](watu-wa-hili-hapa-eneo.png)
+
+*Before*
+
+![configuration](people-translation-en.png)
+
+*After
+
+![configuration](people-translation-sw.png)
 
 _**Targets**_
 
