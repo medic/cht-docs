@@ -42,7 +42,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Source  | UI Label | Definition  | Type | Reporting Period | Goal | DHIS |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ | No |
-| Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 10 | No |
+| Assessment form  | Total assessments this month | Total number of assessment reports submitted this month | Count | This month | 2 | No |
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ | No |
 | Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ | No |
 | Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 4 | Yes |
@@ -78,7 +78,7 @@ Edit the `targets.js` file and add another target widget definition object to de
     id: 'assessments-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: 10,
+    goal: 2,
     translation_key: 'targets.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
@@ -88,6 +88,10 @@ Edit the `targets.js` file and add another target widget definition object to de
 ```
 
 {{% alert title="Note" %}} All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`. {{% /alert %}}
+
+The images below show the `all-time` and `monthly` target widgets respectively, with the resulting figures varying depending on the number of assessment reports submitted within the respective durations:
+
+![All-time assessements](assessments_all_time_no_translation.png) ![Assessments this month](assessments_this_month_no_translation.png)
 
 ### 3. Define the Cough Count Widget
 This widget calculates the total number of patients assessed that have been indicated to have a cough this month, regardless of the number of reports submitted for them. Note that `idType` counts the contact IDs.
@@ -236,7 +240,7 @@ module.exports = [
     id: 'assessments-this-month',
     type: 'count',
     icon: 'icon-healthcare-assessment',
-    goal: 10,
+    goal: 2,
     translation_key: 'targets.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
     appliesTo: 'reports',
