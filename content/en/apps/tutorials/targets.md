@@ -46,7 +46,7 @@ It is good practice to set up a reference document outlining the specifications 
 | Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ | No |
 | Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ | No |
 | Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 2 | Yes |
-| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | All time | 20 | No |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | All time | 60 | No |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
@@ -175,7 +175,7 @@ The images below show the resulting `count` target widgets, with the figures var
 ![goal not achieved](household_assessments_zero_reports.png) ![goal achieved](household_assessments_reached_goal.png)
 
 ### 6. Define Percentage Households with >=2 Assessments Widget
-This widget calculates the number of households that have two or more patients assessed this month. Use `emitCustom` to emit a custom target instance object. The target instance ID is the household ID.
+This widget calculates the percentage of households that have two or more patients assessed all time. Use `emitCustom` to emit a custom target instance object. The target instance ID is the household ID.
 Edit the `targets.js` file and add the target widget as shown below:
 
 ```javascript
@@ -190,7 +190,7 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
     id: 'households-with-gt2-assessments-this-month',
     type: 'percent',
     icon: 'icon-healthcare-assessment',
-    goal: -1,
+    goal: 60,
     translation_key: 'targets.households.with.gt2.assessments.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'contacts',
@@ -217,6 +217,11 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
     passesIfGroupCount: { gte: 2 }
   }
 ```
+
+The images below show the resulting `percent` target widgets, with the figures varying depending on the number of assessment reports submitted for household members. Note the difference in appearance based on whether the `goal` is achieved.
+
+![goal not achieved](households_gt2_goal_not_reached.png) ![goal achieved](households_gt2_goal_reached.png)
+
 ### 7. Final targets.js file
 
 Include the functions and replace appropriately in the file. The final content of the targets file should be similar the one below:
@@ -311,7 +316,7 @@ module.exports = [
     id: 'households-with-gt2-assessments-this-month',
     type: 'percent',
     icon: 'icon-healthcare-assessment',
-    goal: -1,
+    goal: 60,
     translation_key: 'targets.households.with.gt2.assessments.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
     appliesTo: 'contacts',
@@ -352,9 +357,13 @@ cht --url=https://<username>:<password>@localhost --accept-self-signed-certs com
 
 {{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
 
+The image below shows the expected outcome on the `analytics tab`, with figures varying depending on the number of reports submitted on your instance:
+
+![Target widgets after uploading app settings](targets_no_translations.png)
+
 
 ### 8. Upload translations
-Ensure that translation keys are in the translations file. Add the following translation keys and their values in the `messages-en.properties` file.
+To update the titles of the target widgets, ensure that the `translation keys` are in the translations file. Add the following translation keys and their values in the `messages-en.properties` file.
 
 ```
 targets.assessments.title = Total assessments
@@ -362,13 +371,19 @@ targets.assessments.total.cough.title = Total population with cough
 targets.assessments.percentage.cough.title = % Population with cough
 targets.households.with.assessments.title = Total households with assessments
 targets.households.with.gt2.assessments.title = % Household with >=2 assessments
-targets.assessments.percentage.with.cough = {{pass}} of {{total}} with cough
 ```
 To upload *[translations]({{< ref "apps/reference/translations#translations" >}})* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
 ```
+The image below shows the updated target titles:
+
+![Target widgets after uploading translations](targets_with_translations.png)
+
+### 9. Target icons
+You may add icons to your target widgets to enhance their appearance and to help users locate specific widgets more quickly.
+
 
 ## Frequently Asked Questions
 
