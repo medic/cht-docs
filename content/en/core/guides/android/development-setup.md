@@ -113,7 +113,7 @@ For CHT Android app use:
 
 The command above builds and assembles the _debug_ and _release_ APKs of the Unbranded Webview version of the app.
 
-Each APK will be generated and stored in `build/outputs/apk/[flavor][Engine]/[debug|release]/`, for example after assembling the _Simprints Webview_ flavor with `make flavor=SimprintsWebview assemble`, the _release_ versions of the APKs generated are stored in `build/outputs/apk/simprintsWebview/release/`.
+Each APK will be generated and stored in `build/outputs/apk/[flavor][Engine]/[debug|release]/`, for example after assembling the _Medicmobilegamma_ flavor with `make flavor=Medicmobilegamma assemble`, the _release_ versions of the APKs generated are stored in `build/outputs/apk/medicmobilegamma/release/`.
 
 To assemble other flavors, use the following command: `make flavour=[Flavor][Engine] assemble`. See the [Flavor selection](#flavor-selection) section for more details about `make` commands.
 
