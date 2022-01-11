@@ -1,5 +1,5 @@
 ---
-title: "Universal Health Coverage Mode"
+title: "Configuring UHC Mode"
 linkTitle: UHC Mode
 weight: 5
 description: >
