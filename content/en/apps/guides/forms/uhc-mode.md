@@ -1,24 +1,24 @@
 ---
-title: "Universal Health Coverage (UHC) mode"
-linkTitle: UHC mode
+title: "Universal Health Coverage Mode"
+linkTitle: UHC Mode
 weight: 5
 description: >
-  How to enable UHC monitoring
+  How to enable Universal Health Coverage monitoring with UHC Mode
 relatedContent: >
+  apps/features/uhc-mode
   apps/reference/app-settings/user-roles
   apps/reference/app-settings/user-permissions
 ---
 
 _Introduced in v2.18.0_
 
-{{< figure src="UHC.gif" link="UHC.gif" alt="UHC mode screenshot" class="right col-6 col-lg-3" >}}
+{{< figure src="UHC.gif" link="UHC.gif" alt="UHC Mode screenshot" class="right col-6 col-lg-3" >}}
 
-UHC mode empowers CHWs to provide equitable and timely care to families in their catchment area. The Community Health Toolkit supports this use-case by displaying the number of
-visits made to a household and highlighting households which haven't met their visit goal in red at the top of the contact list.
+The CHT's [UHC Mode]({{< relref "apps/features/uhc-mode" >}}) empowers CHWs to provide equitable and timely care to families in their catchment area. The Community Health Toolkit supports this use-case by displaying the number of visits made to a household and highlighting households which haven't met their visit goal in red at the top of the contact list.
 
 The date last visited is colored red whenever the date is 30 days or more in the past. The date last visited is displayed as a relative date. This period is described in terms of "days" up until two months, so "Visited 3 days ago" or "Visited 36 days ago". After two months, we simply say "2 months" or "3 months".
 
-### Sorting
+## Household Visits
 
 {{< figure src="sort-dropdown.png" link="sort-dropdown.png" alt="Contact sorting screenshot" class="right col-6 col-lg-3" >}}
 
@@ -46,7 +46,7 @@ To view UHC metrics, the `can_view_uhc_stats` permission needs to be granted to 
 
 ### Forms
 
-Indicate which forms should be included in the calculation of the date last visited. You can use forms at the person or household level. Add the `visited_contact_uuid` field to forms to track visits. This should be a `calculate` field that contains the household (clinic level place) UUID of the visited contact. Ensure this is a top-level field (not in any group) and should be in `doc.fields.visited_contact_uuid` when the form is submitted.
+Indicate which forms should be included in the calculation of the date last visited. You can use forms at the person or household level. Add the `visited_contact_uuid` field to forms to track visits. This should be a `calculate` field that contains the place UUID of the visited contact. Ensure this is a top-level field and not in any group. When the form is submitted it would be seen as `doc.fields.visited_contact_uuid`.
 
 ### Settings
 
