@@ -6,7 +6,7 @@ description: >
   Versions currently supported, dependencies, and release notes for the CHT Core Framework
 no_list: true
 aliases:
-    -    core/overview/supported-software
+  -    /core/overview/supported-software
 relatedContent:
   apps/guides/hosting/
   apps/guides/hosting/requirements/
