@@ -101,7 +101,7 @@ Edit the `targets.js` file and add the target widget as shown below:
   {
     id: 'total-contacts-with-cough-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-cough',
     goal: -1,
     translation_key: 'targets.assessments.total.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -123,7 +123,7 @@ Edit the `targets.js` file and add the target widget as shown below:
   {
     id: 'percentage-contacts-with-cough-this-month',
     type: 'percent',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-cough',
     goal: -1,
     translation_key: 'targets.assessments.percentage.cough.title',
     percentage_count_translation_key: 'targets.assessments.percentage.with.cough',
@@ -149,7 +149,7 @@ Edit the `targets.js` file and add the target widget as shown below:
  {
     id: 'households-with-assessments-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-household',
     goal: 2,
     translation_key: 'targets.households.with.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -189,7 +189,7 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
  {
     id: 'households-with-gt2-assessments-this-month',
     type: 'percent',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-household',
     goal: 60,
     translation_key: 'targets.households.with.gt2.assessments.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
@@ -259,7 +259,7 @@ module.exports = [
   {
     id: 'total-contacts-with-cough-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-cough',
     goal: -1,
     translation_key: 'targets.assessments.total.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -274,7 +274,7 @@ module.exports = [
   {
     id: 'percentage-contacts-with-cough-this-month',
     type: 'percent',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-cough',
     goal: -1,
     translation_key: 'targets.assessments.percentage.cough.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -293,7 +293,7 @@ module.exports = [
   {
     id: 'households-with-assessments-this-month',
     type: 'count',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-household',
     goal: 2,
     translation_key: 'targets.households.with.assessments.title',
     subtitle_translation_key: 'targets.this_month.subtitle',
@@ -315,7 +315,7 @@ module.exports = [
   {
     id: 'households-with-gt2-assessments-this-month',
     type: 'percent',
-    icon: 'icon-healthcare-assessment',
+    icon: 'icon-household',
     goal: 60,
     translation_key: 'targets.households.with.gt2.assessments.title',
     subtitle_translation_key: 'targets.all_time.subtitle',
@@ -382,8 +382,27 @@ The image below shows the updated target titles:
 ![Target widgets after uploading translations](targets_with_translations.png)
 
 ### 9. Target icons
-You may add icons to your target widgets to enhance their appearance and to help users locate specific widgets more quickly.
+You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. The icons can be found in the *[targets icon library]({{< ref "design/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources. Note that the `key` in the `resources.json` file is the value of the `icon` property in the target widgets.
 
+```json
+{
+  "icon-healthcare-assessment": "icon-healthcare-assessment.svg",
+  "icon-household": "icon-places-household.svg",
+  "icon-cough": "icon-condition-cough.svg"
+}
+```
+
+To upload *[resources]({{< ref "apps/reference/resources#icons" >}})* to your local instance, run the following command:
+
+```zsh
+cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
+```
+
+{{< see-also page="design/icons" title="Icon Library" >}}
+
+The image below shows the expected final appearance of the target widgets on adding and uploading resources:
+
+![Target widgets](final_targets.png)
 
 ## Frequently Asked Questions
 
