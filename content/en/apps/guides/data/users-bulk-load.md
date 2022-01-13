@@ -5,7 +5,7 @@ weight: 15
 description: >
   Notes for how to bulk load users
 aliases:
-    -    /core/guides/users-bulk-load
+  -    /core/guides/users-bulk-load
 ---
 
 First, using the webapp, create the top level places/facilities like
