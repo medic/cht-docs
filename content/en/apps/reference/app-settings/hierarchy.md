@@ -26,6 +26,7 @@ From 3.7.0 it is possible to configure what types of places and people are avail
 | `create_form` | The string ID for the xform used to create contacts of this type. | Yes. |
 | `edit_form` | The string ID for the xform used to edit contacts of this type. | No, defaults to the create_form. |
 | `count_visits` | Whether or not to show a count of visits for contacts of this type. Requires UHC to be enabled. | No, defaults to `false`. |
+| `sort_by_dob` | Whether or not to sort contacts by date of birth | No, defaults to `false`. |
 | `person` | Whether this is a person type or a place type. | No, defaults to `false`. |
  
 ### Forms
