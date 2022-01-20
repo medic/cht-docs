@@ -818,7 +818,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/users
 
-Create a new user with a place and a contact.
+Create new users with a place and a contact.
 
 #### Permissions
 
@@ -826,6 +826,8 @@ Create a new user with a place and a contact.
 
 #### Examples
 
+<details>
+<summary class="text-primary mb-3">Create one user</summary>
 Create a new user that can authenticate with a username of "mary" and password
 of "secret" that can submit reports and view or modify records associated to
 their place. The place is created in the background and automatically linked
@@ -870,6 +872,86 @@ Content-Type: application/json
   }
 }
 ```
+</details>
+
+<details>
+<summary class="text-primary mb-3">Create many users</summary>
+Create two new users that can authenticate with a username and a password
+that can submit reports and view or modify records associated to their place.
+The place is created in the background and automatically linked to the contact.
+
+```
+POST /api/v1/users
+Content-Type: application/json
+
+[
+  {
+    "password": "secret",
+    "username": "mary",
+    "type": "district-manager",
+    "place": {
+      "name": "Mary's Area",
+      "type": "health_center",
+      "parent": "d14e1c3d557761320b13a77e7806e8f8"
+    },
+    "contact": {
+      "name": "Mary Anyango",
+      "phone": "+2868917046"
+    }
+  },
+  {
+    "password": "secret",
+    "username": "bob",
+    "type": "district-manager",
+    "place": {
+      "name": "Bob's Area",
+      "type": "health_center",
+      "parent": "d14e1c3d557761320b13a77e7806e8f8"
+    },
+    "contact": {
+      "name": "Bob Johnson",
+      "phone": "+2868194607"
+    }
+  }
+]
+```
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+  {
+    "contact": {
+      "id": "65416b8ceb53ff88ac1847654501aeb3",
+      "rev": "1-0b74d219ae13137c1a06f03a0a52e187"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-6ac1d36b775143835f4af53f9895d7ae"
+    },
+    "user": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-c3b82a0b47cfe68edd9284c89bebbae4"
+    }
+  },
+  {
+    "contact": {
+      "id": "8d8a741c1cb441058e29a60ab7596bf2",
+      "rev": "1-acbc31712fd105eae3cd0806cd20a8f4"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:bob",
+      "rev": "1-d8629838127accd531043f845c416ef6"
+    },
+    "user": {
+      "id": "org.couchdb.user:bob",
+      "rev": "1-5eac2542c801ba6b518728f53d9276a0"
+    }
+  }
+]
+```
+</details>
 
 #### Errors
 
