@@ -822,7 +822,7 @@ Create new users with a place and a contact.
 
 #### Permissions
 
-`can_create_users`, `can_create_places`, `can_create_people`
+`can_create_users`
 
 #### Examples
 
