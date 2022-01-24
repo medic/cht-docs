@@ -1,9 +1,9 @@
 ---
 title: "CHT Localization/"
 linkTitle: "Localizing CHT"
-weight: 1
+weight: 13
 description: >
- How to localize the CHT platform to Swahili
+ Localizing language in the CHT
 relatedContent: >
   core/overview/translations
   apps/reference/translations
@@ -12,12 +12,12 @@ relatedContent: >
 {{% pageinfo %}}
 Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.
 
-This tutorial will take you through localizing CHT to Swahili on CHT version 3.9.1. This includes setting up the instance text as well as outgoing texts to Swahili.
+This tutorial will take you through localizing the CHT to a custom language (Swahili). This will include setting up the user interface labels as well as outgoing text messages.
 
 By the end of the tutorial you should be able to:
 
-- Change the CHT instance text to Swahili.
-- Change outgoing texts to Swahili.
+- Change the CHT user interface labels to a custom language.
+- Change outgoing text messages to a custom language(Swahili will be used in the guide).
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
@@ -40,7 +40,7 @@ After an edit or addition of a translation, upload the current `messages-sw.prop
 cht --url=https://medic:password@localhost --upload-custom-translations
 ```
 
-### 1. Localize CHT Elements to Swahili
+### 1. Add User Interface Label Translations
 _**CHT Instance text**_ - for non-admin users, this is the text that falls under **Messages**, **Tasks**, **Reports**, **People** and **Targets**.
 To localize instance text to Swahili, change the default system language to `Swahili`.
 
@@ -73,11 +73,23 @@ See below example for Swahili localization.
 
 ![configuration](messages-tab-language-sw.png)
 
+To change the title of the tab from the default title of this _Messages_ tab of `Jumbe` in Kiswahili to `Barua`, add or edit the below code in the `messages-sw.properties` file:
+
+```
+Messages = Jumbe
+```
+to 
+
+```
+Messages = Barua
+```
+
 _**Tasks**_
 
-You can localize the task header by adding the appropriate translation in the `messages-sw.properties` file.
+Localize the task header by adding the appropriate translation in the `messages-sw.properties` file.
 
-e.g to translate the below delivery task title to Swahili
+For example, to translate the below delivery task title to Swahili:
+
 ```
 {
     name: 'anc-home-visit-delivery',
@@ -85,7 +97,7 @@ e.g to translate the below delivery task title to Swahili
     title: 'task.anc.delivery.title',
 ``` 
 
-Add the below code to the `messages-sw.properties` file
+Add the code below to the `messages-sw.properties` file
 ```
 task.anc.delivery.title = Kazi ya Kujifungua
 ```
@@ -95,13 +107,25 @@ task.anc.delivery.title = Kazi ya Kujifungua
 ![configuration](localize-tasks-en.png)
 
 *Swahili translation*
+
 ![configuration](localize-tasks-sw.png)
+
+To change the title of the tab from the default title of this _Tasks_ tab of `Kazi` in Kiswahili to `Fanya Hizi`, add or edit the below code in the `messages-sw.properties` file:
+
+```
+Tasks = Kazi
+```
+to 
+
+```
+Tasks = Fanya Hizi
+```
 
 _**Reports**_
 
-You can localize the report field names by adding the appropriate translation in the `messages-{language-code}.properties` file.
+Localize the report field names by adding the appropriate translation in the `messages-{language-code}.properties` file.
 
-e.g to change the date of birth field to Swahili, in `messages-sw.properties` file, add this:
+For example, to change the date of birth field to Swahili, in `messages-sw.properties` file, add this:
 
 ```
 contact.type.date_of_birth = Siku ya Kuzaliwa
@@ -114,6 +138,16 @@ contact.type.date_of_birth = Siku ya Kuzaliwa
 
 ![configuration](localize-reports-sw.png)
 
+To change the title of the tab from the default title of this _Reports_ tab of `Ripoti` in Kiswahili to `Ripoti hizi`, add or edit the below code in the `messages-sw.properties` file.
+
+```
+Reports = Ripoti hizi
+```
+to 
+
+```
+Reports = Ripoti hizi
+```
 
 e.g 
 
@@ -136,11 +170,22 @@ contact.type.person.plural = Watu wa hili hapa eneo
 
 ![configuration](people-translation-sw.png)
 
+To change the title of the tab from the default title of this _People_ tab of `Wasiliani` in Kiswahili to `Watu`, add or edit the below code in the `messages-sw.properties` file.
+
+```
+People = Wasiliani
+```
+to 
+
+```
+People = Watu
+```
+
 _**Targets**_
 
 You can localize the names of the targets by adding the appropriate translation in the `messages-{language-code}.properties file.
 
-e.g to add the `Growth Monitoring` target title in Swahili on the instance, add the appropriate translation in the `messages-sw.properties` file. i.e
+For example, to add the `Growth Monitoring` target title in Swahili on the instance, add the appropriate translation in the `messages-sw.properties` file. For instance:
 
 ```
 targets.growth_monitoring.title = Ufuatiliaji wa ukuaji
@@ -153,7 +198,18 @@ targets.growth_monitoring.title = Ufuatiliaji wa ukuaji
 
 ![configuration](growth-monitoring-after.png)
 
-#### 2. App Forms
+To change the title of the tab from the default title of this _Targets_ tab of `Grafu` in Kiswahili to `Lengo`, add or edit the below code in the `messages-sw.properties` file.
+
+```
+Targets = Grafu
+```
+to 
+
+```
+Targets = Lengo
+```
+
+### 2. App Forms
 To localize an app form to Swahili, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
 
 *New Person app form XLS configuration*
@@ -173,14 +229,15 @@ This will still remain in English even after changing the default language to Sw
 
 
 
-**Note**: The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language. 
+{{% alert title="Note" %}}The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language.
+{{% /alert %}} 
 ### 3. Outgoing Texts
 
 These are the SMS notifications/replies that go to CHVs and Supervisors phones in projects that incorporate SMS workflows.
 
 To change the language of outgoing texts to a particular CHV/Supervisor to Swahili: 
 
-i). First in the `app_settings.json`, when configuring replies, add Swahili(sw) under `locales`. Like so:
+First in the `app_settings.json`, when configuring replies, add Swahili(sw) under `locales`:
 ```
 "locales": [
     {
@@ -205,7 +262,7 @@ i). First in the `app_settings.json`, when configuring replies, add Swahili(sw) 
     }
 ``` 
 
-ii) Set up the translation for the reply message. For example:
+Set up the translation for the reply message:
 ```
 "messages": [
         {
@@ -223,7 +280,7 @@ ii) Set up the translation for the reply message. For example:
           "recipient": "reporting_unit"
         },
 ``` 
-iii) Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language > Pick Swahili 
+Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
 
 ![configuration](change-user-language.png)
 
