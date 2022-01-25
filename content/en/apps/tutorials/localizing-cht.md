@@ -48,6 +48,12 @@ Go to App Management > Display > Languages > Default Language(Change to Swahili)
 
 ![configuration](change-system-language.png)
 
+To find out what the language code for Swahili is, Go to the list of language as illustrated in the screenshot, click `Kiswahili (Swahili)` to show the options dropdown and click `Edit Name` the code will be in the text box under `Language Code` on the popup. In our case: `sw`
+
+![configuration](click-language-name.png)
+
+![configuration](click-language-edit-name-popup.png)
+
 Create a `message-sw.properties` file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
 
 Populate the `messages-sw.properties` file with the appropriate translation strigs and upload it using the below command:
