@@ -48,7 +48,7 @@ Go to App Management > Display > Languages > Default Language(Change to Swahili)
 
 ![configuration](change-system-language.png)
 
-To find out what the language code for Swahili is, Go to the list of language as illustrated in the screenshot, click `Kiswahili (Swahili)` to show the options dropdown and click `Edit Name` the code will be in the text box under `Language Code` on the popup. In our case: `sw`
+To find out what the language code for Swahili is, Go to the list of language as illustrated in the screenshot, click `Kiswahili (Swahili)` to show the options dropdown and click `Edit Name` the code will be in the text box under `Language Code` on the popup. In our case it is `sw`.
 
 ![configuration](click-language-name.png)
 
