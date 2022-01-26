@@ -955,7 +955,8 @@ Content-Type: application/json
 
 #### Errors
 
-Response if the username already exists:
+<details>
+<summary class="text-primary mb-3">Response if the username already exists</summary>
 
 ```
 HTTP/1.1 409 Conflict
@@ -963,6 +964,69 @@ Content-Type: text/plain
 
 Document update conflict.
 ```
+</details>
+
+<details>
+<summary class="text-primary mb-3">Response if users are missing required fields</summary>
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "code": 400,
+  "error": "Missing required fields:\n\Missing fields username, password, type or roles for user at index 0\nMissing fields password, type or roles for user at index 1",
+  "details": {
+    "failingIndexes": [
+      {
+        "fields": [
+          "username",
+          "password",
+          "type or roles"
+        ],
+        "index": 0
+      },
+      {
+        "fields": [
+          "password",
+          "type or roles"
+        ],
+        "index": 1
+      }
+    ]
+  }
+}
+```
+</details>
+
+<details>
+<summary class="text-primary mb-3">Response if some users failed to be created</summary>
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+  {
+    "contact": {
+      "id": "65416b8ceb53ff88ac1847654501aeb3",
+      "rev": "1-0b74d219ae13137c1a06f03a0a52e187"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-6ac1d36b775143835f4af53f9895d7ae"
+    },
+    "user": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-c3b82a0b47cfe68edd9284c89bebbae4"
+    }
+  },
+  {
+    "error": "Failed to find place."
+  }
+]
+```
+</details>
 
 ### POST /api/v1/users/{{username}}
 
