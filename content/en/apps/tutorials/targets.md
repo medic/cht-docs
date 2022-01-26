@@ -31,6 +31,8 @@ You will be adding target widgets that will allow Community Health Workers (CHWs
 
 *[Target schema]({{< ref "apps/reference/targets#targetsjs" >}})* details a set of properties for targets.
 
+*Target instance* is an object emitted and counted or aggregated based on target configuration.
+
 ## Required Resources
 
 You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}), completed a [project folder]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "apps/tutorials/app-forms" >}}).
@@ -39,14 +41,14 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 
 It is good practice to set up a reference document outlining the specifications of the target widgets similar to the one below. Other formats may also be used.
 
-| Source  | UI Label | Definition  | Type | Reporting Period | Goal | DHIS |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ | No |
-| Assessment form  | Total assessments | Total number of assessment reports submitted this month | Count | This month | 2 | No |
-| Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ | No |
-| Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ | No |
-| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 2 | Yes |
-| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | All time | 60 | No |
+| Source  | UI Label | Definition  | Type | Reporting Period | Goal |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Assessment form  | Total assessments | Total number of assessment reports submitted  | Count | All time | _ |
+| Assessment form  | Total assessments | Total number of assessment reports submitted this month | Count | This month | 2 |
+| Assessment form  | Total population with cough  | Total number of household members with cough  | Count | This month | _ |
+| Assessment form  | % Population with cough  | Total number of contacts with cough/Total number of contacts assessed | Percent | This month | _ |
+| Assessment form  | Total households with assessments  | Total number of households with at least one submitted assessment form  | Count | This month | 2 |
+| Assessment form  | % Household with >=2 assessments  | Total number of households with at least two patients assessed/Total number of households | Percent | All time | 60 |
 
 
 Create a `targets.js` file (this may have already been created by the `initialise-project-layout` command).
@@ -144,7 +146,7 @@ Edit the `targets.js` file and add the target widget as shown below:
 ```
 
 ### 5. Define Total Households with Assessments Widget
-This widget calculates the number of households that have patients assessed this month. Note that `emitCustom` emits a custom target instance object. Filter based on reports, and use the contact information from the reports to emit target instances. The target instance ID is the household ID.
+This widget calculates the number of households that have patients assessed this month. Note that `emitCustom` emits a target with custom conditions that may otherwise not be directly configurable through the target schema. Filter based on reports, and use the contact information from the reports to emit targets. The target ID is the household ID.
 Edit the `targets.js` file and add the target widget as shown below:
 
 ```javascript
@@ -164,10 +166,6 @@ Edit the `targets.js` file and add the target widget as shown below:
         _id: householdId,
         pass: true
       }));
-    },
-    dhis: { //The IDs should correspond to the IDs on DHIS site
-      dataSet: 'VMuFODsyWaO',
-      dataElement: 'kB0ZBFisE0e'
     }
   },
 ```
@@ -178,12 +176,12 @@ Edit the `targets.js` file and add the target widget as shown below:
 Note the difference in appearance on the resulting `count` target widgets based on whether the `goal` is achieved. The figures vary depending on the number of assessment reports submitted for household members.
 
 ### 6. Define Percentage Households with >=2 Assessments Widget
-This widget calculates the percentage of households that have two or more patients assessed all time. Use `emitCustom` to emit a custom target instance object. The target instance ID is the household ID.
+This widget calculates the percentage of households that have two or more patients assessed all time. Use `emitCustom` to emit a custom target instance. The target instance ID is the household ID.
 Edit the `targets.js` file and add the target widget as shown below:
 
 ```javascript
 
-//Define a function to get the household ID based on the default hierarchy configuration
+//Define a function to get the household ID based on the hierarchy configuration
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
@@ -221,6 +219,8 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
   }
 ```
 
+{{< see-also page="apps/concepts/hierarchy" title="Hierarchies" >}}
+
 {{< figure src="households_gt2_goal_reached.png" link="households_gt2_goal_reached.png" class="right col-6 col-lg-4" >}}
 {{< figure src="households_gt2_goal_not_reached.png" link="households_gt2_goal_not_reached.png" class="right col-6 col-lg-4" >}}
 
@@ -232,7 +232,7 @@ The images show the resulting `percent` target widgets, with the figures varying
 Include the functions and replace appropriately in the file. The final content of the targets file should be similar the one below:
 
 ```javascript
-//Define a function to get the household ID
+//Define a function to get the household ID based on the hierarchy configuration
 const getHouseholdId = (contact) => contact.contact && contact.contact.type === 'clinic' ? contact.contact._id : contact.contact.parent && contact.contact.parent._id;
 
 //Define a function to determine if contact is patient
@@ -311,10 +311,6 @@ module.exports = [
         _id: householdId,
         pass: true
       }));
-    },
-    dhis: { //codes should respond to codes on DHIS site
-      dataSet: 'VMuFODsyWaO',
-      dataElement: 'kB0ZBFisE0e'
     }
   },
   {
