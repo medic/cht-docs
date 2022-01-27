@@ -33,7 +33,7 @@ We validate that all links on the docs site work (do not 404) using a tool calle
   - Install [Go](https://golang.org/doc/install) as a prerequisite 
   - Install Muffet: `go get -u github.com/raviqqe/muffet`
   - Ensure you've run `hugo server` so your local docs instance is reachable at http://localhost:1313/
-  - Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/master/.github/scripts/muffet.sh) script.  If you're in the root of this repo, that'd be: `./.github/scripts/muffet.sh` 
+  - Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/main/.github/scripts/muffet.sh) script.  If you're in the root of this repo, that'd be: `./.github/scripts/muffet.sh` 
   
 It should take about 60 seconds depending on your Internet connection. If Muffet returns no output, you have no broken links, congrats! 
 
@@ -41,4 +41,4 @@ _Note_: The `muffet.sh` script here is the identical script we run on GitHub. If
 
 ## Continuous Deployment
 
-All changes to `master` branch run a [GitHub action](.github/workflows/ci.yml) to first check for any broken links ([per above](#link-checking-optional)) and then deploy to the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
+All changes to `main` branch run a [GitHub action](.github/workflows/ci.yml) to first check for any broken links ([per above](#link-checking-optional)) and then deploy to the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
