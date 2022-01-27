@@ -18,11 +18,11 @@ A free and open source NoSQL database we use to store all our data, configuratio
 
 ### api
 
-A NodeJS service which runs on the server as a wrapper around CouchDB. It provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [Medic API site](https://github.com/medic/medic/tree/master/api) on Github.
+A NodeJS service which runs on the server as a wrapper around CouchDB. It provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [Medic API site](https://github.com/medic/cht-core/tree/master/api) on Github.
 
 ### sentinel
 
-Another NodeJS service running on the server, sentinel performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [Medic Sentinel site](https://github.com/medic/medic/tree/master/sentinel) on Github. 
+Another NodeJS service running on the server, sentinel performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [Medic Sentinel site](https://github.com/medic/cht-core/tree/master/sentinel) on Github. 
 
 ### PostgreSQL
 
