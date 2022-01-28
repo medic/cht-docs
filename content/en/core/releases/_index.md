@@ -19,23 +19,24 @@ Medic supports minor versions of the CHT Core Framework for three months after t
 Once a version is no longer supported it will not receive any further patch releases and upgrading to a supported version will be required to resolve any issues you have.
 
 | Version | Status | Release date | End of life |
-|----|----|----|----|
-| 3.13.x | Current | 29-Sep-2021 | TBA |
-| 3.12.x | Current | 28-Jul-2021 | 29-Dec-2021 |
-| 3.11.x | Current | 21-Apr-2021 | 28-Oct-2021 |
-| 3.10.x | EOL | 9-Sep-2020 | 21-Jul-2021 |
-| 3.9.x | EOL | 19-Jun-2020 | 9-Dec-2020 |
-| 3.8.x | EOL | 11-Feb-2020 | 19-Sep-2020 |
-| 3.7.x | EOL | 22-Oct-2019 | 11-Jun-2020 |
-| 3.6.x | EOL | 17-Jul-2019 | 24-Mar-2020 |
-| 3.5.x | EOL | 27-Jun-2019 | 17-Oct-2019 |
-| 3.4.x | EOL | 27-Mar-2019 | 27-Sep-2019 |
-| 3.3.x | EOL | 22-Feb-2019 | 27-Jun-2019 |
-| 3.2.x | EOL | 23-Jan-2019 | 22-May-2019 |
-| 3.1.x | EOL | 21-Nov-2018 | 23-Apr-2019 |
-| 3.0.x | EOL | 15-Nov-2018 | 21-Feb-2019 |
-| 2.18.x | EOL | 30-Aug-2018 | 15-Nov-2019 |
-| earlier | EOL | ... | 30-Nov-2018 |
+|---------|----|--------------|----|
+| 3.14.x  | Current | TBD          | TBA |
+| 3.13.x  | Current | 29-Sep-2021  | TBA |
+| 3.12.x  | EOL | 28-Jul-2021  | 29-Dec-2021 |
+| 3.11.x  | EOL | 21-Apr-2021  | 28-Oct-2021 |
+| 3.10.x  | EOL | 9-Sep-2020   | 21-Jul-2021 |
+| 3.9.x   | EOL | 19-Jun-2020  | 9-Dec-2020 |
+| 3.8.x   | EOL | 11-Feb-2020  | 19-Sep-2020 |
+| 3.7.x   | EOL | 22-Oct-2019  | 11-Jun-2020 |
+| 3.6.x   | EOL | 17-Jul-2019  | 24-Mar-2020 |
+| 3.5.x   | EOL | 27-Jun-2019  | 17-Oct-2019 |
+| 3.4.x   | EOL | 27-Mar-2019  | 27-Sep-2019 |
+| 3.3.x   | EOL | 22-Feb-2019  | 27-Jun-2019 |
+| 3.2.x   | EOL | 23-Jan-2019  | 22-May-2019 |
+| 3.1.x   | EOL | 21-Nov-2018  | 23-Apr-2019 |
+| 3.0.x   | EOL | 15-Nov-2018  | 21-Feb-2019 |
+| 2.18.x  | EOL | 30-Aug-2018  | 15-Nov-2019 |
+| earlier | EOL | ...          | 30-Nov-2018 |
 
 ## Requirements
 
@@ -67,6 +68,7 @@ The following is the minimum specification recommendation for smartphones to han
 ## Release Notes
 ### 3.x
 
+- [3.14.0]({{% ref "core/releases/3.14.0.md" %}})
 - [3.13.0]({{% ref "core/releases/3.13.0.md" %}})
 - [3.12.1]({{% ref "core/releases/3.12.1.md" %}})
 - [3.12.0]({{% ref "core/releases/3.12.0.md" %}})
