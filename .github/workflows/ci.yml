@@ -17,6 +17,7 @@ jobs:
       - name: All Branches - Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
@@ -39,7 +40,7 @@ jobs:
         run: hugo
 
       - name: Main Branch Only - Build for prod with minify
-        if: github.ref == 'refs/heads/main'
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: env HUGO_ENV="production" hugo --minify
 
       - name: Main Branch Only - Deploy to GH pages
