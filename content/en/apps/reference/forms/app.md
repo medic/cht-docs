@@ -80,7 +80,12 @@ The `+` operator for string concatenation is deprecated and will be removed in a
 ## CHT XForm Widgets
 
 Some XForm widgets have been added or modified for use in the app:
-- **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages. (See also: [`to-bikram-sambat` xPath function](https://docs.communityhealthtoolkit.org/apps/reference/forms/app/#to-bikram-sambat))
+- **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages. (See also: [`to-bikram-sambat` xPath function]({{< ref "apps/reference/forms/app#to-bikram-sambat" >}}))
+
+{{% alert %}}
+A handy tool for converting Gregorian dates to Bikram Sambat is available [here](https://docs.communityhealthtoolkit.org/bikram-sambat/).
+{{% /alert %}}
+
 - **Countdown Timer**: A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `note` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
 - **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. In v3.10.0 or above, set the field type to `string` and appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. If no contact type appearance is specified then all contact types will be returned. For v3.9.0 and below, set the field type to `db:{{contact_type}}` and appearance to `db-object`.
 - **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
@@ -273,7 +278,7 @@ _Available in +3.14.0._
 
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
-See also: [Bikram Sambat Datepicker](https://docs.communityhealthtoolkit.org/apps/reference/forms/app/#cht-xform-widgets)
+See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
 
 ## CHT Special Fields
 
