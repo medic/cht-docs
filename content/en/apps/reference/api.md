@@ -970,10 +970,19 @@ Content-Type: application/json
 <summary class="text-primary mb-3">Response if the username already exists</summary>
 
 ```
-HTTP/1.1 409 Conflict
-Content-Type: text/plain
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
 
-Document update conflict.
+{
+  "code": 400,
+  "error": {
+    "message": "Username \"mary\" already taken.",
+    "translationKey": "username.taken",
+    "translationParams": {
+      "username": "mary"
+    }
+  }
+}
 ```
 </details>
 
