@@ -820,6 +820,17 @@ Content-Type: application/json; charset=utf-8
 
 Create new users with a place and a contact.
 
+ Creating multiple users at once by passing an array of users was introduced in version 3.15.  
+All users need to meet the following requirements before any of them are created:
+- All required fields are filled in
+- The password is at least 8 characters long and difficult to guess
+- The phone number is valid when [`token_login`]({{< ref "apps/reference/app-settings/token_login" >}}) is enabled
+
+Users are created in parallel and the creation is not aborted even if one of the users fails to be created.
+
+Passing a single user in the request's body will return a single object whereas
+passing an array of users will return an array of objects as shown in the examples below.
+
 #### Permissions
 
 `can_create_users`
