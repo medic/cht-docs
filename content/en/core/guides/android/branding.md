@@ -9,7 +9,7 @@ description: >
 {{% pageinfo %}}
 This tutorial will take you through building a CHT Android Application off the existing wrapper.
 
-The cht-android application is a thin wrapper to load the CHT Core Framework web application in a webview.
+The cht-android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
 
 You will be adding a new android flavor based off the [CHT Android](https://github.com/medic/cht-android).
 {{% /pageinfo %}}
@@ -198,11 +198,11 @@ If you want to start over because some of the parameters were wrong, just execut
 
 2. Execute `make org=new_brand keyprint` to see the certificate content, like the org name, the certificate fingerprints, etc.
 
-3. Sign your app! try locally to build the app with the certificate. To create the Webview versions of the .apk files: `make org=new_brand flavor=New_brandWebview assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brandWebview/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
+3. Sign your app! try locally to build the app with the certificate. To create the .apk files run: `make org=new_brand flavor=New_brand assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brand/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
 
    ```
    $ make keyprint-apk 
-   apksigner verify -v --print-certs build/outputs/apk/new_brandWebview/release/cht-android-SNAPSHOT-new_brand-webview-armeabi-v7a-release.apk
+   apksigner verify -v --print-certs build/outputs/apk/new_brand/release/cht-android-SNAPSHOT-new_brand-arm64-v8a-release.apk
    ... ...
    Verified using v2 scheme (APK Signature Scheme v2): true
    ... ...
@@ -210,7 +210,7 @@ If you want to start over because some of the parameters were wrong, just execut
    Signer #1 certificate SHA-256 digest: 7f072b...
    ```
 
-Also do the same for the bundle format: build and verify, despite the AAB are not useful for local development. In our example, execute first `make org=new_brand flavor=New_brandWebview bundle`, and then `make keyprint-bundle` to see the signature of one of the `.aab` files generated.
+Also do the same for the bundle format: build and verify, despite the AAB are not useful for local development. In our example, execute first `make org=new_brand flavor=New_brand bundle`, and then `make keyprint-bundle` to see the signature of one of the `.aab` files generated.
 
 Because the files generated here are signed with the same key that you are going to use in CI, and the files produced in CI will be uploaded to the Play Store later, any file generated locally following the steps above will be compatible with any installation made from the Play Store, means that if a user install the app from the Play Store, and then we want to replace the installation with an alpha version generated in CI or a local version generated in dev environment, it will work without requiring the user to uninstall the app and lost the data.
 
