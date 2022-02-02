@@ -24,7 +24,7 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 
 Issues that will help partner's acheive items on this list often will get prioritized over other issues. Issues that a partner will: 
 
-* Upgrade for get the feature/bugfix
+* Upgrade to get the feature/bugfix
 * Help validate, design and prototype the feature 
 * Help fund the development
 * Be blocked by it for a major release or expansion 
