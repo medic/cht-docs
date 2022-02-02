@@ -20,4 +20,17 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 - [Share your expertise](https://forum.communityhealthtoolkit.org) on our Forum
 - Sign up for our [newsletter](https://communityhealthtoolkit.org/contact) to get the latest updates
 
+**Are you a partner wondering how issues are prioritized?**
+
+Issues that will help partner's acheive items on this list often will get prioritized over other issues. Issues that a partner will: 
+
+* Upgrade for get the feature/bugfix
+* Help validate, design and prototype the feature 
+* Help fund the development
+* Be blocked by it for a major release or expansion 
+* Has users that are unable to use the CHT or experience it in a way that results in providing bad care
+
+Internally, a ticket may be needed to facilitate a release or reduce technical debt.
+
+
 **Also, improvements and ideas for this doc site are [always welcome]({{% ref "contribute/docs" %}})!**
