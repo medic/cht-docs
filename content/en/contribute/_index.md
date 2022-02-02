@@ -22,7 +22,7 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 
 **Are you a partner wondering how issues are prioritized?**
 
-Issues that will help partner's acheive items on this list often will get prioritized over other issues. Issues that a partner will: 
+Issues that a partner will: 
 
 * Upgrade to get the feature/bugfix
 * Help validate, design and prototype the feature 
@@ -30,7 +30,7 @@ Issues that will help partner's acheive items on this list often will get priori
 * Be blocked by it for a major release or expansion 
 * Has users that are unable to use the CHT or experience it in a way that results in providing bad care
 
-Internally, a ticket may be needed to facilitate a release or reduce technical debt.
+Will get prioritized.  Futher, internally, a ticket may be needed to facilitate a release or reduce technical debt.
 
 
 **Also, improvements and ideas for this doc site are [always welcome]({{% ref "contribute/docs" %}})!**
