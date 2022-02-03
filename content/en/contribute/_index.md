@@ -22,7 +22,7 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 
 **Are you a partner wondering how issues are prioritized?**
 
-Issues that a partner will: 
+Tickets that a partner will: 
 
 * Upgrade to get the feature/bugfix
 * Help validate, design and prototype the feature 
