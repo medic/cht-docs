@@ -30,7 +30,7 @@ Tickets that a partner will:
 * Be blocked by it for a major release or expansion 
 * Has users that are unable to use the CHT or experience it in a way that results in providing degraded care
 
-Will get prioritized.  Futher, internally, a ticket may be needed to facilitate a release or reduce technical debt.
+Will get prioritized.  Further, internally, a ticket may be needed to facilitate a release or perform important upgrades as is critical to do in the maintenance of software.
 
 
 **Also, improvements and ideas for this doc site are [always welcome]({{% ref "contribute/docs" %}})!**
