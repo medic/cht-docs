@@ -28,7 +28,7 @@ Issues that a partner will:
 * Help validate, design and prototype the feature 
 * Help fund the development
 * Be blocked by it for a major release or expansion 
-* Has users that are unable to use the CHT or experience it in a way that results in providing bad care
+* Has users that are unable to use the CHT or experience it in a way that results in providing degraded care
 
 Will get prioritized.  Futher, internally, a ticket may be needed to facilitate a release or reduce technical debt.
 
