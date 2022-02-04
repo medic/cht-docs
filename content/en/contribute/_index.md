@@ -22,7 +22,7 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 
 **Are you a partner wondering how issues are prioritized?**
 
-There are a number of factors that contribute to prioritization of work. The following represents important factors that are often evaluated together to have the best change for the largest impact if a partner will: 
+There are a number of factors that contribute to prioritization of work. The following represents important factors that are often evaluated together to have the best chance for the largest impact if a partner will: 
 
 * Upgrade to get the feature/bugfix
 * Help validate, design and prototype the feature 
