@@ -22,11 +22,11 @@ The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) sec
 
 **Are you a partner wondering how issues are prioritized?**
 
-Tickets that a partner will: 
+There are a number of factors that contribute to prioritization of work. The following represents important factors that are often evaluated together to have the best change for the largest impact if a partner will: 
 
 * Upgrade to get the feature/bugfix
 * Help validate, design and prototype the feature 
-* Help fund the development
+* Offer a time-bound funding opportunity which may influence when something gets done, provided that it aligns with the CHT product vision.
 * Be blocked by it for a major release or expansion 
 * Has users that are unable to use the CHT or experience it in a way that results in providing degraded care
 
