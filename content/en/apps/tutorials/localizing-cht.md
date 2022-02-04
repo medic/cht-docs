@@ -270,21 +270,19 @@ First in the `app_settings.json`, when configuring replies, add Swahili(sw) unde
 
 Set up the translation for the reply message:
 ```
-"messages": [
-        {
-          "message": [
-            {
-              "content": "Thank you, visit for {{patient_name}} ({{patient_id}}) has been recorded.",
-              "locale": "en"
-            },
-            {
-              "content": "Asante, kuhudhuria kwa {{patient_name}} ({{patient_id}} kumerekodiwa.",
-              "locale": "sw"
-            }
-          ],
-          "event_type": "report_accepted",
-          "recipient": "reporting_unit"
-        },
+"messages": [{
+		"message": [{
+				"content": "Thank you, visit for {{patient_name}} ({{patient_id}}) has been recorded.",
+				"locale": "en"
+			},
+			{
+				"content": "Asante, kuhudhuria kwa {{patient_name}} ({{patient_id}} kumerekodiwa.",
+				"locale": "sw"
+			}
+		],
+		"event_type": "report_accepted",
+		"recipient": "reporting_unit"
+	}
 ``` 
 Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
 
