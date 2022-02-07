@@ -837,8 +837,8 @@ passing an array of users will return an array of objects as shown in the exampl
 
 #### Examples
 
-<details>
-<summary class="text-primary mb-3">Create one user</summary>
+##### Create one user
+
 Create a new user that can authenticate with a username of "mary" and password
 of "secret" that can submit reports and view or modify records associated to
 their place. The place is created in the background and automatically linked
@@ -883,10 +883,9 @@ Content-Type: application/json
   }
 }
 ```
-</details>
 
-<details>
-<summary class="text-primary mb-3">Create many users</summary>
+##### Create many users
+
 Create two new users that can authenticate with a username and a password
 that can submit reports and view or modify records associated to their place.
 The place is created in the background and automatically linked to the contact.
@@ -962,12 +961,10 @@ Content-Type: application/json
   }
 ]
 ```
-</details>
 
 #### Errors
 
-<details>
-<summary class="text-primary mb-3">Response if the username already exists</summary>
+##### Response when the username already exists
 
 ```
 HTTP/1.1 400 Bad Request
@@ -984,10 +981,8 @@ Content-Type: application/json
   }
 }
 ```
-</details>
 
-<details>
-<summary class="text-primary mb-3">Response if users are missing required fields</summary>
+##### Response when users are missing required fields
 
 ```
 HTTP/1.1 400 Bad Request
@@ -1017,10 +1012,8 @@ Content-Type: application/json
   }
 }
 ```
-</details>
 
-<details>
-<summary class="text-primary mb-3">Response if some users failed to be created</summary>
+##### Response when some users failed to be created
 
 ```
 HTTP/1.1 200
@@ -1046,7 +1039,6 @@ Content-Type: application/json
   }
 ]
 ```
-</details>
 
 ### POST /api/v1/users/{{username}}
 
