@@ -27,15 +27,18 @@ Users can access their “people” and “places” from the **People** tab. Th
 
 ## Main List
 
+{{< figure src="sort-dropdown.png" link="sort-dropdown.png" alt="Contact sorting screenshot" class="right col-6 col-lg-3" >}}
 {{< figure src="people-mobile.png" link="people-mobile.png" class="right col-6 col-lg-3" >}}
 
-The view on the right is what a logged-in CHW would see when they access the “People” tab on a small screen. 
+The list view on the leftmost screenshot is what a logged-in CHW would see when they access the “People” tab on a small screen. 
 
 The item at the top of the list is the “place” the user belongs to. Below that is a list of the “places” they serve, represented by families. Individual “people” are not shown here, but will appear in search results. 
 
 Because this list defaults to show the “places” below the user in the hierarchy, a CHW supervisor would see a different view. Instead of families, they might see a list of CHW Areas they manage. 
 
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage. 
+
+With the [_UHC Mode_]({{< relref "apps/features/uhc-mode" >}}) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
 
 <br clear="all">
 

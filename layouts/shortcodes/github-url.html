@@ -2,7 +2,7 @@
 {{ $pathFormatted := replace $path "\\" "/" }}
 {{ $gh_repo := ($.Page.Site.Params.github_repo) }}
 {{ $gh_subdir := ($.Page.Site.Params.github_subdir) }}
-{{ $gh_branch := (default "master" ($.Page.Site.Params.github_branch)) }}
+{{ $gh_branch := (default "main" ($.Page.Site.Params.github_branch)) }}
 {{ if $gh_repo }}
 {{ $githubURL := printf "%s/tree/%s/%s" $gh_repo $gh_branch $pathFormatted }}
 {{ if $gh_subdir }}

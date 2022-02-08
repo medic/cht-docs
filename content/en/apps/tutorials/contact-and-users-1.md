@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/concepts/users
   core/overview/db-schema
-  core/guides/users-bulk-load
+  apps/guides/data/users-bulk-load
 ---
 
 {{% pageinfo %}}

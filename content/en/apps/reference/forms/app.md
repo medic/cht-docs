@@ -268,7 +268,13 @@ Use this function to parse from a timestamp number to a date. This is useful whe
 
 ## CHT Special Fields
 
+Some fields in app forms control specific aspects of CHT Apps, either to bring data into forms or for a feature outside of the form.
+
+### Quintiles
 The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="apps/guides/forms/wealth-quintiles" >}} 
+
+### UHC Mode
+When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "apps/features/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="apps/guides/forms/uhc-mode" >}} 
 
 ## Uploading Binary Attachments
 
