@@ -84,7 +84,7 @@ For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "a
 
 ### Globals
 
-[Globals](https://help.nyaruka.com/en/articles/3561580-global-variables) are shared values that can be referenced in flows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. They allow you to create a value once and use it repeatedly without having to reenter the value. Likewise, globals make updating a shared value much easier. Rather than manually changing a value everywhere it's used in your account, simply update the value found in your `Globals` page.
+[Globals](https://help.nyaruka.com/en/article/global-variables-km8la6/) are shared values that can be referenced in flows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. They allow you to create a value once and use it repeatedly without having to reenter the value. Likewise, globals make updating a shared value much easier. Rather than manually changing a value everywhere it's used in your account, simply update the value found in your `Globals` page.
 
 ![Globals](globals.png)
 
