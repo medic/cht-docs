@@ -67,6 +67,7 @@ The following is the minimum specification recommendation for smartphones to han
 ## Release Notes
 ### 3.x
 
+- [3.14.0]({{% ref "core/releases/3.14.0.md" %}})
 - [3.13.0]({{% ref "core/releases/3.13.0.md" %}})
 - [3.12.1]({{% ref "core/releases/3.12.1.md" %}})
 - [3.12.0]({{% ref "core/releases/3.12.0.md" %}})
