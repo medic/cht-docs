@@ -3,20 +3,18 @@ title: "Obtaining Logs"
 linkTitle: "Obtaining Logs"
 weight:
 description: >
-  How to obtain server and client logs
+  How to obtain Android and browser client logs
 relatedContent: >
 
 ---
 
 There are many places where useful logs reside. This details all those places, and the easiest way to get a hold of them.
 
-## Client logs
-
-### On a laptop or desktop
+## On a laptop or desktop
 
 To check if there are relevant logs open up the developer console in your browser. The shortcut is probably COMMAND+OPTION+I on MacOS, or CTRL+SHIFT+I on Linux and Windows. Click the console tab and copy out any errors or logging that you think is relevant.
 
-### On a phone
+## On a phone
 
 There are two types of logs updated by Android devices depending on what information is needed. If you trying to get either of the logs from a device for the first time you need to set it up for USB debugging.
 
@@ -26,11 +24,11 @@ There are two types of logs updated by Android devices depending on what informa
 
    ![Allow USB debugging](/apps/guides/debugging/images/allow_usb_debugging.png)
 
-#### Browser logs
+### Browser logs
 
 Now that you've enabled USB debugging on the phone you can access the dev console on the phone via USB from your desktop browser. This allows the same level of debugging and inspection you have on a desktop browser, but from your phone's browser in the CHT app. Follow the [official Android documentation](https://developer.chrome.com/docs/devtools/remote-debugging/webviews/#open_a_webview_in_devtools) to access the console.
 
-#### Android logs
+### Android logs
 
 The Android log is written to from the cht-android wrapper which captures errors like application crashes or failing integrations between Android apps.
 
@@ -54,10 +52,6 @@ Alternatively you can use `grep` to filter the logs down to only those from the 
 $ adb logcat | grep MedicMobile > phone.log
 ```
 
-### On the server
+## On the server
 
 Some unexpected errors are caught and stored in `feedback` docs and stored on the phone and later synced to CouchDB on the server. To access these, look for docs in the `medic-user-{username}-meta` or `medic-users-meta` databases. This is particularly useful to debug issues where you do not have physical access to the device. More information is available under [Managing Databases]({{< relref "apps/guides/database" >}}).
-
-## Server logs
-
-To access the server logs you will need access to the server.
