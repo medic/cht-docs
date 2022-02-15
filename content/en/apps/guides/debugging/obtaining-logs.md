@@ -14,7 +14,7 @@ There are many places where useful logs reside. This details all those places, a
 
 ### On a laptop or desktop
 
-To check if there are relevant logs open up the developer console in your browser. The shortcut is probably COMMAND+ALT+I on MacOS, or CTRL+ALT+I on Linux and Windows. Click the console tab and copy out any errors or logging that you think is relevant.
+To check if there are relevant logs open up the developer console in your browser. The shortcut is probably COMMAND+OPTION+I on MacOS, or CTRL+SHIFT+I on Linux and Windows. Click the console tab and copy out any errors or logging that you think is relevant.
 
 ### On a phone
 
