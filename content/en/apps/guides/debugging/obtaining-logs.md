@@ -40,7 +40,7 @@ The Android log is written to from the cht-android wrapper which captures errors
 
    ![ADB Devices](/apps/guides/debugging/images/adb_devices.png)
 
-4. Type the command `adb logcat > phone.log` to get the android logs in the file `phone.log`. You can stop the recording at any time pressing _Ctrl+C_. Now while taking android logs is the time to try to reproduce the error. Do this for as many times as you deem necessary to capture logs for that event.
+4. Type the command `adb logcat > phone.log` to get the android logs in the file `phone.log`. The log will be written to the `phone.log` file as long as this command is running. You can stop the recording at any time pressing _Ctrl+C_. Now if you reproduce the error on the phone you can look for any useful information being written to the `phone.log`.
 
 This will get all the logs from the device, not just logs for the app you want to debug. You can pass arguments to `adb` to only get the logs you want.
 
