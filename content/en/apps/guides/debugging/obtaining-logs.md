@@ -28,7 +28,7 @@ There are two types of logs updated by Android devices depending on what informa
 
 #### Browser logs
 
-These are the same as the desktop browser logs. Now that you've enabled USB debugging on the phone you can access the dev console on the phone via USB from your desktop browser. Follow the [official Android documentation](https://developer.chrome.com/docs/devtools/remote-debugging/webviews/#open_a_webview_in_devtools) to access the console.
+Now that you've enabled USB debugging on the phone you can access the dev console on the phone via USB from your desktop browser. This allows the same level of debugging and inspection you have on a desktop browser, but from your phone's browser in the CHT app. Follow the [official Android documentation](https://developer.chrome.com/docs/devtools/remote-debugging/webviews/#open_a_webview_in_devtools) to access the console.
 
 #### Android logs
 
