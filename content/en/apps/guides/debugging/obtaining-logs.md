@@ -22,7 +22,7 @@ There are two types of logs updated by Android devices depending on what informa
 
 1. Enable USB debugging on the phone. This varies from phone to phone, but here is the [official Android documentation](https://developer.android.com/studio/debug/dev-options#enable).
 2. Connect your phone by USB to the computer.
-3. You will see a popup _"Allow USB debugging. The computer's RSA fingerprint..."_, click _"OK"_. If you don't see the popup when the cable is plugged in, you will see it after the next step.
+3. On your phone, you will see a popup _"Allow USB debugging. The computer's RSA fingerprint..."_, click _"OK"_.
 
    ![Allow USB debugging](/apps/guides/debugging/images/allow_usb_debugging.png)
 
