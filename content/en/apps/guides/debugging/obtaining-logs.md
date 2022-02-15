@@ -34,7 +34,7 @@ Now that you've enabled USB debugging on the phone you can access the dev consol
 
 The Android log is written to from the cht-android wrapper which can be useful to debug application crashes or failing integrations between apps.
 
-1. To **install** the `adb` command follow the instructions under the [Development Environment > Debug tool adb]({{< ref "core/guides/android/development-setup#debug-tool-adb" >}}) section.
+1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "core/guides/android/development-setup#debug-tool-adb" >}}) section.
 2. Within a command line session write the following command: `adb start-server`.
 3. To check if your phone is properly connected, write the command `adb devices`. This will list the devices connected.
 
