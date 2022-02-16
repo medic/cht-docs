@@ -69,6 +69,20 @@ All features and bug fixes must have at least one unit test. All features must h
 
 Those are minimums. Our ultimate goal is to have fully-automated release testing, allowing for fast, confident delivery of completed code. If your work would be included in a release/regression test, create an e2e test for it. QA engineers will use that as a template of sorts to create additional automated tests at their discretion.
 
+### Acceptance Testing
+
+  1 . Assign it to yourself.
+  2. Install the PR branch to test against
+  3. If the issue fails AT then notify the original developer and move the issue back to "In progress".
+  4. Once the issue passes AT notify the original developer and move the issue to "Ready to merge"
+  5. The developer will then "Squash and Merge" the PR, delete the PR branch and, if a backport is required cherry-pick the merged commit back to the release branches it's required in.
+  6. Close the issue which will move it to Done
+
+
+
+### Release Testing
+We have a release [testing project](https://github.com/medic/cht-release-testing) with major workflows. Most issues will have a step-by-step description or a link to some details and are labelled. At release tesing time, we create a [project board](https://github.com/medic/cht-release-testing#generating-a-project-board-for-testing-a-release) with all issues labelled 'release'.
+
 ### Migrating
 
 When the schema is changed you must also provide a migration so when instances are upgraded existing data is compatible with the new code.
