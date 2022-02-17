@@ -11,7 +11,7 @@ relatedContent: >
     
 ---
 
-The Product Team has two dedicated sub-teams (Allies and Care Teams) who try to deliver much requested features at a pace that is faster than our release cycle. To this end, select partners working directly with Product Team can access what are called "Feature Releases". 
+The Product Team has two dedicated sub-teams (Allies and Care Teams) who try to deliver the most impactful features at a pace that is faster than our regular release cycle. To this end, select partners working directly with the Product Team can access what are called "Feature Releases". 
 
 ## Release names
 
