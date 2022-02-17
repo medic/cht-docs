@@ -15,7 +15,7 @@ The Product Team has two dedicated sub-teams (Allies and Care Teams) who try to 
 
 ## Release names
 
-Each Feature Releases will be a production ready branch of the most recent release of the CHT. The release will have undergone applicable discretionary testing. You can easily identify a Feature Release by its version which follows the pattern of `LATES_RELEASE-FR-FEATURE`. For example, if the latest release is `3.10.1` then the Feature Releases for speedier upgrades would be `3.10.1-FR-speedier-upgrades`. When this feature is found to be of use, it would be automatically included in `3.10.2`, the next minor release after `3.10.1`.
+Each Feature Releases will be a production ready branch of the most recent release of the CHT. The release will have undergone applicable discretionary testing. You can easily identify a Feature Release by its version which follows the pattern of `LATEST_RELEASE-FR-FEATURE`. For example, if the latest release is `3.10.1` then the Feature Releases for speedier upgrades would be `3.10.1-FR-speedier-upgrades`. When this feature is found to be of use, it would be automatically included in `3.11.0`, the next minor release after `3.10.1`.
 
 ## Upgrades
 
