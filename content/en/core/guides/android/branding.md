@@ -217,7 +217,7 @@ Because the files generated here are signed with the same key that you are going
 
 ### 5. Release the new flavor
 
-Once you have your pull request approved in the cht-android repo, it's recommended to create an alpha version before merge it to main and do the final release.
+Once you have your pull request approved in the cht-android repo, it's recommended to create an alpha version before merge it to master and do the final release.
 
 Checkout the [Release]({{< ref "core/guides/android/releasing#new-flavor-release" >}}) page, where it's explained the different stages and instructions for releasing. The last section _"New flavor release"_ has special instructions of how to release a new brand.
 

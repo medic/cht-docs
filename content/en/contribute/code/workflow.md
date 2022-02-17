@@ -75,7 +75,7 @@ When the schema is changed you must also provide a migration so when instances a
 
 ## Commits
 
-The main branch is `main` which must be kept stable so as not to impact other developers and so we can take a release branch as needed. To achieve this we do (almost) all development in a branch and submit a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
+The main branch is `master` which must be kept stable so as not to impact other developers and so we can take a release branch as needed. To achieve this we do (almost) all development in a branch and submit a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `master` branch.
 
 Format your commit messages according to Git standards. First line should be a short title/summary (50 characters or so) with more details in a separate paragraph, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
 
@@ -93,11 +93,11 @@ For more help with Git see: [Using Git]({{% ref "core/guides/using-git" %}}).
 
 ## Branches
 
-- The main branch is `main` and is the github default branch and contains the latest code.
+- The main branch is `master` and is the github default branch and contains the latest code.
 - Release branches have the form `<major>.<minor>.x` and should be stable.
 - Feature branches have the form `<issue-number>-<issue-description>` and are work in progress.
 
-{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from `main` into the release branch. Then use a pull request to make sure tests pass on Travis before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
+{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from `master` into the release branch. Then use a pull request to make sure tests pass on Travis before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
 
 ## Issues
 
@@ -125,7 +125,7 @@ Any code should be in a feature branch in each of the repositories you update. T
 
 1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
 1. If AT is required update the issue with AT instructions.
-1. Wait for the builds to succeed and ensure there are no conflicts with the `main` branch so the PR can be merged.
+1. Wait for the builds to succeed and ensure there are no conflicts with the `master` branch so the PR can be merged.
 1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can always collaborate on PRs even if they aren't an official Reviewer.
 1. If the issue requires AT then move the issue to "Ready for AT" for QA to test. Otherwise merge the PR, delete the branch, and close the issue.
 
@@ -133,7 +133,7 @@ Any code should be in a feature branch in each of the repositories you update. T
 
 Issues in this column are ready to be acceptance tested by a Quality Assurance engineer. When picking up an issue for AT:
 
-1. Check that the PR has no merge conflicts with `main` and all required builds have passed. If not, notify the original developer to fix the branch and find another issue to AT.
+1. Check that the PR has no merge conflicts with `master` and all required builds have passed. If not, notify the original developer to fix the branch and find another issue to AT.
 1. Assign it to yourself.
 1. Move it to the "AT in progress" column
 
@@ -162,7 +162,7 @@ Issues in this column have passed AT and can be merged as soon as possible. The 
 
 ### Done
 
-Issues in this column have passed acceptance testing and been merged into `main` and/or release branches ready for release.
+Issues in this column have passed acceptance testing and been merged into `master` and/or release branches ready for release.
 
 ## Triaging old issues
 

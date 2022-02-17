@@ -19,7 +19,7 @@ Every minor release we update dependencies to get the latest fixes and improveme
 
 ## Steps
 
-1. `git checkout main && git pull` - get the latest code
+1. Checkout and pull the latest default branch - get the latest code
 2. `git checkout -b "<issue>-update-dendencies"` - make a branch
 
 Then for each folder go through these steps.
