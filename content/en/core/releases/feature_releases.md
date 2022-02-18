@@ -2,7 +2,6 @@
 title: "Feature Releases"
 linkTitle: "Feature Releases"
 weight: 2
-no_list: true
 description: >
     Feature Releases for the CHT Core Framework
 relatedContent: >
