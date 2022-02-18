@@ -11,7 +11,7 @@ relatedContent: >
     
 ---
 
-The Product Team has two dedicated sub-teams (Allies and Care Teams) who try to deliver the most impactful features at a pace that is faster than our regular release cycle. To this end, select partners working directly with the Product Team can access what are called "Feature Releases". 
+To build and iterate on new features at a pace that is faster than our regular release cycle, some features are released in a _Feature Release_. Feature Releases are based on the most recent release and only include improvements related to a feature being developed. These releases are tested to be production-ready so that new features can be studied with CHT partners in a live deployment, with the aim of getting the feature ready for wider use in an upcoming release.
 
 ## Release names
 
