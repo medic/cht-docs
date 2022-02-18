@@ -14,7 +14,7 @@ To build and iterate on new features at a pace that is faster than our regular r
 
 ## Release names
 
-Each Feature Release will be a production-ready branch of the most recent release of the CHT. The release will have undergone applicable discretionary testing. You can easily identify a Feature Release by its version which follows the pattern of `LATEST_RELEASE-FR-FEATURE`. For example, if the latest release is `3.10.1` then the Feature Release for speedier upgrades would be `3.10.1-FR-speedier-upgrades`. When this feature is found to be of use, it would be automatically included in `3.11.0`, the next minor release after `3.10.1`.
+A Feature Release can easily be identified by its version, which follows the pattern of `{BASE-RELEASE-NUMBER}-FR-{FEATURE-NAME}`. For example, if the latest release is `3.10.1` then the Feature Release for speedier upgrades would be `3.10.1-FR-speedier-upgrades`. When this feature is found to be successful and ready for wider distribution it will be included in the next release.
 
 ## Upgrades
 
