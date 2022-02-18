@@ -19,4 +19,4 @@ Each Feature Release will be a production-ready branch of the most recent releas
 
 ## Upgrades
 
-Feature Releases are always built on the latest version of the CHT. Once the feature is ready, it will be included in a regular CHT release and the project will be upgraded as soon as practical to get back on to a fully supported release.
+Once the feature is ready for widespread use it will be included in a regular CHT release. Projects using the feature version can be upgraded as soon as practical to get back on to a fully supported release.
