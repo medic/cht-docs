@@ -55,7 +55,7 @@ This is the standard CouchDB database used to configure user authentication and 
 
 ## PouchDB
 
-Used to store documents on the client device to allow for offline-first access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
+Used to store documents on the client device to allow for [Offline-First]({{< ref "core/overview/offline-first" >}}) access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
 
 {{< see-also page="apps/guides/performance/replication" >}}
 
