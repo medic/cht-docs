@@ -83,7 +83,7 @@ Those are minimums. Our ultimate goal is to have fully-automated release testing
 
 ### Release Testing
 We have a release [testing repository](https://github.com/medic/cht-release-testing) with major workflows. Most issues will have a step-by-step description or a link to some details for execution. At release tesing time, create a [project board](https://github.com/medic/cht-release-testing#generating-a-project-board-for-testing-a-release) with all issues labelled 'release'.
-Start testing following instuctions on the ticket. If the test passes, move it to `pass` and if it fails,move it to `fail`, raise an issue and notify the team. A decision will be made whether to halt the release (blocker) or schedule the fix for the next release.
+Start testing following instructions on the ticket. If the test passes move it to `pass`. If it fails move it to `fail`, raise an issue and notify the team. A decision will be made whether to halt the release (blocker) or schedule the fix for the next release.
 
 ### Migrating
 
