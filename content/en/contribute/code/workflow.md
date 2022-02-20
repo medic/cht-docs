@@ -69,21 +69,11 @@ All features and bug fixes must have at least one unit test. All features must h
 
 Those are minimums. Our ultimate goal is to have fully-automated release testing, allowing for fast, confident delivery of completed code. If your work would be included in a release/regression test, create an e2e test for it. QA engineers will use that as a template of sorts to create additional automated tests at their discretion.
 
-### Acceptance Testing
-
-  1 . Assign it to yourself.
-  2. Install the PR branch to test against
-  3. If the issue fails AT then notify the original developer and move the issue back to "In progress".
-  4. Once the issue passes AT notify the original developer and move the issue to "Ready to merge"
-  5. The developer will then "Squash and Merge" the PR, delete the PR branch and, if a backport is required cherry-pick the merged commit back to the release branches it's required in.
-  6. Check if there is an e2e test for the feature, if aplicable.
-  7. Close the issue, which will move it to `Done`
-
-
-
 ### Release Testing
-We have a release [testing repository](https://github.com/medic/cht-release-testing) with major workflows. Most issues will have a step-by-step description or a link to some details for execution. At release tesing time, create a [project board](https://github.com/medic/cht-release-testing#generating-a-project-board-for-testing-a-release) with all issues labelled 'release'.
+The release testing suite covers a range of tests to check for any regressions, performance tests, and scalability tests. We have a release [testing repository](https://github.com/medic/cht-release-testing) with major workflows. Most issues will have a step-by-step description or a link to some details for execution. At release tesing time, create a [project board](https://github.com/medic/cht-release-testing#generating-a-project-board-for-testing-a-release) with all issues labelled 'release'.
 Start testing following instructions on the ticket. If the test passes move it to `pass`. If it fails move it to `fail`, raise an issue and notify the team. A decision will be made whether to halt the release (blocker) or schedule the fix for the next release.
+As part of release testing, there is a scalablity test suite to test the scalability of CouchDB so we can check what our limits are and ensure we don't regress on performance. Initially it only tests replication but should be extended to test other APIs. The JMeter tests are run on an [AWS](https://github.com/medic/cht-core/tree/master/tests/scalability#running-tests-on-aws) install and a report is saved in an S3 bucket. We then compare results from previous runs and save a JTL file containing the results of the test run in `cht-core/tests/scalability/previous_results`.
+
 
 ### Migrating
 
