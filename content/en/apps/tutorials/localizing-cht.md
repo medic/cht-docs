@@ -46,13 +46,13 @@ To localize instance text to Swahili, change the default system language to `Swa
 
 Go to App Management > Display > Languages > Default Language(Change to Swahili)
 
-![configuration](change-system-language.png)
+{{< figure src="change-system-language.png" link="change-system-language.png" class="right col-6 col-lg-8" >}}
 
 To find out what the language code for Swahili is, Go to the list of language as illustrated in the screenshot, click `Kiswahili (Swahili)` to show the options dropdown and click `Edit Name` the code will be in the text box under `Language Code` on the popup. In our case it is `sw`.
 
-![configuration](click-language-name.png)
+{{< figure src="click-language-name.png" link="click-language-name.png" class="right col-6 col-lg-8" >}}
 
-![configuration](click-language-edit-name-popup.png)
+{{< figure src="click-language-edit-name-popup.png" link="click-language-edit-name-popup.png" class="right col-6 col-lg-8" >}}
 
 Create a `message-sw.properties` file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
 
@@ -73,11 +73,10 @@ See below example for Swahili localization.
 
 *English text*
 
-![configuration](messages-tab-language-en.png)
+{{< figure src="messages-tab-language-en.png" link="messages-tab-language-en.png" class="right col-6 col-lg-8" >}}
 
 *Swahili Translation*
-
-![configuration](messages-tab-language-sw.png)
+{{< figure src="messages-tab-language-sw.png" link="messages-tab-language-sw.png" class="right col-6 col-lg-8" >}}
 
 To change the title of the tab from the default title of this _Messages_ tab of `Jumbe` in Kiswahili to `Barua`, add or edit the below code in the `messages-sw.properties` file:
 
@@ -110,11 +109,10 @@ task.anc.delivery.title = Kazi ya Kujifungua
 
 *Default English  text*
 
-![configuration](localize-tasks-en.png)
+{{< figure src="localize-tasks-en.png" link="localize-tasks-en.png" class="right col-6 col-lg-8" >}}
 
 *Swahili translation*
-
-![configuration](localize-tasks-sw.png)
+{{< figure src="localize-tasks-sw.png" link="localize-tasks-sw.png" class="right col-6 col-lg-8" >}}
 
 To change the title of the tab from the default title of this _Tasks_ tab of `Kazi` in Kiswahili to `Fanya Hizi`, add or edit the below code in the `messages-sw.properties` file:
 
@@ -138,11 +136,11 @@ contact.type.date_of_birth = Siku ya Kuzaliwa
 ```
 *Before*
 
-![configuration](localize-reports-en.png)
+{{< figure src="localize-reports-en.png" link="localize-reports-en.png" class="right col-6 col-lg-8" >}}
 
 *Swahili Translation*
 
-![configuration](localize-reports-sw.png)
+{{< figure src="localize-reports-sw.png" link="localize-reports-sw.png" class="right col-6 col-lg-8" >}}
 
 To change the title of the tab from the default title of this _Reports_ tab of `Ripoti` in Kiswahili to `Ripoti hizi`, add or edit the below code in the `messages-sw.properties` file.
 
@@ -170,11 +168,11 @@ contact.type.person.plural = Watu wa hili hapa eneo
 
 *Before*
 
-![configuration](people-translation-en.png)
+{{< figure src="people-translation-en.png" link="people-translation-en.png" class="right col-6 col-lg-8" >}}
 
 *After
 
-![configuration](people-translation-sw.png)
+{{< figure src="people-translation-sw.png" link="people-translation-sw.png" class="right col-6 col-lg-8" >}}
 
 To change the title of the tab from the default title of this _People_ tab of `Wasiliani` in Kiswahili to `Watu`, add or edit the below code in the `messages-sw.properties` file.
 
@@ -198,11 +196,11 @@ targets.growth_monitoring.title = Ufuatiliaji wa ukuaji
 ```
 *Before adding the Swahili target label*
 
-![configuration](growth-monitoring-before.png)
+{{< figure src="growth-monitoring-before.png" link="growth-monitoring-before.png" class="right col-6 col-lg-8" >}}
 
 *After adding the Swahili target label*
 
-![configuration](growth-monitoring-after.png)
+{{< figure src="growth-monitoring-after.png" link="growth-monitoring-after.png" class="right col-6 col-lg-8" >}}
 
 To change the title of the tab from the default title of this _Targets_ tab of `Grafu` in Kiswahili to `Lengo`, add or edit the below code in the `messages-sw.properties` file.
 
@@ -219,15 +217,15 @@ Targets = Lengo
 To localize an app form to Swahili, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
 
 *New Person app form XLS configuration*
-![configuration](new-person-xls-form.png)
+{{< figure src="new-person-xls-form.png" link="new-person-xls-form.png" class="right col-6 col-lg-8" >}}
 
 *Screenshot of default English translation*
 
-![configuration](new-person-form-english.png)
+{{< figure src="new-person-form-english.png" link="new-person-form-english.png" class="right col-6 col-lg-8" >}}
 
 *Screenshot of form after switching CHV language to Kiswahili*
 
-![configuration](new-person-form-swahili.png)
+{{< figure src="new-person-form-swahili.png" link="new-person-form-swahili.png" class="right col-6 col-lg-8" >}}
 
 
 _**App Management - Admin Area**_
@@ -286,7 +284,7 @@ Set up the translation for the reply message:
 ``` 
 Change the CHVs language in app management > users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
 
-![configuration](change-user-language.png)
+{{< figure src="change-user-language.png" link="change-user-language.png" class="right col-6 col-lg-8" >}}
 
 ### Translating CHT to another language
 
