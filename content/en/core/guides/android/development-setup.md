@@ -123,7 +123,7 @@ To clean the APKs and compiled resources: `make clean`.
 
 ### Testing
 
-To execute unit tests, run: `make test` (static checks are also executed).
+To execute unit tests and static analysis, run: `make test`.
 
 To generate a unit test coverage report, run: `make test-coverage`.
 
