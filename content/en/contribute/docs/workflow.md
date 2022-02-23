@@ -12,7 +12,7 @@ Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs
 
 ### Basics
 
-* It is helpful to be comfortable with [git]({{< ref "core/guides/using-git" >}}) and [GitHub](https://lab.github.com/) to contribute to the CHT community.
+* It is helpful to be comfortable with [git](https://git-scm.com/doc/ext) and [GitHub](https://lab.github.com/) to contribute to the CHT community.
 * The documentation source is in [GitHub](https://github.com/medic/cht-docs). The content pages are in the `/content/en/` directory.
 * Documentation is written in [Markdown](https://www.markdownguide.org/). 
 * The CHT site build uses [Hugo](https://gohugo.io/). You can also setup a [local clone](https://github.com/medic/cht-docs/blob/main/README.md). 
