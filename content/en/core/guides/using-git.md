@@ -74,12 +74,12 @@ for i in `cat files`; do \
 done | sort | uniq > all-files
 ```
 
-In the following commands I assume the branch we are working on is `master`, but this could easily be applied to any branch.
+In the following commands I assume the branch we are working on is `main`, but this could easily be applied to any branch.
 
 Take a note of your original commit count.  
 
 ```
-$ git rev-list master | wc -l
+$ git rev-list main | wc -l
     6844
 ```
 
@@ -115,7 +115,7 @@ git filter-branch -f --prune-empty --index-filter  '\
 Nice, less commits!  
 
 ```
-$ git rev-list master | wc -l
+$ git rev-list main | wc -l
      461
 ```
 
@@ -183,7 +183,7 @@ Look Ma, I'm all cleaned up!
 
 ```
 $ git for-each-ref
-dbcc2677aa56c40fbf83d72e6e413b86d3b2be79 commit refs/heads/master
+dbcc2677aa56c40fbf83d72e6e413b86d3b2be79 commit refs/heads/main
 $ git rev-list --all | wc -l
      461
 $ du -hs .git
@@ -194,7 +194,7 @@ Maybe have a play now and make sure things look right to you.  Then publish your
 
 ```
 $ git remote add origin git@github.com:medic/medic-smsparser.git
-$ git push origin master
+$ git push origin main
 ```
 
 {{% alert title="Note" %}}

@@ -123,7 +123,12 @@ To clean the APKs and compiled resources: `make clean`.
 
 ### Testing
 
-To execute unit tests: `make test` (static checks are also executed).
+To execute unit tests and static analysis, run: `make test`.
+
+To generate a unit test coverage report, run: `make test-coverage`.
+
+Find the generated report in:
+`build/reports/jacoco/makeUnbrandedDebugUnitTestCoverageReport/html/index.html`
 
 #### Static checks
 

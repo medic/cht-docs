@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script is used in Github Actions to do link checking on commits to branches and master, so
+# This script is used in Github Actions to do link checking on commits to branches and main, so
 # please edit with care!  See ../workflows/ci.yml for specific usage.
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
@@ -26,6 +26,6 @@ muffet http://localhost:1313 \
   --exclude "https://github\.com/medic/cht-core/issues/new.*" \
   --exclude "https://github\.com/medic/cht-docs/commit.*" \
   --exclude "https://github\.com/medic/cht-core/commit.*" \
-  --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
+  --exclude "https://github\.com/medic/cht-docs/edit/main/.*" \
   --exclude ".*localhost:5984.*" \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888"
