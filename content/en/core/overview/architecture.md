@@ -18,11 +18,11 @@ A free and open source NoSQL database we use to store all our data, configuratio
 
 ### api
 
-A NodeJS service which runs on the server as a wrapper around CouchDB. It provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [Medic API site](https://github.com/medic/cht-core/tree/master/api) on Github.
+A NodeJS service which runs on the server as a wrapper around CouchDB. It provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [CHT Core API repo](https://github.com/medic/cht-core/tree/master/api) on Github.
 
 ### sentinel
 
-Another NodeJS service running on the server, sentinel performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [Medic Sentinel site](https://github.com/medic/cht-core/tree/master/sentinel) on Github. 
+Another NodeJS service running on the server, sentinel performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [CHT Core Sentinel repo](https://github.com/medic/cht-core/tree/master/sentinel) on Github. 
 
 ### PostgreSQL
 
@@ -44,7 +44,7 @@ The CHT Web Application is [reactive](https://angular.io/guide/rx-library), resp
 
 | Technology                                                       | Usage                                                                                                                                                                                  |
 | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [PouchDB](https://pouchdb.com)                                   | To implement an offline first strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
+| [PouchDB](https://pouchdb.com)                                   | To implement an [Offline-First]({{< ref "core/overview/offline-first" >}}) strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
 | [Enketo](https://enketo.org)                                     | To render configured xforms and help with styling and dynamic elements such as show/hide and validation rules.                                                                         |
 | [Nools](https://github.com/C2FO/nools)                           | A rules engine to compute the upcoming tasks and monthly targets of the users.                                                                                                         |
 | [Ngx-Bootstrap](https://github.com/valor-software/ngx-bootstrap) | To integrate Bootstrap components in the Angular application.                                                                                                                          |
@@ -56,7 +56,7 @@ The CHT Web Application is [reactive](https://angular.io/guide/rx-library), resp
 
 ##### Structure
 
-The CHT Web Application has the following high level structure: 
+The CHT Web Application has the following high level structure:
 
 - **/js**: Contains the vanilla JavaScript scripts, for example: Enketo widgets, MomentJS locales, etc.
 - **/ts**: Contains the Angular application source code which uses TypeScript.
@@ -64,7 +64,7 @@ The CHT Web Application has the following high level structure:
   - **/components**, **/directives**, **/pipes**, **/providers** and **/services**: Contain the reusable elements from [Angular](https://angular.io/) framework.
   - **/modals**: Contains the all application’s modals components.
   - **/modules**: Contains the application’s modules, each of them has components that are associated to the modules’ routing.
-- **/css**:  Contains the style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor. 
+- **/css**:  Contains the style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor.
 - **/fonts**: Contains the fonts.
 - **/img**: Contains the static images.
 
@@ -85,9 +85,9 @@ App Management is a single page application built with [AngularJS](https://angul
 | [Less](http://lesscss.org/)                                                 | A CSS preprocessor                                                                                                                                                                      |
 
 ##### Structure
-- **/css**: Contains style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor. 
-- **/js**: Contains the JavaScript code. 
-  - **/actions**, **/reducers** and **/selectors**: Contain the implementation of [Redux](https://github.com/reduxjs/redux). 
+- **/css**: Contains style files. It uses [Less](http://lesscss.org/) as a CSS preprocessor.
+- **/js**: Contains the JavaScript code.
+  - **/actions**, **/reducers** and **/selectors**: Contain the implementation of [Redux](https://github.com/reduxjs/redux).
   - **/controllers**, **/directives**, **/filters** and **/services**: Contain the reusable elements from [AngularJS](https://angularjs.org) framework.
   - **/modules**: Contains the vanilla JavaScript scripts.
 - **/template**: Contains the HTML templates that are used in the AngularJS components and directives.
@@ -100,7 +100,7 @@ CHT Web Application works in the browser or wrapped in the [CHT Android](https:/
 
 ### cht-gateway
 
-[Medic Gateway](https://github.com/medic/cht-gateway) is an android app for sending and receiving SMS messages. Each SMS enabled project has one gateway running. It polls an api endpoint to write incoming SMS into the CouchDB and retrieve outgoing SMS to send.
+[CHT Gateway](https://github.com/medic/cht-gateway) is an android app for sending and receiving SMS messages. Each SMS enabled project has one gateway running. It polls an api endpoint to write incoming SMS into the CouchDB and retrieve outgoing SMS to send.
 
 ### medic-collect
 

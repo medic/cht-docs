@@ -23,11 +23,11 @@ By the end of the tutorial you should be able to:
 
 ## Brief Overview of Key Concepts
 
-*CHT Core Framework* The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are offline-first, and work on basic phones (via SMS), smartphones, tablets, and computers.
+*CHT Core Framework* The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 *CHT Project Configurer* a.k.a ***cht-conf*** is command-line interface tool to manage and configure CHT apps.
 
-*Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.  
+*Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.
 
 *Containers* allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
 
@@ -50,7 +50,7 @@ Now that you have the dependent tools and software installed, you are ready to s
 
 ### 1. Install the Core Framework
 
-Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine. This can be done either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory where you want the CHT code: `git clone https://github.com/medic/cht-core.git`. Checking out the repo will create a `cht-core` directory.  
+Check out the [cht-core respository](https://github.com/medic/cht-core) to your local machine. This can be done either by using the [Github Desktop app](https://desktop.github.com/) or by running the following command in the directory where you want the CHT code: `git clone https://github.com/medic/cht-core.git`. Checking out the repo will create a `cht-core` directory.
 
 Open your terminal and navigate to the `cht-core` directory, where you should see the `docker-compose.yml` file. Run the command:
 
@@ -100,7 +100,7 @@ By default, the CHT will have the [Maternal & Newborn Health Reference Applicati
 - Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
 - Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
-```shell  
+```shell
 cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs`.
 ```
 
@@ -147,7 +147,7 @@ Once you have run the above command it should complete with the message: `INFO A
 
  *****
 
-### 5. Optional: Install Valid TLS Certificate  
+### 5. Optional: Install Valid TLS Certificate
 
 {{< figure src="local-ip.TLS.png" link="local-ip.TLS.png" class="right col-6 col-lg-8" >}}
 
@@ -159,7 +159,7 @@ To install a valid certificate, open a terminal in the `cht-core` directory. Ens
 ./scripts/add-local-ip-certs-to-docker.sh
 ```
 
-To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.  
+To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.
 
 The output of `add-local-ip-certs-to-docker.sh` looks like this:
 
