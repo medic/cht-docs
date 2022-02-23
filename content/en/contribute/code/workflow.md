@@ -96,7 +96,7 @@ Never force push remote. Prefer rebasing over merging as it makes for a cleaner 
 
 Commit reformats and refactors separately from actual code changes to make reviewing easier.
 
-For more help with Git see: [Using Git]({{% ref "core/guides/using-git" %}}).
+For more help with Git see: [Using Git](https://lab.github.com/).
 
 ## Branches
 
