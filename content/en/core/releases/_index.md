@@ -18,6 +18,8 @@ Medic supports minor versions of the CHT Core Framework for three months after t
 
 Once a version is no longer supported it will not receive any further patch releases and upgrading to a supported version will be required to resolve any issues you have.
 
+It is recommended that all projects update regularly multiple times a year to get the benefits of bug fixes, security patches, and performance improvements. Being on a supported version also makes it easy to start using features coming in future releases. Most upgrades are quick, reliable, and easily adopted by users. Whenever an upgrade does require additional effort this will be outlined in the release notes.
+
 | Version | Status | Release date | End of life |
 |----|----|----|----|
 | 3.14.x | Current | 11-Feb-2022 | TBA |
