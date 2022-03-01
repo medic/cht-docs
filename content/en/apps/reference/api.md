@@ -818,13 +818,26 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/users
 
-Create a new user with a place and a contact.
+Create new users with a place and a contact.
+
+ Creating multiple users at once by passing an array of users was introduced in version 3.15.  
+All users need to meet the following requirements before any of them are created:
+- All required fields are filled in
+- The password is at least 8 characters long and difficult to guess
+- The phone number is valid when [`token_login`]({{< ref "apps/reference/app-settings/token_login" >}}) is enabled
+
+Users are created in parallel and the creation is not aborted even if one of the users fails to be created.
+
+Passing a single user in the request's body will return a single object whereas
+passing an array of users will return an array of objects as shown in the examples below.
 
 #### Permissions
 
-`can_create_users`, `can_create_places`, `can_create_people`
+`can_create_users`
 
 #### Examples
+
+##### Create one user
 
 Create a new user that can authenticate with a username of "mary" and password
 of "secret" that can submit reports and view or modify records associated to
@@ -871,15 +884,160 @@ Content-Type: application/json
 }
 ```
 
-#### Errors
+##### Create many users
 
-Response if the username already exists:
+Create two new users that can authenticate with a username and a password
+that can submit reports and view or modify records associated to their place.
+The place is created in the background and automatically linked to the contact.
 
 ```
-HTTP/1.1 409 Conflict
-Content-Type: text/plain
+POST /api/v1/users
+Content-Type: application/json
 
-Document update conflict.
+[
+  {
+    "password": "secret",
+    "username": "mary",
+    "type": "district-manager",
+    "place": {
+      "name": "Mary's Area",
+      "type": "health_center",
+      "parent": "d14e1c3d557761320b13a77e7806e8f8"
+    },
+    "contact": {
+      "name": "Mary Anyango",
+      "phone": "+2868917046"
+    }
+  },
+  {
+    "password": "secret",
+    "username": "bob",
+    "type": "district-manager",
+    "place": {
+      "name": "Bob's Area",
+      "type": "health_center",
+      "parent": "d14e1c3d557761320b13a77e7806e8f8"
+    },
+    "contact": {
+      "name": "Bob Johnson",
+      "phone": "+2868194607"
+    }
+  }
+]
+```
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+  {
+    "contact": {
+      "id": "65416b8ceb53ff88ac1847654501aeb3",
+      "rev": "1-0b74d219ae13137c1a06f03a0a52e187"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-6ac1d36b775143835f4af53f9895d7ae"
+    },
+    "user": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-c3b82a0b47cfe68edd9284c89bebbae4"
+    }
+  },
+  {
+    "contact": {
+      "id": "8d8a741c1cb441058e29a60ab7596bf2",
+      "rev": "1-acbc31712fd105eae3cd0806cd20a8f4"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:bob",
+      "rev": "1-d8629838127accd531043f845c416ef6"
+    },
+    "user": {
+      "id": "org.couchdb.user:bob",
+      "rev": "1-5eac2542c801ba6b518728f53d9276a0"
+    }
+  }
+]
+```
+
+#### Errors
+
+##### Response when the username already exists
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "code": 400,
+  "error": {
+    "message": "Username \"mary\" already taken.",
+    "translationKey": "username.taken",
+    "translationParams": {
+      "username": "mary"
+    }
+  }
+}
+```
+
+##### Response when users are missing required fields
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "code": 400,
+  "error": "Missing required fields:\n\Missing fields username, password, type or roles for user at index 0\nMissing fields password, type or roles for user at index 1",
+  "details": {
+    "failingIndexes": [
+      {
+        "fields": [
+          "username",
+          "password",
+          "type or roles"
+        ],
+        "index": 0
+      },
+      {
+        "fields": [
+          "password",
+          "type or roles"
+        ],
+        "index": 1
+      }
+    ]
+  }
+}
+```
+
+##### Response when some users failed to be created
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+  {
+    "contact": {
+      "id": "65416b8ceb53ff88ac1847654501aeb3",
+      "rev": "1-0b74d219ae13137c1a06f03a0a52e187"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-6ac1d36b775143835f4af53f9895d7ae"
+    },
+    "user": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-c3b82a0b47cfe68edd9284c89bebbae4"
+    }
+  },
+  {
+    "error": "Failed to find place."
+  }
+]
 ```
 
 ### POST /api/v1/users/{{username}}
