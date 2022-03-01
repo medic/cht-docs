@@ -47,6 +47,8 @@ To proceed you need to have ready the following:
 
 Also be sure to have a working **[Development Environment]({{< ref "core/guides/android/development-setup" >}})**.
 
+While you should use your own branding, the [CHT logo](./CHT.logo.512.png) is available to use if so desired.
+
 #### Play Store assets
 
 If you are going to publish the app in the **Play Store**, Google will require to provide the following to list the app:
