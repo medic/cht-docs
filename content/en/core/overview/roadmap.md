@@ -11,7 +11,7 @@ relatedContent:
 ---
 
 {{% pageinfo %}}
-The CHT is actively maintained by [Medic](https://medic.org), a non-profit organization that serves as the technical steward, alongside many [partners in the CHT Community]( {{% ref "why-the-cht/#the-cht-community" %}}).
+The CHT is actively maintained by [Medic](https://medic.org), a non-profit organization that serves as the technical steward, alongside many [partners in the CHT Community]( {{% ref "why-the-cht#the-cht-community" %}}).
 {{% /pageinfo %}}
 
 Improvements for the CHT are raised and discussed with the community in the [Forum](https://forum.communityhealthtoolkit.org/c/product/23), and tracked in the [CHT Roadmap](https://roadmap.communityhealthtoolkit.org). The roadmap is organized around _**Product initiatives**_; specific improvement areas that align with medium and long-term vision for the CHT. These initiatives are organized by the ones that are being worked on _**Now**_, those that are likely _**Next**_, and those that might be _**Later**_. 
