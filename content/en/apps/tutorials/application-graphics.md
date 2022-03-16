@@ -24,9 +24,16 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 ## Implementation Steps
 
 ### 1. Site branding
-You have the ability to modify the app title, logo, and favicon.
+
+You have the ability to modify the app title, logo, and favicon. For Progressive Web App installations you can also configure the desktop icon.
 
 {{< figure src="branding_elements.png" link="branding_elements.png" class="center col-6 col-lg-8" >}}
+
+| Variable | Description |
+|---|---|
+| **logo** | Should be less than 100KB, have a transparent background, have high contrast, and be horizontal in shape with a ratio of about 3.5:1. We recommend SVG or PNG image formats. |
+| **favicon** | Ideally 32x32 pixels, simple, and very small in size. We recommend SVG or PNG image formats. |
+| **icon** | Must be at least 192x192 pixels, square. We recommend SVG or PNG image formats. |
 
 #### Using cht-conf
 
@@ -38,7 +45,8 @@ Edit the file with the following content:
    "title": "My App Name",
    "resources": {
      "logo": "logo.png",
-     "favicon": "favicon.ico"
+     "favicon": "favicon.ico",
+     "icon": "pwa-icon.svg" // required for PWA installation only
    }
  }
  ```
@@ -51,6 +59,7 @@ The folder and files structure would look like this:
     /branding
         logo.png
         favicon.ico
+        pwa-icon.svg
 ```
 
 Finally run the command: `cht --url=<intance-url> upload-branding`
@@ -64,8 +73,6 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 
 {{% alert title="Note" %}}
 If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
-
-Images used for the logo should be less than 100KB, transparent, have high contrast, and be horizontal in shape with a ratio of about 3.5:1. We recommend SVG or PNG as an alternative image format.
 {{% /alert %}}
 
 ### 2. Partner logos
