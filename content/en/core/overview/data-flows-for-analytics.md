@@ -86,3 +86,7 @@ The [cht-core](https://github.com/medic/cht-core) is mostly data collection tool
 
 The machines running each of CouchDB and PostgreSQL instances are backed up daily.
 
+
+## Frequently Asked Questions
+
+- [Visualizing CHT data using Superset, couch2pg and Postgres?](https://forum.communityhealthtoolkit.org/t/visualizing-cht-data-using-superset-couch2pg-and-postgres/1783/2)
