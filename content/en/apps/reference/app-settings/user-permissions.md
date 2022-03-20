@@ -23,7 +23,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_aggregate_targets` | Allows access to Target Aggregates page |
 | `can_bulk_delete_reports` | Allows users to select multiple reports and delete |
 | `can_configure` | Allows update of configuration parameters |
-| `can_upgrade` | Allows upgrade of the CHT instance |
+| `can_upgrade` | Allows upgrades of the CHT Core Framework version via the API or admin interface |
 | `can_create_people` | Allows creation & editing of person contacts |
 | `can_create_places` | Allows creation & editing of place contacts |
 | `can_create_records` | Allows creation of reports |
