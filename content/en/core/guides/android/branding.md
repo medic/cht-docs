@@ -9,7 +9,7 @@ description: >
 {{% pageinfo %}}
 This tutorial will take you through building a CHT Android Application off the existing wrapper.
 
-The CHT-Android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
+The CHT Android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
 
 You will be adding a new android flavor based off the [CHT Android](https://github.com/medic/cht-android).
 {{% /pageinfo %}}
@@ -74,7 +74,7 @@ Once approved you can delete the "test" user, Google conduct the tests only the 
 
 Each branded app has an identifier (_id_) that is used to identify and configure it in different parts of the source code and when invoking some commands. In the instructions below we will use as example the id **`new_brand`**.
 
-1. Check out the tag from the [last stable release](https://github.com/medic/cht-android/releases) in CHT-Android repository and create a branch, for example, if the latest stable release is `v0.11.0` and the branch name is `v0.11.0-new-brand`, then the command is:
+1. Check out the tag from the [last stable release](https://github.com/medic/cht-android/releases) in CHT Android repository and create a branch, for example, if the latest stable release is `v0.11.0` and the branch name is `v0.11.0-new-brand`, then the command is:
 
    ```
    git checkout v0.11.0 -b v0.11.0-new-brand
@@ -129,7 +129,7 @@ Each branded app has an identifier (_id_) that is used to identify and configure
            ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_NEW_BRAND }}
    ```
 
-   The variables in the `env` sections point to a keystore and the passwords to unlock the keystore that will be generated in the following steps, but it's important to follow the name convention, in the example all the variables that are configured in Github Actions end with the suffix `_NEW_BRAND`, these variables need to be added in the CHT-Android repository settings by a manager of Medic.
+   The variables in the `env` sections point to a keystore and the passwords to unlock the keystore that will be generated in the following steps, but it's important to follow the name convention, in the example all the variables that are configured in Github Actions end with the suffix `_NEW_BRAND`, these variables need to be added in the CHT Android repository settings by a manager of Medic.
 
 
 ### 3. Generate a new keystore
@@ -225,9 +225,9 @@ Because the files generated here are signed with the same key that you are going
 
 ### 5. Release the new flavor
 
-Once you have your pull request approved in the CHT-Android repository, it's recommended to create an alpha version before merge it to master and do the final release.
+Make a pull request to the release branch in the CHT Android repository, once approved and before merging, it's recommended to create an alpha version to do final tests before releasing.
 
-Checkout the [Release]({{< ref "core/guides/android/releasing#new-flavor-release" >}}) page, where it's explained the different stages and instructions for releasing. The last section _"New flavor release"_ has special instructions of how to release a new brand.
+Checkout the [Release]({{< ref "core/guides/android/releasing#new-flavor-release" >}}) page, where it's explained the different stages and instructions for releasing. The last section _"New flavor release"_ has special instructions about how to release a new brand.
 
 ### 6. Publish the app
 
