@@ -9,7 +9,7 @@ relatedContent: >
 ---
 
 {{% alert title="Warning" %}} 
-Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
+Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.
 
 Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
 {{% /alert %}}
