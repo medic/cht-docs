@@ -42,4 +42,4 @@ The new flavor should have branched off from the [last stable release](https://g
  git checkout v1.2.3 -b v1.2.3-new-brand
  ```
 Add the flavor and make a pull request to the release branch. Once it has been approved, `squash and merge` the pull request, tag the commit with the same version as the last one and add a number suffix separated with a dash character (`-`), e.g. if the last version was `v1.2.3`, tag it as `v1.2.3-1`. In this case, it's not necessary to publish again the reference apps in Play Store or to announce the release in the forum, if not relevant.
-Finally, make sure this commit is backport to the repository's main branch.
+Finally, make sure this commit is backported to the repository's main branch.
