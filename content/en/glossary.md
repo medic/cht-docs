@@ -1,216 +1,255 @@
 ---
 title: "Glossary and Definitions"
 linkTitle: "Glossary"
-menu:
 weight: 10
 ---
 
-##### Accredited Social Health Activist (ASHA)
+## A
 
-##### Antenatal Care (ANC)
+###### Accredited Social Health Activist (ASHA)
 
-##### Antiretrovirals (ARV)
+###### Antenatal Care (ANC)
 
-##### Artificial intelligence (AI)
+###### Antiretrovirals (ARV)
 
-##### Backend
+###### Artificial intelligence (AI)
+
+## B
+
+###### Backend
 
 The parts of the software that make the front end happen. These are all hidden from the user.
 
-##### Center for Disease Control and Prevention (US) (CDC)
+## C
 
-##### Childhood Immunizations (IMM)
+###### Center for Disease Control and Prevention (US) (CDC)
 
-##### Community Based Organization (CBO)
+###### Childhood Immunizations (IMM)
 
-##### Community Based Volunteers (CBV)
+###### Community Based Organization (CBO)
 
-##### Community Health Assistants (CHA)
+###### Community Based Volunteers (CBV)
 
-##### Community Health Extension Worker (CHEW)
+###### Community Health Assistants (CHA)
 
-##### Community Health Promoters (CHP)
+###### Community Health Extension Worker (CHEW)
 
-##### Community Health Toolkit (CHT)
+###### Community Health Promoters (CHP)
 
-##### Community Health Volunteer (CHV)
+###### Community Health Toolkit (CHT)
 
-##### Community Health Worker (CHW)
+###### Community Health Volunteer (CHV)
+
+###### Community Health Worker (CHW)
 
 "The umbrella term 'Community Health Worker' embraces a variety of community health aides selected, trained and working in the communities from which they come" ([WHO, 2007](https://www.hrhresourcecenter.org/node/1587.html)). CHWs may be men or women, young or old, with high or low levels of literacy, salaried or volunteer, full-time or part-time. CHWs are fundamental to the provision of primary preventive and curative health care, especially in rural areas where higher-level health professionals may not be available.
 
-##### Data for Decision-Making (DDM)
+## D
 
-##### Department for International Development (UK) (DFID)
+###### Data for Decision-Making (DDM)
 
-##### Digital Health Atlas (DHA)
+###### Department for International Development (UK) (DFID)
 
-##### Digital Solutions for Malaria Elimination (DSME)
+###### Digital Health Atlas (DHA)
 
-##### District Health Information System (DHIS)
+###### Digital Solutions for Malaria Elimination (DSME)
 
-##### District Health Office (DHO)
+###### District Health Information System (DHIS)
 
-##### District Nurse (DN)
+###### District Health Office (DHO)
 
-##### Electronic Health Record (EHR)
+###### District Nurse (DN)
 
-##### Estimated Date of Delivery (EDD)
+## E
 
-##### Event Based Surveillance (EBS)
+###### Electronic Health Record (EHR)
 
-##### Family Planning (FP)
+###### Estimated Date of Delivery (EDD)
 
-##### Female Community Health Volunteer (Nepal) (FCHV)
+###### Event Based Surveillance (EBS)
 
-##### Financing Alliance for Health (FAH)
+## F
 
-##### Frontend
+###### Family Planning (FP)
+
+###### Female Community Health Volunteer (Nepal) (FCHV)
+
+###### Financing Alliance for Health (FAH)
+
+###### Frontend
 
 The parts of the software that users see and interact with.
 
-##### Fully Immunized Children (FIC)
+###### Fully Immunized Children (FIC)
 
-##### Health Extension Program (Ethiopia) (HEP)
+## H
 
-##### Health Extension Worker (Ethiopia) (HEW)
+###### Health Extension Program (Ethiopia) (HEP)
 
-##### Health Management Information System (HMIS)
+###### Health Extension Worker (Ethiopia) (HEW)
 
-##### Health Management Team (HMT)
+###### Health Management Information System (HMIS)
 
-##### Health System Challange (HSC)
+###### Health Management Team (HMT)
 
-##### Health Systems Strengthening (HSS)
+###### Health System Challange (HSC)
 
-##### Human Centered Design (HCD)
+###### Health Systems Strengthening (HSS)
 
-##### Human Resources for Health (HRH)
+###### Human Centered Design (HCD)
 
-##### Information & Communication Technology (ICT)
+###### Human Resources for Health (HRH)
 
-##### Integrated Community Case Management (iCCM)
+## I
 
-##### Internet of Things (IoT)
+###### Information & Communication Technology (ICT)
 
-##### Interoperability
+###### Integrated Community Case Management (iCCM)
+
+###### Internet of Things (IoT)
+
+###### Interoperability
 
 Describes the extent to which systems and devices can exchange data, and interpret that shared data.
 
-##### Joint United Nations Programme on HIV/AIDS (UNAIDS)
+## J
 
-##### Last Menstruation Period (LMP)
+###### Joint United Nations Programme on HIV/AIDS (UNAIDS)
 
-##### Last Mile Health (LMH)
+## L
 
-##### Living Goods (LG)
+###### Last Menstruation Period (LMP)
 
-##### Low/Middle Income Country (LMIC)
+###### Last Mile Health (LMH)
 
-##### Machine Learning (ML)
+###### Living Goods (LG)
 
-##### Malaria Rapid Diagnostic Testing (mRDT)
+###### Low/Middle Income Country (LMIC)
 
-##### Malnutrition (Mal)
+## M
 
-##### Maternal Newborn Child Health (MNCH/MCH)
+###### Machine Learning (ML)
 
-##### Maternal and Child Health (MCH)
+###### Malaria Rapid Diagnostic Testing (mRDT)
 
-##### mHealth
+###### Malnutrition (Mal)
+
+###### Maternal Newborn Child Health (MNCH/MCH)
+
+###### Maternal and Child Health (MCH)
+
+###### mHealth
 
 mHealth stands for mobile-based or mobile-enhanced solutions that deliver health. The ubiquity of mobile devices in the developed or developing world presents the opportunity to improve health outcomes through the delivery of innovative medical and health services with information and communication technologies to the farthest reaches of the globe.
 
-##### Minimum Viable Project/Product (MVP)
+###### Minimum Viable Project/Product (MVP)
 
-##### Ministry of Health (MOH)
+###### Ministry of Health (MOH)
 
-##### Monitor and Evaluation (M&E)
+###### Monitor and Evaluation (M&E)
 
-##### Non-Communicable Disease (NCD)
+## N
 
-##### Non-Governmental Organization (NGO)
+###### Non-Communicable Disease (NCD)
 
-##### One Million Community Health Workers Campaign (1MCHW)
+###### Non-Governmental Organization (NGO)
 
-##### Open Data Kit (ODK)
+## O
 
-##### Open Health Initiative (OHI)
+###### One Million Community Health Workers Campaign (1MCHW)
 
-##### Open Medical Record System (OMRS)
+###### Open Data Kit (ODK)
 
-##### Partner
+###### Open Health Initiative (OHI)
+
+###### Open Medical Record System (OMRS)
+
+## P
+
+###### Partner
 
 An organization, company, or public institution overseeing or supporting a health system. We help partners equip health workers, deploy the tools, and improve outcomes in their systems.
 
-##### Partners in Health (PIH)
+###### Partners in Health (PIH)
 
-##### Personal Protective Equipment (PPE)
+###### Personal Protective Equipment (PPE)
 
-##### Postnatal Care (PNC)
+###### Postnatal Care (PNC)
 
-##### Primary Health Care (PHC)
+###### Primary Health Care (PHC)
 
-##### Priority Use Case (PUC)
+###### Priority Use Case (PUC)
 
 Use case that has been prioritized by Medic for continued learning, improvement, and large-scale distribution.
 
-##### Product
+###### Product
 
 Our product is what we deliver to health workers and communities, technology tool(s) and use case(s).
 
-##### Progressive Web App (PWA)
+###### Progressive Web App (PWA)
 
-##### Project
+###### Project
 
 Collaborative endeavor aimed at delivering mobile tools to health workers and improving health systems. Projects typically involve needs assessments, design, configuration, training, post-deployment support, and impact monitoring.
 
-##### Pull Request (PR)
+###### Pull Request (PR)
 
-##### Quality Assurance (QA)
+## Q
 
-##### Service Reporting (SR)
+###### Quality Assurance (QA)
 
-##### Site Reliability Engineer (SRE)
+## S
 
-##### Software as a Service (SaaS)
+###### Service Reporting (SR)
 
-##### Sustainable Development Goals (SDG)
+###### Site Reliability Engineer (SRE)
 
-##### Tool
+###### Software as a Service (SaaS)
+
+###### Sustainable Development Goals (SDG)
+
+## T
+
+###### Tool
 
 Software, hardware, or platform provided to our partners and users, e.g. applications built with CHT, Android app, Analytics.
 
-##### Toolkit
+###### Toolkit
 
 Group of tools, some of which can be deployed together.
 
-##### Traditional Birth Attendant (TBA)
+###### Traditional Birth Attendant (TBA)
 
-##### Training of Trainer (TOT)
+###### Training of Trainer (TOT)
 
-##### Tuberculosis (TB)
+###### Tuberculosis (TB)
 
-##### USAID's Center for Accelerating Innovation and Impact (CII)
+## U
 
-##### United Nations Population Fund (UNFPA)
+###### USAID's Center for Accelerating Innovation and Impact (CII)
 
-##### United States Agency for International Development (USAID)
+###### United Nations Population Fund (UNFPA)
 
-##### Universal Health Coverage (UHC)
+###### United States Agency for International Development (USAID)
 
-##### Universal Health Coverage (UHC)
+###### Universal Health Coverage (UHC)
 
-##### Use Case
+###### Universal Health Coverage (UHC)
+
+###### Use Case
 
 Specific use of tools to achieve a goal in a system, e.g. antenatal care coordination. As described in systems engineering, a use case is a list of action steps to achieve a goal.
 
-##### User Acceptance Testing (UAT)
+###### User Acceptance Testing (UAT)
 
-##### Village Health Teams (VHT)
+## V
 
-##### Village Health Works (VHW)
+###### Village Health Teams (VHT)
 
-##### Women of Reproductive Age (WRA)
+###### Village Health Works (VHW)
 
-##### World Health Organization (WHO)
+## W
+
+###### Women of Reproductive Age (WRA)
+
+###### World Health Organization (WHO)
