@@ -42,7 +42,7 @@ The parts of the software that make the front end happen. These are all hidden f
 
 ###### Community Health Worker (CHW)
 
-"The umbrella term 'Community Health Worker' embraces a variety of community health aides selected, trained and working in the communities from which they come" ([WHO, 2007](https://www.hrhresourcecenter.org/node/1587.html)). CHWs may be men or women, young or old, with high or low levels of literacy, salaried or volunteer, full-time or part-time. CHWs are fundamental to the provision of primary preventive and curative health care, especially in rural areas where higher-level health professionals may not be available.
+"The umbrella term 'Community Health Worker' embraces a variety of community health aides selected, trained and working in the communities from which they come" ([WHO, 2007](https://www.hrhresourcecenter.org/node/1587.html)). CHWs may be any gender, young or old, with high or low levels of literacy, salaried or volunteer, full-time or part-time. CHWs are fundamental to the provision of primary preventive and curative health care, especially in rural areas where higher-level health professionals may not be available.
 
 ## D
 
