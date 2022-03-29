@@ -210,7 +210,7 @@ Collaborative endeavor aimed at delivering mobile tools to health workers and im
 
 ## T
 
-###### Technical Partner
+###### Technical Partner (TP)
 
 ###### Tool
 
