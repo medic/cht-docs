@@ -210,6 +210,8 @@ Collaborative endeavor aimed at delivering mobile tools to health workers and im
 
 ## T
 
+###### Technical Partner
+
 ###### Tool
 
 Software, hardware, or platform provided to our partners and users, e.g. applications built with CHT, Android app, Analytics.
@@ -231,8 +233,6 @@ Group of tools, some of which can be deployed together.
 ###### United Nations Population Fund (UNFPA)
 
 ###### United States Agency for International Development (USAID)
-
-###### Universal Health Coverage (UHC)
 
 ###### Universal Health Coverage (UHC)
 
