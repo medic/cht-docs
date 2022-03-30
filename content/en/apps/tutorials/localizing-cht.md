@@ -336,9 +336,10 @@ Set up the translation for the reply message:
 
 {{< figure src="change-user-language.png" link="change-user-language.png" class="right col-6 col-lg-8" >}}
 
-Change the CHVs language by following: app management > users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
+Change the CHVs language by following: App Management > Users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
 
 <br clear="all">
+
 ### Translating CHT to another language
 
 To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "core/overview/translations" >}}) for reference.
