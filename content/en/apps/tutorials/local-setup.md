@@ -65,7 +65,7 @@ docker-compose up
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once the command is done running, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. 
+Once the command is finished, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. 
 
 You might get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
 
