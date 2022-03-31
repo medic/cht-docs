@@ -25,9 +25,9 @@ When training CHWs, it is critical that they understand when they're using the t
 
 ![App URL in settings](app.url.png)
 
-The URL may not be a good proxy for CHWs to know which instance they're on. Will a CHW looking at  "example.**dev**.medicmobile.org" be able to tell the difference from "example.**app**.medicmobile.org"? To aid  CHWs, consider using a [different icon for the launcher and login](https://docs.communityhealthtoolkit.org/core/guides/android/branding/).
+The URL may not be a good proxy for CHWs to know which instance they're on. Will a CHW looking at  "example.**dev**.medicmobile.org" be able to tell the difference from "example.**app**.medicmobile.org"? To aid  CHWs, consider using a [different icon for the launcher and login]({{< relref "core/guides/android/branding" >}}).
 
-**NB:** A caveat to using the hamburger menu is that the "Logout" option is here. CHWs should be cautious not to click this. Alternatively, "Logout" can be removed [from this menu via `can_log_out_on_android`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-permissions/).
+**NB:** A caveat to using the hamburger menu is that the "Logout" option is here. CHWs should be cautious not to click this. Alternatively, "Logout" can be removed [from this menu via `can_log_out_on_android`]({{< relref "apps/reference/app-settings/user-permissions" >}}).
 
 When publishing documentation on how to use the CHT, be sure to include steps to identify which instance you're on. Consider disseminating laminated copies of key steps so CHWs can easily reference them in the field.
 
@@ -83,7 +83,7 @@ order by n_forms desc;
 
 A limitation of this technique is that CHWs who have not synchronized their device will not show up. In this case, a supervisor proactively checking per above is a better failsafe.
 
-[Tasks for supervisors](https://docs.communityhealthtoolkit.org/apps/features/supervision/#supervisor-tasks) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
+[Tasks for supervisors]({{< relref "apps/features/supervision#supervisor-tasks" >}}) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
 
 ## Remediation
 
