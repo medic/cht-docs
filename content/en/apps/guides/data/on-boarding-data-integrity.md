@@ -122,7 +122,7 @@ In the case that production data has been entered into a training instance, care
     ```
     cat uuids-2.txt | jq --raw-input --slurp '{keys: split("\n") }' | curljz -d@- "$COUCH_URL/medic/_all_docs?include_docs=true" | jq '{docs: [ .rows[] | select(.doc).doc ]}' > docs.json
     ```
-7. Change the fields by deleting "_rev" field and also "_attachments" if uploading in a different instance.
+7. Change the fields by deleting "_rev" field and also "_attachments" if uploading in a different instance. This can be carefully done by manually editing the JSON locally before uploading.
 8. Change the COUCH_URL to be your production instance by setting another export:
     ```
     export COUCH_URL=http://admin:pass@instance.app.medicmobile.org
