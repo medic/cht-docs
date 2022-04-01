@@ -54,7 +54,7 @@ module.exports = [{
 
 The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "apps/reference/tasks#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
 
-* `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule. We will look at this more in [Configuring Tasks - Part 4]({{ < ref "apps/tutorials/tasks-4" >}}).
+* `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule.
 * `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
 * `icon` - This references a [resource]({{< ref "apps/reference/resources" >}}) to be used as the task's icon. Refer to [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
 * `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets]({{< ref "apps/guides/tasks/task-schema-parameters" >}}).
