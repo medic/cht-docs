@@ -35,6 +35,14 @@ For example:
 }
 ```
 
+### medic-logs
+
+Stores a record of when a user last attempted to replicate and how many docs they have access to. This can be useful when trying to diagnose issues with users getting too much access, or being unable to complete replication because their access is too broad.
+
+### medic-vault
+
+Stores CHT credentials for authenticating with third party services. These credentials are encrypted for safety, and can only be updated using the [Credentials API](/apps/reference/api#put-apiv1credentials).
+
 ### medic-user-{username}-meta
 
 Used for documents which are only relevant to a single user, including:
