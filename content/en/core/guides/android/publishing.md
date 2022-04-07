@@ -54,3 +54,7 @@ We are still investigating the viability of this distribution method, but in the
 This gives the IT administrator full control over which applications are installed on the devices in the program. MDM is recommended when you want complete control over the software and configuration.
 
 There are several providers to choose from with a range of features and prices so it is recommend to do your own research and pick the one that's right for you.
+
+### Progressive Web App
+
+Another alternative is to install the CHT Core webapp as a Progressive Web App. This avoids building an Android application altogether. Read more on the [PWA page]({{< relref "core/overview/pwa" >}}).
