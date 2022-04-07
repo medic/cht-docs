@@ -47,7 +47,7 @@ This method gives an app developer full control over installation. It is also po
 
 F-Droid is a free open source application store which gives the app developer more control over the listing. As it isn't installed on Android devices by default it takes a little more effort to set up originally, but is easier than manually sideloading.
 
-We are still investigating the viability of this distribution method, but in the meantime you can learn more on their [website](https://f-droid.org).
+Read more about [Using F-Droid for app distribution](https://medic.org/stories/using-f-droid-for-app-distribution-a-product-experiment/).
 
 ### Mobile Device Management
 

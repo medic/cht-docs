@@ -3,7 +3,7 @@ title: "Installation as a Progressive Web App"
 linkTitle: "Progressive Web App"
 weight: 2
 description: >
-  What does it mean that the CHT Core web application is a Progressive Web App.
+  What it means that the CHT Core web application is a Progressive Web App.
 ---
 
 ## What is a Progressive Web App (PWA)?
@@ -14,11 +14,11 @@ The CHT Core webapp has been developed to be a PWA to give users more choice abo
 
 ## Benefits of PWA installation
 
-Using a PWA avoids the need to build an Android application and publish it to the Play Store which can be cumbersome and slow. This also means there's no need for the user to install or update the Android application.
+Using a PWA avoids the need to build an Android application and publish it to the Play Store which can be cumbersome and slow. This also means there's no need for the user to install or update the Android application as any updates will be downloaded automatically from the CHT server.
 
 In addition you can install PWAs on a wider range of devices, for example, desktop computers.
 
-Deployments can also use a mixture of PWA and Android applications.
+Deployments can use a mixture of PWA and Android applications.
 
 ## Benefits of Android applications
 
