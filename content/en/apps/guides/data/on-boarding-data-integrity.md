@@ -13,7 +13,9 @@ This best practices guide should not be followed verbatim.  Instead, it is impor
 
 ## Introduction
 
-When onoarding CHWs or refreshing their training, it is important to enable them to learn how to use the CHT using a real mobile device with a real CHT Android application on the exact same configuration as production will use. This will give them the confidence to correctly and safely use the app to do their first household visits. This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to go install and log into the production app when training has been completed.
+Education community health workers to know the deployment's workflows is critical to delivering reliable and accurate care to a community. When onoarding or refreshing their training, it is important to enable them to learn how to use the CHT using a real mobile device with a real CHT Android application on the exact same configuration as production will use. This will give them the confidence to correctly and safely use the app to do their first household visits. 
+
+This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to go install and log into the production app when training has been completed.
 
 Just as important, is to ensure their training data does not end up polluting production data.
 
