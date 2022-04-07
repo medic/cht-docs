@@ -25,7 +25,7 @@ When training CHWs, it is critical that they understand when they're using the t
 
 ![App URL in settings](app.url.png)
 
-The URL may not be a good proxy for CHWs to know which instance they're on. Will a CHW looking at  "example.**dev**.medicmobile.org" be able to tell the difference from "example.**app**.medicmobile.org"? To aid  CHWs, consider using a [different icon for the launcher and login]({{< relref "core/guides/android/branding" >}}).
+The URL may not be a good proxy for CHWs to know which instance they're on. Will a CHW looking at  "**dev**.example.org" be able to tell the difference from "**app**.example.org"? To aid  CHWs, consider using a [different icon for the launcher and login]({{< relref "core/guides/android/branding" >}}).
 
 **NB:** A caveat to using the hamburger menu is that the "Logout" option is here. CHWs should be cautious not to click this. Alternatively, "Logout" can be removed [from this menu via `can_log_out_on_android`]({{< relref "apps/reference/app-settings/user-permissions" >}}).
 
@@ -95,7 +95,7 @@ In the case that production data has been entered into a training instance, care
     alias ts='date -u +"%Y-%m-%dT%H:%M:%SZ"'
     alias curlj="curl -H 'content-type:application/json'"
     alias curljz="curl --compressed -H 'content-type:application/json'"
-    export COUCH_URL=https://admin:pass@instance.dev.medicmobile.org
+    export COUCH_URL=https://admin:pass@dev.example.org
     ```
 
 2. Ensure affected CHWs have synced their devices to the development instance one last time. If they have been offline for some time and gathered production data, signing out or deleting the app before synchronizing may result in lost data.
@@ -125,7 +125,7 @@ In the case that production data has been entered into a training instance, care
 7. Change the fields by deleting "_rev" field and also "_attachments" if uploading in a different instance. This can be carefully done by manually editing the JSON locally before uploading.
 8. Change the COUCH_URL to be your production instance by setting another export:
     ```
-    export COUCH_URL=http://admin:pass@instance.app.medicmobile.org
+    export COUCH_URL=http://admin:pass@app.example.org
     ```
 9. Upload the docs, for example, the following command adds a field (updated=true) to the docs and uploads them:
     ```
