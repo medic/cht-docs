@@ -13,7 +13,7 @@ This best practices guide should not be followed verbatim.  Instead, it is impor
 
 ## Introduction
 
-When on-boarding CHWs or refreshing their training, it is important to enable them to learn how to use the CHT using a real mobile device with a real CHT Android application on the exact same configuration as production will use. This will give them the confidence to correctly and safely use the app to do their first household visits. This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to go install and log into the production app when training has been completed.
+When onoarding CHWs or refreshing their training, it is important to enable them to learn how to use the CHT using a real mobile device with a real CHT Android application on the exact same configuration as production will use. This will give them the confidence to correctly and safely use the app to do their first household visits. This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to go install and log into the production app when training has been completed.
 
 Just as important, is to ensure their training data does not end up polluting production data.
 
@@ -37,7 +37,7 @@ CHWs will have different comfort levels with smartphones. Take note of which CHW
 
 ## Escalation
 
-Another common issue with on-boarding is a CHW who is unable to log into either the training or production instance. The lack of data can be just as bad as the right data in the wrong location. Ensure CHWs know who to contact when they have an issue, including when they can not log into the CHT. By using direct contact methods like SMS, WhatsApp or other non-CHT communication methods, the CHW can let their supervisor know they're having issues without waiting hours or days to get logged back into the CHT.
+Another common issue with onoarding is a CHW who is unable to log into either the training or production instance. The lack of data can be just as bad as the right data in the wrong location. Ensure CHWs know who to contact when they have an issue, including when they can not log into the CHT. By using direct contact methods like SMS, WhatsApp or other non-CHT communication methods, the CHW can let their supervisor know they're having issues without waiting hours or days to get logged back into the CHT.
 
 ## Proactive Approaches
 
