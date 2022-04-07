@@ -59,6 +59,11 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | note | r_followup_note | ${r_followup_instructions} |
 | end group |
 
+**Note:** If the form uses a file picker to upload any type of file, and it is accessed by using CHT Android, then include the `READ_EXTERNAL_STORAGE` permission in order to access the files in the device. To enable this permission add the following line in the branded app's `AndroidManifest.xml`.
+```
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
+
 ### Supported XLSForm Meta Fields
 [XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
 
@@ -118,7 +123,10 @@ Example of getting the data from the contact and assigning it to the fields necc
 
 _Available in +3.13.0_
 
-This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. 
+This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. This widget requires the `READ_EXTERNAL_STORAGE` permission in CHT Android to work properly, to enable this permission add the following line in the branded app's `AndroidManifest.xml`.
+```
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
 
 Use the Android App Launcher widget in a form to configure an intent to launch an Android app installed in the mobile device. The widget will send values from input fields type `text` to the app and will assign the app's response into output fields type `text`. The only supported field type is `text`. The widget will automatically display a button to launch the app.
 
