@@ -27,7 +27,7 @@ When training CHWs, it is critical that they understand when they're using the t
 
 The URL may not be a good proxy for CHWs to know which instance they're on. Will a CHW looking at  "**dev**.example.org" be able to tell the difference from "**app**.example.org"? To aid  CHWs, consider using a [different icon for the launcher and login]({{< relref "core/guides/android/branding" >}}).
 
-**NB:** A caveat to using the hamburger menu is that the "Logout" option is here. CHWs should be cautious not to click this. Alternatively, "Logout" can be removed [from this menu via `can_log_out_on_android`]({{< relref "apps/reference/app-settings/user-permissions" >}}).
+{{% alert title="Note" %}}Careful when selecting **About** to not select **Logout**. If accidental log outs are a frequent problem the logout option can be removed [from the menu by setting `can_log_out_on_android` to false]({{< relref "apps/reference/app-settings/user-permissions" >}}).{{% /alert %}}
 
 When publishing documentation on how to use the CHT, be sure to include steps to identify which instance you're on. Consider disseminating laminated copies of key steps so CHWs can easily reference them in the field.
 
