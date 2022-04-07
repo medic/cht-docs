@@ -188,6 +188,8 @@ Our product is what we deliver to health workers and communities, technology too
 
 ###### Progressive Web App (PWA)
 
+More information on the [PWA page]({{< relref "core/overview/pwa" >}}).
+
 ###### Project
 
 Collaborative endeavor aimed at delivering mobile tools to health workers and improving health systems. Projects typically involve needs assessments, design, configuration, training, post-deployment support, and impact monitoring.
