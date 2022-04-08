@@ -9,7 +9,7 @@ description: >
 
 When onboarding new users, having a dedicated CHT app and instance for training can be helpful; it allows new users to do training exercises with mock data to get familiar with the app, while not having the data from their training interfering with the future use of their CHT app. Different approaches are possible, such as only entering real patient data during training, or manually deleting all the training data, but these methods are less practical for large deployments.
 
-{{% alert title="Note" %}}The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]() can help to monitor and remediate training data being in the production instance, or the opposite.{{% /alert %}}
+{{% alert title="Note" %}}The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]({{< relref "apps/guides/data/fixing-data-in-wrong-location" >}}) can help to monitor and remediate training data being in the production instance, or the opposite.{{% /alert %}}
 
 ### Setting up a training app
 
