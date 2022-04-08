@@ -8,13 +8,15 @@ description: >
 ---
 
 
+After [onboarding CHWs]({{< relref "apps/guides/onboarding" >}}), sometimes data ends up on the wrong CHT instance.  There's some passive and active actions you can take to help deal with this situation.
+
 ## Monitoring
 
-To ensure CHWs erroneously using the training instance enter as little production data as possible, consider different monitoring solutions. By catching the problem early, it may be easy to fix manually which avoids more laborious fixes on the command line for admins.
+Monitoring is a good way to see if CHWs are sending forms to the wrong CHT server. By catching such a problem early, it may be easy to fix manually which avoids more laborious fixes on the command line for admins.
 
-Direct monitoring by Supervisors can be achieved via checking in with each CHW as they register their first household. If each CHW is given a deadline to do this, the Supervisor can follow up directly after the deadline with any CHWs who have not achieved this goal.
+Supervisors can actively monitor CHWs as they register their first household. If each CHW is given a deadline to do this, the Supervisor can follow up promptly with CHWs who have not met the deadline.
 
-From an administrative perspective, queries can be run on the Postgres instance that couch2pg is populating. Assuming the date to stop using the training instance ended on 2020-09-14, this SQL query would show users on the instance later than that day:
+From an administrative perspective, passive monitoring can be done by querying the Postgres instance that [couch2pg](https://github.com/medic/cht-couch2pg/) is populating. If `2020-09-14` was the date to stop use the training instance, this SQL query would show CHWs using the wrong instance after `2020-09-14`:
 
 ```shell
 with forms as (
