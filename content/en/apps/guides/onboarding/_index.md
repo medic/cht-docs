@@ -11,7 +11,7 @@ When onboarding new users, having a dedicated CHT app and instance for training 
 
 {{% alert title="Note" %}}The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]({{< relref "apps/guides/data/fixing-data-in-wrong-location" >}}) can help to monitor and remediate training data being in the production instance, or the opposite.{{% /alert %}}
 
-### Setting up a training app
+## Setting up a training app
 
 A separate Android App can be created for training, which would point to a CHT instance dedicated to training. The training instance should have the same configuration as the production instance, and have users created for training. To differentiate the Android app used for training from the production one, create a duplicate of [your flavor]({{< relref "core/guides/android/branding" >}}) and modify the following aspects
 - **App ID**: If you want to allow both apps to be on a device at once you will need to make sure your training app has a different `applicationId`. If you want to prevent having both the training and production apps installed at the same time keep these values the same.
