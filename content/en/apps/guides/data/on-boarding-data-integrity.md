@@ -15,7 +15,7 @@ This best practices guide should not be followed verbatim.  Instead, it is impor
 
 Education community health workers to know the deployment's workflows is critical to delivering reliable and accurate care to a community. When onoarding or refreshing their training, it is important to enable them to learn how to use the CHT using a real mobile device with a real CHT Android application on the exact same configuration as production will use. This will give them the confidence to correctly and safely use the app to do their first household visits. 
 
-This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to go install and log into the production app when training has been completed.
+This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to [install and log into the production app](https://docs.communityhealthtoolkit.org/apps/concepts/access/) when training has been completed.
 
 Just as important, is to ensure their training data does not end up polluting production data.
 
@@ -23,7 +23,17 @@ On-boarding is not a one-size-fits-all process. Be sure to assess which of the i
 
 ## Training and Documentation
 
-When training CHWs, it is critical that they understand when they're using the training instance vs. the production instance. Consider adding a step to training documentation of "Ensure you're in the training app by confirming the 'URL' in 'About' under the hamburger menu". While laborious, it is a relatively quick check which empowers the CHW to know which instance they're using:
+When training CHWs, it is critical that they understand when they're using the training instance vs. the production instance. Consider adding a step to training documentation with explicit steps to take to tell which instance they're on.
+
+One option is to train CHWs to know the launcher icon for the [unbranded CHT Android app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_CA&gl=US). This app can accepts the URL for any valid CHT instance, so is easy to use for training, and then uninstall when training is complete. 
+
+Here is a screenshot of the login screen and launcher icon from the unbranded app:
+
+![CHT Login screen](login-screen.png)
+
+![CHT launcher icon](launcher.jpg)
+
+Another option would be to have steps like, "Ensure you're in the training app by confirming the 'URL' in 'About' under the hamburger menu". While laborious, it is a relatively quick check which empowers the CHW to know which instance they're using:
 
 ![App URL in settings](app.url.png)
 
