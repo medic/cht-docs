@@ -1,9 +1,9 @@
 ---
-title: "Fixing data on the wrong server"
-linkTitle: "Fixing data on the wrong server"
+title: "Detecting and fixing data on the wrong server"
+linkTitle: "Detecting and fixing data on the wrong server"
 weight: 15
 description: >
-    What to do when training data ends up in production and vise versa.
+    How to detect and what to do when training data ends up in production or production data ends up on training.
 
 ---
 
@@ -14,7 +14,11 @@ After [onboarding CHWs]({{< relref "apps/guides/onboarding" >}}), sometimes data
 
 Monitoring is a good way to see if CHWs are sending forms to the wrong CHT server. By catching such a problem early, it may be easy to fix manually which avoids more laborious fixes on the command line for admins.
 
+### Manual device checks
+
 Supervisors can actively monitor CHWs as they register their first household. If each CHW is given a deadline to do this, the Supervisor can follow up promptly with CHWs who have not met the deadline.
+
+### Centralized database checks
 
 From an administrative perspective, passive monitoring can be done by querying the Postgres instance that [couch2pg](https://github.com/medic/cht-couch2pg/) is populating. If `2020-09-14` was the date to stop use the training instance, this SQL query would show CHWs using the wrong instance after `2020-09-14`:
 
@@ -47,6 +51,8 @@ order by n_forms desc;
 ```
 
 A limitation of this technique is that CHWs who have not synchronized their device will not show up. In this case, a supervisor proactively checking per above is a better failsafe.
+
+### CHT based supervisor tasks
 
 [Tasks for supervisors]({{< relref "apps/features/supervision#supervisor-tasks" >}}) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
 
