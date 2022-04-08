@@ -18,7 +18,7 @@ A separate Android App can be created for training, which would point to a CHT i
 - **CHT Instance**: Set the `app_host` string to be the URL of your training instance, otherwise it will in effect be the same as using the production app. 
 - **Launcher icons**: Consider using completely different icons, or at least change the color of the launcher icons.
 - **App name**: Provide a noticeably different name to the training app. Since app names are often cut short on Android devices, make the change at beginning of the text. For example, `[TRAINING] CHW App` would be better than `CHW App [TRAINING VERSION]`, since the latter may only display as `CHW App...`.
-- **Border & Message**: Consider adding a distinctive border and message when using the training app. This might be done in a more automated way in future versions of CHT Android, and in the meantime can be [modelled after this example]().
+- **Border & Message**: Consider adding a distinctive border and message when using the training app. This might be done in a more automated way in future versions of CHT Android, and in the meantime can be [modeled after this example](https://github.com/medic/cht-android/commit/8d077ed08dc3889ef1f4e3bad7231931bca55d87).
 
    ![CHT with border](border.png)
 
