@@ -31,4 +31,4 @@ If the production app can always be installed after the use of the training is c
 
 Changing passwords for the training users in an attempt to lock them out is not recommended. In some circumstances a user would be able to continue to use the training app for production use and not have the data sync back to the server.
 
-It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity]() that can be brought over to the production instance if needed.
+It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity](< relref "apps/guides/data/fixing-data-in-wrong-location" >}}) that can be brought over to the production instance if needed.
