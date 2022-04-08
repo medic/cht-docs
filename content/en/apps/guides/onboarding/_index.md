@@ -1,71 +1,34 @@
 ---
-title: "Onboarding"
-linkTitle: "Onboarding Best Practices"
+title: "Training App"
+linkTitle: "Using a Training App"
 weight: 15
 description: >
-   How to ensure training data ends up in training and production data ends up production.
+   Best practices when using a Training App to keep training and production data apart
 
 ---
 
-{{% pageinfo %}}
-This best practices guide should not be followed verbatim.  Instead, it is important to review each suggestion and assess if your deployment can benefit from it.
-{{% /pageinfo %}}
+When onboarding new users, having a dedicated CHT app and instance for training can be helpful; it allows new users to do training exercises with mock data to get familiar with the app, while not having the data from their training interfering with the future use of their CHT app. Different approaches are possible, such as only entering real patient data during training, or manually deleting all the training data, but these methods are less practical for large deployments.
 
-## Introduction
+{{% alert title="Note" %}}The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]() can help to monitor and remediate training data being in the production instance, or the opposite.{{% /alert %}}
 
-Education community health workers to know the deployment's workflows is critical to delivering reliable and accurate care to a community. When onoarding or refreshing their training, it is important to enable them to learn how to use the CHT using a real mobile device with a real CHT Android application on the exact same configuration as production will use. This will give them the confidence to correctly and safely use the app to do their first household visits.
+### Setting up a training app
 
-This guide assumes that CHWs will have both a training and production app installed at the same time, or the CHW will be instructed to [install and log into the production app](https://docs.communityhealthtoolkit.org/apps/concepts/access/) when training has been completed.
-
-Just as important, is to ensure their training data does not end up polluting production data.
-
-On-boarding is not a one-size-fits-all process. Be sure to assess which of the items below meet your deployment's needs and implement them accordingly. Within this assessment, consider if extra set up is needed (eg couch2pg hooked up to training) to enable the size you need to fit your deployment.
-
-## Training and Documentation
-
-When training CHWs, it is critical that they understand when they're using the training instance vs. the production instance. Consider adding a step to training documentation with explicit steps to take to tell which instance they're on.
-
-When publishing documentation on how to use the CHT, be sure to include steps to identify which instance you're on. Consider disseminating laminated copies of key steps so CHWs can easily reference them in the field.
-
-Checklists for Admins, Supervisors and CHWs to follow can be extremely helpful to ensure no critical steps are missed during training. An important part of this checklist will be to set up and test communication methods and groups to be used during escalation.
-
-CHWs will have different comfort levels with smartphones. Take note of which CHWs are more fluent using the CHT and smartphones in general. Encourage CHWs to work together to solve problems with members of their training cohort which will take less time than the escalation process.
-
-### Use of Unbranded App 
-
-One option is to train CHWs to know the launcher icon for the [unbranded CHT Android app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_CA&gl=US). This app can accepts the URL for any valid CHT instance, so is easy to use for training, and then uninstall when training is complete.
-
-Here is a screenshot of the login screen and launcher icon from the unbranded app:
-
-![CHT Login screen](login-screen.png)
-
-![CHT launcher icon](launcher.jpg)
-
-### Checking for Version
-
-Another option would be to have steps like, "Ensure you're in the training app by confirming the 'URL' in 'About' under the hamburger menu". While laborious, it is a relatively quick check which empowers the CHW to know which instance they're using:
-
-![App URL in settings](app.url.png)
-
-The URL may not be a good proxy for CHWs to know which instance they're on. Will a CHW looking at  "**dev**.example.org" be able to tell the difference from "**app**.example.org"? 
-
-{{% alert title="Note" %}}Careful when selecting **About** to not select **Logout**. If accidental log outs are a frequent problem the logout option can be removed [from the menu by setting `can_log_out_on_android` to false]({{< relref "apps/reference/app-settings/user-permissions" >}}).{{% /alert %}}
-
-### Branding
-
-To aid  CHWs, consider using a [different icon for the launcher and login]({{< relref "core/guides/android/branding" >}}) by building a separate CHT Android app for training and produciton.  Additionally, by updating the URL CHT Android checks for, you can show a red border around all screens when using the training instance:
+A separate Android App can be created for training, which would point to a CHT instance dedicated to training. The training instance should have the same configuration as the production instance, and have users created for training. To differentiate the Android app used for training from the production one, create a duplicate of your brand, and modify the following aspects:
+- **App ID**: If you want to allow both apps to be on a device at once you will need to make sure your training app has a different `applicationId`. If you want to prevent having both the training and production apps installed at the same time keep these values the same.
+- **CHT Instance**: Set the `app_host` string to be the URL of your training instance, otherwise it will in effect be the same as using the production app. 
+- **Launcher icons**: Consider using completely different icons, or at least change the color of the launcher icons.
+- **App name**: Provide a noticeably different name to the training app. Since app names are often cut short on Android devices, make the change at beginning of the text. For example, `[TRAINING] CHW App` would be better than `CHW App [TRAINING VERSION]`, since the latter may only display as `CHW App...`.
+- **Border & Message**: Consider adding a distinctive border and message when using the training app. This might be done in a more automated way in future versions of CHT Android, and in the meantime can be [modelled after this example]().
 
 ![CHT with border](border.png)
 
-To enable this border, in step 2 of ["Building CHT Android Flavors"]({{< relref "core/guides/android/branding" >}}), edit the `main/java/org/medicmobile/webapp/mobile/EmbeddedBrowserActivity.java` file so that line 89 has the training URL of your CHT instance. When you go on to build your APK, the app will show the border as seen above.
 
-## Escalation
+## Switching from training to production app
 
-Another common issue with onoarding is a CHW who is unable to log into either the training or production instance. The lack of data can be just as bad as the right data in the wrong location. Ensure CHWs know who to contact when they have an issue, including when they can not log into the CHT. By using direct contact methods like SMS, WhatsApp or other non-CHT communication methods, the CHW can let their supervisor know they're having issues without waiting hours or days to get logged back into the CHT.
+To avoid having production data in the training app, it is encouraged to **remove** the training app from the device once training is complete. 
 
-## Ending training successfully 
+If the production app can always be installed after the use of the training is complete, then using the same `applicationId` guarantees that only one of the apps is installed at any given time.
 
-By directly uninstalling the training application from a CHWs device, you will ensure they can not use it to collect production data. While the ability to easily do a refresher training is also removed, it may be a worthwhile trade off.
+Changing passwords for the training users in an attempt to lock them out is not recommended. In some circumstances a user would be able to continue to use the training app for production use and not have the data sync back to the server.
 
-Changing the password of users in the CHT on the training instance will prevent them from synchronizing data to the training instance. Use care when using this password changing approach: if a CHW goes for a long time offline collecting production data, when they come online they will not be able to access the production data stored on their device. To avoid this, couple it with monitoring solutions listed above. Otherwise, the password change is a direct and unmistakable signal that the CHW is using the wrong instance.
-
+It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity]() that can be brought over to the production instance if needed.
