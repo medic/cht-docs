@@ -8,8 +8,6 @@ description: >
 ---
 
 
-
-
 ## Monitoring
 
 To ensure CHWs erroneously using the training instance enter as little production data as possible, consider different monitoring solutions. By catching the problem early, it may be easy to fix manually which avoids more laborious fixes on the command line for admins.
