@@ -20,7 +20,7 @@ A separate Android App can be created for training, which would point to a CHT i
 - **App name**: Provide a noticeably different name to the training app. Since app names are often cut short on Android devices, make the change at beginning of the text. For example, `[TRAINING] CHW App` would be better than `CHW App [TRAINING VERSION]`, since the latter may only display as `CHW App...`.
 - **Border & Message**: Consider adding a distinctive border and message when using the training app. This might be done in a more automated way in future versions of CHT Android, and in the meantime can be [modelled after this example]().
 
-![CHT with border](border.png)
+   ![CHT with border](border.png)
 
 
 ## Switching from training to production app
