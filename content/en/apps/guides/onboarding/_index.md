@@ -9,7 +9,7 @@ description: >
 
 When onboarding new users, having a dedicated CHT app and instance for training can be helpful; it allows new users to do training exercises with mock data to get familiar with the app, while not having the data from their training interfering with the future use of their CHT app. Different approaches are possible, such as only entering real patient data during training, or manually deleting all the training data, but these methods are less practical for large deployments.
 
-{{% alert title="Note" %}}The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]({{< relref "apps/guides/data/fixing-data-in-wrong-location" >}}) can help to monitor and remediate training data being in the production instance, or the opposite.{{% /alert %}}
+{{% alert title="Note" %}}The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]({{< relref "apps/guides/data/training-instance" >}}) can help to monitor and remediate training data being in the production instance, or the opposite.{{% /alert %}}
 
 ## Setting up a training app
 
@@ -31,4 +31,4 @@ If the production app can always be installed after the use of the training is c
 
 Changing passwords for the training users in an attempt to lock them out is not recommended. In some circumstances a user would be able to continue to use the training app for production use and not have the data sync back to the server.
 
-It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity]({{< relref "apps/guides/data/fixing-data-in-wrong-location" >}}) that can be brought over to the production instance if needed.
+It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity]({{< relref "apps/guides/data/training-instance" >}}) that can be brought over to the production instance if needed.
