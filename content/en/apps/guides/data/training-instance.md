@@ -1,14 +1,13 @@
 ---
-title: "Detecting and fixing data on the wrong server"
-linkTitle: "Detecting and fixing data on the wrong server"
+title: "Detecting and fixing production data on training instances"
+linkTitle: "Training Instance"
 weight: 15
 description: >
-    How to detect and what to do when training data ends up in production or production data ends up on training.
-
+    How to monitor for production data on a training instance, and remediation techniques 
+    
 ---
 
-
-After [onboarding CHWs]({{< relref "apps/guides/onboarding" >}}), sometimes data ends up on the wrong CHT instance.  There's some passive and active actions you can take to help deal with this situation.
+After [onboarding CHWs]({{< relref "apps/guides/onboarding" >}}), sometimes data ends up on the wrong CHT instance. There are some passive and active actions you can take to help deal with this situation.
 
 ## Monitoring
 
