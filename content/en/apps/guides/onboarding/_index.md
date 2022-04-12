@@ -28,7 +28,7 @@ A separate Android App can be created for training, which would point to a CHT i
    }
    ```
 
-   ![CHT with border](border.png)
+   {{< figure src="training-app.png" link="training-app.png" alt="CHT training app with border and message" title="Training App" class="col-6 col-lg-3" >}}
 
 
 ## Switching from training to production app
