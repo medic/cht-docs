@@ -4,6 +4,9 @@ linkTitle: "Onboarding"
 weight: 15
 description: >
    Best practices when using a Training App to keep training and production data apart
+relatedContent: >
+  core/guides/android/branding/
+  apps/examples/training/
 
 ---
 
