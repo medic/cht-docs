@@ -47,7 +47,7 @@ Review your notes, pictures, audio, and video from your research/fieldwork and f
 
  *****
 
-### 2. Synthesise Needs
+### 2. Synthesize Needs
 
 Look for the following within your data to identify your users’ needs:
 
@@ -61,7 +61,7 @@ Write down user’s needs.
 
  *****
 
-### 3. Synthesise Insights
+### 3. Synthesize Insights
 
 Look to synthesize major insights, especially from contradictions between two user attributes. It can be found within one quadrant or in two different quadrants.
 
