@@ -56,7 +56,7 @@ Users may log out by going to the options menu available in the top right corner
 {{< figure src="login-desktop.png" link="login-desktop.png" class="left col-9 col-lg-9" >}}
 
 
-## Magic Links for Logging In
+## Magic Links for Logging In (Token Login)
 
 {{< figure src="admin.png" link="admin.png" class="right col-6 col-lg-9" >}}
 
@@ -67,6 +67,7 @@ By clicking the magic link to log in, the user is able to enter their project's 
 To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
 
 {{< see-also page="apps/examples/training" >}}
+{{< see-also page="apps/reference/app-settings/token_login" >}}
 
 
 {{< figure src="link.png" link="link.png" class="left col-3 col-lg-3" >}}
