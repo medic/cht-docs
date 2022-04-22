@@ -117,18 +117,3 @@ _You have been identified as someone with significant expertise and experience, 
 _We have come to the end of the interview. Do you have anything to add that you feel we have not covered?_
 
 _Thank you so much for taking the time to speak with me today. Learning about how you conduct supervision and reporting activities will really help us understand how to create solutions to support your work. If you think of anything else or you have any questions, you are more than welcome to get in touch. I also want to ask if we can contact you again if we think of other questions or if something is unclear. Is that alright?_
-
-{{% alert title="Observation checklist" %}}
-During this exercise please make sure the supervisor knows and understands you are not evaluating them, you are only observing to identify areas where you may be able to help.
-
-1. Observe how well prepared the supervisor is for field visit
-2. Observe the supervisor filling the individual field visit form and
-
-- note how long it takes,
-- note any areas the supervisor has trouble or skips over some questions,
-- identify how the supervisor navigates the phone and opens the application,
-- observe how much time is spent with a CHW,
-- observe the flow of conversation between the supervisor and CHW,
-- note anything the supervisor adds to the conversation/ combines some concepts, and
-- observe the interpretation and probing skills of supervisor while asking questions
-{{% /alert %}}
