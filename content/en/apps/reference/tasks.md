@@ -13,7 +13,9 @@ keywords: tasks workflows
 
 ![task](task-with-description.png)
 
-Tasks are configured in the `tasks.js` file. This file is a JavaScript module which defines an array of objects conforming to the Task schema detailed below. When defining tasks, all the data about contacts on the device (both people and places) along with all their reports are available. Tasks are available only for users of type "restricted to their place". Tasks can pull in fields from reports and pass data as inputs to the form that opens when the task is selected, enabling richer user experiences.
+Task generation is configured in the `tasks.js` file. This file is a JavaScript module which defines an array of objects conforming to the Task schema detailed below. When defining tasks, all the data about contacts on the device (both people and places) along with all their reports are available. Tasks are available only for users of type "restricted to their place". Tasks can pull in fields from reports and pass data as inputs to the form that opens when the task is selected, enabling richer user experiences.
+
+Task generation occurs on the client periodically and creates documents which track the status of the task over time. To avoid performance issues the developer needs to be conscious about generating too many tasks. For example, to remind a user to do something every day, you could generate one task for each day and fill up the user's device. The recommended approach is to only generate the tasks for the near future, or only once the previous task is resolved. To limit the impact of this misconfiguration, the CHT will only generate tasks that can be completed between 60 days in the past, and (as of 4.0.0) 180 days in the future.
 
 {{< see-also page="apps/features/tasks" title="Tasks Overview" >}}
 
