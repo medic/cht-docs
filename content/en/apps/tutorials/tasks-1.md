@@ -89,7 +89,7 @@ Tasks are only available to [offline users]({{< ref "apps/concepts/users#offline
 
 Create a new contact in the hierarchy and navigate to the `Tasks` tab. You should see the new `assessment-after-registration` task!
 
-{{< figure src="first-task.jpg" link="first-task.jpg" >}}
+{{< figure src="first-task.png" link="first-task.png" >}}
 
 Next, test a few of the expected behaviours for the task:
 
