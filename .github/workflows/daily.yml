@@ -10,7 +10,7 @@ on:
     # runs at 3:15am every day:
 #    - cron:  '15 3 * * *'
     # runs every 5 min
-#    - cron:  '*/5 * * * *'
+    - cron:  '*/5 * * * *'
 
 name: Test site and push live if we're on Master
 jobs:
