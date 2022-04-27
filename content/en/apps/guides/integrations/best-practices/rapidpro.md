@@ -37,7 +37,7 @@ Ensure that you install the maximum number of SMS packs (available in the  Rapid
    3. Alerts for when things go wrong. 
       - Send monitoring emails and alert various parties when the Android Channel goes to sleep or becomes unavailable. This can be done from the channel's management page under `Alert Email`
 
-Android channels can be [used with a bulk sender](https://help.nyaruka.com/en/articles/5153032-using-a-bulk-sender) to get past the 330 outgoing messages per hour.
+Android channels can be [used with a bulk sender](https://help.nyaruka.com/en/article/using-a-bulk-sender-sk27hz/) to get past the 330 outgoing messages per hour.
 
 Medic recommends that you use shared or dedicated shortcodes for SMS messaging. Dedicated shortcodes are preferred because recipients do not have to include the keyword with each response submitted. Shortcode procurement can be a lengthy process, so make arrangements for the shortcode in advance. It is possible but inconvenient to migrate to a shortcode after deployment.
 
@@ -61,7 +61,7 @@ Tips and best practices are listed below:
 - Translate all messages, especially when deploying in a multi-lingual environment. This ensures that respondents fully understand the survey in their language.
 - Beware of the timing of the surveys that directly affects response rates. From experience, sending questions when respondents are busy with their errands during the day ultimately leads to low response rates as opposed to evenings when they are done for the day.
 - Make sure you handle unsolicited responses by redirecting such to, for example, a flow that eventually alerts concerned individuals such as reports of an outbreak.
-- Medic recommends that you use [timeouts](https://help.nyaruka.com/en/articles/2492419-adding-timeouts-to-a-flow) or [pauses](https://blog.textit.in/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows.
+- Medic recommends that you use [timeouts](https://help.nyaruka.com/en/article/adding-timeouts-to-a-flow-1e2oodi/) or [pauses](https://blog.textit.in/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows.
 
 ### Configuration
 - Persist a unique identifier for each respondent entering the flows. This identifier shall be used to link flow runs to the recipients to make data analysis smooth.
@@ -89,7 +89,7 @@ These tests cover the parts that are inaccessible via manual tests. They include
    - Fetch state of contact in RapidPro
    - Wait for document to be created in API
    - Inject document into cht-conf-test-harness
-   - Mock passage of time to test task behaviour
+   - Mock passage of time to test task behavior
    - One e2e test per production scenario
 
 ### Deployment

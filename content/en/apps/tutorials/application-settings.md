@@ -99,7 +99,13 @@ In this example, the `generate_patient_id_on_people` and `death_reporting` trans
 
 ### 3. Set Hierarchy
 
-You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierachy configuration. You can modify existing contact types by editing the objects within the array. {{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}
+You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierarchy configuration. You can modify existing contact types by editing the objects within the array. 
+
+When configuring a new deployment, it's important to plan your hierarchy well.  While there are no limits in the CHT to the hierarchical depth or breadth it will support, there are some trade-offs and caveats:
+* While it it possible to [update the hierarchy configuration]({{< relref "apps/guides/updates/moving-contacts" >}}) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
+* If your hierarchy is too shallow, users will download more docs than are necessary for their work which will impact the performance of the app. Taking the time to get the hierarchy configuration right makes it easy to give users access to only the docs they need.
+
+{{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}
 
 ```json
   "contact_types": [

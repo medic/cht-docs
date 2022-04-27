@@ -9,14 +9,14 @@ description: >
 {{% pageinfo %}}
 This tutorial will take you through building a CHT Android Application off the existing wrapper.
 
-The cht-android application is a thin wrapper to load the CHT Core Framework web application in a webview.
+The CHT Android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
 
 You will be adding a new android flavor based off the [CHT Android](https://github.com/medic/cht-android).
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
-The CHT Android is a native Android container for the Community Health Toolkit (CHT). The repo contains "flavored" configurations, where each "flavor" or "brand" is an app. All apps share the same code and features, but can be customized, hard-coding a specific CHT deployment and have a partner specific logo and display name.
+The CHT Android is a native Android container for the Community Health Toolkit (CHT). The repository contains "flavored" configurations, where each "flavor" or "brand" is an app. All apps share the same code and features, but can be customized, hard-coding a specific CHT deployment and have a partner specific logo and display name.
 
 ## Add a new Brand
 
@@ -47,6 +47,8 @@ To proceed you need to have ready the following:
 
 Also be sure to have a working **[Development Environment]({{< ref "core/guides/android/development-setup" >}})**.
 
+While you should use your own branding, the [CHT logo](./CHT.logo.512.png) is available to use if so desired.
+
 #### Play Store assets
 
 If you are going to publish the app in the **Play Store**, Google will require to provide the following to list the app:
@@ -72,16 +74,22 @@ Once approved you can delete the "test" user, Google conduct the tests only the 
 
 Each branded app has an identifier (_id_) that is used to identify and configure it in different parts of the source code and when invoking some commands. In the instructions below we will use as example the id **`new_brand`**.
 
-1. Add `productFlavors { <new_brand> { ... } }` in [build.gradle](https://github.com/medic/cht-android/blob/master/build.gradle), e.g.:
+1. Check out the tag from the [last stable release](https://github.com/medic/cht-android/releases) in CHT Android repository and create a branch, for example, if the latest stable release is `v0.11.0` and the branch name is `v0.11.0-new-brand`, then the command is:
 
-   ```groovy
-       new_brand {
-         dimension = 'brand'
-         applicationId = 'org.medicmobile.webapp.mobile.new_brand'
-       }
+   ```
+   git checkout v0.11.0 -b v0.11.0-new-brand
    ```
 
-2. Add icons, strings etc. in the `src/<new_brand>` folder. It's required to place there at least the `src/new_brand/res/values/strings.xml` file with the name of the app and the URL of the CHT instance:
+2. Add `productFlavors { <new_brand> { ... } }` in [build.gradle](https://github.com/medic/cht-android/blob/master/build.gradle), e.g.:
+
+   ```groovy
+   new_brand {
+     dimension = 'brand'
+     applicationId = 'org.medicmobile.webapp.mobile.new_brand'
+   }
+   ```
+
+3. Add icons, strings etc. in the `src/<new_brand>` folder. It's required to place there at least the `src/new_brand/res/values/strings.xml` file with the name of the app and the URL of the CHT instance:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -91,7 +99,7 @@ Each branded app has an identifier (_id_) that is used to identify and configure
    </resources>
    ```
 
-3. Enable automated builds of the APKs and AABs: add the `new_brand` flavor in [.github/workflows/publish.yml](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml). The _Unpack secrets  ..._ task unpacks and decrypts the secret file with the keystore (next section), The _Assemble ..._ task takes care of generating the `.apk` files for sideloading, and the _Bundle ..._ task is responsible of generating the `.aab` files for publishing in the Play Store (you can skip the last if you are not going to publish in the Play Store):
+4. Enable automated builds of the APKs and AABs: add the `new_brand` flavor in [.github/workflows/publish.yml](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml). The _Unpack secrets  ..._ task unpacks and decrypts the secret file with the keystore (next section), The _Assemble ..._ task takes care of generating the `.apk` files for sideloading, and the _Bundle ..._ task is responsible of generating the `.aab` files for publishing in the Play Store (you can skip the last if you are not going to publish in the Play Store):
 
    ```yml
        - name: Unpack secrets new_brand
@@ -121,7 +129,7 @@ Each branded app has an identifier (_id_) that is used to identify and configure
            ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_NEW_BRAND }}
    ```
 
-   The variables in the `env` sections point to a keystore and the passwords to unlock the keystore that will be generated in the following steps, but it's important to follow the name convention, in the example all the variables that are configured in Github Actions end with the suffix `_NEW_BRAND`, these variables need to be added in the cht-android repo settings by a manager of Medic.
+   The variables in the `env` sections point to a keystore and the passwords to unlock the keystore that will be generated in the following steps, but it's important to follow the name convention, in the example all the variables that are configured in Github Actions end with the suffix `_NEW_BRAND`, these variables need to be added in the CHT Android repository settings by a manager of Medic.
 
 
 ### 3. Generate a new keystore
@@ -192,17 +200,17 @@ If you want to start over because some of the parameters were wrong, just execut
 
 ### 4. Test locally the keystore
 
-**Want to check the keystore?** here are a few things you must test before upload to the repo:
+**Want to check the keystore?** here are a few things you must test before upload to the repository:
 
 1. To decrypt the content like CI does to sign the app, execute: `make org=new_brand keydec`, it will decrypt and decompress the files removed in the step above. Remember that the environment variables printed in the console needs to be loaded in the CLI. Note that all the variables above end with the suffix `_NEW_BRAND`, as the id of the app that we pass through the `org` argument in lowercase, but if Make found the same variables defined without the prefix, they take precedence over the suffix ones.
 
 2. Execute `make org=new_brand keyprint` to see the certificate content, like the org name, the certificate fingerprints, etc.
 
-3. Sign your app! try locally to build the app with the certificate. To create the Webview versions of the .apk files: `make org=new_brand flavor=New_brandWebview assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brandWebview/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
+3. Sign your app! try locally to build the app with the certificate. To create the .apk files run: `make org=new_brand flavor=New_brand assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brand/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
 
    ```
    $ make keyprint-apk 
-   apksigner verify -v --print-certs build/outputs/apk/new_brandWebview/release/cht-android-SNAPSHOT-new_brand-webview-armeabi-v7a-release.apk
+   apksigner verify -v --print-certs build/outputs/apk/new_brand/release/cht-android-SNAPSHOT-new_brand-arm64-v8a-release.apk
    ... ...
    Verified using v2 scheme (APK Signature Scheme v2): true
    ... ...
@@ -210,16 +218,19 @@ If you want to start over because some of the parameters were wrong, just execut
    Signer #1 certificate SHA-256 digest: 7f072b...
    ```
 
-Also do the same for the bundle format: build and verify, despite the AAB are not useful for local development. In our example, execute first `make org=new_brand flavor=New_brandWebview bundle`, and then `make keyprint-bundle` to see the signature of one of the `.aab` files generated.
+Also do the same for the bundle format: build and verify, despite the AAB are not useful for local development. In our example, execute first `make org=new_brand flavor=New_brand bundle`, and then `make keyprint-bundle` to see the signature of one of the `.aab` files generated.
 
 Because the files generated here are signed with the same key that you are going to use in CI, and the files produced in CI will be uploaded to the Play Store later, any file generated locally following the steps above will be compatible with any installation made from the Play Store, means that if a user install the app from the Play Store, and then we want to replace the installation with an alpha version generated in CI or a local version generated in dev environment, it will work without requiring the user to uninstall the app and lost the data.
 
 
 ### 5. Release the new flavor
 
-Once you have your pull request approved in the cht-android repo, it's recommended to create an alpha version before merge it to master and do the final release.
+Releasing a new flavor requires the following steps:
 
-Checkout the [Release]({{< ref "core/guides/android/releasing#new-flavor-release" >}}) page, where it's explained the different stages and instructions for releasing. The last section _"New flavor release"_ has special instructions of how to release a new brand.
+1. Make a pull request to the release branch in the CHT Android repository.
+2. Once approved it's recommended to create an alpha version to do final tests.
+3. Merge the pull request.
+4. [Release the flavor]({{< ref "core/guides/android/releasing#new-flavor-release" >}}).
 
 ### 6. Publish the app
 

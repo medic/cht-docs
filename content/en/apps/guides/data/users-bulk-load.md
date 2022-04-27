@@ -4,7 +4,17 @@ linkTitle: "Bulk Load Users"
 weight: 15
 description: >
   Notes for how to bulk load users
+aliases:
+  -    /core/guides/users-bulk-load
+relatedContent: >
+  apps/guides/data/csv-to-docs
+
 ---
+
+{{% pageinfo %}}
+This guide shows how to script the user creation process using the [CHT API]({{< relref "apps/reference/api" >}}) directly. User creation can also be scripted using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
+{{% /pageinfo %}}
+
 
 First, using the webapp, create the top level places/facilities like
 districts/branches that the users will belong to.  Save the UUIDs of these

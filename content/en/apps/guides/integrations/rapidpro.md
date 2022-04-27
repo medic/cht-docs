@@ -22,7 +22,7 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 ### Flows
 {{< figure src="flow-concept.png" link="flow-concept.png" class="right col-7 col-lg-5" >}}
 
-[Flows](https://help.nyaruka.com/en/articles/3120713-introduction-to-flows) are a series of steps you link together visually to define the interactions users will have. At any point in the flow, you can trigger actions such as sending an SMS, email, or calling external APIs. Flows are the base for RapidPro's other features.
+[Flows](https://help.nyaruka.com/en/article/introduction-to-flows-1vmh15z/) are a series of steps you link together visually to define the interactions users will have. At any point in the flow, you can trigger actions such as sending an SMS, email, or calling external APIs. Flows are the base for RapidPro's other features.
 
 *Use Case Example:* Send an SMS to a patient asking if they are experiencing any new symptoms today. If so, let the patient know that a CHW will contact them. If not, let the patient know that they will receive another check-in message in three days and to contact their CHW if any new symptoms develop before then.
 
@@ -33,7 +33,7 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 
 {{< figure src="campaign-concept.png" link="campaign-concept.png" class="right col-5" >}}
 
-[Campaigns](https://help.nyaruka.com/en/articles/2217334-introduction-to-campaigns) allow you to schedule messages and flows around a date unique to each contact in a group, like a delivery date or registration date. You can add any number of [Events](https://help.nyaruka.com/en/articles/1911110-adding-a-campaign-event) to the Campaign. 
+[Campaigns](https://help.nyaruka.com/en/article/introduction-to-campaigns-1d71057/) allow you to schedule messages and flows around a date unique to each contact in a group, like a delivery date or registration date. You can add any number of [Events](https://help.nyaruka.com/en/article/adding-a-campaign-event-1amovrz/) to the Campaign.
 
 *Use Case Example:* Send a daily check-in message to quarantined patients for 14 days to see if they have developed any symptoms.
 
@@ -43,11 +43,11 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 
 {{< figure src="trigger-concept.png" link="trigger-concept.png" class="right col-5" >}}
 
-[Triggers](https://help.nyaruka.com/en/articles/1911111-introduction-to-triggers) allow you to control how or when a Flow begins. A Trigger can be a keyword received in a text, a point in time, a missed call, or even a follow to a Twitter handle.
+[Triggers](https://help.nyaruka.com/en/article/introduction-to-triggers-1pm94xb/) allow you to control how or when a Flow begins. A Trigger can be a keyword received in a text, a point in time, a missed call, or even a follow to a Twitter handle.
 
 *Use Case Example:* Start a health assessment Flow whenever a person sends the text `assessment` to a specific short code.
 
-*Additional Resources:* [Creating a Keyword Trigger that starts a Flow](https://help.nyaruka.com/en/articles/1911101-creating-a-keyword-trigger-that-starts-a-flow)
+*Additional Resources:* [Creating a Keyword Trigger that starts a Flow](https://help.nyaruka.com/en/article/creating-a-keyword-trigger-that-starts-a-flow-bpmhw0/)
 
 ## Workflow Design
 
@@ -84,7 +84,7 @@ For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "a
 
 ### Globals
 
-[Globals](https://help.nyaruka.com/en/articles/3561580-global-variables) are shared values that can be referenced in flows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. They allow you to create a value once and use it repeatedly without having to reenter the value. Likewise, globals make updating a shared value much easier. Rather than manually changing a value everywhere it's used in your account, simply update the value found in your `Globals` page.
+[Globals](https://help.nyaruka.com/en/article/global-variables-km8la6/) are shared values that can be referenced in flows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. They allow you to create a value once and use it repeatedly without having to reenter the value. Likewise, globals make updating a shared value much easier. Rather than manually changing a value everywhere it's used in your account, simply update the value found in your `Globals` page.
 
 ![Globals](globals.png)
 
@@ -133,7 +133,7 @@ Below is an example `outbound` config in the CHT called `textit-self-quarantine`
 
 ### Save flow data to the CHT
 
-Once a user has completed a Flow in RapidPro, it is likely you will want to record some of the information collected in the RapidPro flow back in the CHT. This can be achieved by utilizing the [Call Webhook](https://help.nyaruka.com/en/articles/1911235-calling-a-webhook-new-editor) action in RapidPro.
+Once a user has completed a Flow in RapidPro, it is likely you will want to record some of the information collected in the RapidPro flow back in the CHT. This can be achieved by utilizing the [Call Webhook](https://help.nyaruka.com/en/article/calling-a-webhook-adicxq/) action in RapidPro.
 
 |Step |Application  |Config step |
 |-----|--|--|
