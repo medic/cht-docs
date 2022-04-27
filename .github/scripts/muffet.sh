@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script is used in Github Actions to do link checking on commits to branches and master, so
+# This script is used in Github Actions to do link checking on commits to branches and main, so
 # please edit with care!  See ../workflows/ci.yml for specific usage.
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
