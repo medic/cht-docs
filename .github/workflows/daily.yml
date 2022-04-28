@@ -4,12 +4,13 @@
 #  - Hugo builds the site twice: once for link checking and once minified for pushing live
 #  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
 
+
+# runs every 5 min
 on:
   schedule:
+    - cron:  '*/5 * * * *'
     # runs at 3:15am every day:
 #    - cron:  '15 3 * * *'
-    # runs every 5 min
-    - cron:  '*/5 * * * *'
 
 name: Test site and push live if we're on Master
 jobs:
