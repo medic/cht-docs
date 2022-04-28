@@ -5,12 +5,12 @@
 #  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
 
 
-# runs every 5 min
+# Scheduled workflows run on the latest commit on
+#    the default or base branch
 on:
   schedule:
-    - cron:  '*/5 * * * *'
-    # runs at 3:15am every day:
-#    - cron:  '15 3 * * *'
+    # runs at 3:15am every day
+    - cron:  '15 3 * * *'
 
 name: Test site and push live if we're on Master
 jobs:
