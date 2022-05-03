@@ -56,10 +56,10 @@ The edit forms are much simpler in structure and one can specify only the releva
 
 ## Generic contact forms
 
-If your place forms are similar across all levels of your specified project hiearachy, you can templatise the form creation process. You'll need to create the following files: `place-type.json`, `PLACE_TYPE-create.xlsx` and `PLACE_TYPE-edit.xlsx`.
+If your place forms are similar across all levels of your specified project hiearachy, you can templatise the form creation process. You'll need to create the following files: `place-types.json`, `PLACE_TYPE-create.xlsx` and `PLACE_TYPE-edit.xlsx`.
 
-`place-type.json` maps the place contact-type to a human readable description that will be shown on the app's user interface.
+`place-types.json` maps the place contact-type to a human readable description that will be shown on the app's user interface.
 
-Both `PLACE_TYPE-create.xlsx` and `PLACE_TYPE-edit.xlsx` will contain two placeholder values `PLACE_TYPE` and `PLACE_NAME` which will be replaced by the keys and values specified in `place-type.json` respectively during form conversion. Also, copies of the different place-type forms will be created (if they don't exist) during the form conversion process with `PLACE_TYPE` being replaced with the keys specified in `place-type.json`. 
+Both `PLACE_TYPE-create.xlsx` and `PLACE_TYPE-edit.xlsx` will contain two placeholder values `PLACE_TYPE` and `PLACE_NAME` which will be replaced by the keys and values specified in `place-types.json` respectively during form conversion. Also, copies of the different place-type forms will be created (if they don't exist) during the form conversion process with `PLACE_TYPE` being replaced with the keys specified in `place-types.json`. 
 
 For examples on how to structure the above files you can have a look at the sample configurations in CHT-core: [default](https://github.com/medic/cht-core/tree/master/config/default/forms/contact) and [standard](https://github.com/medic/cht-core/tree/master/config/standard/forms/contact).
