@@ -53,6 +53,10 @@ Replication to this database can be enabled via configuration from 3.5.0 and wor
 
 This is the standard CouchDB database used to configure user authentication and authorization.
 
+### medic-logs
+
+Stores meta data about the user including when they last connected to the server, and how many documents they are allowed to replicate. This can be useful for checking for connection issues and misconfigured users.
+
 ## PouchDB
 
 Used to store documents on the client device to allow for [Offline-First]({{< ref "core/overview/offline-first" >}}) access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
