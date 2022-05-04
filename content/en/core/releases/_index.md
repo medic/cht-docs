@@ -22,7 +22,8 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status | Release date | End of life |
 |----|----|----|----|
-| 3.14.x | Current | 11-Feb-2022 | TBA |
+| 3.15.x | Current | 4-May-2022 | TBA |
+| 3.14.x | Current | 11-Feb-2022 | 4-Aug-2022 |
 | 3.13.x | Current | 29-Sep-2021 | 11-May-2022 |
 | 3.12.x | EOL | 28-Jul-2021 | 29-Dec-2021 |
 | 3.11.x | EOL | 21-Apr-2021 | 28-Oct-2021 |
@@ -70,6 +71,7 @@ The following is the minimum specification recommendation for smartphones to han
 ## Release Notes
 ### 3.x
 
+- [3.15.0]({{% ref "core/releases/3.15.0.md" %}})
 - [3.14.2]({{% ref "core/releases/3.14.2.md" %}})
 - [3.14.1]({{% ref "core/releases/3.14.1.md" %}})
 - [3.14.0]({{% ref "core/releases/3.14.0.md" %}})
