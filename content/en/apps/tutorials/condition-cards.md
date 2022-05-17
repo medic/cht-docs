@@ -67,7 +67,7 @@ const cards = [
     appliesToType: 'report',
     appliesIf: (report) => {
       const assessmentForm = getNewestReport(allReports, assessmentForms);
-      return assessmentForm.reported_date >== report.reported_date;
+      return assessmentForm.reported_date >= report.reported_date;
     },
     fields: [
       {
@@ -109,7 +109,7 @@ const cards = [
     appliesToType: 'report',
     appliesIf: (report) => {
       const assessmentForm = getNewestReport(allReports, assessmentForms);
-      return assessmentForm.reported_date >== report.reported_date;
+      return assessmentForm.reported_date >= report.reported_date;
     },
     fields: [
       {
