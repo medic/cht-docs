@@ -7,6 +7,8 @@ description: >
 relatedContent: >
   core/guides/android/releasing
   core/guides/android/branding
+aliases:
+-    /apps/guides/hosting/android-app/
 ---
 
 Once [released]({{< ref "core/guides/android/releasing" >}}) the app, there are many different ways to publish the binaries for installation.
