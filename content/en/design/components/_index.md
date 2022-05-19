@@ -53,7 +53,7 @@ These are the status indication colors of the system. When necessary, use white 
 
 <br>
 
-For more information on how these colors are applied in the app, see our [color variables file](https://github.com/medic/medic/blob/master/webapp/src/css/variables.less). 
+For more information on how these colors are applied in the app, see our [color variables file](https://github.com/medic/cht-core/blob/master/webapp/src/css/variables.less). 
 
 
 ## Typography

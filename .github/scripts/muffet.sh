@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script is used in Github Actions to do link checking on commits to branches and master, so
+# This script is used in Github Actions to do link checking on commits to branches and main, so
 # please edit with care!  See ../workflows/ci.yml for specific usage.
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
@@ -16,7 +16,7 @@
 
 muffet http://localhost:1313 \
   --buffer-size 50000 \
-  --timeout 35 \
+  --timeout 10 \
   --concurrency 2 \
   --ignore-fragments \
   --exclude ".*demo\.app\.medicmobile\.org.*" \
@@ -27,5 +27,7 @@ muffet http://localhost:1313 \
   --exclude "https://github\.com/medic/cht-docs/commit.*" \
   --exclude "https://github\.com/medic/cht-core/commit.*" \
   --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
-  --exclude ".*localhost:5984.*" \
-  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888"
+  --exclude "http[s]*://localhost[8443|5984]*" \
+  --exclude "http[s]*://cht\.domain\.com.*" \
+  --exclude "http[s]*://127\.0\.0*" \
+  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*"

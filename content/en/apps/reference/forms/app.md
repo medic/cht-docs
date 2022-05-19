@@ -59,6 +59,11 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | note | r_followup_note | ${r_followup_instructions} |
 | end group |
 
+**Note:** If the form uses a file picker to upload any type of file, and it is accessed by using CHT Android, then include the `READ_EXTERNAL_STORAGE` permission in order to access the files in the device. To enable this permission add the following line in the branded app's `AndroidManifest.xml`.
+```
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
+
 ### Supported XLSForm Meta Fields
 [XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
 
@@ -80,11 +85,15 @@ The `+` operator for string concatenation is deprecated and will be removed in a
 ## CHT XForm Widgets
 
 Some XForm widgets have been added or modified for use in the app:
-- **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages.
+- **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages. (See also: [`to-bikram-sambat` xPath function]({{< ref "apps/reference/forms/app#to-bikram-sambat" >}}))
+
+{{% alert %}}
+A handy tool for converting Gregorian dates to Bikram Sambat is available [here](https://docs.communityhealthtoolkit.org/bikram-sambat/).
+{{% /alert %}}
+
 - **Countdown Timer**: A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `note` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
 - **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. In v3.10.0 or above, set the field type to `string` and appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. If no contact type appearance is specified then all contact types will be returned. For v3.9.0 and below, set the field type to `db:{{contact_type}}` and appearance to `db-object`.
 - **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
-- **Simprints registration**: Register a patient with the Simprints biometric tool. To include in a form create a `string` field with `appearance` of `simprints-reg`. Requires the Simprints app connected with hardware, or [mock app](https://github.com/medic/mocksimprints). Demo only, not ready for production since API key is hardcoded.
 - **Display Base64 Image**: Available in +3.13.0. To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
 - **Android App Launcher**: Available in +3.13.0 and in Android device only. A widget to launch an Android app that receives and sends data back to an app form in CHT-Core. See more details in the [Android App Launcher](#android-app-launcher).
 
@@ -114,7 +123,10 @@ Example of getting the data from the contact and assigning it to the fields necc
 
 _Available in +3.13.0_
 
-This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. 
+This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. This widget requires the `READ_EXTERNAL_STORAGE` permission in CHT Android to work properly, to enable this permission add the following line in the branded app's `AndroidManifest.xml`.
+```
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
 
 Use the Android App Launcher widget in a form to configure an intent to launch an Android app installed in the mobile device. The widget will send values from input fields type `text` to the app and will assign the app's response into output fields type `text`. The only supported field type is `text`. The widget will automatically display a button to launch the app.
 
@@ -267,9 +279,23 @@ Use this function to parse from a timestamp number to a date. This is useful whe
 | string | start_date_time | NO_LABEL |    | 1628945040308 |
 | string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
 
+### `to-bikram-sambat`
+
+_Available in +3.14.0._
+
+This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
+
+See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
+
 ## CHT Special Fields
 
+Some fields in app forms control specific aspects of CHT Apps, either to bring data into forms or for a feature outside of the form.
+
+### Quintiles
 The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="apps/guides/forms/wealth-quintiles" >}} 
+
+### UHC Mode
+When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "apps/features/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="apps/guides/forms/uhc-mode" >}} 
 
 ## Uploading Binary Attachments
 

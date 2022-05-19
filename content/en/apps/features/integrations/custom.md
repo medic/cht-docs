@@ -5,7 +5,7 @@ description: >
    Integrate with any system using RESTful APIs
 keywords: generic, custom, integrations
 aliases:
-    -    /apps/features/integrations/generic/
+  -    /apps/features/integrations/generic/
 relatedContent: >
   apps/features/integrations/dhis2
   apps/features/integrations/rapidpro

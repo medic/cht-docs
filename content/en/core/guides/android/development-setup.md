@@ -97,9 +97,9 @@ To install the version 31.0.0: `sdkmanager --install 'build-tools;31.0.0'`. Then
 
 _Only CHT Android_
 
-Some `make` targets support the flavor and the rendering engine as `make flavor=[Flavor][Engine] [task]`, where `[Flavor]` is the branded version with the first letter capitalized and the `[Engine]` is either `Webview` or `Xwalk`. The `[task]` is the action to execute: `deploy`, `assemble`, `lint`, etc.
+Some `make` targets support the flavor as `make flavor=[Flavor] [task]`, where `[Flavor]` is the branded version with the first letter capitalized. The `[task]` is the action to execute: `deploy`, `assemble`, `lint`, etc.
 
-The default value for `flavor` is `UnbrandedWebview`, e.g. executing `make deploy` will assemble and install that flavor, while executing `make flavor=MedicmobilegammaXwalk deploy` will do the same for the _Medicmobilegamma_ brand and the `Xwalk` engine.
+The default value for `flavor` is `Unbranded`, e.g. executing `make deploy` will assemble and install that flavor, while executing `make flavor=Medicmobilegamma deploy` will do the same for the _Medicmobilegamma_ brand.
 
 See the [Makefile](https://github.com/medic/cht-android/blob/master/Makefile) for more details.
 
@@ -111,11 +111,11 @@ For CHT Android app use:
 
     $ make assemble
 
-The command above builds and assembles the _debug_ and _release_ APKs of the Unbranded Webview version of the app.
+The command above builds and assembles the _debug_ and _release_ APKs of the Unbranded version of the app.
 
-Each APK will be generated and stored in `build/outputs/apk/[flavor][Engine]/[debug|release]/`, for example after assembling the _Simprints Webview_ flavor with `make flavor=SimprintsWebview assemble`, the _release_ versions of the APKs generated are stored in `build/outputs/apk/simprintsWebview/release/`.
+Each APK will be generated and stored in `build/outputs/apk/[flavor]/[debug|release]/`, for example after assembling the _Medicmobilegamma_ flavor with `make flavor=Medicmobilegamma assemble`, the _release_ versions of the APKs generated are stored in `build/outputs/apk/medicmobilegamma/release/`.
 
-To assemble other flavors, use the following command: `make flavour=[Flavor][Engine] assemble`. See the [Flavor selection](#flavor-selection) section for more details about `make` commands.
+To assemble other flavors, use the following command: `make flavour=[Flavor] assemble`. See the [Flavor selection](#flavor-selection) section for more details about `make` commands.
 
 To create the `.aab` bundle file, use `make bundle`, although signed versions are generated when [releasing]({{< ref "core/guides/android/releasing" >}}), and the Play Store requires the AAB to be signed with the right key.
 
@@ -123,13 +123,18 @@ To clean the APKs and compiled resources: `make clean`.
 
 ### Testing
 
-To execute unit tests: `make test` (static checks are also executed).
+To execute unit tests and static analysis, run: `make test`.
+
+To generate a unit test coverage report, run: `make test-coverage`.
+
+Find the generated report in:
+`build/reports/jacoco/makeUnbrandedDebugUnitTestCoverageReport/html/index.html`
 
 #### Static checks
 
 _Only CHT Android_
 
-To only execute the **linter checks**, run: `make lint`. To perform the same checks for the _XView_ source code, use: `make flavor=UnbrandedXwalk lint` instead.
+To only execute the **linter checks**, run: `make lint`.
 
 #### Instrumentation Tests
 
@@ -159,7 +164,7 @@ Refer to the [CHT Core Developer Guide](https://github.com/medic/cht-core/blob/m
 
 ### Android Studio
 
-The [Android Studio](https://developer.android.com/studio) can be used to build and launch the app instead. Be sure to select the right flavor and rendering engine from the _Build Variants_ dialog (see [Change the build variant](https://developer.android.com/studio/run#changing-variant)). To launch the app in an emulator, you need to uncomment the code that has the strings for the `x86` or the `x86_64` architecture in the `android` / `splits` / `include` sections of the `build.gradle` file.
+The [Android Studio](https://developer.android.com/studio) can be used to build and launch the app instead. Be sure to select the right flavor from the _Build Variants_ dialog (see [Change the build variant](https://developer.android.com/studio/run#changing-variant)). To launch the app in an emulator, you need to uncomment the code that has the strings for the `x86` or the `x86_64` architecture in the `android` / `splits` / `include` sections of the `build.gradle` file.
 
 ### Artifact formats
 
@@ -170,15 +175,7 @@ When building the app there are two output formats you can use: Android App Bund
 _Only CHT Android_
 
 The [publish](https://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml) script in CI produces multiple AABs for publishing to the **Google Play Store**, so the generated `.aab` files need to be uploaded instead of the `.apk` files if the Play Store require so. Old apps published for the first time before Aug 1,  2021 can be updated with the APK format.
-
-For each flavor two bundles are generated, one for each rendering engine: _Webview_ and _Xwalk_. When distributing via the Play Store using the bundle files, upload all AABs and it will automatically choose the right one for the target device.
-
-The AABs are named as follows: `cht-android-{version}-{brand}-{rendering-engine}-release.aab`.
-
-| Rendering engine | Android version |
-|------------------|-----------------|
-| `webview`        | 10+             |
-| `xwalk`          | 4.4 - 9         |
+If distributing AABs via the Play Store, upload all AABs and it will automatically choose the right one for the target device. The AABs are named as follows: `cht-android-{version}-{brand}-release.aab`.
 
 #### APKs
 
@@ -188,11 +185,9 @@ If distributing APKs via the Play Store, upload all APKs and it will automatical
 
 To help you pick which APK to install, you can find information about the version of Android and the CPU in the About section of the phone's settings menu.
 
-The APKs are named as follows: `cht-android-{version}-{brand}-{rendering-engine}-{instruction-set}-release.apk`.
+The APKs are named as follows: `cht-android-{version}-{brand}-{instruction-set}-release.apk`.
 
-| Rendering engine | Instruction set | Android version | Notes                                                       |
-|------------------|-----------------|-----------------|-------------------------------------------------------------|
-| `webview`        | `arm64-v8a`     | 10+             | Preferred. Use this APK if possible.                        |
-| `webview`        | `armeabi-v7a`   | 10+             | Built but not compatible with any devices. Ignore this APK. |
-| `xwalk`          | `arm64-v8a`     | 4.4 - 9         |                                                             |
-| `xwalk`          | `armeabi-v7a`   | 4.4 - 9         |                                                             |
+| Instruction set | Android version | Notes                                                       |
+|-----------------|-----------------|-------------------------------------------------------------|
+| `arm64-v8a`     | 5+              | Preferred. Use this APK if possible.                        |
+| `armeabi-v7a`   | 5+              | Built as support for older devices, ignore if possible.     |

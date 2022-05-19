@@ -59,7 +59,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
     - See [SSL Certficates]({{< relref "apps/guides/hosting/ssl-cert-install">}}) to install new certificates
 
 1. Configure couch2pg
-    See the [couch2pg basic configuration](https://github.com/medic/medic-couch2pg/blob/master/README.md) in the `medic-couch2pg` repository.
+    See the [couch2pg basic configuration](https://github.com/medic/cht-couch2pg/blob/main/README.md) in the `cht-couch2pg` repository.
 
 1. Setup postgres to work with couch2pg
     - Creating the database, setting up permissions, exploring the tables and what they store

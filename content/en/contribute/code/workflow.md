@@ -69,6 +69,13 @@ All features and bug fixes must have at least one unit test. All features must h
 
 Those are minimums. Our ultimate goal is to have fully-automated release testing, allowing for fast, confident delivery of completed code. If your work would be included in a release/regression test, create an e2e test for it. QA engineers will use that as a template of sorts to create additional automated tests at their discretion.
 
+### Release Testing
+The release testing suite covers a range of tests to check for any regressions, performance tests, and scalability tests. We have a [release testing repository](https://github.com/medic/cht-release-testing) with major workflows. Most issues have a step-by-step description or a link to some details for execution. At release testing time, create a [project board](https://github.com/medic/cht-release-testing#generating-a-project-board-for-testing-a-release) with all issues labelled 'release'.
+Start testing following instructions on the ticket. If the test passes move it to `pass`. If it fails move it to `fail`, raise an issue and notify the team. A decision will be made whether to halt the release (blocker) or schedule the fix for the next release. [Here](https://github.com/medic/cht-release-testing/projects/101) is a typical release test project with results in the [comment section](https://github.com/medic/cht-release-testing/issues/190#issuecomment-1032646259) on individual tickets.
+As part of release testing, there is a [scalability test suite](https://github.com/medic/cht-core/tree/master/tests/scalability) to test the scalability of the CHT server so we can check what our limits are and ensure we don't regress on performance. Initially it only tests replication but should be extended to test other APIs. The JMeter tests are run on an [AWS](https://github.com/medic/cht-core/tree/master/tests/scalability#running-tests-on-aws) install and a report is saved in an S3 bucket. We then compare results from previous runs and save a JTL file containing the results of the test run in the [cht-core repository](https://github.com/medic/cht-core/tree/master/tests/scalability/previous_results). 
+We also do some [performance timing tests](https://github.com/medic/cht-release-testing/issues/2) in the browser and on devices, to monitor client side performance. Tests scenarios are outlined in a [spreadsheet](https://docs.google.com/spreadsheets/d/13GW_gpZElcmW9AOs5r1EXwKligCDECdHVP_3aNcwqhw/edit#gid=1134415907) and results are compared with previous releases.
+
+
 ### Migrating
 
 When the schema is changed you must also provide a migration so when instances are upgraded existing data is compatible with the new code.
@@ -89,7 +96,7 @@ Never force push remote. Prefer rebasing over merging as it makes for a cleaner 
 
 Commit reformats and refactors separately from actual code changes to make reviewing easier.
 
-For more help with Git see: [Using Git]({{% ref "core/guides/using-git" %}}).
+For more help with Git see: [Using Git](https://git-scm.com/doc/ext).
 
 ## Branches
 
@@ -104,6 +111,10 @@ For more help with Git see: [Using Git]({{% ref "core/guides/using-git" %}}).
 Issues are managed in Github. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue it should be opened in the private `medic-projects` repository.
 
 When creating issues add the appropriate [Priority](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Priority%3A+) and [Type](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Type%3A+) labels.
+
+### Regressions
+
+When a bug is found that impacts functionality that worked in a previous version, it's important that these are labelled properly so someone who is planning to upgrade can find it. To flag this, add the "Regression" label, and a labels in the form "Affects: {{version}}" (e.g.: "Affects: 3.14.0") for each version where this bug exists. It's likely that the label for this specific version doesn't exist so you may have to create it. This ensures that issue is listed as a Known Issue in the Release Notes for that version.
 
 ## Project States
 

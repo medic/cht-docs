@@ -7,6 +7,8 @@ description: >
 relatedContent: >
   core/guides/android/releasing
   core/guides/android/branding
+aliases:
+-    /apps/guides/hosting/android-app/
 ---
 
 Once [released]({{< ref "core/guides/android/releasing" >}}) the app, there are many different ways to publish the binaries for installation.
@@ -39,18 +41,22 @@ New apps cannot longer be uploaded with the APK format in the Play Store. Apps c
 
 This method gives an app developer full control over installation. It is also possible to do the installation without an internet connection which makes it ideal for remote installation, or to save bandwidth when performing multiple installs.
 
-1. In the phone settings select the option to "Allow installation of non-Market applications"
-2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/development-setup#apks" >}}).
-3. Select to install the APK.
+1. In the phone settings [select the option](https://developer.android.com/distribute/marketing-tools/alternative-distribution#unknown-sources) to "opt in for installing unknown apps".
+2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "core/guides/android/development-setup#apks" >}}).  This is likely easiest done by using the phone's browser to navigate to the download page.
+3. After downloading, you should be prompted to install the APK.
 
 ### F-Droid
 
 F-Droid is a free open source application store which gives the app developer more control over the listing. As it isn't installed on Android devices by default it takes a little more effort to set up originally, but is easier than manually sideloading.
 
-We are still investigating the viability of this distribution method, but in the meantime you can learn more on their [website](https://f-droid.org).
+Read more about [Using F-Droid for app distribution](https://medic.org/stories/using-f-droid-for-app-distribution-a-product-experiment/).
 
 ### Mobile Device Management
 
 This gives the IT administrator full control over which applications are installed on the devices in the program. MDM is recommended when you want complete control over the software and configuration.
 
 There are several providers to choose from with a range of features and prices so it is recommend to do your own research and pick the one that's right for you.
+
+### Progressive Web App
+
+Another alternative is to install the CHT Core webapp as a Progressive Web App. This avoids building an Android application altogether. Read more on the [PWA page]({{< relref "core/overview/pwa" >}}).

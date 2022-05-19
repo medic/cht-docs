@@ -21,7 +21,7 @@ set -e
 #    3. `hugo`
 #    4. `cd public && git add --all && git commit -m "Publishing to gh-pages" && cd ..` Feel free to make a pertinent commit message!
 #    5. `git push upstream gh-pages`
-# 3. Repeat step 2 to update after any changes to master.
+# 3. Repeat step 2 to update after any changes to main.
 #
 
 if [ "`git status -s`" ]

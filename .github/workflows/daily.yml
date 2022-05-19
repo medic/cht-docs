@@ -1,0 +1,71 @@
+# Notes:
+#  - All software installed below is pinned so they don't get upgraded and break w/o us knowing why.
+#  - If you bump one version up to latest, please bump them all so we stay current!
+#  - Hugo builds the site twice: once for link checking and once minified for pushing live
+#  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
+
+
+# Scheduled workflows run on the latest commit on
+#    the default or base branch
+on:
+  schedule:
+    # runs at 3:15am every day
+    - cron:  '15 3 * * *'
+
+name: Test site and push live if we're on Master
+jobs:
+  BuildLinkCheckPushLive:
+    name:
+    runs-on: ubuntu-18.04
+    timeout-minutes: 15
+    steps:
+
+      - name: All Branches - Git checkout, including recursive call for Docsy theme
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive  # Fetch the Docsy theme
+          fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
+
+      - name: All Branches - Install hugo extended v0.71.1
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.71.1"
+          extended: true
+
+      - name: All Branches - Install Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: All Branches - Install npm modules for Hugo
+        run: npm install
+
+      - name: All Branches - Install Go v1.18
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.18'
+
+      - name: All Branches - Install Muffet v1.5.7
+        run: GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+
+      # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
+      - name: All Branches - Serve Hugo site
+        run: |
+          hugo server&
+          sleep 5
+
+      - name: All Branches - Run Muffet link checker
+        shell: bash
+        run: ./.github/scripts/muffet.sh
+
+      - name: Master Branch Only - Report errors to Slack, if any
+        if: ${{ github.ref == 'refs/heads/main' && failure() }}
+        uses: rtCamp/action-slack-notify@v2.0.2
+        env:
+          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
+          SLACK_CHANNEL: '#cht-squad-docs'
+          SLACK_COLOR: '#3278BD'
+          SLACK_ICON: ":flappingphone:"
+          SLACK_MESSAGE: 'Broken Links Found'
+          SLACK_TITLE: CHT DOCS BAD LINKS
+          SLACK_USERNAME: Medic-Bot

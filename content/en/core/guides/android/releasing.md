@@ -37,4 +37,9 @@ All Medic's android projects automatically build, sign, and release builds via G
 
 _Only CHT Android_
 
-If the release only contains a new flavor but is based on the last version, tag it with the same version that the last one plus a number suffix separated with a `-`, e.g. if the last version was `v1.2.3`, tag it as `v1.2.3-1`. In this case there is no need to publish again the reference apps in the Play Store, or to announce the release in the forum if isn't relevant.
+The new flavor should have branched off from the [last stable release](https://github.com/medic/cht-android/releases) in CHT Android repository, for example, if the latest stable release is `v1.2.3` and the branch name is `v1.2.3-new-brand`, then check out the tag and create a branch using the following command:
+ ```
+ git checkout v1.2.3 -b v1.2.3-new-brand
+ ```
+Add the flavor and make a pull request to the release branch. Once it has been approved, `squash and merge` the pull request, tag the commit with the same version as the last one and add a number suffix separated with a dash character (`-`), e.g. if the last version was `v1.2.3`, tag it as `v1.2.3-1`. In this case, it's not necessary to publish again the reference apps in Play Store or to announce the release in the forum, if not relevant.
+Finally, make sure this commit is backported to the repository's main branch.

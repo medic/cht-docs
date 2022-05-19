@@ -6,7 +6,7 @@
 
 on: [push, pull_request]
 
-name: Test site and push live if we're on Master
+name: Test site and push live if we're on Main
 jobs:
   BuildLinkCheckPushLive:
     name:
@@ -17,6 +17,7 @@ jobs:
       - name: All Branches - Git checkout, including recursive call for Docsy theme
         uses: actions/checkout@v2
         with:
+          ref: ${{ github.ref }}
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
@@ -38,12 +39,12 @@ jobs:
       - name: All Branches - Test For Broken Builds in Hugo
         run: hugo
 
-      - name: Master Branch Only - Build for prod with minify
-        if: github.ref == 'refs/heads/master'
+      - name: Main Branch Only - Build for prod with minify
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: env HUGO_ENV="production" hugo --minify
 
-      - name: Master Branch Only - Deploy to GH pages
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: Main Branch Only - Deploy to GH pages
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPOLY_TO_SITE}}
@@ -51,10 +52,10 @@ jobs:
           publish_dir: ./public
           user_name: medic-ci
           user_email: medic-ci@github
-          publish_branch: master
+          publish_branch: main
 
-      - name: Master Branch Only - Report errors to Slack, if any
-        if: ${{ github.ref == 'refs/heads/master' && failure() }}
+      - name: Main Branch Only - Report errors to Slack, if any
+        if: ${{ github.ref == 'refs/heads/main' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'

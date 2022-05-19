@@ -203,7 +203,7 @@ To create new contacts for each new user provide values for `contact.name`, `pla
 
 ```csv
 username,password,roles,name,phone,contact.name,place.c_prop,place.type,place.name,place.parent
-alice,Secret_1,district-admin,Alice Example,+123456789,Alice,p_val_a,health_center,alice area, district_uuid
+alice,Secret_1,district-admin,Alice Example,+123456789,Alice,p_val_a,health_center,alice area,district_uuid
 bob,Secret_1,district-admin,bob Example,+123456789,bob,p_val_a,health_center,bob area,disctrict_uuid
 ```
 
