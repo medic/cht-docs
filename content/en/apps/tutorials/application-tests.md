@@ -4,6 +4,9 @@ linkTitle: "Application Tests"
 weight: 15
 description: >
   Guides for writing automated tests for CHT applications
+relatedContent: >
+  apps/reference
+  apps/guides/tasks/query-task-data/#testing-task-document-data
 ---
 
 {{% pageinfo %}}
@@ -23,13 +26,13 @@ This tutorial will take you through testing the various configurable components 
 
 ---
 
-CHT applications are greatly configurable. Depending on the number and the complexity of the app components, it can take huge time and effort to test them. Some components, such as tasks, behave differently over time and are particularly difficult to test manually. As the project evolves, the configuration is often updated with new components and changes are made to the existing components. After each change, we need to test not only the new components but also the old ones to make sure that the app keeps working correctly. To facilitate the testing process, we encourage the app builders to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
+CHT applications are greatly configurable. Depending on the number and the complexity of the app components, it can take huge time and effort to test them manually. Some components, such as tasks, behave differently over time and are particularly difficult to test. As the project evolves, the configuration is often updated with new components, and changes are made to the existing components. After each change, we need to test not only the new components but also the old ones to make sure that the app keeps working correctly. To facilitate the testing process, we encourage the app builders to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
 
-Using cht-conf-test-harness, we can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. We use the [chai library](https://www.chaijs.com/), but other assertion libraries can also be used.
+Using `cht-conf-test-harness` (also simply referred as `harness`), we can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. We use the [chai library](https://www.chaijs.com/), but other assertion libraries can also be used.
 
 ## Preparing
 
-Writing tests for CHT apps requires a good understanding of the project workflows and requirements. It is encouraged that the tests be written as part of the app-building process. To test using cht-conf-test-harness, there are a few things we need to set up first.
+Writing tests for CHT apps requires a good understanding of the project workflows and requirements. It is encouraged that the tests be written as part of the app-building process. To test using the harness, there are a few things we need to set up first:
 1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}).
 2. If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
     ```shell
@@ -45,7 +48,7 @@ Writing tests for CHT apps requires a good understanding of the project workflow
         "unittest": "mocha test/**/*.spec.js --timeout 20000"
       }
     ```
-    After adding these scripts, you will be able to run the tests by running one of these commands in the command-line:
+    After adding these scripts, you will be able to run the tests by running one of these commands from the command-line:
 
     <table>
       <tr>
@@ -78,7 +81,7 @@ Writing tests for CHT apps requires a good understanding of the project workflow
 
 We start by adding a file where a group of related tests are written. It is customary to keep one test file per individual unit of the component. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file.
 
-Let's introduce some relevant sections from a typical test file:
+Let's introduce some important sections from a typical test file:
 
 
 ```js
@@ -89,27 +92,27 @@ const harness = new TestRunner();
 
 We get an instance of `harness` once and use it throughout the test file.
 
-We can also pass options to the `TestRunner()` when instantiating:
+We can also pass certain options to the `TestRunner()` when instantiating:
 ```js
 // For detailed console logs
 const harness = new TestRunner({ verbose: true });
 ```
 
-Other common options are:
+Other useful options are:
 1. `{ headless: false }` -  Passed to [puppeteer](https://developers.google.com/web/tools/puppeteer/get-started#default_runtime_settings), launches browser with GUI. Helpful to see how the form is getting filled.
 2. `{ harnessDataPath: 'harness.clinic.json'}`: Specify different harness confguration
 
 You can find more harness options and examples [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html).
 
 
-We need to start the harness before running tests and need to stop it after use. We can place these statements in `before()` and `after()` hooks of the test suite.
+We need to start the harness before running tests and stop it after the use. To take care of that, we can place these statements in `before()` and `after()` hooks of the test suite.
 ```js
 describe('PNC form tests', () => {
   before(async () => { return await harness.start(); });
   after(async () => { return await harness.stop(); });
 ```
 
-Any logic that you want to execute before and after each test can be placed in the `beforeEach()` and `afterEach()` hooks. Here, before each test run, we clear the state of the harness and set the date to a fixed value.
+Any logic that you want to execute before and after each test can be placed in the `beforeEach()` and `afterEach()` hooks. Before each test run, we usually clear the state of the harness and set the date to a fixed value:
 ```js
   beforeEach(
     async () => {
@@ -125,9 +128,9 @@ Similarly, after each test run, we assert that there are no errors in the consol
   });
 ```
 
-If you want to learn more about these hooks, please refer to this [Mocha resource](https://mochajs.org/#hooks).
+If you want to learn more about these hooks, please refer to this [Mocha resource](https://mochajs.org/#hooks). Please feel free to customize the hooks as you see fit.
 
-Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was presented in the [previous tutorial]({{< ref "apps/tutorials/app-forms" >}}):
+Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "apps/tutorials/app-forms" >}}):
 
 {{< highlight js "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=assessment-form-test" >}}
   it('unit test confirming assessment with cough since 7 days', async () => {
@@ -224,7 +227,7 @@ it(`Throws validation error when birth date is in future`, async () => {
 ```
 
 
-Note: If a form triggers a task, some use cases of the form can be tested when testing the task later.
+> Note: If a form triggers a task, some use cases of the form can be tested when testing the task later.
 
 ---
 ### Testing Contact Summary
@@ -349,7 +352,7 @@ According to the task configuration, these conditions need to be met for the ass
 
 When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. Please see the lines [31](#harness-defaults-json-31) and [26]((#harness-defaults-json-26)) respectively in the sample file further below.
 
-For 3, let's look at the task event window in the task definition. As mentioned in the earlier tutorial, the task event is:
+For the condition 3, let's look at the task event window in the task definition. As mentioned in the earlier tutorial, the task event is:
 - Due 7 days after the contact’s creation date.
 - Should appear 7 days before the due date, or immediately when the contact is created.
 - Should disappear the day after the due date.
@@ -409,7 +412,7 @@ So, in order to see the task, the contact should be created within the last 7 da
 }
 {{< /highlight >}}
 
-Please note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use this external website to convert the timestamp to and from a human readable date: [https://www.epochconverter.com/](https://www.epochconverter.com/)
+Please note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use this external website to convert the timestamp to and from a human readable date: [https://www.epochconverter.com](https://www.epochconverter.com/).
 
 After setting the harness defaults, we can now test the task:
 ```js {linenos=true}
@@ -541,7 +544,7 @@ For targets with `type: 'percent'`, we might want to check for more properties:
 ```
 ---
 ### Tests for helper functions
-If you have added [helper functions](https://docs.communityhealthtoolkit.org/apps/reference/tasks/#tasks-with-functions), it can be a good idea to test them separetely.
+If you have added [helper functions](https://docs.communityhealthtoolkit.org/apps/reference/tasks/#tasks-with-functions), they can be tested separately.
 
 Example:
 ```js
@@ -563,7 +566,8 @@ This will prevent the regression and ensure that you're fixing what you expect.
 ### Tips for writing tests
 - Every test needs to add value
 - Use the scientific method: your test is a hypothesis and you’re running an experiment
-- 1. Arrange - Prepare the experiment
+- Follow these steps:
+  1. Arrange - Prepare the experiment
   2. Act - Run the experiment. Take a measurement
   3. Assert - Assert the hypothesis
 - Structure testing inputs into "classes": if one member in a class works well then the class is considered to work
