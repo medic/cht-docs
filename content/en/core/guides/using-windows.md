@@ -110,6 +110,10 @@ $: cd ~/medic/cht-core
 $: code .
 ```
 
+## Notes
+By the cht-core's default launch port is 5988.
+By default the user name and password to sign in cht-core web app is the user name and password we set for couchDB.
+
 ## Problems?
 
 As none of our code developers use Windows as a development environment daily this solution may not be as stable as directly using MacOS or Linux. If you encounter issues please let a developer know
