@@ -1,6 +1,6 @@
 ---
-title: "CHT Core Developer Hosting"
-linkTitle: "CHT Core Developer Hosting"
+title: "CHT Core Developer Setup"
+linkTitle: "CHT Core Developer Setup"
 weight: 40
 description: >
   Compile the CHT Core from source when doing Core development
