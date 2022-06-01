@@ -3,7 +3,7 @@ title: "CHT Core Developer Setup"
 linkTitle: "CHT Core Developer Setup"
 weight: 40
 description: >
-  Compile the CHT Core from source when doing Core development
+  Getting your local machine ready to to development work on CHT Core.
 ---
 
 {{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to compile the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up a hosting environment for devoloping apps, see the [app guide]({{< relref "apps/guides/hosting/app-developer.md" >}}).
