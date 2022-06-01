@@ -94,7 +94,7 @@ echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$0rc
 echo $COUCH_NODE_NAME && echo $COUCH_URL
 ```
 
-### CHT Core cloning and setup
+### CHT Core Cloning and Setup
 
 Clone the main CHT Core repo from GitHub and initialize it with an `npm` command. Note this last command may take many minutes. Be patient!
 
