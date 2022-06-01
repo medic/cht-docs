@@ -96,12 +96,17 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 
 ### CHT Core Cloning and Setup
 
-Clone the main CHT Core repo from GitHub and initialize it with an `npm` command. Note this last command may take many minutes. Be patient!
+Clone the main CHT Core repo from GitHub and change directories into it:
 
 ```shell
 git clone https://github.com/medic/cht-core ~/cht-core
 cd ~/cht-core
-npm ci  
+```
+
+Install dependencies and perform other setup tasks via an `npm` command. Note this command may take many minutes. Be patient!
+
+```shell
+npm ci
 ```
 
 We need to harden couch with a `grunt` call, required even in development:
