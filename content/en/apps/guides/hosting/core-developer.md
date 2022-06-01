@@ -164,7 +164,7 @@ If you had issues with following the above steps, check out these links for how 
 
 Breaking down the command from [the above section]({{< relref "apps/guides/hosting/core-developer#couchdb-setup-in-docker" >}}), here's a generic version that doesn't include hard coded paths:
 
-```sh
+``shell
 docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v <data path>:/opt/couchdb/data -v <config path>:/opt/couchdb/etc/local.d apache/couchdb:2
 ```
 
