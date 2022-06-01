@@ -26,8 +26,8 @@ sudo apt update && sudo apt -y dist-upgrade
 Then install `nvm`, add it to your path and install NodeJS 12:
 
 ```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-. ~/.bashrc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | $0
+. ~/.$0rc
 nvm install 12
 ```
 
