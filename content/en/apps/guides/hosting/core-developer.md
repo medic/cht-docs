@@ -137,7 +137,7 @@ cd ~/cht-core && grunt dev-api
 Finally, in a 3rd terminal run:
 
 ```shell
-cd ~/cht-core&&grunt dev-sentinel
+cd ~/cht-core && grunt dev-sentinel
 ```
 
 That's it!  Now when you edit code in your IDE, it should automatically reload.  You can see the CHT running locally here: [http://localhost:5988/](http://localhost:5988/)
