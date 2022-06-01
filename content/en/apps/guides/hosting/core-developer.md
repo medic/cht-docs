@@ -185,7 +185,7 @@ Medic needs the following environment variables to be declared:
 
 How to permanently define environment variables depends on your OS and shell (e.g. for bash you can put them `~/.bashrc`). You can temporarily define them with `export`:
 
-```sh
+```shell
 export COUCH_NODE_NAME=nonode@nohost
 export COUCH_URL=http://myadminuser:myadminpass@localhost:5984/medic
 ```
