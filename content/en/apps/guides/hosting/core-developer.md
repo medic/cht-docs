@@ -54,9 +54,9 @@ It's easier if you don't always have to run `sudo` for all your Docker calls, so
 
 ```shell
 dockerd-rootless-setuptool.sh install
-echo "export PATH=/usr/bin:$PATH" >> ~/.bashrc
-echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.bashrc
-. ~/.bashrc
+echo "export PATH=/usr/bin:$PATH" >> ~/.$0rc
+echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$0rc
+. ~/.$0rc
 ```
 
 In order for Docker to boot correctly, restart entire machine, which will complete the "Install" Section:
