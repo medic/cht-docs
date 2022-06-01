@@ -20,7 +20,7 @@ This CHT Core developer guide will have you install NodeJS, npm, Grunt and Couch
 First, update your current packages:
 
 ```shell
-sudo apt update&&sudo apt -y dist-upgrade
+sudo apt update && sudo apt -y dist-upgrade
 ```
 
 Then install `nvm`, add it to your path and install NodeJS 12:
