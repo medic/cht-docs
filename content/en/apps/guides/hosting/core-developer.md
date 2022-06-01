@@ -28,7 +28,7 @@ Then install `nvm`, add it to your path and install NodeJS 12:
 ```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 . ~/.bashrc
-nvm install v12
+nvm install 12
 ```
 
 Now let's ensure NodeJS 12 and npm 6 were installed. This should output version 12.x.x for NodeJS and 6.x.x for `npm`:
