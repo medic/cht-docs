@@ -196,7 +196,7 @@ Refer to [the testing doc](https://github.com/medic/cht-core/blob/master/TESTING
 
 ## nginx-local-ip
 
-[`nginx-local-ip`](https://github.com/medic/nginx-local-ip) is a local proxy that keeps all traffic local, and runs without latency or throttling. If sharing your local CHT instance is not required, it is the preferred method to add a valid SSL certificate (rather than `ngrok` or `pagekite`).
+[`nginx-local-ip`](https://github.com/medic/nginx-local-ip) is a local proxy that keeps all traffic local, and runs without latency or throttling. If sharing your local CHT instance is not required, it is the recommended method to add a valid SSL certificate (rather than `ngrok` or similar).
 
 1. Clone the repo: `git clone https://github.com/medic/nginx-local-ip.git`
 1. `cd` into the new directory: `cd nginx-local-ip`
