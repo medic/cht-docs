@@ -88,10 +88,10 @@ curl -X GET "http://medic:password@localhost:5984/_membership" | jq
 Every time you run any `grunt` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
 
 ```shell
-echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.bashrc
-echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.bashrc
-. ~/.bashrc
-echo $COUCH_NODE_NAME&& echo $COUCH_URL
+echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$0rc
+echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$0rc
+. ~/.$0rc
+echo $COUCH_NODE_NAME && echo $COUCH_URL
 ```
 
 ### CHT Core cloning and setup
