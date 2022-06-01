@@ -121,7 +121,7 @@ curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config
 Now you have everything installed and can begin development! You'll need three separate terminals when doing development. In the first terminal, run:
 
 ```shell
-cd ~/cht-core&&grunt                            
+cd ~/cht-core && grunt
 ```
 
 Be **very** patient until you see:
