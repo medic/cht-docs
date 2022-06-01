@@ -34,7 +34,7 @@ nvm install 12
 Now let's ensure NodeJS 12 and npm 6 were installed. This should output version 12.x.x for NodeJS and 6.x.x for `npm`:
 
 ```shell
-node -v&&npm -v
+node -v && npm -v
 ```
 
 With NodeJS out of the way, let's install `grunt` via `npm` and supporting tools via `apt`:
