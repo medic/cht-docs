@@ -44,7 +44,7 @@ With NodeJS out of the way, let's install `grunt` via `npm`:
 npm install -g grunt-cli
 ```
 
-Install Docker with this sweet one liner (note it's directly from docker.com):
+Install Docker:
 
 ```shell
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
