@@ -17,7 +17,7 @@ This CHT Core developer guide will have you install NodeJS, npm, Grunt and Couch
 
 ### Install NodeJS, npm, grunt and Docker
 
-First, update your current packages:
+First, update your current Ubuntu packages:
 
 ```shell
 sudo apt update && sudo apt -y dist-upgrade
