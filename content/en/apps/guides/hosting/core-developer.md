@@ -158,7 +158,7 @@ If you had issues with following the above steps, check out these links for how 
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
-* [CouchDB](https://docs.couchdb.org/en/2.3.1/install/index.html) - bare-metal instead of in Docker - you **MUST** use CouchDB 2.x! We still strongly recommend using Docker.
+* [CouchDB](https://docs.couchdb.org/en/2.3.1/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x! We still strongly recommend using Docker.
 
 ### CouchDB on Docker Details
 
