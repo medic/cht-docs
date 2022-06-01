@@ -235,6 +235,6 @@ $ sudo ufw allow proto tcp from  172.16.0.0/16 to any port 5988
 
 1. Create a [pagekite account](https://pagekite.net/signup/), download and install the python script.
 1. Start pagekite (be sure to replace `YOUR-PAGEKIT-NAME` with the URL you signed up for) to connect to:
-  * The CHT API running via `grunt` or `horti`, execute `python2 pagekite.py 5988 YOUR-PAGEKIT-NAME.pagekite.me`
-  * The CHT API running via `docker`, execute `python2 pagekite.py 443 YOUR-PAGEKIT-NAME.pagekite.me`
+  * The CHT API running via `grunt` or `horti`, execute `python pagekite.py 5988 YOUR-PAGEKIT-NAME.pagekite.me`
+  * The CHT API running via `docker`, execute `python pagekite.py 443 YOUR-PAGEKIT-NAME.pagekite.me`
 1. Access the app using the https address shown (e.g. `https://YOUR-PAGEKIT-NAME.pagekite.me`).
