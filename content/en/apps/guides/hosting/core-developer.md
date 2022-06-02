@@ -21,7 +21,7 @@ First, update your current Ubuntu packages and install some supporting tools via
 
 ```shell
 sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq
+sudo apt -y install xsltproc curl uidmap jq git
 ```
 
 Then install `nvm`, add it to your path and install NodeJS 12:
