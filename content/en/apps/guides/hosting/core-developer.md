@@ -92,6 +92,11 @@ Every time you run any `grunt` or `node` commands, it will expect `COUCH_NODE_NA
 echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$0rc
 echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$0rc
 . ~/.$0rc
+```
+
+To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `nonode@nohost` and `http://medic:password@localhost:5984/medic`:
+
+```shell
 echo $COUCH_NODE_NAME && echo $COUCH_URL
 ```
 
