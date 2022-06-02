@@ -7,7 +7,7 @@ description: >
 
 relatedContent: >
   apps/guides/forms/additional-docs
-  apps/guides/forms/contact-forms
+  apps/reference/forms/contact
   apps/guides/forms/multimedia
 ---
 

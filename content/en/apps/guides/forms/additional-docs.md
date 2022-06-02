@@ -6,7 +6,7 @@ description: >
   Integration for sending and receiving SMS
 relatedContent: >
   apps/guides/forms/app-form-sms
-  apps/guides/forms/contact-forms
+  apps/reference/forms/contact
   apps/guides/forms/multimedia
 
 ---
