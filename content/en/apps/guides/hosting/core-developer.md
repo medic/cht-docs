@@ -27,7 +27,8 @@ sudo apt -y install xsltproc curl uidmap jq
 Then install `nvm`, add it to your path and install NodeJS 12:
 
 ```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | $0
+export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $0
 . ~/.$0rc
 nvm install 12
 ```
