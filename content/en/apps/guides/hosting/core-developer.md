@@ -150,9 +150,9 @@ That's it!  Now when you edit code in your IDE, it will automatically reload.  Y
 
 When you're done with development you can `ctrl + c` in the three terminals and stop the CouchDB container with `docker stop medic-couchdb`.  When you want to resume development later, run `docker start medic-couchdb` and re-run the three terminal commands.
 
-## Other Paths
+## Other Path Troubleshooting
 
-If you weren't able to follow the happy path above, here are some details about the developer install that may help you troubleshoot what went wrong.
+If you weren't able to follow [the happy path above](#the-happy-path-installation), here are some details about the developer install that may help you troubleshoot what went wrong.
 
 ### Prerequisites
 
