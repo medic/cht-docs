@@ -153,8 +153,7 @@ If you weren't able to follow the happy path above, here are some details about 
 
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
-* [Node.js 12.x](https://nodejs.org/)
-* [npm 6.x.x](https://npmjs.com/)
+* [Node.js 12.x](https://nodejs.org/) & [npm 6.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`]([npm 6.x.x](https://npmjs.com/))
 * [grunt cli](https://gruntjs.com/using-the-cli)
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
@@ -165,7 +164,7 @@ If you had issues with following the above steps, check out these links for how 
 
 Breaking down the command from [the above section]({{< relref "apps/guides/hosting/core-developer#couchdb-setup-in-docker" >}}), here's a generic version that doesn't include hard coded paths:
 
-``shell
+```shell
 docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v <data path>:/opt/couchdb/data -v <config path>:/opt/couchdb/etc/local.d apache/couchdb:2
 ```
 
@@ -207,8 +206,8 @@ Refer to [the testing doc](https://github.com/medic/cht-core/blob/master/TESTING
 1. Clone the repo: `git clone https://github.com/medic/nginx-local-ip.git`
 1. `cd` into the new directory: `cd nginx-local-ip`
 1. Assuming your IP is `192.168.0.3`, start `nginx-local-ip` to connect to:
-  * The CHT API running via `grunt` or `horti`, execute `APP_URL=http://192.168.0.3:5988 docker-compose up` and then access it at [https://192-168-0-3.my.local-ip.co/](https://192-168-0-3.my.local-ip.co/)
-  * The CHT API running via `docker`, the ports are remapped, so execute `HTTP=8080 HTTPS=8443 APP_URL=https://192.168.0.3 docker-compose up` and then access it at [https://192-168-0-3.my.local-ip.co:8443/](https://192-168-0-3.my.local-ip.co:8443/)
+   * The CHT API running via `grunt` or `horti`, execute `APP_URL=http://192.168.0.3:5988 docker-compose up` and then access it at [https://192-168-0-3.my.local-ip.co/](https://192-168-0-3.my.local-ip.co/)
+   * The CHT API running via `docker`, the ports are remapped, so execute `HTTP=8080 HTTPS=8443 APP_URL=https://192.168.0.3 docker-compose up` and then access it at [https://192-168-0-3.my.local-ip.co:8443/](https://192-168-0-3.my.local-ip.co:8443/)
 1. The HTTP/HTTPS ports (`80`/`443`) need to accept traffic from the IP address of your host machine and your local webapp port (e.g. `5988`) needs to accept traffic from the IP address of the `nginx-local-ip` container (on the Docker network). If you are using the UFW firewall (in a Linux environment) you can allow traffic on these ports with the following commands:
 
 (Since local IP addresses can change over time, ranges are used in these rules so that the firewall configuration does not have to be updated each time a new address is assigned.)
@@ -220,15 +219,15 @@ $ sudo ufw allow proto tcp from  172.16.0.0/16 to any port 5988
 
 ## Remote Proxies
 
-`ngrok` and `pagekite` are remote proxies that route local traffic between your client and the CHT via a remote SSL terminator. While easy and handy, they introduce latency and are sometimes throttled.
+`ngrok` and `pagekite` are remote proxies that route local traffic between your client and the CHT via a remote SSL terminator. While easy and handy, they introduce latency and are sometimes throttled. Always use `nginx-local-ip` when you need a TLS certificate and only use these when you need to share your dev instance.
 
 ### ngrok
 
 1. Create an [ngrok account](https://ngrok.com/), download and install the binary, then link your computer to your ngrok account.
-1. Start `ngrok` to connect to:
-  * The CHT API running via `grunt` or `horti`, execute `./ngrok http 5988`
-  * The CHT API running via `docker`, execute `./ngrok http 443`
-1. Access the app using the https address shown (e.g. `https://YOUR-NGROK-NAME.ngrok.io`, replacing `YOUR-NGROK-NAME` with what you signed up with).
+2. Start `ngrok` to connect to:
+   - The CHT API running via `grunt` or `horti`, execute `./ngrok http 5988`
+   - The CHT API running via `docker`, execute `./ngrok http 443`
+3. Access the app using the https address shown (e.g. `https://YOUR-NGROK-NAME.ngrok.io`, replacing `YOUR-NGROK-NAME` with what you signed up with).
 
 **Note:** The service worker cache preload sometimes fails due to connection throttling (thereby causing an `ngrok` failure at startup).
 
