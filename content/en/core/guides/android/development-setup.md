@@ -160,7 +160,7 @@ the submodules within the cht-android folder.
 
 _Only CHT Android_
 
-Refer to the [CHT Core Developer Guide](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#testing-locally-with-devices).
+Refer to the [CHT Core Developer Guide]({{< relref "apps/guides/hosting/core-developer#nginx-local-ip" >}}).
 
 ### Android Studio
 

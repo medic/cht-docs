@@ -95,7 +95,7 @@ $: npm ci
 $: grunt
 ```
 
-From this point, follow the setup guide from `Enabling a secure CouchDB` section in [Development Guide](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md).
+From this point, follow the `harden couch` section in [Core Developer Setup]({{< relref "apps/guides/hosting/core-developer#cht-core-cloning-and-setup" >}}).
 
 
 To get multiple linux terminals (so you can run `grunt`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.

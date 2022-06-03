@@ -63,7 +63,7 @@ A local development environment will be useful to you if:
 
 ### Option 1, local development environment
 
-If you don't already have a local dev env, follow the instructions on the [development setup instructions](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md).
+If you don't already have a local dev env, follow the instructions on the [development setup instructions]({{< relref "apps/guides/hosting/core-developer" >}}).
 
 Then you need to:
 
