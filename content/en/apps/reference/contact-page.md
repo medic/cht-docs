@@ -3,7 +3,9 @@ title: "contact-summary.templated.js"
 linkTitle: "contact-summary.templated.js"
 weight: 5
 description: >
-  **Contact Pages**: Customizing the fields, cards, and actions on profile pages  
+  **Contact Pages**: Customizing the fields, cards, and actions on profile pages
+relatedContent: >
+  apps/guides/forms/form-inputs
 relevantLinks: >
   docs/apps/features/contacts
   docs/apps/concepts/hierarchies

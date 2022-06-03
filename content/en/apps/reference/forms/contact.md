@@ -8,6 +8,7 @@ relevantLinks: >
   docs/apps/features/contacts
   docs/apps/concepts/hierarchies
 relatedContent: >
+  apps/guides/forms/form-inputs
   apps/guides/forms/additional-docs
   apps/guides/forms/multimedia
   apps/guides/forms/app-form-sms
@@ -38,6 +39,10 @@ The `parent`, `type`, and `name` fields are mandatory on forms that are adding c
 {{% alert title="Edit forms" %}}
 For edit forms, the name of the top-level group should still match the contact_type id of the contact, but only the relevant fields for editing need to be specified in the form.
 {{% /alert %}}
+
+#### Input data
+
+`contact` forms have access to a variety of [input data]({{< ref "apps/guides/forms/form-inputs#app-forms" >}}).
 
 ### Settings sheet
 
