@@ -16,19 +16,13 @@ keywords: hierarchy contacts contact-forms
 
 Contact forms are used to create and edit contacts (persons and places). Each contact-type should ideally have two forms; one for creation, and another for editing.
 
-{{% alert title="Note" %}}
-Prior to version 3.7, CHT Core supported 4 contact types - 3 place types (`clinic`, `health_center`, `district_hospital`) and one person type (`person`). From version 3.7, an unlimited number of place and person types are supported. To learn more about setting up configurable hierarchy, review the [Hierarchy]({{< ref "apps/reference/app-settings/hierarchy" >}}) page.
-
-When "contact_type id" is used below, it is referring to the id of the contact type configured in the `app_settings.json` (if using configurable hierarchy) or the relevant `clinic`, `health_center`, `district_hospital`, or `person` value for the contact in context.
-{{% /alert %}}
-
 These forms are stored in the `forms/contact` sub-folder of the project config directory. The naming convention used should be `<contact_type_id-{create|edit}>.xlsx`.
 
 ## Form details
 
 ### Survey sheet
 
-To collect information about the contact, use a top-level group with the contact_type id as the name (e.g. `person` when adding or editing a person contact). Information in this group will be saved to the contact's document in the database.
+To collect information about the contact, use a top-level group with the [id of the contact_type]({{< ref "apps/reference/app-settings/hierarchy" >}}) as the `name` of the group (e.g. `person` when adding or editing a person contact). Information in this group will be saved to the contact's document in the database.
 
 | type        | name   | label::en    |
 |-------------|--------|--------------|
@@ -71,12 +65,12 @@ For examples on how to structure the above files you can have a look at the samp
 
 Contact forms for creating a place can also optionally create one or more person-type documents. One of these person contacts can be linked to the created place as the primary contact.
 
-Below is a simple structure of a place forms showing all the necessary components.
+Below is a simple structure of a place form showing all the necessary components.
 
 ![Place forms survey sheet](place-contact-form-survey.png)
 
 Section 1 is similar to what has been described earlier for person forms.
 
-Section 2 specifies the contact that will be linked to the place being created. `parent`, `type` and `contact_type` and `name` are mandatory. This also applies to the place-type definition in section 4. `contact` on the other hand is not mandatory for the successful creation of a place. It usually more conventient to create a place and its primary contact at the same time.
+Section 2 specifies the contact that will be linked to the place being created. `parent`, `type` and `contact_type` and `name` are mandatory. This also applies to the place-type definition in section 4. `contact` on the other hand is not mandatory for the successful creation of a place. It is usually more convenient to create a place and its primary contact at the same time.
 
 You can also create additional contacts linked to the place being created when you have a structure similar to that shown in section 3.
