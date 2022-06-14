@@ -186,6 +186,49 @@ The resulting doc would be as follows, with the `_id` from `district_1` as the `
   "_id": "45293356-353c-5eb1-9a41-baa3427b4f69"
 }
 ```
+##### Link to a parent document already existing in couchdb
+You may wish to link the new record to a parent document that already exists in couchdb that was created in the past. Get the UUID of the existing parent document and place it in the column named `parent._id` as shown below:
+
+| reference_id:excluded | parent._id                          | is_name_generated | name | reported_date:timestamp |
+| --------------------- | ------------------------------------| ----------------- | ---- | ----------------------- |
+| health_center_1       | 0c31056a-3a80-54dd-b136-46145d451a66| false             | HC1  | 1544031155715           |
+
+The resulting doc would be as follows:
+```json
+{
+  "type": "health_center",
+  "parent": {
+    "_id": "f223f240-5d6a-5a7a-91d4-46d3c59de73e"
+  },
+  "is_name_generated": "false",
+  "name": "HC1",
+  "reported_date": 1544031155715,
+  "_id": "45293356-353c-5eb1-9a41-baa3427b4f69"
+}
+```
+
+If the parent document has more parent documents that need to be tracked, then more columns created with names corresponding to the parent UUIDs as shown below:
+
+| reference_id:excluded | parent._id                           | parent.parent._id                    | is_name_generated | name | reported_date:timestamp |
+| --------------------- | -------------------------------------| ------------------------------------ | ----------------- | ---- | ----------------------- |
+| health_center_1       | 0c31056a-3a80-54dd-b136-46145d451a66 | 66142fef-c4b4-4578-94e2-3d7f1a304ef7 | false             | HC1  | 1544031155715           |
+
+The resulting doc would be as follows:
+```json
+{
+  "type": "health_center",
+  "parent": {
+    "_id": "0c31056a-3a80-54dd-b136-46145d451a66",
+    "parent": {
+      "_id": "66142fef-c4b4-4578-94e2-3d7f1a304ef7"
+    }
+  },
+  "is_name_generated": "false",
+  "name": "HC1",
+  "reported_date": 1544031155715,
+  "_id": "45293356-353c-5eb1-9a41-baa3427b4f69"
+}
+```
 
 ### Creating CSV files for users
 
