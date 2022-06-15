@@ -8,6 +8,7 @@ relatedContent: >
   apps/reference/targets
   core/overview/db-schema#targets
   apps/features/integrations/dhis2
+  apps/features/supervision/#chw-aggregate-targets
 ---
 <!-- ## Targets: Performance Dashboards -->
 
@@ -19,7 +20,7 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 
 {{< figure src="targets-desktop.png" link="targets-desktop.png" class="left col-9 col-lg-9" >}}
 
-{{% alert title="Note" %}} Targets or goals can be configured for any user that has online or offline capabilities. A user must have access to the report in order to generate the widget with its data. {{% /alert %}}
+{{% alert title="Note" %}} Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data. {{% /alert %}}
 
 ## Types of Widgets
 
