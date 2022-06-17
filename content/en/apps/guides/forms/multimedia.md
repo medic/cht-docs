@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/guides/forms/additional-docs
   apps/guides/forms/app-form-sms
-  apps/guides/forms/contact-forms
+  apps/reference/forms/contact
 ---
 
 ## Multimedia Formats
