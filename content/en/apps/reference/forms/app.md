@@ -7,6 +7,8 @@ description: >
 relevantLinks: >
   docs/apps/concepts/workflows
   docs/design/best-practices
+relatedContent: >
+  apps/guides/forms/form-inputs
 keywords: workflows app-forms
 ---
 
@@ -92,32 +94,12 @@ A handy tool for converting Gregorian dates to Bikram Sambat is available [here]
 {{% /alert %}}
 
 - **Countdown Timer**: A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `note` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
-- **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. In v3.10.0 or above, set the field type to `string` and appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. If no contact type appearance is specified then all contact types will be returned. For v3.9.0 and below, set the field type to `db:{{contact_type}}` and appearance to `db-object`.
+- **Contact Selector**: Select a contact, such as a person or place, and save their UUID (and/or additional data) in the report. See [the documentation]({{< ref "apps/guides/forms/form-inputs#contact-selector" >}}) for more information.
 - **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
 - **Display Base64 Image**: Available in +3.13.0. To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
 - **Android App Launcher**: Available in +3.13.0 and in Android device only. A widget to launch an Android app that receives and sends data back to an app form in CHT-Core. See more details in the [Android App Launcher](#android-app-launcher).
 
 The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
-
-### Contact Selector
-
-Using a contact selector allows you to get data off the selected contact(person or place) or search for an existing contact. 
-
-When using with the appearance column set to `db-object`. The contact selector will display as a search box allowing you to search for the type of contact specified when building the report. EX: `db-person` will only search for contacts with type of person. 
-
-When used as a field you can pull the current contact. This is can be used to link reports to a person or place where you started the form from. Getting the data of `_id` or `patient_id` and setting those to `patient_id` or `patient_uuid` on the final report will link that report so it displays on their contact summary page. 
-
-Example of getting the data from the contact and assigning it to the fields neccessary to link the report. 
-
-| type | name | label | relevant | appearance | calculate | ... |
-|---|---|---|---|---|---|---|
-| begin group | contact |
-| db:person | _id | Patient ID |  | db-object |
-| string | patient_id | Medic ID |  | hidden |
-| string | name | Patient Name |  | hidden |
-| end group
-| calculate | patient_uuid | Patient UUID| ||../contact/_id|
-| calculate | patient_id | Patient ID| ||../contact/patient_id|
  
 ### Android App Launcher
 
@@ -286,6 +268,10 @@ _Available in +3.14.0._
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
 See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
+
+## Input data
+
+`app` forms have access to a variety of [input data]({{< ref "apps/guides/forms/form-inputs#app-forms" >}}) depending on the source of the form.
 
 ## CHT Special Fields
 
