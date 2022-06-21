@@ -84,7 +84,7 @@ If you want to set and save all possible variables:
 
 {{% alert title="Note" %}} `POSTGRESQL_URL` shouldn't be edited as it is defined by the variables above it. {{% /alert %}}
 
-7. Run: `. ./couch2pg.env&&node .`
+7. Run: `. ./couch2pg.env && node .`
 
 {{% alert title="Note" %}} To run cht-couch2pg in interactive mode, use `node . -i`. You will be prompted to answer questions to capture the same the environmental variables. For each question, you will be given suggestions for an answer. {{% /alert %}}
 
@@ -94,7 +94,7 @@ If you want to set and save all possible variables:
 
 ## Using docker-compose
 
-The simplest way to run with `docker-compose` is to specify the CouchDB instance that your local CHT setup is using. The compose file will then create a dockerized PostgresSQL instance, connect to the CouchDB server and proceed to download all the data to the PostgreSQL instance:
+The simplest way to run couch2pg is with `docker-compose` which only needs configuration of the CouchDB instance URL. The compose file will then create a PostgresSQL container, connect to the CouchDB server and proceed to download couchDB documents to the PostgreSQL container:
 
 1. Change directory into the repo's directory where you cloned it: `cd /path/to/cht-couch2pg`
 
