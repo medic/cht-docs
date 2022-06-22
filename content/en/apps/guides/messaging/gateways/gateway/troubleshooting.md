@@ -50,8 +50,36 @@ grep api/sms medic_medic_medic-api4.log
 ```
 If the above steps don't yield the problem, read the [Obtaining Logs]({{< ref "apps/guides/debugging/obtaining-logs#android-logs" >}}) page, note the make/model/android version their gateway handset is and escalate with those details to the PM/project techlead.
 
+**Verifying the SMS Gateway via a Test Message**
+
+We can verify whether the SMS Gateway app is responding by sending a test message via the web app. For example, let us try this in a deployed project.
+1. Login via the web app.
+
+![image](https://user-images.githubusercontent.com/3299006/175019916-2319fd9d-fbd3-4dea-9a2e-580b5aca559d.png)
+
+2. Goto App Management.
+
+![image](https://user-images.githubusercontent.com/3299006/175015115-d3cc84c9-937b-453f-b2b0-97e7122cb211.png)
+
+3. Click on SMS option, then click the Test Message tab.
+
+![image](https://user-images.githubusercontent.com/3299006/175015577-e546c897-555c-46c7-b77f-131f12baa669.png)
+
+4. The Gateway replies with the status message on the phone number we input in the "From phone number" field. So please input the test message and a valid phone number where you expect to view the status message and press the "Send message" button. We should see the Report Submitted message if the SMS was enqueued to be sent.
+![image](https://user-images.githubusercontent.com/3299006/175016759-d59a9097-afc0-4123-ae27-3bad76ddd969.png)
+5. If the message was recieved by the gateway we sohuld see the message in the "Messages" tab in the app and get an auto reply on the number we provided in step 4.
+
+	i.  Message Acknowledgement in the web app
+![image](https://user-images.githubusercontent.com/3299006/175017321-21b01ae2-bf23-4330-9713-08efddf9d51e.png)
+
+	ii. Message acknowledgement reply to the phone.
+![image](https://user-images.githubusercontent.com/3299006/175025457-f4baf20d-07ae-4ace-8b10-92e41d409fe2.png)
+
+6. If you see the message acknowledgement it means the Gateway is working as expected.
+
 {{% alert title="Note" %}}
 Insist on screenshots even for the most trivial things that partners insist they have performed as you asked. They are also good for giving you a mental image of what is happenning on the phone remotely.
 {{% /alert %}}
+
 
 
