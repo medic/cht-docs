@@ -39,7 +39,7 @@ To read more about environmental variables, see the [CHT Couch2pg readme](https:
 
 Before you begin, you need to have some useful software and tools that are required for things to work:
 
-* [nodejs](https://nodejs.org/en/) 8 or later
+* [nodejs](https://nodejs.org/en/) 8 or later upto 12. 
 * [npm](https://www.npmjs.com/get-npm)
 * [PostgreSQL](https://www.postgresql.org/) 9.4 or later
 
@@ -110,6 +110,22 @@ export COUCHDB_URL=https://medic:password@192-168-68-26.my.local-ip.co:8442/medi
 4. Connect to the PostgreSQL instance with login `cht_couch2pg`, password `cht_couch2pg_password` and database `cht`.
 
 {{% alert title="Note" %}} To set all possible variables or store the variables in configuration file, follow steps 5 and 6 above. To connect to the PostgreSQL instance, use the server from `POSTGRES_SERVER_NAME`, use login from `COUCH2PG_USER`, password from `COUCH2PG_USER_PASSWORD` and the database from `POSTGRES_DB_NAME`. {{% /alert %}}
+
+<br clear="all">
+
+ *****
+
+## Known issues
+
+1. Node version compatibility
+  - Version 14 and 16 have been known to fail silently, and you can conveniently switch between node versions using [nvm](https://github.com/nvm-sh/nvm).
+
+2. Postgres authentication
+  - If the error `Error: Unknown authenticationOk message typeMessage { name: 'authenticationOk', length: 23 }` is observed, it is because Postgres is setup to use a different password encryption algorithm compared to what Couch2pg uses. Couch2pg was made to work with `md5` which is the default method in Postgres v10-13. However, on postgres v14 the default method is `scram-sha-256` detailed in the [notes](https://postgresqlco.nf/doc/en/param/password_encryption/14/).
+
+  - The setting can be updated in the Postgres configuration file which is in `/etc/postgresql/14/main/postgres.conf` in Ubuntu 20.04. The key `password_encryption` should be set to md5. After updating the setting, restart the Postgres service.
+
+  - To confirm that the role used with couch2pg has an md5 encrypted password use the query `SELECT rolname, rolpassword FROM pg_authid`. The role password should start with md5.
 
 <br clear="all">
 
