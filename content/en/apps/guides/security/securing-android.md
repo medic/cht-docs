@@ -46,11 +46,7 @@ Android does not support disk encryption in versions earlier than 3.0
 
 ## Mobile device management
 
-Setting up mobile device management that if a phone gets lost or stolen you can ensure the data on it is deleted safely.
+Using mobile device management (MDM) software allows administrators to remotely manage mobile devices, which often includes the option to delete apps and data from lost or stolen mobile devices.
 
-You can enable this if the Google accounts used on the phones are part of a paid-for plan of Google's G Suite.
-
-Up to date instructions for enabling mobile device management can be found here: https://support.google.com/a/answer/7400753
-
-If you need to remotely wipe a device, see instructions here: https://support.google.com/a/answer/173390
+There are many commercially available MDM tools to evaluate. [Google Endpoint](https://workspace.google.com/intl/en_us/products/admin/endpoint/) is available for organizations using Google Workspace (formerly G Suite), which has free plans for non-profit organizations. Check out the [Endpoint documentation overview](https://support.google.com/a/answer/1734200) for more information, including [how to enable mobile device management](https://support.google.com/a/answer/7400753), and [how to remotely wipe a device](https://support.google.com/a/answer/173390).
 
