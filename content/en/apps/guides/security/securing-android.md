@@ -7,6 +7,7 @@ description: >
 relatedContent: >
   apps/guides/debugging/replicating-production-data-locally
   apps/guides/hosting/ssl-cert-install
+  core/guides/android/publishing
 
 ---
 
@@ -48,5 +49,4 @@ Android does not support disk encryption in versions earlier than 3.0
 
 Using mobile device management (MDM) software allows administrators to remotely manage mobile devices, which often includes the option to delete apps and data from lost or stolen mobile devices.
 
-There are many commercially available MDM tools to evaluate. [Google Endpoint](https://workspace.google.com/intl/en_us/products/admin/endpoint/) is available for organizations using Google Workspace (formerly G Suite), which has free plans for non-profit organizations. Check out the [Endpoint documentation overview](https://support.google.com/a/answer/1734200) for more information, including [how to enable mobile device management](https://support.google.com/a/answer/7400753), and [how to remotely wipe a device](https://support.google.com/a/answer/173390).
-
+{{< see-also page="core/guides/android/publishing" anchor="mobile-device-management" title="Publishing > Mobile Device Management" >}}
