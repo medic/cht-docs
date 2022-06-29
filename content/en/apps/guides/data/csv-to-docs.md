@@ -186,9 +186,11 @@ The resulting doc would be as follows, with the `_id` from `district_1` as the `
   "_id": "45293356-353c-5eb1-9a41-baa3427b4f69"
 }
 ```
-##### Link to a parent document already existing in couchdb
-You may wish to link the new record to a parent document that already exists in couchdb that was created in the past.
-Get the UUID of the existing parent document and place it in the column named `parent._id`. Get the rest of the the parent UUIDs in the hierarchy and track them in separate columns. Forexample a parent document below can be linked as shown in the table
+##### Link to a parent document already existing in the database
+You may wish to link the new record to a parent document that already exists in the database that was created in the past.
+Get the UUID of the existing parent document and place it in the column named `parent._id`. Get the rest of the the parent UUIDs in the hierarchy and track them in separate columns. It is important to track all levels of the hierarchy as certain features (e.g Tasks) in the configuration could be directly referencing a UUID deeper in the hierrarchy. 
+
+For example, a parent document below can be linked as shown in the table
 ```json
 {
   "_id": "0c31056a-3a80-54dd-b136-46145d451a66",
