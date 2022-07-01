@@ -32,7 +32,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_delete_messages` | Allows deletion of messages |
 | `can_delete_reports` | Allows deletion of reports |
 | `can_delete_users` | Allows deletion of users |
-| `can_edit` | Allows editing of documents in CouchDB. Note that even without this permission set to true a user can still edit reports in their app, yet the changes will not be replicated. See [issue]([url](https://github.com/medic/cht-core/issues/6215)) for more details. |
+| `can_edit` | Allows creating and editing of documents in CouchDB. Note that even without this permission a user can still create and edit reports on their device, but the changes will not be replicated to the server. See [this issue](https://github.com/medic/cht-core/issues/6215) for more details. |
 | `can_edit_profile` | Allows editing of their own user profile |
 | `can_edit_verification` | Allows updating of report verification status |
 | `can_export_all` | Allows export of data including data they do not have access to |
