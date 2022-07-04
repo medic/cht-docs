@@ -14,6 +14,8 @@ weight: 10
 
 ###### Artificial intelligence (AI)
 
+###### Assisted Global Positioning System (A-GPS)
+
 ## B
 
 ###### Backend
@@ -91,6 +93,10 @@ Digital Adaptation Kits are part of the SMART guidelines initiative to ensure WH
 The parts of the software that users see and interact with.
 
 ###### Fully Immunized Children (FIC)
+
+## G
+
+###### Global Positioning System (GPS)
 
 ## H
 
