@@ -14,6 +14,8 @@ weight: 10
 
 ###### Artificial intelligence (AI)
 
+###### Assisted GPS (A-GPS)
+
 ## B
 
 ###### Backend
@@ -83,6 +85,12 @@ The parts of the software that make the front end happen. These are all hidden f
 The parts of the software that users see and interact with.
 
 ###### Fully Immunized Children (FIC)
+
+## G
+
+###### Global Positioning System (GPS)
+
+###### Global Navigation Satellite System (GNSS)
 
 ## H
 
