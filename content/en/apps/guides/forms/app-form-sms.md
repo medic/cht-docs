@@ -7,8 +7,8 @@ description: >
 
 relatedContent: >
   apps/guides/forms/additional-docs
-  apps/guides/forms/contact-forms
   apps/guides/forms/multimedia
+  apps/reference/forms/contact
 ---
 
 ## Triggering Calls and SMS

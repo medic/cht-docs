@@ -7,6 +7,7 @@ description: >
 relatedContent: >
   core/guides/android/releasing
   core/guides/android/branding
+  apps/guides/security/securing-android
 aliases:
 -    /apps/guides/hosting/android-app/
 ---
@@ -53,9 +54,11 @@ Read more about [Using F-Droid for app distribution](https://medic.org/stories/u
 
 ### Mobile Device Management
 
-This gives the IT administrator full control over which applications are installed on the devices in the program. MDM is recommended when you want complete control over the software and configuration.
+Using mobile device management (MDM) software allows administrators to remotely manage mobile devices. This gives the IT administrator full control over which applications are installed on the devices, as well as having the option to delete apps and data from lost or stolen mobile devices. For this reason, using MDM software is highly recommended for deployments.
 
-There are several providers to choose from with a range of features and prices so it is recommend to do your own research and pick the one that's right for you.
+There are many commercially available MDM tools to evaluate, with a wide range of features and prices. [Google Endpoint](https://workspace.google.com/intl/en_us/products/admin/endpoint/) is available for organizations using Google Workspace (formerly G Suite), and has free plans for non-profit organizations. Check out the [Endpoint documentation overview](https://support.google.com/a/answer/1734200) for more information, including [how to enable mobile device management](https://support.google.com/a/answer/7400753), and [how to remotely wipe a device](https://support.google.com/a/answer/173390).
+
+Other MDM providers include [Headwind MDM](https://h-mdm.com/) and [Microsoft Intune](https://docs.microsoft.com/en-us/mem/intune/). It is recommended that you research MDM options and pick the one that's right for you.
 
 ### Progressive Web App
 

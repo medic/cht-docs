@@ -3,7 +3,9 @@ title: "contact-summary.templated.js"
 linkTitle: "contact-summary.templated.js"
 weight: 5
 description: >
-  **Contact Pages**: Customizing the fields, cards, and actions on profile pages  
+  **Contact Pages**: Customizing the fields, cards, and actions on profile pages
+relatedContent: >
+  apps/guides/forms/form-inputs
 relevantLinks: >
   docs/apps/features/contacts
   docs/apps/concepts/hierarchies
@@ -46,7 +48,7 @@ Each field that can be shown on a contact's profile is defined as an object in t
 | `label` | `string` | A translation key which is shown with the field. | yes |
 | `icon` | `string` | The name of the icon to display beside this field, as defined through the Configuration > Icons page. | no |
 | `value` | `string` | The value shown for the field. | yes |
-| `filter` | `string` | The display filter to apply to the value, eg: `{ value: '2005-10-09', filter: 'age' }` will render as "11 years". Common filters are: `age`, `phone`, `weeksPregnant`, `relativeDate`, `relativeDay`, `fullDate`, `simpleDate`, `simpleDateTime`, `lineage`, `resourceIcon`, `translate`. For the complete list of filters, and more details on what each does, check out the code in [`webapp/src/ts/pipes` dir](https://github.com/medic/cht-core/tree/3.11.x/webapp/src/ts/pipes). | no |
+| `filter` | `string` | The display filter to apply to the value, eg: `{ value: '2005-10-09', filter: 'age' }` will render as "11 years". Common filters are: `age`, `phone`, `weeksPregnant`, `relativeDate`, `relativeDay`, `fullDate`, `simpleDate`, `simpleDateTime`, `lineage`, `resourceIcon`, `translate`. For the complete list of filters, and more details on what each does, check out the code in [`webapp/src/ts/pipes` dir](https://github.com/medic/cht-core/tree/3.15.x/webapp/src/ts/pipes). | no |
 | `width` | `integer` | The horizontal space for the field. Common values are 12 for full width, 6 for half width, or 3 for quarter width. Default 12. | no |
 | `translate` | `boolean` | Whether or not to translate the `value`. Defaults to false. | no |
 | `context` | `object` | When `translate: true` and `value` uses [translation variables](https://angular-translate.github.io/docs/#/guide/06_variable-replacement), this value should provide the translation variables. | no |
@@ -73,7 +75,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 | `fields[n].label` | `string` or `function(report)` | Label shown with the field. | yes |
 | `fields[n].icon` | `string` or `function(report)` | The name of the icon to display beside this field, as defined through the Configuration > Icons page. | no |
 | `fields[n].value` | `string` or `function(report)` | The value shown for the field. | yes |
-| `fields[n].filter` | `string` or `function(report)` | The display filter to apply to the value, eg: `{ value: '2005-10-09', filter: 'age' }` will render as "11 years". Common filters are: `age`, `phone`, `weeksPregnant`, `relativeDate`, `relativeDay`, `fullDate`, `simpleDate`, `simpleDateTime`, `lineage`, `resourceIcon`, `translate`. For the complete list of filters, and more details on what each does, check out the code in [`medic/webapp/src/js/filters` dir](https://github.com/medic/medic/tree/master/webapp/src/js/filters). | no |
+| `fields[n].filter` | `string` or `function(report)` | The display filter to apply to the value, eg: `{ value: '2005-10-09', filter: 'age' }` will render as "11 years". Common filters are: `age`, `phone`, `weeksPregnant`, `relativeDate`, `relativeDay`, `fullDate`, `simpleDate`, `simpleDateTime`, `lineage`, `resourceIcon`, `translate`. For the complete list of filters, and more details on what each does, check out the code in [`webapp/src/ts/pipes` dir](https://github.com/medic/cht-core/tree/3.15.x/webapp/src/ts/pipes). | no |
 | `fields[n].width` | `integer` or `function(report)` | The horizontal space for the field. Common values are 12 for full width, 6 for half width, or 3 for quarter width. Default 12. | no |
 | `fields[n].translate` | `boolean` or `function(report)` | Whether or not to translate the `value`. Defaults to false. | no |
 | `fields[n].context` | `object` | When `translate: true` and `value` uses [translation variables](https://angular-translate.github.io/docs/#/guide/06_variable-replacement), this value should provide the translation variables. Only supports properties `count` and `total` on cards. | no |
