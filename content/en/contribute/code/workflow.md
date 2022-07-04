@@ -8,13 +8,23 @@ description: >
 
 ## Code
 
-### Writing
+### How to submit changes
+
+#### Step 1: Fork
+
+#### Step 2: Branch
+
+#### Step 3: Write and Test Code
 
 Where possible, follow our [coding style guide]({{< ref "contribute/code/style-guide" >}}).
 
-Aim for self-documenting code. Where code cannot be made self-documenting add commenting. Usually comments are useful when they explain why some code exists, and should not be explaining what some code is doing. 
+Aim for self-documenting code. Where code cannot be made self-documenting add commenting. Usually comments are useful when they explain why some code exists, and should not be explaining what some code is doing.
 
-### Pushing Code & Opening Pull Requests
+#### Step 4: Commit
+
+#### Step 5: Rebase
+
+#### Step 6: Push and Open Pull Request
 
 - If your code is in a regular pull request, it is assumed to be done and only needing a review and testing as checks before merging. It is best to request a reviewer, but otherwise anyone may freely review your PR.
 - If your code is in a draft PR, it is assumed to be a work-in-progress where collaboration is welcome, but best to communicate about specifics before assuming anything is complete.
