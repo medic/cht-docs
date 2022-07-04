@@ -67,6 +67,15 @@ The following is the minimum specification recommendation for smartphones to han
 | RAM | 1GB |
 | Storage | 8GB |
 
+If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
+
+- Galileo
+- BDS (BeiDou)
+- GLONASS
+- QZSS
+
+Devices with more navigation systems are more likely to get a more accurate location fix in varied locations. For example, Huawei Y5 has GPS specs listed on gsmarena.com as **_GPS: Yes, with A-GPS, GLONASS, BDS_** which makes it a good choice for GPS data collection.
+
 
 ## Release Notes
 ### 3.x
