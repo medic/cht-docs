@@ -3,7 +3,7 @@
 
 RapidPro - CHT uses your Android phone to send and receive messages on your behalf.
 
-Due to restrictions Android has on applications that send SMS messages, we cannot distribute the RapidPro - CHT application through the Play Store. You will need to download the application manually and install it using the steps below.
+Due to restrictions that Google has placed on Android applications that send SMS messages, RapidPro - CHT applications can no longer be distributed through the Google Play Store. You will need to download the application file and install it using the steps below:
 
 
 
