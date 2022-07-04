@@ -67,7 +67,7 @@ The following is the minimum specification recommendation for smartphones to han
 | RAM | 1GB |
 | Storage | 8GB |
 
-If CHWs will be collecting GPS data, the devices should include autonomous GPS sensors in addition to A-GPS for areas where GSM network connectivity isn't very good. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
+If CHWs will be collecting GPS data, the devices should include autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas where GSM network connectivity isn't very good. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
 
 - Galileo
 - BDS (BeiDou)
