@@ -160,9 +160,9 @@ Describes the extent to which systems and devices can exchange data, and interpr
 
 ###### Malnutrition (Mal)
 
-###### Maternal Newborn Child Health (MNCH/MCH)
+###### Maternal, and Child Health (MCH)
 
-###### Maternal and Child Health (MCH)
+###### Maternal, Newborn, and Child Health (MNCH)
 
 ###### mHealth
 
@@ -235,6 +235,8 @@ Collaborative endeavor aimed at delivering mobile tools to health workers and im
 ## R
 
 ###### Rapid Diagnostic Testing (RDT)
+
+###### Reproductive, Maternal, Newborn, and Child Health (RMNCH) 
 
 ## S
 
