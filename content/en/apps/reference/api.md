@@ -1040,6 +1040,138 @@ Content-Type: application/json
 ]
 ```
 
+### POST /api/v2/users
+
+Create new users with a place and a contact from a CSV file.
+
+Creating users from a CSV file is currently only available in the `3.15.0-FR-bulk-user-upload` [Feature Release]({{< ref "core/releases/feature_releases" >}}).  
+It behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "apps/reference/api#post-apiv1users" >}}) where a row represents a user object and a column represents a user object property.  
+Columns with a `:excluded` suffix will be ignored, this allows providing a more user-friendly experience with autocompletion on fields or dealing with names instead of long, unreadable ids.
+
+In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
+[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
+
+<!-- TODO: explain how the google sheet works like in the french instructions -->
+
+#### Headers
+
+| Key          | Value    | Description                                  |
+|--------------|----------|----------------------------------------------|
+| Content-Type | text/csv | Processes form data in request body as JSON. |
+
+#### Permissions
+
+`can_create_users`
+
+#### Example
+
+Create two new users that can authenticate with a username and a password
+that can submit reports and view or modify records associated to their place.
+The place is created in the background and automatically linked to the contact.
+
+```
+POST /api/v2/users
+Content-Type: text/csv
+
+contact.username,contact.first_name,contact.last_name,contact.sex,contact.phone,email,contact.meta.created_by,token_login,contact.role,contact.geolocalized,contact.type,contact.contact_type,contact.name,username,password,phone,place.parent,place.type,place.name,place.contact_type,type,fullname
+mary,Mary,Anyango,female,+2868917046,,,FALSE,chw,false,contact,person,Mary Anyango,mary,WrAGyGD9805,2868917046,fe4da0f9-7d65-4834-bb42-88a5239bbd3b,health_center,Mary Anyango's Health center,clinic,chw,Mary Anyango
+bob,Bob,Johnson,male,+2868194607,,,FALSE,chw,false,contact,person,Bob Johnson,bob,JzAEQzY2614,2868194607,fe4da0f9-7d65-4834-bb42-88a5239bbd3b,health_center,Bob Johnson's Health center,clinic,chw,Bob Johnson
+```
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+  {
+    "contact": {
+      "id": "65416b8ceb53ff88ac1847654501aeb3",
+      "rev": "1-0b74d219ae13137c1a06f03a0a52e187"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-6ac1d36b775143835f4af53f9895d7ae"
+    },
+    "user": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-c3b82a0b47cfe68edd9284c89bebbae4"
+    }
+  },
+  {
+    "contact": {
+      "id": "8d8a741c1cb441058e29a60ab7596bf2",
+      "rev": "1-acbc31712fd105eae3cd0806cd20a8f4"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:bob",
+      "rev": "1-d8629838127accd531043f845c416ef6"
+    },
+    "user": {
+      "id": "org.couchdb.user:bob",
+      "rev": "1-5eac2542c801ba6b518728f53d9276a0"
+    }
+  }
+]
+```
+
+#### Errors
+
+##### Response when the username already exists
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+[
+  {
+    "error": "Missing required fields: username"
+  }
+]
+```
+
+##### Response when users are missing required fields
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+[
+  {
+    "error": "Missing required fields: username"
+  },
+  {
+    "error": "Missing required fields: password"
+  }
+]
+```
+
+##### Response when some users failed to be created
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+  {
+    "contact": {
+      "id": "65416b8ceb53ff88ac1847654501aeb3",
+      "rev": "1-0b74d219ae13137c1a06f03a0a52e187"
+    },
+    "user-settings": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-6ac1d36b775143835f4af53f9895d7ae"
+    },
+    "user": {
+      "id": "org.couchdb.user:mary",
+      "rev": "1-c3b82a0b47cfe68edd9284c89bebbae4"
+    }
+  },
+  {
+    "error": "Failed to find place."
+  }
+]
+```
+
 ### POST /api/v1/users/{{username}}
 
 Allows you to change property values on a user account. Properties listed above
