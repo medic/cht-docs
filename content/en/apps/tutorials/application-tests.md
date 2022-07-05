@@ -48,7 +48,7 @@ Writing tests for CHT apps requires a good understanding of the project workflow
         "unittest": "mocha test/**/*.spec.js --timeout 20000"
       }
     ```
-    After adding these scripts, you will be able to run the tests by running one of these commands from the command-line:
+    After adding these scripts, you are able to run the tests by running one of these commands from the command-line:
 
     <table>
       <tr>
@@ -128,7 +128,7 @@ After each test run, assert that there are no errors in the console.
   });
 ```
 
-If you want to learn more about these hooks, please refer to this [Mocha resource](https://mochajs.org/#hooks). Please feel free to customize the hooks as you see fit.
+If you want to learn more about these hooks, refer to this [Mocha resource](https://mochajs.org/#hooks). Feel free to customize the hooks as you see fit.
 
 Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "apps/tutorials/app-forms" >}}):
 
@@ -170,7 +170,7 @@ module.exports = {
 };
 ```
 
-In a test below, the inputs are used from the `form-inputs.js` file above:
+In the test below, the inputs are used from the `form-inputs.js` file above:
 ```js
 const { assessments } = require('../form-inputs');
 ...
@@ -266,7 +266,7 @@ expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
   );
 ```
 
-Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, please look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
+Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 
 Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "apps/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
@@ -327,7 +327,7 @@ Negative cases - confirm tasks don’t trigger
 </table>
 
 
-When testing the tasks [manually]({{< ref "tasks-1#3-testing-the-task" >}}), you need to fill a form. Then in order to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
+When testing the tasks [manually]({{< ref "tasks-1#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
 
 Every task has a source document (contact or report). When testing, you can mock the source document. Yet, the recommended approach is to fill the source form and then proceed with checking the associated tasks.
 
@@ -341,7 +341,7 @@ Commonly used harness methods when testing tasks are:
 
 - [`harness.loadAction()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#loadAction): Simulates the user clicking on an action
 
-With `getTasks()`, we get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#tasks).
+With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#tasks).
 
 Let's look back at the simple task from this tutorial: [Building A Simple Task]({{< ref "apps/tutorials/tasks-1" >}}).
 
@@ -350,14 +350,14 @@ According to the task configuration, these conditions need to be met for the ass
 2. The `contact_type` of the user's parent is: `chw_area`
 3. The current time is between the start and end dates of the task event.
 
-When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. Please see the lines [31](#harness-defaults-json-31) and [26]((#harness-defaults-json-26)) respectively in the sample file further below.
+When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. See the lines [31](#harness-defaults-json-31) and [26]((#harness-defaults-json-26)) respectively in the sample file further below.
 
 For the condition 3, let's look at the task event window in the task definition. As mentioned in the earlier tutorial, the task event is:
 - Due 7 days after the contact’s creation date.
 - Should appear 7 days before the due date, or immediately when the contact is created.
 - Should disappear the day after the due date.
 
-So, in order to see the task, the contact should be created within the last 7 days. We can easily set the contact's reported date so that it falls within the last 7 days (see line [36](#harness-defaults-json-36) below).
+So, to see the task, the contact should be created within the last 7 days. You can easily set the contact's reported date so that it falls within the last 7 days (see line [36](#harness-defaults-json-36) below).
 
 **harness.defaults.json**:
 {{< highlight json "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=harness-defaults-json" >}}
@@ -412,14 +412,14 @@ So, in order to see the task, the contact should be created within the last 7 da
 }
 {{< /highlight >}}
 
-Please note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use external website [epochconverter](https://www.epochconverter.com/) to convert the timestamp to and from a human readable date.
+Note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use external website [epochconverter](https://www.epochconverter.com/) to convert the timestamp to and from a human readable date.
 
 After setting the harness defaults, you can now test the task:
 ```js {linenos=true}
 // Get the task by title
 const tasks = await harness.getTasks({title: 'First Assessment'});
 
-//Make sure that we have the task
+//Make sure that you have the task
 expect(tasks).to.have.property('length', 1);
 
 // Load the task action and fill it.
@@ -561,7 +561,7 @@ When fixing a bug, write a test which captures the specific scenario being fixed
 - At least one test should fail before the fix
 - It should pass after the fix
 
-This will prevent the regression and ensure that you're fixing what you expect.
+This prevents the regression and helps ensure that you're fixing what you expect.
 
 ### Tips for writing tests
 - Every test needs to add value
