@@ -188,7 +188,7 @@ The resulting doc would be as follows, with the `_id` from `district_1` as the `
 ```
 ##### Link to a parent document already existing in the database
 You may wish to link the new record to a parent document that already exists in the database that was created in the past.
-Get the UUID of the existing parent document and place it in the column named `parent._id`. Get the rest of the the parent UUIDs in the hierarchy and track them in separate columns. It is important to track all levels of the hierarchy as certain features (e.g Tasks) in the configuration could be directly referencing a UUID deeper in the hierrarchy. 
+Get the UUID of the existing parent document and place it in the column named `parent._id`. Get the rest of the the parent UUIDs in the hierarchy lineage and track them in separate columns. It is important to track all levels of the hierarchy as certain app features (e.g Tasks) in the configuration could be directly referencing a UUID deeper in the hierrarchy. 
 
 For example, a parent document below can be linked as shown in the table
 ```json
