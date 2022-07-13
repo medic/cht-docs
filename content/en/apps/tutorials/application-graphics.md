@@ -83,7 +83,7 @@ If you would like to display a collection of logos representing all of the organ
 
  #### Using cht-conf
 
-Create a `branding.json` file if it doesn't exist. (This may have already been created by the initialise-project-layout command).
+Create a `partners.json` file if it doesn't exist. (This may have already been created by the initialise-project-layout command).
 Edit the file with the following content:
 
 ```json
