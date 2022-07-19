@@ -59,6 +59,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_view_reports_tab` | Displays the reports tab in the application |
 | `can_view_tasks` | Allows viewing tasks |
 | `can_view_tasks_tab` | Displays tasks tab in the application |
+| `can_view_tasks_group` | Displays all available tasks within same place after submitting |
 | `can_view_uhc_stats` | Allows users to view UHC metrics |
 | `can_view_unallocated_data_records` | Allows viewing reports that have no associated contact |
 | `can_view_users` | Allows viewing all user accounts |
