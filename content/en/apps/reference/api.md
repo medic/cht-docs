@@ -1050,7 +1050,16 @@ Columns with a `:excluded` suffix will be ignored, this allows providing a more 
 autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
-[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
+[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.  
+[A guide]({{< ref "apps/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
+in case you don't want to interact with this API yourself.
+
+#### Advanced Usage
+
+A log entry is created with each bulk import that contains the import status for each user and the import progress status
+that gets updated throughout the import.  
+These entries are saved in the [`medic-logs`]({{< ref "apps/guides/database#medic-logs" >}}) database and you can access them
+by querying documents with a key that starts with `bulk-user-upload-`.
 
 #### Headers
 
