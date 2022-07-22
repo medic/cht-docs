@@ -1,4 +1,5 @@
 <!-- Modified from docsy theme to hide root item, and to distinguish selected and active sections -->
+<!-- https://github.com/google/docsy/blob/c65715725ee992cd4e59aeefe0f66df80b2eb4ea/layouts/partials/sidebar-tree.html -->
 {{/* We cache this partial for bigger sites and set the active class client side. */}}
 {{ $sidebarCacheLimit := cond (isset .Site.Params.ui "sidebar_cache_limit") .Site.Params.ui.sidebar_cache_limit 2000 -}}
 {{ $shouldDelayActive := ge (len .Site.Pages) $sidebarCacheLimit -}}
