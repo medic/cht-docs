@@ -10,14 +10,12 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 ## Installing Hugo
 
-The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.53 and later.
+The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.73.0 and later.
 
 To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version.
 
 ## Building the Documentation
 
-1. Get local copies of the project submodules so you can build and run your site locally:
-   - `git submodule update --init --recursive`
 1. Build your site:
    - `hugo server`
    - If there are any errors, check that you have the latest version of Hugo, and are using the extended version.
@@ -42,3 +40,15 @@ _Note_: The `muffet.sh` script here is the identical script we run on GitHub. If
 ## Continuous Deployment
 
 All changes to `main` branch run a [GitHub action](.github/workflows/ci.yml) to first check for any broken links ([per above](#link-checking-optional)) and then deploy to the documentation site: [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org)
+
+## Upgrading dependencies
+
+### Hugo
+
+The version of Hugo used to deploy the side is specified in the [GitHub workflows config](./.github/workflows). To upgrade to a new version of Hugo, simply update the `hugo-version` property in the workflows to the desired version (after confirming the site functions properly on the new version of Hugo). 
+
+See the [Hugo Release Notes](https://github.com/gohugoio/hugo/releases) for documentation regarding what has changed in the new versions.
+
+### Docsy
+
+The current version of Docsy is pinned in the [`go.mod`](./go.mod) file. To upgrade to a new version of Docsy, use the `hugo mod get` command as described [in the Docsy documentation](https://www.docsy.dev/docs/updating/updating-hugo-module/).
