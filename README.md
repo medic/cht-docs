@@ -10,7 +10,7 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 ## Installing Hugo
 
-The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.73.0 and later.
+The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later.
 
 To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version.
 
@@ -45,10 +45,14 @@ All changes to `main` branch run a [GitHub action](.github/workflows/ci.yml) to 
 
 ### Hugo
 
-The version of Hugo used to deploy the side is specified in the [GitHub workflows config](./.github/workflows). To upgrade to a new version of Hugo, simply update the `hugo-version` property in the workflows to the desired version (after confirming the site functions properly on the new version of Hugo). 
+The version of Hugo used to deploy the site is specified in the [GitHub workflows config](./.github/workflows). To upgrade to a new version of Hugo, simply update the `hugo-version` property in the workflows to the desired version (after confirming the site functions properly on the new version of Hugo). 
+
+_(Note there is also a minimum version of Hugo required to deploy the site specified via `module.hugoVersion` in the [`config.toml`](./config.toml) file.)_
 
 See the [Hugo Release Notes](https://github.com/gohugoio/hugo/releases) for documentation regarding what has changed in the new versions.
 
 ### Docsy
 
 The current version of Docsy is pinned in the [`go.mod`](./go.mod) file. To upgrade to a new version of Docsy, use the `hugo mod get` command as described [in the Docsy documentation](https://www.docsy.dev/docs/updating/updating-hugo-module/).
+
+See the [Docsy CHANGELOG](https://github.com/google/docsy/blob/main/CHANGELOG.md) for documentation regarding what has changed in the new versions.
