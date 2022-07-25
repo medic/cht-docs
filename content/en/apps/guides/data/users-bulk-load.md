@@ -65,40 +65,45 @@ If a change is made, you can use Google Sheets history ("File" -> "Version Histo
 
 ## Importing Users
 
-1. Access the [Admin Console]({{< ref "apps/features/admin/" >}}) of your instance
+1. Create a copy of [this spreadsheet](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy).
+Give it a good name and note its location in Google Drive. You will always come back to your copy of this Sheet whenever you want to add a set of users.
 
-2. Entering data into the spreadsheet
+2. Copy the "contact.chw" and "contact.chw_VLOOKUP" worksheets so that you have a set of the pair per level of your hierarchy.
+If your hierarchy was "Central -> Supervisor -> CHW", you would have 3 pairs (6 worksheets total). Be sure each worksheet is named accurately.
+
+3. Open the spreadsheet and populate your list of parent places that you'd like to use for your users.
+In this example the "Penda Ouedraogo" place has gotten an updated UUID starting with "bcc"
+![populate your list of parent places](importing-users-populate-parents-places.png)
+
+4. Add the users you would like to create
 ![entering data into the spreadsheet](importing-users-entering-data.png)
 
-3. Export spreadsheet into CSV
+5. Export spreadsheet into CSV
 ![export spreadsheet into CSV](importing-users-export-csv.png)
 
-4. Import CSV into CHT
+6. Access the [Admin Console]({{< ref "apps/features/admin/" >}}) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
 ![import CSV into CHT](importing-users-import-csv.png)
-<br />
-<br />
-![import CSV into CHT confirmation modal](importing-users-import-csv-confirmation.png)
 
-5. Be patient during import (testing showed ~0.4 seconds per record up to 500 records)
+7. Be patient during import (testing showed ~0.4 seconds per record up to 500 records)
 ![progress feedback during CSV import](importing-users-import-progress.png)
 
-6. Download the status file
+8. Download the status file
 ![download the status file](importing-users-download-status-file.png)
 
-7. Transfers errors back into spreadsheet. Make sure you copy all three columns A, B and C.
+9. Transfers errors back into spreadsheet. Make sure you copy all three columns A, B and C.
 The usernames in column C must match those in column D of the original spreadsheet.
 ![transfers errors back into spreadsheet](importing-users-transfer-errors.png)
 
-8. Fix the errors and export to CSV
+10. Fix the errors and export to CSV
 ![fix errors and export to CSV](importing-users-fix-errors.png)
 <br />
 <br />
 ![export spreadsheet into CSV](importing-users-export-csv.png)
 
-9. Import the fixed CSV, noting already import rows are skipped
+11. Import the fixed CSV, noting already import rows are skipped
 ![import the fixed CSV](importing-users-import-fixed-csv.png)
 
-10. Deliver credentials to phone or to CHW, using care to not overshare the login and password
+12. Deliver credentials to phone or to CHW, using care to not overshare the login and password
 
 ## Adding new places
 
