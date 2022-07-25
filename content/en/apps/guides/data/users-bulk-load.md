@@ -103,7 +103,7 @@ The usernames in column C must match those in column D of the original spreadshe
 ## Adding new places
 
 Over time, new places will be added to different levels of the hierarchy.
-You will need to manually add these new places to the the spreadsheet so that you can add users to the new places.
+You will need to manually add these new places to the spreadsheet so that you can add users to the new places.
 
 1. Navigate in the CHT to the new site. In this case, it is "Site Dieco" that has been added (item 1). Copy the 36 character UUID from the URL (item 2).
 ![navigate in the CHT to the new site](adding-places-cht-new-site.png)
