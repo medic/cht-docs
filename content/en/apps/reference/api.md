@@ -1042,6 +1042,7 @@ Content-Type: application/json
 
 ### POST /api/v2/users
 
+*Added in 3.16.0*
 Create new users with a place and a contact from a CSV file.
 
 Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "apps/reference/api#post-apiv1users" >}})
