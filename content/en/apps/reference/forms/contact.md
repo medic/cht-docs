@@ -50,7 +50,7 @@ The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where C
 
 ### Properties
 
-Starting in cht-core release 3.10, we can now configure property files in contact forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/app#formsappform_namepropertiesjson" >}}).
+Starting in cht-core release 3.10, we can now configure property files in contact create forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/app#formsappform_namepropertiesjson" >}}). Note: this applies only to the create form, not the contacts themselves.
 
 ## Generic contact forms
 
