@@ -34,7 +34,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_delete_users` | Allows deletion of users |
 | `can_edit` | Allows creating and editing of documents in CouchDB. Note that even without this permission a user can still create and edit reports on their device, but the changes will not be replicated to the server. See [this issue](https://github.com/medic/cht-core/issues/6215) for more details. |
 | `can_edit_profile` | Allows editing of their own user profile |
-| `can_edit_verification` | Allows updating of report verification status |
+| `can_edit_verification` | Allows setting and editing of report verification status. To block the user from updating the existing status, use `can_verify_reports` instead. |
 | `can_export_all` | Allows export of data including data they do not have access to |
 | `can_export_contacts` | Allows export of contacts |
 | `can_export_dhis` | Allows export of DHIS2 metrics |
@@ -44,7 +44,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_update_places` | Allows editing of place documents |
 | `can_update_reports` | Allows editing of report documents |
 | `can_update_users` | Allows editing of user documents |
-| `can_verify_reports` | Allows update of report verification status |
+| `can_verify_reports` | Allows setting report verification status if no status is currently set. To allow the user to update the existing status, use `can_edit_verification` instead. |
 | `can_view_analytics` | Allows access to in-app analytics |
 | `can_view_analytics_tab` | Displays analytics tab on the application |
 | `can_view_call_action` | Displays a button to call the selected person |
