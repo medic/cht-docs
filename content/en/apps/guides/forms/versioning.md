@@ -28,7 +28,16 @@ For example:
 ```
 
 When a user fills in a form with an `xmlVersion` property, the version is copied in to the report doc as the `form_version`
-property. This can be used to determine the version of the form that was used to submit the report. If you upload multiple
+property. For example, the snippet above would generate a property like this:
+
+```json
+  "form_version": {
+    "time": 1658717177750,
+    "sha256": "6f0bbfe5a9a9ebeb25784165879afec5e311b197cbd76ade5698c83c22dd9a8f"
+  }
+```
+
+This can be used to determine the version of the form that was used to submit the report. If you upload multiple
 versions of a form over time you can use logic to have the CHT and integrated systems to enable backwards compatibility so
 they behave the same regardless of which version of the form was used.
 
