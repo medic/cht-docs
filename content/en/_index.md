@@ -3,9 +3,19 @@ title: "Welcome to the Community Health Toolkit Docs Site!"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
-menu:
-main:
-weight: 1
+cascade:
+- _target:
+  path: "/**"
+  kind: "page"
+  type: "docs"
+- _target:
+  path: "/**"
+  kind: "section"
+  type: "docs"
+- _target:
+  path: "/**"
+  kind: "section"
+  type: "home"
 ---
 
 {{% pageinfo %}}
