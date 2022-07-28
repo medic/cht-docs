@@ -5,17 +5,13 @@ identifier: "docs"
 weight: 1
 cascade:
 - _target:
-  path: "/**"
+    path: "/**"
   kind: "page"
   type: "docs"
 - _target:
-  path: "/**"
+    path: "/**"
   kind: "section"
   type: "docs"
-- _target:
-  path: "/**"
-  kind: "section"
-  type: "home"
 ---
 
 {{% pageinfo %}}
