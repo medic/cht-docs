@@ -42,9 +42,9 @@ Then for each folder go through these steps.
   Do this by checking the jquery entry in `./webapp/package.json` matches `./webapp/node_modules/enketo-core/package.json`:
 
   ```
-  $ grep '"jquery"' ./webapp/package.json
+  grep '"jquery"' ./webapp/package.json
   "jquery": "3.2.x",
-  $  grep '"jquery"' ./webapp/node_modules/enketo-core/package.json
+  grep '"jquery"' ./webapp/node_modules/enketo-core/package.json
   "jquery": "3.2.x",
   ```
 

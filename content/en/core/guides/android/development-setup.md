@@ -56,9 +56,9 @@ The binary folder of the command also need to be added to the `$PATH`, and `$AND
 Here are the steps from the command line you can follow to install the CLI tools once downloaded the zip file:
 
 ```bash
-$ mkdir -p Android/Sdk/cmdline-tools
-$ unzip commandlinetools-linux-7583922_latest.zip
-$ mv cmdline-tools/ Android/Sdk/cmdline-tools/latest/
+mkdir -p Android/Sdk/cmdline-tools
+unzip commandlinetools-linux-7583922_latest.zip
+mv cmdline-tools/ Android/Sdk/cmdline-tools/latest/
 ```
 
 Then, to add the environment variables required, you can add the following to your `~/.bashrc` file:
@@ -73,7 +73,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 Old SDK distributions used to have it pre-packaged, now you have to install it separately. Once installed SDK following the steps above, you can install the latest version of `adb` with:
 
 ```
-$ sdkmanager --install platform-tools
+sdkmanager --install platform-tools
 ```
 
 If you also installed Android Studio you can use the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) instead.
@@ -107,7 +107,7 @@ See the [Makefile](https://github.com/medic/cht-android/blob/master/Makefile) fo
 
 To build and assemble the apps within the console use:
 
-    $ make assemble
+    make assemble
 
 The command above builds and assembles the _debug_ and _release_ APKs of the apps, and for the CHT-Android project the Unbranded flavor is built and assembled by default.
 

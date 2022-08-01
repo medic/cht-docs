@@ -148,7 +148,7 @@ Don't worry to follow all the name conventions and how to generate these files, 
 Executing the command will check that you have the necessary tooling installed, and ask you the information about the certificate like the organization name, organization unit, etc. The command also takes care of picking random passwords that meet the security requirements, and then compresses the key files and finally encrypt the `.tar.gz` file into the `.enc` file. At the end of the execution, the script will also show the list of environment variables that you have to setup in CI (Github Actions) and locally in order to sign the apps with the new keystore. Below is an example of executing it to create the keystore for our "new_brand":
 
 ```
-$ make org=new_brand keygen
+make org=new_brand keygen
 Verifying the following executables are in the $PATH: java keytool openssl ...
 keytool -genkey -storepass dd8668... -v -keystore new_brand.keystore -alias medicmobile -keyalg RSA -keysize 2048 -validity 9125
 What is your first and last name?
@@ -209,7 +209,7 @@ If you want to start over because some of the parameters were wrong, just execut
 3. Sign your app! try locally to build the app with the certificate. To create the .apk files run: `make org=new_brand flavor=New_brand assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brand/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
 
    ```
-   $ make keyprint-apk 
+   make keyprint-apk 
    apksigner verify -v --print-certs build/outputs/apk/new_brand/release/cht-android-SNAPSHOT-new_brand-arm64-v8a-release.apk
    ... ...
    Verified using v2 scheme (APK Signature Scheme v2): true
