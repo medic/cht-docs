@@ -40,7 +40,7 @@ Or command line:
   - Then `npm access` should show the updated permissions for the team members.
 
   ```
-  $ npm access ls-collaborators
+  npm access ls-collaborators
   {
     "mandric": "read-write",
     "estellecomment": "read-write",

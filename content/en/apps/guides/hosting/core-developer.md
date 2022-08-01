@@ -218,8 +218,8 @@ Refer to [the testing doc](https://github.com/medic/cht-core/blob/master/TESTING
 (Since local IP addresses can change over time, ranges are used in these rules so that the firewall configuration does not have to be updated each time a new address is assigned.)
 
 ```shell
-$ sudo ufw allow proto tcp from 192.168.0.0/16 to any port 80,443
-$ sudo ufw allow proto tcp from  172.16.0.0/16 to any port 5988
+sudo ufw allow proto tcp from 192.168.0.0/16 to any port 80,443
+sudo ufw allow proto tcp from  172.16.0.0/16 to any port 5988
 ```
 
 ## Remote Proxies
