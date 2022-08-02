@@ -13,10 +13,19 @@ relatedContent: >
 
 ---
 
+This quick guide will walk you through the steps of:
+
+1. Populating a spreadsheet to with the users you want to import. Uses Google Sheets.
+2. Upload the new users using the Admin UI in the CHT.
+3. Handling any errors that may have occurred during import.
+4. When done, you will have created new users, new contacts and new places, all of which are correctly associated in CouchDB with the correct UUIDs.
+
 {{% pageinfo %}}
 This guide shows how to import users from a spreadsheet from within the Admin Console.
 User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or
 using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
+
+The features on this page apply only to CHT 3.16.0 and later and assumes you're using Google Drive to manage your spreadsheets.
 {{% /pageinfo %}}
 
 ## Spreadsheet Instructions
@@ -45,7 +54,7 @@ Copy in error messages here after importing. There are three fields:
 
 #### **Spreadsheet Area 2**
 
-Enter all data here. Data will be copied and created for to the other columns in area 3
+Enter all data here. Data will be automatically copied for you to columns in area 3.
 
 #### **Spreadsheet Area 3**
 

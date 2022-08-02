@@ -1055,10 +1055,10 @@ In order to facilitate this process, we have made available a spreadsheet compat
 [A guide]({{< ref "apps/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
-#### Advanced Usage
+#### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
-that gets updated throughout the import.  
+that gets updated throughout the import and finalized upon completion.  
 These entries are saved in the [`medic-logs`]({{< ref "apps/guides/database#medic-logs" >}}) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
@@ -1076,15 +1076,17 @@ by querying documents with a key that starts with `bulk-user-upload-`.
 
 Create two new users that can authenticate with a username and a password
 that can submit reports and view or modify records associated to their place.
-The place is created in the background and automatically linked to the contact.
+Along with a new user, a new contact and new place are created as well.
+The new place will be a child of `place.parent` (see the UUID `fe4da0f9-7d65-4834-bb42-88a5239bbd3b` below)
+and must already exist or else the new place will be an orphan record in the hierarchy and not show up in the GUI.
 
 ```
 POST /api/v2/users
 Content-Type: text/csv
 
-contact.username,contact.first_name,contact.last_name,contact.sex,contact.phone,email,contact.meta.created_by,token_login,contact.role,contact.geolocalized,contact.type,contact.contact_type,contact.name,username,password,phone,place.parent,place.type,place.name,place.contact_type,type,fullname
-mary,Mary,Anyango,female,+2868917046,,,FALSE,chw,false,contact,person,Mary Anyango,mary,WrAGyGD9805,2868917046,fe4da0f9-7d65-4834-bb42-88a5239bbd3b,health_center,Mary Anyango's Health center,clinic,chw,Mary Anyango
-bob,Bob,Johnson,male,+2868194607,,,FALSE,chw,false,contact,person,Bob Johnson,bob,JzAEQzY2614,2868194607,fe4da0f9-7d65-4834-bb42-88a5239bbd3b,health_center,Bob Johnson's Health center,clinic,chw,Bob Johnson
+contact.first_name,contact.last_name,contact.sex,contact.phone,email,contact.meta.created_by,token_login,contact.role,contact.type,contact.contact_type,contact.name,username,password,phone,place.parent,place.type,place.name,place.contact_type,type,fullname
+Mary,Anyango,female,+2868917046,,,FALSE,chw,contact,person,Mary Anyango,mary,WrAGyGD9805,2868917046,fe4da0f9-7d65-4834-bb42-88a5239bbd3b,health_center,Mary Anyango's Health center,clinic,chw,Mary Anyango
+Bob,Johnson,male,+2868194607,,,FALSE,chw,contact,person,Bob Johnson,bob,JzAEQzY2614,2868194607,fe4da0f9-7d65-4834-bb42-88a5239bbd3b,health_center,Bob Johnson's Health center,clinic,chw,Bob Johnson
 ```
 
 ```
