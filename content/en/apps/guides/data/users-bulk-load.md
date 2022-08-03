@@ -8,66 +8,121 @@ aliases:
   -    /core/guides/users-bulk-load
 relatedContent: >
   apps/guides/data/csv-to-docs
+  apps/reference/api/#post-apiv2users
+  apps/features/admin
 
 ---
 
+This quick guide will walk you through the steps of:
+
+1. Populating a spreadsheet to with the users you want to import. Uses Google Sheets.
+2. Upload the new users using the Admin UI in the CHT.
+3. Handling any errors that may have occurred during import.
+4. When done, you will have created new users, new contacts and new places, all of which are correctly associated in CouchDB with the correct UUIDs.
+
 {{% pageinfo %}}
-This guide shows how to script the user creation process using the [CHT API]({{< relref "apps/reference/api" >}}) directly. User creation can also be scripted using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
+This guide shows how to import users from a spreadsheet from within the Admin Console.
+User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or
+using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
+
+The features on this page apply only to CHT 3.16.0 and later and assumes you're using Google Drive to manage your spreadsheets.
 {{% /pageinfo %}}
 
+## Spreadsheet Instructions
 
-First, using the webapp, create the top level places/facilities like
-districts/branches that the users will belong to.  Save the UUIDs of these
-places in a spreadsheet with their names.
+We have made available a spreadsheet compatible with the `default` configuration of the CHT and we will be using it as an example in the instructions below.
+[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
 
-Then use curl against the users API to create the user, place and contact. In
-this example the place and contact.parent are the same so we're creating
-`demo*` users that can manage records associated to a specific place.
+### Spreadsheet
 
-Create a comma separated data file like /tmp/data:
+Before using the bulk user upload, please familiarize yourself with the spreadsheet used to manage the users before importing to the CHT.
+Specifically, there are three sections to the sheet:
 
-```
-Name,Phone,Branch Name,Branch UUID,Username,Password
-Gary Gnu,48839938,Iganga Branch,54cc7-accd-e1cf9-ef203,demo01,keratejevu
-Dianna Dempsey,4999393,Meru Branch,54cc1-1a7a-ccddd-e1203,demo02,duwuradixu
-```
+![bulk user import spreadsheet with areas labeled](users-spreadsheet.png)
 
-Create a script like `users-bulk-load` and edit it to include the district:
+#### **Spreadsheet Area 1**
 
-```
-#!/bin/sh
+Copy in error messages here after importing. There are three fields:
+1. `import.status:excluded`: This field can have three values. Over time, they should all be `imported` or `skipped` as you will have processed all users on the list:
+    <ol type="a">
+      <li><code>imported</code> - This user has already been successfully imported</li>
+      <li><code>skipped</code> - This user was skipped</li>
+      <li><code>error</code> - There was an error importing see import.message:excluded field for more information</li>
+    </ol>
+3. `import.message:excluded`: The status of the last import. For example, `Imported successfully` or `Username 'mrjones' already taken`
+4. `import.username:excluded`: Use this column to ensure you're matching the response with the correct user in the contact.username to the right
 
-PHONE_PREFIX=+256
-#DISTRICT=5627c50f05a75003fe51685c596fefee
+#### **Spreadsheet Area 2**
 
-COUCH_URL=${COUCH_URL-http://admin:secret@localhost:5988}
-LANG=en # no language prompt, please.
-KNOWN=true # no tour, please.
-IFS=$',' # comma delimited
+Enter all data here. Data will be automatically copied for you to columns in area 3.
 
-while IFS=$IFS read name phone district uuid username password; do \
-  curl -v -H 'content-type:application/json' -d '{
-    "username":"'"$username"'",
-    "password":"'"$password"'",
-    "type":"district-manager",
-    "place": {
-      "name": "'"$name Area"'",
-      "type": "health_center",
-      "parent": "'"$uuid"'"
-    },
-    "language":"'"$LANG"'",
-    "known":'"$KNOWN"',
-    "contact":{
-      "name":"'"$name"'",
-      "phone": "'"$PHONE_PREFIX$phone"'"
-    }
-  }' "$COUCH_URL/api/v1/users";
-done
-```
+#### **Spreadsheet Area 3**
 
-Load the data into the loop:
+Do not edit or enter data here. All columns are automatically populated by the spreadsheet logic.
+While this is needed to create a user, it is intentionally not editable and you will see this error when you try to edit data:
 
-```
-tail -n+2 /tmp/data | COUCH_URL=https://admin:secret@myproject.app.medicmobile.org \
-  users-bulk-load # tail skips header row
-```
+![bulk user import spreadsheet warning](users-spreadsheet-warning.png)
+
+Do not edit column headers in row 1. They are needed by the CHT to identify which data is in it. Changing the names will result in errors or missing data in the CHT.
+
+### Passwords
+
+Passwords are automatically generated by the spreadsheet. Use caution when editing rows marked as `imported` in the Import.status:excluded column.
+For example, if a user was imported two weeks ago and the token_login is set to `TRUE` and then back to `FALSE`,
+the password will be regenerated and thus be different from the one the user is using to login.
+If a change is made, you can use Google Sheets history ("File" -> "Version History") to retrieve the old value.
+
+## Importing Users
+
+1. Create a copy of [this spreadsheet](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy).
+Give it a good name and note its location in Google Drive. You will always come back to your copy of this Sheet whenever you want to add a set of users.
+
+2. Copy the "contact.chw" and "contact.chw_VLOOKUP" worksheets so that you have a set of the pair per level of your hierarchy.
+If your hierarchy was "Central -> Supervisor -> CHW", you would have 3 pairs (6 worksheets total). Be sure each worksheet is named accurately.
+
+3. Open the spreadsheet and populate your list of parent places that you'd like to use for your users.
+In this example the "Penda Ouedraogo" place has gotten an updated UUID starting with "bcc"
+![populate your list of parent places](importing-users-populate-parents-places.png)
+
+4. Add the users you would like to create
+![entering data into the spreadsheet](importing-users-entering-data.png)
+
+5. Export spreadsheet into CSV
+![export spreadsheet into CSV](importing-users-export-csv.png)
+
+6. Access the [Admin Console]({{< ref "apps/features/admin/" >}}) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
+![import CSV into CHT](importing-users-import-csv.png)
+
+7. Be patient during import (testing showed ~0.4 seconds per record up to 500 records)
+![progress feedback during CSV import](importing-users-import-progress.png)
+
+8. Download the status file
+![download the status file](importing-users-download-status-file.png)
+
+9. Transfers errors back into spreadsheet. Make sure you copy all three columns A, B and C.
+The usernames in column C must match those in column D of the original spreadsheet.
+![transfers errors back into spreadsheet](importing-users-transfer-errors.png)
+
+10. Fix the errors and export to CSV
+![fix errors and export to CSV](importing-users-fix-errors.png)
+<br />
+<br />
+![export spreadsheet into CSV](importing-users-export-csv.png)
+
+11. Import the fixed CSV, noting already import rows are skipped
+![import the fixed CSV](importing-users-import-fixed-csv.png)
+
+12. Deliver credentials to phone or to CHW, using care to not overshare the login and password
+
+## Adding new places
+
+Over time, new places will be added to different levels of the hierarchy.
+You will need to manually add these new places to the spreadsheet so that you can add users to the new places.
+
+1. Navigate in the CHT to the new site. In this case, it is "Site Dieco" that has been added (item 1). Copy the 36 character UUID from the URL (item 2).
+![navigate in the CHT to the new site](adding-places-cht-new-site.png)
+
+2. Open your existing Google Spreadsheet with your users. Find the hierarchy level you added your new site.
+In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VLOOKUP" worksheet.
+Add some new rows at the bottom (item 1), enter the new place name in column A (item 2) and paste the UUID in column B (item 3)
+![open your existing spreadsheet](adding-places-existing-spreadsheet.png)
