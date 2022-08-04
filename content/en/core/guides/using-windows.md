@@ -111,7 +111,7 @@ $: code .
 ```
 
 ## Default port and credentials for cht-core web
-The default launch port for cht-core is 5988, which can be changed in cht-core/api/server.js.
+The default launch port for cht-core is 5988, which can be changed by providing the environment variable at runtime `API_PORT`, for example: `API_PORT=6000 node server.js`.
 
 The deployed web app's default user name and password is the username and password we set for CouchDB in the initial steps.
 
