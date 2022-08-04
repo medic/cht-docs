@@ -17,6 +17,7 @@ Utility functions in the Core Framework can make common tasks much easier. These
 | `isFirstReportNewer(firstReport, secondReport)` | Returns true if the firstReport was reported before the secondReport. |
 | `isDateValid(date)` | Returns true if the given date is a validate JavaScript Date. |
 | `now()` | Returns the current Date. |
+| `getField(report, fieldPath)` | Returns the value of the specified fieldPath. The fieldPath is a period separated json path. |
 | `MS_IN_DAY` | A constant for the number of milliseconds in a day. |
 
 Please open [an issue](https://github.com/medic/cht-core/issues/new) if you'd like other functions included.
