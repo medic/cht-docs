@@ -64,3 +64,4 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_view_unallocated_data_records` | Allows viewing reports that have no associated contact |
 | `can_view_users` | Allows viewing all user accounts |
 | `can_write_wealth_quintiles` | Allows updating contacts with wealth quintile information |
+| `can_view_old_reports_filter` | Allows users to see the old filter in Reports Tab. However the Admin user will always see the new redesigned filter. |

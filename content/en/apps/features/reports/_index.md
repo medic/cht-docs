@@ -30,8 +30,6 @@ Apps built with the Core Framework have a “review” feature that allows manag
 
 ## Filters & Search
 
-{{< figure src="reports-search.png" link="reports-search.png" class="right col-6 col-lg-3" >}}
-
 The toolbar at the top of the page includes filters and search to help users narrow down the list or search for and find a specific report. These filters are configurable and could include:
 
 - **Report Types** (e.g. pregnancy registration, visits, delivery report)
@@ -39,7 +37,19 @@ The toolbar at the top of the page includes filters and search to help users nar
 - **Date of Submission**
 - **Status** (e.g. not reviewed, has errors, correct, valid SMS, invalid SMS)
 
+{{< figure src="reports-search.png" link="reports-search.png" class="left col-lg-12" >}}
+
+
 Using the search box, you can search for reports by patient name, phone number, ID number and more. To reset the filters or the search and view  the full list of forms, click on the reset icon on the right side of the toolbar.
+
+{{< figure src="reports-search-reset.png" link="reports-search-reset.png" class="left col-lg-12" >}}
+
+
+#### How to display the old filter and search?
+
+To display the old filter and search enable the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_view_old_reports_filter` to the user's role.
+
+{{< figure src="reports-old-filter.png" link="reports-old-filter.png" class="left col-9 col-lg-9" >}}
 
 <br clear="all">
 
