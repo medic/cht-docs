@@ -37,13 +37,11 @@ The toolbar at the top of the page includes filters and search to help users nar
 - **Date of Submission**
 - **Status** (e.g. not reviewed, has errors, correct, valid SMS, invalid SMS)
 
-{{< figure src="reports-search.png" link="reports-search.png" class="left col-lg-12" >}}
-
-<br clear="all">
-
 Using the search box, you can search for reports by patient name, phone number, ID number and more. To reset the filters or the search and view  the full list of forms, click on the reset icon on the right side of the toolbar.
 
-{{< figure src="reports-search-reset.png" link="reports-search-reset.png" class="left col-6 col-lg-3" >}}
+{{< figure src="reports-search-reset.png" link="reports-search-reset.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="reports-search.png" link="reports-search.png" class="left col-9 col-lg-9" >}}
 
 <br clear="all">
 
