@@ -126,3 +126,72 @@ You will need to manually add these new places to the spreadsheet so that you ca
 In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VLOOKUP" worksheet.
 Add some new rows at the bottom (item 1), enter the new place name in column A (item 2) and paste the UUID in column B (item 3)
 ![open your existing spreadsheet](adding-places-existing-spreadsheet.png)
+
+## Trouble shooting
+
+### "Wrong type, this is not a person."
+
+If you have miss-matched contact types, you will get an error upon import:
+
+> **Wrong type, this is not a person.**
+
+
+As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have added a `.contact_types[]` stanza to your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
+
+```shell
+=if(NOT(ISBLANK(D2)),"person","") 
+```
+
+Often times numbers are used in `app_settings.json` to declare `contact_types` matching numerical names from `place_hierarchy_types`. It might look like this:
+
+```json
+  "contact_types": [
+    {
+      "id": "c52_supervisor",
+      "name_key": "contact.type.c52_supervisor",
+      "group_key": "contact.type.c52_supervisor.plural",
+      "create_key": "contact.type.c52_supervisor.new",
+      "edit_key": "contact.type.c52_supervisor.edit",
+      "icon": "icon-manager",
+      "create_form": "form:contact:c52_supervisor:create",
+      "edit_form": "form:contact:c52_supervisor:edit",
+      "person": true
+    },
+    {
+      "id": "c62_chw",
+      "name_key": "contact.type.c62_chw",
+      "group_key": "contact.type.c62_chw.plural",
+      "create_key": "contact.type.c62_chw.new",
+      "edit_key": "contact.type.c62_chw.edit",
+      "parents": [
+        "c60_chw_site"
+      ],
+      "icon": "icon-chw",
+      "create_form": "form:contact:c62_chw:create",
+      "edit_form": "form:contact:c62_chw:edit",
+      "person": true
+    }
+  ]
+```
+
+In this case, you would need to change the value of the `contact.contact_type` column to match your new types. Based on the `contact.types` above, a CHW would be declared like this now:
+
+```shell
+=if(NOT(ISBLANK(D2)),"c62_chw","") 
+```
+
+Be sure you copy this updated formula for all rows in the `contact.contact_type` column.
+
+### Access denied
+
+If a user you successfully created can not log in because they see an error:
+
+![Access denied - You have insufficient privileges to view this page. Talk to an administrator to increase your privileges](access.denied.png)
+
+A possible cause of this is you have a bad role defined in your spreadsheet that doesn't match your configuration.  For example, the the default role should be `chw_supervisor`, but here we see garbage characters were accidentally added.  While the user was created without errors, they'll see the above error when they try to log in:
+
+![Bad type declared in spreadsheet causes the user to have no role](bad.type.png)
+
+You may manually fix any users you imported to have the correct role.  To ensure future users have valid roles to log in with, check the `/admin/#/authorization/roles` area on your CHT instance for valid roles:
+
+![CHT admin showing a list of valid roles in the "Role" column on the left](valid.roles.png)
