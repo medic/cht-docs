@@ -116,7 +116,8 @@ Let's look at a more detailed example. <a name="assessment-form-test">Here</a> i
 
 {{< highlight js "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=assessment-form-test" >}}
   it('unit test confirming assessment with cough since 7 days', async () => {
-    // Load the assessment form and fill 'yes' on the first page and '7' on the second page
+    // Load the assessment form and fill 'yes' on the first page
+    // and '7' on the second page
     const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
     // Verify that the form successfully got submitted
@@ -236,7 +237,8 @@ Here, the contact summary being tested represents the contact that is being "act
 Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "apps/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
 ```js
-// Load the assessment form and fill in 'yes' on the first page and '7' on the second page
+// Load the assessment form and fill in 'yes' on the first page 
+// and '7' on the second page
 const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
 // Verify that the form successfully got submitted
