@@ -388,6 +388,47 @@ function isPercentage(val) {
 }
 ```
 
+## Asynchronous code
+
+Where possible, use the async/await pattern for asynchronous code as it's generally easy to read as the statements line up down the screen. This may not be possible for legacy browser or Node version support, where promises should be used instead. Occasionally promises are better, for example, for executing multiple async methods in parallel. Avoid callbacks at all costs.
+
+*Right:*
+
+```js
+async function fetch() {
+  try {
+    const response = await request.get();
+    return response.data;
+  } catch(e) {
+    // handle error
+  }
+}
+```
+
+*Wrong:*
+
+```js
+function fetch() {
+  return request.get()
+    .then(response => response.data)
+    .catch(err => /* handle error */);
+}
+```
+
+*Wronger:*
+
+```js
+function fetch(callback) {
+  return request.get((err, response) => {
+    if (err) {
+      // handle error
+      return;
+    }
+    callback(null, response.data);
+  });
+}
+```
+
 ## Avoid reduce
 
 Most uses of reduce have more readable alternatives.
