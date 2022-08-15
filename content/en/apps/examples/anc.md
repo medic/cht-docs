@@ -43,11 +43,11 @@ Both maternal and newborn care workflows are defined to connect form actions and
 
 ### Pregnancy Workflow
 
-{{% workflow-table
+{{< workflow-table
   condition-image="pregnancy-1.png"
   task-image="pregnancy-2.png"
   resolution-image="pregnancy-3.png"
- %}}
+ >}}
   {{% workflow
         condition="Upon discovering a pregnancy, a CHW submits a [Pregnancy Form](https://docs.google.com/drawings/d/1u4OQIgTyzUysFv9Cop-C54nrbPiuPmq7GTpBTFmwZn0/edit) confirming a new pregnancy with the estimated gestational age."
         task="At the 8 ANC touchpoints defined by the WHO, the CHW receives a [Pregnancy Home Visit Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.wf9x0zhfeasi) to let her know that it’s time to check in on the pregnant woman."
@@ -68,15 +68,15 @@ Both maternal and newborn care workflows are defined to connect form actions and
         task="A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.82ea7ww1x1k) will appear immediately and is due 3 days later. Tasks persists for 7 days after due date."
         resolution="CHW submits a *Danger Sign Follow-Up Form*, verifying that she called or visited the woman to confirm that she attended the facility. If this is not received, another *Danger Sign Follow-Up Task* is triggered."
   %}}
-{{% /workflow-table %}}
+{{< /workflow-table >}}
  
 ### Delivery Workflow
 
-{{% workflow-table
+{{< workflow-table
   condition-image="delivery-1.png"
   task-image="delivery-2.png"
   resolution-image="delivery-3.png"
-%}}
+>}}
   {{% workflow
         condition="A currently registered pregnant person has reached a gestational age of 42 weeks and has not had a miscarriage or a delivery reported."
         task="A [Delivery Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.roycts63w3b8) requesting that the CHW check in on the woman to see whether she has delivered."
@@ -92,7 +92,7 @@ Both maternal and newborn care workflows are defined to connect form actions and
         task="A [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.ojap92eg1e82) will appear immediately and is due 3 days later. Tasks persists for 7 days after due date."
         resolution="CHW submits *Danger Sign Follow-Up Form*, verifying that she called or visited the woman to confirm that she attended the facility. If this is not received, another [Danger Sign Follow-Up Task](https://docs.google.com/document/d/17pJXBf2gEB2wD1P5g9S5XQ2u4QnLGMiUU4sX0XQsvSk/edit#heading=h.ojap92eg1e82) is triggered."
   %}}
-{{% /workflow-table %}}
+{{< /workflow-table >}}
 
 ## Additional Resources to Get Started
 
