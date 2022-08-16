@@ -199,6 +199,18 @@ To instruct the widget to process an array of strings or numbers, create a new `
 
 ## CHT XPath Functions
 
+### `add-date`
+
+_Available in +4.0.0._
+
+Adds the provided number of years/months/days/hours/minutes to a date value. 
+
+```
+add-date(date, years, months, days, hours, minutes)
+```
+
+This function is useful things like for calculating a person's birthdate date based on how many years/months old they are: `add-date(today(), 0-${age_years}, 0-${age_months})`. 
+
 ### `difference-in-months`
 
 Calculates the number of whole calendar months between two dates. This is often used when determining a child's age for immunizations or assessments.
