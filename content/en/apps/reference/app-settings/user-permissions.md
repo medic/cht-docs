@@ -10,8 +10,9 @@ relevantLinks: >
 keywords: user-roles user-permissions
 ---
 
-Permissions are defined by the `permissions` object in the `base_settings.json` file. Permissions can also be configured using the App Management app.
-Each permission is defined as an array of user role identifiers that have the permission granted.
+Permissions are defined manually by the `permissions` object in the `base_settings.json` file. Each permission is defined as an array of user role identifiers that have the permission granted.
+
+The App Management provides an interface to help non-technical administrative users assign permissions to user roles.
 
 {{< see-also page="apps/reference/app-settings/user-roles" title="User roles" >}}
 
@@ -19,6 +20,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 
 |Property|Description|
 |-------|---------|
+| `can_edit` | This is probably one of the most important permissions in CHT Framework. It allows creating, editing and deleting documents in CouchDB's `medic` database. This permission overrides any other role in this list. |
 | `can_access_gateway_api` | Allows access to gateway API |
 | `can_aggregate_targets` | Allows access to Target Aggregates page |
 | `can_bulk_delete_reports` | Allows users to select multiple reports and delete |
@@ -32,7 +34,6 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_delete_messages` | Allows deletion of messages |
 | `can_delete_reports` | Allows deletion of reports |
 | `can_delete_users` | Allows deletion of users |
-| `can_edit` | Allows creating and editing of documents in CouchDB. Note that even without this permission a user can still create and edit reports on their device, but the changes will not be replicated to the server. See [this issue](https://github.com/medic/cht-core/issues/6215) for more details. |
 | `can_edit_profile` | Allows editing of their own user profile |
 | `can_edit_verification` | Allows setting and editing of report verification status. To block the user from updating the existing status, use `can_verify_reports` instead. |
 | `can_export_all` | Allows export of data including data they do not have access to |
