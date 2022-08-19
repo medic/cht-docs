@@ -209,7 +209,9 @@ Adds the provided number of years/months/days/hours/minutes to a date value.
 add-date(date, years, months, days, hours, minutes)
 ```
 
-This function is useful things like for calculating a person's birthdate date based on how many years/months old they are: `add-date(today(), 0-${age_years}, 0-${age_months})`. 
+This function is useful for things like calculating a date that is a specific number of days in the future. For example, the following returns a date that is two weeks from now: `add-date(today(), 0, 0, 14)`.
+
+You can also add negative numbers to get dates in the past. This can be used to calculate a person's birthdate date based on how many years/months old they are: `add-date(today(), 0-${age_years}, 0-${age_months})`.
 
 ### `difference-in-months`
 
