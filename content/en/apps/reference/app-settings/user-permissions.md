@@ -10,13 +10,13 @@ relevantLinks: >
 keywords: user-roles user-permissions
 ---
 
-Permissions are defined manually by the `permissions` object in the `base_settings.json` file. Each permission is defined as an array of user role identifiers that have the permission granted.
+Permissions are defined by the `permissions` object in the `base_settings.json` file. The list below illustrates the available system defined permissions. To utilize a permission, you will need to first add the permission as a property of the `permissions` object, and then associate the permission to user role(s).
 
-The App Management provides an interface to help non-technical administrative users assign permissions to user roles.
+Permissions can be assigned to user roles either directly in `base_settings.json` as an array of user role identifiers, or configured in the App Management app.
 
 {{< see-also page="apps/reference/app-settings/user-roles" title="User roles" >}}
 
-### `app_settings.json .permissions{}`
+### System defined permissions
 
 |Property|Description|
 |-------|---------|
@@ -66,3 +66,15 @@ The App Management provides an interface to help non-technical administrative us
 | `can_view_users` | Allows viewing all user accounts |
 | `can_write_wealth_quintiles` | Allows updating contacts with wealth quintile information |
 | `can_view_old_reports_filter` | Allows users to see the old filter in Reports Tab which is considered deprecated and will be completely removed in a future release. Admin user will always see the new redesigned filter. |
+
+### Code sample
+This sample shows how to define the `permissions` object in the `base_settings.json` file. Observe how `can_edit` permission has been associated to `supervisor_role` and `chw_role` user roles.
+```json
+"permissions": {
+  "can_edit": [ "supervisor_role", "chw_role" ],
+  "can_access_gateway_api": [ "supervisor_role" ],
+  "can_aggregate_targets": [ "supervisor_role", "chw_role" ],
+  ...
+  ...
+}
+```
