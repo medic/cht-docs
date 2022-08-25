@@ -19,14 +19,19 @@ A Feature Release can easily be identified by its version, which follows the pat
 
 ## Initial FR Installation
 
-When you are on a non-feature release, you need to use horticulturalist (horti) to do the initial install of the FR.  For example, if your instance was on `192-168-68-26.my.local-ip.co:8443` and you wanted to install `3.15.0-FR-bulk-user-upload-beta.1`, after installing `horti` you would could start the installation with this command:
+When you are on a non-feature release, you need to use horticulturalist (horti) to do the initial install of the FR.  For example, if your instance was runnint at `192-168-68-26.my.local-ip.co:8443` and you wanted to install `3.16.0-FR-offline-user-replace-beta.1`, after [installing](https://github.com/medic/horticulturalist#usage) `horti` you could start the installation with this command:
 
 ```
-COUCH_URL=https://medic:password@192-168-68-26.my.local-ip.co:8443/medic horti --local --install=3.15.0-FR-bulk-user-upload-beta.1
+COUCH_URL=https://medic:password@192-168-68-26.my.local-ip.co:8443/medic horti --local --install=3.16.0-FR-offline-user-replace-beta.1
 ```
 
 On subsequent upgrades to the later beta's of the FR, you will be able to more easily do it through the admin UI in the CHT.
 
-## Upgrades
+## Upgrade to next FR
 
-Once the feature is ready for widespread use it will be included in a regular CHT release. Projects using the feature version can be upgraded as soon as practical to get back on to a fully supported release.
+TK
+
+
+## Upgrades to release
+
+Once the feature is ready for widespread use, it will be included in a regular CHT release. Projects using the feature version can be upgraded as soon as practical to get back on to a fully supported release.
