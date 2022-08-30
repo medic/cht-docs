@@ -460,6 +460,10 @@ If submitting JSON and corresponding form is not found on the server you will re
 
 Endpoint used by cht-gateway to send sms messages. More documentation in the [cht-gateway repo](https://github.com/medic/cht-gateway/blob/master/README.md).
 
+### POST /api/v1/sms/{aggregator}/{endpoint}
+
+Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{< relref "apps/guides/messaging/gateways/rapidpro" >}}) and [Africa's Talking]({{< relref "apps/guides/messaging/gateways/africas-talking" >}}) pages.
+
 ## People
 
 ### Supported Properties
@@ -1556,7 +1560,7 @@ When documents are not found, an entry with the missing uuid and an error is add
 Supports both GET and POST.
 Only allowed for users with "online" roles.
 
-### GET api/v1/hydrate
+### GET /api/v1/hydrate
 
 ##### Query parameters
 
@@ -1583,7 +1587,7 @@ Content-Type: application/json
 ```
 
 
-### POST api/v1/hydrate
+### POST /api/v1/hydrate
 
 ##### Parameters
 
@@ -1624,7 +1628,7 @@ If multiple contacts are found, all are returned.  When no matches are found, a 
 Supports both GET and POST.
 Only allowed for users with "online" roles.
 
-### GET api/v1/contacts-by-phone
+### GET /api/v1/contacts-by-phone
 
 #### Query parameters
 
@@ -1654,7 +1658,7 @@ Content-Type: application/json
 ```
 
 
-### POST api/v1/contacts-by-phone
+### POST /api/v1/contacts-by-phone
 
 #### Parameters
 
