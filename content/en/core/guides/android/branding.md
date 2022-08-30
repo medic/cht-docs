@@ -156,14 +156,14 @@ What is your first and last name?
 What is the name of your organizational unit?
  [Unknown]:  New Brand
 What is the name of your organization?
- [Unknown]:  Medic Mobile
+ [Unknown]:  Medic
 What is the name of your City or Locality?
  [Unknown]:  San Fran... ...
-Is CN=Unknown, OU=New Brand, O=Medic Mobile, L=San Francisco, ST=CA, C=US correct?
+Is CN=Unknown, OU=New Brand, O=Medic, L=San Francisco, ST=CA, C=US correct?
  [no]:  y
 
 Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 9,125 days
-   for: CN=Unknown, OU=New Brand, O=Medic Mobile, L=San Francisco, ST=CA, C=US
+   for: CN=Unknown, OU=New Brand, O=Medic, L=San Francisco, ST=CA, C=US
 [Storing new_brand.keystore]
 ... ...
 
