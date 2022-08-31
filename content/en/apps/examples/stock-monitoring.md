@@ -38,7 +38,7 @@ Some design considerations to make include:
 | :----------------------------------- | :------------------------------------- | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | MOH                                  | Central and district offices           | Desktop, laptop                     | Access to dashboards where they monitor program indicators. Can view aggregate targets, not patient data.                                                 |
 | District Biostatistician             | Local office                           | Desktop, laptop                     | Equipped with dashboards. Can view aggregate targets.                                                   |
-| Supervisor.                          | Community level, based at facilities   | Desktop, laptop                     | Equipped with CHT app. Can view CHW areas, their tasks and aggregate targets.  |                                                                                                      |
+| Supervisor                          | Community level, based at facilities   | Desktop, laptop                     | Equipped with CHT app. Can view CHW areas, their tasks and aggregate targets.  |                                                                                                      |
 | CHW                                  | Community level                        | Smartphones                         | Equipped with CHT app for registrations, screening and monthly reports.                                                   |
 
 
