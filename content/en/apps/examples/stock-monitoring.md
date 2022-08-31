@@ -44,7 +44,5 @@ Some design considerations to make include:
 
 ## Workflow Examples
 
-{{< figure src="chw-workflow.png" link="chw-workflow.png" class="right col-12 col-lg-12" >}}
-
 {{< figure src="stock-management-workflow.png" link="stock-management-workflow.png" class="right col-12 col-lg-12" >}}
 
