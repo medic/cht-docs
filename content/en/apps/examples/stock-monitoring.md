@@ -42,5 +42,4 @@ Some design considerations to make include:
 | CHW                                  | Community level                        | Smartphones                         | Equipped with CHT app for registrations, screening and monthly reports.                                                   |
 
 
-## Workflow Examples
 
