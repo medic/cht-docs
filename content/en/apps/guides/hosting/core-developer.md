@@ -21,7 +21,7 @@ First, update your current Ubuntu packages and install some supporting tools via
 
 ```shell
 sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq python2 git
+sudo apt -y install xsltproc curl uidmap jq python2 git make g++
 ```
 
 Then install `nvm`, add it to your path and install NodeJS 12:
@@ -164,6 +164,28 @@ If you had issues with following the above steps, check out these links for how 
 * [python 2.7](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/2.3.1/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x! We still strongly recommend using Docker.
+
+### Ubuntu 18.04
+
+Ubuntu 18.04's default `apt` repositories do not know about `python2`. This means when you go to install run the first `apt install` command above, you see an error:
+
+```
+E: Unable to locate package python2
+```
+
+To fix this, change the `apt install` call to this:
+
+```
+sudo apt -y install xsltproc curl uidmap jq python git make g++
+```
+
+As well, after you install docker, and go to run the rootless script `dockerd-rootless-setuptool.sh`, you will see the error:
+
+```
+[ERROR] Failed to start docker.service. Run `journalctl -n 20 --no-pager --user --unit docker.service` to show the error log.
+```
+
+To work around this, start your CouchDB Docker container with sudo: `sudo docker run...`.
 
 ### CouchDB on Docker Details
 
