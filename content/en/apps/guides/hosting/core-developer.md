@@ -13,7 +13,7 @@ To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guide
 
 ## The Happy Path Installation
 
-This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation. These instructions should work verbatim on Ubuntu 18-22, but will need tweaks for MacOS (via `brew`) or Windows (via WSL2).
+This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation. These instructions should work verbatim on Ubuntu 18-22 (see [Ubuntu 18 note](#ubuntu-1804)), but will need tweaks for MacOS (via `brew`) or Windows (via WSL2).
 
 ### Install NodeJS, npm, grunt and Docker
 
@@ -179,13 +179,13 @@ To fix this, change the `apt install` call to this:
 sudo apt -y install xsltproc curl uidmap jq python git make g++
 ```
 
-As well, after you install docker, and go to run the rootless script `dockerd-rootless-setuptool.sh`, you will see the error:
+As well, after you install docker, and go to run the rootless script `dockerd-rootless-setuptool.sh`, you might see this error:
 
 ```
 [ERROR] Failed to start docker.service. Run `journalctl -n 20 --no-pager --user --unit docker.service` to show the error log.
 ```
 
-To work around this, start your CouchDB Docker container with sudo: `sudo docker run...`.
+To work around, unfortunately, is to just start your CouchDB Docker container with sudo: `sudo docker run...`.
 
 ### CouchDB on Docker Details
 
