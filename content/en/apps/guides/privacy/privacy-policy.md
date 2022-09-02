@@ -9,6 +9,11 @@ description: >
 ---
 
 As of `3.10.0`, privacy policies can be customized for every language, by adding desired content into HTML files. 
+
+As of `3.17.0`, privacy policies are publicly accessible, no longer only accessible by logged in users:
+
+![Privacy Policy on login page](privacy.policy.login.page.png)
+
 Add these HTML files to the `privacy-policies` folder in your configuration, and associate them to the correct language in the `privacy-policies.json` file.
 ```json
 {
