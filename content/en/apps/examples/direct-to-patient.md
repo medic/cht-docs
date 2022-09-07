@@ -75,13 +75,6 @@ Appointment reminders can be configured on CHT so that household members and pat
 ### 2. Active case finding by messaging household members with survey questions
 Active case finding by messaging households with survey questions about the health of family members.
 
-## More scenarios where direct-to-patient messaging can be used to support patient care
-
-#### Facility appointment reminders workflow
-Appointment reminders can be configured on CHT so that household members and patients can receive facility appointment reminders. Facility appointment reminders are configured as per the recommended health guidelines for specific use cases. For example, immunization clinic visit reminders for under 5 children can be configured as per the recommended immunization schedule. The clinic visit appointment reminders can be configured to automatically stop once the period the child is expected to have completed the immunization schedule ends.
-
-#### Active case finding by messaging household members with survey questions
-Active case finding by messaging households with survey questions about the health of family members.
 
 ## Frequently Asked Questions
 ##### 1. Is the patient charged for receiving or sending the SMS?
