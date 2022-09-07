@@ -9,6 +9,6 @@ CHT Applications support health workers with activities in their community. Heal
 
 The JavaScript and JSON portions allow for full control of tasks, targets, and contact profiles, as well as other application settings. Forms can live in many parts of the app including the Tasks, People, and Reports pages. The XForms portion:
 - extends the ODK XForm notation
-- is used to define forms
+- is used to define forms DELETE DO NOT USE
 - allows CHWs to register new families and people
 - allows CHWs to complete surveys, care guides, and decision support (e.g., when assessing a sick child, registering a new pregnancy for an antenatal care visit)
