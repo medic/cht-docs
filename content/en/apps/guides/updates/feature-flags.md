@@ -3,7 +3,7 @@ title: "Feature Flags"
 linkTitle: "Feature Flags"
 weight: 
 description: >
-  How to roll out features only to select users
+  How to roll out features to select users
 relatedContent: >
   apps/concepts/users
   apps/reference/app-settings/user-permissions
