@@ -1,9 +1,9 @@
 ---
-title: "Rolling out CHT Core updates incrementally"
-linkTitle: "Incremental updates"
+title: "Feature Flags"
+linkTitle: "Feature Flags"
 weight: 
 description: >
-  How to roll out updates incrementally using permissions
+  How to roll out features only to select users
 relatedContent: >
   apps/concepts/users
   apps/reference/app-settings/user-permissions
@@ -12,13 +12,13 @@ relatedContent: >
 
 ---
 
-Some CHT Core updates can be rolled out incrementally rather than all at once. This can be particularly helpful for updates that require training. The updated or "new" version will be the system default, but users can be configured to see the "old" version. If you do nothing when you upgrade, users will automatically start seeing the new version.
+Some CHT Core features can be enabled for specific users only. This can be particularly helpful for features that require training. The updated or "new" version will generally be the system default, but users can be configured to see the "old" version. If you do nothing when you upgrade, users will automatically start seeing the new version.
 
-{{% alert title="Note" %}} This functionality is intended as a way to phase in changes, the old version will be completely removed in a future release. {{% /alert %}}
+{{% alert title="Note" %}} Feature flags are used primarily as a way to phase in updates. The old version should be considered deprecated and will be completely removed in a future release. {{% /alert %}}
 
 ## Configuration
 
-If the specific CHT Core feature supports incremental rollouts, users can be configured to see the "old" version by means of a [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}). The permission can be added to existing Roles, or for more granular control and rolling out by cohorts, you can create a new Role with the one permission and add that Role to desired users. It is important to note that currently the user interface of the Admin app does not support assignment of multiple Roles to a single user, but it is possible to do this through the API or in CouchDB directly. Also, the permission will not be included in `app_settings` automatically so if you want it to be selectable from the Admin app user interface, you will need to add it to `app_settings`.
+If the specific CHT Core feature supports feature flagging, users can be configured to see the "old" version by means of a [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}). The permission can be added to existing Roles, or for more granular control and rolling out by cohorts, you can create a new Role with the one permission and add that Role to desired users. It is important to note that currently the user interface of the Admin app does not support assignment of multiple Roles to a single user, but it is possible to do this through the API or in CouchDB directly. Also, the permission will not be included in `app_settings` automatically so if you want it to be selectable from the Admin app user interface, you will need to add it to `app_settings`.
 
 
 ## Roll-out Scenarios
