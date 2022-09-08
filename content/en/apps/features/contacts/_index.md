@@ -46,11 +46,11 @@ With the [_UHC Mode_]({{< relref "apps/features/uhc-mode" >}}) configured, the m
 
 {{< figure src="search-mobile.png" link="search-mobile.png" class="right col-6 col-lg-3" >}}
 
-Click in the search area at the top of the screen to search for a “person” or “place”. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
+Click in the search icon at the top of the screen to search for a “person” or “place”. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
 
-After entering a search term, the list filters to show matching items. Searching will only return items that are lower than you in the hierarchy and that you have permission to view. 
+After typing a search term, press the "Enter" key on your keyboard, then the list filters to show matching items. Searching will only return items that are lower than you in the hierarchy and that you have permission to view. 
 
-To clear the search and return the default view, click on the refresh icon located to the right of the search box.
+To clear the search and return the default view, click on the arrow icon located to the left of the search box.
 
 ## Profiles
 
