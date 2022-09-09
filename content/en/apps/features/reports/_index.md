@@ -45,7 +45,7 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 <br clear="all">
 
-{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. {{% /alert %}}
+{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) documentation for more info {{% /alert %}}
 
 <br clear="all">
 
