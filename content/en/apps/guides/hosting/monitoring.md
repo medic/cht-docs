@@ -35,7 +35,7 @@ Be sure to monitor important items that the CHT depends on in order to be health
 
 ## Inside the CHT
 
-As of [CHT 3.9.0]({{% ref "core/releases/3.9.0.md#instance-monitoring" %}}), the [Monitoring v1 API]({{< relref "apps/reference/api#get-apiv1monitoring" >}}) has been available. In  [CHT 3.12.0]({{% ref "core/releases/3.12.0.md#instance-monitoring" %}}) this API was depricated in [favor of v2]({{< relref "apps/reference/api#get-apiv3monitoring" >}}). These APIs do not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
+The [monitoring API](({{< relref "apps/reference/api#get-apiv2monitoring" >}})) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
 
 All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. The names below are extrapolated from the paths in the JSON returned by the API and should be easy to find when viewing the `/api/v1/monitoring` or `/api/v2/monitoring` URLs on your CHT instance.
 
