@@ -37,7 +37,7 @@ Be sure to monitor important items that the CHT depends on in order to be health
 
 The [monitoring API](({{< relref "apps/reference/api#get-apiv2monitoring" >}})) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
 
-All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. The names below are extrapolated from the paths in the JSON returned by the API and should be easy to find when viewing the `/api/v1/monitoring` or `/api/v2/monitoring` URLs on your CHT instance.
+All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. The names below are extrapolated from the paths in the JSON returned by the API and should be easy to find when viewing the Monitoring API URL on your CHT instance.
 
 ### Explosive Growth
 
