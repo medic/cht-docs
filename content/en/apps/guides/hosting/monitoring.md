@@ -16,7 +16,7 @@ Each deployment will experience different stresses on its resources.  Be sure to
 
 Monitoring allows CHT admins to see statistics about their server, often over time.  This can be helpful when you want to be aware of growth in your deployment (eg number of active users or number of reports per region). It should not be assumed that these will be checked regularly enough to notice a problem, for example a spike in number of feedback documents.
 
-Alerting, must be a push mechanism, forcibly notifying users who can act on the alert. These can go over SMS, email, Slack, WhatsApp or any other mechanism that will find it's way on to the mobile or desktop device of the right users. 
+Alerting is a push mechanism designed to notify users who can act on the alert. These can go over SMS, email, Slack, WhatsApp or any other channel to notify the right users. 
 
 The process of setting up monitoring and alerting should be done together. Monitoring sets the baseline and then alerting tells admins when the metric has gone beyond the baseline to a critical state. Certain metrics, like uptime for example, likely do not need to have a monitoring visualization on a dashboard, but the monitoring system should still be the authority to send an alert to denote when the service has restarted unexpectedly.
 
