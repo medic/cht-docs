@@ -1390,6 +1390,8 @@ Content-Type: application/json
 
 ## Monitoring
 
+See the [Monitoring and alerting on the CHT]({{< relref "apps/guides/hosting/monitoring.md" >}}) page for how to use this API in production.
+
 ### GET /api/v1/monitoring
 
 *Deprecated in 3.12.x in favor of [/api/v2/monitoring](#get-apiv2monitoring)*
