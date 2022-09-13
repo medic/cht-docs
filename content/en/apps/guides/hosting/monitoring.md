@@ -37,36 +37,41 @@ Be sure to monitor important items that the CHT depends on in order to be health
 
 The [monitoring API](({{< relref "apps/reference/api#get-apiv2monitoring" >}})) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
 
-All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. The names below are extrapolated from the paths in the JSON returned by the API and should be easy to find when viewing the Monitoring API URL on your CHT instance.
+All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. 
 
-### Explosive Growth
+### Specific of monitoring
 
-Many of the values in the monitoring API do not mean much in isolation. For example if an instance has 10,714,278 feedback docs, is that bad?  If it's years old and has thousands of users, then this is normal.  If it is 4 months old and has 100 users this is a dire problem! 
+#### Explosive Growth
 
-You should monitor these metrics for unexpected growth as measured by percent change over 24 hours. Ideally this can be subjectively calculated when it is more than 5% growth than the prior day. 
+Many of the values in the monitoring API do not mean much in isolation. For example if an instance has 10,714,278 feedback docs, is that bad?  If it's years old and has thousands of users, then this is normal.  If it is 4 months old and has 100 users, this is a dire problem! 
 
-* Conflict Count
-* CouchDB Medic Doc Count
-* CouchDB Medic Fragmentation
-* CouchDB Sentinel Doc Count
-* CouchDB Sentinel Fragmentation
-* CouchDB Users Doc Count
-* CouchDB Users Fragmentation
-* CouchDB Users Meta Doc Count
-* Feedback Count
-* Messaging Outgoing State Due
-* Messaging Outgoing State Failed
+You should monitor these metrics for unexpected growth as measured by percent change over 24 hours. Ideally this can be subjectively calculated when it is more than 5% growth than the prior day.  They're marked as `growth` in the table below.
 
-### Non-Zero Values
+#### Non-Zero Values
 
-Other values should always be zero, and you should alert when they are not. You may opt to alert only when they are non-zero for more than 24 hours:
+Other values should always be zero, and you should alert when they are not. You may opt to alert only when they are non-zero for more than 24 hours. These are marked as `non-zero` in the table below.
 
-* Messaging Outgoing State Failed
-* Outbound Push Backlog
-* Sentinel Backlog
+#### Zero or Near Zero Values
 
-### Zero or Near Zero Values
+Finally, these values should always be _not_ zero, and you should alert when are zero or very close to it.  You may opt to alert only when they are zero for more than 24 hours. They're marked with `zero` below.
 
-Finally, these values should always be _not_ zero, and you should alert when are zero or very close to it.  You may opt to alert only when they are zero for more than 24 hours:
+#### Elements, types and samples
 
-* Date Uptime
+The names below are extrapolated from the paths in the JSON returned by the API and should be easy to find when viewing the Monitoring API URL on your CHT instance:
+
+Name | Type | Example Value
+--|--|--
+Conflict Count | `growth` | 23,318
+CouchDB Medic Doc Count | `growth` | 16,254,271
+CouchDB Medic Fragmentation | `growth` | 1.4366029665729645
+CouchDB Sentinel Doc Count | `growth` | 15,756,449
+CouchDB Sentinel Fragmentation | `growth` | 2.388733774539664
+CouchDB Users Doc Count | `growth` | 535
+CouchDB Users Fragmentation | `growth` | 2.356411021364134
+CouchDB Users Meta Doc Count | `growth` | 10,761,549
+Feedback Count | `growth` | 10,714,368
+Messaging Outgoing State Due | `growth` | 3,807
+Messaging Outgoing State Failed | `non-zero` | 0
+Outbound Push Backlog | `non-zero` | 0
+Sentinel Backlog | `non-zero` | 0
+Date Uptime | `zero` | 1,626,508.148
