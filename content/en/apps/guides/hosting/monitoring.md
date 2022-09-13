@@ -22,7 +22,7 @@ The process of setting up monitoring and alerting should be done together. Monit
 
 ## Outside the CHT
 
-Be sure to monitor important items that the CHT depends on in order to be healthy. You should alert when any of these are close to their maximum(disk space)  or minimum (days left of valid TLS certificate):
+Be sure to monitor important items that the CHT depends on in order to be healthy. You should alert when any of these are close to their maximum (disk space) or minimum (days left of valid TLS certificate):
 
 * Domain expiration with registrar
 * TLS certificate expiration 
