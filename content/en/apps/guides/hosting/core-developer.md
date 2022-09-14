@@ -24,16 +24,16 @@ sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install xsltproc curl uidmap jq python2 git make g++
 ```
 
-Then install `nvm`, add it to your path and install NodeJS 12:
+Then install `nvm`, add it to your path and install NodeJS 16:
 
 ```shell
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $0
 . ~/.$0rc
-nvm install 12
+nvm install 16
 ```
 
-Now let's ensure NodeJS 12 and npm 6 were installed. This should output version 12.x.x for NodeJS and 6.x.x for `npm`:
+Now let's ensure NodeJS 16 and npm 8 were installed. This should output version 16.x.x for NodeJS and 8.x.x for `npm`:
 
 ```shell
 node -v && npm -v
@@ -158,7 +158,7 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
-* [Node.js 12.x](https://nodejs.org/) & [npm 6.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`]([npm 6.x.x](https://npmjs.com/))
+* [Node.js 16.x](https://nodejs.org/) & [npm 8.x.x](https://npmjs.com/) - Both of which we recommend installing [via `npm`](https://npmjs.com/)
 * [grunt cli](https://gruntjs.com/using-the-cli)
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
