@@ -7,7 +7,7 @@ description: >
 keywords:  
 ---
 
-Since 2017, PIH Malawi and Medic have collaboratively developed the CHT-based YendaNafe app, a digital health application for community-based health service provision and coordination. Now, in the spirit of radical collaboration and openness, PIH and Medic have coordinated the release of the full application source code of YendaNafe as first of its kind “Integrated CHT App”, free for all to access and replicate.
+Since 2017, [Partners in Health (PIH) Malawi](https://www.pih.org/country/malawi) and [Medic](https://medic.org/) have collaboratively developed the CHT-based YendaNafe app, a digital health application for community-based health service provision and coordination. Now, in the spirit of radical collaboration and openness, PIH and Medic have coordinated the release of the full application source code of YendaNafe as first of its kind “Integrated CHT App”, free for all to access and replicate.
 
 An offline-first tool with real time capability, YendaNafe, locally interpreted as “walk with us”, enables faster, better, and more equitable care, in addition to real time data collection and aggregation. The app links CHWs to primary and secondary clinical teams to more effectively screen patients, provide ongoing care, and refer people in communities who require facility-based care. YendaNafe is the result of years of iterative enhancements resulting from numerous user feedback sessions conducted with health workers and programme managers.
 
