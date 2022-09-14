@@ -158,7 +158,7 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
-* [Node.js 16.x](https://nodejs.org/) & [npm 8.x.x](https://npmjs.com/) - Both of which we recommend installing [via `npm`](https://npmjs.com/)
+* [Node.js 16.x](https://nodejs.org/) & [npm 8.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
 * [grunt cli](https://gruntjs.com/using-the-cli)
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
