@@ -65,7 +65,7 @@ Permissions can be assigned to user roles either directly in `base_settings.json
 | `can_view_unallocated_data_records` | Allows viewing reports that have no associated contact |
 | `can_view_users` | Allows viewing all user accounts |
 | `can_write_wealth_quintiles` | Allows updating contacts with wealth quintile information |
-| `can_view_old_reports_filter` | Allows users to see the old filter in Reports Tab which is considered deprecated and will be completely removed in a future release. Admin user will always see the new redesigned filter. |
+| `can_view_old_filter_and_search` | Allows users to see the old filter and search in Reports Tab and Contact Tab which is considered deprecated and will be completely removed in a future release. Admin user will always see the new redesigned filter. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) for more info.|
 
 ### Code sample
 This sample shows how to define the `permissions` object in the `base_settings.json` file. Observe how `can_edit` permission has been associated to `supervisor_role` and `chw_role` user roles.
