@@ -770,6 +770,8 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 
 Returns a list of users and their profile data in JSON format.
 
+NB: The `roles` property was added in cht-core v4.1.0.
+
 ##### Permissions
 
 `can_view_users`
@@ -791,12 +793,14 @@ Content-Type: application/json; charset=utf-8
     "id": "org.couchdb.user:admin",
     "rev": "10-6486428924d11781c107ea74de6b63b6",
     "type": "admin",
+    "roles": ["admin"],
     "username": "admin"
   },
   {
     "id": "org.couchdb.user:demo",
     "rev": "14-8758c8493edcc6dac50366173fc3e24a",
     "type": "district-manager",
+    "roles": [ "district_admin", "data_user" ]
     "fullname": "Example User",
     "username": "demo",
     "place": {
@@ -813,6 +817,7 @@ Content-Type: application/json; charset=utf-8
     "contact": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
       "type": "person",
+      "roles": [ "chw" ]
       "name": "Paul",
       "phone": "+2868917046"
     }
