@@ -33,7 +33,7 @@ CHT SMS based workflow can be configured to support direct-to-patient messaging 
 </ul>
 
 ## CHT SMS workflow technical overview
-The SMS workflows in CHT can integrate with RapidPro flows to support two way interactive messaging between healthcare providers and household members. RapidPro is an open source tool that has the capability to support conversational messaging flows via SMS, IVR, Telegram, Facebook Messenger and WhatsApp. With the CHT-RapidPro integration it is possible to design and configure SMS workflows in the two systems; data is shared between CHT and Rapidpro via the APIs. The information from the interactive texting is used to update clients details on CHT CouchDB which can trigger tasks on CHT. CHT-RapidPro SMS workflows allows for scheduling, replying and routing to an SMS based gateway based on preconfigured SMS logic, thus eliminating the need for an individual to send, monitor and reply to each text. To use SMS workflow with CHT, you will need a texting channel (a service that enables you to send or receive messages or a phone call). CHT can be integrated with a texting channel like an SMS aggregator which provides a reliable cloud based platform to send and receive an unlimited number of SMSs to and from patients or household members.
+The SMS workflows in CHT can integrate with RapidPro flows to support two way interactive messaging between healthcare providers and household members. RapidPro is an open source tool that has the capability to support conversational messaging flows via SMS, IVR, Telegram, Facebook Messenger and WhatsApp. With the CHT-RapidPro integration it is possible to design and configure SMS workflows in the two systems; data is shared between CHT and Rapidpro via the APIs. The information from the interactive texting is used to update clients details on CHT CouchDB which can trigger tasks on CHT. CHT-RapidPro SMS workflows allows for scheduling, replying and routing to an SMS based gateway based on preconfigured SMS logic, thus eliminating the need for an individual to send, monitor and reply to each text. To use SMS workflow with CHT, you need a texting channel (a service that enables you to send or receive messages or a phone call). CHT can be integrated with a texting channel like an SMS aggregator which provides a reliable cloud based platform to send and receive an unlimited number of SMSs to and from patients or household members.
 
 The CHT-RapidPro integration enables App builders to build complex conversational SMS workflows that support patient care and support coordination of care at the facility and community levels.
 
@@ -48,12 +48,12 @@ The CHT-RapidPro integration enables App builders to build complex conversationa
 
 {{< figure src="user_hierarchy.png"  link="user_hierarchy.png" alt="Users and hierarchy example" title="" class="left col-9">}}
 
-### VMMC direct messaging workflows
+### VMMC direct-to-patient texting workflows
 
 #### 1. Patient automated check-in workflow to support patient care
 
 Eligible male clients with access to phones are registered on CHT to enable them receive daily check-in texts to help track the condition of the clients for 13 days after the circumcision. After the registration, the VMMC clients receive a registration text message confirming that they have enrolled in the text messaging follow up intervention. It is also possible for two household members belonging to the same household to be registered on CHT to be receiving texts using the same phone number.
-Clients registered on CHT will receive preconfigured bidirectional daily follow up texts to check on their condition and clients respond to the check in texts by informing the Site Nurse whether they are experiencing any potential adverse effects. Clients with potential adverse effects are followed up by facility Nurses and guided or referred to a health facility to be able to receive further care.
+Clients registered on CHT receive preconfigured bidirectional daily follow up texts to check on their condition and clients respond to the check in texts by informing the Site Nurse whether they are experiencing any potential adverse effects. Clients who report potential adverse effects are followed up by facility Nurses and guided or referred to a health facility to be able to receive further care.
 {{< figure src="automated_check_in.png"  link="automated_check_in.png" alt="Patient automated check-in SMS workflows" title="" class="col-9">}}
 #### 2. Escalated workflow to generate tasks on CHT
 
@@ -64,7 +64,7 @@ A VMMC client who responds with a potential adverse effect triggers a task for a
 
 #### 3. Clients can share requests by messaging health care providers
 
-Patients registered on CHT can also initiate the bidirectional messaging with a Site Nurse by messaging a central number in this case a short code. VMMC patients can screen themselves and report any danger signs or request for help from health care providers and chat with healthcare workers via SMS. For this workflow, the logic can be preconfigured to support health triage and clinical referrals. Using the messaging functionality on CHT, health care providers based at the facility can view, manage and respond to incoming texts from VMMC clients.
+Patients registered on CHT can also initiate the bidirectional messaging with a Site Nurse by messaging the short code. VMMC patients can screen themselves and report any danger signs or request for help from health care providers and chat with healthcare workers via SMS. For this workflow, the logic can be preconfigured to support health triage and clinical referrals. Using the messaging functionality on CHT, health care providers based at the facility can view, manage and respond to incoming texts from VMMC clients.
 
 
 ## More scenarios where direct-to-patient messaging can be used to support patient care
