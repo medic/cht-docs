@@ -55,6 +55,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `search:contacts:<filter[:filter]>` | The time taken to search all contacts using the given filters. |
 | `search:reports` | The time taken to list all reports. |
 | `search:reports:<filter[:filter]>` | The time taken to search all reports using the given filters. |
+| `sidebar_filter:reports:open` | Number of times the user opens the sidebar filter in Reports tab. |
 | `client-date-offset` | The difference between the client datetime and the server datetime. Only recorded if the difference is large enough that it may cause issues. |
 | `analytics:targets:load` | The time taken to load the targets page. Added in 3.9 | 
 | `tasks:load` | The time taken to load the tasks page. Added in 3.9 | 
