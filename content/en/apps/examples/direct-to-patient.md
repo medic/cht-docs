@@ -83,7 +83,7 @@ It is possible for health programs to acquire a zero rated short code service wh
 ##### 2. What are ways to handle exceptions?
 Exceptions can occur when programs and flows do not work as expected. This may occur due to various technical issues and may be unavoidable. One possible way to handle these unwanted issues and errors is to set up the mail group such that a notification email is sent whenever there is any exception. Another method is to keep track of whether the flow was completed i.e., all the responses from start to finish nodes were received. For the participants whose flow may have been interrupted or incomplete, one may run the workflow again.
 
-##### 3. Ways to improve response rate from patients?
+##### 3. Ways to improve response rate from patients or household members?
 The workflows in RapidPro can be set up in such a way that they expire after a certain time period. Workflows can expire when there is no response from a patient within a time period. You can handle such situations by repeating the workflow i.e., sending them again to the patient after a certain time interval. Alternatively, it can be beneficial to do some research on which time to send the message. For example, a person may be busy at work and/or away from the phone during working hours. It may be easier for them to respond during early morning or later in the evening than in the afternoon
 
 ## Resources
