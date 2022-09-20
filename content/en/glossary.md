@@ -128,13 +128,17 @@ The parts of the software that users see and interact with.
 
 ###### Integrated Community Case Management (iCCM)
 
+###### Integration
+
+An arrangement of an organization's information systems that allows them to communicate efficiently and effectively. {{< see-also page="apps/features/integrations" prefix="Read more" >}}
+
 ###### Internet of Things (IoT)
 
 ###### International Classification of Diseases (ICD)
 
 ###### Interoperability
 
-Describes the extent to which systems and devices can exchange data, and interpret that shared data.
+The ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. {{< see-also page="apps/concepts/interoperability" prefix="Read more" >}}
 
 ## J
 
