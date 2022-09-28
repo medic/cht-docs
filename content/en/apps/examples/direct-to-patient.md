@@ -42,7 +42,8 @@ The CHT-RapidPro integration enables App builders to build complex conversationa
  The CHT-RapidPro integration enables App builders to build complex conversational SMS workflows that support patient care and support coordination of care at the facility and community levels.
 
 {{< figure src="technicalArchitecture.png"  link="technicalArchitecture.png" alt="Direct Messaging technical architecture" title="" class="left col-9">}}
-## Use of direct-to-patient messaging to support voluntary medical male circumcision (VMMC)
+## Voluntary medical male circumcision app co-designed by I-TECH and Medic
+Since 2018, I-TECH and Medic have collaboratively designed and developed a CHT based voluntary medical male circumcision (VMMC) app. The app supports automated, interactive and two-way messaging between male circumcision health care providers and patients to help improve the quality of care. In the spirit of contributing to the growth of public global goods, I-TECH and Medic have coordinated the application source code of the VMMC app. 
 
 ### Users and hierarchy example
 
@@ -64,13 +65,13 @@ A VMMC client who responds with a potential adverse effect triggers a task for a
 
 #### 3. Clients can share requests by messaging health care providers
 
-Patients registered on CHT can also initiate the bidirectional messaging with a Site Nurse by messaging the short code. VMMC patients can screen themselves and report any danger signs or request for help from health care providers and chat with healthcare workers via SMS. For this workflow, the logic can be preconfigured to support health triage and clinical referrals. Using the messaging functionality on CHT, health care providers based at the facility can view, manage and respond to incoming texts from VMMC clients.
+Patients registered on CHT can also initiate the bidirectional messaging with a Site Nurse by messaging a central phone number or a short code. VMMC patients can screen themselves and report any danger signs or request for help from health care providers and chat with healthcare workers via SMS. For this workflow, the logic can be preconfigured to support health triage and clinical referrals. Using the messaging functionality on CHT, health care providers based at the facility can view, manage and respond to incoming texts from VMMC clients.
 
 
 ## More scenarios where direct-to-patient messaging can be used to support patient care
 
 ### 1. Facility appointment reminders workflow
-Appointment reminders can be configured on CHT so that household members and patients can receive facility appointment reminders. Facility appointment reminders are configured as per the recommended health guidelines for specific use cases. For example, immunization clinic visit reminders for under 5 children can be configured as per the recommended immunization schedule. The clinic visit appointment reminders can be configured to automatically stop once the period the child is expected to have completed the immunization schedule ends.
+Appointment reminders can be configured on CHT so that household members and patients can receive facility appointment reminders. Facility appointment reminders are configured as per the recommended health guidelines for specific use cases. The clinic visit appointment reminders can be configured to automatically stop once a patient completes the expected clinic visits.
 
 ### 2. Active case finding by messaging household members with survey questions
 Active case finding by messaging households with survey questions about the health of family members.
