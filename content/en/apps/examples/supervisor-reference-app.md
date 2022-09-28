@@ -56,8 +56,11 @@ With the supervisor reference app, a supervisor can schedule a quality monitorin
 
 {{< figure src="Group_session_workflows.png"  link="Group_session_workflows.png" alt="Group session workflows" title="" class="left col-10">}}
 
+### CHW Activity workflow
+A CHW activity task is generated for a supervisor if a CHW has been inactive for 3 months. This workflow enables a supervisor to follow up CHWs who have been inactive for three months and may need to be replaced.
+
 ### Supervisor in-app targets
-A Supervisor has access to the analytics tab. The widgets on the in-app analytics tab enables a supervisor to view individual supervisor performance metrics and the supervisor progress towards the expected monthly goals. The supervisor also has access to CHW aggregate targets which will help the supervisor track metrics for individual CHWs, especially for supervisors overseeing a group of CHWs.
+A Supervisor has access to the analytics tab. The widgets on the in-app analytics tab enables a supervisor to view individual supervisor performance metrics and the supervisor progress towards the expected monthly goals. The supervisor also has access to CHW aggregate targets which will help the supervisor track metrics for individual CHWs, especially for supervisors overseeing a group of CHWs.This feature allows a supervisor to identify CHWs who may need to be supported actively.
 
 ##### CHW aggregate targets
 {{< figure src="CHW_aggregate_targets.png"  link="CHW_aggregate_targets.png" alt="CHW aggregate targets" title="" class="left col-10">}}
