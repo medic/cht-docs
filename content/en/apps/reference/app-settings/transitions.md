@@ -714,7 +714,7 @@ See the `replace_user` app form provided in the [Default config](https://github.
 "token_login": {
   "enabled": true,
   "translation_key": "sms.token.login.help"
-}
+},
 "create_user_for_contacts": {
   "replace_forms": [
     "replace_user"
