@@ -78,7 +78,7 @@ This call will show the JSON with active users for the last 30 days:
 }
 ```
 
-### Users in need up upgrade
+### Users in need of upgrade
 
 In the above table we can see there's 4 users in the most recent month that are on version `v0.11.0-webview`. Let's find their username so we can follow up with them directly.  This query is hard coded for the current year (`2022`), the current month (`3`) and the version `v0.11.0-webview`. Be sure to update the query to fit your needs according to which month, year and version you need to search for:
 
