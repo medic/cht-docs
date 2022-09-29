@@ -54,6 +54,7 @@ The following transitions are available and executed in order.
 | [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. Is partially applied on the client, as of 3.12.0. |
 | [mark_for_outbound]({{% ref "apps/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
+| [create_user_for_contacts](#create_user_for_contacts) | Triggers an existing offline user to be replaced with a new user on the same device (without needing to immediately sync with the server). Available since 3.17.x  | |
 
 ## Transition Configuration Guide
 
@@ -671,4 +672,53 @@ If this configuration is not set then the message defaults to what is set in the
     ]
   }
 ]
+```
+
+### create_user_for_contacts
+
+An existing offline user can be replaced on a device so that a new user can use that device without needing to immediately sync with the server. _Available since 3.17.x._
+
+#### Example scenario
+
+Imagine a CHW is leaving the program, and the CHW's device is returned to their supervisor. The supervisor wants to transfer the device to a new CHW immediately without having the device online to sync with the server.
+
+To do this, when the `create_user_for_contacts` transition is enabled, the supervisor would submit a configured user replacement form for the original user's contact on the device. This form can create a new contact for the new CHW and will trigger a client-side transition to mark the original contact as replaced. After that, the supervisor can give the device to the new CHW, and they can begin using it.
+
+Subsequent reports submitted on the device by the new CHW will be associated with the new contact. When the device is eventually able to synchronize with the server, it will be automatically logged out (as it was actually still logged in as the original user). A server-side transition will be triggered to inactivate the original user and to create a new user for the new CHW. An SMS message containing a token login link will be sent to the new CHW allowing them to login as their proper user. 
+
+#### Configuration
+
+Several configurations are required in `app_settings` to enable the `create_user_for_contacts` transition. 
+
+[Login by SMS]({{< ref "apps/reference/api#login-by-sms" >}}) must be enabled by setting the `token_login` configuration.
+
+The [`app_url` property]({{< ref "apps/reference/app-settings#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
+
+The ids of the app forms that should trigger the transition must be configured in the `create_user_for_contacts.replace_forms` array.
+
+##### `replace_forms`
+
+Forms that trigger the `create_user_for_contacts` transition must set the `replacement_contact_id` property to the id of the contact that should be associated with the new user. 
+
+These forms should only be accessible to offline users (replacing online users is not currently supported). 
+
+You can prevent a user from being replaced multiple times by including `!contact.user_for_contact.replaced` in the form properties expression.
+
+See the `replace_user` app form provided in the [Default config](https://github.com/medic/cht-core/tree/master/config/default) as an example.
+
+##### Example
+```json
+"app_url": "https://demo.app.medicmobile.org",
+"token_login": {
+  "enabled": true,
+  "translation_key": "sms.token.login.help"
+}
+"create_user_for_contacts": {
+  "replace_forms": [
+    "replace_user"
+  ]
+},
+"transitions": {
+  "create_user_for_contacts": true
+}
 ```
