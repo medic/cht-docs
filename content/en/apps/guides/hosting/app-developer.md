@@ -70,10 +70,7 @@ CHT_HTTPS=8443
 Now it's easy to boot this environment by specifying which `.env` file to use:
 
 ```shell
-docker-compose --env-file ../the_second/.env-docker-compose -f docker-compose-developer-3.x-only.yml
-
-
-up
+docker-compose --env-file ../the_second/.env-docker-compose -f docker-compose-developer-3.x-only.yml up
 ```
 
 ## Switching & concurrent projects
