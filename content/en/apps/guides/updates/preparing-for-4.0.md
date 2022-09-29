@@ -139,7 +139,7 @@ adj             |v0.11.0-webview    |
 
 ## CHT Conf
 
-[CHT Conf](https://github.com/medic/cht-conf/) has been upgrade to be aware of forms written to work in CHT 3.x that may not work in CHT 4.x.  By upgrading, you will be sure to catch any forms in need up fixing when pushing to dev instances as outlined below.
+[CHT Conf](https://github.com/medic/cht-conf/) has been upgraded to be aware of forms written to work in CHT 3.x that may not work in CHT 4.x.  Upgrading, can help you identify forms in need of fixing when pushing to dev instances as outlined below.
 
 To upgrade app, run `npm update cht-conf`
 
