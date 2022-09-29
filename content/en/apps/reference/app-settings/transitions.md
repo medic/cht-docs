@@ -722,3 +722,11 @@ See the `replace_user` app form provided in the [Default config](https://github.
   "create_user_for_contacts": true
 }
 ```
+
+#### Troubleshooting
+
+Configuration is validated when Sentinel starts. Issues with the configuration will be show in the Sentinel logs.
+
+Errors occurring during the client-side transition will be recorded in the browser's console. This is were problems with processing the repalce forms will be logged. 
+
+Errors occuring during the server-side transition will be recorded in the Sentinel logs and on the contat doc for the original user. So, if the client-side transition marks the original user for replacement, but Sentinel fails to create the new user, the failure will be recorded on the original contact doc in the `errors` array.
