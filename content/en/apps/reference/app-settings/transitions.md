@@ -694,13 +694,13 @@ Several configurations are required in `app_settings` to enable the `create_user
 
 The [`app_url` property]({{< ref "apps/reference/app-settings#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
 
-The ids of the app forms that should trigger the transition must be configured in the `create_user_for_contacts.replace_forms` array.
+The IDs of the app forms that should trigger the transition must be configured in the `create_user_for_contacts.replace_forms` array.
 
 ##### `replace_forms`
 
 Forms that trigger the `create_user_for_contacts` transition must set the `replacement_contact_id` property to the id of the contact that should be associated with the new user. 
 
-These forms should only be accessible to offline users (replacing online users is not currently supported). 
+These forms should only be accessible to offline users (replacing online users is not currently supported). This is the default in the example app form properties file ([see `replace_user.properties.json`](https://github.com/medic/cht-core/blob/master/config/default/forms/app/replace_user.properties.json)).
 
 You can prevent a user from being replaced multiple times by including `!contact.user_for_contact.replaced` in the form properties expression.
 
