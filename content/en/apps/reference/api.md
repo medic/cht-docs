@@ -382,7 +382,7 @@ allow multiple content types to appear in a single `Content-Type` header.
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message       | Message string in a supported format like Muvuku or Textforms. Depending if your CHT instance is configured in forms-only mode or not you might receive an error if the form is not found. |
 | from          | Reporting phone number.                                                                                                                                                                             |
-| reported_date | Timestamp in MS since Unix Epoch of when the message was received on the gateway. Defaults to now.                                                                                                  |
+| sent_timestamp | Timestamp in MS since Unix Epoch of when the message was received on the gateway. Defaults to now.                                                                                                  |
 
 ##### JSON Properties
 
@@ -405,7 +405,7 @@ Creating new record using message field.
 POST /api/v1/records
 Content-Type: application/x-www-form-urlencoded
 
-message=1!YYYZ!Sam#23#2015#ANC&from=+5511943348031&reported_date=1352399720000
+message=1!YYYZ!Sam#23#2015#ANC&from=+5511943348031&sent_timestamp=1352399720000
 ```
 
 ```
