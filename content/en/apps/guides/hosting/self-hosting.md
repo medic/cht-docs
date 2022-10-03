@@ -8,6 +8,7 @@ relatedContent: >
   apps/guides/hosting/ec2-setup-guide
 ---
 
+{{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
 
 Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (CHT) core framework has been packaged into a docker container to make it portable and easy to install. It is available from [dockerhub](https://hub.docker.com/r/medicmobile/medic-os). To learn more how to work with docker you could follow the tutorial [here](https://docker-curriculum.com/#getting-started) and the cheat sheet [here](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf).  
 
@@ -17,10 +18,10 @@ Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (
 
 The CHT containers are installed using [docker compose](https://docs.docker.com/compose/reference/overview/) so that you can run multiple containers  as a single service.
 
-Start by choosing the location where you would like to save your compose configuration file.  Then create the `docker-compose.yml` file by `cd`ing into the correct directory and running:
+Start by choosing the location where you would like to save your compose configuration file.  Then create the `docker-compose-developer-3.x-only.yml` file by `cd`ing into the correct directory and running:
 
 ```bash
-curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
+curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
 ```
 
 
@@ -28,16 +29,16 @@ The install requires an admin password that it will configure in the database. Y
 
 `export DOCKER_COUCHDB_ADMIN_PASSWORD=myAwesomeCHTAdminPassword`
 
-You can then run `docker-compose` in the folder where you put your compose  `docker-compose.yml` file. To start, run it interactively to see all the logs on screen and be able to stop the containers with `ctrl` + `c`:
+You can then run `docker-compose` in the folder where you put your compose  `docker-compose-developer-3.x-only.yml` file. To start, run it interactively to see all the logs on screen and be able to stop the containers with `ctrl` + `c`:
 
 ```bash
-sudo docker-compose up 
+sudo docker-compose -f docker-compose-developer-3.x-only.yml up 
 ```
 
 If there are no errors, stop the containers with `ctrl` + `c` and then run it detached with `-d`:
 
 ```bash
-sudo docker-compose up -d
+sudo docker-compose -f docker-compose-developer-3.x-only.yml up -d
 ```
 
 Note In certain shells, `docker-compose` may not interpolate the admin password that was exported in `DOCKER_COUCHDB_ADMIN_PASSWORD`. Check if this is the case by searching the logs in the medic-os dockers instance. If the `docker logs medic-os` command below returns a user and password, then the export above failed, and you should use this user and password to complete the installation:
@@ -74,10 +75,10 @@ If some  instructions were missed and there's a broken CHT deployment, use the c
 1. Remove containers: `docker rm medic-os && docker rm haproxy`
 1. Clean data volume:`docker volume rm medic-data`
 
-    Note: Running `docker-compose -f docker-compose.yml down -v`  would do all the above 3 steps
+    Note: Running `docker-compose -f docker-compose-developer-3.x-only.yml down -v`  would do all the above 3 steps
 1. Prune system: `docker system prune`
 
-After following the above commands, you can re-run docker-compose up and create a clean install:  `docker-compose -f docker-compose.yml up -d`
+After following the above commands, you can re-run docker-compose up and create a clean install:  `docker-compose -f docker-compose-developer-3.x-only.yml up -d`
 
 ### Port Conflicts
 
@@ -107,11 +108,11 @@ services:
 
 Turn off and remove all existing containers that were started:
 
- `sudo docker-compose -f /path/to/docker-compose.yml down`
+ `sudo docker-compose -f /path/to/docker-compose-developer-3.x-only.yml down`
 
 Bring Up the containers in detached mode with the new forwarded ports.
 
- `sudo docker-compose -f /path/to/docker-compose.yml up -d`
+ `sudo docker-compose -f /path/to/docker-compose-developer-3.x-only.yml up -d`
 
 Note: You can  substitute 8080, 444 with whichever ports are free on your host. You would now visit https://localhost:444 to visit your project.
 
