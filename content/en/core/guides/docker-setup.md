@@ -7,6 +7,8 @@ description: >
 relevantLinks: >
 ---
 
+{{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
+
 This document helps to download and run the public docker image for CHT applications.
 
 ## Install Docker
@@ -15,15 +17,15 @@ Please be sure `docker` and `docker-compose` are [installed]({{< relref "apps/gu
 
 ## Use Docker-Compose:
 
-In the location you would like to host your configuration files, create a file `docker-compose.yml`: 
+In the location you would like to host your configuration files, create a file `docker-compose-developer-3.x-only.yml`: 
 
 1. Use the `curl` command line tool:
     
     ```
-    curl https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
+    curl https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
     ```
 
-1. Alternately, if you do not have  `curl`, you can [right click this link](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml) and choose "Save link as..." and specify the correct location to save.
+1. Alternately, if you do not have  `curl`, you can [right click this link](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml) and choose "Save link as..." and specify the correct location to save.
 
 Export a password for admin user named `medic`:
 ```
@@ -32,9 +34,9 @@ export DOCKER_COUCHDB_ADMIN_PASSWORD=<random_pw>
 
 ### Launch docker-compose containers
 
-Inside the directory that you saved the above `docker-compose.yml`, run:
+Inside the directory that you saved the above `docker-compose-developer-3.x-only.yml`, run:
 ```
-docker-compose up
+docker-compose -f docker-compose-developer-3.x-only.yml up
 ```
 {{% alert title="Note" %}}
 In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.
@@ -70,7 +72,7 @@ Remove containers:
 Clean data volume:
 * `docker volume rm medic-data`
 
-After following the above three commands, you can re-run `docker-compose up` and create a fresh install (no previous data present)
+After following the above three commands, you can re-run `docker-compose -f docker-compose-developer-3.x-only.yml up` and create a fresh install (no previous data present)
 
 ## Port Conflicts
 

@@ -15,7 +15,7 @@ To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guide
 
 ## Getting started
 
-Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. As well, if any other `medic-os` instances using [the main `docker-compose.yml` file](https://github.com/medic/cht-core/blob/master/docker-compose.yml) are running locally, stop them otherwise port, storage volume and container name conflicts may occur.
+Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. As well, if any other `medic-os` instances using [the main `docker-compose-developer-3.x-only.yml` file](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml) are running locally, stop them otherwise port, storage volume and container name conflicts may occur.
 
 After meeting these requirements, download the developer YAML file in the directory you want to store them:
 
