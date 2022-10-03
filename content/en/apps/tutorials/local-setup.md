@@ -20,6 +20,8 @@ By the end of the tutorial you should be able to:
 - Upload default settings to localhost
 {{% /pageinfo %}}
 
+- {{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
+
 ## Brief Overview of Key Concepts
 
 The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
@@ -50,17 +52,17 @@ Now that you have the dependent tools and software installed, you are ready to s
 Open your terminal and navigate to your working folder. Run the command:
 
 ```shell
-curl -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
 ```
 
-This will create a copy of the `docker-compose.yml` file from `cht-core`.
+This will create a copy of the `docker-compose-developer-3.x-only.yml` file from `cht-core`.
 
-{{% alert title="Note" %}} You can also copy the content of the docker-compose.yml file from this [link](https://raw.githubusercontent.com/medic/cht-core/master/docker-compose.yml). {{% /alert %}}
+{{% alert title="Note" %}} You can also copy the content of the docker-compose.yml file from this [link](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml). {{% /alert %}}
 
-Run the following command inside the directory that you saved the `docker-compose.yml`:
+Run the following command inside the directory that you saved the `docker-compose-developer-3.x-only.yml`:
 
 ```shell
-docker-compose up
+docker-compose -f docker-compose-developer-3.x-only.yml up
 ```
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
