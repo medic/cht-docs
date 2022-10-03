@@ -14,6 +14,8 @@ weight: 10
 
 ###### Artificial intelligence (AI)
 
+###### Assisted Global Positioning System (A-GPS)
+
 ## B
 
 ###### Backend
@@ -52,6 +54,10 @@ The parts of the software that make the front end happen. These are all hidden f
 
 ###### Department for International Development (UK) (DFID)
 
+###### Digital Adaptation Kit (DAK)
+
+Digital Adaptation Kits are part of the SMART guidelines initiative to ensure WHO's evidence-based guideline content is accurately reflected in the digital systems countries are adopting.
+
 ###### Digital Health Atlas (DHA)
 
 ###### Digital Solutions for Malaria Elimination (DSME)
@@ -74,6 +80,10 @@ The parts of the software that make the front end happen. These are all hidden f
 
 ###### Family Planning (FP)
 
+###### Fast Healthcare Interoperability Resources (FHIR)
+
+[FHIR](https://fhir.org/) is an HL7 specification for healthcare interoperability.
+
 ###### Female Community Health Volunteer (Nepal) (FCHV)
 
 ###### Financing Alliance for Health (FAH)
@@ -84,11 +94,21 @@ The parts of the software that users see and interact with.
 
 ###### Fully Immunized Children (FIC)
 
+## G
+
+###### Global Positioning System (GPS)
+
+###### Global Navigation Satellite System (GNSS)
+
 ## H
 
 ###### Health Extension Program (Ethiopia) (HEP)
 
 ###### Health Extension Worker (Ethiopia) (HEW)
+
+###### Health Level 7 (HL7)
+
+[Health Level Seven International (HL7)](http://www.hl7.org) is a not-for-profit, ANSI-accredited standards developing organization dedicated to providing a comprehensive framework and related standards for the exchange, integration, sharing and retrieval of electronic health information that supports clinical practice and the management, delivery and evaluation of health services.
 
 ###### Health Management Information System (HMIS)
 
@@ -108,11 +128,17 @@ The parts of the software that users see and interact with.
 
 ###### Integrated Community Case Management (iCCM)
 
+###### Integration
+
+An arrangement of an organization's information systems that allows them to communicate efficiently and effectively. {{< see-also page="apps/features/integrations" prefix="Read more" >}}
+
 ###### Internet of Things (IoT)
+
+###### International Classification of Diseases (ICD)
 
 ###### Interoperability
 
-Describes the extent to which systems and devices can exchange data, and interpret that shared data.
+The ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. {{< see-also page="apps/concepts/interoperability" prefix="Read more" >}}
 
 ## J
 
@@ -126,6 +152,8 @@ Describes the extent to which systems and devices can exchange data, and interpr
 
 ###### Living Goods (LG)
 
+###### Logical Observation Identifiers Names and Codes (LOINC)
+
 ###### Low/Middle Income Country (LMIC)
 
 ## M
@@ -136,9 +164,9 @@ Describes the extent to which systems and devices can exchange data, and interpr
 
 ###### Malnutrition (Mal)
 
-###### Maternal Newborn Child Health (MNCH/MCH)
+###### Maternal, and Child Health (MCH)
 
-###### Maternal and Child Health (MCH)
+###### Maternal, Newborn, and Child Health (MNCH)
 
 ###### mHealth
 
@@ -146,7 +174,13 @@ mHealth stands for mobile-based or mobile-enhanced solutions that deliver health
 
 ###### Minimum Viable Project/Product (MVP)
 
+A minimum viable product is a product with enough features to attract early-adopter customers and validate a product idea early in the product development cycle. The MVP can help the product team receive user feedback as quickly as possible to iterate and improve the product.
+
 ###### Ministry of Health (MOH)
+
+###### Mobile Device Management (MDM)
+
+More information on the [MDM page]({{< relref "core/guides/android/publishing#mobile-device-management" >}}).
 
 ###### Monitor and Evaluation (M&E)
 
@@ -202,17 +236,29 @@ Collaborative endeavor aimed at delivering mobile tools to health workers and im
 
 ###### Quality Assurance (QA)
 
+## R
+
+###### Rapid Diagnostic Testing (RDT)
+
+###### Reproductive, Maternal, Newborn, and Child Health (RMNCH) 
+
 ## S
 
 ###### Service Reporting (SR)
 
 ###### Site Reliability Engineer (SRE)
 
+###### SMART Guidelines
+
+**S**tandards-based, **M**achine-readable, **A**daptive, **R**equirements-based, and **T**estable Guidelines are a comprehensive set of reusable digital health components authored by the WHO that transform the guideline adaptation and implementation process to preserve fidelity and accelerate uptake. Read more on the [WHO SMART Guidelines page](https://www.who.int/teams/digital-health-and-innovation/smart-guidelines).
+
 ###### Software as a Service (SaaS)
 
 ###### Sustainable Development Goals (SDG)
 
 "The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet, now and into the future. At its heart are the 17 Sustainable Development Goals (SDGs), which are an urgent call for action by all countries - developed and developing - in a global partnership. They recognize that ending poverty and other deprivations must go hand-in-hand with strategies that improve health and education, reduce inequality, and spur economic growth – all while tackling climate change and working to preserve our oceans and forests." [More info](https://sdgs.un.org/goals).
+
+###### Systemized Nomenclature of Medicine (SNOMED)
 
 ## T
 
@@ -244,6 +290,8 @@ Group of tools, some of which can be deployed together.
 
 ###### Universal Health Coverage (UHC)
 
+[Universal Health Coverage](https://www.who.int/health-topics/universal-health-coverage) means that all people have access to the health services they need, when and where they need them, without financial hardship. It includes the full range of essential health services, from health promotion to prevention, treatment, rehabilitation, and palliative care.
+
 ###### Use Case
 
 Specific use of tools to achieve a goal in a system, e.g. antenatal care coordination. As described in systems engineering, a use case is a list of action steps to achieve a goal.
@@ -261,3 +309,5 @@ Specific use of tools to achieve a goal in a system, e.g. antenatal care coordin
 ###### Women of Reproductive Age (WRA)
 
 ###### World Health Organization (WHO)
+
+[The WHO](https://www.who.int) is the United Nations agency that connects nations, partners and people to promote health, keep the world safe and serve the vulnerable – so everyone, everywhere can attain the highest level of health. 

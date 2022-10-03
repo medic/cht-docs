@@ -34,7 +34,7 @@ export DOCKER_COUCHDB_ADMIN_PASSWORD=<random_pw>
 
 Inside the directory that you saved the above `docker-compose.yml`, run:
 ```
-$ docker-compose up
+docker-compose up
 ```
 {{% alert title="Note" %}}
 In certain shells, docker-compose may not interpolate the admin password that was exported above. In that case, your admin user had a password automatically generated. Note the `New CouchDB Administrative User` and `New CouchDB Administrative Password` in the output terminal. You can retrieve these via running `docker logs medic-os` and searching the terminal.
@@ -44,8 +44,8 @@ In certain shells, docker-compose may not interpolate the admin password that wa
 
 Once containers are setup, please run the following command from your host terminal:
 ```
-$ docker exec -it medic-os /bin/bash -c "sed -i 's/--install=3.9.0/--complete-install/g' /srv/scripts/horticulturalist/postrun/horticulturalist"
-$ docker exec -it medic-os /bin/bash -c "/boot/svc-stop medic-core openssh && /boot/svc-stop medic-rdbms && /boot/svc-stop medic-couch2pg"
+docker exec -it medic-os /bin/bash -c "sed -i 's/--install=3.9.0/--complete-install/g' /srv/scripts/horticulturalist/postrun/horticulturalist"
+docker exec -it medic-os /bin/bash -c "/boot/svc-stop medic-core openssh && /boot/svc-stop medic-rdbms && /boot/svc-stop medic-couch2pg"
 ```
 
 The first command fixes a postrun script for horticulturalist to prevent unique scenarios of re-install.

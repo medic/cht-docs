@@ -226,7 +226,6 @@ it(`Throws validation error when birth date is in future`, async () => {
 });
 ```
 
-
 > Note: If a form triggers a task, some use cases of the form can be tested when testing the task later.
 
 ---
@@ -245,7 +244,6 @@ it(`Throws validation error when birth date is in future`, async () => {
    <td>Targeted tests for calculations of context, fields, cards, etc.</td>
   </tr>
 </table>
-
 
 Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#care-guides). All these can be tested with the test harness.
 
@@ -296,6 +294,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
 );
 ```
 If you  follow [this code sample]({{< ref "apps/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
+
 ```js {linenos=table}
 const summaryContext = harness.getContactSummary().context;
 expect(summaryContext).to.include({
@@ -325,7 +324,6 @@ Negative cases - confirm tasks don’t trigger
    </td>
   </tr>
 </table>
-
 
 When testing the tasks [manually]({{< ref "tasks-1#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
 

@@ -46,6 +46,14 @@ For more information on Care Guides, see the “[Decision Support for Care Guide
 
 When the user completes the care guide, the task will be cleared from the Tasks tab, and the report will be accessible from the Reports page or on the profile of the person or place whom the report is about.
 
+## Household Tasks
+    
+{{< figure src="tasks-household.png" class="right col-6 col-lg-3" >}}
+    
+Alternatively, there is an option to configure Household Tasks. When this [permission](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-permissions/) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
+
+CHWs are able to complete tasks directly from this page, or exit by tapping on the “X”. If the household has no additional tasks, they will return directly to the main task list.
+    
 ## Profile Page
 
 {{< figure src="tasks-profile.png" class="right col-6 col-lg-3" >}}

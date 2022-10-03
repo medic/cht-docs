@@ -10,15 +10,17 @@ relevantLinks: >
 keywords: user-roles user-permissions
 ---
 
-Permissions are defined by the `permissions` object in the `base_settings.json` file. Permissions can also be configured using the App Management app.
-Each permission is defined as an array of user role identifiers that have the permission granted.
+Permissions are defined by the `permissions` object in the `base_settings.json` file. The list below illustrates the available system defined permissions. To utilize a permission, you will need to first add the permission as a property of the `permissions` object, and then associate the permission to user role(s).
+
+Permissions can be assigned to user roles either directly in `base_settings.json` as an array of user role identifiers, or configured in the App Management app.
 
 {{< see-also page="apps/reference/app-settings/user-roles" title="User roles" >}}
 
-### `app_settings.json .permissions{}`
+### System defined permissions
 
 |Property|Description|
 |-------|---------|
+| `can_edit` | This is probably one of the most important permissions in CHT Framework. It allows creating, editing and deleting documents in CouchDB's `medic` database. This permission overrides any other role in this list. |
 | `can_access_gateway_api` | Allows access to gateway API |
 | `can_aggregate_targets` | Allows access to Target Aggregates page |
 | `can_bulk_delete_reports` | Allows users to select multiple reports and delete |
@@ -32,9 +34,8 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_delete_messages` | Allows deletion of messages |
 | `can_delete_reports` | Allows deletion of reports |
 | `can_delete_users` | Allows deletion of users |
-| `can_edit` | Allows editing of documents in CouchDB |
 | `can_edit_profile` | Allows editing of their own user profile |
-| `can_edit_verification` | Allows updating of report verification status |
+| `can_edit_verification` | Allows setting and editing of report verification status. To block the user from updating the existing status, use `can_verify_reports` instead. |
 | `can_export_all` | Allows export of data including data they do not have access to |
 | `can_export_contacts` | Allows export of contacts |
 | `can_export_dhis` | Allows export of DHIS2 metrics |
@@ -44,7 +45,7 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_update_places` | Allows editing of place documents |
 | `can_update_reports` | Allows editing of report documents |
 | `can_update_users` | Allows editing of user documents |
-| `can_verify_reports` | Allows update of report verification status |
+| `can_verify_reports` | Allows setting report verification status if no status is currently set. To allow the user to update the existing status, use `can_edit_verification` instead. |
 | `can_view_analytics` | Allows access to in-app analytics |
 | `can_view_analytics_tab` | Displays analytics tab on the application |
 | `can_view_call_action` | Displays a button to call the selected person |
@@ -59,7 +60,21 @@ Each permission is defined as an array of user role identifiers that have the pe
 | `can_view_reports_tab` | Displays the reports tab in the application |
 | `can_view_tasks` | Allows viewing tasks |
 | `can_view_tasks_tab` | Displays tasks tab in the application |
+| `can_view_tasks_group` | Displays all available tasks within same place after submitting |
 | `can_view_uhc_stats` | Allows users to view UHC metrics |
 | `can_view_unallocated_data_records` | Allows viewing reports that have no associated contact |
 | `can_view_users` | Allows viewing all user accounts |
 | `can_write_wealth_quintiles` | Allows updating contacts with wealth quintile information |
+| `can_view_old_filter_and_search` | Allows users to see the old filter and search in Reports Tab and Contact Tab which is considered deprecated and will be completely removed in a future release. Admin user will always see the new redesigned filter. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) for more info.|
+
+### Code sample
+This sample shows how to define the `permissions` object in the `base_settings.json` file. Observe how `can_edit` permission has been associated to `supervisor_role` and `chw_role` user roles.
+```json
+"permissions": {
+  "can_edit": [ "supervisor_role", "chw_role" ],
+  "can_access_gateway_api": [ "supervisor_role" ],
+  "can_aggregate_targets": [ "supervisor_role", "chw_role" ],
+  ...
+  ...
+}
+```

@@ -32,27 +32,7 @@ Then generate an "API Key" (we'll refer to this as the `at-api-key`) and save th
 
 ### API keys
 
-The API keys should be treated as securely as a password as anyone with access to them will be able to send messages using your account. Therefore we store them in the CouchDB configuration.
-
-To add the credentials to the admin config you need to either [PUT the value using curl](https://docs.couchdb.org/en/stable/api/server/configuration.html#put--_node-node-name-_config-section-key) or similar:
-
-```sh
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/africastalking.com:incoming -d '"<cht-api-key>"'
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/africastalking.com:outgoing -d '"<at-api-key>"'
-```
-
-{{% alert title="Note" %}}
-`couchdb@127.0.0.1` is the local node name, and may be different for you depending on your setup.
-{{% /alert %}}
-
-
-
-You can also add it via Fauxton:
- - Navigate to [the Config screen](http://localhost:5984/_utils/#/_config)
- - Click `Add Option`
- - The `Section` should be `medic-credentials`, the `Name` should be `africastalking.com:incoming` or `africastalking.com:outgoing`, and the value should be the relevant API key.
- - Click `Create`
- - You should then be able to see your credential in the list of configuration shown
+The Africa's Talking integration uses the CHT Credentials service to retrieve the API keys using the IDs `africastalking.com:incoming` and `africastalking.com:outgoing`. Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials.
 
 ### App settings
 

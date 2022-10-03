@@ -26,7 +26,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 *[Permissions]({{< relref "apps/concepts/users#permissions" >}})* are settings that control access to specific app features and functionality.
 
-*[Roles]({{< relref "apps/concepts/users#roles" >}})* define permissions for users to perform access a group of app features and functionality.
+*[Roles]({{< relref "apps/concepts/users#roles" >}})* define permissions for users to access a group of app features and functionality.
 
 *[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
@@ -38,7 +38,7 @@ You should have a functioning CHT instance and have cht-conf installed locally. 
 
 ## Implementation Steps
 
-In this section, you will define a new role, set persmissions for the role, set transitions, configure a hierarchy, and upload your modified app settings file to your local environment.
+In this section, you will define a new role, set permissions for the role, set transitions, configure a hierarchy, and upload your modified app settings file to your local environment.
 
 ### 1. Set Roles and Permissions
 
@@ -102,7 +102,7 @@ In this example, the `generate_patient_id_on_people` and `death_reporting` trans
 You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierarchy configuration. You can modify existing contact types by editing the objects within the array. 
 
 When configuring a new deployment, it's important to plan your hierarchy well.  While there are no limits in the CHT to the hierarchical depth or breadth it will support, there are some trade-offs and caveats:
-* While it it possible to [update the hierarchy configuration]({{< relref "apps/guides/updates/moving-contacts" >}}) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
+* While it is possible to [update the hierarchy configuration]({{< relref "apps/guides/updates/moving-contacts" >}}) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
 * If your hierarchy is too shallow, users will download more docs than are necessary for their work which will impact the performance of the app. Taking the time to get the hierarchy configuration right makes it easy to give users access to only the docs they need.
 
 {{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}

@@ -43,13 +43,13 @@ The Android log is written to from the cht-android wrapper which captures errors
 This will get all the logs from the device, not just logs for the app you want to debug. You can pass arguments to `adb` to only get the logs you want.
 
 ```sh
-$ adb logcat MedicMobile:V AndroidRuntime:E chromium:V '*:S' > phone.log
+adb logcat MedicMobile:V AndroidRuntime:E chromium:V '*:S' > phone.log
 ```
 
 Alternatively you can use `grep` to filter the logs down to only those from the relevant app.
 
 ```sh
-$ adb logcat | grep MedicMobile > phone.log
+adb logcat | grep MedicMobile > phone.log
 ```
 
 ## On the server

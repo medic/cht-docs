@@ -10,7 +10,7 @@ relatedContent: >
 
 
 {{% pageinfo %}}
-The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, to either contribute to the project or just add a new flavor (branded app). Most of the instructions also applies to the **[CHT Gateway](https://github.com/medic/cht-gateway)** app (the differences are highlighted in the guide).
+The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, and the **[CHT Gateway](https://github.com/medic/cht-gateway)** app as well.
 
 Finally, you will learn how to assemble the app, run the tests, and how to choose the right artifacts when installing or publishing the apps.
 {{% /pageinfo %}}
@@ -18,7 +18,7 @@ Finally, you will learn how to assemble the app, run the tests, and how to choos
 
 ## Requirements
 
-- Java 11+ for CHT Android, Java 8+ for CHT Gateway (OpenJDK versions work).
+- Java 11+ (OpenJDK versions work).
 - Android SDK, and optionally Android Studio.
 - The `adb` command for debugging and get the logs.
 - The source code. To run all the tests in the CHT Android app you need to clone also the submodules: `git clone --recurse-submodules https://github.com/medic/cht-android.git`.
@@ -35,7 +35,7 @@ Bellow are the instructions of how to install and setup some of the tools requir
 
 ### Java
 
-Java 11+ needs to be installed. The CHT Gateway can be also compiled with Java 8, but you can use the same Java 11 used for the CHT Android apps. The `bin/` folder of the JDK must added in the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
+Java 11+ needs to be installed. The `bin/` folder of the JDK must added into the `$PATH` environment variable, and it's recommended to have `$JAVA_HOME` pointing to the JDK folder as well.
 
 To install different versions of Java and without the need to have root permissions, checkout [Sdkman!](https://sdkman.io/), if you are familiar with tools like `nvm` or `rvm`, this tool is pretty much the same for Java, and the command takes care of adding the selected JDK to the `$PATH` variable and to set the `$JAVA_HOME` variable when switching across different versions.
 
@@ -56,9 +56,9 @@ The binary folder of the command also need to be added to the `$PATH`, and `$AND
 Here are the steps from the command line you can follow to install the CLI tools once downloaded the zip file:
 
 ```bash
-$ mkdir -p Android/Sdk/cmdline-tools
-$ unzip commandlinetools-linux-7583922_latest.zip
-$ mv cmdline-tools/ Android/Sdk/cmdline-tools/latest/
+mkdir -p Android/Sdk/cmdline-tools
+unzip commandlinetools-linux-7583922_latest.zip
+mv cmdline-tools/ Android/Sdk/cmdline-tools/latest/
 ```
 
 Then, to add the environment variables required, you can add the following to your `~/.bashrc` file:
@@ -73,7 +73,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 Old SDK distributions used to have it pre-packaged, now you have to install it separately. Once installed SDK following the steps above, you can install the latest version of `adb` with:
 
 ```
-$ sdkmanager --install platform-tools
+sdkmanager --install platform-tools
 ```
 
 If you also installed Android Studio you can use the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) instead.
@@ -105,13 +105,11 @@ See the [Makefile](https://github.com/medic/cht-android/blob/master/Makefile) fo
 
 ### Build and assemble
 
-To build and assemble the CHT Gateway use `make build`.
+To build and assemble the apps within the console use:
 
-For CHT Android app use:
+    make assemble
 
-    $ make assemble
-
-The command above builds and assembles the _debug_ and _release_ APKs of the Unbranded version of the app.
+The command above builds and assembles the _debug_ and _release_ APKs of the apps, and for the CHT-Android project the Unbranded flavor is built and assembled by default.
 
 Each APK will be generated and stored in `build/outputs/apk/[flavor]/[debug|release]/`, for example after assembling the _Medicmobilegamma_ flavor with `make flavor=Medicmobilegamma assemble`, the _release_ versions of the APKs generated are stored in `build/outputs/apk/medicmobilegamma/release/`.
 
@@ -160,7 +158,7 @@ the submodules within the cht-android folder.
 
 _Only CHT Android_
 
-Refer to the [CHT Core Developer Guide](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md#testing-locally-with-devices).
+Refer to the [CHT Core Developer Guide]({{< relref "apps/guides/hosting/core-developer#nginx-local-ip" >}}).
 
 ### Android Studio
 

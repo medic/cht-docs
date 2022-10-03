@@ -181,7 +181,7 @@ validation results and error messages.
 
 #### Pupil.js validation functions
 
-Available validation functions are available at https://www.npmjs.com/package/pupil#validation-functions
+Available validation functions are available in the [Pupil documentation](https://github.com/medic/cht-core/tree/master/shared-libs/validation/src/pupil#validation-functions).
 
 The following functions are available by default:
 
@@ -211,7 +211,7 @@ The following functions are available by default:
 ##### Sample usage
 
 For case-insensitive comparison `iEquals` function in Pupil, 
-And you can use `||` for logical OR : https://www.npmjs.com/package/pupil#rule-strings
+And you can use `||` for logical OR. Find documentation on these rules in the [Pupil documentation](https://github.com/medic/cht-core/tree/master/shared-libs/validation/src/pupil#rule-strings).
 
 So you can do this : 
 `rule: 'iEquals("mary") || iEquals("john")'`

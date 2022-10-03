@@ -53,21 +53,21 @@ h2, h3 {
   clear: both;
 }
 
+#td-sidebar-menu {
+  .td-search-input {
+    max-width: none;
+  }
+}
+
+// https://github.com/medic/cht-docs/issues/212
 #td-section-nav {
   .td-sidebar-nav {
     &__section {
-      .show {
-        padding-left: .5rem;
+      label {
+        padding-left: 0.7rem;
       }
-      ul {
-        padding-left: 0;
-      }
-    }
-
-    &__section-title {
-      i {
-        display: inline;  // prevent widowed icon
-        opacity: 0.5;
+      .without-child, .with-child {
+        padding-left: 0.5rem;
       }
     }
   }

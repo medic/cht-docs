@@ -95,7 +95,7 @@ $: npm ci
 $: grunt
 ```
 
-From this point, follow the setup guide from `Enabling a secure CouchDB` section in [Development Guide](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md).
+From this point, follow the `harden couch` section in [Core Developer Setup]({{< relref "apps/guides/hosting/core-developer#cht-core-cloning-and-setup" >}}).
 
 
 To get multiple linux terminals (so you can run `grunt`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.
@@ -110,6 +110,10 @@ $: cd ~/medic/cht-core
 $: code .
 ```
 
-## Problems?
+## Default port and credentials for cht-core web
+The default launch port for cht-core is 5988, which can be changed by providing the environment variable at runtime `API_PORT`, for example: `API_PORT=6000 node server.js`.
 
+The deployed web app's default user name and password is the username and password we set for CouchDB in the initial steps.
+
+## Problems?
 As none of our code developers use Windows as a development environment daily this solution may not be as stable as directly using MacOS or Linux. If you encounter issues please let a developer know

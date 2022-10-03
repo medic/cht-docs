@@ -22,7 +22,8 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status | Release date | End of life |
 |----|----|----|----|
-| 3.15.x | Current | 4-May-2022 | TBA |
+| 3.16.x  | Current | 3-Aug-2022 | TBA         |
+| 3.15.x  | Current | 4-May-2022 | 3-Nov-2022  |
 | 3.14.x | Current | 11-Feb-2022 | 4-Aug-2022 |
 | 3.13.x | Current | 29-Sep-2021 | 11-May-2022 |
 | 3.12.x | EOL | 28-Jul-2021 | 29-Dec-2021 |
@@ -67,10 +68,20 @@ The following is the minimum specification recommendation for smartphones to han
 | RAM | 1GB |
 | Storage | 8GB |
 
+If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
+
+- Galileo
+- BDS (BeiDou)
+- GLONASS
+- QZSS
+
+Devices with more navigation systems are more likely to get a more accurate location fix in varied locations. For example, Huawei Y5 has GPS specs listed on gsmarena.com as **_GPS: Yes, with A-GPS, GLONASS, BDS_** which makes it a good choice for GPS data collection.
+
 
 ## Release Notes
 ### 3.x
 
+- [3.16.0]({{% ref "core/releases/3.16.0.md" %}})
 - [3.15.0]({{% ref "core/releases/3.15.0.md" %}})
 - [3.14.2]({{% ref "core/releases/3.14.2.md" %}})
 - [3.14.1]({{% ref "core/releases/3.14.1.md" %}})
