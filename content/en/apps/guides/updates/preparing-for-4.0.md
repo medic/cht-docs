@@ -143,11 +143,19 @@ adj             |v0.11.0-webview    |
 
 To upgrade app, run `npm update cht-conf`
 
-## Enketo 
+## Enketo
 
-CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/7256) used to render forms to version `5.18.1`. While this is not the latest version, it introduces a few changes that may change the way your forms work. In the worst case, there may be an error when trying to show them in the CHT.  To test every form, set up a development instance of the CHT 3.x.  An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/app-developer#cht-docker-helper" >}}).  
+CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/7256) used to render forms. This upgrade provides a ton of bug fixes and enhancements (particularly around ODK spec compliance) which will make the forms experience in the CHT even better! (For example, we now have proper support for `repeat`s with a dynamic length, including the various XPath functions necessary to take full advantage of this functionality!)  That being said, it does introduce a few changes which may affect the way your forms function (or even cause some forms to fail to load at all).
 
-After you have your dev instance up and running, upgrade to the `7786-fix-report-label` branch:
+### Automated testing
+
+The best way to ensure your forms will work in CHT 4.0 is to start with good automated test coverage of your forms' functionality using the [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/index.html).  By simply updating the version of the CHT targeted by the test harness, your tests can confirm the forms behave the same way on CHT 4.0.
+
+### Manual testing
+
+You can also manually test your forms on a non-prod CHT instance. It is possible to test your forms against the new Enekto changes without having to uplift your non-prod CHT instance to the new 4.0 architecture.
+
+An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, upgrade to the `7786-fix-report-label` branch:
 
 1. Log in as an Admin and go to the admin section, choose upgrades:
 
@@ -159,4 +167,48 @@ After you have your dev instance up and running, upgrade to the `7786-fix-report
 
 After pushing your app config (see "CHT Conf" above), you can proceed to go through each of your forms in a browser and on a device to ensure there's no errors.
 
+### Notable changes to form behavior
 
+#### XPath expressions
+
+* Proper syntax in XPath expressions is more strictly enforced (e.g. parameters passed to the `concat` function must be separated by commas)
+* The behavior of expressions referencing _invalid XPath paths_ (both absolute and relative) has changed. Previously, an invalid XPath path (one pointing to a non-existent node) was evaluated as being equivalent to an empty string. So, `/invalid/xpath/path = ''` would evaluate to `true`. Now that expression will evaluate to `false` since invalid XPath paths are no longer considered equivalent to empty strings.
+    * Validation has been added to `cht-conf` that can detect many invalid XPath paths and will provide an error when trying to upload a form.
+* The value returned for an _unanswered_ number question, when referenced from an XPath expression, has changed from `0` to `NaN`. This can affect existing logic comparing number values to `0`.
+
+#### Layout
+
+* The `horizontal` and `horizontal-compact` appearances are now deprecated (a warning will be displayed by cht-conf when uploading to the server). The `columns`, `columns-pack`, and `columns-n` appearances should be used instead. See [the documentation](https://docs.getodk.org/form-question-types/#select-widget-with-columns-pack-appearance) for more details.
+* [Markdown syntax](https://docs.getodk.org/form-styling/#markdown) is now supported for all question labels (and not just `note` fields).
+
+#### Updated XPath functions
+
+* The `format-date` and `format-date-time` functions no longer accept month values that are `<= 0` (e.g. `1984-00-23`). This is notable because some patterns for calculating dates based on an offset of a certain amount of years/months relied on this functionality (e.g. birth date).
+    * See the details below regarding the new `add-date` function for a cleaner way of calculating dates based on an offset.
+* The behavior of the `today` function has changed to return the current date at _midnight_ in the current timezone instead of at the _current time_. To get the current date _and current time_ use the `now` function.
+* `decimal-date-time`:
+    * The behavior of this function has changed with regard to the default timezone used when calculating the decimal value of a date that does not include any timezone information. _(Note that the values from basic `date` questions do NOT include time zone information.)_ Previously, the timezone used in the calculation for dates with no timezone information was UTC. Now, the user's current timezone will be used.
+        * Practically speaking, this means it is no longer safe to assume that the output from `decimal-date-time`, for a value from a basic `date` question, will be a whole number. Now it is likely that a _decimal value_ will be returned (with the numbers after the decimal point representing the offset of the user's timezone from UTC).
+    * Previously this function would accept various string parameters (e.g. date strings with various formats) as input. Now, the only string values it will only accept are ones formatted according to ISO 8601 (e.g. `2022-10-03`).
+        * Strings containing date values should be parsed with the [`date` function](https://docs.getodk.org/form-operators-functions/#date) before calling `decimal-date-time`.
+
+#### New XPath functions
+
+* Custom CHT functions:
+    * [`add-date`]({{< relref "apps/reference/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
+* ODK Functions:
+    * Repeats and other node sets:
+        * [`position`](https://docs.getodk.org/form-operators-functions/#position) - Returns the current iteration index within a repeat group.
+        * [`count`/`count-non-empty`](https://docs.getodk.org/form-operators-functions/#count) - Returns the number of elements in a repeat group.
+            * Now is re-calculated when the size of the `repeat` changes
+    * [`once`](https://docs.getodk.org/form-operators-functions/#once) - Returns the value of the given expression if the question's value is empty. Otherwise, returns the current value of the question.
+    * [`checklist`/`weighted-checklist`](https://docs.getodk.org/form-operators-functions/#checklist) - Returns `True` when the required number of affirmative responses is given.
+
+#### Known issues
+
+* The answer to a non-relevant question [is not immediately cleared](https://github.com/medic/cht-core/issues/7674) when the question becomes non-relevant and is still provided to XPath expressions that reference the question. When the form is submitted, the non-relevant answers will be cleared and any dependent XPath expressions will be re-evaluated.
+* This behavior applies both to questions that were answered and later became non-relevant as well as to questions which have configured default values.
+
+#### Community cht-upgrade-helper
+
+An unofficial [cht-upgrade-helper](https://github.com/jkuester/cht-upgrade-helper) utility has been created by a community member that can help flag form elements that should be manually reviewed before upgrading to `4.0.0`. It is not officially supported by Medic and is provided as-is. 
