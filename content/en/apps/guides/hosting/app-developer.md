@@ -6,6 +6,8 @@ description: >
   Hosting the CHT when developing apps
 ---
 
+{{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
+
 {{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "apps/guides/hosting/core-developer.md" >}}). 
 
 To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/self-hosting.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/ec2-setup-guide.md" >}}){{% /alert %}}
@@ -13,18 +15,18 @@ To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guide
 
 ## Getting started
 
-Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. As well, if any other `medic-os` instances using [the main `docker-compose.yml` file](https://github.com/medic/cht-core/blob/master/docker-compose.yml) are running locally, stop them otherwise port, storage volume and container name conflicts may occur.
+Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. As well, if any other `medic-os` instances using [the main `docker-compose-developer-3.x-only.yml` file](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml) are running locally, stop them otherwise port, storage volume and container name conflicts may occur.
 
 After meeting these requirements, download the developer YAML file in the directory you want to store them:
 
 ```shell script
-curl -o docker-compose-developer.yml https://raw.githubusercontent.com/medic/cht-core/master/docker-compose-developer.yml
+curl -o docker-compose-developer-3.x-only.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
 ```
 
 To start the first developer CHT instance, run `docker-compose` and specify the file that was just download:
 
 ```shell script
-docker-compose -f docker-compose-developer.yml up
+docker-compose -f docker-compose-developer-3.x-only.yml up
 ```
 
 This may take some minutes to fully start depending on the speed of the Internet connection and speed of the bare-metal host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost](https://localhost).
@@ -42,7 +44,7 @@ After running the first instance of the CHT, it's easy to run as many more as ar
 Assuming you want to start a new project called `the_second` and  start the instance on `HTTP` port `8081` and `HTTPS` port `8443`, this would be the command:
 
 ```shell script
-CHT_HTTP=8081 CHT_HTTPS=8443 docker-compose -p the_second -f docker-compose-developer.yml up
+CHT_HTTP=8081 CHT_HTTPS=8443 docker-compose -p the_second -f docker-compose-developer-3.x-only.yml up
 ```
 
 The second instance is now accessible at  [https://localhost:8443](https://localhost:8443).
@@ -68,7 +70,7 @@ CHT_HTTPS=8443
 Now it's easy to boot this environment by specifying which `.env` file to use:
 
 ```shell
-docker-compose --env-file ../the_second/.env-docker-compose -f docker-compose-developer.yml up
+docker-compose --env-file ../the_second/.env-docker-compose -f docker-compose-developer-3.x-only.yml up
 ```
 
 ## Switching & concurrent projects
@@ -81,7 +83,7 @@ To read more about how `docker-compose` works, be sure to read the [helpful dock
 
 ## CHT Docker Helper
 
-The `cht-docker-compose.sh` scripts builds on the `docker-compose-developer.yml` and `.env` files used above by helping start CHT instances with a simple text based GUI:
+The `cht-docker-compose.sh` scripts builds on the `docker-compose-developer-3.x-only.yml` and `.env` files used above by helping start CHT instances with a simple text based GUI:
 
 ![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
 
@@ -116,7 +118,7 @@ Optionally you can install `jq` so that the script can parse JSON and tell you w
 
 An up-to-date clone of [cht-core](https://github.com/medic/cht-core/) has everything you need including:
 
-* `docker-compose-developer.yml`
+* `docker-compose-developer-3.x-only.yml`
 * `cht-docker-compose.sh`
 * `docker-status.sh`
 
