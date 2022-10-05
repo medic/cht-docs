@@ -24,37 +24,44 @@ This change is straightforward in that CHT 4.x no longer supports versions _befo
 After you have published your app, you need to instruct your users to check the Play Store for upgrades. You can then check [CHT Telemetry]({{< relref "apps/guides/performance/telemetry" >}})  to see what CHT Android versions are in use. Assuming you have [couch2pg set up](https://github.com/medic/couch2pg) to pull in your CouchDB data to a PostgreSQL database, this query will list Android versions `count`s for the current year, broken out by `month`, `year` and `version`:
 
 ```sql
-select 
-	count(*) as count,
-	(doc#>>'{metadata,month}')::int as month,
-	doc#>>'{metadata,year}' as year, 
-	doc#>>'{device,deviceInfo,app,version}' as cht_android_version
-from 
+SELECT
+	concat(doc#>>'{metadata,year}','-',lpad(doc#>>'{metadata,month}',2,'0')) as telemetry_month, 	
+	doc#>>'{device,deviceInfo,app,version}' as cht_android_version,
+	count(distinct(doc#>>'{metadata,user}')) AS count_distinct_users,
+	count(distinct(doc#>>'{metadata,deviceId}')) AS count_distinct_devices,
+	count(*) AS count_telemetry
+FROM
 	couchdb_users_meta 
-where 
+WHERE
 	doc#>>'{type}' = 'telemetry'  
-	and doc#>>'{device,deviceInfo,app,version}' is not null 
-	and doc#>>'{metadata,year}' = to_char(current_date, 'yyyy')
-group by 
-	cht_android_version, month, year
-order by 
-	month desc, count desc
+	AND doc#>>'{metadata,year}' = to_char(current_date, 'yyyy')
+GROUP BY 
+	telemetry_month, cht_android_version	
+ORDER BY 
+	telemetry_month DESC,
+	cht_android_version DESC NULLS LAST
 ```
 
-Note that this is actually showing a count of telemetry reports with a given version for the current month, so the counts will be higher than number of active users. The result will look something like this:
+Note that each user can submit many telemetry docs (`count_telemetry`), so the query breaks out users (`count_distinct_users`) and devices (`count_distinct_devices`) for the given month. This means that telemetry counts will be higher than the number of active users. As well, early in the current  month, many users may not have had a chance to synchronize their telemetry data yet. For example, this report was run on the 5th of October, so the counts for all three tables are low. Refer to prior months in this case.
 
-```
-count|month|year|cht_android_version|
------+-----+----+-------------------+
-    7|    3|2022|v1.0.1-4           |
-    7|    3|2022|v1.0.1-5           |
-    4|    3|2022|v0.11.0-webview    |
-   25|    2|2022|v1.0.1-5           |
-    3|    2|2022|v0.11.0-webview    |
-  100|    1|2022|v1.0.1-5           |
-   57|    1|2022|v1.0.1-4           |
-    1|    1|2022|v0.11.0-webview    |
-```
+
+|telemetry_month|cht_android_version|count_distinct_users|count_distinct_devices|count_telemetry|
+|---------------|-------------------|--------------------|----------------------|---------------|
+|2022-10        |v0.8.0-xwalk       |                   8|                     8|             12|
+|2022-10        |v0.8.0-webview     |                 140|                   140|            244|
+|2022-10        |v0.4.34            |                   2|                     2|              2|
+|2022-10        |                   |                  10|                    10|             12|
+|2022-09        |v0.8.0-xwalk       |                  17|                    18|            139|
+|2022-09        |v0.8.0-webview     |                 350|                   351|           3255|
+|2022-09        |v0.5.0             |                   1|                     1|              8|
+|2022-09        |v0.4.34            |                  24|                    24|             69|
+|2022-09        |                   |                  64|                    61|            143|
+|2022-08        |v0.8.0-xwalk       |                  27|                    30|            181|
+|2022-08        |v0.8.0-webview     |                 365|                   376|           3169|
+|2022-08        |v0.5.0             |                   1|                     1|             12|
+|2022-08        |v0.4.34            |                  25|                    25|             92|
+|2022-08        |                   |                  81|                    86|            158|
+
 
 
 ### Active user counts
@@ -98,11 +105,10 @@ where
 
 In this case only one user is found:
 
-```
-user|cht_android_version|
-----+-------------------+
-adj |v0.11.0-webview    |
-```
+
+|user|cht_android_version|
+|----|-------------------|
+|adj |v0.11.0-webview    |
 
 A twist on this query is to remove the version filter. Do not remove the year and month filter as you will get duplicate values for users who have upgraded over time:
 
@@ -121,21 +127,20 @@ where
 
 This will give a list of every user and the version they're running as of the current month and year:
 
-```
-user            |cht_android_version|
-----------------+-------------------+
-moh-west-chw-1  |v1.0.1-4           |
-moh-west-chw-12 |v1.0.1-4           |
-moh-west-chw-14 |v1.0.1-4           |
-moh-west-chw-3  |v1.0.1-4           |
-moh-west-chw-3  |v1.0.1-5           |
-moh-west-chw-4  |v1.0.1-5           |
-moh-west-chw-5  |v1.0.1-4           |
-moh-west-chw-6  |v1.0.1-5           |
-moh-west-chw-7  |v1.0.1-5           |
-moh-west-chw-8  |v1.0.1-4           |
-adj             |v0.11.0-webview    |
-```
+
+|user            |cht_android_version|
+|----------------|-------------------|
+|moh-west-chw-1  |v1.0.1-4           |
+|moh-west-chw-12 |v1.0.1-4           |
+|moh-west-chw-14 |v1.0.1-4           |
+|moh-west-chw-3  |v1.0.1-4           |
+|moh-west-chw-3  |v1.0.1-5           |
+|moh-west-chw-4  |v1.0.1-5           |
+|moh-west-chw-5  |v1.0.1-4           |
+|moh-west-chw-6  |v1.0.1-5           |
+|moh-west-chw-7  |v1.0.1-5           |
+|moh-west-chw-8  |v1.0.1-4           |
+|adj             |v0.11.0-webview    |
 
 ## CHT Conf
 
