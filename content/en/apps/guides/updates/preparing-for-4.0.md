@@ -212,7 +212,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 #### Known issues
 
 * The answer to a non-relevant question [is not immediately cleared](https://github.com/medic/cht-core/issues/7674) when the question becomes non-relevant and is still provided to XPath expressions that reference the question. When the form is submitted, the non-relevant answers will be cleared and any dependent XPath expressions will be re-evaluated.
-* This behavior applies both to questions that were answered and later became non-relevant as well as to questions which have configured default values.
+    * This behavior applies both to questions that were answered and later became non-relevant as well as to questions which have configured default values.
 
 #### Community cht-upgrade-helper
 
