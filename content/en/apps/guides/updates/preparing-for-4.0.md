@@ -152,9 +152,6 @@ To upgrade app, run `npm update cht-conf`
 
 CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/7256) used to render forms. This upgrade provides a ton of bug fixes and enhancements (particularly around ODK spec compliance) which will make the forms experience in the CHT even better! (For example, we now have proper support for `repeat`s with a dynamic length, including the various XPath functions necessary to take full advantage of this functionality!)  That being said, it does introduce a few changes which may affect the way your forms function (or even cause some forms to fail to load at all).
 
-### Automated testing
-
-The best way to ensure your forms will work in CHT 4.0 is to start with good automated test coverage of your forms' functionality using the [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/index.html).  By simply updating the version of the CHT targeted by the test harness, your tests can confirm the forms behave the same way on CHT 4.0.
 
 ### Manual testing
 
