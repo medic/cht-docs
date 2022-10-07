@@ -47,6 +47,23 @@ cht --local upload-privacy-policies
 
 When a privacy policy is configured for a language, users who load the app in this language are prompted to accept the policy. 
 
+If our `en.attachment.html` file looked like this:
+
+```html
+  <html><body>
+
+    <h1>Lorem Ipsum: Privacy & Data Protection Policy</h1>
+
+    <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
+    
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    </p>
+  </body></html>
+```
+
+Then visotors the privacy policy would see:
+
 ![Accept privacy policy](accept-mobile.png)
 
 The app will load normally after acceptance. The user cannot opt out or skip acceptance, meaning, if a privacy policy is configured, the app will be unusable until the user has accepted it. Once accepted, users will not be prompted to accept the same policy again. However, users will be prompted for acceptance again when the policy is updated or when they change their language. An acceptance log is saved in the `user-settings` file and synced to the server, containing a history of privacy policies accepted by the user.        
