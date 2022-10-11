@@ -9,7 +9,7 @@ relatedContent: >
   core/guides/android/branding
 ---
 
-All Medic's android projects automatically build, sign, and release builds via Github Actions or Travis. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
+All Medic's android projects automatically build, sign, and release builds via Github Actions. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
 
    * [cht-android](https://github.com/medic/cht-android/releases)
    * [cht-gateway](https://github.com/medic/cht-gateway/releases)
