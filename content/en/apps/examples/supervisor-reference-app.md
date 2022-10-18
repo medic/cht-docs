@@ -25,15 +25,12 @@ Community Health Workers (CHWs) play a critical role in delivering quality care 
 
 ## Solution overview
 The supervisor reference app workflows enables supervisors to: provide quality assurance supervisory activities, plan and document CHW supervisory activities, support CHW activities and monitor CHW performance in real time. The supervisor reference app has been designed to:
-<ul>
-<li>Monitor the performance of the CHW and supervisors using the in-app aggregate target and the supervisor targets functionalities respectively.</li>
-
-<li>Document and track CHW and supervisory activities.</li>
-<li>Schedule CHW monthly meetings quality monitoring visits and follow up visits.</li>
-<li>Support supervisors to report on health outcomes for their supervisory area.</li>
-<li>Identify CHWs who have not been visited by a supervisor.</li>
-<li>Follow up on CHW who have been inactive for 3 months.</li>
-</ul>
+ * Monitor the performance of the CHW and supervisors using the in-app aggregate target and the supervisor targets functionalities respectively.
+ * Document and track CHW and supervisory activities.
+ * Schedule CHW monthly meetings quality monitoring visits and follow up visits.
+ * Support supervisors to report on health outcomes for their supervisory area.
+ * Identify CHWs who have not been visited by a supervisor.
+ * Follow up on CHW who have been inactive for 3 months.
 
 ## Forms hierarchy
 The diagram indicates forms and tasks that can be filled by a supervisor on the supervisor reference app. Some of the forms are accessible as actions on the supervisor and CHW profiles while others are accessible as tasks for a supervisor and a CHW.
