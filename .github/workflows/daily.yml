@@ -12,7 +12,7 @@ on:
     # runs at 3:15am every day
     - cron:  '15 3 * * *'
 
-name: Test site and push live if we're on Master
+name: Test site and push live if we're on main branch
 jobs:
   BuildLinkCheckPushLive:
     name:
@@ -57,7 +57,7 @@ jobs:
         shell: bash
         run: ./.github/scripts/muffet.sh
 
-      - name: Master Branch Only - Report errors to Slack, if any
+      - name: Main Branch Only - Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
