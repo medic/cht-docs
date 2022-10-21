@@ -478,7 +478,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#targets).
 
 To test the first two targets created in the [targets tutorial]({{< ref "apps/tutorials/targets" >}}), use this code:
-```js {linenos=table}
+```js highlight 
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date
     harness.setNow('2000-01-30');
