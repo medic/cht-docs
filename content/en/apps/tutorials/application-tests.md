@@ -432,7 +432,7 @@ expect(await harness.getTasks()).to.be.empty;
 
 If a task is triggered by a report, then fill in the app form to create report before test:
 
-```js {linenos=table}
+```js highlight 
 it('followup schedule', async () => {
   const result = await harness.fillForm(...pncFollowups.registerBirth('2000-01-01', '2000-02-01'));
   expect(result.errors).to.be.empty;
