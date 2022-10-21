@@ -50,22 +50,27 @@ Before you begin, you need to have some useful software and tools that are requi
 
 Now that you have the dependent tools and software installed, you are ready to set up your CHT local environment.
 
-### 1. Create docker-compose.yml
+### 1. Create Docker compose files
 
-Open your terminal and navigate to your working folder. Run the command:
+Open your terminal and run these commands which will create a directory, download the three Docker Compose files and prepare the evironment variables file. You should just be able select all and paste on a command line:
 
 ```shell
-curl -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
+mkdir -p ~/cht-local-setup/data/couch
+cd ~/cht-local-setup
+curl -s -o ./data/cht-4-core.yml https://staging.dev.medicmobile.org/_couch/builds/medic%3Amedic%3Amaster/docker-compose%2Fcht-core.yml && curl -s -o ./data/cht-4-couch.yml https://staging.dev.medicmobile.org/_couch/builds/medic%3Amedic%3Amaster/docker-compose%2Fcht-couchdb.yml && curl -s -o cht-upgrader.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+cat > ~/cht-local-setup/env << EOF
+DOCKER_CONFIG_PATH=~/cht-local-setup
+COUCHDB_DATA=~/cht-local-setup/data/couch 
+CHT_COMPOSE_PATH=~/cht-local-setup/data 
+COUCHDB_USER=medic 
+COUCHDB_PASSWORD=password
+EOF
 ```
 
-This will create a copy of the `docker-compose-developer-3.x-only.yml` file from `cht-core`.
-
-{{% alert title="Note" %}} You can also copy the content of the docker-compose.yml file from this [link](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml). {{% /alert %}}
-
-Run the following command inside the directory that you saved the `docker-compose-developer-3.x-only.yml`:
+Run the following command to start your CHT instance using Docker Compose:
 
 ```shell
-docker-compose -f docker-compose-developer-3.x-only.yml up
+docker-compose -f ~/cht-local-setup/cht-upgrader.yml --env-file  ~/cht-local-setup/env up
 ```
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
@@ -175,7 +180,7 @@ With the blank project deployed to your CHT instance, you're ready to start writ
 To install a valid certificate, open a terminal in the `cht-core` directory. Ensure the `medic-os` container is running and make this call:
 
 ```shell
-./scripts/add-local-ip-certs-to-docker.sh
+./scripts/add-local-ip-certs-to-docker-4.x.sh cht_nginx_1
 ```
 
 To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.
@@ -183,11 +188,10 @@ To see what a before and after looks like, note the screenshot to the left which
 The output of `add-local-ip-certs-to-docker.sh` looks like this:
 
 ```text
-Debug: Service 'medic-core/nginx' exited with status 143
-Info: Service 'medic-core/nginx' restarted successfully
-Success: Finished restarting services in package 'medic-core'
+cht_nginx_1
 
-If no errors output above, certificates successfully installed.
+If just container name is shown above, a fresh local-ip.co certificate was downloaded.
+
 ```
 
 The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.my.local-ip.co`.  See the [local-ip.co](http://local-ip.co/) site to read more about these free to use certificates.
