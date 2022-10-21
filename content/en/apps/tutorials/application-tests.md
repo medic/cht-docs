@@ -413,7 +413,7 @@ So, to see the task, the contact should be created within the last 7 days. You c
 Note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use external website [epochconverter](https://www.epochconverter.com/) to convert the timestamp to and from a human readable date.
 
 After setting the harness defaults, you can now test the task:
-```js {linenos=true}
+```js highlight 
 // Get the task by title
 const tasks = await harness.getTasks({title: 'First Assessment'});
 
