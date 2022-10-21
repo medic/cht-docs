@@ -2,6 +2,8 @@
 title: "Preparing to upgrade to CHT 4.0"
 linkTitle: "Preparing to upgrade to CHT 4.0"
 weight:
+aliases:
+  - /apps/guides/hosting/3.x/preparing-for-4.0
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 4.0 and later
   
@@ -158,7 +160,7 @@ CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/
 You can also manually test your forms on a non-prod CHT instance. It is possible to test your forms against the new Enekto changes without having to uplift your non-prod CHT instance to the new 4.0 architecture.
 
 An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, upgrade to the `7786-fix-report-label` branch:
-An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, upgrade to the `enketo_upgrade_3.x` branch:
+An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, upgrade to the `enketo_upgrade_3.x` branch:
 
 1. Log in as an Admin and go to the admin section, choose upgrades:
 

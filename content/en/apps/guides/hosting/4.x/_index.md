@@ -1,11 +1,9 @@
 ---
 title: 4.x
 weight: 100
-description: >
- Guides for hosting, maintaining, and monitoring CHT 4.x applications
+
 ---
 
-{{% alert title="Note" %}} To get an overview on how these hosting solutions use `docker` and `docker-compose`, as well as other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "apps/tutorials/local-setup" >}}). {{% /alert %}}
+{{% alert title="Note" %}} 4.x hosting guides coming soon!  For now, please check out the [local hosting page]({{< relref "apps/tutorials/local-setup" >}}) which goes through setting up a CHT 4.x instance. {{% /alert %}}
 
-Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first.
-
+----

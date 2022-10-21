@@ -1,18 +1,18 @@
 ---
-title: "CHT Local Environment Setup"
+title: "CHT 4.x Local Environment Setup"
 linkTitle: Local Setup
 weight: 1
 description: >
-  Setting up a local environment to build and test CHT applications
+  Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
   core/guides/docker-setup
   core/guides/using-windows
-  apps/guides/hosting/self-hosting
-  apps/guides/hosting/ec2-setup-guide
+  apps/guides/hosting/3.x/self-hosting
+  apps/guides/hosting/3.x/ec2-setup-guide
 ---
 
 {{% pageinfo %}}
-This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 3.9.0. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
+This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
@@ -20,7 +20,10 @@ By the end of the tutorial you should be able to:
 - Upload default settings to localhost
 {{% /pageinfo %}}
 
-- {{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
+{{% alert title="Note" %}} 
+This guide will only work with CHT 4.x instances.  See the 
+[3.x App Developer Hosting]({{< ref "apps/guides/hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
+{{% /alert %}}
 
 ## Brief Overview of Key Concepts
 

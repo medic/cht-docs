@@ -5,14 +5,18 @@ weight: 5
 description: >
   Requirements for hosting CHT
 relatedContent: >
-  apps/guides/hosting/self-hosting
-  apps/guides/hosting/ec2-setup-guide
+  apps/guides/hosting/3.x/self-hosting
+  apps/guides/hosting/3.x/ec2-setup-guide
   core/guides/docker-setup
 ---
 
 
 {{% alert title="Note" %}}
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For CHT development, Linux or macOS may be used. Windows can be used for either, but without recommendation.
+{{% /alert %}}
+
+{{% alert title="Note" %}}
+These requirements apply to both 3.x and 4.x CHT hosting
 {{% /alert %}}
 
 Hosting a CHT instance in a cloud provider like AWS or on bare-metal requires you have sufficient hardware specifications, Docker and Docker Compose installed and other infrastructure requirements met.
