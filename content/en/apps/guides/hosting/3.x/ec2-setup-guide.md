@@ -4,6 +4,8 @@ linkTitle: "AWS Hosting"
 weight: 10
 description: >
   Hosting the CHT on Amazon EC2
+aliases:
+  - /apps/guides/hosting/ec2-setup-guide
 relatedContent: >
   apps/guides/hosting/self-hosting
   apps/guides/database/couch2pg-oom-errors

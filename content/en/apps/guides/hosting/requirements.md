@@ -32,7 +32,7 @@ Depending on the scale of your operation these may need to be adjusted. Be sure 
 Install both `docker` and `docker-compose` to run the two `medic-os` and `haproxy` containers.
 
 {{% alert title="Note" %}}
-Skip this step if you're following the  [EC2 guide]({{< relref "apps/guides/hosting/ec2-setup-guide#create-and-configure-ec2-instance" >}}) as `docker` and `docker-compose` are automatically installed when following the setup scripts. 
+Skip this step if you're following the  [EC2 guide 3.x]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide#create-and-configure-ec2-instance" >}}) as `docker` and `docker-compose` are automatically installed when following the setup scripts. 
 {{% /alert %}}
 
 ### Linux

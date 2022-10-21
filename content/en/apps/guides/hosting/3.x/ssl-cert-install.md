@@ -28,7 +28,7 @@ sudo docker cp /path/to/ssl.key medic-os:/srv/settings/medic-core/nginx/private/
 Now that the `.crt` and `.key` files are in place, restart `nginx` in the `medic-os` container with:
 
 ```bash
-docker exec -it medic-os /boot/svc-restart medic-core nginx
+docker exec -it medic-os /boot/svc-restart medic-core nginx 
 ```
 
 ## View Nginx Logs
