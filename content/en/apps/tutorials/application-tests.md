@@ -469,25 +469,10 @@ You may [pass other data](https://docs.communityhealthtoolkit.org/apps/guides/ta
 
 Testing a target is relatively straightforward. Add a report or contact that increments a target, then check the target values.
 
-<table>
-  <tr>
-    <th colspan='2'> What do you test? </th>
-  </tr>
-  <tr>
-    <td>Minimum</td>
-    <td>
-      Trigger incrementing of the target <br />
-      Ensure target doesn’t increment when it shouldn’t
-    </td>
-  </tr>
-  <tr>
-    <td>Ideal</td>
-    <td>
-      One test for each user scenario<br />
-      Ensure proper deduplication (particularly for those with emitCustom)
-    </td>
-  </tr>
-</table>
+| What do you test?  |
+|--|--|
+|Minimum:|Trigger incrementing of the target<br/>Ensure target doesn’t increment when it shouldn’t|
+|Ideal:|One test for each user scenario<br/>Ensure proper deduplication (particularly for those with emitCustom)|
 
 
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#targets).
