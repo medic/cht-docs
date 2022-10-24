@@ -30,9 +30,9 @@ The structure of documents in the CHT database reflect the configuration of the 
 
 {{< figure src="flow.png" link="flow.png" >}}
 
-The recommended approach is to use OpenHIM as the middleware component with Mediators to do the conversion. [Outbound Push]({{< ref "apps/reference/app-settings/outbound" >}}) should be configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediators then calls [CHT APIs]({{< ref "apps/reference/api" >}}) to gather any additional data required to create a FHIR resource which is then routed to OpenHIM. OpenHIM will then route the resource to any other configured systems.
+The recommended approach is to use OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "apps/reference/app-settings/outbound" >}}) should be configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then calls [CHT APIs]({{< ref "apps/reference/api" >}}) to gather any additional data required to create a FHIR resource which is then routed to OpenHIM. OpenHIM will then route the resource to any other configured systems.
 
-Conversely to bring data in to the CHT, OpenHIM should be configured to route the updated resource to a mediator, which then calls the relevant CHT APIs to update the document in the CHT database. This will then be replicated to users' devices as per usual.
+Conversely to bring data in to the CHT, OpenHIM should be configured to route the updated resource to a Mediator, which then calls the relevant CHT APIs to update the document in the CHT database. This will then be replicated to users' devices as per usual.
 
 A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/chis-interoperability).
 
