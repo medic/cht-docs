@@ -52,15 +52,21 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 ## Action Buttons
 
-{{< figure src="reports-bulk.png" link="reports-bulk.png" class="right col-6 col-lg-3" >}}
+The action buttons at the bottom of the screen are configurable using [permissions]({{< ref "apps/reference/app-settings/user-permissions" >}}). Options include submit, edit, delete, review and export reports.
 
-The action buttons at the bottom of the screen are configurable. Options include adding or completing a care guide, bulk select & export. 
+Clicking on the “Export” button will download a CSV file with all the data from the reports.
 
-Clicking the “+” button opens a menu of forms a user can choose to complete. “Bulk Select,” represented by a checkmark icon within a circle, allows you to bulk select and delete multiple reports at a time.
+{{< figure src="reports-desktop.png" link="reports-bulk.png" class="left col-9 col-lg-9" >}}
 
-**Please Note**: Bulk delete cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature in the permissions for their role. 
+<br clear="all">
 
-Clicking on the “Export” button will download a CSV file with all of the data from the reports.
+## Bulk Delete Reports
+
+Allows the user to select multiple reports and delete them. **Please Note**: This action cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature by disabling the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_bulk_delete_reports`.
+
+{{< figure src="reports-bulk-mobile.png" link="reports-bulk-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="reports-bulk-desktop.png" link="reports-bulk-desktop.png" class="left col-9 col-lg-9" >}}
 
 <br clear="all">
 
