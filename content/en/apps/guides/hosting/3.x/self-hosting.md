@@ -1,14 +1,14 @@
 ---
-title: "Self Hosting"
+title: "Self Hosting in CHT 3.x"
 linkTitle: "Self Hosting"
 weight: 20
 description: >
   Hosting the CHT on self run infrastracture
+aliases:
+  - /apps/guides/hosting/self-hosting
 relatedContent: >
-  apps/guides/hosting/ec2-setup-guide
+  apps/guides/hosting/3.x/ec2-setup-guide
 ---
-
-{{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
 
 Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (CHT) core framework has been packaged into a docker container to make it portable and easy to install. It is available from [dockerhub](https://hub.docker.com/r/medicmobile/medic-os). To learn more how to work with docker you could follow the tutorial [here](https://docker-curriculum.com/#getting-started) and the cheat sheet [here](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf).  
 

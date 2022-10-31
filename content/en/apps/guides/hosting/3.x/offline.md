@@ -1,14 +1,22 @@
 ---
-title: "Offline Hosting of CHT Server"
+title: "Offline Hosting of CHT 3.x Server"
 linkTitle: "Offline Hosting"
 weight: 100
+aliases:
+  - /apps/guides/hosting/offline
 description: >
  Deploying and hosting CHT Core server instances without Internet connectivity
 ---
 
-{{% alert title="Note" %}} This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below.
+{{% alert title="Note" %}} 
+This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below.
 
- Proceed only if you have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general. This is a complex deployment where mistakes are easy to make unless proper training is in place. {{% /alert %}}
+Proceed only if you have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general. This is a complex deployment where mistakes are easy to make unless proper training is in place. 
+{{% /alert %}}
+
+{{% alert title="Note" %}}
+This guide only applies to CHT 3.x.
+{{% /alert %}}
 
 ## Introduction
 
@@ -37,7 +45,7 @@ Browsers might allow you to connect to a server with an invalid TLS certificate 
 
 It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) to acquire certificates because they provide free certificates. Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
 
-After acquiring the certificate, if you are running a Docker-based CHT deployment, see [TLS instructions for Docker]({{< relref "/apps/guides/hosting/ssl-cert-install" >}}) to install the certificate.
+After acquiring the certificate, if you are running a Docker-based CHT deployment, see [TLS instructions for Docker]({{< relref "/apps/guides/hosting/3.x/ssl-cert-install" >}}) to install the certificate.
 
 ### Domain Name Server
 
