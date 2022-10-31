@@ -81,6 +81,11 @@ Devices with more navigation systems are more likely to get a more accurate loca
 
 
 ## Release Notes
+
+### 4.x
+
+- [4.0.0]({{% ref "core/releases/4.0.0.md" %}})
+
 ### 3.x
 
 - [3.17.0]({{% ref "core/releases/3.17.0.md" %}})
