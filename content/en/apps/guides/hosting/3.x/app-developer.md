@@ -1,16 +1,16 @@
 ---
-title: "App Developer Hosting"
+title: "App Developer Hosting in CHT 3.x"
 linkTitle: "App Developer Hosting"
 weight: 40
+aliases:
+  - /apps/guides/hosting/app-developer
 description: >
   Hosting the CHT when developing apps
 ---
 
-{{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}
-
 {{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "apps/guides/hosting/core-developer.md" >}}). 
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/self-hosting.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/ec2-setup-guide.md" >}}){{% /alert %}}
+To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}){{% /alert %}}
 
 
 ## Getting started
