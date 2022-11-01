@@ -54,7 +54,7 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 The action buttons at the bottom of the screen are configurable using [permissions]({{< ref "apps/reference/app-settings/user-permissions" >}}). Options include submit, edit, delete, review and export reports.
 
-Clicking on the “Export” button will download a CSV file with all the data from the reports.
+Clicking on the “Export” button will download a CSV file with all the data from the reports. And clicking the “+ Submit report” button opens a menu of forms a user can choose to complete.
 
 {{< figure src="reports-desktop.png" link="reports-bulk.png" class="left col-9 col-lg-9" >}}
 
