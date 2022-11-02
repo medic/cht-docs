@@ -174,7 +174,7 @@ The test files are usually grouped in folders to read and run them easily. One w
 You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
 
 Example:
-```js {linenos=table}
+```js highlight 
 const result = await harness.fillContactForm(
   'district_hospital',
   ['new_person', 'William Mars', '1990-08-06', '+1234567891', 'female'],
