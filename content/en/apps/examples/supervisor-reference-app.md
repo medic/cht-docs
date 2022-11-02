@@ -35,7 +35,7 @@ The supervisor reference app workflows enables supervisors to: provide quality a
 ## Forms hierarchy
 The diagram indicates forms and tasks that can be filled by a supervisor on the supervisor reference app. Some of the forms are accessible as actions on the supervisor and CHW profiles while others are accessible as tasks for a supervisor and a CHW.
 
-{{< figure src="hierarchy.png"  link="Forms_hierarchy.png" alt="Forms hierarchy" title="" class="left col-9">}}
+{{< figure src="hierarchy.png"  link="hierarchy.png" >}}
 
 ## Supervisor app workflows and features.
 
@@ -44,7 +44,7 @@ A Supervisor conducts a CHW monthly meeting with all the CHWs. During the meetin
 
 | CHW monthly meeting workflow |
 |--|--|--|
-|{{< figure src="img1.png"  link="img1.png" alt="" title="" class="left">}}|{{< figure src="arrow1.png"  link="arrow1.png" alt="" title="" class="left">}}|{{< figure src="img2.png"  link="img2.png" alt="" title="" class="left">}}|
+|{{< figure src="img1.png">}}|{{< figure src="arrow1.png">}}|{{< figure src="img2.png">}}|
 |**1a Supervisor schedules for a CHW monthly meeting** A supervisor schedules for a CHW monthly meeting by submitting a CHW monthly meeting|                 |**2a CHW monthly meeting task** The task appears 3 days before the due date and the supervisor completes the task during the monthly meeting|
 |**1b The Supervisor can also receive a recurring CHW monthly meeting task every month**| |**2b CHW monthly meeting form** The CHW monthly meeting form can also be accessed through the action on the profile of the supervisor|
 | | |**2c Schedule Monthly Meeting** The Supervisor can schedule the next CHW meeting form using the CHW monthly meeting form or task|
@@ -54,7 +54,7 @@ With the supervisor reference app, a supervisor can schedule a quality monitorin
 
 | Supervision quality monitoring workflow |
 |--|--|--|--|--|
-|{{< figure src="img1.png"  link="img1.png" alt="" title="" class="left">}}|{{< figure src="arrow2.png"  link="arrow2.png" alt="" title="" class="left">}}|{{< figure src="img1.png"  link="img1.png" alt="" title="" class="left">}}|{{< figure src="arrow2.png"  link="arrow2.png" alt="" title="" class="left">}}|{{< figure src="img2.png"  link="img2.png" alt="" title="" class="left">}}|
+|{{< figure src="img1.png" >}}|{{< figure src="arrow2.png"  link="arrow2.png" >}}|{{< figure src="img1.png" >}}|{{< figure src="arrow2.png" >}}|{{< figure src="img2.png" >}}|
 |**1a Supervisor checks/monitors their in-app CHW aggregate targets** The supervisor checks the in app targets to monitor CHW target progress.| |**2a Quality Monitoring Planning form** The supervisor schedules shadowing/quality monitoring visits with the CHWs that need support through the quality monitoring planning form| |**3a Quality monitoring task** The task appears 2 days before the due date. During the visit the supervisor completes the quality monitoring task|
 |**1b Supervisor UHC mode** Using the UHC mode, the supervisor is able to identify CHWs that have not been visited by a supervisor for a while| | | |**3b Shadowing reminder task** - the task will appear on the CHW app two days before the visit to remind the CHW of the planned shadowing visit|
 | | | | |**3c Quality monitoring form** The quality monitoring form can also be accessed as an action on the profile of the CHW|
@@ -63,7 +63,7 @@ With the supervisor reference app, a supervisor can schedule a quality monitorin
 
 | CHW Group session workflow |
 |--|--|--|
-|{{< figure src="img1_1.png"  link="img1_1.png" alt="" title="" class="left">}}|{{< figure src="arrow1.png"  link="arrow1.png" alt="" title="" class="left">}}|{{< figure src="img3.png"  link="img3.png" alt="" title="" class="left">}}|
+|{{< figure src="img1_1.png"  >}}|{{< figure src="arrow1.png"  >}}|{{< figure src="img3.png" >}}|
 |**1a A CHW organizes for a group session with community members** Group session is a meeting coordinated and organized by CHW with community members to health educate community members of various health topics|                 |**2a Group session form** Supervisor attends the group session meetings, provides supervision, supports the activity and submits the group session form|
 
 ### CHW Activity workflow
