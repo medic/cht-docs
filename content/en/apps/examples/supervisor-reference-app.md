@@ -16,7 +16,7 @@ A reference app for CHW supervisors to support performance management of CHWs us
 
 [Medic](https://medic.org/) has worked with [D-tree International](https://www.d-tree.org/) to build a CHT supervisor reference app. The app supports community health worker (CHW) supervisors to continually monitor and improve the program quality for Zanzibar National community health program Jamii ni Afya. The supervisor reference application is designed to enable supervisors to access CHW performance information and any other information required to supervise, mentor, and support CHWs to provide quality community health services. This reference app provides an example that CHT app developers can easily customize to meet the needs for their specific program areas to support CHW program management.
 
-You can find the code of this application in the CHT code repository on Github {link}
+You can find the code of this application in the CHT [code repository on Github](https://github.com/medic/config-dtree/tree/sample-purge-with-test)
 
 {{% /pageinfo %}}
 
