@@ -114,7 +114,7 @@ If you want to learn more about these hooks, refer to this [Mocha resource](http
 
 Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "apps/tutorials/app-forms" >}}):
 
-{{< highlight js "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=assessment-form-test" >}}
+```js highlight 
   it('unit test confirming assessment with cough since 7 days', async () => {
     // Load the assessment form and fill 'yes' on the first page and '7' on the second page
     const result = await harness.fillForm('assessment', ['yes'], ['7']);
