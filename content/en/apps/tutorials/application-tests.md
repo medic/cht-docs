@@ -164,19 +164,10 @@ The test files are usually grouped in folders to read and run them easily. One w
 ![alt_text](tests-dir.png "Test directory structure")
 
 ### Testing Forms
-<table>
-  <tr>
-    <th colspan='2'> What do you test? </th>
-  </tr>
-  <tr>
-   <td>Minimum:</td>
-   <td>Filling a form with the most common options should not result in any error.</td>
-  </tr>
-  <tr>
-   <td>Ideal:</td>
-   <td>All input combinations and constraints are tested with the report fields.</td>
-  </tr>
-</table>
+| What do you test?  |
+|--|--|
+|Minimum:|Filling a form with the most common options should not result in any error.|
+|Ideal:|All input combinations and constraints are tested with the report fields.|
 
 [Previous example](#assessment-form-test) demonstrates test for the app form. More test cases can be added by changing the inputs.
 
