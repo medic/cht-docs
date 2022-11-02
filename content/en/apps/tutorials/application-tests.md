@@ -138,7 +138,7 @@ In [line 3](#assessment-form-test-3) above, the method [harness.fillForm()](http
 Depending on the form design, the number of inputs to be filled can be large. The inputs are often repeated within a single test or across multiple tests with little or no variation. It is a good idea to keep them in a separate file and refer them from the tests as required. You can also introduce some variations in the inputs using function parameters.
 
 Example: `form-inputs.js`
-```js {linenos=table}
+```js highlight 
 module.exports = {
   assessments: {
     no_cough: [
