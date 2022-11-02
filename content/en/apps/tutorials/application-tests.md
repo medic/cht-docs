@@ -259,7 +259,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
 ```
 If you  follow [this code sample]({{< ref "apps/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
 
-```js {linenos=table}
+```js highlight 
 const summaryContext = harness.getContactSummary().context;
 expect(summaryContext).to.include({
   pregnant: true
