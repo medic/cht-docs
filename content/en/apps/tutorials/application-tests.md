@@ -269,25 +269,10 @@ expect(summaryContext).to.include({
 
 ### Testing Tasks
 
-<table>
-  <tr>
-    <th colspan='2'> What do you test? </th>
-  </tr>
-  <tr>
-   <td>Minimum
-   </td>
-   <td>Trigger and resolve the task
-   </td>
-  </tr>
-  <tr>
-   <td>Ideal
-   </td>
-   <td>One test for each use scenario<br/>
-Code coverage for any arc with an external dependency<br/>
-Negative cases - confirm tasks don’t trigger
-   </td>
-  </tr>
-</table>
+| What do you test?  |
+|--|--|
+|Minimum:|Trigger and resolve the task|
+|Ideal:|One test for each use scenario<br/>Code coverage for any arc with an external dependency<br/>Negative cases - confirm tasks don’t trigger|
 
 When testing the tasks [manually]({{< ref "tasks-1#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
 
