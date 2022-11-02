@@ -46,7 +46,7 @@ A Supervisor conducts a CHW monthly meeting with all the CHWs. During the meetin
 |--|--|--|
 |{{< figure src="img1.png"  link="img1.png" alt="" title="" class="left">}}|{{< figure src="arrow1.png"  link="arrow1.png" alt="" title="" class="left">}}|{{< figure src="img2.png"  link="img2.png" alt="" title="" class="left">}}|
 |**1a Supervisor schedules for a CHW monthly meeting** A supervisor schedules for a CHW monthly meeting by submitting a CHW monthly meeting|                 |**2a CHW monthly meeting task** The task appears 3 days before the due date and the supervisor completes the task during the monthly meeting|
-|1b The Supervisor can also receive a recurring CHW monthly meeting task every month| |**2b CHW monthly meeting form** The CHW monthly meeting form can also be accessed through the action on the profile of the supervisor|
+|**1b The Supervisor can also receive a recurring CHW monthly meeting task every month**| |**2b CHW monthly meeting form** The CHW monthly meeting form can also be accessed through the action on the profile of the supervisor|
 | | |**2c Schedule Monthly Meeting** The Supervisor can schedule the next CHW meeting form using the CHW monthly meeting form or task|
 
 ### Quality monitoring workflow
