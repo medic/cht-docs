@@ -50,28 +50,10 @@ Writing tests for CHT apps requires a good understanding of the project workflow
     ```
     After adding these scripts, you are able to run the tests by running one of these commands from the command-line:
 
-    <table>
-      <tr>
-        <th><strong>Command</strong></th>
-        <th><strong>Description</strong></th>
-      </tr>
-      <tr>
-        <td>
-          <code>npm run test</code>
-        </td>
-        <td>
-          Compiles the app settings, converts the forms, then runs the tests. <sup>[recommended]</sup>
-        </td>
-      </tr>
-      <tr>
-        <td nowrap="nowrap">
-          <code>npm run unittest</code>
-        </td>
-        <td>
-          Only runs the tests.
-        </td>
-      </tr>
-    </table>
+   |Command|Description|
+   |---|---|
+   |`npm run test`|Compiles the app settings, converts the forms, then runs the tests (preferred solution).
+   |`npm run unittest`|Only runs the tests.|
 
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. For convenience, here it is named as `test`.
 5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
