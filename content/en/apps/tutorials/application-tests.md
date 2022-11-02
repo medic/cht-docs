@@ -204,19 +204,10 @@ it(`Throws validation error when birth date is in future`, async () => {
 ---
 ### Testing Contact Summary
 
-<table>
-  <tr>
-    <th colspan='2'> What do you test? </th>
-  </tr>
-  <tr>
-   <td>Minimum</td>
-   <td>Fill a contact form and count the number of fields in the contact summary</td>
-  </tr>
-  <tr>
-   <td>Ideal</td>
-   <td>Targeted tests for calculations of context, fields, cards, etc.</td>
-  </tr>
-</table>
+| What do you test?  |
+|--|--|
+|Minimum:|Fill a contact form and count the number of fields in the contact summary|
+|Ideal:|Targeted tests for calculations of context, fields, cards, etc.|
 
 Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#care-guides). All these can be tested with the test harness.
 
