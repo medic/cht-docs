@@ -232,7 +232,7 @@ Here, the contact summary being tested represents the contact that is being "act
 
 Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "apps/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
-```js {linenos=table}:
+```js highlight 
 // Load the assessment form and fill in 'yes' on the first page and '7' on the second page
 const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
