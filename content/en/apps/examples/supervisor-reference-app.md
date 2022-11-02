@@ -54,7 +54,7 @@ With the supervisor reference app, a supervisor can schedule a quality monitorin
 
 | Supervision quality monitoring workflow |
 |--|--|--|--|--|
-|{{< figure src="img1.png" >}}|{{< figure src="arrow2.png"  link="arrow2.png" >}}|{{< figure src="img1.png" >}}|{{< figure src="arrow2.png" >}}|{{< figure src="img2.png" >}}|
+|{{< figure src="img1.png" >}}|{{< figure src="arrow1.png"   >}}|{{< figure src="img1.png" >}}|{{< figure src="arrow1.png" >}}|{{< figure src="img2.png" >}}|
 |**1a Supervisor checks/monitors their in-app CHW aggregate targets** The supervisor checks the in app targets to monitor CHW target progress.| |**2a Quality Monitoring Planning form** The supervisor schedules shadowing/quality monitoring visits with the CHWs that need support through the quality monitoring planning form| |**3a Quality monitoring task** The task appears 2 days before the due date. During the visit the supervisor completes the quality monitoring task|
 |**1b Supervisor UHC mode** Using the UHC mode, the supervisor is able to identify CHWs that have not been visited by a supervisor for a while| | | |**3b Shadowing reminder task** - the task will appear on the CHW app two days before the visit to remind the CHW of the planned shadowing visit|
 | | | | |**3c Quality monitoring form** The quality monitoring form can also be accessed as an action on the profile of the CHW|
