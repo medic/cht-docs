@@ -215,7 +215,7 @@ Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-co
 
 To test the contact summary fields added in the [previous tutorial]({{< ref "apps/tutorials/contact-summary#3-export-fields" >}}), use the following test case:
 
-```js {linenos=table}
+```js highlight 
 const contactSummary = await harness.getContactSummary();
 expect(contactSummary.fields).to.have.property('length', 5);
 expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
