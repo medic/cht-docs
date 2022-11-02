@@ -189,7 +189,7 @@ expect(result.contacts).excluding(['_id', 'meta']).to.deep.eq([
 ```
 
 When filling a form, you can also test the field constraints. The example below asserts that a form does not accept birth date in the future:
-```js {linenos=table}
+```js highlight 
 it(`Throws validation error when birth date is in future`, async () => {
   const result = await harness.fillForm('delivery', ['yes', '2090-01-02']);
   expect(result.errors.length).to.equal(1);
