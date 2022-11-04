@@ -35,9 +35,9 @@ The diagram indicates forms and tasks that can be filled by a supervisor on the 
 
 {{< figure src="hierarchy.png"  link="hierarchy.png" >}}
 
-## Supervisor app workflows and features.
+## Workflows
 
-### CHW monthly meeting workflows.
+### CHW monthly meetings
 A Supervisor conducts a CHW monthly meeting with all the CHWs. During the meeting the supervisor mentors the CHWs, reviews the CHWs performance and discusses with the CHWs the challenges they might be facing in their provision of community health services.
 
 | CHW monthly meeting workflow |
@@ -47,7 +47,7 @@ A Supervisor conducts a CHW monthly meeting with all the CHWs. During the meetin
 |**1b The Supervisor can also receive a recurring CHW monthly meeting task every month**| **2b CHW monthly meeting form** The CHW monthly meeting form can also be accessed through the action on the profile of the supervisor|
 | | **2c Schedule Monthly Meeting** The Supervisor can schedule the next CHW meeting form using the CHW monthly meeting form or task|
 
-### Quality monitoring workflow
+### Quality monitoring
 With the supervisor reference app, a supervisor can schedule a quality monitoring visit to assess the quality of services being provided by a CHW. During the quality monitoring visit a supervisor shadows CHWs as they provide services to household members. A supervisor can schedule additional quality monitoring follow up visits for CHWs who are identified to have some weak areas and may need further support and mentorship from the supervisor.
 
 | Supervision quality monitoring workflow |
@@ -57,17 +57,20 @@ With the supervisor reference app, a supervisor can schedule a quality monitorin
 |**1b Supervisor UHC mode** Using the UHC mode, the supervisor is able to identify CHWs that have not been visited by a supervisor for a while| | **3b Shadowing reminder task** - the task will appear on the CHW app two days before the visit to remind the CHW of the planned shadowing visit|
 | | | **3c Quality monitoring form** The quality monitoring form can also be accessed as an action on the profile of the CHW|
 | | | **3d Quality Monitoring Follow up task** Just in case a supervisor identifies some weak areas that a CHW need to improve on and be supported, they schedule for a quality monitoring follow up visit|
-### Group session workflow
+
+### Group sessions
 
 | CHW Group session workflow |
 |--|--|
 |{{< figure src="img1_1.png" class="right" >}} | {{< figure src="img3.png" >}}|
 |**1a A CHW organizes for a group session with community members** Group session is a meeting coordinated and organized by CHW with community members to health educate community members of various health topics | **2a Group session form** Supervisor attends the group session meetings, provides supervision, supports the activity and submits the group session form|
 
-### CHW Activity workflow
+### CHW Inactivity
 A CHW activity task is generated for a supervisor if a CHW has been inactive for 3 months. This workflow enables a supervisor to follow up CHWs who have been inactive for three months and may need to be replaced.
 
-### Supervisor in-app targets
+## Additional Features
+
+### Targets
 A Supervisor has access to the analytics tab. The widgets on the in-app analytics tab enables a supervisor to view individual supervisor performance metrics and the supervisor progress towards the expected monthly goals. The supervisor also has access to CHW aggregate targets which will help the supervisor track metrics for individual CHWs, especially for supervisors overseeing a group of CHWs.This feature allows a supervisor to identify CHWs who may need to be supported actively.
 
 ##### CHW aggregate targets
