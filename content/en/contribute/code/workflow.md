@@ -67,14 +67,9 @@ An example of a good thorough comment/template is as follows:
 
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
 
-Those are minimums. Our ultimate goal is to have fully-automated release testing, allowing for fast, confident delivery of completed code. If your work would be included in a release/regression test, create an e2e test for it. QA engineers will use that as a template of sorts to create additional automated tests at their discretion.
+The CHT has a [fully automated end-to-end testing suite](https://github.com/medic/cht-core/tree/master/tests/e2e) which is executed in CI and must pass before any change is merged. This means you can have reasonable confidence that all code merged to the main branch is safe and ready for release without further regression testing. The suite isn't fully comprehensive but it is being constantly improved and expanded.
 
-### Release Testing
-The release testing suite covers a range of tests to check for any regressions, performance tests, and scalability tests. We have a [release testing repository](https://github.com/medic/cht-release-testing) with major workflows. Most issues have a step-by-step description or a link to some details for execution. At release testing time, create a [project board](https://github.com/medic/cht-release-testing#generating-a-project-board-for-testing-a-release) with all issues labelled 'release'.
-Start testing following instructions on the ticket. If the test passes move it to `pass`. If it fails move it to `fail`, raise an issue and notify the team. A decision will be made whether to halt the release (blocker) or schedule the fix for the next release. [Here](https://github.com/medic/cht-release-testing/projects/101) is a typical release test project with results in the [comment section](https://github.com/medic/cht-release-testing/issues/190#issuecomment-1032646259) on individual tickets.
-As part of release testing, there is a [scalability test suite](https://github.com/medic/cht-core/tree/master/tests/scalability) to test the scalability of the CHT server so we can check what our limits are and ensure we don't regress on performance. Initially it only tests replication but should be extended to test other APIs. The JMeter tests are run on an [AWS](https://github.com/medic/cht-core/tree/master/tests/scalability#running-tests-on-aws) install and a report is saved in an S3 bucket. We then compare results from previous runs and save a JTL file containing the results of the test run in the [cht-core repository](https://github.com/medic/cht-core/tree/master/tests/scalability/previous_results). 
-We also do some [performance timing tests](https://github.com/medic/cht-release-testing/issues/2) in the browser and on devices, to monitor client side performance. Tests scenarios are outlined in a [spreadsheet](https://docs.google.com/spreadsheets/d/13GW_gpZElcmW9AOs5r1EXwKligCDECdHVP_3aNcwqhw/edit#gid=1134415907) and results are compared with previous releases.
-
+From time to time Quality Assurance Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
 
 ### Migrating
 
@@ -174,36 +169,3 @@ Issues in this column have passed AT and can be merged as soon as possible. The 
 ### Done
 
 Issues in this column have passed acceptance testing and been merged into `master` and/or release branches ready for release.
-
-## Triaging old issues
-
-We periodically run a [script](https://github.com/medic/github-issue-roulette) against medic issues. We do this to catch two situations:
- - Issues that do not have the three labels they need (Type, Priority and Status)
- - Issues that have not been touched in 90 days
- 
-The plan is to keep cruft in our issue DB to a minimum, and have them curated into a colletion of detailed clear issues that can and should be actionable in the near to mid future.
-
-You will occasionally get assigned issues and asked to deal with one or both of the above problems.
-
-### What do I do when I get one of these issues?
-
-Use your judgement (or someone else's, feel free to pull in others either directly on the issue or via Slack etc) to decide:
- - Is its description too vague? Is it detailed enough to be actionable?
- - Is this something we want to do **in the near future**? Does it fit with our product etc?
- - If this is an older issue, do you think it is still relevant? Is there still interest? (If there is no interest it can be closed: it can always be re-opened or re-written in the future)
- - Is this covered by existing issues, or existing plans?
- - If it's a bug, does it have: steps to reproduce; expected behaviour; actual behaviour; server info, browser info, screenshots etc where applicable?
-
-From this decide if you need to go back to the issue creator for more information, or close the issue (using one of the `Won't Fix` labels), or keep it.
-
-Additionally, if there are missing labels:
- - Type should be reasonably obvious: which of those labels most fits the issue
- - Status should almost certainly be `Status: 1 - Triaged`
- - Priority is dependent on the severity of the problem: if it's a production issue it's probably high, if it's a minor thing it's probably low, medium for everything else (but use your judgement)
- 
-### Anything else?
-
-Regardless of what you do with the issue, please:
- - Remove the `Needs Triage` label once triage is complete
- - Document the reasoning by commenting in the issue. This will help reduce mistakes, as the reasoning will be available for everyone to read, and any mistakes there can be rectified.
- 
