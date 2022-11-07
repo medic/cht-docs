@@ -7,15 +7,16 @@ description: >
 keywords:  
 ---
 {{% pageinfo %}}
-Since 2017, [Partners in Health (PIH) Malawi](https://www.pih.org/country/malawi) and [Medic](https://medic.org/) have collaboratively co-designed and developed YendaNafe app, a digital health app for community based service provision. In the spirit of openness, Medic and PIH have coordinated the release of full application source code of Yendanafe app as first of kind "Integrated CHT Reference app". This Reference app provides an example that CHT Implementers can learn how they can design and configure integrated workflows.
+Since 2017, [Partners in Health (PIH) Malawi](https://www.pih.org/country/malawi) and [Medic](https://medic.org/) have collaboratively co-designed and developed YendaNafe app, a digital health app for community based service provision. In the spirit of openness, Medic and PIH have coordinated the release of the full application source code of Yendanafe app as first of kind "Integrated CHT Reference app". This Reference app provides an example that CHT Implementers can learn how they can design and configure integrated workflows.
 {{% /pageinfo %}}
 
 ## Problem being addressed
-Malawi is one of the countries with a high prevalence of HIV with about 1 million people currently living with HIV, high rates of infant and maternal mortality and a high burden of non communicable diseases. To help respond to community needs and reduce the disease burden, PIH in partnership with the Ministry of Health are implementing an integrated household model in Neno District. Under the model, community health workers (CHWs) and CHW supervisors have been equipped with the YendaNafe app, the app supports the health care workers to provide integrated community based health care services and to coordinate care.
+Malawi is one of the countries with a high prevalence of HIV, high rates of infant and maternal mortality and a high burden of non communicable diseases (NCD) and tuberculosis. To help respond to community needs and reduce the disease burden, PIH in partnership with the Ministry of Health are implementing an integrated household model in Neno District. Under the model, community health workers (CHWs) and CHW supervisors have been equipped with the YendaNafe app, the app supports the health care workers to provide integrated community based health care services and to coordinate care.
 
 ## Solution overview
 The YendaNafe app workflows support CHWs to conduct integrated disease screening, provide health care services, refer people in communities to facilities especially those who require facility based care and raise community awareness on health. The app is designed to support the following key health areas:
 * Maternal child health (antenatal care and postnatal care)
+* Immunization
 * Family planning
 * Malnutrition
 * Integrated management of childhood illness (IMCI)
@@ -30,7 +31,7 @@ The YendaNafe app workflows support CHWs to conduct integrated disease screening
 
 ## Workflows
 ### Maternal neonatal health workflow
-This workflow consists of the pregnancy, delivery and postnatal workflows.
+This workflow consists of the pregnancy, delivery and postnatal workflows.The pregnancy workflow enables CHWs to register new pregnancies, screen pregnant mothers for danger signs and follow up pregnant mother to remind them to attend the scheduled ANC clinic appintments. The postnatal (PNC) workflow supports CHWs to follow up PNC women and newborns for danger signs screening and refer PNC women with danger signs to facilities to receive more care.
 
 #### Pregnancy workflow
 
@@ -43,14 +44,14 @@ This workflow consists of the pregnancy, delivery and postnatal workflows.
 {{< figure src="post_natal_workflow.png"  link="post_natal_workflow.png" alt="post natal workflow" title="" class="left col-12">}}
 
 ### Integrated management of childhood illness (IMCI) workflow
-This workflow is designed to support CHWs to identify symptomatic children at the household level, guide CHW through the IMCI protocol during the provision of care and enable the CHWs to conduct on-time follow ups for children through the follow up tasks
+This workflow is designed to support CHWs to identify symptomatic children at the household level, refer symptomatic children and conduct on-time follow ups for children through the follow up tasks
 
 #### IMCI workflow
 
 {{< figure src="IMCI_workflow.png"  link="IMCI_workflow.png" alt="IMCI workflow" title="" class="left col-12">}}
 
 ### Malnutrition workflow
-The workflow supports CHWs to assess and identify malnourished children and refer malnourished children to a health facility.
+The workflow supports CHWs to assess and identify malnourished children, refer them to a health facility and conduct on time follow ups.
 
 #### Malnutrition workflow
 
@@ -58,7 +59,7 @@ The workflow supports CHWs to assess and identify malnourished children and refe
 
 
 ### Family planning workflow
-The FP workflow ensures that eligible women receive their FP needs with support from the CHWs. The FP workflow supports CHWs to counsel eligible women on FP, refer women to facilities for FP services and ensure ontime FP renewals.
+The FP workflow ensures that eligible women receive their FP needs with support from the CHWs. The FP workflow supports CHWs to counsel eligible women on FP, refer women to facilities for FP services screen FP clients for side effects and refer and ensure ontime FP renewals.
 
 #### Family planning workflow
 
@@ -66,13 +67,13 @@ The FP workflow ensures that eligible women receive their FP needs with support 
 
 
 ### TB workflows
-The TB workflow enables CHWs to screen patients for TB, follow up TB patients and refer suspected TB cases to senior CHW for sputum collection. Senior CHWs who are based at the community level submits the sputum collection form after collecting the sputum samples for TB testing and the Senior CHWs who are based at the facility level supports in notifying CHWs when the TB results are out and in tracing TB defaulters..
+The TB workflow enables CHWs to screen patients for TB, refer suspected TB cases to senior CHW for sputum collection and follow up TB patients. Senior CHWs who are based at the community level submit the sputum collection form after collecting the sputum samples for TB testing and the Site CHWs who are based at the facility level support in notifying CHWs when the TB results are out and in tracing TB defaulters..
 
-#### TB workflow for TB suspected cases identified in a community setting.
+#### TB workflow for TB cases identified in a community setting
 
 {{< figure src="TB_workflow.png"  link="TB workflow.png" alt="TB workflow" title="" class="left col-12">}}
 
-#### TB workflow for TB cases screened in a facility setting and TB defaulters
+#### TB workflow for TB confirmed cases and TB defaulters
 
 {{< figure src="TB_workflow_screened.png"  link="TB_workflow_screened.png" alt="TB workflow screened" title="" class="left col-12">}}
 
