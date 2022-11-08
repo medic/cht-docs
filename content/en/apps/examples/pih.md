@@ -69,7 +69,7 @@ The FP workflow ensures that eligible women receive their FP needs with support 
 ### TB workflows
 The TB workflow enables CHWs to screen patients for TB, refer suspected TB cases to senior CHW for sputum collection and follow up TB patients. Senior CHWs who are based at the community level submit the sputum collection form after collecting the sputum samples for TB testing and the Site supervisors who are based at the facility level support in notifying CHWs when the TB results are out and in tracing TB defaulters..
 
-#### TB workflow for TB cases identified in a community setting
+#### TB workflow for TB suspected cases identified in a community setting
 
 {{< figure src="TB_workflow.png"  link="TB workflow.png" alt="TB workflow" title="" class="left col-12">}}
 
