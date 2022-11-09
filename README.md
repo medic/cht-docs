@@ -22,7 +22,7 @@ To install, follow the [installation instructions for your Operating System](htt
 1. Preview your site in your browser at: http://localhost:1313/
 1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes.
 
-MacOS users getting `fatal error: pipe failed`, please see our [Troubleshooting guide](./troubleshooting.md).
+MacOS users getting errors when running `hugo server`, please see our [Troubleshooting guide](./troubleshooting.md).
 
 ## Link Checking [Optional]
 
