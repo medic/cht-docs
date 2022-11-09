@@ -17,7 +17,7 @@ To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "apps/g
 
 Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. As well, if any other CHT 4.x instances using Docker Compose are running locally, stop them otherwise port, storage volume and container name conflicts may occur. To stop ALL containers, you can use `docker kill $(docker ps -q)`.
 
-After meeting these requirements, create a directory and download the developer YAML file in the directory you want to store them:
+After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory:
 
 ```shell 
 mkdir  ~/cht-4-app-developer && cd ~/cht-4-app-developer
@@ -130,7 +130,7 @@ To get started using it:
 3. `cd` into the `cht-core/scripts/docker-helper-4.x/` directory
 4. Run the script with `./cht-docker-compose.sh`
 
-Here is a video of the beta version being run on 8 Nov 2022:
+Here is a video of the beta version being run on 8 Nov 2022. The video references `lazydocker` which is [a great way](https://github.com/jesseduffield/lazydocker) to monitor which containers are running:
 
 {{< youtube -x9zr8R2hP4 >}}
 
