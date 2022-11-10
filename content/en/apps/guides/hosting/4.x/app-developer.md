@@ -118,6 +118,13 @@ The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.en
 
 ![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
 
+This script brings a lot of benefits with it:
+* You only have to download one bash script
+* It has been tested to work on Windows, macOS and Linux
+* All compose files and images will be downloaded automatically for you
+* All networks, storage volumes and containers will be created 
+* A valid TLS certificate will be installed, allowing you to easily test on with CHT Android natively on a mobile device
+
 Currently, the CHT Docker Helper for 4.0 is in beta, and comes with some caveats:
 * it is not yet available in `master`
 * it does not account for port conflicts, so you need to manually resolve them yourself by editing the `*.env` files
@@ -130,7 +137,7 @@ To get started using it:
 3. `cd` into the `cht-core/scripts/docker-helper-4.x/` directory
 4. Run the script with `./cht-docker-compose.sh`
 
-Here is a video of the beta version being run on 8 Nov 2022. The video references `lazydocker` which is [a great way](https://github.com/jesseduffield/lazydocker) to monitor which containers are running:
+Here is a video of the beta version being run on 8 Nov 2022. The video references `lazydocker` which is [a great way](https://github.com/jesseduffield/lazydocker) to monitor and control your local docker environment:
 
 {{< youtube -x9zr8R2hP4 >}}
 
