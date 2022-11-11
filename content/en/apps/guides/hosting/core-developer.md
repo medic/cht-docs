@@ -190,6 +190,23 @@ As well, after you install docker, and go to run the rootless script `dockerd-ro
 
 To work around, unfortunately, is to just start your CouchDB Docker container with sudo: `sudo docker run...`.
 
+### MacOS > 12.3
+Apple removed the system-provided `python2` installation starting with MacOS version 12.3. This means when you run the `npm ci` command above, you see an error:
+
+```
+npm ERR! gyp ERR verb find Python Python is not set from command line or npm configuration  
+```
+
+To fix this, run the following commands:
+
+```shell
+brew install pyenv
+pyenv install 2.7.18
+pyenv global 2.7.18
+echo "eval \"\$(pyenv init --path)\"" >> ~/.zshrc (or ~/.bash_profile or ~/.zprofile)
+exec zsh
+```
+
 ### CouchDB on Docker Details
 
 Breaking down the command from [the above section]({{< relref "apps/guides/hosting/core-developer#couchdb-setup-in-docker" >}}), here's a generic version that doesn't include hard coded paths:
