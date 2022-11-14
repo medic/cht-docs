@@ -15,7 +15,10 @@ To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "apps/g
 
 ## Getting started
 
-Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. As well, if any other CHT 4.x instances using Docker Compose are running locally, stop them otherwise port, storage volume and container name conflicts may occur. To stop ALL containers, you can use `docker kill $(docker ps -q)`.
+Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. To avoid conflicts, ensure that all other CHT 4.x instances are stopped. To stop ALL containers, you can use
+
+```shell
+docker kill $(docker ps -q)
 
 After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory:
 
