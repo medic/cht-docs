@@ -131,7 +131,7 @@ This script brings a lot of benefits with it:
 Currently, the CHT Docker Helper for 4.0 is in beta, and comes with some caveats:
 * it is not yet available in `master`
 * it does not account for port conflicts, so you need to manually resolve them yourself by editing the `*.env` files
-* upgrades are not yet support
+* upgrades are not yet supported
 * concurrently running multiple instances is not yet supported
 
 To get started using it:
