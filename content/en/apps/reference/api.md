@@ -1537,7 +1537,7 @@ POST /api/v1/upgrade
 
 For potential forwards compatibility, you must pass the `namespace` and `application` as `medic`.
 
-The `version` should correspond to a release, pre-release or branch that has been pushed to our builds server, which is currently hard-coded to `https://staging.dev.medicmobile.org/builds`. This happens automatically upon a successful travis run.
+The `version` should correspond to a release, pre-release or branch that has been pushed to our builds server, which is currently hard-coded to `https://staging.dev.medicmobile.org/builds`. This happens automatically upon a successful Continuous Integration run.
 
 Calling this endpoint will eventually cause api and sentinel to restart.
 
