@@ -92,7 +92,9 @@ The `cht-docker-compose.sh` scripts builds on the `docker-compose-developer-3.x-
 
 #### OS
 
-This script has been heavily tested on Ubuntu and should work very well there.  It has been lightly tested on WSL2 on Windows 10 and macOS (x86, not Apple silicon like M1 etc.) - both should likely work as well.
+This script has been heavily tested on Ubuntu and should work very well there.  It has been lightly tested on WSL2 on Windows 10 and macOS (x86*) - both should likely work as well.
+
+\* It will not work on macOS on Apple Silicon (M1/M2).
 
 #### Software
 
