@@ -107,7 +107,7 @@ docker stop second_api_1 second_cht-upgrade-service_1 second_couchdb_1 second_ha
 
 Alternately, you can stop ALL containers (even non-CHT ones!) with `docker kill $(docker ps -q)`. Then start the other CHT project using either the `.env` file or use the explicit command with ports and other environment variables as shown above.
 
-To run projects concurrently, instead of cancelling and `stop`ing the first one, open a second terminal and start the second project.  Be careful you don't have port conflicts!
+To run projects concurrently open a second terminal and start the second project so you don't have to cancel and `stop` the first project.  Remember to avoid port conflicts!
 
 To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/guides/docker-setup#helpful-docker-commands" >}}) page.
 
