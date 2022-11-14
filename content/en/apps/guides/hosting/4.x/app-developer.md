@@ -19,6 +19,7 @@ Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/r
 
 ```shell
 docker kill $(docker ps -q)
+````
 
 After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory:
 
