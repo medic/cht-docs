@@ -162,9 +162,8 @@ Issues in this column have passed AT and can be merged as soon as possible. The 
 
 1. Write a useful commit message in the PR.
 2. Click the button to "Squash and Merge" the PR.
-3. Delete the PR branch.
-4. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
-5. Close the issue. This will automatically move it to "Done".
+3. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
+4. Close the issue. This will automatically move it to "Done".
 
 ### Done
 
