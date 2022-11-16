@@ -106,10 +106,24 @@ To ensure these to exports and sourcing your rc file worked, echo the values bac
 echo $COUCH_NODE_NAME && echo $COUCH_URL
 ```
 
+You need to harden CouchDB with a `grunt` call, required even in development:
+
+```shell
+grunt secure-couchdb
+curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config/httpd/WWW-Authenticate" -d '"Basic realm=\"administrator\""' -H "Content-Type: application/json"
+```
+
 #### CouchDB Setup in CHT 4.x
 Create a `docker-compose.yml` file under the `couchdb` folder. 
 
 Copy the content of the CouchDB `docker-compose` file from the of the CHT release version you are trying to run locally. For example, this is [the file](https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose%2Fcht-couchdb-clustered.yml) for the most recent build.
+
+Startup CouchDB:
+
+```shell
+cd couchdb 
+docker-compose up
+```
 
 ### CHT Core Cloning and Setup
 
@@ -130,20 +144,6 @@ If you encounter conflicting dependencies, run the following command:
 
 ```shell
 npm ci --legacy-peer-deps
-```
-
-If setting up CHT 3.x, you need to harden CouchDB with a `grunt` call, required even in development:
-
-```shell
-grunt secure-couchdb
-curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config/httpd/WWW-Authenticate" -d '"Basic realm=\"administrator\""' -H "Content-Type: application/json"
-```
-
-If setting up CHT 4.x, you need to startup CouchDB:
-
-```shell
-cd couchdb 
-docker-compose up
 ```
 
 ### Developing
