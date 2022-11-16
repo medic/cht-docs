@@ -109,7 +109,7 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 #### CouchDB Setup in CHT 4.x
 Create a `docker-compose.yml` file under the `couchdb` folder. 
 
-Copy the content of the CouchDB `docker-compose` file from the of the CHT release version you are trying to run locally. For example, this is [the file](https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3A4.0.0/docker-compose%2Fcht-couchdb-clustered.yml) for the 4.0.0 release.
+Copy the content of the CouchDB `docker-compose` file from the of the CHT release version you are trying to run locally. For example, this is [the file](https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose%2Fcht-couchdb-clustered.yml) for the most recent build.
 
 ### CHT Core Cloning and Setup
 
