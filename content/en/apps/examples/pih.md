@@ -28,7 +28,13 @@ The YendaNafe app workflows support CHWs to conduct integrated disease screening
 
 ## Users and hierarchy
 
-{{< figure src="users_hierarchy.png"  link="users_hierarchy.png" alt="users hierarchy" title="" class="left col-12">}}
+|Users|Location|Devices|Roles|
+|--|--|--|--|
+|Community Health Director|admin level|Laptop or desktop| Staff at this level will be given access to dashboards where they can monitor program indicators. Online only access to the app.|
+|CHW Manager and Officers|admin level|Laptop or desktop|Staff at this level will be given access to dashboards where they can monitor program indicators. Online only access to the app.|
+|Site Supervisors (SS)|admin level|Laptop or desktop|Staff at this level will be given access to dashboards where they can monitor program indicators. Online only access to the app.|
+|Senior CHWs (SCHW) - Supervisory role|Facility and community levels|Smartphone|They supervise CHW and mentor CHWs, collect sputum for probable TB cases. They are offline users.|
+|CHWs|Community level|Smartphone|CHWs register households, conduct household visits, case screening, referrals, follow-ups, and defaulter tracing. They are offline users.|
 
 ## Workflows
 ### Maternal neonatal health workflow
