@@ -11,12 +11,12 @@ description: >
 To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}){{% /alert %}}
 
 {{% alert title="Note" %}}
-These steps apply to both 3.x and 4.x CHT core development
+These steps apply to both 3.x and 4.x CHT core development, unless stated otherwise.
 {{% /alert %}}
 
 ## The Happy Path Installation
 
-This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation. These instructions should work verbatim on Ubuntu 18-22 (see [Ubuntu 18 note](#ubuntu-1804)), but will need tweaks for MacOS (via `brew`) or Windows (via WSL2).
+This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation. These instructions should work verbatim on Ubuntu 18-22 (see [Ubuntu 18 note](#ubuntu-1804)), but will need tweaks for MacOS (via `brew`, see [MacOS > 12.3 note](#macos--123)) or Windows (via WSL2).
 
 ### Install NodeJS, npm, grunt and Docker
 
@@ -77,7 +77,10 @@ Before we get started, let's run the simple `hello-world` Docker container. This
 docker run hello-world
 ```
 
-Now that we know Docker is set up, let's start our CouchDB container. Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
+Now that we know Docker is set up, let's start our CouchDB container. 
+
+#### CouchDB Setup in CHT 3.x
+Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
 
 ```shell
 docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v ~/cht-docker/local.d:/opt/couchdb/data -v ~/cht-docker/local.d:/opt/couchdb/etc/local.d apache/couchdb:2
@@ -103,6 +106,25 @@ To ensure these to exports and sourcing your rc file worked, echo the values bac
 echo $COUCH_NODE_NAME && echo $COUCH_URL
 ```
 
+You need to harden CouchDB with a `grunt` call, required even in development:
+
+```shell
+grunt secure-couchdb
+curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config/httpd/WWW-Authenticate" -d '"Basic realm=\"administrator\""' -H "Content-Type: application/json"
+```
+
+#### CouchDB Setup in CHT 4.x
+Create a `docker-compose.yml` file under the `couchdb` folder. 
+
+Copy the content of the CouchDB `docker-compose` file from the of the CHT release version you are trying to run locally. For example, this is [the file](https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose%2Fcht-couchdb-clustered.yml) for the most recent build.
+
+Startup CouchDB:
+
+```shell
+cd couchdb 
+docker-compose up
+```
+
 ### CHT Core Cloning and Setup
 
 Clone the main CHT Core repo from GitHub and change directories into it:
@@ -118,11 +140,10 @@ Install dependencies and perform other setup tasks via an `npm` command. Note th
 npm ci
 ```
 
-We need to harden couch with a `grunt` call, required even in development:
+If you encounter conflicting dependencies, run the following command:
 
 ```shell
-grunt secure-couchdb
-curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config/httpd/WWW-Authenticate" -d '"Basic realm=\"administrator\""' -H "Content-Type: application/json"
+npm ci --legacy-peer-deps
 ```
 
 ### Developing
@@ -232,7 +253,7 @@ Medic recommends you familiarise yourself with other Docker commands to make doc
 Medic needs the following environment variables to be declared:
 - `COUCH_URL`: the full authenticated url to the `medic` DB. Locally this would be  `http://myadminuser:myadminpass@localhost:5984/medic`
 - `COUCH_NODE_NAME`: the name of your CouchDB's node. The Docker image default is `nonode@nohost`. Other installations may use `couchdb@127.0.0.1`. You can find out by querying [CouchDB's membership API](https://docs.couchdb.org/en/stable/api/server/common.html#membership)
-- (optionally) `API_PORT`: the port API will run on. If not defined we use `5988`
+- (optionally) `API_PORT`: the port API will run on. If not defined, the port defaults to `5988`
 - (optionally) `CHROME_BIN`: only required if `grunt unit` or `grunt e2e` complain that they can't find Chrome or if you want to run a specific version of the Chrome webdriver.
 
 How to permanently define environment variables depends on your OS and shell (e.g. for bash you can put them `~/.bashrc`). You can temporarily define them with `export`:
