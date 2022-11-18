@@ -117,6 +117,10 @@ While the `inputs/user` group does not contain the user's contact data, it does 
 
 Using a contact selector allows you to load data from the selected contact (person or place). The contact's id can be provided by the form or the user can search for an existing contact.
 
+{{% alert title="Warning" %}}
+The data loaded by the contact selector will overwrite any existing data in fields that are in the same group as the contact selector and share the same name as a field on the selected contact. Data will not be written into matching fields if `bind-id-only` is included in the appearance.
+{{% /alert %}}
+
 To select a contact in a form, create a field with the type `string` and set the appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. Setting multiple contact_type ids allows the user to search among multiple types of contacts. If no contact type appearance is specified then all contact types will be queried when searching.
 
 {{% alert title="Note" %}}
@@ -136,6 +140,3 @@ The contact selector can be used to link reports to the person or place in conte
 | calculate   | patient_uuid | Patient UUID |                            | ../contact/_id        |
 | calculate   | patient_id   | Patient ID   |                            | ../contact/patient_id |
 
-{{% alert title="Warning" %}}
-The data loaded by the contact selector will overwrite any existing data in fields that are in the same group as the contact selector and share the same name as a field on the selected contact. 
-{{% /alert %}}
