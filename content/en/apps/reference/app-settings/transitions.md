@@ -54,7 +54,7 @@ The following transitions are available and executed in order.
 | [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. Is partially applied on the client, as of 3.12.0. |
 | [mark_for_outbound]({{% ref "apps/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
-| [create_user_for_contacts](#create_user_for_contacts) | Triggers an existing offline user to be replaced with a new user on the same device (without needing to immediately sync with the server). Available since 3.17.x  | |
+| [create_user_for_contacts](#create_user_for_contacts) | Triggers an existing offline user to be replaced with a new user on the same device (without needing to immediately sync with the server). Available since 4.1.x  | |
 
 ## Transition Configuration Guide
 
@@ -676,7 +676,7 @@ If this configuration is not set then the message defaults to what is set in the
 
 ### create_user_for_contacts
 
-An existing offline user can be replaced on a device so that a new user can use that device without needing to immediately sync with the server. _Available since 3.17.x._
+An existing offline user can be replaced on a device so that a new user can use that device without needing to immediately sync with the server. _Available since 4.1.x._
 
 #### Example scenario
 
@@ -704,7 +704,7 @@ These forms should only be submitted for the _original user's contact_. You can 
 
 These forms should only be accessible to offline users (replacing online users is not currently supported). This is the default in the example app form properties file ([see `replace_user.properties.json`](https://github.com/medic/cht-core/blob/master/config/default/forms/app/replace_user.properties.json)).
 
-You can prevent a user from being replaced multiple times by including `!contact.user_for_contact.replaced` in the form properties expression.
+You can prevent a user from being replaced multiple times by including `!contact.user_for_contact || !contact.user_for_contact.replace` in the form properties expression.
 
 See the `replace_user` app form provided in the [Default config](https://github.com/medic/cht-core/tree/master/config/default) as an example.
 
