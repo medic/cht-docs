@@ -684,7 +684,13 @@ Imagine a CHW is leaving the program, and the CHW's device is returned to their 
 
 To do this, when the `create_user_for_contacts` transition is enabled, the supervisor would submit a configured user replacement form for the original user's contact on the device. This form can create a new contact for the new CHW and will trigger a client-side transition to mark the original contact as replaced. After that, the supervisor can give the device to the new CHW, and they can begin using it.
 
-Subsequent reports submitted on the device by the new CHW will be associated with the new contact. When the device is eventually able to synchronize with the server, it will be automatically logged out (as it was actually still logged in as the original user). A server-side transition will be triggered to inactivate the original user and to create a new user for the new CHW. An SMS message containing a token login link will be sent to the new CHW allowing them to login as their proper user. 
+Subsequent reports submitted on the device by the new CHW will be associated with the new contact. When the device is eventually able to synchronize with the server, it will be automatically logged out so the transition to the new user can be completed. A server-side transition will be triggered to initialize the new user for the new CHW. An SMS message containing a token login link will be sent to the new CHW allowing them to login as the initialized user. The password for the original user will be automatically reset by the server-side transition causing any remaining sessions for the original user (e.g. on other devices) to be logged out. 
+
+#### Details
+
+This process does not actually delete the original user, but just resets the password to a random value. To recover the original user, a server administrator should update the user's password to a known value or re-issue a token login link for the user (if enabled).
+
+Because the server-side transition immediately invalidates any remaining sessions for the original user, it is not recommended to use this process for replacing users that are logged in on multiple devices simultaneously. The data on the device used to replace the user will always be completely synchronized before the user is replaced. However, un-synced data from other devices can be left on those devices when the user is replaced using a separate device.
 
 #### Configuration
 
@@ -704,7 +710,7 @@ These forms should only be submitted for the _original user's contact_. You can 
 
 These forms should only be accessible to offline users (replacing online users is not currently supported). This is the default in the example app form properties file ([see `replace_user.properties.json`](https://github.com/medic/cht-core/blob/master/config/default/forms/app/replace_user.properties.json)).
 
-You can prevent a user from being replaced multiple times by including `!contact.user_for_contact || !contact.user_for_contact.replace` in the form properties expression.
+You can prevent a user from being replaced multiple times by including `!contact.user_for_contact || !contact.user_for_contact.replace` in the form properties expression.  _(This expression is not recommended for situations where multiple users can be associated with the same contact since replacing one of the users would prevent any of the other users for that contact from accessing the form.)_
 
 See the `replace_user` app form provided in the [Default config](https://github.com/medic/cht-core/tree/master/config/default) as an example.
 
