@@ -28,7 +28,7 @@ A good workflow would be to work locally, pushing to a remote branch as you make
 
 The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
-#### Code review timeliness
+#### Timeliness
 
 The team aims to get code done and merged quickly. This gets improvements into the hands of users faster and also allows developers to stay focused on the task at hand and see it through to production. Timely code reviews are important to making this happen.
 
