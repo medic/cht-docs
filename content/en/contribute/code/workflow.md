@@ -24,7 +24,7 @@ A good workflow would be to work locally, pushing to a remote branch as you make
 
 ### Code reviews
 
-#### Code review guidelines
+#### Guidelines
 
 The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
