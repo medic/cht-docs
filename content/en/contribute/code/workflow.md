@@ -30,7 +30,7 @@ The author and reviewer should use this [guide to code reviewing](https://google
 
 #### Timeliness
 
-The team aims to get code done and merged quickly. This gets improvements into the hands of users faster and also allows developers to stay focused on the task at hand and see it through to production. Timely code reviews are important to making this happen.
+Timely code reviews are important to getting improvements into the hands of users faster and allowing developers to stay focused on the task at hand and see it through to production.
 
 Code reviews should be completed within 24 hours of assignment (excluding weekends and holidays). In some cases, a code review may not be possible if a larger discussion needs to be had for design choices or solution objectives, but even in cases like those, some feedback is still to be expected within 24 hours.
 
