@@ -30,10 +30,8 @@ The features on this page apply only to CHT 3.16.0 and later and assumes you're 
 
 ## Spreadsheet Instructions
 
-The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#supported-properties-2" >}})
-which makes it as powerful and flexible as calling the API directly.  
-Each column in the spreadsheet maps to an object property understood by the Users API to insert the users into the database.
-These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
+The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#get-apiv1users" >}}) which makes it as powerful and flexible as calling the API directly.  
+Each column in the spreadsheet maps to an object property understood by the Users API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
 
 To get you started, we have made available three different spreadsheets compatible with the `default` configuration of the CHT,
 one for each use case that you might encounter when creating users in bulk.  
