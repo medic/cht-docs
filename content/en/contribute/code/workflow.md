@@ -22,7 +22,7 @@ Aim for self-documenting code. Where code cannot be made self-documenting add co
 
 A good workflow would be to work locally, pushing to a remote branch as you make progress, possibly open a draft PR for some initial collaboration on tricky parts, and once everything is done, convert the draft PR to a regular PR to be reviewed.
 
-### Reviewing
+### Code reviews
 
 #### Code review guidelines
 
