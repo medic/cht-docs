@@ -30,8 +30,17 @@ The features on this page apply only to CHT 3.16.0 and later and assumes you're 
 
 ## Spreadsheet Instructions
 
-We have made available a spreadsheet compatible with the `default` configuration of the CHT and we will be using it as an example in the instructions below.
-[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
+The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#get-apiv1users" >}}) which makes it as powerful and flexible as calling the API directly.  
+Each column in the spreadsheet maps to an object property understood by the Users API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
+
+To get you started, we have made available three different spreadsheets compatible with the `default` configuration of the CHT, one for each use case that you might encounter when creating users in bulk.  You will notice some columns have a `:excluded` suffix. These are columns that are ignored by the API that allows us to add autocomplete and data validation within the spreadsheet to make it easier to reason about.
+
+Click on any of these use cases in the list to make a copy of the spreadsheet for that use case in Google Sheets:
+- [when you want to create user accounts only](https://docs.google.com/spreadsheets/d/1zlvF5cWnV2n1rax1bAO2hSBCIxgD0c-5tZ-yh96kwws/copy)
+- [when you want to create user accounts and their contacts](https://docs.google.com/spreadsheets/d/1y6wYqRIWiC2QZA7NaWfolP_Wf9FnSahjYHlL3iDYeJ4/copy)
+- [when you want to create user accounts, their contacts and their places](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy)
+
+We will use the second one to create user accounts and their contacts as an example in the instructions below.
 
 ### Spreadsheet
 
