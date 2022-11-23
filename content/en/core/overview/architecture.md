@@ -8,31 +8,59 @@ description: >
 
 ## Overview
 
-![Architecture of a CHT project](../../img/architecture.png)
+![Architecture of a CHT project](architecture.png)
 
 ## Server side
 
-### CouchDB
+### CHT Core Framework
 
-A free and open source NoSQL database we use to store all our data, configuration, and even the application code. CouchDB is really good at replication which is the process of sending the data to another database and back again. See more at the [CouchDB](http://couchdb.apache.org) site.
+The cht-core product is the primary component of the CHT. The server comes with authentication, role based authorization, data security, and a range of protected data access endpoints. Read more detail in [cht-core GitHub repository](https://github.com/medic/cht-core).
 
-### api
+#### api
 
-A NodeJS service which runs on the server as a wrapper around CouchDB. It provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [CHT Core API repo](https://github.com/medic/cht-core/tree/master/api) on Github.
+A NodeJS service which runs on the server and provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [CHT Core API repo](https://github.com/medic/cht-core/tree/master/api) on Github.
 
-### sentinel
+#### sentinel
 
 Another NodeJS service running on the server, sentinel performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [CHT Core Sentinel repo](https://github.com/medic/cht-core/tree/master/sentinel) on Github. 
 
-### PostgreSQL
+#### CouchDB
 
-A free and open source SQL database that we use for analytics queries for display in tools like klipfolio. We created a library called [couch2pg](https://github.com/medic/couch2pg) to replicate data from CouchDB into PostgreSQL. See more at the [PostgreSQL](https://www.postgresql.org) site.
+A free and open source NoSQL database used to store all data and configuration. This can be multiple instances clustered together for additional scalability. CouchDB is really good at replication which is the process of sending the data to another database and back again, which makes it ideal for replicating data to the phone for offline access. See more at the [CouchDB](http://couchdb.apache.org) site.
+
+#### nginx
+
+Provides SSL termination and routes requests to API.
+
+#### haproxy
+
+Provides audit logging for any request that makes it to CouchDB so any data access or modification can be validated at a later date.
+
+### CHT Sync
+
+The cht-sync product is a suite of tools for extracting and normalizing data from the Core Framework's CouchDB and rendering the data in analytics dashboards to measure the performance of the program. Read more detail in [cht-sync GitHub repository](https://github.com/medic/cht-sync).
+
+#### Logstash and PostgREST
+
+[Logstash](https://www.elastic.co/logstash/) streams data from CouchDB and forwards it to [PostgREST](https://postgrest.org/en/stable/) which provides REST endpoints to store the data in the PostreSQL database.
+
+#### PostgreSQL
+
+A free and open source SQL database used for analytics queries. See more at the [PostgreSQL](https://www.postgresql.org) site.
+
+#### DBT
+
+[DBT](https://www.getdbt.com/) is used to ingest raw JSON data from the postgres database and normalize it into a relational schema to make it much easier to query.
+
+#### Superset
+
+[Apache Superset](https://superset.apache.org/) is a free an open source platform for creating data dashboards.
 
 ## Client side
 
 ### cht-core
 
-[cht-core](https://github.com/medic/cht-core) is composed of the following web applications:
+[cht-core](https://github.com/medic/cht-core) is composed of two web applications:
 
 #### CHT Web Application
 The CHT Web Application is used by Community Health Workers and provides a large variety of [features](https://docs.communityhealthtoolkit.org/apps/features/).
