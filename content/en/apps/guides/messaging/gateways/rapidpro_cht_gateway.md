@@ -5,9 +5,9 @@ weight: 20
 description: >
     Integration for sending and receiving messages
 aliases:
-  -    /apps/guides/messaging/rapidpro_cht_gateway
+  -    /apps/guides/messaging/gateways/rapidpro_cht_gateway
 relatedContent: >
-    apps/guides/messaging/rapidpro
+    apps/guides/messaging/gateways/rapidpro
 ---
 # RapidPro CHT APK with FCM configuration
 
