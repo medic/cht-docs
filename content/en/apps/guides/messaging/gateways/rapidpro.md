@@ -25,7 +25,7 @@ Generate a long unique key to use as the `cht_api_key`.
 
 Log in to your RapidPro dashboard, go to the globals page (`/global/`) and create two globals with the following data:
 
-- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`. For security the instance host **must not** include basic authentication.
+- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v2/sms/rapidpro/incoming-messages`. For security the instance host **must not** include basic authentication. (NB: This endpoint was added in CHT 4.1.0. If integrating with an earlier version you will need to use the earlier version with a typo in the URL: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`)
 - name: `cht_api_key`, value: `<cht_api_key>`
 
 The names of these two global variables are arbitrary, but in this document we will keep referring to the names defined above.
