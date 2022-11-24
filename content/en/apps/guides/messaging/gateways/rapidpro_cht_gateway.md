@@ -1,4 +1,14 @@
-#
+---
+title: Installing RapidPro - CHT Gateway Android APK
+linkTitle: "RapidPro Gateway Installation"
+weight: 20
+description: >
+    Integration for sending and receiving messages
+aliases:
+  -    /apps/guides/messaging/rapidpro_cht_gateway
+relatedContent: >
+    apps/guides/messaging/rapidpro
+---
 # RapidPro CHT APK with FCM configuration
 
 RapidPro - CHT uses your Android phone to send and receive messages on your behalf.
