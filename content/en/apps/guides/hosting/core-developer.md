@@ -69,6 +69,12 @@ In order for Docker to boot correctly, restart entire machine, which will comple
 sudo reboot
 ```
 
+To verify Docker is running as expected, let's run the simple `hello-world` Docker container. This output "Hello from Docker!" as well as some other intro text:
+
+```shell
+docker run hello-world
+```
+
 ### CHT Core Cloning and Setup
 
 Clone the main CHT Core repo from GitHub and change directories into it:
@@ -90,15 +96,9 @@ If you encounter conflicting dependencies, run the following command:
 npm ci --legacy-peer-deps
 ```
 
-### CouchDB Setup in Docker
+### CouchDB
 
-Before we get started, let's run the simple `hello-world` Docker container. This will ensure docker is working as expected and output "Hello from Docker!" as well as some other intro text:
-
-```shell
-docker run hello-world
-```
-
-Now that we know Docker is set up, let's start our CouchDB container. 
+CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
 #### CouchDB Setup in CHT 3.x
 
