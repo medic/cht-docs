@@ -236,7 +236,7 @@ The `z-score` function takes four parameters:
 - Second parameter for the table lookup, such as height. Value is compared against the `points` in the databae document.
 
 #### Example Use
-[This example XForm form](https://github.com/medic/cht-core/blob/master/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
+[This example XForm form](https://github.com/medic/cht-core/blob/3.13.x/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
 
 `z-score('weight-for-age', ../my_sex, ../my_age, ../my_weight)`
 
