@@ -69,17 +69,39 @@ In order for Docker to boot correctly, restart entire machine, which will comple
 sudo reboot
 ```
 
-### CouchDB Setup in Docker
-
-Before we get started, let's run the simple `hello-world` Docker container. This will ensure docker is working as expected and output "Hello from Docker!" as well as some other intro text:
+To verify Docker is running as expected, let's run the simple `hello-world` Docker container. This output "Hello from Docker!" as well as some other intro text:
 
 ```shell
 docker run hello-world
 ```
 
-Now that we know Docker is set up, let's start our CouchDB container. 
+### CHT Core Cloning and Setup
+
+Clone the main CHT Core repo from GitHub and change directories into it:
+
+```shell
+git clone https://github.com/medic/cht-core ~/cht-core
+cd ~/cht-core
+```
+
+Install dependencies and perform other setup tasks via an `npm` command. Note this command may take many minutes. Be patient!
+
+```shell
+npm ci
+```
+
+If you encounter conflicting dependencies, run the following command:
+
+```shell
+npm ci --legacy-peer-deps
+```
+
+### CouchDB
+
+CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
 #### CouchDB Setup in CHT 3.x
+
 Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
 
 ```shell
@@ -114,6 +136,7 @@ curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config
 ```
 
 #### CouchDB Setup in CHT 4.x
+
 Create a `docker-compose.yml` file under the `couchdb` folder. 
 
 Copy the content of the CouchDB `docker-compose` file from the of the CHT release version you are trying to run locally. For example, this is [the file](https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose%2Fcht-couchdb-clustered.yml) for the most recent build.
@@ -123,27 +146,6 @@ Startup CouchDB:
 ```shell
 cd couchdb 
 docker-compose up
-```
-
-### CHT Core Cloning and Setup
-
-Clone the main CHT Core repo from GitHub and change directories into it:
-
-```shell
-git clone https://github.com/medic/cht-core ~/cht-core
-cd ~/cht-core
-```
-
-Install dependencies and perform other setup tasks via an `npm` command. Note this command may take many minutes. Be patient!
-
-```shell
-npm ci
-```
-
-If you encounter conflicting dependencies, run the following command:
-
-```shell
-npm ci --legacy-peer-deps
 ```
 
 ### Developing
