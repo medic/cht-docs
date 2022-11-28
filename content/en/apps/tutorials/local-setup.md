@@ -55,13 +55,13 @@ Now that you have the dependent tools and software installed, you are ready to s
 Open your terminal and run these commands which will create a directory, download the three Docker Compose files and prepare the evironment variables file. You should just be able select all and paste on a command line:
 
 ```shell
-mkdir -p ~/cht-local-setup/data/couch
+mkdir -p ~/cht-local-setup/couch-data/ && mkdir -p ~/cht-local-setup/core-couch/ && mkdir -p ~/cht-local-setup/upgrade/
 cd ~/cht-local-setup
-curl -s -o ./data/cht-4-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose%2Fcht-core.yml && curl -s -o ./data/cht-4-couch.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose%2Fcht-couchdb.yml && curl -s -o cht-upgrader.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-cat > ~/cht-local-setup/env << EOF
-DOCKER_CONFIG_PATH=~/cht-local-setup
-COUCHDB_DATA=~/cht-local-setup/data/couch 
-CHT_COMPOSE_PATH=~/cht-local-setup/data 
+curl -s -o ./core-couch/cht-4-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-core.yml && curl -s -o ./core-couch/cht-4-couch.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml && curl -s -o ./upgrade/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+cat > ~/cht-local-setup/upgrade/.env << EOF
+DOCKER_CONFIG_PATH=~/cht-local-setup/core-couch/
+COUCHDB_DATA=~/cht-local-setup/data/couch-data 
+CHT_COMPOSE_PATH=~/cht-local-setup/core-couch/
 COUCHDB_USER=medic 
 COUCHDB_PASSWORD=password
 EOF
@@ -70,7 +70,8 @@ EOF
 Run the following command to start your CHT instance using Docker Compose:
 
 ```shell
-docker-compose -f ~/cht-local-setup/cht-upgrader.yml --env-file  ~/cht-local-setup/env up
+cd ~/cht-local-setup/upgrade/
+docker-compose up
 ```
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
