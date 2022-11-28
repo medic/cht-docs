@@ -22,15 +22,15 @@ The CHT community welcomes first-time contributors and experts alike. All commen
 
 ### First time contributor?
 
-Issues labeled [help wanted](https://github.com/medic/cht-core/labels/Help%20wanted) are a great place to start. Looking for other ways to help? You can also:
+Issues labeled [help wanted](https://github.com/medic/cht-core/labels/Help%20wanted) are a great place to start. 
+
+Looking for other ways to help? You can also:
 * Improve our [documentation](#improving-our-documentation)
 * Review or add a [translation](#translations)
 * Find and mark duplicate issues
 * Try to reproduce issues and help with troubleshooting
+* Learn to [build and host apps]({{% ref "apps" %}}), and share your experiences
 * Or [share a new idea or question](https://forum.communityhealthtoolkit.org) with us!
-* **Working on your first Pull Request?** Check out [How to Contribute to an Open Source Project on GitHub](https://egghead.io/lessons/javascript-introduction-to-github)
-
-### Learn to [build and host apps]({{% ref "apps" %}}), and share your experiences
 
 ### Submitting code
 
@@ -42,6 +42,8 @@ Issues labeled [help wanted](https://github.com/medic/cht-core/labels/Help%20wan
 3. Provide detail about the issue you are solving in the pull request description. Note: If your pull request addresses a specific issue, please reference it using medic/<repo>#<issue number>
 4. Our CI will automatically schedule a build; monitor the build to ensure it passes.
 5. Your PR will be reviewed by one of the repository's maintainers. Most PRs have at least one change requested before they're merged so don't be offended if your change doesn't get accepted on the first try!
+
+**Working on your first Pull Request?** Check out [How to Contribute to an Open Source Project on GitHub](https://egghead.io/lessons/javascript-introduction-to-github)
 
 ### Improving our documentation
 
