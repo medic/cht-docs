@@ -20,7 +20,7 @@ With thousands of health workers using these tools to support a million home vis
 
 ## The CHT Community
 
-The CHT is 100% open source--it always has been and always will be freely available as a public good. This is possible thanks to a diverse community of contributors that includes global health NGOs, technical organizations, governments, and research institutions, with the non-profit organization [Medic](https://medic.org) serving as a technical steward.
+The CHT is 100% open source--it always has been and always will be freely available as a digital public good. This is possible thanks to a diverse and active community of practice that includes contributors from global health NGOs, technical organizations, governments, and research institutions, with the non-profit organization [Medic](https://medic.org) serving as a technical steward.
 
 Our longterm focus on community-driven health systems, integrated care, and universal health coverage has surfaced innumerable insights that make the CHT unique. We're also deeply committed to [human-centered and participatory design](https://doi.org/10.1080/02681102.2019.1667289), as an approach to building technology with and for hard-to-reach communities. These principles have helped us to foster a remarkably dynamic and innovative community; learning and building with this community is one of the key reasons people decide to work with the CHT.
 
@@ -45,7 +45,7 @@ Our longterm focus on community-driven health systems, integrated care, and univ
 
 If you’re contributing to the CHT and would like to see your organization’s logo featured here, please send an email to hello@medic.org.
 
-## Speeding up app development with the CHT Core Framework
+## Speeding up app development
 
 The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are offline-first, and work on basic phones (via SMS), smartphones, tablets, and the web. Rich interactive applications that would take 6-18 months to build from scratch can be built using CHT Core in as little as 1-2 months. Some of our COVID-19 response applications shipped in under 2 weeks.
 
@@ -64,7 +64,7 @@ Digital health apps need to support health systems in a wide range of low infras
 These apps store a user’s data locally on their device so that workflows can be completed without syncing to the server. When a connection becomes available, data will automatically sync to and from the server. Offline-first technology enables health workers to carry out important duties even when opportunities to sync may be weeks apart. As with any app, there is a limit to how much data can be stored locally, particularly on a mobile device. For users needing access to large amounts of data, online user roles are available.
 
 
-## Build one application and run it across smartphones, tablets, and the web
+## Build one app for phones, tablets, and web
 
 A responsive web app is a hybrid of a website and a native mobile application. On desktop and laptop computers, it runs in the web browser. On Android devices (such as cell phones or tablets), it is downloaded as an app. The same source code powers the experience, meaning that the app you see on your desktop is the same app you see on your mobile device.
 
@@ -81,6 +81,9 @@ Apps can be customized for different deployments and types of workflows. The Cor
 
 Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
 
+## Ready for national scale
+
+Around the world, countries are adopting a model of primary health care that starts in communities and homes with high-quality, integrated services delivered by trusted health workers that are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are well integrated throughout the hierarchy of national health systems. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
 
 ## Example and reference apps
 
