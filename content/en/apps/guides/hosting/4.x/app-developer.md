@@ -191,7 +191,7 @@ If you have many existing projects, you can specify them to launch them directly
 
 #### Stopping
 
-When you're done with a project, it's good to stop all the containers to reduce load on your computer.  Do this by specifying the project and the `down` command. Using our existing example `4_oh_the_first` project, you would call:
+When you're done with a project, it's good to stop all the containers to reduce load on your computer.  Do this by specifying the project and the `down` command. This command will simply stop the active Docker containers, and not delete any data. Using our existing example `4_oh_the_first` project, you would call:
 
 ```shell
 ./cht-docker-compose.sh 4_oh_the_first.env down
