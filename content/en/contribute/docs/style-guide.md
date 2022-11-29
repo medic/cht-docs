@@ -296,6 +296,11 @@ It is good practice for the image to link to the image file so that a larger ver
 |right-hand side|right hand side|
 |left-hand|left hand|
 
+### Where to place your images
+
+To ensure your images are loaded on the docsite in the right format,place them in a folder that is named similar to your .md file. For example in the scenario below, the image is linked in the style-guide.md file, thus it is placed in the style-guide folder.
+{{< figure src="where-to-place-images.png" link="where-to-place-images.png" >}}
+
 ### Videos
 
 When embedding videos, use the `youtube` shortcode to embed a responsive YouTube video player. 
