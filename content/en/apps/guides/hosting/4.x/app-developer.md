@@ -199,11 +199,15 @@ When you're done with a project, it's good to stop all the containers to reduce 
 
 #### Destroying
 
-When you want to fully remove all contents of a project by deleting them, specifying the project and the `destroy` command. Using our existing example `4_oh_the_first` project, you would call:
+When you want to **permanently delete all files and all data** for a project, specify the project and the `destroy` command. Using our existing example `4_oh_the_first` project, you would call:
 
 ```shell
 ./cht-docker-compose.sh 4_oh_the_first.env destroy
 ```
+
+Be sure you want to do this, there is no "are you sure?" prompt and it will delete all your date.
+
+Also note that this command will use the `sudo` command when deleting the CouchDB data, so it may prompt for your password.
 
 ### File locations
 
