@@ -73,6 +73,10 @@ Web apps built with the Core Framework are fully responsive, which means content
 Progressive Web Application (PWA) is another term for web apps that are built and enhanced with modern APIs to deliver offline-first, native-like capabilities while reaching anyone, anywhere, on any device with a single codebase. For more about how CHT Apps and other PWAs integrate the best of native apps and the open web, see the post [What are Progressive Web Apps?](https://web.dev/what-are-pwas/) on web.dev.
 
 
+## Ready for national scale
+
+Around the world, countries are adopting a model of primary health care that starts in communities and homes where high-quality, integrated services are delivered by trusted health workers who are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are [well integrated]({{< ref "apps/concepts/interoperability" >}}) throughout the hierarchy of national health systems and across the patient continuum of care. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
+
 ## Made for localization
 
 <img src="localization.png" width="23%" align="right" />
