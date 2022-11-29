@@ -57,7 +57,7 @@ Open your terminal and run these commands which will create a directory, downloa
 ```shell
 mkdir -p ~/cht-local-setup/couch-data/ && mkdir -p ~/cht-local-setup/core-couch/ && mkdir -p ~/cht-local-setup/upgrade/
 cd ~/cht-local-setup
-curl -s -o ./core-couch/cht-4-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-core.yml && curl -s -o ./core-couch/cht-4-couch.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml && curl -s -o ./upgrade/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+curl -s -o ./core-couch/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-core.yml && curl -s -o ./core-couch/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml && curl -s -o ./upgrade/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 cat > ~/cht-local-setup/upgrade/.env << EOF
 DOCKER_CONFIG_PATH=~/cht-local-setup/core-couch/
 COUCHDB_DATA=~/cht-local-setup/data/couch-data 
