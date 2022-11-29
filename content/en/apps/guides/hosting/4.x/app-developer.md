@@ -114,11 +114,9 @@ To read more about how `docker-compose` works, be sure to read the [helpful dock
 
 ## CHT Docker Helper for 4.x
 
-{{% alert title="Note" %}} CHT Docker Helper for CHT 4.x is in Beta.  Please use with care! 
+{{% alert title="Note" %}} This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}){{% /alert %}}
 
-To use a stable version with CHT 3.x, see the earlier [CHT Docker Helper page]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}){{% /alert %}}
-
-The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file used above. This greatly eases starting your first CHT instance with a simple text based GUI:
+The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file used above. This greatly eases starting your first CHT instance with a simple text based GUI.
 
 ![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
 
@@ -128,18 +126,95 @@ This script brings a lot of benefits with it:
 * All compose files and images will be downloaded automatically for you
 * All networks, storage volumes and containers will be created 
 * A valid TLS certificate will be installed, allowing you to easily test on with CHT Android natively on a mobile device
+* An unused port is automatically chosen for you when creating a new project.  No more manually looking at your existing `.env` files!
 
-Currently, the CHT Docker Helper for 4.0 is in beta, and comes with some caveats:
-* it is not yet available in `master`
-* it does not account for port conflicts, so you need to manually resolve them yourself by editing the `*.env` files
-* upgrades are not yet supported
-* concurrently running multiple instances is not yet supported
+### Installing
 
 To get started using it:
 1. Clone the [CHT Core](https://github.com/medic/cht-core/) repo
-2. Checkout the `7852-cht-4.x-docker-helper` branch
-3. `cd` into the `cht-core/scripts/docker-helper-4.x/` directory
-4. Run the script with `./cht-docker-compose.sh`
+4. When you want to check for updates, just run `git pull orign` in the `cht-core` directory.
+
+If you want a more stand-alone version, you can `curl` the bash script directly, but you can't use `git` to easily update it then:
+
+```shell
+curl https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
+```
+
+### Usage
+
+Always run the script from directory where it lives.  If you launch it from further up the directory three, relative paths will fail:
+
+| Do | Don't |
+|---|---|
+| `./cht-docker-compose.sh`|`./docker-helper-4.x/cht-docker-compose.sh`|
+
+#### Launching
+
+Run the script with:
+
+```
+./cht-docker-compose.sh
+```
+
+The first time you run, you will be prompted to create a new project.  Here's what that looks like:
+
+```shell
+./cht-docker-compose.sh
+Would you like to initialize a new project [y/N]? y
+How do you want to name the project? 4 OH The First
+Downloading compose files ... done 
+
+Creating network "4_oh_the_first-cht-net" with the default driver
+Creating my_first_cht_project-dir_cht-upgrade-service_1 ... done
+Starting project "4_oh_the_first". First run takes a while. Will try for up to five minutes........
+
+ -------------------------------------------------------- 
+
+  Success! "4_oh_the_first" is set up:
+
+    https://127-0-0-1.my.local-ip.co:10444/ (CHT)
+    https://127-0-0-1.my.local-ip.co:10444/_utils/ (Fauxton)
+
+    Login: medic
+    Password: password
+
+ -------------------------------------------------------- 
+
+ Have a great day! 
+```
+
+If you have many existing projects, you can specify them to launch them directly. If you had a project called `4_oh_the_first` you would run:
+
+```shell
+./cht-docker-compose.sh 4_oh_the_first.env
+```
+
+#### Stopping
+
+When you're done with a project, it's good to stop all the containers to reduce load on your computer.  Do this by specifying the project and the `down` command. Using our existing example `4_oh_the_first` project, you would call:
+
+```shell
+./cht-docker-compose.sh 4_oh_the_first.env down
+```
+
+#### Destroying
+
+When you want to fully remove all contents of a project by deleting them, specifying the project and the `destroy` command. Using our existing example `4_oh_the_first` project, you would call:
+
+```shell
+./cht-docker-compose.sh 4_oh_the_first.env destroy
+```
+
+### File locations
+
+The bash script keeps files in two places:
+
+* **`*.env` files** -  the same directory as the bash script. 
+* **`~/medic/cht-docker/` files** - in your home directory, a sub-directory is created for each project.  Within each project directory, a `compose` has all the two compose files and the `couch` directory has the CouchDB datafiles.
+
+While you can manually remove any of these, it's best to use the `destroy` command above to ensure all related data files are deleted too.
+
+### Video 
 
 Here is a video of the beta version being run on 8 Nov 2022. The video references `lazydocker` which is [a great way](https://github.com/jesseduffield/lazydocker) to monitor and control your local docker environment:
 
