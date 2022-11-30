@@ -27,11 +27,6 @@ COUCH_URL=https://medic:password@192-168-68-26.my.local-ip.co:8443/medic horti -
 
 On subsequent upgrades to the later beta's of the FR, you will be able to more easily do it through the admin UI in the CHT.
 
-## Upgrade to next FR
-
-TK
-
-
 ## Upgrades to release
 
 Once the feature is ready for widespread use, it will be included in a regular CHT release. Projects using the feature version can be upgraded as soon as practical to get back on to a fully supported release.
