@@ -116,7 +116,7 @@ To read more about how `docker-compose` works, be sure to read the [helpful dock
 
 {{% alert title="Note" %}} This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}){{% /alert %}}
 
-The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file used above. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS and Linux.
+The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file used above. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS (both x86 and Apple Silicon) and Linux.
 
 ![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
 
