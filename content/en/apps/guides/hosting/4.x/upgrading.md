@@ -140,8 +140,19 @@ After moving two shards: `55555554-6aaaaaa8` and `6aaaaaa9-7ffffffd`
      /6aaaaaa9-7ffffffd
      /55555554-6aaaaaa8
 ```
+Repeat this process until reaching desired distribution of shards.
 
-Repeat this process until reaching desired distribution of shards.  
+
+### alternative steps
+
+1) Create a data folder for every one of the future CouchDb nodes
+2) Distribute shards across nodes by running the `distribute-shards` command:
+Run:
+```shell
+cht-data-migration distribute-shards <source_data> <node1_data> <node2_data> <node2_data> ...
+```
+
+This will 
 
 5) Start clustered 4.x CouchDb, passing the main folder to your main node as data volume, and your secondary folders to your secondary nodes, make note of this association. 
 6) get the node names of your installation 
