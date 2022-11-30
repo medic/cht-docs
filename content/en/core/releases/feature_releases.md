@@ -19,7 +19,7 @@ A Feature Release can easily be identified by its version, which follows the pat
 
 ## Initial FR Installation
 
-When you are on a non-feature release, you need to use horticulturalist (horti) to do the initial install of the FR.  For example, if your instance was runnint at `192-168-68-26.my.local-ip.co:8443` and you wanted to install `3.16.0-FR-offline-user-replace-beta.1`, after [installing](https://github.com/medic/horticulturalist#usage) `horti` you could start the installation with this command:
+When you are on a non-feature release, you need to use horticulturalist (horti) to do the initial install of the FR.  For example, if your instance was running at `192-168-68-26.my.local-ip.co:8443` and you wanted to install `3.16.0-FR-offline-user-replace-beta.1`, after [installing](https://github.com/medic/horticulturalist#usage) `horti` you could start the installation with this command:
 
 ```
 COUCH_URL=https://medic:password@192-168-68-26.my.local-ip.co:8443/medic horti --local --install=3.16.0-FR-offline-user-replace-beta.1
