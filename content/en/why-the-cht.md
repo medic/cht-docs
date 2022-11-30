@@ -52,7 +52,7 @@ The Core Framework makes it faster to build full-featured, scalable digital heal
 
 App developers are able to define health system roles, permissions and reporting hierarchies, and make use of five highly configurable areas of functionality: messaging, task and schedule management, decision support workflows, longitudinal person profiles, and analytics.
 
-The Core Framework can be used to support the unique needs of a given health system and the work of community health workers, frontline supervisors, facility-based nurses, health system managers, and even patients and caregivers. [Tutorials]({{< ref "apps/guides/" >}}) and [guides]({{< ref "apps/guides/" >}}) are available to help you kick things off, and you'll also find an [active forum](https://forum.communityhealthtoolkit.org) where the community of practice comes together to support each other.
+The Core Framework can be used to support the unique needs of a given health system and the work of community health workers, frontline supervisors, facility-based nurses, health system managers, and even patients and caregivers. [Tutorials]({{< ref "apps/tutorials" >}}) and [guides]({{< ref "apps/guides" >}}) are available to help you kick things off, and you'll also find an [active forum](https://forum.communityhealthtoolkit.org) where the community of practice comes together to support each other.
 
 
 ## Offline-first technology
