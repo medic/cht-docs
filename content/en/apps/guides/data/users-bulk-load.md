@@ -20,6 +20,8 @@ This quick guide will walk you through the steps of:
 3. Handling any errors that may have occurred during import.
 4. When done, you will have created new users, new contacts and new places, all of which are correctly associated in CouchDB with the correct UUIDs.
 
+As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place.
+
 {{% pageinfo %}}
 This guide shows how to import users from a spreadsheet from within the Admin Console.
 User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or
