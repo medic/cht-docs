@@ -768,6 +768,8 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 
 ### GET /api/v1/users
 
+*DEPRECATED: use /api/v2/users*
+
 Returns a list of users and their profile data in JSON format.
 
 ##### Permissions
@@ -797,6 +799,62 @@ Content-Type: application/json; charset=utf-8
     "id": "org.couchdb.user:demo",
     "rev": "14-8758c8493edcc6dac50366173fc3e24a",
     "type": "district-manager",
+    "fullname": "Example User",
+    "username": "demo",
+    "place": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
+      "type": "district_hospital",
+      "name": "Sample District",
+      "contact": {
+        "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+        "type": "person",
+        "name": "Paul",
+        "phone": "+2868917046"
+      }
+    },
+    "contact": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+      "type": "person",
+      "name": "Paul",
+      "phone": "+2868917046"
+    }
+  }
+]
+```
+
+### GET /api/v2/users
+
+*Added in 4.1.0*
+
+Returns a list of users and their profile data in JSON format.
+
+##### Permissions
+
+`can_view_users`
+
+#### Examples
+
+Get list of users:
+
+```
+GET /api/v2/users
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": "org.couchdb.user:admin",
+    "rev": "10-6486428924d11781c107ea74de6b63b6",
+    "roles": [ "admin" ],
+    "username": "admin"
+  },
+  {
+    "id": "org.couchdb.user:demo",
+    "rev": "14-8758c8493edcc6dac50366173fc3e24a",
+    "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
     "place": {
