@@ -216,7 +216,7 @@ When you want to **permanently delete all files and all data** for a project, sp
 ./cht-docker-compose.sh 4_oh_the_first.env destroy
 ```
 
-Be sure you want to do this, there is no "are you sure?" prompt and it will delete all your date.
+Be sure you want to do this, there is no "are you sure?" prompt and it will delete all your data.
 
 Also note that this command will use the `sudo` command when deleting the CouchDB data, so it may prompt for your password.
 
