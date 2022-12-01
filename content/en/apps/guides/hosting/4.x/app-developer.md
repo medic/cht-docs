@@ -179,6 +179,18 @@ Starting project "4_oh_the_first". First run takes a while. Will try for up to f
 
  -------------------------------------------------------- 
 
+Start existing project
+    ./cht-docker-compose.sh ENV-FILE.env
+
+Stop and keep project:
+    ./cht-docker-compose.sh ENV-FILE.env stop
+
+Stop and destroy all project data:
+    ./cht-docker-compose.sh ENV-FILE.env destroy
+
+https://docs.communityhealthtoolkit.org/apps/guides/hosting/4.x/app-developer/
+
+
  Have a great day! 
 ```
 
