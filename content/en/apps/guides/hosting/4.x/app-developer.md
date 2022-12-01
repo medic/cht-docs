@@ -141,7 +141,7 @@ curl https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-help
 
 ### Usage
 
-Always run the script from directory where it lives.  If you launch it from further up the directory three, relative paths will fail:
+Always run the script from the directory where it lives.  If you launch it from a different directory, relative paths will fail:
 
 | Do | Don't |
 |---|---|
