@@ -58,11 +58,11 @@ Open your terminal and run these commands which will create a directory, downloa
 mkdir -p ~/cht-local-setup/couch-data/ && mkdir -p ~/cht-local-setup/core-couch/ && mkdir -p ~/cht-local-setup/upgrade/
 cd ~/cht-local-setup
 curl -s -o ./core-couch/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-core.yml && curl -s -o ./core-couch/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml && curl -s -o ./upgrade/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-cat > ~/cht-local-setup/upgrade/.env << EOF
-DOCKER_CONFIG_PATH=~/cht-local-setup/core-couch/
-COUCHDB_DATA=~/cht-local-setup/data/couch-data 
-CHT_COMPOSE_PATH=~/cht-local-setup/core-couch/
-COUCHDB_USER=medic 
+cat > ${HOME}/cht-local-setup/upgrade/.env << EOF
+DOCKER_CONFIG_PATH=${HOME}/cht-local-setup/core-couch/
+COUCHDB_DATA=${HOME}/cht-local-setup/data/couch-data 
+CHT_COMPOSE_PATH=${HOME}/cht-local-setup/core-couch/
+COUCHDB_USER=medic
 COUCHDB_PASSWORD=password
 EOF
 ```
