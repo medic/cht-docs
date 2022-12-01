@@ -257,11 +257,18 @@ Failed | Task was never terminated and the endDate has past
 Attribute | Description
 -- | --
 user | The user settings id of the user who calculated and created the document. Used for controlling replication. (eg. `org.couchdb.user:agatha`)
-requester | The guid of the contact whose data brought about the creation of the document. Used for controlling cancellation.
+requester | The guid *(globally unique identifier that is an alphanumeric property identifying an object)* of the contact whose data brought about the creation of the document. Used for controlling cancellation. 
 owner | The guid of the contact whose profile this task will appear on in the contact's tab.
 forId | If completing a task's action opens a form. Completing the form creates a report. `forId` is the guid of the contact information that will be passed into the form. For most forms, the resulting report will be associated with this contact.
 emission | Minified task data emitted from the partner code.
 stateHistory | Each time the state attribute changes, the time of the change is recorded in the state history.
+
+
+To understand the difference between a task requester and a task owner, kindly see the example below:
+* A CHW submits a delivery form. The patient is woman1, and she delivered one child child1.
+* The delivery form generates a task, delivery_child_followup, but the task's patient is child1 not woman1
+* In the case of this task, the requester is woman1, because it was their delivery report that triggered task generation, but the owner is child1.
+
 
 ```json
 {
