@@ -225,7 +225,7 @@ Also note that this command will use the `sudo` command when deleting the CouchD
 The bash script keeps files in two places:
 
 * **`*.env` files** -  the same directory as the bash script. 
-* **`~/medic/cht-docker/` files** - in your home directory, a sub-directory is created for each project.  Within each project directory, a `compose` has all the two compose files and the `couch` directory has the CouchDB datafiles.
+* **`~/medic/cht-docker/` files** - in your home directory, a sub-directory is created for each project.  Within each project directory, a `compose` directory has the two compose files and the `couch` directory has the CouchDB datafiles.
 
 While you can manually remove any of these, it's best to use the `destroy` command above to ensure all related data files are deleted too.
 
