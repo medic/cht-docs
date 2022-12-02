@@ -13,11 +13,11 @@ relatedContent: >
 
 Interoperability is the ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. This is different from _integration_ which requires custom development to connect two specific systems together. 
 
-Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems for with no additional development.
+Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development.
 
 # Components
 
-Useful components and reference information for interoperability include
+Useful components and reference information for interoperability include:
 
 - [OpenHIE](https://ohie.org/) defines the architecture for an interoperability layer.
 - [OpenHIM](http://openhim.org/) is a middleware component designed to ease interoperability between systems.
