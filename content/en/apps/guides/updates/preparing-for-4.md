@@ -159,15 +159,11 @@ CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/
 
 You can also manually test your forms on a non-prod CHT instance. It is possible to test your forms against the new Enekto changes without having to uplift your non-prod CHT instance to the new 4.0 architecture.
 
-An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, upgrade to the `7786-fix-report-label` branch:
+An easy way of doing this is to use the [CHT Docker Helper]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "core/releases/feature_releases" >}}):
 
-1. Log in as an Admin and go to the admin section, choose upgrades:
-
-   ![CHT Admin - Upgrade Section](admin-upgrades.png)
-
-2. Expand the “Pre-releases” section by clicking on it and scroll down to the `enketo_upgrade_3.x` branch and click “Install” on the right:
-
-   ![CHT Admin - Selecting the enketo_upgrade_3.x to upgrade to](select-branch.png)
+```shell
+COUCH_URL=https://medic:password@*your-my.local.ip.co-address*:8443/medic horti --local --install=3.17.0-FR-enketo-upgrade-beta.1
+```
 
 After pushing your app config (see "CHT Conf" above), you can proceed to go through each of your forms in a browser and on a device to ensure there's no errors.
 
