@@ -99,6 +99,9 @@ The parts of the software that users see and interact with.
 ###### Global Positioning System (GPS)
 
 ###### Global Navigation Satellite System (GNSS)
+###### Global Unique Identifier (GUID)
+
+
 
 ## H
 
