@@ -54,6 +54,7 @@ The following transitions are available and executed in order.
 | [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. Is partially applied on the client, as of 3.12.0. |
 | [mark_for_outbound]({{% ref "apps/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
+| [create_user_for_contacts](#create_user_for_contacts) | Triggers an existing offline user to be replaced with a new user on the same device (without needing to immediately sync with the server). Available since 4.1.x  | |
 
 ## Transition Configuration Guide
 
@@ -672,3 +673,68 @@ If this configuration is not set then the message defaults to what is set in the
   }
 ]
 ```
+
+### create_user_for_contacts
+
+An existing offline user can be replaced on a device so that a new user can use that device without needing to immediately sync with the server. _Available since 4.1.x._
+
+#### Example scenario
+
+Imagine a CHW is leaving the program, and the CHW's device is returned to their supervisor. The supervisor wants to transfer the device to a new CHW immediately without having the device online to sync with the server.
+
+To do this, when the `create_user_for_contacts` transition is enabled, the supervisor would submit a configured user replacement form for the original user's contact on the device. This form can create a new contact for the new CHW and will trigger a client-side transition to mark the original contact as replaced. After that, the supervisor can give the device to the new CHW, and they can begin using it.
+
+Subsequent reports submitted on the device by the new CHW will be associated with the new contact. When the device is eventually able to synchronize with the server, it will be automatically logged out so the transition to the new user can be completed. A server-side transition will be triggered to initialize the new user for the new CHW. An SMS message containing a token login link will be sent to the new CHW allowing them to login as the initialized user. The password for the original user will be automatically reset by the server-side transition causing any remaining sessions for the original user (e.g. on other devices) to be logged out. 
+
+#### Details
+
+This process does not actually delete the original user, but just resets the password to a random value. To recover the original user, a server administrator should update the user's password to a known value or re-issue a token login link for the user (if enabled).
+
+Because the server-side transition immediately invalidates any remaining sessions for the original user, it is not recommended to use this process for replacing users that are logged in on multiple devices simultaneously. The data on the device used to replace the user will always be completely synchronized before the user is replaced. However, un-synced data from other devices can be left on those devices when the user is replaced using a separate device.
+
+#### Configuration
+
+Several configurations are required in `app_settings` to enable the `create_user_for_contacts` transition. 
+
+[Login by SMS]({{< ref "apps/reference/api#login-by-sms" >}}) must be enabled by setting the `token_login` configuration.
+
+The [`app_url` property]({{< ref "apps/reference/app-settings#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
+
+The IDs of the app forms that should trigger the transition must be configured in the `create_user_for_contacts.replace_forms` array.
+
+##### `replace_forms`
+
+Forms that trigger the `create_user_for_contacts` transition must set the `replacement_contact_id` property to the id of the contact that should be associated with the new user. 
+
+These forms should only be submitted for the _original user's contact_. You can control the form visibility by including `user._id === contact._id` in the form properties expression. 
+
+These forms should only be accessible to offline users (replacing online users is not currently supported). This is the default in the example app form properties file ([see `replace_user.properties.json`](https://github.com/medic/cht-core/blob/master/config/default/forms/app/replace_user.properties.json)).
+
+You can prevent a user from being replaced multiple times by including `!contact.user_for_contact || !contact.user_for_contact.replace` in the form properties expression.  _(This expression is not recommended for situations where multiple users can be associated with the same contact since replacing one of the users would prevent any of the other users for that contact from accessing the form.)_
+
+See the `replace_user` app form provided in the [Default config](https://github.com/medic/cht-core/tree/master/config/default) as an example.
+
+##### Example
+```json
+"app_url": "https://demo.app.medicmobile.org",
+"token_login": {
+  "enabled": true,
+  "translation_key": "sms.token.login.help"
+},
+"create_user_for_contacts": {
+  "replace_forms": [
+    "replace_user"
+  ]
+},
+"transitions": {
+  "create_user_for_contacts": true
+}
+```
+
+#### Troubleshooting
+
+Configuration is validated when Sentinel starts. Issues with the configuration will be show in the Sentinel logs.
+
+Errors occurring during the client-side transition will be recorded in the browser's console. This is where problems with processing reports from the replace forms will be logged. 
+
+Errors occurring during the server-side transition will be recorded in the Sentinel logs and on the contact doc for the original user. So, if the client-side transition marks the original user for replacement, but Sentinel fails to create the new user, the failure will be recorded on the original contact doc in the `errors` array.
