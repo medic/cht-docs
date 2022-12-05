@@ -6,7 +6,9 @@
 
 on: [push, pull_request]
 
-name: Test site and push live if we're on Main
+# This action tests site and pushes live if we're on Main
+# Changes to the `name` will break the build status image in the readme
+name: CHT Documentation Site Build
 jobs:
   BuildLinkCheckPushLive:
     name:
