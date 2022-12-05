@@ -231,8 +231,8 @@ While you can manually remove any of these, it's best to use the `destroy` comma
 
 ### Video 
 
-Here is a video of the beta version being run on 8 Nov 2022. The video references `lazydocker` which is [a great way](https://github.com/jesseduffield/lazydocker) to monitor and control your local docker environment:
+Here is a video of the helper being run on 1 Dec 2022. The video references `lazydocker` which is [a great way](https://github.com/jesseduffield/lazydocker) to monitor and control your local docker environment:
 
-{{< youtube -x9zr8R2hP4 >}}
+{{< youtube hrcy8JlJP9M >}}
 
 -------
