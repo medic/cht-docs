@@ -70,7 +70,9 @@ For more details about RapidPro configuration, please consult the [RapidPro inte
 
 ### API keys
 
-The RapidPro integration uses the CHT Credentials service to retrieve the API keys using the IDs `rapidpro:incoming` and `rapidpro:outgoing`. Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials.
+The RapidPro integration uses the CHT Credentials service to retrieve the API keys using the IDs `rapidpro:incoming` and `rapidpro:outgoing`. Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials.  
+`rapidpro:incoming` should contain the value of the long unique key generated earlier `<cht_api_key>` to verify incoming requests from RapidPro.  
+`rapidpro:outgoing` should contain your RapidPro API token `<rapidpro_api_key>` to authenticate requests made against RapidPro's API.
 
 ### App settings
 
