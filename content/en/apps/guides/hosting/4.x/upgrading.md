@@ -106,7 +106,7 @@ c) Start 4.x CouchDb and wait until it is up.
 cd ~/couchdb-single/ 
 docker-compose up -d
 cd ~/couchdb-migration/ 
-docker-compose run couch-migration check_couchdb
+docker-compose run couch-migration check-couchdb-up
 ```
 
 d) Change metadata to match the new CouchDb node
@@ -152,7 +152,7 @@ f) Start 4.x CouchDb and wait until it is up.
 cd ~/couchdb-cluster/ 
 docker-compose up -d
 cd ~/couchdb-migration/ 
-docker-compose run couch-migration check_couchdb
+docker-compose run couch-migration check-couchdb-up
 ```
 
 g) Generate the shard distribution matrix and get instructions for final shard locations. 
