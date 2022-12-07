@@ -8,15 +8,52 @@ aliases:
 relatedContent: >
 ---
 
-The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Thus upgrading involves some manual steps. 
+The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Thus upgrading involves some manual steps.
 
 ### 0. Ensure all clients have successfully synced
 This is not necessary. Should this be a step?
 
-### 1. Prepare CHT-Core 3.x installation for upgrading
+### 1. Install CHT data migration tool
+
+Open your terminal and run these commands. They will create a new directory, download a docker compose file and download the required docker image. 
+```shell
+mkdir -p ~/couchdb-migration/ 
+cd ~/couchdb-migration/ 
+curl -s -o ./docker-compose.yml https://github.com/medic/couchdb-migration/blob/main/docker-compose.yml
+docker-compose up
+```
+
+For the following steps, the tool needs access to your CouchDb installation. To provide this access, you will need to provide a URL that includes authentication. 
+Additionally, if your CouchDb runs in docker, the tool needs to be added to the same docker network in order to access protected endpoints:
+
+```shell
+export COUCH_URL=http://admin:pass@127.0.0.1:5984
+```
+or 
+```shell
+export CHT_NETWORK=<docker-network-name>
+export COUCH_URL=http://admin:pass@docker-service-name:5984
+```
+
+For simplicity, you could store these required values in an `.env` file: 
+```shell
+cat > ${HOME}/couchdb-migration/.env << EOF
+CHT_NETWORK=cht-net
+COUCH_URL=http://admin:pass@127.0.0.1:5984
+EOF
+```
+
+### 2. Prepare CHT-Core 3.x installation for upgrading
 To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that ar required by 4.x.
 
-We provide a script that will download all 4.x views on your 3.x CouchDb installation, and initiate view indexing. Once view indexing is finished, proceed with the next step.
+The migration tool provides a command which will download all 4.x views on your 3.x CouchDb installation, and initiate view indexing.
+
+```shell
+cd ~/couchdb-migration/ 
+docker-compose run couch-migration pre-index-views 4.1.0
+```
+
+Once view indexing is finished, proceed with the next step.
 
 {{% alert title="Note" %}} If this step is omitted, 4.x API will fail to respond to requests until all views are indexed. Depending on the size of the database, this could take many hours, or even days. {{% /alert %}} 
 
@@ -24,60 +61,108 @@ We provide a script that will download all 4.x views on your 3.x CouchDb install
 
 Some CouchDb configuration values must be ported from existent CouchDb to the 4.x installation. Store them in a safe location before shutting down 3.x CouchDb.
 
-#### a. CouchDB secret 
-Used in encrypting all CouchDb passwords and session tokens. 
+##### a. CouchDB secret 
+Used in encrypting all CouchDb passwords and session tokens.
+##### b. CouchDb server uuid
+Used in generating replication checkpointer documents, which track where replication progress between every client and the server, and ensure that clients don't re-download or re-upload documents.
 
+Use the migration tool to obtain these values.
 ```shell
-curl http(s)://<auth_instance>/_node/_local/_config/couch_httpd_auth/secret
+cd ~/couchdb-migration/ 
+docker-compose run couch-migration get-env
 ```
 
-#### b. CouchDb server uuid
-Used in generating replication checkpointer documents, which track where replication progress between every client and the server, and ensure that clients don't re-download or re-upload documents. 
+### 4. Locate and backup CouchDb Data folder
+a) If running in MedicOS, [CouchDb data folder]({{< relref "apps/guides/hosting/3.x/self-hosting#backup" >}}) can be found at `/srv/storage/medic-core/couchdb/data`.
+
+b) If running a custom installation of CouchDb, data would be typically stored at `/opt/couchdb/data`.
+
+c) TODO when using orchestration / AWS 
+
+### 5. Launch 4.x CouchDb installation
+
+#### Single node
+
+a) Download 4.x single-node CouchDb docker-compose file:
 ```shell
-curl http(s)://<auth_instance>/_node/_local/_config/couchdb/uuid
+mkdir -p ~/couchdb-single/ 
+cd ~/couchdb-single/ 
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+```
+a) Make a copy of the 3.x CouchDb data folder from **step 4**.
+
+b) Set the correct environment variables:
+```shell
+cat > ${HOME}/couchdb-single/.env << EOF
+COUCHDB_USER=<admin>
+COUCHDB_PASSWORD=<password>
+COUCHDB_SECRET=<COUCHDB_SECRET from step 3>
+COUCHDB_UUID=<COUCHDB_UUID from step 3>
+COUCHDB_DATA=<absolute path to folder created in step 5.a>
+EOF
+```
+c) Start 4.x CouchDb and wait until it is up.
+```shell
+cd ~/couchdb-single/ 
+docker-compose up -d
+cd ~/couchdb-migration/ 
+docker-compose run couch-migration check_couchdb
 ```
 
-#### c. CouchDb node name
-Used by the data migration script to update database metadata.
+d) Change metadata to match the new CouchDb node
 ```shell
-curl http(s)://<auth_instance>/_membership | | jq ".all_nodes[0]"
+cd ~/couchdb-migration/ 
+docker-compose run couch-migration move-node
+```
+e) Verify that the migration was successful
+```shell
+docker-compose run couch-migration verify
+```
+If all checks pass, proceed with starting CHT-Core 4.x, using the same environment variables.   
+
+#### Multi node
+
+a) Download 4.x clustered CouchDb docker-compose file:
+```shell
+mkdir -p ~/couchdb-cluster/ 
+cd ~/couchdb-cluster/ 
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb-clustered.yml
+```
+b) Create a data folder for every one of the CouchDb nodes.
+
+c) Copy the 3.x CouchDb data folder into your main CouchDb node's folder. Your main node will be creating your cluster and adding the other secondary nodes to the cluster. You can tell which is your main node by checking your CouchDb docker compose files and identifying which service receives the `CLUSTER_PEER_IPS` environment variable. Your secondary nodes will receive `COUCHDB_SYNC_ADMINS_NODE` variable instead.  
+
+d) Create a `shards` and a `.shards` directory in every secondary node folder. 
+
+e) Set the correct environment variables:
+```shell
+cat > ${HOME}/couchdb-cluster/.env << EOF
+COUCHDB_USER=<admin>
+COUCHDB_PASSWORD=<password>
+COUCHDB_SECRET=<COUCHDB_SECRET from step 3>
+COUCHDB_UUID=<COUCHDB_UUID from step 3>
+COUCHDB1_DATA=<absolute path to main folder created in step 5.a>
+COUCHDB2_DATA=<absolute path to secondary folder created in step 5.a>
+COUCHDB3_DATA=<absolute path to secondary folder created in step 5.a>
+EOF
+```
+
+f) Start 4.x CouchDb and wait until it is up.
+```shell
+cd ~/couchdb-cluster/ 
+docker-compose up -d
+cd ~/couchdb-migration/ 
+docker-compose run couch-migration check_couchdb
+```
+
+g) Generate the shard distribution matrix and get instructions for final shard locations. 
+```shell
+cd ~/couchdb-migration/ 
+shard_matrix=$(docker-compose run couch-migration generate-shard-distribution-matrix)
+docker-compose run couch-migration shard-move-instructions $shard_matrix
 ``` 
 
-### 3. Locate and backup CouchDb Data folder
-a. If running in MedicOS, [CouchDb data folder]({{< relref "apps/guides/hosting/3.x/self-hosting#backup" >}}) can be found at `/srv/storage/medic-core/couchdb/data`.
-b. If running a custom installation of CouchDb, data would be typically stored at `/opt/couchdb/data`
-
-### 2. Launch 4.x CouchDb installation
-
-#### a. Single node
-
-- Make a copy of the 3.x CouchDb data folder from step 3. Export the new location as an environment variable: `COUCHDB_DATA`. 
-- Set `COUCHDB_USER`, `COUCHDB_PASSWORD` environment variables
-- set `COUCHDB_SECRET` environment variable with the value from step **3.a**.
-- set `COUCHDB_UUID` environment variable with the value from step **3.b**.
-- Start 4.x CouchDb.
-- run data migration script
-```shell
-cht-data-migration rename-node <value from step 3.c>
-```
-- run data migration checks
-```shell
-cht-data-migration verify
-```
-If all checks pass, proceed with starting CHT-Core 4.x, using the environment variables indicated.  
-
-#### b. Multi node
-
-1) Create a data folder for every one of the future CouchDb nodes
-
-2) Save a copy of the 3.x CouchDb data folder into one of the folders created above. This will serve as the main folder, while the orders will be secondary folders.
-
-3) Create a `shards` and a `.shards` directory in every secondary folder 
-4) Distribute the shards among nodes: 
-   - Each shard has a corresponding folder in the `shards` and `.shards` folders. 
-   - To move a shard data from main node to secondary, move the corresponding shard folders from `shards` and `.shards` of the main node to the corresponding shards in the secondary node.
-   - You will most likely have 8 existent shards.
-   - Equal distribution among nodes is advised, but not required.
+h) Follow the instructions from the step above and move the shard files to the correct location, according to the shard distribution matrix. 
 
 Example of moving one shard from one node to another:
 
@@ -140,41 +225,14 @@ After moving two shards: `55555554-6aaaaaa8` and `6aaaaaa9-7ffffffd`
      /6aaaaaa9-7ffffffd
      /55555554-6aaaaaa8
 ```
-Repeat this process until reaching desired distribution of shards.
+i) Change metadata to match the new shard distribution. You will be using the same `shard_matrix` as the step above. 
 
-
-### alternative steps
-
-1) Create a data folder for every one of the future CouchDb nodes
-2) Distribute shards across nodes by running the `distribute-shards` command:
-Run:
 ```shell
-cht-data-migration distribute-shards <source_data> <node1_data> <node2_data> <node2_data> ...
-```
+docker-compose run couch-migration move-shards $shard_matrix
+``` 
 
-This will 
-
-5) Start clustered 4.x CouchDb, passing the main folder to your main node as data volume, and your secondary folders to your secondary nodes, make note of this association. 
-6) get the node names of your installation 
+j) Verify that the migration was successful
 ```shell
-curl http(s)://<auth_instance>/_membership | | jq ".cluster_nodes"
+docker-compose run couch-migration verify
 ```
-- for every shard, run the migration tool to update database metadata: 
-```shell
-cht-data-migration move_shard <shard_name> <to_node>
-```
-where the `shard_name` is the name of the folder you moved, and `to_node` is the destination node of your shard. 
-- run 
-```shell
-cht-data-migration remove_node <your_old_node_name>
-```
-- run migration checks
-```shell
-cht-data-migration verify
-```
-If all checks pass, proceed with installing CHT-Core 4.x, pointing CouchDb to use the same data folder you created above.
-
-
-
-
-
+If all checks pass, proceed with starting CHT-Core 4.x, using the environment variables indicated.  
