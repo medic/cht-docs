@@ -44,7 +44,7 @@ EOF
 ```
 
 ### 2. Prepare CHT-Core 3.x installation for upgrading
-To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that ar required by 4.x.
+To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that are required by 4.x.
 
 The migration tool provides a command which will download all 4.x views on your 3.x CouchDb installation, and initiate view indexing.
 
