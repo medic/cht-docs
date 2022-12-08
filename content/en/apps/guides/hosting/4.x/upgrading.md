@@ -50,7 +50,7 @@ The migration tool provides a command which will download all 4.x views on your 
 
 ```shell
 cd ~/couchdb-migration/ 
-docker-compose run couch-migration pre-index-views 4.1.0
+docker-compose run couch-migration pre-index-views <desired CHT version>
 ```
 
 Once view indexing is finished, proceed with the next step.
