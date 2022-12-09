@@ -110,7 +110,7 @@ Alternately, you can stop ALL containers (even non-CHT ones!) with `docker kill 
 
 To run projects concurrently open a second terminal and start the second project so you don't have to cancel and `stop` the first project.  Remember to avoid port conflicts!
 
-To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/guides/docker-setup#helpful-docker-commands" >}}) page.
+To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/overview/docker-setup#helpful-docker-commands" >}}) page.
 
 ## CHT Docker Helper for 4.x
 

@@ -4,6 +4,8 @@ linkTitle: "Windows Development"
 weight: 15
 description: >
   Notes for developing on Windows
+aliases: >
+  /core/guides/using-windows
 ---
 
 We don't actively support development on Windows, instead preferring MacOS or Linux.

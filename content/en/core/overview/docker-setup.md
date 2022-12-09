@@ -4,7 +4,8 @@ linkTitle: "Docker Use"
 weight: 
 description: >
   Download and run the publicly available Docker image for CHT applications
-relevantLinks: >
+aliases: >
+  /core/guides/docker-setup
 ---
 
 {{% alert title="Note" %}} This guide will only work with CHT 3.x instances.  It will be updated to work with 4.x instances at a later date.{{% /alert %}}

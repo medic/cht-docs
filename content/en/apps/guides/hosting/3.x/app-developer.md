@@ -79,7 +79,7 @@ The easiest way to switch between projects is to stop the first set of container
 
 To run projects concurrently, instead of cancelling the first one, open a second terminal and start the second project.  
 
-To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/guides/docker-setup#helpful-docker-commands" >}}) page. 
+To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/overview/docker-setup#helpful-docker-commands" >}}) page. 
 
 ## CHT Docker Helper
 
