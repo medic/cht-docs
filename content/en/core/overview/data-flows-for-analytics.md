@@ -62,6 +62,12 @@ Custom materialized views and functions are added specific to a deployment's nee
 
 Data in the views and functions mentioned in this section is as accurate as the accuracy of the SQL queries. Best practice is to begin the process of defining these objects at design in order to align analytics and dashboards requirements with workflows being deployed.
 
+#### CHT-Sync
+We have built [cht-sync](https://github.com/medic/cht-sync) to be able to sync data from CouchDB to PostgreSQL. It uses logstash and PostgREST to replicate data from CouchDB to PostgreSQL in a more real-time manner. It is a work in progress and is not yet ready for production use. It is currently being used in a few deployments to test its performance and reliability.
+
+#### CHT-Pipeline
+We have built [cht-pipeline](https://github.com/medic/cht-pipeline) to help witht the transformation of the data we get from the CHT to a format that is more suitable for analytics. We make use of [DBT](https://www.getdbt.com/) to define the models that are tanslated into Postgres tables or views. It then becomes easier to query the data in the analytics platform of choice, we recommend [Superset](https://superset.apache.org/). See these instructions on how to set up and use cht-pipeline.
+
 #### 3. Data Use
 
 The data in PostgreSQL is mostly either used by direct querying or via dashboard visualizations for impact monitoring and data driven-decision making. Database visualizations are built scoped to the requirements of supporting a successful deployment. The work of our Research & Learning team, specifically data science, is supported at the PostgreSQL level through updated contactviews, formviews, useviews and functions with access to these provided to relevant parties as and when needed. Our use of data follows our Privacy & Data Protection policy and is in accordance to agreements with our CHT partners.
