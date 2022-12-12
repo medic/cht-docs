@@ -10,9 +10,6 @@ relatedContent: >
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Thus upgrading involves some manual steps.
 
-### 0. Ensure all clients have successfully synced
-This is not necessary. Should this be a step?
-
 ### 1. Install CHT data migration tool
 
 Open your terminal and run these commands. They will create a new directory, download a docker compose file and download the required docker image. 
@@ -23,7 +20,7 @@ curl -s -o ./docker-compose.yml https://github.com/medic/couchdb-migration/blob/
 docker-compose up
 ```
 
-For the following steps, the tool needs access to your CouchDb installation. To provide this access, you will need to provide a URL that includes authentication. 
+For the following steps, the tool needs access to your CouchDb installation. To allow this access, you will need to provide a URL to your CouchDB installation that includes authentication. 
 Additionally, if your CouchDb runs in docker, the tool needs to be added to the same docker network in order to access protected endpoints:
 
 ```shell
@@ -46,7 +43,7 @@ EOF
 ### 2. Prepare CHT-Core 3.x installation for upgrading
 To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that are required by 4.x.
 
-The migration tool provides a command which will download all 4.x views on your 3.x CouchDb installation, and initiate view indexing.
+The migration tool provides a command which will download all 4.x views to your 3.x CouchDb, and initiate view indexing.
 
 ```shell
 cd ~/couchdb-migration/ 
@@ -152,7 +149,7 @@ f) Start 4.x CouchDb and wait until it is up.
 cd ~/couchdb-cluster/ 
 docker-compose up -d
 cd ~/couchdb-migration/ 
-docker-compose run couch-migration check-couchdb-up
+docker-compose run couch-migration check-couchdb-up <number of nodes>
 ```
 
 g) Generate the shard distribution matrix and get instructions for final shard locations. 
