@@ -1,6 +1,6 @@
 ---
 title: "Updating Dependencies"
-linkTitle: "Dependencies"
+linkTitle: "Updating Dependencies"
 weight: 8
 description: >
   Process for updating dependencies

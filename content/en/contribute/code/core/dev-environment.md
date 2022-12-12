@@ -1,9 +1,11 @@
 ---
-title: "CHT Core Developer Setup"
-linkTitle: "CHT Core Developer Setup"
-weight: 40
+title: "CHT Core dev environment setup"
+linkTitle: "CHT Core dev environment setup"
+weight: 1
 description: >
   Getting your local machine ready to development work on CHT Core.
+aliases: >
+  apps/guides/hosting/core-developer
 ---
 
 {{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up a your environment for developing apps, see the [app guide]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}).
@@ -232,7 +234,7 @@ exec zsh
 
 ### CouchDB on Docker Details
 
-Breaking down the command from [the above section]({{< relref "apps/guides/hosting/core-developer#couchdb-setup-in-docker" >}}), here's a generic version that doesn't include hard coded paths:
+Breaking down the command from [the above section]({{< relref "#couchdb" >}}), here's a generic version that doesn't include hard coded paths:
 
 ```shell
 docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v <data path>:/opt/couchdb/data -v <config path>:/opt/couchdb/etc/local.d apache/couchdb:2

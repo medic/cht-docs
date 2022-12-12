@@ -6,7 +6,7 @@ description: >
     Important metrics to monitor and alert on
 ---
 
-{{% alert title="Note" %}} This guide applies to all production instances of the CHT including [self hosted]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) and [AWS hosted]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}). It also works with [app developer]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}) and [CHT core developer]({{< relref "apps/guides/hosting/core-developer" >}}) setups if you're looking to test how it works or develop monitoring tools.{{% /alert %}}
+{{% alert title="Note" %}} This guide applies to all production instances of the CHT including [self hosted]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) and [AWS hosted]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}). It also works with [app developer]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}) and [CHT core developer]({{< relref "contribute/code/core/dev-environment" >}}) setups if you're looking to test how it works or develop monitoring tools.{{% /alert %}}
 
 {{% alert title="Note" %}}
 These instructions apply to both 3.x and 4.x CHT monitoring

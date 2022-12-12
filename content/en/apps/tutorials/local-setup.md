@@ -6,7 +6,7 @@ description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
   core/overview/docker-setup
-  contribute/code/using-windows
+  contribute/code/core/using-windows
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
 ---

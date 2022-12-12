@@ -1,6 +1,6 @@
 ---
-title: "Development Environment"
-linkTitle: "Development Environment"
+title: "Android Dev Environment"
+linkTitle: "Android Dev Environment"
 weight: 2
 description: >
   Instructions for setting up the development environment
@@ -160,7 +160,7 @@ the submodules within the cht-android folder.
 
 _Only CHT Android_
 
-Refer to the [CHT Core Developer Guide]({{< relref "apps/guides/hosting/core-developer#nginx-local-ip" >}}).
+Refer to the [CHT Core Developer Guide]({{< relref "contribute/code/core/dev-environment#nginx-local-ip" >}}).
 
 ### Android Studio
 

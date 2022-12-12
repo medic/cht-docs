@@ -8,11 +8,11 @@ aliases: >
   /core/guides/releasing
 ---
 
-## CHT core
+## CHT Core
 
 [Create an issue](https://github.com/medic/cht-core/issues/new/choose) for either a Major/Minor or Patch release issue template and assign it to the release manager to follow the process.
 
-## cht-conf
+## CHT Conf
 
 Follow the [instructions in the readme](https://github.com/medic/cht-conf/#user-content-releasing).
 
