@@ -1,6 +1,6 @@
 ---
 title: "Contributing to the Community Health Toolkit"
-linkTitle: "Contributing"
+linkTitle: "Contributor Handbook"
 weight: 10
 description: >
   How to contribute to the CHT tools and documentation

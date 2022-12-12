@@ -72,11 +72,11 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 ## Troubleshooting
 
 1. Restarting processes
-    - [How to access container, retrieve logs, restart services]({{< ref "core/guides/docker-setup#helpful-docker-commands" >}})
+    - [How to access container, retrieve logs, restart services]({{< ref "core/overview/docker-setup#helpful-docker-commands" >}})
     - [MedicOS service management scripts](https://github.com/medic/medic-os#user-content-service-management-scripts)
 
 1. Investigating logs
-    - [Helpful docker commands]({{< ref "core/guides/docker-setup#helpful-docker-commands" >}}) (includes getting shell on containers)
+    - [Helpful docker commands]({{< ref "core/overview/docker-setup#helpful-docker-commands" >}}) (includes getting shell on containers)
     - Inside container, all appropriate logs can be found in: `/srv/storage/<service_name>/logs/*.log`
 
 1. Upgrading the container
@@ -85,8 +85,8 @@ This guide will walk you through the process of creating an EC2 instance, mounti
     - To prepare for the upgrade, delete all other files in `/srv` EXCEPT for `/srv/storage/medic-core/`
       
       The `medic-core` directory is where the CHT stores user data. Of key importance is `./couchdb/local.in` and `./medic-core/couchdb/local.d/` where custom CouchDB configuration is stored.
-    - [Change the image tag to the newest image release version]({{< ref "core/guides/docker-setup#use-docker-compose" >}})
-    - [Change image tag in docker-compose file]({{< ref "core/guides/docker-setup#use-docker-compose">}})
+    - [Change the image tag to the newest image release version]({{< ref "core/overview/docker-setup#use-docker-compose" >}})
+    - [Change image tag in docker-compose file]({{< ref "core/overview/docker-setup#use-docker-compose">}})
     - Launch new containers with appropriate `COUCHDB_ADMIN_PASSWORD` & `HA_PASSWORD` environment variables
 
 1. Upgrading the webapp
