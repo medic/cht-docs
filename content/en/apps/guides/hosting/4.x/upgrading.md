@@ -80,7 +80,8 @@ c) TODO when using orchestration / AWS
 
 Depending on your project scalability needs and technical possibilities, you must decide whether you will deploy CouchDb in a single node or in a cluster with multiple nodes.
 Please consult this guide about clustering and horizontal scalability to make an informed decision. <insert link>
-You can start with single node and then change to a cluster, but that involves running the migration tool again to distribute shards from the single node across multiple nodes in a cluster.
+
+{{% alert title="Note" %}} You can start with single node and then change to a cluster. This involves running the migration tool again to distribute shards from the existent node to the new nodes. {{% /alert %}}
 
 Depending on your choice, follow the instructions that match your deployment below: 
 
