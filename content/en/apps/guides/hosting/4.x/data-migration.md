@@ -1,14 +1,16 @@
 ---
-title: "Upgrading from CHT 3.x to CHT 4.x"
-linkTitle: "Upgrading to 4.x"
+title: "Data migration from CHT 3.x to CHT 4.x"
+linkTitle: "Data migration to 4.x"
 weight: 10
 description: >
-  How to upgrade from CHT 3.x to CHT 4.x
+  Guide to migrate existent data from CHT 3.x to CHT 4.x
 aliases:
 relatedContent: >
 ---
 
-The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Thus upgrading involves some manual steps.
+The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps. 
+This guide will present the required steps while using a migration helping tool, called `couchdb-migration`. This tool interfaces with CouchDb, to update shard maps and database metadata. 
+Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/3.2.2-docs/cluster/sharding.html#moving-a-shard). 
 
 ### 1. Install CHT data migration tool
 
