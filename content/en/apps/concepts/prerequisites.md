@@ -6,7 +6,7 @@ description: >
   Tools and background skills that are helpful for developing CHT apps
 relatedContent: > 
   apps/tutorials/local-setup
-  core/guides/docker-setup
+  core/overview/docker-setup
 ---
 There are no set prerequisites for users of CHT apps, yet the following are helpful for developing CHT applications.
 

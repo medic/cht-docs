@@ -8,7 +8,7 @@ description: >
   Hosting the CHT when developing apps
 ---
 
-{{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "apps/guides/hosting/core-developer.md" >}}).
+{{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}).
 
 To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}). 4.x production hosting guides are coming soon!{{% /alert %}}
 
@@ -110,7 +110,7 @@ Alternately, you can stop ALL containers (even non-CHT ones!) with `docker kill 
 
 To run projects concurrently open a second terminal and start the second project so you don't have to cancel and `stop` the first project.  Remember to avoid port conflicts!
 
-To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/guides/docker-setup#helpful-docker-commands" >}}) page.
+To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/overview/docker-setup#helpful-docker-commands" >}}) page.
 
 ## CHT Docker Helper for 4.x
 

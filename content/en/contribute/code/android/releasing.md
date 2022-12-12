@@ -5,8 +5,10 @@ weight: 3
 description: >
   Instructions for releasing Android Apps
 relatedContent: >
-  core/guides/android/publishing
-  core/guides/android/branding
+  apps/guides/android/publishing
+  apps/guides/android/branding
+aliases: >
+  /core/guides/android/releasing
 ---
 
 All Medic's android projects automatically build, sign, and release builds via Github Actions. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
@@ -30,16 +32,5 @@ All Medic's android projects automatically build, sign, and release builds via G
 
 1. Repeat step 2-3 from the above [alpha release section](#alpha-for-release-testing) with the naming convention `v<major>.<minor>.<patch>`.
 2. The CI build for the tag will create a new draft release on GitHub.  Include the release notes from the CHANGELOG in the description of the release and publish the release on GitHub.
-3. [Publish]({{< ref "core/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store.
+3. [Publish]({{< ref "apps/guides/android/publishing" >}}) in the Play Store, F-Droid or whatever channel is used for publishing. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store.
 4. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.
-
-## New flavor release
-
-_Only CHT Android_
-
-The new flavor should have branched off from the [last stable release](https://github.com/medic/cht-android/releases) in CHT Android repository, for example, if the latest stable release is `v1.2.3` and the branch name is `v1.2.3-new-brand`, then check out the tag and create a branch using the following command:
- ```
- git checkout v1.2.3 -b v1.2.3-new-brand
- ```
-Add the flavor and make a pull request to the release branch. Once it has been approved, `squash and merge` the pull request, tag the commit with the same version as the last one and add a number suffix separated with a dash character (`-`), e.g. if the last version was `v1.2.3`, tag it as `v1.2.3-1`. In this case, it's not necessary to publish again the reference apps in Play Store or to announce the release in the forum, if not relevant.
-Finally, make sure this commit is backported to the repository's main branch.

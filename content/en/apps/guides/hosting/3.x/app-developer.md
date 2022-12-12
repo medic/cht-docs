@@ -8,7 +8,7 @@ description: >
   Hosting the CHT when developing apps
 ---
 
-{{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "apps/guides/hosting/core-developer.md" >}}). 
+{{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}). 
 
 To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}){{% /alert %}}
 
@@ -79,7 +79,7 @@ The easiest way to switch between projects is to stop the first set of container
 
 To run projects concurrently, instead of cancelling the first one, open a second terminal and start the second project.  
 
-To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/guides/docker-setup#helpful-docker-commands" >}}) page. 
+To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/overview/docker-setup#helpful-docker-commands" >}}) page. 
 
 ## CHT Docker Helper
 
