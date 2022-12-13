@@ -228,8 +228,8 @@ To fix this, run the following commands:
 brew install pyenv
 pyenv install 2.7.18
 pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.zshrc (or ~/.bash_profile or ~/.zprofile)
-exec zsh
+echo "eval \"\$(pyenv init --path)\"" >> ~/.$0rc
+. $0
 ```
 
 ### CouchDB on Docker Details
