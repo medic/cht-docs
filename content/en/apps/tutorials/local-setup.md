@@ -67,13 +67,13 @@ COUCHDB_PASSWORD=password
 EOF
 ```
 
-Run the following command to start your CHT instance using Docker Compose. Ensure that Docker is installed and running:
+Run the following command to start your CHT instance using Docker Compose:
 
 ```shell
 cd ~/cht-local-setup/upgrade/
 docker-compose up
 ```
-Note that the first time you run your CHT instance it may take a while. Incase you run into issues running your docker file, ensure that the following setting in Docker is checked.
+Note that the first time you run your CHT instance it may take a while. In case you run into issues running your docker file, ensure that the following setting in Docker is checked.
 >> Settings >> General >> Use Docker Compose V2
 
 
@@ -97,8 +97,7 @@ This CHT instance is empty and has no data in it. While you're free to explore a
 
 ### 2. Install cht-conf
 
-Using npm on your terminal, install cht-conf globally using the command below. Confirm if you have previously installed cht-conf.
-If you have, skip this step.
+Using npm on your terminal, install cht-conf globally using the command below. 
 ```shell
 npm install -g cht-conf
 ```
@@ -107,13 +106,6 @@ Using python on your terminal, install pyxform globally using the command below.
 sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "contribute/code/core/dev-environment#macos--123" >}}).
-```shell
-brew install pyenv
-pyenv install 2.7.18
-pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.zshrc 
-exec zsh
-```
 
 {{< figure src="confirm-cht-conf.png" link="confirm-cht-conf.png" class="right col-6 col-lg-8" >}}
 
