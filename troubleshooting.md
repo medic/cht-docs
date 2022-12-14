@@ -2,6 +2,12 @@
 
 ## MacOS 
 
+First thing to check is that you are running the latest version of Hugo and that it's the Extended version. You can see the list of Hugo releases [here](https://github.com/gohugoio/hugo/releases). 
+
+```shell
+hugo version
+```  
+
 ### Hugo "fatal error: pipe failed" 
 MacOS users encountering the `fatal error: pipe failed` error when running `hugo server` need to run these commands:
 
