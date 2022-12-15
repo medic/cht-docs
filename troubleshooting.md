@@ -1,5 +1,23 @@
 # Troubleshooting 
 
+The first thing to check, regardless of your OS, is that you are running the latest version of Hugo and that it's the Extended version. You can do this by running the following command...
+
+```shell
+hugo version
+```  
+
+...which should return something like:
+
+
+```shell
+hugo v0.108.0+extended darwin/arm64 BuildDate=unknown VendorInfo=macports
+```
+
+In this example, `0.108.0` is the release and `+extended` indicates that it is the extended version.
+
+You can see the list of Hugo releases [here](https://github.com/gohugoio/hugo/releases). 
+
+
 ## MacOS 
 
 ### Hugo "fatal error: pipe failed" 
