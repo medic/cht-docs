@@ -3,7 +3,7 @@ title: "Self Hosting in CHT 3.x"
 linkTitle: "Self Hosting"
 weight: 20
 description: >
-  Hosting the CHT on self run infrastracture
+  Hosting the CHT on self run infrastructure
 aliases:
   - /apps/guides/hosting/self-hosting
 relatedContent: >
