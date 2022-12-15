@@ -12,13 +12,13 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later.
 
-To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version.
+To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
 
 ## Building the Documentation
 
-1. Build your site:
-   - `hugo server`
-   - If there are any errors, check that you have the latest version of Hugo, and are using the extended version.
+1. Clone the `cht-docs` repo
+1. From the command line, navigate to the local directory where you cloned the repo
+1. Type `hugo server`
 1. Preview your site in your browser at: http://localhost:1313/
 1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes.
 
