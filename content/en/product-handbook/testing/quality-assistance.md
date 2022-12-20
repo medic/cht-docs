@@ -3,7 +3,7 @@ title: "Quality Assistance"
 linkTitle: "Quality Assistance"
 weight: 1
 description: >
-  How the Quality Assistance process works on the team
+  How the Quality Assistance process works at Medic
 ---
 
 ## Goals
