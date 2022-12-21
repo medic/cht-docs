@@ -41,7 +41,7 @@ That conversation (ideally multiple of these) is the “assistance”. It’s wh
 
 Depending on the change the developer may work with the QA engineer where the QA engineer can contribute some automated end-to-end testing to the branch. Things should feel collaborative and not a division of labor or handing things off.
 
-Once the developer has finished writing the code they probably test it a bit more and open a PR for a code review. The reviewer should be able to review the code with an assumption that it is well-tested already and the focus of the review can be around the code and implementation choices.
+Once the developer has finished writing the code they test it a bit more and open a PR for a code review. The reviewer should be able to review the code with an assumption that it is well-tested already and the focus of the review can be around the code and implementation choices.
 
 If any changes need to be made during the review process, the developer makes those changes and re-executes any relevant testing.
 
