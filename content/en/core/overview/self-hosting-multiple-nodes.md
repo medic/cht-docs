@@ -6,6 +6,13 @@ description: >
   How do you setup the CHT on multiple nodes in a cluster?
 ---
 
+{{% alert title="Note" %}}
+The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains.  These gains will greatly increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
+
+[//]: # (TODO - Fix this link once we merge self-hosting-single-node https://github.com/medic/cht-docs/pull/915)
+Instead, we recommended most deployment go with the [clustered single node hosting]({{< ref "#core/overview/self-hosting-single-node" >}}).
+{{% /alert %}}
+
 ### What is a clustered setup?
 
 In a clustered CHT setup, there are multiple couchdb nodes responding to users. This is essential to horizontally scaling your CHT instance. This is one of the capabilities added to the CHT post 4.x release. In this guide, we are going to be setting up a 3 node couchdb cluster. The way the CHT is setup in this version, we require all three couchdb nodes to be up and running. Our healthcheck module determines the health of the couchdb nodes and turns off the CHT if any single node is not functional.
