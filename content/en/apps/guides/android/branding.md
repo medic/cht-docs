@@ -3,7 +3,9 @@ title: "Building CHT Android Flavors"
 linkTitle: CHT Android Flavors
 weight: 13
 description: >
-  Branding the CHT Android with "Flavors" Apps
+  Branding the CHT Android applications
+aliases: >
+  /core/guides/android/branding
 ---
 
 {{% pageinfo %}}
@@ -45,7 +47,7 @@ To proceed you need to have ready the following:
 - The app logo and title.
 - Translations for your supported languages (most flavors don't need to customize translations though).
 
-Also be sure to have a working **[Development Environment]({{< ref "core/guides/android/development-setup" >}})**.
+Also be sure to have a working **[Development Environment]({{< ref "contribute/code/android/development-setup" >}})**.
 
 While you should use your own branding, the [CHT logo](./CHT.logo.512.png) is available to use if so desired.
 
@@ -230,8 +232,8 @@ Releasing a new flavor requires the following steps:
 1. Make a pull request to the release branch in the CHT Android repository.
 2. Once approved it's recommended to create an alpha version to do final tests.
 3. Merge the pull request.
-4. [Release the flavor]({{< ref "core/guides/android/releasing#new-flavor-release" >}}).
+4. [Release the flavor]({{< ref "apps/guides/android/publishing" >}}).
 
 ### 6. Publish the app
 
-The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing]({{< ref "core/guides/android/publishing" >}}) page to see all the options available and instructions.
+The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing]({{< ref "apps/guides/android/publishing" >}}) page to see all the options available and instructions.

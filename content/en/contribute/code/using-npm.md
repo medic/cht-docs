@@ -1,9 +1,11 @@
 ---
 title: "Using NPM"
 linkTitle: "Using NPM"
-weight: 14
+weight: 9
 description: >
   Quick guide to using NPM
+aliases: >
+  /core/guides/using-npm
 ---
 
 ## npm Orgs

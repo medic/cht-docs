@@ -1,11 +1,13 @@
 ---
-title: "Development Environment"
-linkTitle: "Development Environment"
+title: "Android Dev Environment"
+linkTitle: "Android Dev Environment"
 weight: 2
 description: >
   Instructions for setting up the development environment
 relatedContent: >
-  core/guides/android/releasing
+  contribute/code/android/releasing
+aliases: >
+  /core/guides/android/development-setup
 ---
 
 
@@ -115,7 +117,7 @@ Each APK will be generated and stored in `build/outputs/apk/[flavor]/[debug|rele
 
 To assemble other flavors, use the following command: `make flavour=[Flavor] assemble`. See the [Flavor selection](#flavor-selection) section for more details about `make` commands.
 
-To create the `.aab` bundle file, use `make bundle`, although signed versions are generated when [releasing]({{< ref "core/guides/android/releasing" >}}), and the Play Store requires the AAB to be signed with the right key.
+To create the `.aab` bundle file, use `make bundle`, although signed versions are generated when [releasing]({{< ref "contribute/code/android/releasing" >}}), and the Play Store requires the AAB to be signed with the right key.
 
 To clean the APKs and compiled resources: `make clean`.
 
@@ -158,7 +160,7 @@ the submodules within the cht-android folder.
 
 _Only CHT Android_
 
-Refer to the [CHT Core Developer Guide]({{< relref "apps/guides/hosting/core-developer#nginx-local-ip" >}}).
+Refer to the [CHT Core Developer Guide]({{< relref "contribute/code/core/dev-environment#nginx-local-ip" >}}).
 
 ### Android Studio
 

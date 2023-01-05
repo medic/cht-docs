@@ -64,13 +64,11 @@ Digital health apps need to support health systems in a wide range of low infras
 These apps store a user’s data locally on their device so that workflows can be completed without syncing to the server. When a connection becomes available, data will automatically sync to and from the server. Offline-first technology enables health workers to carry out important duties even when opportunities to sync may be weeks apart. As with any app, there is a limit to how much data can be stored locally, particularly on a mobile device. For users needing access to large amounts of data, online user roles are available.
 
 
-## Build one app for phones, tablets, and web
+## Build once, deploy for everyone
 
-A responsive web app is a hybrid of a website and a native mobile application. On desktop and laptop computers, it runs in the web browser. On Android devices (such as cell phones or tablets), it is downloaded as an app. The same source code powers the experience, meaning that the app you see on your desktop is the same app you see on your mobile device.
+By design, CHT applications do not rely on proprietary hardware or operating systems. They can run on any device that health workers have -- whether it is basic phones (via SMS), smartphones, tablets, or computers. The same source code powers the experience, meaning that the app you see on your desktop is the same app you see on your mobile device. Having common code for all devices reduces the barriers for users, and makes the digital health toolks easier to maintain. 
 
-Web apps built with the Core Framework are fully responsive, which means content will scale to fill the available space. Users accessing the app on a mobile device will see a single-panel mobile layout. Users accessing the app on a desktop or laptop device will see a two-panel layout.
-
-Progressive Web Application (PWA) is another term for web apps that are built and enhanced with modern APIs to deliver offline-first, native-like capabilities while reaching anyone, anywhere, on any device with a single codebase. For more about how CHT Apps and other PWAs integrate the best of native apps and the open web, see the post [What are Progressive Web Apps?](https://web.dev/what-are-pwas/) on web.dev.
+Apps built with the Core Framework are fully responsive Progressive Web Applications (PWA). The app content will use the available screen space, showing a single-panel mobile layout for small screens on phones, and show a two-panel layout for larger devices like tablets, laptops, and desktop computers. As a PWA, CHT apps get the best of open web standards while also getting native-like capabilities to reach anyone, anywhere, on any device -- all with a single codebase. For more about how CHT Apps and other PWAs integrate the best of native apps and the open web, see the post [What are Progressive Web Apps?](https://web.dev/what-are-pwas/) on web.dev.
 
 
 ## Ready for national scale

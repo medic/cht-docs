@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
-  core/guides/docker-setup
+  core/overview/docker-setup
 ---
 
 

@@ -5,8 +5,8 @@ weight: 1
 description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
-  core/guides/docker-setup
-  core/guides/using-windows
+  core/overview/docker-setup
+  contribute/code/core/using-windows
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
 ---
@@ -35,7 +35,7 @@ The *CHT Core Framework* makes it faster to build full-featured, scalable digita
 
 *Containers* allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
 
-To read more about these concepts, see our [Docker Setup guide]({{< relref "core/guides/docker-setup" >}}).
+To read more about these concepts, see our [Docker Setup guide]({{< relref "core/overview/docker-setup" >}}).
 
 ## Required Resources
 
@@ -57,7 +57,7 @@ Open your terminal and run these commands which will create a directory, downloa
 ```shell
 mkdir -p ~/cht-local-setup/couch-data/ && mkdir -p ~/cht-local-setup/core-couch/ && mkdir -p ~/cht-local-setup/upgrade/
 cd ~/cht-local-setup
-curl -s -o ./core-couch/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-core.yml && curl -s -o ./core-couch/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml && curl -s -o ./upgrade/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+curl -s -o ./core-couch/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-core.yml && curl -s -o ./core-couch/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml && curl -s -o ./upgrade/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 cat > ${HOME}/cht-local-setup/upgrade/.env << EOF
 DOCKER_CONFIG_PATH=${HOME}/cht-local-setup/core-couch/
 COUCHDB_DATA=${HOME}/cht-local-setup/data/couch-data 
@@ -87,7 +87,7 @@ If you are using Mac you will not be able to find the "Proceed to localhost" lin
 
 This error can be fixed in step 5 below.
 
-If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/guides/docker-setup#port-conflicts" >}}) in the Docker Setup guide.
+If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/overview/docker-setup#port-conflicts" >}}) in the Docker Setup guide.
 
 This CHT instance is empty and has no data in it. While you're free to explore and add your own data, in step 3 below we will upload sample data. Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 

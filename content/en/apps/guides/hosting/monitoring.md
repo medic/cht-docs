@@ -6,7 +6,7 @@ description: >
     Important metrics to monitor and alert on
 ---
 
-{{% alert title="Note" %}} This guide applies to all production instances of the CHT including [self hosted]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) and [AWS hosted]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}). It also works with [app developer]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}) and [CHT core developer]({{< relref "apps/guides/hosting/core-developer" >}}) setups if you're looking to test how it works or develop monitoring tools.{{% /alert %}}
+{{% alert title="Note" %}} This guide applies to all production instances of the CHT including [self hosted]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) and [AWS hosted]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}). It also works with [app developer]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}) and [CHT core developer]({{< relref "contribute/code/core/dev-environment" >}}) setups if you're looking to test how it works or develop monitoring tools.{{% /alert %}}
 
 {{% alert title="Note" %}}
 These instructions apply to both 3.x and 4.x CHT monitoring
@@ -39,7 +39,7 @@ Be sure to monitor important items that the CHT depends on in order to be health
 
 ## Inside the CHT
 
-The [monitoring API](({{< relref "apps/reference/api#get-apiv2monitoring" >}})) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
+The [monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
 
 All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. 
 

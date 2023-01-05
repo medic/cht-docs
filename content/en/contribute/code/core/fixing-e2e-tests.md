@@ -4,6 +4,8 @@ linkTitle: "E2E Tests"
 weight: 12
 description: >
   Tips for fixing e2e tests
+aliases: >
+  /core/guides/fixing-e2e-tests
 ---
 
 # How to fix e2e tests
