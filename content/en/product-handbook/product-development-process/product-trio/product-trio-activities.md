@@ -11,9 +11,9 @@ The following items represent common activities that members of a Product Trio w
 The following activities should be performed in order, by all trio members:
 
 ### 1. Identify initiative to work on
-Inputs: CHT Roadmap
+**Inputs**: CHT Roadmap
 
-Outputs: New Google Drive folder, Slack message
+**Outputs**: New Google Drive folder, Slack message
 
 Consult the [CHT roadmap](https://roadmap.communityhealthtoolkit.org/) and work with Product Team leaders to align with strategies and initiatives.
 
@@ -28,13 +28,13 @@ Once the initiative has been established one of the trio members should:
 1. Create a new folder in Google Drive within the process folder, in the corresponding Focused Group folder for the initiative. Using the example on this page, this would result in a new "Interoperability" folder within the [Allies Team folder](https://drive.google.com/drive/folders/1nDem-vQ4esCoGOlUvIX0HAr45fkuURW2).
 2. Post a message in the Slack channel making it clear what the team is going after. For example, the following would be posted in the #product-allies channel: 
 
-> @channel We're starting work on the Interoperability initiative. Working documents can be found in the [Interoperability folder](https://www.notion.so/Identify-initiative-to-work-on-0eea9d398fd84eb78ad1131fd839b264) as we make progress.
+> @channel We're starting work on the Interoperability initiative. Working documents can be found in the *Interoperability* folder as we make progress.
 >
 
 ### 2. Set up interviews
-Inputs: None 
+**Inputs**: None 
 
-Outputs: Calendar invitations
+**Outputs**: Calendar invitations
 
 1. Arrange interviewees and schedule onto Google Calendar and Zoom for all trio members
 2. Decide who in the trio will be:
@@ -44,9 +44,9 @@ Outputs: Calendar invitations
 3. Create a Google Doc for shared notes called "[interviewee name] interview notes ([example](https://docs.google.com/document/d/1Sf_-ib2PojqlxNArMAwS0JsNgph_r2gQTxFCH2v5_fk/edit?usp=sharing)) in the initiative folder. These will be mostly raw, unprocessed notes so a simple doc with headings of teammate names and space for bullet points for each person is sufficient.
 
 ### 3. Conduct interviews
-Inputs: Interview Plan, Interview Notes Doc
+**Inputs**: Interview Plan, Interview Notes Doc
 
-Outputs: Interview Notes Doc
+**Outputs**: Interview Notes Document
 
 1. Join call
 2. Set up recording function. Depending on if it's telephone, video, etc this may change in how it's done, but it is important that it *is* done.
@@ -56,9 +56,9 @@ Outputs: Interview Notes Doc
 4. Immediately after the interview, each trio member should open the interview notes Google Doc and add bullet points under their name with their thoughts.
 
 ### 4. Create journey map
-Inputs: Interview Notes Document
+**Inputs**: Interview Notes Document
 
-Outputs: Journey Map
+**Outputs**: Journey Map
 
 1. Design trio member reads interview notes from all teammates.
 2. Design trio member creates new journey map Google Spreadsheet named "[initiative name] Journey Maps" in the initiative folder. 
@@ -67,19 +67,19 @@ Outputs: Journey Map
 3. Each different journey map is created as a named tab in the spreadsheet.
 
 ### 5. Identify opportunities
-Input: Interview snaphots
+**Input**: Interview snapshots
 
-Output: Opportunity Solution Tree (OST) updates
+**Output**: Opportunity Solution Tree (OST) updates
 
-1. The design trio member makes an initial pass at updating/creating the OST based on the interview data. This is not meant to be final though, and ideally this activity is done interactively as a trio. Our modification here is to accommodate for our distributed team and time zone availability.
+1. The design trio member makes an initial pass at updating/creating the Opportunity Solution Tree (OST) based on the interview data. This is not meant to be final though, and ideally this activity is done interactively as a trio. Our modification here is to accommodate for our distributed team and time zone availability.
 2. After the draft update has been made to the OST, the design trio member notifies others in the dedicated Slack channel:
 @channel The initial OST updates have been made. Please review and add/remove/comment so we can get to opportunity selection next.
 3. All trio members review the OST changes and make any comments or modifications using the Google Doc comment features.
 
 ### 6. Choose specific opportunity to go after
-Input: OST
+**Input**: OST
 
-Output: Opportunity Selection Document
+**Output**: Opportunity Selection Document
 
 1. One trio member should create a new Google Doc in the initiative folder in Google Drive named "[Iniative Name] Opportunity Selection". This document is intended as an asynchronous workspace, not any sort of official documentation.
 2. Each leaf node from the OST for the initiative should be added as a "Heading 2" in the document.
@@ -88,9 +88,9 @@ Output: Opportunity Selection Document
 5. The trio should discuss opportunities in the document until there is agreement (not just a majority "vote") on which opportunity to go after, considering the goal of having the biggest impact. Most thoughts should be in the document, but it's ok to work things out in Slack too.
 
 ### 7. Brainstorm competing solutions
-Input: Opportunity Selection Document
+**Input**: Opportunity Selection Document
 
-Output: Story Maps
+**Output**: Story Maps
 
 1. One trio member should create a single Google Presentation document named "[opportunity name] solution options" in the initiative folder that each trio member can add to. The [sample story map doc](https://docs.google.com/presentation/d/1DymsgeVXFRqpOOjuuZs9VdNXR5497VJvEbmMcO0XsbU/edit) can help with the format.
 2. Each trio member should *individually* think up solutions and convey them as story maps by adding new slides to the shared document.
@@ -98,9 +98,9 @@ Output: Story Maps
 4. Once each trio member completes their story maps, they should notify the team as such in the channel.
 
 ### 8. Choose the one solution to implement
-Input: Story maps
+**Input**: Story maps
 
-Output: Solution Selection Document
+**Output**: Solution Selection Document
 
 1. One trio member should create a new Google Doc in the initiative folder in Google Drive named "[Iniative Name] Solution Selection". This document is intended as an asynchronous workspace, not any sort of official documentation.
 2. Each solution from Story Map doc should be added as a "Heading 2" in the new document.
