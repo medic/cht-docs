@@ -1,0 +1,35 @@
+---
+title: "Key Concepts"
+linkTitle: "Key Concepts"
+weight: 1
+description: >
+  Baserow Key Concepts
+---
+
+There are a number of Baserow key concepts to understand before diving in. These are specific to how we’ve chosen to implement the repository.
+
+## Interview Subject
+
+This is the person that was interviewed or otherwise provided information/feedback. 
+
+**Example**: *Onesmus Ochieng*
+
+## Organization
+
+The company that the “Interview Subject” belongs to or associates with.
+
+**Example**: *MoH Kenya*
+
+## Samples
+
+These are links to, and metadata about, the “Evidence”. These are typically audio or video recordings stored on google drive, but can also be links to PDFs, forum posts, etc..
+
+**Example**: *Audio recording of a generative interview with Onesmus on 9-June-2021*
+
+## Nuggets
+
+An observation gathered through research or an atomic unit of research insight.
+
+**Example**: *Onesmus tapped on the X icon many times before the window closed. He seemed frustrated.*
+
+![Baserow Concepts](../images/concepts.png)

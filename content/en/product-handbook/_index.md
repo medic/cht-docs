@@ -1,7 +1,7 @@
 ---
 title: "Medic Product Team's Handbook"
 linkTitle: "Product Handbook at Medic"
-weight: 10
+weight: 9
 description: >
   Compilation of guidelines used at Medic for designing, building & maintaining tools
 ---
