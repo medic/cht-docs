@@ -172,6 +172,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 #### XPath expressions
 
 * Proper syntax in XPath expressions is more strictly enforced (e.g. parameters passed to the `concat` function must be separated by commas)
+    * The `+` operator can no longer be used to concatenate string values in an expression. Although previous versions of Enketo supported this functionality, it was never part of the [ODK Specification](https://docs.getodk.org/form-operators-functions/#math-operators).  The [`concat` function](https://docs.getodk.org/form-operators-functions/#concat) should be used instead. 
 * The behavior of expressions referencing _invalid XPath paths_ (both absolute and relative) has changed. Previously, an invalid XPath path (one pointing to a non-existent node) was evaluated as being equivalent to an empty string. So, `/invalid/xpath/path = ''` would evaluate to `true`. Now that expression will evaluate to `false` since invalid XPath paths are no longer considered equivalent to empty strings.
     * Validation has been added to `cht-conf` that can detect many invalid XPath paths and will provide an error when trying to upload a form.
 * The value returned for an _unanswered_ number question, when referenced from an XPath expression, has changed from `0` to `NaN`. This can affect existing logic comparing number values to `0`.
