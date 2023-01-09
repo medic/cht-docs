@@ -43,6 +43,9 @@ EOF
 ```
 
 ### 2. Prepare CHT-Core 3.x installation for upgrading
+To ensure no changes happen to your CouchDB data in your CHT 3.x server, stop the API by getting shell on your Medic OS container and calling `/boot/svc-stop medic-api`.
+
+
 To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that are required by 4.x.
 
 The migration tool provides a command which will download all 4.x views to your 3.x CouchDb, and initiate view indexing. `<desired CHT version>` is any version at or above `4.0.0`:
@@ -104,7 +107,7 @@ COUCHDB_UUID=<COUCHDB_UUID from step 3>
 COUCHDB_DATA=<absolute path to folder created in step 5.a>
 EOF
 ```
-c) Start 4.x CouchDb and wait until it is up.
+c) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors:
 ```shell
 cd ~/couchdb-single/ 
 docker-compose up -d
@@ -129,7 +132,7 @@ a) Download 4.x clustered CouchDb docker-compose file:
 ```shell
 mkdir -p ~/couchdb-cluster/ 
 cd ~/couchdb-cluster/ 
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb-clustered.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:<desired CHT version>/docker-compose/cht-couchdb-clustered.yml
 ```
 b) Create a data folder for every one of the CouchDb nodes.
 If you were going to a 3 cluster node, this would be:
