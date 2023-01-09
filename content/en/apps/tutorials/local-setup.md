@@ -189,7 +189,7 @@ To install a valid certificate, open a terminal in the `cht-core` directory. Ens
 ```shell
 ./scripts/add-local-ip-certs-to-docker-4.x.sh cht_nginx_1
 ```
-If you are using an older version of cht-core, ensure that the  `add-local-ip-certs-to-docker.sh` file is available under the scripts folder.
+If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/master/scripts/add-local-ip-certs-to-docker-4.x.sh). 
 
 To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.
 
