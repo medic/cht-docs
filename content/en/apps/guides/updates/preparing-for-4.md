@@ -152,7 +152,7 @@ To upgrade app, run `npm update cht-conf`
 
 ## cht-conf-test-harness
 
-The [cht-conf-test-harness](https://github.com/medic/cht-conf-test-harness) has [been upgraded](https://forum.communityhealthtoolkit.org/t/announcing-release-of-cht-conf-test-harness-3-0/2393) (in version 3.x of the cht-test-harness) to support testing CHT 4.x forms. When preparing to upgrade to CHT 4.x, it is important to use the [latest version](https://www.npmjs.com/package/cht-conf-test-harness?activeTab=versions) of the cht-conf-test-harness for automated tests.
+The [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness) has [been upgraded](https://forum.communityhealthtoolkit.org/t/announcing-release-of-cht-conf-test-harness-3-0/2393) (in version 3.x of the cht-conf-test-harness) to support testing CHT 4.x forms. When preparing to upgrade to CHT 4.x, it is important to use the [latest version](https://www.npmjs.com/package/cht-conf-test-harness?activeTab=versions) of the cht-conf-test-harness for automated testing.
 
 _(Note that the 3.x version of cht-conf-test-harness only supports CHT 4.x.  If you are still running CHT 3.x, you should continue using cht-conf-test-harness 2.x.)_
 
