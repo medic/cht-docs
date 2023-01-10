@@ -150,6 +150,14 @@ This will give a list of every user and the version they're running as of the cu
 
 To upgrade app, run `npm update cht-conf`
 
+## cht-conf-test-harness
+
+The [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness) has [been upgraded](https://forum.communityhealthtoolkit.org/t/announcing-release-of-cht-conf-test-harness-3-0/2393) (in version 3.x of the cht-conf-test-harness) to support testing CHT 4.x forms. When preparing to upgrade to CHT 4.x, it is important to use the [latest version](https://www.npmjs.com/package/cht-conf-test-harness?activeTab=versions) of the cht-conf-test-harness for automated testing.
+
+_(Note that the 3.x version of cht-conf-test-harness only supports CHT 4.x.  If you are still running CHT 3.x, you should continue using cht-conf-test-harness 2.x.)_
+
+The [breaking Enketo changes](#enketo) included in CHT 4.x are reflected in cht-conf-test-harness 3.x. Running your automated tests with the latest test harness can help identify potential form issues.
+
 ## Enketo
 
 CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/7256) used to render forms. This upgrade provides a ton of bug fixes and enhancements (particularly around ODK spec compliance) which will make the forms experience in the CHT even better! (For example, we now have proper support for `repeat`s with a dynamic length, including the various XPath functions necessary to take full advantage of this functionality!)  That being said, it does introduce a few changes which may affect the way your forms function (or even cause some forms to fail to load at all).
