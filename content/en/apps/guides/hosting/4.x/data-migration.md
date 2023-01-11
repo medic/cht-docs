@@ -107,7 +107,7 @@ COUCHDB_UUID=<COUCHDB_UUID from step 3>
 COUCHDB_DATA=<absolute path to folder created in step 5.a>
 EOF
 ```
-c) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors:
+c) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.
 ```shell
 cd ~/couchdb-single/ 
 docker-compose up -d
@@ -120,11 +120,11 @@ d) Change metadata to match the new CouchDb node
 cd ~/couchdb-migration/ 
 docker-compose run couch-migration move-node
 ```
-e) Verify that the migration was successful
+w) Run the `veryfy` command to check whether the migration was successful.
 ```shell
 docker-compose run couch-migration verify
 ```
-If all checks pass, proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-single/.env`.
+If all checks pass, you should see a message `Migration verification passed`. It is then safe to proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-single/.env`.
 
 #### Multi node
 
@@ -159,7 +159,7 @@ COUCHDB3_DATA=<absolute path to secondary2 folder created in step 5.a>
 EOF
 ```
 
-f) Start 4.x CouchDb and wait until it is up.
+f) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
 ```shell
 cd ~/couchdb-cluster/ 
 docker-compose up -d
@@ -243,8 +243,8 @@ i) Change metadata to match the new shard distribution. We declared `$shard_matr
 docker-compose run couch-migration move-shards $shard_matrix
 ``` 
 
-j) Verify that the migration was successful
+j) Run the `veryfy` command to check whether the migration was successful. 
 ```shell
 docker-compose run couch-migration verify
 ```
-If all checks pass, proceed with starting CHT-Core 4.x, using the environment variables indicated.  
+If all checks pass, you should see a message `Migration verification passed`. It is then safe to proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-cluster/.env`.
