@@ -93,7 +93,7 @@ a) Download 4.x single-node CouchDb docker-compose file:
 ```shell
 mkdir -p ~/couchdb-single/ 
 cd ~/couchdb-single/ 
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:<desired CHT version>/docker-compose/cht-couchdb.yml
 ```
 a) Make a copy of the 3.x CouchDb data folder from **step 4**.
 
