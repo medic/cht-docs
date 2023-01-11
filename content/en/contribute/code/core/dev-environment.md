@@ -20,7 +20,7 @@ These steps apply to both 3.x and 4.x CHT core development, unless stated otherw
 
 This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation. These instructions should work verbatim on Ubuntu 18-22 (see [Ubuntu 18 note](#ubuntu-1804)), but will need tweaks for MacOS (via `brew`, see [MacOS > 12.3 note](#macos--123)) or Windows (via WSL2).
 
-### Install NodeJS, npm, grunt and Docker
+### Install NodeJS, npm , grunt and Docker
 
 First, update your current Ubuntu packages and install some supporting tools via `apt`:
 
