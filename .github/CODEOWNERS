@@ -1,0 +1,5 @@
+# Default ownership to "Product Direction"
+/content/en/contribute/medic @medic/product-direction
+
+# Allow product management people to do their stuff in the main area for it
+/content/en/contribute/medic/product-development-process @medic/product-management
