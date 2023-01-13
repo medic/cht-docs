@@ -86,24 +86,32 @@ The `+` operator for string concatenation is deprecated and will be removed in a
 
 ## CHT XForm Widgets
 
-Some XForm widgets have been added or modified for use in the app:
-- **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages. (See also: [`to-bikram-sambat` xPath function]({{< ref "apps/reference/forms/app#to-bikram-sambat" >}}))
+Some XForm widgets have been added or modified for use in CHT applications. The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
 
-{{% alert %}}
-A handy tool for converting Gregorian dates to Bikram Sambat is available [here](https://docs.communityhealthtoolkit.org/bikram-sambat/).
-{{% /alert %}}
 
-- **Countdown Timer**: A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `note` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
-- **Contact Selector**: Select a contact, such as a person or place, and save their UUID (and/or additional data) in the report. See [the documentation]({{< ref "apps/guides/forms/form-inputs#contact-selector" >}}) for more information.
-- **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
-- **Display Base64 Image**: Available in +3.13.0. To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
-- **Android App Launcher**: Available in +3.13.0 and in Android device only. A widget to launch an Android app that receives and sends data back to an app form in CHT-Core. See more details in the [Android App Launcher](#android-app-launcher).
+### Bikram Sambat Datepicker
 
-The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
- 
+Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
+{{< see-also page="apps/reference/forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
+
+### Countdown Timer
+A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `note` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
+
+### Contact Selector
+A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "apps/guides/forms/form-inputs#contact-selector" >}}) for an example.
+
+### Rapid Diagnostic Test Capture
+Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
+
+### Display Base64 Image
+_Available in +3.13.0._
+
+To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
+
 ### Android App Launcher
+_Available in +3.13.0 and in Android device only._
 
-_Available in +3.13.0_
+A widget to launch an Android app that receives and sends data back to an app form in CHT-Core.
 
 This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. This widget requires the `READ_EXTERNAL_STORAGE` permission in CHT Android to work properly, to enable this permission add the following line in the branded app's `AndroidManifest.xml`.
 ```
@@ -228,7 +236,7 @@ The `z-score` function takes four parameters:
 - Second parameter for the table lookup, such as height. Value is compared against the `points` in the databae document.
 
 #### Example Use
-[This example XForm form](https://github.com/medic/cht-core/blob/master/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
+[This example XForm form](https://github.com/medic/cht-core/blob/3.13.x/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
 
 `z-score('weight-for-age', ../my_sex, ../my_age, ../my_weight)`
 

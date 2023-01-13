@@ -226,7 +226,7 @@ Tips and best practices are listed below:
 - Use consistent language and message design patterns to maintain a consistent experience and conversation. For example, if including a contact name at the beginning of a message, keep it that way for all messages including the localized messages.
 - Be mindful of when you save data back to the CHT. This should happen at major milestones in a flow, for example, end of a flow or before sending a payload to an API endpoint.
 - Use `globals`, shared values that can be referenced inflows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. This prevents re-entry of values in various components and allows flows to be shared easily in staging and production environments.
-- Beware of concurrency that is not supported in RapidPro. Concurrency refers to a situation whereby one contact participates in more than one flow at the same time. Whenever this happens, the former flow shall be interrupted in favor of the latter. This can result in respondents exiting flows before completion, which is a confusing user experience and results in poor survey data. A master flow that spins up individual flows may be useful to consider. 
+- Beware of concurrency that is not supported in RapidPro. Concurrency refers to a situation whereby one contact participates in more than one flow at the same time. Whenever this happens, the former flow shall be interrupted in favor of the latter. This can result in respondents exiting flows before completion, which is a confusing user experience and results in poor survey data. A main flow that spins up individual flows may be useful to consider. 
 
 ### Testing
 

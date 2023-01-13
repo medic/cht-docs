@@ -6,8 +6,8 @@ description: >
   How to secure android devices used in deployments
 relatedContent: >
   apps/guides/debugging/replicating-production-data-locally
-  apps/guides/hosting/ssl-cert-install
-  core/guides/android/publishing
+  apps/guides/hosting/3.x/ssl-cert-install
+  apps/guides/android/publishing
 
 ---
 
@@ -49,4 +49,4 @@ Android does not support disk encryption in versions earlier than 3.0
 
 Using mobile device management (MDM) software allows administrators to remotely manage mobile devices, which often includes the option to delete apps and data from lost or stolen mobile devices.
 
-{{< see-also page="core/guides/android/publishing" anchor="mobile-device-management" title="Publishing > Mobile Device Management" >}}
+{{< see-also page="apps/guides/android/publishing" anchor="mobile-device-management" title="Publishing > Mobile Device Management" >}}

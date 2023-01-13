@@ -99,6 +99,9 @@ The parts of the software that users see and interact with.
 ###### Global Positioning System (GPS)
 
 ###### Global Navigation Satellite System (GNSS)
+###### Global Unique Identifier (GUID)
+
+
 
 ## H
 
@@ -180,7 +183,7 @@ A minimum viable product is a product with enough features to attract early-adop
 
 ###### Mobile Device Management (MDM)
 
-More information on the [MDM page]({{< relref "core/guides/android/publishing#mobile-device-management" >}}).
+More information on the [MDM page]({{< relref "apps/guides/android/publishing#mobile-device-management" >}}).
 
 ###### Monitor and Evaluation (M&E)
 
