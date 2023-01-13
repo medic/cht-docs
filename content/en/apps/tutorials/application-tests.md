@@ -16,25 +16,31 @@ This tutorial takes you through testing the various configurable components of C
 
 ## Prerequisites
 
-* Complete these tutorials:
+Complete the following tutorials:
   - [Building App Forms]({{< ref "apps/tutorials/app-forms" >}})
   - [Building A Simple Task]({{< ref "apps/tutorials/tasks-1" >}})
   - [Building Target Widgets]({{< ref "apps/tutorials/targets" >}})
   - [Building Contact Summary]({{< ref "apps/tutorials/contact-summary" >}})
 
+## Importance of testing your application
+---
+Testing your CHT application is important as it ensures you are consistently maintaining your application and defining implementation requirements. Testing also helps the user make better architectural decisions, optimizes the forms, tasks and other components of the application. Although it may seem tedious, testing your application ensures that you quickly discover issues that are introduced with changes or newer commits.
 ## CHT Application Testing
-
 ---
 
-CHT applications are greatly configurable. Depending on the number and the complexity of the app components, it can take huge time and effort to test them manually. Some components, such as tasks, behave differently over time and are particularly difficult to test. As the project evolves, the configuration is often updated with new components, and changes are made to the existing components. After each change, you need to test not only the new components but also the old ones to make sure that the app works correctly. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
+CHT applications are greatly configurable. Depending on the number and complexity of app components, it can take a lot of time and effort to test the components  manually. Some components, such as tasks, behave differently over time and are particularly challenging to test. As the project evolves, the configuration is often updated with new components, and changes are made to the existing components. After each change, you need to test not only the new components but also the old ones to make sure that the app works as expected. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
 
-Using `cht-conf-test-harness` (also simply referred as `harness`), you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. You can use the [chai library](https://www.chaijs.com/) or other assertion libraries.
+Because it is complicated to test with a real application, `cht-conf-test-harness` (also simply referred as `harness`), provides a platform that simulates the CHT application instance.
 
-## Preparing
+Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. You can also use [chai library](https://www.chaijs.com/) or other assertion libraries.
 
-Writing tests for CHT apps requires a good understanding of the project workflows and requirements. It is encouraged that the tests be written as part of the app-building process. To test using the harness, there are a few things you need to set up first:
-1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}).
-2. If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
+## Preparation
+
+Writing tests for CHT apps requires a good understanding of the project workflows and requirements. To test using the harness, there are a few things you need to set up:
+1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}). 
+`cht-conf` which is short for CHT app configurer, is a command-line interface tool used to manage and configure your CHT apps. It is used for form conversion, form validation and other actions which can be found by running `cht --help`.
+2. Ensure your `package.json` file has the required libraries. A `package.json` file is used to record important metadata about a project and defines functional attributes that npm uses to install dependencies and run scripts. This file should be at the root of your project folder. 
+If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
     ```shell
     npm install --save cht-conf-test-harness chai mocha
     ```
@@ -53,15 +59,22 @@ Writing tests for CHT apps requires a good understanding of the project workflow
    |Command|Description|
    |---|---|
    |`npm run test`|Compiles the app settings, converts the forms, then runs the tests (preferred solution).
-   |`npm run unittest`|Only runs the tests.|
+   |`npm run unittest`|Only runs the unit tests.|
+
+   You can also run the test on a specific form by defining a test under the scripts section. For example to run the test on the death.spec.js file:
+      `death-form-unit-test: "mocha test/forms/death.spec.js --timeout 20000"`
+   Then run:
+      `npm run death-form-unit-test`
 
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. For convenience, here it is named as `test`.
-5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
+{{< figure src="test-folder-placement.png" link="test-folder-placement.png" class="col-9 col-lg-12" >}}
 
+5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
+{{< figure src="harness-json-file-placement.png" link="harness-json-file-placement.png" class="col-9 col-lg-12" >}}
 
 ## Writing a test for CHT App
 
-Start by adding a file where a group of related tests are written. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file.
+Start by adding a file where a group of related tests are written. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file. The commmon naming pattern for CHT applications test files is filename.spec.js. In Javascript testing, spec is short for specifications which refers to technical details of a given application, that must be fulfilled.
 
 Let's introduce some important sections from a typical test file:
 
@@ -72,8 +85,7 @@ const harness = new TestRunner();
 ```
 
 
-You get an instance of `harness` and the same instance is used throughout the test file.
-
+In the example above, we define values `TestRunner` and `harness` .You get an instance of `harness` and the same instance is used throughout the test file.
 You can also pass parameters to the `TestRunner()` when instantiating:
 ```js
 // For detailed console logs
@@ -94,7 +106,9 @@ describe('PNC form tests', () => {
   after(async () => { return await harness.stop(); });
 ```
 
-Any logic that you want to execute before and after each test can be placed in the `beforeEach()` and `afterEach()` hooks. Clear the state of the harness and set the date to a fixed value before each test run:
+Any logic that you want to execute before and after each test can be placed in the `beforeEach()` and `afterEach()` hooks. This section ensures that the harness is reset to default before or after each run. 
+
+In the example below, the logic is to clear the state of the harness and set the date to '2000-01-01' before each test run:
 ```js
   beforeEach(
     async () => {
@@ -114,9 +128,10 @@ If you want to learn more about these hooks, refer to this [Mocha resource](http
 
 Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "apps/tutorials/app-forms" >}}):
 
-```js highlight 
+{{< highlight js "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=assessment-form-test" >}}
   it('unit test confirming assessment with cough since 7 days', async () => {
-    // Load the assessment form and fill 'yes' on the first page and '7' on the second page
+    // Load the assessment form and fill 'yes' on the first page
+    // and '7' on the second page
     const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
     // Verify that the form successfully got submitted
@@ -131,15 +146,14 @@ Let's look at a more detailed example. <a name="assessment-form-test">Here</a> i
       }
     });
   });
-```
+{{< /highlight >}}
 
-In [line 3](#assessment-form-test-3) above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
+In [line 4](#assessment-form-test-3) above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
 
 Depending on the form design, the number of inputs to be filled can be large. The inputs are often repeated within a single test or across multiple tests with little or no variation. It is a good idea to keep them in a separate file and refer them from the tests as required. You can also introduce some variations in the inputs using function parameters.
 
 Example: `form-inputs.js`
-
-```js highlight 
+```js
 module.exports = {
   assessments: {
     no_cough: [
@@ -162,11 +176,12 @@ const result = await harness.fillForm('assessment', ...assessments.cough('3'));
 
 The test files are usually grouped in folders to read and run them easily. One way of grouping them is by creating folders for each of the components that can be tested: forms, contact summary, tasks, and targets.
 
-![alt_text](tests-dir.png "Test directory structure")
+{{< figure src="tests-dir.png" class="left col-6 col-lg-4">}}
 
 ### Testing Forms
-| What do you test?  |
-|--|--|
+##### What do you test?
+||
+|-|-|
 |Minimum:|Filling a form with the most common options should not result in any error.|
 |Ideal:|All input combinations and constraints are tested with the report fields.|
 
@@ -175,7 +190,7 @@ The test files are usually grouped in folders to read and run them easily. One w
 You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
 
 Example:
-```js highlight 
+```js
 const result = await harness.fillContactForm(
   'district_hospital',
   ['new_person', 'William Mars', '1990-08-06', '+1234567891', 'female'],
@@ -190,7 +205,7 @@ expect(result.contacts).excluding(['_id', 'meta']).to.deep.eq([
 ```
 
 When filling a form, you can also test the field constraints. The example below asserts that a form does not accept birth date in the future:
-```js highlight 
+```js
 it(`Throws validation error when birth date is in future`, async () => {
   const result = await harness.fillForm('delivery', ['yes', '2090-01-02']);
   expect(result.errors.length).to.equal(1);
@@ -200,15 +215,17 @@ it(`Throws validation error when birth date is in future`, async () => {
 });
 ```
 
-> Note: If a form triggers a task, some use cases of the form can be tested when testing the task later.
+
+{{% alert title="Note" %}}If a form triggers a task, some use cases of the form can be tested when testing the task later.{{% /alert %}}
 
 ---
 ### Testing Contact Summary
-
-| What do you test?  |
-|--|--|
+##### What do you test?
+||
+|-|-|
 |Minimum:|Fill a contact form and count the number of fields in the contact summary|
 |Ideal:|Targeted tests for calculations of context, fields, cards, etc.|
+
 
 Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#care-guides). All these can be tested with the test harness.
 
@@ -216,7 +233,7 @@ Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-co
 
 To test the contact summary fields added in the [previous tutorial]({{< ref "apps/tutorials/contact-summary#3-export-fields" >}}), use the following test case:
 
-```js highlight 
+```js
 const contactSummary = await harness.getContactSummary();
 expect(contactSummary.fields).to.have.property('length', 5);
 expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
@@ -233,8 +250,9 @@ Here, the contact summary being tested represents the contact that is being "act
 
 Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "apps/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
-```js highlight 
-// Load the assessment form and fill in 'yes' on the first page and '7' on the second page
+```js
+// Load the assessment form and fill in 'yes' on the first page 
+// and '7' on the second page
 const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
 // Verify that the form successfully got submitted
@@ -259,8 +277,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
 );
 ```
 If you  follow [this code sample]({{< ref "apps/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
-
-```js highlight 
+```js
 const summaryContext = harness.getContactSummary().context;
 expect(summaryContext).to.include({
   pregnant: true
@@ -269,9 +286,9 @@ expect(summaryContext).to.include({
 ---
 
 ### Testing Tasks
-
-| What do you test?  |
-|--|--|
+##### What do you test?
+||
+|-|-|
 |Minimum:|Trigger and resolve the task|
 |Ideal:|One test for each use scenario<br/>Code coverage for any arc with an external dependency<br/>Negative cases - confirm tasks don’t trigger|
 
@@ -363,7 +380,7 @@ So, to see the task, the contact should be created within the last 7 days. You c
 Note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use external website [epochconverter](https://www.epochconverter.com/) to convert the timestamp to and from a human readable date.
 
 After setting the harness defaults, you can now test the task:
-```js highlight 
+```js
 // Get the task by title
 const tasks = await harness.getTasks({title: 'First Assessment'});
 
@@ -382,7 +399,7 @@ expect(await harness.getTasks()).to.be.empty;
 
 If a task is triggered by a report, then fill in the app form to create report before test:
 
-```js highlight 
+```js
 it('followup schedule', async () => {
   const result = await harness.fillForm(...pncFollowups.registerBirth('2000-01-01', '2000-02-01'));
   expect(result.errors).to.be.empty;
@@ -418,9 +435,9 @@ You may [pass other data](https://docs.communityhealthtoolkit.org/apps/guides/ta
 ### Testing Targets
 
 Testing a target is relatively straightforward. Add a report or contact that increments a target, then check the target values.
-
-| What do you test?  |
-|--|--|
+##### What do you test?
+||
+|-|-|
 |Minimum:|Trigger incrementing of the target<br/>Ensure target doesn’t increment when it shouldn’t|
 |Ideal:|One test for each user scenario<br/>Ensure proper deduplication (particularly for those with emitCustom)|
 
@@ -428,7 +445,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#targets).
 
 To test the first two targets created in the [targets tutorial]({{< ref "apps/tutorials/targets" >}}), use this code:
-```js highlight 
+```js
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date
     harness.setNow('2000-01-30');
