@@ -1,7 +1,7 @@
 ---
 title: "Product Development Process"
 linkTitle: "Product Development Process"
-weight: 3
+weight: 2
 description: >
   What Product Development Process use follow at Medic
 ---
