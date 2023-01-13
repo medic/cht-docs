@@ -1,13 +1,13 @@
 ---
-title: "Medic Product Team's Handbook"
-linkTitle: "Product Handbook at Medic"
-weight: 9
+title: "At Medic"
+linkTitle: "At Medic"
+weight: 4
 description: >
-  Compilation of guidelines used at Medic for designing, building & maintaining tools
+  Compilation of guidelines and product development processes used at Medic 
 ---
 
 The Product team works with Medic teammates, partners, and health workers to design, build, and maintain several open source tools. We work with our partners along the entire software development life-cycle to understand problems, capture requirements, design and build modular software systems, and document everything along the way.
 
-This Handbook contains best practices and guidelines we've put together *so far* in the Product team at Medic.
+This section contains internal processes, best practices and guidelines we've put together *so far* in the Product team at Medic.
 
 **Also, improvements and ideas for this doc site are [always welcome]({{% ref "contribute/docs" %}})!**

@@ -3,7 +3,7 @@ title: "Product Trio Activities"
 linkTitle: "Product Trio Activities"
 weight: 1
 description: >
-  Common Activities of Product Trio 
+  Common Activities of the Product Trio 
 ---
 
 The following items represent common activities that members of a Product Trio will do in the Product Development Process. Depending on what is underway, some of these may happen each week, but many parts happen on-demand. For example, interviewing is an ongoing process of gathering information, but the group may not start building a new solution each week.
@@ -11,11 +11,11 @@ The following items represent common activities that members of a Product Trio w
 The following activities should be performed in order, by all trio members:
 
 ### 1. Identify initiative to work on
-**Inputs**: CHT Roadmap
+**Inputs**: [CHT Roadmap](https://github.com/orgs/medic/projects/112/views/4/)
 
 **Outputs**: New Google Drive folder, Slack message
 
-Consult the [CHT roadmap](https://roadmap.communityhealthtoolkit.org/) and work with Product Team leaders to align with strategies and initiatives.
+Consult the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/4/) and work with Product Team leaders to align with strategies and initiatives.
 
 This will be a discussion either via Slack or video call to discuss where to make an impact next. Agreeing on an initiative will scope where to look for opportunities to make the right impact at the right time. From there teammates should work towards an outcome of an improvement in line with the initiative.
 
@@ -49,7 +49,7 @@ Once the initiative has been established one of the trio members should:
 **Outputs**: Interview Notes Document
 
 1. Join call
-2. Set up recording function. Depending on if it's telephone, video, etc this may change in how it's done, but it is important that it *is* done.
+2. Set up recording function. Depending on if it's telephone or video etc this may change in how it's done, but it is important that it *is* done.
 3. Conduct interview. Some important notes for doing this:
     1. Our goal is to sample the user experience
     2. We want to know what the person does, not what they think or might do
@@ -73,11 +73,13 @@ Once the initiative has been established one of the trio members should:
 
 1. The design trio member makes an initial pass at updating/creating the Opportunity Solution Tree (OST) based on the interview data. This is not meant to be final though, and ideally this activity is done interactively as a trio. Our modification here is to accommodate for our distributed team and time zone availability.
 2. After the draft update has been made to the OST, the design trio member notifies others in the dedicated Slack channel:
-@channel The initial OST updates have been made. Please review and add/remove/comment so we can get to opportunity selection next.
+
+> @channel The initial OST updates have been made. Please review and add/remove/comment so we can get to opportunity selection next.
+>
 3. All trio members review the OST changes and make any comments or modifications using the Google Doc comment features.
 
 ### 6. Choose specific opportunity to go after
-**Input**: OST
+**Input**: Opportunity Solution Tree 
 
 **Output**: Opportunity Selection Document
 
@@ -87,7 +89,7 @@ Once the initiative has been established one of the trio members should:
 4. Each trio member should find the 1 opportunity they think the team should go after and tag themself under that heading (using the [Google Doc @name functionality](https://workspaceupdates.googleblog.com/2020/10/mention-a-user-directly-in-google-docs.html)).
 5. The trio should discuss opportunities in the document until there is agreement (not just a majority "vote") on which opportunity to go after, considering the goal of having the biggest impact. Most thoughts should be in the document, but it's ok to work things out in Slack too.
 
-### 7. Brainstorm competing solutions
+### 7. Discuss competing solutions
 **Input**: Opportunity Selection Document
 
 **Output**: Story Maps
@@ -118,4 +120,4 @@ Identify a partner who will use the thing that's being made and communicate with
 2. Share chart url with the team in the channel.
 
 ### 11. Advocate for and communicate successful solutions
-Reach out to the community team. You just did a bunch of great stuff and have a lot of "show your work" materials to craft a good story about what we're doing at Medic. For the right opportunity, the community team colleagues can find the most beneficial way to get a blog, forum, or other post out there. This can make a big difference in fund raising, which is what keeps Medic doing the work we're doing!
+Reach out to the community team. You just did a bunch of great stuff and have a lot of "show your work" materials to craft a good story about what we're doing at Medic. For the right opportunity, the community team colleagues can find the most beneficial way to get a blog, forum, or other post out there. This can make a big difference in fund raising, which is what keeps Medic doing the work we're doing.

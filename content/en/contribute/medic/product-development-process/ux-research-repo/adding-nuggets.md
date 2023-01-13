@@ -17,6 +17,4 @@ After conducting your interview, copy the video recording to Google Drive (more 
 3. Create a record for the **Sample** of the recording.
 4. Add research observations a.k.a. “**Nuggets”!** 
 
-Ready to try? See a demo 👇🏽 or check out the [Quick Links](/content/en/product-handbook/product-development-process/ux-research-repo/_index.md#quick-links) and give it a go!
-
-TODO add the link to the demo video
+Ready to try? See a [demo](https://www.loom.com/share/ca27c3967ec54973b42f44aa20e7e0f5) or check out the [Quick Links](/content/en/product-handbook/product-development-process/ux-research-repo/_index.md#quick-links) and give it a go!

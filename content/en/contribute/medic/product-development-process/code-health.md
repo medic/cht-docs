@@ -3,7 +3,7 @@ title: "Code Health"
 linkTitle: "Code Health"
 weight: 5
 description: >
-  How we keep our code and systems up-to-date
+  How to keep the code and systems up-to-date
 ---
 
 The Code Health process is intended to ensure we are being responsible about keeping our code and system up-to-date and “healthy” while we focus on work via OKRs.
@@ -24,15 +24,14 @@ In general, a Code Health week should feel like spending a week knocking out a b
 
 A: No. This is just a way to schedule who is doing Code Health for a given week. That software engineer works as described above. No waking up at night or being a special point-of-contact for emergencies.
 
-#### Q: Can anyone just stick tickets into that Code Health queue and get them coded?
+#### Q: Can anyone just add tickets into that Code Health queue and get them coded?
 A: No. This is a Product Team internal queue, and only for us to be responsible about the health of our code and system. The Senior Director of Technology is the primary owner of what is in this queue.
 
 #### Q: What should I do when not doing Code Health?
 A: Keep collaborating with your Focused Group to make progress on the OKRs.
 
-
 #### Q: What should I do with my Focused Group when I am on Code Health?
-A: Do all the regular activities except coding. Attend the weekly meeting, share your thoughts, keep things moving, etc. It just means that for getting things coded, you’ll pause the Focused Group stuff and pull from the Code Health queue for the week. Don’t just go missing for the week though! 🙂
+A: Do all the regular activities except coding. Attend the weekly meeting, share your thoughts, keep things moving, etc. It just means that for getting things coded, you’ll pause the Focused Group stuff and pull from the Code Health queue for the week.
 
 #### Q: What about Code Health issues that aren’t finished by the end of the week?
 A: It’s likely that issues will go through some Code Review or AT rounds after your Code Health week is over. Keep working on these issues until they are merged. If the change isn’t ready for Code Review at the end of the week then use your judgement about whether it’s worth finishing it off, or handing it off to the next Code Health assignee.

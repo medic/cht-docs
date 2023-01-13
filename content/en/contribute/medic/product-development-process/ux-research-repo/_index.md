@@ -3,10 +3,10 @@ title: "UX Research Repository"
 linkTitle: "UX Research Repository"
 weight: 4
 description: >
-  How we keep track of our product research
+  How to keep track of product research
 ---
 
-We are implementing [baserow.io](http://baserow.io) as a place to keep all our product research. Baserow is very similar to [airtable.com](http://airtable.com), [getgrist.com](http://getgrist.com), and Google Sheets.
+At Medic, we are implementing [baserow.io](http://baserow.io) as a place to keep all our product research. Baserow is very similar to [airtable.com](http://airtable.com), [getgrist.com](http://getgrist.com), and Google Sheets.
 
 Our UX Research Repository is based off of concepts from WeWork’s [Polaris](https://tsharon.medium.com/democratizing-ux-670b95fbc07f) project. You can see an example of the Polaris (which uses Airtable) [here](https://www.airtable.com/universe/expShuhNMi0Oc0xpb/polaris-ux-nuggets).
 

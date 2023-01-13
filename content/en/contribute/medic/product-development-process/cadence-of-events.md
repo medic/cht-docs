@@ -1,7 +1,7 @@
 ---
 title: "High-level Cadence of Events"
 linkTitle: "High-level Cadence of Events"
-weight: 3
+weight: 2
 description: >
     High-level Cadence of Events of the Product Team
 ---
