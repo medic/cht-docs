@@ -8,7 +8,7 @@ description: >
 
 The majority of research observations will come from interviews with CHT users. Here’s how you will enter these observations, called “Nuggets”, into the UX Research Repo.
 
-After conducting your interview, copy the video recording to Google Drive (more info [here](/content/en/product-handbook/product-development-process/ux-research-repo/about-interviews.md)). You’ll need to reference this later. 
+After conducting your interview, copy the video recording to Google Drive (more info [here](/contribute/medic/product-development-process/ux-research-repo/about-interviews)). You’ll need to reference this later. 
 
 ## High Level Steps
 
@@ -17,4 +17,4 @@ After conducting your interview, copy the video recording to Google Drive (more 
 3. Create a record for the **Sample** of the recording.
 4. Add research observations a.k.a. “**Nuggets”!** 
 
-Ready to try? See a [demo](https://www.loom.com/share/ca27c3967ec54973b42f44aa20e7e0f5) or check out the [Quick Links](/content/en/product-handbook/product-development-process/ux-research-repo/_index.md#quick-links) and give it a go!
+Ready to try? See a [demo](https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G/view?usp=share_link) or check out the [Quick Links](/contribute/medic/product-development-process/ux-research-repo#quick-links) and give it a go!
