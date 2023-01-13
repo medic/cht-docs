@@ -16,25 +16,31 @@ This tutorial takes you through testing the various configurable components of C
 
 ## Prerequisites
 
-* Complete these tutorials:
+Complete the following tutorials:
   - [Building App Forms]({{< ref "apps/tutorials/app-forms" >}})
   - [Building A Simple Task]({{< ref "apps/tutorials/tasks-1" >}})
   - [Building Target Widgets]({{< ref "apps/tutorials/targets" >}})
   - [Building Contact Summary]({{< ref "apps/tutorials/contact-summary" >}})
 
+## Importance of testing your application
+---
+Testing your CHT application is important as it ensures you are consistently maintaining your application and defining implementation requirements. Testing also helps the user make better architectural decisions, optimizes the forms, tasks and other components of the application. Although it may seem tedious, testing your application ensures that you quickly discover issues that are introduced with changes or newer commits.
 ## CHT Application Testing
-
 ---
 
-CHT applications are greatly configurable. Depending on the number and the complexity of the app components, it can take huge time and effort to test them manually. Some components, such as tasks, behave differently over time and are particularly difficult to test. As the project evolves, the configuration is often updated with new components, and changes are made to the existing components. After each change, you need to test not only the new components but also the old ones to make sure that the app works correctly. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
+CHT applications are greatly configurable. Depending on the number and complexity of app components, it can take a lot of time and effort to test the components  manually. Some components, such as tasks, behave differently over time and are particularly challenging to test. As the project evolves, the configuration is often updated with new components, and changes are made to the existing components. After each change, you need to test not only the new components but also the old ones to make sure that the app works as expected. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
 
-Using `cht-conf-test-harness` (also simply referred as `harness`), you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. You can use the [chai library](https://www.chaijs.com/) or other assertion libraries.
+Because it is complicated to test with a real application, `cht-conf-test-harness` (also simply referred as `harness`), provides a platform that simulates the CHT application instance.
 
-## Preparing
+Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. You can also use [chai library](https://www.chaijs.com/) or other assertion libraries.
 
-Writing tests for CHT apps requires a good understanding of the project workflows and requirements. It is encouraged that the tests be written as part of the app-building process. To test using the harness, there are a few things you need to set up first:
-1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}).
-2. If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
+## Preparation
+
+Writing tests for CHT apps requires a good understanding of the project workflows and requirements. To test using the harness, there are a few things you need to set up:
+1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "apps/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "apps/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}). 
+`cht-conf` which is short for CHT app configurer, is a command-line interface tool used to manage and configure your CHT apps. It is used for form conversion, form validation and other actions which can be found by running `cht --help`.
+2. Ensure your `package.json` file has the required libraries. A `package.json` file is used to record important metadata about a project and defines functional attributes that npm uses to install dependencies and run scripts. This file should be at the root of your project folder. 
+If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
     ```shell
     npm install --save cht-conf-test-harness chai mocha
     ```
@@ -50,18 +56,25 @@ Writing tests for CHT apps requires a good understanding of the project workflow
     ```
     After adding these scripts, you are able to run the tests by running one of these commands from the command-line:
 
-|Command|Description|
-|---|---|
-|`npm run test`|Compiles the app settings, converts the forms, then runs the tests. <sup>[recommended]|
-|`npm run unittest`|Only runs the tests.|
+   |Command|Description|
+   |---|---|
+   |`npm run test`|Compiles the app settings, converts the forms, then runs the tests (preferred solution).
+   |`npm run unittest`|Only runs the unit tests.|
+
+   You can also run the test on a specific form by defining a test under the scripts section. For example to run the test on the death.spec.js file:
+      `death-form-unit-test: "mocha test/forms/death.spec.js --timeout 20000"`
+   Then run:
+      `npm run death-form-unit-test`
 
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. For convenience, here it is named as `test`.
-5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
+{{< figure src="test-folder-placement.png" link="test-folder-placement.png" class="col-9 col-lg-12" >}}
 
+5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
+{{< figure src="harness-json-file-placement.png" link="harness-json-file-placement.png" class="col-9 col-lg-12" >}}
 
 ## Writing a test for CHT App
 
-Start by adding a file where a group of related tests are written. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file.
+Start by adding a file where a group of related tests are written. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file. The commmon naming pattern for CHT applications test files is filename.spec.js. In Javascript testing, spec is short for specifications which refers to technical details of a given application, that must be fulfilled.
 
 Let's introduce some important sections from a typical test file:
 
@@ -72,8 +85,7 @@ const harness = new TestRunner();
 ```
 
 
-You get an instance of `harness` and the same instance is used throughout the test file.
-
+In the example above, we define values `TestRunner` and `harness` .You get an instance of `harness` and the same instance is used throughout the test file.
 You can also pass parameters to the `TestRunner()` when instantiating:
 ```js
 // For detailed console logs
@@ -94,7 +106,9 @@ describe('PNC form tests', () => {
   after(async () => { return await harness.stop(); });
 ```
 
-Any logic that you want to execute before and after each test can be placed in the `beforeEach()` and `afterEach()` hooks. Clear the state of the harness and set the date to a fixed value before each test run:
+Any logic that you want to execute before and after each test can be placed in the `beforeEach()` and `afterEach()` hooks. This section ensures that the harness is reset to default before or after each run. 
+
+In the example below, the logic is to clear the state of the harness and set the date to '2000-01-01' before each test run:
 ```js
   beforeEach(
     async () => {
@@ -134,7 +148,7 @@ Let's look at a more detailed example. <a name="assessment-form-test">Here</a> i
   });
 {{< /highlight >}}
 
-In [line 3](#assessment-form-test-3) above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
+In [line 4](#assessment-form-test-3) above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
 
 Depending on the form design, the number of inputs to be filled can be large. The inputs are often repeated within a single test or across multiple tests with little or no variation. It is a good idea to keep them in a separate file and refer them from the tests as required. You can also introduce some variations in the inputs using function parameters.
 
