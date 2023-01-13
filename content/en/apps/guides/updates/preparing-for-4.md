@@ -150,6 +150,14 @@ This will give a list of every user and the version they're running as of the cu
 
 To upgrade app, run `npm update cht-conf`
 
+## cht-conf-test-harness
+
+The [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness) has [been upgraded](https://forum.communityhealthtoolkit.org/t/announcing-release-of-cht-conf-test-harness-3-0/2393) (in version 3.x of the cht-conf-test-harness) to support testing CHT 4.x forms. When preparing to upgrade to CHT 4.x, it is important to use the [latest version](https://www.npmjs.com/package/cht-conf-test-harness?activeTab=versions) of the cht-conf-test-harness for automated testing.
+
+_(Note that the 3.x version of cht-conf-test-harness only supports CHT 4.x.  If you are still running CHT 3.x, you should continue using cht-conf-test-harness 2.x.)_
+
+The [breaking Enketo changes](#enketo) included in CHT 4.x are reflected in cht-conf-test-harness 3.x. Running your automated tests with the latest test harness can help identify potential form issues.
+
 ## Enketo
 
 CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/7256) used to render forms. This upgrade provides a ton of bug fixes and enhancements (particularly around ODK spec compliance) which will make the forms experience in the CHT even better! (For example, we now have proper support for `repeat`s with a dynamic length, including the various XPath functions necessary to take full advantage of this functionality!)  That being said, it does introduce a few changes which may affect the way your forms function (or even cause some forms to fail to load at all).
@@ -172,6 +180,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 #### XPath expressions
 
 * Proper syntax in XPath expressions is more strictly enforced (e.g. parameters passed to the `concat` function must be separated by commas)
+    * The `+` operator can no longer be used to concatenate string values in an expression. Although previous versions of Enketo supported this functionality, it was never part of the [ODK Specification](https://docs.getodk.org/form-operators-functions/#math-operators).  The [`concat` function](https://docs.getodk.org/form-operators-functions/#concat) should be used instead. 
 * The behavior of expressions referencing _invalid XPath paths_ (both absolute and relative) has changed. Previously, an invalid XPath path (one pointing to a non-existent node) was evaluated as being equivalent to an empty string. So, `/invalid/xpath/path = ''` would evaluate to `true`. Now that expression will evaluate to `false` since invalid XPath paths are no longer considered equivalent to empty strings.
     * Validation has been added to `cht-conf` that can detect many invalid XPath paths and will provide an error when trying to upload a form.
 * The value returned for an _unanswered_ number question, when referenced from an XPath expression, has changed from `0` to `NaN`. This can affect existing logic comparing number values to `0`.
@@ -208,6 +217,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 
 * The answer to a non-relevant question [is not immediately cleared](https://github.com/medic/cht-core/issues/7674) when the question becomes non-relevant and is still provided to XPath expressions that reference the question. When the form is submitted, the non-relevant answers will be cleared and any dependent XPath expressions will be re-evaluated.
     * This behavior applies both to questions that were answered and later became non-relevant as well as to questions which have configured default values.
+* In `3.x` versions of the CHT you could simulate a _bulleted list_ in a form label (e.g. a `note`) by using `-` or `*`. Now, in `4.x`, the bullets are no longer properly displayed in the label due to [this bug](https://github.com/medic/cht-core/issues/8002). 
 
 #### Community cht-upgrade-helper
 

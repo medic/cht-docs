@@ -28,12 +28,30 @@ A good workflow would be to work locally, pushing to a remote branch as you make
 
 The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
+#### Suggestions
+
+When doing a code review aim to be extremely clear. This helps things move quickly and avoids lost time in misunderstandings. One especially useful GitHub feature for doing this is suggesting a change. Consider the following example code:
+
+```javascript
+contacts.map( (c) => { return c.id });
+``` 
+
+The function body can be abbreviated. In a review you can leave a comment asking for the change, which would likely involve writing up a comment trying to have the author change it to the following:
+
+```javascript
+contacts.map( c => c.id);
+``` 
+That means leaving a comment, having the author read and understand it, and then making and pushing up a change, hopefully matching your review expectations.
+
+To be clear and save all that back-and-forth though, you can make a code suggestion directly in your review, which will let the author simply click a button to accept the change (and have it automatically applied as a commit by GitHub).
+
+![GitHub review suggest change](gh-review-suggestion.png)
+
 #### Timeliness
 
 Timely code reviews are important to getting improvements into the hands of users faster and allowing developers to stay focused on the task at hand and see it through to production.
 
 Code reviews should be completed within 24 hours of assignment (excluding weekends and holidays). In some cases, a code review may not be possible if a larger discussion needs to be had for design choices or solution objectives, but even in cases like those, some feedback is still to be expected within 24 hours.
-
 
 ### Updating The Issue With What You Actually Did
 
