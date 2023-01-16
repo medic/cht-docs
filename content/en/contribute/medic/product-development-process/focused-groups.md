@@ -1,9 +1,9 @@
 ---
-title: "Focused Groups"
-linkTitle: "Focused Groups"
+title: "Focused Working Groups"
+linkTitle: "Focused Working Groups"
 weight: 1
 description: >
-  How Product Team is structured to better serve the community
+  Cross-functional teams designed to better serve the community
 ---
 
 The Product team as a whole is focused on digital health tools helping to achieve Universal Health Coverage, and care reaching everyone when and where they need it. The team is made up of 4 different groups, with each group focusing on outcomes to serve different people.
