@@ -14,7 +14,7 @@ The Baserow interface can be seen below. The items in the list on the left are �
 
 ![The Baserow interface 👆🏼](images/baserow.png)
 
-To gain access to our UX Research Repo, please reach out in the #product-owner-chatter Slack channel.
+To gain access to the UX Research Repo, please reach out in the #product-owner-chatter Slack channel.
 
 ## Quick Links
 
