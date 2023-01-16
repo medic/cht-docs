@@ -3,7 +3,7 @@ title: "Product Development Process"
 linkTitle: "Product Development Process"
 weight: 2
 description: >
-  What Product Development Process use follow at Medic
+  Explanation of the Continuous Discovery process used for product development at Medic
 ---
 
 The Medic Product Team operates in a way that is most commonly referred to as [Continuous Discovery](/contribute/medic/product-development-process/continuous-discovery-overview). That process helps us to focus on the impact of our work and keep teammates well-aligned with the people who use the CHT.
