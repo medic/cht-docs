@@ -15,4 +15,5 @@ description: >
 |Director of Product Development|Directs the processes and teammates to build and maintain the Community Health Toolkit|
 
 ### Focused Working Groups
-[Focused Working Groups](/contribute/medic/product-development-process/focused-groups)
+The Product Team is made up of 4 different [Focused Working Groups](/contribute/medic/product-development-process/focused-groups), with each group focusing on outcomes to serve different people.
+
