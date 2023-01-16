@@ -8,7 +8,7 @@ description: >
 
 The Code Health process is intended to ensure we are being responsible about keeping our code and system up-to-date and “healthy” while we focus on work via OKRs.
 
-The process is done by software engineers and works with a weekly rotation. It is also important to note that this is *not an “on call” system*. It is just about stepping out of the regular outcome-driven Focused Group work to get some other small tickets taken care of.
+The process is done by software engineers and works with a weekly rotation. It is also important to note that this is *not an “on call” system*. It is just about stepping out of the regular outcome-driven Focused Working Group work to get some other small tickets taken care of.
 
 In general, a Code Health week should feel like spending a week knocking out a bunch of little satisfying things.
 

@@ -13,7 +13,7 @@ description: >
 
 ## Quarterly
 
-- Choose outcome(s) for Focused Groups to work towards
+- Choose outcome(s) for Focused Working Groups to work towards
 - Outcome kickoff
 
 ## Monthly
