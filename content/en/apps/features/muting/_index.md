@@ -17,7 +17,7 @@ With muting, notifications are silenced for the entire family or place rather th
 
 Unmuting enables the CHW to resume services for a person if they move back to the area or if they accept services provided by the CHW.It also enables nurses to take an action on a person who visits the clinic even if they belong to a family that is muted.
 
-### How it is done
+### Mute a Contact
 
 To mute a person or a family, navigate to their profile, open the action window, and select the “Mute” form. The form can also be accessed from the Reports tab by choosing a contact to mute from a dropdown list. 
 
