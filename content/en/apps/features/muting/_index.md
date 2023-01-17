@@ -9,7 +9,6 @@ relatedContent: >
 ---
 
 
-{{% /pageinfo %}}
 
 ### Scenarios where it is applicable
 
