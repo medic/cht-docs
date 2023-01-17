@@ -14,7 +14,7 @@ In general, a Code Health week should feel like spending a week knocking out a b
 
 ### An example of how this works in practice
 
-A Focused Group is building a feature aligned with a quarterly OKR. They get the feature shipped and may need to wait a week to see results from CHWs. The PM/PO looks to a list of tickets for code health and quickly reviews them with the team. Software developers and QA engineers work on those tickets immediately, tracking progress on the [GitHub board](https://github.com/orgs/medic/projects/134/views/1) like anything else.
+A Focused Working Group is building a feature aligned with a quarterly OKR. When the feature is shipped, you may need to wait a week to see results from CHWs. The PM/PO goes through a list of tickets for code health and reviews them with the team. After aligning with the PM/PO, software developers and QA engineers start working on those tickets, tracking progress on the [GitHub board](https://github.com/orgs/medic/projects/134/views/1).
 
 During this time almost all attention, from all engineers on the Focused Group, is on heads-down coding on code health tasks. There may still be some other tasks going on like user interviews or initial measurements of the newly deployed feature.
 
