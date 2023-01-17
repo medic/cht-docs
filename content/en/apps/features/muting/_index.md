@@ -40,7 +40,8 @@ To unmute a Contact, CHWs typically submit an "Unmute" form. This will remove th
 
 ### Configurability
 
-Through [configuration]({{< relref "apps/reference/app-settings/transitions" >}}), you can specify which form mutes and unmutes, form availability, form questions and options, manager verification and labels used for display and warning messages.
+While it's most common to have dedicated mute and unmute forms, any form can be set up to mute or unmute a Contact. It's also possible to set up verification flows for muting whereby mute/unmute requires a Supervisor to verify before the mute/unmute happens. And like the rest of the CHT, all text is customizable.  
+
 
 ### Muting vs Death Reporting
 
