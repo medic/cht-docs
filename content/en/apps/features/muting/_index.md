@@ -2,7 +2,7 @@
 title: Muting
 weight: 10
 description: >
-   Feature that enables silencing of families and individuals
+   Temporarily silence tasks and SMS schedules
 keywords: muting
 relatedContent: >
   apps/reference/app-settings/transitions/#muting
