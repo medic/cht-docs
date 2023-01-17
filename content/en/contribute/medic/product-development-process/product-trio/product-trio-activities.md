@@ -25,7 +25,7 @@ At this stage it is important to reach a consensus of what the desired outcome i
 
 Once the initiative has been established one of the trio members should:
 
-1. Create a new folder in Google Drive within the process folder, in the corresponding Focused Group folder for the initiative. Using the example on this page, this would result in a new "Interoperability" folder within the [Allies Team folder](https://drive.google.com/drive/folders/1nDem-vQ4esCoGOlUvIX0HAr45fkuURW2).
+1. Create a new folder in Google Drive within the process folder, in the corresponding Focused Working Group folder for the initiative. Using the example on this page, this would result in a new "Interoperability" folder within the [Allies Team folder](https://drive.google.com/drive/folders/1nDem-vQ4esCoGOlUvIX0HAr45fkuURW2).
 2. Post a message in the Slack channel making it clear what the team is going after. For example, the following would be posted in the #product-allies channel: 
 
 > @channel We're starting work on the Interoperability initiative. Working documents can be found in the *Interoperability* folder as we make progress.
