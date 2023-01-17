@@ -34,7 +34,9 @@ Some changes are observed in the UI when a family or a person is muted to make t
 
 For the cases where families are muted, each of the family members in the people card are also styled as muted, (grey icons and “Muted” labels).A user may add a new person to a muted household. If they do, and choose to leave the family muted, the new person will be automatically muted once created. When a family is unmuted, all individuals in the family will be unmuted at the same time. 
 
-Unmuting an individual person in a muted family works essentially the same way, the action unmutes the entire family because unmuted individuals  are not allowed underneath a muted household.
+### Unmute a Contact
+
+To unmute a Contact, CHWs typically submit an "Unmute" form. This will remove the "Mute" styling, resume notifications, and also unmute all places above them in the hierarchy.  For example, if a family member is unmuted, the entire family will automatically be unmuted since it is not possible to have an unmuted person in a muted family. 
 
 ### Configuration
 
