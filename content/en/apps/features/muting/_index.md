@@ -10,7 +10,6 @@ relatedContent: >
 
 
 
-### Scenarios where it is applicable
 
 Muting can be done when a particular family or person moves from an area or refuses services provided by a CHW. This ensures that tasks related to a person or place that is muted, are not generated.
 
