@@ -11,7 +11,7 @@ relatedContent: >
 
 
 
-Muting can be done when a particular family or person moves from an area or refuses services provided by a CHW. This ensures that tasks related to a person or place that is muted, are not generated.
+Muting is a way for CHWs to temporarily silence notifications about Contacts (people and places) and is commonly used when a person or family has temporarily relocated or refused services. When a Contact is muted, they will appear differently on the People tab and CHWs will no longer receive tasks or SMS about them.  
 
 With muting, notifications are silenced for the entire family or place rather than silencing all schedules individually.
 
