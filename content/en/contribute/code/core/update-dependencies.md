@@ -22,7 +22,8 @@ Every minor release we update dependencies to get the latest fixes and improveme
 ## Steps
 
 1. Checkout and pull the latest default branch - get the latest code
-2. `git checkout -b "<issue>-update-dendencies"` - make a branch
+2. Make a branch: `git checkout -b "<issue>-update-dendencies"`
+3. Take a look at the current [list of upgrade related issues](https://github.com/medic/cht-core/issues?q=is%3Aissue+is%3Aopen+label%3A%22Upgrade+dependencies%22), so you don't rediscover known problems. 
 
 Then for each folder go through these steps.
 
@@ -51,11 +52,43 @@ Then for each folder go through these steps.
   ```
 
 - Make sure the version of `api/enketo-xslt` is the same as `webapp/enketo-core/enketo-transformer/enketo-xslt`.
-- Don't update `lodash/core` since 4.17.21 is failing, this is an [open issue](https://github.com/lodash/lodash/issues/4904) in their repository.
-- Don't update `helmet` since it is not supporting NodeJS 8 anymore. Its minimum is NodeJS 10+.
-- If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue to upgrade just that dependency. Don't hold up all the other upgrades you've made.
+- Don't update `lodash` to version `4.17.21`, there's a runtime issue when importing `lodash/core` in Admin app:
+  ```
+  UnhandledPromiseRejectionWarning: TypeError: stack.get is not a function
+    at equalObjects (/home/user/app/node_modules/lodash/core.js:1303:28)
+    at baseIsEqualDeep (/home/user/app/node_modules/lodash/core.js:729:18)
+    at baseIsEqual (/home/user/app/node_modules/lodash/core.js:664:12)
+    at Function.isEqual (/home/user/app/node_modules/lodash/core.js:2660:12)
+    at estimateCurrentScheduleDimLevel.then.dimLevel (/home/user/app/src/Devices/SmartLight/NASLightDevice.ts:642:24)
+  ```
+  In their code, the issue is here:
+  ```
+  if (!_.isEqual(oldProfileConfig, newProfileConfig)) {
+    this.setProfileConfig(newProfileConfig);
+  }
+  ```
+  There was an [open issue](https://github.com/lodash/lodash/issues/4904) in their repository but got deleted (reason unknown). There's [another reported issue](https://github.com/lodash/lodash/issues/4945) explaining the problem, however it hasn't been resolved yet.
+  The stable version for now is: `4.17.19`
+- If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue with `Upgrade dependencies` tag, to upgrade just that dependency. Don't hold up all the other upgrades you've made.
 
 ## Troubleshooting
+
+### Angular exception
+
+When upgrading Webapp's Angular, you might get the following exception:
+```
+Running "exec:build-webapp" (exec) task
+________________________________________
+An unhandled exception occured: Class extends value undefined is not a constructor or null
+see "/private/var/folders/tx/lskdwi/T/ng-23kdi/angular-errors.log" for further details.
+>> Exited with code: 127
+```
+This error is thrown by the Webpack's subresource integrity. It's likely that `@angular/compiler`, `@angular-devkit/build-angular` or `@angular-builders/custom-webpack` aren't resolved properly in the `package-lock.json`.
+
+To fix it, uninstall these 3 dependencies and then install them again in this order:
+1. `@angular/compiler`
+2. `@angular-devkit/build-angular`
+3. `@angular-builders/custom-webpack`
 
 ### npm errno -17
 
