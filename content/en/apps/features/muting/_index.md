@@ -8,7 +8,6 @@ relatedContent: >
   apps/reference/app-settings/transitions/#muting
 ---
 
-Muting is a way of temporarily quieting a person or a place.This is accomplished by submitting a form.This form is accessible from the people or place profiles on the People page or from the Reports page.
 
 {{% /pageinfo %}}
 
