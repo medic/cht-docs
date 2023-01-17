@@ -1,9 +1,9 @@
 ---
-title: "High-level Cadence of Events"
-linkTitle: "High-level Cadence of Events"
+title: "Schedule of Activities"
+linkTitle: "Schedule of Activities"
 weight: 2
 description: >
-    High-level Cadence of Events of the Product Team
+    Schedule of activities for Focused Working Groups
 ---
 
 ## Annually
@@ -13,7 +13,7 @@ description: >
 
 ## Quarterly
 
-- Choose outcome(s) for Focused Groups to work towards
+- Choose outcome(s) for Focused Working Groups to work towards
 - Outcome kickoff
 
 ## Monthly
