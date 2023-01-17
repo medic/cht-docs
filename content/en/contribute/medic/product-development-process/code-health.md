@@ -8,7 +8,7 @@ description: >
 
 The Code Health process is intended to ensure we are being responsible about keeping our code and system up-to-date and “healthy” while we focus on work via OKRs.
 
-Work on code health is done via tickets in GitHub. There are plenty of times where something is small and an engineer can just go improve/fix something and get back to other tasks. That works great for smaller things, but may lead to neglecting more complex tasks. To ensure we don't neglect important, but inconvenient, code health tasks these will be scheduled by each PM/PO on each Focused Group. This allows the Focused Group to stay on track with their regular work, but then take on code health tasks when the time is right. It is important for each PM/PO to work with leadership to make time for this to happen.
+Work on code health is done via tickets in GitHub. There are plenty of times when engineers can fix or improve code before getting back to other tasks. That works great for minor fixes but may lead to postponing complex tasks. To ensure we don't neglect important, but more complex, code health tasks these will be scheduled by each PM/PO on each Focused Working Group. This allows the Focused Working Group to stay on track with their regular work, but then take on code health tasks when the time is right. It is important for each PM/PO to work with leadership to make time for this to happen.
 
 In general, a Code Health week should feel like spending a week knocking out a bunch of little satisfying things.
 
