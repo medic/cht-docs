@@ -38,7 +38,7 @@ For the cases where families are muted, each of the family members in the people
 
 To unmute a Contact, CHWs typically submit an "Unmute" form. This will remove the "Mute" styling, resume notifications, and also unmute all places above them in the hierarchy.  For example, if a family member is unmuted, the entire family will automatically be unmuted since it is not possible to have an unmuted person in a muted family. 
 
-### Configuration
+### Configurability
 
 Through [configuration]({{< relref "apps/reference/app-settings/transitions" >}}), you can specify which form mutes and unmutes, form availability, form questions and options, manager verification and labels used for display and warning messages.
 
