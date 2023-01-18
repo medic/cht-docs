@@ -30,14 +30,14 @@ Apps built with the Core Framework have a “review” feature that allows manag
 
 ## Filters & Search
 
-The toolbar at the top of the page includes a search-filter and a search-bar to help users narrow down the list or refine their search and find a specific report. These filters are configurable and could include:
+The toolbar at the top of the page includes filters and search to help users narrow down the list or search for and find a specific report. These filters are configurable and could include:
 
 - **Report Types** (e.g. pregnancy registration, visits, delivery report)
 - **Places** (e.g. districts, health centers or CHW areas)
 - **Date of Submission**
 - **Status** (e.g. not reviewed, has errors, correct, valid SMS, invalid SMS)
 
-Using the search bar, you can search for reports by patient name, phone number, ID number and more. To reset the filters and view the full list of forms, click on "Reset" located in the filter sidebar.
+Using the search box, you can search for reports by patient name, phone number, ID number and more. To reset the filters and view the full list of forms, click on "Reset" located in the filter sidebar.
 
 {{< figure src="reports-search.png" link="reports-search.png" class="left col-3 col-lg-3" >}}
 
