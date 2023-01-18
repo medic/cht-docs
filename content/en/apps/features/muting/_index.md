@@ -1,15 +1,12 @@
 ---
 title: Muting
-weight: 10
+weight: 9
 description: >
    Temporarily silence tasks and SMS schedules
 keywords: muting
 relatedContent: >
   apps/reference/app-settings/transitions/#muting
 ---
-
-
-
 
 Muting is a way for CHWs to temporarily silence notifications about Contacts (people and places) and is commonly used when a person or family has temporarily relocated or refused services. When a Contact is muted, they will appear differently on the People tab and CHWs will no longer receive tasks or SMS about them.  
 
@@ -47,13 +44,13 @@ While it's most common to have dedicated mute and unmute forms, any form can be 
 
 A project may support both death reporting and muting - they are not mutually exclusive. Death reporting moves the deceased person to a different part of the family members list and does not allow actions. Muting keeps the person in the family members list, allows actions and disables schedules.
 
-|   Death reporting                                                                                        | Muting                                                                                         |
+|   Death reporting                                                                                        |     Muting                                                                                         |
 | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| <p></p><ul><li>Permanent state</li></ul>                                                                 | <ul><li>Temporary state</li></ul>                                                              |
-| <p></p><ul><li>Only allowed at the individual level</li></ul>                                            | <ul><li>Place, family, or individual level</li></ul>                                           |
-| <p></p><ul><li>Removes schedules</li></ul>                                                               | <ul><li>“Quiets” notifications for schedules</li></ul>                                         |
-| <p></p><ul><li>A deceased individual is removed from the family list</li></ul>                           | <ul><li>A muted individual is not removed from the family list<br></li></ul>                   |
-| <p></p><ul><li><p>No new actions can be performed</p><p>except for one - reverse the death</p></li></ul> | <ul><li>New actions may be performed, but no tasks or notifications will be sent<br></li></ul> |
+| <p></p><ul><li>Permanent state</li></ul>                                                                 | <p></p><ul><li>Temporary state</li></ul>                                                              |
+| <p></p><ul><li>Only allowed at the individual level</li></ul>                                            | <p></p><ul><li>Place, family, or individual level</li></ul>                                           |
+| <p></p><ul><li>Removes schedules</li></ul>                                                               | <p></p><ul><li>“Quiets” notifications for schedules</li></ul>                                         |
+| <p></p><ul><li>A deceased individual is removed from the family list</li></ul>                           | <p></p><ul><li>A muted individual is not removed from the family list<br></li></ul>                   |
+| <p></p><ul><li><p>No new actions can be performed</p><p>except for one - reverse the death</p></li></ul> | <p></p><ul><li>New actions may be performed, but no tasks or notifications will be sent<br></li></ul> |
 | <p></p><ul><li>Manager confirmation configurable</li></ul>                                               | <p></p><ul><li>Manager confirmation configurable</li></ul>                                     |
 
 
