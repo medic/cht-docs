@@ -65,6 +65,10 @@ If your `package.json` file does not already have them, add `cht-conf-test-harne
       `death-form-unit-test: "mocha test/forms/death.spec.js --timeout 20000"`
    Then run:
       `npm run death-form-unit-test`
+   |Command|Description|
+   |---|---|
+   |`npm run test`|Compiles the app settings, converts the forms, then runs the tests (preferred solution).
+   |`npm run unittest`|Only runs the tests.|
 
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. For convenience, here it is named as `test`.
 {{< figure src="test-folder-placement.png" link="test-folder-placement.png" class="col-9 col-lg-12" >}}
@@ -128,10 +132,9 @@ If you want to learn more about these hooks, refer to this [Mocha resource](http
 
 Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "apps/tutorials/app-forms" >}}):
 
-{{< highlight js "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=assessment-form-test" >}}
+```js highlight 
   it('unit test confirming assessment with cough since 7 days', async () => {
-    // Load the assessment form and fill 'yes' on the first page
-    // and '7' on the second page
+    // Load the assessment form and fill 'yes' on the first page and '7' on the second page
     const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
     // Verify that the form successfully got submitted
@@ -146,14 +149,15 @@ Let's look at a more detailed example. <a name="assessment-form-test">Here</a> i
       }
     });
   });
-{{< /highlight >}}
+```
 
 In [line 4](#assessment-form-test-3) above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
 
 Depending on the form design, the number of inputs to be filled can be large. The inputs are often repeated within a single test or across multiple tests with little or no variation. It is a good idea to keep them in a separate file and refer them from the tests as required. You can also introduce some variations in the inputs using function parameters.
 
 Example: `form-inputs.js`
-```js
+
+```js highlight 
 module.exports = {
   assessments: {
     no_cough: [
@@ -176,12 +180,11 @@ const result = await harness.fillForm('assessment', ...assessments.cough('3'));
 
 The test files are usually grouped in folders to read and run them easily. One way of grouping them is by creating folders for each of the components that can be tested: forms, contact summary, tasks, and targets.
 
-{{< figure src="tests-dir.png" class="left col-6 col-lg-4">}}
+![alt_text](tests-dir.png "Test directory structure")
 
 ### Testing Forms
-##### What do you test?
-||
-|-|-|
+| What do you test?  |
+|--|--|
 |Minimum:|Filling a form with the most common options should not result in any error.|
 |Ideal:|All input combinations and constraints are tested with the report fields.|
 
@@ -190,7 +193,7 @@ The test files are usually grouped in folders to read and run them easily. One w
 You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
 
 Example:
-```js
+```js highlight 
 const result = await harness.fillContactForm(
   'district_hospital',
   ['new_person', 'William Mars', '1990-08-06', '+1234567891', 'female'],
@@ -205,7 +208,7 @@ expect(result.contacts).excluding(['_id', 'meta']).to.deep.eq([
 ```
 
 When filling a form, you can also test the field constraints. The example below asserts that a form does not accept birth date in the future:
-```js
+```js highlight 
 it(`Throws validation error when birth date is in future`, async () => {
   const result = await harness.fillForm('delivery', ['yes', '2090-01-02']);
   expect(result.errors.length).to.equal(1);
@@ -215,17 +218,15 @@ it(`Throws validation error when birth date is in future`, async () => {
 });
 ```
 
-
-{{% alert title="Note" %}}If a form triggers a task, some use cases of the form can be tested when testing the task later.{{% /alert %}}
+> Note: If a form triggers a task, some use cases of the form can be tested when testing the task later.
 
 ---
 ### Testing Contact Summary
-##### What do you test?
-||
-|-|-|
+
+| What do you test?  |
+|--|--|
 |Minimum:|Fill a contact form and count the number of fields in the contact summary|
 |Ideal:|Targeted tests for calculations of context, fields, cards, etc.|
-
 
 Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#care-guides). All these can be tested with the test harness.
 
@@ -233,7 +234,7 @@ Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-co
 
 To test the contact summary fields added in the [previous tutorial]({{< ref "apps/tutorials/contact-summary#3-export-fields" >}}), use the following test case:
 
-```js
+```js highlight 
 const contactSummary = await harness.getContactSummary();
 expect(contactSummary.fields).to.have.property('length', 5);
 expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
@@ -250,9 +251,8 @@ Here, the contact summary being tested represents the contact that is being "act
 
 Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "apps/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
-```js
-// Load the assessment form and fill in 'yes' on the first page 
-// and '7' on the second page
+```js highlight 
+// Load the assessment form and fill in 'yes' on the first page and '7' on the second page
 const result = await harness.fillForm('assessment', ['yes'], ['7']);
 
 // Verify that the form successfully got submitted
@@ -277,7 +277,8 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
 );
 ```
 If you  follow [this code sample]({{< ref "apps/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
-```js
+
+```js highlight 
 const summaryContext = harness.getContactSummary().context;
 expect(summaryContext).to.include({
   pregnant: true
@@ -286,9 +287,9 @@ expect(summaryContext).to.include({
 ---
 
 ### Testing Tasks
-##### What do you test?
-||
-|-|-|
+
+| What do you test?  |
+|--|--|
 |Minimum:|Trigger and resolve the task|
 |Ideal:|One test for each use scenario<br/>Code coverage for any arc with an external dependency<br/>Negative cases - confirm tasks don’t trigger|
 
@@ -380,7 +381,7 @@ So, to see the task, the contact should be created within the last 7 days. You c
 Note that the `reported_date` above stores the epoch timestamp in milliseconds when the document was first created. You can use external website [epochconverter](https://www.epochconverter.com/) to convert the timestamp to and from a human readable date.
 
 After setting the harness defaults, you can now test the task:
-```js
+```js highlight 
 // Get the task by title
 const tasks = await harness.getTasks({title: 'First Assessment'});
 
@@ -399,7 +400,7 @@ expect(await harness.getTasks()).to.be.empty;
 
 If a task is triggered by a report, then fill in the app form to create report before test:
 
-```js
+```js highlight 
 it('followup schedule', async () => {
   const result = await harness.fillForm(...pncFollowups.registerBirth('2000-01-01', '2000-02-01'));
   expect(result.errors).to.be.empty;
@@ -435,9 +436,9 @@ You may [pass other data](https://docs.communityhealthtoolkit.org/apps/guides/ta
 ### Testing Targets
 
 Testing a target is relatively straightforward. Add a report or contact that increments a target, then check the target values.
-##### What do you test?
-||
-|-|-|
+
+| What do you test?  |
+|--|--|
 |Minimum:|Trigger incrementing of the target<br/>Ensure target doesn’t increment when it shouldn’t|
 |Ideal:|One test for each user scenario<br/>Ensure proper deduplication (particularly for those with emitCustom)|
 
@@ -445,7 +446,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#targets).
 
 To test the first two targets created in the [targets tutorial]({{< ref "apps/tutorials/targets" >}}), use this code:
-```js
+```js highlight 
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date
     harness.setNow('2000-01-30');
