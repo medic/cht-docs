@@ -15,7 +15,7 @@ Instead, we recommended most deployment go with the [clustered single node hosti
 
 ### What is a clustered setup?
 
-In a clustered CHT setup, there are multiple couchdb nodes responding to users. This is essential to horizontally scaling your CHT instance. This is one of the capabilities added to the CHT post 4.x release. In this guide, we are going to be setting up a 3 node couchdb cluster. The way the CHT is setup in this version, we require all three couchdb nodes to be up and running. Our healthcheck module determines the health of the couchdb nodes and turns off the CHT if any single node is not functional.
+In a clustered CHT setup, there are multiple CouchDB nodes responding to users. The ability to [horizontally scale](https://en.wikipedia.org/wiki/Horizontal_scaling#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)) a CHT instance was added in version CHT 4.0.0. In this document we set up a three node CouchDB cluster.  We require all three CouchDB nodes to be running and healthy before installing the CHT. Our healthcheck service determines the health of the CouchDB nodes and turns off the CHT if any single node is not functional.
 
 ### What are the four nodes used for?
 * Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
