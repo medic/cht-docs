@@ -3,7 +3,7 @@ title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes"
 linkTitle: "Self Hosting - Multiple Nodes"
 weight: 2
 description: >
-  How do you setup the CHT on multiple nodes in a cluster?
+  Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes```
 ---
 
 {{% alert title="Note" %}}
