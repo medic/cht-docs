@@ -66,7 +66,10 @@ Make sure the following ports are open for the nodes:
 
 2. Create overlay network
 
-`sudo docker network create --driver=overlay --attachable cht-overlay`
+    ```
+    sudo docker network create --driver=overlay --attachable cht-overlay
+    ```
+
 
 ### CouchDB nodes
 
