@@ -24,11 +24,17 @@ In a clustered CHT setup, there are multiple CouchDB nodes responding to users. 
 * Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
 * Node 2, 3 & 4 - Couchdb Nodes (A 3 node couchdb cluster)
 
-### Networking Setup
+## Setup
+
+## Servers
+
+Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker on all of them. 
+
+### Network
 
 Make sure the following ports are open for the nodes:
-* `7946 TCP` - For docker communication amongst nodes
-* `7946 UDP` - For docker communication amongst nodes
+* `7946 TCP` - For Docker communication amongst nodes
+* `7946 UDP` - For Docker communication amongst nodes
 * `2377 TCP` - Docker cluster management communication
 * `4789 UDP` - Docker overlay network traffic
 * `ICMP` - For ping
