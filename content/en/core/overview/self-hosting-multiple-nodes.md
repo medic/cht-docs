@@ -7,6 +7,9 @@ description: >
 ---
 
 {{% alert title="Note" %}}
+This for a multi-node 4.x CHT instance.  If you want a simpler setup,  check out [the 4.x single node install docs]({{< relref "apps/guides/hosting/4.x/self-hosting-single-node" >}}).  As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
+{{% /alert %}}
+{{% alert title="Note" %}}
 The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains.  These gains will greatly increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
 [//]: # (TODO - Fix this link once we merge self-hosting-single-node https://github.com/medic/cht-docs/pull/915)
