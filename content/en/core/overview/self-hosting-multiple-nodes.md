@@ -51,17 +51,18 @@ Make sure the following ports are open for the nodes:
     sudo docker swarm init
     ```
 
-You should get the output:
 
-```
-Swarm initialized: current node (some-long-id) is now a manager.
-To add a worker to this swarm, run the following command:
+    You should get the output:
 
-    docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377
-
-To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
-
-```
+    ```
+    Swarm initialized: current node (ca7z1v4tm9q4kf9uimreqoauj) is now a manager.
+    To add a worker to this swarm, run the following command:
+    
+        docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377
+    
+    To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+    
+    ```
 
 2. Create overlay network
 
