@@ -47,7 +47,9 @@ Make sure the following ports are open for the nodes:
 
 1. Initialize swarm mode.
 
-`sudo docker swarm init`
+    ```
+    sudo docker swarm init
+    ```
 
 You should get the output:
 
