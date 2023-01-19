@@ -1,5 +1,5 @@
 ---
-title: "Steps for Self Hosting the CHT On Four Nodes (Clustered CouchDB Setup)"
+title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes"
 linkTitle: "Self Hosting - Multiple Nodes"
 weight: 2
 description: >
