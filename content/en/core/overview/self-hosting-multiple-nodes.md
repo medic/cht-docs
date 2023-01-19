@@ -161,10 +161,11 @@ SSL_CERT_FILE_PATH=/etc/nginx/private/cert.pem
 SSL_KEY_FILE_PATH=/etc/nginx/private/key.pem
 ```
 
-**Note:**
+{{% alert title="Note" %}}
 * Make sure that all the directory paths are absolute paths and not relative paths.
 * COUCHDB_UUID can be generated [here](https://www.uuidgenerator.net/)
 * Make sure certificate is named `cert.pem` and key is named `key.pem` - this is right now a requirement because of a known [bug](https://github.com/medic/cht-core/issues/7949)
+{{% /alert %}}
 
 ### Get the certificate loaded into a cht volume
 
