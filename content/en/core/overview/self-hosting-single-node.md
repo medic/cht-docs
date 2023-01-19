@@ -1,10 +1,15 @@
 ---
-title: "Steps for Self Hosting the CHT On a Single Node"
+title: "Self Hosting in CHT 4.x - Single CouchDB Node"
 linkTitle: "Self Hosting - Single Node"
 weight: 2
 description: >
-  How do you setup the CHT on a single node?
+  Self Hosting in CHT 4.x - Single CouchDB Node
 ---
+
+[//]: # (todo - fix this link to multi-node)
+{{% alert title="Note" %}}
+This for a single node 4.x CHT instance.  If you want a more powerful setup,  check out [the 4.x multi-node install docs]({{< relref "apps/guides/hosting/4.x#self-hosting-multiple-nodes" >}}).  As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
+{{% /alert %}}
 
 ### Setup Docker
 
