@@ -125,7 +125,14 @@ The following commands download the 4.0.1 version. If you want a different versi
 
 ### Prepare Environment Variables file
 
-Prepare a `.env` file that contains the following variables and save it in the upgrade-service directory. Note that some of the values are not necessary in this node but for the purpose of making things simple here, we'll create one env file and use it on all nodes.  We are assuming that your home directory is `/home/ubuntu/`. If that's not accurate, please change that in the values below
+Prepare a `.env` file that contains the following variables and save it in the upgrade-service directory. Note that some of the values are not necessary in this node, but for the purpose of making things simple here, we'll create one `.env` file and use it on all nodes.  
+
+We are assuming that your home directory is `/home/ubuntu/`. If that's not accurate, please change that in the values below. 
+
+Be sure to replace these values with real ones:
+* `<some-super-long-combination-of-alphanumeric-characters>` 
+* `<another-super-long-alphanumeric-characters>`
+* `<put-in-a-guid-value>`
 
 ```
 CHT_COMPOSE_PROJECT_NAME=cht
