@@ -3,7 +3,7 @@ title: "Self Hosting in CHT 4.x - Single CouchDB Node"
 linkTitle: "Self Hosting - Single Node"
 weight: 2
 description: >
-Self Hosting in CHT 4.x - Single CouchDB Node
+   Self Hosting in CHT 4.x - Single CouchDB Node
 ---
 
 [//]: # (todo - fix this link to multi-node)
