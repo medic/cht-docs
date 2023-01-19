@@ -52,7 +52,7 @@ Then for each folder go through these steps.
   ```
 
 - Make sure the version of `api/enketo-xslt` is the same as `webapp/enketo-core/enketo-transformer/enketo-xslt`.
-- Don't update `lodash` to version `4.17.21`, there's a runtime issue when importing `lodash/core` in Admin app:
+- Don't update `lodash` to version `4.17.21`. If you do so, the runtime issue highlighted below will appear when importing `lodash/core` in Admin app:
   ```
   UnhandledPromiseRejectionWarning: TypeError: stack.get is not a function
     at equalObjects (/home/user/app/node_modules/lodash/core.js:1303:28)
@@ -61,13 +61,13 @@ Then for each folder go through these steps.
     at Function.isEqual (/home/user/app/node_modules/lodash/core.js:2660:12)
     at estimateCurrentScheduleDimLevel.then.dimLevel (/home/user/app/src/Devices/SmartLight/NASLightDevice.ts:642:24)
   ```
-  In their code, the issue is here:
+  The issue on the code is here:
   ```
   if (!_.isEqual(oldProfileConfig, newProfileConfig)) {
     this.setProfileConfig(newProfileConfig);
   }
   ```
-  There was an [open issue](https://github.com/lodash/lodash/issues/4904) in their repository but got deleted (reason unknown). There's [another reported issue](https://github.com/lodash/lodash/issues/4945) explaining the problem, however it hasn't been resolved yet.
+  There was an [open issue](https://github.com/lodash/lodash/issues/4904) in the lodash repository but got deleted (reason unknown). There's [another reported issue](https://github.com/lodash/lodash/issues/4945) explaining the problem, however it hasn't been resolved yet.
   The stable version for now is: `4.17.19`
 - If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue with `Upgrade dependencies` tag, to upgrade just that dependency. Don't hold up all the other upgrades you've made.
 
