@@ -171,7 +171,7 @@ Create a `cht` directory under your home directory and download files on there.
 
 1. Download the clustered cht-couchdb docker-compose file.
 
-`curl -s -o ./cht/cht-couchdb-clustered.couchdb1.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml`
+        curl -s -o ./cht/cht-couchdb-clustered.couchdb1.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml
 
 2. Create a `.env` file and populate it with the same content above as node 1.
 
