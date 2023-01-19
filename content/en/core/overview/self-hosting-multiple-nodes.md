@@ -115,20 +115,23 @@ The following commands download the 4.0.1 version. If you want a different versi
 
 ### Docker-compose modifications
 
-1. Go to the networks section and add the following:
+1. At the end of each compose file, ensure the 2 `networks:` sections (1 in `cht-core.yml` and 1 in `docker-compose.yml`) look like this by adding three lines:
 
-```
-  cht-overlay:
-    driver: overlay
-    external: true
-```
 
-2. Go to each of the containers and add the following:
+        networks:
+            cht-net:
+               name: ${CHT_NETWORK:-cht-net}
+            cht-overlay:
+               driver: overlay
+               external: true
 
-```
-    networks:
-      - cht-overlay
-```
+
+2. For all 6 services in the compose files (5 in `cht-core.yml` and 1 in `docker-compose.yml`), update the `networks:` section to look like this:
+
+        networks:
+          - cht-overlay
+          - cht-net
+
 
 ### Prepare Environment Variables file
 
