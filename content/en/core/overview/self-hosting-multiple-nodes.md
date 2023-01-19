@@ -56,7 +56,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 
 `sudo docker network create --driver=overlay --attachable cht-overlay`
 
-### Node2, Node3 & Node4
+### CouchDB nodes
 
 On each of these nodes run the join command given to you above.
 
