@@ -63,7 +63,7 @@ On each of these nodes run the join command given to you above.
 `docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377`
 
 
-## Configuration - Node 1 - CHT-core
+## Configuration - CHT Core node
 
 ### Setup Docker
 
