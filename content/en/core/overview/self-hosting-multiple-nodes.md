@@ -253,7 +253,7 @@ Create a `cht` directory under your home directory and download files on there.
 
 Please start the containers in the same order as they have been specified here.
 
-### Launch `couchdb.2`
+### Launch CouchDB node 2
 
 Go to the `cht` directory and run:
 
