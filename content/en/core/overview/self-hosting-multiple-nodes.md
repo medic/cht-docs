@@ -107,11 +107,13 @@ Explanations:
 ### Download required docker-compose files
 
 The following commands download the 4.0.1 version. If you want a different version, you would have to change `medic:4.0.1` to the version you'd like to install.
+1. Download the cht-core docker-compose file. Run the following command from the `CHT` directory above:
 
-1. Download the cht-core docker-compose file. Run the following command from the `CHT` directory above.
-`curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-core.yml`
+        curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-core.yml
+
 2. Download the upgrade service docker-compose file.
-`curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml`
+
+        curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 
 ### Docker-compose modifications
 
