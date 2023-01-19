@@ -45,7 +45,7 @@ Once the developer has finished writing the code they test it a bit more and ope
 
 If any changes need to be made during the review process, the developer makes those changes and re-executes any relevant testing.
 
-At this point the ideal action to take would be that the developer merges the finished code and no AT step happens, as the quality is already baked in from the start and throughout. Thsi is the ideal setup yet to be achieved. Here the ticket still goes to AT, but for a smaller last bit of smoke testing. Notice that it is not an exhaustive set of tests, it is a small bit of extra poking around by a QA engineer. This limited testing is possible because the developer said it is done, and they said that because they tested it, and they had a QA engineer assist them to reach that level of confidence in their own testing.
+At this point the ideal action to take would be that the developer merges the finished code and no AT step happens, as the quality is already baked in from the start and throughout. This is the ideal setup yet to be achieved. Here the ticket still goes to AT, but for a smaller last bit of smoke testing. Notice that it is not an exhaustive set of tests, it is a small bit of extra poking around by a QA engineer. This limited testing is possible because the developer said it is done, and they said that because they tested it, and they had a QA engineer assist them to reach that level of confidence in their own testing.
 
 The last part here is to merge it. That extra poking around should be quick, so the developer should be ready to click the green button soon!
 

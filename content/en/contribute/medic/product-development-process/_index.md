@@ -1,7 +1,7 @@
 ---
 title: "Product Development Process"
 linkTitle: "Product Development Process"
-weight: 2
+weight: 1
 description: >
   Explanation of the Continuous Discovery process used for product development at Medic
 ---
