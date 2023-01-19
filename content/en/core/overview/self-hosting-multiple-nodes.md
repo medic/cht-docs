@@ -73,9 +73,10 @@ Make sure the following ports are open for the nodes:
 
 ### CouchDB nodes
 
-On each of these nodes run the join command given to you above.
+On each of these three CouchDB nodes run the join command given to you in step 1 above:
 
-`docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377`
+    docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377`
+
 
 
 ## Configuration - CHT Core node
