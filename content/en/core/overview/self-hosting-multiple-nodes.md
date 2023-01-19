@@ -34,7 +34,7 @@ Make sure the following ports are open for the nodes:
 
 ## Setup Docker Swarm and Create an Overlay Network
 
-### Node 1 - Main node
+### CHT Core node
 
 1. Initialize swarm mode.
 
