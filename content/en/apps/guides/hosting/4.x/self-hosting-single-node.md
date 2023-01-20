@@ -29,9 +29,9 @@ Create the following directory structure:
 By calling these three `mkdir` commands:
 
 ```shell
-mkid -p /home/ubuntu/cht/compose
-mkid -p /home/ubuntu/cht/certs
-mkid -p /home/ubuntu/cht/upgrade-service
+mkdir -p /home/ubuntu/cht/compose
+mkdir -p /home/ubuntu/cht/certs
+mkdir -p /home/ubuntu/cht/upgrade-service
 ```
 
 1. `compose` - contains the docker-compose files for cht-core and couchdb.
@@ -42,7 +42,7 @@ mkid -p /home/ubuntu/cht/upgrade-service
 
 ## Download required docker-compose files
 
-The following 3 `curl` commands download CHT version `4.0.1`, which you can change as needed. Otherwise, call:
+The following 3 `curl` commands download CHT version `4.0.1` compose files, which you can change as needed. Otherwise, call:
 
 ```shell
 cd /home/ubuntu/cht/
@@ -53,19 +53,24 @@ curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.co
 
 ### Prepare Environment Variables file
 
-Prepare a `.env` file that contains the following variables and save it in `/home/ubuntu/cht/upgrade-servce`:
+Prepare a `.env` file that contains the following variables by running this code.  Note that secure passwords and UUIDs will be generated on the first three calls and saved in the resulting `.env` file:
 
 ```
+uuid=$(uuidgen)
+couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
+couchdb_password=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
+cat > /home/ubuntu/cht/upgrade-service/.env << EOF
 CHT_COMPOSE_PROJECT_NAME=cht
-COUCHDB_SECRET=<secure-unique-password-see-bellow>
+COUCHDB_SECRET=${couchdb_secret}
 DOCKER_CONFIG_PATH=/home/ubuntu/cht/upgrade-service
 COUCHDB_DATA=/home/ubuntu/cht/couchdb
 CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
-COUCHDB_PASSWORD=<another-secure-unique-password-also-see-bellow>
+COUCHDB_PASSWORD=${couchdb_password}
 CERTIFICATE_MODE=OWN_CERT
-COUCHDB_UUID=<secure-unique-guid-see-bellow>
+COUCHDB_UUID=${uuid}
 SSL_VOLUME_MOUNT_PATH=/etc/nginx/private/
+EOF
 ```
 
 *Note:*
@@ -76,6 +81,10 @@ SSL_VOLUME_MOUNT_PATH=/etc/nginx/private/
    ```shell
    shuf -n7 /usr/share/dict/words | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7
   ```
+* To login as the `medic` user in the web app, you can find your password with this command: 
+   ```shell
+   grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
+   ```
 
 ## Get the certificate loaded into a cht volume
 
