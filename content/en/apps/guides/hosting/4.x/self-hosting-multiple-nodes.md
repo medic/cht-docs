@@ -7,13 +7,12 @@ description: >
 ---
 
 {{% alert title="Note" %}}
-This for a multi-node 4.x CHT instance.  If you want a simpler setup,  check out [the 4.x single node install docs]({{< relref "apps/guides/hosting/4.x/self-hosting-single-node" >}}).  As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
-{{% /alert %}}
-{{% alert title="Note" %}}
 The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains.  These gains will greatly increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
 [//]: # (TODO - Fix this link once we merge self-hosting-single-node https://github.com/medic/cht-docs/pull/915)
-Instead, we recommended most deployment go with the [clustered single node hosting]({{< ref "#core/overview/self-hosting-single-node" >}}).
+Instead, we recommended most deployment go with the [single node hosting]({{< ref "apps/guides/hosting/4.x/self-hosting-single-node" >}}).
+
+As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
 {{% /alert %}}
 
 ### What is a clustered setup?
@@ -24,9 +23,15 @@ In a clustered CHT setup, there are multiple CouchDB nodes responding to users. 
 * Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
 * Node 2, 3 & 4 - Couchdb Nodes (A 3 node couchdb cluster)
 
+## Prerequsites
+
+Be sure you have followed [the requirements document]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker Compose on all nodes. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
+
+As a security measure, be sure to restrict the IP addresses of the four nodes only to be able to connect to these ports.
+
 ## Setup
 
-## Servers
+### Servers
 
 Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker on all of them. 
 
@@ -39,8 +44,6 @@ Make sure the following ports are open for the nodes:
 * `4789 UDP` - Docker overlay network traffic
 * `ICMP` - For ping
 
-**Security Note**: As a security measure, be sure to restrict the IP addresses of the four nodes only to be able to connect to these ports.
-
 ## Setup Docker Swarm and Create an Overlay Network
 
 ### CHT Core node
@@ -48,7 +51,7 @@ Make sure the following ports are open for the nodes:
 1. Initialize swarm mode.
 
     ```
-    sudo docker swarm init
+    docker swarm init
     ```
 
 
@@ -67,7 +70,7 @@ Make sure the following ports are open for the nodes:
 2. Create overlay network
 
     ```
-    sudo docker network create --driver=overlay --attachable cht-overlay
+    docker network create --driver=overlay --attachable cht-overlay
     ```
 
 
