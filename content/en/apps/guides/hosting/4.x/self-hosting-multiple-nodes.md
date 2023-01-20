@@ -15,23 +15,25 @@ Instead, we recommended most deployment go with the [single node hosting]({{< re
 As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
 {{% /alert %}}
 
-### What is a clustered setup?
+### About clustered deployments
 
 In a clustered CHT setup, there are multiple CouchDB nodes responding to users. The ability to [horizontally scale](https://en.wikipedia.org/wiki/Horizontal_scaling#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)) a CHT instance was added in version CHT 4.0.0. In this document we set up a three node CouchDB cluster.  We require all three CouchDB nodes to be running and healthy before installing the CHT. Our healthcheck service determines the health of the CouchDB nodes and turns off the CHT if any single node is not functional.
 
-### What are the four nodes used for?
-* Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
-* Node 2, 3 & 4 - Couchdb Nodes (A 3 node couchdb cluster)
+### Node uses
 
-## Setup
+* Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
+* Node 2, 3 & 4 - CouchDB Nodes (A 3 node CouchDB cluster)
+
+## Prerequisites
 
 ### Servers
 
-Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker on all of them. 
+Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker on all of them.  This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
 
 ### Network
 
-Make sure the following ports are open for the nodes:
+Make sure the following ports are open for all nodes:
+
 * `7946 TCP` - For Docker communication amongst nodes
 * `7946 UDP` - For Docker communication amongst nodes
 * `2377 TCP` - Docker cluster management communication
@@ -40,8 +42,9 @@ Make sure the following ports are open for the nodes:
 
 As a security measure, be sure to restrict the IP addresses of the four nodes only to be able to connect to these ports.
 
+## Create an Overlay Network
 
-## Setup Docker Swarm and Create an Overlay Network
+To set up a private network that only the four nodes can use, we'll use `docker swarm`'s overlay network feature.  You'll first need to initialize the swarm on the CHT Core node and then join the swarm on each of the three CouchDB nodes.
 
 ### CHT Core node
 
@@ -77,45 +80,31 @@ On each of these three CouchDB nodes run the join command given to you in step 1
 
     docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377`
 
+## CHT Core installation
 
+{{< read-content file="_partial_docker_directories.md" >}}
 
-## Configuration - CHT Core node
+### Prepare Environment Variables file
 
-### Setup Docker
+{{< read-content file="_partial_env_file.env" >}}
 
-1. `sudo apt update`
-2. `sudo apt install docker.io`
-3. `sudo apt install docker-compose`
+Keep a copy of your CouchDB Password as you'll need it later when configuring each CouchDB Node. This command shows you the randomly generated password:
 
-### Directory Structure
-
-Create the following directory structure. This is important.
-
+```shell
+grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 ```
-|--CHT
-    |__ compose/
-    |__ certs/
-    |__ upgrade-service/
-```
-
-Explanations:
-
-* compose - contains the docker-compose files for cht-core and couchdb.
-* certs - the path that you'll put SSL certificates.
-* upgrade-service - the path for the docker-compose file of the upgrade-service.
 
 ### Download required docker-compose files
 
-The following commands download the 4.0.1 version. If you want a different version, you would have to change `medic:4.0.1` to the version you'd like to install.
-1. Download the cht-core docker-compose file. Run the following command from the `CHT` directory above:
+The following 2 `curl` commands download CHT version `4.0.1` compose files, which you can change as needed. Otherwise, call:
 
-        curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-core.yml
+```shell
+cd /home/ubuntu/cht/
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-core.yml
+curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+```
 
-2. Download the upgrade service docker-compose file.
-
-        curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-
-### Docker-compose modifications
+#### Docker-compose modifications
 
 1. At the end of each compose file, ensure the 2 `networks:` sections (1 in `cht-core.yml` and 1 in `docker-compose.yml`) look like this by adding three lines:
 
@@ -134,188 +123,141 @@ The following commands download the 4.0.1 version. If you want a different versi
           - cht-overlay
           - cht-net
 
+### TLS Certificates
+
+See the [TLS Certificates page]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates.
+
+## CouchDB installation on 3 nodes
+
+Now that CHT Core is installed, we need to install CouchDB on the three nodes.  Be sure all 3 nodes [meet the prerequisites](#prerequisites) before proceeding.
+
+### Download compose file
+
+On each of the 3 nodes, download the `cht-couchdb-clustered.yml` file:
+
+```shell
+cd /home/ubuntu/cht/
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml
+```
 
 ### Prepare Environment Variables file
 
-Prepare a `.env` file that contains the following variables and save it in the upgrade-service directory. Note that some of the values are not necessary in this node, but for the purpose of making things simple here, we'll create one `.env` file and use it on all nodes.  
-
-We are assuming that your home directory is `/home/ubuntu/`. If that's not accurate, please change that in the values below. 
-
-Be sure to replace these values with real ones:
-* `<some-super-long-combination-of-alphanumeric-characters>` 
-* `<another-super-long-alphanumeric-characters>`
-* `<put-in-a-guid-value>`
+On all 3 nodes, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` with the [password you saved](#prepare-environment-variables-file) when creating the CHT Core `.env` file so it is the same on all three nodes::
 
 ```
+uuid=$(uuidgen)
+couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
+cat > /home/ubuntu/cht/upgrade-service/.env << EOF
 CHT_COMPOSE_PROJECT_NAME=cht
-COUCHDB_SECRET=<some-super-long-combination-of-alphanumeric-characters>
-DOCKER_CONFIG_PATH=/home/ubuntu/cht/upgrade-service
+COUCHDB_SECRET=${couchdb_secret}
 COUCHDB_DATA=/home/ubuntu/cht/couchdb
-CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
-COUCHDB_PASSWORD=<another-super-long-alphanumeric-characters>
-CERTIFICATE_MODE=OWN_CERT
-COUCHDB_UUID=<put-in-a-guid-value>
-SSL_VOLUME_MOUNT_PATH=/etc/nginx/private/
-SSL_CERT_FILE_PATH=/etc/nginx/private/cert.pem
-SSL_KEY_FILE_PATH=/etc/nginx/private/key.pem
+COUCHDB_PASSWORD=PASSWORD-FROM-ABOVE
+COUCHDB_UUID=${uuid}
+EOF
 ```
 
-{{% alert title="Note" %}}
-* Make sure that all the directory paths are absolute paths and not relative paths.
-* COUCHDB_UUID can be generated [here](https://www.uuidgenerator.net/)
-* Make sure certificate is named `cert.pem` and key is named `key.pem` - this is right now a requirement because of a known [bug](https://github.com/medic/cht-core/issues/7949)
-{{% /alert %}}
+Note that secure passwords and UUIDs were generated on the first two calls and saved in the resulting `.env` file.
 
-### Get the certificate loaded into a cht volume
+### Compose file modifications
 
-Follow the set of steps outlined [here](https://github.com/medic/cht-core/pull/7834#issuecomment-1268710481).
+#### Shared 
 
-
-## Configuration - Node 2 - couchdb.1
-
-### Setup Docker
-
-1. `sudo apt update`
-2. `sudo apt install docker.io`
-3. `sudo apt install docker-compose`
-
-Create a `cht` directory under your home directory and download files on there.
-
-1. Download the clustered cht-couchdb docker-compose file.
-
-        curl -s -o ./cht/cht-couchdb-clustered.couchdb1.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml
-
-2. Create a `.env` file and populate it with the same content above as node 1.
-
-### Docker-compose modifications
-
-1. Since we want to run only one couchdb node per instance, delete couchdb.2 and couchdb.3 containers from the yml.
-2. Add this property under the `image` section: `container_name: couchdb.1`
-3. Go to the networks section and add the following:
+On all three nodes, each needs to have the `networks:` section at the end of the compose file changed to look like this:
 
 ```
-  cht-overlay:
-    driver: overlay
-    external: true
+ networks:
+     cht-net:
+        name: ${CHT_NETWORK:-cht-net}
+     cht-overlay:
+        driver: overlay
+        external: true
 ```
 
-4. Go to each of the containers and add the following:
+As well, they all need to have the following added at the end:
 
 ```
     networks:
-      - cht-overlay
+      - cht-net:
+      - cht-overlay:
 ```
 
-## Configuration - Node 3 - couchdb.2
+#### CouchDB Node 1
 
-### Setup Docker
+On CouchDB node 1, delete `couchdb.2:` and `couchdb.3:` services from the yml, 40 lines in total.
 
-1. `sudo apt update`
-2. `sudo apt install docker.io`
-3. `sudo apt install docker-compose`
+#### CouchDB Node 2
+
+On CouchDB node 2, delete `couchdb.1:` and `couchdb.3:` services from the yml, 41 lines in total.
+
+#### CouchDB Node 3
+
+On CouchDB node 3, delete `couchdb.1:` and `couchdb.2:` services from the yml, 41 lines in total.
+
+## Starting Services
+
+### CouchDB Nodes
 
 
-Create a `cht` directory under your home directory and download files on there.
+1. On each of the three CouchDB nodes starting with node 3, then 2 then 1, run:
+   
+   ```shell
+   cd /home/ubuntu/cht
+   docker-compose up -d
+   ```
+   
+4. Watch the logs and wait for everything to be up and running. You can run this on each node to watch the logs:
+   ```shell
+   cd /home/ubuntu/cht
+   docker-compose logs --tail=0 --follow
+   ```
 
-1. Download the clustered cht-couchdb docker-compose file.
+### CHT Core
 
-`curl -s -o ./cht/cht-couchdb-clustered.couchdb2.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml`
+Now that CouchDB is running on all the nodes, start the CHT Core:
 
-2. Create a `.env` file and populate it with the same content above as node 1.
-
-### Docker-compose modifications
-
-1. Since we want to run only one couchdb node per instance, delete couchdb.1 and couchdb.3 containers from the yml.
-2. Add this property under the `image` section: `container_name: couchdb.2`
-3. Go to the networks section and add the following:
-
-```
-  cht-overlay:
-    driver: overlay
-    external: true
-```
-
-4. Go to each of the containers and add the following:
-
-```
-    networks:
-      - cht-overlay
-```
-
-## Configuration - Node 4 - couchdb.3
-
-### Setup Docker
-
-1. `sudo apt update`
-2. `sudo apt install docker.io`
-3. `sudo apt install docker-compose`
-
-Create a `cht` directory under your home directory and download files on there.
-
-1. Download the clustered cht-couchdb docker-compose file.
-
-`curl -s -o ./cht/cht-couchdb-clustered.couchdb3.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml`
-
-2. Create a `.env` file and populate it with the same content above as node 1.
-
-### Docker-compose modifications
-
-1. Since we want to run only one couchdb node per instance, delete couchdb.1 and couchdb.2 containers from the yml.
-2. Add this property under the `image` section: `container_name: couchdb.3`
-3. Go to the networks section and add the following:
-
-```
-  cht-overlay:
-    driver: overlay
-    external: true
+```shell
+cd /home/ubuntu/upgrade-service
+docker-compose up -d
 ```
 
-4. Go to each of the containers and add the following:
+To follow the progress tail the log of the upgrade service container by running this:
 
+```shell
+docker logs -f upgrade-service_cht-upgrade-service_1
 ```
-    networks:
-      - cht-overlay
+
+To make sure everything is running correctly, call docker ps --format '{{.Names}}' and make sure that 6 CHT containers show:
+
+```shell
+CONTAINER ID   IMAGE                                                         COMMAND                   CREATED          STATUS         PORTS                                                                      NAMES
+8c1c22d526f3   public.ecr.aws/s5s3h4s7/cht-nginx:4.0.1-4.0.1                 "/docker-entrypoint.…"    17 minutes ago   Up 8 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp   cht_nginx_1
+f7b596be2721   public.ecr.aws/s5s3h4s7/cht-api:4.0.1-4.0.1                   "/bin/bash /api/dock…"    17 minutes ago   Up 8 minutes   5988/tcp                                                                   cht_api_1
+029cd86ac721   public.ecr.aws/s5s3h4s7/cht-sentinel:4.0.1-4.0.1              "/bin/bash /sentinel…"    17 minutes ago   Up 8 minutes                                                                              cht_sentinel_1
+61ee1e0b377b   public.ecr.aws/s5s3h4s7/cht-haproxy-healthcheck:4.0.1-4.0.1   "/bin/sh -c \"/app/ch…"   17 minutes ago   Up 8 minutes                                                                              cht_healthcheck_1
+87415a2d91ea   public.ecr.aws/s5s3h4s7/cht-haproxy:4.0.1-4.0.1               "/entrypoint.sh -f /…"    17 minutes ago   Up 8 minutes   5984/tcp                                                                   cht_haproxy_1 cht_couchdb_1
+d01343658f3f   public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest            "node /app/src/index…"    17 minutes ago   Up 8 minutes                                                                              upgrade-service-cht-upgrade-service-1
 ```
 
-## Launch containers in the different nodes
+This should show related to the CHT core are running
 
-Please start the containers in the same order as they have been specified here.
+* cht_nginx
+* cht_api
+* cht_sentinel
+* cht_healthcheck
+* cht_haproxy
+* cht-upgrade-service
 
-### Launch CouchDB node 2
+Take note of the STATUS column and make sure no errors are displayed there. If any container is restarting or mentioning any other error, check the logs using the sudo docker logs <container-name> command.
 
-Go to the `cht` directory and run:
+If all has gone well, `nginx` should now be listening at both port 80 and port 443. Port 80 has a permanent redirect to port 443, so you can only access the CHT using https.
 
-`sudo docker-compose -f cht-couchdb-clustered.couchdb2.yml --env-file ./.env up -d`
+To login as the medic user in the web app, you can find your password with this command:
 
-### Launch `couchdb.3`
+```shell
+grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
+```
 
-Go to the `cht` directory and run:
-
-`sudo docker-compose -f cht-couchdb-clustered.couchdb3.yml --env-file ./.env up -d`
-
-### Launch `couchdb.1`
-
-Go to the `cht` directory and run:
-
-`sudo docker-compose -f cht-couchdb-clustered.couchdb1.yml --env-file ./.env up -d`
-
-Follow the logs and wait for everything to be up and running.
-
-### Launch the CHT
-
-`cd` to the `upgrade-service` directory and run the following:
-
-`sudo docker-compose --env-file ./.env up -d`
-
-Docker will then pull the required images and start running in the background. The upgrade service will then pull what's configured. To follow the progress tail the log of the upgrade service container by running this:
-
-`sudo docker logs -f upgrade-service_cht-upgrade-service_1`
-
-To make sure everything is running as it should, run `sudo docker ps` and make sure that 6 containers related to the CHT core are running. These are: cht_nginx, cht_api, cht_sentinel, cht_healthcheck, cht_haproxy, and cht-upgrade-service. Take note of the `STATUS` column and make sure no errors are displayed there. If any container is restarting or mentioning any other error, check the logs using the `sudo docker logs <container-name>` command.
-
-If all has gone well, nginx should now be listening at both port 80 and port 443 on node 1. Port 80 has a permanent redirect to port 443 so you can only access the CHT using https.
-
-### Upgrades
+## Upgrades
 
 Upgrades are completely manual for the clustered setup right now. You have to go into each of the docker-compose files and modify the image tag and take containers down and restart them.
