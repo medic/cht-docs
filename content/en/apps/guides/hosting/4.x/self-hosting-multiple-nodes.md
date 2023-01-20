@@ -23,12 +23,6 @@ In a clustered CHT setup, there are multiple CouchDB nodes responding to users. 
 * Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
 * Node 2, 3 & 4 - Couchdb Nodes (A 3 node couchdb cluster)
 
-## Prerequsites
-
-Be sure you have followed [the requirements document]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker Compose on all nodes. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
-
-As a security measure, be sure to restrict the IP addresses of the four nodes only to be able to connect to these ports.
-
 ## Setup
 
 ### Servers
@@ -43,6 +37,9 @@ Make sure the following ports are open for the nodes:
 * `2377 TCP` - Docker cluster management communication
 * `4789 UDP` - Docker overlay network traffic
 * `ICMP` - For ping
+
+As a security measure, be sure to restrict the IP addresses of the four nodes only to be able to connect to these ports.
+
 
 ## Setup Docker Swarm and Create an Overlay Network
 
