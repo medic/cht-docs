@@ -3,7 +3,7 @@ title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes"
 linkTitle: "Self Hosting - Multiple Nodes"
 weight: 2
 description: >
-  Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes```
+  Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes
 ---
 
 {{% alert title="Note" %}}
@@ -19,23 +19,22 @@ As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting
 
 In a clustered CHT setup, there are multiple CouchDB nodes responding to users. The ability to [horizontally scale](https://en.wikipedia.org/wiki/Horizontal_scaling#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)) a CHT instance was added in version CHT 4.0.0. In this document we set up a three node CouchDB cluster.  We require all three CouchDB nodes to be running and healthy before installing the CHT. Our healthcheck service determines the health of the CouchDB nodes and turns off the CHT if any single node is not functional.
 
-### Node uses
+### Nodes
 
-* Node 1 - CHT-core - runs the core functionality of the CHT like API, sentinel
-* Node 2, 3 & 4 - CouchDB Nodes (A 3 node CouchDB cluster)
+* CHT Core (1x) - Core functionality of the CHT including API and sentinel
+* CouchDB (3x) - 3 node CouchDB cluster
 
 ## Prerequisites
 
 ### Servers
 
-Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker on all of them.  This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
+Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker Compose on all of them.  This guide assumes you're using the `ubuntu` user, with a home directory of `/home/ubuntu` and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
 
 ### Network
 
 Make sure the following ports are open for all nodes:
 
-* `7946 TCP` - For Docker communication amongst nodes
-* `7946 UDP` - For Docker communication amongst nodes
+* `7946 TCP/UDP` - For Docker communication amongst nodes
 * `2377 TCP` - Docker cluster management communication
 * `4789 UDP` - Docker overlay network traffic
 * `ICMP` - For ping
@@ -80,13 +79,45 @@ On each of these three CouchDB nodes run the join command given to you in step 1
 
     docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377`
 
+### Confirm swarm
+
+Back on the CHT Core node, run `docker node ls` and ensure you see 4 nodes listed as `STATUS` of `Ready` and `AVAILABILITY` of `Active`
+
+```shell
+ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+zolpxb5jpej8yiq9gcyv2nrdj *   cht-core   Ready     Active         Leader           20.10.23
+y9giir8c3ydifxvwozs3sn8vw     couchdb1   Ready     Active                          20.10.23
+mi3vj0prd76djbvxms43urqiv     couchdb2   Ready     Active                          20.10.23
+kcpxlci3jjjtm6xjz7v50ef7k     couchdb3   Ready     Active                          20.10.23
+```
+
+Note that you'll need the 3 names of the `HOSTNAME` columns when you set up your CHT Core `.env` file below
+
 ## CHT Core installation
 
 {{< read-content file="_partial_docker_directories.md" >}}
 
 ### Prepare Environment Variables file
 
-{{< read-content file="_partial_env_file.env" >}}
+Prepare an `.env` file by running this code, being sure to update `LIST_OF_SERVERS` to be a comma separated list of the three node names from the output of `docker node ls` which might look like `COUCHDB_SERVERS=couchdb1,couchdb2,couchdb3`, for example:
+
+```
+uuid=$(uuidgen)
+couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
+couchdb_password=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
+cat > /home/ubuntu/cht/upgrade-service/.env << EOF
+CHT_COMPOSE_PROJECT_NAME=cht
+DOCKER_CONFIG_PATH=/home/ubuntu/cht/upgrade-service
+CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
+COUCHDB_USER=medic
+COUCHDB_PASSWORD=${couchdb_password}
+CERTIFICATE_MODE=OWN_CERT
+SSL_VOLUME_MOUNT_PATH=/etc/nginx/private/
+COUCHDB_SERVERS=LIST_OF_SERVERS
+EOF
+```
+
+Note that secure passwords and UUIDs were generated on the first three calls and saved in the resulting `.env` file.
 
 Keep a copy of your CouchDB Password as you'll need it later when configuring each CouchDB Node. This command shows you the randomly generated password:
 
@@ -106,7 +137,7 @@ curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.co
 
 #### Docker-compose modifications
 
-1. At the end of each compose file, ensure the 2 `networks:` sections (1 in `cht-core.yml` and 1 in `docker-compose.yml`) look like this by adding three lines:
+1. At the end of each compose file, ensure the 2 `networks:` sections (1 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`) look like this by adding three lines:
 
 
         networks:
@@ -117,15 +148,24 @@ curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.co
                external: true
 
 
-2. For all 6 services in the compose files (5 in `cht-core.yml` and 1 in `docker-compose.yml`), update the `networks:` section to look like this:
+2. For all 6 services in the compose files (5 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`), update the `networks:` section to look like this:
 
         networks:
-          - cht-overlay
-          - cht-net
+          cht-overlay:
+          cht-net:
 
 ### TLS Certificates
 
-See the [TLS Certificates page]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates.
+In order to initialize all the storage volumes and networks neede to install the TLS certs, start the CHT Core services, which will intentionally all fail as the CouchDB nodes don't exist.  We'll then ensure they're all stopped with the `docker kill` at the end:
+
+```shell
+cd /home/ubuntu/cht/upgrade-service/
+docker-compose up -d
+sleep 60
+docker kill $(docker ps --quiet)
+```
+
+With docker volume having been created, see the [TLS Certificates page]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates on the CHT Core node.
 
 ## CouchDB installation on 3 nodes
 
@@ -133,21 +173,22 @@ Now that CHT Core is installed, we need to install CouchDB on the three nodes.  
 
 ### Download compose file
 
-On each of the 3 nodes, download the `cht-couchdb-clustered.yml` file:
+On each of the 3 nodes, create the directory structure and then download the `cht-couchdb-clustered.yml` file:
 
 ```shell
+mkdir -p /home/ubuntu/cht/couchdb
 cd /home/ubuntu/cht/
 curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml
 ```
 
 ### Prepare Environment Variables file
 
-On all 3 nodes, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` with the [password you saved](#prepare-environment-variables-file) when creating the CHT Core `.env` file so it is the same on all three nodes::
+On all 3 nodes, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` with the [password you saved](#prepare-environment-variables-file) when creating the CHT Core `.env` file so it is the same on all three nodes:
 
 ```
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
-cat > /home/ubuntu/cht/upgrade-service/.env << EOF
+cat > /home/ubuntu/cht/.env << EOF
 CHT_COMPOSE_PROJECT_NAME=cht
 COUCHDB_SECRET=${couchdb_secret}
 COUCHDB_DATA=/home/ubuntu/cht/couchdb
@@ -161,9 +202,42 @@ Note that secure passwords and UUIDs were generated on the first two calls and s
 
 ### Compose file modifications
 
+First, you need to edit each of the `/home/ubuntu/cht/docker-compose.yml` files so that they only have one service declared in them.  
+
+#### CouchDB Node 1
+
+On CouchDB node 1, delete `couchdb.2:` and `couchdb.3:` services from the yml with the following call:
+
+```shell
+sed -i.bak -e '26,66d' /home/ubuntu/cht/docker-compose.yml
+```
+#### CouchDB Node 2
+
+On CouchDB node 2, delete `couchdb.1:` and `couchdb.3:` services from the yml with the following call:
+
+```shell
+sed -i.bak -e '4,24d;47,66d' /home/ubuntu/cht/docker-compose.yml
+```
+
+#### CouchDB Node 3
+
+On CouchDB node 3, delete `couchdb.1:` and `couchdb.2:` services from the yml with the following call:
+
+```shell
+sed -i.bak -e '4,45d' /home/ubuntu/cht/docker-compose.yml
+```
+
 #### Shared 
 
-On all three nodes, each needs to have the `networks:` section at the end of the compose file changed to look like this:
+On all three nodes, each needs to have the `networks:` section in the `services:` section of the `/home/ubuntu/cht/docker-compose.yml` file changed to look like this:
+
+```
+    networks:
+      cht-net:
+      cht-overlay:
+```
+
+As well, all 3 files need to have the following added at the end below `volumes:`:
 
 ```
  networks:
@@ -174,42 +248,30 @@ On all three nodes, each needs to have the `networks:` section at the end of the
         external: true
 ```
 
-As well, they all need to have the following added at the end:
-
-```
-    networks:
-      - cht-net:
-      - cht-overlay:
-```
-
-#### CouchDB Node 1
-
-On CouchDB node 1, delete `couchdb.2:` and `couchdb.3:` services from the yml, 40 lines in total.
-
-#### CouchDB Node 2
-
-On CouchDB node 2, delete `couchdb.1:` and `couchdb.3:` services from the yml, 41 lines in total.
-
-#### CouchDB Node 3
-
-On CouchDB node 3, delete `couchdb.1:` and `couchdb.2:` services from the yml, 41 lines in total.
-
 ## Starting Services
 
 ### CouchDB Nodes
 
 
-1. On each of the three CouchDB nodes starting with node 3, then 2 then 1, run:
+1. On each of the three CouchDB nodes starting with node 3, then 2 then 1. Be sure to wait until `docker-compose` is finished running and has returned you to the command prompt before continuing to the next node:
    
    ```shell
    cd /home/ubuntu/cht
    docker-compose up -d
    ```
    
-4. Watch the logs and wait for everything to be up and running. You can run this on each node to watch the logs:
+2. Watch the logs and wait for everything to be up and running. You can run this on each node to watch the logs:
+
    ```shell
    cd /home/ubuntu/cht
-   docker-compose logs --tail=0 --follow
+   docker-compose logs --follow
+   ```
+   
+   Nodes 2 and 3 should show output like `couchdb  is ready` after node 1 has started. Node 1 will show this when it has added all nodes:
+
+   ```shell
+   cht-couchdb.1-1  | {"ok":true}
+   cht-couchdb.1-1  | {"all_nodes":["couchdb@couchdb.1","couchdb@couchdb.2","couchdb@couchdb.3"],"cluster_nodes":["couchdb@couchdb.1","couchdb@couchdb.2","couchdb@couchdb.3"]}
    ```
 
 ### CHT Core
@@ -217,17 +279,18 @@ On CouchDB node 3, delete `couchdb.1:` and `couchdb.2:` services from the yml, 4
 Now that CouchDB is running on all the nodes, start the CHT Core:
 
 ```shell
-cd /home/ubuntu/upgrade-service
+cd /home/ubuntu/cht/upgrade-service/
 docker-compose up -d
 ```
 
-To follow the progress tail the log of the upgrade service container by running this:
+To follow the progress tail the log of the upgrade service container by running:
 
 ```shell
-docker logs -f upgrade-service_cht-upgrade-service_1
+cd /home/ubuntu/cht/upgrade-service/
+docker-compose logs --follow
 ```
 
-To make sure everything is running correctly, call docker ps --format '{{.Names}}' and make sure that 6 CHT containers show:
+To make sure everything is running correctly, call `docker ps` and make sure that 6 CHT containers show:
 
 ```shell
 CONTAINER ID   IMAGE                                                         COMMAND                   CREATED          STATUS         PORTS                                                                      NAMES
