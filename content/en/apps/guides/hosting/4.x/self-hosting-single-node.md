@@ -56,11 +56,15 @@ Note that secure passwords and UUIDs were generated on the first three calls and
 
 ## Launch containers
 
+{{% alert title="Note" %}}
+This section has the first use of `docker compose`.  This should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command.`.
+{{% /alert %}}
+
 To start your CHT instance, run the following
 
 ```
 cd /home/ubuntu/cht/upgrade-service
-docker-compose up --detached
+docker compose up --detached
 ```
 
 Docker will start the upgrade service, which in turn pulls the required images and starts all the services as defined by the compose files in `/home/ubuntu/cht/compose`.

@@ -9,7 +9,6 @@ description: >
 {{% alert title="Note" %}}
 The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains.  These gains will greatly increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
-[//]: # (TODO - Fix this link once we merge self-hosting-single-node https://github.com/medic/cht-docs/pull/915)
 Instead, we recommended most deployment go with the [single node hosting]({{< ref "apps/guides/hosting/4.x/self-hosting-single-node" >}}).
 
 As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
@@ -47,35 +46,31 @@ To set up a private network that only the four nodes can use, we'll use `docker 
 
 ### CHT Core node
 
-1. Initialize swarm mode.
+Initialize swarm mode by running:
 
-    ```
-    docker swarm init
-    ```
+ ```
+ docker swarm init
+ ```
 
+This will output:
 
-    You should get the output:
+{{< highlight shell "linenos=table" >}}
+Swarm initialized: current node (ca7z1v4tm9q4kf9uimreqoauj) is now a manager.
+To add a worker to this swarm, run the following command:
 
-    ```
-    Swarm initialized: current node (ca7z1v4tm9q4kf9uimreqoauj) is now a manager.
-    To add a worker to this swarm, run the following command:
-    
-        docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377
-    
-    To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
-    
-    ```
+   docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377
 
-2. Create overlay network
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions. {{< /highlight >}}
 
-    ```
-    docker network create --driver=overlay --attachable cht-overlay
-    ```
+Then create overlay network by calling:
 
+ ```
+ docker network create --driver=overlay --attachable cht-overlay
+ ```
 
 ### CouchDB nodes
 
-On each of these three CouchDB nodes run the join command given to you in step 1 above:
+On each of these three CouchDB nodes run the `docker swarm join` command given to you in [line 4 above in "CHT Core node"](#cht-core-node):
 
     docker swarm join --token <very-long-token-value> <main-server-private-ip>:2377`
 
@@ -119,13 +114,7 @@ EOF
 
 Note that secure passwords and UUIDs were generated on the first three calls and saved in the resulting `.env` file.
 
-Keep a copy of your CouchDB Password as you'll need it later when configuring each CouchDB Node. This command shows you the randomly generated password:
-
-```shell
-grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
-```
-
-### Download required docker-compose files
+### Download compose files
 
 The following 2 `curl` commands download CHT version `4.0.1` compose files, which you can change as needed. Otherwise, call:
 
@@ -135,32 +124,38 @@ curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/bui
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
-#### Docker-compose modifications
+#### Compose file modifications
 
-1. At the end of each compose file, ensure the 2 `networks:` sections (1 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`) look like this by adding three lines:
+At the end of each compose file, ensure the 2 `networks:` sections (1 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`) look like this by adding three lines:
 
+```yaml
+networks:
+   cht-net:
+      name: ${CHT_NETWORK:-cht-net}
+   cht-overlay:
+      driver: overlay
+      external: true
+```
 
-        networks:
-            cht-net:
-               name: ${CHT_NETWORK:-cht-net}
-            cht-overlay:
-               driver: overlay
-               external: true
+For all 6 services in the compose files (5 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`), update the `networks:` section to look like this:
 
-
-2. For all 6 services in the compose files (5 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`), update the `networks:` section to look like this:
-
-        networks:
-          cht-overlay:
-          cht-net:
+```yaml
+networks:
+  - cht-overlay
+  - cht-net
+```
 
 ### TLS Certificates
 
-In order to initialize all the storage volumes and networks neede to install the TLS certs, start the CHT Core services, which will intentionally all fail as the CouchDB nodes don't exist.  We'll then ensure they're all stopped with the `docker kill` at the end:
+{{% alert title="Note" %}}
+This section has the first use of `docker compose`.  This should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command`.
+{{% /alert %}}
+
+To ensure the needed docker volume is created, start the CHT Core services, which will intentionally all fail as the CouchDB nodes don't exist.  We'll then ensure they're all stopped with the `docker kill` at the end:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service/
-docker-compose up -d
+docker compose up -d
 sleep 60
 docker kill $(docker ps --quiet)
 ```
@@ -173,9 +168,17 @@ Now that CHT Core is installed, we need to install CouchDB on the three nodes.  
 
 ### Prepare Environment Variables file
 
-On all 3 nodes, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` with the [password you saved](#prepare-environment-variables-file) when creating the CHT Core `.env` file so it is the same on all three nodes:
+
+First, **on the CHT Core node**,  get your CouchDB password with this command:
+
+```shell
+grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
+```
+
+Now, **on all 3 CouchDB nodes**, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` so it is the same on all three nodes:
 
 ```
+mkdir -p /home/ubuntu/cht/srv
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
 cat > /home/ubuntu/cht/.env << EOF
@@ -188,7 +191,7 @@ COUCHDB_UUID=${uuid}
 EOF
 ```
 
-Note that secure passwords and UUIDs were generated on the first two calls and saved in the resulting `.env` file.
+Note that secure passwords and UUIDs were generated and saved in the resulting `.env` file.
 
 #### CouchDB Node 1
 
@@ -217,8 +220,8 @@ services:
         max-file: "${LOG_MAX_FILES:-20}"
     restart: always
     networks:
-      cht-net:
-      cht-overlay:
+      - cht-net
+      - cht-overlay
 volumes:
   cht-credentials:
 networks:
@@ -255,8 +258,8 @@ services:
         max-file: "${LOG_MAX_FILES:-20}"
     restart: always
     networks:
-      cht-net:
-      cht-overlay:
+      - cht-net
+      - cht-overlay
 volumes:
   cht-credentials:
 networks:
@@ -277,14 +280,14 @@ networks:
    
    ```shell
    cd /home/ubuntu/cht
-   docker-compose up -d
+   docker compose up -d
    ```
    
 2. Watch the logs and wait for everything to be up and running. You can run this on each node to watch the logs:
 
    ```shell
    cd /home/ubuntu/cht
-   docker-compose logs --follow
+   docker compose logs --follow
    ```
    
    Nodes 2 and 3 should show output like `couchdb  is ready` after node 1 has started. 
@@ -302,14 +305,14 @@ Now that CouchDB is running on all the nodes, start the CHT Core:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service/
-docker-compose up -d
+docker compose up -d
 ```
 
 To follow the progress tail the log of the upgrade service container by running:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service/
-docker-compose logs --follow
+docker compose logs --follow
 ```
 
 To make sure everything is running correctly, call `docker ps` and make sure that 6 CHT containers show:
@@ -345,4 +348,4 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 
 ## Upgrades
 
-Upgrades are completely manual for the clustered setup right now. You have to go into each of the docker-compose files and modify the image tag and take containers down and restart them.
+Upgrades are completely manual for the clustered setup right now. You have to go into each of the docker compose files and modify the image tag and take containers down and restart them.
