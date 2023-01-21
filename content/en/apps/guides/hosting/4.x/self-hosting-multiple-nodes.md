@@ -171,16 +171,6 @@ With docker volume having been created, see the [TLS Certificates page]({{< relr
 
 Now that CHT Core is installed, we need to install CouchDB on the three nodes.  Be sure all 3 nodes [meet the prerequisites](#prerequisites) before proceeding.
 
-### Download compose file
-
-On each of the 3 nodes, create the directory structure and then download the `cht-couchdb-clustered.yml` file:
-
-```shell
-mkdir -p /home/ubuntu/cht/couchdb
-cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb-clustered.yml
-```
-
 ### Prepare Environment Variables file
 
 On all 3 nodes, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` with the [password you saved](#prepare-environment-variables-file) when creating the CHT Core `.env` file so it is the same on all three nodes:
@@ -200,58 +190,88 @@ EOF
 
 Note that secure passwords and UUIDs were generated on the first two calls and saved in the resulting `.env` file.
 
-### Compose file modifications
-
-First, you need to edit each of the `/home/ubuntu/cht/docker-compose.yml` files so that they only have one service declared in them.  
-
 #### CouchDB Node 1
 
-On CouchDB node 1, delete `couchdb.2:` and `couchdb.3:` services from the yml with the following call:
+Create `/home/ubuntu/cht/docker-compose.yml` on Node 1.  It is the master node of the cluster and has different `environment:` settings than Node 2 and 3, note `CLUSTER_PEER_IPS` on line 15 for example:
 
-```shell
-sed -i.bak -e '26,66d' /home/ubuntu/cht/docker-compose.yml
-```
-#### CouchDB Node 2
-
-On CouchDB node 2, delete `couchdb.1:` and `couchdb.3:` services from the yml with the following call:
-
-```shell
-sed -i.bak -e '4,24d;47,66d' /home/ubuntu/cht/docker-compose.yml
-```
-
-#### CouchDB Node 3
-
-On CouchDB node 3, delete `couchdb.1:` and `couchdb.2:` services from the yml with the following call:
-
-```shell
-sed -i.bak -e '4,45d' /home/ubuntu/cht/docker-compose.yml
-```
-
-#### Shared 
-
-On all three nodes, each needs to have the `networks:` section in the `services:` section of the `/home/ubuntu/cht/docker-compose.yml` file changed to look like this:
-
-```
+{{< highlight yaml "linenos=table" >}}
+version: '3.9'
+services:
+  couchdb.1:
+    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.1-4.0.1
+    volumes:
+      - ./srv:/opt/couchdb/data
+      - cht-credentials:/opt/couchdb/etc/local.d/
+    environment:
+      - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+      - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:?COUCHDB_PASSWORD must be set}"
+      - "COUCHDB_SECRET=${COUCHDB_SECRET}"
+      - "COUCHDB_UUID=${COUCHDB_UUID}"
+      - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
+      - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
+      - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-error}"
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
+    restart: always
     networks:
       cht-net:
       cht-overlay:
-```
+volumes:
+  cht-credentials:
+networks:
+  cht-net:
+     name: ${CHT_NETWORK:-cht-net}
+  cht-overlay:
+     driver: overlay
+     external: true
+{{< / highlight >}}
 
-As well, all 3 files need to have the following added at the end below `volumes:`:
+#### CouchDB Node 2 and Node 3
 
-```
- networks:
-     cht-net:
-        name: ${CHT_NETWORK:-cht-net}
-     cht-overlay:
-        driver: overlay
-        external: true
-```
+Create `/home/ubuntu/cht/docker-compose.yml` on Node 2 and 3.  Change the 3rd and 12th line to be `couchdb.2` or `couchdb.3` according to the node you're on:
+
+{{< highlight yaml "linenos=table" >}}
+version: '3.9'
+services:
+  couchdb.2:
+    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.1-4.0.1
+    volumes:
+      - ./srv:/opt/couchdb/data
+    environment:
+      - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+      - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:?COUCHDB_PASSWORD must be set}"
+      - "COUCHDB_SECRET=${COUCHDB_SECRET}"
+      - "COUCHDB_UUID=${COUCHDB_UUID}"
+      - "SVC_NAME=couchdb.2"
+      - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-error}"
+      - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb.1}"
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
+    restart: always
+    networks:
+      cht-net:
+      cht-overlay:
+volumes:
+  cht-credentials:
+networks:
+  cht-net:
+     name: ${CHT_NETWORK:-cht-net}
+  cht-overlay:
+     driver: overlay
+     external: true
+{{< / highlight >}}
+
+
 
 ## Starting Services
 
 ### CouchDB Nodes
-
 
 1. On each of the three CouchDB nodes starting with node 3, then 2 then 1. Be sure to wait until `docker-compose` is finished running and has returned you to the command prompt before continuing to the next node:
    
@@ -267,7 +287,9 @@ As well, all 3 files need to have the following added at the end below `volumes:
    docker-compose logs --follow
    ```
    
-   Nodes 2 and 3 should show output like `couchdb  is ready` after node 1 has started. Node 1 will show this when it has added all nodes:
+   Nodes 2 and 3 should show output like `couchdb  is ready` after node 1 has started. 
+
+   Node 1 will show this when it has added all nodes:
 
    ```shell
    cht-couchdb.1-1  | {"ok":true}
@@ -311,7 +333,7 @@ This should show related to the CHT core are running
 * cht_haproxy
 * cht-upgrade-service
 
-Take note of the STATUS column and make sure no errors are displayed there. If any container is restarting or mentioning any other error, check the logs using the sudo docker logs <container-name> command.
+Take note of the `STATUS` column and make sure no errors are displayed. If any container is restarting or mentioning any other error, check the logs using the `docker logs <container-name>` command.
 
 If all has gone well, `nginx` should now be listening at both port 80 and port 443. Port 80 has a permanent redirect to port 443, so you can only access the CHT using https.
 

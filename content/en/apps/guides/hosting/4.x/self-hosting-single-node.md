@@ -91,7 +91,7 @@ This should show related to the CHT core are running
 * cht_haproxy
 * cht-upgrade-service
 
-Take note of the `STATUS` column and make sure no errors are displayed there. If any container is restarting or mentioning any other error, check the logs using the `sudo docker logs <container-name>` command.
+Take note of the `STATUS` column and make sure no errors are displayed there. If any container is restarting or mentioning any other error, check the logs using the `docker logs <container-name>` command.
 
 If all has gone well, nginx should now be listening at both port 80 and port 443. Port 80 has a permanent redirect to port 443, so you can only access the CHT using https.
 
