@@ -86,15 +86,13 @@ mi3vj0prd76djbvxms43urqiv     couchdb2   Ready     Active                       
 kcpxlci3jjjtm6xjz7v50ef7k     couchdb3   Ready     Active                          20.10.23
 ```
 
-Note that you'll need the 3 names of the `HOSTNAME` columns when you set up your CHT Core `.env` file below
-
 ## CHT Core installation
 
 {{< read-content file="_partial_docker_directories.md" >}}
 
 ### Prepare Environment Variables file
 
-Prepare an `.env` file by running this code, being sure to update `LIST_OF_SERVERS` to be a comma separated list of the three node names from the output of `docker node ls` which might look like `COUCHDB_SERVERS=couchdb1,couchdb2,couchdb3`, for example:
+Prepare an `.env` file by running this code:
 
 ```
 uuid=$(uuidgen)
@@ -106,9 +104,7 @@ DOCKER_CONFIG_PATH=/home/ubuntu/cht/upgrade-service
 CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
 COUCHDB_PASSWORD=${couchdb_password}
-CERTIFICATE_MODE=OWN_CERT
-SSL_VOLUME_MOUNT_PATH=/etc/nginx/private/
-COUCHDB_SERVERS=LIST_OF_SERVERS
+COUCHDB_SERVERS=couchdb.1,couchdb.2,couchdb.3
 EOF
 ```
 
@@ -151,12 +147,12 @@ networks:
 This section has the first use of `docker compose`.  This should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command`.
 {{% /alert %}}
 
-To ensure the needed docker volume is created, start the CHT Core services, which will intentionally all fail as the CouchDB nodes don't exist.  We'll then ensure they're all stopped with the `docker kill` at the end:
+To ensure the needed docker volume is created, start the CHT Core services, which will intentionally all fail as the CouchDB nodes don't exist.  We'll then ensure they're all stopped with the `docker kill` at the end. Note that this command has will `sleep 120` (wait for 2 minutes) in hopes of 
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service/
 docker compose up -d
-sleep 60
+sleep 120
 docker kill $(docker ps --quiet)
 ```
 
@@ -234,7 +230,7 @@ networks:
 
 #### CouchDB Node 2 and Node 3
 
-Create `/home/ubuntu/cht/docker-compose.yml` on Node 2 and 3.  Change the 3rd and 12th line to be `couchdb.2` or `couchdb.3` according to the node you're on:
+Create a file  `/home/ubuntu/cht/docker-compose.yml` on Node 2 and 3 with this contents:
 
 {{< highlight yaml "linenos=table" >}}
 version: '3.9'
@@ -271,6 +267,9 @@ networks:
 {{< / highlight >}}
 
 
+#### CouchDB Node 3
+
+On just CouchDB Node 3, change the 3rd and 12th line to be  `couchdb.3` in the   `/home/ubuntu/cht/docker-compose.yml` file you created above.
 
 ## Starting Services
 

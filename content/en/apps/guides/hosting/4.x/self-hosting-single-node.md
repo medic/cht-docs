@@ -46,9 +46,7 @@ COUCHDB_DATA=/home/ubuntu/cht/couchdb
 CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
 COUCHDB_PASSWORD=${couchdb_password}
-CERTIFICATE_MODE=OWN_CERT
 COUCHDB_UUID=${uuid}
-SSL_VOLUME_MOUNT_PATH=/etc/nginx/private/
 EOF
 ```
 
