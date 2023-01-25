@@ -123,3 +123,8 @@ h2, h3 {
 .fa-rotate-45 {
   transform: rotate(45deg);
 }
+
+// When using {{< highlight "linenos=table" >}} {{< / highlight >}} blocks, make line numbers unselectable
+.highlight table td:first-child code span  {
+  user-select:none;
+}
