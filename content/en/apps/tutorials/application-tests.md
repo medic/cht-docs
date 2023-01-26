@@ -89,7 +89,7 @@ const harness = new TestRunner();
 ```
 
 
-In the example above, we define values `TestRunner` and `harness` .You get an instance of `harness` and the same instance is used throughout the test file.
+In the example above, we define values `TestRunner` and `harness`. You get an instance of `harness` and the same instance is used throughout the test file.
 You can also pass parameters to the `TestRunner()` when instantiating:
 ```js
 // For detailed console logs
