@@ -78,7 +78,7 @@ If your `package.json` file does not already have them, add `cht-conf-test-harne
 
 ## Writing a test for CHT App
 
-Start by adding a file where a group of related tests are written. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file. The commmon naming pattern for CHT applications test files is filename.spec.js. In Javascript testing, spec is short for specifications which refers to technical details of a given application, that must be fulfilled.
+Start by adding a file where a group of related tests are written. For example, in the default config, all tests for the pregnancy form are in the [pregnancy.spec.js](https://github.com/medic/cht-core/blob/master/config/default/test/forms/pregnancy.spec.js) file. The common naming pattern for CHT applications test files is `filename.spec.js`. In JavaScript testing, `spec` is short for specifications which refers to technical details of a given application, that must be fulfilled.
 
 Let's introduce some important sections from a typical test file:
 
