@@ -61,7 +61,7 @@ If your `package.json` file does not already have them, add `cht-conf-test-harne
    |`npm run test`|Compiles the app settings, converts the forms, then runs the tests (preferred solution).
    |`npm run unittest`|Only runs the unit tests.|
 
-   You can also run the test on a specific form by defining a test under the scripts section. For example to run the test on the death.spec.js file:
+   You can also run the test on a specific form by defining a test under the scripts section. For example to run the test on the `death.spec.js` file:
       `death-form-unit-test: "mocha test/forms/death.spec.js --timeout 20000"`
    Then run:
       `npm run death-form-unit-test`
