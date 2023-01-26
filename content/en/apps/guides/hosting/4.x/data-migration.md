@@ -1,5 +1,5 @@
 ---
-title: "Data migration from CHT 3.x to CHT 4.x"
+title: "Migration from CHT 3.x to CHT 4.x"
 linkTitle: "Data migration to 4.x"
 weight: 10
 description: >
@@ -9,7 +9,8 @@ relatedContent: >
 ---
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps. 
-This guide will present the required steps while using a migration helping tool, called `couchdb-migration`. This tool interfaces with CouchDb, to update shard maps and database metadata. 
+This guide will present the required steps while using a migration helping tool, called `couchdb-migration`. This tool interfaces with CouchDb, to update shard maps and database metadata.
+By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.
 Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/3.2.2-docs/cluster/sharding.html#moving-a-shard). 
 
 ### 1. Install CHT data migration tool
@@ -43,8 +44,10 @@ EOF
 ```
 
 ### 2. Prepare CHT-Core 3.x installation for upgrading
-To ensure no changes happen to your CouchDB data in your CHT 3.x server, stop the API by getting shell on your Medic OS container and calling `/boot/svc-stop medic-api`.
 
+Backup your data! If you encounter any problems executing the instructions of this guide, you should be able to restore your CHT 3X instance using the backup data.
+[Consult information about backups for details]({{< relref "apps/guides/hosting/3.x/self-hosting#backup" >}}).
+To ensure no changes happen to your CouchDB data in your CHT 3.x server, stop the API by getting shell on your Medic OS container and calling `/boot/svc-stop medic-api`.
 
 To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that are required by 4.x.
 
@@ -68,9 +71,9 @@ cd ~/couchdb-migration/
 docker-compose run couch-migration get-env
 ```
 
-##### a. CouchDB secret 
+##### a) CouchDB secret 
 Used in encrypting all CouchDb passwords and session tokens.
-##### b. CouchDb server uuid
+##### b) CouchDb server uuid
 Used in generating replication checkpointer documents, which track where replication progress between every client and the server, and ensure that clients don't re-download or re-upload documents.
 
 ### 4. Locate and backup CouchDb Data folder
@@ -107,7 +110,16 @@ COUCHDB_UUID=<COUCHDB_UUID from step 3>
 COUCHDB_DATA=<absolute path to folder created in step 5.a>
 EOF
 ```
-c) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.
+
+c) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
+```shell
+cat > ${HOME}/couchdb-migration/.env << EOF
+CHT_NETWORK=<docker-network-name>
+COUCH_URL=http://<authentication>@<docker-service-name>:<port>
+EOF
+```
+
+d) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.  
 ```shell
 cd ~/couchdb-single/ 
 docker-compose up -d
@@ -115,12 +127,12 @@ cd ~/couchdb-migration/
 docker-compose run couch-migration check-couchdb-up
 ```
 
-d) Change metadata to match the new CouchDb node
+e) Change metadata to match the new CouchDb node
 ```shell
 cd ~/couchdb-migration/ 
 docker-compose run couch-migration move-node
 ```
-w) Run the `veryfy` command to check whether the migration was successful.
+f) Run the `veryfy` command to check whether the migration was successful.
 ```shell
 docker-compose run couch-migration verify
 ```
@@ -153,13 +165,21 @@ COUCHDB_USER=<admin>
 COUCHDB_PASSWORD=<password>
 COUCHDB_SECRET=<COUCHDB_SECRET from step 3>
 COUCHDB_UUID=<COUCHDB_UUID from step 3>
-COUCHDB1_DATA=<absolute path to main folder created in step 5.a>
-COUCHDB2_DATA=<absolute path to secondary1 folder created in step 5.a>
-COUCHDB3_DATA=<absolute path to secondary2 folder created in step 5.a>
+DB1_DATA=<absolute path to main folder created in step 5.a>
+DB2_DATA=<absolute path to secondary1 folder created in step 5.a>
+DB3_DATA=<absolute path to secondary2 folder created in step 5.a>
 EOF
 ```
 
-f) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
+f) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
+```shell
+cat > ${HOME}/couchdb-migration/.env << EOF
+CHT_NETWORK=<docker-network-name>
+COUCH_URL=http://<authentication>@<docker-service-name>:<port>
+EOF
+```
+
+g) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
 ```shell
 cd ~/couchdb-cluster/ 
 docker-compose up -d
@@ -167,14 +187,14 @@ cd ~/couchdb-migration/
 docker-compose run couch-migration check-couchdb-up <number of nodes>
 ```
 
-g) Generate the shard distribution matrix and get instructions for final shard locations. 
+h) Generate the shard distribution matrix and get instructions for final shard locations. 
 ```shell
 cd ~/couchdb-migration/ 
 shard_matrix=$(docker-compose run couch-migration generate-shard-distribution-matrix)
 docker-compose run couch-migration shard-move-instructions $shard_matrix
 ``` 
 
-h) Follow the instructions from the step above and move the shard files to the correct location, according to the shard distribution matrix. 
+i) Follow the instructions from the step above and move the shard files to the correct location, according to the shard distribution matrix. 
 
 Example of moving one shard from one node to another:
 
@@ -237,13 +257,13 @@ After moving two shards: `55555554-6aaaaaa8` and `6aaaaaa9-7ffffffd`
      /6aaaaaa9-7ffffffd
      /55555554-6aaaaaa8
 ```
-i) Change metadata to match the new shard distribution. We declared `$shard_matrix` in step "g" above, so it is still set now:
+j) Change metadata to match the new shard distribution. We declared `$shard_matrix` in step "g" above, so it is still set now:
 
 ```shell
 docker-compose run couch-migration move-shards $shard_matrix
 ``` 
 
-j) Run the `veryfy` command to check whether the migration was successful. 
+k) Run the `veryfy` command to check whether the migration was successful. 
 ```shell
 docker-compose run couch-migration verify
 ```
