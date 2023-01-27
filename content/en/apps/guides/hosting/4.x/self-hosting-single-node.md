@@ -62,7 +62,7 @@ To start your CHT instance, run the following
 
 ```
 cd /home/ubuntu/cht/upgrade-service
-docker compose up --detached
+docker compose up --detach
 ```
 
 Docker will start the upgrade service, which in turn pulls the required images and starts all the services as defined by the compose files in `/home/ubuntu/cht/compose`.
