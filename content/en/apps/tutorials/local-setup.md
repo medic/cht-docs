@@ -160,7 +160,8 @@ Then deploy the blank project onto your local test environment with the command:
 cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
-If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs, then you need to restart the docker-compose and try again.
+If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs, then you need to restart the docker-compose and try again. Run the following to install the dependancies.
+If this error is persistent, please create a new directory and initialise a new project in the new location (this location should not be in your cht-core folder).
 
 ```shell
 npm ci
