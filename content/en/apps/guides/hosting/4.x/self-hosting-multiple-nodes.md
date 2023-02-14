@@ -65,7 +65,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 Then create overlay network by calling:
 
  ```
- docker network create --driver=overlay --attachable cht-overlay
+ docker network create --driver=overlay --attachable cht-net
  ```
 
 ### CouchDB nodes
@@ -120,25 +120,18 @@ curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/bui
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
-#### Compose file modifications
+#### Compose file overrides
 
-At the end of each compose file, ensure the 2 `networks:` sections (1 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`) look like this by adding three lines:
+We need to override the `networks:` in the two compose files we just created.  Create the override file with this code:
 
-```yaml
+```shell
+cat > /home/ubuntu/cht/compose/cluster-overrides.yml << EOF
+version: '3.9'
 networks:
-   cht-net:
-      name: ${CHT_NETWORK:-cht-net}
-   cht-overlay:
-      driver: overlay
-      external: true
-```
-
-For all 6 services in the compose files (5 in `compose/cht-core.yml` and 1 in `upgrade-service/docker-compose.yml`), update the `networks:` section to look like this:
-
-```yaml
-networks:
-  - cht-overlay
-  - cht-net
+  cht-net:
+     driver: overlay
+     external: true
+EOF
 ```
 
 ### TLS Certificates
@@ -191,85 +184,74 @@ Note that secure passwords and UUIDs were generated and saved in the resulting `
 
 #### CouchDB Node 1
 
-Create `/home/ubuntu/cht/docker-compose.yml` on Node 1.  It is the master node of the cluster and has different `environment:` settings than Node 2 and 3, note `CLUSTER_PEER_IPS` on line 15 for example:
+Create `/home/ubuntu/cht/docker-compose.yml` on Node 1 by running this code:
 
-{{< highlight yaml "linenos=table" >}}
+```shell
+cd /home/ubuntu/cht/
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
+```
+
+Now create the override file to have Node 1 join the `cht-net` overlay network we created above. As well, we'll set some `services:` specific overrides:
+
+```shell
+cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
-  couchdb.1:
-    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.1-4.0.1
-    volumes:
-      - ./srv:/opt/couchdb/data
-      - cht-credentials:/opt/couchdb/etc/local.d/
+  couchdb:
+    container_name: couchdb.1
     environment:
-      - "COUCHDB_USER=${COUCHDB_USER:-admin}"
-      - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:?COUCHDB_PASSWORD must be set}"
-      - "COUCHDB_SECRET=${COUCHDB_SECRET}"
-      - "COUCHDB_UUID=${COUCHDB_UUID}"
       - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
       - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
-      - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-error}"
-    logging:
-      driver: "local"
-      options:
-        max-size: "${LOG_MAX_SIZE:-50m}"
-        max-file: "${LOG_MAX_FILES:-20}"
-    restart: always
-    networks:
-      - cht-net
-      - cht-overlay
-volumes:
-  cht-credentials:
 networks:
   cht-net:
-     name: ${CHT_NETWORK:-cht-net}
-  cht-overlay:
      driver: overlay
      external: true
-{{< / highlight >}}
+EOF
+```
 
-#### CouchDB Node 2 and Node 3
+#### CouchDB Node 2 
 
-Create a file  `/home/ubuntu/cht/docker-compose.yml` on Node 2 and 3 with this contents:
+Like we did for Node 1, create `/home/ubuntu/cht/docker-compose.yml` and the `cluster-overrides.yml` file on Node 2 by running this code:
 
-{{< highlight yaml "linenos=table" >}}
+```shell
+cd /home/ubuntu/cht/
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
+cat > /home/ubuntu/cht/network-overrides.yml << EOF
 version: '3.9'
 services:
-  couchdb.2:
-    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.1-4.0.1
-    volumes:
-      - ./srv:/opt/couchdb/data
+  couchdb:
+    container_name: couchdb.2
     environment:
-      - "COUCHDB_USER=${COUCHDB_USER:-admin}"
-      - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:?COUCHDB_PASSWORD must be set}"
-      - "COUCHDB_SECRET=${COUCHDB_SECRET}"
-      - "COUCHDB_UUID=${COUCHDB_UUID}"
       - "SVC_NAME=couchdb.2"
-      - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-error}"
       - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb.1}"
-    logging:
-      driver: "local"
-      options:
-        max-size: "${LOG_MAX_SIZE:-50m}"
-        max-file: "${LOG_MAX_FILES:-20}"
-    restart: always
-    networks:
-      - cht-net
-      - cht-overlay
-volumes:
-  cht-credentials:
 networks:
   cht-net:
-     name: ${CHT_NETWORK:-cht-net}
-  cht-overlay:
      driver: overlay
      external: true
-{{< / highlight >}}
-
+EOF
+```
 
 #### CouchDB Node 3
 
-On just CouchDB Node 3, change the 3rd and 12th line to be  `couchdb.3` in the   `/home/ubuntu/cht/docker-compose.yml` file you created above.
+Finally, we'll match Node 3  up with the others by running this code:
+
+```shell
+cd /home/ubuntu/cht/
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
+cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
+version: '3.9'
+services:
+  couchdb:
+    container_name: couchdb.3
+    environment:
+      - "SVC_NAME=couchdb.3"
+      - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb.1}"
+networks:
+  cht-net:
+     driver: overlay
+     external: true
+EOF
+```
 
 ## Starting Services
 
@@ -279,7 +261,7 @@ On just CouchDB Node 3, change the 3rd and 12th line to be  `couchdb.3` in the  
    
    ```shell
    cd /home/ubuntu/cht
-   docker compose up -d
+   docker compose  -f docker-compose.yml -f cluster-overrides.yml  up -d
    ```
    
 2. Watch the logs and wait for everything to be up and running. You can run this on each node to watch the logs:
@@ -294,8 +276,8 @@ On just CouchDB Node 3, change the 3rd and 12th line to be  `couchdb.3` in the  
    Node 1 will show this when it has added all nodes:
 
    ```shell
-   cht-couchdb.1-1  | {"ok":true}
-   cht-couchdb.1-1  | {"all_nodes":["couchdb@couchdb.1","couchdb@couchdb.2","couchdb@couchdb.3"],"cluster_nodes":["couchdb@couchdb.1","couchdb@couchdb.2","couchdb@couchdb.3"]}
+   cht-couchdb-1.local-1  | {"ok":true}
+   cht-couchdb-1.local-1  | {"all_nodes":["couchdb@couchdb-1.local","couchdb@couchdb-2.local","couchdb@couchdb-3.local"],"cluster_nodes":["couchdb@couchdb-1.local","couchdb@couchdb-2.local","couchdb@couchdb-3.local"]}
    ```
 
 ### CHT Core
@@ -304,7 +286,7 @@ Now that CouchDB is running on all the nodes, start the CHT Core:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service/
-docker compose up -d
+docker compose  -f docker-compose.yml -f ../compose/cluster-overrides.yml  up -d
 ```
 
 To follow the progress tail the log of the upgrade service container by running:
