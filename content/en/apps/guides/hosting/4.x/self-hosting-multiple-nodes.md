@@ -125,7 +125,7 @@ curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.co
 We need to override the `networks:` in the two compose files we just created.  Create the override file with this code:
 
 ```shell
-cat > /home/ubuntu/cht/compose/network-overrides.yml << EOF
+cat > /home/ubuntu/cht/compose/cluster-overrides.yml << EOF
 version: '3.9'
 networks:
   cht-net:
@@ -194,7 +194,7 @@ curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/build
 Now create the override file to have Node 1 join the `cht-net` overlay network we created above. As well, we'll set some `services:` specific overrides:
 
 ```shell
-cat > /home/ubuntu/cht/network-overrides.yml << EOF
+cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
   couchdb:
@@ -211,7 +211,7 @@ EOF
 
 #### CouchDB Node 2 
 
-Like we did for Node 1, create `/home/ubuntu/cht/docker-compose.yml` and the `network-overrides.yml` file on Node 2 by running this code:
+Like we did for Node 1, create `/home/ubuntu/cht/docker-compose.yml` and the `cluster-overrides.yml` file on Node 2 by running this code:
 
 ```shell
 cd /home/ubuntu/cht/
@@ -238,7 +238,7 @@ Finally, we'll match Node 3  up with the others by running this code:
 ```shell
 cd /home/ubuntu/cht/
 curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
-cat > /home/ubuntu/cht/network-overrides.yml << EOF
+cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
   couchdb:
@@ -261,7 +261,7 @@ EOF
    
    ```shell
    cd /home/ubuntu/cht
-   docker compose  -f docker-compose.yml -f network-overrides.yml  up -d
+   docker compose  -f docker-compose.yml -f cluster-overrides.yml  up -d
    ```
    
 2. Watch the logs and wait for everything to be up and running. You can run this on each node to watch the logs:
@@ -286,7 +286,7 @@ Now that CouchDB is running on all the nodes, start the CHT Core:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service/
-docker compose  -f docker-compose.yml -f ../compose/network-overrides.yml  up -d
+docker compose  -f docker-compose.yml -f ../compose/cluster-overrides.yml  up -d
 ```
 
 To follow the progress tail the log of the upgrade service container by running:
