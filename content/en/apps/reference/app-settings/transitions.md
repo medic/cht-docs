@@ -697,12 +697,9 @@ The [`app_url` property]({{< ref "apps/reference/app-settings#app_settingsjson" 
 }
 ```
 
-{{< tabpane code=false >}}
-{{% tab header="Create User" %}}
-
 #### Create User
 
-When adding a new contact, the `create_user_for_contacts` transition can be triggered to create a new user associated with that contact. _Available since 4.TODO.x._
+When adding a new contact, the `create_user_for_contacts` transition can be triggered to create a new user associated with that contact. _Available since 4.2.x._
 
 ##### Example scenario
 
@@ -726,8 +723,7 @@ The new person contacts _must_ have the following fields set:
 - `phone` - must be set to a valid number
 - `roles` - must contain the desired roles for the new user _(if just a single role is needed, the `role` field on the contact may be used instead)_
 
-{{% /tab %}}
-{{% tab header="Replace User" %}}
+See the `person-create` contact form provided in the [Default config](https://github.com/medic/cht-core/tree/master/config/default) as an example. This form will trigger the creation of a new user for the contact when the role is set to `chw` or `chw_supervisor` and a phone number is provided.
 
 #### Replace User
 
@@ -771,9 +767,6 @@ See the `replace_user` app form provided in the [Default config](https://github.
   ]
 }
 ```
-
-{{% /tab %}}
-{{< /tabpane >}}
 
 #### Troubleshooting
 
