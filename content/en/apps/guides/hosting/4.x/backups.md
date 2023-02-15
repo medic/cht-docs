@@ -17,7 +17,7 @@ As CHT 4.x uses a container per service, the only data that needs to be backed u
 * Docker Compose and `.env` files 
 * TLS certificates
 
-This is because Docker containers are inherently stateless so all the important binaries are already stored in [CHT's Docker images](https://gallery.ecr.aws/s5s3h4s7/).  Docker Compose files, including the `.env` file, store all of your deployment's configuration.  Finally, the TLS certificates should be backed up to ease recover speed.
+This is because Docker containers are inherently stateless so all the important binaries are already stored in [CHT's Docker images](https://gallery.ecr.aws/s5s3h4s7/).  Docker Compose files, including the `.env` file, store all of your deployment's configuration.  Finally, the TLS certificates should be backed up to reduce recovery time.
 
 How to backup each of these three pieces of data is covered below.
 
