@@ -30,7 +30,7 @@ Be aware of two important features of this script:
 {{% /alert %}}
 
 
-The script takes no arguments and can be called from anywhere on your system:
+The script takes no arguments and can be called from anywhere on your system as long as you specify the full path to the script.  Here it's being called from with in the `cht-core/scripts` directory:
 
 ```
 ./compress_and_archive_docker_logs.sh
