@@ -705,7 +705,7 @@ When adding a new contact, the `create_user_for_contacts` transition can be trig
 
 This functionality would allow a supervisor to add a new contact for a new CHW and have a user for the new CHW automatically be created with the data from the new contact.
 
-Once the new contact is synced with the server and has been processed by Sentinel, the new CHW will receive an SMS message (at the phone number specified in the contact) containing a token login link. This link will allow them to login as the newly created user.
+Once the new contact is synced with the server and has been processed by Sentinel, the new CHW will receive an SMS message (at the phone number specified in the contact) containing a token login link. This link will allow them to login as the newly created user. For security reasons, the token login link is valid for only one use and can only be used within 24 hours.
 
 ##### Form Configuration
 
