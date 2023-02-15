@@ -206,10 +206,13 @@ More information on the [MDM page]({{< relref "apps/guides/android/publishing#mo
 ## P
 
 ###### Partner
-
 An organization, company, or public institution overseeing or supporting a health system. We help partners equip health workers, deploy the tools, and improve outcomes in their systems.
 
+
+###### Protected Health Information (PHI)
+
 ###### Partners in Health (PIH)
+###### Personally Identifiable Information (PII)
 
 ###### Personal Protective Equipment (PPE)
 
