@@ -699,13 +699,13 @@ The [`app_url` property]({{< ref "apps/reference/app-settings#app_settingsjson" 
 
 #### Create User
 
-When adding a new contact, the `create_user_for_contacts` transition can be triggered to create a new user associated with that contact. _Available since 4.2.x._
+When adding a new person contact, the `create_user_for_contacts` transition can be triggered to create a new user associated with that contact. _Available since 4.2.x._
 
 ##### Example scenario
 
-This functionality would allow a supervisor to add a new contact for a new CHW and have a user for the new CHW automatically be created with the data from the new contact.
+A supervisor can onboard a CHW just by creating a new person contact for the CHW with a "create contact" form.
 
-Once the new contact is synced with the server and has been processed by Sentinel, the new CHW will receive an SMS message (at the phone number specified in the contact) containing a token login link. This link will allow them to login as the newly created user. For security reasons, the token login link is valid for only one use and can only be used within 24 hours.
+Once the new contact is synced with the server and has been processed by Sentinel, a user will be automatically created and the new CHW will receive an SMS message (at the phone number specified in the contact) containing a token login link. This link will allow them to login as the newly created user. For security reasons, the token login link is valid for only one use and can only be used within 24 hours.
 
 ##### Form Configuration
 
