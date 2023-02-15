@@ -1,7 +1,7 @@
 ---
 title: "Code Health"
 linkTitle: "Code Health"
-weight: 5
+weight: 6
 description: >
   How to keep the code and systems up-to-date
 ---

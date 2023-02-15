@@ -1,7 +1,7 @@
 ---
 title: "Quality Assistance"
 linkTitle: "Quality Assistance"
-weight: 1
+weight: 5
 description: >
   How the Quality Assistance process works at Medic
 ---
