@@ -59,30 +59,24 @@ You should have SSH access to the server with `root` access.
 
 ### Backup software
 
-It's assumed you are using which ever tool you're familiar with which might include [rsync](https://rsync.samba.org/examples.html), [borg](https://borgbackup.readthedocs.io/en/stable/) or other solution.  The locations of the backups should follow the 3-2-1 rule:
+It's assumed you are using which ever tool you're familiar with which might include [rsync](https://rsync.samba.org/examples.html), [borg](https://borgbackup.readthedocs.io/en/stable/), [duplicity](https://duplicity.gitlab.io/) or other solution.  The locations of the backups should follow the 3-2-1 rule:
 
 > There should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location. _- [Wikipedia](https://en.wikipedia.org/wiki/Backup)_
+
+Duplicity has the handy benefit of offering built in encryption using [GPG](https://gnupg.org/). Consider using this if you don't have an existing solution for encrypted backups. 
 
 ## CouchDB
 
 {{% alert title="Note" %}}
-CouchDB backups, by necessity, will have PII and PHI.  They should be safely stored to prevent unauthorized access.
+CouchDB backups, by necessity, will have PII and PHI.  They should be safely stored to prevent unauthorized access including encrypting backups. 
 {{% /alert %}}
 
 Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use these steps to back it up:
 
-1. Stop CouchDB.  This ensures when you back up the data files, you have a complete copy of all data in a known good state:
+1. While you don't need to stop CouchDB to back it up, ensure you follow best practices to back it up. See the [CouchDB site](https://docs.couchdb.org/en/stable/maintenance/backups.html) for more info. Note that Medic recommends NOT using replication for backup.
+2. It is strongly recommended you encrypt your backups given the sensitivity of the contents. Do this now before copying the backup files to their long term location.
+3. Backup the CouchDB files using the [software specified above]({{< relref "#backup-software" >}})
 
-   ```shell
-   docker stop cht_couchdb_1
-   ```
-2. Backup the CouchDB files using the [software specified above]({{< relref "#backup-software" >}})
-
-3. After backup has completed, restart the CouchDB container:
-
-   ```shell
-   docker start cht_couchdb_1
-   ```
 
 ## Docker Compose files
 
