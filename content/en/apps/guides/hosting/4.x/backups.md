@@ -101,7 +101,7 @@ As all of these files are only read when Docker first loads a service, you can s
 The `.key` file is the private key for TLS certificate.  It should be safely stored to prevent unauthorized access.
 {{% /alert %}}
 
-Like the compose files, the TLS certificate files can easily be regenerated or re-downloaded from you Certificate Authority, like Let's Encrypt for example. However, you want to have a backup of the at the ready to ease the restore process.
+Like the compose files, the TLS certificate files can easily be regenerated or re-downloaded from your Certificate Authority, like Let's Encrypt for example. However, you want to have a backup of the at the ready to ease the restore process.
 
 1. Copy the cert and key files from the nginx container:
 
