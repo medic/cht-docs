@@ -5,7 +5,8 @@ weight:
 description: >
   How to easily share logs from your CHT 4.x instance to get support
 relatedContent: >
-
+  apps/guides/hosting/4.x/logs
+  apps/guides/debugging/obtaining-logs
 ---
 
 CHT 4.x moves from a monolithic container MedicOS to discrete containers, each service hosting one service of the CHT. When troubleshooting an issue with your CHT instance, it can be hard to list each container, see it's status, gather up logs for each container and then share all this information with Medic or other support staff.  To ease this pain, a script was written which automates the process.
