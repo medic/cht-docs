@@ -1,7 +1,7 @@
 ---
 title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes"
 linkTitle: "Self Hosting - Multiple Nodes"
-weight: 2
+weight: 20
 description: >
   Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes
 ---

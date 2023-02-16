@@ -1,6 +1,6 @@
 ---
-title: "Obtaining Logs"
-linkTitle: "Obtaining Logs"
+title: "Obtaining Browser and Phone Logs"
+linkTitle: "Browser and Phone Logs"
 weight:
 description: >
   How to obtain Android and browser client logs
