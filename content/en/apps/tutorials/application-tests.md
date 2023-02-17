@@ -69,7 +69,7 @@ If your `package.json` file does not already have them, add `cht-conf-test-harne
         npm run death-form-unit-test
      ```   
    
-     Npm also supports a shorter alias as `npm test`.There are recommended conventions on how to arrange tests by splitting into unit tests and integration tests so that each of them can be run independently. This can be best illustrated by [this project code](https://github.com/medic/cht-pih-malawi-app).
+     npm also supports a shorter alias as `npm test`. There are recommended conventions on how to arrange tests by splitting into unit tests and integration tests so that each of them can be run independently. This can be best illustrated by [this project code](https://github.com/medic/cht-pih-malawi-app).
 
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. In this case it is named 'test'.
 {{< figure src="test-folder-placement.png" link="test-folder-placement.png" class="col-9 col-lg-12" >}}
