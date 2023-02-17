@@ -8,7 +8,7 @@ description: >
 
 1. Product owners review new Nuggets weekly
     1. Deal with duplicates
-2. Product trio and stakeholders review Nuggets monthly
+2. Product trio and stakeholders review Nuggets quarterly
     1. Create a new grid in Baserow with the date of the workshop
     2. Facilitator applies filters to Nuggets under review
         1. Date (last synthesis workshop to current date)
