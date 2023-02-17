@@ -32,4 +32,10 @@ An observation gathered through research or an atomic unit of research insight.
 
 **Example**: *Julius tapped on the X icon many times before the window closed. He seemed frustrated.*
 
+## Leads
+
+Product suggestions or requests that did _not_ necessarily come directly from a product trio member interviewing or observing a user. These are often taken from forum posts or other 3rd party means.
+
+**Example**: *Forum Post: It would be nice if the CHT used comic sans font* 
+
 ![Baserow Concepts](../images/concepts.png)
