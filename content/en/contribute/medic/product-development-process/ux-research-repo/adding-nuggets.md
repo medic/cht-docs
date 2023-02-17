@@ -17,4 +17,6 @@ After conducting your interview, copy the video recording to Google Drive (more 
 3. Create a record for the **Sample** of the recording.
 4. Add research observations a.k.a. “**Nuggets”!** 
 
-Ready to try? See a [demo](https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G/view?usp=share_link) or check out the [Quick Links]({{% ref "ux-research-repo#quick-links" %}}) and give it a go!
+Ready to see how this looks like? See a [demo](https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G/view?usp=share_link).
+
+To gain access to the UX Research Repo and browse through existing nuggets, please reach out in the #product-owner-chatter Slack channel. The access to the repository is currently restricted to the Medic team.
