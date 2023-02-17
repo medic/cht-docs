@@ -5,6 +5,7 @@ weight:
 description: >
   Data accessible from within CHT forms
 relatedContent: >
+  apps/reference/forms
   apps/reference/contact-page
   apps/guides/tasks/pass-data-to-form
   
@@ -22,6 +23,8 @@ Available data:
 
 ### `inputs` data for contact in `contact` forms
 
+#### Create forms
+
 Forms for adding contacts have access to a small group of fields nested in the `inputs` group.  These fields are contained in a group that is named for the contact_type id of the contact being added (so `person`, `clinic`, etc).
 
 {{% alert title="Note" %}}
@@ -36,6 +39,24 @@ This group of fields is also available at the top level (not nested in the `inpu
 | hidden      | contact_type  | Contact Type | The contact_type id of the contact.                           |
 | end group   |               |              |                                                               |
 | end group   |               |              |                                                               |
+
+#### Edit forms
+
+Forms for editing contacts have access to _all of the contact's current data_ nested in the `inputs` group. These fields are contained in a group that is named for the contact_type id of the contact being added (so `person`, `clinic`, etc). In addition, the contact's `parent` data will be hydrated so that the form will have access to the data stored on the parent contact doc in the `parent` group.
+
+{{% alert title="Note" %}}
+This group of fields is also available at the top level (not nested in the `inputs` group).  If fields in the top-level group are [edited by the form]({{< ref "apps/reference/forms/contact" >}}), these changes will be saved to the contact's doc.
+{{% /alert %}}
+
+| type        | name   | label       | hint                                                    |
+|-------------|--------|-------------|---------------------------------------------------------|
+| begin group | inputs | NO_LABEL    |                                                         |
+| begin group | person | NO_LABEL    |                                                         |
+| begin group | parent | Parent      | Contains the data for the contact's parent contact doc. |
+| hidden      | name   | Parent name | The name of the parent contact                          |
+| end group   | parent |             |                                                         |
+| end group   |        |             |                                                         |
+| end group   |        |             |                                                         |
 
 ---
 

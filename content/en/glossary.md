@@ -206,12 +206,12 @@ More information on the [MDM page]({{< relref "apps/guides/android/publishing#mo
 ## P
 
 ###### Partner
-
 An organization, company, or public institution overseeing or supporting a health system. We help partners equip health workers, deploy the tools, and improve outcomes in their systems.
-
 ###### Partners in Health (PIH)
 
 ###### Personal Protective Equipment (PPE)
+
+###### Personally Identifiable Information (PII)
 
 ###### Postnatal Care (PNC)
 
@@ -232,6 +232,8 @@ More information on the [PWA page]({{< relref "core/overview/pwa" >}}).
 ###### Project
 
 Collaborative endeavor aimed at delivering mobile tools to health workers and improving health systems. Projects typically involve needs assessments, design, configuration, training, post-deployment support, and impact monitoring.
+
+###### Protected Health Information (PHI)
 
 ###### Pull Request (PR)
 

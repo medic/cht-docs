@@ -89,8 +89,8 @@ const TestRunner = require('cht-conf-test-harness');
 const harness = new TestRunner();
 ```
 
-
 In the example above, we define variables `TestRunner` and `harness`. `TestRunner` imports the Harness class and `harness` creates an instance of the class that is used throughout the test file.
+
 You can also pass parameters to the `TestRunner()` when instantiating:
 ```js
 // For detailed console logs
