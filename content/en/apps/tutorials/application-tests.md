@@ -28,7 +28,7 @@ Testing your CHT application is important as it ensures you are consistently mai
 ## CHT Application Testing
 ---
 
-CHT applications are greatly configurable. Depending on the number and complexity of app components, it can take a lot of time and effort to test the components  manually. Some components, such as tasks, behave differently over time and are particularly challenging to test. As the project evolves, the configuration is often updated with new components and changes are made to the existing components. After each change, you need to test not only the new components, but also the old ones to make sure that the app works as expected. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
+CHT applications are greatly configurable. Depending on the number and complexity of app components, it can take a lot of time and effort to test the components manually. Some components, such as tasks, behave differently over time and are particularly challenging to test. As the project evolves, the configuration is often updated with new components and changes are made to the existing components. After each change, you need to test not only the new components, but also the old ones to make sure that the app works as expected. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
 
 Because it may be complicated to test with a real application, `cht-conf-test-harness` (also simply referred as `harness`), provides a platform that simulates the CHT application instance.
 
