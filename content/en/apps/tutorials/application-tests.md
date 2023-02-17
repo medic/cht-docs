@@ -32,7 +32,7 @@ CHT applications are greatly configurable. Depending on the number and complexit
 
 Because it may be complicated to test with a real application, `cht-conf-test-harness` (also simply referred as `harness`), provides a platform that simulates the CHT application instance.
 
-Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. You can also use [chai library](https://www.chaijs.com/) or other assertion libraries.
+Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. Mocha works with a variety of assertion libraries including [chai](https://www.chaijs.com/), [should.js](https://github.com/shouldjs/should.js), [expect.js](https://github.com/LearnBoost/expect.js), [better-assert](https://github.com/visionmedia/better-assert), [unexpected](https://unexpected.js.org/) among others.
 
 ## Preparation
 
@@ -42,7 +42,7 @@ Writing tests for CHT apps requires a good understanding of the project workflow
 2. Ensure your `package.json` file has the required libraries. A `package.json` file is used to record important metadata about a project and defines functional attributes that npm uses to install dependencies and run scripts. This file should be at the root of your project folder. 
 If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
     ```shell
-    npm install --save cht-conf-test-harness chai mocha
+    npm install --save-dev cht-conf-test-harness chai mocha
     ```
 3. Also, add the following scripts to `package.json`, if not already present:
 
@@ -89,8 +89,8 @@ const TestRunner = require('cht-conf-test-harness');
 const harness = new TestRunner();
 ```
 
+In the example above, we define variables `TestRunner` and `harness`. `TestRunner` imports the Harness class and `harness` creates an instance of the class that is used throughout the test file.
 
-In the example above, we define values `TestRunner` and `harness`. You get an instance of `harness` and the same instance is used throughout the test file.
 You can also pass parameters to the `TestRunner()` when instantiating:
 ```js
 // For detailed console logs
