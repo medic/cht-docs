@@ -28,11 +28,12 @@ Testing your CHT application is important as it ensures you are consistently mai
 ## CHT Application Testing
 ---
 
-CHT applications are greatly configurable. Depending on the number and complexity of app components, it can take a lot of time and effort to test the components  manually. Some components, such as tasks, behave differently over time and are particularly challenging to test. As the project evolves, the configuration is often updated with new components and changes are made to the existing components. After each change, you need to test not only the new components, but also the old ones to make sure that the app works as expected. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
+CHT applications are greatly configurable. Depending on the number and complexity of app components, it can take a lot of time and effort to test the components manually. Some components, such as tasks, behave differently over time and are particularly challenging to test. As the project evolves, the configuration is often updated with new components and changes are made to the existing components. After each change, you need to test not only the new components, but also the old ones to make sure that the app works as expected. To facilitate the testing process, app builders are encouraged to write automated tests for their app using [cht-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
 
 Because it may be complicated to test with a real application, `cht-conf-test-harness` (also simply referred as `harness`), provides a platform that simulates the CHT application instance.
 
 Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](https://mochajs.org/) testing framework to test the behavior of different components in a CHT application. Mocha works with a variety of assertion libraries including [chai](https://www.chaijs.com/), [should.js](https://github.com/shouldjs/should.js), [expect.js](https://github.com/LearnBoost/expect.js), [better-assert](https://github.com/visionmedia/better-assert), [unexpected](https://unexpected.js.org/) among others.
+
 ## Preparation
 
 Writing tests for CHT apps requires a good understanding of the project workflows and requirements. To test using the harness, there are a few things you need to set up:
@@ -68,7 +69,7 @@ If your `package.json` file does not already have them, add `cht-conf-test-harne
         npm run death-form-unit-test
      ```   
    
-     Npm also supports a shorter alias as `npm test`.There are recommended conventions on how to arrange tests by splitting into unit tests and integration tests so that each of them can be run independently. This can be best illustrated by [this project code](https://github.com/medic/cht-pih-malawi-app).
+     npm also supports a shorter alias as `npm test`. There are recommended conventions on how to arrange tests by splitting into unit tests and integration tests so that each of them can be run independently. This can be best illustrated by [this project code](https://github.com/medic/cht-pih-malawi-app).
 
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. In this case it is named 'test'.
 {{< figure src="test-folder-placement.png" link="test-folder-placement.png" class="col-9 col-lg-12" >}}
