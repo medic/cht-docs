@@ -146,11 +146,11 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 {{% alert title="Note" %}} This step will erase the default Maternal & Newborn Health Reference Application. {{% /alert %}}
 
-With `cht-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
+With `cht-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands which will create a new directory and initialize it. Be sure to use this directory for all subsequent calls:
 
 ```shell
-mkdir cht-app-tutorials
-cd cht-app-tutorials
+mkdir ~/cht-app-tutorials
+cd ~/cht-app-tutorials
 cht initialise-project-layout
 ```
 
