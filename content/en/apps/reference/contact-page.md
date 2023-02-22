@@ -68,8 +68,8 @@ Each condition card is defined as a card object in the `cards` array of `contact
 |---|---|---|--|
 | `label` | `translation key` | Label on top of card. | yes |
 | `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Please, note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. It defaults to all types if it is not defined. | no |
-| `appliesIf` | `function()` or `boolean` | Return true if the field should be shown. | no |
-| `modifyContext` | `function(context)` | Used to modify or add data which is passed as input to forms filled from the contact page. | no |
+| `appliesIf` | `function(report)` or `boolean` | Return true if the field should be shown. | no |
+| `modifyContext` | `function(context, report)` | Used to modify or add data which is passed as input to forms filled from the contact page. | no |
 | `fields` | `Array[]` of fields | The content of the card. | yes |
 | `fields[n].appliesIf` | `boolean` or `function(report)` | Same as Fields.appliesIf above. | |
 | `fields[n].label` | `string` or `function(report)` | Label shown with the field. | yes |
