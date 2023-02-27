@@ -216,7 +216,7 @@ Like we did for Node 1, create `/home/ubuntu/cht/docker-compose.yml` and the `cl
 ```shell
 cd /home/ubuntu/cht/
 curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
-cat > /home/ubuntu/cht/network-overrides.yml << EOF
+cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
   couchdb:
