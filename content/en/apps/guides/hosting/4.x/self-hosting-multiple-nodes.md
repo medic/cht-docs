@@ -104,7 +104,7 @@ DOCKER_CONFIG_PATH=/home/ubuntu/cht/upgrade-service
 CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
 COUCHDB_PASSWORD=${couchdb_password}
-COUCHDB_SERVERS=couchdb.1,couchdb.2,couchdb.3
+COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
 EOF
 ```
 
@@ -116,7 +116,7 @@ The following 2 `curl` commands download CHT version `4.0.1` compose files, whic
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-core.yml
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
@@ -188,7 +188,7 @@ Create `/home/ubuntu/cht/docker-compose.yml` on Node 1 by running this code:
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
 ```
 
 Now create the override file to have Node 1 join the `cht-net` overlay network we created above. As well, we'll set some `services:` specific overrides:
@@ -198,10 +198,10 @@ cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
   couchdb:
-    container_name: couchdb.1
+    container_name: couchdb-1.local
     environment:
-      - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
-      - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
+      - "SVC_NAME=${SVC1_NAME:-couchdb-1.local}"
+      - "CLUSTER_PEER_IPS=couchdb-2.local,couchdb-3.local"
 networks:
   cht-net:
      driver: overlay
@@ -215,15 +215,15 @@ Like we did for Node 1, create `/home/ubuntu/cht/docker-compose.yml` and the `cl
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
-cat > /home/ubuntu/cht/network-overrides.yml << EOF
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
   couchdb:
-    container_name: couchdb.2
+    container_name: couchdb-2.local
     environment:
-      - "SVC_NAME=couchdb.2"
-      - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb.1}"
+      - "SVC_NAME=couchdb-2.local"
+      - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb-1.local}"
 networks:
   cht-net:
      driver: overlay
@@ -237,15 +237,15 @@ Finally, we'll match Node 3  up with the others by running this code:
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.0.1/docker-compose/cht-couchdb.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
 cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
   couchdb:
-    container_name: couchdb.3
+    container_name: couchdb-3.local
     environment:
-      - "SVC_NAME=couchdb.3"
-      - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb.1}"
+      - "SVC_NAME=couchdb-3.local"
+      - "COUCHDB_SYNC_ADMINS_NODE=${COUCHDB_SYNC_ADMINS_NODE:-couchdb-1.local}"
 networks:
   cht-net:
      driver: overlay
