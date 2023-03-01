@@ -1,6 +1,6 @@
 ---
 title: Integrations
-weight: 10
+weight: 20
 description: >
   Exchange data with other systems
 keywords: integrations interoperability

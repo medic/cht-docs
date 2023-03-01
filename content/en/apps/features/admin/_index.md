@@ -1,6 +1,6 @@
 ---
 title: App Management
-weight: 10
+weight: 12
 description: >
   An interface for non-technical administrative users to manage users and settings
 relatedContent: >

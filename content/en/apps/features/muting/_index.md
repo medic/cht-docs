@@ -1,6 +1,6 @@
 ---
 title: Muting
-weight: 9
+weight: 10
 description: >
    Temporarily silence tasks and SMS schedules
 keywords: muting

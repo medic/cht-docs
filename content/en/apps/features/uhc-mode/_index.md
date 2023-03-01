@@ -1,7 +1,7 @@
 ---
 title: "Universal Health Coverage Mode"
 linkTitle: UHC Mode
-weight: 8
+weight: 11
 description: >
   Supporting equitable and timely care to families to increase Universal Health Coverage (UHC)
 relatedContent: >
