@@ -7,7 +7,7 @@ description: >
     
 ---
 
-After [onboarding CHWs]({{< relref "apps/guides/onboarding" >}}), sometimes data ends up on the wrong CHT instance. There are some passive and active actions you can take to help deal with this situation.
+After [onboarding CHWs]({{< relref "apps/guides/training/onboarding" >}}), sometimes data ends up on the wrong CHT instance. There are some passive and active actions you can take to help deal with this situation.
 
 ## Monitoring
 

@@ -8,7 +8,7 @@ keywords: training onboarding
 relatedContent: >
   apps/reference/app-settings/token_login/
   apps/concepts/access/
-  apps/guides/onboarding/
+  apps/guides/training/onboarding/
 ---
 
 The CHT’s Remote Onboarding and Training functionality enables Supervisors and Administrators to train CHWs on care workflows and related app use without being physically present. It is designed for:
