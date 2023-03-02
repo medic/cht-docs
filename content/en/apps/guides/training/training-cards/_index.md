@@ -4,22 +4,31 @@ linkTitle: "Training Cards"
 weight: 15
 description: >
   Deploy in-app training cards for remote training.
+keyword: training
+relatedContent: >
+  apps/features/training
+  apps/examples/training
+  apps/examples/learning-care/
 ---
 _Introduced in 4.2.0_
 
-Training Cards enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "apps/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "apps/reference/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
+[Training Cards]({{< relref "apps/features/training" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "apps/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "apps/reference/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
 
 # Step 1: Create the training form
 
 Create an [XLS Form]({{< relref "apps/reference/forms/app#xlsform" >}}). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
 
-{{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="right col-12" >}}
+{{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="left col-10" >}}
+
+<br clear="all">
 
 # Step 2: Add the form’s ID
 
 Important, define the `form_id` located in the `settings` sheet with the prefix `training:` and add the form name, otherwise the training card won't display. In our example, the `form_id` should be `training:my_new_feature`.
 
-{{< figure src="step-2-xls-form-id.png" link="step-2-xls-form-id.png" class="right col-12" >}}
+{{< figure src="step-2-xls-form-id.png" link="step-2-xls-form-id.png" class="left col-10" >}}
+
+<br clear="all">
 
 # Step 3: Configure the training form
 
@@ -56,7 +65,9 @@ Inside that new folder, make another one called images and put inside all the `i
 
 In your project configuration folder, place the XLS form, the properties file, and the media folder inside `/forms/training/`. The file structure should look like this:
 
-{{< figure src="step-5-file-structure.png" link="step-5-file-structure.png" class="right col-12" >}}
+{{< figure src="step-5-file-structure.png" link="step-5-file-structure.png" class="left col-10" >}}
+
+<br clear="all">
 
 # Step 6: Convert and upload the training form
 
