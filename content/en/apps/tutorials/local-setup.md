@@ -146,11 +146,12 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 {{% alert title="Note" %}} This step will erase the default Maternal & Newborn Health Reference Application. {{% /alert %}}
 
-With `cht-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands:
+
+With `cht-conf` you can also create a blank project. This provides you a template from which you can begin working on CHT. To do so, run the following commands which will create a new directory and initialize it. Be sure to use this directory for all subsequent calls: 
 
 ```shell
-mkdir cht-app-tutorials
-cd cht-app-tutorials
+mkdir ~/cht-app-tutorials
+cd ~/cht-app-tutorials
 cht initialise-project-layout
 ```
 
@@ -160,7 +161,7 @@ Then deploy the blank project onto your local test environment with the command:
 cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
 
-If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs, then you need to restart the docker-compose and try again.
+If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs, then you need to restart the docker-compose and try again. Run the following to install the dependancies.
 
 ```shell
 npm ci
