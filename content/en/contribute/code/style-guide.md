@@ -8,16 +8,14 @@ description: >
 
 ## Language
 
-Our strong preference is to use JavaScript wherever possible, including in webapps, on the server, and for scripting. This is because:
+Our strong preference is to use JavaScript or TypeScript wherever possible, including in webapps, on the server, and for scripting. This is because:
 
 - every developer on the team knows it already, so we can all maintain it together,
 - it makes it easy to write cross-platform code and we have developers on all major operating systems,
 - it has a vast number of libraries that are easy to include, and
 - it's easy to unit test
 
-One notable exception is in the CHT Core Framework webapp where we use TypeScript as recommended by the Angular framework.
-
-Exceptions to this can be made on a case by case basis, but the decision must be made collectively before coding has begun.
+Exceptions to this can be made on a case by case basis, but the decision must be made collectively before coding has begun to avoid having to rewrite.
 
 ## Styles
 
