@@ -15,7 +15,7 @@ Our strong preference is to use JavaScript or TypeScript wherever possible, incl
 - it has a vast number of libraries that are easy to include, and
 - it's easy to unit test
 
-Exceptions to this can be made on a case by case basis, but the decision must be made collectively before coding has begun to avoid having to rewrite.
+Exceptions to this can be made on a case-by-case basis, but the decision must be made collectively before coding has begun to avoid having to rewrite.
 
 ## Styles
 
