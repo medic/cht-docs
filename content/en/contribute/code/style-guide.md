@@ -8,7 +8,7 @@ description: >
 
 ## Language
 
-Our strong preference is to use JavaScript or TypeScript wherever possible, including in webapps, on the server, and for scripting. This is because:
+Prefer JavaScript or TypeScript wherever possible, including in webapps, on the server, and for scripting. This is because:
 
 - every developer on the team knows it already, so we can all maintain it together,
 - it makes it easy to write cross-platform code and we have developers on all major operating systems,
