@@ -104,21 +104,29 @@ When the schema is changed you must also provide a migration so when instances a
 
 ## Commits
 
-The main branch is `master` which must be kept stable so as not to impact other developers and so we can take a release branch as needed. To achieve this we do (almost) all development in a branch and submit a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `master` branch.
+The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so we can take a release branch as needed. To achieve this we do (almost) all development in a branch and submit a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
 
-Format your commit messages according to Git standards. First line should be a short title/summary (50 characters or so) with more details in a separate paragraph, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
+### Commit message format
+
+The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means we can automate some of the release process. Examples are provided below.
+
+Type | Example commit message | Release type
+-- | -- | --
+Bug fixes | fix(#123): infinite spinner when clicking contacts tab twice | patch
+Performance | perf(#789): lazily loaded angular modules | patch
+Features | feat(#456): add home tab | minor
+Non-code | chore(#123): update README | none
+Breaking| perf(#2): remove reporting rates feature <br/> BREAKING CHANGE: reporting rates no longer supported | major
+
+Further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
 
 See tips on [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) and add your favorites here.
-
-> Every good commit message should be able to complete the following sentence:
->
-> When applied, this commit will: {{YOUR COMMIT MESSAGE}}
 
 Never force push remote. Prefer rebasing over merging as it makes for a cleaner history.
 
 Commit reformats and refactors separately from actual code changes to make reviewing easier.
 
-For more help with Git see: [Using Git](https://git-scm.com/doc/ext).
+Read more about [using git](https://git-scm.com/doc/ext).
 
 ## Branches
 
