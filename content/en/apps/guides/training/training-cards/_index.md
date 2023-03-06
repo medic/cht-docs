@@ -12,7 +12,7 @@ relatedContent: >
 ---
 _Introduced in 4.2.0_
 
-[Training Cards]({{< relref "apps/features/training" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "apps/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "apps/reference/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
+[Training Cards]({{< relref "apps/features/training" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "apps/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "apps/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "apps/reference/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
 
 # Step 1: Create the training form
 
@@ -53,7 +53,7 @@ In the example above, the training cards could be shown to any user with the "nu
 | "duration" | Optional. Number of days this training should be active. If not defined then the training will never expire. |
 | "user_roles" | Optional. List of user roles that can access this training. If not defined then all users can access the training. |
 
-{{% alert title="Note" %}} Users with role admin can access training cards, but they need to have a contact associated in the `org.couchdb.user:[user-name]` document from CouchDB. {{% /alert %}}
+{{% alert title="Note" %}} Users with an admin role can access training cards but they need to have a contact associated in the `org.couchdb.user:[user-name]` document from CouchDB. {{% /alert %}}
 
 # Step 4: Add multimedia to the training form
 
