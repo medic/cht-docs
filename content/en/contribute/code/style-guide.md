@@ -6,25 +6,38 @@ description: >
   Guidelines for writing code
 ---
 
+## Language
+
+Prefer JavaScript or TypeScript wherever possible, including in webapps, on the server, and for scripting. This is because:
+
+- every developer on the team knows it already, so we can all maintain it together,
+- it makes it easy to write cross-platform code and we have developers on all major operating systems,
+- it has a vast number of libraries that are easy to include, and
+- it's easy to unit test
+
+Exceptions to this can be made on a case-by-case basis, but the decision must be made collectively before coding has begun to avoid having to rewrite.
+
+## Styles
+
 This is a guide, not a law - use your discretion. Mostly based on [Felix Geisendörfer's](https://github.com/felixge/node-style-guide) guide with our own tweaks.
 
-## Indention
+### Indention
 
 Use 2 spaces for indenting your code and swear an oath to never mix tabs and
 spaces - a special kind of hell is awaiting you otherwise.
 
-## Newlines
+### Newlines
 
 Use UNIX-style newlines (`\n`), and a newline character as the last character
 of a file. Windows-style newlines (`\r\n`) are forbidden inside any repository.
 
-## No trailing whitespace
+### No trailing whitespace
 
 Just like you brush your teeth after every meal, you clean up any trailing
 whitespace in your JS files before committing. Otherwise the rotten smell of
 careless neglect will eventually drive away contributors and/or co-workers.
 
-## Use Semicolons
+### Use Semicolons
 
 According to [scientific research][hnsemicolons], the usage of semicolons is
 a core value of our community. Consider the points of [the opposition][], but
@@ -34,7 +47,7 @@ cheap syntactic pleasures.
 [the opposition]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
 [hnsemicolons]: http://news.ycombinator.com/item?id=1547647
 
-## Use single quotes
+### Use single quotes
 
 Use single quotes, unless you are writing JSON.
 
@@ -50,7 +63,7 @@ const foo = 'bar';
 const foo = "bar";
 ```
 
-## Opening braces go on the same line
+### Opening braces go on the same line
 
 Your opening braces go on the same line as the statement, with whitespace before and after the condition, followed by a new line.
 
@@ -77,7 +90,7 @@ if(true){
 }
 ```
 
-## Method chaining
+### Method chaining
 
 One method per line should be used if you want to chain methods.
 
@@ -111,7 +124,7 @@ User.findOne({ name: 'foo' }).populate('bar')
   .exec(() => true);
 ````
 
-## Use lowerCamelCase for variables, properties, and function names
+### Use lowerCamelCase for variables, properties, and function names
 
 Variables, properties and function names should use `lowerCamelCase`.  They
 should also be descriptive. Single character variables and uncommon
@@ -129,7 +142,7 @@ const adminUser = db.query();
 const admin_user = db.query();
 ```
 
-## Use UpperCamelCase for class names
+### Use UpperCamelCase for class names
 
 Class names should be capitalized using `UpperCamelCase`.
 
@@ -147,7 +160,7 @@ function bank_Account() {
 }
 ```
 
-## Use snake_case for CouchDB document property names
+### Use snake_case for CouchDB document property names
 
 All property names in CouchDB documents use lowercase underscore-separated formatting.
 
@@ -173,7 +186,7 @@ All property names in CouchDB documents use lowercase underscore-separated forma
 }
 ```
 
-## Use `const` and `let`
+### Use `const` and `let`
 
 There is no longer a good reason to use `var`. Use `const` whenever you can,
 and `let` when you must. Hardcoded constants should be named in all UPPERCASE.
@@ -193,7 +206,7 @@ let unknown;
 var DELAY = 10 * 1000;
 ```
 
-## Use arrow functions
+### Use arrow functions
 
 Use arrow functions as much as possible for cleaner code and better scoping. Omit the
 return keyword when the entire function definition fits on one line. Omit the parens
@@ -235,7 +248,7 @@ const getResult = () =>
   result;
 ```
 
-## Object / Array creation
+### Object / Array creation
 
 Put short declarations on a single line. For long declarations put a line
 break after each comma.
@@ -263,7 +276,7 @@ const c = ['one', 'two',
            'three', 'four'];
 ```
 
-## Use the === operator
+### Use the === operator
 
 Programming is not about remembering [stupid rules][comparisonoperators]. Use
 the triple equality operator as it will work just as expected.
@@ -287,7 +300,7 @@ if (a == '') {
 
 [comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
 
-## Do not extend built-in prototypes
+### Do not extend built-in prototypes
 
 Do not extend the prototype of native JavaScript objects. Your future self will be forever grateful.
 
@@ -313,7 +326,7 @@ if (a.empty()) {
 }
 ```
 
-## Use descriptive conditions
+### Use descriptive conditions
 
 Any non-trivial conditions should be assigned to a descriptively named variable or function:
 
@@ -335,13 +348,13 @@ if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
 }
 ```
 
-## Write small functions
+### Write small functions
 
 Keep your functions short. A good function fits on a slide that the people in
 the last row of a big room can comfortably read. So don't count on them having
 perfect vision and limit yourself to ~15 lines of code per function.
 
-## Return early from functions
+### Return early from functions
 
 To avoid deep nesting of if-statements, always return a function's value as early
 as possible.
@@ -388,7 +401,7 @@ function isPercentage(val) {
 }
 ```
 
-## Asynchronous code
+### Asynchronous code
 
 Where possible, use the async/await pattern for asynchronous code as it's generally easy to read as the statements line up down the screen. This may not be possible for legacy browser or Node version support, where promises should be used instead. Occasionally promises are better, for example, for executing multiple async methods in parallel. Avoid callbacks at all costs.
 
@@ -429,7 +442,7 @@ function fetch(callback) {
 }
 ```
 
-## Avoid reduce
+### Avoid reduce
 
 Most uses of reduce have more readable alternatives.
 
@@ -454,7 +467,7 @@ const properties = elements.reduce((properties, elem) => {
 
 Refer to [this YouTube video](https://youtu.be/qaGjS7-qWzg) for more examples.
 
-## Adding documentation comments
+### Adding documentation comments
 
 To add documentation comments that will be built using jsdocs, use
 [jsdoc block tags](https://jsdoc.app/). For angular code use the
@@ -511,11 +524,11 @@ if (isSessionValid) {
 }
 ```
 
-## Object.freeze, Object.preventExtensions, Object.seal, with, eval
+### Object.freeze, Object.preventExtensions, Object.seal, with, eval
 
 Crazy stuff that you will probably never need. Stay away from it.
 
-## Getters and setters
+### Getters and setters
 
 Do not use setters, they cause more problems for people who try to use your
 software than they can solve.
@@ -525,7 +538,7 @@ providing a length property for a collection class.
 
 [sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
 
-## NPM Dependencies
+### NPM Dependencies
 
 When picking version ranges we set an exact minimum version and an upper limit of the next major. This makes it easy to update dependencies without hitting breaking changes. In NPM this is done by using the `^` character which is the default setting for NPM.
 
@@ -542,9 +555,9 @@ Occasionally it is required to set an exact version to avoid an undeclared break
 - `"*"` - as above but also doesn't specify a minimum
 - `"~6.5.3"` - too restrictive on the upper limit
 
-## Github Actions
+### Github Actions
 
-### Managing Secrets
+#### Managing Secrets
 
 Secrets are encrypted for use for things like passwords or API keys and can be added at the org or repository level. They must be added by an admin. 
 
@@ -561,7 +574,7 @@ steps:
 
 See the full [documentation](https://docs.github.com/en/actions/reference/encrypted-secrets) on Github's site. 
 
-### Third Party Actions
+#### Third Party Actions
 
 Actions allow us to leverage code written by others to do tasks at build time. The concept is similar to NPM and packages. 
 
