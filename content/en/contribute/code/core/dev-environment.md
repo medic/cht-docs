@@ -30,14 +30,15 @@ sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install xsltproc curl uidmap jq python2 git make g++
 # Use NVM to install NodeJS:
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $0
-. ~/.$0rc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+. ~/.$(basename $SHELL)rc
 nvm install 16
 {{< /tab >}}
 {{< tab header="MacOS" >}}
 # Uses Homebrew: https://brew.sh/
 brew update
 brew install curl jq pyenv git make node@16 gcc
+# Python no longer included by default in MacOS >12.3 
 pyenv install 2.7.18
 pyenv global 2.7.18
 echo "eval \"\$(pyenv init --path)\"" >> ~/.$0rc
@@ -48,8 +49,8 @@ sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install xsltproc curl uidmap jq python2 git make g++
 # Use NVM to install NodeJS:
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $0
-. ~/.$0rc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+. ~/.$(basename $SHELL)rc
 nvm install 16
 {{< /tab >}}
 {{< /tabpane >}}
@@ -68,21 +69,23 @@ npm install -g grunt-cli
 
 Install Docker:
 
-{{< tabpane persistLang=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
+{{< tabpane code=false >}}
+{{% tab header="Linux (Ubuntu)" %}}
+```shell
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 # OPTIONAL: Allow user to run Docker without sudo
 dockerd-rootless-setuptool.sh install
 echo "export PATH=/usr/bin:$PATH" >> ~/.$0rc
 echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$0rc
 . ~/.$0rc
-{{< /tab >}}
-{{< tab header="MacOS" >}}
-curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-{{< /tab >}}
+```
+{{% /tab %}}
+{{% tab header="MacOS" %}}
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+{{% /tab %}}
+{{% tab header="Windows (WSL2)" %}}
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+{{% /tab %}}
 {{< /tabpane >}}
 
 Restart your entire machine to finish initializing Docker.
