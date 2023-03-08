@@ -157,6 +157,8 @@ The ability of health information systems to work together, even if they weren't
 
 ###### Logical Observation Identifiers Names and Codes (LOINC)
 
+###### Loss To Follow Up (LTFU)
+
 ###### Low/Middle Income Country (LMIC)
 
 ## M
@@ -170,6 +172,8 @@ The ability of health information systems to work together, even if they weren't
 ###### Maternal, and Child Health (MCH)
 
 ###### Maternal, Newborn, and Child Health (MNCH)
+
+###### Memorandum of Understanding (MoU)
 
 ###### mHealth
 
@@ -258,6 +262,10 @@ Collaborative endeavor aimed at delivering mobile tools to health workers and im
 **S**tandards-based, **M**achine-readable, **A**daptive, **R**equirements-based, and **T**estable Guidelines are a comprehensive set of reusable digital health components authored by the WHO that transform the guideline adaptation and implementation process to preserve fidelity and accelerate uptake. Read more on the [WHO SMART Guidelines page](https://www.who.int/teams/digital-health-and-innovation/smart-guidelines).
 
 ###### Software as a Service (SaaS)
+
+###### Statement of Work (SOW)
+
+A Statement of Work is a formal document that describes the project goals. The Statement of Work contains a section on the Scope of Work outlining how a team plans to deliver the project goals.
 
 ###### Sustainable Development Goals (SDG)
 
