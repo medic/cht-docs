@@ -75,9 +75,9 @@ Install Docker:
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 # OPTIONAL: Allow user to run Docker without sudo
 dockerd-rootless-setuptool.sh install
-echo "export PATH=/usr/bin:$PATH" >> ~/.$0rc
-echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$0rc
-. ~/.$0rc
+echo "export PATH=/usr/bin:$PATH" >> ~/.$(basename $SHELL)rc
+echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
 ```
 {{% /tab %}}
 {{% tab header="MacOS" %}}
@@ -132,9 +132,9 @@ curl -X GET "http://medic:password@localhost:5984/_membership" | jq
 Every time you run any `grunt` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
 
 ```shell
-echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$0rc
-echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$0rc
-. ~/.$0rc
+echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
+echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
 ```
 
 To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `nonode@nohost` and `http://medic:password@localhost:5984/medic`:
