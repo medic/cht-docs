@@ -12,9 +12,9 @@ relatedContent: >
 {{% pageinfo %}}
 This tutorial will take you through building a condition card for CHT applications.
 
-Condition cards, like contact summaries display information about the contact. The data displayed in condition cards can be pull from submitted reports.
+Condition cards, like contact summaries display information about the contact. The data displayed in condition cards can be pulled from submitted reports.
 
-You will be adding a codition card that displays information about a person's most recent assessment including: *the date of the most recent assessment*, and *whether or not they had a cough*.
+In this tutorial,you will be adding a condition card that displays information about a person's most recent assessment, including: *the date of the most recent assessment*, and *whether or not they had a cough*.
 
 {{% /pageinfo %}}
 
