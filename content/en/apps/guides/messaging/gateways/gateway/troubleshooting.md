@@ -50,8 +50,49 @@ grep api/sms medic_medic_medic-api4.log
 ```
 If the above steps don't yield the problem, read the [Obtaining Logs]({{< ref "apps/guides/debugging/obtaining-logs#android-logs" >}}) page, note the make/model/android version their gateway handset is and escalate with those details to the PM/project techlead.
 
+**Verifying the SMS Gateway via a Test Message**
+
+We can verify whether the SMS Gateway app is responding by sending a test message via the web app. For example, let us try this in a deployed project.
+1. Log in via the web app with a user with administrative rights.
+
+![Log in page](log-in-page.png)
+
+2. Go to App Management.
+
+![App Management menu item](app-management-menu-item.png)
+
+3. Click on SMS option, then click the Test Message tab.
+
+![SMS menu item](sms-menu-item.png)
+
+4. Test message creation and delivery to Gateway phone verification:
+	1. Input the test message which will be sent to the Gateway and the phone number where we wish to see the Gateway's reply. Country code if not specified will be the default country code specified in SMS -> Default country code.
+![Default country code setting](default-country-code.png)
+
+	2. The test message text doesn't matter here as we are just verifying if the Gateway phone receives messages from our server and responds correctly to it by sending us a message back in the phone number we input in step (i). The easiest way would be to input our own phone number in (i) and validate that the Gateway phone sends the response message to it.
+	3. After inputting the number where you expect to view the response message, press the "Send message" button. 
+	4. We should see the Report Submitted message if the SMS was successfully received by the Gateway phone.
+![Report submitted](report-submitted.png)
+
+5. If the message was received by the Gateway we should see the message in the "Messages" tab in the app and get an auto-reply on the number we provided in step 4(i). We should be able to see the following acknowledgments in the web app and phone respectively.
+
+	1. Message Acknowledgement in the web app in the messages tab.
+![Message shown in Messages Tab](messages-tab.png)
+
+
+	2. Response sent acknowledgment in the Outgoing Messages -> Due tab. The recipient should be the number we input in 4(i) and the status should be delivered. 
+![Outgoing Messages in App Management](outgoing-messages.png)
+
+
+	3. Message reply as seen on the phone of 4(i) from Gateway phone.
+![SMS reply shown on device](sms-reply.png)
+
+
+6. If you see the message acknowledgment it means the Gateway is working as expected.
+
 {{% alert title="Note" %}}
-Insist on screenshots even for the most trivial things that partners insist they have performed as you asked. They are also good for giving you a mental image of what is happenning on the phone remotely.
+Insist on screenshots even for the most trivial things that partners insist they have performed as you asked. They are also good for giving you a mental image of what is happening on the phone remotely.
 {{% /alert %}}
+
 
 
