@@ -117,8 +117,8 @@ To use fauxton.
  
  To include the files:
   
-  1. Create a directory `{form_name}-media`. EX: `config/default/forms/app/delivery-media` 
-  1. Add multimedia files to  `{form_name}-media\image.png`.  EX: `config/default/forms/app/delivery-media/health_baby.png` 
+  1. Create a directory `{form_name}-media` and `images` directory in it. EX: To upload media to delivery form create the driectory:  `config/default/forms/app/delivery-media/images` 
+  1. Add multimedia files to  `{form_name}-media\images\image.png`.  EX: `config/default/forms/app/delivery-media/images/health_baby.png` 
   1. Run `cht-conf upload-app-forms`
   1. Confirm image is uploaded in CHT app.
 
