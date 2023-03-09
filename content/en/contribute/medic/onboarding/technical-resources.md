@@ -21,15 +21,15 @@ Note! Some pages are internal to Medic
 | Skill | Resources |
 | ----------------| ----------- |
 | **CHT Local Environment and Docs** | [Set up your local development environment]({{% ref "dev-environment" %}}) <br> [Go through CHT Documentation]({{% ref "/" %}}) <br> [Get familiar with our Development Workflow]({{% ref "/contribute/code/workflow" %}})  <br> [App building for techies crash course with Ashley Jones](https://drive.google.com/drive/folders/1PTe8RH59TPBNYKoKzlZ_ZwMlQedKRGlx) <br>[Architecture of CHT Instances]({{% ref "architecture" %}}) <br> [Where to ask questions about the CHT?](https://www.notion.so/medicmobile/CHT-Forum-Internal-Guide-c2d1988a116244b6b17b3aea284ff8ee) |
-| **JavaScript** | |
+| **JavaScript** | [Eloquent JavaScript](https://eloquentjavascript.net/) <br> [Asynchronous JavaScript Requests](https://www.udacity.com/course/asynchronous-javascript-requests--ud109) <br> [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS) |
 | **Docker** | |
 | **CouchDB and PouchDB** | |
 | **NodeJS and NPM** | |
-| **Angular** | |
-| **Offline First** | |
-| **Web Architecture** | |
+| **Angular** | [Angular 12 - Complete Beginner's Guide 2021](https://www.udemy.com/course/learning-angular/)|
+| **Offline First** | [Offline Web Applications](https://www.youtube.com/playlist?list=PLAwxTw4SYaPmTSxtOWyJVKTUaNBGze2ed) |
+| **Web Architecture** | [Web Architecture 101](https://medium.com/storyblocks-engineering/web-architecture-101-a3224e126947) |
 | **Web Browsers** | |
-| **Web Performance** | |
+| **Web Performance** | [High Performance Browser Networking](https://hpbn.co/)|
 
 
 
