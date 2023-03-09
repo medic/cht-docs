@@ -86,6 +86,10 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `tasks:group:modal:confirm` | Number times the user confirms navigation away from the household tasks page. Added in 3.13. |
 | `tasks:group:modal:reject` | Number times the user rejects navigation away from the household tasks page. Added in 3.13. |
 | `user_settings:language:<language_code>` | The selected language by the user, example: `user_settings:language:en`. Added in 3.14. |
+| `enketo:<training-card>:add:render` | The time it took to render the training card. Added in 4.2.0 |
+| `enketo:<training-card>:add:user_edit_time` | The time the user took to complete the training card. Added in 4.2.0 |
+| `enketo:<training-card>:add:save` | The time it took to save the training card. Added in 4.2.0 |
+| `enketo:<training-card>:add:quit` | The time from when the training card was rendered to when the user quits the training. Added in 4.2.0 |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
