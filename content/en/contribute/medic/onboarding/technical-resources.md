@@ -3,12 +3,14 @@ title: "Technical Resources"
 linkTitle: "Technical Resources"
 weight: 3
 description: >
-  TODO
+  Resources to get started with as a contributor to the CHT
 ---
 
-Note! Some pages are internal to Medic
+{{% alert title="Note" color="info" %}}
+This page also contains  Medic internal documentation links that are only accessible to Medic team members.
+{{% /alert %}}
 
-Samuel, this document should give you the materials we consider you will need to master all the details around the daily routines as a Software Developer in the Product Team. Please, consider this document complimentary on a technical level to the Samuel Imoisili Onboarding Document. 
+This page should give you the materials we consider you will need to master all the details around the daily routines as a Software Developer in the Product Team. Please, consider this document complimentary on a technical level to the Samuel Imoisili Onboarding Document. 
 Keep in mind that this is a living document, so new things could be added as you go through your first 90 days of work at Medic and find learning opportunities that will set you up for success. The main goal here is to provide you with a list of resources that we consider could be beneficial for you in both the short and long term, so in case you need to get new skills, you can do that as part of your onboarding process. However, the expectation is not to complete every course listed in this document but instead to give you some resources that we thought could be helpful.  It is valid if you prefer to use other training material, as long as the skill/topic is covered during the onboarding. That means we expect you to learn JS, Docker, CouchDB, and others mentioned in the “Skills” column, as you will need them in your day-to-day activities, and to support you, we created the list provided in the “Resources” column.  It is ok if you prefer to learn with alternative resources. 
 
 Also, please consider some of the suggestions here could be for internal courses and/or material created and maintained by other teammates at Medic, free resources on the internet, or paid courses, which could be considered as part of the Professional Development benefit https://www.notion.so/Professional-Development-f5fc299ecf984dacbd65100af100ed14 that we have in the organization.
@@ -30,7 +32,3 @@ There is a Slack channel “#exercism” where engineers and tech enthusiats mee
 | **Web Architecture** | [Web Architecture 101](https://medium.com/storyblocks-engineering/web-architecture-101-a3224e126947) |
 | **Web Browsers** | [Inside look at modern web browsers, part I](https://developer.chrome.com/blog/inside-browser-part1/) <br> [Inside look at modern web browsers, part II](https://developer.chrome.com/blog/inside-browser-part2/) <br> [Inside look at modern web browsers, part III](https://developer.chrome.com/blog/inside-browser-part3/) <br> [Inside look at modern web browsers, part IV](https://developer.chrome.com/blog/inside-browser-part4/)|
 | **Web Performance** | [High Performance Browser Networking](https://hpbn.co/)|
-
-
-
-
