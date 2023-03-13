@@ -25,7 +25,7 @@ return function(/* parameters */) {
 }
 ```
 
-Now populate the function as needed. For complex functions it is recommended to use third party libraries and use a bundler (eg: [webpack](https://webpack.js.org/)) to make it easy to build a single file. For anything non-trivial, it's recommended to use development best practices such as linting, unit tests, and minification.
+Now populate the function as needed. For complex functions third party libraries (such as momentjs, lodash, etc) and use a bundler (eg: [webpack](https://webpack.js.org/)) to make it easy to build a single file. It's recommended to use development best practices such as linting, unit tests, and minification to ensure quality and small download size.
 
 #### xpath functions
 
