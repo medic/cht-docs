@@ -6,6 +6,8 @@ description: >
   Getting your local machine ready to do development work on CHT Core.
 aliases: >
   apps/guides/hosting/core-developer
+nodeVersion: "16"
+npmVersion: "8"
 ---
 
 {{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}).
@@ -18,11 +20,13 @@ These steps apply to both 3.x and 4.x CHT core development, unless stated otherw
 
 ## The Happy Path Installation
 
-This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation.
+CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation.
 
 ### Install NodeJS, npm, grunt and Docker
 
 First, update your current packages and install some supporting tools:
+
+_(Node {{< param nodeVersion >}} is the environment used to run the CHT server in production, so this is the recommended version of Node to use for development.)_
 
 {{< tabpane persistLang=false lang=shell >}}
 {{< tab header="Linux (Ubuntu)" >}}
@@ -32,13 +36,13 @@ sudo apt -y install xsltproc curl uidmap jq python2 git make g++
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
 . ~/.$(basename $SHELL)rc
-nvm install 16
+nvm install {{< param nodeVersion >}}
 {{< /tab >}}
-{{< tab header="MacOS" >}}
+{{< tab header="macOS" >}}
 # Uses Homebrew: https://brew.sh/
 brew update
-brew install curl jq pyenv git make node@16 gcc
-# Python no longer included by default in MacOS >12.3 
+brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
+# Python no longer included by default in macOS >12.3 
 pyenv install 2.7.18
 pyenv global 2.7.18
 echo "eval \"\$(pyenv init --path)\"" >> ~/.$0rc
@@ -51,11 +55,11 @@ sudo apt -y install xsltproc curl uidmap jq python2 git make g++
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
 . ~/.$(basename $SHELL)rc
-nvm install 16
+nvm install {{< param nodeVersion >}}
 {{< /tab >}}
 {{< /tabpane >}}
 
-Now let's ensure NodeJS 16 and npm 8 were installed. This should output version 16.x.x for NodeJS and 8.x.x for `npm`:
+Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >}} were installed. This should output version {{< param nodeVersion >}}.x.x for NodeJS and {{< param npmVersion >}}.x.x for `npm`:
 
 ```shell
 node -v && npm -v
@@ -80,7 +84,7 @@ echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$(basename $SH
 . ~/.$(basename $SHELL)rc
 ```
 {{% /tab %}}
-{{% tab header="MacOS" %}}
+{{% tab header="macOS" %}}
 Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
 {{% /tab %}}
 {{% tab header="Windows (WSL2)" %}}
@@ -210,7 +214,7 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
-* [Node.js 16.x](https://nodejs.org/) & [npm 8.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
+* [Node.js {{< param nodeVersion >}}.x](https://nodejs.org/) & [npm {{< param npmVersion >}}.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
 * [grunt cli](https://gruntjs.com/using-the-cli)
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
