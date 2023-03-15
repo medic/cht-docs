@@ -3,7 +3,7 @@ title: "Technical Resources"
 linkTitle: "Technical Resources"
 weight: 4
 description: >
-  Resources to get started with as a contributor to the CHT
+  Resources to get started as a contributor to the CHT
 ---
 
 {{% alert title="Note" color="info" %}}
@@ -11,7 +11,7 @@ This page also contains  Medic internal documentation links that are only access
 {{% /alert %}}
 
 This page contains materials that will help a CHT Contributor to master all the technical details they need to be succesful when building tools related to CHT. For Medic team members, this content is complimentary on a technical level to the Onboarding documents shared by the Internal Operations team. 
-Keep in mind that this is a living document, and every contributor is encouraged to add to it when identifying learning opportunities that will set them up for success with the CHT. The main goal here is to provide the technical people who are new with the CHT with a list of resources that could be beneficial for them in both the short and long term. However, the expectation is not to complete every course listed in this document but instead to share some resources that other contributors found helpful. It is valid if you prefer to use other training material, as long as you cover the skill/topic during the onboarding. That means you will need to learn JS, Docker, CouchDB, and others mentioned in the “Skills” column, as you will usem them in your day-to-day activities, and the list provided in the “Resources” column is meant to support you in this. It is OK if you prefer to learn with alternative resources. 
+Keep in mind that this is a living document, and every contributor is encouraged to add to it when identifying learning opportunities that can set them up for success with the CHT. The main goal here is to provide the technical people who are new to the CHT with a list of resources that could be beneficial for them in both the short and long term. However, the expectation is not to complete every course listed in this document but instead to share some resources that other contributors found helpful. It is valid if you prefer to use other training material, as long as you cover the skill/topic during the onboarding. That means you will need to learn JS, Docker, CouchDB, and others mentioned in the “Skills” column, as you will usem them in your day-to-day activities, and the list provided in the “Resources” column is meant to support you in this. It is OK if you prefer to learn with alternative resources. 
 
 {{% alert title="Note" color="info" %}}
 Some of the suggestions below could be for internal courses and/or material created and maintained by other teammates at Medic, free resources on the internet, or paid courses, which for Medic employees could be considered as part of the [Professional Development benefit](https://www.notion.so/Professional-Development-f5fc299ecf984dacbd65100af100ed14) that we have in the organization.
