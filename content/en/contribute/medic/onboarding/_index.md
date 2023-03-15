@@ -3,7 +3,5 @@ title: "Onboarding"
 linkTitle: "Onboarding"
 weight: 3
 description: >
-  Some text
+  Onboarding resources for new contributors
 ---
-
-Some text
