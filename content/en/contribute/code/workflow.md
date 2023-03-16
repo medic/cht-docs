@@ -189,7 +189,7 @@ Issues in this column are in the process of being acceptance tested by a Quality
 
 Once the AT process is done, use the following templates to provide feedback in the ticket.
 
-{{< tabpane persistLang=false >}}
+{{< tabpane persistLang=false lang="markdown">}}
 {{< tab header="Test passed" >}}
 
 ### Test details
