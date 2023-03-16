@@ -187,6 +187,80 @@ Issues in this column are in the process of being acceptance tested by a Quality
    1. How was the issue verified? Console logs, page source, errors anywhere, execution steps.  LGTM should begin to be rarely used.
    1. Move the issue to "Ready to merge" the notify the original developer to merge the PR.
 
+Once the AT process is done, use the following templates to provide feedback in the ticket.
+
+{{< tabpane persistLang=false >}}
+{{< tab header="Test passed" >}}
+
+### Test details
+
+**Config:** <Default/standard>
+**Environment:** <Local>
+**Platform:** <WebApp>
+**Browser:** <Chrome>
+
+---
+
+### Test scenario:
+Description of the scenario - This is not required for all the tests
+
+### Reproducible on `master`
+A small description of how it was reproduced, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+### Fixed on `####-branch-name`
+A small description, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+---
+
+Test passed successfully. :white_check_mark:
+Moving the ticket to `Ready to Merge`
+@<developer's name>
+
+{{< /tab >}}
+{{< tab header="Test failed" >}}
+### Test details
+
+**Config:** <Default/standard>
+**Environment:** <Local>
+**Platform:** <WebApp>
+**Browser:** <Chrome>
+
+---
+
+### Test scenario:
+Description of the scenario - This is not required for all the tests
+
+### Reproducible on `master`
+A small description of how it was reproduced, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+### Not working on `####-branch-name`
+A small description, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+---
+
+Test failed :x:
+Moving the ticket back to `In Progress`.
+@<developer's name>
+
+{{< /tab >}}
+{{< /tabpane >}}
+
 ### Ready to merge
 
 Issues in this column have passed AT and can be merged as soon as possible. The original developer will then:
