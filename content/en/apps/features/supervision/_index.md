@@ -50,7 +50,7 @@ The CHT can be configured to create [Tasks]({{< relref "apps/features/tasks" >}}
 ## Supervisor CHW create
 This feature enables a supervisor to create a new user under an existing place that has been selected. Supervisor CHW Create is compatible with CHTs offline first features. When offline, the supervisor can create the user and a login token provided in the outgoing message tab.While users will not exist until the supervisor synchronizes, and the newly created user needs connectivity to access their login token and log in the first time, all other process can be completed offline and be synchronized at a later time.
 
-To configure this feature, one needs to make some changes to the app_settings file. These changes include enabling contacts to create users,enabling token login and setting the app url to the url of the development instance.
+To [configure]({{< ref "apps/reference/app-settings/transitions#create_user_for_contacts" >}}) this feature, one needs to make some changes to the app_settings file. These changes include enabling contacts to create users,enabling token login and setting the app url to the url of the development instance.
 
 
 The roles of the users that can be created through this feature are CHW or CHW supervisor. While creating the user, the supervisor has to select a valid phone number. This is because an SMS with the token to login will be sent to the new user through the selected phone number.
