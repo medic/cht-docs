@@ -46,7 +46,7 @@ brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
 pyenv install 2.7.18
 pyenv global 2.7.18
 echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
-. $SHELL
+. ~/.$(basename $SHELL)rc
 {{< /tab >}}
 {{< tab header="Windows (WSL2)" >}}
 sudo apt update && sudo apt -y dist-upgrade
