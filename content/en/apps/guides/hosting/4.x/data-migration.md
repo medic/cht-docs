@@ -19,7 +19,7 @@ Open your terminal and run these commands. They will create a new directory, dow
 ```shell
 mkdir -p ~/couchdb-migration/ 
 cd ~/couchdb-migration/ 
-curl -s -o ./docker-compose.yml https://github.com/medic/couchdb-migration/blob/main/docker-compose.yml
+curl -s -o ./docker-compose.yml https://raw.githubusercontent.com/medic/couchdb-migration/main/docker-compose.yml
 docker-compose up
 ```
 
