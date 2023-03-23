@@ -24,15 +24,17 @@ docker-compose up
 ```
 
 For the following steps, the tool needs access to your CouchDb installation. To allow this access, you will need to provide a URL to your CouchDB installation that includes authentication. 
-Additionally, if your CouchDb runs in docker, the tool needs to be added to the same docker network in order to access protected endpoints:
+Additionally, if your CouchDb runs in docker, the tool needs to be added to the same docker network in order to access protected endpoints. If your installation exposes a different port for CouchDb cluster API endpoints, please export that port. 
 
 ```shell
 export COUCH_URL=http://<authentication>@<host-ip>:<port>
+export COUCH_CLUSTER_PORT=<clustering_api_port>
 ```
 or 
 ```shell
 export CHT_NETWORK=<docker-network-name>
 export COUCH_URL=http://<authentication>@<docker-service-name>:<port>
+export COUCH_CLUSTER_PORT=<clustering_api_port>
 ```
 
 For simplicity, you could store these required values in an `.env` file: 
@@ -40,6 +42,7 @@ For simplicity, you could store these required values in an `.env` file:
 cat > ${HOME}/couchdb-migration/.env << EOF
 CHT_NETWORK=<docker-network-name>
 COUCH_URL=http://<authentication>@<docker-service-name>:<port>
+COUCH_CLUSTER_PORT=<clustering_api_port>
 EOF
 ```
 
@@ -263,7 +266,12 @@ j) Change metadata to match the new shard distribution. We declared `$shard_matr
 docker-compose run couch-migration move-shards $shard_matrix
 ``` 
 
-k) Run the `veryfy` command to check whether the migration was successful. 
+k) Remove old node from the cluster: 
+```shell
+docker-compose run couch-migration remove-node couchdb@127.0.0.1
+```
+
+j) Run the `veryfy` command to check whether the migration was successful. 
 ```shell
 docker-compose run couch-migration verify
 ```
