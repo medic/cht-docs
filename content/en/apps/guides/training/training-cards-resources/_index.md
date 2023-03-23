@@ -18,7 +18,7 @@ _Introduced in 4.2.0_
 
 The Edit, Delete and Export actions have been moved to the More Options menu. Use this training to introduce the change to your users. 
 
-Get the training card files [here]({{< relref "apps/features/training" >}}).
+Get the training card files [here](https://github.com/medic/cht-docs/tree/main/content/en/apps/guides/training/training-cards-resources/available-trainings/more-options).
 
 {{< figure src="images/more-options.png" class="left col-10" >}}
 
