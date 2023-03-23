@@ -6,6 +6,7 @@ description: >
   A reference app for CHW supervisors to support performance management of CHWs using a mobile app.
 relatedContent: >
   apps/concepts
+  apps/features/supervision
   apps/reference/forms/app
   apps/reference/tasks
 ---
