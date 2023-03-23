@@ -3,12 +3,14 @@ title: "CHT Core dev environment setup"
 linkTitle: "CHT Core dev environment setup"
 weight: 1
 description: >
-  Getting your local machine ready to development work on CHT Core.
+  Getting your local machine ready to do development work on CHT Core.
 aliases: >
   apps/guides/hosting/core-developer
+nodeVersion: "16"
+npmVersion: "8"
 ---
 
-{{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up a your environment for developing apps, see the [app guide]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}).
+{{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}).
 
 To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}){{% /alert %}}
 
@@ -18,27 +20,46 @@ These steps apply to both 3.x and 4.x CHT core development, unless stated otherw
 
 ## The Happy Path Installation
 
-This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation. These instructions should work verbatim on Ubuntu 18-22 (see [Ubuntu 18 note](#ubuntu-1804)), but will need tweaks for MacOS (via `brew`, see [MacOS > 12.3 note](#macos--123)) or Windows (via WSL2).
+CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation.
 
 ### Install NodeJS, npm, grunt and Docker
 
-First, update your current Ubuntu packages and install some supporting tools via `apt`:
+First, update your current packages and install some supporting tools:
 
-```shell
+_(Node {{< param nodeVersion >}} is the environment used to run the CHT server in production, so this is the recommended version of Node to use for development.)_
+
+{{< tabpane persistLang=false lang=shell >}}
+{{< tab header="Linux (Ubuntu)" >}}
 sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install xsltproc curl uidmap jq python2 git make g++
-```
-
-Then install `nvm`, add it to your path and install NodeJS 16:
-
-```shell
+# Use NVM to install NodeJS:
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $0
-. ~/.$0rc
-nvm install 16
-```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+. ~/.$(basename $SHELL)rc
+nvm install {{< param nodeVersion >}}
+{{< /tab >}}
+{{< tab header="macOS" >}}
+# Uses Homebrew: https://brew.sh/
+brew update
+brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
+# Python no longer included by default in macOS >12.3 
+pyenv install 2.7.18
+pyenv global 2.7.18
+echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
+{{< /tab >}}
+{{< tab header="Windows (WSL2)" >}}
+sudo apt update && sudo apt -y dist-upgrade
+sudo apt -y install xsltproc curl uidmap jq python2 git make g++
+# Use NVM to install NodeJS:
+export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+. ~/.$(basename $SHELL)rc
+nvm install {{< param nodeVersion >}}
+{{< /tab >}}
+{{< /tabpane >}}
 
-Now let's ensure NodeJS 16 and npm 8 were installed. This should output version 16.x.x for NodeJS and 8.x.x for `npm`:
+Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >}} were installed. This should output version {{< param nodeVersion >}}.x.x for NodeJS and {{< param npmVersion >}}.x.x for `npm`:
 
 ```shell
 node -v && npm -v
@@ -52,26 +73,28 @@ npm install -g grunt-cli
 
 Install Docker:
 
+{{< tabpane code=false >}}
+{{% tab header="Linux (Ubuntu)" %}}
 ```shell
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-```
-
-It's easier if you don't always have to run `sudo` for all your Docker calls, so let's set that up:
-
-```shell
+# OPTIONAL: Allow user to run Docker without sudo
 dockerd-rootless-setuptool.sh install
-echo "export PATH=/usr/bin:$PATH" >> ~/.$0rc
-echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$0rc
-. ~/.$0rc
+echo "export PATH=/usr/bin:$PATH" >> ~/.$(basename $SHELL)rc
+echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
 ```
+{{% /tab %}}
+{{% tab header="macOS" %}}
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+{{% /tab %}}
+{{% tab header="Windows (WSL2)" %}}
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+{{% /tab %}}
+{{< /tabpane >}}
 
-In order for Docker to boot correctly, restart entire machine, which will complete the "Install" Section:
+Restart your entire machine to finish initializing Docker.
 
-```shell
-sudo reboot
-```
-
-To verify Docker is running as expected, let's run the simple `hello-world` Docker container. This output "Hello from Docker!" as well as some other intro text:
+After restarting, verify Docker is running as expected. Run the simple `hello-world` Docker container. This should output "Hello from Docker!" as well as some other intro text:
 
 ```shell
 docker run hello-world
@@ -87,12 +110,6 @@ cd ~/cht-core
 ```
 
 Install dependencies and perform other setup tasks via an `npm` command. Note this command may take many minutes. Be patient!
-
-```shell
-npm ci
-```
-
-If you encounter conflicting dependencies, run the following command:
 
 ```shell
 npm ci --legacy-peer-deps
@@ -119,9 +136,9 @@ curl -X GET "http://medic:password@localhost:5984/_membership" | jq
 Every time you run any `grunt` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
 
 ```shell
-echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$0rc
-echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$0rc
-. ~/.$0rc
+echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
+echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
 ```
 
 To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `nonode@nohost` and `http://medic:password@localhost:5984/medic`:
@@ -143,7 +160,7 @@ Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-
 
 ```
 mkdir -p ~/cht-docker
-curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
 cat > ~/cht-docker/couchdb-override.yml << EOF
 version: '3.9'
 services:
@@ -197,7 +214,7 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
-* [Node.js 16.x](https://nodejs.org/) & [npm 8.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
+* [Node.js {{< param nodeVersion >}}.x](https://nodejs.org/) & [npm {{< param npmVersion >}}.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
 * [grunt cli](https://gruntjs.com/using-the-cli)
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
@@ -224,24 +241,7 @@ As well, after you install docker, and go to run the rootless script `dockerd-ro
 [ERROR] Failed to start docker.service. Run `journalctl -n 20 --no-pager --user --unit docker.service` to show the error log.
 ```
 
-To work around, unfortunately, is to just start your CouchDB Docker container with sudo: `sudo docker run...`.
-
-### MacOS > 12.3
-Apple removed the system-provided `python2` installation starting with MacOS version 12.3. This means when you run the `npm ci` command above, you see an error:
-
-```
-npm ERR! gyp ERR verb find Python Python is not set from command line or npm configuration  
-```
-
-To fix this, run the following commands:
-
-```shell
-brew install pyenv
-pyenv install 2.7.18
-pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.$0rc
-. $0
-```
+The workaround, unfortunately, is to just start your CouchDB Docker container with sudo: `sudo docker run...`.
 
 ### CouchDB on Docker Details
 
