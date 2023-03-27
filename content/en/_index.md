@@ -62,7 +62,7 @@ An overview and reference for development of the Core Framework of the Community
 
 {{< see-also page="core" prefix="Read More" >}}
 
-### Design System
+### Design System 
 An overview of key end user personas, notes on the CHT icon library, and configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when designing your own community health app for a live deployment.
 
 {{< see-also page="design"  prefix="Read More" >}}
@@ -75,3 +75,6 @@ Want to learn alongside a community of users? Join our community forum and let u
 {{% alert title="Feedback appreciated!" %}}
 This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Documentation Issue** link in the upper right corner of your window.
 {{% /alert %}}
+
+
+We build tools that impact the society at the grassroots.
