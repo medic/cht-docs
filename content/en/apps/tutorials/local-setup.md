@@ -5,7 +5,6 @@ weight: 1
 description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
-  core/overview/docker-setup
   contribute/code/core/using-windows
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
@@ -34,8 +33,6 @@ The *CHT Core Framework* makes it faster to build full-featured, scalable digita
 *Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.
 
 *Containers* allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package.
-
-To read more about these concepts, see our [Docker Setup guide]({{< relref "core/overview/docker-setup" >}}).
 
 ## Required Resources
 
@@ -87,7 +84,7 @@ If you are using Mac you will not be able to find the "Proceed to localhost" lin
 
 This error can be fixed in step 5 below.
 
-If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "core/overview/docker-setup#port-conflicts" >}}) in the Docker Setup guide.
+If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "apps/guides/hosting/3.x/self-hosting#port-conflicts" >}}) in the Docker Setup guide.
 
 This CHT instance is empty and has no data in it. While you're free to explore and add your own data, in step 3 below we will upload sample data. Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 
