@@ -42,6 +42,6 @@ User Permissions are settings that can be individually toggled on or off to allo
 
 Viewing permissions determine which page tabs a user sees in the app and which types of data they do and don’t have access to. User action permissions include who can create (e.g., create new users), who can delete (e.g., delete reports), who can edit (e.g., edit profiles), and who can export (e.g., export server logs).
 
-{{< see-also page="apps/reference/app-settings/user-permissions" title="Defining User Permissions" >}}
+{{< see-also page="apps/reference/app-settings/user-permissions" title=" ## Defining User Permissions" >}}
 
 {{< figure src="/apps/features/admin/admin-roles.png" link="/apps/features/admin/admin-roles.png" class="left col-12 col-lg-10" >}}
