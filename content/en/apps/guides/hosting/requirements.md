@@ -47,7 +47,7 @@ Depending on which distro you run, install the Docker packages from [Docker's Li
 
 Docker Desktop for Windows needs either Hyper-V support or Windows Subsystem for Linux 2 (WSL 2).  [Docker's Windows Docker Desktop install page](https://docs.docker.com/docker-for-windows/install/) covers both scenarios. 
 
-### macOS:
+### macOS
 
 See [Docker's macOS Docker Desktop install page](https://docs.docker.com/docker-for-mac/install/).
 
