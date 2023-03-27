@@ -5,7 +5,9 @@ description: >
  Guides for hosting CHT 3.x applications
 ---
 
-{{% alert title="Note" %}} To get an overview on how these hosting solutions use `docker` and `docker-compose`, as well as other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "apps/tutorials/local-setup" >}}). Note that while this is for CHT 4.x, the concepts apply to 3.x.{{% /alert %}}
+{{% pageinfo %}} 
+To get an overview on how these hosting solutions use `docker` and `docker-compose`, as well as other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "apps/tutorials/local-setup" >}}). Note that while this is for CHT 4.x, the concepts apply to 3.x.
+{{% /pageinfo %}}
 
 Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first.
 

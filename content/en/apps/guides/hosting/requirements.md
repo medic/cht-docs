@@ -7,13 +7,12 @@ description: >
 relatedContent: >
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
-  core/overview/docker-setup
 ---
 
 
-{{% alert title="Note" %}}
+{{% pageinfo %}}
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For CHT development, Linux or macOS may be used. Windows can be used for either, but without recommendation.
-{{% /alert %}}
+{{% /pageinfo %}}
 
 {{% alert title="Note" %}}
 These requirements apply to both 3.x and 4.x CHT hosting

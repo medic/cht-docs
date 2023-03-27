@@ -7,9 +7,9 @@ description: >
 ---
 
 [//]: # (todo - fix this link to multi-node)
-{{% alert title="Note" %}}
+{{% pageinfo %}}
 This for a single node CHT 4.x instance and is the recommended solution for most deployments.  While not recommended, if you want a more powerful setup,  check out [the 4.x multi-node install docs]({{< relref "apps/guides/hosting/requirements" >}}).  As well, there's the [self hosted guide for CHT 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
-{{% /alert %}}
+{{% /pageinfo %}}
 
 ## Prerequisites 
 
