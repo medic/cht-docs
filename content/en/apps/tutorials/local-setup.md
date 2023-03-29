@@ -26,8 +26,6 @@ This guide will only work with CHT 4.x instances.  See the
 
 ## Brief Overview of Key Concepts
 
-{{< param nodeVersion >}}
-
 The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is command-line interface tool to manage and configure CHT apps.
@@ -142,7 +140,7 @@ Using the terminal (or the WLS shell on Windows: _Start > wsl_), run the followi
 
 ```shell
 cd ~/cht-project
-curl -s https://raw.githubusercontent.com/medic/cht-conf/main/devcontainer.cht-ide/.devcontainer.json > .devcontainer.json
+curl -s https://raw.githubusercontent.com/medic/cht-conf/main/devcontainer.cht-app-ide/.devcontainer.json > .devcontainer.json
 code --install-extension ms-vscode-remote.remote-containers
 code -n .
 ```
@@ -153,7 +151,7 @@ When opening VS Code, you may be prompted with the question:
 
 Choose, "Yes, I trust the authors".
 
-Open the Command Palette in VS Code (_Ctrl+Shift+P_ or _Cmd+Shift+P_) and select `Reopen in Container`. This will open your workspace inside a container based on the `cht-ide` image. You can use the `cht` commands by opening a terminal in VS Code (_Ctrl+Shift+\`_ or _Cmd+Shift+\`_). If prompted "Do you trust the authors..." choose "Trust Folder & Continue".
+Open the Command Palette in VS Code (_Ctrl+Shift+P_ or _Cmd+Shift+P_) and select `Reopen in Container`. This will open your workspace inside a container based on the `cht-app-ide` image. You can use the `cht` commands by opening a terminal in VS Code (_Ctrl+Shift+\`_ or _Cmd+Shift+\`_). If prompted "Do you trust the authors..." choose "Trust Folder & Continue".
 
 Run the following command in the VS Code terminal to bootstrap your new CHT project:
 
