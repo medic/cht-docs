@@ -26,8 +26,6 @@ This guide will only work with CHT 4.x instances.  See the
 
 ## Brief Overview of Key Concepts
 
-{{< param nodeVersion >}}
-
 The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is command-line interface tool to manage and configure CHT apps.
