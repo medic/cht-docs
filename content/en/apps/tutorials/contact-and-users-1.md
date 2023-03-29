@@ -1,7 +1,7 @@
 ---
 title: "Contact and User Management - Part 1"
 linkTitle: Contacts + Users 1
-weight: 2
+weight: 3
 description: >
   Creating and editing contacts and users in the CHT UI
 relatedContent: >
