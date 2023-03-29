@@ -8,9 +8,11 @@ description: >
   Hosting the CHT when developing apps
 ---
 
-{{% alert title="Note" %}} This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}). 
+{{% pageinfo %}} 
+This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}). 
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}){{% /alert %}}
+To deploy the CHT in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}})
+{{% /pageinfo %}}
 
 
 ## Getting started
@@ -78,8 +80,6 @@ docker-compose --env-file ../the_second/.env-docker-compose -f docker-compose-de
 The easiest way to switch between projects is to stop the first set of containers and start the second set. Cancel the first project running in the foreground with `ctrl + c`. Then start the second project using either the `.env` file or use the explicit command with ports and project name as shown above.
 
 To run projects concurrently, instead of cancelling the first one, open a second terminal and start the second project.  
-
-To read more about how `docker-compose` works, be sure to read the [helpful docker-compose commands]({{< relref "core/overview/docker-setup#helpful-docker-commands" >}}) page. 
 
 ## CHT Docker Helper
 

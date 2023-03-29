@@ -6,13 +6,13 @@ description: >
   Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes
 ---
 
-{{% alert title="Note" %}}
+{{% pageinfo %}}
 The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains.  These gains will greatly increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
 Instead, we recommended most deployment go with the [single node hosting]({{< ref "apps/guides/hosting/4.x/self-hosting-single-node" >}}).
 
 As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
-{{% /alert %}}
+{{% /pageinfo %}}
 
 ### About clustered deployments
 

@@ -19,7 +19,7 @@ Template training content for new CHT features is made available from time to ti
 
 ## Accessing
 
-When health workers open or reload their app, configured training cards will automatically show on top of all other content in the app. If it is not a convenient time to complete the training, they can cancel out at any time and will be prompted again later whenever they open or reload their app (training will start from the beginning).
+When health workers open or reload their app, configured training cards will automatically show on top of all other content in the app. If it is not a convenient time to complete the training, they can cancel out at any time and will be prompted again later whenever they open or reload their app (training will start from the beginning). 
 
 {{% alert title="Note" %}} If there are multiple training sets configured to start on the same day, the CHT will determine the order alphabetically based on the form ID. Subsequent training sets will only be displayed once the previous ones are either completed or no longer valid AND the app is opened or reloaded again. {{% /alert %}}
 
@@ -32,7 +32,7 @@ Health workers read through each card one by one in a predefined sequence, tappi
 As mentioned above, completed training sets will show up on the [main list]({{< relref "apps/features/reports/#main-list" >}}) of the Reports tab. These reports are available in [analytics]({{< relref "apps/features/supervision/#supervisor-dashboards" >}}), [aggregate targets]({{< relref "apps/features/supervision/#chw-aggregate-targets" >}}) , and can trigger supervision workflows and [tasks]({{< relref "apps/features/supervision/#supervisor-tasks" >}}).
 
 ## Configurability
-A “set” of training cards represents a collection of individual training cards, generally covering a single training topic. The list below highlights some of the key areas of customization:
+Training cards can be shown to any user associated to a contact. A “set” of training cards represents a collection of individual training cards, generally covering a single training topic. The list below highlights some of the key areas of customization:
 
 - Number of sets
 - Number of cards in a set

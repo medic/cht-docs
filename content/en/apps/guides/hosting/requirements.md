@@ -7,13 +7,12 @@ description: >
 relatedContent: >
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
-  core/overview/docker-setup
 ---
 
 
-{{% alert title="Note" %}}
+{{% pageinfo %}}
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For CHT development, Linux or macOS may be used. Windows can be used for either, but without recommendation.
-{{% /alert %}}
+{{% /pageinfo %}}
 
 {{% alert title="Note" %}}
 These requirements apply to both 3.x and 4.x CHT hosting
@@ -47,7 +46,7 @@ Depending on which distro you run, install the Docker packages from [Docker's Li
 
 Docker Desktop for Windows needs either Hyper-V support or Windows Subsystem for Linux 2 (WSL 2).  [Docker's Windows Docker Desktop install page](https://docs.docker.com/docker-for-windows/install/) covers both scenarios. 
 
-### macOS:
+### macOS
 
 See [Docker's macOS Docker Desktop install page](https://docs.docker.com/docker-for-mac/install/).
 
