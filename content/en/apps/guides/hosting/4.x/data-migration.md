@@ -24,25 +24,17 @@ docker-compose up
 ```
 
 For the following steps, the tool needs access to your CouchDb installation. To allow this access, you will need to provide a URL to your CouchDB installation that includes authentication. 
-Additionally, if your CouchDb runs in docker, the tool needs to be added to the same docker network in order to access protected endpoints. If your installation exposes a different port for CouchDb cluster API endpoints, please export that port. 
+If your installation exposes a different port for CouchDb cluster API endpoints, please export that port.
+If running against an installation of `MedicOS`, please make sure that the protocol of the URL is `https`. 
 
 ```shell
-export COUCH_URL=http://<authentication>@<host-ip>:<port>
-export COUCH_CLUSTER_PORT=<clustering_api_port>
-```
-or 
-```shell
-export CHT_NETWORK=<docker-network-name>
-export COUCH_URL=http://<authentication>@<docker-service-name>:<port>
-export COUCH_CLUSTER_PORT=<clustering_api_port>
+export COUCH_URL=http(s)://<authentication>@<host-ip>:<port>
 ```
 
 For simplicity, you could store these required values in an `.env` file: 
 ```shell
 cat > ${HOME}/couchdb-migration/.env << EOF
-CHT_NETWORK=<docker-network-name>
-COUCH_URL=http://<authentication>@<docker-service-name>:<port>
-COUCH_CLUSTER_PORT=<clustering_api_port>
+COUCH_URL=http(s)://<authentication>@<host-ip>:<port>
 EOF
 ```
 
@@ -50,7 +42,7 @@ EOF
 
 Backup your data! If you encounter any problems executing the instructions of this guide, you should be able to restore your CHT 3X instance using the backup data.
 [Consult information about backups for details]({{< relref "apps/guides/hosting/3.x/self-hosting#backup" >}}).
-To ensure no changes happen to your CouchDB data in your CHT 3.x server, stop the API by getting shell on your Medic OS container and calling `/boot/svc-stop medic-api`.
+Ensure no changes happen to your CouchDB data in your CHT 3.x server after you have begun the migration process. 
 
 To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that are required by 4.x.
 
@@ -79,12 +71,12 @@ Used in encrypting all CouchDb passwords and session tokens.
 ##### b) CouchDb server uuid
 Used in generating replication checkpointer documents, which track where replication progress between every client and the server, and ensure that clients don't re-download or re-upload documents.
 
-### 4. Locate and backup CouchDb Data folder
+### 4. Locate and make a copy of your CouchDb Data folder
 a) If running in MedicOS, [CouchDb data folder]({{< relref "apps/guides/hosting/3.x/self-hosting#backup" >}}) can be found at `/srv/storage/medic-core/couchdb/data`.
 
 b) If running a custom installation of CouchDb, data would be typically stored at `/opt/couchdb/data`.
 
-### 5. Launch 4.x CouchDb installation
+### 5. Stop your 3.x CouchDb / CHT-Core installation and launch 4.x CouchDb installation
 
 Depending on your project scalability needs and technical possibilities, you must decide whether you will deploy CouchDb in a single node or in a cluster with multiple nodes.
 Please consult this guide about clustering and horizontal scalability to make an informed decision. <insert link>
@@ -115,10 +107,13 @@ EOF
 ```
 
 c) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
+From this point on, the `couchdb-migration` container should connect to the same docker network as your CouchDb installation, in order to access APIs that are only available on protected ports. Correctly setting `CHT_NETWORK` is required for the next steps to succeed.
+To get the correct `docker-network-name` and `docker-service-nam`, you can use `docker network ls` to list all networks and `docker network inspect <docker-network-name>` to get the name of the CouchDb container that exists in this network.
+
 ```shell
 cat > ${HOME}/couchdb-migration/.env << EOF
 CHT_NETWORK=<docker-network-name>
-COUCH_URL=http://<authentication>@<docker-service-name>:<port>
+COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
@@ -135,7 +130,7 @@ e) Change metadata to match the new CouchDb node
 cd ~/couchdb-migration/ 
 docker-compose run couch-migration move-node
 ```
-f) Run the `veryfy` command to check whether the migration was successful.
+f) Run the `verify` command to check whether the migration was successful.
 ```shell
 docker-compose run couch-migration verify
 ```
@@ -175,10 +170,12 @@ EOF
 ```
 
 f) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
+From this point on, the `couchdb-migration` container should connect to the same docker network as your CouchDb installation, in order to access APIs that are only available on protected ports. Correctly setting `CHT_NETWORK` is required for the next steps to succeed.
+To get the correct `docker-network-name` and `docker-service-nam`, you can use `docker network ls` to list all networks and `docker network inspect <docker-network-name>` to get the name of the CouchDb container that exists in this network.
 ```shell
 cat > ${HOME}/couchdb-migration/.env << EOF
 CHT_NETWORK=<docker-network-name>
-COUCH_URL=http://<authentication>@<docker-service-name>:<port>
+COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
@@ -187,7 +184,7 @@ g) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `doc
 cd ~/couchdb-cluster/ 
 docker-compose up -d
 cd ~/couchdb-migration/ 
-docker-compose run couch-migration check-couchdb-up <number of nodes>
+docker-compose run couch-migration check-couchdb-up <number-of-nodes>
 ```
 
 h) Generate the shard distribution matrix and get instructions for final shard locations. 
