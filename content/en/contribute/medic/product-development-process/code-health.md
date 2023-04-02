@@ -14,7 +14,9 @@ A good guideline is to spend 25% of your time improving code health, which can b
 
 ### Tidying
 
-These are the smallest improvements and should be part of your work every week. Engineers can decide what tidying they want to prioritize and don't need any approval to do the work, but it will need to go through [Code Review]({{% ref "/contribute/code/workflow#code-reviews" %}}) to ensure a teammate agrees it's an improvement. Tidying can be done as part of an issue you're working on, or you can create a new issue and make the change as a separate PR, depending on which you prefer.
+These are the smallest improvements and should be part of your work every week. Engineers can decide what tidying they want to prioritize and don't need any approval to do the work, but it will need to go through [Code Review]({{% ref "/contribute/code/workflow#code-reviews" %}}) to ensure a teammate agrees it's an improvement.
+
+If the tidying is unrelated to other issues you're working on then to make the review easy you should create a new issue, branch, and PR for the tidying work. However if the tidying will conflict or block development of your other work, then use your best judgement about how to proceed in whatever way is easiest for you and your reviewer. Some options are: a) in the same commit if the change is small, b) a separate commit in the same branch if the changes are codependent, c) two branches with one referencing the other.
 
 Examples of appropriate tidying are increasing code reuse, improving readability, reducing complexity, updating a dependency, removing deprecated calls, and increasing test coverage.
 
