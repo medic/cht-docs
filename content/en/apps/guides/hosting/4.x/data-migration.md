@@ -106,9 +106,15 @@ COUCHDB_DATA=<absolute path to folder created in step 5.a>
 EOF
 ```
 
-c) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
+c) Start 4.x CouchDb. 
+```shell
+cd ~/couchdb-single/ 
+docker-compose up -d
+```
+
+d) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
 From this point on, the `couchdb-migration` container should connect to the same docker network as your CouchDb installation, in order to access APIs that are only available on protected ports. Correctly setting `CHT_NETWORK` is required for the next steps to succeed.
-To get the correct `docker-network-name` and `docker-service-nam`, you can use `docker network ls` to list all networks and `docker network inspect <docker-network-name>` to get the name of the CouchDb container that exists in this network.
+To get the correct `docker-network-name` and `docker-service-name`, you can use `docker network ls` to list all networks and `docker network inspect <docker-network-name>` to get the name of the CouchDb container that exists in this network.
 
 ```shell
 cat > ${HOME}/couchdb-migration/.env << EOF
@@ -117,20 +123,18 @@ COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
-d) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.  
+e) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.
 ```shell
-cd ~/couchdb-single/ 
-docker-compose up -d
 cd ~/couchdb-migration/ 
 docker-compose run couch-migration check-couchdb-up
 ```
 
-e) Change metadata to match the new CouchDb node
+f) Change metadata to match the new CouchDb node
 ```shell
 cd ~/couchdb-migration/ 
 docker-compose run couch-migration move-node
 ```
-f) Run the `verify` command to check whether the migration was successful.
+g) Run the `verify` command to check whether the migration was successful.
 ```shell
 docker-compose run couch-migration verify
 ```
@@ -169,9 +173,15 @@ DB3_DATA=<absolute path to secondary2 folder created in step 5.a>
 EOF
 ```
 
-f) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
+f) Start 4.x CouchDb.
+```shell
+cd ~/couchdb-cluster/ 
+docker-compose up -d
+```
+
+g) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
 From this point on, the `couchdb-migration` container should connect to the same docker network as your CouchDb installation, in order to access APIs that are only available on protected ports. Correctly setting `CHT_NETWORK` is required for the next steps to succeed.
-To get the correct `docker-network-name` and `docker-service-nam`, you can use `docker network ls` to list all networks and `docker network inspect <docker-network-name>` to get the name of the CouchDb container that exists in this network.
+To get the correct `docker-network-name` and `docker-service-name`, you can use `docker network ls` to list all networks and `docker network inspect <docker-network-name>` to get the name of the CouchDb container that exists in this network.
 ```shell
 cat > ${HOME}/couchdb-migration/.env << EOF
 CHT_NETWORK=<docker-network-name>
@@ -179,22 +189,20 @@ COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
-g) Start 4.x CouchDb and wait until it is up. You'll know it is up when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
+h) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
 ```shell
-cd ~/couchdb-cluster/ 
-docker-compose up -d
 cd ~/couchdb-migration/ 
 docker-compose run couch-migration check-couchdb-up <number-of-nodes>
 ```
 
-h) Generate the shard distribution matrix and get instructions for final shard locations. 
+i) Generate the shard distribution matrix and get instructions for final shard locations. 
 ```shell
 cd ~/couchdb-migration/ 
 shard_matrix=$(docker-compose run couch-migration generate-shard-distribution-matrix)
 docker-compose run couch-migration shard-move-instructions $shard_matrix
 ``` 
 
-i) Follow the instructions from the step above and move the shard files to the correct location, according to the shard distribution matrix. 
+j) Follow the instructions from the step above and move the shard files to the correct location, according to the shard distribution matrix. 
 
 Example of moving one shard from one node to another:
 
@@ -257,18 +265,18 @@ After moving two shards: `55555554-6aaaaaa8` and `6aaaaaa9-7ffffffd`
      /6aaaaaa9-7ffffffd
      /55555554-6aaaaaa8
 ```
-j) Change metadata to match the new shard distribution. We declared `$shard_matrix` in step "g" above, so it is still set now:
+k) Change metadata to match the new shard distribution. We declared `$shard_matrix` in step "g" above, so it is still set now:
 
 ```shell
 docker-compose run couch-migration move-shards $shard_matrix
 ``` 
 
-k) Remove old node from the cluster: 
+l) Remove old node from the cluster: 
 ```shell
 docker-compose run couch-migration remove-node couchdb@127.0.0.1
 ```
 
-j) Run the `veryfy` command to check whether the migration was successful. 
+m) Run the `veryfy` command to check whether the migration was successful. 
 ```shell
 docker-compose run couch-migration verify
 ```
