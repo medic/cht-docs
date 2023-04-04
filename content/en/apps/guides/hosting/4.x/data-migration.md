@@ -268,7 +268,7 @@ k) Remove old node from the cluster:
 docker-compose run couch-migration remove-node couchdb@127.0.0.1
 ```
 
-j) Run the `veryfy` command to check whether the migration was successful. 
+j) Run the `verify` command to check whether the migration was successful. 
 ```shell
 docker-compose run couch-migration verify
 ```
