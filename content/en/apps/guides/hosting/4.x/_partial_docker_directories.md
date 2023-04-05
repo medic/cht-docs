@@ -1,3 +1,8 @@
+---
+title: "Docker Directory Setup"
+toc_hide: true
+hide_summary: true
+---
 Create the following directory structure:
 
 ```
