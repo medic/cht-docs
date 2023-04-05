@@ -126,7 +126,7 @@ We're using the `this.lmp` value which was calculated and saved in the `appliesI
 
 This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "apps/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
 
-We will be looking at `resolvedIf` and the concept of _task completion_ in more depth in [Configuring Tasks - Part 4]({{ < ref "apps/tutorials/tasks-4" >}}).
+The concept of _task completion_ is covered in more depth in [Task Completion vs Cancellation]({{< ref "apps/guides/tasks/query-task-data#completion-vs-cancellation" >}}).
 
 ## Actions
 ```
