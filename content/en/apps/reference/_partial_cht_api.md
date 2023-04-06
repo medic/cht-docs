@@ -1,6 +1,7 @@
 ---
 title: "CHT API"
 toc_hide: true
+hide_summary: true
 ---
 _Introduced in v3.12.0_
 

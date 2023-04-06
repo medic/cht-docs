@@ -1,6 +1,7 @@
 ---
 title: "Local Docker Setup"
 toc_hide: true
+hide_summary: true
 ---
 {{< tabpane code=false >}}
 {{% tab header="Linux (Ubuntu)" %}}
