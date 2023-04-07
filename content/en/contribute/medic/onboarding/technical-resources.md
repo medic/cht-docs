@@ -1,7 +1,7 @@
 ---
 title: "Technical Resources"
 linkTitle: "Technical Resources"
-weight: 4
+weight: 3
 description: >
   Resources to get started as a contributor to the CHT
 ---
