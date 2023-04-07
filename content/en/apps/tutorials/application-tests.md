@@ -317,7 +317,7 @@ According to the task configuration, these conditions need to be met for the ass
 2. The `contact_type` of the user's parent is: `chw_area`
 3. The current time is between the start and end dates of the task event.
 
-When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. See the lines [31](#harness-defaults-json-31) and [26]((#harness-defaults-json-26)) respectively in the sample file further below.
+When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. See the lines [31](#harness-defaults-json-31) and [26](#harness-defaults-json-26) respectively in the sample file further below.
 
 For the condition 3, let's look at the task event window in the task definition. As mentioned in the earlier tutorial, the task event is:
 - Due 7 days after the contact’s creation date.

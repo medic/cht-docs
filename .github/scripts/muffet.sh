@@ -29,6 +29,7 @@ muffet http://localhost:1313 \
   --exclude "https://github\.com/medic/cht-docs/edit/main/.*" \
   --exclude "https://communityhealthtoolkit.org/*" \
   --exclude "http[s]*://localhost[8443|5984]*" \
+  --exclude "http[s]*://*.my.local-ip.co*" \
   --exclude "http[s]*://cht\.domain\.com.*" \
   --exclude "http[s]*://127\.0\.0*" \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*"
