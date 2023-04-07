@@ -17,6 +17,7 @@ jobs:
   BuildLinkCheckPushLive:
     name:
     runs-on: ubuntu-22.04
+    container: ubuntu
     timeout-minutes: 15
     steps:
 
