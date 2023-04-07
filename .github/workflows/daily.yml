@@ -57,7 +57,7 @@ jobs:
 
       - name: All Branches - Run Muffet link checker
         run: |
-        muffet http://localhost:1313 
+          muffet http://localhost:1313 
 
       - name: Main Branch Only - Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
