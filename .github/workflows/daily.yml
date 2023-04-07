@@ -12,7 +12,7 @@ on:
     # runs at 3:15am every day
     - cron:  '15 3 * * *'
 
-name: Test site and push live if we're on main branch
+name: Test site for broken links
 jobs:
   BuildLinkCheckPushLive:
     name:
