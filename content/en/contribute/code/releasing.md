@@ -12,9 +12,9 @@ aliases: >
 
 A release is a set of changes that is planned to be used by at least one implementation that uses the CHT.
 
-### Release Process
+### Building & Releasing CHT Core Changes
 
-The high-level process for a release is as follows:
+The high-level steps for a release are as follows:
 
 * The team sees an opportunity they want to go after. The opportunity addresses a need of at least one implementation that uses the CHT and will be used by that implementation after the release.
 * The team agrees on a solution for it.
