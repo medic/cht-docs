@@ -53,7 +53,7 @@ jobs:
       - name: All Branches - Serve Hugo site
         run: |
           hugo server&
-          sleep 5
+          sleep 10
 
       - name: All Branches - Run Muffet link checker
         shell: bash
