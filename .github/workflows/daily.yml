@@ -55,6 +55,9 @@ jobs:
           hugo server&
           sleep 5
 
+      - name: All Branches - Sleep more
+        run: sleep 30s
+
       - name: All Branches - Run Muffet link checker
         shell: bash
         run: ./.github/scripts/muffet.sh
