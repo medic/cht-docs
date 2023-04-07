@@ -35,9 +35,9 @@ The release manager must perform several tasks for new release, such as coordina
 {{% alert title="Note" %}} The following classification is defined by the [Semantic Versioning 2.0.0](https://semver.org). {{% /alert %}}
 
 Given a version number `MAJOR.MINOR.PATCH`, increment the:
-* `MAJOR` version when you make incompatible API changes
-* `MINOR` version when you add functionality in a backward-compatible manner
-* `PATCH` version when you make backward-compatible bug fixes
+* `MAJOR` version the release adds incompatible API changes
+* `MINOR` version the release adds functionality in a backward-compatible manner
+* `PATCH` version the release adds backward-compatible bug fixes
 
 ## CHT Conf
 
