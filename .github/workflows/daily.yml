@@ -19,7 +19,6 @@ jobs:
   BuildLinkCheckPushLive:
     name:
     runs-on: ubuntu-22.04
-    container: ubuntu
     timeout-minutes: 15
     steps:
 
@@ -46,9 +45,6 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.18'
-          
-      - name: All Branches - Install CA certificates
-        run: apt-get update && apt-get install -y --no-install-recommends ca-certificates
 
       - name: All Branches - Install Muffet v1.5.7
         run: GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
