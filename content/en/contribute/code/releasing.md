@@ -29,7 +29,7 @@ The high-level steps for a release are as follows:
 ### Release Manager
 The overall coordination and operation of the release process are the responsibility of the release manager.
 
-The release manager must perform several tasks for new release, such as coordinating with team members and following all the steps in the [release issue process](https://github.com/medic/cht-core/issues/new/choose), some of them being manual. The release manager must have adequate permissions to the repositories where the release is made.
+The release manager must perform several tasks for a new release, such as coordinating with team members and following all the steps in the [release issue process](https://github.com/medic/cht-core/issues/new/choose), some of them being manual. The release manager must have adequate permissions to the repositories where the release is made.
 
 ### Major/Minor/Patch Release
 {{% alert title="Note" %}} The following classification is defined by the [Semantic Versioning 2.0.0](https://semver.org). {{% /alert %}}
