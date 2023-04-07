@@ -46,8 +46,8 @@ jobs:
         with:
           go-version: '1.18'
 
-      - name: All Branches - Install Muffet v1.5.7
-        run: GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+      - name: All Branches - Install Muffet v2.7.0
+        run: GO111MODULE=on go install github.com/raviqqe/muffet@v2.7.0
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
       - name: All Branches - Serve Hugo site
