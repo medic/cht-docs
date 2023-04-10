@@ -178,7 +178,7 @@ All reports:
  - Store the form's identifier in the `form` field
  - May have a `contact` property, which is a minified version of the report author's contact and its hierarchy (see above)
 
-Reports can and should be linked to a contact when appropriate. The report's contact (sometimes called the report's subject) can be a person or place. The link between report and contact is established through one of the following properties one report:
+Reports can and should be linked to a contact when possible. The report's associated contact (sometimes called the report's subject) can be either a person or place. The link between report and contact is established by defining one of the following properties within the report:
 
  1. A person shortcode or uuid at `doc.fields.patient_id`, `doc.fields.patient_uuid`, or `doc.patient_id`
  2. A place shortcode or uuid at `doc.fields.place_id` or `doc.place_id`.
