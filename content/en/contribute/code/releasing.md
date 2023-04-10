@@ -10,7 +10,7 @@ aliases: >
 
 ## CHT Core
 
-A release is a set of changes that is planned to be used by at least one implementation that uses the CHT.
+A release is a set of code changes bundled together, ideally with at least one deployment of CHT apps ready to make use of it.
 
 ### Building & Releasing CHT Core Changes
 
