@@ -71,7 +71,7 @@ Populate the `messages-sw.properties` file with the appropriate translation stri
 ```
 cht --local upload-custom-translations
 ```
-The default Swahili translations that come pre-added to CHT can be found [here](https://github.com/medic/cht-core/blob/master/ddocs/medic/_attachments/translations/messages-sw.properties).
+The default Swahili translations that come pre-added to CHT can be found [here](https://github.com/medic/cht-core/blob/master/config/standard/translations/messages-sw.properties).
 
 After changing the instance language to Swahili, the various elements will behave like this:
 

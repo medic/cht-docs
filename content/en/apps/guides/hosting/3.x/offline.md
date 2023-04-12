@@ -78,7 +78,7 @@ As the DNS traffic still needs to leave your network and return, it is not a via
 
 ### Self-Signed Certificates
 
-Another option to consider is to [self-sign the certificates](https://gist.github.com/anand-k-p/851e57c3aa43e1e36df164f1c215609e) and then either bypass the warnings in browsers or install the new CA root certificate on your devices.  While this may work for a development environment with a single developer, it will be hard to scale to an environment where you'd like to easily provision many Android devices.  The work will be much more than just installing an APK form the Play Store (or the slightly harder side load process).
+Another option to consider is to [self-sign the certificates](https://gist.github.com/fntlnz/cf14feb5a46b2eda428e000157447309) and then either bypass the warnings in browsers or install the new CA root certificate on your devices.  While this may work for a development environment with a single developer, it will be hard to scale to an environment where you'd like to easily provision many Android devices.  The work will be much more than just installing an APK form the Play Store (or the slightly harder side load process).
 
 This may only work on certain, older version of Android as well.
 

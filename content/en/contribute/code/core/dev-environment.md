@@ -262,9 +262,9 @@ Refer to [the testing doc](https://github.com/medic/cht-core/blob/master/TESTING
 1. Clone the repo: `git clone https://github.com/medic/nginx-local-ip.git`
 1. `cd` into the new directory: `cd nginx-local-ip`
 1. Assuming your IP is `192.168.0.3`, start `nginx-local-ip` to connect to:
-   * The CHT API running via `grunt` or `horti`, execute `APP_URL=http://192.168.0.3:5988 docker compose up` and then access it at [https://192-168-0-3.my.local-ip.co/](https://192-168-0-3.my.local-ip.co/)
-   * The CHT API running via `docker`, the ports are remapped, so execute `HTTP=8080 HTTPS=8443 APP_URL=https://192.168.0.3 docker compose up` and then access it at [https://192-168-0-3.my.local-ip.co:8443/](https://192-168-0-3.my.local-ip.co:8443/)
-1. The HTTP/HTTPS ports (`80`/`443`) need to accept traffic from the IP address of your host machine and your local webapp port (e.g. `5988`) needs to accept traffic from the IP address of the `nginx-local-ip` container (on the Docker network). If you are using the UFW firewall (in a Linux environment) you can allow traffic on these ports with the following commands:
+   * The CHT API running via `grunt` or `horti`, execute `APP_URL=http://192.168.0.3:5988 docker compose up` and then access it at `https://192-168-0-3.my.local-ip.co/`.
+   * The CHT API running via `docker`, the ports are remapped, so execute `HTTP=8080 HTTPS=8443 APP_URL=https://192.168.0.3 docker compose up` and then access it at `https://192-168-0-3.my.local-ip.co:8443/`.
+2. The HTTP/HTTPS ports (`80`/`443`) need to accept traffic from the IP address of your host machine and your local webapp port (e.g. `5988`) needs to accept traffic from the IP address of the `nginx-local-ip` container (on the Docker network). If you are using the UFW firewall (in a Linux environment) you can allow traffic on these ports with the following commands:
 
 (Since local IP addresses can change over time, ranges are used in these rules so that the firewall configuration does not have to be updated each time a new address is assigned.)
 

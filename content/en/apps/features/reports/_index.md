@@ -56,7 +56,7 @@ The action buttons at the bottom of the screen are configurable using [permissio
 
 Clicking on the “Export” button will download a CSV file with all the data from the reports. And clicking the “+ Submit report” button opens a menu of forms a user can choose to complete.
 
-{{< figure src="reports-desktop.png" link="reports-bulk.png" class="left col-9 col-lg-9" >}}
+{{< figure src="reports-desktop.png" link="reports-desktop.png" class="left col-9 col-lg-9" >}}
 
 <br clear="all">
 
