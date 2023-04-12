@@ -12,7 +12,7 @@ on:
     # runs at 3:15am every day
     - cron:  '15 3 * * *'
 
-name: Test site and push live if we're on main branch
+name: Test site for broken links
 jobs:
   BuildLinkCheckPushLive:
     name:
@@ -51,7 +51,7 @@ jobs:
       - name: All Branches - Serve Hugo site
         run: |
           hugo server&
-          sleep 5
+          sleep 30
 
       - name: All Branches - Run Muffet link checker
         shell: bash
@@ -62,7 +62,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-          SLACK_CHANNEL: '#cht-squad-docs'
+          SLACK_CHANNEL: '#cht-doc-site'
           SLACK_COLOR: '#3278BD'
           SLACK_ICON: ":flappingphone:"
           SLACK_MESSAGE: 'Broken Links Found'
