@@ -7,6 +7,7 @@ description: >
 relatedContent: >
     core/releases
     contribute#are-you-a-partner-wondering-how-issues-are-prioritized
+    core/releases/feature_releases/
     
 ---
 
