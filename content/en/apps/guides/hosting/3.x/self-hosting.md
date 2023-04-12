@@ -6,6 +6,7 @@ description: >
   Hosting the CHT on self run infrastructure
 aliases:
   - /apps/guides/hosting/self-hosting
+  - /core/overview/docker-setup
 relatedContent: >
   apps/guides/hosting/3.x/ec2-setup-guide
 ---
