@@ -8,6 +8,7 @@ relatedContent: >
   apps/features/targets
   design/best-practices/#targets
   apps/features/integrations/dhis2
+  apps/reference/app-settings/transitions#create_user_for_contacts
 ---
 
 Supervision and workforce management are important aspects to building and maintaining high-performing community health systems. Supervisors help Community Health Workers deliver quality healthcare services to their patients through building CHW care delivery knowledge and skills, fostering a supportive work environment, and supporting continuity of care between home-based care and community health centers or facilities. 
@@ -47,11 +48,7 @@ The CHT can be configured to create [Tasks]({{< relref "apps/features/tasks" >}}
 [Muso](https://www.musohealth.org), a leading community health organization and major contributor to the CHT, has implemented ”360º supervision”, achieving some of the lowest child mortality rates in sub-Saharan Africa. This model provides dedicated mentorship and supportive supervision to CHWs tailored to each CHW's particular strengths and challenges. A key theme of our [human-centered approach](https://medicmobile.org/design) was the idea of using data to improve one-to-one supervision, rather than using analytics to replace Supervisors. Read more about findings from a recent [randomized controlled trial](https://medicmobile.org/blog/new-study-precision-supervision-and-personalized-feedback-dashboards-improve-chw-performance-in-mali).
 {{% /pageinfo %}}
 
-## Supervisor CHW create
-This feature enables a supervisor to create a new user under an existing place that has been selected. Supervisor CHW Create is compatible with CHTs offline first features. When offline, the supervisor can create the user and a login token provided in the outgoing message tab.While users will not exist until the supervisor synchronizes, and the newly created user needs connectivity to access their login token and log in the first time, all other process can be completed offline and be synchronized at a later time.
+## Supervisor add users
+This feature is used when a supervisor needs to create a user under an existing place that has been selected and has no access to an administrator or is offline.When offline, the supervisor can create the user and a login token provided in the outgoing message tab.While users will not exist until the supervisor synchronizes, and the newly created user needs connectivity to access their login token to log in the first time, all other process can be completed offline and be synchronized at a later time.
 
-To [configure]({{< ref "apps/reference/app-settings/transitions#create_user_for_contacts" >}}) this feature, one needs to make some changes to the app_settings file. These changes include enabling contacts to create users,enabling token login and setting the app url to the url of the development instance.
-
-
-The roles of the users that can be created through this feature are CHW or CHW supervisor. While creating the user, the supervisor has to select a valid phone number. This is because an SMS with the token to login will be sent to the new user through the selected phone number.
-Any form can be configured to enable this feature. Once the form has been submitted, the new user is visible on the admin area and the token login visible on the outgoing messages tab.
+The roles of the users that can be created through this feature are CHW or CHW supervisor. While creating the user, the supervisor has to select a valid phone number. This is because an SMS with the token to login will be sent to the new user through the selected phone number.Any form can be configured to enable this feature. Once the form has been submitted, the new user is visible on the admin area.
