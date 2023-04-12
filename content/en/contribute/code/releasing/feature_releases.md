@@ -4,10 +4,11 @@ linkTitle: "Feature Releases"
 weight: 1
 description: >
     Feature Releases for the CHT Core Framework
+aliases:
+  -    /core/releases/feature_releases/
 relatedContent: >
     core/releases
     contribute#are-you-a-partner-wondering-how-issues-are-prioritized
-    core/releases/feature_releases/
     
 ---
 
