@@ -168,7 +168,7 @@ When you see a new version in the [GitHub repository](https://github.com/medic/c
    git checkout BRANCH_NAME
    ```shell
 
-## Additional Configuration
+### Additional Configuration
 
 #### Prometheus Retention and Storage
 
