@@ -3,7 +3,7 @@ title: "All The Things"
 linkTitle: "All The Things"
 weight: 2
 description: >
-  Wide range of topics to help with the onboarding
+  Wide range of topics to support the onboarding
 ---
 
 This page is meant to serve as a point of conversation, with a wide range of topics to be discussed when joining Medic or starting as a contributor. Many things are not in any particular order. The goal is to convey a general “lay of the land” so someone starting can see a lot of what’s out there without having to be surprised each day as new things pop up.
@@ -55,13 +55,11 @@ This page is meant to serve as a point of conversation, with a wide range of top
 * A few mandatory calls
 * Organization-wide calls are recorded
 * No recurring meetings on Fridays
+* Retros - MetroRetro
+* 2 Daily Standups
+* Weekly FWG meetings
 
 ### Process
-#### SRE
-* Support
-* Not on-call
-* We’re offline first, so not every outage calls for immediate action/resolution
-* Engineering work - Archv3 (cht-core 4.0 version)
 
 #### Development
 * Basic current process:
@@ -73,12 +71,12 @@ This page is meant to serve as a point of conversation, with a wide range of top
 1. Get QA engineers involved early in the process!
 * Releases
 1. Backwards compatibility matters a lot
-1. Slower moving (working to change this)
+1. Can feel slow at times, but we’re making a lot of progress here. See above about how Focused Groups work.
 1. Quality matters a lot
 * Data engineering -> software engineering
   * Workflow management 
   * Dashboards
-* The main repos to look at
+* The main repos to look at:
   * cht-core
   * cht-conf
   * cht-android 
@@ -86,6 +84,9 @@ This page is meant to serve as a point of conversation, with a wide range of top
   * couch2pg
   * cht-pipeline
   * cht-sync
+  * cht-monitoring
+* Continuous Integration (CI) with GitHub Actions
+* No CD, as no SaaS setup
 
 #### GitHub 
 * Tons of stuff happens here.
@@ -104,6 +105,13 @@ This page is meant to serve as a point of conversation, with a wide range of top
 * Trying out [quality assistance]({{% ref "quality-assistance" %}})
   * Faster start-to-live 
   * Avoiding silos and shifting of responsibilities (coding and quality)
+
+#### SRE
+* Support
+* Ticketing system: only GitHub
+* Not on-call
+* We’re offline first, so not every outage calls for immediate action/resolution
+* Engineering work - Archv3 (cht-core 4.0 version)
 
 ### Product
 #### The forum
