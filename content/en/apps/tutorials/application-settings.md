@@ -1,7 +1,7 @@
 ---
 title: "CHT Application Settings"
 linkTitle: Application Settings
-weight: 4
+weight: 6
 description: >
   Managing CHT application settings
 relatedContent: >

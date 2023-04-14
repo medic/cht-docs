@@ -82,12 +82,9 @@ Calculations are achieved within app forms using XPath statements in the "calcul
 The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
 {{% /alert %}}
 
-
-
 ## CHT XForm Widgets
 
 Some XForm widgets have been added or modified for use in CHT applications. The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
-
 
 ### Bikram Sambat Datepicker
 
@@ -290,6 +287,12 @@ _Available in +3.14.0._
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
 See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
+
+### `cht:extension-lib`
+
+_Available in +4.2.0._
+
+This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
 ## Input data
 

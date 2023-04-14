@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>training:ui_change_more_options</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/ui_change_more_options/change_1/change_1_txt_1:label">
+            <value>**Edit** and **Delete** have been moved.</value>
+          </text>
+          <text id="/ui_change_more_options/change_1/change_1_txt_2:label">
+            <value>In the old app, you accessed these at the bottom.</value>
+            <value form="image">jr://images/old_actions.png</value>
+          </text>
+          <text id="/ui_change_more_options/change_2/change_2_txt_1:label">
+            <value>In the new app, you will tap on the three dots "**⋮**"</value>
+            <value form="image">jr://images/new_actions.png</value>
+          </text>
+          <text id="/ui_change_more_options/ending/ending_txt_1:label">
+            <value>If you do not understand these changes, please contact your supervisor.</value>
+          </text>
+          <text id="/ui_change_more_options/ending/ending_txt_2:label">
+            <value>When you're ready, tap on **Submit** to start using your app.</value>
+          </text>
+          <text id="/ui_change_more_options/intro/intro_txt_1:label">
+            <value>There have been some changes to your app, tap **Next** to review them now.</value>
+          </text>
+          <text id="/ui_change_more_options/intro/intro_txt_2:label">
+            <value>If you do not have time to review now, close this window and you will be reminded again later.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <ui_change_more_options id="training:ui_change_more_options" prefix="J1!training:ui_change_more_options!" delimiter="#" version="1 (2022-07-20 14:28:16)">
+          <intro>
+            <intro_txt_1/>
+            <intro_txt_2/>
+          </intro>
+          <change_1>
+            <change_1_txt_1/>
+            <change_1_txt_2/>
+          </change_1>
+          <change_2>
+            <change_2_txt_1/>
+          </change_2>
+          <ending>
+            <ending_txt_1/>
+            <ending_txt_2/>
+          </ending>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </ui_change_more_options>
+      </instance>
+      <bind nodeset="/ui_change_more_options/intro" required="false()"/>
+      <bind nodeset="/ui_change_more_options/intro/intro_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/intro/intro_txt_2" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/change_1" required="false()"/>
+      <bind nodeset="/ui_change_more_options/change_1/change_1_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/change_1/change_1_txt_2" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/change_2" required="false()"/>
+      <bind nodeset="/ui_change_more_options/change_2/change_2_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/ending" required="false()"/>
+      <bind nodeset="/ui_change_more_options/ending/ending_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/ending/ending_txt_2" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_more_options/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/ui_change_more_options/intro">
+      <input ref="/ui_change_more_options/intro/intro_txt_1">
+        <label ref="jr:itext('/ui_change_more_options/intro/intro_txt_1:label')"/>
+      </input>
+      <input ref="/ui_change_more_options/intro/intro_txt_2">
+        <label ref="jr:itext('/ui_change_more_options/intro/intro_txt_2:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_more_options/change_1">
+      <input ref="/ui_change_more_options/change_1/change_1_txt_1">
+        <label ref="jr:itext('/ui_change_more_options/change_1/change_1_txt_1:label')"/>
+      </input>
+      <input ref="/ui_change_more_options/change_1/change_1_txt_2">
+        <label ref="jr:itext('/ui_change_more_options/change_1/change_1_txt_2:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_more_options/change_2">
+      <input ref="/ui_change_more_options/change_2/change_2_txt_1">
+        <label ref="jr:itext('/ui_change_more_options/change_2/change_2_txt_1:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_more_options/ending">
+      <input ref="/ui_change_more_options/ending/ending_txt_1">
+        <label ref="jr:itext('/ui_change_more_options/ending/ending_txt_1:label')"/>
+      </input>
+      <input ref="/ui_change_more_options/ending/ending_txt_2">
+        <label ref="jr:itext('/ui_change_more_options/ending/ending_txt_2:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

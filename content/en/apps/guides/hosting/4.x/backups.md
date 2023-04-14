@@ -5,9 +5,9 @@ weight: 330
 description: >
     Which data to backup when hosting the CHT 4.x
 ---
-{{% alert title="Note" %}}
+{{% pageinfo %}}
 This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting#backup" >}}) which includes backups for 3.x.
-{{% /alert %}}
+{{% /pageinfo %}}
 
 ## Introduction 
 

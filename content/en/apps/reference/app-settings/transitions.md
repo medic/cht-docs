@@ -154,7 +154,7 @@ Sets the `patient_id` on the root of the registration document and creates the p
 
 ###### External Patient ID
 
-If you are providing the patient id instead of having Sentinel generate you one, name the field in a `patient_id_field` key in `"params"`:
+If you are providing the patient ID instead of having Sentinel generate you one, name the field in a `patient_id_field` key in `"params"`:
 
 ```json
 {
@@ -165,17 +165,17 @@ If you are providing the patient id instead of having Sentinel generate you one,
 }
 ```
 
-In this example the provided id would be in `fields.external_id` on the registration document.
+In this example the provided ID would be in `fields.external_id` on the registration document. This field **must not** be called `patient_id`.
 
-**NB:** this field must not be called `patient_id`.
-**NB:** the JSON passed in `"params"` should still be a string. Support for raw JSON as shown below exists, but is in beta and may not always work correctly in all situations, because kanso.json does not support it:
+{{% alert title="Note" %}}
+The JSON passed in `"params"` should be a string. Support for raw JSON as shown below exists, but is in beta and may not always work correctly in all situations, because kanso.json does not support it:
 
 ```json
 {
     "params": {"patient_id_field": "external_id"},
 }
 ```
-
+{{% /alert %}}
 
 ###### Alternative Name Location
 

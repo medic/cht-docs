@@ -60,7 +60,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
-          SLACK_CHANNEL: '#cht-squad-docs'
+          SLACK_CHANNEL: '#cht-doc-site'
           SLACK_COLOR: '#3278BD'
           SLACK_ICON: ":flappingphone:"
           SLACK_MESSAGE: 'Deploy Failed'
