@@ -83,13 +83,13 @@ Date Uptime | `zero` | 1,626,508.148
 
 ## Grafana and Prometheus 
 
-Medic maintains an opinionated configuration of [Prometheus](https://prometheus.io/), [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
+Medic maintains an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
-[Prometheus supports](https://prometheus.io/docs/concepts/metric_types/) four metric types: Counter, Gauge, Histogram, and Summary.  Currently, the CHT only provides Counter and Gauge type metrics.
+The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
-When building panels for Grafana dashboards, [Prometheus Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be used to manipulate the metric data.
+![Screenshot of Grafana Dashboard showing data from Prometheus](monitoring.and.alerting.screenshot.png)
 
-Refer to the [Grafana Documentation](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/) for best practices on building dashboards.
+[Prometheus supports](https://prometheus.io/docs/concepts/metric_types/) four metric types: Counter, Gauge, Histogram, and Summary.  Currently, the CHT only provides Counter and Gauge type metrics. When building panels for Grafana dashboards, [Prometheus Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be used to manipulate the metric data. Refer to the [Grafana Documentation](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/) for best practices on building dashboards.
 
 
 ### Prerequisites
@@ -103,7 +103,7 @@ Refer to the [Grafana Documentation](https://grafana.com/docs/grafana/latest/das
 
 Pre-provisioned dashboards are included in the `CHT` folder in the Grafana UI should not be updated directly. 
 
-These instructions have been tested against Ubuntu, but should work against any OS that meets the prerequisites:
+These instructions have been tested against Ubuntu, but should work against any OS that meets the prerequisites. They follow a happy path assuming you need to only set a secure password and specify the URL(s) to monitor:
 
 1. Run the following commands to clone this repository, initialize your `.env` file, create a secure password and create your data directories:
 
@@ -143,6 +143,8 @@ These instructions have been tested against Ubuntu, but should work against any 
 
 4. Grafana is available at [http://localhost:3000](http://localhost:3000). See the output from step 1 for your username and password.
 
+If you would like to do more customizing of your deployment, see ["Addition Configuration"](#additional-configuration).
+
 ### Upgrading
 
 Before upgrading, you should back up both your current configuration settings and your Prometheus time-series data.
@@ -160,8 +162,8 @@ docker compose up -d
 
 When you see a new version in the [GitHub repository](https://github.com/medic/cht-monitoring), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration:
 
-1. Note the version number to derive the branch to pull.  In the case of `1.1.0` it will be `1.1.x`
-2. Run this command to update your instance and restart it. Be sure to replace `BRANCH_NAME` with the value form step 1:
+1. Note the version number to derive the branch to pull.  For example,  `1.1.0` would be `1.1.x`
+2. Run this command to update your instance and restart it. Be sure to replace `BRANCH_NAME` with the value from the first step:
    ```shell
    cd ~/cht-monitoring
    git fetch
@@ -178,19 +180,19 @@ Local storage is not suitable for storing large amounts of monitoring data. If y
 
 #### Alerts
 
-This configuration includes number of pre-provisioned alerts.  See the [Grafana Documentation](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information on how to edit or remove these provisioned alerts.
+This configuration includes number of pre-provisioned alerts.  Specific alerting rules (and other contact points) can be set in the Grafana UI.  
 
-Specific alerting rules (and other contact points) can be set in the Grafana UI.  See the [Grafana Documentation](https://grafana.com/docs/grafana/latest/alerting/) for more information.
+See the both Grafana [high level alert Documentation](https://grafana.com/docs/grafana/latest/alerting/) and  [provisioning alerts in the UI](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information on how to edit or remove these provisioned alerts.
 
-#### Email
+Additionally, you can configure where these alerts are sent.  Two likely options are Email and Slack.
+
+##### Email
 
 To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.  Ten, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
 
-#### Slack
+##### Slack
 
-Slack alerts can be configured within the Grafana web GUI for the specific panel you would like to alert on.  Find the panel you want to alert on and edit it.  In the bottom half of the screen, choose the "Alert" tab. Then click "Create alert fule from this panel". 
-
-For more information, see [Grafana alerting documentation](https://grafana.com/docs/grafana/latest/alerting/).
+Slack alerts can be configured within the Grafana web GUI for the specific panel you would like to alert on.  Find the panel you want to alert on and edit it.  In the bottom half of the screen, choose the "Alert" tab. Then click "Create alert fule from this panel".
 
 ### Configuration Reference 
 
