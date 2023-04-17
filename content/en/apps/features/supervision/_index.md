@@ -56,4 +56,3 @@ When _creating_ a new user account, Supervisors fill out the necessary details, 
 
 When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.  
 
-The roles of the users that can be created through this feature are CHW or CHW supervisor. While creating the user, the supervisor has to select a valid phone number. This is because an SMS with the token to login will be sent to the new user through the selected phone number.Any form can be configured to enable this feature. Once the form has been submitted, the new user is visible on the admin area.
