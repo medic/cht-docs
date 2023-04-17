@@ -20,7 +20,7 @@ The high-level steps for a release are as follows:
 * The Focused Working Group agrees on a solution for it.
 * Tickets are added to the [Product Team Activities board](https://github.com/orgs/medic/projects/134/views/3) for what's being built.
 * A [release manager](#release-manager) is assigned from the team.
-* The release manager [creates an issue](https://github.com/medic/cht-core/issues/new/choose) for either a [Major/Minor or Patch](#majorminorpatch-release) release issue template and follows the process.
+* The release manager [creates an issue](https://github.com/medic/cht-core/issues/new/choose) for either a [Major/Minor or Patch](#majorminorpatch-release) release and follows the process outlined in the issue template.
 * Code is built by a developer together with [quality assistance]({{% ref "/contribute/medic/product-development-process/quality-assistance" %}}).
 * [Code is reviewed]({{% ref "/contribute/code/workflow#code-reviews" %}}).
 * Code is merged.
