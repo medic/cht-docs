@@ -34,7 +34,7 @@ A free and open source NoSQL database used as the primary store for all app data
 
 #### HAProxy
 
-[HAProxy](http://www.haproxy.org/) provides audit logging for any request that makes it to CouchDB so any data access or modification can be validated at a later date.
+[HAProxy](https://www.haproxy.com/) provides audit logging for any request that makes it to CouchDB so any data access or modification can be validated at a later date.
 
 ### CHT Upgrade Service
 

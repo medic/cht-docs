@@ -72,28 +72,41 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 ## Troubleshooting
 
 1. Restarting processes
-    - [How to access container, retrieve logs, restart services]({{< ref "core/overview/docker-setup#helpful-docker-commands" >}})
-    - [MedicOS service management scripts](https://github.com/medic/medic-os#user-content-service-management-scripts)
+      ```shell
+      /boot/svc-<start/stop/restart> <service-name/medic-api/medic-sentinel/medic-core couchdb/medic-core nginx>
+      ```
+   - Also see [MedicOS service management scripts](https://github.com/medic/medic-os#user-content-service-management-scripts)
+2. Investigating logs inside Medic OS
+   * To view logs, first run this to access a shell in the medic-os container: `docker exec -it medic-os /bin/bash`
+   * View CouchDB logs: `less /srv/storage/medic-core/couchdb/logs/startup.log`
+   * View medic-api logs: `less /srv/storage/medic-api/logs/medic-api.log`
+   * View medic-sentinel logs: `less /srv/storage/medic-sentinel/logs/medic-sentinel.log`
 
-1. Investigating logs
-    - [Helpful docker commands]({{< ref "core/overview/docker-setup#helpful-docker-commands" >}}) (includes getting shell on containers)
-    - Inside container, all appropriate logs can be found in: `/srv/storage/<service_name>/logs/*.log`
-
-1. Upgrading the container
+3. Investigating docker stderr/stdout logs
+   ```shell
+    sudo docker logs medic-os
+    sudo docker logs haproxy
+   ```
+   
+4. Upgrading the container
     - Backup all data (EBS) 
     - Log into container and stop all services
     - To prepare for the upgrade, delete all other files in `/srv` EXCEPT for `/srv/storage/medic-core/`
       
       The `medic-core` directory is where the CHT stores user data. Of key importance is `./couchdb/local.in` and `./medic-core/couchdb/local.d/` where custom CouchDB configuration is stored.
-    - [Change the image tag to the newest image release version]({{< ref "core/overview/docker-setup#use-docker-compose" >}})
-    - [Change image tag in docker-compose file]({{< ref "core/overview/docker-setup#use-docker-compose">}})
+    - Change the image tag to the final Medic OS image release version (`cht-3.9.0-rc.2`) in the docker compose file:
+      ```yaml
+      services:
+         medic-os:
+            image: medicmobile/medic-os:cht-3.9.0-rc.2
+      ```
     - Launch new containers with appropriate `COUCHDB_ADMIN_PASSWORD` & `HA_PASSWORD` environment variables
 
-1. Upgrading the webapp
+5. Upgrading the webapp
     - Use Admin GUI page
     - [CLI via horticulturalist]({{< ref "apps/guides/hosting/3.x/self-hosting#links-to-medic-documentation-for-horticulturalist-for-upgrades" >}})
 
-1. RDS help
+6. RDS help
 
     - [Amazon user guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
 

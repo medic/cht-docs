@@ -7,13 +7,12 @@ description: >
 relatedContent: >
   apps/guides/hosting/3.x/self-hosting
   apps/guides/hosting/3.x/ec2-setup-guide
-  core/overview/docker-setup
 ---
 
 
-{{% alert title="Note" %}}
+{{% pageinfo %}}
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For CHT development, Linux or macOS may be used. Windows can be used for either, but without recommendation.
-{{% /alert %}}
+{{% /pageinfo %}}
 
 {{% alert title="Note" %}}
 These requirements apply to both 3.x and 4.x CHT hosting
@@ -21,19 +20,24 @@ These requirements apply to both 3.x and 4.x CHT hosting
 
 Hosting a CHT instance in a cloud provider like AWS or on bare-metal requires you have sufficient hardware specifications, Docker and Docker Compose installed and other infrastructure requirements met.
 
+## Infrastructure Requirements
+
+- A static IP
+- A DNS Entry pointing to the IP
+- TLS certificates
+
 ## Hardware Requirements
 
 - 4 GiB RAM
 - 2 CPU/vCPU
-- 8 GB Hard Disk (SSD prefered)
-- SSL certificates ( To be able to use the CHT app on mobile)
+- 8 GB Hard Disk (SSD preferred)
 - Root Access 
 
 Depending on the scale of your operation these may need to be adjusted. Be sure to monitor disk usage so that the 8 GB can be increased as needed.
 
 ##  Docker
 
-Install both `docker` and `docker-compose` to run the two `medic-os` and `haproxy` containers.
+Install both `docker` and `docker-compose` to run CHT and related containers.
 
 {{% alert title="Note" %}}
 Skip this step if you're following the  [EC2 guide 3.x]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide#create-and-configure-ec2-instance" >}}) as `docker` and `docker-compose` are automatically installed when following the setup scripts. 
@@ -47,7 +51,7 @@ Depending on which distro you run, install the Docker packages from [Docker's Li
 
 Docker Desktop for Windows needs either Hyper-V support or Windows Subsystem for Linux 2 (WSL 2).  [Docker's Windows Docker Desktop install page](https://docs.docker.com/docker-for-windows/install/) covers both scenarios. 
 
-### macOS:
+### macOS
 
 See [Docker's macOS Docker Desktop install page](https://docs.docker.com/docker-for-mac/install/).
 

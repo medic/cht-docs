@@ -6,9 +6,15 @@ description: >
     How to add TLS certificates to your docker hosted CHT 4.x instance
 ---
 
-To load your certificates into your CHT instance, we'll be creating an interstitial container called `cht-temp-tls` which will enable you to copy your local certificate files into the native docker volume. 
+By default, CHT 4.x will create a self-signed certificate for every deployment.  These instructions are for changing to either a pre-existing certificate or automatically creating and renewing a [Certbot](https://certbot.eff.org/) based certificate using [ACME](https://acmeclients.com/), like [Let's Encrypt](https://letsencrypt.org/).
 
-## Prerequisites
+This guide assumes you've already met the [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}), specifically around Docker being installed.
+
+## Pre-existing certificate
+
+To load your certificates into your CHT instance, we'll be creating an interstitial container called `cht-temp-tls` which will enable you to copy your local certificate files into the native docker volume.
+
+### Prerequisites
 
 You have two files locally on your workstation in the directory you're currently in:
 
@@ -45,3 +51,55 @@ Also, be sure you have started your CHT instance once and all your volumes are c
    ```
 
 Your certificates are now safely stored in the native docker volume. Restart your CHT instance the way you started it, being sure to set the correct `CERTIFICATE_MODE` and `SSL_VOLUME_MOUNT_PATH` per the [prerequisites](#prerequisites).
+
+## Certbot certificate
+
+If you have a deployment with a publically accessible domain name, you can have Certbot automatically create free TLS certificates by using [their Docker image](https://hub.docker.com/r/certbot/certbot/). 
+
+Assuming your CHT instance is running with the default self signed cert:
+
+1. Create certbot compose and env files by copying and pasting this code:
+   ```shell
+   mkdir -p /home/ubuntu/cht/certbot
+   cd /home/ubuntu/cht/certbot
+   cat > docker-compose.yml << EOF
+   version: '3.9'
+   services:
+     certbot:
+         container_name: certbot
+         hostname: certbot
+         image: certbot/certbot
+         volumes:
+           - ssl-storage:/etc/nginx/private/
+           - ssl-storage:/var/log/letsencrypt/
+         command: certonly --debug --deploy-hook /etc/nginx/private/deploy.sh --webroot -w /etc/nginx/private/certbot/ --domain \$DOMAIN --non-interactive --key-type rsa --agree-tos --register-unsafely-without-email \$STAGING
+   volumes:
+     ssl-storage:
+         name: \${CHT_SSL_VOLUME}
+         external: true
+   EOF
+   
+   cat > .env << EOF
+   DOMAIN=deleteme2-certbot-nginx-cht.plip.com
+   STAGING=
+   CHT_SSL_VOLUME=cht_cht-ssl
+   TZ=America/Whitehorse
+   EOF
+   ```
+2. Generate certs:
+   ```shell
+   cd /home/ubuntu/cht/certbot
+   docker compose up
+   ```
+3. Run this command to find the name of your CHT ngnix container:
+   ```shell
+   docker ps --filter "name=nginx"  --format '{{ .Names }}'
+   ```
+4. Assuming the name is `cht_nginx_1` from the prior step, reload your `nginx` config with this command:
+    ```shell
+    docker exec -it cht_nginx_1 nginx -s reload
+    ```
+5. Attempt to renew your certificates once a week by adding this cronjob via `crontab -e`.  Certbot will only renew them as needed:
+   ```shell
+   0 0 * * 0 cd /home/ubuntu/cht/certbot&&docker compose up
+   ```

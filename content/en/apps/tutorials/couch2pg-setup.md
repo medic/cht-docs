@@ -1,7 +1,7 @@
 ---
 title: "Local Couch2pg Setup"
 linkTitle: Couch2pg Setup
-weight: 1
+weight: 2
 description: >
   Setting up a Couch2pg service to download data from CouchDB to Postgres Database
 relatedContent: >
