@@ -39,6 +39,8 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 * `MINOR` version when the release adds functionality in a backward-compatible manner.
 * `PATCH` version when the release adds backward-compatible bug fixes.
 
+`MAJOR` releases represent the biggest scale of code change and their roll out effort is high, as they likely require time and effort to set up or configure. As a consequence, they are the least frequent of the three release types.
+
 {{% alert title="Info" %}} You can find the versions currently supported, dependencies, and release notes for the CHT Core 
  [on the Releases page]({{% ref "core/releases" %}}). {{% /alert %}}
 
