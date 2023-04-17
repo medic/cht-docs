@@ -50,6 +50,10 @@ The CHT can be configured to create [Tasks]({{< relref "apps/features/tasks" >}}
 {{% /pageinfo %}}
 
 ## User Management
-This feature is used when a supervisor needs to create a user under an existing place that has been selected and has no access to an administrator or is offline.When offline, the supervisor can create the user and a login token provided in the outgoing message tab.While users will not exist until the supervisor synchronizes, and the newly created user needs connectivity to access their login token to log in the first time, all other process can be completed offline and be synchronized at a later time.
+Supervisors are able to set up users in the CHT without contacting a system administrator. They can **create** new CHW user accounts or **replace** CHWs on an existing device. 
+
+When _creating_ a new user account, Supervisors fill out the necessary details, including the CHW's phone number, from their own device. They can do this while offline, but must sync before the actual user account is created. Once the Supervisor syncs, the CHT will send an SMS to the new CHW with a link that enables them to start using the app.
+
+When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.  
 
 The roles of the users that can be created through this feature are CHW or CHW supervisor. While creating the user, the supervisor has to select a valid phone number. This is because an SMS with the token to login will be sent to the new user through the selected phone number.Any form can be configured to enable this feature. Once the form has been submitted, the new user is visible on the admin area.
