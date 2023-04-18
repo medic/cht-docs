@@ -101,8 +101,6 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 
 ### Setup
 
-Pre-provisioned dashboards are included in the `CHT` folder in the Grafana UI should not be updated directly. 
-
 These instructions have been tested against Ubuntu, but should work against any OS that meets the prerequisites. They follow a happy path assuming you need to only set a secure password and specify the URL(s) to monitor:
 
 1. Run the following commands to clone this repository, initialize your `.env` file, create a secure password and create your data directories:
