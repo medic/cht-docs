@@ -116,7 +116,7 @@ These instructions have been tested against Ubuntu, but should work against any 
     cp .env.example .env
     password=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
     sed -i -e "s/password/$password/g" .env
-    echo;echo "Setup complete! To log into Grafana in the browser:";echo 
+    echo;echo "Initial project structure created! To log into Grafana in the browser:";echo 
     echo "    username: medic"
     echo "    password: ${password}";echo
     ```
