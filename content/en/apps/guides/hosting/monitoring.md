@@ -192,7 +192,7 @@ To support sending email alerts from Grafana, you must update the `smtp` section
 
 ##### Slack
 
-Slack alerts can be configured within the Grafana web GUI for the specific panel you would like to alert on.  Find the panel you want to alert on and edit it.  In the bottom half of the screen, choose the "Alert" tab. Then click "Create alert fule from this panel".
+Slack alerts can be configured within the Grafana web GUI for the specific rules you would like to alert on.
 
 ### Configuration Reference 
 
