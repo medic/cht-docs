@@ -188,7 +188,7 @@ Additionally, you can configure where these alerts are sent.  Two likely options
 
 ##### Email
 
-To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.  Ten, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
+To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.  Then, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
 
 ##### Slack
 
