@@ -180,7 +180,7 @@ Local storage is not suitable for storing large amounts of monitoring data. If y
 
 #### Alerts
 
-This configuration includes number of pre-provisioned alerts.  Specific alerting rules (and other contact points) can be set in the Grafana UI.  
+This configuration includes number of pre-provisioned alerts.  Additional alerting rules (and other contact points) can be set in the Grafana UI.  
 
 See the both Grafana [high level alert Documentation](https://grafana.com/docs/grafana/latest/alerting/) and  [provisioning alerts in the UI](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information on how to edit or remove these provisioned alerts.
 
