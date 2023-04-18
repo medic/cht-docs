@@ -168,6 +168,7 @@ When you see a new version in the [GitHub repository](https://github.com/medic/c
    cd ~/cht-monitoring
    git fetch
    git checkout BRANCH_NAME
+   docker compose restart
    ```shell
 
 ### Additional Configuration
