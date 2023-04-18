@@ -12,7 +12,7 @@ This guide applies to all production instances of the CHT including [self hosted
 These instructions apply to both 3.x (beyond 3.9) and 4.x CHT monitoring
 {{% /pageinfo %}}
 
-Using Grafana and Prometheus is recommended [per the section below](#grafana-and-prometheus), but this page has high level information about monitoring and alerting as well.
+This guide provides both a high level overview of the general considerations for monitoring and alerting with the CHT as well as [a recommended deployment configuration](#grafana-and-prometheus) for monitoring and alerting with Prometheus and Grafana.
 
 Each deployment will experience different stresses on its resources.  Be sure to tune any alerting levels in the case of a false positive so that you may avoid them in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a guarantee of uptime.
 
