@@ -1,9 +1,11 @@
 ---
 title: "Feature Releases"
 linkTitle: "Feature Releases"
-weight: 2
+weight: 1
 description: >
     Feature Releases for the CHT Core Framework
+aliases:
+  -    /core/releases/feature_releases/
 relatedContent: >
     core/releases
     contribute#are-you-a-partner-wondering-how-issues-are-prioritized
@@ -56,4 +58,4 @@ On subsequent upgrades to the later beta's of the FR, you will be able to more e
 
 ## Upgrades to release
 
-Once the feature is ready for widespread use, it will be included in a regular CHT release. Projects using the feature version can be upgraded as soon as practical to get back on to a fully supported release.
+Once the feature is ready for widespread use, it will be included in a regular [CHT release]({{% ref "/contribute/code/releasing" %}}). Projects using the feature version can be upgraded as soon as practical to get back on to a fully supported release.
