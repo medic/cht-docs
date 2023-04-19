@@ -50,7 +50,7 @@ These instructions have been tested against Ubuntu, but should work against any 
     ```
    Note that in step 4 below you'll need the username and password which is printed after you run the above command.
 
-2. Edit the `cht-instances.yml` file to have the URLs of your CHT instances. You may include as many URLs of CHT instances as you like. To preserve data consistency parameters in this file should NOT be adjusted after it is initially set.
+2. Edit the `cht-instances.yml` file to have the URLs of your CHT instances. You may include as many URLs of CHT instances as you like.
 
    Here is an example:
 
