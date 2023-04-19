@@ -81,7 +81,7 @@ To upgrade these dependencies, update the version numbers set in your `.env` fil
 
 ```shell
 docker compose pull
-docker compose up -d
+docker compose up -d --remove-orphans
 ```
 
 #### CHT Monitoring Config
@@ -95,7 +95,8 @@ When you see a new version in the [GitHub repository](https://github.com/medic/c
    git fetch
    git checkout BRANCH_NAME
    docker compose pull
-   docker compose restart
+   docker compose down
+   docker compose up -d --remove-orphans
    ```shell
 
 ### Additional Configuration
