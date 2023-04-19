@@ -35,6 +35,7 @@ curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.co
 Prepare a `.env` file by running this code:
 
 ```
+sudo apt install wamerican
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
 couchdb_password=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
@@ -50,7 +51,7 @@ COUCHDB_UUID=${uuid}
 EOF
 ```
 
-Note that secure passwords and UUIDs were generated on the first three calls and saved in the resulting `.env` file.
+Note that secure passwords and UUIDs were generated on the first four calls and saved in the resulting `.env` file.
 
 ## Launch containers
 
