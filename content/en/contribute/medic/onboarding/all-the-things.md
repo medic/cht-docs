@@ -38,9 +38,9 @@ Meet the [Medic team](https://medic.org/team/)!
 ### People/Team
 
 #### Distributed things 
-* Without some effort, it’s easy for things to feel lonely, isolated, etc.
+* Without some effort, it’s easy for things to feel lonely or isolated
 * Default to asynchronous things
-* Respect teammate time zones (including your own!)
+* Respect teammate timezones (including your own!)
 
 #### Expensify
 * Follow up to make sure things get through 
@@ -125,10 +125,10 @@ Meet the [Medic team](https://medic.org/team/)!
 * Self-hosted
 * Technical partners
 
-#### The product development process
-* We do [Continuous Discovery]({{% ref "continuous-discovery-overview" %}})
-  * Trying to follow closely with the book by Teresa Torres
-  * Groups (“[Focused Working Groups]({{% ref "focused-groups" %}})”) within the product team to focus on specific groups of users
+#### The Product Development Process
+* At Medic, we follow [Continuous Discovery]({{% ref "continuous-discovery-overview" %}}) as a [Product Development Process]({{% ref "product-development-process" %}})
+  * Trying to follow closely with the [Continuous Discovery Habits](https://www.producttalk.org/2021/05/continuous-discovery-habits/) book by Teresa Torres
+  * [Focused Working Groups]({{% ref "focused-groups" %}}) within the product team to focus on specific groups of users
     * Allies
     * Care Teams
     * Infrastructure
