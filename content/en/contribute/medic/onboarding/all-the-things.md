@@ -115,7 +115,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * Engineering work - Archv3 (cht-core 4.0 version)
 
 ### Product
-#### The forum
+#### [CHT Forum](https://forum.communityhealthtoolkit.org/)
 * We’re trying to keep this active
 * Encourage teammates to post and answer questions there instead of slack when the public might benefit
 * Expecting you to be proactive and support the team with checking forum posts and helping when questions arise
@@ -125,7 +125,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * Self-hosted
 * Technical partners
 
-#### The Product Development Process
+#### Product Development Process
 * At Medic, we follow [Continuous Discovery]({{% ref "continuous-discovery-overview" %}}) as a [Product Development Process]({{% ref "product-development-process" %}})
   * Trying to follow closely with the [Continuous Discovery Habits](https://www.producttalk.org/2021/05/continuous-discovery-habits/) book by Teresa Torres
   * [Focused Working Groups]({{% ref "focused-groups" %}}) within the product team to focus on specific groups of users
