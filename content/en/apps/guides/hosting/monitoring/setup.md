@@ -73,7 +73,7 @@ If you would like to do more customizing of your deployment, see ["Addition Conf
 
 ### Upgrading
 
-Before upgrading, you should back up both your current configuration settings and your Prometheus time-series data.
+Before upgrading, you should back up both your current configuration settings as well as your Prometheus/Grafana data directories.
 
 #### Prometheus, Grafana and JSON Exporter
 
