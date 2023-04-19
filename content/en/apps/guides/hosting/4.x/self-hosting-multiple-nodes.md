@@ -95,6 +95,7 @@ kcpxlci3jjjtm6xjz7v50ef7k     couchdb3   Ready     Active                       
 Prepare an `.env` file by running this code:
 
 ```
+sudo apt install wamerican
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
 couchdb_password=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
@@ -108,7 +109,7 @@ COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
 EOF
 ```
 
-Note that secure passwords and UUIDs were generated on the first three calls and saved in the resulting `.env` file.
+Note that secure passwords and UUIDs were generated on the first four calls and saved in the resulting `.env` file.
 
 ### Download compose files
 
@@ -167,6 +168,7 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 Now, **on all 3 CouchDB nodes**, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` so it is the same on all three nodes:
 
 ```
+sudo apt install wamerican
 mkdir -p /home/ubuntu/cht/srv
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
