@@ -110,15 +110,13 @@ The main branch is `main` (or `master`) which must be kept stable so as not to i
 
 The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means we can automate some of the release process. Examples are provided below.
 
-Type | Example commit message | Release type
--- | -- | --
-Bug fixes | fix(#123): infinite spinner when clicking contacts tab twice | patch
-Performance | perf(#789): lazily loaded angular modules | patch
-Features | feat(#456): add home tab | minor
-Styles | style(#434): styles for mobile screens | minor
-Tests | test(#765): add e2e test for navigation | none
-Non-code | chore(#123): update README | none
-Breaking| perf(#2): remove reporting rates feature <br/> BREAKING CHANGE: reporting rates no longer supported | major
+Type | Description | Example commit message | Release type
+-- | -- | -- | --
+Bug fixes | A bug fix. | fix(#123): infinite spinner when clicking contacts tab twice | patch
+Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules | patch
+Features | A new feature or change in the code that users will notice. | feat(#456): add home tab | minor
+Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, update dependencies, removing unused code, etc. | chore(#123): update README | none
+Breaking | Breaking changes should be explained under performance type. | perf(#2): remove reporting rates feature <br/> BREAKING CHANGE: reporting rates no longer supported | major
 
 Further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
 
