@@ -3,7 +3,7 @@ title: "All The Things"
 linkTitle: "All The Things"
 weight: 2
 description: >
-  Wide range of topics to support the onboarding
+  Wide range of topics and resources to support the onboarding
 ---
 
 This page is meant to serve as a point of conversation, with a wide range of topics to be discussed when joining Medic or starting as a contributor. Many things are not in any particular order. The goal is to convey a general “lay of the land” so someone starting can see a lot of what’s out there without having to be surprised each day as new things pop up.
@@ -11,12 +11,13 @@ This page is meant to serve as a point of conversation, with a wide range of top
 ## First, some general context…
 
 ### What is the CHT?
-* Web application that runs inside an Android app (as a [WebView](https://developer.android.com/reference/android/webkit/WebView))
-* Offline first - for real
-* Community of people and organizations
+* Why the [CHT (Community Health Toolkit)]({{% ref "/why-the-cht" %}})?
+* The [CHT Core Framework]({{% ref "/core" %}}) - Web application that runs inside an Android app (as a [WebView](https://developer.android.com/reference/android/webkit/WebView))
+* [Offline-First]({{% ref "/core/overview/offline-first" %}}) - for real
+* [Community](https://communityhealthtoolkit.org/) of people and organizations
 
 ### Teams at Medic
-[Medic team!](https://medic.org/team/) 
+Meet the [Medic team](https://medic.org/team/)!
 * Product
 * Programs
 * Research
