@@ -1448,7 +1448,7 @@ Content-Type: application/json
 
 ## Monitoring
 
-See the [Monitoring and alerting on the CHT]({{< relref "apps/guides/hosting/monitoring.md" >}}) page for how to use this API in production.
+See the [Monitoring and alerting on the CHT]({{< relref "apps/guides/hosting/monitoring" >}}) page for how to use this API in production.
 
 ### GET /api/v1/monitoring
 

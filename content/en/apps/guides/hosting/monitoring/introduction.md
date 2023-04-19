@@ -1,20 +1,21 @@
 ---
-title: "Monitoring and alerting on the CHT"
-linkTitle: "Monitoring & Alerting"
-weight: 40
+title: "Introduction to monitoring and alerting"
+weight: 100
+linkTitle: "Introduction"
+aliases:
+    - /apps/guides/hosting/monitoring.md
 description: >
-    Important metrics to monitor and alert on
+    High level approach to monitoring and alerting with CHT applicatoins
 ---
 
 {{% pageinfo %}} 
-This guide applies to all production instances of the CHT including [self hosted]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}) and [AWS hosted]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}). It also works with [app developer]({{< relref "apps/guides/hosting/3.x/app-developer.md" >}}) and [CHT core developer]({{< relref "contribute/code/core/dev-environment" >}}) setups if you're looking to test how it works or develop monitoring tools.
+This guide applies to all production instances of the CHT for both 3.x (beyond 3.9) and 4.x.
 
-These instructions apply to both 3.x and 4.x CHT monitoring
+Be sure to see how to deploy a solution to [monitor and alert on production CHT instances]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}).
 {{% /pageinfo %}}
 
-While this guide does not detail exactly how to set up monitoring and alerting, it will outline the items you should monitor and alert on.  At a later date we'll deploy an opinionated guide on which software and services to use when doing real world hosting.
 
-Each deployment will experience different stresses on its resources.  Be sure to tune the alerting levels in the case of an outage so that you may avoid it in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a garuntee of uptime.
+Each deployment will experience different stresses on its resources.  Be sure to tune any alerting levels in the case of a false positive so that you may avoid them in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a guarantee of uptime.
 
 ## Monitoring vs Alerting
 
@@ -79,3 +80,4 @@ Messaging Outgoing State Failed | `non-zero` | 0
 Outbound Push Backlog | `non-zero` | 0
 Sentinel Backlog | `non-zero` | 0
 Date Uptime | `zero` | 1,626,508.148
+
