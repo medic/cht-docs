@@ -40,7 +40,7 @@ These instructions have been tested against Ubuntu, but should work against any 
     cp cht-instances.example.yml cht-instances.yml
     cp grafana/grafana.example.ini grafana/grafana.ini
     mkdir -p grafana/data && mkdir  -p prometheus/data 
-    apt install -y wamerican  # ensures /usr/share/dict/words is present for shuf call below 
+    sudo apt install -y wamerican  # ensures /usr/share/dict/words is present for shuf call below 
     cp .env.example .env
     password=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
     sed -i -e "s/password/$password/g" .env
