@@ -81,7 +81,7 @@ To upgrade these dependencies, update the version numbers set in your `.env` fil
 
 ```shell
 docker compose pull
-docker compose up -d --remove-orphans
+docker compose up -d
 ```
 
 #### CHT Monitoring Config
