@@ -24,12 +24,12 @@ Meet the [Medic team](https://medic.org/team/)!
 * Internal Operations
 * External Affairs
 
-### Lifecycle of an “app” being built
+### Lifecycle of a [CHT Application]({{% ref "/apps" %}}) being built
 1. Programs team starts relationship with an organization
 1. Service designers and app developers figure out how they want their system to work
 1. App developers take latest version of the CHT and build the app for the organization
 1. Android flavor deployed to get branded app onto CHW devices / deployment
-1. Dashboards are set up in Klipfolio or Superset
+1. Dashboards are set up in Klipfolio, Superset or Grafana
 1. Go!
 1. App developers make ongoing enhancements
 1. App upgraded as new versions of CHT are available
