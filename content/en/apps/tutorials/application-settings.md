@@ -203,4 +203,3 @@ cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upl
 - [Documentation for role permissions](https://forum.communityhealthtoolkit.org/t/documentation-for-role-permissions/502)
 - [Is it possible to prevent editing for some forms but allow it for others?](https://forum.communityhealthtoolkit.org/t/is-it-possible-to-prevent-editing-for-some-forms-but-allow-it-for-others/93)
 - [Can one person belong to multiple places in the same hierarchy?](https://forum.communityhealthtoolkit.org/t/can-one-person-belong-to-multiple-places-in-the-same-hierarchy/101/2)
-- [Can we disable the guided tour on first login?](https://forum.communityhealthtoolkit.org/t/can-we-disable-the-guided-tour-on-first-login-if-yes-how-do-we-do-it/98/2)
