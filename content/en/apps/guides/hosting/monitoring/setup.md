@@ -15,7 +15,7 @@ Medic maintains an opinionated configuration of [Prometheus](https://prometheus.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
-![Screenshot of Grafana Dashboard showing data from Prometheus](monitoring.and.alerting.screenshot.png)
+![Screenshot of Grafana Dashboard showing data from Prometheus](monitoring.and.alerting.screenshotBAD.png)
 
 [Prometheus supports](https://prometheus.io/docs/concepts/metric_types/) four metric types: Counter, Gauge, Histogram, and Summary.  Currently, the CHT only provides Counter and Gauge type metrics. When building panels for Grafana dashboards, [Prometheus Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be used to manipulate the metric data. Refer to the [Grafana Documentation](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/) for best practices on building dashboards.
 
