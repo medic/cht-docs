@@ -32,7 +32,7 @@ Also, be sure you have started your CHT instance once and all your volumes are c
 1. Find the name of your `cht-ssl` volume with this call:
 
    ```shell
-   docker volume ls --filter "name=cht_" | grep cht-ssl
+   docker volume ls --filter "name=cht-ssl"
    ```
    It is very likely that `cht_cht-ssl` is the name of our `cht-ssl` volume.
 2. Using the volume name found in step 1, start a container called `temp` which allow us to copy files into the docker volume:
