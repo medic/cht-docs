@@ -158,7 +158,7 @@ Issues in this column have been prioritised and are ready for development. The i
 
 Issues in this column are being actively worked on, which includes development, design, and code reviews.
 
-Any code should be in a feature branch in each of the repositories you update. The name of the feature branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Once you're satisfied with your changes:
+Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Once you're satisfied with your changes:
 
 1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
 1. If AT is required update the issue with AT instructions including how to install the branch, how to reproduce the issue, and areas of potential regressions.
