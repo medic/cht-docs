@@ -97,7 +97,7 @@ When you see a new version in the [GitHub repository](https://github.com/medic/c
    docker compose pull
    docker compose down
    docker compose up -d --remove-orphans
-   ```shell
+   ```
 
 ### Additional Configuration
 
