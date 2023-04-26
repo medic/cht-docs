@@ -108,17 +108,26 @@ The main branch is `main` (or `master`) which must be kept stable so as not to i
 
 ### Commit message format
 
-The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means we can automate some of the release process. Examples are provided below.
+The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means we can automate some of the release process. See the list of commit types and examples below:
 
-Type | Example commit message | Release type
--- | -- | --
-Bug fixes | fix(#123): infinite spinner when clicking contacts tab twice | patch
-Performance | perf(#789): lazily loaded angular modules | patch
-Features | feat(#456): add home tab | minor
-Non-code | chore(#123): update README | none
-Breaking| perf(#2): remove reporting rates feature <br/> BREAKING CHANGE: reporting rates no longer supported | major
+Type | Description | Example commit message | Release type
+-- | -- | -- | --
+Bug fixes | Change code that wasn't working as intended. | fix(#123): infinite spinner when clicking contacts tab twice | patch
+Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules | patch
+Features | A new feature or improvement that users will notice. | feat(#456): add home tab | minor
+Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README | none
 
-Further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
+{{% alert title="Note" %}} 
+Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
+Consider the following example:
+
+```
+  perf(#2): remove reporting rates feature
+  BREAKING CHANGE: reporting rates no longer supported
+``` 
+
+Any other further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
+{{% /alert %}}
 
 See tips on [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) and add your favorites here.
 
