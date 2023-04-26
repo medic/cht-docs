@@ -112,10 +112,10 @@ The commit format should follow this [conventional-changelog angular preset](htt
 
 Type | Description | Example commit message | Release type
 -- | -- | -- | --
-Fixes | A bug fix. | fix(#123): infinite spinner when clicking contacts tab twice | patch
+Bug fixes | Change code that wasn't working as intended. | fix(#123): infinite spinner when clicking contacts tab twice | patch
 Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules | patch
-Features | A new feature or change in the code that users will notice. | feat(#456): add home tab | minor
-Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, update dependencies, removing unused code, etc. | chore(#123): update README | none
+Features | A new feature or improvement that users will notice. | feat(#456): add home tab | minor
+Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README | none
 
 {{% alert title="Note" %}} 
 Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
