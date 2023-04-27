@@ -1,13 +1,13 @@
 ---
-title: "Repository Checklist"
-linkTitle: "Repository Checklist"
+title: "CHT Product Repository Checklist"
+linkTitle: "CHT Product Repository Checklist"
 weight: 5
 description: >
-  Checklist to consider when creating repositories under Medic's GitHub account
+  Checklist to consider when creating CHT Product repositories under Medic's GitHub organization account
 ---
 
-## Repository Checklist
-When creating a new repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should at least do the following:
+## Repository Creation Checklist
+When creating a new CHT Product repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should use the `cht-template` (TODO add link) repository containing the following configurations:
 
 ### Source Control
 - [ ] The `main` branch is locked via [branch protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
@@ -17,22 +17,30 @@ When creating a new repository under [Medic's GitHub organization](https://githu
 - [ ] PRs reference related issues.
 - [ ] Commit formats follow the [guidelines]({{< ref "workflow/#commits" >}}). 
 - [ ] Secrets are not part of the commit history or made public.
-- [ ] The `main` branch should contain the following files:
+- [ ] The `main` branch contains the following files:
     - `LICENSE` ([example](https://github.com/medic/cht-core/blob/master/LICENSE))
     - `README.md`
-
-### Testing
-- [ ] Unit tests cover the majority of the code.
-- [ ] If applicable, integration tests run to test the solution e2e.
-
-### CI/CD
-- [ ] Repo runs GitHub Actions CI with automated build and test on each PR.
 - [ ] `main` branch is always shippable.
 
 ### Code Reviews
 - [ ] The PR template contains a code review checklist.
 - [ ] A reviewer for a PR merge is enforced by policy.
-- [ ] [Linters](https://github.com/medic/eslint-config), unit tests and successful builds for PR merges are set up.
+- [ ] A [linter](https://github.com/medic/eslint-config) is set up.
+
+The PR and issue template content can be adjusted according to the product's purpose.
+
+Additionally, the person who creates the repository might need to share repository access with appropriate teams (this may require admin access).
+
+## Items to consider when developing the CHT Product
+To ensure quality, the CHT Products should also follow the guidelines below:
+
+### CI/CD
+- [ ] Repository runs GitHub Actions CI with automated build and test on each PR.
+
+### Testing
+- [ ] Unit tests and successful builds for PR merges are set up.
+- [ ] Unit tests cover the majority of the code.
+- [ ] If applicable, integration tests run to test the solution e2e.
 
 ### Observability
 - [ ] Application faults and errors are logged.
@@ -41,13 +49,10 @@ When creating a new repository under [Medic's GitHub organization](https://githu
 ## Medic GitHub repository FAQ
 
 ### Q: Who can create a repository?
-A: TODO
-
-### Q: When to create a repository?
-A: TODO
+A: Anyone under Medic GitHub organization.
 
 ### Q: Is it OK to create a CHT/Medic-related work repository under a personal GitHub account?
-A: TODO
+A: If what you are working on is temporary and just for you then it is fine to create a repository under your personal account (it is the equivalent of having a script on your local machine), as long as it contains an Open-Source Software License. However, default to the Medic account so the other team members can collaborate on it.
 
 ### Q: When to make a repo public vs private vs directory in existing (monolithic)?
 A: TODO
