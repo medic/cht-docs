@@ -17,7 +17,7 @@ When creating a new repository under [Medic's GitHub organization](https://githu
 - [ ] PRs reference related issues.
 - [ ] Commit formats follow the [guidelines]({{< ref "workflow/#commits" >}}). 
 - [ ] Secrets are not part of the commit history or made public.
-- [ ] For public repositories the `main` branch should contain the following files:
+- [ ] The `main` branch should contain the following files:
     - `LICENSE` ([example](https://github.com/medic/cht-core/blob/master/LICENSE))
     - `README.md`
 
