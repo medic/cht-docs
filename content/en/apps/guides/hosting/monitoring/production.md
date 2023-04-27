@@ -14,7 +14,7 @@ These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.
 
 When you run your monitoring and alerting in production, and it is publicly accessible on the Internet and has data mission critical data on it, you should take extra precautions around security and backup.  This mainly consists of using TLS for all HTTP connections and security tunnels, either VPN or SSH, to connect to the CHT instance(s) you're monitoring and ensuring if the server were to fail, you can recover the data.
 
-This guide assumes you have already [set up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance.
+This guide assumes you have already [set up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "apps/guides/hosting/monitoring/setup" >}}) to deploy an instance of CHT Monitoring on server with a static IP and DNS entry (eg `monitor.example.com`);
 
 ## Monitoring over TLS
 All monitoring should happen over TLS.  This means the `cht-instnces.yml` file should have all the URLs in it start with ` - https`.  
@@ -71,4 +71,5 @@ Because both the CHT Monitoring and Caddy compose files have the `restart: unles
 
 ## Backup
 
-TK
+TK, but  `~/cht-monitoring/grafana/data` `~/cht-monitoring/prometheus/data`
+
