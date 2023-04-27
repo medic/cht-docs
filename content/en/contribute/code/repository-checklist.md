@@ -22,7 +22,7 @@ When creating a new repository under [Medic's GitHub organization](https://githu
     - `README.md`
 
 ### Testing
-- [ ] Unit tests cover the majority of the code (>90% if possible).
+- [ ] Unit tests cover the majority of the code.
 - [ ] If applicable, integration tests run to test the solution e2e.
 
 ### CI/CD
