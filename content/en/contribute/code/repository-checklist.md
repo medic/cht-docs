@@ -28,7 +28,6 @@ When creating a new repository under [Medic's GitHub organization](https://githu
 ### CI/CD
 - [ ] Repo runs GitHub Actions CI with automated build and test on each PR.
 - [ ] `main` branch is always shippable.
-- [ ] If applicable, repo uses CD to manage deployments to a development environment before PRs are merged.
 
 ### Code Reviews
 - [ ] The PR template contains a code review checklist.
