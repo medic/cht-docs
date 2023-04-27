@@ -1,6 +1,7 @@
 ---
 title: "Grafana and Prometheus Setup"
 linkTitle: "Setup"
+weight: 100
 description: >
     Setting up Grafana and Prometheus with the CHT
 ---
