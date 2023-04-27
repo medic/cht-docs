@@ -33,7 +33,7 @@ When creating a new repository under [Medic's GitHub organization](https://githu
 ### Code Reviews
 - [ ] The PR template contains a code review checklist.
 - [ ] A reviewer for a PR merge is enforced by policy.
-- [ ] Linters, unit tests and successful builds for PR merges are set up.
+- [ ] [Linters](https://github.com/medic/eslint-config), unit tests and successful builds for PR merges are set up.
 
 ### Observability
 - [ ] Application faults and errors are logged.
