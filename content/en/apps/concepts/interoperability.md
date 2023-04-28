@@ -3,7 +3,7 @@ title: Interoperability
 linkTitle: "Interoperability"
 weight: 8
 description: >
-  This is data exchange between the CHT Core and any other other system. 
+  Two way data synchronization between the CHT Core and other health systems. 
 keywords: interoperability integrations fhir icd openhie openhim
 relatedContent: >
   apps/features/integrations
