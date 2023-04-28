@@ -21,7 +21,7 @@ The structure of documents in the CHT database reflect the configuration of the 
 
 Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development. Interoperability allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
 
-# Standards & Components
+## Standards & Components
 
 Below is a list standards, components and reference information for interoperability:
 
