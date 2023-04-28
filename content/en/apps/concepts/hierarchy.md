@@ -56,7 +56,7 @@ The hierarchy can be modeled after the health system, health program and/or the 
 For example, a Family Member is part of a Family. A Family and CHWs are part of a CHW Area. A Family Member, a Family, and CHWs are part of a CHW Supervisor Area. 
 
 ```mermaid
-%%{init: {"logLevel": 3, "flowchart": { "rankSpacing": 15, "nodeSpacing": 15 } } }%%
+%%{init: { "flowchart": { "rankSpacing": 15, "nodeSpacing": 15 } } }%%
 flowchart TB
 linkStyle default stroke-width:1px,stroke:lightgrey
 
