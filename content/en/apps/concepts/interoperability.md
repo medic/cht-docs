@@ -47,10 +47,8 @@ OpenHIM was chosen as the main component of the interoperability layer and custo
 Conversely to bring data in to the CHT, OpenHIM should be configured to route the updated resource to a Mediator, which then calls the relevant CHT APIs to update the document in the CHT database. This will then be replicated to users' devices as per usual.
 
 # Important Links
-- A reference to an application repository can be accessed in the [CHT-interoperability repository](https://github.com/medic/cht-interoperability).
-- This [README](https://github.com/medic/cht-interoperability#readme) contains documentation on the CHT-interoperability project.
-- Test instances:
-- - [CHT](https://interop-cht-test.dev.medicmobile.org/medic/login?redirect=https%3A%2F%2Finterop-cht-test.dev.medicmobile.org%2F)
-- - [OpenHIM Admin Console](https://interoperability.dev.medicmobile.org/#!/login) 
+-  [CHT-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU interoperability
+- [CHT LTFU Test Instance](https://interop-cht-test.dev.medicmobile.org/medic/login?redirect=https%3A%2F%2Finterop-cht-test.dev.medicmobile.org%2F)
+- [OpenHIM LTFU Test Instance Admin Login](https://interoperability.dev.medicmobile.org/#!/login) 
 
 
