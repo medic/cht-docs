@@ -9,7 +9,7 @@ relatedContent: >
   apps/features/integrations
 ---
 
-# Introduction 
+## Introduction 
 
 Interoperability refers to the ability of different systems and applications to communicate with each other and exchange data seamlessly.With interoperability, patient information can be seen, exchanged, and used across different platforms that may be disparate or relatively similar. The information/data exchanged has to be understood across the different software for these systems to become interoperable. 
 
