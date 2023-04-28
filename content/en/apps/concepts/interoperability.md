@@ -23,7 +23,6 @@ Interoperability is the best practice for health systems because it allows infor
 
 ## Standards & Components
 
-Below is a list standards, components and reference information for interoperability:
 
 - [OpenHIE](https://ohie.org/): OpenHIE is an open-source framework for building interoperable health information systems. OpenHIE provides a set of standards and protocols for enabling different health systems and applications to communicate with each other.
 
