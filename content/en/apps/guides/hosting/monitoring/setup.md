@@ -29,6 +29,48 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 
 ### Setup
 
+```mermaid
+C4Container
+
+Person(admin, "Admin", "Monitors the CHT system")
+
+System_Boundary(cht-monitoring, "CHT Monitoring") {
+   Container(grafana, "Grafana", "Web App", "Provides dashboards and alerting")
+   ContainerDb(prometheus, "Prometheus", "Time-series DB", "Stores and aggregates metrics")
+   Container(json-exporter, "json-exporter", "Prometheus Exporter", "Converts /monitoring JSON to metrics")
+   Container(postgres-exporter, "postgres-exporter", "Prometheus Exporter", "Converts Postgres data to metrics")
+   Rel(prometheus, json-exporter, "Reads - 5m", "HTTPS")
+   UpdateRelStyle(prometheus, json-exporter, $offsetX="5")
+   Rel(prometheus, postgres-exporter, "Reads - 5m", "HTTPS")
+   Rel(grafana, prometheus, "Reads - 1m", "HTTPS")
+   UpdateRelStyle(grafana, prometheus, $offsetX="-30", $offsetY="15")
+}
+
+
+System_Boundary(rdbms, "RDBMS") {
+   Container_Ext(couch2pg, "Couch2pg", , "Replicates CouchDB data to Postgres")
+   ContainerDb_Ext(postgres, "Postgres", "RDBMS", "Stores replicated CHT Data")
+   Rel(couch2pg, couchdb , "Reads", "HTTPS")
+   Rel(couch2pg, postgres, "Reads/Writes - 1h", "postgres")
+   UpdateRelStyle(couch2pg, postgres, $offsetY="20", $offsetX="-45")
+}
+
+System_Boundary(cht, "CHT") {
+   Container_Ext(api, "API", , "CHT Backend server")
+   ContainerDb_Ext(couchdb, "CouchDB", "NoSQL DB", "Main CHT Datastore")
+   Rel(api, couchdb, "Reads/Writes", "HTTPS")
+   UpdateRelStyle(api, couchdb, $offsetY="20", $offsetX="-35")
+}
+
+Rel(json-exporter, api, "Reads", "HTTPS")
+Rel(postgres-exporter, postgres, "Reads", "postgres")
+UpdateRelStyle(postgres-exporter, postgres, $offsetY="-30", $offsetX="10")
+BiRel(admin, grafana, "Monitors/Alerts", "HTTPS/SMTP/Slack/Etc")
+UpdateRelStyle(admin, grafana, $offsetY="-30")
+
+UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")
+```
+
 These instructions have been tested against Ubuntu, but should work against any OS that meets the prerequisites. They follow a happy path assuming you need to only set a secure password and specify the URL(s) to monitor:
 
 1. Run the following commands to clone this repository, initialize your `.env` file, create a secure password and create your data directories:
