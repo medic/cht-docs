@@ -29,7 +29,7 @@ If you want to use a button to make the action more obvious, this can be done us
 [<span style='background-color: #CC0000; color:white; padding: 1em; text-decoration: none; '>Call the patient</span>](tel:${patient_phone})
 ```
 
-Note that the SMS link notation can be interpreted differently from one phone to another. Some devices work well with `sms:${phone}?body=${message}`, others with `sms://${phone}?body=${message}`. You may find [these SMS link tests](https://bradorego.com/test/sms.html) helpful in determining what works on devices for your deployment.
+Note that the SMS link notation can be interpreted differently from one phone to another. Some devices work well with `sms:${phone}?body=${message}`, others with `sms://${phone}?body=${message}`. You may find [these SMS link tests](https://web.archive.org/web/20210125031111/https://bradorego.com/test/sms.html) helpful in determining what works on devices for your deployment.
 
 
 ## Sending reports as SMS
