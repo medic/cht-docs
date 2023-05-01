@@ -13,7 +13,7 @@ relatedContent: >
 
 Interoperability refers to the ability of different systems and applications to communicate with each other and exchange data seamlessly.With interoperability, patient information can be seen, exchanged, and used across different platforms that may be disparate or relatively similar. The information/data exchanged has to be understood across the different software for these systems to become interoperable. 
 
-# CHT Interoperability
+## CHT Interoperability
 
 The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. As the CHT is not natively FHIR standardized, we use a middleware to convert the CHT data structure into a standardized form so the other systems can read it.
 
