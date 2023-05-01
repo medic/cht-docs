@@ -28,7 +28,18 @@ Useful components and reference information for interoperability include:
 
 The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. To achieve interoperability you should use middleware to convert the CHT datastructure into a standardized form so the other systems can read it.
 
-{{< figure src="flow.png" link="flow.png" >}}
+```mermaid
+graph LR
+cht[CHT]
+mediator_a([Mediator])
+mediator_b([Mediator])
+openhim[OpenHIM]
+
+cht -- Outbound push\nfa:fa-arrow-right --- mediator_a
+cht -- API request\nfa:fa-arrow-left --- mediator_b
+mediator_a -- Request\nfa:fa-arrow-right --- openhim
+mediator_b -- Channel\nfa:fa-arrow-left --- openhim
+```
 
 The recommended approach is to use OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "apps/reference/app-settings/outbound" >}}) should be configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then calls [CHT APIs]({{< ref "apps/reference/api" >}}) to gather any additional data required to create a FHIR resource which is then routed to OpenHIM. OpenHIM will then route the resource to any other configured systems.
 
