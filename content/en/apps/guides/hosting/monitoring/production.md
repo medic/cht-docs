@@ -22,7 +22,7 @@ When you run your monitoring and alerting in production, and it is publicly acce
 This guide assumes you have already [set up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "apps/guides/hosting/monitoring/setup" >}}) to deploy an instance of CHT Monitoring on server with a static IP and DNS entry, `monitor.example.com` for example.
 
 ## Monitoring over TLS
-All monitoring should happen over TLS.  This means the `cht-instnces.yml` file should have all the URLs in it start with ` - https`.  
+All monitoring should happen over TLS.  This means the `cht-instances.yml` file should have all the URLs in it start with ` - https`.  
 
 ## Accessing Grafana over TLS
 
