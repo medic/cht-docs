@@ -118,7 +118,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag
      labels:
        cht_instance: cht.example.com
    ```
-3. Edit `postgres_exporter.yml` so that the `auth_modules` object for your Postgres instance has the proper username and password. Using our `db.example.com` example from above, this might look like assuming a password of `super-secret` and a username of `pg_user`:
+3. Edit `postgres_exporter.yml` so that the `auth_modules` object for your Postgres instance has the proper username and password. Using our `db.example.com` example from above and assuming a password of `super-secret` and a username of `pg_user`, the config would be:
    ```yaml
    db.example.com:5432/cht: # Needs to match the target URL in postgres-instances.yml
       type: userpass
