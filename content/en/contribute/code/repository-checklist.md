@@ -18,7 +18,7 @@ When creating a new CHT Product repository under [Medic's GitHub organization](h
 - [ ] Commit formats follow the [guidelines]({{< ref "workflow/#commits" >}}). 
 - [ ] Secrets are not part of the commit history or made public.
 - [ ] The `main` branch contains the following files:
-    - `LICENSE` ([example](https://github.com/medic/cht-core/blob/master/LICENSE))
+    - `LICENSE` specifying AGPL-3.0 ([example](https://github.com/medic/cht-core/blob/master/LICENSE))
     - `README.md`
 - [ ] `main` branch is always shippable.
 
