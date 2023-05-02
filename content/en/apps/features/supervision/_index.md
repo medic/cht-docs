@@ -55,4 +55,4 @@ Supervisors are able to set up users in the CHT without contacting a system admi
 When _creating_ a new user account, Supervisors fill out the necessary details, including the CHW's phone number, from their own device. They can do this while offline, but must sync before the actual user account is created. Once the Supervisor syncs, the CHT will send an SMS to the new CHW with a link that enables them to start using the app.
 
 When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.  
-
+This can be used to manage both CHW and CHW supervisor roles.
