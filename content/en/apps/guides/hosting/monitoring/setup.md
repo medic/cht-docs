@@ -100,6 +100,44 @@ docker compose up -d --remove-orphans
 
 ### Additional Configuration
 
+#### couch2pg Data
+
+With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag/1.1.0), CMA now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
+
+1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
+   
+   ```shell
+   cd ~/cht-monitoring
+   cp exporters/postgres/postgres-instances.example.yml exporters/postgres/postgres-instances.yml
+   cp exporters/postgres/postgres_exporter.example.yml exporters/postgres/postgres_exporter.yml
+   ```
+2. Edit `postgres-instances.yml` you just created and add your target postgres connection URL along with the proper root URL for your CHT instance as the label value. For example, if your postgres server was `db.example.com` and your CHT instance was `cht.example.com` the config would be:
+   ```yaml
+   - targets: [db.example.com:5432/cht]
+     labels:
+       cht_instance: cht.example.com
+   ```
+3. Edit `postgres_exporter.yml` so that the `auth_modules` object for your Postgres instance has the proper username and password. Using our `db.example.com` example from above and assuming a password of `super-secret` and a username of `pg_user`, the config would be:
+   ```yaml
+   db.example.com:5432/cht: # Needs to match the target URL in postgres-instances.yml
+      type: userpass
+      userpass:
+        username: pg_user
+        password: super-secret
+      options:
+        sslmode: disable
+   ```
+4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
+
+   ```shell
+   cd ~/cht-monitoring
+   docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml up -d
+   ```
+
+{{% alert title="Note" %}}
+Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
+{{% /alert %}}
+
 #### Prometheus Retention and Storage
 
 By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data.  However, this will increase the size of the Prometheus data volume.  See the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/storage/) for more information.
