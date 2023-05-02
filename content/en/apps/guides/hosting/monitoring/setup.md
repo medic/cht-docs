@@ -86,18 +86,16 @@ docker compose up -d
 
 #### CHT Monitoring Config
 
-When you see a new version in the [GitHub repository](https://github.com/medic/cht-monitoring), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration:
+When you see a new version in the [GitHub repository](https://github.com/medic/cht-monitoring), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration (be sure to replace `TAG` with the tag name associated with the release (e.g. `1.1.0`)):
 
-1. Note the version number to derive the branch to pull.  For example,  `1.1.0` would be `1.1.x`
-2. Run this command to update your instance and restart it. Be sure to replace `BRANCH_NAME` with the value from the first step:
-   ```shell
-   cd ~/cht-monitoring
-   git fetch
-   git checkout BRANCH_NAME
-   docker compose pull
-   docker compose down
-   docker compose up -d --remove-orphans
-   ```
+```shell
+cd ~/cht-monitoring
+git fetch
+git -c advice.detachedHead=false checkout TAG
+docker compose pull
+docker compose down
+docker compose up -d --remove-orphans
+```
 
 ### Additional Configuration
 
