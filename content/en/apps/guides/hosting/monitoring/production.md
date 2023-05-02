@@ -87,7 +87,7 @@ docker compose -f docker-compose.yml -f ../caddy-compose.yml up -d
 
 ## Backup
 
-When you deployed you monitoring instance, you created two directories: 
+When you deployed your monitoring instance, you created two directories: 
 
 * `~/cht-monitoring/grafana/data`
 * `~/cht-monitoring/prometheus/data`
