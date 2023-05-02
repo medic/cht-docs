@@ -55,7 +55,7 @@ A: Anyone under Medic GitHub organization.
 A: If what you are working on is temporary and just for you then it is fine to create a repository under your personal account (it is the equivalent of having a script on your local machine), as long as it contains an Open-Source Software License. However, default to the Medic account so the other team members can collaborate on it.
 
 ### Q: When to make a repo public vs private?
-A: In general, repositories should be public unless there is very good reason to make it private (e.g. the repository contains partner details that cannot be disclosed to public). Always keep in mind that it is much easier to start public than change to public later.
+A: Repositories should be public unless there is very good reason to make it private (e.g. the repository contains partner details that cannot be disclosed to public). Always keep in mind that it is much easier to start public than change to public later.
 
 ### Q: When to create a new repository vs adding a directory in existing (monolithic)?
 A: It depends on the nature of the code. Some things to consider are: is the new code and the old code dependant, don't make sense on their own, must be versioned together, etc. If not, default to a new repo to reduce complexity.
