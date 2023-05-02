@@ -103,7 +103,7 @@ When you see a new version in the [GitHub repository](https://github.com/medic/c
 
 #### couch2pg Data
 
-With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag/1.1.0), CMA now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.  While 1.1.0 only currently supports the couchd2pg backlog metric, more queries will be added over time.
+With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag/1.1.0), CMA now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
 
 1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
    
