@@ -3,7 +3,7 @@ title: "Local Docker Setup"
 toc_hide: true
 hide_summary: true
 ---
-{{< tabpane code=false >}}
+{{< tabpane text=true >}}
 {{% tab header="Linux (Ubuntu)" %}}
 ```shell
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
