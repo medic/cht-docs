@@ -1,5 +1,5 @@
 ---
-title: "Grafana and Prometheus Setup"
+title: "CHT Watchdog Setup"
 linkTitle: "Setup"
 weight: 100
 description: >
@@ -12,7 +12,7 @@ These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.
 
 ## Grafana and Prometheus
 
-Medic maintains an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
+Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
@@ -102,7 +102,7 @@ docker compose up -d --remove-orphans
 
 #### couch2pg Data
 
-With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag/1.1.0), CMA now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
+With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
 
 1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
    
