@@ -18,9 +18,9 @@ When creating a new CHT Product repository under [Medic's GitHub organization](h
 - [ ] PRs reference related issues.
 - [ ] Commit formats follow the [guidelines]({{< ref "workflow/#commits" >}}). 
 - [ ] Secrets are not part of the commit history or made public.
-- [ ] The following files should exist:
+- [ ] The following files exist:
     - `LICENSE` specifying AGPL-3.0 ([example](https://github.com/medic/cht-core/blob/master/LICENSE))
-    - `README.md`
+    - `README.md`.
 - [ ] `main` branch is always shippable.
 
 ### Code Reviews
