@@ -1,9 +1,9 @@
 ---
-title: "Production Grafana and Prometheus"
+title: "Production CHT Watchdog"
 linkTitle: "Production"
 weight: 200
 description: >
-   Production considerations for Grafana and Prometheus with the CHT
+   Production considerations for CHT Watchdog
 ---
 
 {{% pageinfo %}} 
@@ -12,7 +12,7 @@ These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.
 
 ## What it means to run in production
 
-When you run your monitoring and alerting in production, and it is publicly accessible on the Internet, and has mission-critical data on it, you should take extra precautions around security and backup.  This mainly consists of:
+When you run CHT Watchdog in production, and it is publicly accessible on the Internet, and has mission-critical data on it, you should take extra precautions around security and backup.  This mainly consists of:
 
 * using TLS for all HTTP connections 
 * using VPN or SSH for insecure protocols like `ssl=false` in Postgres 
