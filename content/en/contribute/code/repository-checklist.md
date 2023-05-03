@@ -12,7 +12,7 @@ When creating a new CHT Product repository under [Medic's GitHub organization](h
 ### Source Control
 - [ ] The `main` branch is locked via [branch protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 - [ ] Merges are done through PRs.
-- [ ] Automatically delete head branches
+- [ ] Automatically delete head branches.
 - [ ] Issue templates exist.
 - [ ] PR template exists.
 - [ ] PRs reference related issues.
