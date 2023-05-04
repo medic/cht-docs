@@ -7,12 +7,10 @@
 
 # Scheduled workflows run on the latest commit on
 #    the default or base branch
-# on:
-#   schedule:
-#     # runs at 3:15am every day
-#     - cron:  '15 3 * * *'
-
-on: [push, pull_request]
+on:
+  schedule:
+    # runs at 3:15am every day
+    - cron:  '15 3 * * *'
 
 name: Test site for broken links
 jobs:
