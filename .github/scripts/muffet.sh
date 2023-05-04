@@ -33,5 +33,7 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://127\.0\.0*" \
   --exclude "http[s]*://.*rapidpro.io.*" \
   --exclude "http[s]*://.*africastalking.com*" \
+  --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://.*notion.so.*" \
   --exclude "https://fhir.org/" \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*"
