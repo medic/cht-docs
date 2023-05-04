@@ -7,7 +7,7 @@ description: >
 ---
 
 ## Repository Creation Checklist
-When creating a new CHT Product repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should use the [cht-template](https://github.com/medic/cht-template) repository containing the following configurations:
+When creating a new CHT Product repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should use the [cht-repo-template](https://github.com/medic/cht-repo-template) repository containing the following configurations:
 
 ### Source Control
 - [ ] The `main` branch is locked via [branch protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
