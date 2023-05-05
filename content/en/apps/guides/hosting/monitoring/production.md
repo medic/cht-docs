@@ -21,6 +21,11 @@ When you run CHT Watchdog in production, and it is publicly accessible on the In
 
 This guide assumes you have already [set up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "apps/guides/hosting/monitoring/setup" >}}) to deploy an instance of CHT Monitoring on server with a static IP and DNS entry, `monitor.example.com` for example.
 
+
+{{% alert title="Note" %}}
+Always run Watchdog on a different server than the CHT Core.  This ensures  Watchdog doesn't fail when the CHT Core fails and alerts will always be sent. The instructions assume you're connecting over the public Internet, so no special VPN or routing is required.
+{{% /alert %}}
+
 ## Monitoring over TLS
 All monitoring should happen over TLS.  This means the `cht-instances.yml` file should have all the URLs in it start with ` - https`.  
 

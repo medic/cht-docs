@@ -12,7 +12,7 @@ These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.
 
 ## Going beyond basic setup
 
-After you have done the [setup of CHT Watchdog]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "apps/guides/hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources and send other Grafana alerts.
+After you have done the [setup of CHT Watchdog]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "apps/guides/hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
 
 ### Default Flow
 
@@ -37,16 +37,29 @@ graph LR;
     cadvisor[CHT: cAdvisor]----->Prometheus;
 ```
 
-After we add the scrape config to Prometheus and the dashboard to Grafana, helpful Docker metrics we can alert on are available:
+By reading this guide you should not only be able to set up cAdvisor, but be familure with extending CHT Watchdog to support any other vital metrics.
 
-![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)
+### Steps to new integrations
 
+While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
+
+1. Create both cAdvisor and Caddy Docker Compose files on the CHT server
+2. Adding a new scrape config on the Watchdog server
+3. Start the Caddy and a cAdvisor containers along with the CHT Core
+4. Restart the Prometheus and Grafana server to include the new scrape config mounts 
+5. Importing an exising cAdvisor dashboard from `grafana.com`
+
+After completing these steps, we now have Docker metrics we can alert on.  Read on below on how to set this up!
+
+[![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)](cadvisor.screenshot.png)
 
 ## Additional Configuration files
 
-### Add Service on CHT instance
+### On the CHT instance
 
-On your CHT instance you'll need to add a Docker composer file.  In our example, we'll use the cAdvisor service, which also includes a Raddis caching layer. Note that we're reducing cAdvisors CPU use by adding 3 extra flags to the `command` stanza.  In our example, we've put this file in `/root/cadvisor_compose.yml` with this contents:
+#### cAdvisor
+
+On your CHT instance you'll need to add a Docker composer file, again using our example cAdvisor service. Note this also includes a Redis caching layer. Also note that we're reducing cAdvisors CPU use by adding 3 extra flags in the `command` stanza.  In our example, we've put this file in `/root/cadvisor_compose.yml` with this contents:
 
 ```yaml
 version: '3.9'
@@ -78,7 +91,38 @@ services:
       - cht-net
 ```
 
+#### Caddy
+
+Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `Caddyfile` and a `caddy-compose.yml` file.  
+
+Starting with the `Caddyfile`, let's assume you're server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file:
+```yaml
+cht.example.com:8080 {
+    reverse_proxy cadvisor:8080
+}
+```
+
+Then we can add the compose file for the same:
+
+```yaml
+version: "3.9"
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - /root/Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      - cht-net
+```
+
 ### Add Prometheus Scrape Config
 
+
+<style>
+.mermaid { padding-bottom: 20px; }
+</style>
 
 

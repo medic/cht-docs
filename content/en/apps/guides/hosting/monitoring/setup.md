@@ -28,6 +28,10 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - URL(s) of the CHT instance(s)
 
+{{% alert title="Note" %}}
+Always run Watchdog on a different server than the CHT Core.  This ensures  Watchdog doesn't fail when the CHT Core fails and alerts will always be sent. The instructions assume you're connecting over the public Internet, so no special VPN or routing is required.
+{{% /alert %}}
+
 ### Setup
 
 These instructions have been tested against Ubuntu, but should work against any OS that meets the prerequisites. They follow a happy path assuming you need to only set a secure password and specify the URL(s) to monitor:
