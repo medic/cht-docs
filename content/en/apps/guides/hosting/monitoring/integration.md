@@ -95,14 +95,15 @@ services:
 
 Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `Caddyfile` and a `caddy-compose.yml` file.  
 
-Starting with the `Caddyfile`, let's assume you're server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file:
+Starting with the `Caddyfile`, let's assume you're server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port 8080 where cAdvisor is running:
+
 ```yaml
 cht.example.com:8080 {
     reverse_proxy cadvisor:8080
 }
 ```
 
-Then we can add the compose file for the same:
+Then we can add the compose file to run Caddy. Note that it's mounting the config file we just created:
 
 ```yaml
 version: "3.9"
@@ -118,7 +119,7 @@ services:
       - cht-net
 ```
 
-### Add Prometheus Scrape Config
+### On the Watchdog instance
 
 
 <style>
