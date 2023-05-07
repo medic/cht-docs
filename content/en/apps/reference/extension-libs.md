@@ -20,7 +20,7 @@ An example of a use for this feature is to provide a function to calculate a ris
 The first step is to create the js file to return the function that will be called by the web application. Create a new file using this template:
 
 ```js
-return function(/* parameters */) {
+module.exports = function(/* parameters */) {
   return result;
 }
 ```
@@ -55,7 +55,7 @@ const getValue = function(obj) {
   return isNaN(parsed) ? 0 : parsed;
 };
 
-return function(first, second) {
+module.exports = function(first, second) {
   const average = (getValue(first) + getValue(second)) / 2;
   return {
     t: 'num',
