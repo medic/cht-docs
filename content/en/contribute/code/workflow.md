@@ -167,7 +167,83 @@ Issues in this column have been prioritised and are ready for development. The i
 
 Issues in this column are being actively worked on, which includes development, design, code reviews, and testing.
 
-Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Follow the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) process to take full ownership of what you are building. A great way to facilitate discussion and collaboration is with a Draft PR.
+Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Follow the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) process to take full ownership of what you are building.
+
+Use the following template for QA feedback throughout the development.
+
+{{< tabpane persistLang=false lang="markdown">}}
+{{< tab header="Test passed" >}}
+
+### Test details
+
+**Config:** <Default/standard>
+**Environment:** <Local>
+**Platform:** <WebApp>
+**Browser:** <Chrome>
+
+---
+
+### Test scenario:
+Description of the scenario - This is not required for all the tests
+
+### Reproducible on `master`
+A small description of how it was reproduced, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+### Fixed on `####-branch-name`
+A small description, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+---
+
+Test passed successfully. :white_check_mark:
+Moving the ticket to `Ready to Merge`
+@<developer's name>
+
+{{< /tab >}}
+{{< tab header="Test failed" >}}
+### Test details
+
+**Config:** <Default/standard>
+**Environment:** <Local>
+**Platform:** <WebApp>
+**Browser:** <Chrome>
+
+---
+
+### Test scenario:
+Description of the scenario - This is not required for all the tests
+
+### Reproducible on `master`
+A small description of how it was reproduced, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+### Not working on `####-branch-name`
+A small description, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</sumamry>
+</details>
+
+---
+
+Test failed :x:
+Moving the ticket back to `In Progress`.
+@<developer's name>
+
+{{< /tab >}}
+{{< /tabpane >}}
+
+A great way to facilitate discussion and collaboration is with a Draft PR.
 
 Once you're confident that the change is complete and ready to be merged:
 
