@@ -1,6 +1,6 @@
 ---
 title: "CHT Sync and CHT Pipeline setup"
-linkTitle: "Cht Sync"
+linkTitle: "CHT Sync"
 weight: 2
 description: >
   An overview of what CHT-Sync is and how to set it up.
