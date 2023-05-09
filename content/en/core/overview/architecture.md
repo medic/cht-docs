@@ -11,7 +11,67 @@ description: >
 ### CHT Core test
 
 ```mermaid
-flowchart TB
+flowchart LR
+
+linkStyle default stroke-width:1px
+
+subgraph client
+  classDef client_node fill:#dfeaea,stroke:#7cb3b3
+  classDef client_device_node fill:#f0f4fd,stroke:#84a1f0
+  
+  subgraph app_browser[App Browser]
+    pouchdb[(PouchDB)]:::client_node
+    style app_browser fill:#dfeaea,stroke:#7cb3b3
+  end
+  
+  subgraph app_android[Android App]
+    app_android_browser[Browser]:::client_node
+    style app_android fill:#dfeaea,stroke:#7cb3b3
+  end
+  
+  sms_aggregator["SMS 
+    aggregator"]:::client_node
+  sms_gateway["SMS 
+    gateway"]:::client_node
+  feature_phones[Feature phones]:::client_device_node
+  smartphones_tables_computers["Smartphones, tablets, 
+    and computers"]:::client_device_node
+  feature_phones <--> sms_gateway & sms_aggregator
+  smartphones_tables_computers <--> app_browser & app_android
+    integrations["Integrations
+    with other
+    systems"]:::client_node
+end
+
+subgraph server
+  subgraph cht_core[CHT Core Framework]
+    classDef cht_core_node fill:#eef5f9,stroke:#68a5c8
+    upgrade_service("Upgrade 
+      Service"):::cht_core_node
+    couchdb[(CouchDB)]:::cht_core_node
+    haproxy(HAProxy):::cht_core_node
+    api(API):::cht_core_node
+    sentinel(Sentinel):::cht_core_node
+    nginx(NGINX):::cht_core_node
+    haproxy --> couchdb
+    api --> upgrade_service & haproxy
+    sentinel --> api
+    nginx --> api
+    style cht_core fill:none,stroke:#68a5c8,stroke-width:1px,color:#68a5c8
+  end
+  
+end
+
+sms_aggregator & sms_gateway & pouchdb & app_android_browser & integrations <--> nginx
+
+classDef outer_group fill:none,stroke-dasharray: 5 5
+class client,server outer_group
+```
+
+### CHT Core + Sync Test
+
+```mermaid
+flowchart LR
 
 linkStyle default stroke-width:1px
 
@@ -32,6 +92,7 @@ subgraph client
   integrations["Integrations
     with other
     systems"]:::client_node
+  browser[Browser]:::client_node
   sms_aggregator["SMS 
     aggregator"]:::client_node
   sms_gateway["SMS 
@@ -47,70 +108,9 @@ subgraph server
   subgraph cht_core[CHT Core Framework]
     classDef cht_core_node fill:#eef5f9,stroke:#68a5c8
     couchdb[(CouchDB)]:::cht_core_node
-    haproxy(HAProxy):::cht_core_node
     upgrade_service("Upgrade 
       Service"):::cht_core_node
-    api(API):::cht_core_node
-    sentinel(Sentinel):::cht_core_node
-    nginx(NGINX):::cht_core_node
-    haproxy --> couchdb
-    api --> upgrade_service & haproxy
-    sentinel --> api
-    nginx --> api
-    style cht_core fill:none,stroke:#68a5c8,stroke-width:1px,color:#68a5c8
-  end
-  
-end
-
-integrations & pouchdb & app_android_browser & sms_aggregator & sms_gateway <--> nginx
-
-classDef outer_group fill:none,stroke-dasharray: 5 5
-class client,server outer_group
-```
-
-### CHT Core + Sync Test
-
-```mermaid
-flowchart TB
-
-linkStyle default stroke-width:1px
-
-subgraph client
-  classDef client_node fill:#dfeaea,stroke:#7cb3b3
-  classDef client_device_node fill:#f0f4fd,stroke:#84a1f0
-  
-  subgraph app_browser[App Browser]
-    pouchdb[(PouchDB)]:::client_node
-    style app_browser fill:#dfeaea,stroke:#7cb3b3
-  end
-  
-  subgraph app_android[Android App]
-    app_android_browser[Browser]:::client_node
-    style app_android fill:#dfeaea,stroke:#7cb3b3
-  end
-  
-  integrations["`Integrations
-    with other
-    systems`"]:::client_node
-  browser[Browser]:::client_node
-  sms_aggregator["`SMS 
-    aggregator`"]:::client_node
-  sms_gateway["`SMS 
-    gateway`"]:::client_node
-  feature_phones[Feature phones]:::client_device_node
-  smartphones_tables_computers["`Smartphones, tablets, 
-    and computers`"]:::client_device_node
-  feature_phones <--> sms_gateway & sms_aggregator
-  smartphones_tables_computers <--> app_browser & app_android
-end
-
-subgraph server
-  subgraph cht_core[CHT Core Framework]
-    classDef cht_core_node fill:#eef5f9,stroke:#68a5c8
-    couchdb[(CouchDB)]:::cht_core_node
     haproxy(HAProxy):::cht_core_node
-    upgrade_service("`Upgrade 
-      Service`"):::cht_core_node
     api(API):::cht_core_node
     sentinel(Sentinel):::cht_core_node
     nginx(NGINX):::cht_core_node
@@ -135,11 +135,11 @@ subgraph server
     style cht_sync fill:none,stroke:#ebb338,stroke-width:1px,color:#ebb338
   end
 
-  couchdb --> logstash
+  couchdb ---> logstash
 end
 
 browser <--> superset
-integrations & pouchdb & app_android_browser & sms_aggregator & sms_gateway <--> nginx
+sms_aggregator & sms_gateway & pouchdb & app_android_browser & integrations <--> nginx
 
 classDef outer_group fill:none,stroke-dasharray: 5 5
 class client,server outer_group

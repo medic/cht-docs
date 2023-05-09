@@ -209,3 +209,11 @@ RelPermalink= "communityhealthtoolkit.org"
  [[related.indices]]
     name = "keywords"
     weight = 1
+
+[params.mermaid]
+theme = "neutral"
+
+[params.mermaid.flowchart]
+nodeSpacing = 30
+rankSpacing = 60
+curve = "linear"
