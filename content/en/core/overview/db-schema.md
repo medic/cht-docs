@@ -284,6 +284,8 @@ To understand the difference between a task requester and a task owner, kindly s
     "dueDate": "2000-01-01",
     "startDate": "1999-12-29",
     "endDate": "2000-01-08",
+    "priority": "high",
+    "priorityLabel": "task.priority",
     ...
   },
   "stateHistory": [{
