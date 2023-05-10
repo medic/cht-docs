@@ -70,7 +70,7 @@ These instructions have been tested against Ubuntu, but should work against any 
 
 4. Grafana is available at [http://localhost:3000](http://localhost:3000). See the output from step 1 for your username and password.
 
-If you would like to do more customizing of your deployment, see ["Addition Configuration"](#additional-configuration).
+If you would like to do more customizing of your deployment, see ["Additional Configuration"](#additional-configuration).
 
 ### Upgrading
 
