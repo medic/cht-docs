@@ -43,11 +43,11 @@ By reading this guide you should not only be able to set up cAdvisor, but be fam
 
 While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
 
-1. Create both cAdvisor and Caddy Docker Compose files on the CHT server
-2. Adding a new scrape config on the Watchdog server
-3. Start the Caddy and a cAdvisor containers along with the CHT Core
-4. Restart the Prometheus and Grafana server to include the new scrape config mounts 
-5. Importing an exising cAdvisor dashboard from `grafana.com`
+1. CHT server: Create both cAdvisor and Caddy Docker Compose files 
+3. CHT server: Start the Caddy and a cAdvisor containers along with the CHT Core
+2. Watchdog server: Adding a new scrape config  
+4. Watchdog server: Restart the Prometheus and Grafana server to include the new scrape config mounts 
+5. Watchdog server: Importing an exising cAdvisor dashboard from `grafana.com`
 
 After completing these steps, we now have Docker metrics we can alert on.  Read on below on how to set this up!
 
@@ -55,11 +55,11 @@ After completing these steps, we now have Docker metrics we can alert on.  Read 
 
 ## Additional Configuration files
 
-### On the CHT instance
+### On the CHT Server
 
-#### cAdvisor
+#### cAdvisor Compose file
 
-On your CHT instance you'll need to add a Docker composer file, again using our example cAdvisor service. Note this also includes a Redis caching layer. Also note that we're reducing cAdvisors CPU use by adding 3 extra flags in the `command` stanza.  In our example, we've put this file in `/root/cadvisor_compose.yml` with this contents:
+On your CHT instance you'll need to add a Docker composer file, again using our example cAdvisor service. Note this also includes a Redis caching layer. Also note that we're reducing cAdvisors CPU use by adding 3 extra flags in the `command` stanza.  In our example, we've put this file in `/home/ubuntu/cht/compose/cadvisor_compose.yml` with these contents:
 
 ```yaml
 version: '3.9'
@@ -91,11 +91,11 @@ services:
       - cht-net
 ```
 
-#### Caddy
+#### Caddy Config and Compose files
 
-Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `Caddyfile` and a `caddy-compose.yml` file.  
+Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.  
 
-Starting with the `Caddyfile`, let's assume you're server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port 8080 where cAdvisor is running:
+Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port 8080 where cAdvisor is running:
 
 ```yaml
 cht.example.com:8080 {
@@ -114,12 +114,27 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /root/Caddyfile:/etc/caddy/Caddyfile
+      - /home/ubuntu/Caddyfile:/etc/caddy/Caddyfile
     networks:
       - cht-net
 ```
 
+#### Start cAdvisor, Caddy and CHT Core with Docker
+
+Now that we have all the config files in place, you need to have Docker start everything together. This is so that the containers can see each other on the same `CHT Net` Docker network.  You will need to specify each of the compose files every time you start, stop or restart CHT instance so all the service stay running and connected.
+
+Assuming you followed the [production steps]({{< relref "apps/guides/hosting/4.x/self-hosting-single-node" >}}) to install the CHT, you use this Compose call:
+
+```shell
+cd /home/ubuntu/cht/upgrade-service
+docker compose up --detach
+```
+
+Note that the CHT Upgrade Service will process all Docker Compose file in the `/home/ubuntu/cht/compose` directory for us and we don't need to explicity specify them in the `docker compose up` command.
+
 ### On the Watchdog instance
+
+
 
 
 <style>
