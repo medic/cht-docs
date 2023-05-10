@@ -19,10 +19,18 @@ After you have done the [setup of CHT Watchdog]({{< relref "apps/guides/hosting/
 Let's look at how the default deployment of Watchdog works when configured to only gather metrics from the [monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}):
 
 ```mermaid
-graph LR;
-    cht[CHT: Monitoring API]--->json[JSON Exporter];
-    json--->Prometheus;
-    Prometheus--->Grafana;
+flowchart LR
+
+subgraph core[CHT Core]
+  mon_api["Monitoring API"]:::client_node
+end
+
+subgraph watchdog[CHT Watchdog]
+    json[JSON Exporter] --> Prometheus
+    Prometheus --> Grafana
+end
+
+mon_api  --> json
 ```
 
 ### Additional Flows 
@@ -30,11 +38,20 @@ graph LR;
 While the additions to Prometheus don't have to reside on the same server as the CHT, this guide assumes the metrics being added are to increase the CHT stability. As such, the focus of this guide is on using a Dockerized instance of [cAdvisor](https://prometheus.io/docs/guides/cadvisor/) running on the CHT instance. When enabled, we can expose metrics from Docker itself which Prometheus can directly ingest:
 
 ```mermaid
-graph LR;
-    cht[CHT: Monitoring API]--->json[JSON Exporter];
-    json--->Prometheus;
-    Prometheus--->Grafana;
-    cadvisor[CHT: cAdvisor]----->Prometheus;
+flowchart LR
+
+subgraph core[CHT Core]
+  mon_api["Monitoring API"]:::client_node
+  cAdvisor:::client_node
+end
+
+subgraph watchdog[CHT Watchdog]
+    json[JSON Exporter] --> Prometheus
+    Prometheus --> Grafana
+end
+
+mon_api  --> json
+cAdvisor  --> Prometheus
 ```
 
 By reading this guide you should not only be able to set up cAdvisor, but be familure with extending CHT Watchdog to support any other vital metrics.
@@ -43,11 +60,11 @@ By reading this guide you should not only be able to set up cAdvisor, but be fam
 
 While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
 
-1. CHT server: Create both cAdvisor and Caddy Docker Compose files 
-3. CHT server: Start the Caddy and a cAdvisor containers along with the CHT Core
-2. Watchdog server: Adding a new scrape config  
-4. Watchdog server: Restart the Prometheus and Grafana server to include the new scrape config mounts 
-5. Watchdog server: Importing an exising cAdvisor dashboard from `grafana.com`
+1. CHT Watchdog: Adding a new scrape config
+2. CHT Watchdog: Restart the Prometheus and Grafana server to include the new scrape config mounts
+3. CHT Core: Create both cAdvisor and Caddy Docker Compose files 
+4. CHT Core: Start the Caddy and a cAdvisor containers along with the CHT Core
+5. CHT Watchdog: Importing an exising cAdvisor dashboard from `grafana.com`
 
 After completing these steps, we now have Docker metrics we can alert on.  Read on below on how to set this up!
 
