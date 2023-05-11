@@ -176,6 +176,10 @@ This example makes a few points:
 - If any of your `expr` expressions throw an exception (for example because you didn't handle potentially `undefined` properties as noted above) your push will fail
 - If any of your `path` declarations result in an `undefined` value and you have not also declared that property optional your push will fail
 
+#### Troubleshooting
+
+By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging]({{< relref "apps/guides/debugging/obtaining-logs#server-log-level" >}}) to get more information about the exact contents of the request/response.
+
 ## How Outbound messages are sent
 
 Send semantics have changed over the course of developing this feature, and are important to understand for your deployment to be successful.

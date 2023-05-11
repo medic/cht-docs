@@ -1,11 +1,11 @@
 ---
-title: "Obtaining Browser and Phone Logs"
-linkTitle: "Browser and Phone Logs"
+title: "Obtaining Browser, Phone, and Server Logs"
+linkTitle: "Browser, Phone, and Server Logs"
 weight:
 description: >
-  How to obtain Android and browser client logs
+  How to obtain Android, browser client, and server logs
 relatedContent: >
-  apps/guides/debugging/sharing-4.x-logs.md
+  apps/guides/debugging/sharing-4x-logs.md
   apps/guides/hosting/4.x/logs
 ---
 
@@ -55,4 +55,15 @@ adb logcat | grep MedicMobile > phone.log
 
 ## On the server
 
+### Feedback Documents
+
 Some unexpected errors are caught and stored in `feedback` docs and stored on the phone and later synced to CouchDB on the server. To access these, look for docs in the `medic-user-{username}-meta` or `medic-users-meta` databases. This is particularly useful to debug issues where you do not have physical access to the device. More information is available under [Managing Databases]({{< relref "apps/guides/database" >}}).
+
+### Server logs
+
+Server logs are located in the Docker containers. See [Sharing 4.x Logs]({{< relref "apps/guides/debugging/sharing-4x-logs" >}}) for more information on how to export logs from CHT `4.x` instances.
+
+#### Server log level
+
+By default, the CHT server logs are set to the `info` level. To change the log level to `debug`, you can set the `NODE_ENV` environment variable to `development`.  A log level of `debug` can affect system performance and cause log files sizes to grow rapidly.  It is recommended to temporarily set the log level to `debug` only when needed for troubleshooting.
+

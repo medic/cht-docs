@@ -5,7 +5,7 @@ weight: 300
 description: >
     What to do when you need to find server side errors in CHT 4.x
 relatedContent: >
-   apps/guides/debugging/sharing-4.x-logs.md
+   apps/guides/debugging/sharing-4x-logs.md
    apps/guides/debugging/obtaining-logs
 ---
 
