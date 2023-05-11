@@ -14,6 +14,8 @@ These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.
 
 After you have done the [setup of CHT Watchdog]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "apps/guides/hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
 
+This guide uses example instances of CHT Core (`cht.example.com`) and CHT Watchdog (`watchdog.example.com`). When deploying, be sure to replace with your own hostnames.
+
 ### Default Flow
 
 Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}):
@@ -21,38 +23,40 @@ Let's look at how the default deployment of Watchdog works when configured to on
 ```mermaid
 flowchart LR
 
-subgraph core["Core (cht.example.com)"]
-  mon_api["Monitoring API"]:::client_node
+subgraph core["cht.example.com"]
+  mon_api["Monitoring API (443)"]:::client_node
 end
 
-subgraph watchdog["Watchdog (watchdog.example.com)"]
+subgraph watchdog["watchdog.example.com"]
     json[JSON Exporter] --> Prometheus
     Prometheus --> Grafana
 end
 
-mon_api  --> json
+mon_api --> json
 ```
 
-### Additional Flows 
+### Additional Flows
 
 While the additions to Prometheus don't have to reside on the same server as the CHT, this guide assumes the metrics being added are to increase the CHT stability. As such, the focus of this guide is on using a Dockerized instance of [cAdvisor](https://prometheus.io/docs/guides/cadvisor/) running along side with the CHT Core. When enabled, we can expose metrics from Docker itself which Prometheus can directly ingest:
 
 ```mermaid
 flowchart LR
 
-subgraph core["Core (cht.example.com)"]
-  mon_api["Monitoring API"]:::client_node
+subgraph core["cht.example.com"]
+  mon_api["Monitoring API (443)"]:::client_node
   cAdvisor:::client_node
 end
 
-subgraph watchdog["Watchdog (watchdog.example.com)"]
+subgraph watchdog["watchdog.example.com"]
     json[JSON Exporter] --> Prometheus
     Prometheus --> Grafana
 end
 
-mon_api  --> json
-cAdvisor  --> Prometheus
+mon_api  -->  json
+cAdvisor["cAdvisor (8443)"] -->  Prometheus
 ```
+
+Note that because CHT Core is listening on port 443 already, we'll have cAdvisor listen on port 8443.
 
 By reading this guide you should not only be able to set up cAdvisor, but be familure with extending CHT Watchdog to support any other vital metrics.
 
@@ -60,15 +64,17 @@ By reading this guide you should not only be able to set up cAdvisor, but be fam
 
 While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
 
-1. CHT Watchdog: Adding a new scrape config
+1. CHT Watchdog: Adding new scrape and compose configs
 2. CHT Watchdog: Restart the Prometheus and Grafana server to include the new scrape config mounts
 3. CHT Core: Create both cAdvisor and Caddy Docker Compose files 
 4. CHT Core: Start the Caddy and a cAdvisor containers along with the CHT Core
 5. CHT Watchdog: Importing an exising cAdvisor dashboard from `grafana.com`
 
-After completing these steps, we now have Docker metrics we can alert on.  Read on below on how to set this up!
+After completing these steps, we now have Docker metrics we can alert on:
 
 [![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)](cadvisor.screenshot.png)
+
+Read on below on how to set this up!
 
 ## Additional Configuration files
 
@@ -76,7 +82,7 @@ After completing these steps, we now have Docker metrics we can alert on.  Read 
 
 #### Scrape config
 
-We'll first create the `/root/cadvisor-prometheus-conf.yml` file and point the config to our CHT Core URL:
+We'll first create the `~/cadvisor-prometheus-conf.yml` file and point the config to our CHT Core URL:
 
 ```yaml
 scrape_configs:
@@ -86,7 +92,7 @@ scrape_configs:
       - targets: ['cht.example.com:8443']
 ```
 
-CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `/root/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
+CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `~/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
 
 ```yaml
 version: "3.9"
@@ -98,7 +104,10 @@ services:
 
 #### Load new Compose files with existing ones
 
-Now that you've added the new config, we can load it 
+Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "apps/guides/hosting/monitoring/setup" >}}), this would be:
+
+cd ~/cht-monitoring
+docker compose -f docker-compose.yml -f ../cadvisor-compose.yml up -d
 
 
 ### On CHT Core
@@ -141,7 +150,7 @@ services:
 
 Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.  
 
-Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port 8080 where cAdvisor is running:
+Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8443` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port `8080` where cAdvisor is running:
 
 ```yaml
 cht.example.com:8443 {
@@ -178,13 +187,11 @@ docker compose up --detach
 
 Note that the CHT Upgrade Service will process all Docker Compose file in the `/home/ubuntu/cht/compose` directory for us and we don't need to explicity specify them in the `docker compose up` command.
 
-### On the Watchdog instance
+### On CHT Watchdog: Import Grafana Dashboard
 
 
 
-
+<!-- there wasn't enough space after the diagrams, adding CSS -->
 <style>
 .mermaid { padding-bottom: 20px; }
 </style>
-
-
