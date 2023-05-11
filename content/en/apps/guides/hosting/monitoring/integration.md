@@ -189,9 +189,17 @@ Note that the CHT Upgrade Service will process all Docker Compose file in the `/
 
 ### On CHT Watchdog: Import Grafana Dashboard
 
+Now that cAdvisor is running on your CHT Core instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the cAdvisor metrics, we can now visualize it in a Grafana Dashboard and then alert on it. 
 
+1. Log into your Watchdog instance
+2. Click the upper left hamburger menu and click "Dashboards"
+3. Find the "New" button on the left, click and choose "Import" from the drop down
+4. On the next page, scroll down to find "Import via grafana.com", enter ID `193` and click "Load"
+5. Confirm the "Name" and "Folder" values and select "Prometheus" as the data source in the dropdown. Finally, click the "Import" button at the bottom of the page.
 
-<!-- there wasn't enough space after the diagrams, adding CSS -->
+That's it! After following these steps, you should be looking at the cAdvisor dashboard [as shown above](#steps-to-new-integrations).  From here, you can both customize this dashboard as well as add alerts as needed.
+
+<!-- there wasn't enough space after the diagrams, adding CSS to increase padding -->
 <style>
 .mermaid { padding-bottom: 20px; }
 </style>
