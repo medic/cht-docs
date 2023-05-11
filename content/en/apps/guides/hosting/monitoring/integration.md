@@ -16,16 +16,16 @@ After you have done the [setup of CHT Watchdog]({{< relref "apps/guides/hosting/
 
 ### Default Flow
 
-Let's look at how the default deployment of Watchdog works when configured to only gather metrics from the [monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}):
+Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}):
 
 ```mermaid
 flowchart LR
 
-subgraph core[CHT Core]
+subgraph core["Core (cht.example.com)"]
   mon_api["Monitoring API"]:::client_node
 end
 
-subgraph watchdog[CHT Watchdog]
+subgraph watchdog["Watchdog (watchdog.example.com)"]
     json[JSON Exporter] --> Prometheus
     Prometheus --> Grafana
 end
@@ -35,17 +35,17 @@ mon_api  --> json
 
 ### Additional Flows 
 
-While the additions to Prometheus don't have to reside on the same server as the CHT, this guide assumes the metrics being added are to increase the CHT stability. As such, the focus of this guide is on using a Dockerized instance of [cAdvisor](https://prometheus.io/docs/guides/cadvisor/) running on the CHT instance. When enabled, we can expose metrics from Docker itself which Prometheus can directly ingest:
+While the additions to Prometheus don't have to reside on the same server as the CHT, this guide assumes the metrics being added are to increase the CHT stability. As such, the focus of this guide is on using a Dockerized instance of [cAdvisor](https://prometheus.io/docs/guides/cadvisor/) running along side with the CHT Core. When enabled, we can expose metrics from Docker itself which Prometheus can directly ingest:
 
 ```mermaid
 flowchart LR
 
-subgraph core[CHT Core]
+subgraph core["Core (cht.example.com)"]
   mon_api["Monitoring API"]:::client_node
   cAdvisor:::client_node
 end
 
-subgraph watchdog[CHT Watchdog]
+subgraph watchdog["Watchdog (watchdog.example.com)"]
     json[JSON Exporter] --> Prometheus
     Prometheus --> Grafana
 end
@@ -72,7 +72,36 @@ After completing these steps, we now have Docker metrics we can alert on.  Read 
 
 ## Additional Configuration files
 
-### On the CHT Server
+### On CHT Watchdog
+
+#### Scrape config
+
+We'll first create the `/root/cadvisor-prometheus-conf.yml` file and point the config to our CHT Core URL:
+
+```yaml
+scrape_configs:
+  - job_name: 'cadvisor'
+    scrape_interval: 1m
+    static_configs:
+      - targets: ['cht.example.com:8443']
+```
+
+CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `/root/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
+
+```yaml
+version: "3.9"
+services:
+  prometheus:
+    volumes:
+      - /root/cadvisor-prometheus-conf.yml:/etc/prometheus/scrape_configs/cadvisor.yml:ro
+```
+
+#### Load new Compose files with existing ones
+
+Now that you've added the new config, we can load it 
+
+
+### On CHT Core
 
 #### cAdvisor Compose file
 
@@ -115,7 +144,7 @@ Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/prod
 Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8080` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port 8080 where cAdvisor is running:
 
 ```yaml
-cht.example.com:8080 {
+cht.example.com:8443 {
     reverse_proxy cadvisor:8080
 }
 ```
@@ -129,7 +158,7 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "8443:8080"
     volumes:
       - /home/ubuntu/Caddyfile:/etc/caddy/Caddyfile
     networks:
