@@ -124,8 +124,6 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
-    ports:
-      - 127.0.0.1:8080:8080
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -142,8 +140,6 @@ services:
   redis:
     image: redis:latest
     container_name: redis
-    ports:
-      - 6379:6379
     networks:
       - cht-net
 ```
