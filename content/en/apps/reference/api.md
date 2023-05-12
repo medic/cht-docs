@@ -731,7 +731,7 @@ will be undefined.
 | token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 |
 | fullname | no | String | Full name  |
 | email | no | String | Email address  |
-| known | no | Boolean | Boolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
+| known | no | Boolean | Boolean to define if the user has logged in before. |
 
 ##### Login by SMS
 
