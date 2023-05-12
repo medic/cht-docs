@@ -10,8 +10,6 @@ description: >
 These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 {{% /pageinfo %}}
 
-## Grafana and Prometheus
-
 Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
