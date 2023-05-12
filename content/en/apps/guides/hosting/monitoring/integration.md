@@ -107,9 +107,10 @@ services:
 
 Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "apps/guides/hosting/monitoring/setup" >}}), this would be:
 
+```shell
 cd ~/cht-monitoring
 docker compose -f docker-compose.yml -f ../cadvisor-compose.yml up -d
-
+```
 
 ### On CHT Core
 
