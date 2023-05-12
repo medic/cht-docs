@@ -83,9 +83,9 @@ docker compose pull
 docker compose up -d
 ```
 
-#### CHT Monitoring Config
+#### CHT Watchdog
 
-When you see a new version in the [GitHub repository](https://github.com/medic/cht-monitoring), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration (be sure to replace `TAG` with the tag name associated with the release (e.g. `1.1.0`)):
+When you see a new version in the [GitHub repository](https://github.com/medic/cht-watchdog), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration (be sure to replace `TAG` with the tag name associated with the release (e.g. `1.1.0`)):
 
 ```shell
 cd ~/cht-monitoring
@@ -100,7 +100,7 @@ docker compose up -d --remove-orphans
 
 #### couch2pg Data
 
-With the [release of 1.1.0](https://github.com/medic/cht-monitoring/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
 
 1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
    
