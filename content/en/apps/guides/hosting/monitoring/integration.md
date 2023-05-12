@@ -88,6 +88,7 @@ We'll first create the `~/cadvisor-prometheus-conf.yml` file and point the confi
 scrape_configs:
   - job_name: 'cadvisor'
     scrape_interval: 1m
+    scheme: 'https'
     static_configs:
       - targets: ['cht.example.com:8443']
 ```
