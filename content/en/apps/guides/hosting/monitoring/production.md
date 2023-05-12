@@ -103,5 +103,5 @@ The default URL that Grafana uses is `http://localhost:3000`.  In a production e
 ```
 #################################### Server ##############################
 [server]
-root_url = http://monitor.example.com/
+root_url = https://monitor.example.com/
 ```
