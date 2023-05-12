@@ -168,7 +168,7 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     ports:
-      - "8443:8080"
+      - "8443:8443"
     volumes:
       - /home/ubuntu/Caddyfile:/etc/caddy/Caddyfile
     networks:
