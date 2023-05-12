@@ -95,3 +95,13 @@ When you deployed your monitoring instance, you created two directories:
 These are the only directories you need to back up.  Whether you use something as simple as `zip` + `scp` + `cron` or a more full-featured solution like [borgbackup](https://www.borgbackup.org/) or [AWS Data Lifecycle Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html), be sure you follow [the 3-2-1 backup rule](https://en.wikipedia.org/wiki/Backup#Storage):
 
 > The 3-2-1 rule can aid in the backup process. It states that there should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location
+
+## Default Grafana URL
+
+The default URL that Grafana uses is `http://localhost:3000`.  In a production environment, specifically when alerts are being sent, you need to tell Grafana what its URL is.  Do this by editing the `./grafana/grafana.ini` you created at install and set the `root_url` value.  In this example, we'll set it to `monitor.example.com`:
+
+```
+#################################### Server ##############################
+[server]
+root_url = http://monitor.example.com/
+```
