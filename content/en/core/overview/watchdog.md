@@ -28,6 +28,6 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 [Postgres Exporter](https://github.com/prometheus-community/postgres_exporter) allows Prometheus to scrape a Postgres database and at a predefined interval.  The queries can be configured to ingest any relevant data needed.
 
-### CHT Core & RDBMS
+### CHT Core Framework & RDBMS
 
-For mor information on these technologies, see the [CHT Core overview]({{< relref "core/overview/architecture" >}}).
+For more information on these technologies, see [CHT Core overview]({{< relref "core/overview/architecture" >}}).

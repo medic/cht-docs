@@ -28,6 +28,9 @@ A free and open source SQL database used for analytics queries. See more at the 
 
 [Apache Superset](https://superset.apache.org/) is a free an open source platform for creating data dashboards.
 
+### CHT Core Framework & CouchDB
+
+For more information on these technologies, see [CHT Core overview]({{< relref "core/overview/architecture" >}}).
 
 ## Requirements
 

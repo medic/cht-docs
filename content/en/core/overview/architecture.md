@@ -44,6 +44,10 @@ The CHT Upgrade Service is used within the CHT to update individual Docker conta
 
 A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "core/overview/data-flows-for-analytics/cht-sync" >}}) and the  [cht-sync GitHub repository](https://github.com/medic/cht-sync).
 
+### CHT Watchdog
+
+Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption cause by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the  [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
+
 ## Client
 
 ### CHT Core Framework
