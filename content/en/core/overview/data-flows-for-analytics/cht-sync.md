@@ -8,6 +8,9 @@ description: >
 
 ## Introduction
 
+
+[![Data Flows](cht-sync.png)](cht-sync.png)
+
 Most CHT deployments require some sort of analytics so that stakeholders can make data driven decisions. CouchDB, which is the database used by the CHT, is not designed for analytics. It is a document database, which means that it is optimized for storing and retrieving documents. It is not optimized for aggregating data. For example, if you wanted to know how many patients were registered in a particular area, you would have to query the database for all the patients in that area, and then count them. This is not a very efficient process. It is much more efficient to store the number of patients in a particular area in a separate database, and update that number whenever a patient is registered or unregistered. This is what CHT Sync paired with CHT Pipeline is designed to do.
 
 ## Requirements
