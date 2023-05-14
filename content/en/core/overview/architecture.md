@@ -4,6 +4,9 @@ linkTitle: "CHT Core"
 weight: 1
 description: >
   The different pieces of a CHT project, how they interact, and what they're used for
+relatedContent: >  
+  core/overview/watchdog
+  core/overview/data-flows-for-analytics/cht-sync
 ---
 
 ## Overview
