@@ -1,6 +1,6 @@
 ---
 title: "Architecture of CHT Instances"
-linkTitle: "Architecture"
+linkTitle: "CHT Core"
 weight: 1
 description: >
   The different pieces of a CHT project, how they interact, and what they're used for
@@ -8,7 +8,9 @@ description: >
 
 ## Overview
 
-![Architecture of a CHT project](architecture.png)
+<!-- make updates to this diagram on the google slides:            -->
+<!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
+[![Data Flows](architecture.png)](architecture.png)
 
 ## Server
 
@@ -42,23 +44,11 @@ The CHT Upgrade Service is used within the CHT to update individual Docker conta
 
 ### CHT Sync
 
-A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail in [cht-sync GitHub repository](https://github.com/medic/cht-sync).
+A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "core/overview/data-flows-for-analytics/cht-sync" >}}) and the  [cht-sync GitHub repository](https://github.com/medic/cht-sync).
 
-#### Logstash and PostgREST
+### CHT Watchdog
 
-[Logstash](https://www.elastic.co/logstash/) streams data from CouchDB and forwards it to [PostgREST](https://postgrest.org/en/stable/) which provides REST endpoints to store the data in the PostreSQL database.
-
-#### PostgreSQL
-
-A free and open source SQL database used for analytics queries. See more at the [PostgreSQL](https://www.postgresql.org) site.
-
-#### DBT
-
-[DBT](https://www.getdbt.com/) is used to ingest raw JSON data from the postgres database and normalize it into a relational schema to make it much easier to query.
-
-#### Superset
-
-[Apache Superset](https://superset.apache.org/) is a free an open source platform for creating data dashboards.
+Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption cause by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the  [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
 
 ## Client
 
@@ -67,9 +57,11 @@ A free and open source SQL database used for analytics queries. See more at the 
 The CHT Core Framework provides two web applications: the [CHT Web App]({{% ref "#cht-web-application" %}}) for care teams and program staff, and [App Management]({{% ref "#app-management" %}}) for program administrators.
 
 #### CHT Web Application
+
 The CHT Web Application is used by Community Health Workers and provides a large variety of [features](https://docs.communityhealthtoolkit.org/apps/features/). View the source code in [our GitHub repository](https://github.com/medic/cht-core/tree/master/webapp).
 
 ##### Technology
+
 The CHT Web Application is [reactive](https://angular.io/guide/rx-library), responsive and a single page application built with [Angular](https://angular.io/) and [NgRx](https://ngrx.io) frameworks. Additionally, it uses the following technology:
 
 | Technology                                                       | Usage                                                                                                                                                                                  |

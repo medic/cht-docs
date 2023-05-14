@@ -1,7 +1,7 @@
 ---
 title: "Roadmap"
 linkTitle: "Roadmap"
-weight: 1
+weight: 10
 description: >
   Improvements that are being worked on, and those that are being considered next
 aliases:
