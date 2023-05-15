@@ -37,7 +37,9 @@ mon_api --> json
 
 ### Additional Flows
 
-While the additions to Prometheus don't have to reside on the same server as the CHT, this guide assumes the metrics being added are to increase the CHT stability. As such, the focus of this guide is on using a Dockerized instance of [cAdvisor](https://prometheus.io/docs/guides/cadvisor/) running along side with the CHT Core. When enabled, we can expose metrics from Docker itself which Prometheus can directly ingest:
+Your Prometheus instance from CHT Watchog can ingest data from any [supported data source](https://prometheus.io/docs/instrumenting/exporters/) accessible via an HTTPS request. These data sources might be hosted on the same server as CHT Core or on a completely different server. 
+
+The focus of this guide is to collect metrics on Docker container usage and performance from the server hosting our CHT Core instance using [cAdvisor](https://prometheus.io/docs/guides/cadvisor/).
 
 ```mermaid
 flowchart LR
