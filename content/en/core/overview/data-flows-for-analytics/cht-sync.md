@@ -45,7 +45,7 @@ For more information on these technologies, see [CHT Core overview]({{< relref "
 
 ### CHT Pipeline
 
-CHT Sync puts all new data into the postgres database into a single table that has a `jsonb` column. This is not very useful for analytics. CHT Pipeline is a set of SQL queries that transform the data in the jsonb column into a more useful format. It uses [DBT](https://www.getdbt.com/) to define the data transformations. There is a [daemon](https://github.com/medic/dataemon) that runs CHT Pipeline, and it updates the database whenever the data in the jsonb column changes. 
+CHT Sync puts all new data into the postgres database into a single table that has a `jsonb` column. This is not very useful for analytics. [CHT Pipeline](https://github.com/medic/cht-pipeline) is a set of SQL queries that transform the data in the jsonb column into a more useful format. It uses [DBT](https://www.getdbt.com/) to define the data transformations. There is a [daemon](https://github.com/medic/dataemon) that runs CHT Pipeline, and it updates the database whenever the data in the jsonb column changes. 
 
 You can pass in your CHT Pipeline model definitions to CHT Sync through the [variables](https://github.com/medic/cht-sync/blob/main/docker-compose.postgres.yml#L13) passed to the docker container. This ensures that you have an easy way of getting your data into the analytics database seamlessly.
 
