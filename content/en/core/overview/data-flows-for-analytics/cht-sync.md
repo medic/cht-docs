@@ -4,6 +4,9 @@ linkTitle: "CHT Sync"
 weight: 2
 description: >
   An overview of what CHT-Sync is and how to set it up.
+relatedContent: >  
+  core/overview/architecture
+  core/overview/watchdog
 ---
 
 ## Overview

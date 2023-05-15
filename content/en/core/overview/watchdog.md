@@ -4,6 +4,9 @@ linkTitle: "CHT Watchdog"
 weight: 1
 description: >
     An open source monitoring system using Grafana and Prometheus
+relatedContent: >  
+    core/overview/architecture
+    core/overview/data-flows-for-analytics/cht-sync
 ---
 
 ## Overview

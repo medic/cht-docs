@@ -4,6 +4,9 @@ linkTitle: "Setup"
 weight: 100
 description: >
     Setting up Grafana and Prometheus with the CHT
+relatedContent: >  
+   core/overview/architecture
+   core/overview/watchdog
 ---
 
 {{% pageinfo %}} 
