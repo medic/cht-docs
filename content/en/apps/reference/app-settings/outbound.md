@@ -178,7 +178,7 @@ This example makes a few points:
 
 #### Troubleshooting
 
-By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging]({{< relref "apps/guides/debugging/obtaining-logs#server-log-level" >}}) to get more information about the exact contents of the request/response.
+By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging]({{< relref "apps/guides/hosting/4.x/logs#setting-log-level" >}}) to get more information about the exact contents of the request/response.
 
 ## How Outbound messages are sent
 

@@ -19,6 +19,12 @@ CHT 4.x has the following services running via Docker and each can have its logs
 * healthcheck
 * upgrade-service
 
+## Setting log level
+
+By default, the CHT server logs are set to the `info` level. To change the log level to `debug`, you can set the `NODE_ENV` environment variable to `development`.  A log level of `debug` can affect system performance and cause log files sizes to grow rapidly.  It is recommended to temporarily set the log level to `debug` only when needed for troubleshooting.
+
+## Viewing logs
+
 First, find the actual names of the containers with the  `docker ps --format '{{.Names}}'`  command which should show something like this:
 
 ```
