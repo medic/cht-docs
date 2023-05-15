@@ -60,7 +60,7 @@ cAdvisor["cAdvisor (8443)"] -->  Prometheus
 
 Note that because CHT Core is listening on port 443 already, we'll have cAdvisor listen on port 8443.
 
-By reading this guide you should not only be able to set up cAdvisor, but be familure with extending CHT Watchdog to support any other vital metrics.
+By reading this guide you should not only be able to set up cAdvisor, but also be familiar with extending CHT Watchdog to support any other vital metrics.
 
 ### Steps to new integrations
 
