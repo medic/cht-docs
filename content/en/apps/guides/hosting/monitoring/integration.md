@@ -199,8 +199,3 @@ Now that cAdvisor is running on your CHT Core instance and CHT Watchdog's Promet
 5. Confirm the "Name" and "Folder" values and select "Prometheus" as the data source in the dropdown. Finally, click the "Import" button at the bottom of the page.
 
 That's it! After following these steps, you should be looking at the cAdvisor dashboard [as shown above](#steps-to-new-integrations).  From here, you can both customize this dashboard as well as add alerts as needed.
-
-<!-- there wasn't enough space after the diagrams, adding CSS to increase padding -->
-<style>
-.mermaid { padding-bottom: 20px; }
-</style>
