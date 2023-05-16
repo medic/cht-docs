@@ -3,7 +3,7 @@ title: "Synthesizing Nuggets"
 linkTitle: "Synthesizing Nuggets"
 weight: 4
 description: >
-  How to synthesize nuggets in the UX Research Repository
+  How to synthesize nuggets in the UX Research Repository to identify insights
 ---
 
 1. Product owners review new Nuggets weekly
@@ -13,12 +13,9 @@ description: >
     2. Facilitator applies filters to Nuggets under review
         1. Date (last synthesis workshop to current date)
         2. Focused group (Care or Allies)
-        3. Experience vector is Negative
         4. Not already associated to an insight
-    3. Export filtered Nuggets to CSV and copy and paste into stickies in Miro
-    4. Product trio and stakeholders sort stickies into themes
-        1. Review existing themes as necessary to avoid duplication
-    5. Discuss
-    6. Define problem statements per theme as insights
-    7. Return to Baserow and add insights
-    8. Associate Nuggets to Insights
+        5. Export filtered Nuggets to CSV 
+    3. Make copy of latest the Miro board and import CSV as stickies
+    4. Product trio and stakeholders discuss and sort stickies into existing or new themes
+    5. Define problem statements per theme as insights
+    6. Return to Baserow and add insights to corresponding nuggets
