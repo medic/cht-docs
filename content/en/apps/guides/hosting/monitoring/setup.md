@@ -155,7 +155,7 @@ See both the Grafana [high level alert Documentation](https://grafana.com/docs/g
 
 The provisioned alert rules shipped with CHT Watchdog are intended to be the generally applicable for most CHT deployments. However, not all the alert rules will necessarily be useful for everyone. If you would like to delete any of the provisioned alert rules, you can do so with the following steps:
 
-1. Open the alert rule you would like to delete in the Grafana alert rules UI and copy its `Rule UID` value.
+1. In Grafana, navigate to "Alerting"  and then  "Alert Rules"  and click the eye icon for the rule you want to delete.  Copy the `Rule UID` which can be found on the right and is a 10 character value like `mASYtCQ2j`.
 2. Create a `delete-rules.yml` file
 
     ```shell
