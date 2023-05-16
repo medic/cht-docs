@@ -66,10 +66,10 @@ By reading this guide you should not only be able to set up cAdvisor, but also b
 
 While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
 
-3. CHT Core: [Create both cAdvisor and Caddy Docker Compose files]({{< relref "#cadvisor-compose-file" >}})
-4. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core]({{< relref "#start-cadvisor-caddy-and-cht-core-with-docker" >}})
-1. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
-2. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
+1. CHT Core: [Create both cAdvisor and Caddy Docker Compose files]({{< relref "#cadvisor-compose-file" >}})
+2. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core]({{< relref "#start-cadvisor-caddy-and-cht-core-with-docker" >}})
+3. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
+4. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
 5. CHT Watchdog: [Importing an exising cAdvisor dashboard from `grafana.com`]({{< relref "#on-cht-watchdog-import-grafana-dashboard" >}})
 
 After completing these steps, we now have Docker metrics we can alert on:
