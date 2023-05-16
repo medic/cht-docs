@@ -10,7 +10,7 @@ description: >
     1. Deal with duplicates
 2. Product trio and stakeholders review Nuggets quarterly
     1. Create a new grid in Baserow with the date of the workshop
-    2. Facilitator applies filters to Nuggets under review
+    2. Facilitator applies filters to identify Nuggets to be reviewed
         1. Date (last synthesis workshop to current date)
         2. Focused group (Care or Allies)
         4. Not already associated to an insight
