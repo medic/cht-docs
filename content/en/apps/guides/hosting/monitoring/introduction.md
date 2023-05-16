@@ -5,7 +5,7 @@ linkTitle: "Introduction"
 aliases:
     - /apps/guides/hosting/monitoring.md
 description: >
-    High level approach to monitoring and alerting with CHT applicatoins
+    High level approach to monitoring and alerting with CHT applications
 ---
 
 {{% pageinfo %}} 

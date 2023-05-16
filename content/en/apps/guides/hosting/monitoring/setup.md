@@ -37,8 +37,8 @@ These instructions have been tested against Ubuntu, but should work against any 
 
     ```sh
     cd ~
-    git clone https://github.com/medic/cht-monitoring.git
-    cd cht-monitoring
+    git clone https://github.com/medic/cht-watchdog.git
+    cd cht-watchdog
     cp cht-instances.example.yml cht-instances.yml
     cp grafana/grafana.example.ini grafana/grafana.ini
     mkdir -p grafana/data && mkdir  -p prometheus/data 
@@ -65,7 +65,7 @@ These instructions have been tested against Ubuntu, but should work against any 
 3. Run the following command to deploy the stack:
 
     ```sh
-    cd ~/cht-monitoring
+    cd ~/cht-watchdog
     docker compose up -d
     ```
 
@@ -91,7 +91,7 @@ docker compose up -d
 When you see a new version in the [GitHub repository](https://github.com/medic/cht-watchdog), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration (be sure to replace `TAG` with the tag name associated with the release (e.g. `1.1.0`)):
 
 ```shell
-cd ~/cht-monitoring
+cd ~/cht-watchdog
 git fetch
 git -c advice.detachedHead=false checkout TAG
 docker compose pull
@@ -108,7 +108,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
    
    ```shell
-   cd ~/cht-monitoring
+   cd ~/cht-watchdog
    cp exporters/postgres/postgres-instances.example.yml exporters/postgres/postgres-instances.yml
    cp exporters/postgres/postgres_exporter.example.yml exporters/postgres/postgres_exporter.yml
    ```
@@ -131,7 +131,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
-   cd ~/cht-monitoring
+   cd ~/cht-watchdog
    docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml up -d
    ```
 
@@ -147,17 +147,48 @@ Local storage is not suitable for storing large amounts of monitoring data. If y
 
 #### Alerts
 
-This configuration includes number of pre-provisioned alerts.  Additional alerting rules (and other contact points) can be set in the Grafana UI.
+This configuration includes number of pre-provisioned alert rules.  Additional alerting rules (and other contact points) can be set in the Grafana UI.
 
-See both the Grafana [high level alert Documentation](https://grafana.com/docs/grafana/latest/alerting/) and [provisioning alerts in the UI](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information on how to edit or remove these provisioned alerts.
+See both the Grafana [high level alert Documentation](https://grafana.com/docs/grafana/latest/alerting/) and [provisioning alerts in the UI](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information.
 
-Additionally, you can configure where these alerts are sent.  Two likely options are Email and Slack.
+##### Deleting provisioned alert rules
 
-##### Email
+The provisioned alert rules shipped with CHT Watchdog are intended to be the generally applicable for most CHT deployments. However, not all the alert rules will necessarily be useful for everyone. If you would like to delete any of the provisioned alert rules, you can do so with the following steps:
+
+1. Open the alert rule you would like to delete in the Grafana alert rules UI and copy its `Rule UID` value.
+2. Create a `delete-rules.yml` file
+
+    ```shell
+    cd ~/cht-watchdog
+    cp cp grafana/provisioning/alerting/delete-rules.example.yml grafana/provisioning/alerting/delete-rules.yml
+    ```
+
+3. Update your new `delete-rules.yml` file to include the Rule UID(s) of the alert rule(s) you want to delete 
+4. Restart Grafana
+
+    ```shell
+    docker compose restart grafana
+    ```
+
+If you ever want to re-enable the alert rules you deleted, you can simply remove the Rule UID(s) from the `delete-rules.yml` file and restart Grafana again.
+
+##### Modifying provisioned alert rules
+
+The provisioned alert rules cannot be modified directly. Instead, you can copy the configuration of a provisioned alert into a new custom alert with the desired changes. Then, remove the provisioned alert.
+
+1. Open the alert rule you would like to modify in the Grafana alert rules UI and select the "Copy" button.
+2. Update the copied alert rule with the desired changes and save it into a new Evaluation group.
+3. [Remove the provisioned alert]({{< relref "#deleting-provisioned-alert-rules" >}}).
+
+##### Configuring Contact Points
+
+Grafana supports sending alerts via a number of different methods. Two likely options are Email and Slack.
+
+###### Email
 
 To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.  Then, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
 
-##### Slack
+###### Slack
 
 Slack alerts can be configured within the Grafana web GUI for the specific rules you would like to alert on.
 
