@@ -13,7 +13,7 @@ After conducting your interview, copy the video recording to Google Drive (more 
 ## High Level Steps
 
 1. Add the **Organization** (*of the person you interviewed*) if it doesn’t already exist
-2. Create the **Interview Subject** if this is the first time we’ve interviewed or entered observations from this person**.**
+2. Create the **Interview Subject** if this is the first time we’ve interviewed or entered observations from this person.
 3. Create a record for the **Sample** of the recording.
 4. Add research observations a.k.a. “**Nuggets”!** 
 
