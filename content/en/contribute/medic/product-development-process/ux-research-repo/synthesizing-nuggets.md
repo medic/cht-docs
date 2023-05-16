@@ -15,7 +15,7 @@ description: >
         2. Focused group (Care or Allies)
         4. Not already associated to an insight
         5. Export filtered Nuggets to CSV 
-    3. Make copy of latest the Miro board and import CSV as stickies
+    3. Make copy of latest Miro board and import CSV as stickies
     4. Product trio and stakeholders discuss and sort stickies into existing or new themes
     5. Define problem statements per theme as insights
     6. Return to Baserow and add insights to corresponding nuggets
