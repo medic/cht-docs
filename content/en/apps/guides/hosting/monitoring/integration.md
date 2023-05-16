@@ -66,10 +66,10 @@ By reading this guide you should not only be able to set up cAdvisor, but also b
 
 While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
 
-1. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
-2. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
 3. CHT Core: [Create both cAdvisor and Caddy Docker Compose files]({{< relref "#cadvisor-compose-file" >}})
 4. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core]({{< relref "#start-cadvisor-caddy-and-cht-core-with-docker" >}})
+1. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
+2. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
 5. CHT Watchdog: [Importing an exising cAdvisor dashboard from `grafana.com`]({{< relref "#on-cht-watchdog-import-grafana-dashboard" >}})
 
 After completing these steps, we now have Docker metrics we can alert on:
@@ -78,41 +78,7 @@ After completing these steps, we now have Docker metrics we can alert on:
 
 Read on below on how to set this up!
 
-## Additional Configuration files
-
-### On CHT Watchdog
-
-#### Scrape config
-
-We'll first create the `~/cadvisor-prometheus-conf.yml` file and point the config to our CHT Core URL:
-
-```yaml
-scrape_configs:
-  - job_name: 'cadvisor'
-    scrape_interval: 5s
-    scheme: 'https'
-    static_configs:
-      - targets: ['cht.example.com:8443']
-```
-
-CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `~/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
-
-```yaml
-version: "3.9"
-services:
-  prometheus:
-    volumes:
-      - /root/cadvisor-prometheus-conf.yml:/etc/prometheus/scrape_configs/cadvisor.yml:ro
-```
-
-#### Load new Compose files with existing ones
-
-Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "apps/guides/hosting/monitoring/setup" >}}), this would be:
-
-```shell
-cd ~/cht-monitoring
-docker compose -f docker-compose.yml -f ../cadvisor-compose.yml up -d
-```
+## Integrating with cAdvisor
 
 ### On CHT Core
 
@@ -148,7 +114,7 @@ services:
 
 #### Caddy Config and Compose files
 
-Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.  
+Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.
 
 Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8443` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port `8080` where cAdvisor is running:
 
@@ -188,7 +154,41 @@ docker compose up --detach
 
 Note that the CHT Upgrade Service will process all Docker Compose file in the `/home/ubuntu/cht/compose` directory for us and we don't need to explicity specify them in the `docker compose up` command.
 
-### On CHT Watchdog: Import Grafana Dashboard
+### On CHT Watchdog
+
+#### Scrape config
+
+We'll first create the `~/cadvisor-prometheus-conf.yml` file and point the config to our CHT Core URL:
+
+```yaml
+scrape_configs:
+  - job_name: 'cadvisor'
+    scrape_interval: 5s
+    scheme: 'https'
+    static_configs:
+      - targets: ['cht.example.com:8443']
+```
+
+CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `~/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
+
+```yaml
+version: "3.9"
+services:
+  prometheus:
+    volumes:
+      - /root/cadvisor-prometheus-conf.yml:/etc/prometheus/scrape_configs/cadvisor.yml:ro
+```
+
+#### Load new Compose files with existing ones
+
+Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "apps/guides/hosting/monitoring/setup" >}}), this would be:
+
+```shell
+cd ~/cht-monitoring
+docker compose -f docker-compose.yml -f ../cadvisor-compose.yml up -d
+```
+
+#### Import Grafana Dashboard
 
 Now that cAdvisor is running on your CHT Core instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the cAdvisor metrics, we can now visualize it in a Grafana Dashboard and then alert on it. 
 
