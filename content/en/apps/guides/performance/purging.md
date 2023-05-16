@@ -105,9 +105,9 @@ This function takes four parameters:
 - `userCtx`, an object with the user's `roles` as fields. For more information read the [documentation for the User Context Object](https://docs.couchdb.org/en/stable/json-structure.html#userctx-object).
 - `contact`, the contact document of a patient or other contact who has reports about them.
 - `reports`, an array of all reports for that subject that are present on the server.
-- `messages`, an array of sms messages that the contact has sent or received
-- `chtScriptApi` the CHT API that provides CHT-Core Framwework's functions to toher parts of the app. More info on thea API can be found [here](https://docs.communityhealthtoolkit.org/apps/reference/_partial_cht_api/)
-- `persmissionSettings` string or array of permissions that the user has. More info on permissions can be found [here](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-permissions/)
+- `messages`, an array of sms messages that the contact has sent or received.
+- `chtScriptApi` (Optional) the CHT API that provides CHT-Core Framwework's functions to toher parts of the app. More info on the API can be found [here]({{<ref "apps/reference/_partial_cht_api" >}}).
+- `persmissionSettings` (Optional) string or array of permissions that the user has. More info on permissions can be found [here]({{<ref "apps/reference/app-settings/user-permissions" >}}).
 
 And should return an array of `_id` values for docs you would like to be purged (or `undefined` / nothing if you don't wish to purge anything). `Only ids of docs that were passed to the function are valid for purging: you are not allowed to purge other documents.
 
