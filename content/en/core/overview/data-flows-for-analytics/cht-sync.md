@@ -3,7 +3,7 @@ title: "CHT Sync and CHT Pipeline setup"
 linkTitle: "CHT Sync"
 weight: 2
 description: >
-  An overview of what CHT-Sync is and how to set it up.
+  An overview of what CHT Sync is and how to set it up.
 relatedContent: >  
   core/overview/architecture
   core/overview/watchdog
@@ -19,7 +19,7 @@ Most CHT deployments require some sort of analytics so that stakeholders can mak
 
 #### Logstash and PostgREST
 
-[Logstash](https://www.elastic.co/logstash/) streams data from CouchDB and forwards it to [PostgREST](https://postgrest.org/en/stable/) which provides REST endpoints to store the data in the PostreSQL database.
+[Logstash](https://www.elastic.co/logstash/) streams data from CouchDB and forwards it to [PostgREST](https://postgrest.org/en/stable/) which provides REST endpoints to store the data in the PostgreSQL database.
 
 #### PostgreSQL
 
@@ -41,11 +41,11 @@ For more information on these technologies, see [CHT Core overview]({{< relref "
 
 ### CHT Sync
 
-[CHT-Sync](https://github.com/medic/cht-sync) is a logstash and PostgREST application that runs on the server. It is a service that listens to changes in the CHT database, and updates the analytics database accordingly. It is designed to be run as a service on the server, and it is not designed to be accessed by users. It is not a web application, and it does not have a user interface. It is designed to be run on the same server as the CHT, but it can be run on a separate server if necessary. CHT Sync runs in a Docker container. See the [CHT Sync readme](https://github.com/medic/cht-sync/blob/main/README.md) for more information and instructions on how to run it.
+[CHT Sync](https://github.com/medic/cht-sync) is a logstash and PostgREST application that runs on the server. It is a service that listens to changes in the CHT database, and updates the analytics database accordingly. It is designed to be run as a service on the server, and it is not designed to be accessed by users. It is not a web application, and it does not have a user interface. It is designed to be run on the same server as the CHT, but it can be run on a separate server if necessary. CHT Sync runs in a Docker container. See the [CHT Sync readme](https://github.com/medic/cht-sync/blob/main/README.md) for more information and instructions on how to run it.
 
 ### CHT Pipeline
 
-CHT Sync puts all new data into the postgres database into a single table that has a `jsonb` column. This is not very useful for analytics. CHT Pipeline is a set of SQL queries that transform the data in the jsonb column into a more useful format. It uses [DBT](https://www.getdbt.com/) to define the data transformations. There is a [daemon](https://github.com/medic/dataemon) that runs CHT Pipeline, and it updates the database whenever the data in the jsonb column changes. 
+CHT Sync puts all new data into the postgres database into a single table that has a `jsonb` column. This is not very useful for analytics. [CHT Pipeline](https://github.com/medic/cht-pipeline) is a set of SQL queries that transform the data in the jsonb column into a more useful format. It uses [DBT](https://www.getdbt.com/) to define the data transformations. There is a [daemon](https://github.com/medic/dataemon) that runs CHT Pipeline, and it updates the database whenever the data in the jsonb column changes. 
 
-You can pass in your CHT Pipeline model definitions to CHT Sync through the [variables](https://github.com/medic/cht-sync/blob/main/docker-compose.postgres.yml#L13) passed to the docker container. The ensures that you have an easy way of getting your data into the analytics database seamlessly.
+You can pass in your CHT Pipeline model definitions to CHT Sync through the [variables](https://github.com/medic/cht-sync/blob/main/docker-compose.postgres.yml#L13) passed to the docker container. This ensures that you have an easy way of getting your data into the analytics database seamlessly.
 
