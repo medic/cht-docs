@@ -160,7 +160,7 @@ The provisioned alert rules shipped with CHT Watchdog are intended to be the gen
 
     ```shell
     cd ~/cht-watchdog
-    cp cp grafana/provisioning/alerting/delete-rules.example.yml grafana/provisioning/alerting/delete-rules.yml
+    cp grafana/provisioning/alerting/delete-rules.example.yml grafana/provisioning/alerting/delete-rules.yml
     ```
 
 3. Update your new `delete-rules.yml` file to include the Rule UID(s) of the alert rule(s) you want to delete 
