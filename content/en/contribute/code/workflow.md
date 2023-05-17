@@ -72,7 +72,7 @@ Options for doing this:
 An example of a good thorough comment/template is as follows:
 
 ```
-### Acceptance testing
+### Testing
 
 1. Install branch `81-do-great-things`
 2. [a specific thing to be sure it has been set up correctly]
@@ -92,11 +92,15 @@ An example of a good thorough comment/template is as follows:
 
 ### Testing
 
+Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) dedicated page).
+
+Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or addding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
+
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
 
 The CHT has a [fully automated end-to-end testing suite](https://github.com/medic/cht-core/tree/master/tests/e2e) which is executed in CI and must pass before any change is merged. This means you can have reasonable confidence that all code merged to the main branch is safe and ready for release without further regression testing. The suite isn't fully comprehensive but it is being constantly improved and expanded.
 
-From time to time Quality Assurance Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
+From time to time QA Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
 
 ### Migrating
 
@@ -104,11 +108,11 @@ When the schema is changed you must also provide a migration so when instances a
 
 ## Commits
 
-The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so we can take a release branch as needed. To achieve this we do (almost) all development in a branch and submit a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
+The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this (almost) all development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
 
 ### Commit message format
 
-The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means we can automate some of the release process. See the list of commit types and examples below:
+The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means that some of the release process can be automated. See the list of commit types and examples below:
 
 Type | Description | Example commit message | Release type
 -- | -- | -- | --
@@ -203,7 +207,7 @@ A small description, and images or videos that support the comment.
 ---
 
 Test passed successfully. :white_check_mark:
-Moving the ticket to `Ready to Merge`
+The ticket is ready to merge.
 @<developer's name>
 
 {{< /tab >}}
@@ -237,7 +241,7 @@ A small description, and images or videos that support the comment.
 ---
 
 Test failed :x:
-Moving the ticket back to `In Progress`.
+The ticket needs further development.
 @<developer's name>
 
 {{< /tab >}}
@@ -249,7 +253,7 @@ Once you're confident that the change is complete and ready to be merged:
 
 1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
 1. Wait for the builds to succeed and ensure there are no conflicts with the the main branch so the PR can be merged.
-1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can collaborate on PRs even if they aren't an official Reviewer.
+1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can collaborate on PRs even if they aren't an official Reviewer. If you add a QA Engineer as a Reviewer, briefly comment in the ticket about what kind of testing review you expect from that engineer.
 
 Once all PRs have been approved:
 
