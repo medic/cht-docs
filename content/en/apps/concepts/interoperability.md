@@ -15,7 +15,7 @@ Interoperability refers to the ability of different systems and applications to 
 
 ## CHT Interoperability
 
-The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. As the CHT is not natively FHIR standardized, we use a middleware to convert the CHT data structure into a standardized form so the other systems can read it.
+The native CHT database structure does not map directly to a [Fast Healthcare Interoperability Resources (FHIR)](http://www.hl7.org/fhir/) message format. To be compatible, we use a middleware to convert the CHT data structure into a standardized JSON format so the other systems can read it.
 
 {{< figure src="flow.png" link="flow.png" >}}
 
