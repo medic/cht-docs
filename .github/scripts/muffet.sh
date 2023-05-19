@@ -39,4 +39,5 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://.*twitter.com.*" \
   --exclude "https://fhir.org/" \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
-  --exclude "https://doi.org/10.1080/02681102.2019.1667289"
+  --exclude "https://doi.org/10.1080/02681102.2019.1667289" \
+  --exclude "https://placehold.it/*" 
