@@ -30,7 +30,7 @@ Interoperability is the best practice for health systems because it allows infor
 
 - [FHIR](http://www.hl7.org/fhir): FHIR is a standard for exchanging healthcare data electronically. FHIR provides a modern, web-based approach to exchanging healthcare data and is rapidly becoming the preferred standard for healthcare interoperability.
 
-# Loss to Follow Up Workflow
+## Loss to Follow Up Workflow (LTFU)
 
 This workflow describes a use case where a health facility/requesting system generates a list of patients who have missed appointments for follow-up through on the CHT. A Community Health Worker (CHW) physically visits the patients who missed the appointments and encourages them to visit the health facility. The follow-up process can also be conducted over phone or text messaging.
 In the context of the proof of concept, the intended users of the interoperable systems are Community Health Workers (CHWs) on the CHT side and Healthcare Givers on the requesting system side. System administrators can access the mediator on the administration console.
