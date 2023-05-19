@@ -19,7 +19,6 @@ The native CHT database structure does not map directly to a [Fast Healthcare In
 
 {{< figure src="flow.png" link="flow.png" >}}
 
-Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development. Interoperability allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
 
 ## Standards & Components
 
