@@ -13,6 +13,8 @@ relatedContent: >
 
 Interoperability refers to the ability of different health information systems and applications to communicate with each other and exchange data seamlessly. With interoperability, patient information can be seen, exchanged, and used across different platforms. The information/data exchanged has to be understood across the different software for these systems to become interoperable. This is different from _integration_ which requires custom development to connect two specific systems together.
 
+Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development. Interoperability allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
+
 ## CHT Interoperability
 
 The native CHT database structure does not map directly to a [Fast Healthcare Interoperability Resources (FHIR)](http://www.hl7.org/fhir/) message format. To be compatible, we use a middleware to convert the CHT data structure into a standardized JSON format so the other systems can read it.
@@ -29,22 +31,9 @@ The native CHT database structure does not map directly to a [Fast Healthcare In
 
 - [FHIR](http://www.hl7.org/fhir): FHIR is a standard for exchanging healthcare data electronically. FHIR provides a modern, web-based approach to exchanging healthcare data and is rapidly becoming the preferred standard for healthcare interoperability.
 
-## Loss to Follow Up Workflow (LTFU)
 
-This workflow describes a use case where a health facility/requesting system generates a list of patients who have missed appointments for follow-up through on the CHT. A Community Health Worker (CHW) physically visits the patients who missed the appointments and encourages them to visit the health facility. The follow-up process can also be conducted over phone or text messaging.
-In the context of the proof of concept, the intended users of the interoperable systems are Community Health Workers (CHWs) on the CHT side and Healthcare Givers on the requesting system side. System administrators can access the mediator on the administration console.
-
-The Interoperating Systems:
-- [CHT](https://docs.communityhealthtoolkit.org/): Community Health Toolkit.
-- [OpenHIM](http://openhim.org/): Mediator (middleware).
-- Requesting System: For testing purposes, we used HTTP Requests.
-
-OpenHIM was chosen as the main component of the interoperability layer and custom mediators were built to deal with the different workflows as it provides a central point of control for managing data exchange and security.
-
-{{< figure src="LTFU Sequence Diagram.png" link="LTFU Sequence Diagram.png" >}}
-
-Conversely to bring data in to the CHT, OpenHIM should be configured to route the updated resource to a Mediator, which then calls the relevant CHT APIs to update the document in the CHT database. This will then be replicated to users' devices as per usual.
-
+A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/cht-interoperability). 
+This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the [OpenHIE LTFU Guide](https://wiki.ohie.org/display/SUB/Use+Case+Summary:+Request+Community+Based+Follow-Up). 
 
 ## Important Links
 - [cht-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU workflow
