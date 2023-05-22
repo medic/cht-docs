@@ -37,7 +37,7 @@ In the context of the proof of concept, the intended users of the interoperable 
 The Interoperating Systems:
 - [CHT](https://docs.communityhealthtoolkit.org/): Community Health Toolkit.
 - [OpenHIM](http://openhim.org/): Mediator (middleware).
-- Requesting System: [Postman](https://www.postman.com/) was used for testing purposes.
+- Requesting System: For testing purposes, we used HTTP Requests.
 
 OpenHIM was chosen as the main component of the interoperability layer and custom mediators were built to deal with the different workflows as it provides a central point of control for managing data exchange and security.
 
