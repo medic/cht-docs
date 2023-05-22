@@ -48,6 +48,6 @@ Conversely to bring data in to the CHT, OpenHIM should be configured to route th
 # Important Links
 -  [CHT-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU interoperability
 - [CHT LTFU Test Instance](https://interop-cht-test.dev.medicmobile.org/medic/login?redirect=https%3A%2F%2Finterop-cht-test.dev.medicmobile.org%2F)
-- [OpenHIM LTFU Test Instance Admin Login](https://interoperability.dev.medicmobile.org/#!/login) 
+- [OpenHIM Admin Console](https://interoperability.dev.medicmobile.org/#!/login) 
 
 
