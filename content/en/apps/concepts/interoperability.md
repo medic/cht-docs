@@ -34,7 +34,7 @@ The native CHT database structure does not map directly to a [Fast Healthcare In
 This workflow describes a use case where a health facility/requesting system generates a list of patients who have missed appointments for follow-up through on the CHT. A Community Health Worker (CHW) physically visits the patients who missed the appointments and encourages them to visit the health facility. The follow-up process can also be conducted over phone or text messaging.
 In the context of the proof of concept, the intended users of the interoperable systems are Community Health Workers (CHWs) on the CHT side and Healthcare Givers on the requesting system side. System administrators can access the mediator on the administration console.
 
-The Interoperating Systems
+The Interoperating Systems:
 - [CHT](https://docs.communityhealthtoolkit.org/): Community Health Toolkit.
 - [OpenHIM](http://openhim.org/): Mediator (middleware).
 - Requesting System: [Postman](https://www.postman.com/) was used for testing purposes.
