@@ -41,7 +41,7 @@ The Interoperating Systems
 
 OpenHIM was chosen as the main component of the interoperability layer and custom mediators were built to deal with the different workflows as it provides a central point of control for managing data exchange and security.
 
-{{< figure workflows="LTFU Sequence Diagram.png" link="LTFU Sequence Diagram.png" >}}
+{{< figure src="LTFU Sequence Diagram.png" link="LTFU Sequence Diagram.png" >}}
 
 Conversely to bring data in to the CHT, OpenHIM should be configured to route the updated resource to a Mediator, which then calls the relevant CHT APIs to update the document in the CHT database. This will then be replicated to users' devices as per usual.
 
