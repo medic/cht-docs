@@ -50,4 +50,3 @@ Conversely to bring data in to the CHT, OpenHIM should be configured to route th
 - [CHT LTFU Test Instance](https://interop-cht-test.dev.medicmobile.org/medic/login?redirect=https%3A%2F%2Finterop-cht-test.dev.medicmobile.org%2F)
 - [OpenHIM Admin Console](https://interoperability.dev.medicmobile.org/#!/login) 
 
-
