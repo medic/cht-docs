@@ -105,6 +105,14 @@ docker compose up -d --remove-orphans
 
 ### Additional Configuration
 
+When making any changes to your CHT Watchdog configuration (e.g. adding/removing instances from the `cht-instances.yml` file) make sure to restart all services to pick up the changes:
+
+```shell
+cd ~/cht-watchdog
+docker compose down
+docker compose up -d
+``` 
+
 #### couch2pg Data
 
 With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
