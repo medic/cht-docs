@@ -13,6 +13,10 @@ This guide will present the required steps while using a migration helping tool,
 By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.
 Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#moving-a-shard). 
 
+{{% alert title="Note" %}}
+If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around.  This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1.  It was fixed in CHT 4.2.0.
+{{% /alert %}}
+
 ### 1. Install CHT data migration tool
 
 Open your terminal and run these commands. They will create a new directory, download a docker compose file and download the required docker image. 
