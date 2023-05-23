@@ -19,8 +19,18 @@ Interoperability is the best practice for health systems because it allows infor
 
 The native CHT database structure does not map directly to a [Fast Healthcare Interoperability Resources (FHIR)](http://www.hl7.org/fhir/) message format. To be compatible, we use a middleware to convert the CHT data structure into a standardized JSON format so the other systems can read it.
 
-{{< figure src="flow.png" link="flow.png" >}}
+```mermaid
+graph LR
+cht[CHT]
+mediator_a([Mediator])
+mediator_b([Mediator])
+openhim[OpenHIM]
 
+cht -- Outbound push\nfa:fa-arrow-right --- mediator_a
+cht -- API request\nfa:fa-arrow-left --- mediator_b
+mediator_a -- Request\nfa:fa-arrow-right --- openhim
+mediator_b -- Channel\nfa:fa-arrow-left --- openhim
+```
 
 ## Standards & Components
 
