@@ -12,7 +12,8 @@ This is a model for interoperability that can be used for Loss to Follow up flow
 ## Intended Users 
 The intended users of the interoperable systems are Community Health Workers (CHWs) on the CHT side and Healthcare Givers on the requesting system side. System administrators can access the mediator on the administration console. 
 See the sequence diagram below showcasing the with the loss to follow up flow:
-{{< figure src="LTFU Sequence Diagram.png" link="LTFU Sequence Diagram.png" class="right col-12 col-lg-4" >}}
+
+<img src="content/en/apps/examples/Interoperability/LTFU Sequence Diagram.png">
 
 The Interoperating Systems:
 - [CHT](https://docs.communityhealthtoolkit.org/): Community Health Toolkit.
