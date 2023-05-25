@@ -34,7 +34,6 @@ mediator_b -- Channel\nfa:fa-arrow-left --- openhim
 
 ## Standards & Components
 
-
 - [OpenHIE](https://ohie.org/): OpenHIE is an open-source framework for building interoperable health information systems. OpenHIE provides a set of standards and protocols for enabling different health systems and applications to communicate with each other.
 
 - [OpenHIM](http://openhim.org/): OpenHIM is an open-source middleware platform that provides a central point of control for managing health information exchange (HIE). OpenHIM enables healthcare providers to connect different health systems and applications and provides a common interface for managing data exchange and security.

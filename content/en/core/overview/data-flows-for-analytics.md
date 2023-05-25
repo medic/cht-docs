@@ -62,10 +62,10 @@ Custom materialized views and functions are added specific to a deployment's nee
 
 Data in the views and functions mentioned in this section is as accurate as the accuracy of the SQL queries. Best practice is to begin the process of defining these objects at design in order to align analytics and dashboards requirements with workflows being deployed.
 
-#### CHT-Sync
+#### CHT Sync
 [cht-sync](https://github.com/medic/cht-sync) is able to sync data from CouchDB to PostgreSQL. It uses logstash and PostgREST to replicate data from CouchDB to PostgreSQL in a real-time manner.
 
-#### CHT-Pipeline
+#### CHT Pipeline
 [cht-pipeline](https://github.com/medic/cht-pipeline) helps with the transformation of the data from the CHT to a format that is more suitable for analytics. It uses [DBT](https://www.getdbt.com/) to define the models that are translated into Postgres tables or views. It then becomes easier to query the data in the analytics platform of choice, for example [Superset](https://superset.apache.org/). See these [instructions](cht-sync) on how to set up and use cht-pipeline.
 
 #### 3. Data Use

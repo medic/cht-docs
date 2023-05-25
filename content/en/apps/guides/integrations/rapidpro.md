@@ -193,7 +193,7 @@ Ensure that you install the maximum number of SMS packs (available in the  Rapid
    3. Alerts for when things go wrong. 
       - Send monitoring emails and alert various parties when the Android Channel goes to sleep or becomes unavailable. This can be done from the channel's management page under `Alert Email`
 
-Android channels can be [used with a bulk sender](https://help.nyaruka.com/en/article/using-a-bulk-sender-sk27hz/) to get past the 330 outgoing messages per hour.
+Android channels can be [used with a bulk sender](http://web.archive.org/web/20220126134411/https://help.nyaruka.com/en/article/using-a-bulk-sender-sk27hz/) to get past the 330 outgoing messages per hour.
 
 Medic recommends that you use shared or dedicated shortcodes for SMS messaging. Dedicated shortcodes are preferred because recipients do not have to include the keyword with each response submitted. Shortcode procurement can be a lengthy process, so make arrangements for the shortcode in advance. It is possible but inconvenient to migrate to a shortcode after deployment.
 

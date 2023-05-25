@@ -27,7 +27,6 @@ Page tabs are the primary way to navigate apps built with the Core Framework. Th
 
 Tap the menu icon in the upper right corner of the header to access other pages, edit personal settings, view sync status and more.
 - **Admin Console**: Change advanced app settings (only admin users will see this)
-- **Guided Tour**: Review new features and important tips
 - **About**: View your app version and other detailed database information 
 - **User Settings**: Update basic user information like email, phone number, and password
 - **Report Bug**: Let us know if something isn’t working or you encounter errors

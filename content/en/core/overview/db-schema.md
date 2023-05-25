@@ -229,7 +229,7 @@ The `medic` database stores a copy of roles and permissions along with:
  - The `type` of `user-settings`
  - They may have a `contact_id` field that is the `_id` of the _person_ that the user is attached to
  - They may also have a `facility_id` field that is the `_id` of the _place_ that the user is attached to
- - They may also have a `known` field. If this field is `true`, it means the user has logged in once and will no longer be shown the tour by default. Otherwise, it will be `undefined`.
+ - They may also have a `known` field. If this field is `true`, it means the user has logged in once. Otherwise, it will be `undefined`.
 
 Note that SMS users do not have a users record: their phone number will be attached to a `person` record, but they do not have a user because they do not access the application.
 
@@ -284,6 +284,8 @@ To understand the difference between a task requester and a task owner, kindly s
     "dueDate": "2000-01-01",
     "startDate": "1999-12-29",
     "endDate": "2000-01-08",
+    "priority": "high",
+    "priorityLabel": "task.priority",
     ...
   },
   "stateHistory": [{

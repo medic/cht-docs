@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
+  <h:head>
+    <h:title>training:ui_change_more_options</h:title>
+    <model>
+      <itext>
+        <translation lang="en">
+          <text id="/ui_change_floating_action_button/change_1/change_1_txt_1:label">
+            <value>The action bar at the bottom has changed. It used to look like this.</value>
+            <value form="image">jr://images/old-actions.png</value>
+          </text>
+          <text id="/ui_change_floating_action_button/change_2/change_2_txt_1:label">
+            <value>In your new app, the action bar is now a button that looks like this.</value>
+            <value form="image">jr://images/fab.png</value>
+          </text>
+          <text id="/ui_change_floating_action_button/change_3/change_3_txt_1:label">
+            <value>Tap on this button to add people and access your forms.</value>
+            <value form="image">jr://images/actions-list.png</value>
+          </text>
+          <text id="/ui_change_floating_action_button/ending/ending_txt_1:label">
+            <value>If you understand these changes and are ready to start using your app, tap on **Submit**.</value>
+          </text>
+          <text id="/ui_change_floating_action_button/ending/ending_txt_2:label">
+            <value>If you have any questions or need further instructions, please contact your supervisor.</value>
+          </text>
+          <text id="/ui_change_floating_action_button/intro/intro_txt_1:label">
+            <value>There have been some important changes to your app.</value>
+          </text>
+          <text id="/ui_change_floating_action_button/intro/intro_txt_2:label">
+            <value>Tap **Next** to see what your app used to look like, and what it looks like now.</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <ui_change_floating_action_button id="training:ui_change_more_options" prefix="J1!training:ui_change_more_options!" delimiter="#" version="1 (2022-07-20 14:28:16)">
+          <intro>
+            <intro_txt_1/>
+            <intro_txt_2/>
+          </intro>
+          <change_1>
+            <change_1_txt_1/>
+          </change_1>
+          <change_2>
+            <change_2_txt_1/>
+          </change_2>
+          <change_3>
+            <change_3_txt_1/>
+          </change_3>
+          <ending>
+            <ending_txt_1/>
+            <ending_txt_2/>
+          </ending>
+          <meta tag="hidden">
+            <instanceID/>
+          </meta>
+        </ui_change_floating_action_button>
+      </instance>
+      <bind nodeset="/ui_change_floating_action_button/intro" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/intro/intro_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/intro/intro_txt_2" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/change_1" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/change_1/change_1_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/change_2" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/change_2/change_2_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/change_3" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/change_3/change_3_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/ending" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/ending/ending_txt_1" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/ending/ending_txt_2" readonly="true()" type="string" required="false()"/>
+      <bind nodeset="/ui_change_floating_action_button/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+    </model>
+  </h:head>
+  <h:body class="pages">
+    <group appearance="field-list" ref="/ui_change_floating_action_button/intro">
+      <input ref="/ui_change_floating_action_button/intro/intro_txt_1">
+        <label ref="jr:itext('/ui_change_floating_action_button/intro/intro_txt_1:label')"/>
+      </input>
+      <input ref="/ui_change_floating_action_button/intro/intro_txt_2">
+        <label ref="jr:itext('/ui_change_floating_action_button/intro/intro_txt_2:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_floating_action_button/change_1">
+      <input ref="/ui_change_floating_action_button/change_1/change_1_txt_1">
+        <label ref="jr:itext('/ui_change_floating_action_button/change_1/change_1_txt_1:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_floating_action_button/change_2">
+      <input ref="/ui_change_floating_action_button/change_2/change_2_txt_1">
+        <label ref="jr:itext('/ui_change_floating_action_button/change_2/change_2_txt_1:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_floating_action_button/change_3">
+      <input ref="/ui_change_floating_action_button/change_3/change_3_txt_1">
+        <label ref="jr:itext('/ui_change_floating_action_button/change_3/change_3_txt_1:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/ui_change_floating_action_button/ending">
+      <input ref="/ui_change_floating_action_button/ending/ending_txt_1">
+        <label ref="jr:itext('/ui_change_floating_action_button/ending/ending_txt_1:label')"/>
+      </input>
+      <input ref="/ui_change_floating_action_button/ending/ending_txt_2">
+        <label ref="jr:itext('/ui_change_floating_action_button/ending/ending_txt_2:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -30,6 +30,12 @@ These are links to, and metadata about, the “Evidence”. These are typically 
 
 An observation gathered through research or an atomic unit of research insight.
 
+**Example**: *Users can’t easily find who they’re looking for*
+
+## Insights
+
+These are identified during quarterly synthesis sessions by grouping nuggets into themes and developing problem statements around them. Each individual nugget is then tagged to an insight.
+
 **Example**: *Julius tapped on the X icon many times before the window closed. He seemed frustrated.*
 
 ## Leads

@@ -16,7 +16,7 @@ To build your own application using the Core Framework you will need an instance
 The build tool for applications using the Core Framework is `cht-conf`. To set it up, follow the [installation instructions](https://github.com/medic/cht-conf/blob/master/README.md). To properly use the tool you will need your application files in set locations within a folder. Once you are set up with the basic file structure you can edit the files, and rebuild the application by compiling or converting components as needed, and uploading them to your test instance.
 
 ## Background skills
-To build applications with the Core Framework the follow skills are helpful, ordered by importance:
+To build applications with the Core Framework the following skills are helpful, ordered by importance:
 
 ### XLSForms and XForms
 Many workflows in your application, including completing tasks and creating contacts, will be generated using [ODK XForms](https://opendatakit.github.io/xforms-spec/). Many app developers use XLSForms as an easier way to generate XForms. A strong knowledge of [XLSForm standard](http://xlsform.org/) is very useful in building your own application.

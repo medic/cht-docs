@@ -1,17 +1,19 @@
 ---
-title: "Grafana and Prometheus Setup"
+title: "CHT Watchdog Setup"
 linkTitle: "Setup"
+weight: 100
 description: >
     Setting up Grafana and Prometheus with the CHT
+relatedContent: >  
+   core/overview/architecture
+   core/overview/watchdog
 ---
 
 {{% pageinfo %}} 
 These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 {{% /pageinfo %}}
 
-## Grafana and Prometheus
-
-Medic maintains an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
+Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
@@ -27,6 +29,10 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - URL(s) of the CHT instance(s)
 
+{{% alert title="Note" %}}
+Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
+{{% /alert %}}
+
 ### Setup
 
 These instructions have been tested against Ubuntu, but should work against any OS that meets the prerequisites. They follow a happy path assuming you need to only set a secure password and specify the URL(s) to monitor:
@@ -35,8 +41,8 @@ These instructions have been tested against Ubuntu, but should work against any 
 
     ```sh
     cd ~
-    git clone https://github.com/medic/cht-monitoring.git
-    cd cht-monitoring
+    git clone https://github.com/medic/cht-watchdog.git
+    cd cht-watchdog
     cp cht-instances.example.yml cht-instances.yml
     cp grafana/grafana.example.ini grafana/grafana.ini
     mkdir -p grafana/data && mkdir  -p prometheus/data 
@@ -63,13 +69,13 @@ These instructions have been tested against Ubuntu, but should work against any 
 3. Run the following command to deploy the stack:
 
     ```sh
-    cd ~/cht-monitoring
+    cd ~/cht-watchdog
     docker compose up -d
     ```
 
 4. Grafana is available at [http://localhost:3000](http://localhost:3000). See the output from step 1 for your username and password.
 
-If you would like to do more customizing of your deployment, see ["Addition Configuration"](#additional-configuration).
+If you would like to do more customizing of your deployment, see ["Additional Configuration"](#additional-configuration).
 
 ### Upgrading
 
@@ -84,22 +90,66 @@ docker compose pull
 docker compose up -d
 ```
 
-#### CHT Monitoring Config
+#### CHT Watchdog
 
-When you see a new version in the [GitHub repository](https://github.com/medic/cht-monitoring), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration:
+When you see a new version in the [GitHub repository](https://github.com/medic/cht-watchdog), first review the release notes and upgrade instructions. Then, run the following commands to deploy the new configuration (be sure to replace `TAG` with the tag name associated with the release (e.g. `1.1.0`)):
 
-1. Note the version number to derive the branch to pull.  For example,  `1.1.0` would be `1.1.x`
-2. Run this command to update your instance and restart it. Be sure to replace `BRANCH_NAME` with the value from the first step:
-   ```shell
-   cd ~/cht-monitoring
-   git fetch
-   git checkout BRANCH_NAME
-   docker compose pull
-   docker compose down
-   docker compose up -d --remove-orphans
-   ```
+```shell
+cd ~/cht-watchdog
+git fetch
+git -c advice.detachedHead=false checkout TAG
+docker compose pull
+docker compose down
+docker compose up -d --remove-orphans
+```
 
 ### Additional Configuration
+
+When making any changes to your CHT Watchdog configuration (e.g. adding/removing instances from the `cht-instances.yml` file) make sure to restart all services to pick up the changes:
+
+```shell
+cd ~/cht-watchdog
+docker compose down
+docker compose up -d
+``` 
+
+#### couch2pg Data
+
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
+
+1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
+   
+   ```shell
+   cd ~/cht-watchdog
+   cp exporters/postgres/postgres-instances.example.yml exporters/postgres/postgres-instances.yml
+   cp exporters/postgres/postgres_exporter.example.yml exporters/postgres/postgres_exporter.yml
+   ```
+2. Edit `postgres-instances.yml` you just created and add your target postgres connection URL along with the proper root URL for your CHT instance as the label value. For example, if your postgres server was `db.example.com` and your CHT instance was `cht.example.com` the config would be:
+   ```yaml
+   - targets: [db.example.com:5432/cht]
+     labels:
+       cht_instance: cht.example.com
+   ```
+3. Edit `postgres_exporter.yml` so that the `auth_modules` object for your Postgres instance has the proper username and password. Using our `db.example.com` example from above and assuming a password of `super-secret` and a username of `pg_user`, the config would be:
+   ```yaml
+   db.example.com:5432/cht: # Needs to match the target URL in postgres-instances.yml
+      type: userpass
+      userpass:
+        username: pg_user
+        password: super-secret
+      options:
+        sslmode: disable
+   ```
+4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
+
+   ```shell
+   cd ~/cht-watchdog
+   docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml up -d
+   ```
+
+{{% alert title="Note" %}}
+Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
+{{% /alert %}}
 
 #### Prometheus Retention and Storage
 
@@ -109,17 +159,48 @@ Local storage is not suitable for storing large amounts of monitoring data. If y
 
 #### Alerts
 
-This configuration includes number of pre-provisioned alerts.  Additional alerting rules (and other contact points) can be set in the Grafana UI.
+This configuration includes number of pre-provisioned alert rules.  Additional alerting rules (and other contact points) can be set in the Grafana UI.
 
-See both the Grafana [high level alert Documentation](https://grafana.com/docs/grafana/latest/alerting/) and [provisioning alerts in the UI](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information on how to edit or remove these provisioned alerts.
+See both the Grafana [high level alert Documentation](https://grafana.com/docs/grafana/latest/alerting/) and [provisioning alerts in the UI](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information.
 
-Additionally, you can configure where these alerts are sent.  Two likely options are Email and Slack.
+##### Deleting provisioned alert rules
 
-##### Email
+The provisioned alert rules shipped with CHT Watchdog are intended to be the generally applicable for most CHT deployments. However, not all the alert rules will necessarily be useful for everyone. If you would like to delete any of the provisioned alert rules, you can do so with the following steps:
+
+1. In Grafana, navigate to "Alerting"  and then  "Alert Rules"  and click the eye icon for the rule you want to delete.  Copy the `Rule UID` which can be found on the right and is a 10 character value like `mASYtCQ2j`.
+2. Create a `delete-rules.yml` file
+
+    ```shell
+    cd ~/cht-watchdog
+    cp grafana/provisioning/alerting/delete-rules.example.yml grafana/provisioning/alerting/delete-rules.yml
+    ```
+
+3. Update your new `delete-rules.yml` file to include the Rule UID(s) of the alert rule(s) you want to delete 
+4. Restart Grafana
+
+    ```shell
+    docker compose restart grafana
+    ```
+
+If you ever want to re-enable the alert rules you deleted, you can simply remove the Rule UID(s) from the `delete-rules.yml` file and restart Grafana again.
+
+##### Modifying provisioned alert rules
+
+The provisioned alert rules cannot be modified directly. Instead, you can copy the configuration of a provisioned alert into a new custom alert with the desired changes. Then, remove the provisioned alert.
+
+1. Open the alert rule you would like to modify in the Grafana alert rules UI and select the "Copy" button.
+2. Update the copied alert rule with the desired changes and save it into a new Evaluation group.
+3. [Remove the provisioned alert]({{< relref "#deleting-provisioned-alert-rules" >}}).
+
+##### Configuring Contact Points
+
+Grafana supports sending alerts via a number of different methods. Two likely options are Email and Slack.
+
+###### Email
 
 To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.  Then, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
 
-##### Slack
+###### Slack
 
 Slack alerts can be configured within the Grafana web GUI for the specific rules you would like to alert on.
 

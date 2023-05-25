@@ -3,7 +3,7 @@ title: "Development Workflow"
 linkTitle: "Workflow"
 weight: 6
 description: >
-  Overview of the developement workflow
+  Overview of the development workflow
 ---
 
 ## Code
@@ -72,7 +72,7 @@ Options for doing this:
 An example of a good thorough comment/template is as follows:
 
 ```
-### Acceptance testing
+### Testing
 
 1. Install branch `81-do-great-things`
 2. [a specific thing to be sure it has been set up correctly]
@@ -92,11 +92,15 @@ An example of a good thorough comment/template is as follows:
 
 ### Testing
 
+Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) dedicated page).
+
+Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or addding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
+
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
 
 The CHT has a [fully automated end-to-end testing suite](https://github.com/medic/cht-core/tree/master/tests/e2e) which is executed in CI and must pass before any change is merged. This means you can have reasonable confidence that all code merged to the main branch is safe and ready for release without further regression testing. The suite isn't fully comprehensive but it is being constantly improved and expanded.
 
-From time to time Quality Assurance Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
+From time to time QA Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
 
 ### Migrating
 
@@ -104,11 +108,11 @@ When the schema is changed you must also provide a migration so when instances a
 
 ## Commits
 
-The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so we can take a release branch as needed. To achieve this we do (almost) all development in a branch and submit a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
+The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this (almost) all development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
 
 ### Commit message format
 
-The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means we can automate some of the release process. See the list of commit types and examples below:
+The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means that some of the release process can be automated. See the list of commit types and examples below:
 
 Type | Description | Example commit message | Release type
 -- | -- | -- | --
@@ -139,11 +143,11 @@ Read more about [using git](https://git-scm.com/doc/ext).
 
 ## Branches
 
-- The main branch is `master` and is the github default branch and contains the latest code.
+- The main branch is `main` or `master` and is the github default branch and contains the latest code.
 - Release branches have the form `<major>.<minor>.x` and should be stable.
 - Feature branches have the form `<issue-number>-<issue-description>` and are work in progress.
 
-{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from `master` into the release branch. Then use a pull request to make sure tests pass on CI before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
+{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from the main branch into the release branch. Then use a pull request to make sure tests pass on CI before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
 
 ## Issues
 
@@ -165,38 +169,11 @@ Issues in this column have been prioritised and are ready for development. The i
 
 ### In progress
 
-Issues in this column are being actively worked on, which includes development, design, and code reviews.
+Issues in this column are being actively worked on, which includes development, design, code reviews, and testing.
 
-Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Once you're satisfied with your changes:
+Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Follow the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) process to take full ownership of what you are building.
 
-1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
-1. If AT is required update the issue with AT instructions including how to install the branch, how to reproduce the issue, and areas of potential regressions.
-1. Wait for the builds to succeed and ensure there are no conflicts with the `master` branch so the PR can be merged.
-1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can collaborate on PRs even if they aren't an official Reviewer.
-1. If the issue requires AT then move the issue to "Ready for AT" for QA to test.
-
-### Ready for AT
-
-Issues in this column are ready to be acceptance tested by a Quality Assurance engineer. When picking up an issue for AT:
-
-1. Check that the PR has no merge conflicts with `master` and all required builds have passed. If not, notify the original developer to fix the branch and find another issue to AT.
-1. Assign it to yourself.
-1. Move it to the "AT in progress" column
-
-### AT in progress
-
-Issues in this column are in the process of being acceptance tested by a Quality Assurance engineer. To complete AT:
-
-1. Add or verify steps used to reproduce or execute the bug, feature, or improvement described in the ticket. 
-1. Install the PR branch to test against.
-1. If the issue fails AT then notify the original developer and move the issue back to "Dev in progress".
-1. Once the issue passes AT
-   1. Document Data used. EX: Seed Data, cloned data, no data
-   1. Document Config used or changes to existing config. Add to ticket for use later if need be.
-   1. How was the issue verified? Console logs, page source, errors anywhere, execution steps.  LGTM should begin to be rarely used.
-   1. Move the issue to "Ready to merge" the notify the original developer to merge the PR.
-
-Once the AT process is done, use the following templates to provide feedback in the ticket.
+Use the following template for QA feedback throughout the development.
 
 {{< tabpane persistLang=false lang="markdown">}}
 {{< tab header="Test passed" >}}
@@ -230,7 +207,7 @@ A small description, and images or videos that support the comment.
 ---
 
 Test passed successfully. :white_check_mark:
-Moving the ticket to `Ready to Merge`
+The ticket is ready to merge.
 @<developer's name>
 
 {{< /tab >}}
@@ -264,21 +241,29 @@ A small description, and images or videos that support the comment.
 ---
 
 Test failed :x:
-Moving the ticket back to `In Progress`.
+The ticket needs further development.
 @<developer's name>
 
 {{< /tab >}}
 {{< /tabpane >}}
 
-### Ready to merge
+A great way to facilitate discussion and collaboration is with a Draft PR.
 
-Issues in this column have passed AT and can be merged as soon as possible. The original developer will then:
+Once you're confident that the change is complete and ready to be merged:
 
-1. Write a useful commit message in the PR.
+1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
+1. Wait for the builds to succeed and ensure there are no conflicts with the the main branch so the PR can be merged.
+1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can collaborate on PRs even if they aren't an official Reviewer. If you add a QA Engineer as a Reviewer, briefly comment in the ticket about what kind of testing review you expect from that engineer.
+
+Once all PRs have been approved:
+
+1. Write a useful commit message in the PR using the [commit message format]({{< ref "#commit-message-format" >}}).
 2. Click the button to "Squash and Merge" the PR.
 3. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
 4. Close the issue. This will automatically move it to "Done".
 
+Once all PRs has been approved merge them to the main branch and close the issue.
+
 ### Done
 
-Issues in this column have passed acceptance testing and been merged into `master` and/or release branches ready for release.
+Issues in this column are complete, all code has been merged into the main branch and/or release branches, and are ready for release.
