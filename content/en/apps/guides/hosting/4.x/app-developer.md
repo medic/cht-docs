@@ -136,7 +136,7 @@ To get started using it:
 If you want a more stand-alone version, you can `curl` the bash script directly, but you can't use `git` to easily update it then:
 
 ```shell
-curl https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
+curl -s -o cht-docker-compose.sh https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
 ```
 
 ### Usage
@@ -152,13 +152,13 @@ Always run the script from the directory where it lives.  If you launch it from 
 Run the script with:
 
 ```
-./cht-docker-compose.sh
+sh ./cht-docker-compose.sh
 ```
 
 The first time you run, you will be prompted to create a new project.  Here's what that looks like:
 
 ```shell
-./cht-docker-compose.sh
+sh ./cht-docker-compose.sh
 Would you like to initialize a new project [y/N]? y
 How do you want to name the project? 4 OH The First
 Downloading compose files ... done 
