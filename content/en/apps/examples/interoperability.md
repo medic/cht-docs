@@ -1,6 +1,6 @@
 ## Loss to Follow Up Workflow (LTFU)
 
-This workflow describes a use case where a health facility/requesting system generates a list of patients who have missed appointments for follow-up through on the CHT. A Community Health Worker (CHW) physically visits the patients who missed the appointments and encourages them to visit the health facility. The follow-up process can also be conducted over phone or text messaging.
+This workflow describes a use case where a health facility or a requesting system generates a list of patients who have missed follow-up appointments that were made through the CHT. A CHW would then follow up with the listed patients through SMS, a physical visit or a phone call.
 
 ## Problem Being Addressed
 
