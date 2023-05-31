@@ -15,7 +15,7 @@ The intended users of the interoperable systems are CHWs on the CHT side and Hea
 
 See the sequence diagram below showcasing the with the loss to follow up flow:
 
-{{< figure src="LTFU Sequence Diagram.png" link="LTFU Sequence Diagram.png">}}
+{{< figure src="LTFU Sequence Diagram.png" link="interoperability/LTFU Sequence Diagram.png">}}
 
 The Interoperating Systems:
 - [CHT](https://docs.communityhealthtoolkit.org/): Community Health Toolkit.
