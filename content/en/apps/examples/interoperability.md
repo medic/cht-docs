@@ -1,6 +1,6 @@
 ---
-title: "Loss to Follow Up Workflow(LTFU)"
-linkTitle: "Loss to Follow Up Workflow(LTFU)"
+title: "Loss to Follow Up"
+linkTitle: "Loss to Follow Up"
 weight: 
 description: >
   Generating patients with missed follow-up appointments between CHT and requesting system
