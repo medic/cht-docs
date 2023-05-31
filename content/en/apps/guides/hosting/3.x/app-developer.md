@@ -209,17 +209,17 @@ If you still get stuck review the items below as possible issues you may find wo
 
 If you're on macOS, or other OS without the `ip` utility, your IP address will always show as `127.0.0.1`.  You can not connect to this IP from a mobile client on your LAN because it always references the host it's on, not a foreign host.
 
-To work around this, you can find out your IP on your LAN and just replace the `127-0-0-1` part of the `https://127-0-0-1.my.local-ip.co:8443` URL to be your IP address.  So if your local IP was `192.168.0.22` your URL would be `https://192-168-0-22.my.local-ip.co:8443`.
+To work around this, you can find out your IP on your LAN and just replace the `127-0-0-1` part of the `https://127-0-0-1.local-ip.medicmobile.org:8443` URL to be your IP address.  So if your local IP was `192.168.0.22` your URL would be `https://192-168-0-22.local-ip.medicmobile.org:8443`.
 
 #### Booting with no connectivity
 
-This script can work without connectivity after the initial boot.  However, it needs connectivity to do DNS lookups for the *.my.local-ip.co URLs.  To work around this, when you have no connectivity, add an entry in your `/etc/hosts` for the URL showing up in the script. For example, if you're seeing `https://127-0-0-1.my.local-ip.co:8443` as your IP, add this line to the top of your `/etc/hosts` file.
+This script can work without connectivity after the initial boot.  However, it needs connectivity to do DNS lookups for the `*.local-ip.medicmobile.org` URLs.  To work around this, when you have no connectivity, add an entry in your `/etc/hosts` for the URL showing up in the script. For example, if you're seeing `https://127-0-0-1.local-ip.medicmobile.org:8443` as your IP, add this line to the top of your `/etc/hosts` file.
 
 ```shell script
-127.0.0.1   127-0-0-1.my.local-ip.co
+127.0.0.1   127-0-0-1.local-ip.medicmobile.org
 ```
 
-_**NOTE**_ - You need connectivity on the initial boot of the VM to connect to `staging.dev.medicmobile.org` to download the base version of the CHT. As well, certificates for `*.my.local-ip.co` are downloaded. Subsequent boots do not require connectivity as long as you do not run `destroy`.
+_**NOTE**_ - You need connectivity on the initial boot of the VM to connect to `staging.dev.medicmobile.org` to download the base version of the CHT. As well, certificates for `*.local-ip.medicmobile.org` are downloaded. Subsequent boots do not require connectivity as long as you do not run `destroy`.
 
 #### Port conflicts
 
@@ -281,7 +281,7 @@ When you first call the script, a line is output with generic information about 
 | Name in log | Note | Example(s) |
 | --------------- | --------------- | --------------- |
 | `item` | which log item this is | `start` |
-| `URL` | the full URL of the instance, with port | `https://192-168-68-17.my.local-ip.co:443` |
+| `URL` | the full URL of the instance, with port | `https://192-168-68-17.local-ip.medicmobile.org:443` |
 | `IP` | the IP address of the instance | `192.168.68.17` |
 | `port_https` | port used for `https` | `443` or `8443` |
 | `port_http` | port used for `http` | `80` or `8080` |
@@ -298,7 +298,7 @@ For each internal loop of the script, each one taking 1-5 seconds, a status line
 | `CHT_count` | number of CHT contianers running for this project. Healthy is `2` | `2` |
 | `port_stat` | Status of the `https` port. Healhty is `open` | `open` or `closed` |
 | `http_code` | If the `https` port is open by the web server, what `HTTP` response code is returned for a `GET`. Healthy is `200`. If you see `000`, [see workarounds](#booting-with-no-connectivity). |  `200` or `404` |
-| `ssl_verify` | If the `https` port is open by the web server, is the valid `local-ip.co` certificate installed. Healthy is `yes` |  `yes` or `no` |
+| `ssl_verify` | If the `https` port is open by the web server, is the valid `local-ip.medicmobile.org` certificate installed. Healthy is `yes` |  `yes` or `no` |
 | `reboot_count` | How many times `docker restart` has been called. Max is `5` |  `3` |
 | `docker_call` | The docker action call to the script |  `up` |
 | `last_msg` | Last message the user was shown |  `Running "down" then "up"` |
@@ -318,7 +318,7 @@ For each internal loop of the script, each one taking 1-5 seconds, a status line
 
 #### Sample
 ```shell
-Fri 15 Oct 2021 02:30:26 PM PDT pid="410066" count="1" item="start" URL="https://192-168-68-17.my.local-ip.co:443" IP="192.168.68.17" port_https="443" port_http="80" project_name="helper_test" total_containers="2"
+Fri 15 Oct 2021 02:30:26 PM PDT pid="410066" count="1" item="start" URL="https://192-168-68-17.local-ip.medicmobile.org:443" IP="192.168.68.17" port_https="443" port_http="80" project_name="helper_test" total_containers="2"
 Fri 15 Oct 2021 02:30:26 PM PDT pid="410066" count="1" item="docker_logs" container="helper_test_medic-os_1" processes="64" last_log="[2021/10/15 19:53:39] Info: Horticulturalist has already bootstrapped"
 Fri 15 Oct 2021 02:30:26 PM PDT pid="410066" count="1" item="docker_logs" container="helper_test_haproxy_1" processes="4" last_log="Oct 15 21:30:20 576ca039cd88 haproxy[25]: 172.20.0.3,200,GET,/medic/_design/medic,-,medic,'-',21703,5,21402,'curl/7.68.0'"
 Fri 15 Oct 2021 02:30:26 PM PDT pid="410066" count="1" item="status" CHT_count="2" port_stat="open" http_code="200" ssl_verify="yes" reboot_count="0" docker_call="up" last_msg="Initializing" load_now="2.66" helper_test_haproxy_1="true" helper_test_medic-os_1="true" 
@@ -329,15 +329,15 @@ Fri 15 Oct 2021 02:30:28 PM PDT pid="410066" count="2" item="status" CHT_count="
 
 ## Cookie collisions
 
-The CHT stores its cookies based on the domain.  This means if you're running two concurrent instances on `https://192-168-68-40.my.local-ip.co:8443` and `https://192-168-68-40.my.local-ip.co:8440` (note different ports), the CHT would write the cookie under the same `192-168-68-40.my.local-ip.co` domain. When logging out of one instance, you would get logged out of both and other consistencies.
+The CHT stores its cookies based on the domain.  This means if you're running two concurrent instances on `https://192-168-68-40.local-ip.medicmobile.org:8443` and `https://192-168-68-40.local-ip.medicmobile.org:8440` (note different ports), the CHT would write the cookie under the same `192-168-68-40.local-ip.medicmobile.org` domain. When logging out of one instance, you would get logged out of both and other consistencies.
 
 To avoid this collision of cookies, you can use different IP addresses to access the instances.  This works because of two reasons:
-1. the TLS certificate being used is valid for any subdomain of `*.my.local-ip.co`. Further, the URL always resolves to the IP passed in the `*` section, so you can use any IP
+1. the TLS certificate being used is valid for any subdomain of `*.local-ip.medicmobile.org`. Further, the URL always resolves to the IP passed in the `*` section, so you can use any IP
 2. the IPs that are available to reference your `localhost` are actually a `/8` netmask, meaning [there are 16 million addresses](https://en.wikipedia.org/wiki/Localhost#Name_resolution) to choose from!
 
 Using the above two reasons, these URLs could work to avoid the cookie collision:
 
-* `https://127-0-0-1.my.local-ip.co:8443`
-* `https://127-0-0-2.my.local-ip.co:8440`
+* `https://127-0-0-1.local-ip.medicmobile.org:8443`
+* `https://127-0-0-2.local-ip.medicmobile.org:8440`
 
 This would result in the domains being `127.0.0.1` and `127.0.0.2` from the CHT's perspective. When using a mobile device for testing, you're limited to use the LAN ip output in the helper and can not use the `127.x.x.x` IPs.
