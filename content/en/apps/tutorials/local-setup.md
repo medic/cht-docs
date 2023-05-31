@@ -180,7 +180,7 @@ Now that you have the dependent tools and software installed, you are ready to s
 Refer to the [App Developer Hosting Guide]({{< relref "apps/guides/hosting/4.x/app-developer" >}}) for instructions on how to deploy a local CHT instance.
 
 Note that the first time you run your CHT instance it may take a while. In case you run into issues running your docker file, ensure that the following setting in Docker is checked.
->> Settings >> General >> Use Docker Compose V2
+> Settings >> General >> Use Docker Compose V2
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
