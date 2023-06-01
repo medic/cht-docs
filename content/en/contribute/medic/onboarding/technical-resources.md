@@ -37,7 +37,7 @@ There is a Slack channel *#exercism* where engineers and tech enthusiats meet an
 | **Web Performance** | [High Performance Browser Networking](https://hpbn.co/)|
 | **PostgreSQL** | [PostgreSQL Tutorial](https://www.postgresqltutorial.com/) <br> [PostgreSQL Queries Cheat Sheet](https://postgrescheatsheet.com/#/queries) <br> [PostgreSQL Cheat Sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) <br> [PostgreSQL Views Tutorial](https://www.postgresqltutorial.com/postgresql-views/) <br> [PostgreSQL Views Documentation](https://www.postgresql.org/docs/current/tutorial-views.html) <br> [Common Table Expressions (CTEs)](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cte/) <br> [PostgreSQL Queries with CTEs Documentation](https://www.postgresql.org/docs/current/queries-with.html) |
 | **Superset** | [Introduction to Superset](https://superset.apache.org/docs/intro/) <br> [Creating Your First Dashboard](https://superset.apache.org/docs/creating-charts-dashboards/creating-your-first-dashboard/) |
-| **DBT** | [DBT Core Manual Installation Guide](https://docs.getdbt.com/docs/quickstarts/dbt-core/manual-install) <br> [DBT Video Playlist](https://www.youtube.com/playlist?list=PLohMhitTY9xuEVMpLG3xXhsKG9j2XCTeF) |
+| **DBT** | [DBT Core Manual Installation Guide](https://docs.getdbt.com/quickstarts/manual-install?step=1) <br> [DBT Video Playlist](https://www.youtube.com/playlist?list=PLohMhitTY9xuEVMpLG3xXhsKG9j2XCTeF) |
 | **Logstash** | [Getting Started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html) <br> [Logstash Tutorial](https://logz.io/blog/logstash-tutorial/) |
 | **PostgREST** | [PostgREST Tutorial](https://postgrest.org/en/stable/tutorials/tut0.html) |
 
