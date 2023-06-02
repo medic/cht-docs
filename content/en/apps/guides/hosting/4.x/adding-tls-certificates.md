@@ -54,6 +54,8 @@ Your certificates are now safely stored in the native docker volume. Restart you
 
 ## Certbot certificate
 
+_This Feature available on CHT 4.2.0 or later_
+
 If you have a deployment with a publically accessible domain name, you can have Certbot automatically create free TLS certificates by using [their Docker image](https://hub.docker.com/r/certbot/certbot/). 
 
 Assuming your CHT instance is running with the default self signed cert:
