@@ -56,9 +56,9 @@ Your certificates are now safely stored in the native docker volume. Restart you
 
 _This Feature available on CHT 4.2.0 or later_
 
-If you have a deployment with a publically accessible domain name, you can have Certbot automatically create free TLS certificates by using [their Docker image](https://hub.docker.com/r/certbot/certbot/). 
+If you have a deployment with a static, public IP and a domain name pointing to that IP, you can have Certbot automatically create free TLS certificates by using [their Docker image](https://hub.docker.com/r/certbot/certbot/). 
 
-Assuming your CHT instance is running with the default self signed cert:
+Assuming your CHT instance is running with the default self signed cert. Be sure to change `cht.example.com` to your domain first though:
 
 1. Create certbot compose and env files by copying and pasting this code:
    ```shell
@@ -82,7 +82,7 @@ Assuming your CHT instance is running with the default self signed cert:
    EOF
    
    cat > .env << EOF
-   DOMAIN=deleteme2-certbot-nginx-cht.plip.com
+   DOMAIN=cht.example.com
    STAGING=
    CHT_SSL_VOLUME=cht_cht-ssl
    TZ=America/Whitehorse
