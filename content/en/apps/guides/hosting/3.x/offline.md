@@ -70,9 +70,9 @@ An offline deployment may consider substituting some requirements above with the
 
 When an offline solution is deployed, traffic stays 100% local, whereas when using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away. This can help when Internet connectivity is very slow, very expensive per megabyte, or both.
 
-### local-ip.co
+### local-ip.co 
 
-[local-ip.co](http://local-ip.co/) offers both the TLS certificate and private key for `*.my.local-ip.co`.  Additionally, the service has a DNS server that dynamically maps any IP you pass in the sub-sub-domain to the real world IP such that `192-168-0-1.my.local-ip.co` would resolve to `192.168.0.1`.  This can make it very handy to deploy a development instance where all HTTP traffic remains local (unlike `ngrok` above).
+[local-ip.co](http://local-ip.co/), and [related services](https://local-ip.medicmobile.org/), offer both the TLS certificates and private keys for `*.my.local-ip.co`.  Additionally, the service has a DNS server that dynamically maps any IP you pass in the sub-sub-domain to the real world IP such that `192-168-0-1.my.local-ip.co` would resolve to `192.168.0.1`.  This can make it very handy to deploy a development instance where all HTTP traffic remains local (unlike `ngrok` above).
 
 As the DNS traffic still needs to leave your network and return, it is not a viable solution for a truly offline CHT deployment.
 
