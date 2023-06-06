@@ -3,30 +3,21 @@ title: Interoperability
 linkTitle: "Interoperability"
 weight: 8
 description: >
-  Exchanging information between CHT Core and other systems
+  Exchanging information between the CHT Core and other health systems 
 keywords: interoperability integrations fhir icd openhie openhim
 relatedContent: >
   apps/features/integrations
 ---
 
-# Introduction
+## Introduction 
 
-Interoperability is the ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. This is different from _integration_ which requires custom development to connect two specific systems together. 
+Interoperability refers to the ability of different health information systems and applications to communicate with each other and exchange data seamlessly. With interoperability, patient information can be seen, exchanged, and used across different platforms. The information/data exchanged has to be understood across the different software for these systems to become interoperable. This is different from _integration_ which requires custom development to connect two specific systems together.
 
-Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development.
+Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development. Interoperability allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
 
-# Components
+## CHT Interoperability
 
-Useful components and reference information for interoperability include:
-
-- [OpenHIE](https://ohie.org/) defines the architecture for an interoperability layer.
-- [OpenHIM](http://openhim.org/) is a middleware component designed to ease interoperability between systems.
-- [HL7 FHIR](https://www.hl7.org/fhir/index.html) is a messaging format to allow all systems to understand the format of the message.
-- [ICD-11](https://www.who.int/standards/classifications/classification-of-diseases) and [LOINC](https://loinc.org/) are examples of classification systems.
-
-# CHT
-
-The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. To achieve interoperability you should use middleware to convert the CHT datastructure into a standardized form so the other systems can read it.
+The native CHT database structure does not map directly to a [Fast Healthcare Interoperability Resources (FHIR)](http://www.hl7.org/fhir/) message format. To be compatible, we use a middleware to convert the CHT data structure into a standardized JSON format so the other systems can read it.
 
 ```mermaid
 graph LR
@@ -41,9 +32,20 @@ mediator_a -- Request\nfa:fa-arrow-right --- openhim
 mediator_b -- Channel\nfa:fa-arrow-left --- openhim
 ```
 
-The recommended approach is to use OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "apps/reference/app-settings/outbound" >}}) should be configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then calls [CHT APIs]({{< ref "apps/reference/api" >}}) to gather any additional data required to create a FHIR resource which is then routed to OpenHIM. OpenHIM will then route the resource to any other configured systems.
+## Standards & Components
 
-Conversely to bring data in to the CHT, OpenHIM should be configured to route the updated resource to a Mediator, which then calls the relevant CHT APIs to update the document in the CHT database. This will then be replicated to users' devices as per usual.
+- [OpenHIE](https://ohie.org/): OpenHIE is an open-source framework for building interoperable health information systems. OpenHIE provides a set of standards and protocols for enabling different health systems and applications to communicate with each other.
 
-A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/chis-interoperability).
+- [OpenHIM](http://openhim.org/): OpenHIM is an open-source middleware platform that provides a central point of control for managing health information exchange (HIE). OpenHIM enables healthcare providers to connect different health systems and applications and provides a common interface for managing data exchange and security.
+
+- [FHIR](http://www.hl7.org/fhir): FHIR is a standard for exchanging healthcare data electronically. FHIR provides a modern, web-based approach to exchanging healthcare data and is rapidly becoming the preferred standard for healthcare interoperability.
+
+
+A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/cht-interoperability). 
+This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the [OpenHIE LTFU Guide](https://wiki.ohie.org/display/SUB/Use+Case+Summary:+Request+Community+Based+Follow-Up). 
+
+## Important Links
+- [cht-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU workflow
+- [CHT Instance with LTFU configuration](https://interop-cht-test.dev.medicmobile.org/medic/login?redirect=https%3A%2F%2Finterop-cht-test.dev.medicmobile.org%2F)
+- [OpenHIM Admin Console](https://interoperability.dev.medicmobile.org/#!/login) 
 
