@@ -20,7 +20,7 @@ Permissions can be assigned to user roles either directly in `base_settings.json
 
 |Property|Description|
 |-------|---------|
-| `can_edit` | This is probably one of the most important permissions in CHT Framework. It allows creating, editing and deleting documents in CouchDB's `medic` database. This permission overrides any other role in this list. |
+| `can_edit` | This is probably one of the most important permissions in CHT Framework. It allows creating, editing and deleting documents in CouchDB's `medic` database. This permission overrides any other permission in this list. |
 | `can_access_gateway_api` | Allows access to gateway API |
 | `can_aggregate_targets` | Allows access to Target Aggregates page |
 | `can_bulk_delete_reports` | Allows users to select multiple reports and delete |
