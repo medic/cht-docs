@@ -3,7 +3,7 @@ title: "How to bulk load users"
 linkTitle: "Bulk Load Users"
 weight: 15
 description: >
-  Notes for how to bulk load users
+  How to create users in bulk
 aliases:
   -    /core/guides/users-bulk-load
 relatedContent: >
@@ -13,22 +13,14 @@ relatedContent: >
 
 ---
 
-This quick guide will walk you through the steps of:
+Steps to bulk load users:
 
-1. Populating a spreadsheet to with the users you want to import. Uses Google Sheets.
-2. Upload the new users using the Admin UI in the CHT.
-3. Handling any errors that may have occurred during import.
+1. Using Google Sheets, populate a spreadsheet with the users to be imported.
+2. Import the new users using the Admin UI in the CHT.
+3. Handle any errors that may occur during importation.
 4. When done, you will have created new users, new contacts and new places, all of which are correctly associated in CouchDB with the correct UUIDs.
 
-As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place.
-
-{{% pageinfo %}}
-This guide shows how to import users from a spreadsheet from within the Admin Console.
-User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or
-using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
-
-The features on this page apply only to CHT 3.16.0 and later and assumes you're using Google Drive to manage your spreadsheets.
-{{% /pageinfo %}}
+The bulk user upload feature is available in 3.16.0 and later versions of the CHT.As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place.User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
 
 ## Spreadsheet Instructions
 
