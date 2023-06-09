@@ -81,7 +81,7 @@ time_format_blog = "02.01.2006"
 
 [markup]
   [markup.tableOfContents]
-    endLevel = 3
+    endLevel = 4
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
