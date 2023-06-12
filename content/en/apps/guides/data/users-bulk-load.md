@@ -24,22 +24,22 @@ The bulk user upload feature is available in 3.16.0 and later versions of the CH
 
 ## Spreadsheet Instructions
 
-The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#get-apiv1users" >}}) which makes it as powerful and flexible as calling the API directly.  
-Each column in the spreadsheet maps to an object property understood by the Users API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
+The spreadsheet interfaces with the [this API]({{< relref "apps/reference/api#get-apiv1users" >}}) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
+Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
 
-To get you started, we have made available three different spreadsheets compatible with the `default` configuration of the CHT, one for each use case that you might encounter when creating users in bulk.  You will notice some columns have a `:excluded` suffix. These are columns that are ignored by the API that allows us to add autocomplete and data validation within the spreadsheet to make it easier to reason about.
+To get started, there are three different spreadsheets available that are compatible with the `default` configuration of the CHT, they cater for use cases that you might encounter when creating users in bulk.  You will notice some columns have an `:excluded` suffix. These are columns that are ignored by the API and allow addition of autocomplete and data validation within the spreadsheet to make it easier to work with.
 
-Click on any of these use cases in the list to make a copy of the spreadsheet for that use case in Google Sheets:
+Click on any of the use cases below to make a copy of the spreadsheet for the use case in question:
 - [when you want to create user accounts only](https://docs.google.com/spreadsheets/d/1zlvF5cWnV2n1rax1bAO2hSBCIxgD0c-5tZ-yh96kwws/copy)
 - [when you want to create user accounts and their contacts](https://docs.google.com/spreadsheets/d/1y6wYqRIWiC2QZA7NaWfolP_Wf9FnSahjYHlL3iDYeJ4/copy)
 - [when you want to create user accounts, their contacts and their places](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy)
 
-We will use the second one to create user accounts and their contacts as an example in the instructions below.
+We will use the second use case to create user accounts and their contacts as an example in the instructions below.
 
 ### Spreadsheet
 
-Before using the bulk user upload, please familiarize yourself with the spreadsheet used to manage the users before importing to the CHT.
-Specifically, there are three sections to the sheet:
+Before using the bulk user upload feature, please familiarize yourself with the spreadsheet used to manage the users before importing to the CHT.
+There are three sections to the spreadsheet:
 
 ![bulk user import spreadsheet with areas labeled](users-spreadsheet.png)
 
