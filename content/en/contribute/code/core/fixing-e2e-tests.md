@@ -21,13 +21,9 @@ Read the failure carefully - it often has really good info but sometimes it's ju
 - Can't click on an element because another element would get the click. This usually means a modal dialog was being shown. 90% of the time this is the update notification modal which means some settings change has been detected after the test started execution.
 - Stale element. This means the DOM element has been removed after it was found on the page but before trying to do something with it. Generally try to find the element just before it needs it to reduce the chance of this happening
 
-## Other logs
+## Other logs and screenshots
 
-The API and Sentinel logs are sometimes useful, particularly if API has crashed. These are available locally under `/tests/logs/` and for CI builds [on AWS](https://s3.console.aws.amazon.com/s3/buckets/medic-e2e/).
-
-## Screenshots
-
-We automatically take screenshots when a test fails and store it locally in `/tests/results/` and for CI builds [on AWS](https://s3.console.aws.amazon.com/s3/buckets/medic-e2e/). These can be particularly useful if a dialog was blocking a click.
+There are logs and screenshots stored in the allure reports. [Here](https://github.com/medic/cht-core/blob/master/TESTING.md#view-the-ci-report) are the instructions to access that information.
 
 ## Running just the failing test
 
