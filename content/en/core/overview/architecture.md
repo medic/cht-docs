@@ -51,7 +51,7 @@ A suite of tools for extracting and normalizing data from the Core Framework's C
 
 ### CHT Watchdog
 
-Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption cause by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
+Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption caused by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
 
 ## Client
 
