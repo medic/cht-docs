@@ -27,22 +27,8 @@ There are logs and screenshots stored in the allure reports. [Here](https://gith
 
 ## Running just the failing test
 
-### Option 1
+Running e2e tests can be quite slow so to save time modify the `specs` property of `/tests/e2e/**/wdio.conf.js` so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
 
-Running e2e tests can be quite slow so to save time modify the `specs` property of `/tests/e2e/**/wdio.conf.js` so it only finds your test. You can also change `describe` and `it` to `xdescribe` and `xit` to skip specific tests.
-
-### Option 2
-
-Alternatively you can run API in test mode using:
-
-```
-API_PORT=4988 COUCH_URL=http://admin:pass@localhost:5984/medic-test node server.js
-```
-
-Then grep for just the tests you want to run:
-
-```
-protractor /home/kenn/webapp/tests/e2e.tests.conf.js --specs='/home/kenn/webapp/tests/e2e/api/controllers/_changes.spec.js' --grep="should allow DB admins to POST to _changes"
 ```
 
 ## Watching the test run
