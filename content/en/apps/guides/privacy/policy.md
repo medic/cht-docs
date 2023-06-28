@@ -116,5 +116,4 @@ We work with every partner to make sure they are trained and equipped to handle 
 
 ## Inquiries with Medic’s Data Protection Officer
 
-For the purposes of this policy, Medic’s Chief Operations Officer serves as Medic’s Data Protection Officer. For any inquiries, please send an email to support@medic.org with the words “Data Protection” in the subject line. 
-
+For any inquiries, please reach out to Medic’s Data Protection Officer, by emailing support@medic.org with the words “Data Protection” in the subject line. 
