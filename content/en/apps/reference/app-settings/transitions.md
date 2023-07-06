@@ -263,6 +263,18 @@ The selected contact type must be a configured place type.
     "params": "{ \"contact_type\": \"clinic\" }"
 }
 ```
+##### `add_phone_number`
+
+Validates and adds the provided phone number to the patient doc. 
+
+```json
+{
+  "name": "on_create",
+  "trigger": "add_phone_number",
+  "params": "phone_number",
+  "bool_expr": "doc.fields.phone_number"
+}
+```
 
 ###### Specific Parent 
 
