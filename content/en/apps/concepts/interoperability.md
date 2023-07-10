@@ -42,7 +42,7 @@ mediator_b -- Channel\nfa:fa-arrow-left --- openhim
 
 
 A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/cht-interoperability). 
-This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the [OpenHIE LTFU Guide](https://wiki.ohie.org/display/SUB/Use+Case+Summary:+Request+Community+Based+Follow-Up). 
+This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the [OpenHIE LTFU Guide](https://wiki.ohie.org/display/CP/Use+Case+Summary%3A+Request+Community+Based+Follow-Up). 
 
 ## Important Links
 - [cht-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU workflow
