@@ -1,10 +1,16 @@
 ---
 title: "API to interact with CHT Applications"
 linkTitle: "API"
-weight : 1
+weight: 1
 description: >
   RESTful Application Programming Interfaces for integrating with CHT applications
 ---
+
+<style>
+.td-content #TableOfContents ul ul ul {
+  display: none;
+}
+</style>
 
 {{% pageinfo %}}
 This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{% ref "core/overview/data-flows-for-analytics" %}}) may also prove useful for data analysis. If additional endpoints would be helpful, please make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
@@ -472,14 +478,14 @@ Use JSON in the request body to specify a person's details.
 
 Note: this does not accommodate having a `place` field on your form and will likely be revised soon.
 
-##### Required
+#### Required
 
 | Key  | Description                         |
 | ---- | ----------------------------------- |
 | name | String used to describe the person. |
 | type | ID of the `contact_type` for the new person. Defaults to 'person' for backwards compatibility. |
 
-##### Optional
+#### Optional
 
 | Key           | Description                                                            |
 | ------------- | ---------------------------------------------------------------------- |
@@ -554,7 +560,7 @@ By default any user can create or modify a place.
 
 Use JSON in the request body to specify a place's details.
 
-##### Required Properties
+#### Required Properties
 
 | Key    | Description                                                                                                                  |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -562,14 +568,14 @@ Use JSON in the request body to specify a place's details.
 | type   | Place type                                                                                                                   |
 | parent | String that references a place or object that defines a new place. Optional for District Hospital and National Office types. |
 
-##### Optional Properties
+#### Optional Properties
 
 | Key           | Description                                                            |
 | ------------- | ---------------------------------------------------------------------- |
 | contact       | String identifier for a person or object that defines a new person.    |
 | reported_date | Timestamp of when the record was reported or created. Defaults to now. |
 
-##### Place Types
+#### Place Types
 
 | Key               | Description       |
 | ----------------- | ----------------- |
@@ -733,7 +739,7 @@ will be undefined.
 | email | no | String | Email address  |
 | known | no | Boolean | Boolean to define if the user has logged in before. |
 
-##### Login by SMS
+#### Login by SMS
 
 When creating or updating a user, sending a truthy value for the field `token_login` will enable Login by SMS for this user.
 This action resets the user's password to an unknown string and generates a complex 64 character token, that is used to generate a token-login URL.
@@ -772,7 +778,7 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 
 Returns a list of users and their profile data in JSON format.
 
-##### Permissions
+#### Permissions
 
 `can_view_users`
 
@@ -828,7 +834,7 @@ Content-Type: application/json; charset=utf-8
 
 Returns a list of users and their profile data in JSON format.
 
-##### Permissions
+#### Permissions
 
 `can_view_users`
 
@@ -1324,7 +1330,8 @@ HTTP/1.1 200 OK
 Returns the total number of documents an offline user would replicate (`total_docs`), the number of docs excluding tasks the user would replicate (`warn_docs`), along with a `warn` flag if this number exceeds the recommended limit (now set at 10 000).
 
 When the authenticated requester has an offline role, it returns the requester doc count.
-###### Example
+
+#### Example
 ```
 GET /api/v1/users-info -H 'Cookie: AuthSession=OFFLINE_USER_SESSION;'
 ```
@@ -1622,14 +1629,14 @@ Only allowed for users with "online" roles.
 
 ### GET /api/v1/hydrate
 
-##### Query parameters
+#### Query parameters
 
 | Name | Required | Description |
 | -----  | -------- | ------ |
 | doc_ids | true | A JSON array of document uuids |
 
 
-##### Example
+#### Example
 
 ```
 GET /api/v1/hydrate?doc_ids=["id1","missingId","id3"]
@@ -1649,14 +1656,14 @@ Content-Type: application/json
 
 ### POST /api/v1/hydrate
 
-##### Parameters
+#### Parameters
 
 | Name | Required | Description |
 | -----  | -------- | ------ |
 | doc_ids | true | A JSON array of document uuids |
 
 
-##### Example
+#### Example
 
 ```
 POST /api/v1/hydrate

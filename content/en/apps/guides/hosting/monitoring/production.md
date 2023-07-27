@@ -19,7 +19,7 @@ When you run CHT Watchdog in production, and it is publicly accessible on the In
 * ensuring if the server were to fail, you can recover the data
 
 
-This guide assumes you have already [set up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "apps/guides/hosting/monitoring/setup" >}}) to deploy an instance of CHT Monitoring on server with a static IP and DNS entry, `monitor.example.com` for example.
+This guide assumes you have already [set up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "apps/guides/hosting/monitoring/setup" >}}) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
 
 
 {{% alert title="Note" %}}
@@ -50,7 +50,7 @@ Using the awesome secure defaults of Caddy, this file will tell Caddy to:
 2. Redirect any requests to `HTTP` to go to the `HTTPS` port
 3. Reverse proxy all traffic to the `grafana` docker instance.  
 
-The reverse proxy will only work if the Caddy container is on the same docker network as Grafana.  That's where the  `caddy-compose.yml` file comes in, specifically using the `cht-monitoring-net` network.  Create the file with this code
+The reverse proxy will only work if the Caddy container is on the same docker network as Grafana.  That's where the  `caddy-compose.yml` file comes in, specifically using the `cht-watchdog-net` network.  Create the file with this code
 
 ```
 cat > /root/caddy-compose.yml << EOF
@@ -65,7 +65,7 @@ services:
     volumes:
       - /root/Caddyfile:/etc/caddy/Caddyfile
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
 EOF
 ```
 
@@ -74,28 +74,28 @@ EOF
 To start the reverse proxy, us the following command.  Note that on first run it will provision your certificates:
 
 ```
-cd ~/cht-monitoring
+cd ~/cht-watchdog
 docker compose -f docker-compose.yml -f ../caddy-compose.yml up -d
 ```
 
-Because both the CHT Monitoring and Caddy compose files have the `restart: unless-stopped` setting, the services will start when the server first boots.
+Because both the CHT Watchdog and Caddy compose files have the `restart: unless-stopped` setting, the services will start when the server first boots.
 
 ### Upgrades
 
-Upgrades can be done along with upgrades to your CHT Monitoring docker images:
+Upgrades can be done along with upgrades to your CHT Watchdog docker images:
 
 ```shell
-cd ~/cht-monitoring
+cd ~/cht-watchdog
 docker compose -f docker-compose.yml -f ../caddy-compose.yml pull
 docker compose -f docker-compose.yml -f ../caddy-compose.yml up -d
 ```
 
 ## Backup
 
-When you deployed your monitoring instance, you created two directories: 
+When you deployed your CHT Watchdog instance, you created two directories: 
 
-* `~/cht-monitoring/grafana/data`
-* `~/cht-monitoring/prometheus/data`
+* `~/cht-watchdog/grafana/data`
+* `~/cht-watchdog/prometheus/data`
 
 These are the only directories you need to back up.  Whether you use something as simple as `zip` + `scp` + `cron` or a more full-featured solution like [borgbackup](https://www.borgbackup.org/) or [AWS Data Lifecycle Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html), be sure you follow [the 3-2-1 backup rule](https://en.wikipedia.org/wiki/Backup#Storage):
 

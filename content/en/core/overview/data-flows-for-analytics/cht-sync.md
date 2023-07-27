@@ -1,5 +1,5 @@
 ---
-title: "CHT Sync and CHT Pipeline setup"
+title: "CHT Sync and CHT Pipeline"
 linkTitle: "CHT Sync"
 weight: 2
 description: >

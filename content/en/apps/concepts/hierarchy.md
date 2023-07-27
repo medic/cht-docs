@@ -56,11 +56,12 @@ The hierarchy can be modeled after the health system, health program and/or the 
 For example, a Family Member is part of a Family. A Family and CHWs are part of a CHW Area. A Family Member, a Family, and CHWs are part of a CHW Supervisor Area. 
 
 ```mermaid
-%%{init: { "flowchart": { "rankSpacing": 15, "nodeSpacing": 15 } } }%%
+%%{init: { "flowchart": { "rankSpacing": 20, "nodeSpacing": 10 } } }%%
 flowchart TB
 linkStyle default stroke-width:1px,stroke:lightgrey
 
-classDef none fill:none,stroke:none
+classDef node fill:none,stroke:none
+classDef cluster fill:none,stroke:#ccc
 
 subgraph district[ ]
   admin[<img src&#61;&#39;district-hospital.svg&#39; width&#61;&#39;30&#39; />\nAdmin]:::none
@@ -104,7 +105,8 @@ person_g[<img src&#61;&#39;person.svg&#39; width&#61;&#39;30&#39; />\nFamily\nMe
 person_h_i_j[<img src&#61;&#39;person.svg&#39; width&#61;&#39;30&#39; /><img src&#61;&#39;person.svg&#39; width&#61;&#39;30&#39; /><img src&#61;&#39;person.svg&#39; width&#61;&#39;30&#39; />\nFamily Members\nH, I, and J]:::none
 
 district --- supervision
-supervision --- chw_group_a & chw_group_b & family_e & family_f
+supervision --- chw_group_a & chw_group_b 
+supervision ----  family_e & family_f
 chw_group_a --- family_a & family_b
 chw_group_b --- family_c & family_d
 family_a --- person_a_b
