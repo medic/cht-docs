@@ -117,7 +117,7 @@ docker compose up -d
 
 #### couch2pg Data
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
 1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
    
