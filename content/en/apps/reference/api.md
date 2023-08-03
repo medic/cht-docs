@@ -1577,6 +1577,17 @@ curl http://localhost:5988/api/v2/monitoring
 - A metric of `""` (for string values) or `-1` (for numeric values) indicates an error occurred while querying the metric - check the API logs for details.
 - If no response or an error response is received the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
 
+### GET /api/v1/express-metrics
+
+Available as of 4.3.x.
+Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/core/overview/watchdog/" >}}).
+
+The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
+
+#### Permissions
+
+No permissions required.
+
 ## Upgrades
 
 All of these endpoints require the `can_configure` permission.
