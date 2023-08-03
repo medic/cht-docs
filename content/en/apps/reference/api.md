@@ -307,6 +307,7 @@ GET /api/v1/forms/NPYY.json
 ### POST /api/v1/forms/validate
 
 *Added in 3.12.0*
+
 Validate the XForm passed. Require the `can_configure` permission.
 
 #### Headers
@@ -774,7 +775,7 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 
 ### GET /api/v1/users
 
-*DEPRECATED: use /api/v2/users*
+*DEPRECATED: use [/api/v2/users](#get-apiv2users)*
 
 Returns a list of users and their profile data in JSON format.
 
@@ -1111,6 +1112,7 @@ Content-Type: application/json
 ### POST /api/v2/users
 
 *Added in 3.16.0*
+
 Create new users with a place and a contact from a CSV file.
 
 Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "apps/reference/api#post-apiv1users" >}})
@@ -1459,7 +1461,8 @@ See the [Monitoring and alerting on the CHT]({{< relref "apps/guides/hosting/mon
 
 ### GET /api/v1/monitoring
 
-*Deprecated in 3.12.x in favor of [/api/v2/monitoring](#get-apiv2monitoring)*
+*DEPRECATED: use [/api/v2/monitoring](#get-apiv2monitoring)*
+
 Used to retrieve a range of metrics about the instance. While the output is human-readable this is intended for automated monitoring allowing for tracking trends over time and alerting about potential issues.
 
 #### Permissions
@@ -1579,7 +1582,8 @@ curl http://localhost:5988/api/v2/monitoring
 
 ### GET /api/v1/express-metrics
 
-Available as of 4.3.x.
+*Added in 4.3.0*
+
 Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/core/overview/watchdog" >}}).
 
 The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
@@ -1701,6 +1705,7 @@ Content-Type: application/json
 ## Contacts by phone
 
 *Added in 3.10.0*
+
 Accepts a phone number parameter and returns fully hydrated contacts that match the requested phone number.
 If multiple contacts are found, all are returned.  When no matches are found, a 404 error is returned.
 Supports both GET and POST.
@@ -1774,6 +1779,7 @@ Content-Type: application/json
 ## Replication Limit
 
 *Added in 3.11.0*
+
 Returns the quantity of documents that were replicated by each user.
 Accepts filtering by user name, when not provided, it returns all users.
 Supports GET.
