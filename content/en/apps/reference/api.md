@@ -1580,7 +1580,7 @@ curl http://localhost:5988/api/v2/monitoring
 ### GET /api/v1/express-metrics
 
 Available as of 4.3.x.
-Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/core/overview/watchdog/" >}}).
+Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/core/overview/watchdog" >}}).
 
 The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
 
