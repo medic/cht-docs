@@ -28,7 +28,7 @@ This guide will only work with CHT 4.x instances.  See the
 
 The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
-[*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is command-line interface tool to manage and configure CHT apps.
+[*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is a command-line interface tool to manage and configure CHT apps.
 
 *Docker* is a tool designed to make it easier to create, deploy, and run applications by using containers.
 
@@ -38,7 +38,7 @@ The *CHT Core Framework* makes it faster to build full-featured, scalable digita
 
 CHT app development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)).
 
-CHT apps can can be built on your local system (with the necessary libraries installed and configured) or they can be built from within VS Code Dev Containers.
+CHT apps can be built on your local system (with the necessary libraries installed and configured) or they can be built from within VS Code Dev Containers.
 
 Before you begin, ensure you have the following tools:
 
@@ -119,7 +119,7 @@ You can confirm that the installation was successful by typing `cht` in your ter
 
 If you have trouble installing `cht-conf`, see the application's [GitHub repository](https://github.com/medic/cht-conf) for more information.
 
-Using the terminal (or the WLS shell on Windows: _Start > wsl_), run the following commands from within your project directory (created above) to bootstrap your new CHT project:
+Using the terminal (or the WSL shell on Windows: _Start > wsl_), run the following commands from within your project directory (created above) to bootstrap your new CHT project:
 
 ```shell
 cd ~/cht-project
@@ -136,7 +136,7 @@ If you want to develop CHT apps with VS Code, you can use the `cht-app-ide` Dock
 
 [Install VS Code](https://code.visualstudio.com/) if you do not have it already.
 
-Using the terminal (or the WLS shell on Windows: _Start > wsl_), run the following commands from within your project directory (created above) to download the `.devcontainer.json` config file, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), and open the project directory in VSCode:
+Using the terminal (or the WSL shell on Windows: _Start > wsl_), run the following commands from within your project directory (created above) to download the `.devcontainer.json` config file, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), and open the project directory in VSCode:
 
 ```shell
 cd ~/cht-project
@@ -277,11 +277,11 @@ The output of `add-local-ip-certs-to-docker.sh` looks like this:
 ```text
 cht_nginx_1
 
-If just container name is shown above, a fresh local-ip.medicmobile.org certificate was downloaded.
+If just the container name is shown above, a fresh local-ip.medicmobile.org certificate was downloaded.
 
 ```
 
-The IP of your computer is used in the URL of the CHT instance now.  For example if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.local-ip.medicmobile.org`.  See the [local-ip.medicmobile.org](https://local-ip.medicmobile.org/) site to read more about these free to use certificates.
+The IP of your computer is used in the URL of the CHT instance now.  For example, if your IP is `192.168.68.40` then the CHT URL with a valid TLS certificate is `192-168-68-40.local-ip.medicmobile.org`.  See the [local-ip.medicmobile.org](https://local-ip.medicmobile.org/) site to read more about these free-to-use certificates.
 
 When using `cht-conf` you can now drop the use of `--accept-self-signed-certs`. Further, update the URL to be based on your IP.  Using the example IP above, this would be `--url=https://medic:password@192-168-68-40.local-ip.medicmobile.org`. As well, you can now use this URL to test with the CHT Android app.
 
