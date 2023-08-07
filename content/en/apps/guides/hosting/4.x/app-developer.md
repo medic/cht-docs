@@ -158,7 +158,7 @@ sh ./cht-docker-compose.sh
 The first time you run, you will be prompted to create a new project.  Here's what that looks like:
 
 ```shell
-sh ./cht-docker-compose.sh
+./cht-docker-compose.sh
 Would you like to initialize a new project [y/N]? y
 How do you want to name the project? 4 OH The First
 Downloading compose files ... done 
