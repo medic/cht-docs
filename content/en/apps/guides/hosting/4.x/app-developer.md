@@ -152,7 +152,7 @@ Always run the script from the directory where it lives.  If you launch it from 
 Run the script with:
 
 ```
-sh ./cht-docker-compose.sh
+./cht-docker-compose.sh
 ```
 
 The first time you run, you will be prompted to create a new project.  Here's what that looks like:
