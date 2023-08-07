@@ -178,13 +178,10 @@ All reports:
  - Store the form's identifier in the `form` field
  - May have a `contact` property, which is a minified version of the report author's contact and its hierarchy (see above)
 
-Reports can be about people or places.
+Reports can and should be linked to a contact when possible. The report's associated contact (sometimes called the report's subject) can be either a person or place. The link between report and contact is established by defining one of the following properties within the report:
 
-Reports about people should have one or more of:
- - A patient shortcode, found at `doc.patient_id` or `doc.fields.patient_id`
- - A patient record's `_id`, found at `doc.patient_uuid` or `doc.fields.patient_uuid`, as well as potientially in the same locations as the shortcode
-
-Reports about places should have a place's shortcode, found at `doc.place_id` or `doc.fields.place_id`.
+ 1. A person shortcode or uuid at `doc.fields.patient_id`, `doc.fields.patient_uuid`, or `doc.patient_id`
+ 2. A place shortcode or uuid at `doc.fields.place_id` or `doc.place_id`.
 
 Additionally, SMS reports:
  - Have an `sms_message` property which contains, among other things, the raw SMS

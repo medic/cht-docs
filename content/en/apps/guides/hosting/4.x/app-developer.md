@@ -171,8 +171,8 @@ Starting project "4_oh_the_first". First run takes a while. Will try for up to f
 
   Success! "4_oh_the_first" is set up:
 
-    https://127-0-0-1.my.local-ip.co:10444/ (CHT)
-    https://127-0-0-1.my.local-ip.co:10444/_utils/ (Fauxton)
+    https://127-0-0-1.local-ip.medicmobile.org:10444/ (CHT)
+    https://127-0-0-1.local-ip.medicmobile.org:10444/_utils/ (Fauxton)
 
     Login: medic
     Password: password

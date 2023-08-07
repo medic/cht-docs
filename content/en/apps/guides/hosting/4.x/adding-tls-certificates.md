@@ -60,7 +60,22 @@ If you have a deployment with a static, public IP and a domain name pointing to 
 
 Assuming your CHT instance is running with the default self signed cert. Be sure to change `cht.example.com` to your domain first though:
 
-1. Create certbot compose and env files by copying and pasting this code:
+
+Assuming your CHT instance is **already running with the default self-signed cert**:
+
+1. Edit the CHT's environment file at `/home/ubuntu/cht/upgrade-service/.env` so this line is present:
+   ```shell
+   CERTIFICATE_MODE=AUTO_GENERATE
+   ```
+   This will ensure the `deploy.sh` script that certbot uses to deploy the certificates is available for use.
+2. Restart your CHT instance to ensure the new `CERTIFICATE_MODE` value takes effect:
+   ```shell
+   cd /home/ubuntu/cht/upgrade-service/
+   docker stop $(docker ps --filter "name=^cht*" -q)
+   docker stop $(docker ps --filter "name=^upgrade-service*" -q)
+   docker compose up --detach
+   ```
+3. Create certbot compose and env files by copying and pasting this code:
    ```shell
    mkdir -p /home/ubuntu/cht/certbot
    cd /home/ubuntu/cht/certbot
@@ -88,20 +103,21 @@ Assuming your CHT instance is running with the default self signed cert. Be sure
    TZ=America/Whitehorse
    EOF
    ```
-2. Generate certs:
+   Certbot only lets you create the identical certificates 5 times per 7 days.  If you're unsure of how this works you can change `STAGING=` to `STAGING=--staging` in the `/home/ubuntu/cht/certbot/.env` file to do repeated tests.  Be sure to change this back to `STAGING=` when you're ready to create production certificates.
+4. Generate certs:
    ```shell
    cd /home/ubuntu/cht/certbot
    docker compose up
    ```
-3. Run this command to find the name of your CHT ngnix container:
+5. Run this command to find the name of your CHT ngnix container:
    ```shell
    docker ps --filter "name=nginx"  --format '{{ .Names }}'
    ```
-4. Assuming the name is `cht_nginx_1` from the prior step, reload your `nginx` config with this command:
+6. Assuming the name is `cht_nginx_1` from the prior step, reload your `nginx` config with this command:
     ```shell
     docker exec -it cht_nginx_1 nginx -s reload
     ```
-5. Attempt to renew your certificates once a week by adding this cronjob via `crontab -e`.  Certbot will only renew them as needed:
+7. Attempt to renew your certificates once a week by adding this cronjob via `crontab -e`.  Certbot will only renew them as needed:
    ```shell
    0 0 * * 0 cd /home/ubuntu/cht/certbot&&docker compose up
    ```

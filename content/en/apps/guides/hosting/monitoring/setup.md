@@ -54,6 +54,8 @@ These instructions have been tested against Ubuntu, but should work against any 
     echo "    username: medic"
     echo "    password: ${password}";echo
     ```
+   If you're using docker-compose v2.x, it doesn't support relative paths and you'll have to edit your `.env` file to update paths to absolute path.
+
    Note that in step 4 below you'll need the username and password which is printed after you run the above command.
 
 2. Edit the `cht-instances.yml` file to have the URLs of your CHT instances. You may include as many URLs of CHT instances as you like.
@@ -115,7 +117,7 @@ docker compose up -d
 
 #### couch2pg Data
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database.
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
 1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
    

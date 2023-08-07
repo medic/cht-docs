@@ -51,7 +51,7 @@ A suite of tools for extracting and normalizing data from the Core Framework's C
 
 ### CHT Watchdog
 
-Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption cause by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
+Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption caused by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
 
 ## Client
 
@@ -68,7 +68,7 @@ The CHT Web Application is used by Community Health Workers and provides a large
 The CHT Web Application is [reactive](https://angular.io/guide/rx-library), responsive and a single page application built with [Angular](https://angular.io/) and [NgRx](https://ngrx.io) frameworks. Additionally, it uses the following technology:
 
 | Technology                                                       | Usage                                                                                                                                                                                  |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [PouchDB](https://pouchdb.com)                                   | To implement an [Offline-First]({{< ref "core/overview/offline-first" >}}) strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
 | [Enketo](https://enketo.org)                                     | To render configured xforms and help with styling and dynamic elements such as show/hide and validation rules.                                                                         |
 | [Nools](https://github.com/C2FO/nools)                           | A rules engine to compute the upcoming tasks and monthly targets of the users.                                                                                                         |
@@ -76,7 +76,7 @@ The CHT Web Application is [reactive](https://angular.io/guide/rx-library), resp
 | [Ngx-translate](https://github.com/ngx-translate/core)           | To automatically translate the labels from a Angular application. Read more about [how to configure translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/). |
 | [Karma](https://github.com/karma-runner/karma)                   | A test runner for [unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)                                                                                             |
 | [MochaJS](https://mochajs.org/)                                  | A test framework to run the [unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)                                                                                   |
-| [Protractor](https://www.protractortest.org/#/)                  | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                        |
+| [WebDriverIO](https://webdriver.io/)                             | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                        |
 | [Less](http://lesscss.org/)                                      | A CSS preprocessor                                                                                                                                                                     |
 
 ##### Structure
@@ -102,11 +102,11 @@ View the application source code in [our GitHub repository](https://github.com/m
 App Management is a single page application built with [AngularJS](https://angularjs.org) framework and implements [Redux](https://github.com/reduxjs/redux) to manage a reactive state. Additionally, it uses the following technology:
 
 | Technology                                                                  | Usage                                                                                                                                                                                   |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Angular Translate](https://github.com/angular-translate/angular-translate) | To automatically translate the labels from a AngularJS application. Read more about [how to manage translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/). |
 | [Karma](https://github.com/karma-runner/karma)                              | A test runner for [unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)                                                                                               |
 | [MochaJS](https://mochajs.org/)                                             | A test framework to run the [unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)                                                                                     |
-| [Protractor](https://www.protractortest.org/#/)                             | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                         |
+| [WebDriverIO](https://webdriver.io/)                                        | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                         |
 | [Less](http://lesscss.org/)                                                 | A CSS preprocessor                                                                                                                                                                      |
 
 ##### Structure
