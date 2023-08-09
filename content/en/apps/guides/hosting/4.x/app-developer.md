@@ -136,7 +136,7 @@ To get started using it:
 If you want a more stand-alone version, you can `curl` the bash script directly, but you can't use `git` to easily update it then:
 
 ```shell
-curl https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
+curl -s -o cht-docker-compose.sh https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
 ```
 
 ### Usage
