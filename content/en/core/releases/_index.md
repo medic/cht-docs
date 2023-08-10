@@ -22,8 +22,9 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status | Release date | End of life |
 |----|----|--------------|-------------|
-| 4.2.x  | Current | 25-May-2023  | TBA         |
-| 4.1.x  | Current | 12-Dec-2022  | 25-Aug-2023 |
+| 4.3.x  | Current | xx-xx-2023  | TBA         |
+| 4.2.x  | EOL | 25-May-2023  | xx-xx-2023 |
+| 4.1.x  | EOL | 12-Dec-2022  | 25-Aug-2023 |
 | 4.0.x  | EOL | 03-Nov-2022  | 12-Mar-2023 |
 | 3.17.x  | Current | 11-Oct-2022  | 03-Nov-2023 |
 | 3.16.x  | EOL | 3-Aug-2022   | 11-Jan-2023 |
