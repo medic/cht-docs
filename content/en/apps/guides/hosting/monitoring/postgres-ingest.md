@@ -224,7 +224,7 @@ This will make your new dashboard show up natively with the two existing CHT das
 
 #### Full Dashboard JSON
 
-For reference, here is the full SQL of the dashboard we created above:
+For reference, here is the full JSON of the dashboard we created above as shown in the "Save" modal:
 
 ```JSON
 {
