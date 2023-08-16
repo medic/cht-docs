@@ -10,15 +10,17 @@ description: >
 These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 {{% /pageinfo %}}
 
-## Adding 
+## Introduction
 
-After you have done the [setup of CHT Watchdog]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "apps/guides/hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
+Assuming initial Watchdog [setup]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) is done, you have made it [production ready]({{< relref "apps/guides/hosting/monitoring/production.md" >}}) and finally added [container monitoring]({{< relref "apps/guides/hosting/monitoring/integration.md" >}}),  there may be additional Postgres metrics you want to ingest to alert on. Or, you may want to create an entirely new dashboard in Grafana with no alerts for viewing health metrics like CHW visits per county or household registration rates.
 
-This guide uses example instances of CHT Core (`cht.example.com`) and CHT Watchdog (`watchdog.example.com`). When deploying, be sure to replace with your own hostnames.
+This guide will walk you through adding one a Postgres query as a datasoruce to Watchdog.  It references CHT Core (`cht.example.com`),  CHT Watchdog (`watchdog.example.com`) and a Postgres server (`db.example.com`).   
 
-### Default Flow
+It should be noted that this workflow can be added regardless if you've made it production ready or added container monitoring.  However, for completeness, this guide assumes you have done both. As well, while this page shows how to add one query, you could add multiple if you need to.
 
-Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}):
+### Base Flow
+
+Here's what Watchdog data flow looks like base off the intro above after adding [container monitoring]({{< relref "apps/guides/hosting/monitoring/integration.md" >}}):
 
 ```mermaid
 flowchart LR
@@ -37,13 +39,9 @@ mon_api  -->  json
 cAdvisor["cAdvisor (8443)"] -->  Prometheus
 ```
 
-### Additional Flows
+### Postgres Flow
 
-Your Prometheus instance from CHT Watchog can ingest data from any [supported data source](https://prometheus.io/docs/instrumenting/exporters/) accessible via an HTTPS request. These data sources might be hosted on the same server as CHT Core or on a completely different server. 
-
-The focus of this guide is to collect metrics on Docker container usage and performance from the server hosting our CHT Core instance using [cAdvisor](https://prometheus.io/docs/guides/cadvisor/).
-
-
+This guide will have you deploy a [Postgres Exporter](https://github.com/prometheus-community/postgres_exporter) on your Watchdog server (`watchdog.example.com`).  This, in turn, will query your Postgres server (`db.example.com`):
 
 ```mermaid
 flowchart LR
@@ -60,7 +58,7 @@ subgraph watchdog["watchdog.example.com"]
 end
 
 
-subgraph db["sql.example.com"]
+subgraph db["db.example.com"]
   postgres["Postgres (5431)"]:::client_node
 end
 
@@ -70,144 +68,370 @@ cAdvisor["cAdvisor (8443)"] -->  Prometheus
 postgres -->  postgres-exp
 ```
 
-Note that because CHT Core is listening on port 443 already, we'll have cAdvisor listen on port 8443.
+After reading this guide you should not only be able to set up an initial single query, but also be able to add more queries and report and alert on them.
 
-By reading this guide you should not only be able to set up cAdvisor, but also be familiar with extending CHT Watchdog to support any other vital metrics.
+## Steps to add a query
 
-### Steps to new integrations
+All steps are done on the CHT Watchdog instance and assume you have a credentials for your Postgres server for Watchdog to user. As well, it assumes that you installed Watchdog in `~/cht-watchdog`: 
 
-While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
+1. [Prepare query in config file]({{< relref "#prepare-query-in-config-file" >}})
+2. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
+3. [Adding new scrape config]({{< relref "#adding-new-scrape-config" >}})
+4. [Load new Compose files with existing ones]({{< relref "#load-new-compose-files-with-existing-ones" >}})
+5. [Configure the dashboard]({{< relref "#configure-the-dashboard" >}})
+6. [Save the dashboard for easy deployment and future updates]({{< relref "#save-the-dashboard-for-easy-deployment-and-future-updates" >}})
 
-1. CHT Core: [Create both cAdvisor and Caddy Docker Compose files]({{< relref "#cadvisor-compose-file" >}})
-2. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core]({{< relref "#start-cadvisor-caddy-and-cht-core-with-docker" >}})
-3. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
-4. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
-5. CHT Watchdog: [Importing an exising cAdvisor dashboard from `grafana.com`]({{< relref "#on-cht-watchdog-import-grafana-dashboard" >}})
+### Prepare query in config file
 
-After completing these steps, we now have Docker metrics we can alert on:
-
-[![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)](cadvisor.screenshot.png)
-
-Read on below on how to set this up!
-
-## Integrating with cAdvisor
-
-### On CHT Core
-
-#### cAdvisor Compose file
-
-On your CHT instance, add a Docker composer file for the new cAdvisor service. Note this also includes a Redis caching layer. Also note that we're reducing cAdvisors CPU usage by adding 3 extra flags in the `command` stanza.  In our example, we've put this file in `/home/ubuntu/cht/compose/cadvisor_compose.yml` with these contents:
+Add a YAML file for with your query called `~/extra-sql-queries.yml`. In this example we'll be using a query from the [App Monitoring Data Ingestion repo](https://github.com/medic/cht-app-monitoring-data-ingest/), but it can be any query as long as the user you're using in the next step has access to the database and table:
 
 ```yaml
-version: '3.9'
+replication_failure_reasons:
+  query: |
+    SELECT 
+      metric as failure_type,
+      sum(count) AS "count"
+    FROM 
+      public.app_monitoring_replication_failure_reasons
+    WHERE 
+      partner_name IN ('partner_name_here')
+    GROUP BY 
+      failure_type
+    ORDER BY 
+      count DESC
+  metrics:
+    - failure:
+        usage: "LABEL"
+        description: "Name of the failure"
+    - sequence:
+        usage: "TABLE"
+        description: "Replication failure reasons"
+```
+
+Note that you can use any value on the first line, seen as  `replication_failure_reasons` above.  It will be the field name we'll use in the 4th step below when exploring the new data in Grafana.
+
+### Add new Postgres Exporter
+
+In a new file  `~/extra-sql-compose.yml`, define your new Postgres exporter as well as add a mount to the existing Grafana and Prometheus services. Note that the `DATA_SOURCE_NAME` value will need to have the following variables replaced:
+
+* `user` - Postgres user to use when logging in
+* `secret-password` - Password for `user` above
+* `db.example.com` - URL or IP for the your Postgres server
+* `database` - Actual string of database name (eg `extra_monitoring` or `health_stats`), will be different for each install.
+
+```yaml
 services:
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
-    container_name: cadvisor
+
+  prometheus:
     volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    depends_on:
-      - redis
-    networks:
-      - cht-net
+      - ./extra-sql-prometheus.yml:/etc/prometheus/scrape_configs/extra-sql-prometheus.yml:ro
+
+  grafana:
+    volumes:
+      - ./extra-sql-dashboard.json:/etc/grafana/provisioning/dashboards/CHT/cht_admin_extra_sql.json:ro
+
+  extra_sql_exporter:
+    image: prometheuscommunity/postgres-exporter:latest
     command:
-      - "--housekeeping_interval=30s"
-      - "--docker_only=true"
-      - "--disable_metrics=percpu,sched,tcp,udp,disk,diskIO,accelerator,hugetlb,referenced_memory,cpu_topology,resctrl"
-  redis:
-    image: redis:latest
-    container_name: redis
-    networks:
-      - cht-net
-```
-
-#### Caddy Config and Compose files
-
-Like we did in the [TLS section]({{< relref "apps/guides/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.
-
-Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8443` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port `8080` where cAdvisor is running:
-
-```yaml
-cht.example.com:8443 {
-    reverse_proxy cadvisor:8080
-}
-```
-
-Then we can add the compose file to run Caddy. Note that it's mounting the config file we just created:
-
-```yaml
-version: "3.9"
-services:
-  caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
-    ports:
-      - "8443:8443"
+      # disables the collection of all metrics except for custom queries 
+      - '--no-collector.database'
+      - '--no-collector.postmaster'
+      - '--no-collector.process_idle'
+      - '--no-collector.replication'
+      - '--no-collector.replication_slot'
+      - '--no-collector.stat_bgwriter'
+      - '--no-collector.stat_database'
+      - '--no-collector.statio_user_tables'
+      - '--no-collector.stat_statements'
+      - '--no-collector.stat_user_tables'
+      - '--disable-default-metrics'
+      - '--disable-settings-metrics'
     volumes:
-      - /home/ubuntu/Caddyfile:/etc/caddy/Caddyfile
+      - ./extra-sql-queries.yml:/extra-sql-queries.yml
+    environment:
+      DATA_SOURCE_NAME: "postgresql://user:secret-password@db.example.com:5431/database?sslmode=disable"
+      PG_EXPORTER_EXTEND_QUERY_PATH: "/extra-sql-queries.yml"
+    restart: always
     networks:
-      - cht-net
+     - cht-watchdog-net
 ```
 
-#### Start cAdvisor, Caddy and CHT Core with Docker
+If there's a missing mount target, then Docker will error.  Avoid the error by creating an empty file called `~/extra-sql-dashboard.json`.  We'll use this in the last step below
 
-Now that we have all the config files in place, you need to have Docker start everything together. This is so that the containers can see each other on the same `CHT Net` Docker network.  You will need to specify each of the compose files every time you start, stop or restart CHT instance so all the services stay running and connected.
+### Adding new scrape config
 
-Assuming you followed the [production steps]({{< relref "apps/guides/hosting/4.x/self-hosting-single-node" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
-
-```shell
-cd /home/ubuntu/cht/upgrade-service
-docker stop $(docker ps --quiet)
-docker compose up --detach
-```
-
-Note that the CHT Upgrade Service will process all Docker Compose file in the `/home/ubuntu/cht/compose` directory for us and we don't need to explicity specify them in the `docker compose up` command.
-
-### On CHT Watchdog
-
-#### Scrape config
-
-We'll first create the `~/cadvisor-prometheus-conf.yml` file and point the config to our CHT Core URL:
+Create the `~/extra-sql-prometheus.yml` file and point the config to our new Postgres Exporter which is `extra_sql_exporter:9187` on the last line below.  This will tell Prometheus to scrape the new data every 1 minute:
 
 ```yaml
 scrape_configs:
-  - job_name: 'cadvisor'
-    scrape_interval: 5s
-    scheme: 'https'
+  - job_name: 'extra-sql'
+    scrape_interval: 1m
     static_configs:
-      - targets: ['cht.example.com:8443']
+      - targets: ['extra_sql_exporter:9187']
 ```
 
-CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `~/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
-
-```yaml
-version: "3.9"
-services:
-  prometheus:
-    volumes:
-      - /root/cadvisor-prometheus-conf.yml:/etc/prometheus/scrape_configs/cadvisor.yml:ro
-```
-
-#### Load new Compose files with existing ones
+### Load new Compose files with existing ones
 
 Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "apps/guides/hosting/monitoring/setup" >}}), this would be:
 
 ```shell
 cd ~/cht-monitoring
-docker compose -f docker-compose.yml -f ../cadvisor-compose.yml up -d
+docker compose -f docker-compose.yml -f ../cadvisor-compose.yml -f ../extra-sql-compose.yml up -d
 ```
 
-#### Import Grafana Dashboard
+### Configure the dashboard
 
-Now that cAdvisor is running on your CHT Core instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the cAdvisor metrics, we can now visualize it in a Grafana Dashboard and then alert on it. 
+Now that the new Postgres Exporter is running on your Watchdog instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the new metrics, we can now visualize it in a Grafana Dashboard and then alert on it. 
 
 1. Log into your Watchdog instance
-2. Click the upper left hamburger menu and click "Dashboards"
-3. Find the "New" button on the left, click and choose "Import" from the drop down
-4. On the next page, scroll down to find "Import via grafana.com", enter ID `193` (for the [Docker monitoring](https://grafana.com/grafana/dashboards/193-docker-monitoring/) dashboard) and click "Load"
-5. Confirm the "Name" and "Folder" values and select "Prometheus" as the data source in the dropdown. Finally, click the "Import" button at the bottom of the page.
+2. In the "Metric" field enter `replication_failure_reasons_count` from the step above where we defined `extra-sql-queries.yml`
+3. Click the blue "Run query" in the upper right
+4. In this example we'll end up with a table, but configure the dashboard however you want based on the visualization desired. 
+5. Click "Add to dashboard"
 
-That's it! After following these steps, you should be looking at the cAdvisor dashboard [as shown above](#steps-to-new-integrations).  From here, you can both customize this dashboard as well as add alerts as needed.
+![Grafana showing data data explorer](explore.png)
+
+### Save the dashboard for easy deployment and future updates
+
+An optional last step is on the dashboard you just created, click the "Save" icon:
+
+![Grafana showing where the "Save" button is, top row of icons, the one shaped like a floppy disk](save.png)
+
+Copy the resulting JSON into the empty file we created above `~/extra-sql-dashboard.json`.  By saving it here, it makes it easy to put into revision control and make updates in the future.  As well it will automatically load this the next time you open the Watchdog webpage.
+
+An additional optional step is to make your dashboard a peer of the exsting "Admin Details" and "Admin Overview".  Do this by editing the JSON in `~/extra-sql-dashboard.json`, find the line with `"graphTooltip": 0,` and add this JSON after it:
+
+```json
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "CHT Admin Extra SQL",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+```
+
+This will make your dashboard show up natively next the existing CHT two:
+
+
+![Grafana with a third "Admin Extra SQL" option showing in the existing CHT navigation menu](menu.png)
+
+#### Full Dashboard JSON
+
+For reference, here is the full SQL of the dashboard we created above:
+
+```JSON
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "CHT Admin Extra SQL",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "__name__"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "instance"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "job"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "server"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "failure"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 462
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 18,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Value"
+          }
+        ]
+      },
+      "pluginVersion": "10.0.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "replication_failure_reasons_count",
+          "format": "table",
+          "instant": true,
+          "key": "Q-e238fdbd-aed6-4215-a3e8-c611c6586c64-0",
+          "legendFormat": "",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Replication failure reason",
+      "type": "table"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "CHT Admin Extra SQL",
+  "uid": "a71db640-cc40-452c-aa92-222a9b49d43b",
+  "version": 8,
+  "weekStart": ""
+}
+```
