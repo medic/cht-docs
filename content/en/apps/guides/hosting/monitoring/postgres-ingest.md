@@ -185,9 +185,8 @@ Now that the new Postgres Exporter is running on your Watchdog instance and CHT 
 
 1. Log into your Watchdog instance
 2. In the "Metric" field enter `replication_failure_reasons_count` from the step above where we defined `extra-sql-queries.yml`
-3. Click the blue "Run query" in the upper right
-4. In this example we'll end up with a table, but configure the dashboard however you want based on the visualization desired. 
-5. Click "Add to dashboard"
+3. Click the blue "Run query" in the upper right. Your data should show up and you can configure the dashboard as desired. 
+4. Click "Add to dashboard"
 
 ![Grafana showing data data explorer](explore.png)
 
