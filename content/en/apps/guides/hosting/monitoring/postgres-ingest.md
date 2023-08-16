@@ -218,7 +218,7 @@ An additional optional step is to make your dashboard a peer of the exsting "Adm
   ],
 ```
 
-This will make your dashboard show up natively next the existing CHT two:
+This will make your new dashboard show up natively with the two existing CHT dashboards:
 
 
 ![Grafana with a third "Admin Extra SQL" option showing in the existing CHT navigation menu](menu.png)
