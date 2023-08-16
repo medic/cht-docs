@@ -181,11 +181,11 @@ docker compose -f docker-compose.yml -f ../cadvisor-compose.yml -f ../extra-sql-
 
 ### Configure the dashboard
 
-Now that the new Postgres Exporter is running on your Watchdog instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the new metrics, we can now visualize it in a Grafana Dashboard and then alert on it. 
+Now that the new Postgres Exporter is running on your Watchdog instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the new metrics, we can now visualize it in a Grafana Dashboard and then alert on it:
 
-1. Log into your Watchdog instance
-2. In the "Metric" field enter `replication_failure_reasons_count` from the step above where we defined `extra-sql-queries.yml`
-3. Click the blue "Run query" in the upper right. Your data should show up and you can configure the dashboard as desired. 
+1. In the "Metric" field enter `replication_failure_reasons_count` from the step above where we defined `extra-sql-queries.yml`
+2. Click the blue "Run query" in the upper right. 
+3. We'll make this a table, but you can configure the dashboard as desired. 
 4. Click "Add to dashboard"
 
 ![Grafana showing data data explorer](explore.png)
