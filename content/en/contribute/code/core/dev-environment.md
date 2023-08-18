@@ -159,7 +159,7 @@ cd ~/cht-core && npm dev-api
 Finally, in a 3rd terminal run:
 
 ```shell
-cd ~/cht-core && npm dev-sentinel
+cd ~/cht-core && npm run dev-sentinel
 ```
 
 That's it!  Now when you edit code in your IDE, it will automatically reload.  You can see the CHT running locally here: [http://localhost:5988/](http://localhost:5988/)
