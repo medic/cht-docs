@@ -6,9 +6,9 @@ description: >
   Guidelines for CHT SonarCloud static analysis.
 ---
 
-Sonar static analysis supports development by providing feedback on code quality and security issues. Sonar analysis must pass on all _new code_.
+[Sonar](https://www.sonarsource.com/) static analysis supports development by providing feedback on code quality and security issues. Sonar analysis must pass on all _new code_.
 
-SonarCloud can be enabled on any public repo in the `medic` organization.
+[SonarCloud](https://www.sonarsource.com/products/sonarcloud/) can be enabled on any public repo in the `medic` organization.
 
 ## Workflow
 
@@ -22,7 +22,7 @@ SonarCloud is integrated with the CHT GitHub repositories and runs on every pull
 
 #### What should I do if Sonar finds an issue?
 
-When Sonar flags an issue with the code in your Pull Request, use this decision tree to determine the proper mitigation:
+When Sonar flags an issue with the code in your pull request, use this decision tree to determine the proper mitigation:
 
 1. If the issue is a genuine concern that should be addressed:
    1. Fix it and push the updated code to your PR. The PR will automatically be unblocked once the Sonar analysis succeeds.  
@@ -36,7 +36,7 @@ When Sonar flags an issue with the code in your Pull Request, use this decision 
 
 ## Adding a new repo to SonarCloud
 
-Add a `.sonarcloud.properties` file to the repository with desired your [repo-level configuration]({{< ref "#ignoring-all-rules-for-a-file" >}}).
+Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration]({{< ref "#ignoring-all-rules-for-a-file" >}}).
 
 In the GitHub UI, navigate to the settings for the `medic` org > Integrations > Applications > SonarCloud and click the `Configure` button.
 
