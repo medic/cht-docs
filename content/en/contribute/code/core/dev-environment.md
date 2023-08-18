@@ -140,7 +140,15 @@ COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.ym
 
 ### Developing
 
-Now you have everything installed and can begin development! You'll need three separate terminals when doing development. In the first terminal, run:
+Now you have everything installed and can begin development! You'll need three separate terminals when doing development. 
+
+In the first terminal we'll start the API nodejs service by running:
+
+```shell
+cd ~/cht-core && npm run dev-api
+```
+
+Then in a 2nd terminal we'll compile and deploy the web application by runing:
 
 ```shell
 cd ~/cht-core && npm run build-dev-watch
@@ -150,13 +158,7 @@ Be **very** patient until you see:
 
 > "Waiting..."
 
-Then in a 2nd terminal run:
-
-```shell
-cd ~/cht-core && npm run dev-api
-```
-
-Finally, in a 3rd terminal run:
+Finally, in a 3rd terminal we'll start the Sentinel nodejs service by running:
 
 ```shell
 cd ~/cht-core && npm run dev-sentinel
