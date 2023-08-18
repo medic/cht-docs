@@ -153,7 +153,7 @@ Be **very** patient until you see:
 Then in a 2nd terminal run:
 
 ```shell
-cd ~/cht-core && npm dev-api
+cd ~/cht-core && npm run dev-api
 ```
 
 Finally, in a 3rd terminal run:
