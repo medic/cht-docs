@@ -23,12 +23,12 @@ It is recommended that all projects update regularly multiple times a year to ge
 | Version | Status | Release date | End of life |
 |----|----|--------------|-------------|
 | 4.3.x  | Current | 18-Aug-2023  | TBA         |
-| 4.2.x  | EOL | 25-May-2023  | 18-Nov-2023 |
+| 4.2.x  | Supported | 25-May-2023  | 18-Nov-2023 |
 | 4.1.x  | EOL | 12-Dec-2022  | 25-Aug-2023 |
 | 4.0.x  | EOL | 03-Nov-2022  | 12-Mar-2023 |
-| 3.17.x  | Current | 11-Oct-2022  | 03-Nov-2023 |
-| 3.16.x  | EOL | 3-Aug-2022   | 11-Jan-2023 |
-| 3.15.x  | EOL | 4-May-2022   | 3-Nov-2022  |
+| 3.17.x | Supported | 11-Oct-2022  | 03-Nov-2023 |
+| 3.16.x | EOL | 3-Aug-2022   | 11-Jan-2023 |
+| 3.15.x | EOL | 4-May-2022   | 3-Nov-2022  |
 | 3.14.x | EOL | 11-Feb-2022  | 4-Aug-2022  |
 | 3.13.x | EOL | 29-Sep-2021  | 11-May-2022 |
 | 3.12.x | EOL | 28-Jul-2021  | 29-Dec-2021 |
