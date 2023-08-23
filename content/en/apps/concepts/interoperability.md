@@ -45,7 +45,7 @@ This application implements a Loss to Follow Up (LTFU) workflow system for CHIS 
 
 ## Frequently Asked Questions
 
-### Does the CHT have a FHIR API?
+### Is the CHT FHIR Compatible and does it have a FHIR API?
 
 Yes. Mediators are one of the components of a CHT deployment and expose FHIR compatible APIs to the rest of the healthcare ecosystem.
 
@@ -59,9 +59,17 @@ The flexibility of mediators also means the CHT is future-proof and can be confi
 
 ### What does the mediator do to the source data?
 
-1. It transforms the structure from the CHT format to the required standard.
+1. It transforms the structure from the CHT format to the required standardized format.
 2. It can make requests for additional data. This could be querying the Client Registry for the patient's national ID number, or other services such as the Terminology service to translate conditions, medications, procedures, and so on into the required classification system.
 3. Finally it passes the FHIR resource to the interoperability layer to be shared with other systems.
+
+### What are the FHIR Resources utilized?
+
+1. [Patient](https://www.hl7.org/fhir/patient.html)
+2. [Encounter](https://build.fhir.org/encounter.html)
+3. [Subscription](https://build.fhir.org/subscription.html)
+4. [Organization](https://build.fhir.org/organization.html)
+5. [Endpoint](https://build.fhir.org/endpoint.html)
 
 ## Important Links
 - [cht-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU workflow
