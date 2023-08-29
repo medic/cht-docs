@@ -112,12 +112,13 @@ Note that you can use any value on the first line, seen as  `replication_failure
 
 ### Add new Postgres Exporter
 
-In a new file  `~/extra-sql-compose.yml`, define your new Postgres exporter as well as add a mount to the existing Grafana and Prometheus services. Note that the `DATA_SOURCE_NAME` value will need to have the following variables replaced:
+In a new file  `~/extra-sql-compose.yml`, define your new Postgres exporter as well as add a mount to the existing Grafana and Prometheus services. Note that the `DATA_SOURCE_NAME` value will need to have the following variables added to you `.env` file you created to deploy Watchdog:
 
-* `user` - Postgres user to use when logging in
-* `secret-password` - Password for `user` above
-* `db.example.com` - URL or IP for the your Postgres server
-* `database` - Actual string of database name (eg `extra_monitoring` or `health_stats`), will be different for each install.
+* `EXTRA_SQL_USER` - Postgres user to use when logging in
+* `EXTRA_SQL_PASS` - Password for `EXTRA_SQL_USER` above
+* `EXTRA_SQL_SERVER` - URL or IP for your Postgres server
+* `EXTRA_SQL_PORT` - Port of server, defaults to `5432` it not declared.
+* `EXTRA_SQL_DATABASE` - Actual string of database name (eg `extra_monitoring` or `health_stats`), will be different for each install.
 
 ```yaml
 services:
@@ -149,7 +150,7 @@ services:
     volumes:
       - ./extra-sql-queries.yml:/extra-sql-queries.yml
     environment:
-      DATA_SOURCE_NAME: "postgresql://user:secret-password@db.example.com:5431/database?sslmode=disable"
+      DATA_SOURCE_NAME: "postgresql://${EXTRA_SQL_USER:-NO DB USER SPECIFIED}:${EXTRA_SQL_PASS:-NO DB PASSWORD SPECIFIED}@${EXTRA_SQL_SERVER:-.NO DB SERVER SPECIFIED}:${EXTRA_SQL_PORT:-5432}/${EXTRA_SQL_DATABASE:-.NO DB SPECIFIED}?sslmode=disable"
       PG_EXPORTER_EXTEND_QUERY_PATH: "/extra-sql-queries.yml"
     restart: always
     networks:
