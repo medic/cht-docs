@@ -120,7 +120,7 @@ services:
 
   grafana:
     volumes:
-      - ./extra-sql-dashboard.json:/etc/grafana/provisioning/dashboards/CHT/cht_admin_extra_sql.json:ro
+      - ./dashboard.custom-sql.json:/etc/grafana/provisioning/dashboards/CHT/custom-sql.json:ro
 
   extra_sql_exporter:
     image: prometheuscommunity/postgres-exporter:latest
