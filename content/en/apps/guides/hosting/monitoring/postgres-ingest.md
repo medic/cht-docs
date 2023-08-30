@@ -122,7 +122,7 @@ services:
     volumes:
       - ./dashboard.custom-sql.json:/etc/grafana/provisioning/dashboards/CHT/custom-sql.json:ro
 
-  extra_sql_exporter:
+  custom_sql_exporter:
     image: prometheuscommunity/postgres-exporter:latest
     command:
       # disables the collection of all metrics except for custom queries 
