@@ -105,11 +105,11 @@ This configuration will generate a metric named `dwh_impact_replication_failure_
 
 In a new file, `~/docker-compose.custom-sql.yml`, define your new Postgres exporter as well as add a mount to the existing Grafana and Prometheus services. Note that you will need to add the following environment variables to your Watchdog `~/cht-watchdog/.env` file:
 
-* `EXTRA_SQL_USER` - Postgres user to use when logging in
-* `EXTRA_SQL_PASS` - Password for `EXTRA_SQL_USER` above
-* `EXTRA_SQL_SERVER` - URL or IP for your Postgres server
-* `EXTRA_SQL_PORT` - Port of server, defaults to `5432` it not declared.
-* `EXTRA_SQL_DATABASE` - Actual string of database name (eg `extra_monitoring` or `health_stats`), will be different for each install.
+* `CUSTOM_SQL_USER` - Postgres user to use when logging in
+* `CUSTOM_SQL_PASS` - Password for `CUSTOM_SQL_USER` above
+* `CUSTOM_SQL_SERVER` - URL or IP for your Postgres server
+* `CUSTOM_SQL_PORT` - Port of server, defaults to `5432` it not declared.
+* `CUSTOM_SQL_DATABASE` - Actual string of database name (eg `extra_monitoring` or `health_stats`), will be different for each install.
 
 ```yaml
 services:
