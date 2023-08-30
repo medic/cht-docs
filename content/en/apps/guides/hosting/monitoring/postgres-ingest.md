@@ -166,7 +166,7 @@ scrape_configs:
       - targets: ['custom_sql_exporter:9187']
 ```
 
-### Load new Compose files with existing ones
+Launch Watchdog with the new compose file
 
 Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "apps/guides/hosting/monitoring/setup" >}}), this would be:
 
