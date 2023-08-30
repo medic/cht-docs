@@ -172,7 +172,7 @@ Now that you've added the new configuration files, we can load it alongside the 
 
 ```shell
 cd ~/cht-monitoring
-docker compose -f docker-compose.yml -f ../cadvisor-compose.yml -f ../extra-sql-compose.yml up -d
+docker compose -f docker-compose.yml -f ../docker-compose.custom-sql.yml up -d
 ```
 
 ### Configure the dashboard
