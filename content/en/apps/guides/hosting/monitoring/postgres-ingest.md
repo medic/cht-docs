@@ -103,7 +103,7 @@ This configuration will generate a metric named `dwh_impact_replication_failure_
 
 ### Add new Postgres Exporter
 
-In a new file  `~/extra-sql-compose.yml`, define your new Postgres exporter as well as add a mount to the existing Grafana and Prometheus services. Note that the `DATA_SOURCE_NAME` value will need to have the following variables added to you `.env` file you created to deploy Watchdog:
+In a new file, `~/docker-compose.custom-sql.yml`, define your new Postgres exporter as well as add a mount to the existing Grafana and Prometheus services. Note that you will need to add the following environment variables to your Watchdog `~/cht-watchdog/.env` file:
 
 * `EXTRA_SQL_USER` - Postgres user to use when logging in
 * `EXTRA_SQL_PASS` - Password for `EXTRA_SQL_USER` above
