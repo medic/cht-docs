@@ -61,7 +61,7 @@ postgres -->  postgres-exp
 ```
 
 
-## Steps to add a query
+Adding a custom Postgres metric
 
 All steps are done on the CHT Watchdog instance and assume you have a credentials for your Postgres server for Watchdog to user. As well, it assumes that you installed Watchdog in `~/cht-watchdog`: 
 
