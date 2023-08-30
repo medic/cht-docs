@@ -142,7 +142,7 @@ services:
       - ./custom-sql-queries.yml:/custom-sql-queries.yml
     environment:
       DATA_SOURCE_NAME: "postgresql://${EXTRA_SQL_USER:-NO DB USER SPECIFIED}:${EXTRA_SQL_PASS:-NO DB PASSWORD SPECIFIED}@${EXTRA_SQL_SERVER:-.NO DB SERVER SPECIFIED}:${EXTRA_SQL_PORT:-5432}/${EXTRA_SQL_DATABASE:-.NO DB SPECIFIED}?sslmode=disable"
-      PG_EXPORTER_EXTEND_QUERY_PATH: "/extra-sql-queries.yml"
+      PG_EXPORTER_EXTEND_QUERY_PATH: "/custom-sql-queries.yml"
     restart: always
     networks:
      - cht-watchdog-net
