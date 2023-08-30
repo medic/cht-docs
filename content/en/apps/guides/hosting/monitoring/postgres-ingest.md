@@ -57,7 +57,6 @@ subgraph db["db.example.com"]
 end
 
 mon_api  -->  json
-cAdvisor["cAdvisor (8443)"] -->  Prometheus
 postgres -->  postgres-exp
 ```
 
