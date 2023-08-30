@@ -81,7 +81,7 @@ dwh_impact_replication_failure:
   query: |
     SELECT 
       metric as reason,
-      count as total"
+      count as total
     FROM 
       public.app_monitoring_replication_failure_reasons
     WHERE 
@@ -91,7 +91,7 @@ dwh_impact_replication_failure:
         usage: "LABEL"
         description: "Name of the failure"
     - total:
-        usage: "TABLE"
+        usage: "LABEL"
         description: "Replication failure reasons"
 ```
 
