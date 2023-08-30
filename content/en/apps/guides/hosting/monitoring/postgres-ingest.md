@@ -1,9 +1,9 @@
 ---
-title: "Postgres data in CHT Watchdog"
-linkTitle: "Postgres Data"
+title: "Custom Postgres metrics in CHT Watchdog"
+linkTitle: "Custom Postgres Metrics"
 weight: 400
 description: >
-    Adding Postgres Data into CHT Watchdog
+    Adding Custom Postgres metrics into CHT Watchdog
 ---
 
 {{% pageinfo %}}
