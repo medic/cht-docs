@@ -52,7 +52,6 @@ subgraph watchdog["watchdog.example.com"]
     Prometheus --> Grafana
 end
 
-
 subgraph db["db.example.com"]
   postgres["Postgres (5431)"]:::client_node
 end
