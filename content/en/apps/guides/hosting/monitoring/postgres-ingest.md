@@ -86,10 +86,6 @@ dwh_impact_replication_failure:
       public.app_monitoring_replication_failure_reasons
     WHERE 
       partner_name IN ('partner_name_here')
-    GROUP BY 
-      failure_type
-    ORDER BY 
-      count DESC
   metrics:
     - reason:
         usage: "LABEL"
