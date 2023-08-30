@@ -24,7 +24,7 @@ This is the initial basic flow of data from a CHT instance to Watchdog:
 flowchart LR
 
 subgraph core["cht.example.com"]
-  mon_api["Monitoring API (443)"]:::client_node
+  mon_api["Monitoring API (443)"]
 end
 
 subgraph watchdog["watchdog.example.com"]
