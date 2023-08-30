@@ -12,11 +12,9 @@ These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.
 
 ## Introduction
 
-Assuming initial Watchdog [setup]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) is done, you have made it [production ready]({{< relref "apps/guides/hosting/monitoring/production.md" >}}) and finally added [container monitoring]({{< relref "apps/guides/hosting/monitoring/integration.md" >}}),  there may be additional Postgres metrics you want to ingest to alert on. Or, you may want to create an entirely new dashboard in Grafana with no alerts for viewing health metrics like CHW visits per county or household registration rates.
+After [setting up]({{< relref "apps/guides/hosting/monitoring/setup.md" >}}) your Watchdog instance and [making it production ready]({{< relref "apps/guides/hosting/monitoring/production.md" >}}), you can include additional custom metrics from your deployment. These metrics should be ingested by Prometheus and then can be used to create new Grafana dashboards and alerts. Example use cases include monitoring and alerting on health metrics like CHW visits per county or household registration rates, etc.
 
-This guide will walk you through adding one a Postgres query as a datasoruce to Watchdog.  It references CHT Core (`cht.example.com`),  CHT Watchdog (`watchdog.example.com`) and a Postgres server (`db.example.com`).   
-
-It should be noted that this workflow can be added regardless if you've made it production ready or added container monitoring.  However, for completeness, this guide assumes you have done both. As well, while this page shows how to add one query, you could add multiple if you need to.
+This guide will walk you through adding a custom metric from Postgres _data_. The following naming convention is used throughout to reference the relevant server instances: CHT Core (`cht.example.com`),  CHT Watchdog (`watchdog.example.com`) and a Postgres server (`db.example.com`).
 
 ### Base Flow
 
