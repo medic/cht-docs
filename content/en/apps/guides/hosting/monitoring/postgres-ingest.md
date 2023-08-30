@@ -116,7 +116,7 @@ services:
 
   prometheus:
     volumes:
-      - ./extra-sql-prometheus.yml:/etc/prometheus/scrape_configs/extra-sql-prometheus.yml:ro
+      - ./scrape_config.custom-sql.yml:/etc/prometheus/scrape_configs/custom-sql.yml:ro
 
   grafana:
     volumes:
