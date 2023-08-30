@@ -99,7 +99,7 @@ dwh_impact_replication_failure:
         description: "Replication failure reasons"
 ```
 
-Note that you can use any value on the first line, seen as  `replication_failure_reasons` above.  It will be the field name we'll use in the 4th step below when exploring the new data in Grafana.
+This configuration will generate a metric named `dwh_impact_replication_failure_total` with a label named `reason` which contains the string key value identifying the aggregated reason for the given replication failures.  These metric/label names are fully customizable, but to avoid confusion you should follow the Prometheus [best practices](https://prometheus.io/docs/practices/naming/) when choosing names. 
 
 ### Add new Postgres Exporter
 
