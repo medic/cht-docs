@@ -160,7 +160,7 @@ Create the `~/extra-sql-prometheus.yml` file and point the config to our new Pos
 
 ```yaml
 scrape_configs:
-  - job_name: 'extra-sql'
+  - job_name: 'custom-sql'
     scrape_interval: 1m
     static_configs:
       - targets: ['extra_sql_exporter:9187']
