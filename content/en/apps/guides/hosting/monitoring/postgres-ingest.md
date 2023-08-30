@@ -18,7 +18,7 @@ This guide will walk you through adding a custom metric from Postgres _data_. Th
 
 ### Base Flow
 
-Here's what Watchdog data flow looks like base off the intro above after adding [container monitoring]({{< relref "apps/guides/hosting/monitoring/integration.md" >}}):
+This is the initial basic flow of data from a CHT instance to Watchdog:
 
 ```mermaid
 flowchart LR
