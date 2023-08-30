@@ -77,7 +77,7 @@ The following steps are all performed on the CHT Watchdog instance and assume yo
 Add a YAML file for with your query called `~/custom-sql-queries.yml`. In this example we'll be using a query from the [App Monitoring Data Ingestion repo](https://github.com/medic/cht-app-monitoring-data-ingest/), but it can be any query as long as the user you're using in the next step has access to the database and table:
 
 ```yaml
-replication_failure_reasons:
+dwh_impact_replication_failure:
   query: |
     SELECT 
       metric as failure_type,
