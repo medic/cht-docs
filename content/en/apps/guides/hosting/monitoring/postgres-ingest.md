@@ -114,10 +114,6 @@ services:
     volumes:
       - ./scrape_config.custom-sql.yml:/etc/prometheus/scrape_configs/custom-sql.yml:ro
 
-  grafana:
-    volumes:
-      - ./dashboard.custom-sql.json:/etc/grafana/provisioning/dashboards/CHT/custom-sql.json:ro
-
   custom_sql_exporter:
     image: prometheuscommunity/postgres-exporter:latest
     command:
@@ -178,15 +174,9 @@ Now that the new Postgres Exporter is running on your Watchdog instance and CHT 
 
 ![Grafana showing data data explorer](explore.png)
 
-### Save the dashboard for easy deployment and future updates
+### Optional: Add Dashboard to CHT Dropdown in Grafana
 
-An optional last step is on the dashboard you just created, click the "Save" icon:
-
-![Grafana showing where the "Save" button is, top row of icons, the one shaped like a floppy disk](save.png)
-
-Copy the resulting JSON into the empty file we created above `~/extra-sql-dashboard.json`.  By saving it here, it makes it easy to put into revision control and make updates in the future.  As well it will automatically load this the next time you open the Watchdog webpage.
-
-An additional optional step is to make your dashboard a peer of the existing "Admin Details" and "Admin Overview".  Do this by editing the JSON in `~/extra-sql-dashboard.json`, find the line with `"graphTooltip": 0,` and add this JSON after it:
+An additional optional step is to make your dashboard a peer of the existing "Admin Details" and "Admin Overview".  Do this by editing the JSON by finding the line with `"graphTooltip": 0,` and add this JSON after it:
 
 ```json
   "links": [
