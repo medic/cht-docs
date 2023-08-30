@@ -63,7 +63,7 @@ postgres -->  postgres-exp
 
 Adding a custom Postgres metric
 
-All steps are done on the CHT Watchdog instance and assume you have a credentials for your Postgres server for Watchdog to user. As well, it assumes that you installed Watchdog in `~/cht-watchdog`: 
+The following steps are all performed on the CHT Watchdog instance and assume you installed Watchdog in `~/cht-watchdog`. Note that user credentials with READ access to your Postgres server are required.
 
 1. [Prepare query in config file]({{< relref "#prepare-query-in-config-file" >}})
 2. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
