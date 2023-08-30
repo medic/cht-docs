@@ -56,7 +56,6 @@ subgraph db["db.example.com"]
   postgres["Postgres (5431)"]:::client_node
 end
 
-
 mon_api  -->  json
 cAdvisor["cAdvisor (8443)"] -->  Prometheus
 postgres -->  postgres-exp
