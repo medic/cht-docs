@@ -163,7 +163,7 @@ scrape_configs:
   - job_name: 'custom-sql'
     scrape_interval: 1m
     static_configs:
-      - targets: ['extra_sql_exporter:9187']
+      - targets: ['custom_sql_exporter:9187']
 ```
 
 ### Load new Compose files with existing ones
