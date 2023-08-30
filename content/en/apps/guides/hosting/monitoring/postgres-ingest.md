@@ -60,7 +60,6 @@ mon_api  -->  json
 postgres -->  postgres-exp
 ```
 
-After reading this guide you should not only be able to set up an initial single query, but also be able to add more queries and report and alert on them.
 
 ## Steps to add a query
 
