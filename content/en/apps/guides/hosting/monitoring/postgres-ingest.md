@@ -33,7 +33,6 @@ subgraph watchdog["watchdog.example.com"]
 end
 
 mon_api  -->  json
-cAdvisor["cAdvisor (8443)"] -->  Prometheus
 ```
 
 ### Postgres Flow
