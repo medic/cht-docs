@@ -43,8 +43,7 @@ This guide will have you deploy a [Postgres Exporter](https://github.com/prometh
 flowchart LR
 
 subgraph core["cht.example.com"]
-  mon_api["Monitoring API (443)"]:::client_node
-  cAdvisor:::client_node
+  mon_api["Monitoring API (443)"]
 end
 
 subgraph watchdog["watchdog.example.com"]
