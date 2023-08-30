@@ -80,8 +80,8 @@ Add a YAML file for with your query called `~/custom-sql-queries.yml`. In this e
 dwh_impact_replication_failure:
   query: |
     SELECT 
-      metric as failure_type,
-      sum(count) AS "count"
+      metric as reason,
+      count as total"
     FROM 
       public.app_monitoring_replication_failure_reasons
     WHERE 
