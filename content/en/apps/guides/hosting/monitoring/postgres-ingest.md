@@ -94,7 +94,7 @@ dwh_impact_replication_failure:
     - reason:
         usage: "LABEL"
         description: "Name of the failure"
-    - sequence:
+    - total:
         usage: "TABLE"
         description: "Replication failure reasons"
 ```
