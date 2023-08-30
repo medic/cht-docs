@@ -53,7 +53,7 @@ subgraph watchdog["watchdog.example.com"]
 end
 
 subgraph db["db.example.com"]
-  postgres["Postgres (5431)"]:::client_node
+  postgres["Postgres (5431)"]
 end
 
 mon_api  -->  json
