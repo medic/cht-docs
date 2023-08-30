@@ -91,7 +91,7 @@ dwh_impact_replication_failure:
     ORDER BY 
       count DESC
   metrics:
-    - failure:
+    - reason:
         usage: "LABEL"
         description: "Name of the failure"
     - sequence:
