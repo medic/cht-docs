@@ -25,7 +25,6 @@ flowchart LR
 
 subgraph core["cht.example.com"]
   mon_api["Monitoring API (443)"]:::client_node
-  cAdvisor:::client_node
 end
 
 subgraph watchdog["watchdog.example.com"]
