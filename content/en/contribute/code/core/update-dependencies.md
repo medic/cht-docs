@@ -23,7 +23,7 @@ Every minor release we update dependencies to get the latest fixes and improveme
 
 1. Checkout and pull the latest default branch - get the latest code
 2. Make a branch: `git checkout -b "<issue>-update-dendencies"`
-3. Take a look at the current [list of upgrade related issues](https://github.com/medic/cht-core/issues?q=is%3Aissue+is%3Aopen+label%3A%22Upgrade+dependencies%22), so you don't rediscover known problems. 
+3. Take a look at the current [list of dependencies related issues](https://github.com/medic/cht-core/issues?q=is%3Aopen+is%3Aissue+label%3ADependencies), where you can find the latest conversations and information.  
 
 Then for each folder go through these steps.
 
