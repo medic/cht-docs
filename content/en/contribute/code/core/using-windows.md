@@ -77,12 +77,6 @@ export COUCH_NODE_NAME=couchdb@localhost
 
 `npm ci` should just work once you've installed a latest version of node via nvm as noted above.
 
-You won't have grunt already installed, so install it by executing following command: 
-
-```bash
-$: npm i -g grunt-cli
-```
-
 Also install xstproc in your WSL:
 ```bash
 $: sudo apt-get update
@@ -94,13 +88,13 @@ Now you can build the web app.
 ```bash
 $: cd ~/medic/cht-core/
 $: npm ci
-$: grunt
+$: npm run build-dev-watch
 ```
 
 From this point, follow the `harden couch` section in [Core Developer Setup]({{< relref "contribute/code/core/dev-environment#cht-core-cloning-and-setup" >}}).
 
 
-To get multiple linux terminals (so you can run `grunt`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.
+To get multiple linux terminals (so you can run `npm run`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.
 
 Once you're done with the default instructions and have api running, check if it works by going to http://localhost:5988 in Chrome or Firefox.
 

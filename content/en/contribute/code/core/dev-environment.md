@@ -18,9 +18,9 @@ These steps apply to both 3.x and 4.x CHT core development, unless stated otherw
 
 ## The Happy Path Installation
 
-CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, Grunt and CouchDB (via Docker) on your local workstation.
+CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, and CouchDB (via Docker) on your local workstation.
 
-### Install NodeJS, npm, grunt and Docker
+### Install NodeJS, npm, and Docker
 
 First, update your current packages and install some supporting tools:
 
@@ -63,12 +63,6 @@ Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >
 node -v && npm -v
 ```
 
-With NodeJS out of the way, let's install `grunt` via `npm`:
-
-```shell
-npm install -g grunt-cli
-```
-
 Install Docker:
 
 {{< read-content file="_partial_docker_setup.md" >}}
@@ -106,7 +100,7 @@ Let's ensure CouchDB is set up with a test `curl` call. This should show "nonode
 curl -X GET "http://medic:password@localhost:5984/_membership" | jq
 ```
 
-Every time you run any `grunt` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
+Every time you run any `npm` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
 
 ```shell
 echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
@@ -118,13 +112,6 @@ To ensure these to exports and sourcing your rc file worked, echo the values bac
 
 ```shell
 echo $COUCH_NODE_NAME && echo $COUCH_URL
-```
-
-You need to harden CouchDB with a `grunt` call, required even in development:
-
-```shell
-grunt secure-couchdb
-curl -X PUT "http://medic:password@localhost:5984/_node/$COUCH_NODE_NAME/_config/httpd/WWW-Authenticate" -d '"Basic realm=\"administrator\""' -H "Content-Type: application/json"
 ```
 
 #### CouchDB Setup in CHT 4.x
@@ -153,26 +140,28 @@ COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.ym
 
 ### Developing
 
-Now you have everything installed and can begin development! You'll need three separate terminals when doing development. In the first terminal, run:
+Now you have everything installed and can begin development! You'll need three separate terminals when doing development. 
+
+In the first terminal we'll compile and deploy the web application by runing:
 
 ```shell
-cd ~/cht-core && grunt
+cd ~/cht-core && npm run build-dev-watch
 ```
 
 Be **very** patient until you see:
 
 > "Waiting..."
 
-Then in a 2nd terminal run:
+In the second terminal we'll start the API nodejs service by running:
 
 ```shell
-cd ~/cht-core && grunt dev-api
+cd ~/cht-core && npm run dev-api
 ```
 
-Finally, in a 3rd terminal run:
+Finally, in a 3rd terminal we'll start the Sentinel nodejs service by running:
 
 ```shell
-cd ~/cht-core && grunt dev-sentinel
+cd ~/cht-core && npm run dev-sentinel
 ```
 
 That's it!  Now when you edit code in your IDE, it will automatically reload.  You can see the CHT running locally here: [http://localhost:5988/](http://localhost:5988/)
@@ -188,7 +177,6 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
 * [Node.js {{< param nodeVersion >}}.x](https://nodejs.org/) & [npm {{< param npmVersion >}}.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
-* [grunt cli](https://gruntjs.com/using-the-cli)
 * [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
 * [python 2.7](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
@@ -242,7 +230,7 @@ Medic needs the following environment variables to be declared:
 - `COUCH_URL`: the full authenticated url to the `medic` DB. Locally this would be  `http://myadminuser:myadminpass@localhost:5984/medic`
 - `COUCH_NODE_NAME`: the name of your CouchDB's node. The Docker image default is `nonode@nohost`. Other installations may use `couchdb@127.0.0.1`. You can find out by querying [CouchDB's membership API](https://docs.couchdb.org/en/stable/api/server/common.html#membership)
 - (optionally) `API_PORT`: the port API will run on. If not defined, the port defaults to `5988`
-- (optionally) `CHROME_BIN`: only required if `grunt unit` or `grunt e2e` complain that they can't find Chrome or if you want to run a specific version of the Chrome webdriver.
+- (optionally) `CHROME_BIN`: only required if tests complain that they can't find Chrome or if you want to run a specific version of the Chrome webdriver.
 
 How to permanently define environment variables depends on your OS and shell (e.g. for bash you can put them `~/.bashrc`). You can temporarily define them with `export`:
 
@@ -262,7 +250,7 @@ Refer to [the testing doc](https://github.com/medic/cht-core/blob/master/TESTING
 1. Clone the repo: `git clone https://github.com/medic/nginx-local-ip.git`
 1. `cd` into the new directory: `cd nginx-local-ip`
 1. Assuming your IP is `192.168.0.3`, start `nginx-local-ip` to connect to:
-   * The CHT API running via `grunt` or `horti`, execute `APP_URL=http://192.168.0.3:5988 docker compose up` and then access it at `https://192-168-0-3.local-ip.medicmobile.org/`.
+   * The CHT API running via `npm run` or `horti`, execute `APP_URL=http://192.168.0.3:5988 docker compose up` and then access it at `https://192-168-0-3.local-ip.medicmobile.org/`.
    * The CHT API running via `docker`, the ports are remapped, so execute `HTTP=8080 HTTPS=8443 APP_URL=https://192.168.0.3 docker compose up` and then access it at `https://192-168-0-3.local-ip.medicmobile.org:8443/`.
 2. The HTTP/HTTPS ports (`80`/`443`) need to accept traffic from the IP address of your host machine and your local webapp port (e.g. `5988`) needs to accept traffic from the IP address of the `nginx-local-ip` container (on the Docker network). If you are using the UFW firewall (in a Linux environment) you can allow traffic on these ports with the following commands:
 
@@ -281,7 +269,7 @@ sudo ufw allow proto tcp from  172.16.0.0/16 to any port 5988
 
 1. Create an [ngrok account](https://ngrok.com/), download and install the binary, then link your computer to your ngrok account.
 2. Start `ngrok` to connect to:
-   - The CHT API running via `grunt` or `horti`, execute `./ngrok http 5988`
+   - The CHT API running via `npm run` or `horti`, execute `./ngrok http 5988`
    - The CHT API running via `docker`, execute `./ngrok http 443`
 3. Access the app using the https address shown (e.g. `https://YOUR-NGROK-NAME.ngrok.io`, replacing `YOUR-NGROK-NAME` with what you signed up with).
 
@@ -291,6 +279,6 @@ sudo ufw allow proto tcp from  172.16.0.0/16 to any port 5988
 
 1. Create a [pagekite account](https://pagekite.net/signup/), download and install the python script.
 1. Start pagekite (be sure to replace `YOUR-PAGEKIT-NAME` with the URL you signed up for) to connect to:
-  * The CHT API running via `grunt` or `horti`, execute `python pagekite.py 5988 YOUR-PAGEKIT-NAME.pagekite.me`
+  * The CHT API running via `npm run` or `horti`, execute `python pagekite.py 5988 YOUR-PAGEKIT-NAME.pagekite.me`
   * The CHT API running via `docker`, execute `python pagekite.py 443 YOUR-PAGEKIT-NAME.pagekite.me`
 1. Access the app using the https address shown (e.g. `https://YOUR-PAGEKIT-NAME.pagekite.me`).

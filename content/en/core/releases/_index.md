@@ -22,12 +22,13 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status | Release date | End of life |
 |----|----|--------------|-------------|
-| 4.2.x  | Current | 25-May-2023  | TBA         |
-| 4.1.x  | Current | 12-Dec-2022  | 25-Aug-2023 |
+| 4.3.x  | Current | 18-Aug-2023  | TBA         |
+| 4.2.x  | Supported | 25-May-2023  | 18-Nov-2023 |
+| 4.1.x  | EOL | 12-Dec-2022  | 25-Aug-2023 |
 | 4.0.x  | EOL | 03-Nov-2022  | 12-Mar-2023 |
-| 3.17.x  | Current | 11-Oct-2022  | 03-Nov-2023 |
-| 3.16.x  | EOL | 3-Aug-2022   | 11-Jan-2023 |
-| 3.15.x  | EOL | 4-May-2022   | 3-Nov-2022  |
+| 3.17.x | Supported | 11-Oct-2022  | 03-Nov-2023 |
+| 3.16.x | EOL | 3-Aug-2022   | 11-Jan-2023 |
+| 3.15.x | EOL | 4-May-2022   | 3-Nov-2022  |
 | 3.14.x | EOL | 11-Feb-2022  | 4-Aug-2022  |
 | 3.13.x | EOL | 29-Sep-2021  | 11-May-2022 |
 | 3.12.x | EOL | 28-Jul-2021  | 29-Dec-2021 |
@@ -54,7 +55,7 @@ The following table shows the dependencies for deploying the CHT.
 
 | cht-core | NodeJS | CouchDB | Supported browsers | SMS bridge | Android OS | cht-android | cht-couch2pg |
 |----|----|----|----|----|----|----|---|
-| **4.x** | N/A | 2.x | Chrome and Firefox latest | cht-gateway | 5.0+ | 1.0+ | 3.0+ |
+| **4.x** | N/A | 2.x | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 3.0+ |
 | **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 3.0+ |
 | **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | 2.0 < 3.0 |
 | **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
@@ -86,6 +87,8 @@ Devices with more navigation systems are more likely to get a more accurate loca
 
 ### 4.x
 
+- [4.3.1]({{% ref "core/releases/4.3.1.md" %}})
+- [4.3.0]({{% ref "core/releases/4.3.0.md" %}})
 - [4.2.2]({{% ref "core/releases/4.2.2.md" %}})
 - [4.2.1]({{% ref "core/releases/4.2.1.md" %}})
 - [4.2.0]({{% ref "core/releases/4.2.0.md" %}})

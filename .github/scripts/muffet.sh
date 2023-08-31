@@ -16,7 +16,7 @@
 
 muffet http://localhost:1313 \
   --buffer-size 50000 \
-  --timeout 10 \
+  --timeout 35 \
   --concurrency 2 \
   --ignore-fragments \
   --exclude ".*demo\.app\.medicmobile\.org.*" \

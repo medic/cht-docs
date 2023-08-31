@@ -188,6 +188,7 @@ Send semantics have changed over the course of developing this feature, and are 
 
  - Outbound messages are sent immediately
  - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
+   - If you update your outbound configuration while messages are present in the send queue, only the messages that match with _the new configuration_ will be retried. 
  - When it does finally send it will include any new changes to the document that have occurred in that time.
  - **Documents can be sent again**, as long as the resulting payload (as defined in the configuration's `mapping` property) is different from the most recent outbound push performed for this document and configuration.
 

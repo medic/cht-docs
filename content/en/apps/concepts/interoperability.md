@@ -40,9 +40,36 @@ mediator_b -- Channel\nfa:fa-arrow-left --- openhim
 
 - [FHIR](http://www.hl7.org/fhir): FHIR is a standard for exchanging healthcare data electronically. FHIR provides a modern, web-based approach to exchanging healthcare data and is rapidly becoming the preferred standard for healthcare interoperability.
 
-
 A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/cht-interoperability). 
 This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the [OpenHIE LTFU Guide](https://wiki.ohie.org/display/CP/Use+Case+Summary%3A+Request+Community+Based+Follow-Up). 
+
+## Frequently Asked Questions
+
+### Is the CHT FHIR Compatible and does it have a FHIR API?
+
+Yes. Mediators are one of the components of a CHT deployment and expose FHIR compatible APIs to the rest of the healthcare ecosystem.
+
+### Does the CHT support legacy standards?
+
+One of the advantages of using mediators is they are highly configurable to support different FHIR Implementation Guides, different FHIR versions, and other information standards, so the CHT can work with whatever systems are in the ecosystem.
+
+### What about compatibility with future standards?
+
+The flexibility of mediators also means the CHT is future-proof and can be configured to support future FHIR revisions or completely new standards. Because this can be configured in the mediator layer it's likely to be supported without any Core development required.
+
+### What does the mediator do to the source data?
+
+1. It transforms the structure from the CHT format to the required standardized format.
+2. It can make requests for additional data. This could be querying the Client Registry for the patient's national ID number, or other services such as the Terminology service to translate conditions, medications, procedures, and so on into the required classification system.
+3. Finally it passes the FHIR resource to the interoperability layer to be shared with other systems.
+
+### What are the FHIR Resources utilized?
+
+1. [Patient](https://www.hl7.org/fhir/patient.html)
+2. [Encounter](https://build.fhir.org/encounter.html)
+3. [Subscription](https://build.fhir.org/subscription.html)
+4. [Organization](https://build.fhir.org/organization.html)
+5. [Endpoint](https://build.fhir.org/endpoint.html)
 
 ## Important Links
 - [cht-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU workflow

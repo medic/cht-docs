@@ -67,7 +67,7 @@ If you don't already have a local dev env, follow the instructions on the [devel
 
 Then you need to:
 
-1. Push the code you want to run via `COUCH_URL=http://your:admin@localhost:5984/YYY grunt deploy`.
+1. Push the code you want to run via `COUCH_URL=http://your:admin@localhost:5984/YYY npm run build-dev`.
 1. Start API and Sentinel by running `COUCH_URL=http://your:admin@localhost:5984/YYY node api/server`.
 
 Once you've done all of that you should be able to log in with your user.
