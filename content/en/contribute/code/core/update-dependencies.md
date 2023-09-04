@@ -73,6 +73,8 @@ To fix it, uninstall these 3 dependencies and then install them again in this or
 2. `@angular-devkit/build-angular`
 3. `@angular-builders/custom-webpack`
 
+If the error is still happening, try reinstalling `@angular/cli`.
+
 ### npm errno -17
 
 If `npm ci` errors with "errno -17" in shared-libs you may need to manually remove the nested dependencies from the package-lock.json. This needs move investigation to work out why this is happening.
