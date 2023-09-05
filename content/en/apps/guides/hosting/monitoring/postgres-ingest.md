@@ -130,7 +130,7 @@ services:
       - '--disable-default-metrics'
       - '--disable-settings-metrics'
     volumes:
-      - ./custom-sql-queries.yml:/custom-sql-queries.yml
+      - ../custom-sql-queries.yml:/custom-sql-queries.yml
     environment:
       DATA_SOURCE_NAME: "postgresql://${CUSTOM_SQL_USER:-NO DB USER SPECIFIED}:${CUSTOM_SQL_PASS:-NO DB PASSWORD SPECIFIED}@${CUSTOM_SQL_SERVER:-.NO DB SERVER SPECIFIED}:${CUSTOM_SQL_PORT:-5432}/${CUSTOM_SQL_DATABASE:-.NO DB SPECIFIED}?sslmode=disable"
       PG_EXPORTER_EXTEND_QUERY_PATH: "/custom-sql-queries.yml"
