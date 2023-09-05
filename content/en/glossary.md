@@ -287,6 +287,8 @@ Software, hardware, or platform provided to our partners and users, e.g. applica
 
 Group of tools, some of which can be deployed together.
 
+###### Total Cost of Ownership (TCO)
+
 ###### Traditional Birth Attendant (TBA)
 
 ###### Training of Trainer (TOT)
