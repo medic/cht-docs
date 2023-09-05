@@ -139,8 +139,6 @@ services:
      - cht-watchdog-net
 ```
 
-If there's a missing mount target, then Docker will error.  Avoid the error by creating an empty file called `~/extra-sql-dashboard.json`.  We'll use this in the last step below
-
 ### Adding new scrape config
 
 Create the `~/scrape_config.custom-sql.yml` file and point the config to our new Postgres Exporter (`custom_sql_exporter:9187`).  This will tell Prometheus to scrape the new data every 1 minute:
