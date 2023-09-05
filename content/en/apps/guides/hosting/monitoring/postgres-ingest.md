@@ -164,7 +164,7 @@ docker compose -f docker-compose.yml -f ../docker-compose.custom-sql.yml up -d
 
 Now that the new Postgres Exporter is running on your Watchdog instance and CHT Watchdog's Prometheus has additional scrape configs to ingest the new metrics, we can now visualize it in a Grafana Dashboard and then alert on it:
 
-1. In the "Metric" field enter `replication_failure_reasons_count` from the step above where we defined `extra-sql-queries.yml`
+1. In the "Metric" field enter `dwh_impact_replication_failure_total` from the step above where we defined `custom-sql-queries.yml`
 2. Click the blue "Run query" in the upper right. 
 3. We'll make this a table, but you can configure the dashboard as desired. 
 4. Click "Add to dashboard"
