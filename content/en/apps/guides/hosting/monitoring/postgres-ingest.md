@@ -66,10 +66,10 @@ Adding a custom Postgres metric
 The following steps are all performed on the CHT Watchdog instance and assume you installed Watchdog in `~/cht-watchdog`. Note that user credentials with READ access to your Postgres server are required.
 
 1. [Prepare query in config file]({{< relref "#prepare-query-in-config-file" >}})
-2. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
-3. [Adding new scrape config]({{< relref "#adding-new-scrape-config" >}})
-5. [Configure the dashboard]({{< relref "#configure-the-dashboard" >}})
-6. [Optional: Add Dashboard to CHT Dropdown in Grafana]({{< relref "#optional-add-dashboard-to-cht-dropdown-in-grafana" >}})
+2. [Adding new scrape config]({{< relref "#adding-new-scrape-config" >}})
+3. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
+4. [Configure the dashboard]({{< relref "#configure-the-dashboard" >}})
+5. [Optional: Add Dashboard to CHT Dropdown in Grafana]({{< relref "#optional-add-dashboard-to-cht-dropdown-in-grafana" >}})
 
 ### Prepare query in config file
 
@@ -95,6 +95,18 @@ dwh_impact_replication_failure:
 ```
 
 This configuration will generate a metric named `dwh_impact_replication_failure_total` with a label named `reason` which contains the string key value identifying the aggregated reason for the given replication failures.  These metric/label names are fully customizable, but to avoid confusion you should follow the Prometheus [best practices](https://prometheus.io/docs/practices/naming/) when choosing names. 
+
+### Adding new scrape config
+
+Create the `~/scrape_config.custom-sql.yml` file and point the config to our new Postgres Exporter (`custom_sql_exporter:9187`).  This will tell Prometheus to scrape the new data every 1 minute:
+
+```yaml
+scrape_configs:
+  - job_name: 'custom-sql'
+    scrape_interval: 1m
+    static_configs:
+      - targets: ['custom_sql_exporter:9187']
+```
 
 ### Add new Postgres Exporter
 
@@ -139,17 +151,6 @@ services:
      - cht-watchdog-net
 ```
 
-### Adding new scrape config
-
-Create the `~/scrape_config.custom-sql.yml` file and point the config to our new Postgres Exporter (`custom_sql_exporter:9187`).  This will tell Prometheus to scrape the new data every 1 minute:
-
-```yaml
-scrape_configs:
-  - job_name: 'custom-sql'
-    scrape_interval: 1m
-    static_configs:
-      - targets: ['custom_sql_exporter:9187']
-```
 
 Launch Watchdog with the new compose file
 
