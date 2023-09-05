@@ -69,7 +69,7 @@ The following steps are all performed on the CHT Watchdog instance and assume yo
 2. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
 3. [Adding new scrape config]({{< relref "#adding-new-scrape-config" >}})
 5. [Configure the dashboard]({{< relref "#configure-the-dashboard" >}})
-6. [Save the dashboard for easy deployment and future updates]({{< relref "#save-the-dashboard-for-easy-deployment-and-future-updates" >}})
+6. [Optional: Add Dashboard to CHT Dropdown in Grafana]({{< relref "#optional-add-dashboard-to-cht-dropdown-in-grafana" >}})
 
 ### Prepare query in config file
 
