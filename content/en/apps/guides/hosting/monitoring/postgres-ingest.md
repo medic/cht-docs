@@ -68,7 +68,6 @@ The following steps are all performed on the CHT Watchdog instance and assume yo
 1. [Prepare query in config file]({{< relref "#prepare-query-in-config-file" >}})
 2. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
 3. [Adding new scrape config]({{< relref "#adding-new-scrape-config" >}})
-4. [Load new Compose files with existing ones]({{< relref "#load-new-compose-files-with-existing-ones" >}})
 5. [Configure the dashboard]({{< relref "#configure-the-dashboard" >}})
 6. [Save the dashboard for easy deployment and future updates]({{< relref "#save-the-dashboard-for-easy-deployment-and-future-updates" >}})
 
