@@ -90,7 +90,7 @@ dwh_impact_replication_failure:
         usage: "LABEL"
         description: "Name of the failure"
     - total:
-        usage: "LABEL"
+        usage: "GAUGE"
         description: "Replication failure reasons"
 ```
 
