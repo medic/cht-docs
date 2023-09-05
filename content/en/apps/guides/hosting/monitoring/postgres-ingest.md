@@ -377,7 +377,7 @@ For reference, here is the full JSON of the dashboard we created above as shown 
           },
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "replication_failure_reasons_count",
+          "expr": "dwh_impact_replication_failure_total",
           "format": "table",
           "instant": true,
           "key": "Q-e238fdbd-aed6-4215-a3e8-c611c6586c64-0",
