@@ -90,6 +90,8 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `enketo:<training-card>:add:user_edit_time` | The time the user took to complete the training card. Added in 4.2.0 |
 | `enketo:<training-card>:add:save` | The time it took to save the training card. Added in 4.2.0 |
 | `enketo:<training-card>:add:quit` | The time from when the training card was rendered to when the user quits the training. Added in 4.2.0 |
+| `geolocation:success` | A successful GPS response with the value showing the accuracy. |
+| `geolocation:failure:<x>` | An unsuccessful GPS response. `x` is a constant matching the [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code) or with one of the following values: `-1` unknown failure, `-2` timeout, or `-3` geolocation services unavailable. |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
