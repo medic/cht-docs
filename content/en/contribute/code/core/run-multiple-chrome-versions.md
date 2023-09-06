@@ -12,7 +12,7 @@ aliases: >
 These steps are suitable for Mac. It was tested in a Mac Intel.  It can be adapted to any Chrome version.
 {{% /alert %}}
 
-Follow these steps on a Mac to run Chrome version 90 besides your actual up to date Chrome app.
+Follow these steps on a Mac to run Chrome version 90 while having another Chrome app on a different version. 
 - Download Chrome `90.0.4430.72` from [slimjet](https://www.slimjet.com/chrome/google-chrome-old-version.php?cmtx_sort=)
 - Do not install the `Google Chrome.app` in your `Application` folder. Install it in your `Desktop` folder for example.
 - Change the name of the app to `Google Chrome 90.app` and then move it to the `Application` folder, ***without*** overwritting your current Chrome
