@@ -19,7 +19,7 @@ Follow these steps on a Mac to run Chrome version 90 besides your actual up to d
 - Remove Chrome’s automatic updates by:
   - Right click on `Application/Google Chrome 90.app`
   - Click on `Show package content`
-  - Open in the IDE the file `Contents/Info.plist`
+  - Open the file `Contents/Info.plist` in your IDE 
   - Find the key `KSUpdateURL`
   - Replace the string below: <string>https://tools.google.com/service/update2</string> to <string>https://tools.google.com/[DUMMYTEXT]</string>
 - Run `Google Chrome 90.app` as long as it’s the only one running
