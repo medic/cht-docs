@@ -54,7 +54,7 @@ When:
 
 * you can no longer vertically scale your CHT instance because of hardware limitations
 * vertically scaling stops yielding better performance
-* you predict a large number of users (in excess of 1k)
+* you're starting a new deployment and you predict a large number of users (in excess of 1k)
 
 it is time to consider horizontally scaling your CHT instance.  The benefit is that CouchDB has been [proven to use resources much better](https://forum.communityhealthtoolkit.org/t/how-we-tested-scalability-of-cht-infrastructure/1532) when there's multiple of instances of it, each taking a share of the work.  Here we see 18 CPUs being spread across 3 nodes (vs 16 CPUs on one instance above) with a load balancer (HAProxy) distributing requests :
 
