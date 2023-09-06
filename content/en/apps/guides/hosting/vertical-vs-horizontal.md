@@ -1,5 +1,5 @@
 ---
-title: "Vertical vs Horizontal scaling in CHT 4.x"
+title: "Vertical vs Horizontal scaling"
 linkTitle: "Vertical vs Horizontal Scaling"
 weight: 20
 description: >
