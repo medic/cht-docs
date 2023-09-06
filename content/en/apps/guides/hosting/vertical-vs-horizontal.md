@@ -12,7 +12,9 @@ relatedContent: >
 
 ## Introduction
 
-CHT Core 4.0.0 introduces [a new architecture]({{< relref "core/overview/architecture" >}}) for hosting.  Specifically, 4.0.0 gives the ability to add more servers, known as horizontally scaling, so that large deployments can support more users.  This is a big improvement over naively adding more RAM and CPU to a single server where the CHT Core is running, known as vertically scaling.
+Horizontally scaling is the ability to add more servers to an application to make it more performant.  This often yields better performance than vertical scaling, which is adding more resources like RAM or CPU to a single server.
+
+CHT Core 4.0.0 introduces [a new architecture]({{< relref "core/overview/architecture" >}}) for hosting which gives it the ability to easily scale horizontally.  This enables large deployments to support more concurrent users and better utilize the underlying server hardware.
 
 ## Vertical scaling in 3.x and 4.x
 
