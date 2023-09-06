@@ -22,7 +22,7 @@ Before getting into how the CHT horizontally scales, it should be well understoo
 
 When thousands of users are simultaneously trying to synchronize with the CHT, the load can overwhelm CouchDB. As discovered [through extensive research](https://forum.communityhealthtoolkit.org/t/how-we-tested-scalability-of-cht-infrastructure/1532) and [large production deployments](https://github.com/medic/cht-core/issues/8324#issuecomment-1691411542), administrators will start to see errors in their logs and end users will complain of slow sync times.  Before moving to more CouchDB nodes, administrators should consider adding more RAM and CPU to the single server where the CHT is hosted. This applies to both CHT 3.x and CHT 4.x. Given the easy of allocating more resources, presumably in virtualized environment like [EC2](https://aws.amazon.com/ec2/), [Proxmox](https://www.vmware.com/content/vmware/vmware-published-sites/us/products/esxi-and-esx.html.html) or [ESXi](https://www.vmware.com/content/vmware/vmware-published-sites/us/products/esxi-and-esx.html.html), this is much easier than moving to [from a single to multi-node CouchDB instance]({{< relref "apps/guides/hosting/4.x/data-migration" >}}).
 
-Here we see a normal deployment following our [bare minimum]({{< relref "apps/guides/hosting/requirements" >}}) hosting requirements for hosting the CHT.  We'll call this a "short" deployment because it is not yet vertically scaled:
+Here we see a normal deployment following the bare minimum [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) for the CHT.  We'll call this a "short" deployment because it is not yet vertically scaled:
 
 ```mermaid
 flowchart TD
