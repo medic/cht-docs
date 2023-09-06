@@ -17,7 +17,9 @@ Follow these steps on a Mac to run Chrome version 90 while having another Chrome
 - Do not install the `Google Chrome.app` in your `Application` folder. Install it in your `Desktop` folder for example.
 - Change the name of the app to `Google Chrome 90.app` and then move it to the `Application` folder, ***without*** overwritting your current Chrome
 - Remove Chrome’s automatic updates by:
-  - Right click on `Application/Google Chrome 90.app`
+  - Close all Chrome open instances.
+  - Open `Google Chrome 90.app` while not having Internet, so it doesn't give an error after modifying the `Info.plis`.
+  - Right-click on `Application/Google Chrome 90.app`
   - Click on `Show package content`
   - Open the file `Contents/Info.plist` in your IDE 
   - Find the key `KSUpdateURL`
