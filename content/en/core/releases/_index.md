@@ -66,12 +66,12 @@ The following table shows the dependencies for deploying the CHT.
 
 The following is the minimum specification recommendation for smartphones to handle the typical workload of front line health workers. Users with particularly high workloads or facility or supervisor workloads will require more powerful devices.
 
-| Specification | Minimum |
-|--|--|
-| Android version | 5.0 |
-| Processor | 1.0GHz dual-core |
-| RAM | 1GB |
-| Storage | 8GB |
+| Specification | Minimum | Recommended |
+|--|--| -- |
+| Android version | 5.0 | 9.0+ |
+| Processor | 1.0GHz dual-core |  2.0GHz quad-core |
+| RAM | 1GB | 2GB |
+| Storage | 8GB | 16GB |
 
 If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
 
