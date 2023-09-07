@@ -34,7 +34,7 @@ end
 API["API"] --> HAProxy -->  couch1
 ```
 
-After looking at the logs, and seeing error messages about API timeouts to CouchDB, the CHT admin can make this "taller" by adding both more RAM and CPU so it looks like this:
+After looking at the logs, and seeing error messages about API timeouts to CouchDB, the CHT admin can make this "taller" by adding both more RAM and CPU, so it looks like this:
 
 ```mermaid
 flowchart TD
@@ -46,7 +46,7 @@ end
 API["API"] --> HAProxy -->  couch2
 ```
 
-Since both CHT 3.x and 4.x support this, vertical scaling is an easy, good first step in addressing performance issues in the CHT.
+Since both CHT 3.x and 4.x support this, vertical scaling is an easy, good first step in addressing performance issues in the CHT. 
 
 ## Horizontal scaling 4.x
 
@@ -71,6 +71,8 @@ API["API"] --> HAProxy -->  couch4
 ```
 
 To read up on how to migrate your data from a single to multi-node, please see the  [data migration guide]({{< relref "apps/guides/hosting/4.x/data-migration" >}}).
+
+It should be noted that, unlike vertical scaling, horizontal scaling of a large, existing dataset can take a while to prepare the transfer (hours to days) and may involve a brief service outage. This should be taken into consideration when planning a move of a CHT instance with a lot of data.
 
 <style>
 svg g .nodes #flowchart-couchInner2-21 .label div {
