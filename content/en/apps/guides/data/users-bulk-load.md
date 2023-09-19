@@ -22,12 +22,18 @@ Steps to bulk load users:
 
 The bulk user upload feature is available in 3.16.0 and later versions of the CHT.As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place.User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
 
+This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.
+
 ## Spreadsheet Instructions
 
 The spreadsheet interfaces with the [this API]({{< relref "apps/reference/api#get-apiv1users" >}}) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
 Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
 
-To get started, there are three different spreadsheets available that are compatible with the `default` configuration of the CHT, they cater for use cases that you might encounter when creating users in bulk.  You will notice some columns have an `:excluded` suffix. These are columns that are ignored by the API and allow addition of autocomplete and data validation within the spreadsheet to make it easier to work with.
+The spreadsheet contains a varying number of worksheets depending on the hierarchy in question.Users with different roles are placed in different worksheets as shown in the templates below.For example when creating users with chw and chw_supervisor roles, you will have "contact.chw","contact.chw_VLOOKUP","contact.chw_supervisor" and "contact.chw_supervisor_VLOOKUP" worksheets.These pair per role worksheets contain actual data on users and parent place data respectively.Note that you will need to create the parent place before importing the users.
+
+You will also have another optional worksheet, "place.type_VLOOKUP", that defines the name and type of places in your hierarchy.
+
+To get started, there are three different spreadsheet templates available that are compatible with the `default` configuration of the CHT, they cater for use cases that you might encounter when creating users in bulk.  You will notice some columns have an `:excluded` suffix. These are columns that are ignored by the API and allow addition of autocomplete and data validation within the spreadsheet to make it easier to work with.
 
 Click on any of the use cases below to make a copy of the spreadsheet for the use case in question:
 - [when you want to create user accounts only](https://docs.google.com/spreadsheets/d/1zlvF5cWnV2n1rax1bAO2hSBCIxgD0c-5tZ-yh96kwws/copy)
@@ -38,14 +44,14 @@ We will use the second use case to create user accounts and their contacts as an
 
 ### Spreadsheet
 
-Before using the bulk user upload feature, please familiarize yourself with the spreadsheet used to manage the users before importing to the CHT.
+Before using the bulk user upload feature, please familiarize yourself with the spreadsheet used to manage the users before importing it to the CHT.
 There are three sections to the spreadsheet:
 
 ![bulk user import spreadsheet with areas labeled](users-spreadsheet.png)
 
 #### **Spreadsheet Area 1**
 
-Copy in error messages here after importing. There are three fields:
+This area contains three columns that are pasted after running an import as shown in the importing users section below.
 1. `import.status:excluded`: This field can have three values. Over time, they should all be `imported` or `skipped` as you will have processed all users on the list:
     <ol type="a">
       <li><code>imported</code> - This user has already been successfully imported</li>
@@ -57,7 +63,7 @@ Copy in error messages here after importing. There are three fields:
 
 #### **Spreadsheet Area 2**
 
-Enter all data here. Data will be automatically copied for you to columns in area 3.
+Enter all the data in the columns in this area. Data will be automatically copied for you to columns in area 3.
 
 #### **Spreadsheet Area 3**
 
@@ -78,7 +84,7 @@ If a change is made, you can use Google Sheets history ("File" -> "Version Histo
 ## Importing Users
 
 1. Create a copy of [this spreadsheet](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy).
-Give it a good name and note its location in Google Drive. You will always come back to your copy of this Sheet whenever you want to add a set of users.
+Give it a descriptive name and note its location in Google Drive. You will always come back to your copy of this Sheet whenever you want to add a set of users.
 
 2. Copy the "contact.chw" and "contact.chw_VLOOKUP" worksheets so that you have a set of the pair per level of your hierarchy.
 If your hierarchy was "Central -> Supervisor -> CHW", you would have 3 pairs (6 worksheets total). Be sure each worksheet is named accurately.
