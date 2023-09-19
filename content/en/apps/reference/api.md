@@ -195,6 +195,18 @@ Export a file containing the user feedback.
 
 Returns a JSON array of contacts.
 
+#### Output
+
+| Column             | Description                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| id                 | The unique ID for the contact in the database.                                         |
+| rev                | The current CouchDb revision of contact in the database.                               |
+| name               | The name of the user this message is assigned to.                                      |
+| patient_id         | The generated short patient ID for use in SMS.                                         |
+| type               | The contact type. For configurable hierarchies, this will always be `contact`.         |
+| contact_type       | The configurable contact type. Will be empty if using the default hierarchy.           |
+| place_id           | The generated short place ID for use in SMS.                                           |
+
 #### Query parameters
 
 These are identical to the JS objects passed to the shared library, as if you were using it directly in Javascript.
@@ -1116,19 +1128,19 @@ Content-Type: application/json
 Create new users with a place and a contact from a CSV file.
 
 Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "apps/reference/api#post-apiv1users" >}})
-where a row represents a user object and a column represents a user object property.  
+where a row represents a user object and a column represents a user object property.
 Columns with a `:excluded` suffix will be ignored, this allows providing a more user-friendly experience with
 autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
-[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.  
+[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
 [A guide]({{< ref "apps/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
 #### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
-that gets updated throughout the import and finalized upon completion.  
+that gets updated throughout the import and finalized upon completion.
 These entries are saved in the [`medic-logs`]({{< ref "apps/guides/database#medic-logs" >}}) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
