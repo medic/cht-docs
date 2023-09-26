@@ -51,7 +51,7 @@ Before you begin, ensure you have the following tools:
 
 ### Initialize project directory
 
-Using the terminal (or the WLS shell on Windows: _Start > wsl_), run the following commands to create a new project directory for your CHT app:
+Using the terminal (or the WSL shell on Windows: _Start > wsl_), run the following commands to create a new project directory for your CHT app:
 
 ```shell
 mkdir -p ~/cht-project

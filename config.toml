@@ -209,3 +209,8 @@ RelPermalink= "communityhealthtoolkit.org"
  [[related.indices]]
     name = "keywords"
     weight = 1
+
+[security.exec]
+# To work with asdf, ref https://github.com/gohugoio/hugo/issues/9811
+osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$']
+

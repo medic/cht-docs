@@ -22,16 +22,24 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: All Branches - Install hugo extended v0.101.0
+      - name: Parse .tool-versions
+        id: hugo-version
+        run: |
+          grep 'hugo extended_' .tool-versions |
+            head -n1 |
+            sed  's/^hugo extended_\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\)$/HUGO_VERSION=\1/' \
+              >>"${GITHUB_OUTPUT}"
+
+      - name: All Branches - Install hugo extended
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.101.0"
+          hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
           extended: true
 
-      - name: All Branches - Install Node 12.x
+      - name: All Branches - Install Node 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '16.x'
 
       - name: All Branches - Install npm modules for Hugo
         run: npm install

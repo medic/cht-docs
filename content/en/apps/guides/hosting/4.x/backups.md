@@ -33,7 +33,7 @@ Therefore, you do **not** need to back up the docker images for:
 
 ## Assumptions
 
-This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node]({{< relref "apps/guides/hosting/4.x/self-hosting-single-node" >}}) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
+This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node]({{< relref "apps/guides/hosting/4.x/self-hosting/single-node" >}}) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
 
 ```
 cht_nginx_1
