@@ -136,7 +136,7 @@ If you want to develop CHT apps with VS Code, you can use the `cht-app-ide` Dock
 
 [Install VS Code](https://code.visualstudio.com/) if you do not have it already.
 
-Using the terminal (or the WSL shell on Windows: _Start > wsl_), run the following commands from within your project directory (created above) to download the `.devcontainer.json` config file, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), and open the project directory in VSCode:
+Using the terminal (or the WSL shell on Windows: _Start > wsl_, or Git Bash for Windows without WSL), run the following commands from within your project directory (created above) to download the `.devcontainer.json` config file, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), and open the project directory in VSCode:
 
 ```shell
 cd ~/cht-project
