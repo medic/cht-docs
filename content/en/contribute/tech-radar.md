@@ -15,7 +15,7 @@ The [CHT Technology Radar for Contributors](https://docs.communityhealthtoolkit.
 
 You can learn how to contribute to the CHT Technical Radar for Contributors in the [related GitHub repository](https://github.com/medic/cht-tech-radar-contributors).
 
-## CHT Technology Radar for Implementers
+## For Implementers
 The [CHT Technology Radar for Implementers](https://docs.communityhealthtoolkit.org/cht-tech-radar-implementers/index.html) provides a view of all CHT-related tools and components so that CHT implementers can decide which to use when designing, developing, and hosting their CHT applications.
 
 You can learn how to contribute to the CHT Technical Radar for Implementers in the [related GitHub repository](https://github.com/medic/cht-tech-radar-implementers).
