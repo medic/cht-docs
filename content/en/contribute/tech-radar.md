@@ -11,8 +11,7 @@ It is essential for a development toolkit such as the Community Health Toolkit t
 A Technology Radar is a compilation of technologies and their adoption status in the context of the CHT.
 
 ## CHT Technology Radar for Contributors
-The [CHT Technology Radar for Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/index.html) provides an 
-useful view for developers to know what languages/tools/platforms/techniques to use while contributing to CHT tools themselves.
+The [CHT Technology Radar for Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/index.html) provides a useful view for developers to know what languages/tools/platforms/techniques to use while contributing to CHT tools themselves.
 
 You can learn how to contribute to the CHT Technical Radar for Contributors in the [related GitHub repository](https://github.com/medic/cht-tech-radar-contributors).
 
