@@ -3,11 +3,11 @@ title: "k3s - multiple node deployment for VMware"
 linkTitle: "k3s - multiple nodes"
 weight: 20
 description: >
-  Hosting the CHT on self run VMware infrastructure with horizontally scaled CouchDB nodes
+  Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
 ---
 
 {{% pageinfo %}}
-The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains. Please see our deploy documentation matrix to identify if multiple couchdb nodes are appropriate for your project and scale.
+This page details initial k3s cluster setup on a VMware datacenter running vSphere 7+. After initial completion, the administrator should only be adding VMs to the cluster or deploying cht-core projects to be orchestrated.
 
 {{% /pageinfo %}}
 
@@ -15,11 +15,7 @@ The clustered multi-node hosting described below is only recommended for deploym
 
 A container orchestrater has the ability to schedule projects on available resources spread across a datacenter. For national scale projects, or a large number of cht-core deployments to maintain, we recommend and support using a lightweight kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will monitor resources across a group of nodes (VMs), place cht-core projects where there is available resource and migrate projects to spare resources if combined utilization is high or there are underlying issues. Instead of provisioning one VM per cht-core project, we will provision larger VMs and deploy multiple cht-core projects on one VM, with each project receiving optional resource limitations.
 
-An example of national scale use-case of an orchestrator is deploying 50 cht-core projects, one for each county. For this scenario, we will provision 9 large VMs, and place 6 cht-core projects on each VM, allowing spare resources to handle failovers, as well as the orchestrator to decide which project is placed on which VM. This enables efficient use of resources without having to manually plan your datacenter resource utilization.
-
-### About clustered deployments
-
-In a clustered CHT setup, there are multiple CouchDB nodes responding to users. The ability to [horizontally scale](https://en.wikipedia.org/wiki/Horizontal_scaling#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)) a CHT instance was added in version CHT 4.0.0. In this document we set up a three node CouchDB cluster.  We require all three CouchDB nodes to be running and healthy before installing the CHT. Our healthcheck service determines the health of the CouchDB nodes and turns off the CHT if any single node is not functional.
+An example of national scale use-case of an orchestrator is deploying 50 cht-core projects, one for each county. For this scenario, we will provision 9 large VMs, and place 6 cht-core projects on each VM, allowing spare resources to handle failovers, as well as the orchestrator to decide which project is placed on which VM. This enables efficient use of resources without having to manually plan your datacenter resource utilization on a project basis.
 
 ### Nodes
 
@@ -33,9 +29,10 @@ In a clustered CHT setup, there are multiple CouchDB nodes responding to users. 
 
 Provision 3 Ubuntu servers (22.04 as of this writing) that meet k3s specifications for [HA etcd](https://docs.k3s.io/installation/requirements#cpu-and-memory)
 
-4 vCPU, 8GB Ram per control-plane server.
+* 4 vCPU, 8GB Ram per control-plane server.
 
-Provision x Ubuntu servers for your k3s agent/worker servers. For a VM that is able to handle 6 cht-core projects, we recommend 48 vCPU, 192 GB Ram, and 50gb server disk-level storage.
+Provision x Ubuntu servers for your k3s agent/worker servers. For a VM that is able to handle 6 cht-core projects, we recommend:
+* 48 vCPU, 192 GB Ram, and 50gb server disk-level storage.
 
 For any additional VMs you add to the k3s cluster, you will need to ensure networking, roles, and extra configuration parameters that are noted below are configured on the VM. 
 
@@ -43,7 +40,7 @@ You will need to add VMs to your k3s cluster when you want to deploy more projec
 
 ### Network
 
-Please make sure the above provisioned VMs abide by [Inbound Rules for k3s Server Nodes](https://docs.k3s.io/installation/requirements#inbound-rules-for-k3s-server-nodes)
+Ensure the above provisioned VMs abide by [Inbound Rules for k3s Server Nodes](https://docs.k3s.io/installation/requirements#inbound-rules-for-k3s-server-nodes)
 
 Please note these [firewall considerations for ubuntu](https://docs.k3s.io/advanced#ubuntu--debian) if you are using ufw or another firewall.
 
@@ -53,7 +50,11 @@ As a security measure, be sure to restrict the IP addresses of the nodes only to
 
 We'll be following this document [vSphere Roles and Privileges](https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-0AB6E692-AA47-4B6A-8CEA-38B754E16567.html#GUID-0AB6E692-AA47-4B6A-8CEA-38B754E16567)
 
-First, we will want to create CNS-VM, CNS-DATASTORE, and CNS-SEARCH-AND-SPBM roles.
+First, we will want to create the following roles:
+* CNS-VM
+* CNS-DATASTORE
+* CNS-SEARCH-AND-SPBM
+
 Now, on the VM settings, we can apply these roles as described in the above document.
 
 Any provisioned VM in the previous step, should recieve CNS-VM role.
@@ -67,24 +68,24 @@ And all servers should have the READONLY role (this may already be active)
 Following along the above document, we want to verify VM Hardware Version is 15 or greater, and that disk.EnableUUID parameter is configured.
 
 On each node, through vSphere Client (GUI):
-1) disk.EnableUUID
-  a. In the vSphere Client, right-click the VM and select Edit Settings.
-  b. Click the VM Options tab and expand the Advanced menu.
-  c. Click Edit Configuration next to Configuration Parameters.
-  d. Configure the disk.EnableUUID parameter. If the parameter exists, make sure that its value is set to True. If the parameter is not present, add it and set its value to True.
+1. disk.EnableUUID
+    1. In the vSphere Client, right-click the VM and select Edit Settings.
+    2. Click the VM Options tab and expand the Advanced menu.
+    3. Click Edit Configuration next to Configuration Parameters.
+    4. Configure the disk.EnableUUID parameter. If the parameter exists, make sure that its value is set to True. If the parameter is not present, add it and set its value to True.
 
-2) Verify VM hardware version at 15 or higher, and upgrade if necessary
-  a. In the vSphere Client, navigate to the virtual machine.
-  b. Select Actions > Compatibility > Upgrade VM Compatibility.
-  c. Click Yes to confirm the upgrade.
-  d. Select a compatibility and click OK.
+2. Verify VM hardware version at 15 or higher, and upgrade if necessary
+    1. In the vSphere Client, navigate to the virtual machine.
+    2. Select Actions > Compatibility > Upgrade VM Compatibility.
+    3. Click Yes to confirm the upgrade.
+    4. Select a compatibility and click OK.
 
-3) Add VMware Paravirtual SCSI storage controller to the VM
-  a. In the vSphere Client, right-click the VM and select Edit Settings.
-  b. On the Virtual Hardware tab, click the Add New Device button.
-  c. Select SCSI Controller from the drop-down menu.
-  d. Expand New SCSI controller and from the Change Type menu, select VMware Paravirtual.
-  e. Click OK.
+3. Add VMware Paravirtual SCSI storage controller to the VM
+    1. In the vSphere Client, right-click the VM and select Edit Settings.
+    2. On the Virtual Hardware tab, click the Add New Device button.
+    3. Select SCSI Controller from the drop-down menu.
+    4. Expand New SCSI controller and from the Change Type menu, select VMware Paravirtual.
+    5. Click OK.
 
 
 ### Identify vSphere Provider IDs, Node IDs, and datacenter name
