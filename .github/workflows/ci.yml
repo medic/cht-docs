@@ -27,7 +27,7 @@ jobs:
         run: |
           grep 'hugo extended_' .tool-versions |
             head -n1 |
-            sed  's/^hugo extended_\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\)$/HUGO_VERSION=\1/' \
+            sed  's/^hugo extended_\(.\{1,\}\)$/HUGO_VERSION=\1/' \
               >>"${GITHUB_OUTPUT}"
 
       - name: All Branches - Install hugo extended

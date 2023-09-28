@@ -31,10 +31,9 @@ For smaller deployments a [single node CouchDB]({{< relref "apps/guides/hosting/
 
 ## Recommended orchestration provider
 
-| Consideration                        | Docker Compose   | K3s              | Kubernetes        |
-| ------------------------------------ | ---------------- | ---------------- | ----------------- |
-| Small deployment (less than 3 nodes) | {{< icon/yes >}} | {{< icon/yes >}} | Maybe<sup>1</sup> |
-| Large deployment                     | {{< icon/no >}}  | {{< icon/yes >}} | Maybe<sup>1</sup> |
+| Consideration                        | Docker Compose   | K3s              |
+| ------------------------------------ | ---------------- | ---------------- |
+| Small deployment (less than 3 nodes) | {{< icon/yes >}} | {{< icon/yes >}} |
+| Large deployment                     | {{< icon/no >}}  | {{< icon/yes >}} |
 
-1. If existing cluster and expertise exists.
 
