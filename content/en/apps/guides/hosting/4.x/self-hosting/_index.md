@@ -10,18 +10,20 @@ description: >
 
 ## Multi vs Single node couchdb requirements
 
-For smaller deployments a [single node CouchDB]({{< relref "apps/guides/hosting/4.x/self-hosting/single-node" >}}) instance can be used, for larger deployments a [multi-node CouchDB]({{< relref "apps/guides/hosting/4.x/self-hosting/multiple-nodes" >}}) cluster is generally recommended
+For smaller deployments a [single node CouchDB][single-couch] instance can be used, for larger deployments a [multi-node CouchDB][multi-couch] cluster is generally recommended
 
-| Consideration                                                                   | [Single node CouchDB]({{< relref "apps/guides/hosting/4.x/self-hosting/single-node" >}}) | [Multi-node clustered CouchDB]({{< relref "apps/guides/hosting/4.x/self-hosting/multiple-nodes" >}}) |
-| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Less than 2000 users                                                            | {{< icon/yes >}}                                                                         | {{< icon/yes >}}                                                                                     |
-| More than 2000 users                                                            | {{< icon/no >}}                                                                          | {{< icon/yes >}}                                                                                     |
-| Less than 1 million documents                                                   | {{< icon/yes >}}                                                                         | {{< icon/yes >}}                                                                                     |
-| More than 1 million documents                                                   | {{< icon/no >}}                                                                          | {{< icon/yes >}}                                                                                     |
-| Significant bursts of traffic (i.e. "Sync day" for a lot of users once a month) | {{< icon/no >}}                                                                          | {{< icon/yes >}}                                                                                     |
-| Seamless upgrade with multi-node docker compose                                 | {{< icon/yes >}}                                                                         | {{< icon/no >}}                                                                                      |
-| Seamless upgrade with multi-node kubernetes/k3s                                 | {{< icon/yes >}}                                                                         | {{< icon/yes >}}                                                                                     |
+| Consideration                                                                   | [Single node CouchDB][single-couch] | [Multi-node clustered CouchDB][multi-couch] |
+| ------------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
+| Less than 2000 users                                                            | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
+| More than 2000 users                                                            | {{< icon/no >}}                     | {{< icon/yes >}}                            |
+| Less than 1 million documents                                                   | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
+| More than 1 million documents                                                   | {{< icon/no >}}                     | {{< icon/yes >}}                            |
+| Significant bursts of traffic (i.e. "Sync day" for a lot of users once a month) | {{< icon/no >}}                     | {{< icon/yes >}}                            |
+| Seamless upgrade with multi-node docker compose                                 | {{< icon/yes >}}                    | {{< icon/no >}}                             |
+| Seamless upgrade with multi-node kubernetes/k3s                                 | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 
+[single-couch]: {{< relref "apps/guides/hosting/4.x/self-hosting/single-node" >}}
+[multi-couch]: {{< relref "apps/guides/hosting/4.x/self-hosting/multiple-nodes" >}}
 
 ## Cloud provider vs Bare metal
 
@@ -35,5 +37,3 @@ For smaller deployments a [single node CouchDB]({{< relref "apps/guides/hosting/
 | ------------------------------------ | ---------------- | ---------------- |
 | Small deployment (less than 3 nodes) | {{< icon/yes >}} | {{< icon/yes >}} |
 | Large deployment                     | {{< icon/no >}}  | {{< icon/yes >}} |
-
-
