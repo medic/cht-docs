@@ -169,10 +169,12 @@ This example makes a few points:
  - If you define a property as `optional`, it won't exist at all in the payload if the resulting value is `undefined`, either because that is the result of executing the `expr`, or the `path` doesn't exist. Note that if the `event.in_danger` expression was instead `doc.fields.danger_signs.length >= 3` the property `in_danger` would always exist and would either be `true` or `false`
 
 ### cron
-A cron expression for setting the cron rule in the outbound object.
+An optional cron expression for setting the cron rule in the outbound object.
 A cron expression is a string consisting of five fields that describe individual details of the schedule:
 
 `<minute> <hour> <day-of-month> <month> <day-of-week>`
+
+The transition verifies if a cron field exists in the configuration. If a cron field is present, it checks if the document is due for push. If it is ready, the new document is pushed. If it is not yet ready for push, the document is added to the outbound queue. If the cron field isn’t present, then it goes ahead with the previous flow.
 
 Example: you want the system to send outbound pushes based on a cron schedule every day at 1:05.
 
