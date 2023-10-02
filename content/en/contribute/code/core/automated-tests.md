@@ -13,6 +13,8 @@ aliases: >
 
 ## Unit Tests
 
+Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. They can use mocking to replicate the behavior of other parts of the system.
+
 Unit tests are located in the `tests` directories of each app  (e.g. in `webapp/tests` you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
@@ -45,6 +47,8 @@ flowchart LR
 ```
 
 ## E2E Tests
+
+Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.
 
 End-to-end tests are located in `tests/e2e`. Run them locally with the following:
 
