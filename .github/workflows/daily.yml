@@ -9,8 +9,8 @@
 #    the default or base branch
 on:
   schedule:
-    # runs at 3:15am every day
-    - cron:  '15 3 * * *'
+    # runs at 3:15am every Sunday
+    - cron:  '15 3 * * 0'
 
 name: Test site for broken links
 jobs:
