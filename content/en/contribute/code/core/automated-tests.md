@@ -13,9 +13,12 @@ aliases: >
 
 ## Unit Tests
 
-Unit tests are located in the `tests` directories of each app. Run them locally with: `npm run unit`.
+Unit tests are located in the `tests` directories of each app  (e.g. in `webapp/tests` you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
+
+For us, integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
+We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
 Integration tests are located in `tests/integration`. Run them locally with: `npm run e2e-integration-local`.
 
