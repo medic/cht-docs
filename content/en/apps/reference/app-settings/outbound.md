@@ -174,7 +174,7 @@ A cron expression is a string consisting of five fields that describe individual
 
 `<minute> <hour> <day-of-month> <month> <day-of-week>`
 
-The transition verifies if a cron field exists in the configuration. If a cron field is present, it checks if the document is due for push. If it is ready, the new document is pushed. If it is not yet ready for push, the document is added to the outbound queue. If the cron field isn’t present, then it goes ahead with the previous flow.
+The transition verifies if a cron field exists in the configuration. If a cron field is present, it checks if the document is due for push. If it is due, the new document is pushed. If it is not yet due for push, the document is added to the outbound queue. If the cron field isn’t present, then it goes ahead with the previous flow.
 
 Example: you want the system to send outbound pushes based on a cron schedule every day at 1:05.
 
