@@ -18,8 +18,6 @@ For smaller deployments a [single node CouchDB][single-couch] instance can be us
 | More than 4000 users                            | {{< icon/no >}}                     | {{< icon/yes >}}                            |
 | Less than 10 000 documents per day              | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 | More than 10 000 documents per day              | {{< icon/no >}}                     | {{< icon/yes >}}                            |
-| Less than 1 million documents                   | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
-| More than 1 million documents                   | {{< icon/no >}}                     | {{< icon/yes >}}                            |
 | Seamless upgrade with multi-node docker compose | {{< icon/yes >}}                    | {{< icon/no >}}                             |
 | Seamless upgrade with multi-node kubernetes/k3s | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 
