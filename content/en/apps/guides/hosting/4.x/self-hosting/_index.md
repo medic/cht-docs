@@ -12,15 +12,16 @@ description: >
 
 For smaller deployments a [single node CouchDB][single-couch] instance can be used, for larger deployments a [multi-node CouchDB][multi-couch] cluster is generally recommended
 
-| Consideration                                                                   | [Single node CouchDB][single-couch] | [Multi-node clustered CouchDB][multi-couch] |
-| ------------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
-| Less than 2000 users                                                            | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
-| More than 2000 users                                                            | {{< icon/no >}}                     | {{< icon/yes >}}                            |
-| Less than 1 million documents                                                   | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
-| More than 1 million documents                                                   | {{< icon/no >}}                     | {{< icon/yes >}}                            |
-| Significant bursts of traffic (i.e. "Sync day" for a lot of users once a month) | {{< icon/no >}}                     | {{< icon/yes >}}                            |
-| Seamless upgrade with multi-node docker compose                                 | {{< icon/yes >}}                    | {{< icon/no >}}                             |
-| Seamless upgrade with multi-node kubernetes/k3s                                 | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
+| Consideration                                   | [Single node CouchDB][single-couch] | [Multi-node clustered CouchDB][multi-couch] |
+| ----------------------------------------------- | ----------------------------------- | ------------------------------------------- |
+| Less than 4000 users                            | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
+| More than 4000 users                            | {{< icon/no >}}                     | {{< icon/yes >}}                            |
+| Less than 10 000 documents per day              | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
+| More than 10 000 documents per day              | {{< icon/no >}}                     | {{< icon/yes >}}                            |
+| Less than 1 million documents                   | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
+| More than 1 million documents                   | {{< icon/no >}}                     | {{< icon/yes >}}                            |
+| Seamless upgrade with multi-node docker compose | {{< icon/yes >}}                    | {{< icon/no >}}                             |
+| Seamless upgrade with multi-node kubernetes/k3s | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 
 [single-couch]: {{< relref "apps/guides/hosting/4.x/self-hosting/single-node" >}}
 [multi-couch]: {{< relref "apps/guides/hosting/4.x/self-hosting/multiple-nodes" >}}
@@ -30,10 +31,3 @@ For smaller deployments a [single node CouchDB][single-couch] instance can be us
 | Consideration               | Cloud provider  | Bare Metal       |
 | --------------------------- | --------------- | ---------------- |
 | Data needs to be in-country | {{< icon/no >}} | {{< icon/yes >}} |
-
-## Recommended orchestration provider
-
-| Consideration                        | Docker Compose   | K3s              |
-| ------------------------------------ | ---------------- | ---------------- |
-| Small deployment (less than 3 nodes) | {{< icon/yes >}} | {{< icon/yes >}} |
-| Large deployment                     | {{< icon/no >}}  | {{< icon/yes >}} |

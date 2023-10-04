@@ -12,7 +12,7 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later. See `.tool-versions` for the currently used version
 
-[asdf](https://asdf-vm.com/guide/getting-started.html) is the recommended way to manage hugo and golang versions for local development.
+[asdf](https://asdf-vm.com/guide/getting-started.html) is the recommended way to manage `hugo` and `golang` versions for local development.
 
 After installing it run:
 ```shell
@@ -21,7 +21,7 @@ asdf plugin add hugo
 ```
 ### Installing Hugo Manually
 
-If using asdf fails you can try installing Hugo manually. To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
+If using `asdf` fails you can try installing Hugo manually. To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
 
 ## Building the Documentation
 
