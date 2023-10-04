@@ -8,20 +8,11 @@ This repo contains documentation for the Community Health Toolkit (CHT), and how
 
 The documentation is built using Markdown pages, which can be converted into a navigable website using a static-site-generator. The Hugo static-site-generator is being used with the [Docsy theme](https://themes.gohugo.io/docsy/). To maintain portability, content should be written in plain Markdown with limited use of HTML, custom shortcodes, and modifications to the theme. Contributions should align with the [documentation style guide](https://docs.communityhealthtoolkit.org/contribute/docs/style-guide/).
 
-## Build dependencies
+## Installing Hugo
 
-The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later. See `.tool-versions` for the currently used version
+The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later.
 
-[asdf](https://asdf-vm.com/guide/getting-started.html) is the recommended way to manage `hugo` and `golang` versions for local development.
-
-After installing it run:
-```shell
-asdf plugin add golang
-asdf plugin add hugo
-```
-### Installing Hugo Manually
-
-If using `asdf` fails you can try installing Hugo manually. To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
+To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
 
 ## Building the Documentation
 
@@ -54,7 +45,7 @@ All changes to `main` branch run a [GitHub action](.github/workflows/ci.yml) to 
 
 ### Hugo
 
-The version of Hugo used to deploy the site is specified in `.tool-versions`. 
+The version of Hugo used to deploy the site is specified in the [GitHub workflows config](./.github/workflows). To upgrade to a new version of Hugo, simply update the `hugo-version` property in the workflows to the desired version (after confirming the site functions properly on the new version of Hugo). 
 
 _(Note there is also a minimum version of Hugo required to deploy the site specified via `module.hugoVersion` in the [`config.toml`](./config.toml) file.)_
 
