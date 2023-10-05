@@ -25,41 +25,11 @@ jobs:
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Parse .tool-versions for hugo-version
-        id: hugo-version
-        run: |
-          grep 'hugo extended_' .tool-versions |
-            head -n1 |
-            sed  's/^hugo extended_\(.\{1,\}\)$/HUGO_VERSION=\1/' \
-              >>"${GITHUB_OUTPUT}"
-
-
-      - name: Install hugo extended v0.101.0
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
-          extended: true
-
-      - name: Install Node 16.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
+      - name: Install asdf & tools in .tool-versions
+        uses: asdf-vm/actions/install@v2
 
       - name: Install npm modules for Hugo
         run: npm install
-
-      - name: Parse .tool-versions for go-version
-        id: go-version
-        run: |
-          grep 'golang ' .tool-versions |
-            head -n1 |
-            sed  's/^golang \(.\{1,\}\)$/GO_VERSION=\1/' \
-              >>"${GITHUB_OUTPUT}"
-
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: '${{ steps.go-version.outputs.GO_VERSION }}'
 
       - name: Install Muffet v1.5.7
         run: GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7

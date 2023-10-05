@@ -22,24 +22,8 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Parse .tool-versions
-        id: hugo-version
-        run: |
-          grep 'hugo extended_' .tool-versions |
-            head -n1 |
-            sed  's/^hugo extended_\(.\{1,\}\)$/HUGO_VERSION=\1/' \
-              >>"${GITHUB_OUTPUT}"
-
-      - name: All Branches - Install hugo extended
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
-          extended: true
-
-      - name: All Branches - Install Node 16.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
+      - name: All Branches - Install asdf & tools in .tool-versions
+        uses: asdf-vm/actions/install@v2
 
       - name: All Branches - Install npm modules for Hugo
         run: npm install
