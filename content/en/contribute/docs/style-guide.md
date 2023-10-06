@@ -231,7 +231,7 @@ represents.
 | The copy is called a "fork". | The copy is called a "fork." |
 
 ### Number formatting
-Avoid the use of comma or period as thousands separator since it can be confused for a decimal point in some countries. Either use no separator for small numbers or a unicode _Thin Space_ which is often recommended for international documents[^digit-grouping].
+Avoid the use of comma or period as thousands separator since it can be confused for a decimal point in some countries. Either use no separator for small numbers or a unicode _Thin Space_ which is often [recommended for international documents](https://en.wikipedia.org/wiki/Decimal_separator#Digit_grouping).
 
 There's a shortcode `format-number` which will replace `_` with _Thin Space_ to simplify formatting in this way.
 
@@ -240,8 +240,6 @@ There's a shortcode `format-number` which will replace `_` with _Thin Space_ to 
 | `{{</* format-number 10_000 */>}}`    | 10,000  |
 | `{{</* format-number 10_000 */>}}`    | 10.000  |
 | `{{</* format-number 1_000_000 */>}}` | 1000000 |
-
-[^digit-grouping]: https://en.wikipedia.org/wiki/Decimal_separator#Digit_grouping
 
 ### Notes and tips
 
