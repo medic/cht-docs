@@ -5,7 +5,7 @@ weight: 20
 description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
-    apps/guides/hosting/4.x/self-hosting-multiple-nodes
+    apps/guides/hosting/4.x/self-hosting/multiple-nodes
     apps/guides/hosting/4.x/data-migration
     core/overview/architecture/
 ---
