@@ -55,7 +55,7 @@ GRANT ALL PRIVILEGES ON DATABASE POSTGRES_DB_NAME TO couch2pg;
 
 All steps below require you to have a local clone of the repo.
 ```shell
-git clone https://github.com/medic/cht-couch2pg.git`
+git clone https://github.com/medic/cht-couch2pg.git
 ```
 
 ## Setting up with environment variables
