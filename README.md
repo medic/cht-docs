@@ -37,10 +37,11 @@ MacOS users getting errors when running `hugo server`, please see our [Troublesh
 
 We validate that all links on the docs site work (do not 404) using a tool called [Muffet](https://github.com/raviqqe/muffet) along with [Actions](https://github.com/features/actions). If you're creating a lot of new links, or editing a lot of existing links, you may optionally run Muffet locally before pushing your commits. Running Muffet locally can save time by exposing broken links before pushing a build since you can avoid waiting for the Action to run, finding you have a broken link, fixing it, and pushing a new change.
 
-  - Install [Go](https://golang.org/doc/install) as a prerequisite 
-  - Install Muffet: `go get -u github.com/raviqqe/muffet`
-  - Ensure you've run `hugo server` so your local docs instance is reachable at http://localhost:1313/
-  - Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/main/.github/scripts/muffet.sh) script.  If you're in the root of this repo, that'd be: `./.github/scripts/muffet.sh` 
+  1. Install [Go](https://golang.org/doc/install) as a prerequisite 
+  2. Install Muffet: `go get -u github.com/raviqqe/muffet`
+    - If using `asdf` you need to reshim (`asdf reshim golang`)
+  3. Ensure you've run `hugo server` so your local docs instance is reachable at http://localhost:1313/
+  4. Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/main/.github/scripts/muffet.sh) script.  If you're in the root of this repo, that'd be: `./.github/scripts/muffet.sh` 
   
 It should take about 60 seconds depending on your Internet connection. If Muffet returns no output, you have no broken links, congrats! 
 
