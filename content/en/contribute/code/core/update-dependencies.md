@@ -41,7 +41,6 @@ Then for each folder go through these steps.
 - Don't update `select2` as the latest patch always seems to fail.
 - Don't update `jquery` to 3.6.0+ as the `select2` search input looses focus on click event, this is an [open issue](https://github.com/select2/select2/issues/5993) in their repository.
 - Don't update `wdio`, [issue](https://github.com/medic/cht-core/issues/8621)
-- Don't update `sinon` or `rewire`, [issue](https://github.com/medic/cht-core/issues/8622)
 - CHT-Core's webapp is using Enketo and jQuery library, at the same time Enketo internally uses a specific version of jQuery. Make sure webapp installs the same jQuery version than the one Enketo uses internally: `3.2.x`.
 
   Do this by checking the jquery entry in `./webapp/package.json` matches `./webapp/node_modules/enketo-core/package.json`:
