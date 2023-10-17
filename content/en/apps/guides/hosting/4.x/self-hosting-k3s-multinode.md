@@ -1,27 +1,35 @@
 ---
 title: "k3s - multiple node deployment for VMware"
-linkTitle: "k3s - multiple nodes"
+linkTitle: "Self Hosting - k3s Multiple Nodes"
 weight: 20
 description: >
   Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
 ---
 
 {{% pageinfo %}}
-This page details initial k3s cluster setup on a VMware datacenter running vSphere 7+. After initial completion, the administrator should only be adding VMs to the cluster or deploying cht-core projects to be orchestrated.
+This page covers an example k3s cluster setup on a VMware datacenter with vSphere 7+ for a national deployment across 50 counties capable of supporting 20,000+ CHWs concurrently. After setup, administrators should only add VMs to the cluster or deploy CHT Core projects to be orchestrated.
 
 {{% /pageinfo %}}
 
 ### About container orchestration
 
-A container orchestrater has the ability to schedule projects on available resources spread across a datacenter. For national scale projects, or a large number of cht-core deployments to maintain, we recommend and support using a lightweight kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will monitor resources across a group of nodes (VMs), place cht-core projects where there is available resource and migrate projects to spare resources if combined utilization is high or there are underlying issues. Instead of provisioning one VM per cht-core project, we will provision larger VMs and deploy multiple cht-core projects on one VM, with each project receiving optional resource limitations.
+A container orchestrator helps easily allocate hardware resources spread across a datacenter. For national scale projects, or a deployments with a  large number of CHT Core instances, Medic recommends a lightweight Kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will:
 
-An example of national scale use-case of an orchestrator is deploying 50 cht-core projects, one for each county. For this scenario, we will provision 9 large VMs, and place 6 cht-core projects on each VM, allowing spare resources to handle failovers, as well as the orchestrator to decide which project is placed on which VM. This enables efficient use of resources without having to manually plan your datacenter resource utilization on a project basis.
+* monitor resources across a group of virtual machines (aka "nodes")
+* place CHT Core projects where there is available resource 
+* migrate projects to spare resources if combined utilization is high or there are underlying issues. 
+
+Instead of provisioning one VM per CHT Core project, we will provision larger VMs and deploy multiple CHT Core projects on one VM, with each project receiving optional resource limitations, like CPU and RAM.
+
+In this example an orchestrator is deploying 50 CHT Core projects, one for each county. We will provision 9 large VMs and place 6 CHT Core projects on each VM. This allows for spare resources for failovers and lets the orchestrator decide on which VM projects live. Further, we get automated efficient use of datacenter resource utilization and avoids future manual allocations.
 
 ### Nodes
 
-* k3s [HA control-plane](https://docs.k3s.io/installation/requirements#cpu-and-memory) nodes - 3 nodes that will enable HA and provide access to kube API. The containers running inside `kube-system` namespace are often associated with the control-plane. They include coreDNS, traefik (ingress), servicelb, VMware Cloud Provisioner Interface (CPI), and VMWare Container Storage Interface (CSI)
+We'll be using two types of k3s nodes in this deployment:
 
-* k3s agent/worker nodes - These nodes will run the cht-core containers and projects. They will also run a few other containers that tie in networking, and storage. VMware CSI-node will be running that enables this agent to mount volumes from VMware Virtual-SAN for block data storage. Agents will also run servicelb-traefik containers which allow the nodes to route traffic to correct projects and handle load-balancing, and internal networking.
+* [HA control-plane](https://docs.k3s.io/installation/requirements#cpu-and-memory) nodes - these enable high availability (HA) and provide access to kube API. These are containers running inside `kube-system` namespace which are often associated with the control-plane. They include coreDNS, traefik (ingress), servicelb, VMware Cloud Provisioner Interface (CPI), and VMWare Container Storage Interface (CSI)
+
+* Agent or worker nodes - these run the CHT Core containers and projects. They will also run services that tie in networking and storage. VMware CSI-node will be running here which enables agents to mount volumes from VMware Virtual-SAN for block data storage. Agents will also run servicelb-traefik containers which allow the nodes to route traffic to correct projects and handle load-balancing and internal networking.
 
 ## Prerequisites
 
@@ -29,28 +37,27 @@ An example of national scale use-case of an orchestrator is deploying 50 cht-cor
 
 Provision 3 Ubuntu servers (22.04 as of this writing) that meet k3s specifications for [HA etcd](https://docs.k3s.io/installation/requirements#cpu-and-memory)
 
-* 4 vCPU, 8GB Ram per control-plane server.
+As we're provisioning an example deployment here for 50 counties and over 20,000 CHWs, the RAM, CPU and storage numbers will differ for you specific deployment.
 
-Provision x Ubuntu servers for your k3s agent/worker servers. For a VM that is able to handle 6 cht-core projects, we recommend:
-* 48 vCPU, 192 GB Ram, and 50gb server disk-level storage.
+To support all 50 counties, provision 3 Ubuntu servers (22.04 as of this writing) with **4 vCPU and 8GB Ram**.  Ensure they also meet k3s specifications for [HA etcd](https://docs.k3s.io/installation/requirements#cpu-and-memory).
+
+Provision 9 Ubuntu servers (again 22.04 as of this writing) for your k3s agent/worker servers. Each should have **48 vCPU, 192 GB Ram, and 50gb local storage**.
 
 For any additional VMs you add to the k3s cluster, you will need to ensure networking, roles, and extra configuration parameters that are noted below are configured on the VM. 
 
-You will need to add VMs to your k3s cluster when you want to deploy more projects than you had initially planned for, or if you are rolling projects out slowly over time, this gives you flexibility of provisioning additional VMs later.
+To ensure your hardware is not over-provisioned, add more VMs to your k3s cluster when you want to deploy more CHT Core projects. This gives you flexibility of not needing to provision them initially as they can easily be added later.
 
 ### Network
 
-Ensure the above provisioned VMs abide by [Inbound Rules for k3s Server Nodes](https://docs.k3s.io/installation/requirements#inbound-rules-for-k3s-server-nodes)
+Ensure the above provisioned VMs:
 
-Please note these [firewall considerations for ubuntu](https://docs.k3s.io/advanced#ubuntu--debian) if you are using ufw or another firewall.
-
-As a security measure, be sure to restrict the IP addresses of the nodes only to be able to connect to these ports.
+* abide by [Inbound Rules for k3s Server Nodes](https://docs.k3s.io/installation/requirements#inbound-rules-for-k3s-server-nodes)
+* If you're using Ubuntu's ufw, follow [firewall considerations for k3s on Ubuntu](https://docs.k3s.io/advanced#ubuntu--debian)
+* are restricted to the IP addresses of the k3s nodes so only they can connect to the service ports
 
 ### Add Roles and Permissions to our VMs
 
-We'll be following this document [vSphere Roles and Privileges](https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-0AB6E692-AA47-4B6A-8CEA-38B754E16567.html#GUID-0AB6E692-AA47-4B6A-8CEA-38B754E16567)
-
-First, we will want to create the following roles:
+Following the [vSphere docs](https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-0AB6E692-AA47-4B6A-8CEA-38B754E16567.html#GUID-0AB6E692-AA47-4B6A-8CEA-38B754E16567), first create the following vSphere roles in vSphere for Container Storage (CSN):
 * CNS-VM
 * CNS-DATASTORE
 * CNS-SEARCH-AND-SPBM
@@ -96,76 +103,82 @@ For each of the provisioned VMs, you can navigate to the VM in vCenter interface
 
 Another method is to make the following calls to vCenter Server API. You may have a VPN that you connect to first before being able to access your vCenter GUI. These commands should be run from the same network that allows that access.
 
-Please replace your vCenter Server IP, and username/credentials in the commands below.
+When running the commands below, be sure to replace the placeholders with your own values:
+* `<vCenter_IP>`
+* `<USERNAME>` 
+* `<PASSWORD>`
 
-* First, let's grab a authentication-token:
-```
-curl -k -X POST https://<vCenter_IP>/rest/com/vmware/cis/session -u '<USERNAME>:<PASSWORD'
-ID=<value_above>
-```
+And any others as well!
+
+* Get an authentication-token:
+      
+      curl -k -X POST https://<vCenter_IP>/rest/com/vmware/cis/session -u '<USERNAME>:<PASSWORD>'
+ID=<UUID_FROM_vCENTER>
+      
 
 * List all your VMs and identify the VM-number that was provisioned earlier:
-```
-curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/api/vcenter/vm
-```
-* Retrieve your instance_uuid
-```
-curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/api/vcenter/vm/vm-<number>
-
-Inside the response:
-"identity":{"name":"k3s_worker_node_4","instance_uuid":"215cc603-e8da-5iua-3333-a2402c05121"
-```
+      
+      curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/api/vcenter/vm
+      
+* Retrieve your instance_uuid by first making a `curl` call:
+      
+      curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/api/vcenter/vm/vm-<number>
+      
+      
+* Inside the JSON response of the `curl` call get the,  `instance_uuid`, in this case it's `215cc603-e8da-5iua-3333-a2402c05121`, but yours will be different:
+      
+      "identity":{"name":"k3s_worker_node_4","instance_uuid":"215cc603-e8da-5iua-3333-a2402c05121"
+      
 
 * Retrieve your datacenter name, to be used in configuration files for VMware CSI and CPI
-```
-curl -k -X GET -H "vmware-api-session-id: $ID" https://10.127.106.50/rest/vcenter/datacenter
-```
+      
+      curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/rest/vcenter/datacenter
+      
 You will want to save the "name" of your datacenter.
 
 * Retrieve your cluster-id, to be used in config file for VMware CSI
-```
-curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter IP>/api/vcenter/cluster
-```
+      
+      curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter IP>/api/vcenter/cluster
+      
 
-You can also [govc cli tool](https://github.com/vmware/govmomi/blob/main/govc/README.md#binaries) to retrieve this information. 
-```
-export GOVC_INSECURE=1
-  $ export GOVC_URL='https://<VC_Admin_User>:<VC_Admin_Passwd>@<VC_IP>'
-
-  $ govc ls
-  /<datacenter-name>/vm
-  /<datacenter-name>/network
-  /<datacenter-name>/host
-  /<datacenter-name>/datastore
-
-  // To retrieve all Node VMs
-  $ govc ls /<datacenter-name>/vm
-  /<datacenter-name>/vm/<vm-name1>
-  /<datacenter-name>/vm/<vm-name2>
-  /<datacenter-name>/vm/<vm-name3>
-  /<datacenter-name>/vm/<vm-name4>
-  /<datacenter-name>/vm/<vm-name5>
-```
+You can also use the [govc cli tool](https://github.com/vmware/govmomi/blob/main/govc/README.md#binaries) to retrieve this information:
+   
+   export GOVC_INSECURE=1
+   export GOVC_URL='https://<USERNAME>:<PASSWORD>@<vCenter_IP>
+   
+   govc ls /
+        <datacenter-name>/vm \
+        <datacenter-name>/network \
+        <datacenter-name>/host \
+        <datacenter-name>/datastore 
+   
+   #To retrieve all Node VMs
+   govc ls /<datacenter-name>/vm \
+       <datacenter-name>/vm/<vm-name1> \
+       <datacenter-name>/vm/<vm-name2> \
+       <datacenter-name>/vm/<vm-name3> \
+       <datacenter-name>/vm/<vm-name4> \
+       <datacenter-name>/vm/<vm-name5> 
+   
 
 
 ## Install k3s
 
 ### First Control-Plane VM
 
-SSH into your first control-plane VM that was provisioned and configured above.
-* Install [docker](https://docs.docker.com/engine/install/ubuntu/)
+SSH into your first control-plane VM that was provisioned and configured above and [install docker](https://docs.docker.com/engine/install/ubuntu/).
 
-For k3s version compatibiltiy with vCenter and vMware CPI/CSI, we will need to use k3s v1.25, cpi v1.25, and csi v2.7.2
+For k3s version compatibiltiy with vCenter and vMware CPI/CSI, we will need to use k3s v1.25, cpi v1.25, and csi v2.7.2 per the `curl` call below.
 
 Run the following CLI command inside the control-plane VM, filling out these two specific values:
-  - token: Please generate a token ID, and save it. This will be required for the entirety of the k3s cluster existence and required to add additional servers to the k3s cluster
-  - VM_UUID: This was the UUID for this specific VM that we identified earlier
+  - `<TOKEN>`: Please generate a token ID, and save it. This will be required for the entirety of the k3s cluster existence and required to add additional servers to the k3s cluster
+  - `<VM_UUID>`: This was the UUID for this specific VM that we identified earlier
 ```
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="server" INSTALL_K3S_VERSION="v1.25.14+k3s1" sh -s - \
---docker --token <TOKEN> \
---cluster-init --disable-cloud-controller \
---kubelet-arg="cloud-provider=external" \
---kubelet-arg="provider-id=vsphere://<VM_UUID>"
+   --docker --token <TOKEN> \
+   --cluster-init --disable-cloud-controller \
+   --kubelet-arg="cloud-provider=external" \
+   --kubelet-arg="provider-id=vsphere://<VM_UUID>"
 ```
 
 ### Second and third Control-Plane VMs
@@ -173,13 +186,13 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="serve
 SSH into your second/third control-plane VM.
 
 Please fill out these values below and run the cli command:
-  - token: Required to be the same token you used in the first control-plane setup
-  - CONTROL_PLANE_1_IP: This is the IP of the first control-plane server you setup, and allows this second server to discover the initial one.
-  - VM_UUID: This is the UUID for this second VM that we identified earlier. This will be different than the one you used for control plane 1.
+  - `<TOKEN>`: Required to be the same token you used in the first control-plane setup
+  - `<CONTROL_PLANE_1_IP>`: This is the IP of the first control-plane server you setup, and allows this second server to discover the initial one.
+  - `<VM_UUID>`: This is the UUID for this second VM that we identified earlier. This will be different than the one you used for control plane 1.
 
 ```
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="server" INSTALL_K3S_VERSION="v1.25.14+k3s1" sh -s  \
-- --docker --token <TOKEN> \
+--docker --token <TOKEN> \
 --server https://<CONTROL_PLANE_1_IP:6443 \
 --disable-cloud-controller --kubelet-arg="cloud-provider=external" \ 
 --kubelet-arg="provider-id=vsphere://<VM_UUID>"
@@ -215,13 +228,12 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="agent
 SSH into one of your control plane servers. 
 Download the template for CPI:
 ```
-VERSION=1.25
 wget https://raw.githubusercontent.com/kubernetes/cloud-provider-vsphere/release-1.25/releases/v1.25/vsphere-cloud-controller-manager.yaml
 ```
 
 Modify the vsphere-cloud-controller-manager.yaml file downloaded above and update vCenter Server information. 
 
-1) Add your vCenter_IP and USERNAME, PASSWORD to the section below inside that yaml:
+1) Add your `<vCenter_IP>` and `<USERNAME>`, `<PASSWORD>` to the section below inside that yaml:
 ```
 apiVersion: v1
 kind: Secret
@@ -236,8 +248,8 @@ stringData:
   <vCenter_IP>.username: "<USERNAME>"
   <vCenter_IP>.password: "<PASSWORD>"
 ```
-2) Please add your vCenter_IP, USERNAME, PASSWORD and Datacenter_name_retrieved_earlier to the ConfigMap section inside that yaml.
-* Note: If your vCenter actively uses https with valid certificates, then you will want to set insecureFlag: false. Most set-ups will want this to remain true (insecureFlag: true)
+2) Please add your `<vCenter_IP>` and `<USERNAME>`, `<PASSWORD>`  and `<Datacenter_name_retrieved_earlier>` to the ConfigMap section inside that yaml.
+* Note: If your vCenter actively uses https with valid certificates, then inside the `global:` stanza,  you will want to set `insecureFlag: false`. Most set-ups will want this to remain true with`insecureFlag: true` .
 
 ```
 apiVersion: v1
@@ -288,11 +300,7 @@ Take a peak at all 3 vsphere-controller-manager pods logs to ensure nothing is i
 
 ## Deploy VMware Container Storage Interface (CSI) to your k3s cluster
 
-[VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-A1982536-F741-4614-A6F2-ADEE21AA4588.html)
-
-We'll be following the guide linked above.
-
-Procedure:
+Follow the [VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-A1982536-F741-4614-A6F2-ADEE21AA4588.html) with these steps:
 
 1) Run the following command from inside a control-plane server:
 ```
@@ -305,24 +313,19 @@ You can retrieve the names by running `/usr/local/bin/k3s kubectl get nodes -o w
 /usr/local/bin/k3s kubectl taint node <CONTROL_PLANE_SERVER> node-role.kubernetes.io/control-plane=:NoSchedule
 ```
 
-3) Create kubernetes secret, which will map authentication credentials and datacenter name to CSI containers.
-  a) create a file titled csi-vsphere.conf. In the default values below, be sure to place the following values in the defined place:
-    * admin credentials 
-    * datacenter name retrieved from earlier
-    * vCenter Server IP address (same as used in previous CPI template)
-    * vCenter cluster-ID, retrieved from earlier
-```
-$ cat /etc/kubernetes/csi-vsphere.conf
-[Global]
-cluster-id = "<cluster-id>"
+3) Create kubernetes secret, which will map authentication credentials and datacenter name to CSI containers. First, create a file  `/etc/kubernetes/csi-vsphere.conf`. Be sure to replace  `<vCenter_IP>`, `<USERNAME>`, `<PASSWORD>` ,  `<true_or_false>`,  `<PORT>` ,  `<datacenter1-path>` and  `<datacenter1-path>`  with your values:
 
-[VirtualCenter "<IP or FQDN>"]
-insecure-flag = "<true or false>"
-user = "<username>"
-password = "<password>"
-port = "<port>"
-datacenters = "<datacenter1-path>, <datacenter2-path>, ..."
-```
+   
+   [Global]
+   cluster-id = "<cluster-id>"
+   
+   [VirtualCenter "<vCenter_IP>"]
+   insecure-flag = "<true_or_false>"
+   user = "<USERNAME>"
+   password = "<PASSWORD>"
+   port = "<PORT>"
+   datacenters = "<datacenter1-path>, <datacenter2-path>, ..."
+
 
 4) Create the secret resource in the namespace we created in step 1 by running the following command in the same directory you created the csi-vsphere.conf file:
 ```
@@ -339,7 +342,7 @@ Before edit (original value)
         node-role.kubernetes.io/control-plane: ""
 ```
 
-Please add "true" as the value for this key, seen below:
+Please add `true` as the value for this key, seen below:
 ```
       nodeSelector:
         node-role.kubernetes.io/control-plane: "true"
@@ -355,7 +358,7 @@ Follow the [verification steps seen here in Step 2 of Procedure](https://docs.vm
 
 ### Create StorageClass in k3s cluster
 
-We'll need to create a global [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource in our k3s cluster, so cht-core deployments will be able to ask for persistent storage volumes from the k3s cluster.
+We'll need to create a global [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource in our k3s cluster, so CHT Core deployments will be able to ask for persistent storage volumes from the k3s cluster.
 
 Inside one of the control-plane servers, please create a file `vmware-storageclass.yaml` with the following contents:
 ```
@@ -379,8 +382,7 @@ Deploy this template to the k3s cluster via:
 
 This step will neatly fit into helm chart configurations, but here are the manual steps for time being.
 
-In your PVC template (peristent volume), here is a snippet of what it should resemble for all CouchDB's:
-* Note the storageClassName parameter should be identical to the storageClass we deployed earlier
+Your persistent volume (PVC) template for all CouchDB's should be as shown below. Note the `storageClassName` parameter should be identical to the `storageClass` we deployed earlier:
 ```
 # Source: cht-chart/templates/couchdb-n-claim0-persistentvolumeclaim.yaml
 apiVersion: v1
@@ -410,5 +412,3 @@ Here are links to docs surrounding the kubernetes concepts that we use in a cht-
 * [Services](https://kubernetes.io/docs/concepts/services-networking/service/) - This is utilized for CouchDB nodes to discover each other through DNS rather than internal IPs, which can change. This is also used in the COUCH_URL so API containers can discover where CouchDB is running.
 
 
-## k3s Troubleshooting
-Another doc to be linked here
