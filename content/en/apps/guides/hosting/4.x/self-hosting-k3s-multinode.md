@@ -226,8 +226,9 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="agent
 ## Deploy VMware Cloud Provisioner Interface (CPI) to your k3s cluster
 
 SSH into one of your control plane servers. 
-Download the template for CPI:
+Download the template for CPI, ensure you are aware of your current working directory. This will be the location where the CPI template is saved.
 ```
+pwd
 wget https://raw.githubusercontent.com/kubernetes/cloud-provider-vsphere/release-1.25/releases/v1.25/vsphere-cloud-controller-manager.yaml
 ```
 
