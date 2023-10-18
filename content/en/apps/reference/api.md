@@ -1504,7 +1504,7 @@ curl http://localhost:5988/api/v1/monitoring
 | `couchdb.<dbname>.doc_del_count` | Number | The number of deleted docs in the db. |
 | `couchdb.<dbname>.fragmentation` |  Number | The fragmentation of the db, lower is better, "1" is no fragmentation. |
 | `date.current` | Number | The current server date in millis since the epoch, useful for ensuring the server time is correct. |
-| `date.uptime` | Number | How long API has been running. |
+| `date.uptime` | Number | How long API has been running in seconds. |
 | `sentinel.backlog` | Number | Number of changes yet to be processed by Sentinel. |
 | `messaging.outgoing.state.due` | Number | The number of messages due to be sent. |
 | `messaging.outgoing.state.scheduled` | Number | The number of messages scheduled to be sent in the future. |
