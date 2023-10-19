@@ -21,7 +21,7 @@ The `schedules` key contains an array of schedule objects, each representing the
 |`name`|A unique string label that is used to identify the schedule. Spaces are allowed.|yes|
 |`summary`|Short description of the of the schedule.|no|
 |`description`|A narrative for the schedule.|no|
-|`start_from`|The base date from which the `messages[].offset` is added to determine when to send individual messages. You could specify any property on the report that contains a date value. Starting 4.5.0, array of property names is also supported; in this case, first non-undefined field is used. The default is `reported_date`, which is when the report was submitted.|no|
+|`start_from`|The base date from which the `messages[].offset` is added to determine when to send individual messages. You could specify any property on the report that contains a date value. Starting from 4.5.0, an array of property names is also supported; in this case, the first defined field is used. The default is `reported_date`, which is when the report was submitted.|no|
 |`start_mid_group`|Whether or not a schedule can start mid-group. If not present, the schedule will not start mid-group. In other terms, the default value is `false`|no|
 |`messages`|Array of objects, each containing a message to send out and its properties.|yes|
 |`messages[].translation_key`|The translation key of the message to send out. Available in 2.15+.|yes|
@@ -58,7 +58,7 @@ This sample shows a schedule with a single message, which will be sent on Monday
 ]
 ```
 
-Following sample schedules a message for 270 days from `lmp_date`. If `lmp_date` doesn't exist on report, it will schedule a message for 270 days from `fields.lmp_date`. If both fields don't exist, it will create schedule from `reported_date`. This feature on `start_from` is supported from CHT 4.5.0+. 
+The following sample schedules a message for 270 days from `lmp_date`. If `lmp_date` doesn't exist on report, it will schedule a message for 270 days from `fields.lmp_date`. If neither field exists, it will not create a schedule. Using an array for `start_from` is supported from CHT 4.5.0+. 
 
 ```json
   "schedules": [
