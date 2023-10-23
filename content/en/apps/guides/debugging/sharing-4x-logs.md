@@ -31,13 +31,19 @@ Be aware of two important features of this script:
 {{% /alert %}}
 
 
-The script takes no arguments and can be called from anywhere on your system as long as you specify the full path to the script.  Here it's being called from with in the `cht-core/scripts` directory:
+The script defaults to getting the past 24 hours of logs and can be called from anywhere on your system as long as you specify the full path to the script.  Here it's being called from with in the `cht-core/scripts` directory:
 
 ```
 ./compress_and_archive_docker_logs.sh
 ```
 
-Depending on this volume of your logs, this may take a while.  This is what the output of the script is when it's completed:
+If you'd liked to get more logs than the most recent 24 hours, pass in an argument of hours.  Here we're asking for 2 days worth of logs by using `48` as the argument:
+
+```
+./compress_and_archive_docker_logs.sh 48
+```
+
+Depending on this volume of your logs, this may take a while. This is what the output of the script is when it's completed:
 
 ```
 Wait while the script gathers stats and logs about the CHT containers.
