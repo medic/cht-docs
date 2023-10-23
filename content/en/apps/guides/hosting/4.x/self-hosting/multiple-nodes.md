@@ -1,17 +1,18 @@
 ---
 title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes"
-linkTitle: "Self Hosting - Multiple Nodes"
+linkTitle: "Multiple Nodes"
 weight: 20
+aliases:
+  - ../self-hosting-multiple-nodes
 description: >
   Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes
 ---
 
 {{% pageinfo %}}
-The clustered multi-node hosting described below is only recommended for deployments that need extreme performance gains.  These gains will greatly increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
+The clustered multi-node hosting described below is recommended for deployments that need increased performance gains. These gains will increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
-Instead, we recommended most deployment go with the [single node hosting]({{< ref "apps/guides/hosting/4.x/self-hosting-single-node" >}}).
+If you are unsure which deployment to use check out [Self-hosting recommendations]({{< ref "apps/guides/hosting/4.x/self-hosting#recommendations-and-considerations" >}}).
 
-As well, there's the [self hosted guide for 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
 {{% /pageinfo %}}
 
 ### About clustered deployments
@@ -117,7 +118,7 @@ The following 2 `curl` commands download CHT version `4.0.1` compose files, whic
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-core.yml
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
@@ -190,7 +191,7 @@ Create `/home/ubuntu/cht/docker-compose.yml` on Node 1 by running this code:
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-couchdb.yml
 ```
 
 Now create the override file to have Node 1 join the `cht-net` overlay network we created above. As well, we'll set some `services:` specific overrides:
@@ -217,7 +218,7 @@ Like we did for Node 1, create `/home/ubuntu/cht/docker-compose.yml` and the `cl
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-couchdb.yml
 cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:
@@ -239,7 +240,7 @@ Finally, we'll match Node 3  up with the others by running this code:
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+curl -s -o ./docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-couchdb.yml
 cat > /home/ubuntu/cht/cluster-overrides.yml << EOF
 version: '3.9'
 services:

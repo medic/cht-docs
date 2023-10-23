@@ -11,6 +11,6 @@ relatedContent: >
 
 Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first.
 
-To host a production instance of CHT, use either the [Self Hosting in CHT 4.x]({{< relref "apps/guides/hosting/4.x/self-hosting-single-node" >}}) guide. To do app development, see our [App Developer]({{< relref "apps/guides/hosting/4.x/app-developer" >}}) hosting guide.
+To host a production instance of CHT, use the [Self Hosting in CHT 4.x]({{< relref "apps/guides/hosting/4.x/self-hosting" >}}) guide. To do app development, see our [App Developer]({{< relref "apps/guides/hosting/4.x/app-developer" >}}) hosting guide.
 
 To view 3.x hosting options, see the  [3.x hosting section]({{< relref "apps/guides/hosting/3.x" >}}) 

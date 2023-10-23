@@ -9,8 +9,8 @@
 #    the default or base branch
 on:
   schedule:
-    # runs at 3:15am every day
-    - cron:  '15 3 * * *'
+    # runs at 3:15am every Sunday
+    - cron:  '15 3 * * 0'
 
 name: Test site for broken links
 jobs:
@@ -25,27 +25,16 @@ jobs:
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Install hugo extended v0.101.0
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.101.0"
-          extended: true
-
-      - name: Install Node 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
+      - name: Install asdf & tools in .tool-versions
+        uses: asdf-vm/actions/install@v2
 
       - name: Install npm modules for Hugo
         run: npm install
 
-      - name: Install Go v1.18
-        uses: actions/setup-go@v2
-        with:
-          go-version: '1.18'
-
-      - name: Install Muffet v1.5.7
-        run: GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+      - name: Install Muffet
+        run: |
+          GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+          asdf reshim golang
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
       - name: Serve Hugo site

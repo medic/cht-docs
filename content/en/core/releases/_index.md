@@ -20,32 +20,33 @@ Once a version is no longer supported it will not receive any further patch rele
 
 It is recommended that all projects update regularly multiple times a year to get the benefits of bug fixes, security patches, and performance improvements. Being on a supported version also makes it easy to start using features coming in future releases. Most upgrades are quick, reliable, and easily adopted by users. Whenever an upgrade does require additional effort this will be outlined in the release notes.
 
-| Version | Status | Release date | End of life |
-|----|----|--------------|-------------|
-| 4.3.x  | Current | 18-Aug-2023  | TBA         |
-| 4.2.x  | Supported | 25-May-2023  | 18-Nov-2023 |
-| 4.1.x  | EOL | 12-Dec-2022  | 25-Aug-2023 |
-| 4.0.x  | EOL | 03-Nov-2022  | 12-Mar-2023 |
-| 3.17.x | Supported | 11-Oct-2022  | 03-Nov-2023 |
-| 3.16.x | EOL | 3-Aug-2022   | 11-Jan-2023 |
-| 3.15.x | EOL | 4-May-2022   | 3-Nov-2022  |
-| 3.14.x | EOL | 11-Feb-2022  | 4-Aug-2022  |
-| 3.13.x | EOL | 29-Sep-2021  | 11-May-2022 |
-| 3.12.x | EOL | 28-Jul-2021  | 29-Dec-2021 |
-| 3.11.x | EOL | 21-Apr-2021  | 28-Oct-2021 |
-| 3.10.x | EOL | 9-Sep-2020   | 21-Jul-2021 |
-| 3.9.x | EOL | 19-Jun-2020  | 9-Dec-2020  |
-| 3.8.x | EOL | 11-Feb-2020  | 19-Sep-2020 |
-| 3.7.x | EOL | 22-Oct-2019  | 11-Jun-2020 |
-| 3.6.x | EOL | 17-Jul-2019  | 24-Mar-2020 |
-| 3.5.x | EOL | 27-Jun-2019  | 17-Oct-2019 |
-| 3.4.x | EOL | 27-Mar-2019  | 27-Sep-2019 |
-| 3.3.x | EOL | 22-Feb-2019  | 27-Jun-2019 |
-| 3.2.x | EOL | 23-Jan-2019  | 22-May-2019 |
-| 3.1.x | EOL | 21-Nov-2018  | 23-Apr-2019 |
-| 3.0.x | EOL | 15-Nov-2018  | 21-Feb-2019 |
-| 2.18.x | EOL | 30-Aug-2018  | 15-Nov-2019 |
-| earlier | EOL | ...          | 30-Nov-2018 |
+| Version | Status    | Release date | End of life |
+|---------|-----------|--------------|-------------|
+| 4.4.x   | Current   | 20-Sep-2023  | TBA         |
+| 4.3.x   | Supported | 18-Aug-2023  | 20-Dec-2023 |
+| 4.2.x   | Supported | 25-May-2023  | 18-Nov-2023 |
+| 4.1.x   | EOL       | 12-Dec-2022  | 25-Aug-2023 |
+| 4.0.x   | EOL       | 03-Nov-2022  | 12-Mar-2023 |
+| 3.17.x  | Supported | 11-Oct-2022  | 03-Nov-2023 |
+| 3.16.x  | EOL       | 3-Aug-2022   | 11-Jan-2023 |
+| 3.15.x  | EOL       | 4-May-2022   | 3-Nov-2022  |
+| 3.14.x  | EOL       | 11-Feb-2022  | 4-Aug-2022  |
+| 3.13.x  | EOL       | 29-Sep-2021  | 11-May-2022 |
+| 3.12.x  | EOL       | 28-Jul-2021  | 29-Dec-2021 |
+| 3.11.x  | EOL       | 21-Apr-2021  | 28-Oct-2021 |
+| 3.10.x  | EOL       | 9-Sep-2020   | 21-Jul-2021 |
+| 3.9.x   | EOL       | 19-Jun-2020  | 9-Dec-2020  |
+| 3.8.x   | EOL       | 11-Feb-2020  | 19-Sep-2020 |
+| 3.7.x   | EOL       | 22-Oct-2019  | 11-Jun-2020 |
+| 3.6.x   | EOL       | 17-Jul-2019  | 24-Mar-2020 |
+| 3.5.x   | EOL       | 27-Jun-2019  | 17-Oct-2019 |
+| 3.4.x   | EOL       | 27-Mar-2019  | 27-Sep-2019 |
+| 3.3.x   | EOL       | 22-Feb-2019  | 27-Jun-2019 |
+| 3.2.x   | EOL       | 23-Jan-2019  | 22-May-2019 |
+| 3.1.x   | EOL       | 21-Nov-2018  | 23-Apr-2019 |
+| 3.0.x   | EOL       | 15-Nov-2018  | 21-Feb-2019 |
+| 2.18.x  | EOL       | 30-Aug-2018  | 15-Nov-2019 |
+| earlier | EOL       | ...          | 30-Nov-2018 |
 
 ## Requirements
 
@@ -66,12 +67,12 @@ The following table shows the dependencies for deploying the CHT.
 
 The following is the minimum specification recommendation for smartphones to handle the typical workload of front line health workers. Users with particularly high workloads or facility or supervisor workloads will require more powerful devices.
 
-| Specification | Minimum |
-|--|--|
-| Android version | 5.0 |
-| Processor | 1.0GHz dual-core |
-| RAM | 1GB |
-| Storage | 8GB |
+| Specification | Minimum | Recommended |
+|--|--| -- |
+| Android version | 5.0 | 9.0+ |
+| Processor | 1.0GHz dual-core |  2.0GHz quad-core |
+| RAM | 1GB | 2GB |
+| Storage | 8GB | 16GB |
 
 If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
 
@@ -87,8 +88,13 @@ Devices with more navigation systems are more likely to get a more accurate loca
 
 ### 4.x
 
+- [4.4.1]({{% ref "core/releases/4.4.1.md" %}})
+- [4.4.0]({{% ref "core/releases/4.4.0.md" %}})
+- [4.3.2]({{% ref "core/releases/4.3.2.md" %}})
 - [4.3.1]({{% ref "core/releases/4.3.1.md" %}})
 - [4.3.0]({{% ref "core/releases/4.3.0.md" %}})
+- [4.2.4]({{% ref "core/releases/4.2.4.md" %}})
+- [4.2.3]({{% ref "core/releases/4.2.3.md" %}})
 - [4.2.2]({{% ref "core/releases/4.2.2.md" %}})
 - [4.2.1]({{% ref "core/releases/4.2.1.md" %}})
 - [4.2.0]({{% ref "core/releases/4.2.0.md" %}})
@@ -100,6 +106,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 
 ### 3.x
 
+- [3.17.2]({{% ref "core/releases/3.17.2.md" %}})
 - [3.17.1]({{% ref "core/releases/3.17.1.md" %}})
 - [3.17.0]({{% ref "core/releases/3.17.0.md" %}})
 - [3.16.1]({{% ref "core/releases/3.16.1.md" %}})

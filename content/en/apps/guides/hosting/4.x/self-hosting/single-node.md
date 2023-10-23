@@ -1,14 +1,15 @@
 ---
 title: "Self Hosting in CHT 4.x - Single CouchDB Node"
-linkTitle: "Self Hosting - Single Node"
+linkTitle: "Single Node"
 weight: 10
+aliases:
+  - ../self-hosting-single-node
 description: >
    Self Hosting in CHT 4.x - Single CouchDB Node
 ---
 
-[//]: # (todo - fix this link to multi-node)
 {{% pageinfo %}}
-This for a single node CHT 4.x instance and is the recommended solution for most deployments.  While not recommended, if you want a more powerful setup,  check out [the 4.x multi-node install docs]({{< relref "apps/guides/hosting/requirements" >}}).  As well, there's the [self hosted guide for CHT 3.x]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}).
+This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "apps/guides/hosting/4.x/self-hosting/multiple-nodes" >}}).
 {{% /pageinfo %}}
 
 ## Prerequisites 
@@ -25,8 +26,8 @@ The following 3 `curl` commands download CHT version `4.0.1` compose files, whic
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-core.yml
-curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.1.0/docker-compose/cht-couchdb.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-couchdb.yml
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
