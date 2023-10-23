@@ -32,6 +32,14 @@ Team members:
 - 2 Software Developers
 - Quality Assurance Engineer
 
+Videos:
+- [Allies overview](https://drive.google.com/file/d/1yDUPR6sj3KWSdKBUnpiCwwz_Xub54h-W/view?usp=sharing)
+- [Inner workings of Product Team's Allies group](https://www.youtube.com/watch?v=aGWgH2wmWM0)
+
+See Allies OKRs [here](https://github.com/orgs/medic/projects/112/views/12).
+
+<br clear="all">
+
 ## Infrastructure
 Focused on robust and efficient development, deployment, and support of CHT infrastructure.
 
