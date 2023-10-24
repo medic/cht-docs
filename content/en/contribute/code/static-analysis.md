@@ -104,6 +104,19 @@ sonar.issue.ignore.multicriteria.e2.resourceKey=**/config.js
 
 Organization-level configuration must be made by an authorized user in the [SonarCloud UI](https://sonarcloud.io/projects). 
 
+##### Quality Gates
+
+Quality gates are used to define the criteria that must be met for a Sonar analysis to be considered "passing". The [`Sonar way` quality gate](https://docs.sonarcloud.io/improving/quality-gates/#how-quality-gates-are-defined) provides an example of a useful configuration. However, this gate config is not ideal for CHT code. Instead, the default quality gate for the `Medic` organization is the `CHT Way`.  It has the following [metrics](https://docs.sonarsource.com/sonarqube/latest/user-guide/metric-definitions/):
+
+
+| Metric                     | Operator        | Value |
+|----------------------------|-----------------|-------|
+| Duplicated Lines (%)       | is greater than | 3.0%  |
+| Issues                     | is greater than | 0     |
+| Reliability Rating         | is worse than   | A     |
+| Security Hotspots Reviewed | is less than    | 100%  |
+| Security Rating            | is worse than   | A     |
+
 ##### Quality Profiles
 
 The quality profiles are the lists of rules that will be applied for the various supported languages. By default, we use the `Sonar Way` quality profile for each language as it provides sensible defaults and is actively maintained receiving updates with new rules and bug fixes as they are added to Sonar.
