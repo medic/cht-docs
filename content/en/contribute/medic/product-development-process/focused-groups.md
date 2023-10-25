@@ -58,5 +58,7 @@ Key users: Data scientists, Integrators, Program Administrators.
 
 Team members:
 - Technical Product Owner
+- Product Designer
+- UX Researcher
 - 3 Software Developers
 - Quality Assurance Engineer
