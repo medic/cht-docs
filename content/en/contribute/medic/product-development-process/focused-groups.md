@@ -17,7 +17,7 @@ Team members:
 - Product Manager
 - Product Designer
 - UX Researcher
-- 2 Software Developers
+- 3 Software Developers
 - Quality Assurance Engineer
 
 ## Allies
@@ -29,12 +29,12 @@ Team members:
 - Technical Product Owner
 - Product Designer
 - UX Researcher
-- 2 Software Developers
+- 3 Software Developers
 - Quality Assurance Engineer
 
 Videos:
-- [Allies overview](https://drive.google.com/file/d/1yDUPR6sj3KWSdKBUnpiCwwz_Xub54h-W/view?usp=sharing)
-- [Inner workings of Product Team's Allies group](https://www.youtube.com/watch?v=aGWgH2wmWM0)
+- [Allies overview](https://www.youtube.com/watch?v=dsc1XMdXhXs)
+- [Inner workings of Product Team's Allies group](https://www.youtube.com/watch?v=wg7rQebc9-o)
 
 See Allies OKRs [here](https://github.com/orgs/medic/projects/112/views/12).
 
@@ -46,7 +46,10 @@ Focused on robust and efficient development, deployment, and support of CHT infr
 Key users: App Developers, App Deployers, Core Engineers.
 
 Team members:
-- 3 Site Reliability Engineers
+- Technical Product Owner
+- 2 Site Reliability Engineers
+- 3 Software Developers
+- Quality Assurance Engineer
 
 ## Ecosystem
 Focused on interoperability with existing digital health standards.
@@ -55,5 +58,5 @@ Key users: Data scientists, Integrators, Program Administrators.
 
 Team members:
 - Technical Product Owner
-- 2 Software Developers
+- 3 Software Developers
 - Quality Assurance Engineer
