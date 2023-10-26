@@ -21,3 +21,14 @@ The Product Team operates in a way that is most commonly referred to as Continuo
 Each Focused Working Group serves to different user types to understand opportunities for improvement, find solutions that will have an impact, and then build, deploy, and measure them. Find out more about the different Focused Working Groups [here]({{< ref "contribute/medic/product-development-process/focused-groups" >}}).
 
 ### Community Team
+The community team builds and supports the CHT community of practitioners to ensure that community members can actively use and contribute to the CHT.
+
+Key users: Core Developers, App Developers, digital health implementers, research organizations, ministries of health, academic institutions and individual contributors.
+
+Team members:
+- Director of Community.
+- Technical Writer.
+- Developer Advocate.
+- Community Manager.
+
+CHT Round-up calls: Monthly calls aimed at engaging the CHT community, sharing CHT product updates and getting valuable feedback from the CHT community. See previous Round-up calls [here](https://www.youtube.com/playlist?list=PLutu6_ZOg77dO_aqf4Zh1ck59YnHzWuPI).
