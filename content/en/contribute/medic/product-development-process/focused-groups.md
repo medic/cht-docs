@@ -41,7 +41,7 @@ Team members:
 - 3 Site Reliability Engineers
 
 ## Ecosystem
-This team's primary objective is to improve the Community Health Toolkit in response to the requirements of the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE. They engage in ongoing discovery by conducting generative interviews with key users to gain a deep understanding of the ever-evolving needs and opportunities for enhancing the CHT.
+This team's primary objective is to improve the Community Health Toolkit in collaboration with other members/partners in the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE. They engage in ongoing discovery by conducting generative interviews with key users to gain a deep understanding of the ever-evolving needs and opportunities for enhancing the CHT.
 
 Key users: Data scientists, Integrators, Program Administrators and Implementing partners.
 
