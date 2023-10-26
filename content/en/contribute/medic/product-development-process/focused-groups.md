@@ -20,6 +20,8 @@ Team members:
 - 3 Software Developers
 - Quality Assurance Engineer
 
+See Care Teams OKRs [here](https://github.com/orgs/medic/projects/112/views/11).
+
 ## Allies
 Focused on efficient scaling of health impact with digital health systems.
 
@@ -33,7 +35,7 @@ Team members:
 - Quality Assurance Engineer
 
 Videos:
-- [Allies overview](https://www.youtube.com/watch?v=dsc1XMdXhXs)
+- [Introduction to Allies Focused Working Group](https://www.youtube.com/watch?v=dsc1XMdXhXs)
 - [Inner workings of Product Team's Allies group](https://www.youtube.com/watch?v=wg7rQebc9-o)
 
 See Allies OKRs [here](https://github.com/orgs/medic/projects/112/views/12).
@@ -51,6 +53,8 @@ Team members:
 - 3 Software Developers
 - Quality Assurance Engineer
 
+See Infrastructure OKRs [here](https://github.com/orgs/medic/projects/112/views/15).
+
 ## Ecosystem
 Focused on interoperability with existing digital health standards.
 
@@ -62,3 +66,8 @@ Team members:
 - UX Researcher
 - 3 Software Developers
 - Quality Assurance Engineer
+
+Videos:
+- [Introduction to Ecosystem Focused Working Group](https://www.youtube.com/watch?v=R2Yd7_t4DbE)
+
+See Ecosystem OKRs [here](https://github.com/orgs/medic/projects/112/views/16).
