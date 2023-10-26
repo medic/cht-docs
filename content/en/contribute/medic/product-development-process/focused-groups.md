@@ -41,11 +41,8 @@ Team members:
 - 3 Site Reliability Engineers
 
 ## Ecosystem
-Focused on interoperability with existing digital health standards.
+This team's primary objective is to improve the Community Health Toolkit in response to the requirements of the digital health ecosystem (DHE). The team actively develops these enhancements and promotes their implementation within the DHE. They engage in ongoing discovery by conducting generative interviews with key users to gain a deep understanding of the ever-evolving needs and opportunities for enhancing the CHT.
 
-Key users: Data scientists, Integrators, Program Administrators.
+Key users: Data scientists, Integrators, Program Administrators and Immplementing portners.
 
-Team members:
-- Technical Product Owner
-- 2 Software Developers
-- Quality Assurance Engineer
+Team members include software developers, quality assurance engineers, UX researchers, an engineering manager and a technical product owner.
