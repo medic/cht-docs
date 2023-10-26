@@ -36,7 +36,7 @@ Team members:
 
 Videos:
 - [Introduction to Allies Focused Working Group](https://www.youtube.com/watch?v=dsc1XMdXhXs)
-- [Inner workings of Product Team's Allies group](https://www.youtube.com/watch?v=wg7rQebc9-o)
+- [Inner workings of Product Team's Allies](https://www.youtube.com/watch?v=wg7rQebc9-o)
 
 See Allies OKRs [here](https://github.com/orgs/medic/projects/112/views/12).
 
