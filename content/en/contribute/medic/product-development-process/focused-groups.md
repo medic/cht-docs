@@ -45,4 +45,4 @@ This team's primary objective is to improve the Community Health Toolkit in coll
 
 Key users: Data scientists, Integrators, Program Administrators and Implementing partners.
 
-Team members include software developers, quality assurance engineers, UX researchers, an engineering manager and a technical product owner.
+Team members include Software Developers, a Quality Assurance Engineer, UX Researchers, an Engineering Manager, and a Technical Product Owner.
