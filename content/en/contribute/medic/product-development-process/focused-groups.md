@@ -40,8 +40,6 @@ Videos:
 
 See Allies OKRs [here](https://github.com/orgs/medic/projects/112/views/12).
 
-<br clear="all">
-
 ## Infrastructure
 Focused on robust and efficient development, deployment, and support of CHT infrastructure.
 
