@@ -2,7 +2,7 @@
 title: "CHT Applications"
 linkTitle: "CHT Applications"
 identifier: "apps"
-weight: 2
+weight: 3
 description: >
   Overview and reference for building CHT Applications
 ---
