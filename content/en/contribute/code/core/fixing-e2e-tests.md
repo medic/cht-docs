@@ -29,6 +29,27 @@ There are logs and screenshots stored in the allure reports. [Here](https://gith
 
 Running e2e tests can be quite slow so to save time modify the `specs` property of `/tests/e2e/**/wdio.conf.js` so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
 
+## Running upgrade e2e test locally 
+
+To run the upgrade e2e tests in your local environment, follow these steps:
+- Make sure your branch has been published and it's available in the market:
+  - A way to do this is by pushing the branch, let the GitHubActions to run, if all the other e2e as okay, then it will publish the branch.
+  - Check that your branch name is available [here](https://staging.dev.medicmobile.org/_couch/builds_4/_design/builds/_view/releases). 
+- Make sure to stop all existing containers
+- Run CHT as usual:
+  - `npm run build-dev-watch`
+  - `npm run dev-api`
+  - `npm run dev-sentinel`
+- Set these environment variables:
+  - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`
+  - `export STAGING_SERVER=_couch/builds`
+  - `export BRANCH=<your branch name>`
+- Run the upgrade e2e tests: `npm run upgrade-wdio`
+
+If you experience errors such as `Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Document is missing attachment\"}\n"` or any other, try the following: 
+- Make sure to stop all existing containers, because maybe the Nginx port was already allocated and it couldn't start.
+- If you keep getting errors, check that the Nginx ports are available.
+
 ```
 
 ## Watching the test run
