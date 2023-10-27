@@ -46,7 +46,9 @@ To run the upgrade e2e tests in your local environment, follow these steps:
   - `export BRANCH=<your branch name>`
 - Run the upgrade e2e tests: `npm run upgrade-wdio`
 
-If you experience errors such as `Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Document is missing attachment\"}\n"` or any other, try the following: 
+If you experience errors such as:
+`Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Document is missing attachment\"}\n"` 
+Try the following: 
 - Make sure to stop all existing containers, because maybe the Nginx port was already allocated and it couldn't start.
 - If you keep getting errors, check that the Nginx ports are available.
 
