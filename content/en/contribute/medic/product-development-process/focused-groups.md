@@ -16,9 +16,11 @@ Key users: Patients, Families, Caregivers, Community Health Workers, Supervisors
 Team members:
 - Product Manager
 - Product Designer
-- UX Researcher
-- 2 Software Developers
+- UX Researchers
+- Software Developers
 - Quality Assurance Engineer
+
+See Care Teams OKRs [here](https://github.com/orgs/medic/projects/112/views/11).
 
 ## Allies
 Focused on efficient scaling of health impact with digital health systems.
@@ -28,9 +30,15 @@ Key users: App Admins, Implementing Partners, App Developers, Data Scientists.
 Team members:
 - Technical Product Owner
 - Product Designer
-- UX Researcher
-- 2 Software Developers
+- UX Researchers
+- Software Developers
 - Quality Assurance Engineer
+
+Videos:
+- [Introduction to Allies Focused Working Group](https://www.youtube.com/watch?v=dsc1XMdXhXs)
+- [Inner workings of Product Team's Allies](https://www.youtube.com/watch?v=wg7rQebc9-o)
+
+See Allies OKRs [here](https://github.com/orgs/medic/projects/112/views/12).
 
 ## Infrastructure
 Focused on robust and efficient development, deployment, and support of CHT infrastructure.
@@ -38,14 +46,26 @@ Focused on robust and efficient development, deployment, and support of CHT infr
 Key users: App Developers, App Deployers, Core Engineers.
 
 Team members:
-- 3 Site Reliability Engineers
+- Technical Product Owner
+- Site Reliability Engineers
+- Software Developers
+- Quality Assurance Engineer
+
+See Infrastructure OKRs [here](https://github.com/orgs/medic/projects/112/views/15).
 
 ## Ecosystem
-Focused on interoperability with existing digital health standards.
+This team's primary objective is to improve the Community Health Toolkit in collaboration with other members/partners in the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE. They engage in ongoing discovery by conducting generative interviews with key users to gain a deep understanding of the ever-evolving needs and opportunities for enhancing the CHT.
 
-Key users: Data scientists, Integrators, Program Administrators.
+Key users: Data scientists, Integrators, Program Administrators and Implementing partners.
 
 Team members:
 - Technical Product Owner
-- 2 Software Developers
+- Product Designer
+- UX Researchers
+- Software Developers
 - Quality Assurance Engineer
+
+Videos:
+- [Introduction to Ecosystem Focused Working Group](https://www.youtube.com/watch?v=R2Yd7_t4DbE)
+
+See Ecosystem OKRs [here](https://github.com/orgs/medic/projects/112/views/16).
