@@ -57,4 +57,3 @@ Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Doc
 Try the following:
 - Make sure to stop all existing containers, because maybe the Nginx port was already allocated and it couldn't start.
 - If you keep getting errors, check that the Nginx ports are available.
- <br>
