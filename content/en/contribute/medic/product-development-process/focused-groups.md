@@ -54,7 +54,7 @@ Team members:
 See Infrastructure OKRs [here](https://github.com/orgs/medic/projects/112/views/15).
 
 ## Ecosystem
-This team's primary objective is to improve the Community Health Toolkit in collaboration with other members/partners in the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE. They engage in ongoing discovery by conducting generative interviews with key users to gain a deep understanding of the ever-evolving needs and opportunities for enhancing the CHT.
+This Focused Working Group's primary objective is to build on the Community Health Toolkit in collaboration with other members/partners in the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE.
 
 Key users: Data scientists, Integrators, Program Administrators and Implementing partners.
 
