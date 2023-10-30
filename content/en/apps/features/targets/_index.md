@@ -12,19 +12,19 @@ relatedContent: >
 ---
 <!-- ## Targets: Performance Dashboards -->
 
-*Targets* is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. These widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility. 
+*Targets* is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. These widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility.
 
 For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community unit is performing.
 
-{{< figure src="targets-mobile.png" link="targets-mobile.png" class="left col-3 col-lg-3" >}}
+{{< figure src="new-targets-mobile.png" link="new-targets-mobile.png" class="left col-3 col-lg-3" >}}
 
-{{< figure src="targets-desktop.png" link="targets-desktop.png" class="left col-9 col-lg-9" >}}
+{{< figure src="new-targets-desktop.png" link="new-targets-desktop.png" class="left col-9 col-lg-9" >}}
 
 {{% alert title="Note" %}} Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data. {{% /alert %}}
 
 ## Types of Widgets
 
-There are two basic types of widgets: count and percent. *Count widgets* display a numeric sum while *percent widgets* display progress towards achieving a target. 
+There are two basic types of widgets: count and percent. *Count widgets* display a numeric sum while *percent widgets* display progress towards achieving a target.
 
 The text, icon, goal, and time frame of each widget is easily configured. The time frame is set per widget, and set to show values for "this month" (resets back to zero at the beginning of each month) or "all time" (a cumulative total).
 
