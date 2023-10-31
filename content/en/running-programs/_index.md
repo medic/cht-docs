@@ -23,7 +23,7 @@ Through the human centered design approach, Medic partners with research institu
 Below are the considerations made when running a digital health program:
 1. Scope - goals, deadlines, and program deliverables
 2. Technical requirements - devices , servers and storage requirements
-3. Ethics and regulations - governance,privacy and security which vary from country to country
+3. Ethics and regulations - governance, privacy and security which vary from country to country
 4. Landscape - general understanding of the region that the program will run in
 5. Healthcare ecosystem - standards, implementing partners, facilities and governing bodies
 6. Human resource requirements - skills to build and sustain the program
