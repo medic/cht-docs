@@ -25,34 +25,59 @@ The CHT has a robust community that works together to identify goals that are us
 
 ## Considerations for Digital Health programs
 Below are the considerations made when running a digital health program:
-1. Scope - goals, deadlines, and program deliverables
-2. Technical requirements - devices, servers and storage requirements
-3. Ethics and regulations - governance, privacy and security which vary from country to country
-4. Landscape - general understanding of the region that the program will run in
-5. Healthcare ecosystem - standards, implementing partners, facilities and governing bodies
-6. Human resource requirements - skills to build and sustain the program
+- Scope - goals, deadlines, and program deliverables
+- Technical requirements - devices, servers and storage requirements
+- Ethics and regulations - governance, privacy and security which vary from country to country
+- Landscape - general understanding of the region that the program will run in
+- Healthcare ecosystem - standards, implementing partners, facilities and governing bodies
+- Human resource requirements - skills to build and sustain the program
 
 ## CHT Lifecycle
-CHT programs follow a process from beginning to end in order to deliver a complete functional solution. This process is referred to as the CHT Lifecycle. Although the process my differ from program to program, the process below is what has been used for most of our deployed programs.
+CHT programs follow a process from beginning to end in order to deliver a complete functional solution. This process is referred to as the CHT Lifecycle. Although the process my differ from program to program, the process below is what has been used for most of our deployed programs. It is an iterative process that involves feedback collection and improvement.
 {{< figure src="cht_lifecycle.png" link="cht_lifecycle.png" class="center col-8 col-lg-8" >}}
-1. Initiation - introductions and initial conversation with the implementing partner. At this stage, the implementing partner defines the problem they would like to solve and the kind of program they would like to run. They also understand the various capabilities and features of the CHT.
-2. Planning - includes coming up with detailed workplans, schedules, budget forecasting and baseline data collection.
-3. Design - design plan sharing and reviewing, design field trips, definition of user personas, preperation of design workflows and program hierarchy.
-4. Building - refers to development of forms, tasks, targets, debugging and other aspects of CHT applications.
-5. Hosting - includes different hosting options, data migration, configuration and optimization of CHT applications in various environments.
-6. Implementation - refers to the process of putting CHT applications into action. It includes training plan development, logistics planning, expenditure forecasting and tracking, tech support training, application installation and end user training.
-7. Support - refers to activities done after deployment and implementation. It includes managing updates, building dashboards, monitoring and evaluation, impact measurement and user experience feedback.
-8. Closeout - includes budget tracking, discussions on scaling, report writing on impact and challenges experienced.
+- Initiation - introductions and initial conversation with the implementing partner. At this stage, the implementing partner defines the problem they would like to solve and the kind of program they would like to run. They also understand the various capabilities and features of the CHT.
+- Planning - includes coming up with detailed workplans, schedules, budget forecasting and baseline data collection.
+- Design - design plan sharing and reviewing, design field trips, definition of user personas, preperation of design workflows and program hierarchy.
+- Building - refers to development of forms, tasks, targets, debugging and other aspects of CHT applications.
+- Hosting - includes different hosting options, data migration, configuration and optimization of CHT applications in various environments.
+- Implementation - refers to the process of putting CHT applications into action. It includes training plan development, logistics planning, expenditure forecasting and tracking, tech support training, application installation and end user training.
+- Support - refers to activities done after deployment and implementation. It includes managing updates, building dashboards, monitoring and evaluation, impact measurement and user experience feedback.
+- Evaluation - includes budget tracking, discussions on scaling, report writing on impact and challenges experienced. Feedback is collected before the next development cycle begins.
 
 ## Program personas
 Various people interact with CHT programs at various stages.These people include program heads, program administrators,service designers,UX designers,software developers,system administrators and technical support officials.
 
 ## Running successful community health programs
 Running a successful digital health program depends on various factors. Here are a couple of things we champion for:
-1. Community Health Workers compensation
-2. Privacy and protection of user data
+
+**Community health workers**
+
+Community health workers improve health outcomes in any given society and it's important that they are provided good working conditions and the right tools to excel at what they do. To enable this, the items listed below are important. You can find out more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
+
+- Continuous training for skill growth
+- Supervision to ensure performance management
+- Compensation for economic growth and sustainability
+- Integration into the global health workforce
+
+**Technical resources optimization**
+
+CHT programs are powered by various tools and commodities that are integral.
+
+- Privacy and protection of user data
+- Monitoring and evalution
+- Data backups
+- Redundancy
+- Regular CHT upgrades
+- Regular device maintenance (Android app and security updates)
+- Regular device hardware replacement
+- Open source technologies
 
 
+**Design**
+
+- Human-centered design
+- Consistent user feedback
+- Material design guidelines
 
 
 
