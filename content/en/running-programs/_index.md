@@ -38,7 +38,7 @@ CHT programs follow a process from beginning to end in order to deliver a comple
 5. Hosting - includes different hosting options, data migration, configuration and optimization of CHT applications in various environments.
 6. Implementation - refers to the process of putting CHT applications into action. It includes training plan development, logistics planning, expenditure forecasting and tracking, tech support training, application installation and end user training.
 7. Support - refers to activities done after deployment and implementation. It includes managing updates, building dashboards, monitoring and evaluation, impact measurement and user experience feedback.
-8. Closeout - includes budget tracking , discussions on scaling, report writing on impact and challenges experienced.
+8. Closeout - includes budget tracking, discussions on scaling, report writing on impact and challenges experienced.
 
 ## Program personas
 Various people interact with CHT programs at various stages.These people include program heads, program administrators,service designers,UX designers,software developers,system administrators and technical support officials.
