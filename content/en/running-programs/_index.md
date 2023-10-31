@@ -17,7 +17,11 @@ As a technical steward of the CHT, Medic has also established a network of techn
 
 **Research initiatives, innovations and studies**
 
-Through the human centered design approach, Medic partners with research institutions and academia to design, test, refine and deploy digital health innovations and carry out research studies.  
+Through the human centered design approach, Medic partners with research institutions and academia to design, test, refine and deploy digital health innovations and carry out research studies. These programs are aimed at testing concepts or interventions before large scale implementation. They run for a limited time and often have pre-determined objectives to establish facts. 
+
+**Community led programs**
+
+The CHT has a robust community that works together to identify goals that are used to run CHT programs. Community led programs emphasize on the importance of intentional collaboration with local solutions at the center.
 
 ## Considerations for Digital Health programs
 Below are the considerations made when running a digital health program:
