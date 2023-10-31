@@ -9,7 +9,7 @@ There are various ways of running Community Health Toolkit programs and many con
 ## Types of CHT programs
 **Accompanied programs**
 
-Medic has accompanied various ministries of health and digital health implementers through their digital journey in designing ,building, making enhancements including integrations and deploying CHT based tools for their unique health system needs. 
+Medic has accompanied various ministries of health and digital health implementers through their digital journey in designing, building, making enhancements including integrations and deploying CHT based tools for their unique health system needs. 
 
 **Technical organizations led programs**
 
