@@ -55,7 +55,7 @@ Team members:
 
 [Introduction to Infrastructure Focused Working Group](https://youtu.be/75xlm9t5cp8)
 
-See Infrastructure OKRs [here](https://github.com/orgs/medic/projects/112/views/15) and current activities [here](https://github.com/orgs/medic/projects/134/views/26).
+See [Infrastructure OKRs](https://github.com/orgs/medic/projects/112/views/15) and [current activities](https://github.com/orgs/medic/projects/134/views/26).
 
 ## Ecosystem
 This Focused Working Group's primary objective is to build on the Community Health Toolkit in collaboration with other members/partners in the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE.
