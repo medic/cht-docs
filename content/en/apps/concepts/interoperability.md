@@ -31,7 +31,7 @@ cht -- API request\nfa:fa-arrow-left --- mediator_b
 mediator_a -- Request\nfa:fa-arrow-right --- openhim
 mediator_b -- Channel\nfa:fa-arrow-left --- openhim
 ```
-OpenHIM was utilised as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource, which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
+OpenHIM was utilised as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "apps/reference/app-settings/outbound" >}}) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource, which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
 
 Conversely to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs](https://docs.communityhealthtoolkit.org/apps/reference/api/) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
 
