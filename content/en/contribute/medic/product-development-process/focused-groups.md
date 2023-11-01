@@ -24,7 +24,7 @@ Team members:
 
 [Introduction to Care Teams Focused Working Group](https://youtu.be/X49ML5AqnBM)
 
-See Care Teams OKRs [here](https://github.com/orgs/medic/projects/112/views/11) and current activities [here](https://github.com/orgs/medic/projects/134/views/2).
+See [Care Teams OKRs](https://github.com/orgs/medic/projects/112/views/11) and current activities [here](https://github.com/orgs/medic/projects/134/views/2).
 
 ## Allies
 Focused on efficient scaling of health impact with digital health systems.
