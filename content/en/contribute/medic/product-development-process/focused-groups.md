@@ -20,6 +20,9 @@ Team members:
 - Software Developers
 - Quality Assurance Engineer
 
+Videos:
+- [Introduction to Care Teams Focused Working Group](https://youtu.be/X49ML5AqnBM)
+
 See Care Teams OKRs [here](https://github.com/orgs/medic/projects/112/views/11).
 
 ## Allies
@@ -50,6 +53,9 @@ Team members:
 - Site Reliability Engineers
 - Software Developers
 - Quality Assurance Engineer
+
+Videos:
+- [Introduction to Infrastructure Focused Working Group](https://youtu.be/75xlm9t5cp8)
 
 See Infrastructure OKRs [here](https://github.com/orgs/medic/projects/112/views/15).
 
