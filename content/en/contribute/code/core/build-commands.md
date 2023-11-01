@@ -36,7 +36,7 @@ For developers to execute to test `cht-core`.
 | `default-wdio-mobile-local`   | Compiles the app and executes the mobile e2e test suite. |
 | `e2e-integration-local`       | Compiles the app and executes the e2e integration test suite. |
 | `integration-api`             | Compiles the app and executes the api integration test suite. |
-| `lint`                        | Perform static analysis checks on the codebase. |
+| `lint`                        | Performs static analysis checks on the codebase. |
 | `standard-wdio-local`         | Compiles the app and executes the standard e2e test suite. |
 | `test`                        | Same as running `lint`, `unit`, and `integration-api`. |
 | `unit`                        | Executes unit test suites for all applications. |
