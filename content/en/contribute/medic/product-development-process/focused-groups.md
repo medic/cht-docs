@@ -8,7 +8,7 @@ description: >
 
 The Product team as a whole is focused on digital health tools helping to achieve Universal Health Coverage, and care reaching everyone when and where they need it. The team is made up of 4 different groups, with each group focusing on outcomes to serve different people.
 
-See the overall Product Team Roadmap [here](https://github.com/orgs/medic/projects/112/views/4/).
+See the overall [Product Team Roadmap](https://github.com/orgs/medic/projects/112/views/4/).
 
 ## Care Teams
 Focused on building effective tools to provide care in the hardest-to-reach communities.
