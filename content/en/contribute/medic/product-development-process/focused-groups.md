@@ -71,4 +71,4 @@ Team members:
 
 [Introduction to Ecosystem Focused Working Group](https://www.youtube.com/watch?v=R2Yd7_t4DbE)
 
-See Ecosystem OKRs [here](https://github.com/orgs/medic/projects/112/views/16) and current activities [here](https://github.com/orgs/medic/projects/134/views/11).
+See [Ecosystem OKRs](https://github.com/orgs/medic/projects/112/views/16) and [current activities](https://github.com/orgs/medic/projects/134/views/11).
