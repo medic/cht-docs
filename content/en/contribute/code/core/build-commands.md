@@ -16,7 +16,7 @@ For developers (humans) to execute to build `cht-core`.
 
 | Command                       | Description |
 | ----------------------------- | -- |
-| `build-ddocs`                 | Compiles all the ddocs and outputs them into `/api/build/ddocs` ready for deployment |
+| `build-ddocs`                 | Compiles all the ddocs and outputs them into `/api/build/ddocs` ready for deployment. |
 | `build-dev`                   | Updates dependencies and builds all the applications. |
 | `build-dev-watch`             | Same as `build-dev`, but keeps watching for any code changes and automatically deploys on change. |
 | `build-documentation`         | Executes jsdoc on all the applications. |
