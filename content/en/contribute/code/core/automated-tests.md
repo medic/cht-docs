@@ -11,6 +11,15 @@ aliases: >
 
 # Automated Tests
 
+## The goal of automated testing
+Developers should be able to make changes in the codebase quickly and confidently. A big part of this means knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
+
+Of course any new functionality itself may or may not work as expected and it is up to the developer to write the appropriate tests to ensure it works correctly in both expected and unexpected scenarios. Tests should give a developer confidence in their own work, and prior tests should give future developers similar confidence.
+
+Automation of testing should speed up development for in two significant areas:
+1. While making changes automated tests can be run repeatedly to significantly reduce manual effort to ensure everything is still "green"
+1. Avoid large amounts of time spent manually performing regression testing of the whole application to ensure existing functionality keeps working   
+
 ## Unit Tests
 
 Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. They can use mocking to replicate the behavior of other parts of the system.
@@ -117,3 +126,24 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 #### Watching the test run
 
 Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+
+## Balancing effort and outcomes
+We seek to have a quality codebase that developers can work on with speed. This means balancing test strategies, quantity, and coverage.
+
+When looking at a well-factored codebase there there are three common ways to automate tests:
+1. Unit tests
+1. Integration tests
+1. end-to-end tests (sometimes called "feature" or "system" tests)
+
+The different test types tend to increase in cost, complexity, time to run, and fragility in the order listed above. Below is a table outlining these factors:
+
+
+| Test Type         | Description| Expectations | Execution Speed     | Complexity | Fragility | 
+|--------------|-----------------|---------------------|------------|---------|---------| 
+| Unit  | Small tests of specific behavior. Often written to handle a specific condition within a specific function/component. Any dependencies are often mocked.  | High coverage of functionality. If measured in branch coverage percentage, aim for >= 90%. | Extremely fast | Extremely low | Extremely stable |
+| Integration  | Tests to exercise how multiple components interact with each other. With a dynamic language like JavaScript these are especially important to verify expectations of interface points. These may mock some parts, but often use the "real" components since the point is to exercise those components together. As a result, these tests likely involve more setup, potentially involving data scenarios. | Dramatically fewer than unit tests. The goal is not to verify all branches; it is to gain confidence in interface points.  | Fast execution, but slower startup when working with a DB | Mid-to-high. Things can get complex fast when combining parts! | Mostly stable. Fragility risks tend to come from DB setup. |
+| End-to-end  | Verify that major system features work as expected. This means things like logging in, submitting a form, showing/hiding a tab based on configuration. Another way of thinking of it is that it's a "sanity check". | Very few. This isn't to test every single thing or even close to it. Something close to 20 to 30 (total!) is reasonable. This is not the place to guarantee confidence in the system. The two types above are for that. | Painfully slow. So slow that too many of them can lead to developers not bothering to run them! | Low for the test itself (click tab, enter text into form, click submit, check text on screen. Extremely high for the setup. | Painful fragility with high risk of race conditions and high maintenance burden. |
+
+
+More detail can be read in [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
+
