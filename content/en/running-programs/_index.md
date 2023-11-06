@@ -84,9 +84,3 @@ CHT programs are powered by various tools and commodities that are integral.
 - Human-centered design
 - Consistent user feedback
 - Material design guidelines
-
-
-
-
-
-
