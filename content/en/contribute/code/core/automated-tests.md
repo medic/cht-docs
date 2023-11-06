@@ -50,7 +50,7 @@ flowchart LR
 
 Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.
 
-End-to-end tests are located in `tests/e2e`. Run them locally with the following:
+End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
 
 - `npm run wdio-local` to run the tests for the default config
 - `npm run standard-wdio-local` to run the tests for the standard config
@@ -90,11 +90,11 @@ End to end (e2e) tests can be really difficult to debug - sometimes they fail se
 
 #### Set the `DEBUG` flag
 
-Setting the `DEBUG` environment variable when running the tests locally will do the following:
+Setting the `DEBUG` environment variable (e.g. `DEBUG=true npm run wdio-local`) when running the tests locally will do the following:
 
-- Run the browser without the `headless` flag, so the browser will be displayed when running the tests
+- Run the browser without the `headless` flag (details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
 - Increase the test timeout from 2 minutes to 10 minutes
-- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times)
+- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L177))
 - Prevent the `cht-e2e` Docker containers from being torn down after the test finishes
 
 #### Read the logs
