@@ -77,7 +77,6 @@ CHT programs are powered by various tools and commodities that are integral.
 - Regular CHT upgrades
 - Regular device maintenance (Android app and security updates)
 - Regular device hardware replacement
-- Open source technologies
 
 
 **Design**
