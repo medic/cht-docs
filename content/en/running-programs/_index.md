@@ -1,6 +1,6 @@
 ---
 title: "Running CHT implementations"
-linkTitle: "Running implementations"
+linkTitle: "CHT Implementations"
 weight : 2
 ---
 
