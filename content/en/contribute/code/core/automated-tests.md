@@ -17,7 +17,7 @@ Developers should be able to make changes in the codebase quickly and confidentl
 Of course any new functionality itself may or may not work as expected and it is up to the developer to write the appropriate tests to ensure it works correctly in both expected and unexpected scenarios. Tests should give a developer confidence in their own work, and prior tests should give future developers similar confidence.
 
 Automation of testing should speed up development in two significant areas:
-1. While making changes automated tests can be run repeatedly to significantly reduce manual effort to ensure everything is still "green"
+1. While making changes, new automated tests can be run regularly to ensure (without lots of manual effort) that the changes continue to work as expected
 1. Avoid large amounts of time spent manually performing regression testing of the whole application to ensure existing functionality keeps working   
 
 ## Unit Tests
