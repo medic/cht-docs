@@ -9,8 +9,6 @@ aliases: >
   /contribute/code/core/fixing-e2e-tests
 ---
 
-# Automated Tests
-
 ## Unit Tests
 
 Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. They can use mocking to replicate the behavior of other parts of the system.
