@@ -130,7 +130,7 @@ Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-lo
 ## Balancing effort and outcomes
 We seek to have a quality codebase that developers can work on with speed. This means balancing test strategies, quantity, and coverage.
 
-When looking at a well-factored codebase there there are three common ways to automate tests:
+When looking at a well-factored codebase there are three common ways to automate tests:
 1. Unit tests
 1. Integration tests
 1. end-to-end tests (sometimes called "feature" or "system" tests)
