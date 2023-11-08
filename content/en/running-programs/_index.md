@@ -6,7 +6,7 @@ weight : 2
 
 There are various ways of running Community Health Toolkit implementations and many considerations are made to determine the type of implementation to run. Below are the different approaches used to deploy CHT tools.
 
-## Types of CHT implementations approaches
+## Types of CHT implementation approaches
 **Accompaniment approach**
 
 Medic and other digital health implementers accompanies various ministries of health through their digital journey in designing, building, integrating and deploying CHT based tools for their unique health system needs. 
