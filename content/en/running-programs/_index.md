@@ -54,17 +54,17 @@ Running a successful digital health implementation depends on various factors. H
 
 **Community health workers**
 
-Community health workers improve health outcomes in any given society and it's important that they are provided good working conditions and the right tools to excel at what they do. To enable this, the items listed below are important. You can find out more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
+Community health workers deliver community health services to help improve health outcomes. It is important that they are provided good working conditions and the right tools to perform their responsibilities. To enable this, the items listed below are important. You can find out more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
 
 - Continuous training for skill growth
 - Supervision to ensure performance management
 - Compensation for economic growth and sustainability
 - Integration into the global health workforce
-- Equipping with required tools (first aid box, MUAC tape, thermometer, etc.)
+- Equipping with required tools
 
-**Technical resources optimization**
+**Technical performance optimization**
 
-CHT implementations are powered by various tools and commodities that are integral.
+For CHT powered tools to perform optimally, the following requirements are integral.
 
 - Privacy and protection of user data
 - Monitoring and evalution
