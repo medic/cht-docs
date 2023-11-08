@@ -35,7 +35,7 @@ CHT implementations follow a process from beginning to end in order to deliver a
 - Design - design plan sharing and reviewing, design field trips, definition of user personas, preperation of design workflows and implementation hierarchy.
 - Building - refers to the app development process where workflows are configured, tested and improved.
 - Hosting - includes different hosting options, data migration, configuration and optimization of CHT applications in various environments.
-- Implementation - refers to the process of training end users and them using the CHT application in their daily work. It includes training plan development, logistics planning, expenditure estimation and tracking, tech support training and application installation.
+- Implementation - refers to the process of training end users and them using the CHT application to support the delivery of health care services. It includes training plan development, logistics planning, expenditure estimation and tracking, tech support training and application installation.
 - Support - refers to activities done after deployment and implementation. It includes managing updates, building dashboards, monitoring and evaluation, impact measurement and user experience feedback.
 - Evaluation - includes budget tracking, discussions on scaling, report writing and user feedback activities to help improve user experience and impact before the next development cycle begins.
 
