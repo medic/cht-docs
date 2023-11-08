@@ -13,7 +13,7 @@ Medic and other digital health implementers accompanies various ministries of he
 
 **Community led implementations**
 
-The CHT has a robust community that works together to identify goals that are used to run CHT implementations. Community led implementations emphasize on the importance of collaboration and sustainability.
+The CHT has a robust community of practice that works together to support and maintain CHT implementations and contribute to the CHT. Community led implementations emphasize on the importance of collaboration, local ownership and sustainability.
 As a technical steward of the CHT, Medic has also established a network of local and regional technical organizations that have been onboarded on CHT to enable them to build and support CHT powered applications independently.
 
 **Research initiatives, innovations and studies**
