@@ -248,6 +248,38 @@ const getResult = () =>
   result;
 ```
 
+### Implicit Returns
+
+As [noted above]({{< ref "#use-arrow-functions" >}}), implicit returns should be used for one-line arrow functions. However, for the sake of readability, they should not be used when returning a multi-line value.
+
+*Right:*
+
+```js
+const oneLineString = () => 'World';
+const oneLineObject = () => { hello: 'World' };
+
+// Not using implicit return for multi-line value
+const multiLineObject = () => {
+  return {
+    hello: 'World',
+    foo: 'bar'
+  }
+};
+```
+
+*Wrong:*
+
+```js
+const multiLineString = () => 'This is a really long string that is ' +
+  'on multiple lines';
+const differentLineString = () => 
+  'This is a string that does not fit on the same line as the arrow';
+const multiLineObject = () => ({
+  hello: 'World',
+  foo: 'bar'
+});
+```
+
 ### Object / Array creation
 
 Put short declarations on a single line. For long declarations put a line
