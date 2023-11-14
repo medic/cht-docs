@@ -115,3 +115,38 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 #### Watching the test run
 
 Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+
+#### Running the upgrade e2e test locally
+
+To run the upgrade e2e tests in your local environment, follow these steps:
+
+- Make sure your branch has been published, and it's available in the market:
+    - A way to do this is by pushing the branch, let the GitHubActions to run, if all the other e2e are okay, then it will publish the branch.
+    - Check that your branch name is available [here](https://staging.dev.medicmobile.org/_couch/builds_4/_design/builds/_view/releases).
+- Make sure to stop all existing containers
+- Set these environment variables:
+    - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`
+    - `export STAGING_SERVER=<builds path>`
+      - To upgrade from CHT v4.x.x use `export STAGING_SERVER=_couch/builds_4` 
+      - To upgrade from previous versions of CHT use: `export STAGING_SERVER=_couch/builds`
+    - `export BRANCH=<your branch name>`
+
+- Start the containers for e2e tests like this
+  - 
+- Run the upgrade e2e tests: `npm run upgrade-wdio`
+
+If you experience errors such as:
+
+```
+Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Document is missing attachment\"}\n"
+```
+
+Try the following:
+- It's probably because it can't find the latest released version of CHT, double check that `MARKET_URL_READ` and `STAGING_SERVER` environment variables are set. 
+
+```
+Level=warning msg=“The \“COUCHDB_UUID\” variable is not set. Defaulting to a blank string.”
+```
+
+Try the following:
+- It's probably that you don't have `COUCHDB_UUID` setup. Try setting it up manually, like this `export COUCHDB_UUID=<CouchDB UUID>`. You can find the UUID default value in the `test.couchdb-cluster.yml` file. 
