@@ -125,14 +125,13 @@ To run the upgrade e2e tests in your local environment, follow these steps:
     - Check that your branch name is available [here](https://staging.dev.medicmobile.org/_couch/builds_4/_design/builds/_view/releases).
 - Make sure to stop all existing containers
 - Set these environment variables:
-    - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`
-    - `export STAGING_SERVER=<builds path>`
-      - To upgrade from CHT v4.x.x use `export STAGING_SERVER=_couch/builds_4` 
-      - To upgrade from previous versions of CHT use: `export STAGING_SERVER=_couch/builds`
-    - `export BRANCH=<your branch name>`
-
+    - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`.
+    - `export STAGING_SERVER=<builds path>`.
+      - To upgrade from CHT v4.x.x use `export STAGING_SERVER=_couch/builds_4`.
+      - To upgrade from previous versions of CHT use: `export STAGING_SERVER=_couch/builds`.
+    - `export BRANCH=<your branch name>`.
 - Start the containers for e2e tests like this
-  - 
+  - TBD
 - Run the upgrade e2e tests: `npm run upgrade-wdio`
 
 If you experience errors such as:
