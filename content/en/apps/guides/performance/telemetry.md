@@ -49,7 +49,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. |
 | `enketo:reports:<form>:<action>:<component>` | The time taken to fill in Enketo forms. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
-| `enketo:contacts:<form>:add:<component>` | As above but for Contact creation forms. |
+| `enketo:contacts:<form>:<action>:<component>` | As above but for Contact forms. The `action` can either be "add" or "edit". |
 | `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. |
 | `search:contacts` | The time taken to list all contacts. |
 | `search:contacts:<filter[:filter]>` | The time taken to search all contacts using the given filters. |

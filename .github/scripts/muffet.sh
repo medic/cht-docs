@@ -40,5 +40,5 @@ muffet http://localhost:1313 \
   --exclude "https://tools.google.com.*" \
   --exclude "https://fhir.org/" \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
-  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G/view?usp=share_link" \
+  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
   --exclude "https://doi.org/10.1080/02681102.2019.1667289"
