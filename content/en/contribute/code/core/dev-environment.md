@@ -86,6 +86,8 @@ npm ci --legacy-peer-deps
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
+If you are using a MacBook with the new Apple silicon chips (M1 or M2) skip to the [CouchDB Setup in 4.x for Apple Silicon](#couchdb-setup-in-4x-for-apple-silicon) section for CouchDB Setup in CHT 4.x.
+
 #### CouchDB Setup in CHT 3.x
 
 Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
@@ -137,6 +139,45 @@ Now you can start CouchDB. The login for your CHT instance will be `medic` and t
 cd ~/cht-docker 
 COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.yml -f couchdb-override.yml up -d
 ```
+#### CouchDB Setup in 4.x for Apple Silicon
+
+You will need to build the Docker images locally on your machine because the images hosted publicly do not currently support Apple's ARM architecture. While in the root directory of your `cht-core` project:
+
+```shell
+npm run local-images
+```
+
+After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht` project.
+
+Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. 
+
+In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the `volumes` property, add the following properties and save the changes: 
+
+```
+ports:
+  - "5984:5984"
+  - "5986:5986"
+expose:
+  - "5984"
+  - "5986"
+```
+
+Set environment variables required by `npm` and `node`
+
+```shell
+echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
+echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
+echo "export COUCH_DB_USER=medic">> ~/.$(basename $SHELL)rc
+echo "export COUCH_DB_PASSWORD=password">> ~/.$(basename $SHELL)rc
+```
+
+In your terminal, navigate inside the `local-build` folder and start the Docker containers:
+
+```shell
+cd ~/cht-core/local-build
+docker-compose -f cht-couchdb.yml up -d
+``` 
 
 ### Developing
 
@@ -229,8 +270,10 @@ Medic recommends you familiarise yourself with other Docker commands to make doc
 Medic needs the following environment variables to be declared:
 - `COUCH_URL`: the full authenticated url to the `medic` DB. Locally this would be  `http://myadminuser:myadminpass@localhost:5984/medic`
 - `COUCH_NODE_NAME`: the name of your CouchDB's node. The Docker image default is `nonode@nohost`. Other installations may use `couchdb@127.0.0.1`. You can find out by querying [CouchDB's membership API](https://docs.couchdb.org/en/stable/api/server/common.html#membership)
-- (optionally) `API_PORT`: the port API will run on. If not defined, the port defaults to `5988`
-- (optionally) `CHROME_BIN`: only required if tests complain that they can't find Chrome or if you want to run a specific version of the Chrome webdriver.
+- (optional) `COUCHDB_USER`: the name of your CouchDB's user. The Docker image default is `medic`
+- (optional) `COUCHDB_PASSWORD`: the credentials of your CouchDB user. The Docker image default is `password`
+- (optional) `API_PORT`: the port API will run on. If not defined, the port defaults to `5988`
+- (optional) `CHROME_BIN`: only required if tests complain that they can't find Chrome or if you want to run a specific version of the Chrome webdriver.
 
 How to permanently define environment variables depends on your OS and shell (e.g. for bash you can put them `~/.bashrc`). You can temporarily define them with `export`:
 
