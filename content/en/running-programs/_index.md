@@ -4,7 +4,7 @@ linkTitle: "CHT Implementations"
 weight : 2
 ---
 
-There are various ways of running Community Health Toolkit implementations. It is important to first appreciate the different models/ approaches to deploying/ integrating CHT tools into your community health programme. These are discussed below;
+There are various ways of running Community Health Toolkit implementations. It is important to understand the different models for integrating CHT tools into a community health program as discussed below.
 
 **Accompaniment approach**
 
@@ -12,15 +12,15 @@ In this approach, Medic accompanies partners; including ministries of health, th
 
 **Community led implementations**
 
-This model leverages the robust technical expertise of the CHT community of practice. A network of local and regional technical organizations that have onboarded on CHT are on hand to provide to offer design, development, deployment and support services for implementing partners - including ministries of health. This network also contributes back their learnings to the community through documentation, reference applications, CHT core improvements. Community led implementations emphasize on the importance of collaboration, local ownership and sustainability.
+This model leverages the robust technical expertise of the CHT community of practice. A network of local and regional technical organizations that have been onboarded on CHT are able to provide design, development, deployment and support services for implementing partners - including ministries of health. This network also contributes their learnings to the community through documentation, reference applications, CHT forum and CHT core improvements. Community led implementations emphasize on the importance of collaboration, local ownership and sustainability.
 
 **Research initiatives, innovations and studies**
 
-Through human centered design, research institutions and academia  design, test, refine and deploy open source digital health innovations - some of which are based on the CHT or other mature open source technologies. These innovations often are conducted in a research setting ultimately contributing new knowlegde through publications. These implementations incubate and test concepts or interventions before large scale implementation. They run for a limited time and often have pre-determined objectives. 
+Through human centered design, research institutions and academia design, test, refine and deploy open source digital health innovations which are based on the CHT or other mature open source technologies. These innovations ultimately contribute knowlegde through publications. These implementations incubate and test concepts or interventions before large scale implementation. They run for a limited time and often have pre-determined objectives. 
 
 ## Considerations for digital health implementations
-To run a successful digital health implementation, you need to make the following considerations:
-- Scope - Clear definition of the challenge, duration of implementation (including actual development of the digital tool), and implementation deliverables, and the change expected (goals) as a result of implementation
+To run a successful digital health implementation, the following considerations are made:
+- Scope - Clear definition of the challenge, duration of implementation, implementation deliverables, and the change expected as a result of implementation
 - Technical requirements - infrastructure (servers - physical/ cloud) and hardware (devices such as smartphones/tablets, laptops/computers) requirements
 - Context - general understanding of the geography (country/region) in the following domains; legal and policy landscape, infrastruture penetration e.g. mobile and electricity connectivity, community health setup and maturity e.g cadres of community health workers, coverage and functionality
 - Human resource requirements - skills to build, implement and sustain the implementation
@@ -38,25 +38,25 @@ CHT implementations follow a process from beginning to end in order to deliver a
 - Evaluation - includes budget tracking, discussions on scaling, report writing and user feedback activities to help improve user experience and impact before the next development cycle begins.
 
 ## Implementation personas
-Various people interact with CHT implementations at various stages. The list below may not be exhaustive but it does highlight the bare minimum requirements for a successflu deployment. Please note that in some cases, some of the personas may have overlapping roles.
-- Project managers - This persona can also be referred to as program heads or program leads. They are involved in planning, directing and coordinating and oversighting digital health projects. Although these persona oversees the entire implementation, they interact with the CHT implementation more closely during the implementation and monitoring/evaluation stages.
-- Designers - They include service designers, user experience/user interface designers, product designers, graphic designers among others. Designers interact with CHT implementations intimately during the design phase. They carry out field immersion visits to gather technical requirements from the prospective end users, programme leads at MoH, policy makers among others. The techniocal requirements inform the eventual product (CHT app). Product and UI/UX designers are involved in the design and evaluation phases to explore opportunities for improvement and optimize user experience and impact.
+Various people interact with CHT implementations at various stages. The list below may not be exhaustive but highlights bare minimum requirements for a successful implementation. In some cases, personas may have overlapping roles.
+- Project managers - They may also be referred to as program heads or program leads. They are involved in planning, coordinating and overseeing digital health projects. Although they oversee the entire implementation, they interact with the CHT implementation more closely during the implementation and evaluation stages.
+- Designers - They include service designers, user experience/user interface designers, product designers, graphic designers among others. Designers interact with CHT implementations during the design phase. They carry out field immersion visits to gather technical requirements from the prospective end users, program leads at MoH, policy makers among others. The technical requirements gathered inform the final application. Product and UI/UX designers are involved in the design and evaluation phases to explore opportunities for improvement and user experience optimization.
 - Developers - they include app developers, core developers and software developers who are invloved in the building stage. App developers build custom applications based on the CHT core. These apps are composed of application and contact forms, application settings among other configurations. Core developers contribute to the [CHT Core framework]({{< ref "core" >}}) that powers the mobile apps.
 - System administrators - they include database administators, security engineers, site reliability engineers, devOps engineers and network managers. They are responsible for configuration of computers, servers, databases, pipelines and infrastructure of CHT applications, monitoring health status of the infrastructure and application such as performance, server resources utilization, and  uptime. They interact with CHT implementations at the planning, hosting and support stages.
-- Technical support team - they include information communication and technology (ICT) officers and monitoring & evaluation officers. ICT officers are responsible for mobile device testing, application installation and technical assistance provision for issues experienced by end users post deployment. Monitoring & Evaluation officers are responsible for monitoring project indicators performance, impact evaluation, data analysis and reporting. They interact with CHT implementations at the design and support stages.
-- Researchers - they include Data Scientists, UX researchers and research scientists. They are integrate research aspects such as implememtation research into the project cycle to test hypothesis. They are involved through out the project cycle.
+- Technical support team - they include information communication and technology (ICT) officers and monitoring & evaluation officers. ICT officers are responsible for mobile device testing, application installation and technical assistance for issues experienced by end users post deployment. Monitoring & Evaluation officers are responsible for monitoring project indicators performance, impact evaluation, data analysis and reporting. They interact with CHT implementations at the design and support stages.
+- Researchers - they include Data Scientists, UX researchers and research scientists. They integrate research aspects such as implememtation research into the project cycle to test hypothesis. They are involved through out the project cycle.
 
 Incase an implementing partner does not have the expertise listed above, the CHT has a robust network of technical partners who have built CHT applications and have a deep understanding of how CHT implementations work.
 
 ## Running successful community health implementations
-Digital health implementations do no exist in a silo. To be successful, there are other critical enablers to be aware of and champion for;
+Digital health implementations do no exist in silos. To be successful, there are other critical enablers to be aware of and champion for;
 
 **Community health workers**
 
-Community health workers deliver essentila life saving health services to the last mile to improve health outcomes. A functional community health worker requires good working conditions and the right tools to perform their responsibilities. To enable this, the items listed below are important. You can learn more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
+Community health workers deliver essential health services to the last mile to improve health outcomes. Community health workers require good working conditions and the right tools to perform their responsibilities. To enable this, the items listed below are important. You can learn more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
 
 - Continuous training for skill growth
-- Supportive supervision to optimal performance management
+- Supportive supervision for optimal performance management
 - Compensation for economic growth and sustainability
 - Institutionalization into the formal health workforce
 - Equipping with required supplies and kits
@@ -66,7 +66,7 @@ Community health workers deliver essentila life saving health services to the la
 For CHT powered tools to perform optimally, the following requirements are integral.
 
 - Privacy and protection of user and client data
-- Routine monitoring and evalution to identify and resolves issues on time
+- Routine monitoring and evalution to identify and resolve issues on time
 - Data backups
 - Redundancy
 - Regular CHT upgrades to benefit from new features and performance improvements
@@ -74,7 +74,7 @@ For CHT powered tools to perform optimally, the following requirements are integ
  - Regular Android app and security updates
  - Alternative power sources e.g solar chargers or powerbanks
  - Phone covers and screen protectors
- - Device replacements (losses, end of life) and repairs (broken screen, faukty chargers etc)
+ - Device replacements (losses, end of life) and repairs (broken screen, faulty chargers etc)
 - Design
   - Designing with the user (Human-centered design)
   - Consistent user feedback to inform improvements
