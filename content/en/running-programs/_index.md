@@ -55,11 +55,10 @@ Digital health implementations do no exist in silos. To be successful, there are
 
 Community health workers deliver essential health services to the last mile to improve health outcomes. Community health workers require good working conditions and the right tools to perform their responsibilities. To enable this, the items listed below are important. You can learn more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
 
-- Continuous training for skill growth
-- Supportive supervision for optimal performance management
-- Compensation for economic growth and sustainability
-- Institutionalization into the formal health workforce
-- Equipping with required supplies and kits
+- **Skilled**. Continuous training for skill growth
+- **Supervised**. Supportive supervision for optimal performance management
+- **Salaried**. Compensation for economic growth and sustainability
+- **Supplied**. Equipping with required supplies and kits
 
 **Technical performance optimization**
 
