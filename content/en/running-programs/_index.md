@@ -12,7 +12,7 @@ In this approach, Medic accompanies partners; including ministries of health, th
 
 **Community led implementations**
 
-This model leverages the robust technical expertise of the CHT community of practice. A network of local and regional technical organizations that have been onboarded on CHT are able to provide design, development, deployment and support services for implementing partners - including ministries of health. This network also contributes their learnings to the community through documentation, reference applications, CHT forum and CHT core improvements. Community led implementations emphasize on the importance of collaboration, local ownership and sustainability.
+Community led implementations emphasize on the importance of collaboration, local ownership and sustainability. This is a self-led model where a community identifies a digital health problem and solves it using CHT tools. The CHT also has a community of practice that is made up of a network of local and regional technical organizations that have been onboarded on CHT and are able to provide design, development, deployment and support services for implementing partners - including ministries of health. This network also contributes their learnings to the community through documentation, reference applications, CHT forum and CHT core improvements. 
 
 **Research initiatives, innovations and studies**
 
