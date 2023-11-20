@@ -28,7 +28,7 @@ To run a successful digital health implementation, the following considerations 
 ## CHT Lifecycle
 CHT implementations follow a process from beginning to end in order to deliver a complete functional digital health solution. This process is referred to as the CHT Lifecycle. Although the process may differ from implementation to implementation, the process below is what has been used for most deployed implementations. It is an agile and iterative process that involves feedback collection and improvement.
 {{< figure src="cht_lifecycle.png" link="cht_lifecycle.png" class="center col-8 col-lg-8" >}}
-- Initiation - at this stage, the implementing partner defines the scope of the implementation they would like to run. They also understand the various capabilities and features of the CHT.
+- Initiation - at this stage, the project scope, goal and use cases are defined.
 - Planning - includes coming up with detailed workplans, schedules, budget estimation, baseline data collection, user estimation and resource planning.
 - Design - design plan sharing and reviewing, design field trips, definition of user personas, preperation of design workflows and implementation hierarchy.
 - Building - refers to the app development process where workflows are configured, tested and improved.
