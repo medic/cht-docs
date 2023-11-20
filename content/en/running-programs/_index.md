@@ -62,7 +62,7 @@ Community health workers deliver essential health services to the last mile to i
 
 **Technical performance optimization**
 
-For CHT powered tools to perform optimally, the following requirements are integral.
+For CHT implementations to be successful and sustainable, the following requirements are integral.
 
 - Privacy and protection of user and client data
 - Routine monitoring and evalution to identify and resolve issues on time
