@@ -30,7 +30,7 @@ CHT implementations follow a process from beginning to end in order to deliver a
 {{< figure src="cht_lifecycle.png" link="cht_lifecycle.png" class="center col-8 col-lg-8" >}}
 - Initiation - at this stage, the project scope, goal and use cases are defined.
 - Planning - includes coming up with detailed workplans, schedules, budget estimation, baseline data collection, user estimation and resource planning.
-- Design - design plan sharing and reviewing, design field trips, definition of user personas, preperation of design workflows and implementation hierarchy.
+- Design - a design activity is conducted to gather user insights and requirements that will inform the design of the workflows in the CHT.
 - Building - refers to the app development process where workflows are configured, tested and improved.
 - Hosting - includes different hosting options, data migration, configuration and optimization of CHT applications in various environments.
 - Implementation - refers to the process of training end users and them using the CHT application to support the delivery of health care services. It includes training plan development, logistics planning, expenditure estimation and tracking, tech support training and application installation.
