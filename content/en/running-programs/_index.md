@@ -20,10 +20,10 @@ Through human centered design, research institutions and academia design, test, 
 
 ## Considerations for digital health implementations
 To run a successful digital health implementation, the following considerations are made:
-- Scope - Clear definition of the challenge, duration of implementation, implementation deliverables, and the change expected as a result of implementation
-- Technical requirements - infrastructure (servers - physical/ cloud) and hardware (devices such as smartphones/tablets, laptops/computers) requirements
-- Context - general understanding of the geography (country/region) in the following domains; legal and policy landscape, infrastruture penetration e.g. mobile and electricity connectivity, community health setup and maturity e.g cadres of community health workers, coverage and functionality
-- Human resource requirements - skills to build, implement and sustain the implementation
+- **Scope**. Clear definition of the challenge, duration of implementation, implementation deliverables, and the change expected as a result of implementation.
+- **Technical requirements**. Infrastructure (servers - physical/ cloud) and hardware (devices such as smartphones/tablets, laptops/computers) requirements.
+- **Context**. General understanding of the geography (country/region) in the following domains; legal and policy landscape, infrastructure penetration e.g. mobile and electricity connectivity, community health setup and maturity e.g cadres of community health workers, coverage and functionality.
+- **Human resource requirements**. Skills to build, implement and sustain the implementation.
 
 ## CHT Lifecycle
 CHT implementations follow a process from beginning to end in order to deliver a complete functional solution. This process is referred to as the CHT Lifecycle. Although the process may differ from implementation to implementation, the process below is what has been used for most deployed implementations. It is an agile and iterative process that involves feedback collection and improvement.
