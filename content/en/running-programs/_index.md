@@ -26,7 +26,7 @@ To run a successful digital health implementation, the following considerations 
 - **Human resource requirements**. Skills to build, implement and sustain the implementation.
 
 ## CHT Lifecycle
-CHT implementations follow a process from beginning to end in order to deliver a complete functional solution. This process is referred to as the CHT Lifecycle. Although the process may differ from implementation to implementation, the process below is what has been used for most deployed implementations. It is an agile and iterative process that involves feedback collection and improvement.
+CHT implementations follow a process from beginning to end in order to deliver a complete functional digital health solution. This process is referred to as the CHT Lifecycle. Although the process may differ from implementation to implementation, the process below is what has been used for most deployed implementations. It is an agile and iterative process that involves feedback collection and improvement.
 {{< figure src="cht_lifecycle.png" link="cht_lifecycle.png" class="center col-8 col-lg-8" >}}
 - Initiation - at this stage, the implementing partner defines the scope of the implementation they would like to run. They also understand the various capabilities and features of the CHT.
 - Planning - includes coming up with detailed workplans, schedules, budget estimation, baseline data collection, user estimation and resource planning.
