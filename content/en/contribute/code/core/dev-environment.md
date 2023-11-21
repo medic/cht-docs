@@ -149,6 +149,8 @@ npm run local-images
 
 After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht` project.
 
+Confirm you have these four files in the `local-build` folder: `docker-compose.yml`, `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
+
 Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. 
 
 In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the `volumes` property, add the following properties and save the changes: 
@@ -172,10 +174,11 @@ echo "export COUCH_DB_USER=medic">> ~/.$(basename $SHELL)rc
 echo "export COUCH_DB_PASSWORD=password">> ~/.$(basename $SHELL)rc
 ```
 
-In your terminal, navigate inside the `local-build` folder and start the Docker containers:
+In your terminal, navigate inside the `local-build` folder, stop any running Docker containers and start the CHT Docker containers:
 
 ```shell
 cd ~/cht-core/local-build
+docker kill $(docker ps -q)
 docker-compose -f cht-couchdb.yml up -d
 ``` 
 
