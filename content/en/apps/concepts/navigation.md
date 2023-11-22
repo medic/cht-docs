@@ -36,7 +36,11 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-4" >}}
 
-Data synchronisation is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. "Sync" (synchronisation) is when data on the device is made to match the data on the server. Synchronisation consists of uploading all new or altered data from the device to the server, and downloading new or altered data from the server to the device. This latter step may include the download of software updates to the CHT core or CHT app when available.
+Data synchronisation is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronisation) is when data on the device is made to match the data on the server. Synchronization depends on the user's connectivity status. The CHT app monitors the online status and attempts sync accordingly. It adapts to changes in connectivity to optimize data transfer.
+
+Synchronisation consists of upward replication and downward replication. 
+- **Upward Replication**: uploading all new or altered data from the device to the server. It includes a retry mechanism for handling larger data batches, ensuring a robust and reliable upload process.
+- **Downward Replication**: downloading new or altered data from the server to the device. Downward replication may include the download of software updates to the CHT core or CHT app when available.
 
 At the bottom of the menu is a notification which provides important information about data synchronisation.
 
@@ -52,3 +56,25 @@ If the indicator is red, it means you have data changes waiting to be uploaded t
 
 Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen.  
 It will also allow to retry the sync process in case of failure.
+
+#### Sync Status States
+The synchronization process can be in one of the following states:
+
+- **Unknown**: The sync status is not determined yet.
+- **Disabled**: Sync is disabled, typically when the user is in online-only mode.
+- **InProgress**: Synchronization is currently ongoing.
+- **Success**: The last sync operation was successful.
+- **Required**: There is data pending synchronization.
+
+#### Replication Types
+
+The CHT app has two different Sync Intervals: 
+- **Regular Sync**: Occurs every 5 minutes. Regular sync replicates application data, including user-generated content and any changes to existing documents.
+- **Metadata Sync**: Occurs every 30 minutes, ensuring critical metadata is regularly updated. Metadata sync is designed to synchronize meta-information, which is critical for the app's functionality but not directly related to user-generated content. Metadata Sync replicates system-level data such as configurations, settings, or system updates
+
+The two sync interval values are configurable in the `db-sync.service.ts` file.
+
+#### Data Synchronization Retry Mechanism 
+
+The CHT app has a retry mechanism to handle replication failures, particularly due to forbidden documents and challenging network environments with restricted data access. CHT core is configured to attempt replication retry up to a maximum of 3 times for each document.
+
