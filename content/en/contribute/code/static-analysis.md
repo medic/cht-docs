@@ -20,7 +20,7 @@ All code must pass an eslint check which runs early in the CI cycle and uses the
 
 #### During development
 
-While writing code, the [SonarLint](https://www.sonarsource.com/products/sonarlint/) plugin can be used to get real-time code analysis in your IDE. This is useful to avoid committing code with Sonar issues in the first place. 
+While writing code, the [SonarLint](https://www.sonarsource.com/products/sonarlint/) plugin can be used to get real-time code analysis in your IDE. This is useful to avoid committing code with Sonar issues in the first place.
 
 #### PR Analysis
 
@@ -31,7 +31,7 @@ SonarCloud is integrated with the CHT GitHub repositories and runs on every pull
 When Sonar flags an issue with the code in your pull request, use this decision tree to determine the proper mitigation:
 
 1. If the issue is a genuine concern that should be addressed:
-   1. Fix it and push the updated code to your PR. The PR will automatically be unblocked once the Sonar analysis succeeds.  
+   1. Fix it and push the updated code to your PR. The PR will automatically be unblocked once the Sonar analysis succeeds.
 1. If the issue is a "false-positive" (i.e. Sonar has flagged some particular code as violating a rule, but it does not make sense to apply the rule in that context):
    1. If the rule is one that should not be applied to any CHT code:
       1. [Remove the rule]({{< ref "#removing-a-rule" >}}) from the default Quality Profile.
@@ -62,7 +62,7 @@ Broadly speaking, Sonar configuration is separated into repo-level and org-level
 
 #### Repo-level configuration
 
-Each repository can include a `.sonarcloud.properties` file in the root directory. 
+Each repository can include a `.sonarcloud.properties` file in the root directory.
 
 This file must specify the path to the source code in the repository as well as which source files should be considered to be test code. See [the documentation](https://docs.sonarsource.com/sonarqube/latest/project-administration/analysis-scope/) for more details.
 
@@ -102,7 +102,7 @@ sonar.issue.ignore.multicriteria.e2.resourceKey=**/config.js
 
 #### Org-level configuration
 
-Organization-level configuration must be made by an authorized user in the [SonarCloud UI](https://sonarcloud.io/projects). 
+Organization-level configuration must be made by an authorized user in the [SonarCloud UI](https://sonarcloud.io/projects).
 
 ##### Quality Gates
 
@@ -125,9 +125,9 @@ The quality profiles are the lists of rules that will be applied for the various
 
 To modify a rule parameter (e.g. change the allowed level of complexity for a function [according to `javascript:S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/)):
 
-1. Open a cht-docs PR to record your rule modification in the list below. This allows us to track the history of rule changes and record for posterity the discussions about them. 
+1. Open a cht-docs PR to record your rule modification in the list below. This allows us to track the history of rule changes and record for posterity the discussions about them.
 1. If not already using a custom quality profile, use the SonarCloud UI to create one that _extends_ the `Sonar Way` profile.
-    1. Make sure to set the new quality profile as the default for that language, if desired. 
+    1. Make sure to set the new quality profile as the default for that language, if desired.
 1. Open the rule in question in the SonarCloud UI and use the `Change` button associated with your quality profile to set your custom parameter value for the rule.
 
 ###### Adding a rule
@@ -167,6 +167,9 @@ JavaScript:
          - `threshold` 7 -> 4
       - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
+   - Disabled
+      - [`S2699`](https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
+         - Disabled due of rigidity of the rule when detecting `expect` imports and calls to imported functions that have assertions
 
 Python:
 
