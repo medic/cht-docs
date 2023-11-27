@@ -36,23 +36,28 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-4" >}}
 
-Data synchronisation is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronisation) is when data on the device is made to match the data on the server. Synchronization depends on the user's connectivity status. The CHT app monitors the online status and attempts sync accordingly. It adapts to changes in connectivity to optimize data transfer.
+Data synchronization is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronization) is when data on the device is made to match the data on the server. Synchronization depends on the user's internet connectivity status. The CHT app monitors the online status and attempts sync accordingly. It adapts to changes in connectivity to optimize data transfer.
 
 #### Replication Types
 
-Synchronisation consists of upward replication and downward replication. 
-- **Upward Replication**: uploading all new or altered data from the device to the server. It includes a retry mechanism for handling larger data batches, ensuring a robust and reliable upload process.
-- **Downward Replication**: downloading new or altered data from the server to the device. Downward replication may include the download of software updates to the CHT core or CHT app when available.
+Synchronization consists of upward replication and downward replication. 
+- **Upward Replication**: Uploading all new or updated data from the device to the server. It includes a retry mechanism for handling larger data batches, ensuring a robust and reliable upload process.
+- **Downward Replication**: Downloading new or updated data from the server to the device. Downward replication may include the download of software updates to the CHT app when available.
 
-The CHT app has two different Sync Intervals: 
-- **Regular Sync**: Occurs every 5 minutes. Regular sync replicates application data, including user-generated content and any changes to existing documents.
-- **Metadata Sync**: Occurs every 30 minutes, ensuring critical metadata is regularly updated. Metadata sync is designed to synchronize meta-information, which is critical for the app's functionality but not directly related to user-generated content. Metadata Sync replicates system-level data such as configurations, settings, or system updates
+The CHT application manages data synchronization across two types of databases: the main application database, user-metadata databases, and metadata databases. 
 
-The two sync interval values are configurable in the `db-sync.service.ts` file.
+- **Main Application Database (`medic`)**: The main database that stores the primary data used by the application. It includes contacts, reports, messages, and other critical documents necessary for the core functionality of the application. This database is synchronized continuously to reflect changes to the application, such as new contact creations.
+- **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including telemetry data such as reading a report. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
+
+The CHT application has two different Sync Intervals: 
+- **Regular Sync**: Occurs every 5 minutes. It replicates application data, including user-generated content and any changes to existing documents.
+- **Metadata Sync**: Occurs every 30 minutes, focusing on operational metadata rather than user-generated content. This ensures that telemetry data and system logs are regularly synchronized, providing insights into system performance and user activities
+
+The two sync interval values are configurable in the `db-sync.service.ts` file. `SYNC_INTERVAL` is the time interval for regular synchronization of application data, which includes new records. `META_SYNC_INTERVAL` is the time interval specifically for synchronizing metadata such as telemetry data and logs.
 
 #### Sync Status Notification
 
-At the bottom of the menu is a notification which provides important information about data synchronisation.
+At the bottom of the menu is a notification which provides important information about data synchronization.
 
 If the sync status is green and says “All reports synced,” this means you have successfully uploaded the most recent data on your device to the server. It also means that you downloaded the latest data from the server as of the time displayed. Note that there could be more recent data changes on the server, and it doesn't guarantee you are up to date.
 
@@ -66,6 +71,15 @@ If the indicator is red, it means you have data changes waiting to be uploaded t
 
 Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen.  
 It will also allow to retry the sync process in case of failure.
+
+The user-initiated sync process initatied by clicking the "Sync now" buttoninvolves uploading local changes to the server and downloading updates from the server to the local database. It syncs both the main database and the metadata database to ensure that both user data and application metadata are up-to-date.
+
+#### Synchronization Triggers
+- **On Login**: Synchronization is automatically initiated upon successful user login if the app is connected to the internet. The CHT app checks for changes since the last known sequence, identifying document revisions that differ from the ones on the server, and sending or receiving bulk document updates.
+- **Manual**: Clicking the "Sync now" button.
+- **Periodic Sync**: The application performs regular checks and background processes that may trigger synchronization if there are local changes to replicate to the server, or changes from the server that need to be replicated to the local database.
+- **On Reload**: Synchronization is automatically initiated when you click the reload button in the "Update available" modal.
+
 
 #### Sync Status States
 The synchronization process can be in one of the following states:
