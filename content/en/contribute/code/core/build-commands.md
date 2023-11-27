@@ -33,11 +33,10 @@ For developers to execute to test `cht-core`.
 
 | Command                       | Description |
 | ----------------------------- | -- |
-| `default-wdio-mobile-local`   | Compiles the app and executes the mobile e2e test suite. |
-| `e2e-integration-local`       | Compiles the app and executes the e2e integration test suite. |
+| `integration-all-local`       | Compiles the app and executes the integration test suite except for the sentinel tests. |
 | `integration-api`             | Compiles the app and executes the api integration test suite. |
+| `integration-sentinel-local`  | Compiles the app and executes the sentinel integration test suite. |
 | `lint`                        | Performs static analysis checks on the codebase. |
-| `standard-wdio-local`         | Compiles the app and executes the standard e2e test suite. |
 | `test`                        | Same as running `lint`, `unit`, and `integration-api`. |
 | `unit`                        | Executes unit test suites for all applications. |
 | `unit-admin`                  | Executes the unit test suite on `admin`. |
@@ -46,7 +45,9 @@ For developers to execute to test `cht-core`.
 | `unit-shared-lib`             | Executes the unit test suite on all `shared-lib` modules. |
 | `unit-webapp`                 | Executes the unit test suite on `webapp`. |
 | `unit-webapp-continuous`      | Executes the unit test suite on `webapp`, and re-runs on code change. |
+| `wdio-default-mobile-local`   | Compiles the app and executes the mobile e2e test suite. |
 | `wdio-local`                  | Compiles the app and executes the default e2e test suite. |
+| `wdio-standard-local`         | Compiles the app and executes the standard e2e test suite. |
 
 ## CI commands
 
