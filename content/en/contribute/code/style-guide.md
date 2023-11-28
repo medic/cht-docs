@@ -256,7 +256,7 @@ As [noted above]({{< ref "#use-arrow-functions" >}}), implicit returns should be
 
 ```js
 const oneLineString = () => 'World';
-const oneLineObject = () => { hello: 'World' };
+const oneLineObject = () => ({ hello: 'World' });
 
 // Not using implicit return for multi-line value
 const multiLineObject = () => {
