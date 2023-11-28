@@ -44,7 +44,7 @@ Synchronization consists of upward replication and downward replication.
 - **Upward Replication**: Uploading all new or updated data from the device to the server. It includes a retry mechanism for handling larger data batches, ensuring a robust and reliable upload process.
 - **Downward Replication**: Downloading new or updated data from the server to the device. Downward replication may include the download of software updates to the CHT app when available.
 
-The CHT application manages data synchronization across two types of databases: the main application database, user-metadata databases, and metadata databases. 
+The CHT application manages data synchronization across two types of databases: the main application database and a meta database.
 
 - **Main Application Database (`medic`)**: The main database that stores the primary data used by the application. It includes contacts, reports, messages, and other critical documents necessary for the core functionality of the application. This database is synchronized continuously to reflect changes to the application, such as new contact creations.
 - **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including telemetry data such as reading a report. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
