@@ -49,7 +49,7 @@ Android Studio is the full package: the IDE based on IntelliJ IDEA, the Android 
 You don't need the IDE to build the app or to install a "debug" version in a device, or get the logs, but it's recommended if you also want to debug the app or modify the code.
 
 - Android Studio: download from https://developer.android.com/studio
-- Command line tools only: download from https://developer.android.com/studio#command-tools
+- Command line tools only: download from https://developer.android.com/studio. Scroll down to the 'Command Line Tools Only' section of the page.
 
 If you install Android Studio it's still recommended to download and setup the command line tools separately to be able to use them without the IDE.
 

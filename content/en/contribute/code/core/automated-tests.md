@@ -9,8 +9,6 @@ aliases: >
   /contribute/code/core/fixing-e2e-tests
 ---
 
-# Automated Tests
-
 ## Unit Tests
 
 Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. They can use mocking to replicate the behavior of other parts of the system.
@@ -22,7 +20,7 @@ Unit tests are located in the `tests` directories of each app  (e.g. in `webapp/
 For us, integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
 We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
-Integration tests are located in `tests/integration`. Run them locally with: `npm run e2e-integration-local`.
+Integration tests are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
 ```mermaid
 flowchart LR
@@ -53,8 +51,8 @@ Our end-to-end tests are designed to test the entire system as a whole. They int
 End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
 
 - `npm run wdio-local` to run the tests for the default config
-- `npm run standard-wdio-local` to run the tests for the standard config
-- `npm run default-wdio-mobile-local` to run the mobile tests
+- `npm run wdio-standard-local` to run the tests for the standard config
+- `npm run wdio-default-mobile-local` to run the mobile tests
 
 ```mermaid
 flowchart LR
@@ -116,4 +114,4 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 
 #### Watching the test run
 
-Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+Running the tests locally with `npm run wdio-local` or `npm run wdio-standard-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.

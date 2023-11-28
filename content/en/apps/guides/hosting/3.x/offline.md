@@ -84,6 +84,6 @@ This may only work on certain, older version of Android as well.
 
 ### No DHCP or DNS Server
 
-To avoid installing both the DHCP and DNS servers, an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) or [Daedalus](https://play.google.com/store/apps/details?id=org.itxtech.daedalus) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.
+To avoid installing both the DHCP and DNS servers, an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.
 
 Like the self-signed certificate solution, this is hard to scale and would need to be complimented by editing `/etc/hosts` files on desktop browsers.
