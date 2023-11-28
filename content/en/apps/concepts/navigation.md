@@ -77,7 +77,7 @@ The user-initiated sync process initatied by clicking the "Sync now" buttoninvol
 - **On Login**: Synchronization is automatically initiated upon successful user login if the app is connected to the internet. The CHT app checks for changes since the last known sequence, identifying document revisions that differ from the ones on the server, and sending or receiving bulk document updates.
 - **Manual**: Clicking the "Sync now" button.
 - **Periodic Sync**: The application performs regular checks and attempts to synchronize. For the main database this happens every 5 minutes, and for the meta database every 30 minutes.
-- **On Reload**: Synchronization is automatically initiated when you click the reload button in the "Update available" modal.
+- **On Reload**: Synchronization is automatically initiated when the user reloads the application, refreshes the page, or clicks the reload button in the "Update available" modal.
 
 
 #### Sync Status States
