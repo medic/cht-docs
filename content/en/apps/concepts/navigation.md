@@ -84,7 +84,7 @@ The user-initiated sync process initatied by clicking the "Sync now" buttoninvol
 The synchronization process can be in one of the following states:
 
 - **Unknown**: The sync status is not determined yet.
-- **Disabled**: Sync is disabled, typically when the user is in online-only mode.
+- **Disabled**: Sync is disabled - only applies to online-only users.
 - **InProgress**: Synchronization is currently ongoing.
 - **Success**: The last sync operation was successful.
 - **Required**: There is data pending synchronization.
