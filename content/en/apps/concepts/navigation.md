@@ -53,7 +53,6 @@ The CHT application has two different Sync Intervals:
 - **Regular Sync**: Occurs every 5 minutes. It replicates application data, including user-generated content and any changes to existing documents.
 - **Metadata Sync**: Occurs every 30 minutes, focusing on operational metadata rather than user-generated content. This ensures that telemetry data and system logs are regularly synchronized, providing insights into system performance and user activities
 
-The two sync interval values are configurable in the `db-sync.service.ts` file. `SYNC_INTERVAL` is the time interval for regular synchronization of application data, which includes new records. `META_SYNC_INTERVAL` is the time interval specifically for synchronizing metadata such as telemetry data and logs.
 
 #### Sync Status Notification
 
