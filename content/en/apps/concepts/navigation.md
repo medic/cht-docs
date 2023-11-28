@@ -47,7 +47,7 @@ Synchronization consists of upward replication and downward replication.
 The CHT application manages data synchronization across two types of databases: the main application database and a meta database.
 
 - **Main Application Database (`medic`)**: The main database that stores the primary data used by the application. It includes contacts, reports, messages, and other critical documents necessary for the core functionality of the application. This database is synchronized continuously to reflect changes to the application, such as new contact creations. Each user stores a subset of the main database which includes only the documents they're allowed to view.
-- **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including telemetry data such as reading a report. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
+- **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including [telemetry data]({{< relref "apps/guides/performance/telemetry" >}}) and error messages. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
 
 The CHT application has two different Sync Intervals: 
 - **Regular Sync**: Occurs every 5 minutes. It replicates application data, including user-generated content and any changes to existing documents.
