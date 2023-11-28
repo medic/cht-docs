@@ -78,7 +78,7 @@ The user-initiated sync process initatied by clicking the "Sync now" buttoninvol
 - **Manual**: Clicking the "Sync now" button.
 - **Periodic Sync**: The application performs regular checks and attempts to synchronize. For the main database this happens every 5 minutes, and for the meta database every 30 minutes.
 - **On Reload**: Synchronization is automatically initiated when the user reloads the application, refreshes the page, or clicks the reload button in the "Update available" modal.
-
+- **On Connect**: The app also detects when an internet connection becomes available and attempts to sync immediately.
 
 #### Sync Status States
 The synchronization process can be in one of the following states:
