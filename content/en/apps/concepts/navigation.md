@@ -88,9 +88,3 @@ The synchronization process can be in one of the following states:
 - **InProgress**: Synchronization is currently ongoing.
 - **Success**: The last sync operation was successful.
 - **Required**: There is data pending synchronization.
-
-
-#### Data Synchronization Retry Mechanism 
-
-The CHT app has a retry mechanism to handle replication failures, particularly due to forbidden documents and challenging network environments with restricted data access. CHT core is configured to attempt replication retry up to a maximum of 3 times for each document.
-
