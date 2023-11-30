@@ -44,15 +44,10 @@ Synchronization consists of upward replication and downward replication.
 - **Upward Replication**: Uploading all new or updated data from the device to the server. It includes a retry mechanism for handling larger data batches, ensuring a robust and reliable upload process.
 - **Downward Replication**: Downloading new or updated data from the server to the device. Downward replication may include the download of software updates to the CHT app when available.
 
-The CHT application manages data synchronization across two types of databases: the main application database and a meta database.
+The CHT application manages data synchronization across two types of databases:
 
 - **Main Application Database (`medic`)**: The main database that stores the primary data used by the application. It includes contacts, reports, messages, and other critical documents necessary for the core functionality of the application. This database is synchronized continuously to reflect changes to the application, such as new contact creations. Each user stores a subset of the main database which includes only the documents they're allowed to view.
 - **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including [telemetry data]({{< relref "apps/guides/performance/telemetry" >}}) and error messages. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
-
-The CHT application has two different Sync Intervals: 
-- **Regular Sync**: Occurs every 5 minutes. It replicates application data, including user-generated content and any changes to existing documents.
-- **Metadata Sync**: Occurs every 30 minutes, focusing on operational metadata rather than user-generated content. This ensures that telemetry data and system logs are regularly synchronized, providing insights into system performance and user activities
-
 
 #### Sync Status Notification
 
@@ -68,15 +63,12 @@ If the indicator is red, it means you have data changes waiting to be uploaded t
 {{< figure src="sync-successful.jpg" link="sync-successful.jpg" >}}
 </aside>
 
-Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen.  
-It will also allow to retry the sync process in case of failure.
-
-The user-initiated sync process initatied by clicking the "Sync now" buttoninvolves uploading local changes to the server and downloading updates from the server to the local database. It syncs both the main database and the metadata database to ensure that both user data and application metadata are up-to-date.
+Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen. This performs upward and downward synchronization of both databases. It will also retry the sync process in case of failure..
 
 #### Synchronization Triggers
-- **On Login**: Synchronization is automatically initiated upon successful user login if the app is connected to the internet. The CHT app checks for changes since the last known sequence, identifying document revisions that differ from the ones on the server, and sending or receiving bulk document updates.
+- **On Login**: Synchronization is automatically initiated upon successful user login if the app is connected to the internet.
 - **Manual**: Clicking the "Sync now" button.
-- **Periodic Sync**: The application performs regular checks and attempts to synchronize. For the main database this happens every 5 minutes, and for the meta database every 30 minutes.
+- **Periodic Sync**: The application performs regular checks and attempts to synchronize. The main application database syncs every 5 minutes, while the user metadata database syncs every 30 minutes..
 - **On Reload**: Synchronization is automatically initiated when the user reloads the application, refreshes the page, or clicks the reload button in the "Update available" modal.
 - **On Connect**: The app also detects when an internet connection becomes available and attempts to sync immediately.
 
