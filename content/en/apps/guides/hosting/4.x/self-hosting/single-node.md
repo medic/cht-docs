@@ -1,6 +1,6 @@
 ---
 title: "Self Hosting in CHT 4.x - Single CouchDB Node"
-linkTitle: "Single Node"
+linkTitle: "Single Node - Docker"
 weight: 10
 aliases:
   - ../self-hosting-single-node
