@@ -126,12 +126,8 @@ To run the upgrade e2e tests in your local environment, follow these steps:
 - Make sure to stop all existing containers
 - Set these environment variables:
     - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`.
-    - `export STAGING_SERVER=<builds path>`.
-      - To upgrade from CHT v4.x.x use `export STAGING_SERVER=_couch/builds_4`.
-      - To upgrade from previous versions of CHT use: `export STAGING_SERVER=_couch/builds`.
+    - `export STAGING_SERVER=_couch/builds_4`.
     - `export BRANCH=<your branch name>`.
-- Start the containers for e2e tests like this
-  - TBD
 - Run the upgrade e2e tests: `npm run upgrade-wdio`
 
 If you experience errors such as:
@@ -141,11 +137,16 @@ Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Doc
 ```
 
 Try the following:
-- It's probably because it can't find the latest released version of CHT, double check that `MARKET_URL_READ` and `STAGING_SERVER` environment variables are set. 
+- It's probably because it can't find the latest released version of CHT, double check that `MARKET_URL_READ` and `STAGING_SERVER` environment variables are set.
+
+If you experience errors such as:
 
 ```
-Level=warning msg=“The \“COUCHDB_UUID\” variable is not set. Defaulting to a blank string.”
+If you are seeing this locally, it can mean that your internet is too slow to download all images in the allotted time.
+Either run the test multiple times until you load all images, download images manually or increase this timeout.
 ```
 
 Try the following:
-- It's probably that you don't have `COUCHDB_UUID` setup. Try setting it up manually, like this `export COUCHDB_UUID=<CouchDB UUID>`. You can find the UUID default value in the `test.couchdb-cluster.yml` file. 
+- Manually downloaded the images. To download images manually, you can use either docker-compose or docker:
+  - With docker, you'd do a docker pull  <image tag> for every image you want to download.
+  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. [Compose pull documentation](https://docs.docker.com/engine/reference/commandline/compose_pull/)
