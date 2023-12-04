@@ -114,4 +114,39 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 
 #### Watching the test run
 
-Running the tests locally with `npm run wdio-local` or `npm run wdio-standard-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+
+#### Running the upgrade e2e test locally
+
+To run the upgrade e2e tests in your local environment, follow these steps:
+
+- Make sure your branch has been published, and it's available in the market:
+    - A way to do this is by pushing the branch, let the GitHubActions to run, if all the other e2e are okay, then it will publish the branch.
+    - Check that your branch name is available [here](https://staging.dev.medicmobile.org/_couch/builds_4/_design/builds/_view/releases).
+- Make sure to stop all existing containers
+- Set these environment variables:
+    - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`.
+    - `export STAGING_SERVER=_couch/builds_4`.
+    - `export BRANCH=<your branch name>`.
+- Run the upgrade e2e tests: `npm run upgrade-wdio`
+
+If you experience errors such as:
+
+```
+Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Document is missing attachment\"}\n"
+```
+
+Try the following:
+- It's probably because it can't find the latest released version of CHT, double check that `MARKET_URL_READ` and `STAGING_SERVER` environment variables are set.
+
+If you experience errors such as:
+
+```
+If you are seeing this locally, it can mean that your internet is too slow to download all images in the allotted time.
+Either run the test multiple times until you load all images, download images manually or increase this timeout.
+```
+
+Try the following:
+- Manually downloaded the images. To download images manually, you can use either docker-compose or docker:
+  - With docker, you'd do a docker pull  <image tag> for every image you want to download.
+  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. [Compose pull documentation](https://docs.docker.com/engine/reference/commandline/compose_pull/)
