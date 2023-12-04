@@ -42,13 +42,13 @@ When Sonar flags an issue with the code in your pull request, use this decision 
 
 ### Adding a new repo to SonarCloud
 
-Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration]({{< ref "#ignoring-all-rules-for-a-file" >}}).
-
-In the GitHub UI, navigate to the settings for the `medic` org > Integrations > Applications > SonarCloud and click the `Configure` button.
-
-In the Repository access section, select your desired repository from the drop-down and click `Save`.
-
-You will be automatically redirected to the SonarCloud UI where you can configure the repo-level settings. Use the `+` button and choose `Analyze new project`.  Select the repo from the list and click `Set Up`.
+1. Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration]({{< ref "#ignoring-all-rules-for-a-file" >}}).
+2. In the GitHub UI, navigate to the settings for the [`medic` org > Third-party Access > GitHub Apps](https://github.com/organizations/medic/settings/installations)
+3. Find SonarCloud and click the `Configure` button.
+4. In the Repository access section, select your desired repository from the drop-down and click `Save`.
+5. You will be automatically redirected to the SonarCloud UI where you can configure the repo-level settings.
+6. Use the `+` button and choose `Analyze new project`.
+7. Select the repo from the list and click `Set Up`.
 
 #### New Code Definition
 
