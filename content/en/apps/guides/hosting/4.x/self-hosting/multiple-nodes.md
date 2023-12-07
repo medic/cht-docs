@@ -1,6 +1,6 @@
 ---
-title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes"
-linkTitle: "Multiple Nodes"
+title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes on Docker Swarm"
+linkTitle: "Multiple Nodes - Docker"
 weight: 20
 aliases:
   - ../self-hosting-multiple-nodes
