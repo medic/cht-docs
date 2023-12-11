@@ -19,7 +19,7 @@ To load your certificates into your CHT instance, we'll be creating an interstit
 You have two files locally on your workstation in the directory you're currently in:
 
    * `key.pem` - the private key for your TLS certificate
-   * `chain.pem` - both the public and any interstitial keys concatenated into one file
+   * `cert.pem` - both the public and any interstitial keys concatenated into one file
 
 Also, be sure you have started your CHT instance once and all your volumes are created.  
 
