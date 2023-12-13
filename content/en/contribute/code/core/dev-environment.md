@@ -86,7 +86,7 @@ npm ci --legacy-peer-deps
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
-If you are using a MacBook with the new Apple silicon chips (M1 or M2) skip to the [CouchDB Setup in 4.x for Apple Silicon](#couchdb-setup-in-4x-for-apple-silicon) section for CouchDB Setup in CHT 4.x.
+If you are using a MacBook with the new Apple silicon chips (M1, M2 etc, with the ARM architecture) skip to the [CouchDB Setup in 4.x for Apple Silicon](#couchdb-setup-in-4x-for-apple-silicon) section in CouchDB Setup in CHT 4.x.
 
 #### CouchDB Setup in CHT 3.x
 
