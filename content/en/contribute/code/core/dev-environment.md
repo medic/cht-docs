@@ -139,7 +139,7 @@ Now you can start CouchDB. The login for your CHT instance will be `medic` and t
 cd ~/cht-docker 
 COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.yml -f couchdb-override.yml up -d
 ```
-#### CouchDB Setup in 4.x for Apple Silicon
+#### CouchDB Setup in 4.x for Apple Silicon chip
 
 You will need to build the Docker images locally on your machine because the images hosted publicly do not currently support Apple's ARM architecture. While in the root directory of your `cht-core` project:
 
