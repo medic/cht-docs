@@ -147,7 +147,7 @@ You will need to build the Docker images locally on your machine because the ima
 npm run local-images
 ```
 
-After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht` project.
+After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht-core` project.
 
 Confirm you have these four files in the `local-build` folder: `docker-compose.yml`, `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
 
