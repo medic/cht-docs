@@ -86,7 +86,7 @@ npm ci --legacy-peer-deps
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
-If you are using a MacBook with the new Apple silicon chips (M1, M2 etc, with the ARM architecture) skip to the [CouchDB Setup in 4.x for Apple Silicon](#couchdb-setup-in-4x-for-apple-silicon) section in CouchDB Setup in CHT 4.x.
+If you are using a MacBook with the new Apple silicon chips (M1, M2 etc, with the ARM architecture) skip to the [CouchDB Setup in 4.x for Apple Silicon Chip](#couchdb-setup-in-4x-for-apple-silicon-chip) section in CouchDB Setup in CHT 4.x.
 
 #### CouchDB Setup in CHT 3.x
 
@@ -139,7 +139,7 @@ Now you can start CouchDB. The login for your CHT instance will be `medic` and t
 cd ~/cht-docker 
 COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.yml -f couchdb-override.yml up -d
 ```
-#### CouchDB Setup in 4.x for Apple Silicon chip
+#### CouchDB Setup in 4.x for Apple Silicon Chip
 
 You will need to build the Docker images locally on your machine because the images hosted publicly do not currently support Apple's ARM architecture. While in the root directory of your `cht-core` project:
 
