@@ -39,27 +39,27 @@ In between the `inputs` and the closing group is the form flow - a collection of
 
 Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [cht-conf](https://github.com/medic/cht-conf) command line configurer tool to [convert them to XForm format](#build).
 
-| type | name | label | relevant | appearance | calculate | ... |
-|---|---|---|---|---|---|---|
+| type        | name | label | relevant | appearance | calculate | ... |
+|-------------|---|---|---|---|---|---|
 | begin group | inputs | Inputs | ./source = 'user' | field-list |
-| hidden | source |
-| hidden | source_id |
-| hidden | task_id | Task_ID
+| hidden      | source |
+| hidden      | source_id |
+| hidden      | task_id | Task_ID
 | begin group | contact |
-| db:person | _id | Patient ID |  | db-object |
-| string | patient_id | Medic ID |  | hidden |
-| string | name | Patient Name |  | hidden |
-| end group
-| end group
-| calculate | _id | | | | ../inputs/contact/_id |
-| calculate | patient_id | | | | ../inputs/contact/patient_id |
-| calculate | name | | | | ../inputs/contact/name |
-| ...
+| string      | _id | Patient ID |  | select-contact type-person |
+| string      | patient_id | Medic ID |  | hidden |
+| string      | name | Patient Name |  | hidden |
+| end group   
+| end group   
+| calculate   | _id | | | | ../inputs/contact/_id |
+| calculate   | patient_id | | | | ../inputs/contact/patient_id |
+| calculate   | name | | | | ../inputs/contact/name |
+| ...         
 | begin group | group_summary | Summary |  | field-list summary |
-| note | r_patient_info | \*\*${patient_name}\*\* ID: ${r_patient_id} |
-| note | r_followup | Follow Up \<i class="fa fa-flag"\>\</i\> |
-| note | r_followup_note | ${r_followup_instructions} |
-| end group |
+| note        | r_patient_info | \*\*${patient_name}\*\* ID: ${r_patient_id} |
+| note        | r_followup | Follow Up \<i class="fa fa-flag"\>\</i\> |
+| note        | r_followup_note | ${r_followup_instructions} |
+| end group   |
 
 **Note:** If the form uses a file picker to upload any type of file, and it is accessed by using CHT Android, then include the `READ_EXTERNAL_STORAGE` permission in order to access the files in the device. To enable this permission add the following line in the branded app's `AndroidManifest.xml`.
 ```
