@@ -144,6 +144,8 @@ docker-compose run couch-migration verify
 ```
 If all checks pass, you should see a message `Migration verification passed`. It is then safe to proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-single/.env`.
 
+h) [Remove unnecessary containers](#6-cleanup).
+
 #### Multi node
 
 a) Download 4.x clustered CouchDb docker-compose file:
@@ -285,3 +287,36 @@ j) Run the `verify` command to check whether the migration was successful.
 docker-compose run couch-migration verify
 ```
 If all checks pass, you should see a message `Migration verification passed`. It is then safe to proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-cluster/.env`.
+
+k) [Remove unnecessary containers](#6-cleanup).
+
+### 6. Cleanup
+
+It's very important to remove temporary containers that were used during migration and containers that deployed the previous CHT-Core 3.x installation. Only follow this step after making sure your CHT-Core 4.x installation is ready and can be used.
+
+{{% alert title="Warning" %}}
+Even if these containers are stopped, depending on their configuration, they could restart when the Docker engine is restarted, for example on system reboot.
+{{% /alert %}}
+
+##### Risks for not removing containers include
+- resource contention - where your new CHT installation might not have access to certain resources (for example network ports) because they are already used.
+- data corruption - when multiple CouchDb installations are accessing the same data source.
+- data loss - when multiple CouchDb installation are exposing on the same port.
+
+To get a list of all containers run:
+```
+docker ps -a
+```
+
+From this list, you should find the names for :
+- containers that ran CHT-Core 3.x, likely named `medic-os` and `haproxy`.
+- temporary single node CouchDb containers, likely named `couchdb-single-couchdb-1`
+- temporary clustered CouchDb containers, likely named `couchdb-cluster-couchdb-2.local-1`, `couchdb-cluster-couchdb-1.local-1` and `couchdb-cluster-couchdb-3.local-1`
+
+To remove containers, run these commands:
+```
+docker stop <container> <container> <container>
+docker rm <container> <container> <container>
+```
+
+
