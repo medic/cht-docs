@@ -147,11 +147,11 @@ A value can be pre-selected for the search box via a `calculate` expression. By 
 
 ### Loading descendants of the current contact
 
-Use the appearance `with-same-parent` to load the current contact's descendant when opening an app form or contact form from the Contact's tab.
+Use the appearance `descendant-of-current-contact` to load the current contact's descendant when opening an app form or contact form from the Contact's tab.
 
-| type        | name              | label               | appearance                                  |
-|-------------|-------------------|---------------------|---------------------------------------------|
-| string      | household_members | Household's members | select-contact type-person with-same-parent |
+| type        | name              | label               | appearance                                                |
+|-------------|-------------------|---------------------|-----------------------------------------------------------|
+| string      | household_members | Household's members | select-contact type-person descendant-of-current-contact  |
 
 ### Loading additional contact data 
 
