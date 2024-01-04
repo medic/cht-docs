@@ -147,7 +147,7 @@ A value can be pre-selected for the search box via a `calculate` expression. By 
 
 ### Loading descendants of the current contact
 
-Use the appearance `descendant-of-current-contact` to load the current contact's descendant when opening an app form or contact form from the Contact's tab.
+Use the appearance `descendant-of-current-contact` to load the current contact's descendants when opening an app form or contact form from the "People" tab.
 
 | type        | name              | label               | appearance                                                |
 |-------------|-------------------|---------------------|-----------------------------------------------------------|
