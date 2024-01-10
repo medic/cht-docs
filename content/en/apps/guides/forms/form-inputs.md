@@ -145,6 +145,14 @@ A value can be pre-selected for the search box via a `calculate` expression. By 
 | string      | person_id    | Person ID    | select-contact type-person |                              |
 | string      | household_id | Household ID | select-contact type-clinic | ../inputs/contact/parent/_id |
 
+### Loading descendants of the current contact
+
+Use the appearance `descendant-of-current-contact` to load the current contact's descendants when opening an app form or contact form from the "People" tab.
+
+| type        | name              | label               | appearance                                                |
+|-------------|-------------------|---------------------|-----------------------------------------------------------|
+| string      | household_members | Household's members | select-contact type-person descendant-of-current-contact  |
+
 ### Loading additional contact data 
 
 Additional data about the contact can be loaded by adding fields to the same group as the contact selector. The field name must match the name of a field on the contact doc. The data will be loaded when the contact is selected and will overwrite any existing data in the field.
