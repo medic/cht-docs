@@ -52,6 +52,10 @@ The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where C
 
 Starting in cht-core release 3.10, we can now configure property files in contact create forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "apps/reference/forms/app#formsappform_namepropertiesjson" >}}). Note: this applies only to the create form, not the contacts themselves.
 
+{{% alert title="Note" %}}
+The form expression for contact forms will only have access to `user` data. The `contact` and `summary` data are [not currently available](https://github.com/medic/cht-core/issues/6612). 
+{{% /alert %}}
+
 ## Generic contact forms
 
 If your place contact forms are similar across all levels of your specified project hierarchy, you can templatise the form creation process. You will need to create the following files in `forms/contact`: `place-types.json`, `PLACE_TYPE-create.xlsx` and `PLACE_TYPE-edit.xlsx`.

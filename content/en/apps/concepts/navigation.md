@@ -27,7 +27,6 @@ Page tabs are the primary way to navigate apps built with the Core Framework. Th
 
 Tap the menu icon in the upper right corner of the header to access other pages, edit personal settings, view sync status and more.
 - **Admin Console**: Change advanced app settings (only admin users will see this)
-- **Guided Tour**: Review new features and important tips
 - **About**: View your app version and other detailed database information 
 - **User Settings**: Update basic user information like email, phone number, and password
 - **Report Bug**: Let us know if something isn’t working or you encounter errors
@@ -37,9 +36,22 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-4" >}}
 
-Data synchronisation is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. "Sync" (synchronisation) is when data on the device is made to match the data on the server. Synchronisation consists of uploading all new or altered data from the device to the server, and downloading new or altered data from the server to the device. This latter step may include the download of software updates to the CHT core or CHT app when available.
+Data synchronization is important for [offline users]({{< relref "apps/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronization) is when data on the device is made to match the data on the server and requires an internet connection. The CHT app monitors the online status and attempts sync accordingly.
 
-At the bottom of the menu is a notification which provides important information about data synchronisation.
+#### Replication Types
+
+Synchronization consists of upward replication and downward replication. 
+- **Upward Replication**: Uploading all new or updated data from the device to the server. It includes a retry mechanism for handling larger data batches, ensuring a robust and reliable upload process.
+- **Downward Replication**: Downloading new or updated data from the server to the device. Downward replication may include the download of software updates to the CHT app when available.
+
+The CHT application manages data synchronization across two types of databases:
+
+- **Main Application Database (`medic`)**: The main database that stores the primary data used by the application. It includes contacts, reports, messages, and other critical documents necessary for the core functionality of the application. This database is synchronized continuously to reflect changes to the application, such as new contact creations. Each user stores a subset of the main database which includes only the documents they're allowed to view.
+- **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including [telemetry data]({{< relref "apps/guides/performance/telemetry" >}}) and error messages. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
+
+#### Sync Status Notification
+
+At the bottom of the menu is a notification which provides important information about data synchronization.
 
 If the sync status is green and says “All reports synced,” this means you have successfully uploaded the most recent data on your device to the server. It also means that you downloaded the latest data from the server as of the time displayed. Note that there could be more recent data changes on the server, and it doesn't guarantee you are up to date.
 
@@ -51,5 +63,20 @@ If the indicator is red, it means you have data changes waiting to be uploaded t
 {{< figure src="sync-successful.jpg" link="sync-successful.jpg" >}}
 </aside>
 
-Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen.  
-It will also allow to retry the sync process in case of failure.
+Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen. This performs upward and downward synchronization of both databases. It will also retry the sync process in case of failure..
+
+#### Synchronization Triggers
+- **On Login**: Synchronization is automatically initiated upon successful user login if the app is connected to the internet.
+- **Manual**: Clicking the "Sync now" button.
+- **Periodic Sync**: The application performs regular checks and attempts to synchronize. The main application database syncs every 5 minutes, while the user metadata database syncs every 30 minutes..
+- **On Reload**: Synchronization is automatically initiated when the user reloads the application, refreshes the page, or clicks the reload button in the "Update available" modal.
+- **On Connect**: The app also detects when an internet connection becomes available and attempts to sync immediately.
+
+#### Sync Status States
+The synchronization process can be in one of the following states:
+
+- **Unknown**: The sync status is not determined yet.
+- **Disabled**: Sync is disabled - only applies to online-only users.
+- **InProgress**: Synchronization is currently ongoing.
+- **Success**: The last sync operation was successful.
+- **Required**: There is data pending synchronization.

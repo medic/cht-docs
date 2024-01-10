@@ -33,9 +33,9 @@ Transitions obey the following rules:
 
 * has an `onChange(change, db, audit, callback)` function that makes changes to
   the `change.doc` reference (copying is discouraged). `db` and `audit` are
-  handles to let you query those DBs. More about `callback` below.
+  handled to let you query those DBs. You can learn more about `callback` in subsequent sections.
 
-* It is not necessary for an individual transition to save the changes to `change.doc` to the db: the doc will be saved once, after all the transitions have edited it.
+* It is not necessary for an individual transition to save the changes made to `change.doc` to the db, the doc will be saved once, after all the transitions have edited it.
 If an individual transition saves the document provided at `change.doc`, it takes responsibility re-attaching the newly saved document (with new seq etc) at `change.doc`
 
 * guarantees the consistency of a document.
@@ -56,10 +56,10 @@ Callback arguments:
 
 * callback(err, needsSaving)
 
-   `needsSaving` is true if the `change.doc` needs to be saved to db by the transition runner. For instance the transition has edited the `change.doc` in memory.
+   `needsSaving` is true if the `change.doc` needs to be saved to db by the transition runner. For instance if the transition has edited the `change.doc` in memory.
    `err` if truthy, the error will be added to the `changes.doc` in memory. (Note that if `needsSaving` is falsy, the doc will not be saved, so that error will not be persisted).
 
-Regardless whether the doc is saved or not, the transitions will all be run (unless one crashes!).
+Regardless whether the doc is saved or not, the transitions will all be run (unless one crashes).
 
 When your transition encounters an error, there are different ways to deal with it. You can :
 - finish your transition with `callback(someError, true)`. This will save the error to `change.doc`.

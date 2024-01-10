@@ -13,11 +13,11 @@ relatedContent: >
 
 ## Triggering Calls and SMS
 
-When a XForm is loaded on a phone you can start a phone call or trigger the sending of an SMS within the form itself. This can be useful if within a task or assessment you want to tell the user to contact a patient, or perhaps a health worker at a facility.
+When an XForm is loaded on a phone you can start a phone call or trigger the sending of an SMS within the form itself. This can be useful if within a task or assessment, you want to tell the user to contact a patient, or perhaps a health worker at a facility.
 
 To set up the call or SMS you'll need to create a link with `tel:` or `sms:` within a `note` field. To create the link, use the markdown link format, eg `[Call Patient](tel:+2547009875000)`. You can specify the content of the SMS by using the body parameter, eg `[Send SMS](sms://+25470098765000?body=Hello World!)`.
 
-The phone number and message can be generated from fields within the XForm. For instance, if you have `patient_name`, `patient_phone` and `message` fields, you can generate the SMS as follows:
+The phone number and message can be generated from fields within the XForm. For instance, if you have `patient_name`, `patient_phone`, and `message` fields, you can generate the SMS as follows:
 - **XLSForm**
 `[Send SMS to ${patient_name}](sms://${patient_phone}?body=${message})`
 
@@ -29,7 +29,7 @@ If you want to use a button to make the action more obvious, this can be done us
 [<span style='background-color: #CC0000; color:white; padding: 1em; text-decoration: none; '>Call the patient</span>](tel:${patient_phone})
 ```
 
-Note that the SMS link notation can be interpreted differently from one phone to another. Some devices work well with `sms:${phone}?body=${message}`, others with `sms://${phone}?body=${message}`. You may find [these SMS link tests](https://bradorego.com/test/sms.html) helpful in determining what works on devices for your deployment.
+Note that the SMS link notation can be interpreted differently from one phone to another. Some devices work well with `sms:${phone}?body=${message}`, others with `sms://${phone}?body=${message}`. You may find [these SMS link tests](https://web.archive.org/web/20210125031111/https://bradorego.com/test/sms.html) helpful in determining what works on devices for your deployment.
 
 
 ## Sending reports as SMS
@@ -47,7 +47,7 @@ To get forms sent in this format, follow the [ODK documentation](https://getodk.
 
 ### Medic Custom SMS representation
 
-To configure a form to send using Medic's custom SMS definition, the value of `xml2sms` from the form's CouchDB doc should be an string containing an [Angular expression](https://docs.angularjs.org/guide/expression).
+To configure a form to send using Medic's custom SMS definition, the value of `xml2sms` from the form's CouchDB doc should be a string containing an [Angular expression](https://docs.angularjs.org/guide/expression).
 This allows access to the `fields` property of the `data_record` doc created when saving the form submission to the database.  Extra functions are also provided to make compiling a form submission more simple.
 
 #### Special Functions

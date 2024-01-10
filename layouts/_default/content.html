@@ -9,6 +9,9 @@
 		{{ partial "reading-time.html" . }}
 		{{ end }}
 	</header>
+	{{ if eq (.Params.show_toc) true }}
+	{{ .TableOfContents }}
+	{{ end }}
 	{{ .Content }}
 <!-- Show related content - https://github.com/medic/cht-docs/commit/7daf27fe8e58c225759276a0284043dfcafde550 -->
 	{{ partial "related.html" . }}

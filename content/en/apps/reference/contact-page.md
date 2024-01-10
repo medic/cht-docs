@@ -20,7 +20,7 @@ Helper variables and functions for the contact summary can be defined in `contac
 | Variable | Description |
 |---|---|
 | `contact` | The currently selected contact. This has minimal stubs for the `contact.parent`, so if you want to refer to a property on the parent use `lineage` below.| 
-| `reports` | An array of reports for the contact. | 
+| `reports` | An array of reports for the contact or for any of the contact's children. Note that if the contact has more than 50 reports, only the 50 with the latest `reported_date` values will be provided. | 
 | `lineage` | An array of the contact's parents (2.13+), eg `lineage[0]` is the parent, `lineage[1]` is the grandparent, etc. Each lineage entry has full information for the contact, so you can use `lineage[1].contact.phone`. `lineage` will include only those contacts which are visible to the logged in profile | 
 | `targetDoc` | Doc with [`target`]({{< ref "core/overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
 | `uhcStats` | Object containing UHC stats information. Added in `v3.12.0` |
@@ -86,7 +86,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 
 Each care guide accessible from a contact profile is defined as an [App Form]({{< ref "apps/reference/forms/app" >}}). Context information can be provided to forms via the `context` object of `contact-summary.templated.js`.
 
-To show an App Form on a contact's profile, the form's `expression` field in its properties file must evaluate to true for that contact. The context infomation from the profile is accessible as the variable `summary`.
+To show an App Form on a contact's profile, the form's `expression` field in its properties file must evaluate to true for that contact. The context information from the profile is accessible as the variable `summary`.
 
 The context data is also available directly within the app forms' XForm calculations, as `instance('contact-summary')/context/${variable}`. For instance if `context.is_pregnant` is used in the contact summary, it can be accessed in an XForm field's calculation as `instance('contact-summary')/context/is_pregnant`. Note that these fields are not available when editing a previously completed form, or when accessing the form from outside of the profile page.
 

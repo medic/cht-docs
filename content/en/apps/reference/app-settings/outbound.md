@@ -32,7 +32,8 @@ The rest of the configuration is against the `outbound` configuration property, 
     "first config": {
       "relevant_to": "...",
       "destination": {},
-      "mapping": {}
+      "mapping": {},
+      "cron": "..."
     },
     "second config": { }
   }
@@ -167,6 +168,24 @@ This example makes a few points:
  - To define a property that is itself an object, you can make the mapping key a JSON path.
  - If you define a property as `optional`, it won't exist at all in the payload if the resulting value is `undefined`, either because that is the result of executing the `expr`, or the `path` doesn't exist. Note that if the `event.in_danger` expression was instead `doc.fields.danger_signs.length >= 3` the property `in_danger` would always exist and would either be `true` or `false`
 
+### cron
+An optional cron expression for setting the cron rule in the outbound object.
+A cron expression is a string consisting of five fields that describe individual details of the schedule:
+
+`<minute> <hour> <day-of-month> <month> <day-of-week>`
+
+The transition verifies if a cron field exists in the configuration. If a cron field is present, it checks if the document is due for push. If it is due, the new document is pushed. If it is not yet due for push, the document is added to the outbound queue. If the cron field isn’t present, then it goes ahead with the previous flow.
+
+Example: you want the system to send outbound pushes based on a cron schedule every day at 1:05.
+
+```json
+{
+  "cron": "cron: 5 1 * * *"
+}
+```
+
+**Note:** Schedule Outbound is only available in CHT Core 4.5.0 and above.
+
 #### Other Notes
 
  - Your report will be hydrated before being passed to the mapper. This gives you access to the contact and its parents
@@ -176,6 +195,10 @@ This example makes a few points:
 - If any of your `expr` expressions throw an exception (for example because you didn't handle potentially `undefined` properties as noted above) your push will fail
 - If any of your `path` declarations result in an `undefined` value and you have not also declared that property optional your push will fail
 
+#### Troubleshooting
+
+By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging]({{< relref "apps/guides/hosting/4.x/logs#setting-log-level" >}}) to get more information about the exact contents of the request/response.
+
 ## How Outbound messages are sent
 
 Send semantics have changed over the course of developing this feature, and are important to understand for your deployment to be successful.
@@ -184,6 +207,7 @@ Send semantics have changed over the course of developing this feature, and are 
 
  - Outbound messages are sent immediately
  - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
+   - If you update your outbound configuration while messages are present in the send queue, only the messages that match with _the new configuration_ will be retried.
  - When it does finally send it will include any new changes to the document that have occurred in that time.
  - **Documents can be sent again**, as long as the resulting payload (as defined in the configuration's `mapping` property) is different from the most recent outbound push performed for this document and configuration.
 

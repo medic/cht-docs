@@ -1,10 +1,16 @@
 ---
 title: "API to interact with CHT Applications"
 linkTitle: "API"
-weight : 1
+weight: 1
 description: >
   RESTful Application Programming Interfaces for integrating with CHT applications
 ---
+
+<style>
+.td-content #TableOfContents ul ul ul {
+  display: none;
+}
+</style>
 
 {{% pageinfo %}}
 This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{% ref "core/overview/data-flows-for-analytics" %}}) may also prove useful for data analysis. If additional endpoints would be helpful, please make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
@@ -189,6 +195,18 @@ Export a file containing the user feedback.
 
 Returns a JSON array of contacts.
 
+#### Output
+
+| Column             | Description                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| id                 | The unique ID for the contact in the database.                                         |
+| rev                | The current CouchDb revision of contact in the database.                               |
+| name               | The name of the user this message is assigned to.                                      |
+| patient_id         | The generated short patient ID for use in SMS.                                         |
+| type               | The contact type. For configurable hierarchies, this will always be `contact`.         |
+| contact_type       | The configurable contact type. Will be empty if using the default hierarchy.           |
+| place_id           | The generated short place ID for use in SMS.                                           |
+
 #### Query parameters
 
 These are identical to the JS objects passed to the shared library, as if you were using it directly in Javascript.
@@ -301,6 +319,7 @@ GET /api/v1/forms/NPYY.json
 ### POST /api/v1/forms/validate
 
 *Added in 3.12.0*
+
 Validate the XForm passed. Require the `can_configure` permission.
 
 #### Headers
@@ -472,14 +491,14 @@ Use JSON in the request body to specify a person's details.
 
 Note: this does not accommodate having a `place` field on your form and will likely be revised soon.
 
-##### Required
+#### Required
 
 | Key  | Description                         |
 | ---- | ----------------------------------- |
 | name | String used to describe the person. |
 | type | ID of the `contact_type` for the new person. Defaults to 'person' for backwards compatibility. |
 
-##### Optional
+#### Optional
 
 | Key           | Description                                                            |
 | ------------- | ---------------------------------------------------------------------- |
@@ -554,7 +573,7 @@ By default any user can create or modify a place.
 
 Use JSON in the request body to specify a place's details.
 
-##### Required Properties
+#### Required Properties
 
 | Key    | Description                                                                                                                  |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -562,14 +581,14 @@ Use JSON in the request body to specify a place's details.
 | type   | Place type                                                                                                                   |
 | parent | String that references a place or object that defines a new place. Optional for District Hospital and National Office types. |
 
-##### Optional Properties
+#### Optional Properties
 
 | Key           | Description                                                            |
 | ------------- | ---------------------------------------------------------------------- |
 | contact       | String identifier for a person or object that defines a new person.    |
 | reported_date | Timestamp of when the record was reported or created. Defaults to now. |
 
-##### Place Types
+#### Place Types
 
 | Key               | Description       |
 | ----------------- | ----------------- |
@@ -731,9 +750,9 @@ will be undefined.
 | token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 |
 | fullname | no | String | Full name  |
 | email | no | String | Email address  |
-| known | no | Boolean | Boolean to define if the user has logged in before. Used mainly to determine whether or not to start a tour on first login. |
+| known | no | Boolean | Boolean to define if the user has logged in before. |
 
-##### Login by SMS
+#### Login by SMS
 
 When creating or updating a user, sending a truthy value for the field `token_login` will enable Login by SMS for this user.
 This action resets the user's password to an unknown string and generates a complex 64 character token, that is used to generate a token-login URL.
@@ -768,11 +787,11 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 
 ### GET /api/v1/users
 
-*DEPRECATED: use /api/v2/users*
+*DEPRECATED: use [/api/v2/users](#get-apiv2users)*
 
 Returns a list of users and their profile data in JSON format.
 
-##### Permissions
+#### Permissions
 
 `can_view_users`
 
@@ -828,7 +847,7 @@ Content-Type: application/json; charset=utf-8
 
 Returns a list of users and their profile data in JSON format.
 
-##### Permissions
+#### Permissions
 
 `can_view_users`
 
@@ -1105,22 +1124,23 @@ Content-Type: application/json
 ### POST /api/v2/users
 
 *Added in 3.16.0*
+
 Create new users with a place and a contact from a CSV file.
 
 Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "apps/reference/api#post-apiv1users" >}})
-where a row represents a user object and a column represents a user object property.  
+where a row represents a user object and a column represents a user object property.
 Columns with a `:excluded` suffix will be ignored, this allows providing a more user-friendly experience with
 autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
-[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.  
+[Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
 [A guide]({{< ref "apps/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
 #### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
-that gets updated throughout the import and finalized upon completion.  
+that gets updated throughout the import and finalized upon completion.
 These entries are saved in the [`medic-logs`]({{< ref "apps/guides/database#medic-logs" >}}) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
@@ -1324,7 +1344,8 @@ HTTP/1.1 200 OK
 Returns the total number of documents an offline user would replicate (`total_docs`), the number of docs excluding tasks the user would replicate (`warn_docs`), along with a `warn` flag if this number exceeds the recommended limit (now set at 10 000).
 
 When the authenticated requester has an offline role, it returns the requester doc count.
-###### Example
+
+#### Example
 ```
 GET /api/v1/users-info -H 'Cookie: AuthSession=OFFLINE_USER_SESSION;'
 ```
@@ -1448,11 +1469,12 @@ Content-Type: application/json
 
 ## Monitoring
 
-See the [Monitoring and alerting on the CHT]({{< relref "apps/guides/hosting/monitoring.md" >}}) page for how to use this API in production.
+See the [Monitoring and alerting on the CHT]({{< relref "apps/guides/hosting/monitoring" >}}) page for how to use this API in production.
 
 ### GET /api/v1/monitoring
 
-*Deprecated in 3.12.x in favor of [/api/v2/monitoring](#get-apiv2monitoring)*
+*DEPRECATED: use [/api/v2/monitoring](#get-apiv2monitoring)*
+
 Used to retrieve a range of metrics about the instance. While the output is human-readable this is intended for automated monitoring allowing for tracking trends over time and alerting about potential issues.
 
 #### Permissions
@@ -1482,7 +1504,7 @@ curl http://localhost:5988/api/v1/monitoring
 | `couchdb.<dbname>.doc_del_count` | Number | The number of deleted docs in the db. |
 | `couchdb.<dbname>.fragmentation` |  Number | The fragmentation of the db, lower is better, "1" is no fragmentation. |
 | `date.current` | Number | The current server date in millis since the epoch, useful for ensuring the server time is correct. |
-| `date.uptime` | Number | How long API has been running. |
+| `date.uptime` | Number | How long API has been running in seconds. |
 | `sentinel.backlog` | Number | Number of changes yet to be processed by Sentinel. |
 | `messaging.outgoing.state.due` | Number | The number of messages due to be sent. |
 | `messaging.outgoing.state.scheduled` | Number | The number of messages scheduled to be sent in the future. |
@@ -1570,6 +1592,18 @@ curl http://localhost:5988/api/v2/monitoring
 - A metric of `""` (for string values) or `-1` (for numeric values) indicates an error occurred while querying the metric - check the API logs for details.
 - If no response or an error response is received the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
 
+### GET /api/v1/express-metrics
+
+*Added in 4.3.0*
+
+Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/core/overview/watchdog" >}}).
+
+The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
+
+#### Permissions
+
+No permissions required.
+
 ## Upgrades
 
 All of these endpoints require the `can_configure` permission.
@@ -1622,14 +1656,14 @@ Only allowed for users with "online" roles.
 
 ### GET /api/v1/hydrate
 
-##### Query parameters
+#### Query parameters
 
 | Name | Required | Description |
 | -----  | -------- | ------ |
 | doc_ids | true | A JSON array of document uuids |
 
 
-##### Example
+#### Example
 
 ```
 GET /api/v1/hydrate?doc_ids=["id1","missingId","id3"]
@@ -1649,14 +1683,14 @@ Content-Type: application/json
 
 ### POST /api/v1/hydrate
 
-##### Parameters
+#### Parameters
 
 | Name | Required | Description |
 | -----  | -------- | ------ |
 | doc_ids | true | A JSON array of document uuids |
 
 
-##### Example
+#### Example
 
 ```
 POST /api/v1/hydrate
@@ -1683,6 +1717,7 @@ Content-Type: application/json
 ## Contacts by phone
 
 *Added in 3.10.0*
+
 Accepts a phone number parameter and returns fully hydrated contacts that match the requested phone number.
 If multiple contacts are found, all are returned.  When no matches are found, a 404 error is returned.
 Supports both GET and POST.
@@ -1756,6 +1791,7 @@ Content-Type: application/json
 ## Replication Limit
 
 *Added in 3.11.0*
+
 Returns the quantity of documents that were replicated by each user.
 Accepts filtering by user name, when not provided, it returns all users.
 Supports GET.

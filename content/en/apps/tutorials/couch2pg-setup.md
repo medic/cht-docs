@@ -55,7 +55,7 @@ GRANT ALL PRIVILEGES ON DATABASE POSTGRES_DB_NAME TO couch2pg;
 
 All steps below require you to have a local clone of the repo.
 ```shell
-git clone https://github.com/medic/cht-couch2pg.git`
+git clone https://github.com/medic/cht-couch2pg.git
 ```
 
 ## Setting up with environment variables
@@ -100,7 +100,7 @@ The simplest way to run couch2pg is with `docker-compose` which only needs confi
 
 2. Set the URL for CouchDB in the `COUCHDB_URL` env variable. e.g.
 ```shell
-export COUCHDB_URL=https://medic:password@192-168-68-26.my.local-ip.co:8442/medic
+export COUCHDB_URL=https://medic:password@192-168-68-26.local-ip.medicmobile.org:8442/medic
 ```
 
 {{% alert title="Note" %}} The CouchDB URL needs to be reachable from the docker container (i.e. not localhost). {{% /alert %}}

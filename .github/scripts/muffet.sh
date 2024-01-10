@@ -16,7 +16,7 @@
 
 muffet http://localhost:1313 \
   --buffer-size 50000 \
-  --timeout 10 \
+  --timeout 35 \
   --concurrency 2 \
   --ignore-fragments \
   --exclude ".*demo\.app\.medicmobile\.org.*" \
@@ -33,5 +33,12 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://127\.0\.0*" \
   --exclude "http[s]*://.*rapidpro.io.*" \
   --exclude "http[s]*://.*africastalking.com*" \
+  --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://.*notion.so.*" \
+  --exclude "http[s]*://.*medium.com.*" \
+  --exclude "http[s]*://.*twitter.com.*" \
+  --exclude "https://tools.google.com.*" \
   --exclude "https://fhir.org/" \
-  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*"
+  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
+  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
+  --exclude "https://doi.org/10.1080/02681102.2019.1667289"

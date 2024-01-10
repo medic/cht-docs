@@ -136,7 +136,7 @@ To get started using it:
 If you want a more stand-alone version, you can `curl` the bash script directly, but you can't use `git` to easily update it then:
 
 ```shell
-curl https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
+curl -s -o cht-docker-compose.sh https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper-4.x/cht-docker-compose.sh
 ```
 
 ### Usage
@@ -171,8 +171,8 @@ Starting project "4_oh_the_first". First run takes a while. Will try for up to f
 
   Success! "4_oh_the_first" is set up:
 
-    https://127-0-0-1.my.local-ip.co:10444/ (CHT)
-    https://127-0-0-1.my.local-ip.co:10444/_utils/ (Fauxton)
+    https://127-0-0-1.local-ip.medicmobile.org:10444/ (CHT)
+    https://127-0-0-1.local-ip.medicmobile.org:10444/_utils/ (Fauxton)
 
     Login: medic
     Password: password

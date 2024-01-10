@@ -5,7 +5,7 @@ weight:
 description: >
   How to obtain Android and browser client logs
 relatedContent: >
-  apps/guides/debugging/sharing-4.x-logs.md
+  apps/guides/debugging/sharing-4x-logs.md
   apps/guides/hosting/4.x/logs
 ---
 

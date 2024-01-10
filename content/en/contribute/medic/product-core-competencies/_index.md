@@ -1,7 +1,7 @@
 ---
 title: "Product Team Core Competencies"
 linkTitle: "Product Team Core Competencies"
-weight: 5
+weight: 2
 description: >
   These core competencies are intended to guide Product Teammates in how everyone shows up for each other every day. They are to be used in hiring new teammates, teammate feedback, and regular manager check ins. 
 ---

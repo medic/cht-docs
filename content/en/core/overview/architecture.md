@@ -1,14 +1,20 @@
 ---
 title: "Architecture of CHT Instances"
-linkTitle: "Architecture"
+linkTitle: "CHT Core"
 weight: 1
 description: >
   The different pieces of a CHT project, how they interact, and what they're used for
+relatedContent: >  
+  core/overview/watchdog
+  core/overview/data-flows-for-analytics/cht-sync
+  apps/guides/hosting/vertical-vs-horizontal
 ---
 
 ## Overview
 
-![Architecture of a CHT project](architecture.png)
+<!-- make updates to this diagram on the google slides:            -->
+<!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
+[![Data Flows](architecture.png)](architecture.png)
 
 ## Server
 
@@ -42,23 +48,11 @@ The CHT Upgrade Service is used within the CHT to update individual Docker conta
 
 ### CHT Sync
 
-A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail in [cht-sync GitHub repository](https://github.com/medic/cht-sync).
+A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "core/overview/data-flows-for-analytics/cht-sync" >}}) and the [cht-sync GitHub repository](https://github.com/medic/cht-sync).
 
-#### Logstash and PostgREST
+### CHT Watchdog
 
-[Logstash](https://www.elastic.co/logstash/) streams data from CouchDB and forwards it to [PostgREST](https://postgrest.org/en/stable/) which provides REST endpoints to store the data in the PostreSQL database.
-
-#### PostgreSQL
-
-A free and open source SQL database used for analytics queries. See more at the [PostgreSQL](https://www.postgresql.org) site.
-
-#### DBT
-
-[DBT](https://www.getdbt.com/) is used to ingest raw JSON data from the postgres database and normalize it into a relational schema to make it much easier to query.
-
-#### Superset
-
-[Apache Superset](https://superset.apache.org/) is a free an open source platform for creating data dashboards.
+Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption caused by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
 
 ## Client
 
@@ -67,13 +61,15 @@ A free and open source SQL database used for analytics queries. See more at the 
 The CHT Core Framework provides two web applications: the [CHT Web App]({{% ref "#cht-web-application" %}}) for care teams and program staff, and [App Management]({{% ref "#app-management" %}}) for program administrators.
 
 #### CHT Web Application
+
 The CHT Web Application is used by Community Health Workers and provides a large variety of [features](https://docs.communityhealthtoolkit.org/apps/features/). View the source code in [our GitHub repository](https://github.com/medic/cht-core/tree/master/webapp).
 
 ##### Technology
+
 The CHT Web Application is [reactive](https://angular.io/guide/rx-library), responsive and a single page application built with [Angular](https://angular.io/) and [NgRx](https://ngrx.io) frameworks. Additionally, it uses the following technology:
 
 | Technology                                                       | Usage                                                                                                                                                                                  |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [PouchDB](https://pouchdb.com)                                   | To implement an [Offline-First]({{< ref "core/overview/offline-first" >}}) strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
 | [Enketo](https://enketo.org)                                     | To render configured xforms and help with styling and dynamic elements such as show/hide and validation rules.                                                                         |
 | [Nools](https://github.com/C2FO/nools)                           | A rules engine to compute the upcoming tasks and monthly targets of the users.                                                                                                         |
@@ -81,7 +77,7 @@ The CHT Web Application is [reactive](https://angular.io/guide/rx-library), resp
 | [Ngx-translate](https://github.com/ngx-translate/core)           | To automatically translate the labels from a Angular application. Read more about [how to configure translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/). |
 | [Karma](https://github.com/karma-runner/karma)                   | A test runner for [unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)                                                                                             |
 | [MochaJS](https://mochajs.org/)                                  | A test framework to run the [unit tests](https://github.com/medic/cht-core/tree/master/webapp/tests)                                                                                   |
-| [Protractor](https://www.protractortest.org/#/)                  | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                        |
+| [WebDriverIO](https://webdriver.io/)                             | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                        |
 | [Less](http://lesscss.org/)                                      | A CSS preprocessor                                                                                                                                                                     |
 
 ##### Structure
@@ -107,11 +103,11 @@ View the application source code in [our GitHub repository](https://github.com/m
 App Management is a single page application built with [AngularJS](https://angularjs.org) framework and implements [Redux](https://github.com/reduxjs/redux) to manage a reactive state. Additionally, it uses the following technology:
 
 | Technology                                                                  | Usage                                                                                                                                                                                   |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Angular Translate](https://github.com/angular-translate/angular-translate) | To automatically translate the labels from a AngularJS application. Read more about [how to manage translations](https://docs.communityhealthtoolkit.org/apps/reference/translations/). |
 | [Karma](https://github.com/karma-runner/karma)                              | A test runner for [unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)                                                                                               |
 | [MochaJS](https://mochajs.org/)                                             | A test framework to run the [unit tests](https://github.com/medic/cht-core/tree/master/admin/tests)                                                                                     |
-| [Protractor](https://www.protractortest.org/#/)                             | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                         |
+| [WebDriverIO](https://webdriver.io/)                                        | To run the [e2e tests](https://github.com/medic/cht-core/tree/master/tests/e2e)                                                                                                         |
 | [Less](http://lesscss.org/)                                                 | A CSS preprocessor                                                                                                                                                                      |
 
 ##### Structure

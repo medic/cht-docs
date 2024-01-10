@@ -106,7 +106,7 @@ module.exports = [
   // PNC TASK 1: If a home delivery, needs clinic tasks
   {
     icon: 'mother-child',
-    title: [ { locale:'en', content:'Postnatal visit needed' } ],
+    title: 'task.postnatal_followup.title',
     appliesTo: 'reports',
     appliesToType: [ 'D', 'delivery' ],
     appliesIf: function(c, r) {

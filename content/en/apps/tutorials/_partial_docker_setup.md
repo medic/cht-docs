@@ -3,7 +3,7 @@ title: "Local Docker Setup"
 toc_hide: true
 hide_summary: true
 ---
-{{< tabpane code=false >}}
+{{< tabpane text=true >}}
 {{% tab header="Linux (Ubuntu)" %}}
 ```shell
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
@@ -15,7 +15,7 @@ echo "export DOCKER_HOST=unix:///run/user/1000/docker.sock" >> ~/.$(basename $SH
 ```
 {{% /tab %}}
 {{% tab header="macOS" %}}
-Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop) or [Colima](https://github.com/abiosoft/colima#readme).
 {{% /tab %}}
 {{% tab header="Windows (WSL2)" %}}
 Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).

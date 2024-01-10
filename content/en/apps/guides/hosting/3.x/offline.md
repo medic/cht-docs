@@ -70,9 +70,9 @@ An offline deployment may consider substituting some requirements above with the
 
 When an offline solution is deployed, traffic stays 100% local, whereas when using either [your own reverse proxy]({{< relref "/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away. This can help when Internet connectivity is very slow, very expensive per megabyte, or both.
 
-### local-ip.co
+### local-ip.co 
 
-[local-ip.co](http://local-ip.co/) offers both the TLS certificate and private key for `*.my.local-ip.co`.  Additionally, the service has a DNS server that dynamically maps any IP you pass in the sub-sub-domain to the real world IP such that `192-168-0-1.my.local-ip.co` would resolve to `192.168.0.1`.  This can make it very handy to deploy a development instance where all HTTP traffic remains local (unlike `ngrok` above).
+[local-ip.co](http://local-ip.co/), and [related services](https://local-ip.medicmobile.org/), offer both the TLS certificates and private keys for `*.my.local-ip.co`.  Additionally, the service has a DNS server that dynamically maps any IP you pass in the sub-sub-domain to the real world IP such that `192-168-0-1.my.local-ip.co` would resolve to `192.168.0.1`.  This can make it very handy to deploy a development instance where all HTTP traffic remains local (unlike `ngrok` above).
 
 As the DNS traffic still needs to leave your network and return, it is not a viable solution for a truly offline CHT deployment.
 
@@ -84,6 +84,6 @@ This may only work on certain, older version of Android as well.
 
 ### No DHCP or DNS Server
 
-To avoid installing both the DHCP and DNS servers, an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) or [Daedalus](https://play.google.com/store/apps/details?id=org.itxtech.daedalus) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.
+To avoid installing both the DHCP and DNS servers, an Android app that enables custom DNS entries, like [DNS Changer](https://play.google.com/store/apps/details?id=com.burakgon.dnschanger) could be used.  As [seen here](https://stackoverflow.com/questions/6370017/mapping-a-hostname-to-an-ip-address-on-android), on each Android device you could install this and add custom DNS entries to reach the TLS certificate on the CHT.
 
 Like the self-signed certificate solution, this is hard to scale and would need to be complimented by editing `/etc/hosts` files on desktop browsers.

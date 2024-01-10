@@ -269,7 +269,7 @@ A Statement of Work is a formal document that describes the project goals. The S
 
 ###### Sustainable Development Goals (SDG)
 
-"The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet, now and into the future. At its heart are the 17 Sustainable Development Goals (SDGs), which are an urgent call for action by all countries - developed and developing - in a global partnership. They recognize that ending poverty and other deprivations must go hand-in-hand with strategies that improve health and education, reduce inequality, and spur economic growth – all while tackling climate change and working to preserve our oceans and forests." [More info](https://sdgs.un.org/goals).
+"The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet, now and into the future. At its heart are the 17 Sustainable Development Goals (SDGs), which are an urgent call for action by all countries - developed and developing - in a global partnership. They recognize that ending poverty and other deprivations must go hand-in-hand with strategies that improve health and education, reduce inequality, and spur economic growth – all while tackling climate change and working to preserve our oceans and forests." [More info](https://www.undp.org/sustainable-development-goals).
 
 ###### Systemized Nomenclature of Medicine (SNOMED)
 
@@ -286,6 +286,8 @@ Software, hardware, or platform provided to our partners and users, e.g. applica
 ###### Toolkit
 
 Group of tools, some of which can be deployed together.
+
+###### Total Cost of Ownership (TCO)
 
 ###### Traditional Birth Attendant (TBA)
 

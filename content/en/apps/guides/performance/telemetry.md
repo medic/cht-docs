@@ -49,7 +49,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. |
 | `enketo:reports:<form>:<action>:<component>` | The time taken to fill in Enketo forms. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
-| `enketo:contacts:<form>:add:<component>` | As above but for Contact creation forms. |
+| `enketo:contacts:<form>:<action>:<component>` | As above but for Contact forms. The `action` can either be "add" or "edit". |
 | `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. |
 | `search:contacts` | The time taken to list all contacts. |
 | `search:contacts:<filter[:filter]>` | The time taken to search all contacts using the given filters. |
@@ -90,6 +90,8 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `enketo:<training-card>:add:user_edit_time` | The time the user took to complete the training card. Added in 4.2.0 |
 | `enketo:<training-card>:add:save` | The time it took to save the training card. Added in 4.2.0 |
 | `enketo:<training-card>:add:quit` | The time from when the training card was rendered to when the user quits the training. Added in 4.2.0 |
+| `geolocation:success` | A successful GPS response with the value showing the accuracy. |
+| `geolocation:failure:<x>` | An unsuccessful GPS response. `x` is a constant matching the [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code) or with one of the following values: `-1` unknown failure, `-2` timeout, or `-3` geolocation services unavailable. |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  

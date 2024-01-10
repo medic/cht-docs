@@ -23,7 +23,7 @@ Every minor release we update dependencies to get the latest fixes and improveme
 
 1. Checkout and pull the latest default branch - get the latest code
 2. Make a branch: `git checkout -b "<issue>-update-dendencies"`
-3. Take a look at the current [list of upgrade related issues](https://github.com/medic/cht-core/issues?q=is%3Aissue+is%3Aopen+label%3A%22Upgrade+dependencies%22), so you don't rediscover known problems. 
+3. Take a look at the current [list of dependencies related issues](https://github.com/medic/cht-core/issues?q=is%3Aopen+is%3Aissue+label%3ADependencies), where you can find the latest conversations and information.  
 
 Then for each folder go through these steps.
 
@@ -39,7 +39,7 @@ Then for each folder go through these steps.
 - Don't update `bootstrap` to 4+ as it has many breaking changes. One day we will either raise an issue to upgrade it or migrate off it, but that is outside the scope of this change.
 - Don't update `bootstrap-daterangepicker`.
 - Don't update `select2` as the latest patch always seems to fail.
-- Don't update `jquery` to 3.6.0+ as the `select2` search input looses focus on click event, this is an [open issue](https://github.com/select2/select2/issues/5993) in their repository.
+- Don't update `jquery` to 3.6.0+ as the `select2` search input loses focus on click event, this is an [open issue](https://github.com/select2/select2/issues/5993) in their repository.
 - CHT-Core's webapp is using Enketo and jQuery library, at the same time Enketo internally uses a specific version of jQuery. Make sure webapp installs the same jQuery version than the one Enketo uses internally: `3.2.x`.
 
   Do this by checking the jquery entry in `./webapp/package.json` matches `./webapp/node_modules/enketo-core/package.json`:
@@ -52,23 +52,6 @@ Then for each folder go through these steps.
   ```
 
 - Make sure the version of `api/enketo-xslt` is the same as `webapp/enketo-core/enketo-transformer/enketo-xslt`.
-- Don't update `lodash` to version `4.17.21`. If you do so, the runtime issue highlighted below will appear when importing `lodash/core` in Admin app:
-  ```
-  UnhandledPromiseRejectionWarning: TypeError: stack.get is not a function
-    at equalObjects (/home/user/app/node_modules/lodash/core.js:1303:28)
-    at baseIsEqualDeep (/home/user/app/node_modules/lodash/core.js:729:18)
-    at baseIsEqual (/home/user/app/node_modules/lodash/core.js:664:12)
-    at Function.isEqual (/home/user/app/node_modules/lodash/core.js:2660:12)
-    at estimateCurrentScheduleDimLevel.then.dimLevel (/home/user/app/src/Devices/SmartLight/NASLightDevice.ts:642:24)
-  ```
-  The issue on the code is here:
-  ```
-  if (!_.isEqual(oldProfileConfig, newProfileConfig)) {
-    this.setProfileConfig(newProfileConfig);
-  }
-  ```
-  There was an [open issue](https://github.com/lodash/lodash/issues/4904) in the lodash repository but got deleted (reason unknown). There's [another reported issue](https://github.com/lodash/lodash/issues/4945) explaining the problem, however it hasn't been resolved yet.
-  The stable version for now is: `4.17.19`
 - If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue with `Upgrade dependencies` tag, to upgrade just that dependency. Don't hold up all the other upgrades you've made.
 
 ## Troubleshooting
@@ -89,6 +72,8 @@ To fix it, uninstall these 3 dependencies and then install them again in this or
 1. `@angular/compiler`
 2. `@angular-devkit/build-angular`
 3. `@angular-builders/custom-webpack`
+
+If the error is still happening, try reinstalling `@angular/cli`.
 
 ### npm errno -17
 
