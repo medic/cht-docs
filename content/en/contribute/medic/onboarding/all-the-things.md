@@ -24,7 +24,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * Internal Operations
 * External Affairs
 
-### Lifecycle of a [CHT Application]({{% ref "/apps" %}}) being built
+### Lifecycle of a [CHT Application]({{% ref "/running-programs/#cht-lifecycle" %}}) being built
 1. Programs team starts relationship with an organization
 1. Service designers and app developers figure out how they want their system to work
 1. App developers take latest version of the CHT and build the app for the organization
