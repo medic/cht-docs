@@ -71,7 +71,7 @@ Meet the [Medic team](https://medic.org/team/)!
 1. Upon testing passing, merge and delete branch
 1. Get QA engineers involved early in the process!
 * Releases
-1. Backwards compatibility matters a lot
+1. Backwards compatibility matters a lot, so CHWs can keep using the app and delivery care to their community without interruptions. 
 1. Can feel slow at times, but we’re making a lot of progress here. See above about how Focused Groups work.
 1. Quality matters a lot
 * Data engineering -> software engineering
