@@ -39,7 +39,7 @@ Meet the [Medic team](https://medic.org/team/)!
 
 #### Distributed team 
 * Without some effort, it’s easy for things to feel lonely or isolated
-* Default to asynchronous things
+* Default to asynchronous communications
 * Respect teammate timezones (including your own!)
 
 #### Expensify
