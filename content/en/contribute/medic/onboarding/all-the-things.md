@@ -12,7 +12,7 @@ This page is meant to serve as a point of conversation, with a wide range of top
 
 ### What is the CHT?
 * Why the [CHT (Community Health Toolkit)]({{% ref "/why-the-cht" %}})?
-* The [CHT Core Framework]({{% ref "/core" %}}) - Web application that runs inside an Android app (as a [WebView](https://developer.android.com/reference/android/webkit/WebView))
+* The [CHT Core Framework]({{% ref "/core" %}}) - App that can be accessed in the [browser](https://docs.communityhealthtoolkit.org/core/overview/architecture/#cht-web-application) or as [PWA](https://docs.communityhealthtoolkit.org/core/overview/pwa/) or [native Android app](https://docs.communityhealthtoolkit.org/core/overview/architecture/#cht-android).
 * [Offline-First]({{% ref "/core/overview/offline-first" %}}) - for real
 * [Community](https://communityhealthtoolkit.org/) of people and organizations
 
