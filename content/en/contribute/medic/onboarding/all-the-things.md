@@ -14,83 +14,83 @@ This page is meant to serve as a point of conversation, with a wide range of top
 * Why the [CHT (Community Health Toolkit)]({{% ref "/why-the-cht" %}})?
 * The [CHT Core Framework]({{% ref "/core" %}}) - App that can be accessed in the [browser](https://docs.communityhealthtoolkit.org/core/overview/architecture/#cht-web-application) or as [PWA](https://docs.communityhealthtoolkit.org/core/overview/pwa/) or [native Android app](https://docs.communityhealthtoolkit.org/core/overview/architecture/#cht-android).
 * [Offline-First]({{% ref "/core/overview/offline-first" %}}) - for real
+* [Architecture of the CHT]({{% ref "core/overview/architecture" %}})
 * [Community](https://communityhealthtoolkit.org/) of people and organizations. This is where we document all the things about the CHT Framework. Bookmark it as you primary source of reference. 
 
 ### Teams at Medic
 Meet the [Medic team](https://medic.org/team/)!
-* Product
+* [Product]({{% ref "contribute/medic/onboarding/product-team" %}})
 * Programs
 * Research
 * Internal Operations
 * External Affairs
 
 ### Lifecycle of a [CHT Application]({{% ref "/running-programs/#cht-lifecycle" %}}) being built
-1. Programs team starts relationship with an organization
-1. Service designers and app developers figure out how they want their system to work
-1. App developers take latest version of the CHT and build the app for the organization
-1. Android flavor deployed to get branded app onto CHW devices / deployment
-1. Dashboards are set up in Klipfolio, Superset or Grafana
+1. Programs team starts relationship with an organization.
+1. Service designers and app developers figure out how they want their system to work.
+1. App developers take latest version of the CHT and build the app for the organization.
+1. Android flavor deployed to get branded app onto CHW devices / deployment.
+1. Dashboards are set up in Klipfolio, Superset or Grafana.
 1. Go!
-1. App developers make ongoing enhancements
-1. App upgraded as new versions of CHT are available
+1. App developers make ongoing enhancements.
+1. App upgraded as new versions of CHT are available.
+
+### CHT Academy
+* [Fantastic way](https://academy.communityhealthtoolkit.org/) to understand how certain features of the CHT work.
 
 ## Now, all the things…
 ### People/Team
 
 #### Distributed team 
-* Without some effort, it’s easy for things to feel lonely or isolated
-* Default to asynchronous communications
-* Respect teammate timezones (including your own!)
+* Without some effort, it’s easy for things to feel lonely or isolated.
+* Default to asynchronous communication.
+* Respect teammate timezones (including your own!).
 
 #### Expensify
-* Follow up to make sure things get through 
+* Reach out to Internal Operations team for guidance on how to submit expenses and get refunded. When submitting expenses, follow up to make sure things get through.  
 
 #### Funding
-* Restricted - Clicktime
+* Restricted - Clicktime. Getting our ClickTime timesheets submitted on time is vital to source the projects adequately. If necessary, take extra steps to remind yourself of submitting these on a monthly basis. If you have any question about filling in the reports properly, reach out to the finance team.
 * Unrestricted
 
 #### Travel 
-* Meetups at your own risk are fine
+* Team Meetups are a great way to build relations with your team! These are usually planned weeks ahead; if you feel comfortable joining, please do!
+* Focused Working Groups team members regurarly organize in-person meetups to meet with the people they serve. It's highly recommended to join those trips to get more connected to the team and the mission! 
 
 #### Meetings
-* A few mandatory calls
-* Organization-wide calls are recorded
-* No recurring meetings on Fridays
+* There a few calls where you will be required to join. We know that depending on your timezone, you might need to adjust your calendar to be able to attend and we provide great flexibility to do so. 
+* Organization-wide calls are recorded.
+* No meetings on Fridays, as we consider Fridays as Deep Work days! 
 * Retrospective sessions
-* Daily Standups available in 2 timezones.
+* Daily Standups available in 2 timezones
 * Weekly Focused Working Groups meetings
+* Weekly 1-to-1s with your manager
 
 ### Process
 
 #### Development
-* Basic current process:
-1. Take ticket (GitHub issue from your Focused Working Group's board)
-1. Code something up on a branch
-1. Open pull request add the QA engineer and another developer as reviewers.
-1. Move ticket to “Ready for AT (Acceptance Testing)”
-1. Upon testing passing, merge and delete branch
-1. Get QA engineers involved early in the process!
-* Releases
-1. Backwards compatibility matters a lot, so CHWs can keep using the app and delivery care to their community without interruptions. 
-1. Can feel slow at times, but we’re making a lot of progress here. See above about how Focused Groups work.
-1. Quality matters a lot
-* Data engineering -> software engineering
-  * Workflow management 
-  * Dashboards
-* The main repos to look at:
+* [Current development process]({{% ref "contribute/code/workflow" %}}). Keep in mind to involve [Quality Assistance]({{% ref "contribute/medic/product-development-process/quality-assistance" %}}) from the start. 
+* [Releasing]({{% ref "contribute/code/releasing" %}})
+* Backwards compatibility matters a lot, so CHWs can keep using the app and delivery care to their community without interruptions. 
+* It can feel slow at times, but we’re making a lot of progress here. See below about how Focused Working Groups work.
+* Quality matters a lot!
+* [Data Flow]({{% ref "core/overview/data-flows-for-analytics" %}})
+* [Monitoring & Alerting]({{% ref "apps/guides/hosting/monitoring" %}})
+* The main repositories to look at:
   * cht-core
   * cht-conf
   * cht-android 
   * cht-sync 
-  * couch2pg
   * cht-pipeline
-  * cht-sync
-  * cht-monitoring
+  * couch2pg
+  * cht-watchdog
 * Continuous Integration (CI) with GitHub Actions
-* No CD, as no SaaS setup
+* No Continuous Deployment, as no SaaS setup
+* Sonar for [Code Static Analysis]({{% ref "contribute/code/static-analysis" %}})
+* [Technical resources & learning material]({{% ref "contribute/medic/onboarding/technical-resources" %}}) for CHT contributors.
 
 #### GitHub 
-* Tons of stuff happens here.
+* Tons of things happen here.
 * Recommendation: [Set up your reminders/notifications](https://medic.slack.com/archives/C024KTGRW/p1617308776092600) 
 * A few important boards: 
   * [SRE Engineering](https://github.com/orgs/medic/projects/38)
@@ -98,26 +98,26 @@ Meet the [Medic team](https://medic.org/team/)!
   * [Ecosystem Workstream](https://github.com/orgs/medic/projects/134/views/11)
   * [Allies Workstream](https://github.com/orgs/medic/projects/134/views/3)
   * [Care Teams Workstream](https://github.com/orgs/medic/projects/134/views/2)
+  * [Infrastructure Workstream](https://github.com/orgs/medic/projects/134/views/26)
   * [Test Automation](https://github.com/orgs/medic/projects/134/views/12)
 
-#### QA
-* Doing a lot of automation
-* We moved from manual AT and release testing to fully automated
-* We do [quality assistance]({{% ref "quality-assistance" %}})
+#### Quality Assistance
+* High emphasis on automation
+* We moved from manual AT (acceptance testing) and release testing to fully automated
+* We leverage [quality assistance]({{% ref "quality-assistance" %}})
   * Faster start-to-live 
-  * Avoiding silos and shifting of responsibilities (coding and quality)
+  * Avoiding silos and shifting of responsibilities (coding and quality).
 
-#### SRE
+#### SRE (Site Reliability Engineering)
 * Support
 * Ticketing system: only GitHub
 * Not on-call
-* We’re offline first, so not every outage calls for immediate action/resolution
-* Engineering work - Archv3 (cht-core 4.0 version)
+* We’re offline first, so not every outage calls for immediate action/resolution.
 
 ### Product
 #### [CHT Forum](https://forum.communityhealthtoolkit.org/)
-* We’re trying to keep this active
-* Encourage teammates to post and answer questions there instead of slack when the public might benefit
+* We’re trying to keep the Forum active
+* Encourage teammates to post and answer questions there instead of Slack when the community might benefit
 * Expecting you to be proactive and support the team with checking forum posts and helping when questions arise
 
 #### Partners
@@ -133,3 +133,8 @@ Meet the [Medic team](https://medic.org/team/)!
     * Care Teams
     * Infrastructure
     * Ecosystem
+
+#### Technology Radars
+* A [Technology Radar]({{% ref "contribute/tech-radar" %}}) is a compilation of technologies and their adoption status in the context of the CHT. When in doubt of using a certain technology or feature of the CHT, check the radars for their adoption status.
+  * [CHT Technology Radar for Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/index.html)
+  * [CHT Technology Radar for Implementers](https://docs.communityhealthtoolkit.org/cht-tech-radar-implementers/index.html).
