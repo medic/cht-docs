@@ -56,7 +56,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * A few mandatory calls
 * Organization-wide calls are recorded
 * No recurring meetings on Fridays
-* Retros - MetroRetro
+* Retrospective sessions
 * 2 Daily Standups
 * Weekly FWG meetings
 
