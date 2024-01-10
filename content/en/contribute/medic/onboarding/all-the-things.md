@@ -64,7 +64,7 @@ Meet the [Medic team](https://medic.org/team/)!
 
 #### Development
 * Basic current process:
-1. Take ticket (GitHub issue from a board)
+1. Take ticket (GitHub issue from your Focused Working Group's board)
 1. Code something up on a branch
 1. Open pull request
 1. Move ticket to “Ready for AT (Acceptance Testing)”
