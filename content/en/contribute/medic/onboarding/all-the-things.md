@@ -14,7 +14,7 @@ This page is meant to serve as a point of conversation, with a wide range of top
 * Why the [CHT (Community Health Toolkit)]({{% ref "/why-the-cht" %}})?
 * The [CHT Core Framework]({{% ref "/core" %}}) - App that can be accessed in the [browser](https://docs.communityhealthtoolkit.org/core/overview/architecture/#cht-web-application) or as [PWA](https://docs.communityhealthtoolkit.org/core/overview/pwa/) or [native Android app](https://docs.communityhealthtoolkit.org/core/overview/architecture/#cht-android).
 * [Offline-First]({{% ref "/core/overview/offline-first" %}}) - for real
-* [Community](https://communityhealthtoolkit.org/) of people and organizations
+* [Community](https://communityhealthtoolkit.org/) of people and organizations. This is where we document all the things about the CHT Framework. Bookmark it as you primary source of reference. 
 
 ### Teams at Medic
 Meet the [Medic team](https://medic.org/team/)!
