@@ -1,7 +1,7 @@
 ---
 title: "Product Team"
 linkTitle: "Product Team"
-weight: 3
+weight: 1
 description: >
   Introduction to Product Team 
 ---
