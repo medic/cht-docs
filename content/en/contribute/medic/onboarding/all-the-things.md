@@ -57,7 +57,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * Organization-wide calls are recorded
 * No recurring meetings on Fridays
 * Retrospective sessions
-* 2 Daily Standups
+* Daily Standups available in 2 timezones.
 * Weekly FWG meetings
 
 ### Process
