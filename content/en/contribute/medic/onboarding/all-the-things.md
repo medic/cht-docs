@@ -37,7 +37,7 @@ Meet the [Medic team](https://medic.org/team/)!
 ## Now, all the things…
 ### People/Team
 
-#### Distributed things 
+#### Distributed team 
 * Without some effort, it’s easy for things to feel lonely or isolated
 * Default to asynchronous things
 * Respect teammate timezones (including your own!)
