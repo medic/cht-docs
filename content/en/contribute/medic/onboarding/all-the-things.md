@@ -66,7 +66,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * Basic current process:
 1. Take ticket (GitHub issue from your Focused Working Group's board)
 1. Code something up on a branch
-1. Open pull request
+1. Open pull request add the QA engineer and another developer as reviewers.
 1. Move ticket to “Ready for AT (Acceptance Testing)”
 1. Upon testing passing, merge and delete branch
 1. Get QA engineers involved early in the process!
