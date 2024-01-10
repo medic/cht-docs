@@ -102,8 +102,8 @@ Meet the [Medic team](https://medic.org/team/)!
 
 #### QA
 * Doing a lot of automation
-* Trying to move from manual AT and release testing to fully automated
-* Trying out [quality assistance]({{% ref "quality-assistance" %}})
+* We moved from manual AT and release testing to fully automated
+* We do [quality assistance]({{% ref "quality-assistance" %}})
   * Faster start-to-live 
   * Avoiding silos and shifting of responsibilities (coding and quality)
 
