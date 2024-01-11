@@ -63,7 +63,7 @@ This area contains three columns that are pasted after running an import as show
 #### **Spreadsheet Area 2**
 
 Data in this area is pre populuted based on data input in Area 1. This area contains the following columns:
-1. `username`: This column contains the username that the user will use to log into the application
+1. `username`: this column contains the username that the user will use to log into the application
 2. `Parent-Place:excluded`: this column contains the parent place of the user place that will be created. This is a dropdown that is populated from the items indicated in the contact vlookup spreadsheet
 3. `User-Place-Type:excluded`: this column contains the type of user place to be created. This is a dropdown that is populated from the items indicated in the place vlookup spreadsheet
 4. `contact.first_name`: this column contains the first name of the user to be created
@@ -73,6 +73,9 @@ Data in this area is pre populuted based on data input in Area 1. This area cont
 8. `email`: this column contains the email of the user to be created. This is an optional field
 9. `contact.meta.created_by`: this column contains metadata on the person who created the user. This is an optional field
 10. `token_login`: this column indicates whether the user should be sent login credentials via SMS as a link
+11. `contact.type` or `place.type`: this column when creating a user, is logged as contact, other possible values are district_hospital, health_center, clinic, and person
+12. `contact.contact_type` or `place.contact_type`: this column defines the type of contact being created depending on the  deployment's configuration. It should match one of the contact types defined in the config's contact_types field
+13.  `type`: this column contains the role of the contact
 
 #### **Spreadsheet Area 3**
 
@@ -81,7 +84,7 @@ While this is needed to create a user, it is intentionally not editable and you 
 
 ![bulk user import spreadsheet warning](users-spreadsheet-warning.png)
 
-However, for the mapping to occur as expected, you may edit the fields; `contact.role`, `contact.contact_type`, `place.contact_type` and `type` to match those in you app_settings.json file.
+However, for the mapping to occur as expected, you may edit the fields; `contact.role`, `contact.contact_type`, `place.contact_type` and `type` to match your deployment's configuration.
 
 Do not edit column headers in row 1. They are needed by the CHT to identify which data is in it. Changing the names will result in errors or missing data in the CHT.
 
@@ -119,7 +122,7 @@ In this example the "Penda Ouedraogo" place has gotten an updated UUID starting 
 8. Download the status file
 ![download the status file](importing-users-download-status-file.png)
 
-9. Transfers errors back into spreadsheet. Make sure you copy all three columns A, B and C.
+9. Transfer errors back into spreadsheet. Make sure you copy all three columns A, B and C.
 The usernames in column C must match those in column D of the original spreadsheet.
 ![transfers errors back into spreadsheet](importing-users-transfer-errors.png)
 
