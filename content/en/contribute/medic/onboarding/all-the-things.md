@@ -116,7 +116,7 @@ Meet the [Medic team](https://medic.org/team/)!
 
 ### Product
 #### [CHT Forum](https://forum.communityhealthtoolkit.org/)
-* We’re trying to keep the Forum active
+* We keep the forum active. It's a great place to talk with people working with the CHT.
 * Encourage teammates to post and answer questions there instead of Slack when the community might benefit
 * Expecting you to be proactive and support the team with checking forum posts and helping when questions arise
 
