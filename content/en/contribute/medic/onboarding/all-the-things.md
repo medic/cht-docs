@@ -55,7 +55,7 @@ Meet the [Medic team](https://medic.org/team/)!
 
 #### Travel 
 * Team Meetups are a great way to build relations with your team! These are usually planned weeks ahead; if you feel comfortable joining, please do!
-* Focused Working Groups team members regurarly organize in-person meetups to meet with the people they serve. It's highly recommended to join those trips to get more connected to the team and the mission! 
+* Focused Working Groups team members may sometimes organize in-person meetups to meet with the people they serve. It's highly recommended to join those trips to get more connected to the team and the mission! 
 
 #### Meetings
 * There a few calls where you will be required to join. We know that depending on your timezone, you might need to adjust your calendar to be able to attend and we provide great flexibility to do so. 
