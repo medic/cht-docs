@@ -7,7 +7,7 @@ description: >
   
 ---
 
-Apps built with the Core Framework runs on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
+Apps built with the Core Framework run on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
 
 ## Hardware & Software Requirements
 
