@@ -62,7 +62,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * Organization-wide calls are recorded.
 * No meetings on Fridays, as we consider Fridays as Deep Work days! 
 * Retrospective sessions
-* Daily Standups available in 2 timezones
+* Daily Standups available in 2 timezones (pick the one that suits you best)
 * Weekly Focused Working Groups meetings
 * Weekly 1-to-1s with your manager
 
