@@ -77,13 +77,13 @@ Meet the [Medic team](https://medic.org/team/)!
 * [Data Flow]({{% ref "core/overview/data-flows-for-analytics" %}})
 * [Monitoring & Alerting]({{% ref "apps/guides/hosting/monitoring" %}})
 * The main repositories to look at:
-  * cht-core
-  * cht-conf
-  * cht-android 
-  * cht-sync 
-  * cht-pipeline
-  * couch2pg
-  * cht-watchdog
+  * [cht-core](https://github.com/medic/cht-core)
+  * [cht-conf](https://github.com/medic/cht-conf)
+  * [cht-android](https://github.com/medic/cht-android) 
+  * [cht-sync](https://github.com/medic/cht-sync) 
+  * [cht-pipeline](https://github.com/medic/cht-pipeline)
+  * [couch2pg](https://github.com/medic/couch2pg)
+  * [cht-watchdog](https://github.com/medic/cht-watchdog)
 * Continuous Integration (CI) with GitHub Actions
 * No Continuous Deployment, as no SaaS setup
 * Sonar for [Code Static Analysis]({{% ref "contribute/code/static-analysis" %}})
