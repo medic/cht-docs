@@ -38,7 +38,7 @@ insert diagram
 
 ### Reporting, referral and follow up of patients
 
-During a household visit, a CHP uses the pharmacovigilance app to assess household members for suspected severe adverse reactions from medication usage or recent vaccinations/immunisations. Using the assessment form a CHP records any suspicious issues   with the medication, such as unusual colour, smell, or packaging and adverse drug effects from medication and immunizations.
+During a household visit, a CHP uses the pharmacovigilance app to assess household members for suspected severe adverse reactions to medication or recent vaccinations/immunizations. Using the assessment form, a CHP records any suspicious issues with the medication, such as unusual colour, smell, or packaging and adverse drug effects from medication and immunizations.
 
 A public report task is generated for a CHA once a CHP submits a suspected case of adverse reaction. The public report form captures information about the adverse effects and medication including side effects, onset date, and current status of the reaction. Additionally, the form captures medication details such as name of the medicine, manufacturer, purchase location, start date, stop date, and expiry date. In case of a variety of medicines, the form allows a CHA to perform multiple entries. 
 
