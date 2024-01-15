@@ -50,7 +50,7 @@ insert diagram
 
 ### Death reporting and confirmation workflow
 
-A CHP uses the assessment form to report a death caused by an adverse drug reaction, vaccination/immunisation, or poor quality medicine; submission of a death report triggers a death confirmation task for a CHA.
+A CHP uses the assessment form to report a death caused by an adverse drug reaction, vaccination/immunization, or poor quality medicine; submission of a death report triggers a death confirmation task for a CHA.
 
 ```
 insert diagram
