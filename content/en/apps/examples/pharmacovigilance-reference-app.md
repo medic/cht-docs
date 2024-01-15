@@ -11,7 +11,7 @@ relatedContent: >
 ## Problem Being Addressed
 Self-medication, unregulated medical products, and counterfeit drugs have led to a significant increase in the prevalence of adverse drug reactions (ADRs), adverse effects following Immunization (AEFI), and the proliferation of poor-quality health products and technologies. ADRs are a common cause of hospital admissions and contribute to patient mortality, placing a substantial economic burden on resource-limited healthcare systems, especially in African countries.
 
-Need for Pharmacovigilance:  Pharmacovigilance focuses on the detection, assessment, understanding and prevention of adverse effects and other potential drug-related problems. Pharmacovigilance facilitates early detection of unknown adverse reactions, identifies increases in the frequency of known adverse reactions and helps to disseminate information to improve drug prescribing and regulation. To address these challenges, there is a crucial need for a robust pharmacovigilance system that enables the detection, reporting, and mitigation of adverse drug reactions and incidents.
+Need for Pharmacovigilance:  Pharmacovigilance focuses on the detection, assessment, understanding and prevention of adverse effects and other potential drug-related problems. Pharmacovigilance facilitates early detection of unknown adverse reactions, identifies increases in frequency of known adverse reactions and helps disseminate information to improve drug prescription and regulation. To address these challenges, there is a crucial need for a robust pharmacovigilance system that enables the detection, reporting, and mitigation of adverse drug reactions and incidents.
 
 ## Solution Overview
 
