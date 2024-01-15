@@ -68,7 +68,7 @@ Convert and build the contact forms into your application using the `convert-con
 
 > `cht --local convert-contact-forms upload-contact-forms`
 
-For examples on how to structure the above files you can have a look at the sample configurations in CHT-core: [default](https://github.com/medic/cht-core/tree/master/config/default/forms/contact) and [standard](https://github.com/medic/cht-core/tree/master/config/standard/forms/contact).
+For examples on how to structure the above files you can have a look at the [default](https://github.com/medic/cht-core/tree/master/config/default/forms/contact) configuration in CHT-core.
 
 ## Creating person and place contacts in the same form
 
