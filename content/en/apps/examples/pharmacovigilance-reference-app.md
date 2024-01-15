@@ -15,7 +15,7 @@ Need for Pharmacovigilance:  Pharmacovigilance focuses on the detection, assessm
 
 ## Solution Overview
 
-The CHT Pharmacovigilance Reference app is designed and developed by [IntelliSOFT Consulting LTD](https://www.intellisoftkenya.com/). Components of Kenya’s Pharmacovigilance Electronic Reporting System have been integrated into the Community Health Toolkit (CHT) to support community health providers (CHPs) and Community Health Assistants (CHAs) to efficiently identify, report, refer and manage adverse drug reactions and AEFI while delivering healthcare. 
+The CHT Pharmacovigilance Reference app is designed and developed by [IntelliSOFT Consulting LTD](https://www.intellisoftkenya.com/). Components of Kenya’s Pharmacovigilance Electronic Reporting System have been integrated into the Community Health Toolkit (CHT) to support community health providers (CHPs) and Community Health Assistants (CHAs) to efficiently identify, report, refer and manage ADRs and AEFI while delivering healthcare. 
 
 In the spirit of openness and as a contribution to the CHT open source project, Medic and IntelliSOFT have coordinated to release the source code and the workflows documentation of the CHT Pharmacovigilance Reference app.
 This reference app provides an example app that other CHT Implementers can learn how they can build pharmacovigilance workflows to help improve patient safety for community members they serve
