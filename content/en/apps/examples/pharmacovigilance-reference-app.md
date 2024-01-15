@@ -36,7 +36,7 @@ insert diagram
 
 ## Pharmacovigilance workflows
 
-### Pharmacovigilance workflow that supports reporting, referral and follow up of patients
+### Reporting, referral and follow up of patients
 
 During a household visit, a CHP uses the pharmacovigilance app to assess household members for suspected severe adverse reactions from medication usage or recent vaccinations/immunisations. Using the assessment form a CHP records any suspicious issues   with the medication, such as unusual colour, smell, or packaging and adverse drug effects from medication and immunizations.
 
