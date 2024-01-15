@@ -44,7 +44,7 @@ Conversely to bring data into the CHT, OpenHIM is configured to route the update
 - [FHIR](http://www.hl7.org/fhir): FHIR is a standard for exchanging healthcare data electronically. FHIR provides a modern, web-based approach to exchanging healthcare data and is rapidly becoming the preferred standard for healthcare interoperability.
 
 A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/cht-interoperability). 
-This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the [OpenHIE LTFU Guide](https://wiki.ohie.org/display/CP/Use+Case+Summary%3A+Request+Community+Based+Follow-Up). 
+This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the OpenHIE LTFU Guide. 
 
 ## Frequently Asked Questions
 
