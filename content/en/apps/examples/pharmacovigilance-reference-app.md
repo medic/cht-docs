@@ -24,7 +24,7 @@ This reference app serves as an example application that other CHT Implementers 
 
  1. Adverse Drug Reactions (ADRs): detect and report ADRs resulting from pharmaceutical products.
  2. Adverse Effects Following Immunization (AEFI): monitor and report adverse effects following immunization.
- 3. Poor Quality Health Products and Technologies: identify and report incidents related to the use of poor-quality health products and technologies
+ 3. Poor Quality Health Products and Technologies: identify and report incidents related to the use of poor-quality health products and technologies.
  4. Death  Monitoring: Monitor, identify, report and record deaths resulting from monitored conditions within household members in the Pharmacovigilance application
   
 
