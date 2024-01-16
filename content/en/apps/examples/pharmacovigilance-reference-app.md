@@ -52,3 +52,14 @@ The CHA also uses the public report to record  outcome details, including outcom
 A CHP uses the assessment form to report a death caused by an adverse drug reaction, vaccination/immunization, or poor quality medicine; submission of a death report triggers a death confirmation task for a CHA.
 
 {{< figure src="deathReportingConfirmation.png" link="deathReportingConfirmation.png" class="right col-12 col-lg-12" >}}
+
+## Resources to Get Started
+
+Here are a few additional resources to help get you started with the pharmacovigilance health reference application.
+
+- View the [configuration code for this reference app](https://github.com/medic/cht-accelerator/tree/main/IntelliSOFT/Example%20CHT%20application/cht_pvers)
+- Install the reference app following these [easy installation instructions]({{< ref "apps/tutorials/local-setup" >}})
+- Modify the pharmacovigilance reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}})
+
+The open sharing of digital health apps used by CHWs is a monumental milestone in the digital health space, and for the CHT Community. Reach out on the [forum](https://forum.communityhealthtoolkit.org/) to share how you will leverage these resources, along with your feedback and continued innovations that could benefit the larger community.
+
