@@ -281,7 +281,7 @@ The Human Immunodeficiency Virus (HIV) workflow is designed to guide CHWs in HIV
 {{< /workflow-table >}}
 ## Resources to Get Started
 
-Here are a few additional resources to help get you started with the maternal and newborn health reference application.
+Here are a few additional resources to help get you started with the integrated health reference application.
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-pih-malawi-app)
 - Install the reference app following these [easy installation instructions]({{< ref "apps/tutorials/local-setup" >}})
