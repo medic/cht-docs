@@ -52,7 +52,7 @@ There are three sections to the contact spreadsheet:
 
 These three columns are where you paste the results after running an import. See step 8 in "Importing users example" [below](#importing-users-example).
 1. `import.status:excluded`: This field can have three values. Over time, they should all be `imported` or `skipped` as you will have processed all users on the list:
-    <ol type="a">
+    <ul>
       <li><code>imported</code> - This user has already been successfully imported</li>
       <li><code>skipped</code> - This user was skipped</li>
       <li><code>error</code> - Contains errors that were encountered during importation. There was an error importing see import.message:excluded field for more information</li>
