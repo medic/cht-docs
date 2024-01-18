@@ -63,19 +63,19 @@ These three columns are where you paste the results after running an import. See
 #### **Spreadsheet Area 2**
 
 This is where you enter your user data and contains the following columns:
-1. `username`: this column contains the username that the user will use to log into the application
-2. `Parent-Place:excluded`: this column contains the parent place of the user place that will be created. This is a dropdown that is populated from the items indicated in the contact vlookup spreadsheet
-3. `User-Place-Type:excluded`: this column contains the type of user place to be created. This is a dropdown that is populated from the items indicated in the place vlookup spreadsheet
-4. `contact.first_name`: this column contains the first name of the user to be created
-5. `contact.last_name`: this column contains the last name of the user to be created
-6. `contact.sex`: this column contains the gender of the user to be created
-7. `contact.phone`: this column contains the phone number of the user to be created
-8. `email`: this column contains the email of the user to be created. This is an optional field
-9. `contact.meta.created_by`: this column contains metadata on the person who created the user. This is an optional field
-10. `token_login`: this column indicates whether the user should be sent login credentials via SMS as a link
-11. `contact.type` or `place.type`: this column when creating a user, is logged as contact, other possible values are district_hospital, health_center, clinic, and person
-12. `contact.contact_type` or `place.contact_type`: this column defines the type of contact being created depending on the  deployment's configuration. It should match one of the contact types defined in the config's contact_types field
-13.  `type`: this column contains the role of the contact
+1. `username`: username used to log into the application
+2. `Parent-Place:excluded`: existing parent place of the new user place. A drop-down populated from contact vlookup spreadsheet
+3. `User-Place-Type:excluded`: type of user place to be created. A drop-down populated from place vlookup spreadsheet
+4. `contact.first_name`: first name of the new user
+5. `contact.last_name`: last name of the new user
+6. `contact.sex`: sex of the new user
+7. `contact.phone`: phone number of the  new user
+8. `email`: email of the  new user (optional field)
+9. `contact.meta.created_by`: this column contains metadata on the person who created the user (optional field)
+10. `token_login`: whether the user should be sent login credentials via SMS as a link
+11. `contact.type` or `place.type`: when creating a user, is logged as contact. In the case of the [default config](https://github.com/medic/cht-core/tree/master/config/default/), possible values are district_hospital, health_center, clinic, and person
+12. `contact.contact_type` or `place.contact_type`: defines the type of contact being created depending on the deployment's configuration. It should match one of the contact types defined in the config's contact_types field
+13. `type`: role of the contact
 
 #### **Spreadsheet Area 3**
 
