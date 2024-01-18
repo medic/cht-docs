@@ -56,7 +56,7 @@ These three columns are where you paste the results after running an import. See
       <li><code>imported</code> - This user has already been successfully imported</li>
       <li><code>skipped</code> - This user was skipped</li>
       <li><code>error</code> - Contains errors that were encountered during importation. There was an error importing see import.message:excluded field for more information</li>
-    </ol>
+    </ul>
 3. `import.message:excluded`: The status of the last import. For example, `Imported successfully` or `Username 'mrjones' already taken`
 4. `import.username:excluded`: Use this column to ensure you're matching the response with the correct user in the contact.username to the right
 
