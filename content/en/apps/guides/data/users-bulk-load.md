@@ -62,7 +62,7 @@ These three columns are where you paste the results after running an import. See
 
 #### **Spreadsheet Area 2**
 
-Data in this area is pre populuted based on data input in Area 1. This area contains the following columns:
+This is where you enter your user data and contains the following columns:
 1. `username`: this column contains the username that the user will use to log into the application
 2. `Parent-Place:excluded`: this column contains the parent place of the user place that will be created. This is a dropdown that is populated from the items indicated in the contact vlookup spreadsheet
 3. `User-Place-Type:excluded`: this column contains the type of user place to be created. This is a dropdown that is populated from the items indicated in the place vlookup spreadsheet
