@@ -113,7 +113,7 @@ Quality gates are used to define the criteria that must be met for a Sonar analy
 
 | Metric                     | Operator        | Value |
 |----------------------------|-----------------|-------|
-| Duplicated Lines (%)       | is greater than | 3.0%  |
+| Duplicated Lines (%)       | is greater than | 6.0%  |
 | Issues                     | is greater than | 0     |
 | Reliability Rating         | is worse than   | A     |
 | Security Hotspots Reviewed | is less than    | 100%  |
