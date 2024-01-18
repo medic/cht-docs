@@ -260,9 +260,8 @@ Once all PRs have been approved:
 1. Write a useful commit message in the PR using the [commit message format]({{< ref "#commit-message-format" >}}).
 2. Click the button to "Squash and Merge" the PR.
 3. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
-4. Close the issue. This will automatically move it to "Done".
-
-Once all PRs has been approved merge them to the main branch and close the issue.
+4. Ensure the issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
+5. Once all PRs have been merged, close the issue. This will automatically move it to "Done".
 
 ### Done
 
