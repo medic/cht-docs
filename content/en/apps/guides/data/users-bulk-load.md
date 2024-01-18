@@ -27,7 +27,7 @@ Steps to bulk load users:
 ## Workbook Instructions
 The workbook contains a varying number of spreadsheets depending on the hierarchy in question. Users with different roles are placed in different spreadsheets as shown in the templates below. For example when creating users with chw and chw_supervisor roles, you will have "contact.chw", "contact.chw_VLOOKUP", "contact.chw_supervisor" and "contact.chw_supervisor_VLOOKUP" spreadsheets. These pair per role spreadsheets contain actual data on users and parent place data respectively.
 
-There is another spreadsheet; "place.type_VLOOKUP", which is required when creating user accounts, contacts and their places. This spreadsheet defines the name and type of places in your hierarchy and should match those in the app_settings.json file. Note that you will need to create the parent place before importing the users.
+There is another spreadsheet, "place.type_VLOOKUP", which is required when creating user accounts, contacts and their places. This spreadsheet defines the name and type of places in your hierarchy and should match those in the app_settings.json file. Note that you will need to create the parent place before importing the users.
 
 To get started, there are three different workbook templates available that are compatible with the `default` configuration of the CHT, they cater for use cases that you might encounter when creating users in bulk.  You will notice some columns have an `:excluded` suffix. These are columns that are ignored by the API and allow addition of autocomplete and data validation within the spreadsheet to make it easier to work with.
 
