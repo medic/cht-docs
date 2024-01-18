@@ -42,7 +42,7 @@ We will use the second use case to create user accounts and their contacts in th
 The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#get-apiv1users" >}}) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
 Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
 
-Contact spreadsheets are named according to the user role, for example when creating users who are chws and others who are chw_supervisors, the following contact spreadsheets are populated respectively; "contact.chw" and "contact.chw_supervisor".
+Contact spreadsheets are named according to the user role, for example when creating users who are chws and others who are chw_supervisors, the following contact spreadsheets are populated respectively: "contact.chw" and "contact.chw_supervisor".
 
 There are three sections to the contact spreadsheet:
 
