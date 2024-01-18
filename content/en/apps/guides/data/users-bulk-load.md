@@ -84,7 +84,7 @@ While this is needed to create a user, it is intentionally not editable and you 
 
 ![bulk user import spreadsheet warning](users-spreadsheet-warning.png)
 
-However, for the mapping to occur as expected, you may edit the fields; `contact.role`, `contact.contact_type`, `place.contact_type` and `type` to match your deployment's configuration.
+However, for the mapping to occur as expected, you may edit the fields `contact.role`, `contact.contact_type`, `place.contact_type` and `type` to match your deployment's configuration.
 
 Do not edit column headers in row 1. They are needed by the CHT to identify which data is in it. Changing the names will result in errors or missing data in the CHT.
 
