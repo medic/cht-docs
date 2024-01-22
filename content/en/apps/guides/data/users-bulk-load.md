@@ -3,7 +3,7 @@ title: "How to bulk load users"
 linkTitle: "Bulk Load Users"
 weight: 15
 description: >
-  Notes for how to bulk load users
+  How to create users in bulk
 aliases:
   -    /core/guides/users-bulk-load
 relatedContent: >
@@ -13,66 +13,78 @@ relatedContent: >
 
 ---
 
-This quick guide will walk you through the steps of:
+{{% pageinfo %}} The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
 
-1. Populating a spreadsheet to with the users you want to import. Uses Google Sheets.
-2. Upload the new users using the Admin UI in the CHT.
-3. Handling any errors that may have occurred during import.
+This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.{{% /pageinfo %}}
+
+Steps to bulk load users:
+
+1. Using Google Sheets, populate a spreadsheet with the users to be imported.
+2. Import the new users using the Admin UI in the CHT.
+3. Handle any errors that may occur during importation.
 4. When done, you will have created new users, new contacts and new places, all of which are correctly associated in CouchDB with the correct UUIDs.
 
-As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place.
+## Workbook Instructions
+The workbook contains a varying number of spreadsheets depending on the hierarchy in question. Users with different roles are placed in different spreadsheets as shown in the templates below. For example when creating users with chw and chw_supervisor roles, you will have "contact.chw", "contact.chw_VLOOKUP", "contact.chw_supervisor" and "contact.chw_supervisor_VLOOKUP" spreadsheets. These pair per role spreadsheets contain actual data on users and parent place data respectively.
 
-{{% pageinfo %}}
-This guide shows how to import users from a spreadsheet from within the Admin Console.
-User creation can be scripted using the [CHT API]({{< relref "apps/reference/api#post-apiv2users" >}}) directly or
-using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "apps/guides/data/csv-to-docs" >}}).
+There is another spreadsheet, "place.type_VLOOKUP", which is required when creating user accounts, contacts and their places. This spreadsheet defines the name and type of places in your hierarchy and should match those in the app_settings.json file. Note that you will need to create the parent place before importing the users.
 
-The features on this page apply only to CHT 3.16.0 and later and assumes you're using Google Drive to manage your spreadsheets.
-{{% /pageinfo %}}
+To get started, there are three different workbook templates available that are compatible with the `default` configuration of the CHT, they cater for use cases that you might encounter when creating users in bulk.  You will notice some columns have an `:excluded` suffix. These are columns that are ignored by the API and allow addition of autocomplete and data validation within the spreadsheet to make it easier to work with.
 
-## Spreadsheet Instructions
-
-The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#get-apiv1users" >}}) which makes it as powerful and flexible as calling the API directly.  
-Each column in the spreadsheet maps to an object property understood by the Users API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
-
-To get you started, we have made available three different spreadsheets compatible with the `default` configuration of the CHT, one for each use case that you might encounter when creating users in bulk.  You will notice some columns have a `:excluded` suffix. These are columns that are ignored by the API that allows us to add autocomplete and data validation within the spreadsheet to make it easier to reason about.
-
-Click on any of these use cases in the list to make a copy of the spreadsheet for that use case in Google Sheets:
+Click on any of the use cases below to make a copy of the spreadsheet for the use case in question:
 - [when you want to create user accounts only](https://docs.google.com/spreadsheets/d/1zlvF5cWnV2n1rax1bAO2hSBCIxgD0c-5tZ-yh96kwws/copy)
 - [when you want to create user accounts and their contacts](https://docs.google.com/spreadsheets/d/1y6wYqRIWiC2QZA7NaWfolP_Wf9FnSahjYHlL3iDYeJ4/copy)
 - [when you want to create user accounts, their contacts and their places](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy)
 
-We will use the second one to create user accounts and their contacts as an example in the instructions below.
+We will use the second use case to create user accounts and their contacts in the example below.
+## Contact Spreadsheet Instructions
 
-### Spreadsheet
+The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "apps/reference/api#get-apiv1users" >}}) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
+Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "apps/reference/api#post-apiv1users" >}}).
 
-Before using the bulk user upload, please familiarize yourself with the spreadsheet used to manage the users before importing to the CHT.
-Specifically, there are three sections to the sheet:
+Contact spreadsheets are named according to the user role, for example when creating users who are chws and others who are chw_supervisors, the following contact spreadsheets are populated respectively: "contact.chw" and "contact.chw_supervisor".
+
+There are three sections to the contact spreadsheet:
 
 ![bulk user import spreadsheet with areas labeled](users-spreadsheet.png)
 
 #### **Spreadsheet Area 1**
 
-Copy in error messages here after importing. There are three fields:
+These three columns are where you paste the results after running an import. See step 8 in "Importing users example" [below](#importing-users-example).
 1. `import.status:excluded`: This field can have three values. Over time, they should all be `imported` or `skipped` as you will have processed all users on the list:
-    <ol type="a">
+    <ul>
       <li><code>imported</code> - This user has already been successfully imported</li>
       <li><code>skipped</code> - This user was skipped</li>
-      <li><code>error</code> - There was an error importing see import.message:excluded field for more information</li>
-    </ol>
+      <li><code>error</code> - Contains errors that were encountered during importation. There was an error importing see import.message:excluded field for more information</li>
+    </ul>
 3. `import.message:excluded`: The status of the last import. For example, `Imported successfully` or `Username 'mrjones' already taken`
 4. `import.username:excluded`: Use this column to ensure you're matching the response with the correct user in the contact.username to the right
 
 #### **Spreadsheet Area 2**
 
-Enter all data here. Data will be automatically copied for you to columns in area 3.
+This is where you enter your user data and contains the following columns:
+1. `username`: username used to log into the application
+2. `Parent-Place:excluded`: existing parent place of the new user place. A drop-down populated from contact vlookup spreadsheet
+3. `User-Place-Type:excluded`: type of user place to be created. A drop-down populated from place vlookup spreadsheet
+4. `contact.first_name`: first name of the new user
+5. `contact.last_name`: last name of the new user
+6. `contact.sex`: sex of the new user
+7. `contact.phone`: phone number of the  new user
+8. `email`: email of the  new user (optional field)
+9. `contact.meta.created_by`: this column contains metadata on the person who created the user (optional field)
+10. `token_login`: whether the user should be sent login credentials via SMS as a link
+11. `contact.type` or `place.type`: when creating a user, is logged as contact. In the case of the [default config](https://github.com/medic/cht-core/tree/master/config/default/), possible values are district_hospital, health_center, clinic, and person
+12. `contact.contact_type` or `place.contact_type`: defines the type of contact being created depending on the deployment's configuration. It should match one of the contact types defined in the config's contact_types field
+13. `type`: role of the contact
 
 #### **Spreadsheet Area 3**
 
-Do not edit or enter data here. All columns are automatically populated by the spreadsheet logic.
+Columns in this area are automatically populated by the spreadsheet logic.
 While this is needed to create a user, it is intentionally not editable and you will see this error when you try to edit data:
 
 ![bulk user import spreadsheet warning](users-spreadsheet-warning.png)
+
+However, for the mapping to occur as expected, you may edit the fields `contact.role`, `contact.contact_type`, `place.contact_type` and `type` to match your deployment's configuration.
 
 Do not edit column headers in row 1. They are needed by the CHT to identify which data is in it. Changing the names will result in errors or missing data in the CHT.
 
@@ -83,13 +95,13 @@ For example, if a user was imported two weeks ago and the token_login is set to 
 the password will be regenerated and thus be different from the one the user is using to login.
 If a change is made, you can use Google Sheets history ("File" -> "Version History") to retrieve the old value.
 
-## Importing Users
+## Importing users example
 
 1. Create a copy of [this spreadsheet](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy).
-Give it a good name and note its location in Google Drive. You will always come back to your copy of this Sheet whenever you want to add a set of users.
+Give it a descriptive name and note its location in Google Drive. You will always come back to your copy of this Sheet whenever you want to add a set of users.
 
-2. Copy the "contact.chw" and "contact.chw_VLOOKUP" worksheets so that you have a set of the pair per level of your hierarchy.
-If your hierarchy was "Central -> Supervisor -> CHW", you would have 3 pairs (6 worksheets total). Be sure each worksheet is named accurately.
+2. Copy the "contact.chw" and "contact.chw_VLOOKUP" spreadsheets so that you have a set of the pair per level of your hierarchy.
+If your hierarchy was "Central -> Supervisor -> CHW", you would have 3 pairs (6 spreadsheets total). Be sure each spreadsheet is named accurately.
 
 3. Open the spreadsheet and populate your list of parent places that you'd like to use for your users.
 In this example the "Penda Ouedraogo" place has gotten an updated UUID starting with "bcc"
@@ -110,7 +122,7 @@ In this example the "Penda Ouedraogo" place has gotten an updated UUID starting 
 8. Download the status file
 ![download the status file](importing-users-download-status-file.png)
 
-9. Transfers errors back into spreadsheet. Make sure you copy all three columns A, B and C.
+9. Transfer errors back into spreadsheet. Make sure you copy all three columns A, B and C.
 The usernames in column C must match those in column D of the original spreadsheet.
 ![transfers errors back into spreadsheet](importing-users-transfer-errors.png)
 
@@ -134,7 +146,7 @@ You will need to manually add these new places to the spreadsheet so that you ca
 ![navigate in the CHT to the new site](adding-places-cht-new-site.png)
 
 2. Open your existing Google Spreadsheet with your users. Find the hierarchy level you added your new site.
-In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VLOOKUP" worksheet.
+In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VLOOKUP" spreadsheet.
 Add some new rows at the bottom (item 1), enter the new place name in column A (item 2) and paste the UUID in column B (item 3)
 ![open your existing spreadsheet](adding-places-existing-spreadsheet.png)
 
