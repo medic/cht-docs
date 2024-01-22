@@ -50,7 +50,7 @@ Copy your public key and provide it to your Medic contact or RDBMS administrator
 
 Once the RDBMS administrator has added your public SSH key on RDBMS, the administrator will provide you with login credentials to the SSH server as well as for PostgreSQL. 
 
-Verify you can successfully connect to to the SSH server with `ssh -i ~/.ssh/id_rsa <user>@rdbms.dev.medicmobile.org -p 33696`. If your setup is correct, you should login to the server and see the prompt of your terminal change to `<user>@rdbms:~$`
+Verify you can successfully connect to to the SSH server with `ssh -i ~/.ssh/id_rsa <user>@<rdbms host> -p <port>`. If your setup is correct, you should login to the server and see the prompt of your terminal change to `<user>@rdbms:~$`
 
 You should be able to access PostgreSQL from a SQL client using the provided credentials. Some common SQL clients include: [pgAdmin](https://www.pgadmin.org/), [DBeaver](https://dbeaver.io/), [Postico](https://eggerapps.at/postico/).
 
