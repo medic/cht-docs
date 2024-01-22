@@ -54,7 +54,6 @@ These three columns are where you paste the results after running an import. See
 1. `import.status:excluded`: This field can have three values. Over time, they should all be `imported` or `skipped` as you will have processed all users on the list:
     * `imported` - This user has already been successfully imported
     * `skipped` - This user was skipped
-    * `error` - There was an error importing see import.message:excluded field for more information
     * `error` - Contains errors that were encountered during importation. There was an error importing see import.message:excluded field for more information
 2. `import.message:excluded`: The status of the last import. For example, `Imported successfully` or `Username 'mrjones' already taken`
 3. `import.username:excluded`: Use this column to ensure you're matching the response with the correct user in the contact.username to the right
