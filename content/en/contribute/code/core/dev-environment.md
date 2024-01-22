@@ -154,7 +154,7 @@ npm run local-images
 
 After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht-core` project.
 
-Confirm you have these four files in the `local-build` folder: `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
+Confirm you have these three files in the `local-build` folder: `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
 
 Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. 
 
