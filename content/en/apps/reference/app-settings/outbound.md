@@ -180,7 +180,7 @@ Example: you want the system to send outbound pushes based on a cron schedule ev
 
 ```json
 {
-  "cron": "cron: 5 1 * * *"
+  "cron": "5 1 * * *"
 }
 ```
 
