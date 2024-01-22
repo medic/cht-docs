@@ -82,6 +82,11 @@ Install dependencies and perform other setup tasks via an `npm` command. Note th
 npm ci --legacy-peer-deps
 ```
 
+To finalise setting up any remaining dependencies build the project by running: 
+```shell
+npm run build-dev
+```
+
 ### CouchDB
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
@@ -149,11 +154,11 @@ npm run local-images
 
 After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht-core` project.
 
-Confirm you have these four files in the `local-build` folder: `docker-compose.yml`, `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
+Confirm you have these four files in the `local-build` folder: `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
 
 Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. 
 
-In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the `volumes` property, add the following properties and save the changes: 
+In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the first `volumes` property that sets CouchDB, add the following properties and save the changes: 
 
 ```
 ports:
@@ -170,8 +175,8 @@ Set environment variables required by `npm` and `node`
 echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
 echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
 . ~/.$(basename $SHELL)rc
-echo "export COUCH_DB_USER=medic">> ~/.$(basename $SHELL)rc
-echo "export COUCH_DB_PASSWORD=password">> ~/.$(basename $SHELL)rc
+echo "export COUCH_USER=medic">> ~/.$(basename $SHELL)rc
+echo "export COUCH_PASSWORD=password">> ~/.$(basename $SHELL)rc
 ```
 
 In your terminal, navigate inside the `local-build` folder, stop any running Docker containers and start the CHT Docker containers:
