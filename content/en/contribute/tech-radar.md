@@ -28,7 +28,7 @@ We classify each of the items above in one of these rings:
 
 * **Adopt**: The Adopt ring represents tools that you should seriously consider using. We don't say you should use these for every project; one should only use a tool in an appropriate context. However, an item in the Adopt ring represents something where there's no doubt it's proven and mature for use with the CHT.
 * **Trial**: The Trial ring is for tools ready for use but only partially proven as those in the Adopt ring. You should use these on a trial basis to decide whether they should be part of your toolkit. Others may already be using these items in production, likely as early adopters of the tools.
-* **Stop**: The Stop (or Not Recommended) ring is for things we think implementers should avoid using or look for ways to move off of. We place things in the Stop ring that we wish the CHT Community wouldn’t use anymore.
+* **Stop**: The Stop (or Not Recommended) ring is for things we think implementers should avoid using or look for ways to move off of. These include items for which a better alternative is available, or where the item is found to not work correctly with the CHT.
 
 You can learn how to contribute to the CHT Technical Radar for Implementers in the related [GitHub repository](https://github.com/medic/cht-tech-radar-implementers).
 
