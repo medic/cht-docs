@@ -240,7 +240,7 @@ nginx                running  400_deleteme_nginx_1                    public.ecr
 couchdb              running  400_deleteme_couchdb_1                  public.ecr.aws/medic/cht-couchdb:4.4.0-8229-outbound-push
 ```
 
-You can prepend**** the `DEBUG=true` flag like this:
+You can prepend the `DEBUG=true` flag like this:
 
 ```shell
 DEBUG=true ./cht-docker-compose.sh
