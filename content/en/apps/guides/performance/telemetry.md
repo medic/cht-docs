@@ -36,6 +36,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 
 | Field | Description |
 |----|----|
+| `<page>:<component>:apdex:<apdex_level>` | The time taken to load the page in the Apdex level. The tolerance level is `satisfied` when the duration is less or equal than 3s; `tolerable` when the duration is more than 3s but less or equal than 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
 | `boot_time` | The overall boot time including loading the code, purging, and accessing the database. |
 | `boot_time:1:to_first_code_execution` | The time between the page loading and the JavaScript starting to run. |
 | `boot_time:2:to_bootstrap` | The time between JavaScript starting and the bootstrapping (purging, initial replication, etc) to complete. |
@@ -48,18 +49,25 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time:purging_failed` | The purging failed when running on device startup. Added in 3.14. |
 | `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. |
+| `contact_list:load` | The time taken to load contact list. Added in 4.6. |
 | `enketo:reports:<form>:<action>:<component>` | The time taken to fill in Enketo forms. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
 | `enketo:contacts:<form>:<action>:<component>` | As above but for Contact forms. The `action` can either be "add" or "edit". |
 | `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. |
+| `message_list:load` | The time taken to load the list of messages. Added in 4.6. |
 | `search:contacts` | The time taken to list all contacts. |
 | `search:contacts:<filter[:filter]>` | The time taken to search all contacts using the given filters. |
 | `search:reports` | The time taken to list all reports. |
 | `search:reports:<filter[:filter]>` | The time taken to search all reports using the given filters. |
+| `select_contact:<contact_type>:load` | The time taken to load the selected contact. Added in 4.6. |
+| `select_report:<form>:load` | The time taken to load the selected report. Added in 4.6. |
+| `select_conversation:load` | The time taken to load a conversation from the list of messages. Added in 4.6. |
 | `sidebar_filter:reports:open` | Number of times the user opens the sidebar filter in Reports tab. |
 | `client-date-offset` | The difference between the client datetime and the server datetime. Only recorded if the difference is large enough that it may cause issues. |
 | `analytics:targets:load` | The time taken to load the targets page. Added in 3.9 | 
+| `analytics:target_aggregates:load` | The time taken to load the target aggregates. Added in 4.6. |
 | `tasks:load` | The time taken to load the tasks page. Added in 3.9 | 
 | `tasks:refresh` | The time taken to refresh tasks on the tasks page. Added in 3.9 | 
+| `report_list:load` | The time take to load the report list. Added in 4.6. |
 | `rules-engine:initialize` | The time taken to initialize the rules-engine . Added in 3.9 | 
 | `rules-engine:update-emissions` | The time taken to update emissions in the rules-engine, when receiving a change. Added in 3.9 | 
 | `rules-engine:tasks:all-contacts` | The time taken to fetch tasks for all contacts in rules-engine. Added in 3.9 | 
