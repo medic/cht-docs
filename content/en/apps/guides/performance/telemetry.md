@@ -36,7 +36,7 @@ The telemetry data gathered changes with different versions of the framework. Cu
 
 | Field | Description |
 |----|----|
-| `<page>:<component>:apdex:<apdex_level>` | The time taken to load the page in the Apdex level. The tolerance level is `satisfied` when the duration is less or equal than 3s; `tolerable` when the duration is more than 3s but less or equal than 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `<page>:<component>:apdex:<apdex_level>` | The time taken to load the page, categorized by Apdex level. The tolerance level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
 | `boot_time` | The overall boot time including loading the code, purging, and accessing the database. |
 | `boot_time:1:to_first_code_execution` | The time between the page loading and the JavaScript starting to run. |
 | `boot_time:2:to_bootstrap` | The time between JavaScript starting and the bootstrapping (purging, initial replication, etc) to complete. |
