@@ -222,7 +222,13 @@ Also note that this command will use the `sudo` command when deleting the CouchD
 
 #### Debugging
 
-To output extra debug information which shows load average, CHT container count, global container count, and a table of services with their status like this:
+To get debug output while running the docker helper, you can prepend the `DEBUG=true` flag like this:
+
+```shell
+DEBUG=true ./cht-docker-compose.sh
+```
+
+This shows load average, CHT container count, global container count, and a table of services with their status like this:
 
 ```
 ---DEBUG INFO---
@@ -239,16 +245,6 @@ sentinel             running  400_deleteme_sentinel_1                 public.ecr
 nginx                running  400_deleteme_nginx_1                    public.ecr.aws/medic/cht-nginx:4.4.0-8229-outbound-push
 couchdb              running  400_deleteme_couchdb_1                  public.ecr.aws/medic/cht-couchdb:4.4.0-8229-outbound-push
 ```
-
-You can prepend the `DEBUG=true` flag like this:
-
-```shell
-DEBUG=true ./cht-docker-compose.sh
-```
-
-Be sure you want to do this, there is no "are you sure?" prompt and it will delete all your data.
-
-Also note that this command will use the `sudo` command when deleting the CouchDB data, so it may prompt for your password.
 
 ### File locations
 
