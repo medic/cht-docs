@@ -220,6 +220,32 @@ Be sure you want to do this, there is no "are you sure?" prompt and it will dele
 
 Also note that this command will use the `sudo` command when deleting the CouchDB data, so it may prompt for your password.
 
+#### Debugging
+
+To get debug output while running the docker helper, you can prepend the `DEBUG=true` flag like this:
+
+```shell
+DEBUG=true ./cht-docker-compose.sh
+```
+
+This shows load average, CHT container count, global container count, and a table of services with their status like this:
+
+```
+---DEBUG INFO---
+Load: 3.75 2.92 2.93    
+CHT Containers: 7                                                                                
+Global Containers 15                     
+
+Service              Status   Container                               Image     
+cht-upgrade-service  running  400_deleteme-dir-cht-upgrade-service-1  public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest
+haproxy              NA       NA                                      public.ecr.aws/medic/cht-haproxy:4.4.0-8229-outbound-push
+healthcheck          running  400_deleteme_healthcheck_1              public.ecr.aws/medic/cht-haproxy-healthcheck:4.4.0-8229-outbound-push
+api                  running  400_deleteme_api_1                      public.ecr.aws/medic/cht-api:4.4.0-8229-outbound-push
+sentinel             running  400_deleteme_sentinel_1                 public.ecr.aws/medic/cht-sentinel:4.4.0-8229-outbound-push
+nginx                running  400_deleteme_nginx_1                    public.ecr.aws/medic/cht-nginx:4.4.0-8229-outbound-push
+couchdb              running  400_deleteme_couchdb_1                  public.ecr.aws/medic/cht-couchdb:4.4.0-8229-outbound-push
+```
+
 ### File locations
 
 The bash script keeps files in two places:
