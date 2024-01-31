@@ -50,8 +50,9 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. |
 | `contact_list:load` | The time taken to load contact list. Added in 4.6. |
-| `enketo:reports:<form>:<action>:<component>` | The time taken to fill in Enketo forms. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
-| `enketo:contacts:<form>:<action>:<component>` | As above but for Contact forms. The `action` can either be "add" or "edit". |
+| `contact_list:query` | The time taken to query contacts. This includes free text search and sort. Added in 4.6.  |
+| `enketo:reports:<form>:<action>:<component>` | The time taken to fill in app forms that are opened from Reports Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
+| `enketo:contacts:<form>:<action>:<component>` | The time taken to fill contact forms and app forms that are opened from People Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
 | `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. |
 | `message_list:load` | The time taken to load the list of messages. Added in 4.6. |
 | `search:contacts` | The time taken to list all contacts. |
@@ -67,7 +68,8 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `analytics:target_aggregates:load` | The time taken to load the target aggregates. Added in 4.6. |
 | `tasks:load` | The time taken to load the tasks page. Added in 3.9 | 
 | `tasks:refresh` | The time taken to refresh tasks on the tasks page. Added in 3.9 | 
-| `report_list:load` | The time take to load the report list. Added in 4.6. |
+| `report_list:load` | The time taken to load the report list. Added in 4.6. |
+| `report_list:query` | The time taken to query reports. This includes free text search and filters. Added in 4.6 |
 | `rules-engine:initialize` | The time taken to initialize the rules-engine . Added in 3.9 | 
 | `rules-engine:update-emissions` | The time taken to update emissions in the rules-engine, when receiving a change. Added in 3.9 | 
 | `rules-engine:tasks:all-contacts` | The time taken to fetch tasks for all contacts in rules-engine. Added in 3.9 | 
