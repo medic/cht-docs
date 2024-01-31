@@ -154,11 +154,9 @@ npm run local-images
 
 After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht-core` project.
 
-Confirm you have these three files in the `local-build` folder: `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`
+Confirm you have these three files in the `local-build` folder: `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`.
 
-Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. 
-
-In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the first `volumes` property that sets CouchDB, add the following properties and save the changes: 
+Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the first `volumes` property that sets CouchDB, add the following properties and save the changes: 
 
 ```
 ports:
@@ -169,14 +167,14 @@ expose:
   - "5986"
 ```
 
-Set environment variables required by `npm` and `node`
+Set environment variables required by `npm` and `node`:
 
 ```shell
 echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
 echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
 . ~/.$(basename $SHELL)rc
-echo "export COUCH_USER=medic">> ~/.$(basename $SHELL)rc
-echo "export COUCH_PASSWORD=password">> ~/.$(basename $SHELL)rc
+echo "export COUCHDB_USER=medic">> ~/.$(basename $SHELL)rc
+echo "export COUCHDB_PASSWORD=password">> ~/.$(basename $SHELL)rc
 ```
 
 In your terminal, navigate inside the `local-build` folder, stop any running Docker containers and start the CHT Docker containers:
