@@ -30,13 +30,12 @@ Each aggregate data point has the following fields.
 | `min` | The smallest time recorded in milliseconds. |
 | `max` | The largest time recorded in milliseconds. |
 | `count` | The number of times recorded. |
-| `sumsqr` | The sum of squares of the times recorded in milliseconds. |
+| `sumsqr` | The sum of squares of the times recorded in milliseconds. This is useful to see the variance, for example, a lower sumsqr can be indicative of having data closer together. |
 
 The telemetry data gathered changes with different versions of the framework. Currently, the data points collected are:
 
 | Field | Description |
 |----|----|
-| `<page>:<component>:apdex:<apdex_level>` | The time taken to load the page, categorized by Apdex level. The Apdex leve is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
 | `boot_time` | The overall boot time including loading the code, purging, and accessing the database. |
 | `boot_time:1:to_first_code_execution` | The time between the page loading and the JavaScript starting to run. |
 | `boot_time:2:to_bootstrap` | The time between JavaScript starting and the bootstrapping (purging, initial replication, etc) to complete. |
@@ -49,27 +48,27 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `boot_time:purging_failed` | The purging failed when running on device startup. Added in 3.14. |
 | `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. |
-| `contact_list:load` | The time taken to load contact list. Added in 4.6. |
-| `contact_list:query` | The time taken to query contacts. This includes free text search and sort. Added in 4.6.  |
+| `contact_list:load` | The time taken to load the list of contacts on the left hand side of the Contacts tab. Added in 4.6. |
+| `contact_list:query` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.6.  |
 | `enketo:reports:<form>:<action>:<component>` | The time taken to fill in app forms that are opened from Reports Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
 | `enketo:contacts:<form>:<action>:<component>` | The time taken to fill contact forms and app forms that are opened from People Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |
 | `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. |
-| `message_list:load` | The time taken to load the list of messages. Added in 4.6. |
+| `message_list:load` | The time taken to load the list of messages on the left hand side of the Messages tab. Added in 4.6. |
 | `search:contacts` | The time taken to list all contacts. |
 | `search:contacts:<filter[:filter]>` | The time taken to search all contacts using the given filters. |
 | `search:reports` | The time taken to list all reports. |
 | `search:reports:<filter[:filter]>` | The time taken to search all reports using the given filters. |
-| `select_contact:<contact_type>:load` | The time taken to load the selected contact. Added in 4.6. |
-| `select_report:<form>:load` | The time taken to load the selected report. Added in 4.6. |
-| `select_conversation:load` | The time taken to load a conversation from the list of messages. Added in 4.6. |
+| `select_contact:<contact_type>:load` | On the People tab, the time taken to load a contact, from the time the contact was selected to the time all content for that contact (contact summary, condition cards, reports, tasks, etc...) has fully loaded on the screen. Added in 4.6. |
+| `select_report:<form>:load` | On the Reports tab, the the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.6. |
+| `select_conversation:load` | On the Messages tab, the time taken to load a conversation on the right hand side once has been selected from the list of conversations on the left hand side. Added in 4.6. |
 | `sidebar_filter:reports:open` | Number of times the user opens the sidebar filter in Reports tab. |
 | `client-date-offset` | The difference between the client datetime and the server datetime. Only recorded if the difference is large enough that it may cause issues. |
 | `analytics:targets:load` | The time taken to load the targets page. Added in 3.9 | 
 | `analytics:target_aggregates:load` | The time taken to load the target aggregates. Added in 4.6. |
 | `tasks:load` | The time taken to load the tasks page. Added in 3.9 | 
 | `tasks:refresh` | The time taken to refresh tasks on the tasks page. Added in 3.9 | 
-| `report_list:load` | The time taken to load the report list. Added in 4.6. |
-| `report_list:query` | The time taken to query reports. This includes free text search and filters. Added in 4.6 |
+| `report_list:load` | On the Reports tab, the time taken to load the list of reports on the left hand side. Added in 4.6. |
+| `report_list:query` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.6 |
 | `rules-engine:initialize` | The time taken to initialize the rules-engine . Added in 3.9 | 
 | `rules-engine:update-emissions` | The time taken to update emissions in the rules-engine, when receiving a change. Added in 3.9 | 
 | `rules-engine:tasks:all-contacts` | The time taken to fetch tasks for all contacts in rules-engine. Added in 3.9 | 
@@ -102,6 +101,20 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `enketo:<training-card>:add:quit` | The time from when the training card was rendered to when the user quits the training. Added in 4.2.0 |
 | `geolocation:success` | A successful GPS response with the value showing the accuracy. |
 | `geolocation:failure:<x>` | An unsuccessful GPS response. `x` is a constant matching the [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code) or with one of the following values: `-1` unknown failure, `-2` timeout, or `-3` geolocation services unavailable. |
+| `contact_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the People tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `contact_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display; it is categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `select_contact:<contact_type>:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load a contact; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `enketo:contacts:<form>:contact:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a contact form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `report_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Reports tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `report_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display; it is  categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `select_report:<form>:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the page; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `enketo:reports:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render an app form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `tasks:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Tasks tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `enketo:tasks:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a task form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `analytics:targets:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Targets tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `analytics:target_aggregates:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Target aggregates; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `message_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Messages tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
+| `select_conversation:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load a conversation in the Messages tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
