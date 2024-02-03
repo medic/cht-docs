@@ -47,6 +47,16 @@ Of paramount importance:
 * If you never need to download a plaintext CSV with username and password, ensure the computer also has disk encryption enabled and requires a password to unlock.
 * Delete plaintext CSVs after you have used them for bulk upload. Do not keep plaintext copies on disk - redownload them from the authorized, authenticated cloud server as needed.
 
+## Transmitting credentials
+
+TK - only put in spreadsheet and share direct access. Do not send over Slack, Whatsapp, email or other medium. Use magic link instead.
+
+TK - when not using magic link, what is the realistic way to send credentials to a single user? 
+
+TK - when not using magic link, what is the realistic way to bulk provision 100s of devices without a printed list you can cross off? 
+
+TK - notes about downloading creds from [user management tool](https://github.com/medic/cht-user-management/) per [slack thread](https://medic.slack.com/archives/CHYAGKHN2/p1706744894943699?thread_ts=1706728984.849139&cid=CHYAGKHN2)? 
+
 ## Example scenarios
 
 ### Ideal practice 1: Only Magic Links
