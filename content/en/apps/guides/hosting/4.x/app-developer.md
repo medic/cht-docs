@@ -246,6 +246,29 @@ nginx                running  400_deleteme_nginx_1                    public.ecr
 couchdb              running  400_deleteme_couchdb_1                  public.ecr.aws/medic/cht-couchdb:4.4.0-8229-outbound-push
 ```
 
+#### Troubleshooting
+When you are starting a CHT Core instance using Docker Helper 4.x and don't have any containers created, images downloaded, or storage volumes created - the `*.local-ip.medicmobile.org` TLS certificate fails to install, which leads to a browser `Your connection is not private` message.
+
+To solve this issue, follow the steps below:
+
+1. First, find the name of the `nginx` container with: `docker ps --filter "name=nginx" --format '{{ .Names }}'`.
+2. After cloning the [CHT Core repo](https://github.com/medic/cht-core), `cd` into the `scripts` directory: `cd ./cht-core/scripts`.
+3. Using the container name from the first command, call the script to update the certificate: `./add-local-ip-certs-to-docker-4.x.sh CONTAINER_NAME`.
+
+These three steps look like as following assuming that `CONTAINER_NAME` is equal to `4_3_0_nginx_1`. Note that `CONTAINER_NAME` will be different for each instance of CHT you run with Docker Helper:
+
+```
+$ docker ps --filter "name=nginx"  --format '{{ .Names }}'
+4_3_0_nginx_1
+
+$ cd Documents/MedicMobile/cht-core/scripts/   
+
+scripts $ ./add-local-ip-certs-to-docker-4.x.sh 4_3_0_nginx_1
+4_3_0_nginx_1
+
+If just container name is shown above, a fresh local-ip.medicmobile.org certificate was downloaded fresh local-ip.medicmobile.org.
+```
+
 ### File locations
 
 The bash script keeps files in two places:
