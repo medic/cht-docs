@@ -255,7 +255,7 @@ To solve this issue, follow the steps below:
 2. After cloning the [CHT Core repo](https://github.com/medic/cht-core), `cd` into the `scripts` directory: `cd ./cht-core/scripts`.
 3. Using the container name from the first command, call the script to update the certificate: `./add-local-ip-certs-to-docker-4.x.sh CONTAINER_NAME`.
 
-These three steps look like as following:
+These three steps look like as following assuming that `CONTAINER_NAME` is equal to `4_3_0_nginx_1`. Note that `CONTAINER_NAME` will be different for each instance of CHT you run with Docker Helper:
 
 ```
 $ docker ps --filter "name=nginx"  --format '{{ .Names }}'
