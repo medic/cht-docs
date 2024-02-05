@@ -15,7 +15,7 @@ relatedContent: >
 ---
 
 {{% pageinfo %}}
-The more secure a system is, the harder it is to use. Following this document will achieve the highest level of security. That said, implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
+This document shows how to achieve a high level of security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
 
 No system is perfectly secure - be prepared to remediate a security breach!
 {{% /pageinfo %}}
