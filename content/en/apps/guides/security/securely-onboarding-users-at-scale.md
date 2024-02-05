@@ -44,7 +44,7 @@ Of paramount importance:
 * Audit regularly who has access to the shared spreadsheet. Consider setting up an alert every time a new person is granted access.
 * Reduce the total number of users that need access by breaking up user lists by logical group. For example each sub-county could have its own user spreadsheet. That way the user credentials are only shared with the local administrators who need it.
 * Refrain from printing spreadsheets of users and passwords. They can be lost, stolen or easily photographed when shown in public.
-* If you never need to download a plaintext CSV with username and password, ensure the computer also has disk encryption enabled and requires a password to unlock.
+* If you ever need to download a plaintext CSV with username and password, ensure the computer also has disk encryption enabled and requires a password to unlock.
 * Delete plaintext CSVs after you have used them for bulk upload. Do not keep plaintext copies on disk - redownload them from the authorized, authenticated cloud server as needed.
 
 ## Transmitting credentials
