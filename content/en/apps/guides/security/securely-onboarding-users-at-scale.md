@@ -20,7 +20,7 @@ This document shows how to achieve a high level of security for a CHT deployment
 No system is perfectly secure - be prepared to remediate a security breach!
 {{% /pageinfo %}}
 
-When a CHT deployment will support 100s or even 1000s of users, secure credential management becomes critical. Assuming there's a 10:1 ratio of 4-person families per CHW, this means there's potentially over 40,000 patients in a large CHT instance. Their data is sensitive and should never be viewed, or worse edited, by any unauthorized parties. By following best practices, being aware of and prepared for a worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
+When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Their data is sensitive and should never be viewed, or worse edited, by any unauthorized parties. By following best practices, being aware of and prepared for a worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
 
 ## Before starting
 
