@@ -62,7 +62,7 @@ Users may log out by going to the options menu available in the top right corner
 
 When creating users, the admin has the option to enable a user to login in by simply clicking a link sent via SMS. The link is only valid for 24 hours and can only be used once to log in. This ensures the link is used only by the intended recipient. By clicking the magic link, the user is logged into their project's instance directly, bypassing the need to manually enter a username and password.  
 
-With token login, the password is never known by the admin or the user because the password is changed to a random string after every successful token login. If the user needs to login again, they need to contact the admin so that the admin can either send a new magic link or revert their account back to using a manual login and password.
+With token login, the password is never known by the admin or the user because the password is changed to a random string after every successful token login. If the user needs to login again, they need to contact the admin so that the admin can either send a new magic link or switch their account back to using a manual login and password.
 
 When the token login link is clicked and the app is not installed on the user's phone, it will open in their default browser. If no gateway is set up on the CHT server, the message may be sent via another messaging app. 
 
