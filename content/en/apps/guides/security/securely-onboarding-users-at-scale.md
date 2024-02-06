@@ -65,7 +65,7 @@ Create a spreadsheet with full name, telephone number etc. Included is a usernam
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 
-An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save. At a later time, manually change each user's password as you provision their mobile device. This also prevents a list of passwords from being stored in clear text.
+An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save. Train the users on changing their password after they've logged in for the first time. This ensures if the initial password has leaked it's now no longer useful.
 
 TK - impractical to reset during provisioning? 
 
