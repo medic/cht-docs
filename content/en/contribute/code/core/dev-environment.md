@@ -91,8 +91,6 @@ npm run build-dev
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
-If you are using a MacBook with the new Apple silicon chips (M1, M2 etc, with the ARM architecture) skip to the [CouchDB Setup in 4.x for Apple Silicon Chip](#couchdb-setup-in-4x-for-apple-silicon-chip) section in CouchDB Setup in CHT 4.x.
-
 #### CouchDB Setup in CHT 3.x
 
 Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
@@ -125,7 +123,8 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 
 Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-docker` folder with this code:
 
-```
+{{< tabpane persistLang=false lang=shell >}}
+{{< tab header="Linux (Ubuntu) & Windows (WSL2)" >}}
 mkdir -p ~/cht-docker
 curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
 cat > ~/cht-docker/couchdb-override.yml << EOF
@@ -136,7 +135,22 @@ services:
           - "5984:5984"
           - "5986:5986"
 EOF
-```
+{{< /tab >}}
+{{< tab header="macOS" >}}
+docker build -t couchdb-apple-silicon ~/cht-core/couchdb/.
+mkdir -p ~/cht-docker
+curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
+cat > ~/cht-docker/couchdb-override.yml << EOF
+version: '3.9'
+services:
+    couchdb:
+        image: couchdb-apple-silicon
+        ports:
+            - "5984:5984"
+            - "5986:5986"
+EOF
+{{< /tab >}}
+{{< /tabpane >}}
 
 Now you can start CouchDB. The login for your CHT instance will be `medic` and the `password` will be password:
 
@@ -144,46 +158,6 @@ Now you can start CouchDB. The login for your CHT instance will be `medic` and t
 cd ~/cht-docker 
 COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.yml -f couchdb-override.yml up -d
 ```
-#### CouchDB Setup in 4.x for Apple Silicon Chip
-
-You will need to build the Docker images locally on your machine because the images hosted publicly do not currently support Apple's ARM architecture. While in the root directory of your `cht-core` project:
-
-```shell
-npm run local-images
-```
-
-After the `npm` command completes successfully, a `local-build` folder will be created in the root directory of your `cht-core` project.
-
-Confirm you have these three files in the `local-build` folder: `cht-core.yml`, `cht-couchdb.yml` and `cht-couchdb-clustered.yml`.
-
-Open the project with your favorite text editor, navigate inside the `local-build` folder and update the `cht-couchdb.yml` file with the necessary ports. In the `couchdb` configuration inside the `cht-couchdb.yml` file, right after the first `volumes` property that sets CouchDB, add the following properties and save the changes: 
-
-```
-ports:
-  - "5984:5984"
-  - "5986:5986"
-expose:
-  - "5984"
-  - "5986"
-```
-
-Set environment variables required by `npm` and `node`:
-
-```shell
-echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
-echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
-echo "export COUCHDB_USER=medic">> ~/.$(basename $SHELL)rc
-echo "export COUCHDB_PASSWORD=password">> ~/.$(basename $SHELL)rc
-```
-
-In your terminal, navigate inside the `local-build` folder, stop any running Docker containers and start the CHT Docker containers:
-
-```shell
-cd ~/cht-core/local-build
-docker kill $(docker ps -q)
-docker-compose -f cht-couchdb.yml up -d
-``` 
 
 ### Developing
 
