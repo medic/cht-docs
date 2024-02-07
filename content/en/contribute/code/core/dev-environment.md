@@ -91,8 +91,6 @@ npm run build-dev
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
 
-If you are using a MacBook with the new Apple silicon chips (M1, M2 etc, with the ARM architecture) skip to the [CouchDB Setup in 4.x for Apple Silicon Chip](#couchdb-setup-in-4x-for-apple-silicon-chip) section in CouchDB Setup in CHT 4.x.
-
 #### CouchDB Setup in CHT 3.x
 
 Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
