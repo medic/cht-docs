@@ -58,13 +58,11 @@ Users may log out by going to the options menu available in the top right corner
 
 ## Magic Links for Logging In (Token Login)
 
-{{< figure src="admin.png" link="admin.png" class="right col-6 col-lg-9" >}}
+{{< figure src="enable.token.login.gif" alt="Animated image showing the 'Enable login via SMS link' check box being clicked and 'password' and 'confirm password' fields being hidden" class="right col-6 col-lg-9" >}}
 
-When creating users, the admin has the option to send a user their credentials via SMS using a link. Clicking the link generates a new, random and complex password with a 24-hour expiry. If no gateway is set up, the message may be sent via another messaging app. 
+When creating users, the admin has the option to enable a user to login in by simply clicking a link sent via SMS. When the token login link is clicked and the app is not installed on the user's phone, it will open in their default browser. If no gateway is set up on the CHT server, the message may be sent via another messaging app. The link is only valid for 24 hours and can only be used once to log in. This ensures the link is used only by the intended recipient. By clicking the magic link, the user is logged into their project's instance directly, bypassing the need to manually enter a username and password.  
 
-By clicking the magic link to log in, the user is able to enter their project's instance directly, bypassing the need to enter their username and password. If the app is not installed on their phone, it will open in their default browser.
-
-To recover a password, the user needs to contact the admin so that they may regenerate a new magic link and repeat the workflow. 
+With token login, the password is never known by the admin or the user because the password is changed to a random string after every successful token login. If the user needs to login again, they need to contact the admin so that the admin can either send a new magic link or switch their account back to using a manual login and password.
 
 {{< see-also page="apps/examples/training" >}}
 {{< see-also page="apps/reference/app-settings/token_login" >}}
