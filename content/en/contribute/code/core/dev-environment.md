@@ -87,6 +87,20 @@ To finalise setting up any remaining dependencies build the project by running:
 npm run build-dev
 ```
 
+Every time you run any `npm` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
+
+```shell
+echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
+echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
+. ~/.$(basename $SHELL)rc
+```
+
+To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `nonode@nohost` and `http://medic:password@localhost:5984/medic`:
+
+```shell
+echo $COUCH_NODE_NAME && echo $COUCH_URL
+```
+
 ### CouchDB
 
 CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
@@ -103,20 +117,6 @@ Let's ensure CouchDB is set up with a test `curl` call. This should show "nonode
 
 ```shell
 curl -X GET "http://medic:password@localhost:5984/_membership" | jq
-```
-
-Every time you run any `npm` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
-
-```shell
-echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
-echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
-```
-
-To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `nonode@nohost` and `http://medic:password@localhost:5984/medic`:
-
-```shell
-echo $COUCH_NODE_NAME && echo $COUCH_URL
 ```
 
 #### CouchDB Setup in CHT 4.x
