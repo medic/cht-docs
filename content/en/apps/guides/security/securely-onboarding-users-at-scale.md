@@ -15,7 +15,7 @@ relatedContent: >
 ---
 
 {{% pageinfo %}}
-This document shows how to achieve a high level of security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
+This document shows how to achieve a high level of credential management security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
 
 No system is perfectly secure - be prepared to remediate a security breach!
 {{% /pageinfo %}}
@@ -30,30 +30,30 @@ Firstly, ensure that the CHWs' devices are secure: they all employ disk encrypti
 
 ### Secure administrative users
 
-CHT administrators have the ability to create and delete users and push new configurations to the CHT should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this password. 
+CHT administrators have the ability to create and delete users and push new configurations to the CHT so they should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this password. 
 
 By following these steps, unauthorized people are less likely to be able to access administrator accounts. 
 
 ## Spreadsheet use
 
-Most deployments manage users in a spreadsheet shared either in Google Docs or other cloud service. It is convenient to have a canonical shared location to access the data. This is an acceptable, but not ideal, solution as it ensures user account changes are instantly shared with all CHT admins, but can keep a number of key security requirements. For an ideal solution, [see "Ideal" below](#ideal-1-only-magic-links).
+Most deployments manage users in a spreadsheet shared either in Google Docs or other cloud service. It is convenient to have a canonical shared location to access the data. This is an acceptable, but not ideal, solution as it ensures changes are instantly shared while still ensuring a number of key security requirements. For an ideal solution, [see "Ideal" below](#ideal-1-only-magic-links).
 
 Of paramount importance:
 
 * **Never** enable anonymous access to the URL for the spreadsheet. You **must always require authentication** to access user credential lists
-* Audit regularly who has access to the shared spreadsheet. Consider setting up an alert every time a new person is granted access.
-* Reduce the total number of users that need access by breaking up user lists by logical group. For example each sub-county could have its own user spreadsheet. That way the user credentials are only shared with the local administrators who need it.
-* Refrain from printing spreadsheets of users and passwords. They can be lost, stolen or easily photographed when shown in public.
-* If you ever need to download a plaintext CSV with username and password, ensure the computer also has disk encryption enabled and requires a password to unlock.
-* Delete plaintext CSVs after you have used them for bulk upload. Do not keep plaintext copies on disk - redownload them from the authorized, authenticated cloud server as needed.
+* Audit regularly who has access to the shared spreadsheet. Consider setting up an alert every time a new person is granted access
+* Reduce the total number of users that need access by breaking up user lists by logical group. For example, each sub-county could have its own user spreadsheet. That way the user credentials are only shared with the local administrators who need it
+* Refrain from printing spreadsheets of users and passwords. They can be lost, stolen or easily photographed when shown in public
+* If you ever need to download a plaintext CSV with username and password, ensure the computer also has disk encryption enabled and requires a password to unlock
+* Delete plaintext CSVs after you have used them for bulk upload. Do not keep plaintext copies on disk. Instead, re-download them from the authorized, authenticated cloud server as needed
 
 ## Transmitting credentials
 
-TK - only put in spreadsheet and share direct access. Do not send over Slack, Whatsapp, email or other medium. Use magic link instead.
+When it comes time get a username and password on to a device or to a remote user, be sure to use mediums that are secure. One of the main concerns is credentials being found long after they were sent.
 
-TK - when not using magic link, what is the realistic way to send credentials to a single user? 
-
-TK - when not using magic link, what is the realistic way to bulk provision 100s of devices without a printed list you can cross off? 
+* A best practice is for the sender to add a credential to a shared password manager.  The person receiving the credentials can then securely open the password manager. 
+* If no password manager is available, consider sending the password via [One Time Secret](https://onetimesecret.com/)
+* For large lists of credentials, as mentioned above, using a cloud provider like Google Sheets, is a good way to have an audit trail and still provide easy, remote access.
 
 TK - notes about downloading creds from [user management tool](https://github.com/medic/cht-user-management/) per [slack thread](https://medic.slack.com/archives/CHYAGKHN2/p1706744894943699?thread_ts=1706728984.849139&cid=CHYAGKHN2)? 
 
