@@ -17,10 +17,10 @@ For most CHT applications, development environments are locally hosted while UAT
 
 To produce optimal results, increase efficiency and develop structured processes in CHT applications, below are considerations to be made before hosting.
 
-* Current and future storage needs - this depends on number of documents, users and replication depth.
-* Security needs and protocol - Data privacy acts of the specific region, who can access the data, for MoH deployments how different is it? Sensitivity of health information
-* Availability and reliability - possibility of downtime and recovery
-* Support in case of downtime - setting up various lines of support
+* Current and future storage needs depending on the number of potential users
+* Security needs and protocol considering the sensitivity of health information
+* Availability and reliability
+* Support in case of downtime by setting up various lines of support
 * Disaster recovery and business continuity requirements
 * Cost implications
 * Backup
@@ -34,7 +34,7 @@ Basic understanding of command line interface, Kubernetes, docker, container orc
 * Constant software updates
 * Removing unused components
 * Backup and restore options
-* SSL encryption to avoid zero day exploits and other vulnerabilities and to ensure data protection
+* SSL encryption to avoid zero day exploits and other vulnerabilities
 * High performance hardware
 * Monitoring and evaluation of performance - managing high traffic
 * Capacity planning for high performance and utilization
