@@ -50,6 +50,7 @@ When Sonar flags an issue with the code in your pull request, use this decision 
 5. You will be automatically redirected to the SonarCloud UI where you can configure the repo-level settings.
 6. Use the `+` button and choose `Analyze new project`.
 7. Select the repo from the list and click `Set Up`.
+8. In the SonarCloud configuration, [disable summary comments in GitHub PRs](https://github.com/medic/cht-sync/pull/68#issuecomment-1935677776).
 
 #### New Code Definition
 
