@@ -100,8 +100,7 @@ If an online list of credentials is leaked to unauthorized parties, or worse, th
 
 Medic [has published a script](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js) to easily change all passwords for a list of users.  Administrators will then be responsible to log CHWs back in by [securely sending](#transmitting-credentials) them their password. 
 
-Additionally, this script could be updated to immediately send a [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login) link to the user.  There would be no need to change the password as this is done automatically for you.  Note that phone numbers will need to entered for any user to receive a token login link. Here's some example `curl` calls to send a token login link for the `mary` user:
-
+Additionally, this script could be updated to immediately send a [token login]({{% ref "apps/concepts/access#magic-links-for-logging-in-token-login" %}}) link to the user.  There would be no need to change the password as this is done automatically for you.  Note that users would need their phone numbers recorded in the CHT to receive a token login link. Here's an example `curl` command to send a token login link for the `mary` user:
 ```shell
 curl https://medic:password@cht.example.com/api/v1/users/mary \
     -X POST -H "Content-Type: application/json" \
