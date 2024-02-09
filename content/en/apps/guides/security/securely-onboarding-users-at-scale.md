@@ -69,7 +69,7 @@ Create a spreadsheet with all your users' data. Included is a username but NOT a
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 
-An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save after giving users the credentials. Train the users on changing their password after they've logged in for the first time. This makes it hard for a password leaked because the password list isn't kept.  Additionally, as users are trained to change their password, a leaked list is likely not useful as all passwords have changed.
+An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save after giving users the credentials. Train the users on changing their password after they've logged in for the first time. This makes it harder for a password to be leaked because the password list isn't kept.  Additionally, as users are trained to change their password, a leaked list is likely not useful as all passwords have changed.
 
 ### Acceptable practice: Shared list, limited access, unique passwords
 
