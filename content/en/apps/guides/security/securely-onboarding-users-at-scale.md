@@ -32,6 +32,10 @@ Firstly, ensure that the CHWs' devices are secure: they all employ disk encrypti
 
 CHT administrators have the ability to create and delete users and push new configurations to the CHT so they should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this password. 
 
+### Secure passwords
+
+When generating passwords for CHWs, do not use a formula which repeats itself (eg `password123` for user A, `password234` for user B etc.).  Do not use the CHW's username, email or phone number in the password. Train CHWs to not re-use passwords. If you would like reference application to see how to code secure generation, please see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  To generate an easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words more failure, easier to spell and more likely to be remembered. 
+
 By following these steps, unauthorized people are less likely to be able to access administrator accounts. 
 
 ## Spreadsheet use
@@ -53,47 +57,78 @@ When it comes time get a username and password on to a device or to a remote use
 
 * A best practice is for the sender to add a credential to a shared password manager.  The person receiving the credentials can then securely open the password manager. 
 * If no password manager is available, consider sending the password via [One Time Secret](https://onetimesecret.com/)
-* For large lists of credentials, as mentioned above, using a cloud provider like Google Sheets, is a good way to have an audit trail and still provide easy, remote access.
-
-TK - notes about downloading creds from [user management tool](https://github.com/medic/cht-user-management/) per [slack thread](https://medic.slack.com/archives/CHYAGKHN2/p1706744894943699?thread_ts=1706728984.849139&cid=CHYAGKHN2)? 
+* For sending large lists of credentials, as mentioned above, using a cloud provider like Google Sheets, is a good way to have an audit trail and still provide easy, remote access.
 
 ## Example scenarios
 
 ### Ideal practice 1: Only Magic Links
 
-Create a spreadsheet with full name, telephone number etc. Included is a username but NOT a password. When users are created in bulk via the command line or bulk user upload, have magic links sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version.
+Create a spreadsheet with full name, telephone number etc. Included is a username but NOT a password. When users are created in bulk via the command line or bulk user upload, have [magic links](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version.
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 
-An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save. Train the users on changing their password after they've logged in for the first time. This ensures if the initial password has leaked it's now no longer useful.
-
-TK - impractical to reset during provisioning? 
+An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save after giving users the credentials. Train the users on changing their password after they've logged in for the first time. This makes it hard for a password leaked because the password list isn't kept.  Additionally, as users are trained to change their password, a leaked list is likely no useful as all passwords have changed.
 
 ### Acceptable practice: Shared list, limited access, unique passwords
 
-TK - use bulk user password with JS random password generator function, limited access, audit access
+For deployments that are centrally provisioning devices, it is acceptable for generate a [strong password](#secure-passwords) per user in a centrally accessible, [secure spreadsheet](#spreadsheet-use).  Working off a computer to view the spreadsheet, provision each device. Do not to print the list of credentials. 
+
 
 ### Worst practice: Shared list, anonymous access, similar passwords
 
-TK Bulk create all users with near identical passwords (eg `password123`, `passord234`, `password345` etc.) that are then printed out, shared via email or posted to a public URL which requires no authentication. This is poor security practice and should be avoided if possible. TK
+A worst practice is to create all users with near identical passwords (eg `password123`, `passord234`, `password345` etc.) that are then printed out, shared via email or posted to a public URL which requires no authentication.  Credentials would be sent over SMS to the CHW with username, password and URL of the device.
+
+There's many failures here:
+* Passwords are predictable and easy to guess
+* Credential lists are shared too widely
+* Users will have their credentials in SMS which may be easily discovered weeks or months later by an unauthorized party
 
 ## Remediation of security failure
 
-Tk - By knowing what the security threats are and how to remediate them, you can know the most helpful steps if they happen to you. 
+By knowing what the security threats are you can know the most helpful steps to remediate them to limit the damage done to the CHT deployment, the privacy of the patients and the security of CHWs.
 
 {{% alert title="Note" %}}
-Users who have their password changed can continue to use the CHT to deliver care.  They need to keep their device offline though. After a password change and a CHW attempts to sync, they will be prompted to log in and can no use the CHT until they log in.
+Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change and a CHW attempts to sync, they will be prompted to log in and can no longer use the CHT until they log in.
 
-No data will be lost if they log in as the same user.
+No data will be lost if they log in as the _same user_.
 {{% /alert %}}
 
 ### Credential list shared on internet
 
-TK - reset all passwords in bulk programmatically , magic token login all users, work with supervisors to get users who are stuck offline
+If an online list of credentials is leaked to unauthorized parties, or works, the Internet at large in the form of being indexed by a search engine, you need to change all passwords as soon as possible for any user on the leaked list. Per the note above, change a password will log the user out immediately unless they are offline.  Having supervisors encourage a user to switch their device to offline mode (turn off all data) is a good way to ensure they can continue to deliver care so they're not locked out.
+
+### Programmatic password reset
+
+Medic [has published a script](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js) to easily change all passwords for a list of users.  Administrators will then be responsible to log CHWs back in by [securely sending](#transmitting-credentials) them their password. 
+
+Additionally, this script could be updated to immediately send a token login link to the user.  There would be no need to change the password as this is done automatically for you.  Note that phone numbers will need to entered for any user to receive a token login link. Here's some example `curl` calls to send a token login link for the `mary` user:
+
+```shell
+curl https://medic:password@cht.example.com/api/v1/users/mary \
+    -X POST -H "Content-Type: application/json" \
+    -d '{"token_login":true}'
+```
 
 ### Audit who has changed their password
 
-TK - instruct all users to manually change their password (hamburger menu). before, check user revision number (eg `_rev: 1-7a868a8d7068b547b5fe6c6c19b20259`), after pass change, check user revision number and HAProxy log for user ID and `PUT` action for change pass
+If you have instructed all users to manually change their password, CHT administrators can search their server logs to see which users have made the update.  First find a list of all running services that have the word `haproxy` in it:
+
+```shell
+docker ps --filter "name=haproxy" --format '{{.Names}}'
+```
+
+Then, assuming your service is called `cht_haproxy_1`, run this command to find all password changes in the past 24 hours:
+
+```shell
+docker logs cht_haproxy_1 --since 24h 2>&1  | grep password_scheme
+```
+
+
+Here is an example event showing user `mary` having changed their password on Feb 9 18:47:
+
+`
+Feb  9 18:47:08 haproxy[12]: 172.22.0.2,couchdb,201,15,0,0,PUT,/_users/org.couchdb.user%3Amary,api,medic,'{"_id":"org.couchdb.user:mary","_rev":"3-d3dd14f3026942245ce3881adfcd513e","name":"mary","type":"user","roles":["chw"],"facility_id":"14046008-f796-4418-9ff2-12c2ef77b478","password_scheme":"***","iterations":10,"derived_key":"f846a7a20209592c613c09ea4405170735c7a557","salt":"bbb089e5fc459c2ca1088c8316e0cc99","password":"***"}',411,15,86,'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)'
+`
 
 ## Frequently Asked Questions
 
