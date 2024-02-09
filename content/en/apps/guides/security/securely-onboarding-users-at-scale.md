@@ -58,7 +58,7 @@ Of paramount importance:
 When it comes time get a username and password onto a device or to a remote user, be sure to use mediums that are secure. One of the main concerns is credentials being found long after they were sent.
 * A best practice is for the sender to add a credential to a shared password manager.  The person receiving the credentials can then securely open the password manager. 
 * If no password manager is available, consider sending the password via [One Time Secret](https://onetimesecret.com/)
-* To send credentials in to many CHWs, consider using [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login).
+* To send credentials in to many CHWs, consider using [token login]({{% ref "apps/concepts/access#magic-links-for-logging-in-token-login" %}}).
 * For sending large lists of credentials, as mentioned above, using a cloud provider like Google Sheets, is a good way to have an audit trail and still provide easy, remote access.
 
 ## Example scenarios
