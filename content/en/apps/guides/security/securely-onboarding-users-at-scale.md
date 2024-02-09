@@ -39,8 +39,7 @@ When generating passwords for CHWs, do not use a formula which repeats itself (e
 
 For a reference application showing secure password generation, please see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  
 
-To generate a password that is easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words more failure, easier to spell and more likely to be remembered but still be secure.
-
+To generate a password that is easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words easier to spell and more likely to be remembered, but still secure.
 ## Spreadsheet use
 
 Most deployments manage users in a spreadsheet shared either in Google Docs or other cloud service. It is convenient to have a canonical shared location to access the data. This is an acceptable, but not ideal, solution as it ensures changes are instantly shared while still ensuring a number of key security requirements. For an ideal solution, see ["Ideal" below](#ideal-practice-1-only-magic-links).
