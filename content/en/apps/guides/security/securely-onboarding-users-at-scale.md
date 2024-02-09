@@ -65,7 +65,7 @@ When it comes time get a username and password onto a device or to a remote user
 
 ### Ideal practice 1: Only Magic Links
 
-Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via the command line or bulk user upload, have a [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours be default.
+Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via [the command line]({{% ref "apps/guides/data/csv-to-docs#creating-csv-files-for-users" %}}) or [bulk user upload]({{% ref "apps/guides/data/users-bulk-load" %}}), have a [token login]({{% ref "apps/concepts/access#magic-links-for-logging-in-token-login" %}}) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours.
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 
