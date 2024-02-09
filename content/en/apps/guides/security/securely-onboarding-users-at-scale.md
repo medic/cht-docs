@@ -30,8 +30,7 @@ Firstly, ensure that the CHWs' devices are secure: they all employ disk encrypti
 
 ### Secure administrative users
 
-CHT administrators have the ability to create and delete users and push new configurations to the CHT so they should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this password.
-
+CHT administrators have the ability to create and delete users and push new configurations to the CHT so they should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this passphrase.
 By following these steps, unauthorized people are less likely to be able to access administrator accounts.
 
 ### Secure passwords
