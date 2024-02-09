@@ -55,8 +55,7 @@ Of paramount importance:
 
 ## Transmitting credentials
 
-When it comes time get a username and password on to a device or to a remote user, be sure to use mediums that are secure. One of the main concerns is credentials being found long after they were sent.
-
+When it comes time get a username and password onto a device or to a remote user, be sure to use mediums that are secure. One of the main concerns is credentials being found long after they were sent.
 * A best practice is for the sender to add a credential to a shared password manager.  The person receiving the credentials can then securely open the password manager. 
 * If no password manager is available, consider sending the password via [One Time Secret](https://onetimesecret.com/)
 * To send credentials in to many CHWs, consider using [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login).
