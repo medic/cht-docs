@@ -95,8 +95,7 @@ No data will be lost if they log in as the _same user_.
 
 ### Credential list shared on internet
 
-If an online list of credentials is leaked to unauthorized parties, or works, the Internet at large in the form of being indexed by a search engine, you need to change all passwords as soon as possible for any user on the leaked list. Per the note above, change a password will log the user out immediately unless they are offline.  Having supervisors encourage a user to switch their device to offline mode (turn off all data) is a good way to ensure they can continue to deliver care so they're not locked out.
-
+If an online list of credentials is leaked to unauthorized parties, or worse, the Internet at large in the form of being indexed by a search engine, you need to change all passwords as soon as possible for any user on the leaked list. Per the note above, changing a password will log the user out immediately unless they are offline.  Having supervisors encourage a user to switch their device to offline mode (turn off all data) is a good way to ensure they can continue to deliver care so they're not locked out.
 ### Programmatic password reset
 
 Medic [has published a script](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js) to easily change all passwords for a list of users.  Administrators will then be responsible to log CHWs back in by [securely sending](#transmitting-credentials) them their password. 
