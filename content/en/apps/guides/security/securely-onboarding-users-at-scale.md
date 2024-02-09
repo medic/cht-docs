@@ -20,7 +20,7 @@ This document shows how to achieve a high level of credential management securit
 No system is perfectly secure - be prepared to remediate a security breach!
 {{% /pageinfo %}}
 
-When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Their data is sensitive and should never be viewed, or worse edited, by any unauthorized parties. By following best practices, being aware of and prepared for a worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
+When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Patient data is sensitive and should never be accessed in any way by unauthorized parties. By following best practices, being aware of, and prepared for the worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
 
 ## Before starting
 
@@ -30,17 +30,21 @@ Firstly, ensure that the CHWs' devices are secure: they all employ disk encrypti
 
 ### Secure administrative users
 
-CHT administrators have the ability to create and delete users and push new configurations to the CHT so they should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this password. 
+CHT administrators have the ability to create and delete users and push new configurations to the CHT so they should take extra precautions in managing their password. They should use a [strong passphrase](https://en.wikipedia.org/wiki/Passphrase) (instead of a password) that is unique to their CHT login. They should use a [password manager](https://en.wikipedia.org/wiki/Password_manager) to store this password.
+
+By following these steps, unauthorized people are less likely to be able to access administrator accounts.
 
 ### Secure passwords
 
-When generating passwords for CHWs, do not use a formula which repeats itself (eg `password123` for user A, `password234` for user B etc.).  Do not use the CHW's username, email or phone number in the password. Train CHWs to not re-use passwords. If you would like reference application to see how to code secure generation, please see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  To generate an easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words more failure, easier to spell and more likely to be remembered. 
+When generating passwords for CHWs, do not use a formula which repeats itself (eg `password123` for user A, `password234` for user B etc.).  Do not use the CHW information such as username, email or phone number in the password. Train CHWs to not re-use passwords. 
 
-By following these steps, unauthorized people are less likely to be able to access administrator accounts. 
+For a reference application showing secure password generation, please see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  
+
+To generate a password that is easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words more failure, easier to spell and more likely to be remembered but still be secure.
 
 ## Spreadsheet use
 
-Most deployments manage users in a spreadsheet shared either in Google Docs or other cloud service. It is convenient to have a canonical shared location to access the data. This is an acceptable, but not ideal, solution as it ensures changes are instantly shared while still ensuring a number of key security requirements. For an ideal solution, [see "Ideal" below](#ideal-1-only-magic-links).
+Most deployments manage users in a spreadsheet shared either in Google Docs or other cloud service. It is convenient to have a canonical shared location to access the data. This is an acceptable, but not ideal, solution as it ensures changes are instantly shared while still ensuring a number of key security requirements. For an ideal solution, see ["Ideal" below](#ideal-practice-1-only-magic-links).
 
 Of paramount importance:
 
@@ -49,7 +53,7 @@ Of paramount importance:
 * Reduce the total number of users that need access by breaking up user lists by logical group. For example, each sub-county could have its own user spreadsheet. That way the user credentials are only shared with the local administrators who need it
 * Refrain from printing spreadsheets of users and passwords. They can be lost, stolen or easily photographed when shown in public
 * If you ever need to download a plaintext CSV with username and password, ensure the computer also has disk encryption enabled and requires a password to unlock
-* Delete plaintext CSVs after you have used them for bulk upload. Do not keep plaintext copies on disk. Instead, re-download them from the authorized, authenticated cloud server as needed
+* Do not keep downloaded CSV plaintext copies of credentials. Instead, delete and re-download them from the authorized, authenticated cloud server as needed
 
 ## Transmitting credentials
 
@@ -57,26 +61,26 @@ When it comes time get a username and password on to a device or to a remote use
 
 * A best practice is for the sender to add a credential to a shared password manager.  The person receiving the credentials can then securely open the password manager. 
 * If no password manager is available, consider sending the password via [One Time Secret](https://onetimesecret.com/)
+* To send credentials in to many CHWs, consider using [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login).
 * For sending large lists of credentials, as mentioned above, using a cloud provider like Google Sheets, is a good way to have an audit trail and still provide easy, remote access.
 
 ## Example scenarios
 
 ### Ideal practice 1: Only Magic Links
 
-Create a spreadsheet with full name, telephone number etc. Included is a username but NOT a password. When users are created in bulk via the command line or bulk user upload, have [magic links](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version.
+Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via the command line or bulk user upload, have a [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours be default.
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 
-An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save after giving users the credentials. Train the users on changing their password after they've logged in for the first time. This makes it hard for a password leaked because the password list isn't kept.  Additionally, as users are trained to change their password, a leaked list is likely no useful as all passwords have changed.
+An alternate and also secure approach, is to bulk create the users as described above, not use magic links, and use random passwords that you do not save after giving users the credentials. Train the users on changing their password after they've logged in for the first time. This makes it hard for a password leaked because the password list isn't kept.  Additionally, as users are trained to change their password, a leaked list is likely not useful as all passwords have changed.
 
 ### Acceptable practice: Shared list, limited access, unique passwords
 
 For deployments that are centrally provisioning devices, it is acceptable for generate a [strong password](#secure-passwords) per user in a centrally accessible, [secure spreadsheet](#spreadsheet-use).  Working off a computer to view the spreadsheet, provision each device. Do not to print the list of credentials. 
 
-
 ### Worst practice: Shared list, anonymous access, similar passwords
 
-A worst practice is to create all users with near identical passwords (eg `password123`, `passord234`, `password345` etc.) that are then printed out, shared via email or posted to a public URL which requires no authentication.  Credentials would be sent over SMS to the CHW with username, password and URL of the device.
+Create all users with near identical passwords (eg `password123`, `passord234`, `password345` etc.) that are then printed out, shared via email or posted to a public URL which requires no authentication.  Send an SMS to the CHW with username, password and URL of the device.
 
 There's many failures here:
 * Passwords are predictable and easy to guess
@@ -101,7 +105,7 @@ If an online list of credentials is leaked to unauthorized parties, or works, th
 
 Medic [has published a script](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js) to easily change all passwords for a list of users.  Administrators will then be responsible to log CHWs back in by [securely sending](#transmitting-credentials) them their password. 
 
-Additionally, this script could be updated to immediately send a token login link to the user.  There would be no need to change the password as this is done automatically for you.  Note that phone numbers will need to entered for any user to receive a token login link. Here's some example `curl` calls to send a token login link for the `mary` user:
+Additionally, this script could be updated to immediately send a [token login](https://docs.communityhealthtoolkit.org/apps/concepts/access/#magic-links-for-logging-in-token-login) link to the user.  There would be no need to change the password as this is done automatically for you.  Note that phone numbers will need to entered for any user to receive a token login link. Here's some example `curl` calls to send a token login link for the `mary` user:
 
 ```shell
 curl https://medic:password@cht.example.com/api/v1/users/mary \
