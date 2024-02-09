@@ -89,8 +89,7 @@ There's many failures here:
 By knowing what the security threats are you can know the most helpful steps to remediate them to limit the damage done to the CHT deployment, the privacy of the patients and the security of CHWs.
 
 {{% alert title="Note" %}}
-Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change and a CHW attempts to sync, they will be prompted to log in and can no longer use the CHT until they log in.
-
+Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change, when a CHW attempts to sync, they will be prompted to log in. At that point, they wlll not be able to continue using the CHT until they log in.
 No data will be lost if they log in as the _same user_.
 {{% /alert %}}
 
