@@ -20,7 +20,7 @@ This document shows how to achieve a high level of credential management securit
 No system is perfectly secure - be prepared to remediate a security breach!
 {{% /pageinfo %}}
 
-When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Patient data is sensitive and should never be accessed in any way by unauthorized parties. By following best practices, being aware of, and prepared for the worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
+When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Patient data is sensitive and should never be accessed in any way by unauthorized parties. By following best practices and preparing for the worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
 
 ## Before starting
 
