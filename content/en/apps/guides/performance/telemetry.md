@@ -101,24 +101,6 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `enketo:<training-card>:add:quit` | The time from when the training card was rendered to when the user quits the training. Added in 4.2.0 |
 | `geolocation:success` | A successful GPS response with the value showing the accuracy. |
 | `geolocation:failure:<x>` | An unsuccessful GPS response. `x` is a constant matching the [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code) or with one of the following values: `-1` unknown failure, `-2` timeout, or `-3` geolocation services unavailable. |
-| `boot_time:apdex:<satisfied|tolerable|frustrated>` | The overall boot time including loading the code, purging, and accessing the database; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6.  |
-| `contact_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the People tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `contact_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display; it is categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `contact_detail:<contact_type>:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load a contact; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `enketo:contacts:<form>:contact:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a contact form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `enketo:contacts:<form>:contact:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save a contact form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `report_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Reports tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `report_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display; it is  categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `report_detail:<form>:load:apdex:<satisfied|tolerable|frustrated>` | the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered; it is categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `enketo:reports:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render an app form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `enketo:reports:<form>:<action>:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save an app form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `tasks:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Tasks tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `enketo:tasks:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a task form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `enketo:tasks:<form>:<action>:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save a task form; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `analytics:targets:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Targets tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `analytics:target_aggregates:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Target aggregates; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `message_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Messages tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
-| `messages_detail:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the messages details in the Messages tab; categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. Added in 4.6. |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
@@ -129,6 +111,33 @@ Unless otherwise specified, `database` and `direction` placeholders stand for an
 | --- | --- |
 | `medic` | `from` or `to`  |
 | `meta` | `sync` |
+
+## Apdex
+
+_Added in 4.7_
+
+The Apdex (Application Performance Index) is an open standard for measuring performance of software applications. Its purpose is to convert measurements into insights about user satisfaction, by specifying a uniform way to analyze and report on the degree to which measured performance meets user expectations. The Telemetry records below are categorized by Apdex level. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s.
+
+| Field | Description |
+|----|----|
+| `boot_time:apdex:<satisfied|tolerable|frustrated>` | The overall boot time including loading the code, purging, and accessing the database. Added in 4.7. |
+| `contact_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the People tab. Added in 4.7.|
+| `contact_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.|
+| `contact_detail:<contact_type>:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load a contact. Added in 4.7.|
+| `enketo:contacts:<form>:contact:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a contact form. Added in 4.7.|
+| `enketo:contacts:<form>:contact:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save a contact form. Added in 4.7.|
+| `report_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Reports tab. Added in 4.7.|
+| `report_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.7.|
+| `report_detail:<form>:load:apdex:<satisfied|tolerable|frustrated>` | the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.7.|
+| `enketo:reports:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render an app form. Added in 4.7.|
+| `enketo:reports:<form>:<action>:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save an app form. Added in 4.7.|
+| `tasks:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Tasks tab. Added in 4.7.|
+| `enketo:tasks:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a task form. Added in 4.7.|
+| `enketo:tasks:<form>:<action>:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save a task form. Added in 4.7.|
+| `analytics:targets:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Targets tab. Added in 4.7.|
+| `analytics:target_aggregates:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Target aggregates. Added in 4.7.|
+| `message_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Messages tab. Added in 4.7.|
+| `messages_detail:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the messages details in the Messages tab. Added in 4.7.|
 
 ## Metadata
 
