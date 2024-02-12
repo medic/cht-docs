@@ -120,24 +120,24 @@ The Apdex (Application Performance Index) is an open standard for measuring perf
 
 | Field | Description |
 |----|----|
-| `boot_time:apdex:<satisfied|tolerable|frustrated>` | The overall boot time including loading the code, purging, and accessing the database. Added in 4.7. |
-| `contact_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the People tab. Added in 4.7.|
-| `contact_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.|
-| `contact_detail:<contact_type>:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load a contact. Added in 4.7.|
-| `enketo:contacts:<form>:contact:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a contact form. Added in 4.7.|
-| `enketo:contacts:<form>:contact:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save a contact form. Added in 4.7.|
-| `report_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Reports tab. Added in 4.7.|
-| `report_list:query:apdex:<satisfied|tolerable|frustrated>` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.7.|
-| `report_detail:<form>:load:apdex:<satisfied|tolerable|frustrated>` | the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.7.|
-| `enketo:reports:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render an app form. Added in 4.7.|
-| `enketo:reports:<form>:<action>:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save an app form. Added in 4.7.|
-| `tasks:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Tasks tab. Added in 4.7.|
-| `enketo:tasks:<form>:<action>:render:apdex:<satisfied|tolerable|frustrated>` | The time taken to render a task form. Added in 4.7.|
-| `enketo:tasks:<form>:<action>:save:apdex:<satisfied|tolerable|frustrated>` | The time taken to save a task form. Added in 4.7.|
-| `analytics:targets:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Targets tab. Added in 4.7.|
-| `analytics:target_aggregates:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Target aggregates. Added in 4.7.|
-| `message_list:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the Messages tab. Added in 4.7.|
-| `messages_detail:load:apdex:<satisfied|tolerable|frustrated>` | The time taken to load the messages details in the Messages tab. Added in 4.7.|
+| `boot_time:apdex:<satisfied/tolerable/frustrated>` | The overall boot time including loading the code, purging, and accessing the database. Added in 4.7. |
+| `contact_list:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the People tab. Added in 4.7.|
+| `contact_list:query:apdex:<satisfied/tolerable/frustrated>` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.|
+| `contact_detail:<contact_type>:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load a contact. Added in 4.7.|
+| `enketo:contacts:<form>:contact:render:apdex:<satisfied/tolerable/frustrated>` | The time taken to render a contact form. Added in 4.7.|
+| `enketo:contacts:<form>:contact:save:apdex:<satisfied/tolerable/frustrated>` | The time taken to save a contact form. Added in 4.7.|
+| `report_list:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the Reports tab. Added in 4.7.|
+| `report_list:query:apdex:<satisfied/tolerable/frustrated>` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.7.|
+| `report_detail:<form>:load:apdex:<satisfied/tolerable/frustrated>` | the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.7.|
+| `enketo:reports:<form>:<action>:render:apdex:<satisfied/tolerable/frustrated>` | The time taken to render an app form. Added in 4.7.|
+| `enketo:reports:<form>:<action>:save:apdex:<satisfied/tolerable/frustrated>` | The time taken to save an app form. Added in 4.7.|
+| `tasks:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the Tasks tab. Added in 4.7.|
+| `enketo:tasks:<form>:<action>:render:apdex:<satisfied/tolerable/frustrated>` | The time taken to render a task form. Added in 4.7.|
+| `enketo:tasks:<form>:<action>:save:apdex:<satisfied/tolerable/frustrated>` | The time taken to save a task form. Added in 4.7.|
+| `analytics:targets:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the Targets tab. Added in 4.7.|
+| `analytics:target_aggregates:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the Target aggregates. Added in 4.7.|
+| `message_list:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the Messages tab. Added in 4.7.|
+| `messages_detail:load:apdex:<satisfied/tolerable/frustrated>` | The time taken to load the messages details in the Messages tab. Added in 4.7.|
 
 ## Metadata
 
