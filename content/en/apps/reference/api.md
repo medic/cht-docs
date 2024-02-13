@@ -228,6 +228,23 @@ Or using form-style parameters as `GET`:
 GET /api/v2/export/contacts?filters[search]=jim
 ```
 
+### GET /api/v2/export/user-devices
+
+Returns a JSON array of the software versions related to CHT running on the user's devices.
+This information is derived from the latest telemetry entry of each user.
+
+#### Output
+
+| Column          | Description                                                                                                                    |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------|
+| user            | The user's name.                                                                                                               |
+| deviceId        | The UUID of the user's device.                                                                                                 |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "apps/guides/performance/telemetry" >}}). |
+| browser.name    | The name of the browser used.                                                                                                  |
+| browser.version | The version of the browser used.                                                                                               |
+| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                  |
+| settings        | The revision of the App Settings document stored in CouchDB.                                                                   |
+
 ## Forms
 
 ### GET /api/v1/forms
