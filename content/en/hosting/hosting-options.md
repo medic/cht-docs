@@ -96,7 +96,7 @@ The typical k8s CHT installation uses a number of API Resources as shown below.
 * PVC:
     * couchdb-2-claimn
 
-
+#### K3d installation
 
 
 
