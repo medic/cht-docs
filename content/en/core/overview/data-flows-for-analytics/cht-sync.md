@@ -15,7 +15,7 @@ Most CHT deployments require some sort of analytics so that stakeholders can mak
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-[![Data Flows](cht-sync.png)](cht-sync.png)
+{{< figure src="cht-sync.png" link="cht-sync.png" class=" right col-16 col-lg-9" >}}
 
 #### Logstash and PostgREST
 
