@@ -31,7 +31,7 @@ A free and open source SQL database used for analytics queries. See more at the 
 
 #### Superset
 
-[Apache Superset](https://superset.apache.org/) is a free an open source platform for creating data dashboards.
+We recommend [Apache Superset](https://superset.apache.org/) as the Data Visualization Tool, it is a free an open source platform for creating data dashboards.
 
 ### CHT Core Framework & CouchDB
 
