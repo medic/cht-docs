@@ -21,7 +21,6 @@ This page is meant to serve as a point of conversation, with a wide range of top
 Meet the [Medic team](https://medic.org/team/)!
 * [Product]({{% ref "contribute/medic/onboarding/product-team" %}})
 * Programs
-* Research
 * Internal Operations
 * External Affairs
 
@@ -31,6 +30,7 @@ Meet the [Medic team](https://medic.org/team/)!
 1. App developers take latest version of the CHT and build the app for the organization.
 1. Android flavor deployed to get branded app onto CHW devices / deployment.
 1. Dashboards are set up in Klipfolio, Superset or Grafana.
+1. Monitoring and alerting are set up with the CHT Watchdog.
 1. Go!
 1. App developers make ongoing enhancements.
 1. App upgraded as new versions of CHT are available.
