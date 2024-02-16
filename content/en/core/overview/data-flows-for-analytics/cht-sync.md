@@ -15,7 +15,7 @@ Most CHT deployments require some sort of analytics so that stakeholders can mak
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-[![Data Flows](cht-sync.png)](cht-sync.png)
+{{< figure src="cht-sync.png" link="cht-sync.png" class=" center col-16 col-lg-12" >}}
 
 #### Logstash and PostgREST
 
@@ -31,7 +31,7 @@ A free and open source SQL database used for analytics queries. See more at the 
 
 #### Superset
 
-[Apache Superset](https://superset.apache.org/) is a free an open source platform for creating data dashboards.
+We recommend [Apache Superset](https://superset.apache.org/) as the Data Visualization Tool, it is a free an open source platform for creating data dashboards.
 
 ### CHT Core Framework & CouchDB
 
