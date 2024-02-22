@@ -40,7 +40,7 @@ A free and open source SQL database used for analytics queries. See more at the 
 
 #### DBT
 
-[DBT](https://www.getdbt.com/) is used to ingest raw JSON data from the PosgtreSQL database and normalize it into a relational schema to make it easier to query.
+Once the data is synchronized and stored in PostgreSQL, it undergoes transformation using predefined [DBT](https://www.getdbt.com/) models from the [cht-pipeline](https://github.com/medic/cht-pipeline). DBT is used to ingest raw JSON data from the PosgtreSQL database (`jsonb` column) and normalize it into a relational schema to make it easier to query.
 
 #### Daemon
 
