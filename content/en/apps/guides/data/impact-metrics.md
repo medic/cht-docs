@@ -1,7 +1,7 @@
 ---
 title: "CHT Impact Metrics"
 linkTitle: "CHT Impact Metrics"
-weight: 
+weight: 15
 description: >
   A set of impact metrics for monitoring priority use cases across the Community Health Toolkit
 keywords: impact monitoring 
