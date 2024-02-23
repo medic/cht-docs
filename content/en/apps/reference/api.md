@@ -78,7 +78,7 @@ Returns a JSON object with two fields:
 
 Request different types of data in various formats.
 
-Each of the export endpoints except contacts and feedback supports a parameter which returns date formatted in human readable form (ISO 8601). Setting this parameter to false or leaving it out will return dates formatted as an epoch timestamp.
+Each of the export endpoints except contacts, feedback, and user-devices supports a parameter which returns date formatted in human readable form (ISO 8601). Setting this parameter to false or leaving it out will return dates formatted as an epoch timestamp.
 
 To set this parameter for a GET request use:
 
@@ -227,6 +227,26 @@ Or using form-style parameters as `GET`:
 ```
 GET /api/v2/export/contacts?filters[search]=jim
 ```
+
+### GET /api/v2/export/user-devices
+
+*Added in 4.7.0*
+
+Returns a JSON array of CHT-related software versions for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
+
+#### Output
+
+| Column          | Description                                                                                                                              |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| user            | The user's name.                                                                                                                         |
+| deviceId        | The unique key for the user's device.                                                                                                    |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "apps/guides/performance/telemetry" >}}).           |
+| browser.name    | The name of the browser used.                                                                                                            |
+| browser.version | The version of the browser used.                                                                                                         |
+| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. |
+| android         | The version of Android OS.                                                                                                               |
+| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            |
+| settings        | The revision of the App Settings document stored in CouchDB.                                                                             |
 
 ## Forms
 
