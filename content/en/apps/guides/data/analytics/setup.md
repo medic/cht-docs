@@ -81,6 +81,12 @@ Run the Docker containers and wait for every container to be up and running:
 npm run local
 ```
 
+This is equivalent to running:
+```sh
+# starts logstash, postgres, postgrest, generator (for fake data), couchdb and dbt
+docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
+```
+
 #### With a separate CouchDB instance 
 This setup involves starting Logstash, PostgreSQL, PostgREST, and DBT. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
@@ -98,3 +104,5 @@ Run the Docker containers locally and wait for every container to be up and runn
 # starts logstash, postgrest, and dbt
 docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt
 ```
+### Setup Superset
+To build data visualization dashboards, follow the [Superset instructions](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/) to run Superset and connect it to the PostgreSQL database.
