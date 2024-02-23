@@ -230,6 +230,8 @@ GET /api/v2/export/contacts?filters[search]=jim
 
 ### GET /api/v2/export/user-devices
 
+*Added in 4.7.0*
+
 Returns a JSON array of CHT-related software versions for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
 
 #### Output
