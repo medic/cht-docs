@@ -1,7 +1,7 @@
 ---
 title: "CHT Sync Setup"
 weight: 100
-linkTitle: "Setup"
+linkTitle: "Local Setup"
 description: >
   Setting up CHT Sync with the CHT
 relatedContent: >
@@ -62,99 +62,39 @@ All the variables in the `.env` file:
 If `CHT_PIPELINE_BRANCH_URL` is pointing to a private repo then you need to provide an access token in the url i.e. `https://<PAT>@github.com/medic/cht-pipeline.git#main`. In this example you will replace `<PAT>`  with an access token from Github. Instruction on how to generate one can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 {{% /alert %}}
 
-### Local Set up
+### Setup
+The following configurations facilitate data synchronization, transformation, and storage for local development and testing.
 
-TODO
-just Postgres:     "docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d",
-just Postgrest (local PostgreSQL):     "docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt",
+Copy the values in `env.template` file to the `.env` file and update them accordingly to the local configuration for the different scenarios below.
 
-
-The local environment setup involves starting Logstash, PostgreSQL, PostgREST, DBT, and CouchDB. This configuration facilitates data synchronization, transformation, and storage for local development and testing. Fake data is generated for CouchDB.
-
-1. Provide the databases you want to sync in the `.env` file:
-
-```
-COUCHDB_DBS=<dbs-to-sync> # space separated list of databases you want to sync e.g "medic medic_sentinel"
-```
-
-
-```
-# project wide: optional
-COMPOSE_PROJECT_NAME=pipeline
-
-# postgrest and pogresql: required environment variables for 'gamma', prod and 'local'
-POSTGRES_USER=<your-postgres-user>
-POSTGRES_PASSWORD=<your-postgres-password>
-POSTGRES_DB=<your-database>
-POSTGRES_TABLE=<your-postgres-table>
-POSTGRES_SCHEMA=<your-base-postgres-schema>
-
-# dbt: required environment variables for 'gamma', 'prod' and 'local'
-DBT_POSTGRES_USER=<your-postgres-dbt-user>
-DBT_POSTGRES_PASSWORD=<your-postgres-password>
-DBT_POSTGRES_SCHEMA=<your-dbt-postgres-schema>
-DBT_POSTGRES_HOST=<your-postgres-host> # IP address
-CHT_PIPELINE_BRANCH_URL="https://github.com/medic/cht-pipeline.git#main"
-
-# couchdb and logstash: required environment variables for 'gamma', 'prod' and 'local'
-COUCHDB_USER=<your-couchdb-user>
-COUCHDB_PASSWORD=<your-couchdb-password>
-COUCHDB_DBS=<dbs-to-sync> # space separated list of databases you want to sync e.g "medic medic_sentinel"
-COUCHDB_HOST=<your-couchdb-host>
-COUCHDB_PORT=<your-couchdb-port>
-COUCHDB_SECURE=false
-```
-
-2. Install the dependencies and run the Docker containers locally:
-
+Install the dependencies:
 ```sh
-# starts: logstash, postgres, postgrest,  data-generator, couchdb and dbt
 npm install
+```
+
+#### With sample CouchDB data
+This setup involves starting Logstash, PostgreSQL, PostgREST, DBT, and CouchDB. Sample fake data is generated for CouchDB.
+
+Run the Docker containers and wait for every container to be up and running:
+```sh
+# starts logstash, postgres, postgrest, generator (for fake data), couchdb and dbt
 npm run local
 ```
 
-3. Wait for every container to be up and running.
+#### With a separate CouchDB instance 
+This setup involves starting Logstash, PostgreSQL, PostgREST, and DBT. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
-### Production Setup
-
-The production environment setup involves starting Logstash, PostgREST, and DBT. This configuration facilitates data synchronization, transformation, and storage for CHT production hosting.
-
-1. Update the following environment variables in your `.env` file:
-
-```
-# project wide: optional
-COMPOSE_PROJECT_NAME=pipeline
-
-COUCHDB_DBS=<dbs-to-sync> # space separated list of databases you want to sync e.g "medic medic_sentinel"
-
-# postgrest and pogresql: required environment variables for 'gamma', prod and 'local'
-POSTGRES_USER=<your-postgres-user>
-POSTGRES_PASSWORD=<your-postgres-password>
-POSTGRES_DB=<your-database>
-POSTGRES_TABLE=<your-postgres-table>
-POSTGRES_SCHEMA=<your-base-postgres-schema>
-
-# dbt: required environment variables for 'gamma', 'prod' and 'local'
-DBT_POSTGRES_USER=<your-postgres-dbt-user>
-DBT_POSTGRES_PASSWORD=<your-postgres-password>
-DBT_POSTGRES_SCHEMA=<your-dbt-postgres-schema>
-DBT_POSTGRES_HOST=<your-postgres-host> # IP address
-
-# couchdb and logstash: required environment variables for 'gamma', 'prod' and 'local'
-COUCHDB_PASSWORD=<your-couchdb-password>
-COUCHDB_HOST=<your-couchdb-host>
-COUCHDB_PORT=<your-couchdb-port>
-COUCHDB_SECURE=false
-```
-
-2. (Optional) Start local version of PostgreSQL:
-```
-docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up postgres
-```
-
-3. Install the dependencies and start the Docker containers:
+Run the Docker containers locally and wait for every container to be up and running:
 ```sh
-# starts: logstash, postgrest and dbt
-npm install
-npm run prod
+# starts logstash, postgres, postgrest, and dbt
+docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
+```
+
+#### With separate CouchDB and PostgreSQL instances
+This local setup involves starting Logstash, PostgREST, and DBT. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
+
+Run the Docker containers locally and wait for every container to be up and running:
+```sh
+# starts logstash, postgrest, and dbt
+docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt
 ```
