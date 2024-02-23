@@ -56,7 +56,7 @@ All the variables in the `.env` file:
 | `COUCHDB_DBS`             | `"medic"`                                          | Space separated list of databases to sync e.g `"medic medic_sentinel"`                                                                         |
 | `COUCHDB_HOST`            | `couchdb`                                          | Host of the CouchDB instance to sync with                                                                                                      |
 | `COUCHDB_PORT`            | `5984`                                             | Port of the CouchDB instance to sync with                                                                                                      |
-| `COUCHDB_SECURE`          | `false`                                            |                                                                                                                                                |
+| `COUCHDB_SECURE`          | `false`                                            | Is connection to CouchDB instance secure?                                                                                                      |
 
 {{% alert title="Note" %}}
 If `CHT_PIPELINE_BRANCH_URL` is pointing to a private repo then you need to provide an access token in the url i.e. `https://<PAT>@github.com/medic/cht-pipeline.git#main`. In this example you will replace `<PAT>`  with an access token from Github. Instruction on how to generate one can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
