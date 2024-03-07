@@ -1,9 +1,9 @@
 ---
-title: "Direct-to-patient messaging workflows on CHT"
-linkTitle: "Direct-to-patient messaging workflows on CHT "
+title: "Direct-to-client, two-way texting workflows on CHT"
+linkTitle: "Direct-to-client, two-way texting workflows on CHT"
 weight:
 description: >
-  Reference for Direct-to-patient workflows with CHT and RapidPro
+  Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
 relatedContent: >
   apps/concepts
   apps/reference/forms/app
@@ -44,7 +44,7 @@ The SMS workflows in CHT can integrate with [RapidPro](https://docs.communityhea
 CHT-RapidPro SMS workflows allows for automated visit scheduling, replying and routing to an SMS based gateway based on preconfigured SMS logic, thus eliminating the need for a healthcare worker (clerk or clinician, depending on the intervention specifics) to send, monitor and reply to each text. To use SMS workflows with CHT, you will need a texting channel (a service that enables you to send or receive messages or a phone call). CHT can be integrated with a texting channel like an SMS aggregator which provides a reliable cloud based platform to send and receive an unlimited number of SMSs to and from clients or household members.
 
 
- ### Direct-to-patient workflow technical architecture
+ ### Direct-to-client, two-way texting, technical architecture
 
 The CHT-RapidPro integration enables App builders to build complex conversational SMS workflows that support client care and support coordination of care at the facility and community levels.
 
@@ -59,9 +59,7 @@ The D2C, 2wT app incorporates the CHT security features in order to protect clie
 
 ## Case adaptation: Voluntary medical male circumcision app co-designed by I-TECH and Medic
 
-The University of Washington, Department of Global Health’s International Training and Education Center for Health ([I-TECH](https://www.go2itech.org/)), Medic, and local partners including  Zim-TTECH, Lighthouse Trust, and Aurum Institute, collaboratively designed, developed, and scaled a CHT-based voluntary medical male circumcision (VMMC) app for post-operative follow-up with support from the National Institute of Health, USA The D2C, 2wT app supports automated, interactive telehealth via direct-to-client messaging between VMMC nurses  and clients. 2wT telehealth helps improve the quality and efficiency of care, maintaining client safety while lowering follow-up care costs. In the spirit of contributing to the growth of the public global goods, I-TECH and Medic have coordinated to release the application source code of the D2C, 2wT app.
-
-The University of Washington, Department of Global Health’s International Training and Education Center for Health ([I-TECH](https://www.go2itech.org/)) and Medic collaboratively designed, developed, and scaled a CHT based voluntary medical male circumcision (VMMC) app. The [D2C, 2wT app](https://sites.uw.edu/twowaytexting/) supports automated, interactive and direct-to-client messaging between male circumcision health care providers and patients to help improve the quality of care and improve efficiency to lower costs. In the spirit of contributing to the growth of the public global goods, I-TECH and Medic have coordinated to release the application source code of the D2C, 2wT app.
+The University of Washington, Department of Global Health’s International Training and Education Center for Health ([I-TECH](https://www.go2itech.org/)), Medic, and local partners including  Zim-TTECH, Lighthouse Trust, and Aurum Institute, collaboratively designed, developed, and scaled a CHT-based voluntary medical male circumcision (VMMC) app for post-operative follow-up with support from the National Institute of Health, USA The D2C, 2wT app supports automated, interactive telehealth via direct-to-client messaging between VMMC nurses  and clients. 2wT telehealth helps improve the quality and efficiency of care, maintaining client safety while lowering follow-up care costs. In the spirit of contributing to the growth of the public global goods, I-TECH and Medic have coordinated to release the application [source code of the D2C, 2wT app](https://github.com/medic/cht-post-ops-app).
 
 ### Users and hierarchy
 
@@ -80,7 +78,7 @@ Current workflow for VMMC client enrollment, screening and VMMC procedures (with
 {{< figure src="Figure3Workflows.png"  link="Figure3Workflows.png" alt="Users and hierarchy example" title="" caption="<b>Figure 3:</b> Voluntary male circumcision workflow before direct-to-client messaging was introduced" class="col-9">}}
 
 
-#### 1. Patient automated check-in workflow to support patient care
+#### 1. Automated check-in workflow to support client care
 
 Eligible male clients with access to mobile phones are registered on the VMMC app to enable them to receive daily check-in texts to help track the condition of the clients for 13 days after the circumcision. During registration (Day 0), details about the method of circumcision; whether the client is an adult or a minor, and the preferred phone numbers to be used for communication are recorded. Each client receives an enrollment confirmation to ensure that the communication channel is open. Clients also receive postoperative counseling using the 2wT flip-book on how to respond to the daily SMS text message and review photos that illustrate the signs of complications for reporting via  daily SMS text messages. VMMC clients, including those with 2wT, have the option to attend routine pre-scheduled visits on day 2 and day 7 post-op.
 
@@ -115,7 +113,7 @@ In collaboration with researchers at the University of Washington, we  assessed 
 
 {{< figure src="Figure7EvidenceOfImpact.png"  link="Figure7EvidenceOfImpact.png" alt="" title="" caption="<b>Figure 7:</b> Evidence supported benefits of direct-to-client messaging for voluntary male circumcision clients" class="col-9">}}
 
-## More scenarios where direct-to-patient messaging can be used to support patient care
+## More scenarios where direct-to-client messaging can be used to support client care
 
 ### 1. Facility appointment reminders workflow
 Appointment reminders can be configured on CHT so that household members and clients can receive facility appointment reminders. Facility appointment reminders are configured as per the recommended health guidelines for specific use cases. The clinic visit appointment reminders can be configured to automatically stop once a client completes the expected clinic visits.
@@ -124,13 +122,13 @@ Appointment reminders can be configured on CHT so that household members and cli
 Active case finding by messaging households with survey questions about the health of family members.
 
 ## Frequently Asked Questions
-##### 1. Is the patient charged for receiving or sending the SMS?
+##### 1. Is the client charged for receiving or sending the SMS?
 It is possible for health programs to acquire a zero rated short code service which is free for clients and household members to send and receive texts from the short code.
 
 ##### 2. What are ways to handle exceptions?
 Exceptions can occur when programs and flows do not work as expected. This may occur due to various technical issues and may be unavoidable. One possible way to handle these unwanted issues and errors is to set up the mail group such that a notification email is sent whenever there is any exception. Another method is to keep track of whether the flow was completed i.e., all the responses from start to finish nodes were received. For the participants whose flow may have been interrupted or incomplete, one may run the workflow again.
 
-##### 3. Ways to improve response rate from patients or household members?
+##### 3. Ways to improve response rate from clients?
 The workflows in RapidPro can be set up in such a way that they expire after a certain time period. Workflows can expire when there is no response from a client within a time period. You can handle such situations by repeating the workflow i.e., sending them again to the client after a certain time interval. Alternatively, it can be beneficial to do some research on which time to send the message. For example, a person may be busy at work and/or away from the phone during working hours. It may be easier for them to respond during early morning or later in the evening than in the afternoon.
 
 ## Resources
@@ -140,14 +138,12 @@ VMMC code can be accessed using the following link [D2C messaging app for post-o
 - [User guide including tools for the nurses and clients](https://drive.google.com/file/d/13fz8vDYSFNHLc2a-afsAEjM2nrmca6os/view?ts=65e996b1)
 - Flip Books
 - Publications
-   - 2wT: South Africa: https://www.jmir.org/2023/1/e42111/
-   - 2wT usability among clients in South Africa: https://journals.sagepub.com/doi/full/10.1177/20552076231194924
-   - 2wT saves costs, South Africa: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0294449
-   - 2wT is usable for healthcare workers, South Africa: https://formative.jmir.org/2023/1/e44122
-   - 2wT Zimbabwe: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6903365/
-   - 2wT scale up, Zimbabwe: https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000066
-   - 2wT usability Zimbabwe: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234
-   - 2wT saves costs, Zimbabwe: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239915
+
+  - 2wT is safe and improves efficiency over routine visits: Evidence from [South Africa](https://www.jmir.org/2023/1/e42111/) and from [Zimbabwe](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6903365/)
+  - 2wT is highly usable among clients: Evidence from [South Africa](https://journals.sagepub.com/doi/full/10.1177/20552076231194924) and from [Zimbabwe](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234)
+  - 2wT saves program costs: Evidence from [South Africa](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0294449) and from [Zimbabwe](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239915)
+  - 2wT is usable for healthcare workers: Evidence from [South Africa](https://formative.jmir.org/2023/1/e44122)
+  - 2wT is scale up, reaching over 45,000 in [Zimbabwe](https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000066)
 
 - Illustrative [Videos](https://www.youtube.com/watch?v=HNC5T7QuK2M&list=PLutu6_ZOg77dAgJhDCRKdEIUnThUsqjEh)
 
