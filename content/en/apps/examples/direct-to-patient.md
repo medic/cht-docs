@@ -1,9 +1,9 @@
 ---
-title: "Direct-to-patient messaging workflows on CHT"
-linkTitle: "Direct-to-patient messaging workflows on CHT "
+title: "Direct-to-client, two-way texting workflows on CHT"
+linkTitle: "Direct-to-client, two-way texting workflows on CHT"
 weight:
 description: >
-  Reference for Direct-to-patient workflows with CHT and RapidPro
+  Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
 relatedContent: >
   apps/concepts
   apps/reference/forms/app
