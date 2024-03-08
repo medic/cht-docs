@@ -61,7 +61,6 @@ This setup involves starting Logstash, PostgreSQL, PostgREST, DBT, and CouchDB. 
 
 Run the Docker containers and wait for every container to be up and running:
 ```sh
-# starts logstash, postgres, postgrest, generator (for fake data), couchdb and dbt
 npm run local
 ```
 
