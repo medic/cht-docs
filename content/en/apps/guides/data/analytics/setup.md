@@ -61,12 +61,6 @@ This setup involves starting Logstash, PostgreSQL, PostgREST, DBT, and CouchDB. 
 
 Run the Docker containers and wait for every container to be up and running:
 ```sh
-npm run local
-```
-
-This is equivalent to running:
-```sh
-# starts logstash, postgres, postgrest, generator (for fake data), couchdb and dbt
 docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
