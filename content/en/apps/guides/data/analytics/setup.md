@@ -72,7 +72,7 @@ Install the dependencies:
 npm install
 ```
 
-#### With sample CouchDB data
+### Sample CouchDB data
 This setup involves starting Logstash, PostgreSQL, PostgREST, DBT, and CouchDB. Sample fake data is generated for CouchDB.
 
 Run the Docker containers and wait for every container to be up and running:
