@@ -68,7 +68,7 @@ Run the Docker containers and wait for every container to be up and running:
 docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 6 containers running including Logstash, DBT, data generator, Postgres, CouchDB and Postgrest (note the `t` at the end!).
+You can verify this command worked by running `docker ps`. It should show 6 containers running including Logstash, DBT, data generator, PostgreSQL, CouchDB and PostgREST (note the `t` at the end!).
 
 Now that all services are running, use a PostgreSQL client like [pgAdmin](https://www.pgadmin.org/) to connect to server `localhost:5432` with user `postgres` and password `postgres`. You should be able to see sample data being inserted into the `v1.medic` table.
 
@@ -80,7 +80,7 @@ Run the Docker containers locally and wait for every container to be up and runn
 docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 4 containers running including Logstash, DBT, Postgres, and Postgrest.
+You can verify this command worked by running `docker ps`. It should show 4 containers running including Logstash, DBT, PostgreSQL, and PostgREST.
 
 ### Separate CouchDB and PostgreSQL instances
 This local setup involves starting Logstash, PostgREST, and DBT. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
@@ -90,7 +90,7 @@ Run the Docker containers locally and wait for every container to be up and runn
 docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt
 ```
 
-You can verify this command worked by running `docker ps`. It should show 3 containers running including Logstash, DBT, and Postgrest.
+You can verify this command worked by running `docker ps`. It should show 3 containers running including Logstash, DBT, and PostgREST.
 
 ### Cleanup
 When you are done using the services, you can clean everything by running `down`.
