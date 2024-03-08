@@ -48,7 +48,6 @@ If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll 
 {{% /alert %}}
 
 ## Setup
-The following configurations facilitate data synchronization, transformation, and storage for local development and testing.
 
 Copy the values in `env.template` file to the `.env` file and update them accordingly to the local configuration for the different scenarios below.
 
