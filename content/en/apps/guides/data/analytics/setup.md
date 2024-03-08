@@ -70,6 +70,8 @@ docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f d
 
 You can verify this command worked by running `docker ps`. It should show 6 containers running including Logstash, DBT, data generator, Postgres, CouchDB and Postgrest (note the `t` at the end!).
 
+Now that all services are running, use a PostgreSQL client like [pgAdmin](https://www.pgadmin.org/) to connect to server `localhost:5432` with user `postgres` and password `postgres`. You should be able to see sample data being inserted into the `v1.medic` table.
+
 ### Separate CouchDB instance 
 This setup involves starting Logstash, PostgreSQL, PostgREST, and DBT. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
