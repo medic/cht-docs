@@ -83,7 +83,6 @@ This local setup involves starting Logstash, PostgREST, and DBT. It assumes that
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
-# starts logstash, postgrest, and dbt
 docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt
 ```
 ## Setup Superset
