@@ -1,9 +1,9 @@
 ---
-title: "CHT Sync Setup"
+title: "Local CHT Sync Setup"
 weight: 100
-linkTitle: "Local Setup"
+linkTitle: "Local CHT Sync Setup"
 description: >
-  Setting up CHT Sync with the CHT
+  Setting up a local deployment of CHT Sync with the CHT
 relatedContent: >
   core/overview/architecture
   core/overview/cht-sync
