@@ -56,6 +56,10 @@ Install the dependencies:
 npm install
 ```
 
+{{% alert title="Note" %}}
+The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
+{{% /alert %}}
+
 ### Sample CouchDB data
 This setup involves starting Logstash, PostgreSQL, PostgREST, DBT, and CouchDB. Sample fake data is generated for CouchDB.
 
@@ -63,6 +67,8 @@ Run the Docker containers and wait for every container to be up and running:
 ```sh
 docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
+
+You can verify this command worked by running `docker ps`. It should show 6 containers running including Logstash, DBT, data generator, Postgres, CouchDB and Postgrest (note the `t` at the end!).
 
 ### Separate CouchDB instance 
 This setup involves starting Logstash, PostgreSQL, PostgREST, and DBT. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
@@ -72,6 +78,8 @@ Run the Docker containers locally and wait for every container to be up and runn
 docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
+You can verify this command worked by running `docker ps`. It should show 4 containers running including Logstash, DBT, Postgres, and Postgrest.
+
 ### Separate CouchDB and PostgreSQL instances
 This local setup involves starting Logstash, PostgREST, and DBT. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
 
@@ -79,5 +87,19 @@ Run the Docker containers locally and wait for every container to be up and runn
 ```sh
 docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt
 ```
+
+You can verify this command worked by running `docker ps`. It should show 3 containers running including Logstash, DBT, and Postgrest.
+
+### Cleanup
+When you are done using the services, you can clean everything by running `down`.
+
+For example, in the scenario of the [Sample CouchDB data]({{< relref "#sample-couchdb-data" >}}), the command should look like:
+
+```sh
+docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml down
+```
+
+To remove all the data volumes, add `-v` at the end of this command.
+
 ## Setup Superset
 To build data visualization dashboards, follow the [Superset instructions](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/) to run Superset and connect it to the PostgreSQL database.
