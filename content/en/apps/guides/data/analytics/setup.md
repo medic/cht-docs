@@ -62,7 +62,7 @@ All the variables in the `.env` file:
 If `CHT_PIPELINE_BRANCH_URL` is pointing to a private repo then you need to provide an access token in the url i.e. `https://<PAT>@github.com/medic/cht-pipeline.git#main`. In this example you will replace `<PAT>`  with an access token from Github. Instruction on how to generate one can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 {{% /alert %}}
 
-### Setup
+## Setup
 The following configurations facilitate data synchronization, transformation, and storage for local development and testing.
 
 Copy the values in `env.template` file to the `.env` file and update them accordingly to the local configuration for the different scenarios below.
