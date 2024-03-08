@@ -9,24 +9,9 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
-{{% pageinfo %}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+Before setting up CHT Sync in production, it's very handy to be able to run it locally.  This will allow you to experiment with the data flow and easily query development data quickly and locally. 
 
-Medic maintains CHT Sync which is an integrated solution designed to enable data synchronization between CouchDB and PostgreSQL for the purpose of analytics. It can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x. By using CHT Sync a CHT deployment can easily get analytics by using a data visualization tool. All tools are open source and have no licensing fees.
-
-CHT Sync has been designed to work in both local development environments for testing models or workflows, and in production environments. The setup can accommodate the needs of different stages or environments.
-
-### Prerequisites
-
-- [Docker](https://docs.docker.com/install/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- An `.env` file containing the environment variable. Placeholders can be found in the `env.template` file. The `.env` file should be located in the root directory of the project or set by the operating system. The variables should be customized accordingly for the specific deployment needs.
-
-{{% alert title="Note" %}}
-In order for CHT Sync to transform CouchDB data from the CHT in an easier to query format, it needs to be linked to [CHT Pipeline](https://github.com/medic/cht-pipeline), which contains transformation models for DBT. The schema differs from `couch2pg`. See [`./postgres/init-dbt-resources.sh`](https://github.com/medic/cht-sync/blob/main/postgres/init-dbt-resources.sh).
-{{% /alert %}}
+These instructions assume you're running CHT Sync, CHT Core and Postgres either locally on your workstation or on a local server.  They are not meant to be used to deploy a secure, always on production instance.
 
 #### Environment variables
 
