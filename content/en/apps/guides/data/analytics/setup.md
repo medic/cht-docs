@@ -75,7 +75,6 @@ This setup involves starting Logstash, PostgreSQL, PostgREST, and DBT. It assume
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
-# starts logstash, postgres, postgrest, and dbt
 docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
