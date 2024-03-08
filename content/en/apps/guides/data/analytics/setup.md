@@ -104,5 +104,5 @@ Run the Docker containers locally and wait for every container to be up and runn
 # starts logstash, postgrest, and dbt
 docker-compose -f docker-compose.postgrest.yml -f docker-compose.yml up -d logstash postgrest dbt
 ```
-### Setup Superset
+## Setup Superset
 To build data visualization dashboards, follow the [Superset instructions](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/) to run Superset and connect it to the PostgreSQL database.
