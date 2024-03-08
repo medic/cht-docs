@@ -96,7 +96,7 @@ Run the Docker containers locally and wait for every container to be up and runn
 docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-#### With separate CouchDB and PostgreSQL instances
+### Separate CouchDB and PostgreSQL instances
 This local setup involves starting Logstash, PostgREST, and DBT. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
 
 Run the Docker containers locally and wait for every container to be up and running:
