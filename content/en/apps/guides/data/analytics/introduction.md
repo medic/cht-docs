@@ -30,5 +30,5 @@ CHT Sync has been designed to work in both local development environments for te
 - [CHT Sync](https://github.com/medic/cht-sync) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-sync`).
 
 {{% alert title="Note" %}}
-In order for CHT Sync to transform CouchDB data from the CHT in an easier to query format, it needs to be linked to [CHT Pipeline](https://github.com/medic/cht-pipeline), which contains transformation models for DBT. The schema differs from `couch2pg`. See [`./postgres/init-dbt-resources.sh`](https://github.com/medic/cht-sync/blob/main/postgres/init-dbt-resources.sh).
+In order for CHT Sync to transform CouchDB data to PostgreSQL format, it needs to be linked to [CHT Pipeline](https://github.com/medic/cht-pipeline), which contains transformation models using `DBT`. [The schema](https://github.com/medic/cht-sync/blob/main/postgres/init-dbt-resources.sh) differs from [`couch2pg`](https://github.com/medic/couch2pg).
 {{% /alert %}}
