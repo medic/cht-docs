@@ -1,7 +1,7 @@
 ---
-title: "Introduction to data synchronization and analytics"
+title: "Introduction & Prerequisites to data synchronization and analytics"
 weight: 100
-linkTitle: "Introduction"
+linkTitle: "Introduction & Prerequisites"
 description: >
     High level approach to data synchronization and analytics with CHT applications
 relatedContent: >
