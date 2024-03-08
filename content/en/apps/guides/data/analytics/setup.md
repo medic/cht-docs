@@ -9,9 +9,9 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
-Before setting up CHT Sync in production, it's very handy to be able to run it locally.  This will allow you to experiment with the data flow and easily query development data quickly and locally. 
+Before setting up CHT Sync in production, it's very handy to be able to run it locally. This will allow you to experiment with the data flow and easily query development data quickly and locally. 
 
-These instructions assume you're running CHT Sync, CHT Core and Postgres either locally on your workstation or on a local server.  They are not meant to be used to deploy a secure, always on production instance.
+These instructions assume you're running CHT Sync, CHT Core and PostgreSQL either locally on your workstation or on a local server. They are not meant to be used to deploy a secure, always on production instance.
 
 #### Environment variables
 
@@ -35,7 +35,7 @@ All the variables in the `.env` file:
 | `DBT_POSTGRES_PASSWORD`   | `postgres`                                         | Password of the PostgreSQL database where `DBT` creates tables and views from the models in `CHT_PIPELINE_BRANCH_URL`                          |
 | `DBT_POSTGRES_SCHEMA`     | `dbt`                                              | PostgreSQL schema where `DBT` creates tables and views from the models in `CHT_PIPELINE_BRANCH_URL`                                            |
 | `DBT_POSTGRES_HOST`       | `postgres`                                         | PostgreSQL instance IP or endpoint                                                                                                             |
-| `CHT_PIPELINE_BRANCH_URL` | `"https://github.com/medic/cht-pipeline.git#main"` |                                                                                                                                                |
+| `CHT_PIPELINE_BRANCH_URL` | `"https://github.com/medic/cht-pipeline.git#main"` | CHT Pipeline branch containing the `DBT` models                                                                                                                                   |
 | `COUCHDB_USER`            | `medic`                                            | Username of the CouchDB instance to sync with                                                                                                  |
 | `COUCHDB_PASSWORD`        | `password`                                         | Password of the CouchDB instance to sync with                                                                                                  |
 | `COUCHDB_DBS`             | `"medic"`                                          | Space separated list of databases to sync e.g `"medic medic_sentinel"`                                                                         |
