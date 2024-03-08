@@ -49,7 +49,7 @@ Ultimately all the data ends up in a CouchDB instance deployed in the cloud whet
 
 #### 2. Data Transformation
 
-We use [couch2pg](https://github.com/medic/medic-couch2pg) to move data from CouchDB to a relational database, PostgreSQL in this case. The choice of PostgreSQL for analytics dashboard data sources is to allow use of the more familiar SQL querying. It is an open source tool that can be [easily deployed](https://github.com/medic/medic-couch2pg#user-content-installation-steps-if-applicable). When deployed the service uses [CouchDB's changes feed](https://docs.couchdb.org/en/stable/api/database/changes.html) which allows capturing of everything happening in CouchDB in incremental updates. It is run and monitored by the operating system where it is configured to fetch data at a configurable interval.
+We use [couch2pg](https://github.com/medic/medic-couch2pg) or [cht-sync]({{< relref "core/overview/cht-sync" >}}) to move data from CouchDB to a relational database, PostgreSQL in this case. The choice of PostgreSQL for analytics dashboard data sources is to allow use of the more familiar SQL querying. It is an open source tool that can be [easily deployed](https://github.com/medic/medic-couch2pg#user-content-installation-steps-if-applicable). When deployed the service uses [CouchDB's changes feed](https://docs.couchdb.org/en/stable/api/database/changes.html) which allows capturing of everything happening in CouchDB in incremental updates. It is run and monitored by the operating system where it is configured to fetch data at a configurable interval.
 
 Data copied over to PostgreSQL is first stored as raw json (document) making use of PostgreSQL's jsonb data type to create an exact replica of a CouchDB database. From this, default views are created at deployment of the service and refreshed during every subsequent run. Additional custom materialized views created later are also refreshed at this time.
 
@@ -61,12 +61,6 @@ Custom materialized views and functions are added specific to a deployment's nee
 - Database functions are used as a way to join as much relevant data as possible for easier querying in analytics or dashboard visualizations.
 
 Data in the views and functions mentioned in this section is as accurate as the accuracy of the SQL queries. Best practice is to begin the process of defining these objects at design in order to align analytics and dashboards requirements with workflows being deployed.
-
-#### CHT Sync
-[cht-sync](https://github.com/medic/cht-sync) is able to sync data from CouchDB to PostgreSQL. It uses logstash and PostgREST to replicate data from CouchDB to PostgreSQL in a real-time manner.
-
-#### CHT Pipeline
-[cht-pipeline](https://github.com/medic/cht-pipeline) helps with the transformation of the data from the CHT to a format that is more suitable for analytics. It uses [DBT](https://www.getdbt.com/) to define the models that are translated into Postgres tables or views. It then becomes easier to query the data in the analytics platform of choice, for example [Superset](https://superset.apache.org/). See these [instructions](cht-sync) on how to set up and use cht-pipeline.
 
 #### 3. Data Use
 

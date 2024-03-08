@@ -6,7 +6,7 @@ description: >
   The different pieces of a CHT project, how they interact, and what they're used for
 relatedContent: >  
   core/overview/watchdog
-  core/overview/data-flows-for-analytics/cht-sync
+  core/overview/cht-sync
   apps/guides/hosting/vertical-vs-horizontal
 ---
 
@@ -48,7 +48,7 @@ The CHT Upgrade Service is used within the CHT to update individual Docker conta
 
 ### CHT Sync
 
-A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "core/overview/data-flows-for-analytics/cht-sync" >}}) and the [cht-sync GitHub repository](https://github.com/medic/cht-sync).
+A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "core/overview/cht-sync" >}}) and the [cht-sync GitHub repository](https://github.com/medic/cht-sync).
 
 ### CHT Watchdog
 
