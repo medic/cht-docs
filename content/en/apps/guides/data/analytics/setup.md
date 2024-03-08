@@ -87,7 +87,7 @@ This is equivalent to running:
 docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-#### With a separate CouchDB instance 
+### Separate CouchDB instance 
 This setup involves starting Logstash, PostgreSQL, PostgREST, and DBT. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
 Run the Docker containers locally and wait for every container to be up and running:
