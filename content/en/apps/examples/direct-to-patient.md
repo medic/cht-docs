@@ -35,7 +35,7 @@ The CHT offers general guidance on how  SMS workflows can be built on CHT. CHT S
 <li><strong>2wT-based telehealth</strong>, providing a lower cost format for clinical triaging, reassurance or referral to in-person care via SMS</li>
 </ul>
 
-Furthermore, CHT allows integration with other health information systems includingDistrict Health Information Software 2 (DHIS2) and facility-based electronic medical record systems such as OpenMRS.
+Furthermore, CHT allows integration with other health information systems including District Health Information Software 2 (DHIS2) and facility-based electronic medical record systems such as OpenMRS.
 
 ## CHT SMS workflow technical overview
 
@@ -108,7 +108,7 @@ A VMMC client who responds with a potential complication triggers a Client revie
 #### 4. Clients can share requests by messaging health care providers.
 Clients registered in the intervention can also initiate the bidirectional messaging with a 2WT Nurse by messaging a central phone number or a short code. Clients can report any concern, ask a question about wound healing, or request for help from health care providers via SMS. For this workflow, the logic can be preconfigured to support health triage and clinical referrals. Using the messaging functionality on CHT, health care providers based at the facility can view, manage and respond to incoming texts from VMMC clients.
 
-## Evidence Impact
+## Evidence of Impact
 In collaboration with researchers at the University of Washington, we  assessed the effectiveness of the 2wT intervention through randomized controlled trials in Zimbabwe and South Africa. The foundational [randomized control trial in Zimbabwe in 2018](https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-019-3470-9), demonstrated that post-surgical client follow up via SMS was as safe as follow up care at the clinic, and that the transition to SMS-based follow-up option enabled an 85% reduction in unnecessary clinic visits. Similar findings were reported in [South Africa](https://www.jmir.org/2023/1/e42111/). This approach to messaging with clients was more efficient and [cheaper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239915) than standard care, thereby lowering costs. Both clients and clinicians both found the approach to be [highly usable](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234) and [acceptable for post-operative care](https://journals.sagepub.com/doi/full/10.1177/20552076231194924) and further [usability studies](https://formative.jmir.org/2023/1/e44122) found that it was preferred by clients  and providers alike (see figure 7). We are also expanding our application of D2C, 2wT for antiretroviral therapy (ART) clients in Malawi, aiming to have similarly [positive impact on engagement in ART and retention in HIV care](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0278806).
 
 {{< figure src="Figure7EvidenceOfImpact.png"  link="Figure7EvidenceOfImpact.png" alt="" title="" caption="<b>Figure 7:</b> Evidence supported benefits of direct-to-client messaging for voluntary male circumcision clients" class="col-9">}}
@@ -136,8 +136,8 @@ The workflows in RapidPro can be set up in such a way that they expire after a c
 VMMC code can be accessed using the following link [D2C messaging app for post-op care](https://github.com/medic/cht-post-ops-app)
 ##### Training materials
 - [User guide including tools for the nurses and clients](https://drive.google.com/file/d/13fz8vDYSFNHLc2a-afsAEjM2nrmca6os/view?ts=65e996b1)
-- Flip Books
-- Publications
+- Illustrative [Videos](https://www.youtube.com/watch?v=HNC5T7QuK2M&list=PLutu6_ZOg77dAgJhDCRKdEIUnThUsqjEh)
+##### Publications
 
   - 2wT is safe and improves efficiency over routine visits: Evidence from [South Africa](https://www.jmir.org/2023/1/e42111/) and from [Zimbabwe](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6903365/)
   - 2wT is highly usable among clients: Evidence from [South Africa](https://journals.sagepub.com/doi/full/10.1177/20552076231194924) and from [Zimbabwe](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234)
@@ -145,7 +145,6 @@ VMMC code can be accessed using the following link [D2C messaging app for post-o
   - 2wT is usable for healthcare workers: Evidence from [South Africa](https://formative.jmir.org/2023/1/e44122)
   - 2wT is scale up, reaching over 45,000 in [Zimbabwe](https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000066)
 
-- Illustrative [Videos](https://www.youtube.com/watch?v=HNC5T7QuK2M&list=PLutu6_ZOg77dAgJhDCRKdEIUnThUsqjEh)
 
 <strong>Related pages</strong> - Medic website stories, [UW website](https://sites.uw.edu/twowaytexting/), [I-tech/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients)
 
