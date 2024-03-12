@@ -146,7 +146,7 @@ VMMC code can be accessed using the following link [D2C messaging app for post-o
   - 2wT is scale up, reaching over 45,000 in [Zimbabwe](https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000066)
 
 
-<strong>Related pages</strong> - Medic website stories, [UW website](https://sites.uw.edu/twowaytexting/), [I-tech/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients)
+<strong>Related pages</strong> - [UW website](https://sites.uw.edu/twowaytexting/), [I-tech/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients)
 
 {{< figure src="Figure8Collab.png"  link="Figure8Collab.png" alt="" title="" class="col-9">}}
 
