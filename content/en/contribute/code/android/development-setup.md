@@ -176,6 +176,12 @@ To upgrade the necessary apk on an emulated Android device:
     - For Android 10+, you should download a new version of `com.google.android.webview` (e.g. from [apkMirror](https://www.apkmirror.com/apk/google-inc/android-system-webview/)).
 - Then, you can use adb to install the apk into the device: `adb install -r *your_apk*.apk`
 
+{{% alert title="Note" %}}
+Testing using an Android 5-6 device can be more challenging. The `com.android.webview` package seems to be baked into the system partition regardless of the image variant. It is possible use a custom ROM (e.g. CyanogenMod) with an upgraded WebView version on a physical device. Another approach to testing with older versions of Android is to simply test against an older version of the CHT (e.g. CHT `3.x.` only requires Chrome/Webview 53). The functionality of cht-android can still be validated by interacting with this old CHT version.
+
+If using the docker-helper to deploy CHT instances for testing with old Android versions, be aware that the `local-ip.medicmobile.org` SSL certificates may not work with the device (because the root certificate is not recognized). On Android 5-6 you can manually install the root certificate via Settings > Security > Install from SD Card. 
+{{% /alert %}}
+
 ### Android Studio
 
 The [Android Studio](https://developer.android.com/studio) can be used to build and launch the app instead. Be sure to select the right flavor from the _Build Variants_ dialog (see [Change the build variant](https://developer.android.com/studio/run#changing-variant)). To launch the app in an emulator, you need to uncomment the code that has the strings for the `x86` or the `x86_64` architecture in the `android` / `splits` / `include` sections of the `build.gradle` file.
