@@ -59,6 +59,12 @@ The telemetry data gathered changes with different versions of the framework. Cu
 | `search:reports` | The time taken to list all reports. |
 | `search:reports:<filter[:filter]>` | The time taken to search all reports using the given filters. |
 | `contact_detail:<contact_type>:load` | On the People tab, the time taken to load a contact, from the time the contact was selected to the time all content for that contact (contact summary, condition cards, reports, tasks, etc...) has fully loaded on the screen. Added in 4.7. |
+| `contact_detail:<_form>:load:contact_data` | The time taken to load a contact's data. Added in 4.7. |
+| `contact_detail:<_form>:load:load_descendants` | The time taken to load a contact's descendants, that is places and contacts under the contact heriarchy level. Added in 4.7. |
+| `contact_detail:<_form>:load:load_reports` |  The time taken to load a contact's asociated reports. Added in 4.7. |
+| `contact_detail:<_form>:load:load_targets` |  The time taken to load a contact's targets. Added in 4.7. |
+| `contact_detail:<_form>:load:load_tasks` |  The time taken to load a contact's tasks. Added in 4.7. |
+| `contact_detail:<_form>:load:load_contact_summary` |  The time taken to load a contact's contact-summary. Added in 4.7. |
 | `report_detail:<form>:load` | On the Reports tab, the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.7. |
 | `messages_detail:load` | On the Messages tab, the time taken to load the messages detail on the right hand side once has been selected from the list on the left hand side. Added in 4.7. |
 | `sidebar_filter:reports:open` | Number of times the user opens the sidebar filter in Reports tab. |
