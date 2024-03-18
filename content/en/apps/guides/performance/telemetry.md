@@ -76,7 +76,7 @@ Find below the list of telemetry data recorded by CHT:
 | `analytics:targets:load` | The time taken to load the targets page. Added in 3.9 | Yes. Added in 4.7 |
 | `analytics:target_aggregates:load` | The time taken to load the target aggregates. Added in 4.7. | Yes. Added in 4.7 |
 | `tasks:load` | The time taken to load the tasks page. Added in 3.9 | Yes. Added in 4.7 |
-| `tasks:refresh` | The time taken to refresh tasks on the tasks page. Added in 3.9 | |
+| `tasks:refresh` | The time taken to refresh tasks on the tasks page. Added in 3.9 | Yes. Added in 4.7 |
 | `report_list:load` | On the Reports tab, the time taken to load the list of reports on the left hand side. Added in 4.7. | Yes. Added in 4.7|
 | `report_list:query` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.7. | Yes. Added in 4.7|
 | `rules-engine:initialize` | The time taken to initialize the rules-engine . Added in 3.9 | |
