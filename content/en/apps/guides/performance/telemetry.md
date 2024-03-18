@@ -32,12 +32,15 @@ Each aggregate data point has the following fields:
 | `count` | The number of times recorded. |
 | `sumsqr` | The sum of squares of the times recorded in milliseconds. This is useful to see the variance, for example, a lower sumsqr can be indicative of having data closer together. |
 
-The CHT records the Apdex (Application Performance Index) that was _added in 4.7_. It is an open standard for measuring performance of software applications. Its purpose is to convert measurements into insights about user satisfaction, by specifying a uniform way to analyze and report on the degree to which measured performance meets user expectations. The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. The Apdex is recorded as a telemetry entry using this format: `<page_or_component:apdex:<satisfied/tolerable/frustrated>`, for example, if the component is boot time and had a tolerable performance, the Apdex is recorded as `boot_time:apdex:tolerable`. 
+The CHT records the Apdex (Application Performance Index) that was added in CHT v4.7. It is an open standard for measuring performance of software applications. Its purpose is to convert measurements into insights about user satisfaction, by specifying an uniform way to analyze and report on the degree to which measured performance meets user expectations. 
+
+The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. The Apdex is recorded as a telemetry entry using the format: `<telemetry_field>:apdex:<satisfied/tolerable/frustrated>`, for example, if the telemetry is about boot time and it had a tolerable performance, the Apdex is recorded as `boot_time:apdex:tolerable`. 
+
 Find below the list of telemetry data recorded by CHT:
 
 | Field | Description | Apdex |
 |----|----|----|
-| `boot_time` | The overall boot time including loading the code, purging, and accessing the database. | Yes. _Added in 4.7_|
+| `boot_time` | The overall boot time including loading the code, purging, and accessing the database. | Yes. Added in 4.7|
 | `boot_time:1:to_first_code_execution` | The time between the page loading and the JavaScript starting to run. | |
 | `boot_time:2:to_bootstrap` | The time between JavaScript starting and the bootstrapping (purging, initial replication, etc) to complete. | |
 | `boot_time:2_1:to_replication` | The time it took to complete initial replication. If initial replication was interrupted and retried, this value will be incorrect. Added in 3.14. | |
@@ -49,33 +52,33 @@ Find below the list of telemetry data recorded by CHT:
 | `boot_time:purging_failed` | The purging failed when running on device startup. Added in 3.14 and removed in 4.3. | |
 | `boot_time:purging_meta:<boolean>` | `boot_time:purging_meta:true` when purging of the local meta database ran successfully, `boot_time:purging_meta:false` when it did not run. Added in 3.14. | |
 | `boot_time:purging_meta_failed` | The purging of the local meta database failed. Added in 3.14. | |
-| `contact_list:load` | The time taken to load the list of contacts on the left hand side of the Contacts tab. Added in 4.7. | Yes. _Added in 4.7_|
-| `contact_list:query` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.  | Yes. _Added in 4.7_|
-| `enketo:reports:<form>:<action>:<component>` | The time taken to fill in app forms that are opened from Reports Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. | Yes, added for `render` and `save` actions. _Added in 4.7_ |
-| `enketo:contacts:<form>:<action>:<component>` | The time taken to fill contact forms and app forms that are opened from People Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |  Yes, added for `render` and `save` actions. _Added in 4.7_ |
-| `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. | Yes, added for `render` and `save` actions. _Added in 4.7_ |
-| `message_list:load` | The time taken to load the list of messages on the left hand side of the Messages tab. Added in 4.7. | Yes. _Added in 4.7_ |
+| `contact_list:load` | The time taken to load the list of contacts on the left hand side of the Contacts tab. Added in 4.7. | Yes. Added in 4.7|
+| `contact_list:query` | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.  | Yes. Added in 4.7|
+| `enketo:reports:<form>:<action>:<component>` | The time taken to fill in app forms that are opened from Reports Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. | Yes, added for `render` and `save` actions. Added in 4.7 |
+| `enketo:contacts:<form>:<action>:<component>` | The time taken to fill contact forms and app forms that are opened from People Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |  Yes, added for `render` and `save` actions. Added in 4.7 |
+| `enketo:tasks:<form>:<action>:<component>` | As above but for forms on the Tasks tab. | Yes, added for `render` and `save` actions. Added in 4.7 |
+| `message_list:load` | The time taken to load the list of messages on the left hand side of the Messages tab. Added in 4.7. | Yes. Added in 4.7 |
 | `search:contacts` | The time taken to list all contacts. | |
 | `search:contacts:<filter[:filter]>` | The time taken to search all contacts using the given filters. | |
 | `search:reports` | The time taken to list all reports. | |
 | `search:reports:<filter[:filter]>` | The time taken to search all reports using the given filters. | |
-| `contact_detail:<contact_type>:load` | On the People tab, the time taken to load a contact, from the time the contact was selected to the time all content for that contact (contact summary, condition cards, reports, tasks, etc...) has fully loaded on the screen. Added in 4.7. |  Yes. _Added in 4.7_|
+| `contact_detail:<contact_type>:load` | On the People tab, the time taken to load a contact, from the time the contact was selected to the time all content for that contact (contact summary, condition cards, reports, tasks, etc...) has fully loaded on the screen. Added in 4.7. |  Yes. Added in 4.7|
 | `contact_detail:<_form>:load:contact_data` | The time taken to load a contact's data. Added in 4.7. | | 
 | `contact_detail:<_form>:load:load_descendants` | The time taken to load a contact's descendants, that is places and contacts under the contact heriarchy level. Added in 4.7. | |
 | `contact_detail:<_form>:load:load_reports` |  The time taken to load a contact's asociated reports. Added in 4.7. | |
 | `contact_detail:<_form>:load:load_targets` |  The time taken to load a contact's targets. Added in 4.7. | |
 | `contact_detail:<_form>:load:load_tasks` |  The time taken to load a contact's tasks. Added in 4.7. | |
 | `contact_detail:<_form>:load:load_contact_summary` |  The time taken to load a contact's contact-summary. Added in 4.7. | |
-| `report_detail:<form>:load` | On the Reports tab, the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.7. | Yes. _Added in 4.7_ |
-| `messages_detail:load` | On the Messages tab, the time taken to load the messages detail on the right hand side once has been selected from the list on the left hand side. Added in 4.7. | Yes. _Added in 4.7_ |
+| `report_detail:<form>:load` | On the Reports tab, the time taken to load a report from the point it was selected on the left hand side to the time it was fully rendered. Added in 4.7. | Yes. Added in 4.7 |
+| `messages_detail:load` | On the Messages tab, the time taken to load the messages detail on the right hand side once has been selected from the list on the left hand side. Added in 4.7. | Yes. Added in 4.7 |
 | `sidebar_filter:reports:open` | Number of times the user opens the sidebar filter in Reports tab. | |
 | `client-date-offset` | The difference between the client datetime and the server datetime. Only recorded if the difference is large enough that it may cause issues. | |
-| `analytics:targets:load` | The time taken to load the targets page. Added in 3.9 | Yes. _Added in 4.7_ |
-| `analytics:target_aggregates:load` | The time taken to load the target aggregates. Added in 4.7. | Yes. _Added in 4.7_ |
-| `tasks:load` | The time taken to load the tasks page. Added in 3.9 | Yes. _Added in 4.7_ |
+| `analytics:targets:load` | The time taken to load the targets page. Added in 3.9 | Yes. Added in 4.7 |
+| `analytics:target_aggregates:load` | The time taken to load the target aggregates. Added in 4.7. | Yes. Added in 4.7 |
+| `tasks:load` | The time taken to load the tasks page. Added in 3.9 | Yes. Added in 4.7 |
 | `tasks:refresh` | The time taken to refresh tasks on the tasks page. Added in 3.9 | |
-| `report_list:load` | On the Reports tab, the time taken to load the list of reports on the left hand side. Added in 4.7. | Yes. _Added in 4.7_|
-| `report_list:query` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.7. | Yes. _Added in 4.7_|
+| `report_list:load` | On the Reports tab, the time taken to load the list of reports on the left hand side. Added in 4.7. | Yes. Added in 4.7|
+| `report_list:query` | The time taken to query the Reports tab on initial load, when searching or filtering, this metric covers from fetching the data to preparing the data before display. Added in 4.7. | Yes. Added in 4.7|
 | `rules-engine:initialize` | The time taken to initialize the rules-engine . Added in 3.9 | |
 | `rules-engine:update-emissions` | The time taken to update emissions in the rules-engine, when receiving a change. Added in 3.9 | | 
 | `rules-engine:tasks:all-contacts` | The time taken to fetch tasks for all contacts in rules-engine. Added in 3.9 | | 
