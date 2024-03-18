@@ -32,7 +32,7 @@ Each aggregate data point has the following fields:
 | `count` | The number of times recorded. |
 | `sumsqr` | The sum of squares of the times recorded in milliseconds. This is useful to see the variance, for example, a lower sumsqr can be indicative of having data closer together. |
 
-The CHT records the Apdex (Application Performance Index) that is an open standard for measuring performance of software applications. Its purpose is to convert measurements into insights about user satisfaction, by specifying an uniform way to analyze and report on the degree to which measured performance meets user expectations. 
+The CHT records the Apdex (Application Performance Index) that is an open standard for measuring performance of software applications. Its purpose is to convert measurements into insights about user satisfaction, by specifying a uniform way to analyze and report on the degree to which measured performance meets user expectations. 
 
 The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. The Apdex is recorded as a telemetry entry using the format: `<telemetry_field>:apdex:<satisfied/tolerable/frustrated>`, for example, if the telemetry is about boot time and it had a tolerable performance, the Apdex is recorded as `boot_time:apdex:tolerable`. 
 
