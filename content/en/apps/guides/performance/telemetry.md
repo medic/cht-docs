@@ -43,7 +43,7 @@ Find below the list of telemetry data recorded by CHT:
 | `boot_time` | The overall boot time including loading the code, purging, and accessing the database. | Yes. Added in 4.7|
 | `boot_time:1:to_first_code_execution` | The time between the page loading and the JavaScript starting to run. | |
 | `boot_time:2:to_bootstrap` | The time between JavaScript starting and the bootstrapping (purging, initial replication, etc) to complete. | |
-| `boot_time:2_1:to_replication` | The time it took to complete initial replication. If initial replication was interrupted and retried, this value will be incorrect. Added in 3.14. | |
+| `boot_time:2_1:to_replication` | The time it takes to complete initial replication. If initial replication was interrupted and retried, this value will be incorrect. Added in 3.14. | |
 | `boot_time:2_2:to_purge` | The time it takes to complete the purge. Added in 3.14 and removed in 4.3. | |
 | `boot_time:2_3:to_purge_meta` | The time it takes to complete the purge of local meta database. Added in 3.14. | |
 | `boot_time:3:to_angular_bootstrap` | The time between bootstrapping completing and the webapp being ready to use. | |
