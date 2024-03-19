@@ -93,12 +93,16 @@ Calendar widget using Bikram Sambat calendar, which is used by default for appro
 
 ### Countdown Timer
 
-A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, you can add the timer as a `trigger` field with the _appearance_ set to `countdown-timer`. The duration of the timer can be set in a column named _instance::cht:duration_ (the default value is 60 seconds). 
+A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, you can add the timer as a `trigger` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in a column named _instance::cht:duration_ (the default value is `60`). 
+
+| type    | appearance      | instance::cht:duration |
+|---------|-----------------|------------------------|
+| trigger | countdown-timer | 30                     |
 
 If you want to make the timer mandatory so users must wait for the timer to complete before continuing to the next page or submitting the form, you can populate the _required_ column with an XPath expression as you would do for any other required question. A value of `"OK"` will be set for the `trigger` field when the timer completes.
 
 {{% alert title="Note" %}}
-The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
+The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
 {{% /alert %}}
 
 
