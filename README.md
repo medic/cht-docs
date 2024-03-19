@@ -31,7 +31,7 @@ If using `asdf` fails you can try installing Hugo manually. To install, follow t
 1. Preview your site in your browser at: http://localhost:1313/
 1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes.
 
-MacOS users getting errors when running `hugo server`, please see our [Troubleshooting guide](./troubleshooting.md).
+Any users who experience errors running `hugo server`, please see our [Troubleshooting guide](./troubleshooting.md).
 
 ## Link Checking [Optional]
 
