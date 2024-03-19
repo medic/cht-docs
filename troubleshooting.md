@@ -1,12 +1,12 @@
 # Troubleshooting 
 
-The first thing to check, regardless of your OS, is that you are running the latest version of Hugo and that it's the Extended version. You can do this by running the following command...
+The first thing to check, regardless of your OS, is that you are running the correct version of Hugo and that it's the Extended version:
 
 ```shell
 hugo version
 ```  
 
-...which should return something like:
+This will show something like:
 
 
 ```shell
@@ -16,6 +16,17 @@ hugo v0.108.0+extended darwin/arm64 BuildDate=unknown VendorInfo=macports
 In this example, `0.108.0` is the release and `+extended` indicates that it is the extended version.
 
 You can see the list of Hugo releases [here](https://github.com/gohugoio/hugo/releases). 
+
+## Which `hugo` version to run
+
+There's currently an [issue running versions later than `0.123` or later](https://github.com/medic/cht-docs/issues/1302).  You should run `0.122` to avoid the error until this issue is fixed.  Follow these steps to install the older `0.122` version.  While they mention `snap` which is specific to Linux, the install steps should work for macOS and Windows with WSL 2 as well: 
+
+1. Remove the too new verison of `hugo`.  If you used `snap`, you can uninstall with: `sudo snap remove hugo`
+2. Download the specific `hugo` tarball: `wget https://github.com/gohugoio/hugo/releases/download/v0.122.0/hugo_extended_0.122.0_linux-amd64.tar.gz`
+3. Uncompressed it: `tar xvzf hugo_extended_0.122.0_linux-amd64.tar.gz`
+4. Move the binary into your `$PATH`: `sudo mv hugo /usr/local/bin`
+
+If you were running the `snap` version of `hugo`, you may need to install `go` now as it was removed with `hugo`.  This should work with `sudo snap install go`. Other platforms that need to install Go should see their [install docs](https://golang.org/doc/install).
 
 
 ## MacOS 
