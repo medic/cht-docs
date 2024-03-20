@@ -25,7 +25,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. Randomize the list of teammate names
     1. Put the name of whoever ended up first on the randomized list as the question of the week person.
     1. Notify that person via Slack that they should think up a question and add it to the doc any time prior to the call. Special note: If we have a new teammate, they give to be first and set the question. Just modify the list to make it so.
-    1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together).
+    1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together. Past activities have included [GeoGuessr](https://www.geoguessr.com/), [Gartic Phone](https://garticphone.com/), and [Kahoot trivia](https://kahoot.com/)).
     1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all.
 1. Create a new Jamboard in Google Drive
     1. Make the Jamboard accessible for all teammates
