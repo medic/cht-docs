@@ -39,7 +39,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. Sometimes people get the order mixed up. Be prepared to nudge people if needed.
 1. Move to the regular agenda. If there are special items, someone's name should be on it already.
 1. Do the Jamboard
-  1. As for someone to mark the cards as you call them out. Enough people seem to take joy in this that it'll be a thing all on its own!
+  1. Ask for someone to mark the cards as you call them out. Enough people seem to take joy in this, and it'll be a thing all on its own!
   1. Note which card you're looking at, read it, and ask if anyone (or the author) wants to add more. Sometimes it's quick stuff, sometimes it's big fun things everyone wants to spend more time on. Cool.
 1. Pass the mic to the activity of the week person.
 1. Fin! (It's ok if we finish early. We need to try hard not to finish late; it's evening for some teammates!)  
