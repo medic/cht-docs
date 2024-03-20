@@ -123,8 +123,7 @@ curl -X GET "http://medic:password@localhost:5984/_membership" | jq
 
 Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-docker` folder with this code:
 
-{{< tabpane persistLang=false lang=shell >}}
-{{< tab header="Linux (Ubuntu) & Windows (WSL2)" >}}
+```
 mkdir -p ~/cht-docker
 curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
 cat > ~/cht-docker/couchdb-override.yml << EOF
@@ -135,22 +134,7 @@ services:
           - "5984:5984"
           - "5986:5986"
 EOF
-{{< /tab >}}
-{{< tab header="macOS" >}}
-docker build -t couchdb-apple-silicon ~/cht-core/couchdb/.
-mkdir -p ~/cht-docker
-curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
-cat > ~/cht-docker/couchdb-override.yml << EOF
-version: '3.9'
-services:
-    couchdb:
-        image: couchdb-apple-silicon
-        ports:
-            - "5984:5984"
-            - "5986:5986"
-EOF
-{{< /tab >}}
-{{< /tabpane >}}
+```
 
 Now you can start CouchDB. The login for your CHT instance will be `medic` and the `password` will be password:
 
