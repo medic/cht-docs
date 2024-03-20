@@ -26,11 +26,11 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. Put the name of whoever ended up first on the randomized list as the question of the week person.
     1. Notify that person via Slack that they should think up a question and add it to the doc any time prior to the call. Special note: If we have a new teammate, they give to be first and set the question. Just modify the list to make it so.
     1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together. Past activities have included [GeoGuessr](https://www.geoguessr.com/), [Gartic Phone](https://garticphone.com/), and [Kahoot trivia](https://kahoot.com/)).
-    1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all.
-1. Create a new Jamboard in Google Drive
+    1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all. 
+1. Create a new Jamboard in the [team meeting folder](https://drive.google.com/drive/folders/1jV-8APqEQ85MOr1Irc4vRKRuKZOmI1r_)
     1. Make the Jamboard accessible for all teammates
     1. link it in the agenda under "Celebrations and good fun stuff"
-    1. Send a message to the whole team in Slack so they know it's available and can start putting fun things on it
+1. 1. Send a message to the whole team in Slack so they know the jamboard is available and can start putting fun things on it, and also that the agenda is open now for team-wide or org information to add.
 
 ### Running the call on the day-of
 1. Start the call on time (mostly). We can't sit around forever, but this is mostly a fun thing, so it's ok if people are just chatting for a couple minutes while waiting for stragglers.
