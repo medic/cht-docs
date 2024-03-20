@@ -28,6 +28,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together).
     1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all.
 1. Create a new Jamboard in Google Drive
+    1. Make the Jamboard accessible for all teammates
     1. link it in the agenda under "Celebrations and good fun stuff"
     1. Send a message to the whole team in Slack so they know it's available and can start putting fun things on it
 
