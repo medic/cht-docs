@@ -22,7 +22,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
 ### Preparations
 1. About 2 weeks before the call, open the [Product Team Call](https://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0/edit#heading=h.tpmdaeagi9ap) document and:
     1. Add a new date token for "question of the week".
-    1. Randomize the list of teammate names
+    1. Randomize the list of teammate names.
     1. Put the name of whoever ended up first on the randomized list as the question of the week person.
     1. Notify that person via Slack that they should think up a question and add it to the doc any time prior to the call. Special note: If we have a new teammate, they give to be first and set the question. Just modify the list to make it so.
     1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together. Past activities have included [GeoGuessr](https://www.geoguessr.com/), [Gartic Phone](https://garticphone.com/), and [Kahoot trivia](https://kahoot.com/)).
