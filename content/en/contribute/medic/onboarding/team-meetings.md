@@ -29,7 +29,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all. 
 1. Create a new Jamboard in the [team meeting folder](https://drive.google.com/drive/folders/1jV-8APqEQ85MOr1Irc4vRKRuKZOmI1r_)
     1. Make the Jamboard accessible for all teammates
-    1. link it in the agenda under "Celebrations and good fun stuff"
+    1. Link it in the agenda under "Celebrations and good fun stuff"
     1. Send a message to the whole team in Slack so they know the jamboard is available and can start putting fun things on it, and also that the agenda is open now for team-wide or org information to add.
 
 ### Running the call on the day-of
