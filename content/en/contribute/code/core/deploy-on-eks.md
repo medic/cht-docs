@@ -43,7 +43,7 @@ Both `helm` and `kubectl` have autocomplete libraries you can add to your shell.
 1. [Create a ticket](https://github.com/medic/medic-infrastructure/issues/new) to get your DNS and Namespace created for EKS, which should match each other. As an example, a `USERNAME-dev` name space would match `USERNAME.dev.medicmobile.org` DNS. The ticket should include requesting EKS access to be granted. 
 2. Once you get your AWS account invite (see prior step), follow the [CLI setup guide](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/eks/access/README.md).
     
-**NB** - Security key (eg Yubikey) users need to add a TOTP MFA too! CLI requires the TOTP values (6-digit number) and security keys are not supported. Security keys can only be used on web logins.
+**NB** - Security key (e.g. Yubikey) users need to add a TOTP MFA (Time-based, One-Time Password Multi-Factor Authentication) too! CLI requires the TOTP values (6-digit number) and security keys are not supported. Security keys can only be used on web logins.
 
 ## Starting and stopping (aka deleting)
 
