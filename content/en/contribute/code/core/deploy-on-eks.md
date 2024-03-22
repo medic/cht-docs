@@ -15,7 +15,7 @@ While these instructions assume you work at Medic and have access to private Git
 
 ## Command Line Prerequisites 
 
-Before using this guide, be sure you have these tools installes:
+Before using this guide, be sure you have these tools installed:
 
 * [awscli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html): version `2` or newer
 * [kubectl](https://kubernetes.io/docs/tasks/tools): Must be within one minor version of cluster. If cluster is `1.24.x`, use `1.23.x`, `1.24.x` or `1.25.x`.
