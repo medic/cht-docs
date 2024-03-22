@@ -51,7 +51,7 @@ Both `helm` and `kubectl` have autocomplete libraries you can add to your shell.
 2. Ensure you're using dev EKS cluster. Replace `AWS_ACCOUNT_ID` with the real ID from SRE: `kubectl config use-context arn:aws:eks:eu-west-2:AWS_ACCOUNT_ID:cluster/dev-cht-eks`
 3. Add new `values.yaml` file - you can [copy this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and just change the `alpha-dev` values to `USERNAME-dev`
 4. Use `uuidgen` to fill in the `secret` in `values.yaml`
-5. Use a good passphrase (diceware!) to fill in 1password1 in 1values.yaml1
+5. Use a good passphrase (diceware!) to fill in `1password` in `values.yaml`
 6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core): `git checkout master;git pull origin`
 7. Deploy!: `cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml`
 8. Delete it when you're done: `helm delete USERNAME-dev --namespace USERNAME-dev`
