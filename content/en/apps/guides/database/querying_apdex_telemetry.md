@@ -3,7 +3,7 @@ title: "Querying Apdex Telemetry Data"
 linkTitle: "Querying Apdex Telemetry Data"
 weight:
 description: >
-  How to use SQL queries to query Apdex telemetry in RDBMS
+  How to use SQL queries to view Apdex score in RDBMS
 relatedContent: >
   apps/guides/database/rdbms-from-windows
   apps/guides/database/rdbms-from-mac
