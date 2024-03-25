@@ -41,29 +41,31 @@ After meeting the [prerequisites]({{< relref "apps/guides/data/analytics/introdu
 3. Add SSH keys for users who should have access to the server in the `/home/ubuntu/.ssh/authorized_keys` so that they can SSH in with `ubuntu@instance-url`.
 4. Install Docker: `curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh`.
 5. Install updates: `apt update&&apt dist-upgrade&&apt autoremove`.
-6. In `/root/compose-files` create:
-   * Docker compose files (from the [CHT Sync GitHub repository](https://github.com/medic/cht-sync)): 
-      * `posgtrest.yml` - for Postgrest service
-      * `dbt.yml` - for DBT service
-      * `logstash.yml` - for Losgtash service
-   * `.env` - for declaring all Docker environment variables. Instructions can be found in the [Environment Variables page](({{< relref "apps/guides/data/analytics/environment-variables" >}})).
-   * `down.up.sh` - script for keeping tabs on Docker files to include on stop and start. Sample content:
+6. Create 2 Docker compose files, one for Postgrest and  one for DBT and Logstash: 
+    ```bash
+    curl -o /root/compose-files/posgtrest.yml https://raw.githubusercontent.com/medic/cht-sync/main/docker-compose.postgrest.yml
+    curl -o /root/compose-files/dbt-logstash.yml https://raw.githubusercontent.com/medic/cht-sync/main/docker-compose.yml
+    ```
+7. Download and edit the file with Docker environment variables by running this `curl` command and referencing the [Environment Variables page](({{< relref "apps/guides/data/analytics/environment-variables" >}})):
+    ```bash
+    curl -o  /root/compose-files/.env https://raw.githubusercontent.com/medic/cht-sync/main/env.template
+    ```
+8. Create a  `/root/compose-files/down.up.sh` script for keeping tabs which Docker files to include on stop and start:
     ```bash
     #!/bin/bash
     docker compose \
             -f postgrest.yml \
-            -f logstash.yml \
-            -f dbt.yml \
+            -f dbt-logstash.yml \
             down
 
     docker compose \
             -f postgrest.yml \
-            -f logstash.yml \
-            -f dbt.yml \
+            -f dbt-logstash.yml \
             up --remove-orphans -d
     ```       
-7. Restart all services with:
+9. Set the script as executable and start CHT Sync:
     ```bash
+    chmod +x /root/compose-files/down.up.sh
     /root/compose-files/down.up.sh
     ```
-8. Confirm the services are running with `docker ps`. The command should display the 3 running services. 
+10. Confirm the services are running with `docker ps`. The command should show the DBT, Postgrest and Logstash services running. 
