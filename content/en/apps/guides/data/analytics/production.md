@@ -14,21 +14,21 @@ relatedContent: >
 
 ### Main Services
 
-Running [CHT Sync]({{< relref "core/overview/cht-sync" >}}) in production includes DBT, PostgREST and Log stash services.  Details about deploying these services can be found [below](#create-and-configure-a-cht-sync-aws-ec2-instance).   
+Running [CHT Sync]({{< relref "core/overview/cht-sync" >}}) in production includes DBT, PostgREST and Logstash services. Details about deploying these services can be found [below](#create-and-configure-a-cht-sync-aws-ec2-instance).   
 
 ### External Services
 
-While CHT Sync can run against a stand alone CouchDB instance, it's assumed you're configuring CHT Sync against an existing [production CHT Core instance]({{< relref "apps/guides/hosting" >}}), which includes CouchDB. 
+While CHT Sync can run against a stand alone CouchDB instance, it's assumed you are configuring CHT Sync against an existing [production CHT Core instance]({{< relref "apps/guides/hosting" >}}), which includes CouchDB. 
 
 Along with CouchDB, these docs assume you have PostgreSQL deployed with an optional Data Visualization Tool, like [Apache Superset](https://superset.apache.org/).
 
 ### Security
 
-Production deployments require extra precautions around security and backup.   These include, but are not limited too always:
-* Use SSH to access the server,  requiring SSH keys, not allowing SSH passwords
-* Encrypt all web web-server connections with a valid TLS cert - this may involve using a load balancer or reverse proxy
-* Ensure software is kept up to date to defend against security vulnerabilities
-* Keeping good backups that are regularly tested
+Production deployments require extra precautions around security and backup. These include, but are not limited to always:
+* Use SSH to access the server, requiring SSH keys, not allowing SSH passwords.
+* Encrypt all web-server connections with a valid TLS cert - this may involve using a load balancer or reverse proxy.
+* Ensure software is kept up to date to defend against security vulnerabilities.
+* Keeping good backups that are regularly tested.
 
  Also, see the general CHT Core [production hosting considerations]({{< relref "apps/guides/hosting/requirements#considerations" >}}), all of which apply to CHT Sync production hosting as well.
 
