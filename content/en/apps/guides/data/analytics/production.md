@@ -9,16 +9,28 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
-## What it means to run in production
 
-Running CHT Sync in Production means running several components:
+##  Services & Security
 
-* **DBT**, **PostgREST**, **Logstash**. These are the main components of [cht-sync]({{< relref "core/overview/cht-sync" >}}). Details about deploying them can be found in the [Deploy CHT Sync](#deploy-cht-sync) section.   
-* **CouchDB**. In the context of this documentation, CouchDB will be more often run as part of the CHT Core, but it doesn't have to. This guide doesn't cover the deployment of CouchDB and it assumes a CouchDB instance exists. The [Hosting section]({{< relref "apps/guides/hosting" >}}) provides detailed instructions on how to deploy CHT Core. 
-* **PostgreSQL**. This documentation assumes an instance of PostgreSQL exists. 
-* (*Optional*) **Data Visualization Tool**. In order to build data analytics dashboards and better leverage CHT Sync, a data visualization tool such as [Apache Superset](https://superset.apache.org/) can be used. Refer to your preferred data visualization tool's documentation in order to connect it to the PostgreSQL instance.
+### Main Services
 
-Additionally, you should take extra precautions around security and backup, such as [setting up TLS]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) on your CHT instance.
+Running [CHT Sync]({{< relref "core/overview/cht-sync" >}}) in production includes DBT, PostgREST and Log stash services.  Details about deploying these services can be found [below](#create-and-configure-a-cht-sync-aws-ec2-instance).   
+
+### External Services
+
+While CHT Sync can run against a stand alone CouchDB instance, it's assumed you're configuring CHT Sync against an existing [production CHT Core instance]({{< relref "apps/guides/hosting" >}}), which includes CouchDB. 
+
+Along with CouchDB, these docs assume you have PostgreSQL deployed with an optional Data Visualization Tool, like [Apache Superset](https://superset.apache.org/).
+
+### Security
+
+Production deployments require extra precautions around security and backup.   These include, but are not limited too always:
+* Use SSH to access the server,  requiring SSH keys, not allowing SSH passwords
+* Encrypt all web web-server connections with a valid TLS cert - this may involve using a load balancer or reverse proxy
+* Ensure software is kept up to date to defend against security vulnerabilities
+* Keeping good backups that are regularly tested
+
+ Also, see the general CHT Core [production hosting considerations]({{< relref "apps/guides/hosting/requirements#considerations" >}}), all of which apply to CHT Sync production hosting as well.
 
 ## Create and configure a CHT Sync AWS EC2 Instance 
 
