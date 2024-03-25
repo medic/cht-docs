@@ -218,7 +218,7 @@ Tips and best practices are listed below:
 - Translate all messages, especially when deploying in a multi-lingual environment. This ensures that respondents fully understand the survey in their language.
 - Beware of the timing of the surveys that directly affects response rates. From experience, sending questions when respondents are busy with their errands during the day ultimately leads to low response rates as opposed to evenings when they are done for the day.
 - Make sure you handle unsolicited responses by redirecting such to, for example, a flow that eventually alerts concerned individuals such as reports of an outbreak.
-- Medic recommends that you use [timeouts](https://help.nyaruka.com/en/article/adding-timeouts-to-a-flow-1e2oodi/) or [pauses]([https://blog.textit.in/feature-update-add-timeouts-pauses-to-flows](https://web.archive.org/web/20210927110029/https://blog.textit.com/feature-update-add-timeouts-pauses-to-flows)) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows.
+- Medic recommends that you use [timeouts](https://help.nyaruka.com/en/article/adding-timeouts-to-a-flow-1e2oodi/) or [pauses](https://web.archive.org/web/20210927110029/https://blog.textit.com/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows.
 
 ### Configuration
 
