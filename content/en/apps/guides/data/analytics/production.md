@@ -24,7 +24,7 @@ Additionally, you should take extra precautions around security and backup, such
 
 After meeting the [prerequisites]({{< relref "apps/guides/data/analytics/introduction#cht-sync-prerequisites" >}}), install CHT Sync:
 
-1. Deploy a `t2.medium` EC2 instance with Ubuntu 22 AMI. Allow SSH, HTTP and HTTPS in network permissions, add tags, and assign it `60 GiB gp2` storage so it has room to store more than the default `8 GiB` of data.
+1. Deploy a `t2.medium` EC2 instance with the Ubuntu 22 AMI. Allow SSH, HTTP and HTTPS in network permissions and assign it `60 GiB` of storage ensuring it can grow past the default `8 GiB`.
 2. Now that you have the static IP, in Route 53, set up DNS `A` record `instance-url` -> `ip.of.the.instance`.
 3. Add SSH keys for users who should have access to the server in the `/home/ubuntu/.ssh/authorized_keys` so that they can SSH in with `ubuntu@instance-url`.
 4. Install Docker: `curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh`.
