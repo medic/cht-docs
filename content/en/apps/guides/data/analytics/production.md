@@ -1,9 +1,9 @@
 ---
-title: "Production CHT Sync"
+title: "Production CHT Sync Setup"
 weight: 3
-linkTitle: "Production CHT Sync"
+linkTitle: "Production CHT Sync Setup"
 description: >
-  Production considerations for CHT Sync
+  Setting up a production deployment of CHT Sync with the CHT
 relatedContent: >
   core/overview/architecture
   core/overview/cht-sync
