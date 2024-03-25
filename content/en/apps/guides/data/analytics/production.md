@@ -22,9 +22,7 @@ Additionally, you should take extra precautions around security and backup, such
 
 ## Create and configure a CHT Sync AWS EC2 Instance 
 
-Prior to deploying CHT Sync, refer to the [prerequisites section]({{< relref "apps/guides/data/analytics/introduction#cht-sync-prerequisites" >}}).
-
-Steps for setting up CHT Sync with AWS EC2:
+After meeting the [prerequisites]({{< relref "apps/guides/data/analytics/introduction#cht-sync-prerequisites" >}}), install CHT Sync:
 
 1. Deploy a `t2.medium` EC2 instance with Ubuntu 22 AMI. Allow SSH, HTTP and HTTPS in network permissions, add tags, and assign it `60 GiB gp2` storage so it has room to store more than the default `8 GiB` of data.
 2. Now that you have the static IP, in Route 53, set up DNS `A` record `instance-url` -> `ip.of.the.instance`.
