@@ -83,7 +83,7 @@ After you have created a ticket per "Request permission" above, you should get a
    ```shell
    kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
    ```
-3. Add new `values.yaml` file - you can [copy this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and just change the `alpha-dev` values to `USERNAME-dev`
+3. Add new `values.yaml` file - you can [copy this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and just change the `alpha-dev` values to `USERNAME-dev`. Remember where you created this file - you'll need it every time you use the `cht-deploy` script.
 4. Use `uuidgen` to fill in the `secret` in `values.yaml`
 5. Use a good passphrase (diceware!) to fill in `1password` in `values.yaml`
 6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
