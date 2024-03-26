@@ -79,14 +79,29 @@ Both `helm` and `kubectl` have autocomplete libraries you can add to your shell.
 
 ## Starting and stopping (aka deleting)
 
-1. Login with `eks-aws-mfa-login` script in the [infra repo](https://github.com/medic/medic-infrastructure/tree/master/terraform/aws/dev/eks/access): `./eks-aws-mfa-login USERNAME  TOTP_HERE`
-2. Ensure you're using dev EKS cluster: `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks`
+1. Login with `eks-aws-mfa-login` script in the [infra repo](https://github.com/medic/medic-infrastructure/tree/master/terraform/aws/dev/eks/access): 
+   ```shell
+   ./eks-aws-mfa-login USERNAME  TOTP_HERE
+   ```
+2. Ensure you're using dev EKS cluster:
+   ```shell
+   kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
+   ```
 3. Add new `values.yaml` file - you can [copy this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and just change the `alpha-dev` values to `USERNAME-dev`
 4. Use `uuidgen` to fill in the `secret` in `values.yaml`
 5. Use a good passphrase (diceware!) to fill in `1password` in `values.yaml`
-6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core): `git checkout master;git pull origin`
-7. Deploy!: `cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml`
-8. Delete it when you're done: `helm delete USERNAME-dev --namespace USERNAME-dev` 
+6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
+   ```shell
+   git checkout master;git pull origin
+   ```
+7. Deploy!:
+   ```shell
+   cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
+   ```
+8. Delete it when you're done:
+   ```shell
+   helm delete USERNAME-dev --namespace USERNAME-dev
+   ```
 
 ## References and Debugging
 
