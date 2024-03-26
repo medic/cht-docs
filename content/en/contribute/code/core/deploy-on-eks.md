@@ -24,6 +24,17 @@ Be sure you have these tools installed and repos cloned:
 * [jq](https://jqlang.github.io/jq/download/)
 * [Medic Infra](https://github.com/medic/medic-infrastructure/) repo cloned
 
+#### Optional:  Autocomplete
+
+Both `helm` and `kubectl` have autocomplete libraries. For power users and beginners alike, it adds a lot of discoverability. This code is for `zsh`, but `bash`, `fish` and `powershell` are supported as well:
+
+   ```shell
+   source <(kubectl completion zsh)
+   source <(helm completion zsh)
+   ```
+
+See [helm](https://helm.sh/docs/helm/helm_completion_bash/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion) docs to automatically loading these on every new session.
+
 ### Request permission
 
 By default, Medic teammates do not have EKS access and must file a ticket to request it:
@@ -60,22 +71,7 @@ After you have created a ticket per "Request permission" above, you should get a
    ```
 6. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours: `aws eks update-kubeconfig --name mrjones-dev --profile mrjones --region eu-west-2`
 
-## Autocomplete
 
-Both `helm` and `kubectl` have autocomplete libraries you can add to your shell. For power users and beginners alike, this adds a huge amount of discoverability. This guide covers `zsh`, but `bash`, `fish` and `powershell` are supported as well:
-
-1. Output `zsh` shell's setup to a file: 
-   ```shell
-   kubectl completion zsh > zsh.kubectl.autocomplete
-   helm completion zsh > zsh.helm.autocomplete
-   ```
-  
-2. Then source the two new files:
-   ```shell
-   source zsh.kubectl.autocomplete
-   source zsh.helm.autocomplete
-   ```
-3. See [helm](https://helm.sh/docs/helm/helm_completion_bash/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion) instructions for automatically loading these on every new session.
 
 ## Starting and stopping (aka deleting)
 
