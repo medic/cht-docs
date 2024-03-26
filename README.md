@@ -10,26 +10,43 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 ## Build dependencies
 
-The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later. See `.tool-versions` for the currently used version
+The documentation site uses [Hugo](https://gohugo.io/) including the extended version of Hugo (see `.tool-versions` [file](https://github.com/medic/cht-docs/blob/main/.tool-versions) for specific version).
 
-[asdf](https://asdf-vm.com/guide/getting-started.html) is the recommended way to manage `hugo` and `golang` versions for local development.
+To proceed, please choose one of the three options below of Docker, native packages or using `asdf` then proceed to ["Run Hugo" below](#run-hugo) to start your local instance.
 
-After installing it run:
+For folks using `asdf` and native packages, be sure the correct `hugo` version is installed per `.tool-versions` [file](https://github.com/medic/cht-docs/blob/main/.tool-versions).
+
+### Docker
+
+Running `hugo` locally using Docker is likely the easiest way to update the docs.  You only need to ensure you have [Docker and Docker compose installed](https://docs.docker.com/compose/install/).
+
+The steps below will leave a hugo container on your system.  If you're not going to edit docs for the foreseeable future, you can delete it with `docker rm cht-hugo `.
+
+### Native packages
+
+If you'd like to install packages directly on your workstation, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
+
+### `asdf` version manager
+
+[asdf](https://asdf-vm.com/guide/getting-started.html) is another way to manage `hugo` and `golang` versions for local development.
+
+After installing `asdf`, run:
 ```shell
 asdf plugin add golang
 asdf plugin add hugo
 ```
-### Installing Hugo Manually
 
-If using `asdf` fails you can try installing Hugo manually. To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
+### Run Hugo
 
-## Building the Documentation
+You can start your local CHT Docs instance by:
 
 1. Clone the `cht-docs` repo
-1. From the command line, navigate to the local directory where you cloned the repo
-1. Type `hugo server`
-1. Preview your site in your browser at: http://localhost:1313/
-1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes.
+2. From the command line, navigate to the local directory where you cloned the repo
+3. To start `hugo` run:
+   * `hugo server` for `asdf` and native packages **OR**
+   * `docker compose up` for Docker compose
+4. Preview your site in your browser at: http://localhost:1313/
+5. As you make changes to the site, your browser will automatically reload your changes.
 
 Any users who experience errors running `hugo server`, please see our [Troubleshooting guide](./troubleshooting.md).
 
