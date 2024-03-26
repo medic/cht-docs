@@ -125,7 +125,7 @@ If you get the error:
 
 > exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1" when running `kubectl version`
 
-You are using an outdated version of kubernetes api `client.authentication.k8s.io` which is not supported by your `kubectl` client. This can sometimes happen if aws cli is an older version, ensure you are running at least version `2` of aws cli by running: `aws --version`
+You might be using an version of kubernetes api `client.authentication.k8s.io` which is not supported by your `kubectl` client. This can sometimes happen in EKS clusters if aws cli is an older version, in most cases you need at least version `2` of aws cli. Check version by running: `aws --version` and note that version `2` *cannot* be installed through `pip` (See [Command Line](#command-line) section above for installation instructions)
 
 ## SRE Steps for granting users access to a namespace
 
