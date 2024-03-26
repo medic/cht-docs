@@ -55,7 +55,7 @@ Clients are enrolled directly using the CHT D2C, 2wT app using a phone, tablet o
 
 The CHT core framework has  inbuilt [privacy/security features](https://docs.communityhealthtoolkit.org/apps/guides/privacy/) including two- factor authentication, role based authorization, data security, and a range of protected data access endpoints. The system can be configured to manage [user roles and permissions](https://docs.communityhealthtoolkit.org/apps/concepts/users/) for access of CHT applications. Responsible data practices is enforced through the  [Privacy and Data Protection Policy](https://docs.communityhealthtoolkit.org/apps/guides/privacy/policy/).
 
-The D2C, 2wT app incorporates the CHT security features in order to protect client data and ensure the confidentiality and privacy of client information. Users are encouraged to use password protected user accounts, the app also has full disk encryption and auto-lock screens for users’ devices (android phones and tablets) in order to minimize the risk of unwarranted access. Role based access controls also make sure that users can only view and edit information that
+The D2C, 2wT app incorporates the CHT security features in order to protect client data and ensure the confidentiality and privacy of client information. Users are encouraged to use password protected user accounts, the app also has full disk encryption and auto-lock screens for users’ devices (android phones and tablets) in order to minimize the risk of unwarranted access. Role based access controls also make sure that users can only view and edit information that the permissions assigned to the user role allow them to.
 
 ## Case adaptation: Voluntary medical male circumcision app co-designed by I-TECH and Medic
 
