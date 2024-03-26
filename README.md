@@ -18,6 +18,8 @@ To proceed, please choose one of the three options below of Docker, native packa
 
 Running `hugo` locally using Docker is likely the easiest way to update the docs.  You only need to ensure you have [Docker and Docker compose installed](https://docs.docker.com/compose/install/).
 
+The steps below will leave a hugo container on your system.  If you're not going to edit docs for the foreseeable future, you can delete it with `docker rm cht-hugo `.
+
 ### Native packages
 
 If you'd like to install packages directly on your workstation, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
