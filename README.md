@@ -14,6 +14,8 @@ The documentation site uses [Hugo](https://gohugo.io/) including the extended ve
 
 To proceed, please choose one of the three options below of Docker, native packages or using `asdf` then proceed to ["Run Hugo" below](#run-hugo) to start your local instance.
 
+For folks using `asdf` and native packages, be sure the correct `hugo` version is installed per `.tool-versions` [file](https://github.com/medic/cht-docs/blob/main/.tool-versions).
+
 ### Docker
 
 Running `hugo` locally using Docker is likely the easiest way to update the docs.  You only need to ensure you have [Docker and Docker compose installed](https://docs.docker.com/compose/install/).
