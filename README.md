@@ -34,7 +34,7 @@ asdf plugin add hugo
 
 ### Run Hugo
 
-For both native packages or `asdf`, you can start your local CHT Docs instance by:
+You can start your local CHT Docs instance by:
 
 1. Clone the `cht-docs` repo
 2. From the command line, navigate to the local directory where you cloned the repo
