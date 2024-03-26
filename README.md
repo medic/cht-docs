@@ -10,20 +10,38 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 ## Build dependencies
 
-The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later. See `.tool-versions` for the currently used version
+The documentation site uses [Hugo](https://gohugo.io/), and specifically uses features found in the extended version of Hugo, v0.76.0 and later. See `.tool-versions` for the currently used version.
 
-[asdf](https://asdf-vm.com/guide/getting-started.html) is the recommended way to manage `hugo` and `golang` versions for local development.
+### Docker
 
-After installing it run:
+Running `hugo` locally using Docker is likely the easiest way to update the docs.  Ensure you have Docker and Docker compose installed, then:
+
+1. Clone the `cht-docs` repo
+1. From the command line, navigate to the local directory where you cloned the repo
+1. Type `docker compose up`
+1. Preview your site in your browser at: http://localhost:1313/
+1. As you make changes to the site, your browser will automatically reload your local dev site so you can easily and quickly see your changes.
+
+
+### Bare-Metal
+
+#### Native packages
+
+If you'd like to install packages directly on your workstation, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`. 
+
+#### `asdf` version manager
+
+[asdf](https://asdf-vm.com/guide/getting-started.html) is another way to manage `hugo` and `golang` versions for local development.
+
+After installing `asdf`, run:
 ```shell
 asdf plugin add golang
 asdf plugin add hugo
 ```
-### Installing Hugo Manually
 
-If using `asdf` fails you can try installing Hugo manually. To install, follow the [installation instructions for your Operating System](https://gohugo.io/getting-started/installing/), and be sure to get the extended version. Most users will be able to simply install using their native package manager like `brew`, `apt` or `snap`.
+#### Run Hugo
 
-## Building the Documentation
+For both native packages or `asdf`, you can start your local CHT Docs instance by:
 
 1. Clone the `cht-docs` repo
 1. From the command line, navigate to the local directory where you cloned the repo
