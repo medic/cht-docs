@@ -3,16 +3,16 @@ title: "Querying Apdex Telemetry Data"
 linkTitle: "Querying Apdex Telemetry Data"
 weight:
 description: >
-  How to use SQL queries to view Apdex score in RDBMS
+  How to use SQL queries to view Apdex scores
 relatedContent: >
-  apps/guides/database/rdbms-from-windows
-  apps/guides/database/rdbms-from-mac
   apps/guides/performance/telemetry/
+  core/overview/data-flows-for-analytics
+  apps/guides/database/#postgresql
 ---
 
 Added in `4.7.0`, CHT now records the Apdex (Application Performance Index) that is an open standard for measuring performance of software applications.
 
-The collected Apdex data is downloaded from CouchDB to Postgres Database. Once you have setup and connected to the PostgreSQL RDBMS server on [Windows]({{< ref "apps/guides/database/rdbms-from-windows" >}}) or [Mac]({{< ref "apps/guides/database/rdbms-from-mac" >}}) you can write SQL queries to see the load times of various pages of the CHT.
+Since apdex is part of the [telemetry]({{< ref "apps/guides/performance/telemetry" >}}) system, it is possible to view apdex data directly from CouchDB. However, it is more useful when aggregated across many users, interactions, and/or days. With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "core/overview/data-flows-for-analytics" >}}).
 
 An example of an SQL to view the apdex score:
 
