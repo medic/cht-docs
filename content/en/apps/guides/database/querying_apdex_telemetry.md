@@ -12,9 +12,9 @@ relatedContent: >
 
 Added in `4.7.0`, CHT now records the Apdex (Application Performance Index) that is an open standard for measuring performance of software applications.
 
-Since apdex is part of the [telemetry]({{< ref "apps/guides/performance/telemetry" >}}) system, it is possible to view apdex data directly from CouchDB. However, it is more useful when aggregated across many users, interactions, and/or days. With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "core/overview/data-flows-for-analytics" >}}).
+Since Apdex is part of the [telemetry]({{< ref "apps/guides/performance/telemetry" >}}) system, it is possible to view Apdex data directly from CouchDB. However, it is more useful when aggregated across many users, interactions, and/or days. With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "core/overview/data-flows-for-analytics" >}}).
 
-An example of an SQL to view the apdex score:
+An example of an SQL to view the Apdex score:
 
 ```
 WITH apdex_telemetry_data AS (
@@ -51,6 +51,15 @@ FROM apdex_scores
 ORDER BY apdex_score asc;
 ```
 
-The SQL query above calculates the Apdex scores for various events recorded in the `useview_telemetry_metrics` table, providing insights into the performance of different aspects of the CHT.
+The SQL query above calculates the Apdex scores for various events recorded in the `useview_telemetry_metrics` table, providing insights into the performance of different aspects of the CHT. In some cases, it is helpful to visualize the number of occurrences of each metric in a date range:
+
+```
+SELECT metric,
+       Sum(count) AS count
+FROM   useview_telemetry_metrics
+WHERE  metric LIKE '%:apdex:%' AND period_start BETWEEN <YYYY-MM-DD> AND <YYYY-MM-DD>
+GROUP  BY metric
+ORDER  BY count DESC 
+```
 
 Such queries are instrumental in identifying areas of the CHT that may require performance improvements by highlighting how different parts of the application meet user expectations in terms of load times and Apdex score.
