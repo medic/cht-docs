@@ -1,6 +1,6 @@
 ---
 title: "CHT training resources"
-linkTitle: "CHT training"
+linkTitle: "Training of End Users"
 weight : 1
 ---
 ## CHT training process
@@ -9,7 +9,7 @@ In the implementation of CHT supported community health programs, health care wo
 
 During the training, end users are trained in the following common areas to help improve their skills and delivery:
 * Thematic training - this training focuses on the health program areas of interest, this will vary from one program to another depending on the specific health areas users are expected to support. For example, for an MNCH program, users will be trained in ANC, PNC and immunization.
-* Hardware and software training - users are trained on how they can operate an android phone, reboot the hardware, install and reinstall applications and how they can log into the CHT app. This training is critical for end users who have never interacted with an smart phone before.
+* Hardware and software training - users are trained on how they can operate an android phone, reboot the hardware, install and reinstall applications and how they can log into the CHT app. This training is critical for end users who have never interacted with a smart phone before.
 * CHT tool training - this involves training users on how they can use different CHT tools (SMS, mobile and web applications) to guide them to deliver health care services. 
 * Skill development - users are trained on interpersonal communication, listening skills, capacity building skills and how they can promote healthy behaviour change.
 * Behavioural - the users are taught how to build relations in the community and how to work within diverse communities.  
@@ -57,21 +57,16 @@ Before training is done, a training preparation checklist is prepared to ensure 
  
 #### Training materials
 * Prepare training materials
-* Prepare training agenda with daily training schedule. This should contain the trainer responsibilities and activities - [here is an example](https://docs.google.com/spreadsheets/d/1_oqbWhXoQy51WdUgyGTbnMpkPyugVmwT/edit?usp=drive_link&ouid=101053816538187800670&rtpof=true&sd=true)
+* Prepare training agenda with daily training schedule. This should contain the trainer responsibilities and activities - [here is an example of a training schedule](https://docs.google.com/spreadsheets/d/1_oqbWhXoQy51WdUgyGTbnMpkPyugVmwT/edit?usp=drive_link&ouid=101053816538187800670&rtpof=true&sd=true)
 * Prepare screenshots or posters of training materials as backup
-* Finalize user guides - [here is an example](https://drive.google.com/file/d/1T4OPfSnCzJPSpXEEVe7a6_8gq2MkS6sB/view?usp=drive_link)
+* Finalize user guides - [here is an example of a user guide](https://drive.google.com/file/d/1T4OPfSnCzJPSpXEEVe7a6_8gq2MkS6sB/view?usp=drive_link)
 * Finalize on the trainer and co-trainer resources
 * Translate training materials and arrange for a translator, if required
 * Organize supplies and stationery (markers, pens, notebooks, meta cards, tape, newsprint, index cards, handouts, take-home guides, projector and other required training equipment)
 * Print training materials such as the ones listed below:
     * Posters as a backup in case there is no electricity
     * User guides
-    * Evaluations which include pre-tests and post-tests - [here is an example](https://docs.google.com/document/d/1t5tqrk0m3c-5YJJBrteqU8sNsoDc3UT1WrXfy8NLNtw)
-#### Partner checklist
-* Commit to a deadline for any final design changes
-* Outline and determine action plans for common issues that arise during deployment such as covering airtime costs and hardware replacement policy
-* Complete training on health service delivery component e.g ANC, PNC
-* Assign training contact person to lead post-training follow up such as lost hardware, no airtime, etc
+    * Evaluations which include pre-tests and post-tests - [here is an example of a pre/post test](https://docs.google.com/document/d/1t5tqrk0m3c-5YJJBrteqU8sNsoDc3UT1WrXfy8NLNtw)
 
 ## Training
 
@@ -99,19 +94,14 @@ There are a number of training methods that can be used to train end users. Blen
 |Group assessments|Learners work together to answer questions or complete assigned tasks aimed at assessing knowledge of topics already covered in the training.|
 
 
-## Post training
-* Post training test is done to ensure their is knowledge transfer. This can be done during or after the training
-* Confirm all trained users are added to the production instance
-* Prepare for go-live
-    * Participants are informed when the project will go live. In most cases, the project goes live a few weeks after the training
-    * Participants are trained on how to install the production application
-    * Paricipants are reminded to uninstall the training application
-    * Administrators ensure all end user accounts for the production application have been created and credentials shared
-* Set up a technical support framework to support with post-training issues
-* End users are sensitized on privacy and security best practices
-* Plan for user feedback sessions
-* Follow up on monthly engagement reports
-* Schedule refresher trainings
+## Post training activities
+After the training, ministries of health, implementing partners and CHT users agree on a date when the project can go live. Below are the critical activities that take place before go-live.
+* Participants are informed when the project will go live. In most cases, the project goes live a few weeks after the training
+* Participants are trained on how to install the production application
+* Paricipants are reminded to uninstall the training application
+* User accounts are created on the production instance and credentials shared
+* Users are informed on technical support structure to support with post-training issues
+* Users are sensitized on privacy and security best practices
 
 ## Evaluation
 Evaluation assesses whether the training objectives have been achieved. Evaluation of the training involves assessing the effect of the training observed against a set standard considered as an indication of learning. A common model used to evaluate the training consists of the following four levels:
