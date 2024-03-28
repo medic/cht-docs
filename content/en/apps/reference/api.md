@@ -863,7 +863,7 @@ Content-Type: application/json; charset=utf-8
 
 ### GET /api/v2/users
 
-*Added in 4.1.0*
+*Added in 4.1.0, support for `facility_id` and `contact_id` filters added in 4.7.0*
 
 Returns a list of users and their profile data in JSON format.
 
@@ -890,6 +890,82 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "admin" ],
     "username": "admin"
   },
+  {
+    "id": "org.couchdb.user:demo",
+    "rev": "14-8758c8493edcc6dac50366173fc3e24a",
+    "roles": [ "district_admin", "data_user" ],
+    "fullname": "Example User",
+    "username": "demo",
+    "place": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
+      "type": "district_hospital",
+      "name": "Sample District",
+      "contact": {
+        "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+        "type": "person",
+        "name": "Paul",
+        "phone": "+2868917046"
+      }
+    },
+    "contact": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+      "type": "person",
+      "name": "Paul",
+      "phone": "+2868917046"
+    }
+  }
+]
+```
+
+Get users with a specific `facility_id`:
+
+```
+GET /api/v2/users?facility_id=eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+[
+  {
+    "id": "org.couchdb.user:demo",
+    "rev": "14-8758c8493edcc6dac50366173fc3e24a",
+    "roles": [ "district_admin", "data_user" ],
+    "fullname": "Example User",
+    "username": "demo",
+    "place": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
+      "type": "district_hospital",
+      "name": "Sample District",
+      "contact": {
+        "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+        "type": "person",
+        "name": "Paul",
+        "phone": "+2868917046"
+      }
+    },
+    "contact": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+      "type": "person",
+      "name": "Paul",
+      "phone": "+2868917046"
+    }
+  }
+]
+```
+
+Get users with a specific `contact_id`:
+
+```
+GET /api/v2/users?contact_id=eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+[
   {
     "id": "org.couchdb.user:demo",
     "rev": "14-8758c8493edcc6dac50366173fc3e24a",
