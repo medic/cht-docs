@@ -15,7 +15,7 @@ At the start of the week tickets should be in the "In Progress" state, which mea
 
 Boards are:
 - [Allies](https://github.com/orgs/medic/projects/134/views/3)
-- [Care Teams](https://github.com/orgs/medic/projects/259/views/11)
+- [Care Teams](https://github.com/orgs/medic/projects/259/views/14)
 - [Community](https://github.com/orgs/medic/projects/134/views/20)
 - [Ecosystem](https://github.com/orgs/medic/projects/134/views/11)
 - [Infrastructure](https://github.com/orgs/medic/projects/134/views/26)
