@@ -863,13 +863,20 @@ Content-Type: application/json; charset=utf-8
 
 ### GET /api/v2/users
 
-*Added in 4.1.0, support for `facility_id` and `contact_id` filters added in 4.7.0*
+*Added in 4.1.0*
 
 Returns a list of users and their profile data in JSON format.
 
 #### Permissions
 
 `can_view_users`
+
+#### Query Parameters
+
+| Variable    | Description                                                                               |
+|-------------|-------------------------------------------------------------------------------------------|
+| facility_id | Added in 4.7.0. String identifier representing the uuid of the user’s facility.           |
+| contact_id  | Added in 4.7.0. String identifier representing the uuid of the user’s associated contact. |
 
 #### Examples
 
