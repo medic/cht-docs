@@ -45,4 +45,5 @@ muffet http://localhost:1313 \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
   --exclude "https://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0/*" \
   --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
+  --exclude "https://journals.sagepub.com/doi/full/10.1177/20552076231194924" \
   --exclude "https://doi.org/10.1080/02681102.2019.1667289" 
