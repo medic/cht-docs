@@ -46,7 +46,7 @@ After meeting the [prerequisites]({{< relref "apps/guides/data/analytics/introdu
     curl -o /root/compose-files/posgtrest.yml https://raw.githubusercontent.com/medic/cht-sync/main/docker-compose.postgrest.yml
     curl -o /root/compose-files/dbt-logstash.yml https://raw.githubusercontent.com/medic/cht-sync/main/docker-compose.yml
     ```
-7. Download and edit the file with Docker environment variables by running this `curl` command and referencing the [Environment Variables page](({{< relref "apps/guides/data/analytics/environment-variables" >}})):
+7. Download and edit the file with Docker environment variables by running this `curl` command and referencing the [Environment Variables page]({{< relref "apps/guides/data/analytics/environment-variables" >}}):
     ```bash
     curl -o  /root/compose-files/.env https://raw.githubusercontent.com/medic/cht-sync/main/env.template
     ```
