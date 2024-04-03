@@ -10,6 +10,15 @@ relatedContent: >
   apps/reference/tasks
 ---
 
+<!-- Force tables on this page to have columns same width -->
+<!-- somewhat brittle b/c it's tied to the header ID , but allows us to hit one table only -->
+<style>
+  #workflows ~ table tr th {
+    vertical-align: top;
+    width: 20%;
+  }
+</style>
+
 {{% pageinfo %}}
 
 This documentation provides a guide for designing and deploying direct-to-client (D2C), two-way texting (2wT) workflows to support client follow-up care using the community health toolkit (CHT). 2wT is a mobile text messaging system built on open-source, CHT tools to engage clients in their health care; to facilitate  prompt client - healthcare provider interactions; to provide low-cost telehealth; and, to improve health care outcomes through the early identification of, and referral for,  potential complications.
@@ -69,21 +78,14 @@ The University of Washington, Department of Global Health’s International Trai
 |Site nurse|Health facility or outreach site|Smartphone|Users are routine MC nurses at health facilities or outreach sites who enroll D2C clients and interact with clients enrolled at their site via the CHT D2C messaging app. In higher volume facilities, data clerks may also be involved in data entry of client enrolment details.|
 |VMMC Clients|Community / household level|Smartphone / feature phone|VMMC clients with access to mobile devices and who have consented to participate in and have been enrolled into the D2C, 2wT app. They will receive daily check in messages and can communicate with their health care providers via text.|
 
-**Figure 2:** User types and hierarchy
-
 ### Workflows
-Current workflow for VMMC client enrollment, screening and VMMC procedures (without messaging) are as described in figure 3 below.
 
-**VMMC CURRENT WORKFLOW**
+Current workflow for Voluntary male circumcision client enrollment, screening and procedures, before direct-to-client messaging was introduced:
+| {{< figure src="Figure3_1.png" >}} | {{< figure src="Figure3_2.png" >}} | {{< figure src="Figure3_3.png">}} | {{< figure src="Figure3_1.png" >}}  | {{< figure src="Figure3_4.png" >}} |
+|--|--|--|--|--|
+| **1.** Enrolment - Static/Outreach Site visit | **2.** HIV Testing, screening & counseling | **3.** Procedure | **4.** Static/Outreach Site visit | **5.** Follow up visit  |
+| Nurse enrols clients | Client tested for HIV, screened for wounds, any form of bleeding, and any other medical issues. Counselling  provided as needed.| If client's HIV status doesn't pose risks, procedure is done. Post-operative counseling  offered | Register after surgery | On Day 2 and Day 7 after surgery | 
 
-| |
-|--|--|--|--|
-|{{< figure src="Figure3_1.png" >}} | {{< figure src="Figure3_2.png" >}} | {{< figure src="Figure3_3.png">}} | {{< figure src="Figure3_4.png">}}
-|**1 Static/Outreach Site visit** <br>Site /Outreach Nurse enrols VMMC clients &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**2 HIV Testing, screening & counseling** <br>VMMC Client is tested for HIV|**3 VMMC procedure** <br>If the client's HIV Testing and Screening do not pose any surgery risks, The VMMC procedure is done|**5 Follow up visit** <br> Day 2 Follow up visit <br>Day 7 Follow up visit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-|**4 Static/Outreach Site visit** <br>Registration in the VMMC <br>Register after the surgery|VMMC client is screened for wounds, any form of bleeding, and any other medical issues|Post-operative counseling is offered|
-||Counselling is also provided at this point|||
-
-**Figure 3:** Voluntary male circumcision workflow before direct-to-client messaging was introduced
 #### 1. Automated check-in workflow to support client care
 
 Eligible male clients with access to mobile phones are registered on the VMMC app to enable them to receive daily check-in texts to help track the condition of the clients for 13 days after the circumcision. During registration (Day 0), details about the method of circumcision; whether the client is an adult or a minor, and the preferred phone numbers to be used for communication are recorded. Each client receives an enrollment confirmation to ensure that the communication channel is open. Clients also receive postoperative counseling using the 2wT flip-book on how to respond to the daily SMS text message and review photos that illustrate the signs of complications for reporting via  daily SMS text messages. VMMC clients, including those with 2wT, have the option to attend routine pre-scheduled visits on day 2 and day 7 post-op.
@@ -97,7 +99,7 @@ An adverse event (AE) is any complication or problem that may happen during or a
 | |
 |--|--|--|
 |{{< figure src="Figure4_1.png" >}} | {{< figure src="Figure4_2.png" >}} | {{< figure src="Figure4_3.png">}}
-|**1a Static/Outreach Site visit**<br> Data Clerk/Site Nurse enrolls eligible VMMC clients into the D2C program using the enrollment form|**2 Check in SMS of Wellbeing** <br>System sends automated daily SMS to client to see how they are doing. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**3** SMS response AE absent=0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|**1a Static/Outreach Site visit**<br> Data Clerk/Site Nurse enrolls eligible VMMC clients into the D2C program using the enrollment form|**2 Check in SMS of Wellbeing** <br>System sends automated daily SMS to client to see how they are doing. |**3** SMS response AE absent=0 
 |**1b Registration and SMS confirmation**<br> Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present=1|End of Workflow
 ||Client SMS response AE absent=0|Continue automated daily check-in SMS until day 13
 
@@ -112,7 +114,7 @@ Clients with potential AEs (those who respond with 1 or a free text indicating c
 | |
 |--|--|--|--|
 |{{< figure src="Figure5Triage1.png" >}} | {{< figure src="Figure5Triage2.png" >}} | {{< figure src="Figure5Triage3.png">}} | {{< figure src="Figure5Triage4.png">}}
-|**1a Static/Outreach Site visit**<br> Data Clerk/Site Nurse enrolls eligible VMMC clients into the D2C, 2wT program using the enrollment form &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**2 Check in SMS of Wellbeing**<br> System sends automated daily SMS to client to see how they are doing.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**3** 2wT/HUB Nurse triages patient, provides guidance.2wT/HUB Nurse triages patient, provides guidance.2wT/HUB Nurse triages patient, provides guidance.|**4** When the client comes to the health facility after a referral, the clinicians (nurses or clinical associates) at site level use the Client in-person visit form to complete the details of the review|
+|**1a Static/Outreach Site visit**<br> Data Clerk/Site Nurse enrolls eligible VMMC clients into the D2C, 2wT program using the enrollment form |**2 Check in SMS of Wellbeing**<br> System sends automated daily SMS to client to see how they are doing.|**3** 2wT/HUB Nurse triages patient, provides guidance.2wT/HUB Nurse triages patient, provides guidance.2wT/HUB Nurse triages patient, provides guidance.|**4** When the client comes to the health facility after a referral, the clinicians (nurses or clinical associates) at site level use the Client in-person visit form to complete the details of the review|
 |**1b Registration and SMS confirmation** <br> Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present=1|**3a** If nurse and client satisfied, no further response.|If client just comes into the clinic, the site Nurse completes the Client in-person visit form to complete the details of the review|
 ||**2b** Client SMS response AE absent=0|**3b** If nurse thinks client may have AE=referral for care task is cleared by completing the Referral for Care form, calling site nurse to alert of referral. and the client is informed via call or message||
 
@@ -126,10 +128,12 @@ A VMMC client who responds with a potential complication triggers a Client revie
 
 **Direct-to-client communication for VMMC Workflow [Client tracing task]**
 
+
+
 | |
 |--|--|--|--|--|
 |{{< figure src="Figure6_1.png" >}} | {{< figure src="Figure6_2.png" >}} | {{< figure src="Figure6_3.png">}} | {{< figure src="Figure6_4.png">}}| {{< figure src="Figure6_5.png">}}
-|**1a** Static/Outreach Site visit<br> Data Clerk/Site Nurse enrols eligible VMMC clients into the D2C, 2wT program using the enrolment form &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**2** Check in SMS of Wellbeing <br>System sends automated daily SMS to client to see how they are doing.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**3a** No client response by day 3= additional check-in SMS at noon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**3b** 2wT/HUB Nurse triages patient, provides guidance.|**4** When the client comes to the health facility after a referral, the clinicians (nurses or clinical associates) at site level use the Client in-person visit form to complete the details of the review|
+|**1a** Static/Outreach Site visit<br> Data Clerk/Site Nurse enrols eligible VMMC clients into the D2C, 2wT program using the enrolment form |**2** Check in SMS of Wellbeing <br>System sends automated daily SMS to client to see how they are doing.|**3a** No client response by day 3= additional check-in SMS at noon |**3b** 2wT/HUB Nurse triages patient, provides guidance.|**4** When the client comes to the health facility after a referral, the clinicians (nurses or clinical associates) at site level use the Client in-person visit form to complete the details of the review|
 **1b** Registration and SMS confirmation <br>Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present=1|**3b** No client response by day 4=Trace Client task is generated 2wT/HUB Nurse initiates the tracing activity.|If nurse and client satisfied, no further response.|If client just comes into the clinic, the site Nurse completes the Client in-person visit form to complete the details of the review|
 ||**2b** Client SMS response AE absent=0| - Client traced and no concern;=no action <br> - Client traced &AE=referral follow up task <br> - Client reviewed = complete review form <br> - No response at all=Notes in tracing report|If nurse thinks client may have AE=referral for care task is cleared by completing the Referral for Care form, calling site nurse to alert of referral, and the client is informed via call or message||
 
