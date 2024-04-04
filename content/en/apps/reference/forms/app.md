@@ -76,7 +76,7 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | `today` | Day on which the form entry was started. |
 
 ## XPath
-Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`medic/openrosa-xpath-evaluator`](https://github.com/medic/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
+Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`openrosa-xpath-evaluator`](https://github.com/enketo/enketo/tree/main/packages/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
 
 {{% alert title="Note" %}} 
 The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
@@ -230,9 +230,31 @@ This function is useful for things like calculating a date that is a specific nu
 
 You can also add negative numbers to get dates in the past. This can be used to calculate a person's birthdate date based on how many years/months old they are: `add-date(today(), 0-${age_years}, 0-${age_months})`.
 
-### `difference-in-months`
+### `cht:difference-in-days`
+
+_Available in +4.7.0._
+
+Calculates the number of whole days between two dates.
+
+### `cht:difference-in-weeks`
+
+_Available in +4.7.0._
+
+Calculates the number of whole calendar weeks between two dates.
+
+### `cht:difference-in-months`
 
 Calculates the number of whole calendar months between two dates. This is often used when determining a child's age for immunizations or assessments.
+
+{{% alert title="Note" %}}
+For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` function (without the `cht` namespace) should be used.
+{{% /alert %}}
+
+### `cht:difference-in-years`
+
+_Available in +4.7.0._
+
+Calculates the number of whole calendar years between two dates.
 
 ### `z-score`
 
