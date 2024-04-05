@@ -80,7 +80,7 @@ The University of Washington, Department of Global Health’s International Trai
 
 ### Workflows
 
-Current workflow for Voluntary male circumcision client enrollment, screening and procedures, before direct-to-client messaging was introduced:
+Current workflow for voluntary medical male circumcision client enrollment, screening and procedures, before direct-to-client messaging was introduced:
 | {{< figure src="Figure3_1.png" >}} | {{< figure src="Figure3_2.png" >}} | {{< figure src="Figure3_3.png">}} | {{< figure src="Figure3_1.png" >}}  | {{< figure src="Figure3_4.png" >}} |
 |--|--|--|--|--|
 | **1.** Enrolment - Static/Outreach Site visit | **2.** HIV Testing, screening & counseling | **3.** Procedure | **4.** Static/Outreach Site visit | **5.** Follow up visit  |
