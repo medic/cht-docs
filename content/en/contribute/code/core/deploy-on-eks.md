@@ -81,9 +81,9 @@ After you have created a ticket per "Request permission" above, you should get a
    ```shell
    kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
    ```
-3. Add new `values.yaml` file - you can [copy this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and just change the `alpha-dev` values to `USERNAME-dev`. Remember where you created this file - you'll need it every time you use the `cht-deploy` script.
+3. Add new `values.yaml` file - you can [copy this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and just change the `alpha-dev` values to `USERNAME-dev` and change the value in `ingress` -> `annotations` -> `certificate` to the latest updated value(request the SRE team for the latest value). Remember where you created this file - you'll need it every time you use the `cht-deploy` script.
 4. Use `uuidgen` to fill in the `secret` in `values.yaml`
-5. Use a good passphrase (diceware!) to fill in `password` in `values.yaml`
+5. Use a good passphrase (diceware!) to fill in `password` in `values.yaml`. _Please note that a few special characters are unsupported in this field like `:`, `@`, `"`, `'`, etc. Also, do not use quotes `""` to enclose your password, and do not use spaces in your password. This will not impact the deployment but will not let you log in to the CHT instance._
 6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin
