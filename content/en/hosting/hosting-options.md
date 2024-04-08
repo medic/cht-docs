@@ -6,7 +6,7 @@ weight : 1
 
 There are various options for hosting CHT applications depending on the need and phase of your CHT application. Phases of the CHT application include development, testing, training and deployment. CHT Applications can be deployed on different platforms including: 
 * Local installation on a desktop, laptop or server
-* Self-Hosting/Data Center set up
+* Self-Hosting/Data center set up
 * Cloud Hosting using a cloud provider (e.g. AWS)
 
 CHT installation can be done using various workflows:
@@ -97,6 +97,16 @@ The typical k8s CHT installation uses a number of API Resources as shown below.
     * couchdb-2-claimn
 
 #### K3d installation
+To install a CHT instance,K3d can be used to install it locally, or remotely like on [EKS]({{< relref "apps/tutorials/local-setup" >}}). This can be done following these steps:
+
+* Ensure you have the latest [cht-core code](https://github.com/medic/cht-core).
+* Ensure a python environment has been created and activated.
+* [Configure](https://github.com/medic/cht-core/tree/master/scripts/deploy) the `values.yaml`file to fit the usecase.
+* Run the `cht-deploy` script.
+    ```shell
+    cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
+    ```
+
 
 
 
