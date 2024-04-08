@@ -97,7 +97,7 @@ The typical k8s CHT installation uses a number of API Resources as shown below.
     * couchdb-2-claimn
 
 #### K3d installation
-To install a CHT instance,K3d can be used to install it locally, or remotely like on [EKS]({{< relref "apps/tutorials/local-setup" >}}). This can be done following these steps:
+To install a CHT instance,K3d can be used to install it locally, or remotely like on EKS. This can be done following these steps:
 
 * Ensure you have the latest [cht-core code](https://github.com/medic/cht-core).
 * Ensure a python environment has been created and activated.
