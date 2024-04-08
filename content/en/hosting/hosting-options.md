@@ -101,23 +101,8 @@ To install a CHT instance,K3d can be used to install it locally, or remotely lik
 
 * Ensure you have the latest [cht-core code](https://github.com/medic/cht-core).
 * Ensure a python environment has been created and activated.
-* [Configure](https://github.com/medic/cht-core/tree/master/scripts/deploy) the `values.yaml`file to fit the usecase.
+* [Configure](https://github.com/medic/cht-core/tree/master/scripts/deploy) the `values.yaml` file to fit the usecase.
 * Run the `cht-deploy` script.
     ```shell
     cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
     ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
