@@ -99,10 +99,10 @@ Contact summary data is not available in `contact` forms or in forms created fro
 
 ## `user` data
 
-Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [CouchDB doc for the user](https://docs.couchdb.org/en/stable/intro/security.html?highlight=org.couchdb.user#users-documents) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
+Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "core/overview/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
 
 {{% alert title="Note" %}}
-The CouchDB doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
+The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
 {{% /alert %}}
 
 ### Example of saving `user` data as metadata on a report
