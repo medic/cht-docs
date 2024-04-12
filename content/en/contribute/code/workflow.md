@@ -16,11 +16,15 @@ Aim for self-documenting code. Where code cannot be made self-documenting add co
 
 ### Pushing Code & Opening Pull Requests
 
+Never push commits directly to the default branch (`main` or `master`). Always use a pull request.
+
 - If your code is in a regular pull request, it is assumed to be done and only needing a review and testing as checks before merging. It is best to request a reviewer, but otherwise anyone may freely review your PR.
 - If your code is in a draft PR, it is assumed to be a work-in-progress where collaboration is welcome, but best to communicate about specifics before assuming anything is complete.
 - If you have pushed code to a remote branch without a pull request, it is assumed to be a work-in-progress where collaboration is unexpected.
 
 A good workflow would be to work locally, pushing to a remote branch as you make progress, possibly open a draft PR for some initial collaboration on tricky parts, and once everything is done, convert the draft PR to a regular PR to be reviewed.
+
+Once your pull request has been approved, it can be merged to the default branch by anyone with write access to the repository. When merging a PR, avoid the "Create a merge commit" option. Merge commits in the default branch cause the history of the branch to be non-linear and make it more difficult to understand exactly when a code change was introduced. Instead, use the "Squash and merge" option to combine the commits in the PR into a single commit on the default branch. Alternatively, you can use the "Rebase and merge" option if you want _all_ the commits in the PR to be preserved in the default branch (this should only be used in special cases). [See below]({{< ref "#commit-message-format" >}}) for instructions on how to format your commit messages. 
 
 ### Code reviews
 
