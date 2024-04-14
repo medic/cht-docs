@@ -133,7 +133,7 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
 | text | category | NO_LABEL |  |  |  | ... |
 | text | type | NO_LABEL |  |  |  | ... |
@@ -141,7 +141,7 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 | text | packageName | NO_LABEL |  |  |  | ... |
 | text | flags | NO_LABEL |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 To define the widget's input fields and send data as Android Intent's `extras`, create a group inside the widget with the appearance `android-app-inputs`. In order to assign the app's response to the widget's output fields, create a group with the appearance `android-app-outputs`.
 
@@ -149,18 +149,18 @@ To define the widget's input fields and send data as Android Intent's `extras`, 
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
-| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| begin group | camera-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
 | text | location | Location |  |  |  | ... |
 | text | destination | Destination |  |  |  | ... |
-| end group | camara-app-inputs |  |  |  |  | ... |
-| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| end group | camera-app-inputs |  |  |  |  | ... |
+| begin group | camera-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
 | text | picture | Picture |  |  |  | ... |
 | text | date | Date |  |  |  | ... |
-| end group | camara-app-outputs |  |  |  |  | ... |
+| end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 To instruct the widget to process nested data objects, create a new group inside the input or the output group with the appearance `android-app-object`. Objects cannot be assigned to a field, it should be a group with fields to map the properties to fields that share the same name.
 
@@ -168,21 +168,21 @@ To instruct the widget to process nested data objects, create a new group inside
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
-| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| begin group | camera-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
 | text | location | Location |  |  |  | ... |
 | begin group | photo_configuration | NO_LABEL | android-app-object |  |  | ... |
 | text | aperture | Aperture |  |  |  | ... |
 | text | shutter_speed | Shutter Speed |  |  |  | ... |
 | end group | photo_configuration |  |  |  |  | ... |
-| end group | camara-app-inputs |  |  |  |  | ... |
-| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| end group | camera-app-inputs |  |  |  |  | ... |
+| begin group | camera-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
 | text | picture | Picture |  |  |  | ... |
 | text | date | Date |  |  |  | ... |
-| end group | camara-app-outputs |  |  |  |  | ... |
+| end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 To instruct the widget to process an array of strings or numbers, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. To process an array of objects, use the appearance `android-app-object-list` instead.
 
@@ -190,16 +190,16 @@ To instruct the widget to process an array of strings or numbers, create a new `
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
 | text | flags | NO_LABEL |  |  | 268435456 | ... |
-| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| begin group | camera-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
 | text | location | Location |  |  |  | ... |
 | begin repeat | photo_filters | NO_LABEL | android-app-value-list | 2 |  | ... |
 | text | filter | Filter |  |  |  | ... |
 | end repeat |  |  |  |  |  | ... |
-| end group | camara-app-inputs |  |  |  |  | ... |
-| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| end group | camera-app-inputs |  |  |  |  | ... |
+| begin group | camera-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
 | text | date | Date |  |  |  | ... |
 | begin repeat | capture | NO_LABEL | android-app-object-list | 3 |  | ... |
 | text | light_percentage | Light |  |  |  | ... |
@@ -210,9 +210,9 @@ To instruct the widget to process an array of strings or numbers, create a new `
 | text | patient_name | Patient name |  |  |  | ... |
 | end group | patient_details |  |  |  |  | ... |
 | end repeat |  |  |  |  |  | ... |
-| end group | camara-app-outputs |  |  |  |  | ... |
+| end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 ## CHT XPath Functions
 
