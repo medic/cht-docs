@@ -10,7 +10,7 @@ description: >
 Getting to see each other all in one place at the same time, even if only online, lets people get to be around each other, learn from each other, and hear other perspectives. We're real people! ...terrific people too. This is a small space to spend some time around each other as a group. We're mostly trying to learn more about each other, celebrate recent successes, and cover the occasional big news or team-wide changes. It's mostly about being together to smile a bit.  
 
 ## When
-Roughly the first Tuesday (or Wednesday, for New Zealand teammates) week of each month
+Roughly the first Tuesday (or Wednesday, for New Zealand teammates) week of each month.
 
 ## Who is there
 The whole Product Team.
@@ -34,12 +34,12 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
 
 ### Running the call on the day-of
 1. Start the call on time (mostly). We can't sit around forever, but this is mostly a fun thing, so it's ok if people are just chatting for a couple minutes while waiting for stragglers.
-1. Say hello and all that
-1. Do the question of the week activity
+1. Say hello and all that.
+1. Do the question of the week activity.
     1. Sometimes people get the order mixed up. Be prepared to nudge people if needed.
 1. Move to the regular agenda. If there are special items, someone's name should be on it already.
-1. Do the Jamboard
+1. Do the Jamboard.
   1. Ask for someone to mark the cards as you call them out. Enough people seem to take joy in this, and it'll be a thing all on its own!
   1. Note which card you're looking at, read it, and ask if anyone (or the author) wants to add more. Sometimes it's quick stuff, sometimes it's big fun things everyone wants to spend more time on. Cool.
 1. Pass the mic to the activity of the week person.
-1. Fin! (It's ok if we finish early. We need to try hard not to finish late; it's evening for some teammates!)  
+1. Fin! (It's ok if we finish early. We need to try hard not to finish late; it's evening for some teammates!).  
