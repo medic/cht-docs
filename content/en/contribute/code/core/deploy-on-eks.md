@@ -83,7 +83,7 @@ After you have created a ticket per "Request permission" above, you should get a
    ```
 3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml). Be sure to update these values after you create it: 
    * `alpha-dev` values to `USERNAME-dev` 
-   * Update `certificate`  to the latest value from SRE - currently it's `arn:aws:iam::720541322708:server-certif    icate/2023-wildcard-dev-medicmobile-org-chain`
+   * Update `certificate` to the latest value from SRE - currently it's `arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain`
    * Add a strong `password` - this instance is exposed to the Internet!
    * Put a UUID in `secret` - the command `uuidgen` is great for this
    * Update `host` to be your `username`.  For example: `mrjones.dev.medicmobile.org`
