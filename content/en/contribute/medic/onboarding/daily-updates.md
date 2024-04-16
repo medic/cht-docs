@@ -46,9 +46,6 @@ You can find some examples of prompts to asnwer in your daily update below (Feel
 | Hey team, today was pretty busy. I did some coding, had a meeting, and did some research. I'm calling it a day now| Today, I completed authentication logic for backend API endpoints and fixed a token validation bug. Collaborated with Roman to refine the user login interface, aligning it with our styling guidelines. Also, provided development updates in the squad traffic lights meeting. |
 | - Did Easy Llama course <br> - Met with Phil <br> - Worked on #8819| - ~~Did Easy Llama course~~  <br> - Talked with Phil about project boards and Product/Programs work. We settled on having one board and labels on tickets to help Programs teammates view/filter as they need to. <br> - Worked on #8819 and got the refactoring done on the UI code. Next up will be to add a few fields to the API so I can show the data on the screen. UI tests have been frustrating taking a long time to run locally |
 
-## Let’s make this happen together!
-Let's commit to making the #dailies channel a vibrant space for communication and collaboration. 
-
 ## Frequently Asked Questions
 ### Q: What if the channel becomes too noisy?
 A: We all work towards the same goals and mission, and the daily updates you share help everyone feel assured that they are on the same page and reduce the chances of misunderstandings and miscommunication. For that reason and all the benefits we listed in the [Why section]({{< relref "#why-are-daily-updates-essential" >}}), we can’t consider updates noise, but bits and pieces of the amazing work we do together! You can always skim through updates that are too technical, for example, or that you are already aware of.
