@@ -86,12 +86,6 @@ A: If they tag you or you want to reply to something specific about their update
 ### Q: What sort of feedback should I expect on my updates?
 A: Managers should provide direct, regular, both positive and constructive and helpful feedback on status updates provided by the team members.
 
-### Q: What if I'm alone in the product social time? 
-A: You don’t need to wait for more than 5 or 10 minutes if no one else shows up.
-
-### Q: How frequently should I go to the product social time?
-A: You are not required to join this call, but it is highly encouraged as we’d like teammates to connect not only via Slack or GitHub.
-
 ### Q: I always forget to share my daily updates. How can I remember to share them? 
 A: Tips for remembering to share the daily updates:
 * [Create a Recurrent Task in Google Calendar](https://support.google.com/calendar/answer/9901136?hl=en&co=GENIE.Platform%3DAndroid)
