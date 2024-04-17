@@ -102,6 +102,9 @@ To install a CHT instance,K3d can be used to install it locally, or remotely lik
 * Ensure you have the latest [cht-core code](https://github.com/medic/cht-core).
 * Ensure a python environment has been created and activated.
 * [Configure](https://github.com/medic/cht-core/tree/master/scripts/deploy) the `values.yaml` file to fit the usecase.
+    * Helm is used as a package manager and hosts the `values.yaml` file
+    * The comments on the `values.yaml` file provide guidance on what should be changed for specific use cases.
+    * [Kubectl commands](https://kubernetes.io/docs/reference/kubectl/quick-reference/) can be used to troubleshoot and list available resources
 * Run the `cht-deploy` script.
     ```shell
     cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
