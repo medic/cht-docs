@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the Community Health Toolkit Docs Site!"
+title: "Welcome to the documentation for the CHT"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1

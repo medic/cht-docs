@@ -57,6 +57,13 @@ h2, h3 {
   .td-search-input {
     max-width: none;
   }
+  .td-sidebar__search {
+    padding-bottom: 0;
+  }
+}
+
+.td-sidebar {
+  padding-bottom: 0 !important;
 }
 
 // https://github.com/medic/cht-docs/issues/212
@@ -131,4 +138,12 @@ h2, h3 {
 
 .mermaid {
   padding-bottom: 30px;
+}
+
+.td-navbar .td-navbar-nav-scroll .navbar-nav {
+  padding-bottom: 0 !important;
+}
+
+.td-navbar .td-navbar-nav-scroll {
+  height: 0 !important;
 }
