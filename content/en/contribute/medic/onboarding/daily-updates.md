@@ -32,7 +32,7 @@ By embracing the #dailies channel and actively participating in sharing our dail
 ## What this looks like in practice?
 Daily updates in the #dailies Slack channel are *mandatory* for the whole Product Team. 
 
-You can find some examples of prompts to asnwer in your daily update below (Feel free to answer how many you wish. Also, feel free to find another prompts that make more sense to you at the moment when you write your update): 
+You can find some examples of prompts to answer in your daily update below (Feel free to answer how many you wish. Also, feel free to find another prompts that make more sense to you at the moment when you write your update): 
 - Are there any blockers or impediments preventing you from doing your work?
 - What are your commitments for the day? (if you choose to share your update at the beginning of your day)
 - What were your achievements of the day? (if you choose to share your update at the end of your day)
