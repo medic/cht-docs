@@ -53,7 +53,7 @@ Used for documents which are only relevant to a single user, including:
 
 ### medic-users-meta
 
-To make it easier to perform analysis of all the docs in each user's "medic-user-{username}-meta" database, Sentinel replicates all the "feedback" and "telemetry" docs into this single database. This is used for reporting, monitoring, and usage analytics.
+To make it easier to perform analysis of all the docs in each user's "medic-user-{username}-meta" database, Sentinel replicates all the "feedback" and "telemetry" docs into this single database . This is used for reporting, monitoring, and usage analytics. The "feedback" and "telemetry" docs are deleted from the user's "medic-user-{username}-meta" database after they have successfully been replicated to "medic-users-meta".
 
 Replication to this database can be enabled via configuration from 3.5.0 and works without configuration from 3.10.0.
 
