@@ -932,7 +932,7 @@ Returns a user's profile data in JSON format.
 Get a user by username:
 
 ```
-GET /api/v1/users/demo
+GET /api/v2/users/demo
 ```
 
 ```
