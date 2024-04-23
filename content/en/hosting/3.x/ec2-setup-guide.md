@@ -5,9 +5,9 @@ weight: 10
 description: >
   Hosting the CHT on Amazon EC2
 aliases:
-  - /apps/guides/hosting/ec2-setup-guide
+  - /hosting/ec2-setup-guide
 relatedContent: >
-  apps/guides/hosting/3.x/self-hosting
+  hosting/3.x/self-hosting
   apps/guides/database/couch2pg-oom-errors
 ---
 
@@ -20,7 +20,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
 1. Create EC2 (use security best practices)
 
-    Review the [CHT hardware requirements]({{< relref "apps/guides/hosting/requirements#hardware-requirements" >}}) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
+    Review the [CHT hardware requirements]({{< relref "hosting/requirements#hardware-requirements" >}}) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
     
     ```
     sudo chmod 0600 ~/Downloads/name_of_file.pem
@@ -58,7 +58,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 1. Review SSL certificates
     - Location of certs is `/srv/settings/medic-core/nginx/private/`
     - Name the key file is `default.key` and the certificate file is `default.crt`
-    - See [SSL Certficates]({{< relref "apps/guides/hosting/3.x/ssl-cert-install">}}) to install new certificates
+    - See [SSL Certficates]({{< relref "hosting/3.x/ssl-cert-install">}}) to install new certificates
 
 1. Configure couch2pg
     See the [couch2pg basic configuration](https://github.com/medic/cht-couch2pg/blob/main/README.md) in the `cht-couch2pg` repository.
@@ -104,7 +104,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
 5. Upgrading the webapp
     - Use Admin GUI page
-    - [CLI via horticulturalist]({{< ref "apps/guides/hosting/3.x/self-hosting#links-to-medic-documentation-for-horticulturalist-for-upgrades" >}})
+    - [CLI via horticulturalist]({{< ref "hosting/3.x/self-hosting#links-to-medic-documentation-for-horticulturalist-for-upgrades" >}})
 
 6. RDS help
 

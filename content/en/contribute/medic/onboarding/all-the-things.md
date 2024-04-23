@@ -75,7 +75,7 @@ Meet the [Medic team](https://medic.org/team/)!
 * It can feel slow at times, but we’re making a lot of progress here. See below about how Focused Working Groups work.
 * Quality matters a lot!
 * [Data Flow]({{% ref "core/overview/data-flows-for-analytics" %}})
-* [Monitoring & Alerting]({{% ref "apps/guides/hosting/monitoring" %}})
+* [Monitoring & Alerting]({{% ref "hosting/monitoring" %}})
 * The main repositories to look at:
   * [cht-core](https://github.com/medic/cht-core)
   * [cht-conf](https://github.com/medic/cht-conf)

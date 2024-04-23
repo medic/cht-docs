@@ -7,7 +7,7 @@ description: >
 relatedContent: >  
   core/overview/watchdog
   core/overview/cht-sync
-  apps/guides/hosting/vertical-vs-horizontal
+  hosting/vertical-vs-horizontal
 ---
 
 ## Overview

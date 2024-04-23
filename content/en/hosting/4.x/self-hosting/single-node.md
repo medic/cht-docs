@@ -9,12 +9,12 @@ description: >
 ---
 
 {{% pageinfo %}}
-This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "apps/guides/hosting/4.x/self-hosting/multiple-nodes" >}}).
+This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/self-hosting/multiple-nodes" >}}).
 {{% /pageinfo %}}
 
 ## Prerequisites 
 
-Be sure you have followed [the requirements document]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker Compose. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554). 
+Be sure you have followed [the requirements document]({{< relref "hosting/requirements" >}}) including installing Docker and Docker Compose. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554). 
 
 ## Directory Structure
 
@@ -106,7 +106,7 @@ To login as the `medic` user in the web app, you can find your password with thi
 
 ## TLS Certificates
 
-See the [TLS Certificates page]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates.
+See the [TLS Certificates page]({{< relref "hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates.
 
 ## Upgrades
 

@@ -11,7 +11,7 @@ description: >
 {{% pageinfo %}}
 The clustered multi-node hosting described below is recommended for deployments that need increased performance gains. These gains will increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
-If you are unsure which deployment to use check out [Self-hosting recommendations]({{< ref "apps/guides/hosting/4.x/self-hosting#recommendations-and-considerations" >}}).
+If you are unsure which deployment to use check out [Self-hosting recommendations]({{< ref "hosting/4.x/self-hosting#recommendations-and-considerations" >}}).
 
 {{% /pageinfo %}}
 
@@ -28,7 +28,7 @@ In a clustered CHT setup, there are multiple CouchDB nodes responding to users. 
 
 ### Servers
 
-Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) including installing Docker and Docker Compose on all of them.  This guide assumes you're using the `ubuntu` user, with a home directory of `/home/ubuntu` and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
+Provision four Ubuntu servers (22.04 as of this writing) that meet our [hosting requirements]({{< relref "hosting/requirements" >}}) including installing Docker and Docker Compose on all of them.  This guide assumes you're using the `ubuntu` user, with a home directory of `/home/ubuntu` and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
 
 ### Network
 
@@ -151,7 +151,7 @@ sleep 120
 docker kill $(docker ps --quiet)
 ```
 
-With docker volume having been created, see the [TLS Certificates page]({{< relref "apps/guides/hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates on the CHT Core node.
+With docker volume having been created, see the [TLS Certificates page]({{< relref "hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates on the CHT Core node.
 
 ## CouchDB installation on 3 nodes
 
