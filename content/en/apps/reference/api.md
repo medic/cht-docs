@@ -1000,6 +1000,54 @@ Content-Type: application/json; charset=utf-8
 ]
 ```
 
+### GET /api/v2/users/{{username}}
+
+*Added in 4.7.0*
+
+Returns a user's profile data in JSON format.
+
+#### Permissions
+
+`can_view_users`
+
+#### Examples
+
+Get a user by username:
+
+```
+GET /api/v2/users/demo
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": "org.couchdb.user:demo",
+  "rev": "14-8758c8493edcc6dac50366173fc3e24a",
+  "type": "district-manager",
+  "fullname": "Example User",
+  "username": "demo",
+  "place": {
+    "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
+    "type": "district_hospital",
+    "name": "Sample District",
+    "contact": {
+      "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+      "type": "person",
+      "name": "Paul",
+      "phone": "+2868917046"
+    }
+  },
+  "contact": {
+    "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17fd17",
+    "type": "person",
+    "name": "Paul",
+    "phone": "+2868917046"
+  }
+}
+```
+
 ### POST /api/v1/users
 
 Create new users with a place and a contact.
