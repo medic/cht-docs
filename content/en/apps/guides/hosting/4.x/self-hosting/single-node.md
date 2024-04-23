@@ -111,3 +111,5 @@ See the [TLS Certificates page]({{< relref "apps/guides/hosting/4.x/adding-tls-c
 ## Upgrades
 
 During upgrades, the CHT upgrade service updates the docker-compose files located in `/home/ubuntu/cht/compose/`. This means that any and all changes made to the docker-compose files will be overwritten. If there is ever a need to make any changes to the docker-compose files, be sure to re-do them post upgrades or should consider implementing them outside of those docker-compose files. 
+
+{{< read-content file="_partial_upgrade_service.md" >}}

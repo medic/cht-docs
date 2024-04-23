@@ -333,3 +333,5 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 ## Upgrades
 
 Upgrades are completely manual for the clustered setup right now. You have to go into each of the docker compose files and modify the image tag and take containers down and restart them.
+
+{{< read-content file="_partial_upgrade_service.md" >}}
