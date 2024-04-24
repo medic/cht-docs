@@ -1,6 +1,6 @@
 ---
 title: Hosting
-weight: 100
+weight: 6
 description: >
  Guides for hosting, maintaining, and monitoring CHT 3.x and 4.x applications
 ---
