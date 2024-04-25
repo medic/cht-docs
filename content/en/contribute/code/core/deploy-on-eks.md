@@ -88,7 +88,7 @@ After you have created a ticket per "Request permission" above, you should get a
    * Put a UUID in `secret` - the command `uuidgen` is great for this
    * Update `host` to be your `username`.  For example: `mrjones.dev.medicmobile.org`
 4. Use `uuidgen` to fill in the `secret` in `values.yaml`
-5. Use a good passphrase (diceware!) to fill in `password` in `values.yaml`. _Please note that a few special characters are unsupported in this field like `:`, `@`, `"`, `'`, etc. Also, do not use quotes `""` to enclose your password, and do not use spaces in your password. This will not impact the deployment but will not let you log in to the CHT instance._
+5. Use a good passphrase (diceware!) to fill in `password` in `values.yaml`. _Please note that a few special characters are unsupported in this field like `:`, `@`, `"`, `'`, etc. Add your password as a string by enclosing it in quotes `""`, and do not use spaces in your password. This will not impact the deployment but will not let you log in to the CHT instance._
 6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin
