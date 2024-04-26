@@ -3,7 +3,8 @@ title: "Introduction to monitoring and alerting"
 weight: 100
 linkTitle: "Introduction"
 aliases:
-    - hosting/monitoring.md
+    - /apps/guides/hosting/monitoring/introduction
+    - /apps/guides/hosting/monitoring
 description: >
     High level approach to monitoring and alerting with CHT applications
 ---

@@ -2,6 +2,8 @@
 title: "Viewing server logs in CHT 4.x"
 linkTitle: "Logs"
 weight: 300
+aliases:
+  - /apps/guides/hosting/4.x/logs
 description: >
     What to do when you need to find server side errors in CHT 4.x
 relatedContent: >

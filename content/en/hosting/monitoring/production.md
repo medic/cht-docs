@@ -2,6 +2,8 @@
 title: "Production CHT Watchdog"
 linkTitle: "Production"
 weight: 200
+aliases:  
+  - /apps/guides/hosting/monitoring/production
 description: >
    Production considerations for CHT Watchdog
 ---

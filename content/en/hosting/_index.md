@@ -1,6 +1,8 @@
 ---
 title: Hosting
 weight: 6
+aliases:
+    - /apps/guides/hosting/
 description: >
  Guides for hosting, maintaining, and monitoring CHT 3.x and 4.x applications
 ---

@@ -1,6 +1,8 @@
 ---
 title: 4.x
 weight: 100
+aliases:
+  - /apps/guides/hosting/4.x
 description: >
     Guides for hosting CHT 4.x applications
 relatedContent: >

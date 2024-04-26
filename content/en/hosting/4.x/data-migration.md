@@ -2,9 +2,10 @@
 title: "Migration from CHT 3.x to CHT 4.x"
 linkTitle: "Data migration to 4.x"
 weight: 10
+aliases:
+  - /apps/guides/hosting/4.x/data-migration
 description: >
   Guide to migrate existent data from CHT 3.x to CHT 4.x
-aliases:
 relatedContent: >
 ---
 

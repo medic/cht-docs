@@ -3,7 +3,9 @@ title: "Offline Hosting of CHT 3.x Server"
 linkTitle: "Offline Hosting"
 weight: 100
 aliases:
+  - /apps/guides/hosting/3.x/offline,
   - /apps/guides/hosting/offline
+
 description: >
  Deploying and hosting CHT Core server instances without Internet connectivity
 ---

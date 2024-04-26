@@ -2,6 +2,8 @@
 title: "Requirements"
 linkTitle: "Requirements"
 weight: 5
+aliases:  
+  - /apps/guides/hosting/requirements
 description: >
   Requirements for hosting CHT
 relatedContent: >

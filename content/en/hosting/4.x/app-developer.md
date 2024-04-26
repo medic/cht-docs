@@ -3,7 +3,8 @@ title: "App Developer Hosting in CHT 4.x"
 linkTitle: "App Developer Hosting"
 weight: 40
 aliases:
-- /hosting/app-developer
+  - /apps/guides/hosting/4.x/app-developer
+  - /apps/guides/hosting/app-developer
 description: >
   Hosting the CHT when developing apps
 ---

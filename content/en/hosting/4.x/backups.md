@@ -2,6 +2,8 @@
 title: "Backups in CHT 4.x"
 linkTitle: "Backups"
 weight: 330
+aliases:
+  - /apps/guides/hosting/4.x/backups
 description: >
     Which data to backup when hosting the CHT 4.x
 ---

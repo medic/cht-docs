@@ -5,7 +5,8 @@ weight: 10
 description: >
   Hosting the CHT on Amazon EC2
 aliases:
-  - /hosting/ec2-setup-guide
+   - /apps/guides/hosting/3.x/ec2-setup-guide
+   - /apps/guides/hosting/ec2-setup-guide 
 relatedContent: >
   hosting/3.x/self-hosting
   apps/guides/database/couch2pg-oom-errors

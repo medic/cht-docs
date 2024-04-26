@@ -2,6 +2,8 @@
 title: "Vertical vs Horizontal scaling"
 linkTitle: "Vertical vs Horizontal Scaling"
 weight: 20
+aliases:  
+  - /apps/guides/hosting/vertical-vs-horizontal
 description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
