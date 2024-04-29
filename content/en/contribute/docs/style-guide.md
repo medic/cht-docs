@@ -4,6 +4,7 @@ linkTitle: "Style Guide"
 weight: 10
 description: >
   Editorial guidelines for writing documentation
+show_toc: true
 ---
 
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
@@ -12,39 +13,6 @@ This style guide provides a set of editorial guidelines for anyone writing docum
 This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submiting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
 {{% /alert %}}
 
-## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Language](#language)
-- [General guidelines and best practices](#general-guidelines-and-best-practices)
-  - [Present tense](#present-tense)
-  - [Active voice](#active-voice)
-  - [Simple and direct language](#simple-and-direct-language)
-  - [Address the reader as "you"](#address-the-reader-as-you)
-  - [Latin phrases](#latin-phrases)
-- [Practices to avoid](#practices-to-avoid)
-  - [Using "we"](#using-we)
-  - [Using jargon and idioms](#using-jargon-and-idioms)
-  - [Using statements about the future](#using-statements-about-the-future)
-  - [Using statements that will soon be out of date](#using-statements-that-will-soon-be-out-of-date)
-- [Cross-referencing content](#cross-referencing-content)
-  - [Avoid broken links](#avoid-broken-links)
-- [Formatting standards](#formatting-standards)
-  - [Use Markdown Notation](#use-markdown-notation)
-  - [Grammar and punctuation in headers](#grammar-and-punctuation-in-headers)
-  - [Angle brackets for placeholders](#angle-brackets-for-placeholders)
-  - [Bold for user interface elements](#bold-for-user-interface-elements)
-  - [Italics to define or introduce new terms](#italics-to-define-or-introduce-new-terms)
-  - [Code style for filenames, directories, and paths](#code-style-for-filenames-directories-and-paths)
-  - [British standard for punctuation inside quotes](#british-standard-for-punctuation-inside-quotes)
-  - [Notes and tips](#notes-and-tips)
-  - [Images](#images)
-  - [Videos](#videos)
-- [Inline code formatting](#inline-code-formatting)
-  - [Code style for inline code and commands](#code-style-for-inline-code-and-commands)
-- [Code snippet formatting](#code-snippet-formatting)
-  - [Don't include the command prompt](#dont-include-the-command-prompt)
-  - [Separate commands from output](#separate-commands-from-output)
-- [Community Health Toolkit word list](#community-health-toolkit-word-list)
 
 ## Language
 
@@ -111,7 +79,7 @@ whether they're part of the "we" you're describing.
 |---|---|
 | Version 3.0 includes ... | In version 3.0, we have added ... |
 | Medic provides a new feature to reduce the time to load contacts. | We made several changes to reduce the time to load contacts. |
-| This page teaches you how to use medic-gateway. | In this page, we are going to learn about medic-gateway. |
+| This page teaches you how to use cht-gateway. | In this page, we are going to learn about cht-gateway. |
 
 ### Using jargon and idioms
 
@@ -262,6 +230,17 @@ represents.
 | The doc in the database is a "record". | The doc in the database is a "record." |
 | The copy is called a "fork". | The copy is called a "fork." |
 
+### Number formatting
+Avoid the use of comma or period as thousands separator since it can be confused for a decimal point in some countries. Either use no separator for small numbers or a unicode _Thin Space_ which is often [recommended for international documents](https://en.wikipedia.org/wiki/Decimal_separator#Digit_grouping).
+
+There's a shortcode `format-number` which will replace `_` with _Thin Space_ to simplify formatting in this way.
+
+| Do                                    | Don't   |
+|---------------------------------------|---------|
+| `{{</* format-number 10_000 */>}}`    | 10,000  |
+| `{{</* format-number 10_000 */>}}`    | 10.000  |
+| `{{</* format-number 1_000_000 */>}}` | 1000000 |
+
 ### Notes and tips
 
 Make notes and tips stand out by using blockquote styling.
@@ -296,6 +275,11 @@ It is good practice for the image to link to the image file so that a larger ver
 |right-hand side|right hand side|
 |left-hand|left hand|
 
+### Where to place your images
+
+To ensure your images are loaded on the docsite in the right format,place them in a folder that is named similar to your .md file. For example in the scenario below, the image is linked in the style-guide.md file, thus it is placed in the style-guide folder.
+{{< figure src="where-to-place-images.png" link="where-to-place-images.png" >}}
+
 ### Videos
 
 When embedding videos, use the `youtube` shortcode to embed a responsive YouTube video player. 
@@ -317,7 +301,7 @@ document, use the backtick (`).
 
 | Do | Don't |
 |---|---|
-| The `grunt dev-webapp` command builds and deploys the webapp. | The "grunt dev-webapp" command creates a Deployment. |
+| The `npm run build-dev-watch` command builds and deploys the webapp. | The "npm run build-dev-watch" command creates a Deployment. |
 | To upload the configuration from your current directory, use `cht --local`. | To upload the configuration from your current directory, use "cht --local". |
 | Enclose code samples with triple backticks. `(```)` | Enclose code samples with any other syntax. |
 

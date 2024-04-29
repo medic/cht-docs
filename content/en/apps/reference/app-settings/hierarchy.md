@@ -11,6 +11,10 @@ keywords: hierarchy contacts
 
 From 3.7.0 it is possible to configure what types of places and people are available by modifying the `contact_types` array in the app settings. Each type has the following properties.
 
+{{% alert title="Note" %}}
+Prior to version 3.7.0, CHT Core supported 4 contact types - 3 place types (`clinic`, `health_center`, `district_hospital`) and one person type (`person`).
+{{% /alert %}}
+
 ### `app_settings.json .contact_types[]`
 
 |Property|Description|Required|
@@ -26,6 +30,7 @@ From 3.7.0 it is possible to configure what types of places and people are avail
 | `create_form` | The string ID for the xform used to create contacts of this type. | Yes. |
 | `edit_form` | The string ID for the xform used to edit contacts of this type. | No, defaults to the create_form. |
 | `count_visits` | Whether or not to show a count of visits for contacts of this type. Requires UHC to be enabled. | No, defaults to `false`. |
+| `sort_by_dob`         | Whether or not to sort contacts by date of birth in the contact detail page. By default, contacts are sorted alphabetically. | No, defaults to `false`. |
 | `person` | Whether this is a person type or a place type. | No, defaults to `false`. |
  
 ### Forms

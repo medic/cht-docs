@@ -9,13 +9,15 @@ relatedContent: >
 ---
 
 {{% alert title="Warning" %}} 
-Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so not remote access is allowed.
+Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.
 
 Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
+
+Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "contribute/code/core/dev-environment#nginx-local-ip" >}})
 {{% /alert %}}
 
 ## Overview
-When using a local [development environment](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md), you may want to share your work with other collaborators. You also may need to access the environment from your [mobile device](https://github.com/medic/medic-android/) which requires an SSL certificate (the "s" in "https"). By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
+When using a local [development environment]({{< relref "contribute/code/core/dev-environment" >}}), you may want to share your work with other collaborators. By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
 
 [<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
 
@@ -24,7 +26,7 @@ Once you have this web server set up, you may continue to use it whenever you wa
 ## Prerequisites 
 
 This guide assumes:
-* You have a local [dev instance](https://github.com/medic/cht-core/blob/master/DEVELOPMENT.md) set up of cht-core 
+* You have a local [dev instance]({{< relref "contribute/code/core/dev-environment" >}}) set up of cht-core 
 * You  have the [generic Medic app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US) installed on your Android device. This version allows you to enter a custom CHT URL on first run.
 * You have an Ubuntu >18.04 server with a public IP and a DNS entry that you can SSH into and have sudo on
 * You have Apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
@@ -73,7 +75,7 @@ The steps in this guide can be done on any of the cheap server providers out the
 1. This assumes your local username is the same as it is on cht.domain.com. This command will hang and you may exit when down with `ctrl + c`
 1. In a browser, test again that you now see your local dev instance and it loads correctly at https://cht.domain.com 
 1. If needed, reset the Medic app on your phone so that it prompts which instance to use  
-1. In the app on your phone, choose "custom" for which instance to use and enter https://cht.domain.com. You should now see your local dev instance in the Medic Android device.  Happy testing!
+1. In the app on your phone, choose "custom" for which instance to use and enter https://cht.domain.com. You should now see your local dev instance in the CHT Android device.  Happy testing!
 
 ## Tunnel command breakdown
 

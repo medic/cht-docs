@@ -16,6 +16,7 @@ This policy is reviewed and updated periodically by our Responsible Data Working
 If you have any questions, please reach out to our Data Protection Officer at support@medic.org. 
 
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [Our responsible data promise](#our-responsible-data-promise)
 - [Compliance with applicable data regulations and policies](#compliance-with-applicable-data-regulations-and-policies)
 - [Data and protected health information](#data-and-protected-health-information)
@@ -24,7 +25,7 @@ If you have any questions, please reach out to our Data Protection Officer at su
 - [Security practices](#security-practices)
   - [Technology security overview](#technology-security-overview)
   - [Security training for our Partners](#security-training-for-our-partners)
-- [Inquiries with Medic’s Data Protection Officer](#inquiries-with-medic-mobiles-data-protection-officer)
+- [Inquiries with Medic’s Data Protection Officer](#inquiries-with-medics-data-protection-officer)
 
 
 
@@ -63,7 +64,7 @@ Subject to compliance with applicable law, Medic and its permitted subcontractor
 
 For the purposes of this policy, “Impact Metrics” refers to aggregated Data which does not include personally identifiable information or Protected Health Information (defined below), and which is useful for Medic’s charitable purpose of monitoring the use of the Software and understanding its impacts on health systems. Examples of Impact Metrics include the total number of households registered in the Software, the total number of health workers using the Software, the total number of households visited in a given month, and the total number of Software-supported actions on antenatal care, postnatal care, integrated community case management, family planning, malnutrition, and immunization services. It may also include aggregate Data concerning COVID-19 services such as community event-based surveillance, contact tracing, CHW self-checks, and support for self-isolation provided in Medic-supported projects. 
 
-Any Impact Metrics shared with the general public will be aggregated globally; Medic personnel shall not de-aggregate the Impact Metrics to identify activities in any particular Country, without obtaining prior written consent from the Partner(s) acting as the relevant data controlling entities. Examples of previously reported Impact Metrics are available to the public in Medic’s quarterly and annual reports, which can be accessed at https://www.medicmobile.org/research-impact-reports.
+Any Impact Metrics shared with the general public will be aggregated globally; Medic personnel shall not de-aggregate the Impact Metrics to identify activities in any particular Country, without obtaining prior written consent from the Partner(s) acting as the relevant data controlling entities. Examples of previously reported Impact Metrics are available to the public in Medic’s quarterly and annual reports, which can be accessed at https://medic.org/reports/.
   
 All additional uses of data for research and reporting will comply with applicable Ministry of Health policies and existing Partner policies for health data access and sharing. Medic personnel shall not use any Data for research purposes unless Medic has obtained the prior written consent of the relevant Partner(s), which may involve execution of a data sharing agreement. 
 
@@ -115,5 +116,4 @@ We work with every partner to make sure they are trained and equipped to handle 
 
 ## Inquiries with Medic’s Data Protection Officer
 
-For the purposes of this policy, Medic’s Chief Operations Officer serves as Medic’s Data Protection Officer. For any inquiries, please send an email to support@medic.org with the words “Data Protection” in the subject line. 
-
+For any inquiries, please reach out to Medic’s Data Protection Officer, by emailing support@medic.org with the words “Data Protection” in the subject line. 

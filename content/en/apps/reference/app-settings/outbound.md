@@ -32,7 +32,8 @@ The rest of the configuration is against the `outbound` configuration property, 
     "first config": {
       "relevant_to": "...",
       "destination": {},
-      "mapping": {}
+      "mapping": {},
+      "cron": "..."
     },
     "second config": { }
   }
@@ -75,11 +76,11 @@ Basic auth example:
 }
 ```
 
-Here `password_key` is a key used to find the password in CouchDB's node-based configuration. See Credentials section below.
+Here `password_key` is a key used to find the password in CHT credentials. For more information about how to store credentials, refer to the [API documentation](/apps/reference/api#put-apiv1credentials).
 
 If you don't provide an authentication parameter then the request will be sent without authentication.
 
-As of 3.9, the `header` type is also supported, which sends authentication credentials via a HTTP request header: `Authorization: '<value>'`. The value is set in the CouchDB configuration, and referred to by the `value_key`, similarly to the `password_key`. The value must match the credentials needed for the third party tool, and is generally formatted as `<type> <credentials>`. For instance, to send data to RapidPro, the value in the configuration would be set to the complete RapidPro API Token: eg `Token 123456789abcdef`.
+As of 3.9, the `header` type is also supported, which sends authentication credentials via a HTTP request header: `Authorization: '<value>'`. The value is set in CHT credentials configuration, and referred to by the `value_key`, similarly to the `password_key`. The value must match the credentials needed for the third party tool, and is generally formatted as `<type> <credentials>`. For instance, to send data to RapidPro, the value in the configuration would be set to the complete RapidPro API Token: eg `Token 123456789abcdef`.
 
 Header auth example:
 ```json
@@ -167,7 +168,26 @@ This example makes a few points:
  - To define a property that is itself an object, you can make the mapping key a JSON path.
  - If you define a property as `optional`, it won't exist at all in the payload if the resulting value is `undefined`, either because that is the result of executing the `expr`, or the `path` doesn't exist. Note that if the `event.in_danger` expression was instead `doc.fields.danger_signs.length >= 3` the property `in_danger` would always exist and would either be `true` or `false`
 
+### cron
+An optional cron expression for setting the cron rule in the outbound object.
+A cron expression is a string consisting of five fields that describe individual details of the schedule:
+
+`<minute> <hour> <day-of-month> <month> <day-of-week>`
+
+The transition verifies if a cron field exists in the configuration. If a cron field is present, it checks if the document is due for push. If it is due, the new document is pushed. If it is not yet due for push, the document is added to the outbound queue. If the cron field isn’t present, then it goes ahead with the previous flow.
+
+Example: you want the system to send outbound pushes based on a cron schedule every day at 1:05.
+
+```json
+{
+  "cron": "5 1 * * *"
+}
+```
+
+**Note:** Schedule Outbound is only available in CHT Core 4.5.0 and above.
+
 #### Other Notes
+
  - Your report will be hydrated before being passed to the mapper. This gives you access to the contact and its parents
  - object paths that may have undefined properties need to be dealt with differently depending on if you are using a `path` or an `expr`. Given `doc.foo.bar.smang` as a path where any of those properties may not exist in the doc:
   - If you're using `path` just use the path as is, if any part of the path is `undefined` the resulting value will safely be `undefined`
@@ -175,44 +195,9 @@ This example makes a few points:
 - If any of your `expr` expressions throw an exception (for example because you didn't handle potentially `undefined` properties as noted above) your push will fail
 - If any of your `path` declarations result in an `undefined` value and you have not also declared that property optional your push will fail
 
-## Credentials
+#### Troubleshooting
 
-To securely store credentials, we'll be using CouchDB's [config storage](https://docs.couchdb.org/en/stable/api/server/configuration.html), as this is a convenient location that only CouchDB administrators can access.
-
-Passwords are stored under the `medic-credentials` section, under the key declared in config.
-
-In the following example:
-
-```json
-{
-  "destination": {
-    "base_url": "https://example.com",
-    "auth": {
-      "type": "basic",
-      "username": "admin",
-      "password_key": "example.com"
-    },
-    "path": "/api/v1/referral"
-  }
-}
-```
-
-We have our key configured to `example.com`. This means that in CouchDB's admin config we would expect to find a password at `medic-credentials/example.com`.
-
-To add the credential to the admin config you need to either [PUT the value using curl](https://docs.couchdb.org/en/stable/api/server/configuration.html#put--_node-node-name-_config-section-key) or similar:
-
-```sh
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/example.com -d '"the-real-password"'
-```
-
-_(Note that `couchdb@127.0.0.1` is the local node name, and may be different for you depending on your setup.)_
-
-You can also add it via Fauxton:
- - Navigate to [the Config screen](http://localhost:5984/_utils/#/_config)
- - Click `Add Option`
- - The `Section` should be `medic-credentials`, the `Name` should be (in this example) `example.com` and the value should be the password
- - Click `Create`
- - You should then be able to see your credential in the list of configuration shown\
+By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging]({{< relref "apps/guides/hosting/4.x/logs#setting-log-level" >}}) to get more information about the exact contents of the request/response.
 
 ## How Outbound messages are sent
 
@@ -222,6 +207,7 @@ Send semantics have changed over the course of developing this feature, and are 
 
  - Outbound messages are sent immediately
  - If there is an error in sending it will be added to a send queue to be retried every 5 minutes.
+   - If you update your outbound configuration while messages are present in the send queue, only the messages that match with _the new configuration_ will be retried.
  - When it does finally send it will include any new changes to the document that have occurred in that time.
  - **Documents can be sent again**, as long as the resulting payload (as defined in the configuration's `mapping` property) is different from the most recent outbound push performed for this document and configuration.
 

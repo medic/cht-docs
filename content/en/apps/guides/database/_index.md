@@ -35,6 +35,14 @@ For example:
 }
 ```
 
+### medic-logs
+
+Stores a record of when a user last attempted to replicate and how many docs they have access to. This can be useful when trying to diagnose issues with users getting too much access, or being unable to complete replication because their access is too broad.
+
+### medic-vault
+
+Stores CHT credentials for authenticating with third party services. These credentials are encrypted for safety, and can only be updated using the [Credentials API](/apps/reference/api#put-apiv1credentials).
+
 ### medic-user-{username}-meta
 
 Used for documents which are only relevant to a single user, including:
@@ -45,7 +53,7 @@ Used for documents which are only relevant to a single user, including:
 
 ### medic-users-meta
 
-To make it easier to perform analysis of all the docs in each user's "medic-user-{username}-meta" database, Sentinel replicates all the "feedback" and "telemetry" docs into this single database. This is used for reporting, monitoring, and usage analytics.
+To make it easier to perform analysis of all the docs in each user's "medic-user-{username}-meta" database, Sentinel replicates all the "feedback" and "telemetry" docs into this single database . This is used for reporting, monitoring, and usage analytics. The "feedback" and "telemetry" docs are deleted from the user's "medic-user-{username}-meta" database after they have successfully been replicated to "medic-users-meta".
 
 Replication to this database can be enabled via configuration from 3.5.0 and works without configuration from 3.10.0.
 
@@ -53,9 +61,13 @@ Replication to this database can be enabled via configuration from 3.5.0 and wor
 
 This is the standard CouchDB database used to configure user authentication and authorization.
 
+### medic-logs
+
+Stores meta data about the user including when they last connected to the server, and how many documents they are allowed to replicate. This can be useful for checking for connection issues and misconfigured users.
+
 ## PouchDB
 
-Used to store documents on the client device to allow for offline-first access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
+Used to store documents on the client device to allow for [Offline-First]({{< ref "core/overview/offline-first" >}}) access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
 
 {{< see-also page="apps/guides/performance/replication" >}}
 

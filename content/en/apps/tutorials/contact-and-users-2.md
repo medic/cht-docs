@@ -1,13 +1,13 @@
 ---
 title: "Contact and User Management - Part 2"
 linkTitle: Contacts + Users 2
-weight: 3
+weight: 4
 description: >
   Creating and editing contacts and users with cht-conf
 relatedContent: >
   apps/tutorials/contact-and-users-1
   core/overview/db-schema
-  core/guides/users-bulk-load
+  apps/guides/data/users-bulk-load
   apps/concepts/users
 ---
 
@@ -72,7 +72,7 @@ Next you are going to create CHW Areas for the Health Facilities you created in 
 
 Create a CSV file named `users.csv` and add the details of the Users, CHW contacts, and CHW Areas you would like to create. Save this file in the base project directory.
 
-| username | password | roles | name | phone | contact.name | contact.phone | contact.sex | contact.age | place.type | place.name | place.parent |
+| username | password | roles | fullname | phone | contact.name | contact.phone | contact.sex | contact.age | place.type | place.name | place.parent |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | mmutiso | q3Z5-vH5 | district_admin | Mary Mutiso | 0712345678 | Mary Mutiso | 0712345678 | Female | 36 | health_center | Mary Mutiso's Area | `<facility uuid>` |
 

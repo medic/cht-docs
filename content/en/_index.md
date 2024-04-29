@@ -1,11 +1,17 @@
 ---
-title: "Welcome to the Community Health Toolkit Docs Site!"
+title: "Welcome to the documentation for the CHT"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
-menu:
-main:
-weight: 1
+cascade:
+- _target:
+    path: "/**"
+  kind: "page"
+  type: "docs"
+- _target:
+    path: "/**"
+  kind: "section"
+  type: "docs"
 ---
 
 {{% pageinfo %}}
@@ -19,7 +25,7 @@ The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collecti
 
 Community health systems can dramatically improve the accessibility, quality, speed, and equity of primary health care, but only if health workers are effectively equipped and supported. Advances in open source technology are making it easier and more affordable than ever to deliver impactful, dignified care in even the hardest-to-reach communities.
 
-With more than 27,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers. For more about the unique strengths of our open source community and the technology we’re building together, see [Why the CHT]({{< ref "/why-the-cht" >}}) ?
+With more than 41,000 health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers. For more about the unique strengths of our open source community and the technology we’re building together, see [Why the CHT]({{< ref "/why-the-cht" >}}) ?
 
 {{< youtube SXN76-EZnsM >}}
 
@@ -41,7 +47,6 @@ The CHT provides you with resources to design, build, deploy, and monitor digita
 
 ## Getting Started
 
-<br />
 ### Why the CHT?
 A great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "apps/examples/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
 

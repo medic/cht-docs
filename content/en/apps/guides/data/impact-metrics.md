@@ -1,9 +1,9 @@
 ---
-title: "Impact Metrics"
-linkTitle: "Impact Metrics"
-weight: 
+title: "CHT Impact Metrics"
+linkTitle: "CHT Impact Metrics"
+weight: 15
 description: >
-  A set of impact metrics for priority use cases for monitoring across the CHT
+  A set of impact metrics for monitoring priority use cases across the Community Health Toolkit
 keywords: impact monitoring 
 relatedContent: >
   core/overview/data-flows-for-analytics
@@ -22,10 +22,12 @@ As a member of the CHT community and potential CHT implementer, we encourage you
 
 The following list of Impact Metrics is comprehensive; it includes all of the Impact Metric that Medic and one or more additional CHT implementers have decided to share with the general public across workflows:
 
-_Activity_
-- Total number of health workers using the CHT (total, per month)
-- Total number of health workers trained to use the CHT for a specific use case (ie. antenatal care) (total, per month)
-- Total number of health worker actions logged in the Software (total, per month)
+_Caring Activities_
+- Total number of caring activities logged on the CHT (total, per month)
+
+_Engagement_
+- Total number of frontline health workers supported by the CHT (total, per month)
+- Total number of frontline health workers trained to use the CHT for a specific use case (ie. antenatal care) (total, per month)
 
 _Households_
 - Total number of households registered in the CHT (total, per month)

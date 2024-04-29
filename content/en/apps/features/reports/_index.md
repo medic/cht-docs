@@ -30,8 +30,6 @@ Apps built with the Core Framework have a “review” feature that allows manag
 
 ## Filters & Search
 
-{{< figure src="reports-search.png" link="reports-search.png" class="right col-6 col-lg-3" >}}
-
 The toolbar at the top of the page includes filters and search to help users narrow down the list or search for and find a specific report. These filters are configurable and could include:
 
 - **Report Types** (e.g. pregnancy registration, visits, delivery report)
@@ -39,22 +37,36 @@ The toolbar at the top of the page includes filters and search to help users nar
 - **Date of Submission**
 - **Status** (e.g. not reviewed, has errors, correct, valid SMS, invalid SMS)
 
-Using the search box, you can search for reports by patient name, phone number, ID number and more. To reset the filters or the search and view  the full list of forms, click on the reset icon on the right side of the toolbar.
+Using the search box, you can search for reports by patient name, phone number, ID number and more. To reset the filters and view the full list of forms, click on "Reset" located in the filter sidebar.
+
+{{< figure src="reports-search.png" link="reports-search.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="reports-search-reset.png" link="reports-search-reset.png" class="left col-9 col-lg-9" >}}
+
+<br clear="all">
+
+{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) documentation for more info {{% /alert %}}
 
 <br clear="all">
 
 
 ## Action Buttons
 
-{{< figure src="reports-bulk.png" link="reports-bulk.png" class="right col-6 col-lg-3" >}}
+The action buttons at the bottom of the screen are configurable using [permissions]({{< ref "apps/reference/app-settings/user-permissions" >}}). Options include submit, edit, delete, review and export reports.
 
-The action buttons at the bottom of the screen are configurable. Options include adding or completing a care guide, bulk select & export. 
+Clicking on the “Export” button will download a CSV file with all the data from the reports. And clicking the “+ Submit report” button opens a menu of forms a user can choose to complete.
 
-Clicking the “+” button opens a menu of forms a user can choose to complete. “Bulk Select,” represented by a checkmark icon within a circle, allows you to bulk select and delete multiple reports at a time.
+{{< figure src="reports-desktop.png" link="reports-desktop.png" class="left col-9 col-lg-9" >}}
 
-**Please Note**: Bulk delete cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature in the permissions for their role. 
+<br clear="all">
 
-Clicking on the “Export” button will download a CSV file with all of the data from the reports.
+## Bulk Delete Reports
+
+Allows the user to select multiple reports and delete them. **Please Note**: This action cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature by disabling the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_bulk_delete_reports`.
+
+{{< figure src="reports-bulk-mobile.png" link="reports-bulk-mobile.png" class="left col-3 col-lg-3" >}}
+
+{{< figure src="reports-bulk-desktop.png" link="reports-bulk-desktop.png" class="left col-9 col-lg-9" >}}
 
 <br clear="all">
 

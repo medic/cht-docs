@@ -178,7 +178,7 @@ However, you can create your own view! You're going to want to create a DDOC spe
   "_id": "_design/docs-by-reference",
   "views": {
     "docs-by-reference": {
-      "map": "function(doc) {\n  var KEYS = [];\n\n  // TODO: consider switching this around to whitelist doc types\n  if (doc._id.match(/-info$/) ||\n      doc._id.match(/^_local/)) {\n    return;\n  }\n\n  var goDeeper = function(obj, path) {\n    Object.keys(obj).forEach(function(key) {\n      if (typeof obj[key] === 'string' &&\n          KEYS.indexOf(obj[key]) !== -1) {\n        emit(obj[key], path + '.' + key);\n      }\n\n      if (obj[key] && typeof obj[key] === 'object') {\n        goDeeper(obj[key], path + '.' + key);\n      }\n    });\n  };\n\n  goDeeper(doc, doc._id);\n}"
+      "map": "function(doc) {\n  var KEYS = [];\n\n  // TODO: consider switching this around to list allowed doc types\n  if (doc._id.match(/-info$/) ||\n      doc._id.match(/^_local/)) {\n    return;\n  }\n\n  var goDeeper = function(obj, path) {\n    Object.keys(obj).forEach(function(key) {\n      if (typeof obj[key] === 'string' &&\n          KEYS.indexOf(obj[key]) !== -1) {\n        emit(obj[key], path + '.' + key);\n      }\n\n      if (obj[key] && typeof obj[key] === 'object') {\n        goDeeper(obj[key], path + '.' + key);\n      }\n    });\n  };\n\n  goDeeper(doc, doc._id);\n}"
     }
   }
 }

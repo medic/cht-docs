@@ -7,6 +7,8 @@ description: >
 relevantLinks: >
   docs/apps/concepts/workflows
   docs/design/best-practices
+relatedContent: >
+  apps/guides/forms/form-inputs
 keywords: workflows app-forms
 ---
 
@@ -25,7 +27,7 @@ A CHT-enhanced version of the ODK XForm standard is supported.
 
 Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
 
-{{< see-also page="apps/reference/forms/contact" title="Passing contact data to care guides" >}}
+{{< see-also page="apps/reference/contact-page" anchor="care-guides" title="Passing contact data to care guides" >}}
 
 A typical form ends with a summary group (eg `group_summary`, or `group_review`) where important information is shown to the user before they submit the form.
 
@@ -37,26 +39,32 @@ In between the `inputs` and the closing group is the form flow - a collection of
 
 Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [cht-conf](https://github.com/medic/cht-conf) command line configurer tool to [convert them to XForm format](#build).
 
-| type | name | label | relevant | appearance | calculate | ... |
-|---|---|---|---|---|---|---|
+| type        | name | label | relevant | appearance | calculate | ... |
+|-------------|---|---|---|---|---|---|
 | begin group | inputs | Inputs | ./source = 'user' | field-list |
-| hidden | source |
-| hidden | source_id |
+| hidden      | source |
+| hidden      | source_id |
+| hidden      | task_id | Task_ID
 | begin group | contact |
-| db:person | _id | Patient ID |  | db-object |
-| string | patient_id | Medic ID |  | hidden |
-| string | name | Patient Name |  | hidden |
-| end group
-| end group
-| calculate | _id | | | | ../inputs/contact/_id |
-| calculate | patient_id | | | | ../inputs/contact/patient_id |
-| calculate | name | | | | ../inputs/contact/name |
-| ...
+| string      | _id | Patient ID |  | select-contact type-person |
+| string      | patient_id | Medic ID |  | hidden |
+| string      | name | Patient Name |  | hidden |
+| end group   
+| end group   
+| calculate   | _id | | | | ../inputs/contact/_id |
+| calculate   | patient_id | | | | ../inputs/contact/patient_id |
+| calculate   | name | | | | ../inputs/contact/name |
+| ...         
 | begin group | group_summary | Summary |  | field-list summary |
-| note | r_patient_info | \*\*${patient_name}\*\* ID: ${r_patient_id} |
-| note | r_followup | Follow Up \<i class="fa fa-flag"\>\</i\> |
-| note | r_followup_note | ${r_followup_instructions} |
-| end group |
+| note        | r_patient_info | \*\*${patient_name}\*\* ID: ${r_patient_id} |
+| note        | r_followup | Follow Up \<i class="fa fa-flag"\>\</i\> |
+| note        | r_followup_note | ${r_followup_instructions} |
+| end group   |
+
+**Note:** If the form uses a file picker to upload any type of file, and it is accessed by using CHT Android, then include the `READ_EXTERNAL_STORAGE` permission in order to access the files in the device. To enable this permission add the following line in the branded app's `AndroidManifest.xml`.
+```
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
 
 ### Supported XLSForm Meta Fields
 [XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
@@ -68,52 +76,56 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | `today` | Day on which the form entry was started. |
 
 ## XPath
-Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`medic/openrosa-xpath-evaluator`](https://github.com/medic/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
+Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`openrosa-xpath-evaluator`](https://github.com/enketo/enketo/tree/main/packages/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
 
 {{% alert title="Note" %}} 
 The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
 {{% /alert %}}
 
-
-
 ## CHT XForm Widgets
 
-Some XForm widgets have been added or modified for use in the app:
-- **Bikram Sambat Datepicker**: Calendar widget using Bikram Sambat calendar. Used by default for appropriate languages.
-- **Countdown Timer**: A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it create a `note` field with an `appearance` set to `countdown-timer`. The duration of the timer is the field's value, which can be set in the XLSForm's `default` column. If this value is not set, the timer will be set to 60 seconds.
-- **Contact Selector**: Select a contact, such as a person or place, and save their UUID in the report. In v3.10.0 or above, set the field type to `string` and appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. If no contact type appearance is specified then all contact types will be returned. For v3.9.0 and below, set the field type to `db:{{contact_type}}` and appearance to `db-object`.
-- **Rapid Diagnostic Test capture**: Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
-- **Simprints registration**: Register a patient with the Simprints biometric tool. To include in a form create a `string` field with `appearance` of `simprints-reg`. Requires the Simprints app connected with hardware, or [mock app](https://github.com/medic/mocksimprints). Demo only, not ready for production since API key is hardcoded.
-- **Display Base64 Image**: Available in +3.13.0. To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
-- **Android App Launcher**: Available in +3.13.0 and in Android device only. A widget to launch an Android app that receives and sends data back to an app form in CHT-Core. See more details in the [Android App Launcher](#android-app-launcher).
+Some XForm widgets have been added or modified for use in CHT applications. The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
 
-The code for these widgets can be found in the [CHT Core Framework repository](https://github.com/medic/cht-core/tree/master/webapp/src/js/enketo/widgets).
+### Bikram Sambat Datepicker
+
+Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
+{{< see-also page="apps/reference/forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
+
+### Countdown Timer
+
+A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, you can add the timer as a `trigger` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in a column named _instance::cht:duration_ (the default value is `60`). 
+
+| type    | appearance      | instance::cht:duration |
+|---------|-----------------|------------------------|
+| trigger | countdown-timer | 30                     |
+
+If you want to make the timer mandatory so users must wait for the timer to complete before continuing to the next page or submitting the form, you can populate the _required_ column with an XPath expression as you would do for any other required question. A value of `"OK"` will be set for the `trigger` field when the timer completes.
+
+{{% alert title="Note" %}}
+The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
+{{% /alert %}}
+
 
 ### Contact Selector
+A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "apps/guides/forms/form-inputs#contact-selector" >}}) for an example.
 
-Using a contact selector allows you to get data off the selected contact(person or place) or search for an existing contact. 
+### Rapid Diagnostic Test Capture
+Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
 
-When using with the appearance column set to `db-object`. The contact selector will display as a search box allowing you to search for the type of contact specified when building the report. EX: `db-person` will only search for contacts with type of person. 
+### Display Base64 Image
+_Available in +3.13.0._
 
-When used as a field you can pull the current contact. This is can be used to link reports to a person or place where you started the form from. Getting the data of `_id` or `patient_id` and setting those to `patient_id` or `patient_uuid` on the final report will link that report so it displays on their contact summary page. 
+To display an image based on a field containing the Base64 encode value, add the appearance `display-base64-image` to a field type `text`.
 
-Example of getting the data from the contact and assigning it to the fields neccessary to link the report. 
-
-| type | name | label | relevant | appearance | calculate | ... |
-|---|---|---|---|---|---|---|
-| begin group | contact |
-| db:person | _id | Patient ID |  | db-object |
-| string | patient_id | Medic ID |  | hidden |
-| string | name | Patient Name |  | hidden |
-| end group
-| calculate | patient_uuid | Patient UUID| ||../contact/_id|
-| calculate | patient_id | Patient ID| ||../contact/patient_id|
- 
 ### Android App Launcher
+_Available in +3.13.0 and in Android device only._
 
-_Available in +3.13.0_
+A widget to launch an Android app that receives and sends data back to an app form in CHT-Core.
 
-This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. 
+This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. This widget requires the `READ_EXTERNAL_STORAGE` permission in CHT Android to work properly, to enable this permission add the following line in the branded app's `AndroidManifest.xml`.
+```
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
 
 Use the Android App Launcher widget in a form to configure an intent to launch an Android app installed in the mobile device. The widget will send values from input fields type `text` to the app and will assign the app's response into output fields type `text`. The only supported field type is `text`. The widget will automatically display a button to launch the app.
 
@@ -121,7 +133,7 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
 | text | category | NO_LABEL |  |  |  | ... |
 | text | type | NO_LABEL |  |  |  | ... |
@@ -129,7 +141,7 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 | text | packageName | NO_LABEL |  |  |  | ... |
 | text | flags | NO_LABEL |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 To define the widget's input fields and send data as Android Intent's `extras`, create a group inside the widget with the appearance `android-app-inputs`. In order to assign the app's response to the widget's output fields, create a group with the appearance `android-app-outputs`.
 
@@ -137,18 +149,18 @@ To define the widget's input fields and send data as Android Intent's `extras`, 
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
-| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| begin group | camera-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
 | text | location | Location |  |  |  | ... |
 | text | destination | Destination |  |  |  | ... |
-| end group | camara-app-inputs |  |  |  |  | ... |
-| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| end group | camera-app-inputs |  |  |  |  | ... |
+| begin group | camera-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
 | text | picture | Picture |  |  |  | ... |
 | text | date | Date |  |  |  | ... |
-| end group | camara-app-outputs |  |  |  |  | ... |
+| end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 To instruct the widget to process nested data objects, create a new group inside the input or the output group with the appearance `android-app-object`. Objects cannot be assigned to a field, it should be a group with fields to map the properties to fields that share the same name.
 
@@ -156,21 +168,21 @@ To instruct the widget to process nested data objects, create a new group inside
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
-| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| begin group | camera-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
 | text | location | Location |  |  |  | ... |
 | begin group | photo_configuration | NO_LABEL | android-app-object |  |  | ... |
 | text | aperture | Aperture |  |  |  | ... |
 | text | shutter_speed | Shutter Speed |  |  |  | ... |
 | end group | photo_configuration |  |  |  |  | ... |
-| end group | camara-app-inputs |  |  |  |  | ... |
-| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| end group | camera-app-inputs |  |  |  |  | ... |
+| begin group | camera-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
 | text | picture | Picture |  |  |  | ... |
 | text | date | Date |  |  |  | ... |
-| end group | camara-app-outputs |  |  |  |  | ... |
+| end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 To instruct the widget to process an array of strings or numbers, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. To process an array of objects, use the appearance `android-app-object-list` instead.
 
@@ -178,16 +190,16 @@ To instruct the widget to process an array of strings or numbers, create a new `
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
-| begin group | camara-app | NO_LABEL | android-app-launcher |  |  | ... |
+| begin group | camera-app | NO_LABEL | android-app-launcher |  |  | ... |
 | text | action | NO_LABEL |  |  | android.media.action.IMAGE_CAPTURE | ... |
 | text | flags | NO_LABEL |  |  | 268435456 | ... |
-| begin group | camara-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
+| begin group | camera-app-inputs | NO_LABEL | android-app-inputs |  |  | ... |
 | text | location | Location |  |  |  | ... |
 | begin repeat | photo_filters | NO_LABEL | android-app-value-list | 2 |  | ... |
 | text | filter | Filter |  |  |  | ... |
 | end repeat |  |  |  |  |  | ... |
-| end group | camara-app-inputs |  |  |  |  | ... |
-| begin group | camara-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
+| end group | camera-app-inputs |  |  |  |  | ... |
+| begin group | camera-app-outputs | NO_LABEL | android-app-outputs |  |  | ... |
 | text | date | Date |  |  |  | ... |
 | begin repeat | capture | NO_LABEL | android-app-object-list | 3 |  | ... |
 | text | light_percentage | Light |  |  |  | ... |
@@ -198,15 +210,51 @@ To instruct the widget to process an array of strings or numbers, create a new `
 | text | patient_name | Patient name |  |  |  | ... |
 | end group | patient_details |  |  |  |  | ... |
 | end repeat |  |  |  |  |  | ... |
-| end group | camara-app-outputs |  |  |  |  | ... |
+| end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
-| end group | camara-app |  |  |  |  | ... |
+| end group | camera-app |  |  |  |  | ... |
 
 ## CHT XPath Functions
 
-### `difference-in-months`
+### `add-date`
+
+_Available in +4.0.0._
+
+Adds the provided number of years/months/days/hours/minutes to a date value. 
+
+```
+add-date(date, years, months, days, hours, minutes)
+```
+
+This function is useful for things like calculating a date that is a specific number of days in the future. For example, the following returns a date that is two weeks from now: `add-date(today(), 0, 0, 14)`.
+
+You can also add negative numbers to get dates in the past. This can be used to calculate a person's birthdate date based on how many years/months old they are: `add-date(today(), 0-${age_years}, 0-${age_months})`.
+
+### `cht:difference-in-days`
+
+_Available in +4.7.0._
+
+Calculates the number of whole days between two dates.
+
+### `cht:difference-in-weeks`
+
+_Available in +4.7.0._
+
+Calculates the number of whole calendar weeks between two dates.
+
+### `cht:difference-in-months`
 
 Calculates the number of whole calendar months between two dates. This is often used when determining a child's age for immunizations or assessments.
+
+{{% alert title="Note" %}}
+For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` function (without the `cht` namespace) should be used.
+{{% /alert %}}
+
+### `cht:difference-in-years`
+
+_Available in +4.7.0._
+
+Calculates the number of whole calendar years between two dates.
 
 ### `z-score`
 
@@ -219,7 +267,7 @@ The `z-score` function takes four parameters:
 - Second parameter for the table lookup, such as height. Value is compared against the `points` in the databae document.
 
 #### Example Use
-[This example XForm form](https://github.com/medic/cht-core/blob/master/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
+[This example XForm form](https://github.com/medic/cht-core/blob/3.13.x/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
 
 `z-score('weight-for-age', ../my_sex, ../my_age, ../my_weight)`
 
@@ -266,9 +314,33 @@ Use this function to parse from a timestamp number to a date. This is useful whe
 | string | start_date_time | NO_LABEL |    | 1628945040308 |
 | string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
 
+### `to-bikram-sambat`
+
+_Available in +3.14.0._
+
+This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
+
+See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
+
+### `cht:extension-lib`
+
+_Available in +4.2.0._
+
+This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
+
+## Input data
+
+`app` forms have access to a variety of [input data]({{< ref "apps/guides/forms/form-inputs#app-forms" >}}) depending on the source of the form.
+
 ## CHT Special Fields
 
+Some fields in app forms control specific aspects of CHT Apps, either to bring data into forms or for a feature outside of the form.
+
+### Quintiles
 The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="apps/guides/forms/wealth-quintiles" >}} 
+
+### UHC Mode
+When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "apps/features/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="apps/guides/forms/uhc-mode" >}} 
 
 ## Uploading Binary Attachments
 

@@ -1,7 +1,7 @@
 ---
 title: "CSV to Docs"
 linkTitle: "CSV to Docs"
-weight: 
+weight: 17
 description: >
   Seeding data with cht-conf
 relatedContent: >
@@ -186,6 +186,40 @@ The resulting doc would be as follows, with the `_id` from `district_1` as the `
   "_id": "45293356-353c-5eb1-9a41-baa3427b4f69"
 }
 ```
+##### Link to a parent document already existing in the database
+You may wish to link the new record to a parent document that already exists in the database that was created in the past.
+Get the UUID of the existing parent document and place it in the column named `parent._id`. Get the rest of the the parent UUIDs in the hierarchy lineage and track them in separate columns. It is important to track all levels of the hierarchy as certain app features (e.g Tasks) in the configuration could be directly referencing a UUID deeper in the hierrarchy. 
+
+For example, a parent document below can be linked as shown in the table
+```json
+{
+  "_id": "0c31056a-3a80-54dd-b136-46145d451a66",
+  "parent": {
+    "_id": "66142fef-c4b4-4578-94e2-3d7f1a304ef7"
+    }
+}
+```
+
+| reference_id:excluded | parent._id                           | parent.parent._id                    | is_name_generated | name | reported_date:timestamp |
+| --------------------- | -------------------------------------| ------------------------------------ | ----------------- | ---- | ----------------------- |
+| health_center_1       | 0c31056a-3a80-54dd-b136-46145d451a66 | 66142fef-c4b4-4578-94e2-3d7f1a304ef7 | false             | HC1  | 1544031155715           |
+
+The resulting doc would be as follows:
+```json
+{
+  "type": "health_center",
+  "parent": {
+    "_id": "0c31056a-3a80-54dd-b136-46145d451a66",
+    "parent": {
+      "_id": "66142fef-c4b4-4578-94e2-3d7f1a304ef7"
+    }
+  },
+  "is_name_generated": "false",
+  "name": "HC1",
+  "reported_date": 1544031155715,
+  "_id": "45293356-353c-5eb1-9a41-baa3427b4f69"
+}
+```
 
 ### Creating CSV files for users
 
@@ -203,7 +237,7 @@ To create new contacts for each new user provide values for `contact.name`, `pla
 
 ```csv
 username,password,roles,name,phone,contact.name,place.c_prop,place.type,place.name,place.parent
-alice,Secret_1,district-admin,Alice Example,+123456789,Alice,p_val_a,health_center,alice area, district_uuid
+alice,Secret_1,district-admin,Alice Example,+123456789,Alice,p_val_a,health_center,alice area,district_uuid
 bob,Secret_1,district-admin,bob Example,+123456789,bob,p_val_a,health_center,bob area,disctrict_uuid
 ```
 

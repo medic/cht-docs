@@ -20,7 +20,7 @@ Note that "keys" in .properties files are referred to as `terms` in POEditor.
 ## Adding new languages
 New languages must be added and configured in several places:
 - *In GitHub*
-  - Create a new [ddocs/medic/_attachments/translations/messages-XX.properties](https://github.com/medic/cht-core/tree/master/ddocs/medic/_attachments/translations) file, replacing XX with the 2 or 3 letter language code.
+  - Create a new `messages-XX.properties` file in the [`api/resources/translations`](https://github.com/medic/cht-core/tree/master/api/resources/translations) folder, replacing XX with the 2 or 3 letter language code.
   - Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/master/api/src/translations.js#L8). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
   - Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/3.11.x/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
 - *In POEditor*
@@ -32,7 +32,7 @@ New languages must be added and configured in several places:
 ## Adding new keys
 In order to trace the addition of new terms and also updates to existing translations,
 the default translation file (messages-en.properties) must be updated directly.
-Our GitHub repo provides with a [command line tool (CLI)](https://github.com/medic/medic/tree/master/scripts/poe) to
+Our GitHub repo provides with a [command line tool (CLI)](https://github.com/medic/cht-core/tree/master/scripts/poe) to
 import updates into the POEditor app.
 If you don't have an API token, please contact a Medic developer. Please do not disclose this API token to anyone else.
 

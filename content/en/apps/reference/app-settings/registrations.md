@@ -35,7 +35,7 @@ The `registrations` key contains actions that need to be performed for incoming 
 
 ## Code sample
 
-This sample shows how a schedule would be triggered by a `pregnancy` report if the `last_mentrual_period` value is set.  
+This sample shows how a schedule would be triggered by a `pregnancy` report if the `last_menstrual_period` value is set.  
 
 ```json
 

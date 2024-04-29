@@ -38,7 +38,7 @@ In the screenshot below:
 * `(c)` are the contents of your ***public*** key
 
 {{% alert title="Note" %}}
-You will need to provide the contents of `(c)` to your Medic contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address. This information is not sensitive and can be shared over slack, github, etc...
+You will need to provide the contents of `(c)` to your Medic contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address.
 {{% /alert %}}
 
 ![SSH Commands](ssh-commands.png)
@@ -46,7 +46,13 @@ You will need to provide the contents of `(c)` to your Medic contact or RDBMS ad
 
 ## Connect to PostgreSQL
 
-Once your public SSH key has been installed on RDBMS, the administrator will provide you with login credentials to the SSH server as well as for PostgreSQL. You should be able to access PostgreSQL from a SQL client using those credentials. Some common SQL clients include: [pgAdmin](https://www.pgadmin.org/), [DBeaver](https://dbeaver.io/), [Postico](https://eggerapps.at/postico/).
+Copy your public key and provide it to your Medic contact or RDBMS administrator. Your public key is not sensitive and can be shared over slack, github, etc... 
+
+Once the RDBMS administrator has added your public SSH key on RDBMS, the administrator will provide you with login credentials to the SSH server as well as for PostgreSQL. 
+
+Verify you can successfully connect to to the SSH server with `ssh -i ~/.ssh/id_rsa <user>@<rdbms host> -p <port>`. If your setup is correct, you should login to the server and see the prompt of your terminal change to `<user>@rdbms:~$`
+
+You should be able to access PostgreSQL from a SQL client using the provided credentials. Some common SQL clients include: [pgAdmin](https://www.pgadmin.org/), [DBeaver](https://dbeaver.io/), [Postico](https://eggerapps.at/postico/).
 
 From your SQL client, use the settings mentioned below to connect. Be sure to select the ***Private Key*** that you generated above.
 
@@ -56,12 +62,12 @@ From your SQL client, use the settings mentioned below to connect. Be sure to se
 |Host Port|`5432`|
 |User|`<provided by Medic>`|
 |Password|`<provided by Medic>`|
-|Database|`<your project database>`|
+|Database|`<provided by Medic>`|
 |SSH Host|`rdbms.dev.medicmobile.org`|
 |SSH Port|`33696`|
 |SSH User|`<provided by Medic>`|
 |SSH Password|N/A - Use Private Key|
-|Private Key|Use the private key generated above|
+|Private Key|Choose the location of the private key generated above|
 
 ![PG Connection Settings](connection-settings.png)
 

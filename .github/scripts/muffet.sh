@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script is used in Github Actions to do link checking on commits to branches and master, so
+# This script is used in Github Actions to do link checking on commits to branches and main, so
 # please edit with care!  See ../workflows/ci.yml for specific usage.
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
@@ -26,6 +26,24 @@ muffet http://localhost:1313 \
   --exclude "https://github\.com/medic/cht-core/issues/new.*" \
   --exclude "https://github\.com/medic/cht-docs/commit.*" \
   --exclude "https://github\.com/medic/cht-core/commit.*" \
-  --exclude "https://github\.com/medic/cht-docs/edit/master/.*" \
-  --exclude ".*localhost:5984.*" \
-  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/edit#gid=555666888"
+  --exclude "https://github\.com/medic/cht-docs/edit/main/.*" \
+  --exclude "https://github.com/orgs/medic/projects/19" \
+  --exclude "https://github.com/orgs/medic/projects/38" \
+  --exclude "https://github.com/medic/medic-infrastructure*" \
+  --exclude "http[s]*://localhost[8443|5984]*" \
+  --exclude "http[s]*://.*my.local-ip.co*" \
+  --exclude "http[s]*://cht\.domain\.com.*" \
+  --exclude "http[s]*://127\.0\.0*" \
+  --exclude "http[s]*://.*rapidpro.io.*" \
+  --exclude "http[s]*://.*africastalking.com*" \
+  --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://.*notion.so.*" \
+  --exclude "http[s]*://.*medium.com.*" \
+  --exclude "http[s]*://.*twitter.com.*" \
+  --exclude "https://tools.google.com.*" \
+  --exclude "https://fhir.org/" \
+  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
+  --exclude "https://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0/*" \
+  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
+  --exclude "https://journals.sagepub.com/doi/full/10.1177/20552076231194924" \
+  --exclude "https://doi.org/10.1080/02681102.2019.1667289" 

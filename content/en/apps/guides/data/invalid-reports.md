@@ -1,7 +1,7 @@
 ---
 title: "Revalidate invalid reports"
 linkTitle: "Invalid Reports"
-weight: 
+weight: 16
 description: >
   How to revalidate an invalid report
 keywords: 

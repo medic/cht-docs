@@ -15,7 +15,7 @@ relatedContent: >
 ---
 
 
-As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "apps/features/integrations/rapidpro" %}}) as a messaging gateway. 
+As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "apps/features/integrations/rapidpro" %}}) as a messaging gateway.
 
 ## RapidPro configuration
 
@@ -25,21 +25,21 @@ Generate a long unique key to use as the `cht_api_key`.
 
 Log in to your RapidPro dashboard, go to the globals page (`/global/`) and create two globals with the following data:
 
-- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`. For security the instance host **must not** include basic authentication.
+- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v2/sms/rapidpro/incoming-messages`. For security the instance host **must not** include basic authentication. (NB: This endpoint was added in CHT 4.1.0. If integrating with an earlier version you will need to use the earlier version with a typo in the URL: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`)
 - name: `cht_api_key`, value: `<cht_api_key>`
 
-The names of these two global variables are arbitrary, but in this document we will keep referring to the names defined above. 
+The names of these two global variables are arbitrary, but in this document we will keep referring to the names defined above.
 
 Then visit the RapidPro workspace settings page (`/org/home/`) and check your RapidPro API token (we'll refer to this as the `rapidpro_api_key`).
 
 ### Create a new flow
 
-In your RapidPro dashboard, visit the flows page (`/flow/`) and create a new flow. It only needs to contain a webhook, to relay the message to your CHT Core instance and handle possible errors. 
+In your RapidPro dashboard, visit the flows page (`/flow/`) and create a new flow. It only needs to contain a webhook, to relay the message to your CHT Core instance and handle possible errors.
 
 ![flow_overview](flow_overview.png)
 
 Configure the new webhook:
-- to `POST` to the `cht_url` you configured earlier: 
+- to `POST` to the `cht_url` you configured earlier:
 
 ![flow_webhook_host](flow_webhook_host.png)
 
@@ -47,7 +47,7 @@ Configure the new webhook:
 
 ![flow_webhook_headers](flow_webhook_headers.png)
 
-- set the body to relay the message to CHT in the expected format: 
+- set the body to relay the message to CHT in the expected format:
 ```json
 @(json(object(
   "id", run.uuid,
@@ -60,35 +60,19 @@ Configure the new webhook:
 
 
 ### Create a new trigger
-Create a trigger (`/trigger/`) to start the new flow when a message is not handled elsewhere. 
+Create a trigger (`/trigger/`) to start the new flow when a message is not handled elsewhere.
 
 ![trigger_select](trigger_select.png)
 
-For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "apps/guides/integrations/rapidpro" %}}). 
+For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "apps/guides/integrations/rapidpro" %}}).
 
 ## CHT Core configuration
 
 ### API keys
 
-The API keys should be treated as securely as a password as anyone with access to them will be able to send messages using your account. Therefore, we store them in the CouchDB configuration.
-
-To add the credentials to the admin config you need to either [PUT the value using curl](https://docs.couchdb.org/en/stable/api/server/configuration.html#put--_node-node-name-_config-section-key) or similar:
-
-```sh
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/rapidpro:incoming -d '"<cht_api_key>"'
-curl -X PUT https://<user>:<pass>@<domain>/_node/couchdb@127.0.0.1/_config/medic-credentials/rapidpro:outgoing -d '"<rapidpro_api_key>"'
-```
-
-{{% alert title="Note" %}}
-`couchdb@127.0.0.1` is the local node name, and may be different for you depending on your setup.
-{{% /alert %}}
-
-You can also add it via Fauxton:
-- Navigate to [the Config screen](http://localhost:5984/_utils/#/_config)
-- Click `Add Option`
-- The `Section` should be `medic-credentials`, the `Name` should be `rapidpro:incoming` or `rapidpro:outgoing`, and the value should be the relevant API key.
-- Click `Create`
-- You should then be able to see your credential in the list of configuration shown
+The RapidPro integration uses the CHT Credentials service to retrieve the API keys using the IDs `rapidpro:incoming` and `rapidpro:outgoing`. Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials.  
+`rapidpro:incoming` should contain the value of the long unique key generated earlier `<cht_api_key>` to verify incoming requests from RapidPro.  
+`rapidpro:outgoing` should contain your RapidPro API token `<rapidpro_api_key>` to authenticate requests made against RapidPro's API.
 
 ### App settings
 

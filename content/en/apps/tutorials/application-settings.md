@@ -1,7 +1,7 @@
 ---
 title: "CHT Application Settings"
 linkTitle: Application Settings
-weight: 4
+weight: 6
 description: >
   Managing CHT application settings
 relatedContent: >
@@ -26,7 +26,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 *[Permissions]({{< relref "apps/concepts/users#permissions" >}})* are settings that control access to specific app features and functionality.
 
-*[Roles]({{< relref "apps/concepts/users#roles" >}})* define permissions for users to perform access a group of app features and functionality.
+*[Roles]({{< relref "apps/concepts/users#roles" >}})* define permissions for users to access a group of app features and functionality.
 
 *[Replication]({{< relref "apps/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
@@ -38,7 +38,7 @@ You should have a functioning CHT instance and have cht-conf installed locally. 
 
 ## Implementation Steps
 
-In this section, you will define a new role, set persmissions for the role, set transitions, configure a hierarchy, and upload your modified app settings file to your local environment.
+In this section, you will define a new role, set permissions for the role, set transitions, configure a hierarchy, and upload your modified app settings file to your local environment.
 
 ### 1. Set Roles and Permissions
 
@@ -99,7 +99,17 @@ In this example, the `generate_patient_id_on_people` and `death_reporting` trans
 
 ### 3. Set Hierarchy
 
-You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierachy configuration. You can modify existing contact types by editing the objects within the array. {{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}
+You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierarchy configuration. You can modify existing contact types by editing the objects within the array. 
+
+When configuring a new deployment, it's important to plan your hierarchy well.  While there are no limits in the CHT to the hierarchical depth or breadth it will support, there are some trade-offs and caveats:
+* While it is possible to [update the hierarchy configuration]({{< relref "apps/guides/updates/moving-contacts" >}}) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
+* If your hierarchy is too shallow, users will download more docs than are necessary for their work which will impact the performance of the app. Taking the time to get the hierarchy configuration right makes it easy to give users access to only the docs they need.
+
+**Important Note on Creating and Editing Contacts:** The ability to create and edit contacts in the CHT, including person entities, is dependent on the presence of corresponding forms in the `forms/contact` directory. Each contact type, such as "person", "clinic", "health_center", etc., must have associated `create` and `edit` forms defined. Without these forms, the functionality to add or modify these contact types in the CHT application will not be available. Ensure that the necessary forms are created and correctly referenced in the `app_settings.json` file under their respective contact type definitions. For guidance on creating these contact forms, please refer to the [CHT documentation on contact forms](https://docs.communityhealthtoolkit.org/apps/reference/forms/contact/).
+For an example of where all the forms are represented in the default configuration, please see the [default config directory](https://github.com/medic/cht-core/tree/master/config/default/).
+
+
+{{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}
 
 ```json
   "contact_types": [
@@ -197,4 +207,3 @@ cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upl
 - [Documentation for role permissions](https://forum.communityhealthtoolkit.org/t/documentation-for-role-permissions/502)
 - [Is it possible to prevent editing for some forms but allow it for others?](https://forum.communityhealthtoolkit.org/t/is-it-possible-to-prevent-editing-for-some-forms-but-allow-it-for-others/93)
 - [Can one person belong to multiple places in the same hierarchy?](https://forum.communityhealthtoolkit.org/t/can-one-person-belong-to-multiple-places-in-the-same-hierarchy/101/2)
-- [Can we disable the guided tour on first login?](https://forum.communityhealthtoolkit.org/t/can-we-disable-the-guided-tour-on-first-login-if-yes-how-do-we-do-it/98/2)

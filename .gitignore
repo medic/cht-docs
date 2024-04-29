@@ -2,7 +2,10 @@
 public/
 resources/
 node_modules/
+# Ignore old theme submodule folder
+themes/
 tech-doc-hugo
 
 .DS_Store
 .idea
+.hugo_build.lock

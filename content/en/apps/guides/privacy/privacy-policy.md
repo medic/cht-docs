@@ -9,6 +9,11 @@ description: >
 ---
 
 As of `3.10.0`, privacy policies can be customized for every language, by adding desired content into HTML files. 
+
+Privacy policies are now publicly accessible rather than only being available after logging in. This means it can be shared with third parties, for example, app store compliance. If your instance URL is `https://my-health-facility.org`, then the privacy policy is available at `https://my-health-facility.org/medic/privacy-policy`. _Added in 3.17.0_.
+
+![Privacy Policy on login page](privacy.policy.login.page.png)
+
 Add these HTML files to the `privacy-policies` folder in your configuration, and associate them to the correct language in the `privacy-policies.json` file.
 ```json
 {
@@ -41,6 +46,23 @@ cht --local upload-privacy-policies
 ### View In Webapp
 
 When a privacy policy is configured for a language, users who load the app in this language are prompted to accept the policy. 
+
+If our `en.attachment.html` file looked like this:
+
+```html
+  <html><body>
+
+    <h1>Lorem Ipsum: Privacy & Data Protection Policy</h1>
+
+    <h2>The standard Lorem Ipsum passage, used since the 1500s</h2>
+    
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    </p>
+  </body></html>
+```
+
+Then visotors the privacy policy would see:
 
 ![Accept privacy policy](accept-mobile.png)
 
