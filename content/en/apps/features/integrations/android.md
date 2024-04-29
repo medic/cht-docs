@@ -20,54 +20,80 @@ Users can choose "Always" to skip this prompt in future. The prompt may look dif
 ## Android App Links verification
 
 Starting with Android 12, Android supports associating an app with a domain and automatically verify this association
-to allow deep links to immediately open the app without requiring your user to select the app.  
+to allow deep links to immediately open the app without requiring your user to select the app.
 To get this working, you need to host a Digital Asset Links JSON file at `https://<domain.name>/.well-known/assetlinks.json`
-containing some information about your app to associate it with your domain.
+containing some information about your app to associate it with your domain.  
+More information available on the [official Android docs](https://developer.android.com/training/app-links/verify-android-applinks).
 
-### Anatomy of `assetlinks.json`
+### Hosting `assetlinks.json` with the CHT
 
-The following example `assetlinks.json` file grants link-opening rights to the `org.medicmobile.webapp.mobile` Android app
-```json
-[
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "org.medicmobile.webapp.mobile",
-      "sha256_cert_fingerprints": ["62:BF:C1:78:24:D8:4D:5C:B4:E1:8B:66:98:EA:14:16:57:6F:A4:E5:96:CD:93:81:B2:65:19:71:A7:80:EA:4D"]
-    }
-  }
-]
-```
+Since CHT Core version 4.7.0, the CHT supports serving `assetlinks.json` by adding it to your app settings.
+All you have to do to make the CHT serving your assetlinks at `/.well-known/assetlinks.json` is to:
+1. Define your assetlinks in either `base_settings.json` or `app_settings/assetlinks.json`
+2. Compile and upload your app settings using cht-conf `cht-conf compile-app-settings upload-app-settings`
 
-TODO:
-- `relation`, `target.namespace` are "hardcoded"
-- `package_name` = application ID declared in `build.gradle`
-- `sha256_cert_fingerprints` = apk signature, how to get:
-  - `keytool -printcert -jarfile ./path/to/project.apk` or
-  - `keytool -list -v -keystore ./path/to/release-key.keystore`
-
-### Hosting it with the CHT
-
-Since CHT Core version 4.7.0, the CHT supports serving `assetlinks.json` by configuring your app settings
-
-TODO:
-- add `app_settings/assetlinks.json` file
-- run `cht-conf compile-app-settings upload-app-settings`
+You can read more about the structure and contents of assetlinks in [the assetlinks configuration docs]({{< ref "apps/reference/app-settings/assetlinks" >}}).
 
 ### Verifying it works
 
-TODO:
-- `adb shell pm get-app-links <package_name>` shows the domain as verified
-- clicking a link to the app should open the app, not the browser
-- opening the app shouldn't ask to manually verify domains (add screenshot of that when domain is not verified)
+There are different ways to verify your setup works and we'll go through a few of them in the next steps.
 
-### One apk <> many CHT instances
+#### Using Android Debug Bridge `adb`
 
-TODO:
-- each cht instance hosts their own `assetlinks.json`
-- `package_name` and `sha256_cert_fingerprints` will be different for each
-- make sure the android app manifest has the `<intent-filter android:autoverify="true">` with each cht instance's domain defined, show example like https://github.com/medic/cht-android/blob/master/src/moh_kenya_echis/AndroidManifest.xml#L36
+1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "contribute/code/android/development-setup#debug-tool-adb" >}}) section.
+2. With the phone connected to your computer, open a command line session and write the following command: `adb shell pm get-app-links <package_name>` where `<package_name>` is your application ID.
+
+The output of this command should look like this:
+```
+<package_name>:
+    ID: 01234567-89ab-cdef-0123-456789abcdef
+    Signatures: ["62:BF:C1:78:24:D8:4D:5C:B4:E1:8B:66:98:EA:14:16:57:6F:A4:E5:96:CD:93:81:B2:65:19:71:A7:80:EA:4D"]
+    Domain verification state:
+      mobile.webapp.medicmobile.org: verified
+```
+
+The domain verification state for your CHT instance's domain should show `verified`.
+
+#### Manually testing on the device
+
+{{< figure src="android-12-prompt.png" link="android-12-prompt.png" class="right col-6 col-md-4 col-lg-2" >}}
+
+Another way of verifying your Android app has been properly associated to your CHT instance's domain is by opening
+the Android app on a device. You can run this test on a real device or with the emulator in Android Studio.
+
+Opening the app for the first time should take you straight to the login page __without__ prompting you to link a domain to the app as shown in the following screenshot:
+
+Additionally, clicking a link to your CHT instance should open the app immediately instead of opening the CHT instance in the default browser.
+
+### Use case - a single Android app for many CHT instances
+
+For specific large deployment scenarios, you might publish a single Android app to serve multiple CHT instances.
+In this case, each CHT instance's app settings will need to be configured with the same `assetlinks.json` because
+they share the same Android app and hence the same `package_name` and `sha256_cert_fingerprints` properties.
+
+When building your Android app, you will need to ensure the app's manifest has `<intent-filter android:autoverify="true">`
+with each CHT instance's domain listed in it like so:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove" />
+
+  <application>
+    <activity android:name="AppUrlIntentActivity" android:launchMode="singleInstance" android:exported="true">
+      <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="https" android:host="first-cht-app.org" android:pathPattern=".*"/>
+        <data android:scheme="https" android:host="second-cht-app.org" android:pathPattern=".*"/>
+        <data android:scheme="https" android:host="third-cht-app.org" android:pathPattern=".*"/>
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>
+```
 
 ## Using an intent
 
@@ -82,7 +108,7 @@ startActivity(i);
 
 ## Version notes
 
-| Feature                                                                                                                                | CHT Core version |
-|----------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| Released                                                                                                                               | 3.10.0           |
-| Added support for [Android App Links verification](https://developer.android.com/training/app-links/verify-android-applinks#web-assoc) | 4.7.0            |
+| Feature                                          | CHT Core version |
+|--------------------------------------------------|------------------|
+| Released                                         | 3.10.0           |
+| Added support for Android App Links verification | 4.7.0            |
