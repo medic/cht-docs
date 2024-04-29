@@ -16,7 +16,7 @@ The [CHT Upgrade Service](https://github.com/medic/cht-upgrade-service) provides
     ``` 
 
 {{% alert title="Note" %}}
-Upgrading the CHT Upgrade Service will not cause a new CHT version to be installed.  The CHT Core and CouchDB contains are not affected.
+Upgrading the CHT Upgrade Service will not cause a new CHT version to be installed.  The CHT Core and CouchDB containers are not affected.
 {{% /alert %}}
 
 Follow the [Product Releases channel](https://forum.communityhealthtoolkit.org/c/product/releases/26) on the CHT forum to stay informed about new releases and upgrades.
