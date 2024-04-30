@@ -36,7 +36,7 @@ curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.co
 
 Prepare a `.env` file by running this code:
 
-```
+```sh
 sudo apt install wamerican
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
@@ -50,10 +50,15 @@ CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
 COUCHDB_PASSWORD=${couchdb_password}
 COUCHDB_UUID=${uuid}
+# <ADD_SERVERNAME_TO_HTTP_AGENT>: (optional, default: false, configures: api) Adds 'servername' to HTTP agent for certificate issues in receiving traffic when proxying HTTPS->HTTP in SNI environments with external TLS termination. 
+# See 'tls.connect(options[, callback])' (https://nodejs.org/api/tls.html). May resolve 'ERR_TLS_CERT_ALTNAME_INVALID' error.
+# ADD_SERVERNAME_TO_HTTP_AGENT=true
+# <PROXY_CHANGE_ORIGIN>: (optional, default: false, configures: api) See http-proxy (https://www.npmjs.com/package/http-proxy#options). Sets 'changeOrigin' to 'true' for HTTP clients. For certificate issues in proxying HTTP->HTTPS
+# PROXY_CHANGE_ORIGIN=true
 EOF
 ```
 
-Note that secure passwords and UUIDs were generated on the first four calls and saved in the resulting `.env` file.
+Note that secure passwords and UUIDs were generated on the first four calls and saved in the resulting `.env` file. Uncomment optional items if required.
 
 ## Launch containers
 
@@ -112,3 +117,5 @@ See the [TLS Certificates page]({{< relref "hosting/4.x/adding-tls-certificates"
 ## Upgrades
 
 During upgrades, the CHT upgrade service updates the docker-compose files located in `/home/ubuntu/cht/compose/`. This means that any and all changes made to the docker-compose files will be overwritten. If there is ever a need to make any changes to the docker-compose files, be sure to re-do them post upgrades or should consider implementing them outside of those docker-compose files. 
+
+{{< read-content file="_partial_upgrade_service.md" >}}

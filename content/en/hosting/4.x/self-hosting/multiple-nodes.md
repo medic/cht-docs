@@ -96,7 +96,7 @@ kcpxlci3jjjtm6xjz7v50ef7k     couchdb3   Ready     Active                       
 
 Prepare an `.env` file by running this code:
 
-```
+```sh
 sudo apt install wamerican
 uuid=$(uuidgen)
 couchdb_secret=$(shuf -n7 /usr/share/dict/words --random-source=/dev/random | tr '\n' '-' | tr -d "'" | cut -d'-' -f1,2,3,4,5,6,7)
@@ -108,10 +108,15 @@ CHT_COMPOSE_PATH=/home/ubuntu/cht/compose
 COUCHDB_USER=medic
 COUCHDB_PASSWORD=${couchdb_password}
 COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
+# <ADD_SERVERNAME_TO_HTTP_AGENT>: (optional, default: false, configures: api) Adds 'servername' to HTTP agent for certificate issues in receiving traffic when proxying HTTPS->HTTP in SNI environments with external TLS termination. 
+# See 'tls.connect(options[, callback])' (https://nodejs.org/api/tls.html). May resolve 'ERR_TLS_CERT_ALTNAME_INVALID' error.
+# ADD_SERVERNAME_TO_HTTP_AGENT=true
+# <PROXY_CHANGE_ORIGIN>: (optional, default: false, configures: api) See http-proxy (https://www.npmjs.com/package/http-proxy#options). Sets 'changeOrigin' to 'true' for HTTP clients. For certificate issues in proxying HTTP->HTTPS
+# PROXY_CHANGE_ORIGIN=true
 EOF
 ```
 
-Note that secure passwords and UUIDs were generated on the first four calls and saved in the resulting `.env` file.
+Note that secure passwords and UUIDs were generated on the first four calls and saved in the resulting `.env` file. Uncomment optional items if required.
 
 ### Download compose files
 
@@ -169,7 +174,7 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 
 Now, **on all 3 CouchDB nodes**, create an `.env` file by running this code. You'll need to replace `PASSWORD-FROM-ABOVE` so it is the same on all three nodes:
 
-```
+```sh
 sudo apt install wamerican
 mkdir -p /home/ubuntu/cht/srv
 uuid=$(uuidgen)
@@ -275,7 +280,7 @@ EOF
    docker compose logs --follow
    ```
    
-   Nodes 2 and 3 should show output like `couchdb  is ready` after node 1 has started. 
+   Nodes 2 and 3 should show output like `couchdb is ready` after node 1 has started. 
 
    Node 1 will show this when it has added all nodes:
 
@@ -334,3 +339,5 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 ## Upgrades
 
 Upgrades are completely manual for the clustered setup right now. You have to go into each of the docker compose files and modify the image tag and take containers down and restart them.
+
+{{< read-content file="_partial_upgrade_service.md" >}}

@@ -123,3 +123,23 @@ Assuming your CHT instance is **already running with the default self-signed cer
    ```shell
    0 0 * * 0 cd /home/ubuntu/cht/certbot&&docker compose up
    ```
+
+## Troubleshooting
+
+### Proxying
+
+#### ERR_TLS_CERT_ALTNAME_INVALID
+
+When proxying to HTTPS from HTTP (for example where an ingress does TLS termination in an SNI environment and then the traffic is proxied to an HTTPS service (eg, haproxy)), not including a `servername` for a request to the HTTPS server (eg, def.org) produces the following error:
+
+   ```sh 
+   'ERR_TLS_CERT_ALTNAME_INVALID'
+   "RequestError: Error [ERR_TLS_CERT_ALTNAME_INVALID]: Hostname/IP does not match certificate's altnames:
+   Host: abc.com. is not in the cert's altnames: DNS:def.org"
+   ```
+
+The addition of `servername` resolves this error by providing routing information. See docs for `tls.connect(options[, callback])`' (https://nodejs.org/api/tls.html): "Server name for the SNI (Server Name Indication) TLS extension. It is the name of the host being connected to, and must be a host name, and not an IP address.".
+
+A `servername` parameter may be added to all requests to the haproxy/couchdb by setting the environment variable `ADD_SERVERNAME_TO_HTTP_AGENT` to `true`.
+
+A similar change can be made for the http clients used in the application by setting `PROXY_CHANGE_ORIGIN` to `true`. This sets the `changeOrigin` parameter of all the `http-proxy` clients to `true`, which "changes the origin of the host header to the target URL". See [http-proxy: options](https://www.npmjs.com/package/http-proxy#options).
