@@ -3,7 +3,7 @@ title: "Offline Hosting of CHT 3.x Server"
 linkTitle: "Offline Hosting"
 weight: 100
 aliases:
-  - /apps/guides/hosting/3.x/offline,
+  - /apps/guides/hosting/3.x/offline
   - /apps/guides/hosting/offline
 
 description: >
