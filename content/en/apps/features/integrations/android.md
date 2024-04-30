@@ -28,7 +28,7 @@ More information available on the [official Android docs](https://developer.andr
 ### Hosting `assetlinks.json` with the CHT
 
 Since CHT Core version 4.7.0, the CHT supports serving `assetlinks.json` by adding it to your app settings.
-All you have to do to make the CHT serving your assetlinks at `/.well-known/assetlinks.json` is to:
+All you have to do to make the CHT serve your assetlinks at `/.well-known/assetlinks.json` is to:
 1. Define your assetlinks in either `base_settings.json` or `app_settings/assetlinks.json`
 2. Compile and upload your app settings using cht-conf `cht-conf compile-app-settings upload-app-settings`
 
