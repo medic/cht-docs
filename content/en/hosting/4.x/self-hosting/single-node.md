@@ -3,7 +3,8 @@ title: "Self Hosting in CHT 4.x - Single CouchDB Node"
 linkTitle: "Single Node - Docker"
 weight: 10
 aliases:
-  - ../self-hosting-single-node
+   - /apps/guides/hosting/4.x/self-hosting/single-node/
+   - ../self-hosting-single-node
 description: >
    Self Hosting in CHT 4.x - Single CouchDB Node
 ---

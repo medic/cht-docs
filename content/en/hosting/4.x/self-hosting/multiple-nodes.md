@@ -3,6 +3,7 @@ title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes on Docker Swarm"
 linkTitle: "Multiple Nodes - Docker"
 weight: 20
 aliases:
+  - /apps/guides/hosting/4.x/self-hosting/multiple-nodes
   - ../self-hosting-multiple-nodes
 description: >
   Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes
