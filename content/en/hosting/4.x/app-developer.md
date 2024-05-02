@@ -3,7 +3,8 @@ title: "App Developer Hosting in CHT 4.x"
 linkTitle: "App Developer Hosting"
 weight: 40
 aliases:
-- /apps/guides/hosting/app-developer
+  - /apps/guides/hosting/4.x/app-developer
+  - /apps/guides/hosting/app-developer
 description: >
   Hosting the CHT when developing apps
 ---
@@ -11,13 +12,13 @@ description: >
 {{% pageinfo %}} 
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}).
 
-To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "apps/guides/hosting/3.x/self-hosting.md" >}}). 4.x production hosting guides are coming soon!
+To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}). 4.x production hosting guides are coming soon!
 {{% /pageinfo %}}
 
 
 ## Getting started
 
-Be sure to meet the [CHT hosting requirements]({{< relref "apps/guides/hosting/requirements" >}}) first. To avoid conflicts, ensure that all other CHT 4.x instances are stopped. To stop ALL containers, you can use
+Be sure to meet the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first. To avoid conflicts, ensure that all other CHT 4.x instances are stopped. To stop ALL containers, you can use
 
 ```shell
 docker kill $(docker ps -q)
@@ -114,7 +115,7 @@ To run projects concurrently open a second terminal and start the second project
 
 ## CHT Docker Helper for 4.x
 
-{{% alert title="Note" %}} This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "apps/guides/hosting/3.x/app-developer#cht-docker-helper" >}}){{% /alert %}}
+{{% alert title="Note" %}} This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}){{% /alert %}}
 
 The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file used above. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS (both x86 and Apple Silicon) and Linux.
 

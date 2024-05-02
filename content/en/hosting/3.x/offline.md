@@ -3,7 +3,9 @@ title: "Offline Hosting of CHT 3.x Server"
 linkTitle: "Offline Hosting"
 weight: 100
 aliases:
+  - /apps/guides/hosting/3.x/offline
   - /apps/guides/hosting/offline
+
 description: >
  Deploying and hosting CHT Core server instances without Internet connectivity
 ---
@@ -45,7 +47,7 @@ Browsers might allow you to connect to a server with an invalid TLS certificate 
 
 It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) to acquire certificates because they provide free certificates. Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
 
-After acquiring the certificate, if you are running a Docker-based CHT deployment, see [TLS instructions for Docker]({{< relref "/apps/guides/hosting/3.x/ssl-cert-install" >}}) to install the certificate.
+After acquiring the certificate, if you are running a Docker-based CHT deployment, see [TLS instructions for Docker]({{< relref "/hosting/3.x/ssl-cert-install" >}}) to install the certificate.
 
 ### Domain Name Server
 

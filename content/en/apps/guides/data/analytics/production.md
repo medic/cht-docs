@@ -18,7 +18,7 @@ Running [CHT Sync]({{< relref "core/overview/cht-sync" >}}) in production includ
 
 ### External Services
 
-While CHT Sync can run against a stand alone CouchDB instance, it's assumed you are configuring CHT Sync against an existing [production CHT Core instance]({{< relref "apps/guides/hosting" >}}), which includes CouchDB. 
+While CHT Sync can run against a stand alone CouchDB instance, it's assumed you are configuring CHT Sync against an existing [production CHT Core instance]({{< relref "hosting" >}}), which includes CouchDB. 
 
 Along with CouchDB, these docs assume you have PostgreSQL deployed with an optional Data Visualization Tool, like [Apache Superset](https://superset.apache.org/).
 
@@ -30,7 +30,7 @@ Production deployments require extra precautions around security and backup. The
 * Ensure software is kept up to date to defend against security vulnerabilities.
 * Keeping good backups that are regularly tested.
 
- Also, see the general CHT Core [production hosting considerations]({{< relref "apps/guides/hosting/requirements#considerations" >}}), all of which apply to CHT Sync production hosting as well.
+ Also, see the general CHT Core [production hosting considerations]({{< relref "hosting/requirements#considerations" >}}), all of which apply to CHT Sync production hosting as well.
 
 ## Create and configure a CHT Sync AWS EC2 Instance 
 

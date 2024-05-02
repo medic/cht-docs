@@ -3,17 +3,18 @@ title: "SSL Cert Install in CHT 3.x"
 linkTitle: "SSL Cert Install"
 weight: 40
 aliases:
+  - /apps/guides/hosting/3.x/ssl-cert-install
   - /apps/guides/hosting/ssl-cert-install
 description: >
   SSL Cert Installation for Self-Hosting Setups using Medic OS/3.x
 relevantLinks: > 
 relatedContent: >
-  apps/guides/hosting/3.x/self-hosting
+  hosting/3.x/self-hosting
 ---
 
 
 ## Requirements
-- Installed CHT-Core 3.x via either [Self Hosted]({{< relref "apps/guides/hosting/3.x/self-hosting" >}}), [EC2]({{< relref "apps/guides/hosting/3.x/ec2-setup-guide" >}}) or [Local Setup]({{< relref "apps/tutorials/local-setup" >}}), but must use `docker-compose`.
+- Installed CHT-Core 3.x via either [Self Hosted]({{< relref "hosting/3.x/self-hosting" >}}), [EC2]({{< relref "hosting/3.x/ec2-setup-guide" >}}) or [Local Setup]({{< relref "apps/tutorials/local-setup" >}}), but must use `docker-compose`.
 - Your own SSL certifications like Let's Encrypt.
 
 ## Copy certs into medic-os container

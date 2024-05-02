@@ -2,6 +2,8 @@
 title: "CHT Watchdog Setup"
 linkTitle: "Setup"
 weight: 100
+aliases:  
+  - /apps/guides/hosting/monitoring/setup
 description: >
     Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
