@@ -121,34 +121,23 @@ docker compose up -d
 
 With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
-1. Copy the two example config files so you can add the correct contents in them.  Do so by running this code:
-   
+1. Copy the example config file, so you can add the correct contents in them:
    ```shell
    cd ~/cht-watchdog
-   cp exporters/postgres/postgres-instances.example.yml exporters/postgres/postgres-instances.yml
-   cp exporters/postgres/postgres_exporter.example.yml exporters/postgres/postgres_exporter.yml
+   cp exporters/postgres/sql_servers_example.yml exporters/postgres/sql_servers.yml
    ```
-2. Edit `postgres-instances.yml` you just created and add your target postgres connection URL along with the proper root URL for your CHT instance as the label value. For example, if your postgres server was `db.example.com` and your CHT instance was `cht.example.com` the config would be:
+2. Edit `sql_servers.yml` you just created and add your target postgres connection URL along with the proper root URL for your CHT instance. For example, if your postgres server was `db.example.com`, your CHT instance was `cht.example.com`, your user was `db_user` and your password was `db_password`,  the config would be:
    ```yaml
-   - targets: [db.example.com:5432/cht]
-     labels:
-       cht_instance: cht.example.com
+   - targets:
+      "cht.example.com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+
    ```
-3. Edit `postgres_exporter.yml` so that the `auth_modules` object for your Postgres instance has the proper username and password. Using our `db.example.com` example from above and assuming a password of `super-secret` and a username of `pg_user`, the config would be:
-   ```yaml
-   db.example.com:5432/cht: # Needs to match the target URL in postgres-instances.yml
-      type: userpass
-      userpass:
-        username: pg_user
-        password: super-secret
-      options:
-        sslmode: disable
-   ```
+   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file.
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
    cd ~/cht-watchdog
-   docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml up -d
+   docker compose -f docker-compose.yml -f exporters/postgres/compose.yml up -d
    ```
 
 {{% alert title="Note" %}}
