@@ -6,8 +6,8 @@ description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
   contribute/code/core/using-windows
-  apps/guides/hosting/3.x/self-hosting
-  apps/guides/hosting/3.x/ec2-setup-guide
+  hosting/3.x/self-hosting
+  hosting/3.x/ec2-setup-guide
 ---
 
 {{% pageinfo %}}
@@ -21,7 +21,7 @@ By the end of the tutorial you should be able to:
 
 {{% alert title="Note" %}} 
 This guide will only work with CHT 4.x instances.  See the 
-[3.x App Developer Hosting]({{< ref "apps/guides/hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
+[3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
 {{% /alert %}}
 
 ## Brief Overview of Key Concepts
@@ -43,7 +43,7 @@ CHT apps can be built on your local system (with the necessary libraries install
 Before you begin, ensure you have the following tools:
 
 - [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
-- [docker and docker-compose]({{< relref "apps/guides/hosting/requirements#docker" >}}).
+- [docker and docker-compose]({{< relref "hosting/requirements#docker" >}}).
 
 ### Installing Docker
 
@@ -169,7 +169,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script]({{< relref "apps/guides/hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 
@@ -177,7 +177,7 @@ It is recommended to run a local CHT instance using the [CHT Docker Helper scrip
 
 Now that you have the dependent tools and software installed, you are ready to set up your local CHT environment.
 
-Refer to the [App Developer Hosting Guide]({{< relref "apps/guides/hosting/4.x/app-developer" >}}) for instructions on how to deploy a local CHT instance.
+Refer to the [App Developer Hosting Guide]({{< relref "hosting/4.x/app-developer" >}}) for instructions on how to deploy a local CHT instance.
 
 Note that the first time you run your CHT instance it may take a while. In case you run into issues running your docker file, ensure that the following setting in Docker is checked.
 > Settings >> General >> Use Docker Compose V2
@@ -192,7 +192,7 @@ If you are using macOS you will not be able to find the "Proceed to localhost" l
 
 This error can be fixed by [installing a TLS certificate](#optional-install-valid-tls-certificate) as described below.
 
-If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "apps/guides/hosting/3.x/self-hosting#port-conflicts" >}}) in the Docker Setup guide.
+If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "hosting/3.x/self-hosting#port-conflicts" >}}) in the Docker Setup guide.
 
 This CHT instance is empty and has no data in it. While you're free to explore and add your own data, in step 3 below we will upload sample data. Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 

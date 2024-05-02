@@ -6,7 +6,7 @@ description: >
   How to obtain Android and browser client logs
 relatedContent: >
   apps/guides/debugging/sharing-4x-logs.md
-  apps/guides/hosting/4.x/logs
+  hosting/4.x/logs
 ---
 
 There are many places where useful logs reside. This details all those places, and the easiest way to get a hold of them.

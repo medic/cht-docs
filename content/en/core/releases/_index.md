@@ -8,8 +8,8 @@ no_list: true
 aliases:
   -    /core/overview/supported-software
 relatedContent:
-  apps/guides/hosting/
-  apps/guides/hosting/requirements/
+  hosting/
+  hosting/requirements/
 ---
 
 ## Supported Versions
@@ -64,7 +64,7 @@ The following table shows the dependencies for deploying the CHT.
 | **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | 2.0 < 3.0 |
 | **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 
-{{< see-also page="apps/guides/hosting/requirements" title="Hosting Requirements" >}}
+{{< see-also page="hosting/requirements" title="Hosting Requirements" >}}
 
 ### Client Devices
 
