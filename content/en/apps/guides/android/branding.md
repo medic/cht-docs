@@ -119,7 +119,7 @@ Each branded app has an identifier (_id_) that is used to identify and configure
            ANDROID_KEYSTORE_PATH: new_brand.keystore
            ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD_NEW_BRAND }}
            ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD_NEW_BRAND }}
-   
+
        - name: Bundle new_brand
          uses: maierj/fastlane-action@v1.4.0
          with:
@@ -154,7 +154,7 @@ make org=new_brand keygen
 Verifying the following executables are in the $PATH: java keytool openssl ...
 keytool -genkey -storepass dd8668... -v -keystore new_brand.keystore -alias medicmobile -keyalg RSA -keysize 2048 -validity 9125
 What is your first and last name?
- [Unknown]:  
+ [Unknown]:
 What is the name of your organizational unit?
  [Unknown]:  New Brand
 What is the name of your organization?
@@ -197,6 +197,7 @@ About the file `secrets/secrets-new_brand.tar.gz.enc`, as the last paragraph in 
 
 If you want to start over because some of the parameters were wrong, just execute `make org=new_brand keyrm-all` to clean all the files generated. Once committed the `.enc` file, you can delete the uncompressed and unencrypted version with `make org=new_brand keyrm`, it will delete the `new_brand.keystore`, `new_brand_private_key.pepk`, and the unencrypted `.tar.gz` files, that are safer kept in the `.tar.gz.enc` file.
 
+If you encounter issues with the `make org=new_brand keygen` command repeatedly looping through questions, we recommend changing your OS language to English.
 
 ### 4. Test the keystore locally
 
@@ -209,7 +210,7 @@ If you want to start over because some of the parameters were wrong, just execut
 3. Sign your app! You can try locally to build the app with the certificate. To create the .apk files run: `make org=new_brand flavor=New_brand assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brand/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
 
    ```
-   make keyprint-apk 
+   make keyprint-apk
    apksigner verify -v --print-certs build/outputs/apk/new_brand/release/cht-android-SNAPSHOT-new_brand-arm64-v8a-release.apk
    ... ...
    Verified using v2 scheme (APK Signature Scheme v2): true
