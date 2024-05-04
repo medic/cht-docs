@@ -144,6 +144,25 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
 {{% /alert %}}
 
+#### couch2pg Data (Remote)
+
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor couch2pg backlog without sharing any Postgres credentials. Instead of sharing credentials, you expose just an HTTP endpoint that requires no login or password.  It shares no sensitive information that isn't already public via your CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}).  
+
+To run a remote instance of only the SQL Exporter without Watchdog on your Postgres server:
+
+1. Clone this repo: `git clone git@github.com:medic/cht-watchdog.git` and `cd` into `cht-watchdog`
+2. Copy `exporters/postgres/sql_servers_example.yml` to `exporters/postgres/sql_servers.yml`
+3. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to set the URL on the left to be the same as it is in your `cht-instances.yml` on  your Watchdog server.  You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address also.
+4. Copy `.env.example` to `.env` 
+5. In the new `.env` file, edit `SQL_EXPORTER_IP` to be public IP of the Posgtres server
+6. Start the service with these two compose files*:
+   ```shell
+   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/stand-alone.yml up
+   ```
+7. On your watchdog instance TK
+
+\* _The `stand-alone.yml` compose file overrides the `prometheus` service with an instance of Alpine Linux that does nothing but start and then immediately exit.  This is done so that no manual edits are needed to any compose files, just the use of the `stand-alone.yml`_ 
+
 #### Prometheus Retention and Storage
 
 By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data.  However, this will increase the size of the Prometheus data volume.  See the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/storage/) for more information.
