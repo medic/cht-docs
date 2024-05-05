@@ -25,7 +25,7 @@ When looking at a well-factored codebase there are three common ways to automate
 1. Unit tests
 2. Integration tests
 3. End-to-end tests
-    - UI component tests
+    - Web component tests
     - Config based tests
 
 ## Unit Tests
@@ -96,12 +96,15 @@ Tests that simulate real user experiences to validate the complete system. You c
 | Slow. So please make sure to check existent tests and maybe just add extra assertions or minor changes instead of directly adding a specific e2e test for your new change. Also, make sure your code is performant. | Low for the test itself (click tab, enter text into form, click submit, check text on screen. Extremely high for the setup.  | Painful fragility with high risk of race conditions and high maintenance burden. Please ensure your code is clean, organized, and utilizes effective selectors.  |
 
 ### Implementation
-Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.
+Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session.
+We have two types of e2e tests:
+- Web component tests: Designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. Unfortunately, this only covers forms and not other parts of the webapp.
+- Config based tests: Designed to test the entire webapp funcionalities running a formal CHT instance with the default config. They are not isolated from the rest of the system, and they do not use mocking.
 
 End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
 
+- `npm run wdio-cht-form` to run the web component tests
 - `npm run wdio-local` to run the tests for the default config
-- `npm run wdio-standard-local` to run the tests for the standard config
 - `npm run wdio-default-mobile-local` to run the mobile tests
 
 ```mermaid
@@ -164,7 +167,7 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 
 #### Watching the test run
 
-Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+Running the tests locally (e.g. with `npm run wdio-local`) will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
 
 #### Running the upgrade e2e test locally
 
