@@ -14,7 +14,7 @@ keywords: android assetlinks
 
 When using a [custom flavor of cht-android]({{< ref "apps/guides/android/branding" >}}) to connect to your CHT instance, the ecosystem supports using [deep links]({{< ref "apps/features/integrations/android#sending-a-url" >}}) to open specific content in the app. (E.g. [token login links]({{< ref "apps/concepts/access#magic-links-for-logging-in-token-login" >}})). Security measures in Android require these deep links [be verified](https://developer.android.com/training/app-links/verify-android-applinks) either automatically or manually.  This `assetlinks` configuration enables auto-verification for your CHT links in your Android app. The provided JSON file will be served at `https://<your CHT instance>/.well-known/assetlinks.json`. If you do not provide this configuration, users will be prompted to manually associate the CHT domain with your app.
 
-For more information, see the [docs for building a new CHT Android flavor]({{< ref "apps/guides/android/branding#deep-linking" >}}).
+For more information, see the [docs for building a new CHT Android flavor]({{< ref "apps/guides/android/branding#android-app-links-verification" >}}).
 
 Specify your digital asset links in the `app_settings/assetlinks.json` file. The `compile-app-settings` action in the `cht-conf` will automatically include this configuration in your `app_settings.json` file. Then, running the `upload-app-settings` action will deploy it to the server.
 
