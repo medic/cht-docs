@@ -254,7 +254,7 @@ All you have to do to make the CHT serve your assetlinks at `/.well-known/assetl
    ```
    keytool -list -v -keystore ./path/to/release-key.keystore
    ```
-3. Set the cert fingerprint in the [`assetlinks` configuration]({{ < ref "apps/reference/app-settings/assetlinks" > }}) for your CHT instance and deploy it to your server with cht-conf.
+3. Set the cert fingerprint in the [`assetlinks` configuration]({{< ref "apps/reference/app-settings/assetlinks" >}}) for your CHT instance and deploy it to your server with cht-conf.
 
 ### Verifying it works
 
