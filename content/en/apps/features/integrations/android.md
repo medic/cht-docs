@@ -23,7 +23,7 @@ Starting with Android 12, Android supports associating an app with a domain and 
 to allow deep links to immediately open the app without requiring your user to select the app.
 To get this working, you need to host a Digital Asset Links JSON file at `https://<domain.name>/.well-known/assetlinks.json`
 containing some information about your app to associate it with your domain.  
-More information available on the [official Android docs](https://developer.android.com/training/app-links/verify-android-applinks).
+Starting with Android 12, Android supports associating an app with a domain and automatically verifying this association. This allows deep links to immediately open content in the app. To get this working, you need to host a Digital Asset Links JSON file at `https://<domain.name>/.well-known/assetlinks.json` containing some information about your app to associate it with your domain.  More information is available on the [official Android docs](https://developer.android.com/training/app-links/verify-android-applinks).
 
 ### Hosting `assetlinks.json` with the CHT
 
