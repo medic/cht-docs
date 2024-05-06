@@ -18,6 +18,7 @@ When the user clicks on a link to a CHT instance from an SMS, email, WhatsApp, o
 Users can choose "Always" to skip this prompt in future. The prompt may look different depending on the version of Android being used.
 
 ## Android App Links verification
+*Supported for CHT Core 4.7.0+ and CHT Android 1.3.0+*
 
 Starting with Android 12, Android supports associating an app with a domain and automatically verify this association
 to allow deep links to immediately open the app without requiring your user to select the app.
