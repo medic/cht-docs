@@ -106,10 +106,3 @@ Intent i = new Intent(Intent.ACTION_VIEW);
 i.setData(Uri.parse(url));
 startActivity(i);
 ```
-
-## Version notes
-
-| Feature                                          | CHT Core version |
-|--------------------------------------------------|------------------|
-| Released                                         | 3.10.0           |
-| Added support for Android App Links verification | 4.7.0            |
