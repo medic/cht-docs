@@ -6,6 +6,7 @@ description: >
   **Assetlinks**: Defining the Digital Asset Links JSON file served at `https://<your CHT instance>/.well-known/assetlinks.json` to associate your domain with your Android app.
 relatedContent: >
   apps/features/integrations/android
+  apps/guides/android/branding
 keywords: android assetlinks
 ---
 
