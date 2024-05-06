@@ -235,3 +235,7 @@ Releasing a new flavor requires the following steps:
 ### 6. Publish the app
 
 The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing]({{< ref "apps/guides/android/publishing" >}}) page to see all the options available and instructions.
+
+
+## Deep linking
+
