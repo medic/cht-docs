@@ -24,9 +24,9 @@ We seek to have a quality codebase that developers can work on with speed. This 
 When looking at a well-factored codebase there are three common ways to automate tests (ordered by levels low to high):
 1. Unit tests
 2. Integration tests
+    - Backend integration tests
+    - Frontend integration tests
 3. End-to-end tests
-    - Web component tests
-    - Config based tests
 
 ## Unit Tests
 
@@ -56,10 +56,10 @@ Dramatically fewer than unit tests. The goal is not to verify all branches; it i
 | Fast execution, but slower startup when working with a DB | Mid-to-high. Things can get complex fast when combining parts! | Mostly stable. Fragility risks tend to come from DB setup. |
 
 ### Implementation
-For us, integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
+For us, backend integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
 We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
-Integration tests are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
+**Backend integration tests** are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
 ```mermaid
 flowchart LR
@@ -83,27 +83,27 @@ flowchart LR
     integration-tests <--Pouch/HTTPS--> cht-e2e
 ```
 
+**Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
+
+Frontend integration tests are located in `tests/integration`. Run them locally with `npm run integration-cht-form` to run the web component tests.
+
 ## E2E Tests
 
 ### Description
 Tests that simulate real user experiences to validate the complete system. You can think of e2e test as the user main workflows when using the system.
 
 ### Expectations
- E2e tests give us the most confidence to decide if the feature is working, but must only check the parts of code that the lower-level tests can't cover (e.g., UI interactions). We should push the testing levels as far down as possible.
+ E2e tests give us the most confidence to decide if the feature is working, but must only check the parts of code that the lower-level tests can't cover. We should push the testing levels as far down as possible.
 
 | Execution Speed     | Complexity | Fragility |
 |------------|---------|---------|
 | Slow. So please make sure to check existent tests and maybe just add extra assertions or minor changes instead of directly adding a specific e2e test for your new change. Also, make sure your code is performant. | Low for the test itself (click tab, enter text into form, click submit, check text on screen. Extremely high for the setup.  | Painful fragility with high risk of race conditions and high maintenance burden. Please ensure your code is clean, organized, and utilizes effective selectors.  |
 
 ### Implementation
-Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session.
-We have two types of e2e tests:
-- Web component tests: Designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. Unfortunately, this only covers forms and not other parts of the webapp.
-- Config based tests: Designed to test the entire webapp funcionalities running a formal CHT instance with the default config. They are not isolated from the rest of the system, and they do not use mocking.
+Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.
 
 End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
 
-- `npm run wdio-cht-form` to run the web component tests
 - `npm run wdio-local` to run the tests for the default config
 - `npm run wdio-default-mobile-local` to run the mobile tests
 
@@ -134,6 +134,9 @@ flowchart LR
     e2e-tests <--wdio--> browser
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
+
+### Running our E2E test on minimum browser
+
 
 ### Debugging E2E tests
 
