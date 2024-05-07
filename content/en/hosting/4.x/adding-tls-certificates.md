@@ -138,7 +138,7 @@ When proxying to HTTPS from HTTP (for example where an ingress does TLS terminat
    Host: abc.com. is not in the cert's altnames: DNS:def.org"
    ```
 
-The addition of `servername` resolves this error by providing routing information. See docs for `tls.connect(options[, callback])`' (https://nodejs.org/api/tls.html): "Server name for the SNI (Server Name Indication) TLS extension. It is the name of the host being connected to, and must be a host name, and not an IP address.".
+The addition of `servername` resolves this error by providing routing information. See [docs](https://nodejs.org/api/tls.html) for `tls.connect(options[, callback])`: "Server name for the SNI (Server Name Indication) TLS extension. It is the name of the host being connected to, and must be a host name, and not an IP address.".
 
 A `servername` parameter may be added to all requests to the haproxy/couchdb by setting the environment variable `ADD_SERVERNAME_TO_HTTP_AGENT` to `true`.
 
