@@ -239,11 +239,7 @@ The last step is to publish it in the Play Store, or whatever option best suit y
 ## Android App Links verification
 *Supported for CHT Core 4.7.0+ and CHT Android 1.3.0+*
 
-Starting with Android 12, Android supports associating an app with a domain and automatically verify this association
-to allow deep links to immediately open the app without requiring your user to select the app.
-To get this working, you need to host a Digital Asset Links JSON file at `https://<domain.name>/.well-known/assetlinks.json`
-containing some information about your app to associate it with your domain.  
-Starting with Android 12, Android supports associating an app with a domain and automatically verifying this association. This allows deep links to immediately open content in the app. To get this working, you need to host a Digital Asset Links JSON file at `https://<domain.name>/.well-known/assetlinks.json` containing some information about your app to associate it with your domain.  More information is available on the [official Android docs](https://developer.android.com/training/app-links/verify-android-applinks).
+Starting with Android 12, Android supports associating an app with a domain and automatically verifying this association. This allows deep links to immediately open content in the app. To get this working, you need to host a Digital Asset Links JSON file at `https://<domain.name>/.well-known/assetlinks.json` containing some information about your app to associate it with your domain. More information is available on the [official Android docs](https://developer.android.com/training/app-links/verify-android-applinks).
 
 ### Hosting `assetlinks.json` with the CHT
 

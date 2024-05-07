@@ -11,11 +11,12 @@ The [CHT Android application](https://github.com/medic/cht-android) can be launc
 
 ## Sending a URL
 
-{{< figure src="android-prompt.png" link="android-prompt.png" class="right col-8 col-lg-4" >}}
+{{< figure src="../../../guides/android/branding/android-12-prompt.png" link="../../../guides/android/branding/android-12-prompt.png" class="right col-6 col-md-4 col-lg-2" >}}
+{{< figure src="android-prompt.png" link="android-prompt.png" class="right col-4 col-lg-3" >}}
 
 When the user clicks on a link to a CHT instance from an SMS, email, WhatsApp, or any other app, Android will prompt the user to choose whether to open the URL in the Android app or the browser. If a CHT app is not installed then the URL will be opened in the browser.
 
-Users can choose "Always" to skip this prompt in future. The prompt may look different depending on the version of Android being used.
+The prompt may look different depending on the version of Android being used. On Android <12, users can choose "Always" to skip this prompt in the future. Starting with Android 12, users can associate the CHT instance's domain with the Android app, but this requires additional configuration in your CHT instance. See the docs on [Android App Links verification]({{< ref "apps/guides/android/branding#android-app-links-verification" >}}) for more information.
 
 ## Using an intent
 
