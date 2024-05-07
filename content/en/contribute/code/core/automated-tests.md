@@ -85,7 +85,7 @@ flowchart LR
 
 **Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
 
-Frontend integration tests are located in `tests/integration`. Run them locally with `npm run integration-cht-form` to run the web component tests.
+Frontend integration tests are located in `tests/integration`. To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
 
 ## E2E Tests
 
@@ -134,9 +134,6 @@ flowchart LR
     e2e-tests <--wdio--> browser
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
-
-### Running our E2E test on minimum browser
-
 
 ### Debugging E2E tests
 
