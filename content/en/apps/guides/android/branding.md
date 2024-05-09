@@ -6,6 +6,8 @@ description: >
   Branding the CHT Android applications
 aliases: >
   /core/guides/android/branding
+relatedContent: >
+   apps/reference/app-settings/assetlinks
 ---
 
 {{% pageinfo %}}

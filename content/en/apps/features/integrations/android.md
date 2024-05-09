@@ -5,6 +5,7 @@ description: >
    Launch the Android App with a link or from another app
 relatedContent: >
   apps/reference/app-settings/token_login
+  apps/reference/app-settings/assetlinks
 ---
 
 The [CHT Android application](https://github.com/medic/cht-android) can be launched by clicking on a link or invoking an intent in another Android app. This is useful for enabling login by SMS, directing a user to a specific page, and integrating between Android applications.
