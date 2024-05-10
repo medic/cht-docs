@@ -174,7 +174,7 @@ To run a remote instance of only the SQL Exporter on your Postgres server:
     ```
    
 
-\* _The `stand-alone.yml` and `scrape-only.yml` compose files overrides the some service with an instance of Alpine Linux that does nothing but start and then immediately exit.  This is done so that no manual edits are needed to any compose files._ 
+\* _The `stand-alone.yml` and `scrape-only.yml` compose files override some services.  This is done so that no manual edits are needed to any compose files._ 
 
 #### Prometheus Retention and Storage
 
