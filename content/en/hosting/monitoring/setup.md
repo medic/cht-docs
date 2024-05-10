@@ -146,7 +146,7 @@ Always run this longer version of the `docker compose` command which specifies b
 
 #### couch2pg Data (Remote)
 
-While not the default setup, and not what most deployments need, you may want to set up a way to monitor couch2pg backlog without sharing any Postgres credentials. Instead of sharing credentials, you expose just an HTTP endpoint that requires no login or password.  It shares no sensitive information that isn't already public via your CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}).  
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor couch2pg data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publically accessible).
 
 To run a remote instance of only the SQL Exporter without Watchdog on your Postgres server:
 
