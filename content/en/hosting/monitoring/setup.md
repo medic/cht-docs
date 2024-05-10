@@ -144,6 +144,38 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
 {{% /alert %}}
 
+#### couch2pg Data (Remote)
+
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor couch2pg data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publically accessible).
+
+To run a remote instance of only the SQL Exporter on your Postgres server:
+
+1. Clone this repo: `git clone git@github.com:medic/cht-watchdog.git` and `cd` into `cht-watchdog`
+2. Copy `exporters/postgres/sql_servers_example.yml` to `exporters/postgres/sql_servers.yml`
+3. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to set the URL on the left to be the same as it is in your `cht-instances.yml` on  your Watchdog server.  You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address also.
+4. Copy `.env.example` to `.env` 
+5. In the new `.env` file, edit `SQL_EXPORTER_IP` to be public IP of the Posgtres server
+6. Start the service with these two compose files*:
+   ```shell
+   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.stand-alone.yml up -d
+   ```
+7. Verify that you see the SQL Exporters metrics:  If `SQL_EXPORTER_IP` was set to `10.220.249.15`, then this would be: `http://10.220.249.15:9399/metrics`. The last line starting with `up{job="db_targets"...` should end in a `1` denoting the system is working. If it ends in `0` - check your docker logs for errors.
+8. On your watchdog instance, create a custom scrap definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
+9. Edit `scrape-custom.yml` so that it has the ip address of `SQL_EXPORTER_IP` from step 7 above.  If that was `10.220.249.15`, then you file would look like:
+   ```yaml
+    scrape_configs:
+      - job_name: sql_exporter
+        static_configs:
+          - targets: ['10.220.249.15:9399']
+   ```
+10. Finally, on your watchdog instance, start (or restart) your server including the `compose.scrape-only.yml` compose file:
+    ```bash
+    docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.scrape-only.yml up -d
+    ```
+   
+
+\* _The `compose.stand-alone.yml` and `compose.scrape-only.yml` compose files override some services.  This is done so that no manual edits are needed to any compose files._ 
+
 #### Prometheus Retention and Storage
 
 By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data.  However, this will increase the size of the Prometheus data volume.  See the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/storage/) for more information.
