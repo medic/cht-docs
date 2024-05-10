@@ -157,7 +157,7 @@ To run a remote instance of only the SQL Exporter on your Postgres server:
 5. In the new `.env` file, edit `SQL_EXPORTER_IP` to be public IP of the Posgtres server
 6. Start the service with these two compose files*:
    ```shell
-   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/stand-alone.yml up -d
+   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.stand-alone.yml up -d
    ```
 7. Verify that you see the SQL Exporters metrics:  If `SQL_EXPORTER_IP` was set to `10.220.249.15`, then this would be: `http://10.220.249.15:9399/metrics`. The last line starting with `up{job="db_targets"...` should end in a `1` denoting the system is working. If it ends in `0` - check your docker logs for errors.
 8. On your watchdog instance, create a custom scrap definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
@@ -168,13 +168,13 @@ To run a remote instance of only the SQL Exporter on your Postgres server:
         static_configs:
           - targets: ['10.220.249.15:9399']
    ```
-10. Finally, on your watchdog instance, start (or restart) your server including the `scrape-only.yml` compose file:
+10. Finally, on your watchdog instance, start (or restart) your server including the `compose.scrape-only.yml` compose file:
     ```bash
-    docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/scrape-only.yml up -d
+    docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.scrape-only.yml up -d
     ```
    
 
-\* _The `stand-alone.yml` and `scrape-only.yml` compose files override some services.  This is done so that no manual edits are needed to any compose files._ 
+\* _The `compose.stand-alone.yml` and `compose.scrape-only.yml` compose files override some services.  This is done so that no manual edits are needed to any compose files._ 
 
 #### Prometheus Retention and Storage
 
