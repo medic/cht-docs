@@ -7,7 +7,7 @@ description: >
 ---
 
 ## What are design docs?
-Software development is not just about writing code, but rather about solving problems and building the right solutions. Before diving into an initiative or feature and start coding, it’s essential that the developers (and other team members) have a high-level understanding of what a solution might look like. 
+Software development is not just about writing code, but rather about solving problems and building the right solutions. Before diving into an initiative or feature and starting coding, it’s essential that the developers (and other team members) have a high-level understanding of what a solution might look like. 
 
 Design docs are informal documents that the leading developer of a certain piece of software create before they start the actual coding of a solution. The design doc contains high-level technical design decisions and alternatives that were considered when making those decisions. 
 
