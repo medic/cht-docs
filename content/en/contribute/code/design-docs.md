@@ -27,7 +27,7 @@ The design doc can be added to the GitHub issue related to the feature or initia
 
 The list below contains a non-exhaustive list of items a design doc could cover.
 
-#### Context and scope
+#### Context
 An overview of the context in which the piece of software is being built and what is actually being built. It's important to keep this section succint as it's only meant to bring the readers up to speed with the background facts.
 
 #### Goals and scope
