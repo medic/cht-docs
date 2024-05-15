@@ -45,7 +45,7 @@ A description of the assumptions made, as for example user interface design or g
 #### Constraints
 These can include constraints such as security, scalability, or performance.
 
-#### Open Questions
+#### Open questions
 Any open issues that you aren’t sure about, or suggested future work.
 
 [This example](https://docs.google.com/document/d/1bR3jygKQvfIK1CkRaplxz4LyXQqgO21MTjy8Jsd6s6c/edit?usp=sharing) shows how a design doc could look like.
