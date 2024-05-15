@@ -30,8 +30,8 @@ The list below contains a non-exhaustive list of items a design doc could cover.
 #### Context and scope
 An overview of the context in which the piece of software is being built and what is actually being built. It's important to keep this section succint as it's only meant to bring the readers up to speed with the background facts.
 
-#### Goals and non-goals
-A short list of what the goals of the piece of software are, and, very importantly, what the non-goals are. The non-goals aren’t negated goals such as "The app shouldn’t crash", but rather things that could be goals, but are explicitly chosen not to be goals, as for example "FHIR compliace of the API". Please note that a solution could cover a non-goal, as long as it doesn’t introduce trade-offs that prevent achieving the goals.
+#### Goals and scope
+A short list of what the goals of the piece of software are, and, very importantly, what is out of scope. The out of scope items are explicitly chosen not to be goals, as for example "FHIR compliace of the API". Please note that a solution could cover out of scope items, as long as it doesn’t introduce trade-offs that prevent achieving the goals.
 
 #### Proposed solution
 The details of the solution that was chosen for implementation. This flexible-format section can contain how the developer envisions to code the solution, diagrams, sample code, pseudo-code, security considerations, and references to similar solutions or frameworks to be used. It's important that this section explains why this particular solution best satisfies the goals.
