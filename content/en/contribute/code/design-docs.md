@@ -40,7 +40,7 @@ The details of the solution that was chosen for implementation. This flexible-fo
 A list of alternative designs that would have achieved similar outcomes, together with the trade-offs that each respective design makes and how those trade-offs led to the decision to select the proposed solution.
 
 #### Assumptions
-A description of the assumptions made, as for example user interface design or general system characteristics (e.g. operating systems).
+A description of the assumptions made, for example user interface design or general system characteristics (e.g. operating systems).
 
 #### Constraints
 These can include constraints such as security, scalability, or performance.
