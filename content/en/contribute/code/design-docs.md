@@ -15,7 +15,7 @@ Design docs are informal documents that the leading developer of a certain piece
 
 Besides being an excellent way of documenting software design, design docs come with several additional benefits:
 
-* Involve the team early and get feedback before the implementation, which is more costly.
+* Involve the team early and get feedback before implementation, after which changes are more difficult.
 * Identify solution concerns and issues rapidly, as making changes to a solution in the design phase is faster.
 * Provide a fantastic way to document technical decisions, which benefits the team, the community, and future contributors.  
 * Ensure the consideration of alternative solutions, assumptions and eventual constraints.
