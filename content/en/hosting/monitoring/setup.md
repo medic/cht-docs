@@ -126,13 +126,12 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    cd ~/cht-watchdog
    cp exporters/postgres/sql_servers_example.yml exporters/postgres/sql_servers.yml
    ```
-2. Edit `sql_servers.yml` you just created and add your target postgres connection URL along with the proper root URL for your CHT instance. For example, if your postgres server was `db.example.com`, your CHT instance was `cht.example.com`, your user was `db_user` and your password was `db_password`,  the config would be:
+2. Edit `sql_servers.yml` you just created and add your target postgres connection URL. For example, if your postgres server was `db.example.com`, your user was `db_user` and your password was `db_password`,  the config would be:
    ```yaml
    - targets:
-      "cht.example.com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
-
+      "db-example-com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
    ```
-   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file.
+   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to give each entry a unique name based of the Postgres server (eg `db-example-com` as shown).
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
@@ -152,7 +151,7 @@ To run a remote instance of only the SQL Exporter on your Postgres server:
 
 1. Clone this repo: `git clone git@github.com:medic/cht-watchdog.git` and `cd` into `cht-watchdog`
 2. Copy `exporters/postgres/sql_servers_example.yml` to `exporters/postgres/sql_servers.yml`
-3. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to set the URL on the left to be the same as it is in your `cht-instances.yml` on  your Watchdog server.  You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address also.
+3. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address and port also, but likely the default values are correct.
 4. Copy `.env.example` to `.env` 
 5. In the new `.env` file, edit `SQL_EXPORTER_IP` to be public IP of the Posgtres server
 6. Start the service with these two compose files*:
@@ -160,7 +159,7 @@ To run a remote instance of only the SQL Exporter on your Postgres server:
    docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.stand-alone.yml up -d
    ```
 7. Verify that you see the SQL Exporters metrics:  If `SQL_EXPORTER_IP` was set to `10.220.249.15`, then this would be: `http://10.220.249.15:9399/metrics`. The last line starting with `up{job="db_targets"...` should end in a `1` denoting the system is working. If it ends in `0` - check your docker logs for errors.
-8. On your watchdog instance, create a custom scrap definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
+8. On your watchdog instance, create a custom scrape definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
 9. Edit `scrape-custom.yml` so that it has the ip address of `SQL_EXPORTER_IP` from step 7 above.  If that was `10.220.249.15`, then you file would look like:
    ```yaml
     scrape_configs:
