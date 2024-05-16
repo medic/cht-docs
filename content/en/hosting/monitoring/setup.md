@@ -129,9 +129,9 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 2. Edit `sql_servers.yml` you just created and add your target postgres connection URL. For example, if your postgres server was `db.example.com`, your user was `db_user` and your password was `db_password`,  the config would be:
    ```yaml
    - targets:
-      "db1": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+      "db-example-com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
    ```
-   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to give each entry a unique name (eg `db1` as shown, then `db2`, `db3` etc.).
+   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to give each entry a unique name based of the Postgres server (eg `db-example-com` as shown).
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
