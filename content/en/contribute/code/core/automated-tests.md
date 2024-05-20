@@ -143,9 +143,9 @@ End to end (e2e) tests can be really difficult to debug - sometimes they fail se
 
 Setting the `DEBUG` environment variable (e.g. `DEBUG=true npm run wdio-local`) when running the tests locally will do the following:
 
-- Run the browser without the `headless` flag (details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
+- Run the browser without the `headless` flag (details [in the `wdio.conf` file](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
 - Increase the test timeout from 2 minutes to 10 minutes
-- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L177))
+- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [in the `wdio.conf` file](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L177))
 - Prevent the `cht-e2e` Docker containers from being torn down after the test finishes
 
 #### Read the logs
