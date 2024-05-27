@@ -233,7 +233,7 @@ Releasing a new flavor requires the following steps:
 1. Make a pull request to the release branch in the CHT Android repository.
 2. Once approved it's recommended to create an alpha version to do final tests.
 3. Merge the pull request.
-4. [Release the flavor]({{< ref "apps/guides/android/publishing" >}}).
+4. [Release the flavor]({{< ref "contribute/code/android/releasing" >}}).
 
 ### 6. Publish the app
 
