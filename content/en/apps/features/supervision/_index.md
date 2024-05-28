@@ -44,6 +44,16 @@ When _replacing_ a CHW, Supervisors access the existing device and provide detai
 
 This can be used to manage both CHW and CHW supervisor roles.
 
+## Managing Multiple Areas
+
+CHT hierarchies tend to mimic geographical areas but Supervisors often manage CHWs across multiple areas. (Offline) Supervisors who manage multiple areas can see data for all the different areas they manage from one app.
+
+ {{% alert title="Note" %}} The ability for one user to replicate data from multiple areas was introduced in v4.9.0, previously a new hierarchy level (Supervisor Area) had to be created. 
+
+Supervisor Targets can be configured, but Aggregate Targets are disabled for Supervisors who are assigned to multiple areas. {{% /alert %}}
+
+
+
 ## Supervisor Dashboards
 
 {{< figure src="supervisor-dashboards.png" link="supervisor-dashboards.png" class="right col-7 col-lg-6" >}}
