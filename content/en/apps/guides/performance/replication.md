@@ -22,6 +22,8 @@ The most common restriction is by place. This is where we check the user's `faci
 
 For example, if a CHP's `facility_id` property is set to the ID of the Maori Hill clinic, then they will be able to see all patients and all reports about patients at that clinic.
 
+{{% alert title="Note" %}} Starting in v4.9.0, users can be assigned more than one `facility_id`. The primary use case for this is for Supervisors who manage multiple areas. {{% /alert %}}
+
 ### Depth
 
 Sometimes though you want to only access contacts near the top of the hierarchy. This may be because returning all contacts would be too much data to be practical, or for patient privacy, or because it's just not part of your workflow. In this case you can configure a replication depth for a specific role under `replication_depth` in the app settings.
