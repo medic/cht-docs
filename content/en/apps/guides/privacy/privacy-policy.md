@@ -14,7 +14,7 @@ Privacy policies are now publicly accessible rather than only being available af
 
 ![Privacy Policy on login page](privacy.policy.login.page.png)
 
-Add these HTML files to the `privacy-policies` folder in your configuration, and associate them to the correct language in the `privacy-policies.json` file.
+Add these HTML files to the `privacy-policies` folder in your configuration, and associate them to the correct language in the `privacy-policies.json` file, which should reside in the root of the project directory, not inside the privacy_policies folder.
 ```json
 {
   "en": "en.attachment.html",
@@ -31,6 +31,8 @@ There are two ways to add or edit a privacy policy:
 ```bash
 cht --local upload-privacy-policies
 ```
+Ensure the privacy-policies.json file is placed in the root of the project directory.
+
 
 2. Update and view privacy policies in the [Admin Console]({{< relref "apps/features/admin" >}}), under `Display` > `Privacy Policies`
 
