@@ -433,6 +433,11 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `validations` | List of form fields validations. All mute & unmute forms will be subjected to these validation rules. Invalid forms will not trigger muting/unmuting actions. Optional. |
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
+{{% alert title="Note" %}}
+Contact forms cannot trigger muting or unmutting, but any `data_record` that has a `form` property can.
+{{% /alert %}}
+
+
 Supported `events_types` are:
 
 | Event Type | Trigger |
