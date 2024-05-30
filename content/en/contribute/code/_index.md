@@ -101,7 +101,7 @@ If you believe you've found a security vulnerability in one of our products or p
 
 - Description of the location and potential impact of the vulnerability;
 - A detailed description of the steps required to reproduce the vulnerability (proof of concept source code, screenshots, and compressed screen captures are all helpful to us); and
-- Your name/handle and a link for recognition in our Hall of Fame.
+- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "./hall-of-fame" %}}).
 
 ### Code of Conduct
 
