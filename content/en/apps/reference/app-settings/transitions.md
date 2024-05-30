@@ -434,7 +434,7 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
 {{% alert title="Note" %}}
-Contact forms cannot trigger muting or unmutting, but any `data_record` that has a `form` property can.
+Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property can.
 {{% /alert %}}
 
 
