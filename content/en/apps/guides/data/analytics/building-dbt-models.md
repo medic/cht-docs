@@ -3,7 +3,7 @@ title: "DBT models for CHT Applications"
 linkTitle: "DBT Models"
 weight: 2
 description: >
-  Guide for building DBT models for CHT Applications
+  Guide for building DBT models for CHT applications
 relatedContent: >
   core/overview/db-schema
   apps/reference/app-settings/hierarchy
@@ -11,33 +11,33 @@ relatedContent: >
 
 ## Overview
 
-CHT Sync copies data from CouchDB to a relational database; it inititally stores the document data from CouchDB in a jsonb column in a single table. This is not possible to query for analytics, so it uses DBT to take the document data and convert it to a relational database format.
+[CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single table. This is not possible to query for analytics, so it uses [DBT](https://www.getdbt.com/) to convert the document data to a relational database format.
 
-The CHT Pipeline repository defines a DBT project, which contains model files for the data schema described [here]({{< ref "core/overview/db-schema" >}}).
-Forms may be specific to each CHT application; to analyze data from form responses to these custom forms, additional models will need to be developed.
-One additional model will be needed for each form, and for any aggreagations, dashboards, or reuseable views which use those form responses as input.
+[CHT Pipeline](https://github.com/medic/cht-pipeline) defines a DBT project, which contains model files for the data schema described [in the Database schema conventions]({{< ref "core/overview/db-schema" >}}).
+Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
+One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
 
 ## Setup
 
-CHT Sync uses a [DBT package](https://docs.getdbt.com/docs/build/packages) to run models, which is configured by providing a URL to a github repository.
-If it is necessary for application specific models to be private, the [cht-pipeline repository](https://github.com/medic/cht-pipeline/) can be forked into a private repository.
-If they can be public, a branch of the public repository can be created.
+CHT Sync runs models using a [DBT package](https://docs.getdbt.com/docs/build/packages), which is configured by providing a URL to a GitHub repository.
+If application-specific models need to be private, the [cht-pipeline repository](https://github.com/medic/cht-pipeline/) can be forked into a private repository.
+A branch of the public repository can be created if the models can be public.
 
-The url is set in the `CHT_PIPELINE_BRANCH_URL` environment variable, either in .env if using docker compose, or in values.yaml if useing kubernetes.
+The URL of the branch is set in the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in ´.env´ if using ´docker-compose´, or in ´values.yaml´ if using Kubernetes.
 
-When models are changed, CHT Sync needs to be restarted for the change to take effect; when it restarts, it automatically downloads the latest version of cht pipeline and applies than changes; for models materialized as views, they are are updated instantly, for models materialized as incmrenetal tables, the table is dropped and will be unavailable until it is rebuilt from scratch.
+When models are changed, CHT Sync needs to be restarted for the change to take effect. When it restarts, it automatically downloads the latest version of CHT Pipeline and applies the changes. For models materialized as views, they are updated instantly. For models materialized as incremental tables, the table is dropped and will be unavailable until it is rebuilt from scratch.
 
 ## Base Models
 
 The base models define the data which is common to all CHT applications.
-All tables contain a uuid which is the primary key for the table; it is also the `_id` from the source couchdb document.
+All tables contain a `uuid` which is the primary key for the table; it is also the `_id` from the source CouchDB document.
 
 {{< figure src="cht-pipeline-er.png" link="cht-pipeline-er.png" class=" center col-16 col-lg-12" >}}
 
 ### `couchdb`
-All documents are stored in the couchdb db table; downstream models move fields from the document into fields and index them.
-It is possible to get any field from a couchdb document using this table; it is recommended for performance reasons to instead use the columns from downstream models.
+All documents are stored in the `couchdb` table; downstream models move fields from the document into fields and index them.
+This table can be used to get any field from a CouchDB document; however, it is recommended that the columns from downstream models be used instead for performance reasons.
 |Field|Description|
 |--|--|
 |`uuid`|CouchDB's unique identifier of the record|
@@ -45,53 +45,53 @@ It is possible to get any field from a couchdb document using this table; it is 
 |`doc`| JSON of the source document|
 
 ### `data_record`
-All form responses are stored in the `data_record` table, see more details [here]({{< ref "core/overview/db-schema#reports" >}}).
-This table contains columns for the contact who made the report, the parent of that contact, the report data, and a copy of fields in jsonb format.
+All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
+This table contains columns for the contact who made the report, the parent of that contact, the report data, and a copy of fields in `jsonb` format.
 It is not recommended to use the fields column directly, but instead to add one new model for each form, moving the relevant fields for that form into columns
 
 |Field|Description|
 |--|--|
-|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the couchdb table.|
+|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
 |`contact_uuid`| uuid of the `contact` who made the report|
-|`parent_contact_uuid`| uuid of the parent of `contact` who made the report (usually a place)|
+|`contact_parent_uuid`| uuid of the parent of `contact` who made the report|
 |`fields`| JSON of the `fields` property from the couchdb document|
 |`reported`| the reported timestamp from the couchdb document, stored as a date|
 
-For SMS forms, there is also an `sms_form` table which contains the raw message and sender phone number (for sms form response, `contact_uuid` may be NULL)
-The `contact_uuid` column contains a foreign key to the contacts table.
+For SMS forms, there is also an `sms_form` table which contains the raw message and sender phone number (for SMS form response, `contact_uuid` may be `NULL`)
+The `contact_uuid` column contains a foreign key to the `contacts` table.
 
 ### `contacts`
-See a description of contact documents in couchdb [here]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
-Every person and place is stored in the contacts table. Persons and patients are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
-The contact hierarchy defines "is a" relationships between contact types; e.g. a patient is a person is a contact. This is modelled as one table per type, where the uuid is both the primary key for the child table and a foreign key to the parent table.
+See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
+Every person and place is stored in the `contacts` table. Persons and patients are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
+The contact hierarchy defines "is a" relationships between contact types; e.g., a patient is a person is a contact. This is modeled as one table per type, where the `uuid` is both the primary key for the child table and a foreign key to the parent table.
 
 |Field|Description|
 |--|--|
-|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the couchdb table.|
+|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
 |`parent_uuid`| uuid of the parent contact. For people, will be a place contact.|
 |`name`| name |
-|`type`| for data created <= 3.7, the same as type of the couchdb document, when using the configurable hierarchy, `contact_type` |
-|`reported`| the reported timestamp from the couchdb document, stored as a date|
+|`type`| for data created <= 3.7, the same as type of the CouchDB document, when using the configurable hierarchy, `contact_type` |
+|`reported`| the reported timestamp from the CouchDB document, stored as a date|
 |`phone`| contacts primary phone number |
 |`phone_number`| alternate phone number, if available|
 
 ### `person`
 |Field|Description|
 |--|--|
-|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the couchdb table.|
+|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
 |`date_of_birth`|  |
 |`sex`| |
 
 ### `patient`
-Patients have also a `patient_id` which is useful to link to `data_record`
+Patients also have a `patient_id`, which is useful to link to `data_record`.
 |Field|Description|
 |--|--|
-|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the couchdb table.|
+|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
 |`patient_id`|  | patient id |
 
 ## Building App models
 
-An overview of building dbt models can be found [here]
+An overview of building DBT models can be found [here]
 The additional models that need to be developed for a CHT application are:
 
  - One model for each form
@@ -99,9 +99,9 @@ The additional models that need to be developed for a CHT application are:
  - Models to contain aggregates that may be useful for dashboards or analysis
 
 ### Form models
-for each form in the CHT app, create one model which selects from `data_record where form = 'theformyouwant'`, moves the fields from the `fields` json into columns, applies any transformations that would be convenient, and if necessary, indexes them.
+For each form in the CHT application, create one model that selects from `data_record where form = 'theformyouwant'`, moves the fields from the `fields` JSON into columns, applies any convenient transformations, and, if necessary, add indexes to them.
 
-This example extracts Last Menstrual Period, Expected Delivery Date and ANC visit number from a typical pregnancy registration form
+This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC visit number` from a typical pregnancy registration form.
 
 ```sql
 {{
@@ -135,7 +135,7 @@ WHERE
 
 ```
 
-To aggregate on contacts and report data, join to the `data_record` and `contacts` tables e.g.
+To aggregate on contacts and report data, join to the `data_record` and `contacts` tables as in the example below.
 It is not recommended to redefine columns from `data_record` or `contacts` in these form models, but instead to join to `data_record` in queries.
 
 ```sql
@@ -195,13 +195,13 @@ WHERE
 
 ## Views vs. Incremental Tables
 
-There are two options for how to build models using dbt; views and 'incremental tables'; see a full description in the dbt documentation [here](https://docs.getdbt.com/docs/build/materializations).
-In short, views are normal SQL views, and incremental tables are actual tables, which are periodically udpated as new data is created.
+There are two options for building models using DBT: _views_ and _incremental tables_; see a full description [in the DBT documentation](https://docs.getdbt.com/docs/build/materializations).
+In short, views are normal SQL views, and incremental tables are actual tables, which are periodically updated as new data is created.
 
-For cht dbt models, it is generally preferred to start with views; views are always up to date and do not require a full refresh when changed.
-However, it is not possible to index the columns of views, and views built on top of other views can cause performance issues.
+For CHT DBT models, it is generally preferred to start with views. Views are always up to date and do not require a full refresh when changed.
+However, indexing the columns of views is impossible, and views built on top of other views can cause performance issues.
 
-To convert a view to an incremental table, change the materialization to 'incremental' and add a condition to the WHERE clause:
+To convert a view to an incremental table, change the materialization to `incremental` and add a condition to the `WHERE` clause:
 
 ```sql
 {{
