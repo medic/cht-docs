@@ -22,7 +22,7 @@ Boards are:
 
 ## Ticket updates
 For any ticket in a state of "In Progress", there should be visible progress within 24 hours. Some example scenarios include:
-1. A developer has started writing code. This is most likely case and is as easy as linking (draft PRs work great for this!) the code being written to the ticket so observers can see commits being made on a branch. Nobody want's to hassle you about how it's going. Let others self-serve on that.
+1. A developer has started writing code. This is most likely case and is as easy as linking (draft PRs work great for this!) the code being written to the ticket so observers can see commits being made on a branch. Nobody wants to hassle you about how it's going. Let others self-serve on that.
 1. Comments and "thinking out loud" on the ticket, especially when no new code is being pushed up. In such a distributed environment, it's hard to tell the difference between nothing happening and someone thinking through tough stuff. Put some of that tough stuff into a comment on the ticket. It lets others know it's tough and also makes it easier for others to help or learn from.
 1. Work needs to happen, but other things came up. Make a quick comment so others know. It may mean that work won't get done this week, and if that's the case, it is probably for good reason. Silence makes it hard for anyone to understand that "probably for good reason" part though. Help others understand the trade-off you had to make.
 1. Something is blocking progress. First, get that into a comment on the ticket, fast; people can help! Then use additional communication channels to get it unblocked even faster.

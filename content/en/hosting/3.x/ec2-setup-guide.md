@@ -59,7 +59,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 1. Review SSL certificates
     - Location of certs is `/srv/settings/medic-core/nginx/private/`
     - Name the key file is `default.key` and the certificate file is `default.crt`
-    - See [SSL Certficates]({{< relref "hosting/3.x/ssl-cert-install">}}) to install new certificates
+    - See [SSL Certificates]({{< relref "hosting/3.x/ssl-cert-install">}}) to install new certificates
 
 1. Configure couch2pg
     See the [couch2pg basic configuration](https://github.com/medic/cht-couch2pg/blob/main/README.md) in the `cht-couch2pg` repository.

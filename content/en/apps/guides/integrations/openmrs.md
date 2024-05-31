@@ -56,7 +56,7 @@ Here, you need to capture the basic details required for registering a patient o
 `patient_firstName` for first_name,
 `patient_middleName` for middle_name
 
-Another example of patient identifiers could take the form `_IdentiferType_humanReadableName_IdentifierTypeUuid`. For example, national Id identifier type definition would be, `patient_identifierType_nationalId_49af6cdc-7968-4abb-bf46-de10d7f4859f`.
+Another example of patient identifiers could take the form `_IdentifierType_humanReadableName_IdentifierTypeUuid`. For example, national Id identifier type definition would be, `patient_identifierType_nationalId_49af6cdc-7968-4abb-bf46-de10d7f4859f`.
 
 A sample form definition could be as follows:
 
@@ -115,7 +115,7 @@ Here is a sample form snippet followed by sample select list in the choices work
 | begin group                   | group_assessment  | Assessment                         |          |                     |            |            |                     |             |                |      |         |
 | select_one client_consented             | _1710_clientConsented_99DCT             | Has ${patient_name} consented? | yes      |                     |            |            |                     |             |                |      |         |
 | select_multiple disability_type   | _162558_disabilityTypeMULTISELECT_99DCT    | Disability type     | yes      |     |            |            |                     |             |                |      |         |
-| text   | _160632_Specify_99DCT    | Specify (0ther)     | yes      | ${_162558_disabilityTypeMULTISELECT_99DCT} = 'other'    |            |            |                     |             |                |      |         |
+| text   | _160632_Specify_99DCT    | Specify (Other)     | yes      | ${_162558_disabilityTypeMULTISELECT_99DCT} = 'other'    |            |            |                     |             |                |      |         |
 | end group                     |                   |                                    |          |                     |            |            |                     |             |                |      |         |
 
 ##### Choices
@@ -169,7 +169,7 @@ First, the data has to be transformed to an OpenMRS-compatible format before it 
       "1542^OCCUPATION^99DCT": "1538^Farmer^99DCT"
     },
     "discriminator": {
-      "dicriminator": "registration"
+      "discriminator": "registration"
     }
 }
 ```

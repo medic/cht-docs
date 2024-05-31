@@ -62,7 +62,7 @@ The folder and files structure would look like this:
         pwa-icon.svg
 ```
 
-Finally run the command: `cht --url=<intance-url> upload-branding`
+Finally run the command: `cht --url=<instance-url> upload-branding`
 
 #### Using the admin interface
 
@@ -106,7 +106,7 @@ Edit the file with the following content:
         parnerB.png
 ```
 
-Finally run the command: `cht --url=<intance-url> upload-partners`
+Finally run the command: `cht --url=<instance-url> upload-partners`
 
 #### Using the admin interface
 
@@ -151,7 +151,7 @@ We will then add a `header_tabs` key within app_settings with the following stru
 
 The above assumes you have the following resource icons already in your instance (either uploaded or out-of-the-box): `medic-health-center`, `icon-treatment`.
 
-Finally run the command: `cht --url=<intance-url> upload-app-settings`
+Finally run the command: `cht --url=<instance-url> upload-app-settings`
 {{< see-also page="apps/reference/resources" title="Icons" >}}
 
 #### Using the admin interface
@@ -194,7 +194,7 @@ The folder and files structure would look like this:
         medic-person.svg
 
 ```
-Finally run the command: `cht --url=<intance-url> upload-resources`
+Finally run the command: `cht --url=<instance-url> upload-resources`
 
 To modify the icon used in contacts, you will need to edit the icon subkey in app_settings.json (under contact_types). You will modify app_settings.json with the following contents:
 

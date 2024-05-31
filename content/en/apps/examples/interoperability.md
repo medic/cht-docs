@@ -13,7 +13,7 @@ This workflow describes a use case where a health facility or a requesting syste
 
 ## Problem Being Addressed
 
-Data exchange between the CHT and other systems has primarily been at peer-to-peer level. This means that the integration is built to meet the specific need in the unique scenarios. This presents a problem during maintainance and scalability as there are no defined standards that have been used. [Interoperability](https://docs.communityhealthtoolkit.org/apps/concepts/interoperability/) allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
+Data exchange between the CHT and other systems has primarily been at peer-to-peer level. This means that the integration is built to meet the specific need in the unique scenarios. This presents a problem during maintenance and scalability as there are no defined standards that have been used. [Interoperability](https://docs.communityhealthtoolkit.org/apps/concepts/interoperability/) allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
 
 
 ## Solution Overview

@@ -12,7 +12,7 @@ See the [CHT Core Developer Setup guide]({{% ref "contribute/code/core/dev-envir
 
 The Core Framework of the Community Health Toolkit is powered by people like you. Your contributions help us create open source technology for a new model of healthcare that reaches everyone.
 
-The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) section of the forum is a great place to introduce yourself and ask questions. Or you can also jump right in:
+The [Development](https://forum.communityhealthtoolkit.org/c/support/development/7) section of the forum is a great place to introduce yourself and ask questions. Or you can also jump right in:
 
 The CHT community welcomes first-time contributors and experts alike. All comments, questions, and ideas are welcome!
 

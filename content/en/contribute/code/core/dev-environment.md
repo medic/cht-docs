@@ -147,7 +147,7 @@ COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.ym
 
 Now you have everything installed and can begin development! You'll need three separate terminals when doing development. 
 
-In the first terminal we'll compile and deploy the web application by runing:
+In the first terminal we'll compile and deploy the web application by running:
 
 ```shell
 cd ~/cht-core && npm run build-dev-watch

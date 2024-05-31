@@ -105,7 +105,7 @@ To enable death reporting:
 4. View the "place" containing the deceased contact in the contacts tab. The contact will not appear as "deceased"
 5. Sync your documents (this pushes the death report to the server)
 6. Sync your documents again (this pulls down the transitioned contact document from the server)
-7. The contact should now be hidden and accessable only via the "View deceased" flyout
+7. The contact should now be hidden and accessible only via the "View deceased" flyout
 8. If you specified a `date_field` in Step 3, confirm that the `date_of_death` attribute on the deceased contact matches the selected date in the death report.
 9. Create contacts that you **do not expect** to be able to die. View the contact's profiles and confirm the "Death Report" does not show in the "+ New Action" tab.
 
