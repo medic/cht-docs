@@ -45,7 +45,7 @@ This table can be used to get any field from a CouchDB document; however, it is 
 |`doc`| JSON of the source document|
 
 ### `couchdb_lambda_view`
-This is a [lambda view](https://discourse.getdbt.com/t/how-to-create-near-real-time-models-with-just-dbt-sql/1457) with the same structure as the `couchdb` table. It conatains the latest data coming in from CouchDB, and is useful for near-real-time data. However, to take full advantage of it all downstream models built on top of it need to be views. This comes with a few drawbacks such as not being able to index columns, and performance issues when building views on top of views.
+This is a [lambda view](https://discourse.getdbt.com/t/how-to-create-near-real-time-models-with-just-dbt-sql/1457) with the same structure as the `couchdb` table. It contains the latest data coming in from CouchDB, and is useful for near-real-time data. However, to take full advantage of it, all downstream models built on top of it need to be views. This comes with a few drawbacks, such as not being able to index columns and performance issues when building views on top of views.
 
 ### `data_record`
 All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
