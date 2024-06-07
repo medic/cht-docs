@@ -27,9 +27,7 @@ Kubernetes provides advantages in managing CHT Deployments:
 * Helm support and integration that makes it easy to easily deploy applications on to the cluster
 * Highly efficient snapshot backups when used with a storage area network [SAN](https://en.wikipedia.org/wiki/Storage_area_network) or Amazon's [Elastic Block Storage](https://aws.amazon.com/ebs/) (EBS).
 
-The main deployments (components) of a CHT deployment include CHT Sentinel, CHT API, CHT HAProxy Health-check, CHT HAProxy, Upgrade Service and CHT CouchDB Instances.
-
-These components are deployed as k8s pods as:
+The main components of a Kubernetes deployment include:
 
 * A single pod for each couchDB instance.
 * A CHT api pod.
