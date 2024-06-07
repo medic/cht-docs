@@ -41,12 +41,3 @@ Some important questions to consider include:
 
 Basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, database commands(CouchDB, Postgres), networking components(SSL, IP addresses, DNS).
 
-## Best practices when hosting
-
-* Constant software updates
-* Removing unused components
-* Backup and restore options
-* SSL encryption to avoid zero day exploits and other vulnerabilities
-* High performance hardware
-* Monitoring and evaluation of performance - managing high traffic
-* Capacity planning for high performance and utilization
