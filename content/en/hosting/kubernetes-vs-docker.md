@@ -29,11 +29,11 @@ Kubernetes provides advantages in managing CHT Deployments:
 
 The main components of a Kubernetes deployment include:
 
-* A single pod for each couchDB instance.
-* A CHT api pod.
+* A pod for each CouchDB instance.
+* A CHT API pod.
 * A CHT HAProxy Healthcheck pod.
 * A CHT HAProxy pod.
-* Upgrade service pod.
+* Upgrade Service pod.
 * CHT-Sentinel pod.
 
 The typical k8s CHT installation uses a number of API Resources as shown below. 
