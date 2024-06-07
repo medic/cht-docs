@@ -18,12 +18,14 @@ CHT installation can be done using various workflows:
 
 ### K3d CHT Architecture
 
-CHT components have been decomposed into various containers that are orchestrated via docker-compose. However, docker-compose does not provide production grade orchestration. Kubernetes provides various advantages in managing docker containers such as:
+Kubernetes provides advantages in managing CHT Deployments:
 
-* Orchestration of multiple deployments. This ensures that services remain available and any nodes that fail are redeployed and queued.
-* Service discovery: Being able to route public requests to deployments within the cluster 
-* Integration with hypervisors such as VMWare. This is possible due to CRD support in Kubernetes that allows 3rd parties to create integration with k8s.
-* Helm support and integration that makes it easy to easily deploy applications on to the cluster.
+* Resilient network across either physical or VM nodes in the cluster. This allows strong distribution of the heavy CPU and RAM loads that CouchDB can incur under heave use.
+* Orchestration of multiple deployments ensuring to allow easy hosting of multi-tenants. For example you may opt to have a user acceptance testing (UAT), staging and production instances all in one cluster.  
+* Service discovery which  enables to route public requests to deployments within the cluster 
+* Integration with hypervisors such as VMWare and ESX. This is possible due to CRD support in Kubernetes that allows 3rd parties to create integrations
+* Helm support and integration that makes it easy to easily deploy applications on to the cluster
+* Highly efficient snapshot backups when used with a storage area network [SAN](https://en.wikipedia.org/wiki/Storage_area_network) or Amazon's [Elastic Block Storage](https://aws.amazon.com/ebs/) (EBS).
 
 The main deployments (components) of a CHT deployment include CHT Sentinel, CHT API, CHT HAProxy Health-check, CHT HAProxy, Upgrade Service and CHT CouchDB Instances.
 
