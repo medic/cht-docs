@@ -60,3 +60,18 @@ To install a CHT instance,K3d can be used to install it locally, or remotely lik
     ```shell
     cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
     ```
+## Docker Compose
+
+The Docker Compose based CHT Core deployment  was Medic's first attempt to make CHT 4.x cloud native.  The Compose files work quite well for application developer setups on laptops and the like (check out the [Docker Helper]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}})!). Additionally, we have existing published guides on how to deploy single and multi-node Compose based solutions.  For small, low use instances, likely the single node Compose deployments will be fine.  We do not recommend setting up a multi-node deployment on Compose with an overlay network.  Please use Kubernetes instead for a more stable and [horizontally scalable]({{< relref "hosting/vertical-vs-horizontal" >}}) solution.
+
+The Compose documentation here is only for reference until Medic is ready to fully deprecate this content.
+
+Like Kubernetes above, Docker Compose deploys the same services but adds an additional 7th to allow for ingress/egress via a reverse proxy:
+
+* A service for each CouchDB instance.
+* A CHT API service.
+* HAProxy Healthcheck service.
+* HAProxy service.
+* Upgrade Service service.
+* A CHT Sentinel service.
+* An nginx service to act as a reverse proxy and terminate TLS connections
