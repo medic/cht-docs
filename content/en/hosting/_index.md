@@ -7,13 +7,15 @@ description: >
  Guides for hosting, maintaining, and monitoring CHT applications
 ---
 
-Before beggining any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first.
-## Importance of hosting
-Hosting is important as it enables the storage of the application’s data and files on servers and provides remote access. For local hosting, it replicates the user’s experience.
+This section has instructions on how to host the CHT Core starting with the most basic Application Development setup on your laptop for just one developer all the way up to large deployments which include multi-node CouchDB cluster hosted in a Cloud based deployment.
 
-It is important to have development, UAT and production environments to ensure that the application is well tested, development and production data is separated , server components are updated to their new versions and their compatibility and functionality is tested.Failure to properly segregate development, test, and production environments may result in loss of availability, confidentiality, and integrity of data.
+All CHT 3.x deployments have been end of life since November 2023 and are not longer supported. They're [documented]({{< relref "hosting/3.x" >}}) to support deployments that are yet to upgrade to 4.x. 
 
-For most CHT applications, development environments are locally hosted while UAT and dev environments are self-hosted, set up in data centers or cloud hosted.
+New developers to the CHT should start on CHT 4.x with our [Application Developer Hosting]({{< relref "hosting/4.x/app-developer" >}}).
+
+Medic is standardizing production CHT Core hosting on Kubernetes - read up on [Kubernetes vs Docker Compose]({{< relref "hosting/kubernetes-vs-docker" >}}) to understand why.
+
+System administrators looking to deploy CHT into production should understand when to use [single vs multi-node CouchDB]({{< relref "hosting/4.x/self-hosting" >}}) first, then read the [4.x self hosting section]({{< relref "hosting/4.x/self-hosting" >}}) to select a style of hosting that best fits them.
 
 ## Considerations when hosting
 
