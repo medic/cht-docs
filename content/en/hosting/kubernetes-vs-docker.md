@@ -14,7 +14,7 @@ Given all this, we currently recommend:
 * Production 3.x CHT deployments should use [Docker Compose]({{< relref "hosting/3.x" >}})  - Note that 3.x is [end of life]({{< relref "core/releases#supported-versions" >}})  and should only be used to support existing 3.x deployments.
 * All new production 4.x CHT deployments should use [Kubernetes]({{< relref "hosting/4.x/self-hosting" >}})
 
-## Kubernetes/k3s
+## Kubernetes
 
 ### K3d CHT Architecture
 
