@@ -20,7 +20,7 @@ System administrators looking to deploy CHT into production should understand wh
 ## Considerations when hosting
 
 
-Some important questions to consider include: 
+Some important questions to consider when setting up hosting for the CHT: 
 * Alerting - How will alerts be sent in the case of downtime or degraded service?
 * Power failures and unplanned restarts - Will the server cleanly restart such that the CHT resumes service correctly?
 * Backups - What happens to the CHT data if there's a hard drive failure?
