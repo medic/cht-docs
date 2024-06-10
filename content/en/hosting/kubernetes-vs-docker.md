@@ -5,10 +5,14 @@ description: >
  Options for installing CHT applications
 ---
 
-CHT installation can be done using various workflows:
+Since the release of CHT Core 4.0.0 in late 2022, Medic has been perfecting the hosting for the toolkit to balance the need for high uptimes so CHWs can always deliver care while having an easy and approachable technical back end hosting solution.  While initially [Docker Compose](https://docs.docker.com/compose/) with an [overlay network](https://docs.docker.com/compose/networking/#multi-host-networking) was thought to be our goto solution, field testing this overlay networks in production has shown them to unreliable.  
 
-* Docker Compose - This has been available for CHT < 4.x and can been implemented using a docker-compose file. 
-* Kubernetes/k3s installation - CHT installation using k3s k8s distribution is the recommended method for CHT >= 4.x installations.
+As such, on this site you will find documentation for both Docker Compose (known as "Medic OS" in CHT 3.x) and Kubernetes. Medic is in the process of phasing out Docker Compose and will ultimately deprecate it in favor of Kubernetes, including simplified versions like k3s and cloud based solutions like Amazon's [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).
+
+Given all this, we currently recommend:
+* Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker Compose.
+* Production 3.x CHT deployments should use [Docker Compose]({{< relref "hosting/3.x" >}})  - Note that 3.x is [end of life]({{< relref "core/releases#supported-versions" >}})  and should only be used to support existing 3.x deployments.
+* All new production 4.x CHT deployments should use [Kubernetes]({{< relref "hosting/4.x/self-hosting" >}})
 
 ## Kubernetes/k3s
 
