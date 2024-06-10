@@ -29,8 +29,3 @@ Some important questions to consider include:
 * Updates - By definition TLS certificates expire and software needs to be updated - how will the deployment get these updates on a regular basis?
 * Security - While the TLS certificate will protect data on the LAN, is the server hard drive encrypted in the event of property theft?
 * Privacy - The CHT inherently carries sensitive patient medical information in the database. Are there sufficient measures in place to protect this sensitive data?
-
-### Required skills
-
-Basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, database commands(CouchDB, Postgres), networking components(SSL, IP addresses, DNS).
-

@@ -35,31 +35,6 @@ The main components of a Kubernetes deployment include:
 * A CHT HAProxy pod.
 * Upgrade Service pod.
 * CHT-Sentinel pod.
-
-The typical k8s CHT installation uses a number of API Resources as shown below. 
-* Ingress: api-ingress
-* Services/deployments:
-    * Upgrade-service svc maps to upgrade-service deployment.
-    * Couchdb-n maps to cht-couchdb-n deployment.
-    * Healthcheck maps to cht-haproxy-healthcheck deployment.
-    * Haproxy maps to cht-haproxy deployment.
-    * api maps to cht-api deployment.
-* PVC:
-    * couchdb-2-claimn
-
-### K3d installation
-To install a CHT instance,K3d can be used to install it locally, or remotely like on EKS. This can be done following these steps:
-
-* Ensure you have the latest [cht-core code](https://github.com/medic/cht-core).
-* Ensure a python environment has been created and activated.
-* [Configure](https://github.com/medic/cht-core/tree/master/scripts/deploy) the `values.yaml` file to fit the usecase.
-    * Helm is used as a package manager and hosts the `values.yaml` file
-    * The comments on the `values.yaml` file provide guidance on what should be changed for specific use cases.
-    * [Kubectl commands](https://kubernetes.io/docs/reference/kubectl/quick-reference/) can be used to troubleshoot and list available resources
-* Run the `cht-deploy` script.
-    ```shell
-    cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
-    ```
 ## Docker Compose
 
 The Docker Compose based CHT Core deployment  was Medic's first attempt to make CHT 4.x cloud native.  The Compose files work quite well for application developer setups on laptops and the like (check out the [Docker Helper]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}})!). Additionally, we have existing published guides on how to deploy single and multi-node Compose based solutions.  For small, low use instances, likely the single node Compose deployments will be fine.  We do not recommend setting up a multi-node deployment on Compose with an overlay network.  Please use Kubernetes instead for a more stable and [horizontally scalable]({{< relref "hosting/vertical-vs-horizontal" >}}) solution.
