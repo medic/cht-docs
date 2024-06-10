@@ -19,15 +19,6 @@ System administrators looking to deploy CHT into production should understand wh
 
 ## Considerations when hosting
 
-To produce optimal results, increase efficiency and develop structured processes in CHT applications, below are considerations to be made before hosting.
-
-* Current and future storage needs depending on the number of potential users
-* Security needs and protocol considering the sensitivity of health information
-* Availability and reliability
-* Support in case of downtime by setting up various lines of support
-* Disaster recovery and business continuity requirements
-* Cost implications
-* Backup
 
 Some important questions to consider include: 
 * Alerting - How will alerts be sent in the case of downtime or degraded service?
