@@ -32,7 +32,40 @@ Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) pa
 * [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/). 
 
 
-### Self-hosting/Data center setup
+## 3.x and 4.x Docker Compose App Developer Hosting
+
+* 4 GB RAM  / 2 CPU / 8 GB SSD
+* Root Access
+* TLS certificates -  Docker Helper for [3.x]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) or [4.x]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}) provides these  for you.
+* [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
+
+## 3.x Docker Compose Production Hosting
+
+* 32 GB RAM  / 8 CPU / 500 GB SSD*
+* Root Access
+* Static IP with DNS entry
+* TLS certificate
+* [Current version](https://docs.docker.com/engine/install/) of `docker` which includes `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
+
+_\* During some upgrades, up to 3x current space used by CouchDB can be needed_
+
+## 4.x Kubernetes Production Hosting
+
+This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large k3s deployment based on VMWare]({{< relref "4.x/self-hosting/self-hosting-k3s-multinode" >}}). 
+
+Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
+
+* 1 x HA control-plane nodes: 2 GB RAM  / 2 CPU / 20 GB SSD
+* 3 x worker servers: 16 GB RAM  / 8 CPU / 50 GB SSD
+* 500GB storage area network (SAN)* - Will host [Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+* Root Access
+* Static IP with DNS entry - Kubernetes will use this to provision a valid TLS certificate
+* `helm` [application](https://helm.sh/docs/intro/install/)
+* [K3s](https://docs.k3s.io/)
+* [Current version](https://docs.docker.com/engine/install/) of `docker` (used to bootstrap K3s)
+
+_\* During some upgrades, up to 3x current space used by CouchDB can be needed_
+
 
 Minimum Hardware requirements
 * 8 cores and > 8GB RAMs
