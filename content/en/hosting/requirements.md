@@ -1,5 +1,5 @@
 ---
-title: "Requirements"
+title: "CHT hosting requirements"
 linkTitle: "Requirements"
 weight: 1
 aliases:  
