@@ -123,4 +123,4 @@ Docker version 19.03.12, build 48a66213fe
 Finally, confirm you can run the "hello world" docker container: `sudo docker run hello-world`
 
 ## Required skills
-In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, database commands(CouchDB, Postgres), networking components(SSL, IP addresses, DNS).
+In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
