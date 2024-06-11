@@ -16,7 +16,7 @@ For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubun
 {{% /pageinfo %}}
 
 ## CHT hosting options requirements
-### Local hosting
+## 3.x and 4.x Docker Compose App Developer Hosting
 
 Minimum Hardware requirements
 * 4 GiB RAM
