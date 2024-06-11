@@ -31,12 +31,6 @@ Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) pa
 * TLS certificates -  Docker Helper for [3.x]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) or [4.x]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}) provides these  for you.
 * [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/). 
 
-Software requirements
-* A static IP
-* A DNS Entry pointing to the IP
-* TLS certificates
-* Helm version 3.
-* k3d/k3s with at least 1 control node and 1 worker node - for kubernetes installation
 
 ### Self-hosting/Data center setup
 
