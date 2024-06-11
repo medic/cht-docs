@@ -15,7 +15,14 @@ relatedContent: >
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
 {{% /pageinfo %}}
 
-## CHT hosting options requirements
+Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
+
+**Docker Compose**: 
+   * 4.x and 3.x Application developer
+   * 3.x Production.  Note: 3.x is [End-of-Life]({{< relref "core/releases#supported-versions" >}})
+
+**Kubernetes**: 
+   * 4.x Production
 ## 3.x and 4.x Docker Compose App Developer Hosting
 
 Minimum Hardware requirements
