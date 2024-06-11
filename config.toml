@@ -202,6 +202,7 @@ enable = false
 RelPermalink= "communityhealthtoolkit.org"
 
 [related]
+  treshold = 1
   includeNewer = true
   toLower = false
  [[related.indices]]
