@@ -1,5 +1,5 @@
 ---
-title: "Building a User Management tool"
+title: "Building a CHT User Management tool"
 linkTitle: User management tool
 weight: 23
 description: >
@@ -55,7 +55,7 @@ required | boolean | True if the object should not exist without this informatio
 #### ConfigPropertyType
 The `ConfigPropertyType` defines a property's validation rules and auto-formatting rules. The optional `parameter` information alters the behavior of the `ConfigPropertyType`.
 
-| Type      | Validation Rules                                       | Auto Formatting Rules                                               | Validator                                                                                              | parameter     |
+| Type      | Validation Rules                                       | Auto Formatting Rules                                               | Validator                                                                                              | Parameter     |
 |-----------|--------------------------------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------------|
 | string    | Must be defined                                        | Removes double whitespaces, leading or trailing whitespaces, and any character which is not alphanumeric or ` ()\-'` | None                                                                                                   |
 | name      | Must be defined                                        | Same as string + title case + `parameter` behavior                  | One or more regexes which are removed from the value when matched (eg. `"parameter": ["\\sCHU"]` will format `this CHU` into `This`) |
@@ -100,10 +100,3 @@ Variable | Value
 place | Has the attributes from `place_properties.property_name` 
 contact | Has the attributes from `contact_properties.property_name`
 lineage | Has the attributes from `hierarchy.property_name` 
-
-
-6. Develop locally
-7. Deployment
-    a. Set docker environment variables
-8. Publishing new docker images
-
