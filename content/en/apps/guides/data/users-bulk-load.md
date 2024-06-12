@@ -209,7 +209,7 @@ If a user you successfully created can not log in because they see an error:
 
 ![Access denied - You have insufficient privileges to view this page. Talk to an administrator to increase your privileges](access.denied.png)
 
-A possible cause of this is you have a bad role defined in your spreadsheet that doesn't match your configuration.  For example, the the default role should be `chw_supervisor`, but here we see garbage characters were accidentally added.  While the user was created without errors, they'll see the above error when they try to log in:
+A possible cause of this is you have a bad role defined in your spreadsheet that doesn't match your configuration. For example, the the default role should be `chw_supervisor`, but here we see garbage characters were accidentally added.  While the user was created without errors, they'll see the above error when they try to log in:
 
 ![Bad type declared in spreadsheet causes the user to have no role](bad.type.png)
 

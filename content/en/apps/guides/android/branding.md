@@ -63,7 +63,7 @@ If you are going to publish the app in the **Play Store**, Google will require t
 - A background image.
 - Screenshots.
 
-Google is constantly changing the requirments to publish in the Play Store, it's a good practice to check in advance whether all the requirements are met (checkout _[Add preview assets...](https://support.google.com/googleplay/android-developer/answer/9866151)_).
+Google is constantly changing the requirements to publish in the Play Store, it's a good practice to check in advance whether all the requirements are met (checkout _[Add preview assets...](https://support.google.com/googleplay/android-developer/answer/9866151)_).
 
 ##### Test data
 

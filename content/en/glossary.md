@@ -117,7 +117,7 @@ The parts of the software that users see and interact with.
 
 ###### Health Management Team (HMT)
 
-###### Health System Challange (HSC)
+###### Health System Challenge (HSC)
 
 ###### Health Systems Strengthening (HSS)
 

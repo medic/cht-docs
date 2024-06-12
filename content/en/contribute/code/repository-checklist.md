@@ -59,7 +59,7 @@ A: If what you are working on is temporary and just for you then it is fine to c
 A: Repositories should be public unless there is very good reason to make it private (e.g. the repository contains partner details that cannot be disclosed to public). Always keep in mind that it is much easier to start public than change to public later.
 
 ### Q: When to create a new repository vs adding a directory in existing (monolithic)?
-A: It depends on the nature of the code. Some things to consider are: is the new code and the old code dependant, don't make sense on their own, must be versioned together, etc. If not, default to a new repo to reduce complexity.
+A: It depends on the nature of the code. Some things to consider are: is the new code and the old code dependent, don't make sense on their own, must be versioned together, etc. If not, default to a new repo to reduce complexity.
 
 ## More info
 

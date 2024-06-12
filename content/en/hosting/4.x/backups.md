@@ -19,7 +19,7 @@ As CHT 4.x uses a container per service, the only data that needs to be backed u
 * Docker Compose and `.env` files 
 * TLS certificates
 
-This is because Docker containers are inherently stateless so all the important binaries are already stored in [CHT's Docker images](https://gallery.ecr.aws/s5s3h4s7/).  Docker Compose files, including the `.env` file, store all of your deployment's configuration.  Finally, the TLS certificates should be backed up to reduce recovery time.
+This is because Docker containers are inherently stateless so all the important binaries are already stored in [CHT's Docker images](https://gallery.ecr.aws/s5s3h4s7/).  Docker Compose files, including the `.env` file, store all of your deployment's configuration. Finally, the TLS certificates should be backed up to reduce recovery time.
 
 How to backup each of these three pieces of data is covered below.
 
@@ -61,7 +61,7 @@ You should have SSH access to the server with `root` access.
 
 ### Backup software
 
-It's assumed you are using which ever tool you're familiar with which might include [rsync](https://rsync.samba.org/examples.html), [borg](https://borgbackup.readthedocs.io/en/stable/), [duplicity](https://duplicity.gitlab.io/) or other solution.  The locations of the backups should follow the 3-2-1 rule:
+It's assumed you are using which ever tool you're familiar with which might include [rsync](https://rsync.samba.org/examples.html), [borg](https://borgbackup.readthedocs.io/en/stable/), [duplicity](https://duplicity.gitlab.io/) or other solution. The locations of the backups should follow the 3-2-1 rule:
 
 > There should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location. _- [Wikipedia](https://en.wikipedia.org/wiki/Backup)_
 

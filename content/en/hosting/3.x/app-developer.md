@@ -132,7 +132,7 @@ An up-to-date clone of [cht-core](https://github.com/medic/cht-core/) has everyt
 The helper script is run by calling `./cht-docker-compose.sh`.  It accepts one required and one optional arguments:
 
 * `-e | --env-file` - path to the environment file. Required
-* `-d | --docker_action` - docker action to run: `up`, `down` or `destory`. Optional, defaults to `up`
+* `-d | --docker_action` - docker action to run: `up`, `down` or `destroy`. Optional, defaults to `up`
 
 #### Nomenclature
 
@@ -296,8 +296,8 @@ For each internal loop of the script, each one taking 1-5 seconds, a status line
 | Name in log | Note | Example(s) |
 | --------------- | --------------- | --------------- |
 | `item` | which log item this is | `status` |
-| `CHT_count` | number of CHT contianers running for this project. Healthy is `2` | `2` |
-| `port_stat` | Status of the `https` port. Healhty is `open` | `open` or `closed` |
+| `CHT_count` | number of CHT containers running for this project. Healthy is `2` | `2` |
+| `port_stat` | Status of the `https` port. Healthy is `open` | `open` or `closed` |
 | `http_code` | If the `https` port is open by the web server, what `HTTP` response code is returned for a `GET`. Healthy is `200`. If you see `000`, [see workarounds](#booting-with-no-connectivity). |  `200` or `404` |
 | `ssl_verify` | If the `https` port is open by the web server, is the valid `local-ip.medicmobile.org` certificate installed. Healthy is `yes` |  `yes` or `no` |
 | `reboot_count` | How many times `docker restart` has been called. Max is `5` |  `3` |

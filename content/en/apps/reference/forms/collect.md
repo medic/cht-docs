@@ -14,7 +14,7 @@ Collect forms must be in the `forms/collect` folder to be processed by [`cht-con
 XForms require a couple minor changes to be compatible with Medic Collect so that they can properly be received by a Medic instance. The changes can be done either manually in the XForm's XML, or automatically with XLSForm forms using `cht-conf`.
 
 ### Automatic changes with XLSForms
-If using a [XLSForm](http://xlsform.org/) and using [`cht-conf`](https://github.com/medic/cht-conf) to convert to XForm, the necessary fields will be automatically added to the resulting XForm. You can override the default prefix and separator by declaring `sms_keyword` and `sms_seperator` respectively in the Settings tab.
+If using a [XLSForm](http://xlsform.org/) and using [`cht-conf`](https://github.com/medic/cht-conf) to convert to XForm, the necessary fields will be automatically added to the resulting XForm. You can override the default prefix and separator by declaring `sms_keyword` and `sms_separator` respectively in the Settings tab.
 
 ### Manual changes in XForm
 Collect forms need `prefix` and `delimiter` values added to the XForm's XML. This is done where the form ID is declared in the instance's data model. For example, the following:

@@ -132,7 +132,7 @@ This script brings a lot of benefits with it:
 
 To get started using it:
 1. Clone the [CHT Core](https://github.com/medic/cht-core/) repo
-2. When you want to check for updates, just run `git pull orign` in the `cht-core` directory.
+2. When you want to check for updates, just run `git pull origin` in the `cht-core` directory.
 
 If you want a more stand-alone version, you can `curl` the bash script directly, but you can't use `git` to easily update it then:
 

@@ -18,7 +18,7 @@ Some of the suggestions below could be for internal courses and/or material crea
 {{% /alert %}}
 
 ## Exercises
-There is a Slack channel *#exercism* where engineers and tech enthusiats meet and discuss JavaScript and TypeScript exercises from [exercism.org](https://exercism.org/) on a weekly basis. The primary goal of this channel is to discuss with your teammates and have a fun, open discussion on how the provided solutions can be improved, while also having the opportunity to connect with people from other teams. Even though this is optional, it is highly encouraged to join and participate frequently.
+There is a Slack channel *#exercism* where engineers and tech enthusiasts meet and discuss JavaScript and TypeScript exercises from [exercism.org](https://exercism.org/) on a weekly basis. The primary goal of this channel is to discuss with your teammates and have a fun, open discussion on how the provided solutions can be improved, while also having the opportunity to connect with people from other teams. Even though this is optional, it is highly encouraged to join and participate frequently.
 
 ## Technical Resources
 
