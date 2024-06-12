@@ -231,7 +231,7 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 This step will erase the default Maternal & Newborn Health Reference Application. 
 {{% /alert %}}
 
-You can also upload the blank project you created above (via the `cht initilise-project-layout` command).
+You can also upload the blank project you created above (via the `cht initialise-project-layout` command).
 
 Deploy the blank project onto your local test environment with the following command:
 

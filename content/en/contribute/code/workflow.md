@@ -98,7 +98,7 @@ An example of a good thorough comment/template is as follows:
 
 Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) dedicated page).
 
-Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or addding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
+Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or adding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
 
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
 
@@ -198,14 +198,14 @@ Description of the scenario - This is not required for all the tests
 A small description of how it was reproduced, and images or videos that support the comment.
 
 <details>
-<summary>Image/video attached</sumamry>
+<summary>Image/video attached</summary>
 </details>
 
 ### Fixed on `####-branch-name`
 A small description, and images or videos that support the comment.
 
 <details>
-<summary>Image/video attached</sumamry>
+<summary>Image/video attached</summary>
 </details>
 
 ---
@@ -232,14 +232,14 @@ Description of the scenario - This is not required for all the tests
 A small description of how it was reproduced, and images or videos that support the comment.
 
 <details>
-<summary>Image/video attached</sumamry>
+<summary>Image/video attached</summary>
 </details>
 
 ### Not working on `####-branch-name`
 A small description, and images or videos that support the comment.
 
 <details>
-<summary>Image/video attached</sumamry>
+<summary>Image/video attached</summary>
 </details>
 
 ---

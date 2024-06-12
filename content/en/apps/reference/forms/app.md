@@ -264,7 +264,7 @@ The `z-score` function takes four parameters:
 - The name of z-score table to use, which corresponds to value of the database document's `_id` attribute.
 - Patient's sex, which corresponds to the data object's name. In the example below `male` for this parameter corresponds to `charts[].data.male` in the database document.
 - First parameter for the table lookup, such as age. Value maps to the `key` value in the database document.
-- Second parameter for the table lookup, such as height. Value is compared against the `points` in the databae document.
+- Second parameter for the table lookup, such as height. Value is compared against the `points` in the database document.
 
 #### Example Use
 [This example XForm form](https://github.com/medic/cht-core/blob/3.13.x/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:

@@ -52,7 +52,7 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 
 ## Workflow Design
 
-Designing an integrated workflow between mutliple systems is more of an art than a science. Drafting a sequence diagram (below) is a good first step. When drafting your sequence diagram, it is useful to consider a few key integration touchpoints that are common across many integrated workflows.
+Designing an integrated workflow between multiple systems is more of an art than a science. Drafting a sequence diagram (below) is a good first step. When drafting your sequence diagram, it is useful to consider a few key integration touchpoints that are common across many integrated workflows.
 
 1. One system **initiates or triggers an action in** the other system
 2. One system needs to **get information from** the other system

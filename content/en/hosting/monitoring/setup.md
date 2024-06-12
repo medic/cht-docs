@@ -126,13 +126,12 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    cd ~/cht-watchdog
    cp exporters/postgres/sql_servers_example.yml exporters/postgres/sql_servers.yml
    ```
-2. Edit `sql_servers.yml` you just created and add your target postgres connection URL along with the proper root URL for your CHT instance. For example, if your postgres server was `db.example.com`, your CHT instance was `cht.example.com`, your user was `db_user` and your password was `db_password`,  the config would be:
+2. Edit `sql_servers.yml` you just created and add your target postgres connection URL. For example, if your postgres server was `db.example.com`, your user was `db_user` and your password was `db_password`,  the config would be:
    ```yaml
    - targets:
-      "cht.example.com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
-
+      "db-example-com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
    ```
-   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file.
+   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to give each entry a unique name based of the Postgres server (eg `db-example-com` as shown).
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
@@ -143,6 +142,38 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 {{% alert title="Note" %}}
 Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
 {{% /alert %}}
+
+#### couch2pg Data (Remote)
+
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor couch2pg data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
+
+To run a remote instance of only the SQL Exporter on your Postgres server:
+
+1. Clone this repo: `git clone git@github.com:medic/cht-watchdog.git` and `cd` into `cht-watchdog`
+2. Copy `exporters/postgres/sql_servers_example.yml` to `exporters/postgres/sql_servers.yml`
+3. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address and port also, but likely the default values are correct.
+4. Copy `.env.example` to `.env` 
+5. In the new `.env` file, edit `SQL_EXPORTER_IP` to be public IP of the Posgtres server
+6. Start the service with these two compose files*:
+   ```shell
+   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.stand-alone.yml up -d
+   ```
+7. Verify that you see the SQL Exporters metrics:  If `SQL_EXPORTER_IP` was set to `10.220.249.15`, then this would be: `http://10.220.249.15:9399/metrics`. The last line starting with `up{job="db_targets"...` should end in a `1` denoting the system is working. If it ends in `0` - check your docker logs for errors.
+8. On your watchdog instance, create a custom scrape definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
+9. Edit `scrape-custom.yml` so that it has the ip address of `SQL_EXPORTER_IP` from step 7 above.  If that was `10.220.249.15`, then you file would look like:
+   ```yaml
+    scrape_configs:
+      - job_name: sql_exporter
+        static_configs:
+          - targets: ['10.220.249.15:9399']
+   ```
+10. Finally, on your watchdog instance, start (or restart) your server including the `compose.scrape-only.yml` compose file:
+    ```bash
+    docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.scrape-only.yml up -d
+    ```
+   
+
+\* _The `compose.stand-alone.yml` and `compose.scrape-only.yml` compose files override some services.  This is done so that no manual edits are needed to any compose files._ 
 
 #### Prometheus Retention and Storage
 
@@ -191,7 +222,7 @@ Grafana supports sending alerts via a number of different methods. Two likely op
 
 ###### Email
 
-To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.  Then, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
+To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration. Then, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
 
 ###### Slack
 

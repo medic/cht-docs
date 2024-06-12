@@ -9,18 +9,57 @@ aliases: >
   /contribute/code/core/fixing-e2e-tests
 ---
 
+## The goal of automated testing
+Developers should be able to make changes in the codebase quickly and confidently. A big part of this means knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
+
+Of course any new functionality itself may or may not work as expected and it is up to the developer to write the appropriate tests to ensure it works correctly in both expected and unexpected scenarios. Tests should give a developer confidence in their own work, and prior tests should give future developers similar confidence.
+
+Automation of testing should speed up development in two significant areas:
+1. While making changes, new automated tests can be run regularly to ensure (without lots of manual effort) that the changes continue to work as expected
+2. Avoid large amounts of time spent manually performing regression testing of the whole application to ensure existing functionality keeps working
+
+## Test types and expectations
+We seek to have a quality codebase that developers can work on with speed. This means balancing test strategies, quantity, and coverage.
+
+When looking at a well-factored codebase there are three common ways to automate tests (ordered by levels low to high):
+1. Unit tests
+2. Integration tests
+    - Backend integration tests
+    - Frontend integration tests
+3. End-to-end tests
+
 ## Unit Tests
 
-Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. They can use mocking to replicate the behavior of other parts of the system.
+### Description
+Small tests of specific behavior. Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. Any dependencies are often mocked.
 
-Unit tests are located in the `tests` directories of each app  (e.g. in `webapp/tests` you can find unit test for the webapp). Run them locally with: `npm run unit`.
+### Expectations
+High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, you need to evaluate if a lower test should be written.
+
+| Execution Speed     | Complexity | Fragility |
+|------------|---------|---------|
+| Extremely fast | Extremely low | Extremely stable |
+
+### Implementation
+In cht-core unit tests are located in the `tests` directories of each app  (e.g. in `webapp/tests` you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
 
-For us, integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
+### Description
+Tests to exercise how multiple components interact with each other. With a dynamic language like JavaScript these are especially important to verify expectations of interface points. These may mock some parts, but often use the "real" components since the point is to exercise those components together. As a result, these tests likely involve more setup, potentially involving data scenarios.
+
+### Expectations
+Dramatically fewer than unit tests. The goal is not to verify all branches; it is to gain confidence in interface points.
+
+| Execution Speed     | Complexity | Fragility |
+|------------|---------|---------|
+| Fast execution, but slower startup when working with a DB | Mid-to-high. Things can get complex fast when combining parts! | Mostly stable. Fragility risks tend to come from DB setup. |
+
+### Implementation
+For us, backend integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
 We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
-Integration tests are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
+**Backend integration tests** are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
 ```mermaid
 flowchart LR
@@ -44,14 +83,28 @@ flowchart LR
     integration-tests <--Pouch/HTTPS--> cht-e2e
 ```
 
+**Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
+
+Frontend integration tests are located in `tests/integration`. To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
+
 ## E2E Tests
 
+### Description
+Tests that simulate real user experiences to validate the complete system. You can think of e2e test as the user main workflows when using the system.
+
+### Expectations
+ E2e tests give us the most confidence to decide if the feature is working, but must only check the parts of code that the lower-level tests can't cover. We should push the testing levels as far down as possible.
+
+| Execution Speed     | Complexity | Fragility |
+|------------|---------|---------|
+| Slow. So please make sure to check existent tests and maybe just add extra assertions or minor changes instead of directly adding a specific e2e test for your new change. Also, make sure your code is performant. | Low for the test itself (click tab, enter text into form, click submit, check text on screen. Extremely high for the setup.  | Painful fragility with high risk of race conditions and high maintenance burden. Please ensure your code is clean, organized, and utilizes effective selectors.  |
+
+### Implementation
 Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.
 
 End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
 
 - `npm run wdio-local` to run the tests for the default config
-- `npm run wdio-standard-local` to run the tests for the standard config
 - `npm run wdio-default-mobile-local` to run the mobile tests
 
 ```mermaid
@@ -90,9 +143,9 @@ End to end (e2e) tests can be really difficult to debug - sometimes they fail se
 
 Setting the `DEBUG` environment variable (e.g. `DEBUG=true npm run wdio-local`) when running the tests locally will do the following:
 
-- Run the browser without the `headless` flag (details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
+- Run the browser without the `headless` flag (details [in the `wdio.conf` file](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
 - Increase the test timeout from 2 minutes to 10 minutes
-- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L177))
+- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [in the `wdio.conf` file](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L177))
 - Prevent the `cht-e2e` Docker containers from being torn down after the test finishes
 
 #### Read the logs
@@ -114,7 +167,7 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 
 #### Watching the test run
 
-Running the tests locally with `npm run wdio-local` or `npm run standard-wdio-local` will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+Running the tests locally (e.g. with `npm run wdio-local`) will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
 
 #### Running the upgrade e2e test locally
 

@@ -27,7 +27,7 @@ These considerations are summarized below.
 The CHT relies on your Place hierarchy to determine how data should be aggregated for DHIS2. As such, it’s important that you consider how organization units are configured in the DHIS2 instance that you need to integrate data into. If your CHT Place hierarchy does not align with the DHIS2 organisation unit structure, the CHT will not be able to aggregate data in the way DHIS2 needs it.
 
 {{% alert title="Note" %}}
-There should be a one-to-one relationship between DHIS2 organistion units and CHT places.
+There should be a one-to-one relationship between DHIS2 organisation units and CHT places.
 {{% /alert %}}
 
 

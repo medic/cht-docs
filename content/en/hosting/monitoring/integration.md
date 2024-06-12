@@ -39,7 +39,7 @@ mon_api --> json
 
 ### Additional Flows
 
-Your Prometheus instance from CHT Watchog can ingest data from any [supported data source](https://prometheus.io/docs/instrumenting/exporters/) accessible via an HTTPS request. These data sources might be hosted on the same server as CHT Core or on a completely different server. 
+Your Prometheus instance from CHT Watchdog can ingest data from any [supported data source](https://prometheus.io/docs/instrumenting/exporters/) accessible via an HTTPS request. These data sources might be hosted on the same server as CHT Core or on a completely different server. 
 
 The focus of this guide is to collect metrics on Docker container usage and performance from the server hosting our CHT Core instance using [cAdvisor](https://prometheus.io/docs/guides/cadvisor/).
 
@@ -72,7 +72,7 @@ While this is a specific example for cAdvisor, these same steps will be taken to
 2. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core]({{< relref "#start-cadvisor-caddy-and-cht-core-with-docker" >}})
 3. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
 4. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
-5. CHT Watchdog: [Importing an exising cAdvisor dashboard from `grafana.com`]({{< relref "#on-cht-watchdog-import-grafana-dashboard" >}})
+5. CHT Watchdog: [Importing an existing cAdvisor dashboard from `grafana.com`]({{< relref "#on-cht-watchdog-import-grafana-dashboard" >}})
 
 After completing these steps, we now have Docker metrics we can alert on:
 
@@ -154,7 +154,7 @@ docker stop $(docker ps --quiet)
 docker compose up --detach
 ```
 
-Note that the CHT Upgrade Service will process all Docker Compose file in the `/home/ubuntu/cht/compose` directory for us and we don't need to explicity specify them in the `docker compose up` command.
+Note that the CHT Upgrade Service will process all Docker Compose file in the `/home/ubuntu/cht/compose` directory for us and we don't need to explicitly specify them in the `docker compose up` command.
 
 ### On CHT Watchdog
 

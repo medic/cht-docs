@@ -16,7 +16,7 @@ Community led implementations emphasize on the importance of collaboration, loca
 
 **Research initiatives, innovations and studies**
 
-Through human centered design, research institutions and academia design, test, refine and deploy open source digital health innovations which are based on the CHT or other mature open source technologies. These innovations ultimately contribute knowlegde through publications. These implementations incubate and test concepts or interventions before large scale implementation. They run for a limited time and often have pre-determined objectives. 
+Through human centered design, research institutions and academia design, test, refine and deploy open source digital health innovations which are based on the CHT or other mature open source technologies. These innovations ultimately contribute knowledge through publications. These implementations incubate and test concepts or interventions before large scale implementation. They run for a limited time and often have pre-determined objectives. 
 
 ## Considerations for digital health implementations
 To run a successful digital health implementation, the following considerations are made:
@@ -41,12 +41,12 @@ CHT implementations follow a process from beginning to end in order to deliver a
 Various people interact with CHT implementations at various stages. The list below may not be exhaustive but highlights bare minimum requirements for a successful implementation. In some cases, personas may have overlapping roles.
 - Project managers - They may also be referred to as program heads or program leads. They are involved in planning, coordinating and overseeing digital health projects. Although they oversee the entire implementation, they interact with the CHT implementation more closely during the implementation and evaluation stages.
 - Designers - They include service designers, user experience/user interface designers, product designers, graphic designers among others. Designers interact with CHT implementations during the design phase. They carry out field immersion visits to gather technical requirements from the prospective end users, program leads at MoH, policy makers among others. The technical requirements gathered inform the final application. Product and UI/UX designers are involved in the design and evaluation phases to explore opportunities for improvement and user experience optimization.
-- Developers - they include app developers, core developers and software developers who are invloved in the building stage. App developers build custom applications based on the CHT core. These apps are composed of application and contact forms, application settings among other configurations. Core developers contribute to the [CHT Core framework]({{< ref "core" >}}) that powers the mobile apps.
-- System administrators - they include database administators, security engineers, site reliability engineers, devOps engineers and network managers. They are responsible for configuration of computers, servers, databases, pipelines and infrastructure of CHT applications, monitoring health status of the infrastructure and application such as performance, server resources utilization, and  uptime. They interact with CHT implementations at the planning, hosting and support stages.
+- Developers - they include app developers, core developers and software developers who are involved in the building stage. App developers build custom applications based on the CHT core. These apps are composed of application and contact forms, application settings among other configurations. Core developers contribute to the [CHT Core framework]({{< ref "core" >}}) that powers the mobile apps.
+- System administrators - they include database administrators, security engineers, site reliability engineers, devOps engineers and network managers. They are responsible for configuration of computers, servers, databases, pipelines and infrastructure of CHT applications, monitoring health status of the infrastructure and application such as performance, server resources utilization, and  uptime. They interact with CHT implementations at the planning, hosting and support stages.
 - Technical support team - they include information communication and technology (ICT) officers and monitoring & evaluation officers. ICT officers are responsible for mobile device testing, application installation and technical assistance for issues experienced by end users post deployment. Monitoring & Evaluation officers are responsible for monitoring project indicators performance, impact evaluation, data analysis and reporting. They interact with CHT implementations at the design and support stages.
-- Researchers - they include Data Scientists, UX researchers and research scientists. They integrate research aspects such as implememtation research into the project cycle to test hypothesis. They are involved through out the project cycle.
+- Researchers - they include Data Scientists, UX researchers and research scientists. They integrate research aspects such as implementation research into the project cycle to test hypothesis. They are involved through out the project cycle.
 
-Incase an implementing partner does not have the expertise listed above, the CHT has a robust network of technical partners who have built CHT applications and have a deep understanding of how CHT implementations work.
+In case an implementing partner does not have the expertise listed above, the CHT has a robust network of technical partners who have built CHT applications and have a deep understanding of how CHT implementations work.
 
 ## Running successful community health implementations
 Digital health implementations do no exist in silos. To be successful, there are other critical enablers to be aware of and champion for;
@@ -65,7 +65,7 @@ Community health workers deliver essential health services to the last mile to i
 For CHT implementations to be successful and sustainable, the following requirements are integral.
 
 - Privacy and protection of user and client data
-- Routine monitoring and evalution to identify and resolve issues on time
+- Routine monitoring and evaluation to identify and resolve issues on time
 - Data backups
 - Redundancy
 - Regular CHT upgrades to benefit from new features and performance improvements

@@ -56,7 +56,7 @@ Returns the settings in JSON format.
 
 | Variable | Description                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------- |
-| overwrite  | Whether to replace settings document with input document. If both replace and overwite are set, then it overwites only. Defaults to replace. |
+| overwrite  | Whether to replace settings document with input document. If both replace and overwrite are set, then it overwrites only. Defaults to replace. |
 | replace  | Whether to replace existing settings for the given properties or to merge. Defaults to false (merging). |
 
 Returns a JSON object with two fields:
