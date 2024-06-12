@@ -17,6 +17,8 @@ Medic is standardizing production CHT Core hosting on Kubernetes - read up on [K
 
 System administrators looking to deploy CHT into production should understand when to use [single vs multi-node CouchDB]({{< relref "hosting/4.x/self-hosting" >}}) first, then read the [4.x self hosting section]({{< relref "hosting/4.x/self-hosting" >}}) to select a style of hosting that best fits them.
 
+Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first.
+
 ## Considerations when hosting
 
 
