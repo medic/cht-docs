@@ -23,14 +23,6 @@ Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) pa
 
 **Kubernetes**: 
    * 4.x Production
-## 3.x and 4.x Docker Compose App Developer Hosting
-
-
-* 4 GB RAM  / 2 CPU / 8 GB SSD
-* Root Access
-* TLS certificates -  Docker Helper for [3.x]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) or [4.x]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}) provides these  for you.
-* [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/). 
-
 
 ## 3.x and 4.x Docker Compose App Developer Hosting
 
