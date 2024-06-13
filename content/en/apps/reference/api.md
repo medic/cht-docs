@@ -517,9 +517,9 @@ Returns a person's data in JSON format.
 
 #### Query parameters
 
-| Name         | Required | Description                                                                   |
-|--------------|----------|-------------------------------------------------------------------------------|
-| with_lineage | false    | If "true", the person's parent lineage will be included in the returned data. |
+| Name         | Required | Description                                                                                       |
+|--------------|----------|---------------------------------------------------------------------------------------------------|
+| with_lineage | false    | If "true", the person's parent lineage will be included in the returned data. Default is "false". |
 
 #### Examples
 
