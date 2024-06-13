@@ -722,9 +722,9 @@ Returns a place's data in JSON format.
 
 #### Query parameters
 
-| Name         | Required | Description                                                                   |
-|--------------|----------|-------------------------------------------------------------------------------|
-| with_lineage | false    | If "true", the place's parent lineage will be included in the returned data.  |
+| Name         | Required | Description                                                                                    |
+|--------------|----------|------------------------------------------------------------------------------------------------|
+| with_lineage | false    | If "true", the place's parent lineage will be included in the returned data. Default is "false". |
 
 #### Examples
 
