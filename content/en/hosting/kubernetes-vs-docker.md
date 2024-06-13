@@ -16,8 +16,6 @@ Given all this, we currently recommend:
 
 ## Kubernetes
 
-### K3d CHT Architecture
-
 Kubernetes provides advantages in managing CHT Deployments:
 
 * Resilient network across either physical or VM nodes in the cluster. This allows strong distribution of the heavy CPU and RAM loads that CouchDB can incur under heave use.
