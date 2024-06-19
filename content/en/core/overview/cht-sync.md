@@ -21,18 +21,14 @@ Read more about setting up [setting up CHT Sync]({{< relref "apps/guides/data/an
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
 {{< figure src="cht-sync.png" link="cht-sync.png" class=" center col-16 col-lg-12" >}}
 
-[CHT Sync](https://github.com/medic/cht-sync) uses [Logstash](https://www.elastic.co/logstash/) and [PostgREST](https://postgrest.org/en/stable/) to replicate data from CouchDB to PostgreSQL in a real-time manner. It listens to changes in the CHT database, and updates the analytics database accordingly.
+[CHT Sync](https://github.com/medic/cht-sync) uses `couch2pg` to replicate data from CouchDB to PostgreSQL in a real-time manner. It listens to changes in the CHT database, and updates the analytics database accordingly.
 It is not designed to be accessed by users, and it does not have a user interface. It is designed to be run on the same server as the CHT, but it can be run on a separate server if necessary. 
 
 As CHT Sync puts all new data into a PostgreSQL database into a single table that has a `jsonb` column, this is not very useful for analytics. [CHT Pipeline](https://github.com/medic/cht-pipeline) is a set of SQL queries that transform the data in the `jsonb` column into a more useful format. It uses [DBT](https://www.getdbt.com/) to define the models that are translated into PostgreSQL tables or views, which makes it easier to query the data in the analytics platform of choice. 
 
-#### Logstash
+#### couch2pg
 
-[Logstash](https://www.elastic.co/logstash/) streams data from CouchDB and forwards it to [PostgREST](https://postgrest.org/en/stable/), ensuring real-time updates in PostgreSQL.
-
-#### PostgREST
-
-[PostgREST](https://postgrest.org/en/stable/) acts as a RESTful API layer, by providing endpoints to store and retrieve the data in/from the PostgreSQL database.
+[couch2pg](https://github.com/medic/cht-sync/tree/main/couch2pg) streams data from CouchDB and forwards it to PostgreSQL, ensuring real-time updates.
 
 #### PostgreSQL
 
