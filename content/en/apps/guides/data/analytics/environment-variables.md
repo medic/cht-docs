@@ -7,9 +7,9 @@ description: >
 ---
 
 There are three environment variable groups in the `.env` file. To successfully set up CHT Sync, it is important to understand the difference between them.
-1. `POSTGRES_`: Used by PostgREST and PostgreSQL to establish the PostgreSQL database to synchronize CouchDB data to. They also define the schema and table names to store the CouchDB data. The main objective is to define the environment where the raw CouchDB data will be copied.
+1. `POSTGRES_`: Used by PostgreSQL to establish the PostgreSQL database to synchronize CouchDB data to. They also define the schema and table names to store the CouchDB data. The main objective is to define the environment where the raw CouchDB data will be copied.
 2. `DBT_`: Exclusive to the DBT configuration. The main objective is to define the environment where the tables and views for the models defined in `CHT_PIPELINE_BRANCH_URL` will be created. It is important to separate this environment from the previous group. `DBT_POSTGRES_SCHEMA` must be different from `POSTGRES_SCHEMA`. `DBT_POSTGRES_HOST` has to be the Postgres instance created with the environment variables set in the first group.
-3. `COUCHDB_`: Used by CouchDB and Logstash to define the CouchDB instance to sync with. With `COUCHDB_DBS`, we can specify a list of databases to sync.
+3. `COUCHDB_`: Used by CouchDB to define the CouchDB instance to sync with. With `COUCHDB_DBS`, we can specify a list of databases to sync.
 
 All the variables in the `.env` file:
 
