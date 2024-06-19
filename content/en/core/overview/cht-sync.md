@@ -19,7 +19,7 @@ Read more about setting up [setting up CHT Sync]({{< relref "apps/guides/data/an
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-{{< figure src="cht-sync.png" link="cht-sync.png" class=" center col-16 col-lg-12" >}}
+{{< figure src="cht-sync.png" link="cht-sync.png" class=" center col-8 col-lg-6" >}}
 
 [CHT Sync](https://github.com/medic/cht-sync) uses `couch2pg` to replicate data from CouchDB to PostgreSQL in a real-time manner. It listens to changes in the CHT database, and updates the analytics database accordingly.
 It is not designed to be accessed by users, and it does not have a user interface. It is designed to be run on the same server as the CHT, but it can be run on a separate server if necessary. 
