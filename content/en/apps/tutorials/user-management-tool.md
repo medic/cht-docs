@@ -1,5 +1,5 @@
 ---
-title: "Building a CHT User Management tool"
+title: "Configuring the CHT User Management tool"
 linkTitle: User management tool
 weight: 23
 description: >
@@ -100,3 +100,44 @@ Variable | Value
 place | Has the attributes from `place_properties.property_name` 
 contact | Has the attributes from `contact_properties.property_name`
 lineage | Has the attributes from `hierarchy.property_name` 
+
+### Deployment
+This tool is available via Docker by running `docker compose up`. Set the [Environment Variables](#environment-variables).
+
+## Development
+Create an environment file by `cp env.example .env`. Change `INTERFACE` to `127.0.0.1` and otherwise see [Environment Variables](#environment-variables) for more info.
+
+Then run:
+
+```
+npm run dev
+```
+
+or
+
+```
+npm run build
+npm start
+```
+
+## Environment Variables
+
+The `env.example` file has example values.  Here's what they mean:
+
+Variable | Description | Sample
+-- | -- | --
+`CONFIG_NAME` | Name of the configuration to use | `chis-ke`
+`EXTERNAL_PORT` | Port to use in docker compose when starting the web server | `3000`
+`PORT` | For localhost development environment | `3000`
+`COOKIE_PRIVATE_KEY` | A string used to two-way encryption of cookies. Production values need to be a secret. Suggest `uuidgen` to generate | `589a7f23-5bb2-4b77-ac78-f202b9b6d5e3`
+`INTERFACE` | Interface to bind to. Leave as '0.0.0.0' for prod, suggest '127.0.0.1' for development | `127.0.0.1`
+`CHT_DEV_URL_PORT` | CHT instance when in `NODE_ENV===dev`. Needs URL and port | `192-168-1-26.local-ip.medicmobile.org:10463`
+`CHT_DEV_HTTP` |  'false' for http  'true' for https | `false`
+
+## Publishing new docker images
+
+Docker images are hosted on [AWS's Elastic Container Registry (ECR)](https://gallery.ecr.aws/medic/cht-user-management). To publish a new version:
+
+1. Update the [version string](https://github.com/medic/cht-user-management/blob/d992d5d6a911cdc21f610fa48a0ffb3e275bae0d/package.json#L3) in the `package.json`.
+2. Submit a PR and have it merged to `main`. 
+3. [Existing CI](https://github.com/medic/cht-user-management/blob/main/.github/workflows/docker-build.yml) will push an image to ECR.
