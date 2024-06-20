@@ -26,7 +26,7 @@ npm ci
 The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
 {{% /alert %}}
 
-### Run CHT Sync services locally
+### Run all CHT Sync services locally
 This setup involves starting couch2pg, PostgreSQL, pgAdmin, DBT, and CouchDB.
 
 Run the Docker containers and wait for every container to be up and running:
@@ -61,7 +61,7 @@ You can verify this command worked by running `docker ps`. It should show 2 cont
 ### Cleanup
 When you are done using the services, you can clean everything by running `down`.
 
-For example, in the scenario of the [Sample CouchDB data]({{< relref "#sample-couchdb-data" >}}), the command should look like:
+For example, in the scenario of [running all CHT Sync services]({{< relref "#run-all-cht-sync-services-locally" >}}), the command should look like:
 
 ```sh
 docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml down
