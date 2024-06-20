@@ -17,11 +17,6 @@ These instructions assume you're running CHT Sync, CHT Core and PostgreSQL eithe
 
 Copy the values in `env.template` file to the `.env` file. For more information, see the references on the [Environment variables page]({{< relref "apps/guides/data/analytics/environment-variables" >}}).
 
-Install the dependencies:
-```sh
-npm ci
-```
-
 {{% alert title="Note" %}}
 The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
 {{% /alert %}}
