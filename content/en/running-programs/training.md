@@ -97,7 +97,7 @@ There are a number of training methods that can be used to train end users. Blen
 
 
 ## Post training activities
-Each day after the training, Facilitators should conduct training evaluation to discuss what went well and the areas they need to improve on for the subsequent training days. After the completion of the training, ministries of health, implementing partners and CHT users agree on a date when the project can go live. Below are the critical activities that take place before go-live.
+After every day of training, facilitators should conduct training evaluation to discuss what went well and the areas to improve on the subsequent training days. After the completion of the training, ministries of health, implementing partners and CHT users agree on a date when the project can go live. Below are the critical activities that take place before go-live.
 * Participants are informed when the project will go live. In most cases, the project goes live a few weeks after the training
 * Participants are trained on how to install the production application
 * Paricipants are reminded to uninstall the training application
