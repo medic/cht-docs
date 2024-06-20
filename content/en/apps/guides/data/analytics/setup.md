@@ -19,7 +19,7 @@ Copy the values in `env.template` file to the `.env` file. For more information,
 
 Install the dependencies:
 ```sh
-npm install
+npm ci
 ```
 
 {{% alert title="Note" %}}
