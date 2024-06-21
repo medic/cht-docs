@@ -712,7 +712,7 @@ Content-Type: application/json
 
 ### GET /api/v1/place/{{uuid}}
 
-*Added in 4.9.0*
+*Added in 4.10.0*
 
 Returns a place's data in JSON format.
 
