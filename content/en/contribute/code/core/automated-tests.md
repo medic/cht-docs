@@ -28,6 +28,8 @@ When looking at a well-factored codebase there are three common ways to automate
     - Frontend integration tests
 3. End-to-end tests
 
+**Note:** All the commands to execute the different tests can be found in [package.json](https://github.com/medic/cht-core/blob/master/package.json) file.
+
 ## Unit Tests
 
 ### Description
@@ -41,7 +43,7 @@ High coverage of functionality. If measured in branch coverage percentage,  aim 
 | Extremely fast | Extremely low | Extremely stable |
 
 ### Implementation
-In cht-core unit tests are located in the `tests` directories of each app  (e.g. in `webapp/tests` you can find unit test for the webapp). Run them locally with: `npm run unit`.
+In cht-core unit tests are located in the `tests` directories of each app  (e.g. in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
 
@@ -59,7 +61,7 @@ Dramatically fewer than unit tests. The goal is not to verify all branches; it i
 For us, backend integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
 We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
-**Backend integration tests** are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
+**Backend integration tests** are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
 ```mermaid
 flowchart LR
@@ -85,7 +87,7 @@ flowchart LR
 
 **Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
 
-Frontend integration tests are located in `tests/integration`. To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
+Frontend integration tests are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
 
 ## E2E Tests
 
@@ -141,11 +143,11 @@ End to end (e2e) tests can be really difficult to debug - sometimes they fail se
 
 #### Set the `DEBUG` flag
 
-Setting the `DEBUG` environment variable (e.g. `DEBUG=true npm run wdio-local`) when running the tests locally will do the following:
+Setting the `DEBUG` environment variable (e.g. [`DEBUG=true npm run wdio-local`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L103)) when running the tests locally will do the following:
 
-- Run the browser without the `headless` flag (details [in the `wdio.conf` file](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
+- Run the browser without the `headless` flag (details in the [`wdio.conf`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L35) file), so the browser will be displayed when running the tests
 - Increase the test timeout from 2 minutes to 10 minutes
-- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [in the `wdio.conf` file](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L177))
+- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details in the [`wdio.conf`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L198)file)
 - Prevent the `cht-e2e` Docker containers from being torn down after the test finishes
 
 #### Read the logs
@@ -163,7 +165,7 @@ There are logs and screenshots stored in the allure reports. [Here](https://gith
 
 #### Running just the failing test
 
-Running e2e tests can be quite slow so to save time modify the `specs` property of `/tests/e2e/**/wdio.conf.js` so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
+Running e2e tests can be quite slow so to save time modify the `specs` property of [`/tests/e2e/**/wdio.conf.js`](https://github.com/medic/cht-core/blob/master/tests/e2e/default/wdio.conf.js#L7) so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
 
 #### Watching the test run
 
