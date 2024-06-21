@@ -93,6 +93,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 
 ### 4.x
 
+- [4.9.0]({{% ref "core/releases/4.9.0.md" %}})
 - [4.8.1]({{% ref "core/releases/4.8.1.md" %}})
 - [4.8.0]({{% ref "core/releases/4.8.0.md" %}})
 - [4.7.2]({{% ref "core/releases/4.7.2.md" %}})
