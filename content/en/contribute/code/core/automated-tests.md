@@ -28,6 +28,8 @@ When looking at a well-factored codebase there are three common ways to automate
     - Frontend integration tests
 3. End-to-end tests
 
+**Note:** All the commands to execute the different tests can be found in [package.json](https://github.com/medic/cht-core/blob/master/package.json) file.
+
 ## Unit Tests
 
 ### Description
@@ -41,7 +43,7 @@ High coverage of functionality. If measured in branch coverage percentage,  aim 
 | Extremely fast | Extremely low | Extremely stable |
 
 ### Implementation
-In cht-core unit tests are located in the `tests` directories of each app  (e.g. in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: [`npm run unit`](https://github.com/medic/cht-core/blob/master/package.json#L42).
+In cht-core unit tests are located in the `tests` directories of each app  (e.g. in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
 
@@ -59,7 +61,7 @@ Dramatically fewer than unit tests. The goal is not to verify all branches; it i
 For us, backend integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
 We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
-**Backend integration tests** are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). Run them locally with [`npm run integration-all-local`](https://github.com/medic/cht-core/blob/master/package.json#L33) and [`npm run integration-sentinel-local`](https://github.com/medic/cht-core/blob/master/package.json#L34).
+**Backend integration tests** are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
 ```mermaid
 flowchart LR
@@ -85,7 +87,7 @@ flowchart LR
 
 **Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
 
-Frontend integration tests are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). To run them locally you need to build a cht-form Web Component with [`npm run build-cht-form`](https://github.com/medic/cht-core/blob/master/package.json#L26) and [`npm run integration-cht-form`](https://github.com/medic/cht-core/blob/master/package.json#L38) to run the web component tests.
+Frontend integration tests are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
 
 ## E2E Tests
 
@@ -104,8 +106,8 @@ Our end-to-end tests are designed to test the entire system as a whole. They int
 
 End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
 
-- [`npm run wdio-local`](https://github.com/medic/cht-core/blob/master/package.json#L53) to run the tests for the default config
-- [`npm run wdio-default-mobile-local`](https://github.com/medic/cht-core/blob/master/package.json#L52) to run the mobile tests
+- `npm run wdio-local` to run the tests for the default config
+- `npm run wdio-default-mobile-local` to run the mobile tests
 
 ```mermaid
 flowchart LR
@@ -167,7 +169,7 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 
 #### Watching the test run
 
-Running the tests locally (e.g. with [`npm run wdio-local`](https://github.com/medic/cht-core/blob/master/package.json#L53)) will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+Running the tests locally (e.g. with `npm run wdio-local`) will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
 
 #### Running the upgrade e2e test locally
 
@@ -181,7 +183,7 @@ To run the upgrade e2e tests in your local environment, follow these steps:
     - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`.
     - `export STAGING_SERVER=_couch/builds_4`.
     - `export BRANCH=<your branch name>`.
-- Run the upgrade e2e tests: [`npm run upgrade-wdio`](https://github.com/medic/cht-core/blob/master/package.json#L65)
+- Run the upgrade e2e tests: `npm run upgrade-wdio`
 
 If you experience errors such as:
 
