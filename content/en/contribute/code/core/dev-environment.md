@@ -26,7 +26,7 @@ First, update your current packages and install some supporting tools:
 
 _(Node {{< param nodeVersion >}} is the environment used to run the CHT server in production, so this is the recommended version of Node to use for development.)_
 
-{{< tabpane persistLang=false lang=shell >}}
+{{< tabpane persist=false lang=shell >}}
 {{< tab header="Linux (Ubuntu)" >}}
 sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install xsltproc curl uidmap jq python2 git make g++
