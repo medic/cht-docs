@@ -17,33 +17,20 @@ For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubun
 
 Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
 
-**Docker Compose**: 
-   * 4.x and 3.x Application developer
-   * 3.x Production.  Note: 3.x is [End-of-Life]({{< relref "core/releases#supported-versions" >}})
+CHT 3.x is [End-of-Life]({{< relref "core/releases#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
 
-**Kubernetes**: 
-   * 4.x Production
-
-## 3.x and 4.x Docker Compose App Developer Hosting
+## Docker Compose App Developer Hosting
 
 * 4 GB RAM  / 2 CPU / 8 GB SSD
 * Root Access
 * TLS certificates -  Docker Helper for [3.x]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) or [4.x]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}) provides these  for you.
 * [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 
-## 3.x Docker Compose Production Hosting
 
-* 32 GB RAM  / 8 CPU / 500 GB SSD*
-* Root Access
-* Static IP with DNS entry
-* TLS certificate
-* [Current version](https://docs.docker.com/engine/install/) of `docker` which includes `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 
-_\* During some upgrades, up to 3x current space used by CouchDB can be needed_
+## Kubernetes Production Hosting
 
-## 4.x Kubernetes Production Hosting
-
-This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large k3s deployment based on VMWare]({{< relref "4.x/self-hosting/self-hosting-k3s-multinode" >}}). 
+This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/self-hosting/self-hosting-k3s-multinode" >}}). 
 
 Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
 
