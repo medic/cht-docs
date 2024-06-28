@@ -25,7 +25,7 @@ The following activities should be performed in order, by all trio members:
 
 ## Ideate
 
-* **Story mapping**: Brainstorm different ways we might achieve our desired outcome
+* **Story mapping**: Brainstorm different ways we might achieve our desired outcome by arranging user stories to outline how they fit into the overall user experience from the first interaction to completing the overall user objective. 
 * **Choose solution**: Discuss story maps, vote for the solution that is likeliest to achieve desired outcome
 * **Validate with product leadership**: Loop in product leadership for gut check and to ensure full alignment
 
