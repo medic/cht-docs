@@ -708,6 +708,120 @@ Content-Type: application/json
 }
 ```
 
+## Place
+
+### GET /api/v1/place/{{uuid}}
+
+*Added in 4.10.0*
+
+Returns a place's data in JSON format.
+
+#### Permissions
+
+`can_view_contacts`
+
+#### Query parameters
+
+| Name         | Required | Description                                                                                    |
+|--------------|----------|------------------------------------------------------------------------------------------------|
+| with_lineage | false    | If "true", the place's parent lineage will be included in the returned data. Default is "false". |
+
+#### Examples
+
+Get a place by uuid:
+
+```
+GET /api/v1/place/d9153705-4574-43c3-b945-71aa2164d1d6
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+	"_id": "d9153705-4574-43c3-b945-71aa2164d1d6",
+	"_rev": "2-5f5fde4a8def0f40f89bd164d93bed4f",
+	"parent": {
+		"_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+	},
+	"type": "health_center",
+	"name": "Example Health Center",
+	"contact": {
+		"_id": "f512e1d8-841b-4bc1-8154-b6794755f45b",
+		"parent": {
+			"_id": "d9153705-4574-43c3-b945-71aa2164d1d6",
+			"parent": {
+				"_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+			}
+		}
+	},
+	"reported_date": 1708453778059,
+	"place_id": "17437"
+}
+```
+
+Get a place by uuid with lineage:
+
+```
+GET /api/v1/place/d9153705-4574-43c3-b945-71aa2164d1d6?with_lineage=true
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+	"_id": "d9153705-4574-43c3-b945-71aa2164d1d6",
+	"_rev": "2-5f5fde4a8def0f40f89bd164d93bed4f",
+	"parent": {
+		"_id": "b935ef10-0339-4263-99fc-34d4f8d72891",
+		"_rev": "2-bdea703bfec184085c31a6bab022764f",
+		"parent": "",
+		"type": "district_hospital",
+		"name": "Example Health Facility",
+		"contact": {
+			"_id": "e5237f20-2d28-4272-8006-c4903e032ab4",
+			"_rev": "3-5a0a8e95cef8bafc186a9494c75afb3c",
+			"type": "person",
+			"name": "Example Supervisor",
+			"date_of_birth": "2002-02-20",
+			"phone": "+254712345678",
+			"sex": "female",
+			"role": "chw_supervisor",
+			"reported_date": 1708453756441,
+			"parent": {
+				"_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+			},
+			"patient_id": "20424"
+		},
+		"reported_date": 1708453756440,
+		"place_id": "54380"
+	},
+	"type": "health_center",
+	"name": "Example Health Center",
+	"contact": {
+		"_id": "f512e1d8-841b-4bc1-8154-b6794755f45b",
+		"_rev": "3-9dbc362b262f88d63f270fe06a94dfe8",
+		"type": "person",
+		"name": "Example CHW",
+		"date_of_birth": "2002-02-20",
+		"phone": "+254712345679",
+		"sex": "female",
+		"role": "chw",
+		"reported_date": 1708453778059,
+		"parent": {
+			"_id": "d9153705-4574-43c3-b945-71aa2164d1d6",
+			"parent": {
+				"_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+			}
+		},
+		"patient_id": "74615"
+	},
+	"reported_date": 1708453778059,
+	"place_id": "17437"
+}
+```
+
 ## Places
 
 By default any user can create or modify a place.
