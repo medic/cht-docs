@@ -218,7 +218,7 @@ To instruct the widget to process an array of strings or numbers, create a new `
 
 ### `add-date`
 
-_Available in +4.0.0._
+_Added in 4.0.0._
 
 Adds the provided number of years/months/days/hours/minutes to a date value. 
 
@@ -232,13 +232,13 @@ You can also add negative numbers to get dates in the past. This can be used to 
 
 ### `cht:difference-in-days`
 
-_Available in +4.7.0._
+_Added in 4.7.0._
 
 Calculates the number of whole days between two dates.
 
 ### `cht:difference-in-weeks`
 
-_Available in +4.7.0._
+_Added in 4.7.0._
 
 Calculates the number of whole calendar weeks between two dates.
 
@@ -252,9 +252,15 @@ For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` funct
 
 ### `cht:difference-in-years`
 
-_Available in +4.7.0._
+_Added in 4.7.0._
 
 Calculates the number of whole calendar years between two dates.
+
+### `cht:validate-luhn`
+
+_Added in 4.10.0._
+
+Validate a given number using the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) to help detect typos. Provide the field as the first parameter and optionally include the expected string length in the second parameter. Returns `true` if the number is valid.
 
 ### `z-score`
 
@@ -305,7 +311,7 @@ The data used by this function needs to be added to CouchDB. The example below s
 
 ### `parse-timestamp-to-date`
 
-_Available in +3.13.0._
+_Added in 3.13.0._
 
 Use this function to parse from a timestamp number to a date. This is useful when using other XForm utility functions that receive date type as parameter, see example below:
 
@@ -316,7 +322,7 @@ Use this function to parse from a timestamp number to a date. This is useful whe
 
 ### `to-bikram-sambat`
 
-_Available in +3.14.0._
+_Added in 3.14.0._
 
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
@@ -324,7 +330,7 @@ See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform
 
 ### `cht:extension-lib`
 
-_Available in +4.2.0._
+_Added in 4.2.0._
 
 This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
