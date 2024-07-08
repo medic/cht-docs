@@ -48,5 +48,6 @@ muffet http://localhost:1313 \
   --exclude "https://journals.sagepub.com/doi/full/10.1177/20552076231194924" \
   --exclude "http[s]*://.*oppiamobile.readthedocs.io.*" \
   --exclude "http[s]*://.*docs.couchdb.org.*" \
+  --exclude "http[s]*://.*borgbackup.readthedocs.io.*" \
   --exclude "https://www.tableau.com" \
   --exclude "https://doi.org/10.1080/02681102.2019.1667289" 
