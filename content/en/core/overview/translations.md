@@ -8,7 +8,7 @@ relatedContent: >
   apps/reference/translations
 ---
 
-Apps built with CHT Core are localized so that users can use it in the language of their choice. Languages supported out of the box are English, French, Nepali, Spanish, and Swahili. The goal of this doc is to help the community manage these and future translations.
+Apps built with CHT Core are localized so that users can use them in the language of their choice. Languages supported out of the box are English, French, Nepali, Spanish, and Swahili. The goal of this doc is to help the community manage these and future translations.
 
 ## Overview
 
