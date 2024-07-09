@@ -8,19 +8,19 @@ relatedContent: >
   apps/reference/translations
 ---
 
-Apps built with CHT Core are localized so that users can use it in the language of their choice. Languages supported out of the box are English, French, Nepali, Spanish, and Swahili. The goal of this doc is to help our team manage these and future translations.
+Apps built with CHT Core are localized so that users can use it in the language of their choice. Languages supported out of the box are English, French, Nepali, Spanish, and Swahili. The goal of this doc is to help the community manage these and future translations.
 
 ## Overview
 
-Like the rest of our code the translation files live in our GitHub repo. These translation files are [properties files](https://en.wikipedia.org/wiki/.properties), which are a series of keys and their corresponding values. We use the English file as our default, and as such it contains the entire set of keys. If any key is missing from another language file the English value is used.
+Like the rest of the code the translation files live in the GitHub repo. These translation files are [properties files](https://en.wikipedia.org/wiki/.properties), which are a series of keys and their corresponding values. The English file is used by default and as such it contains the entire set of keys. If any key is missing from another language file the English value is used.
 
 ## Adding new languages
 
 New languages must be added and configured in several places:
 
 - Create a new `messages-xx.properties` file in the [`api/resources/translations`](https://github.com/medic/cht-core/tree/master/api/resources/translations) folder, replacing "xx" with the 2 or 3 letter [language code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
-- Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/master/api/src/translations.js#L8). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
-- Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/3.11.x/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
+- Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/api/src/translations.js#L17). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
+- Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
 
 ## Adding new keys
 
@@ -28,8 +28,6 @@ New languages must be added and configured in several places:
 2. Create a new key and default English value.
 3. Reach out to the community to translate the value into all supported languages. The CI will block merging PRs unless all values are provided.
 4. Validate the translations are complete and correct by executing `npm run lint-translations`.
-
-In order to trace the addition of new terms and also updates to existing translations, the English translation file (messages-en.properties) must be updated directly.
 
 ### Translating static text
 
