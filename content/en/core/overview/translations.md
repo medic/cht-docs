@@ -12,7 +12,7 @@ Apps built with CHT Core are localized so that users can use them in the languag
 
 ## Overview
 
-Like the rest of the code the translation files live in the GitHub repo. These translation files are [properties files](https://en.wikipedia.org/wiki/.properties), which are a series of keys and their corresponding values. The English file is used by default and as such it contains the entire set of keys. If any key is missing from another language file the English value is used.
+Like the rest of the code the translation files live in the GitHub repo. These translation files are [properties files](https://en.wikipedia.org/wiki/.properties), which are a series of keys and their corresponding values. The English file is used by default, and as such, it contains the entire set of keys. If any key is missing from another language file the English value is used.
 
 ## Adding new languages
 
