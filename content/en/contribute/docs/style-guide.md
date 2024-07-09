@@ -213,7 +213,7 @@ represents.
 | Do | Don't |
 |---|---|
 | By default CouchDB runs in _admin party_ mode, which means you do not need users to read or edit any data. | By default CouchDB runs in "admin party" mode, which means you do not need users to read or edit any data. |
-| The _keys_ in `.properties` files are referred to as _terms_ in POEditor. | The "keys" in .properties files are referred to as **terms** in POEditor. |
+| The _keys_ in `.properties` files are referred to as _terms_. | The "keys" in .properties files are referred to as **terms**. |
 
 ### Code style for filenames, directories, and paths
 
