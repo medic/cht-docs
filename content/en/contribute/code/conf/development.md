@@ -49,5 +49,3 @@ To install from the beta channel, run `npm install cht-conf@beta`.
 
 # Build status
 Builds brought to you courtesy of GitHub actions.
-
-<img src="https://github.com/medic/cht-conf/actions/workflows/build.yml/badge.svg">
