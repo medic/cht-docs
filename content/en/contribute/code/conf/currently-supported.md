@@ -38,7 +38,7 @@ weight: 1
 * Compress PNGs and SVGs in the current directory and its subdirectories
 
 # Editing contacts across the hierarchy.
-To edit existing couchdb documents, create a CSV file that contains the id's of the document you wish to update, and the columns of the document attribute(s) you wish to add/edit. By default, values are parsed as strings. To parse a CSV column as a JSON type, refer to the [Property Types](#property-types) section to see how you can parse the values to different types. Also refer to the [Excluded Columns](#excluded-columns) section to see how to exclude column(s) from being added to the docs.
+To edit existing couchdb documents, create a CSV file that contains the id's of the document you wish to update, and the columns of the document attribute(s) you wish to add/edit. By default, values are parsed as strings. To parse a CSV column as a JSON type.
 
 | Parameter         | Description                                                                                                                                            | Required                |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
@@ -65,4 +65,4 @@ To edit existing couchdb documents, create a CSV file that contains the id's of 
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder* --updateOfflineDocs
    ```
    
-3. Then upload the edited documents using the [upload-docs ](#examples) command.
+3. Then upload the edited documents using the _**upload-docs**_ command.
