@@ -48,10 +48,8 @@ Focused on robust and efficient development, deployment, and support of CHT infr
 Key users: App Developers, App Deployers, Core Engineers.
 
 Team members:
-- Technical Product Owner
 - Site Reliability Engineers
 - Software Developers
-- Quality Assurance Engineer
 
 [Introduction to Infrastructure Focused Working Group](https://youtu.be/75xlm9t5cp8)
 
