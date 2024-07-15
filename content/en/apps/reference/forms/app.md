@@ -256,11 +256,42 @@ _Added in 4.7.0._
 
 Calculates the number of whole calendar years between two dates.
 
+### `cht:extension-lib`
+
+_Added in 4.2.0._
+
+This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
+
+### `cht:strip-whitespace`
+
+_Added in 4.10.0._
+
+Removes all whitespace characters from a string.
+
 ### `cht:validate-luhn`
 
 _Added in 4.10.0._
 
 Validate a given number using the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) to help detect typos. Provide the field as the first parameter and optionally include the expected string length in the second parameter. Returns `true` if the number is valid.
+
+### `parse-timestamp-to-date`
+
+_Added in 3.13.0._
+
+Use this function to parse from a timestamp number to a date. This is useful when using other XForm utility functions that receive date type as parameter, see example below:
+
+| type | name | label | calculation | default | ... |
+|------|------|-------|-------------|---------|-----|
+| string | start_date_time | NO_LABEL |    | 1628945040308 |
+| string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
+
+### `to-bikram-sambat`
+
+_Added in 3.14.0._
+
+This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
+
+See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
 
 ### `z-score`
 
@@ -283,56 +314,17 @@ The data used by this function needs to be added to CouchDB. The example below s
 ```json
 {
   "_id": "zscore-charts",
-  "charts": [
-    {
-      "id": "weight-for-age",
-      "data": {
-        "male": [
-          {
-            "key": 0,
-            "points": [
-              1.701,
-              2.08,
-              2.459,
-              2.881,
-              3.346,
-              3.859,
-              4.419,
-              5.031,
-              5.642
-            ]
-          }
-        ]
-      }
+  "charts": [{
+    "id": "weight-for-age",
+    "data": {
+      "male": [{
+        "key": 0,
+        "points": [ 1.701, 2.08, 2.459, 2.881, 3.346, 3.859, 4.419, 5.031, 5.642 ]
+      }]
     }
-  ]
+  }]
 }
 ```
-
-### `parse-timestamp-to-date`
-
-_Added in 3.13.0._
-
-Use this function to parse from a timestamp number to a date. This is useful when using other XForm utility functions that receive date type as parameter, see example below:
-
-| type | name | label | calculation | default | ... |
-|------|------|-------|-------------|---------|-----|
-| string | start_date_time | NO_LABEL |    | 1628945040308 |
-| string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
-
-### `to-bikram-sambat`
-
-_Added in 3.14.0._
-
-This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
-
-See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
-
-### `cht:extension-lib`
-
-_Added in 4.2.0._
-
-This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
 ## Input data
 
