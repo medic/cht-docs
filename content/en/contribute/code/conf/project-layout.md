@@ -2,6 +2,8 @@
 title: "Project layout"
 linkTitle: "Project layout"
 weight: 1
+description: >
+    Structure that the project would need.
 ---
 
 This tool expects a project to be structured as follows:

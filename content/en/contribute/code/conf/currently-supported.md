@@ -2,6 +2,8 @@
 title: "Currently supported"
 linkTitle: "Currently supported"
 weight: 1
+description: >
+  Settings, forms, and data that are currently supported using CHT Conf.
 ---
 
 # Settings
