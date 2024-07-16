@@ -42,21 +42,6 @@ Team members:
 
 See [Allies OKRs](https://github.com/orgs/medic/projects/112/views/12) and [current activities](https://github.com/orgs/medic/projects/134/views/3).
 
-## Infrastructure
-Focused on robust and efficient development, deployment, and support of CHT infrastructure.
-
-Key users: App Developers, App Deployers, Core Engineers.
-
-Team members:
-- Technical Product Owner
-- Site Reliability Engineers
-- Software Developers
-- Quality Assurance Engineer
-
-[Introduction to Infrastructure Focused Working Group](https://youtu.be/75xlm9t5cp8)
-
-See [Infrastructure OKRs](https://github.com/orgs/medic/projects/112/views/15) and [current activities](https://github.com/orgs/medic/projects/134/views/26).
-
 ## Ecosystem
 This Focused Working Group's primary objective is to build on the Community Health Toolkit in collaboration with other members/partners in the digital health ecosystem (DHE). The team actively develops enhancements and promotes their implementation within the DHE.
 
