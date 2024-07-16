@@ -1,12 +1,18 @@
 ---
-title: "Currently supported"
-linkTitle: "Currently supported"
-weight: 1
+title: "CHT App Configurer"
+linkTitle: "CHT Conf Code"
+weight: 2
 description: >
-  Settings, forms, and data that are currently supported using CHT Conf.
+  CHT Conf is a command-line interface tool to manage and configure apps built using the [Core Framework](https://github.com/medic/cht-core) of the [Community Health Toolkit](https://communityhealthtoolkit.org/).
 ---
 
-## Settings
+## Installation
+
+Read more about setting up [CHT Conf]({{< relref "contribute/code/cht-conf" >}}).
+
+## Currently Supported
+
+### Settings
 * Compile app settings from:
     - tasks
     - rules
@@ -25,7 +31,7 @@ description: >
 * Upload branding to server
 * Upload partners to server
 
-## Forms
+### Forms
 * Fetch from Google Drive and save locally as `.xlsx`
 * Backup from server
 * Delete all forms from server
@@ -33,13 +39,13 @@ description: >
 * Upload all app or contact forms to server
 * Upload specified app or contact forms to server
 
-## Managing data and images
+### Managing data and images
 * Convert CSV files with contacts and reports to JSON docs
 * Move contacts by downloading and making the changes locally first
 * Upload JSON files as docs on instance
 * Compress PNGs and SVGs in the current directory and its subdirectories
 
-## Editing contacts across the hierarchy.
+### Editing contacts across the hierarchy.
 To edit existing couchdb documents, create a CSV file that contains the ids of the document you wish to update, and the columns of the document attribute(s) you wish to add/edit. By default, values are parsed as strings. To parse a CSV column as a JSON type.
 
 | Parameter         | Description                                                                                                                                            | Required                |
@@ -49,14 +55,14 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
 | file(s)           | Comma delimited list of files you wish to process using edit-contacts. By default, contact.csv is searched for in the current directory and processed. | No.                     |
 | updateOfflineDocs | If passed, this updates the docs already in the docDirectoryPath instead of downloading from the server.                                               | No.                     |
 
-### Example
+#### Example
 1. Create a contact.csv file with your columns in the csv folder in your current path. The documentID column is a requirement. The documentID column contains the document IDs to be fetched from couchdb.
 
-    | documentID  | is_in_emnch:bool | 
-    |-------------|------------------|
-    | documentID1 | false            |
-    | documentID2 | false            |
-    | documentID3 | true             |
+   | documentID  | is_in_emnch:bool | 
+       |-------------|------------------|
+   | documentID1 | false            |
+   | documentID2 | false            |
+   | documentID3 | true             |
 
 2. Use the following command to download and edit the documents:
    ```
@@ -66,5 +72,84 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
    ```
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder* --updateOfflineDocs
    ```
-   
+
 3. Then upload the edited documents using the _**upload-docs**_ command.
+
+
+## Project layout
+
+This tool expects a project to be structured as follows:
+```
+example-project/
+	.eslintrc
+	app_settings.json
+	contact-summary.js
+	privacy-policies.json
+	privacy-policies/
+	    language1.html
+	    …
+	purge.js
+	resources.json
+	resources/
+		icon-one.png
+		…
+	targets.js
+	tasks.js
+	task-schedules.json
+	forms/
+		app/
+			my_project_form.xlsx
+			my_project_form.xml
+			my_project_form.properties.json
+			my_project_form-media/
+				[extra files]
+				…
+		contact/
+			person-create.xlsx
+			person-create.xml
+			person-create-media/
+				[extra files]
+				…
+		…
+		…
+	translations/
+		messages-xx.properties
+		…
+```
+
+If you are starting from scratch you can initialise the file layout using the initialise-project-layout action:
+```
+cht initialise-project-layout
+```
+
+### Derived configs
+
+Configuration can be inherited from another project, and then modified.  This allows the `app_settings.json` and contained files (`task-schedules.json`, `targets.json` etc.) to be imported, and then modified.
+
+To achieve this, create a file called `settings.inherit.json` in your project's root directory with the following format:
+```
+{
+	"inherit": "../path/to/other/project",
+	"replace": {
+		"keys.to.replace": "value-to-replace-it-with"
+	},
+	"merge": {
+		"complex.objects": {
+			"will_be_merged": true
+		}
+	},
+	"delete": [
+		"all.keys.listed.here",
+		"will.be.deleted"
+	],
+	"filter": {
+		"object.at.this.key": [
+			"will",
+			"keep",
+			"only",
+			"these",
+			"properties"
+		]
+	}
+}
+```
