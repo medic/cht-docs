@@ -9,7 +9,7 @@ description: >
 # Requirements
 - nodejs 18 or later
 - python 3
-- or Docker
+- Docker(optional)
 
 # Installation
 
