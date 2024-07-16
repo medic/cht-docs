@@ -66,7 +66,7 @@ eval "$(cht-conf --shell-completion=bash)"
 ## Upgrading
 To upgrade to the latest version, run the command below. To view changes made to CHT Conf, view the [CHANGELOG](https://docs.communityhealthtoolkit.org/apps/guides/updates/preparing-for-4/#cht-conf).
 ```shell
-npm install -g cht-conf
+npm update -g cht-conf
 ```
 
 # Usage

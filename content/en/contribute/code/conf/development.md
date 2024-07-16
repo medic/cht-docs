@@ -3,7 +3,7 @@ title: "Development"
 linkTitle: "Development"
 weight: 1
 description: >
-  To develop a new action or improve an existing one, check the ["Actions" doc](https://github.com/medic/cht-conf/blob/main/src/fn/README.md).
+  To develop a new command that is part of cht-conf, or improve an existing one. For more information check ["Actions" doc](https://github.com/medic/cht-conf/blob/main/src/fn/README.md).
 ---
 
 # Testing

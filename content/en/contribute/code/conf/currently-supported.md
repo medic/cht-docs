@@ -6,7 +6,7 @@ description: >
   Settings, forms, and data that are currently supported using CHT Conf.
 ---
 
-# Settings
+## Settings
 * Compile app settings from:
     - tasks
     - rules
@@ -25,7 +25,7 @@ description: >
 * Upload branding to server
 * Upload partners to server
 
-# Forms
+## Forms
 * Fetch from Google Drive and save locally as `.xlsx`
 * Backup from server
 * Delete all forms from server
@@ -33,13 +33,13 @@ description: >
 * Upload all app or contact forms to server
 * Upload specified app or contact forms to server
 
-# Managing data and images
+## Managing data and images
 * Convert CSV files with contacts and reports to JSON docs
 * Move contacts by downloading and making the changes locally first
 * Upload JSON files as docs on instance
 * Compress PNGs and SVGs in the current directory and its subdirectories
 
-# Editing contacts across the hierarchy.
+## Editing contacts across the hierarchy.
 To edit existing couchdb documents, create a CSV file that contains the ids of the document you wish to update, and the columns of the document attribute(s) you wish to add/edit. By default, values are parsed as strings. To parse a CSV column as a JSON type.
 
 | Parameter         | Description                                                                                                                                            | Required                |
@@ -49,7 +49,7 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
 | file(s)           | Comma delimited list of files you wish to process using edit-contacts. By default, contact.csv is searched for in the current directory and processed. | No.                     |
 | updateOfflineDocs | If passed, this updates the docs already in the docDirectoryPath instead of downloading from the server.                                               | No.                     |
 
-## Example
+### Example
 1. Create a contact.csv file with your columns in the csv folder in your current path. The documentID column is a requirement. The documentID column contains the document IDs to be fetched from couchdb.
 
     | documentID  | is_in_emnch:bool | 
