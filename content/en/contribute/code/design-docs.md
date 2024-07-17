@@ -62,6 +62,19 @@ Writing design docs takes time and energy. When deciding to whether write a desi
 
 Often, the overhead of creating and reviewing a design doc may not be compatible with prototyping and fast iteration. If "you tried it out and it worked", it might mean that you already have a solution that's worth pursuing without having to write a document. However, it's important to remember that subscribing to agile methodologies and fast iteration is not an excuse for not taking the time to get solutions to known problems right. 
 
+## How to review a design doc?
+
+When added as a design doc reviewer, there are some details about the problem to solve that should be clear to you after reading the content of the doc, and also some questions you should ask before giving your sign off:
+
+* What problem is this initiative solving? How will we know it will work?
+* Are there any risky pieces? How are they handled?
+* Are there any non-obvious edge cases?
+* What are the key technical decisions? What are the tradeoffs being made as a result of these decisions?
+* Is there any information you are aware of which the writer may not have known? 
+* Have you seen a similar solution (successful or not) used before?
+* What external systems does this initiative interact with?
+* Does it follow current good practices and patterns? Does it fit into the long-term direction? Does it create tech debt? 
+
 ## More info
 
 This policy was inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/).
