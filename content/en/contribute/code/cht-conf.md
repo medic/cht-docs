@@ -173,3 +173,4 @@ To install from the beta channel, run `npm install cht-conf@beta`.
 
 ### Build status
 Builds brought to you courtesy of GitHub actions.
+{{< figure src="build-status.png" link="build-status.png" class=" center col-4 col-lg-4" >}}
