@@ -87,4 +87,4 @@ Tests that should run exclusively when running the suite over docker infrastruct
 
 * We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then please isolate the code in a separate file, so it can be reused in future tests.
 
-* If the new test is not associated to a specific configuration, please locate the test inside the correct folder of the default config [`e2e/default/*`](e2e/default). 
+* If the new test is not associated to a specific configuration, please locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 
