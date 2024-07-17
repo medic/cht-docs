@@ -11,7 +11,7 @@ description: >
 Read more about setting up [CHT Conf]({{< relref "contribute/code/cht-conf" >}}).
 
 ## Currently Supported
-
+The different items that are supported by CHT Conf include:
 ### Settings
 * Compile app settings from:
     - tasks
@@ -59,7 +59,7 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
 1. Create a contact.csv file with your columns in the csv folder in your current path. The documentID column is a requirement. The documentID column contains the document IDs to be fetched from couchdb.
 
    | documentID  | is_in_emnch:bool | 
-     |-------------|------------------|
+   |-------------|------------------|
    | documentID1 | false            |
    | documentID2 | false            |
    | documentID3 | true             |
@@ -74,7 +74,9 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
    ```
 
 3. Then upload the edited documents using the _**upload-docs**_ command.
-
+   ```
+   cht --instance=*instance* --upload-docs
+   ```
 
 ## Project layout
 
