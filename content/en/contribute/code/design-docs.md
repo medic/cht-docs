@@ -77,4 +77,4 @@ When added as a design doc reviewer, there are some details about the problem to
 
 ## More info
 
-This policy was inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/).
+This policy was inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) and [How to write a good software design doc](https://medium.com/free-code-camp/how-to-write-a-good-software-design-document-66fcf019569c).
