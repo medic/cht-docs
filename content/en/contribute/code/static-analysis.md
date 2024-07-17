@@ -176,6 +176,9 @@ Java:
       - `threshold` 7 -> 4
     - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
       - `threshold` 15 -> 5
+  - Disabled
+      - [`S1135`](https://rules.sonarsource.com/javascript/RSPEC-1135/) - Track uses of "TODO" tags
+          - Disabled because we typically use "TODO" tags to mark code as needing future updates which cannot be currently applied for reasons outside our direct control (e.g. requiring a dependency uplift).
 
 JavaScript:
 
@@ -186,6 +189,8 @@ JavaScript:
       - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
    - Disabled
+       - [`S1135`](https://rules.sonarsource.com/javascript/RSPEC-1135/) - Track uses of "TODO" tags
+           - Disabled because we typically use "TODO" tags to mark code as needing future updates which cannot be currently applied for reasons outside our direct control (e.g. requiring a dependency uplift).
       - [`S2699`](https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
          - Disabled due of rigidity of the rule when detecting `expect` imports and calls to imported functions that have assertions
 
@@ -197,6 +202,9 @@ Python:
          - `threshold` 7 -> 4
       - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
+   - Disabled
+       - [`S1135`](https://rules.sonarsource.com/javascript/RSPEC-1135/) - Track uses of "TODO" tags
+           - Disabled because we typically use "TODO" tags to mark code as needing future updates which cannot be currently applied for reasons outside our direct control (e.g. requiring a dependency uplift).
 
 TypeScript:
 
@@ -206,3 +214,6 @@ TypeScript:
          - `threshold` 7 -> 4
       - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
+   - Disabled
+       - [`S1135`](https://rules.sonarsource.com/javascript/RSPEC-1135/) - Track uses of "TODO" tags
+           - Disabled because we typically use "TODO" tags to mark code as needing future updates which cannot be currently applied for reasons outside our direct control (e.g. requiring a dependency uplift).
