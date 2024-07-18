@@ -139,7 +139,7 @@ flowchart LR
 
 ### Tips to write automated e2e tests
 
-Please read the [style guide for automated tests]({{< relref "contribute/code/core/style-guide-automated-e2e-tests.md" >}}) which provides editorial guidelines for anyone creating new automated test cases for CHT-Core.
+Read the [style guide for automated tests]({{< relref "contribute/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
 
 ### Debugging E2E tests
 
