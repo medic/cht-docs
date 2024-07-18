@@ -137,7 +137,7 @@ flowchart LR
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
 
-### Tips to write automated e2e tests
+### How to write automated e2e tests
 
 Read the [style guide for automated tests]({{< relref "contribute/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
 
