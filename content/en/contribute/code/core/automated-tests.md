@@ -170,7 +170,7 @@ GitHub actions will artifact all files in tests/logs. This is the directory any 
 ##### View the CI report
 There are logs and screenshots stored in the allure reports when a job failed on the CI. To access to those logs follow these steps:
 - Download the CI run artifact zip file located in the failed build's `Archive Results` section.
-  {{< figure src="archiveResultsSection.png" link="archiveResultsSection.png" class=" center col-4 col-lg-4" >}}
+  {{< figure src="archiveResultsSection.png" link="archiveResultsSection.png" class=" center col-12 col-lg-12" >}}
 - Extract the `.zip` file.
 - From your cht-core directory, run `npx allure open <path>/allure-report/`. Being `<path>` the location where the zip file was extracted.
 
