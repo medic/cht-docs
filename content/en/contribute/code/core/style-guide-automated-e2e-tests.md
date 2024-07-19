@@ -9,13 +9,13 @@ aliases: >
 
 There are three files that are the base of every new automated test case, the most important one is the `spec` file, which contains the actual test that will be executed.
 
-Right now the automated tests cover different [CHT Configs](https://github.com/medic/cht-core/tree/master/config), consider the following setups when writing a new test:
+Automated tests cover different [CHT Configs](https://github.com/medic/cht-core/tree/master/config), consider the following setups when writing a new test:
 - **default**
   - Config file: [`../tests/e2e/default/wdio.conf.js`](https://github.com/medic/cht-core/blob/master/tests/e2e/default/wdio.conf.js)
   - Name convention for the `spec` file: `../tests/e2e/default/*/<name>.wdio-spec.js`
   - Command to execute the tests that belong to this config:  `npm run wdio-local`
 
-**Important:** Make sure the `spec` file follows the name convention correctly, otherwise the file won't be executed.
+**Important:** Make sure the `spec` file follows the name convention, otherwise the file won't be executed.
 
 ## Base files to use
 
