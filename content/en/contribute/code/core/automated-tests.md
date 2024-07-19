@@ -223,7 +223,7 @@ Either run the test multiple times until you load all images, download images ma
 Try the following:
 - Manually downloaded the images. To download images manually, you can use either docker-compose or docker:
   - With docker, you'd do a docker pull  <image tag> for every image you want to download.
-  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. [Compose pull documentation](https://docs.docker.com/engine/reference/commandline/compose_pull/)
+  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. Read more on [docker compose pull](https://docs.docker.com/engine/reference/commandline/compose_pull/)
 
 
 ### Test Architecture
