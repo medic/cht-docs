@@ -137,6 +137,10 @@ flowchart LR
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
 
+### How to write automated e2e tests
+
+Read the [style guide for automated tests]({{< relref "contribute/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
+
 ### Debugging E2E tests
 
 End to end (e2e) tests can be really difficult to debug - sometimes they fail seemingly at random, and sometimes they only fail on certain environments (eg: ci but not locally). This can make reproducing and reliably fixing the issue challenging, so here are some tips to help!
@@ -161,11 +165,25 @@ Read the failure carefully - it often has really good info but sometimes it's ju
 
 #### Other logs and screenshots
 
-There are logs and screenshots stored in the allure reports. [Here](https://github.com/medic/cht-core/blob/master/TESTING.md#view-the-ci-report) are the instructions to access that information.
+GitHub actions will artifact all files in tests/logs. This is the directory any logs, results, images, etc... should save to if you want to review them if a build fails.
+
+##### View the CI report
+There are logs and screenshots stored in the allure reports when a job failed on the CI. To access to those logs follow these steps:
+- Download the CI run artifact zip file located in the failed build's `Archive Results` section.
+  {{< figure src="archiveResultsSection.png" link="archiveResultsSection.png" class=" center col-12 col-lg-12" >}}
+- Extract the `.zip` file.
+- From your cht-core directory, run `npx allure open <path>/allure-report/`. Being `<path>` the location where the zip file was extracted.
 
 #### Running just the failing test
 
 Running e2e tests can be quite slow so to save time modify the `specs` property of [`/tests/e2e/**/wdio.conf.js`](https://github.com/medic/cht-core/blob/master/tests/e2e/default/wdio.conf.js#L7) so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
+
+##### IntelliJ Based
+
+1. In a terminal, run `npm run build-dev-watch`
+2. In Intellij, open the [package.json](https://github.com/medic/cht-core/blob/master/package.json) file
+3. Scroll to the scripts section and click the ▶ button next to `wdio-local`
+4. Select `Debug 'wdio-local'`
 
 #### Watching the test run
 
@@ -205,4 +223,10 @@ Either run the test multiple times until you load all images, download images ma
 Try the following:
 - Manually downloaded the images. To download images manually, you can use either docker-compose or docker:
   - With docker, you'd do a docker pull  <image tag> for every image you want to download.
-  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. [Compose pull documentation](https://docs.docker.com/engine/reference/commandline/compose_pull/)
+  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. Read more on [docker compose pull](https://docs.docker.com/engine/reference/commandline/compose_pull/)
+
+
+### Test Architecture
+
+Our GitHub actions spin up an ubuntu-22.04 machine. They install software and then launch couchdb and horticulturalist in a docker container. This is needed to run our applications in the specific node versions we support, while allowing our test code to run in versions of node it supports. This creates a paradigm to keep in mind when writing tests. Tests run on the ubuntu machine. 
+Any test code that starts a server or runs an executable is running outside of the horti container. The ports are exposed for all our services and horti has access to the cht-core root via a volume. Horti can also talk to the host by getting the gateway of the docker network. 
