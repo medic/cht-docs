@@ -1,18 +1,26 @@
 ---
-title: "Configuring the CHT User Management tool"
+title: "CHT User Management tool"
 linkTitle: User management tool
 weight: 23
 description: >
- How to configure a web-based user management tool for your CHT project.
+ How to use and configure a user management tool for your CHT project.
 relatedContent: >
   apps/tutorials/contact-and-users-1
   apps/guides/data/users-bulk-load
 ---
 
-The user management tool is a user-friendly web application used within CHT projects to manage users. 
+The user management tool is a user-friendly web application used within CHT projects to manage users. It is used to decentralize the user management process while ensuring accuracy. The tool provides templates that can be downloaded and populated.
 
-## Required Resources
+The user management tool has various features and fuctionalities including:
+* Creation of single or bulk (many) users.
+* Replacing of existing users
+* Moving of an existing place
+  * Users can access bulk user templates that they can populate.
+  * One can validate the entries before the upload.
+  * Download the user credentials upon upload.
+* Validation of input for completeness and accuracy. The tool identifies errors that the can be corrected.
 
+# Configuring the CHT User Management tool
 ## Implementation Steps
 1. Clone the `cht-user-management` repository.
 2. Create a new folder under `src/config` with your required instance eg. chis-znz
