@@ -7,7 +7,7 @@ description: >
 aliases:
   -    /core/overview/technical-roadmap
 relatedContent:
-  core/releases
+  cht-components/core/releases
 ---
 
 {{% pageinfo %}}
