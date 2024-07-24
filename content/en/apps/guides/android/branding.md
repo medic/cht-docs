@@ -264,12 +264,12 @@ For apps signed by Google Play, you need to use the SHA256 fingerprint provided 
 #### Steps to Retrieve SHA256 Fingerprint from Google Play
 
 1. **Log in to Google Play Console**.
-2. **Navigate to Your App**: Select your app from the list of published applications.
-3. **Setup > App Signing**: In the left-hand menu, under the Setup Menu, there is App Signing.
-4. **Find SHA256 Fingerprint**: Google Play will display the SHA256 fingerprint required for your app.
+2. **Navigate to your app**: Select your app from the list of published applications.
+3. **Setup > App signing**: In the left-hand menu, under the Setup Menu, there is App Signing.
+4. **Find SHA256 fingerprint**: Google Play will display the SHA256 fingerprint required for your app.
 5. **Update assetlinks.json**: Use this SHA256 fingerprint in your `assetlinks.json` file. (Google Play also provides the full JSON)
 
-Once added and pushed to the server, the deep link can be monitored from the console as well, under the **Deep Links** in the left-hand menu where the Play Console allows you to check the deep link settings and also provides hints to fix any errors (providing the right SHA256 Fingerprint to add).
+Once added and pushed to the server, the deep link can be monitored from the console as well, under the **Deep Links** in the left-hand menu where the Play Console allows you to check the deep link settings and also provides hints to fix any errors (providing the right SHA256 fingerprint to add).
 
 ### Verifying it works
 
