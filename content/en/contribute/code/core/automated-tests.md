@@ -202,7 +202,7 @@ To run the upgrade e2e tests in your local environment, follow these steps:
     - `export STAGING_SERVER=_couch/builds_4`.
     - `export BRANCH=<your branch name>`.
     - `export BASE_VERSION=<CHT base version>`(it can be used `latest` as the value).
-    - `export TAG=<CHT version>`(e.g. `4.8.1`).
+    - `export TAG=<CHT version>`(Optional, e.g. `4.8.1`).
 - Run the upgrade e2e tests: `npm run upgrade-wdio`
 
 If you experience errors such as:
