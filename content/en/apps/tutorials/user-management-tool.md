@@ -9,7 +9,9 @@ relatedContent: >
   apps/guides/data/users-bulk-load
 ---
 
-The user management tool is a user-friendly web application used within CHT projects to manage users. It is used to decentralize the user management process while ensuring accuracy. The tool provides templates that can be downloaded and populated.
+The Community Health Toolkit (CHT) is highly configurable and can be customized to support multiple hierarchies and users in the health care system. The CHT user management tool is a user friendly web application that works with the CHT to decentralize the user management process to the subnational levels, increasing efficiency and accuracy. This guide highlights steps for setting up and configuring the user management tool. 
+The guide has been tailored for specific CHT-supported national community health information systems. Partners and ministries of health are advised to customize the tool to fit their specific needs.
+The tool provides templates that can be downloaded and populated.
 
 The user management tool has various features and fuctionalities including:
 * Creation of single or bulk (many) users.
