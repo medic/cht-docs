@@ -177,9 +177,8 @@ Once that is done, under the **Associate Contact** field select the name of the 
 
 Once this is done, you have created a supervisor who is assigned to multiple Health Facilities. You can logout and log into the app using the `username` and `password` that you just created.
 
-### Points to Note. 
 
-- The new multi-facility feature be applied to any `role` in a hierarchy. It can also be applied to multiple roles in a hierarchy. You need to add the role to the array with the key `"can_have_multiple_places"`.
+{{% alert title="Note" %}} - The new multi-facility feature be applied to any `role` in a hierarchy. It can also be applied to multiple roles in a hierarchy. You need to add the role to the array with the key `"can_have_multiple_places"`.
 
 ```json
   "permissions": {
@@ -193,7 +192,7 @@ Once this is done, you have created a supervisor who is assigned to multiple Hea
     ...
   }
 ```
-- The multi-facility feature supports a Contact belonging to Multiple Places. For instance, it is meant to support a CHW Supervisor belonging to multiple facilities, it is not meant to support One Facility having multiple CHW Supervisors.
+- The multi-facility feature supports a Contact belonging to Multiple Places. For instance, it is meant to support a CHW Supervisor belonging to multiple facilities, it is not meant to support One Facility having multiple CHW Supervisors. {{% /alert %}}
 
 ## Frequently Asked Questions
 
