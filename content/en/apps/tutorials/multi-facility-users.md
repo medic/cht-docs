@@ -11,13 +11,15 @@ relatedContent: >
 ---
 
 {{% pageinfo %}}
-This tutorial will take you through how to create and assign users to multiple places in the CHT UI, including;
+This tutorial will take you through how to create and assign users to multiple places in the CHT UI. Assigning users to multiple places is only available from **CHT 4.9.0**.
 
-- Create contacts and their associated users
-- Create places and assign contacts to those places
+This tutorial covers;
+
+- Creating contacts and their associated users
+- Creating places and assign contacts to those places
 - Assigning users to multiple places
 
-App settings allow you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
+The [CHT application settings]({{< relref "apps/tutorials/application-settings" >}}) allows you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
@@ -32,7 +34,7 @@ App settings allow you to both persist information that is critical to the appli
 
 *[Places]({{< relref "apps/features/contacts" >}})* represent either an actual physical location such as a health facility, clinic, or a grouping such as a household or CHW Area.
 
-## Required Resources
+## Pre-requisites
 
 - You should be familiar with contact and user management. View detailed tutorial on [How to create contacts and their associated users]({{% ref "apps/tutorials/contact-and-users-1" %}}) 
 - You should be familiar with managing CHT application settings. Read [How to manage CHT application settings]({{% ref "apps/tutorials/application-settings" %}}) 
@@ -44,7 +46,7 @@ In this tutorial, you will work with the default contact forms and the default h
 
 The default `app_settings.json` in the CHT found in the `/config/default` folder has an existing `chw_supervisor` role and the `"can_have_multiple_places": []` permission. 
 
-While logged in as an admin user, you will create two Health Facilities, CHW Supervisor, and CHW Area. You will then create the user for the CHW Supervisor so that they can log in see their facilities, and the CHW Areas they supervise.
+While logged in as an admin user, you will create two Health Facilities, CHW Supervisor, and CHW Area. You will then create the user for the CHW Supervisor so that they can log in and see the facilities, and the CHW Areas they supervise.
 
 ### Creating multi-facility user using the CHT default config. 
 
@@ -155,13 +157,13 @@ Let's create a CHW Supervisor user who's linked to the CHW Supervisor contact we
 
 {{< figure src="new-chw-supervisor/app-settings.png" link="new-chw-supervisor/app-settings.png" class="right col-6 col-lg-8" >}}
 
-Go to the **hamburger menu** and select **App Settings**.
+Go to the **hamburger menu** and select **App Management**.
 
 <br clear="all">
 
 {{< figure src="new-chw-supervisor/add-user.png" link="new-chw-supervisor/add-user.png" class="right col-6 col-lg-8" >}}
 
-When you are on the **App Settings** page, select **Users** on the left-hand side and then select **Add User** on the right-hand side.
+When you are on the **App Management** page, select **Users** on the left-hand side and then select **Add User** on the right-hand side.
 
 <br clear="all">
 
@@ -192,7 +194,7 @@ Once this is done, you have created a supervisor who is assigned to multiple Hea
     ...
   }
 ```
-- The multi-facility feature supports a Contact belonging to Multiple Places. For instance, it is meant to support a CHW Supervisor belonging to multiple facilities, it is not meant to support One Facility having multiple CHW Supervisors. {{% /alert %}}
+- The multi-facility feature supports a Contact belonging to Multiple Places. For instance, it is meant to support a CHW Supervisor belonging to multiple facilities. It is not meant to support One Facility having multiple CHW Supervisors. {{% /alert %}}
 
 ## Frequently Asked Questions
 
