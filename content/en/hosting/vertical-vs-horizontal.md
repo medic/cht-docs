@@ -77,7 +77,7 @@ To read up on how to migrate your data from a single to multi-node, please see t
 It should be noted that, unlike vertical scaling, horizontal scaling of a large, existing dataset can take a while to prepare the transfer (hours to days) and may involve a brief service outage. This should be taken into consideration when planning a move of a CHT instance with a lot of data.
 
 <style>
-svg g .nodes #flowchart-couchInner2-21 .label div {
+svg g .nodes #flowchart-couchInner2-5 .label div {
     padding: 30px 0 30px 0;
 }
 svg g div  .nodeLabel  {
