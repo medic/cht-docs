@@ -13,6 +13,7 @@ In a production environment, the CHT costs about $0.50 per CHW per month to run.
 
 
 ###  Production
+
 A production deployment means the CHT is hosted either at a cloud provider or on servers in a datacenter. Both provide high quality connectivity, power and cooling so the cost is higher than a development instance.  This is the environment the CHT should be deployed in so CHWs do not have service interruptions and can continue to have trust the CHT will be up when they need to deliver care.
 
 When we were analyzing the hosting total cost of ownership (TCO), we only looked at production instances.
@@ -25,53 +26,36 @@ Running a development environment on only a laptop is an acceptable practice: th
 
 ## How the number was calculated
 
-TK  opencost over 2 week period
+Medic hosts a number of production CHT instances in Amazon Elastic Kubernetes Service (Amazon EKS). By using [OpenCost](https://www.opencost.io/), we can closely monitoring real world costs with active CHWs.
 
-## Breakdown of costs
+By looking looking at dozens of instances we host, we can focus on the highest usage ones as representative of the reasonable highest cost a self hosting partner may see.  
 
-TK 
+Here's some real costs we saw for a two week period for two instances that have been renamed to simply **A** and **B**:
 
 |  | A | B | 
 | --- | --- | --- | --- |
 | $/CHW/mo | $0.05 | $0.10 |  |
 | $/mo | $94 | $68 |  |
-| Version | 4.5.2 | 3.14.2 |  |
 | 30 day CHW | 2000 | 661 |  |
 | DB Size (Millions) | 7.5M | 10.7M |  |
 | DB Growth/mo (Thousands) | 123.2K | 248.0K |  |
 | RAM/mo | $16 | $22 |  |
 | CPU/mo | $6 | $8 |  |
 | Storage/mo* | $53 | $24 |  |
-| App forms | 23 | 46 |  |
-| Contact forms | 4 | 18 |  |
 | CPU max used (vCPUs) | 2.9 | 8 |  |
 | RAM max (Gigs) | 20 | 15 |  |
 | Storage Max pvc (TBs) | 0.96 | 0.42 |  |
-| Overprovision %† | 25.00% | 25.00% |  |
-| Overprovision $ | $19 | $14 |  |
-| calc $/mo | $75 | $54 |  |
-| given $/mo | $41 | $51 |  |
-|  |  |  |  |
-| cost per vCPU | $2.07 | $1.00 |  |
-| cost per GB RAM | $0.80 | $1.47 |  |
-| cost per storage TB | $55 | $57 |  |
-| vCPUs per active CHW | 0.00145 | 0.01210 |  |
-| GB RAM per active CHW | 0.01000 | 0.02269 |  |
-| Storage TB per active CHW | 0.00048 | 0.00064 |  |
+
+IN the above chart, the most expensive instance costs $0.10/CHW/mo.  However, as the [prescribed method for hosting the CHT](/hosting/4.x/self-hosting/) is in a Kubernetes cluster, this cost does not include the fixed cost of the worker nodes in this cluster. The $0.50/CHW/mo includes the additional cost to run these workers in the cluster.
 
 
 ## Expenses behind the per CHW cost
 
-What should be included and what should be excluded from Total Cost of Ownership  (TCO)?  Why would a cost be put in one group or the other?
-
-While Medic could argue that everything from in person security guards for a data center to the off site tape backup costs should be included, this document will outline a more traditional "cost to host the servers to run the CHT".
-
-This list should be in alignment with teammates who are expected to present a budget that an MoH will think is reasonable.
-
-If the "exclude" list is too broad and "include" is too narrow - this is the place to figure that out!
+To be clear, this document is very much a hosting TCO and not a generic TCO document.  
 
 
 ### Included
+
 Items that are included in the basic costs of hosting the CHT:
 
 * Servers - This is the most likely place where Medic can leverage their intimate knowledge from hosting many dozen production instances of the CHT.  This includes:
