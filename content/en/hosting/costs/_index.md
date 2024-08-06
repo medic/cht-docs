@@ -11,8 +11,6 @@ aliases:
 
 In a production environment, the CHT costs about $0.50 per CHW per month to run.  What exactly does this mean? Let's dive into some specifics.
 
-###  Production
-
 
 ###  Production
 A production deployment means the CHT is hosted either at a cloud provider or on servers in a datacenter. Both provide high quality connectivity, power and cooling so the cost is higher than a development instance.  This is the environment the CHT should be deployed in so CHWs do not have service interruptions and can continue to have trust the CHT will be up when they need to deliver care.
