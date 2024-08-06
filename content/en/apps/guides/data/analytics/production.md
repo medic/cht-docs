@@ -26,6 +26,11 @@ We recommend running cht-sync in production using Kubernetes. This guide will wa
 ```
 postgres:
   enabled: true
+  user: "postgres"
+  password: ""
+  db: ""
+  schema: "v1"
+  table: "couchdb"
 ```
 - Set CouchDB shared values in the `values.yaml` file.
 ```
