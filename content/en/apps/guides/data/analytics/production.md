@@ -9,6 +9,76 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
-{{% pageinfo %}}
-**This is under active development.** The page will be updated accordingly once it's validated that the current approach is suited for being used in production. For the time being, you can try out and test CHT Sync [locally]({{< relref "setup" >}}).
-{{% /pageinfo %}}
+We recommend running cht-sync in production using Kubernetes. This guide will walk you through setting up a production deployment of CHT Sync with the CHT using Kubernetes.
+
+## Pre-requisites:
+- A Kubernetes cluster: You can use a managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS), or you can set up a cluster using a tool like Minikube.
+- kubectl: The Kubernetes command-line tool. You can install it using the instructions [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+- Helm: The Kubernetes package manager. You can install it using the instructions [here](https://helm.sh/docs/intro/install/).
+
+## Setup
+- Copy the values in `values.yaml.template` file to a new file named `values.yaml`.
+- If you require a Postgres database to be set up for you, you can use the `postgresql.enabled` flag in the `values.yaml` file. If you already have a Postgres database set up, you can set the `postgresql.enabled` flag to `false`.
+```
+postgres:
+  enabled: true
+```
+- Set CouchDB shared values in the `values.yaml` file.
+```
+couchdb:
+  user: "your_couchdb_user"
+  dbs: "medic"
+  port: "443"
+  secure: "true"
+```
+- Configure the CouchDB instance to be replicated in the `values.yaml` file. For the host use the CouchDB host URL used to plublicy access the instance and for the password use the password associated with the user set above.
+```
+couchdbs:
+  - host: "host1.cht-core.test"
+    password: "password1"
+```
+- If you have multiple CouchDB instances to replicate, you can add them to the `couchdbs` list.
+```
+couchdbs:
+  - host: "host1.cht-core.test"
+    password: "password1"
+  - host: "host2.cht-core.test"
+    password: "password2"
+```
+- If an instance has a different port, user or different CouchDB databases to be synced, you can specify it in the `couchdbs` list.
+```
+  - host: "host1" # required for all couchdb instances
+    password: "" # required for all couchdb instances
+  - host: "host2.cht-core.test"
+    password: "new_password"
+    user: "separate_user"
+    dbs: "medic medic_sentinel"
+    port: "5984"
+    secure: "false"
+  - host: "host3.cht-core.test"
+    password: "password3"
+  ```
+
+- Set the CHT Pipeline Branch URL in the `values.yaml` file.
+```
+cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
+```
+- (Optional) Configure the Metrics Exporter
+```
+metrics_exporter:
+  enabled: true
+```
+## Deploy
+- Install the Helm chart from the root of your cht-sync repository.
+```
+helm install cht-sync cht-sync --values values.yaml
+```
+## Verify the deployment
+- Run the following command to get the status of the deployment.
+```
+kubectl get pods
+```
+- Run the following command to get the logs of a pod.
+```
+kubectl logs -f cht-sync-<pod-id>
+```
