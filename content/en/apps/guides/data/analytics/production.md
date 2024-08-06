@@ -72,7 +72,8 @@ couchdbs:
 ```
 cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
 ```
-- (Optional) Configure the Metrics Exporter
+- (Optional) Configure the Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in prometheus format at a service with name `metrics` at port 9399, for use with [cht watchdog](https://docs.communityhealthtoolkit.org/hosting/monitoring/setup/) or any other monitoring service.
+An HTTP ingress needs to be created to allow access from outside the cluster.
 ```
 metrics_exporter:
   enabled: true
