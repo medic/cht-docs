@@ -22,7 +22,7 @@ When we were analyzing the hosting total cost of ownership (TCO), we only looked
 
 A development environment can be no cost (or very low cost).  Assuming a developer already has a workstation or laptop with access to the Internet, this is all that is needed to host a development instance.  More than one developer could even share a server, each connecting their desktop browser and mobile handsets to the instance without issue.  
 
-Running a development environment on only a laptop is an acceptable practice: there is no expectation of high uptime and frequent outages due to testing, breaking changes and power outages are fine.  The removal of all the production environment requirements make this a free option, leveraging resources a normal office would have. 
+Running a development environment on only a laptop is an acceptable practice: there is no expectation of high uptime and frequent outages due to testing, breaking changes and power outages are fine.  Using a docker compose based deployment instead of a kubernetes is reasonable as well, which greatly decreases set up effort. The removal of all the production environment requirements make this a free option, leveraging resources a normal office would have. 
 
 ## How the number was calculated
 
