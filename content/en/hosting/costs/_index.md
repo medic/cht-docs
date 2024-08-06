@@ -20,13 +20,13 @@ When we were analyzing the hosting total cost of ownership (TCO), we only looked
 
 ### Development
 
-A development environment can be a no cost (or very low cost).  Assuming a developer already has a workstation or laptop with access to the Internet, this is all that is needed to host a development instance.  More than one developer could even share a server, each connecting their desktop browser and mobile handsets to the instance without issue.  
+A development environment can be no cost (or very low cost).  Assuming a developer already has a workstation or laptop with access to the Internet, this is all that is needed to host a development instance.  More than one developer could even share a server, each connecting their desktop browser and mobile handsets to the instance without issue.  
 
 Running a development environment on only a laptop is an acceptable practice: there is no expectation of high uptime and frequent outages due to testing, breaking changes and power outages are fine.  The removal of all the production environment requirements make this a free option, leveraging resources a normal office would have. 
 
 ## How the number was calculated
 
-Medic hosts a number of production CHT instances in Amazon Elastic Kubernetes Service (Amazon EKS). By using [OpenCost](https://www.opencost.io/), we can closely monitoring real world costs with active CHWs.
+Medic hosts a number of production CHT instances in Amazon Elastic Kubernetes Service (Amazon EKS). By using [OpenCost](https://www.opencost.io/), we can closely monitoring real world costs with active CHWs. OpenCost allows us to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
 
 By looking looking at dozens of instances we host, we can focus on the highest usage ones as representative of the reasonable highest cost a self hosting partner may see.  
 
@@ -46,7 +46,7 @@ Here's some real costs we saw for a two week period for two instances that have 
 | RAM max (Gigs) | 20 | 15 |  |
 | Storage Max pvc (TBs) | 0.96 | 0.42 |  |
 
-IN the above chart, the most expensive instance costs $0.10/CHW/mo.  However, as the [prescribed method for hosting the CHT](/hosting/4.x/self-hosting/) is in a Kubernetes cluster, this cost does not include the fixed cost of the worker nodes in this cluster. The $0.50/CHW/mo includes the additional cost to run these workers in the cluster.
+As the [prescribed method for hosting the CHT](/hosting/4.x/self-hosting/) is in a Kubernetes cluster, the chart above does not include the fixed cost of the worker nodes in this cluster. The $0.50/CHW/mo amount includes the additional cost to run these workers in the cluster.
 
 
 ## Expenses behind the per CHW cost
