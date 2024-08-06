@@ -40,7 +40,7 @@ couchdb:
   port: "443"
   secure: "true"
 ```
-- Configure the CouchDB instance to be replicated in the `values.yaml` file. For the host use the CouchDB host URL used to plublicy access the instance and for the password use the password associated with the user set above.
+- Configure the CouchDB instance to be replicated in the `values.yaml` file. For the host use the CouchDB host URL used to publicly access the instance and for the password use the password associated with the user set above.
 ```
 couchdbs:
   - host: "host1.cht-core.test"
