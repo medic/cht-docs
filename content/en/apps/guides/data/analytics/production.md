@@ -18,7 +18,11 @@ We recommend running cht-sync in production using Kubernetes. This guide will wa
 
 ## Setup
 - Copy the values in `values.yaml.template` file to a new file named `values.yaml`.
-- If you require a Postgres database to be set up for you, you can use the `postgresql.enabled` flag in the `values.yaml` file. If you already have a Postgres database set up, you can set the `postgresql.enabled` flag to `false`.
+- If you require a Postgres database to be set up in the cluster, you can use the `postgres.enabled` flag in the `values.yaml` file. If you already have a Postgres database outside the cluster, you can set the `postgres.enabled` flag to `false`.
+- if outside the cluster, specify `host` and `port` in this section
+- in either case, specify `user`, `password`, `db`, `schema`, and `table`
+- schema can be used to separate cht models from any other data that may already be in the database
+- table is the name of the table that couch2pg will write couch documents to, and the source table for dbt models. It is recommended to leave this as `couchdb`
 ```
 postgres:
   enabled: true
