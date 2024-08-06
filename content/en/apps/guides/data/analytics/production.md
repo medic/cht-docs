@@ -9,7 +9,7 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
-We recommend running cht-sync in production using Kubernetes. This guide will walk you through setting up a production deployment of CHT Sync with the CHT using Kubernetes.
+We recommend running cht-sync in production using Kubernetes. This guide will walk you through setting up a production deployment of [CHT Sync](https://github.com/medic/cht-sync) with the CHT using Kubernetes.
 
 ## Pre-requisites:
 - A Kubernetes cluster: You can use a managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS), or you can set up a cluster using a tool like Minikube.
@@ -79,7 +79,7 @@ metrics_exporter:
   enabled: true
 ```
 ## Deploy
-- Install the Helm chart from the root of your cht-sync repository.
+- Run the command below to deploy the cht-sync helm chart. If installing from root, specify path to directory containing Chart.yaml and values.yaml
 ```
 helm install cht-sync cht-sync --values values.yaml
 ```
