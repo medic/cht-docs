@@ -14,7 +14,7 @@ We recommend running cht-sync in production using Kubernetes. This guide will wa
 ## Pre-requisites:
 - A Kubernetes cluster: You can use a managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS), or you can set up a cluster using a tool like Minikube.
 - kubectl: The Kubernetes command-line tool. You can install it using the [kubectl installation](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instructions.
-- Helm: The Kubernetes package manager. You can install it using the instructions [here](https://helm.sh/docs/intro/install/).
+- Helm: The Kubernetes package manager. You can install it using the [helm installation guide](https://helm.sh/docs/intro/install/).
 
 ## Setup
 - Copy the values in `deploy/cht_sync/values.yaml.template` file to a new file named `deploy/cht_sync/values.yaml`.
