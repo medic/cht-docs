@@ -51,7 +51,7 @@ id = "G-98W4V2NTPJ"
 # Language configuration
 
 [languages]
-[languages.en]
+[languages.en.params]
 title = "Community Health Toolkit"
 description = "Digital health initiatives in the hardest-to-reach areas"
 languageName ="English"
