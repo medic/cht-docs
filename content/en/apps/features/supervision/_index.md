@@ -26,9 +26,9 @@ Selecting an aggregate widget opens the detailed view with the data for each ind
 
 {{% alert title="Note" %}} Aggregate targets were introduced in v3.9, and can be configured for both online and offline users. Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
 
-### Filtering CHW Aggregate Targets
+### Filtering Aggregate Targets
 
-The ability for one user to manage multiple areas / facilities was introduced in v4.9.0. With that change it was important for users who manage multiple areas to filter aggregate targets by the respective facilities. 
+The ability for one user to manage multiple areas / facilities was introduced in v4.9.0. With that change it was important for users who manage multiple areas to filter aggregate targets by the respective facilities. The ability for users to filter Aggregate Targets was introduced in v4.10.0.
 
 The following images show the various screens CHW supervisors see in Aggregate Targets. The example user in this illustration manages two facilities: **First Health Facility** and **Second Health Facility**
 
