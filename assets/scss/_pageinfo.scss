@@ -1,0 +1,25 @@
+.pageinfo {
+  font-weight: $font-weight-medium;
+  background: #f8f9fa;
+  color: inherit;
+  border-radius: 0;
+  margin: 2rem;
+  padding: 1.5rem;
+  padding-bottom: .5rem;
+
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      border-style: solid;
+      border-color: #5f7681;
+    }
+  }
+}
+
+.td-page-meta {
+  &__lastmod {
+    @extend .text-body-secondary;
+    @extend .border-top;
+    margin-top: map-get($spacers, 5) !important;
+    padding-top: map-get($spacers, 3) !important;
+  }
+}

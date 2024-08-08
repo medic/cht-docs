@@ -34,7 +34,7 @@ Any patient- or household-level form or forms can be used to update the date las
 
 ### UHC Permissions
 
-To see the date last visited instead of the primary contact, grant the relevant user role (usually CHW) the `can_view_last_visited_date` permission. Once that permission is enabled, you'll be able to display the date the household was last visited in the list.
+To see the date last visited, grant the relevant user role (usually CHW) the `can_view_last_visited_date` permission. Once that permission is enabled, you'll be able to display the date the household was last visited in the list.
 
 To view UHC metrics, the `can_view_uhc_stats` permission needs to be granted to the CHW user role.
 

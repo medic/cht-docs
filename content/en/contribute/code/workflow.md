@@ -179,7 +179,7 @@ Any code should be in a branch in each of the repositories you update. The name 
 
 Use the following template for QA feedback throughout the development.
 
-{{< tabpane persistLang=false lang="markdown">}}
+{{< tabpane persist=false lang="markdown">}}
 {{< tab header="Test passed" >}}
 
 ### Test details
