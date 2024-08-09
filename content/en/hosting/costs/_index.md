@@ -9,7 +9,7 @@ aliases:
 
 ## Cost per CHT per Month
 
-In a production environment, the CHT costs about $0.50 per CHW per month to run.  What exactly does this mean? Let's dive into some specifics.
+In a production environment, the CHT costs $0.10 per CHW per month to run.  What exactly does this mean? Let's dive into some specifics.
 
 
 ###  Production
@@ -46,7 +46,10 @@ Here's some real costs we saw for a two week period for two instances that have 
 | RAM max (Gigs) | 20 | 15 |  |
 | Storage Max pvc (TBs) | 0.96 | 0.42 |  |
 
-As the [prescribed method for hosting the CHT](/hosting/4.x/self-hosting/) is in a Kubernetes cluster, the chart above does not include the fixed cost of the worker nodes in this cluster. The $0.50/CHW/mo amount includes the additional cost to run these workers in the cluster.
+
+### Accuracy
+
+As our research was based on live instances, we know them to be realistic.  However, since not all CHWs will use the CHT in the exact same way and not all deployments have the same number of CHWs and work flows, these numbers are still subject to some per-deployment fluctuation.
 
 
 ## Expenses behind the per CHW cost
@@ -71,6 +74,7 @@ Items that are included in the basic costs of hosting the CHT:
 
 There are many assumptions about what else is needed to run the CHT. While important, they are excluded:
 
+* Kubernetes cluster - Current CHT production best practices include a Kubernetes cluster that will have a fixed monthly cost to operate, including the worker nodes which may be large in size (RAM & CPU).
 * Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware.  This takes up a disk space which should be accounted for when budgeting to host the CHT.
 * Building a Datacenter (DC) - While some well funded MoH's may have the budget and time to build a complete data center, this is out of the scope of Medic's core competency.  Therefore it is assumed an existing DC will be used or cloud hosting will be used.  In the case where a MoH wants to build a DC, a competent 3rd party should be selected
 * Training of Systems Administrators/IT - System administrator IT systems that have not used Kubernetes or have not hosted the CHT, will need to be trained on how to do both.
