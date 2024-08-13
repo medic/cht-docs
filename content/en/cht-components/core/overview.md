@@ -1,7 +1,7 @@
 ---
 title: "Core Overview"
 linkTitle: "Overview"
-weight: 10
+weight: 1
 description: >
   An overview of CHT-Core, it's capabilities and functionality.
 ---
