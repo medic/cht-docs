@@ -48,7 +48,7 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 
 In general, release managers should not feel they have to wait to do a release. The moment the release manager feels the release is ready, they should release it. This may even be with just one ticket! 
 
-There are two conditions that we would wait:
+There are two scenarios where a release manager should wait before doing the release:
 
 1. There is a bug found in `master` that did not exist in the previous release.  This should be fixed before the release.
 2. There is a high priority bug found in an existing release that it is estimated to be fixed in less than 5 days. The way to determine if a bug is high priority is if a service pack release is needed to fix it later. If so then it makes sense to wait for the fix to save the effort of having to do two releases in quick succession. If it's going to take longer than 5 days then it's worth the additional effort of releasing a service pack. After 5 days if the fix isn't merged, then continue with the release regardless.
