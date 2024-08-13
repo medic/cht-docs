@@ -46,7 +46,7 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 
 ### When to wait to release
 
-In general, we do not want to wait to do a release.  The moment the release manager feels the release is ready, they should release it.  This may even be with just one ticket! 
+In general, release managers should not feel they have to wait to do a release. The moment the release manager feels the release is ready, they should release it. This may even be with just one ticket! 
 
 There are two conditions that we would wait:
 
