@@ -50,7 +50,7 @@ In general, release managers should not feel they have to wait to do a release. 
 
 There are two conditions that we would wait:
 
-1. There is a new bug found in `master` that has not been released.  This should be fixed before the release.
+1. There is a bug found in `master` that did not exist in the previous release.  This should be fixed before the release.
 1. There is a bug found in an existing release that can be fixed in 5 days.  In less than 5 days the fixed code will be released.  In more than 5 days, the bug will be released and a new release will ship later with the fix for the bug.
 
 The reason we have these rules around when we wait, is so that everyone knows what they are and the release manager never needs to ask "should we wait?" - they'll know already!
