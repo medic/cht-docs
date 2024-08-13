@@ -9,53 +9,57 @@ aliases:
 
 ## Cost per CHT per Month
 
-In a production environment, the CHT costs $0.10 per CHW per month to run.  What exactly does this mean? Let's dive into some specifics.
+In a production environment, the CHT costs $0.10 per user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
 
-
-###  Production
-
-A production deployment means the CHT is hosted either at a cloud provider or on servers in a datacenter. Both provide high quality connectivity, power and cooling so the cost is higher than a development instance.  This is the environment the CHT should be deployed in so CHWs do not have service interruptions and can continue to have trust the CHT will be up when they need to deliver care.
-
-When we were analyzing the hosting total cost of ownership (TCO), we only looked at production instances.
-
-### Development
-
-A development environment can be no cost (or very low cost).  Assuming a developer already has a workstation or laptop with access to the Internet, this is all that is needed to host a development instance.  More than one developer could even share a server, each connecting their desktop browser and mobile handsets to the instance without issue.  
-
-Running a development environment on only a laptop is an acceptable practice: there is no expectation of high uptime and frequent outages due to testing, breaking changes and power outages are fine.  Using a docker compose based deployment instead of a kubernetes is reasonable as well, which greatly decreases set up effort. The removal of all the production environment requirements make this a free option, leveraging resources a normal office would have. 
+{{% pageinfo %}}
+Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
+{{% /pageinfo %}}
 
 ## How the number was calculated
 
-Medic hosts a number of production CHT instances in Amazon Elastic Kubernetes Service (Amazon EKS). By using [OpenCost](https://www.opencost.io/), we can closely monitoring real world costs with active CHWs. OpenCost allows us to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
+Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). By using [OpenCost](https://www.opencost.io/), Medic closely monitoring real world costs with actual end users. OpenCost allows us to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
 
-By looking looking at dozens of instances we host, we can focus on the highest usage ones as representative of the reasonable highest cost a self hosting partner may see.  
+By looking at dozens of instances and focusing on the highest usage ones, an accurate representation can be derived of a higher cost a self hosting partner.  
 
-Here's some real costs we saw for a two week period for two instances that have been renamed to simply **A** and **B**:
+Here's some real costs for two week period for two instances that have been renamed to simply **A** and **B**:
 
-|  | A | B | 
+| Per Month | A | B | 
 | --- | --- | --- | --- |
-| $/CHW/mo | $0.05 | $0.10 |  |
-| $/mo | $94 | $68 |  |
-| 30 day CHW | 2000 | 661 |  |
+| $/User | $0.05 | $0.10 |  |
+| $ | $94 | $68 |  |
+| Active Users (30 days) | 2000 | 661 |  |
 | DB Size (Millions) | 7.5M | 10.7M |  |
-| DB Growth/mo (Thousands) | 123.2K | 248.0K |  |
-| RAM/mo | $16 | $22 |  |
-| CPU/mo | $6 | $8 |  |
-| Storage/mo* | $53 | $24 |  |
+| DB Growth (Thousands) | 123.2K | 248.0K |  |
+| RAM | $16 | $22 |  |
+| CPU | $6 | $8 |  |
+| Storage | $53 | $24 |  |
 | CPU max used (vCPUs) | 2.9 | 8 |  |
 | RAM max (Gigs) | 20 | 15 |  |
-| Storage Max pvc (TBs) | 0.96 | 0.42 |  |
+| Storage Max PVC (TBs) | 0.96 | 0.42 |  |
 
+Deployment **A** has a lot of active users (`2000/mo`), but a slower database growth (`123.2K/mo`) as compared to deployment **B** which has fewer users (`661/mo`) but faster growth (`248K/mo`). These are the types of variations that can cause changes in costs mentioned in the next section.
 
 ### Accuracy
 
-As our research was based on live instances, we know them to be realistic.  However, since not all CHWs will use the CHT in the exact same way and not all deployments have the same number of CHWs and work flows, these numbers are still subject to some per-deployment fluctuation.
+As our research was based on live instances, the costs are realistic.  However, since not all users will use the CHT in the exact same way and not all deployments have the same number of users and work flows, these numbers are still subject to some per-deployment fluctuation.
 
+Further, the costs in the table above only cover the variable costs.  That is, the costs incurred of actual usage with in an EKS cluster.  In a multi-tenant deployment where you have maybe three instances (Staging, User Acceptance Testing and Production), this can be critical to know what the three different deployments incurred costs are within your EKS cluster.  
 
-## Expenses behind the per CHW cost
+Importantly, all production CHT 4.x deployments have a fixed cost to run the EKS cluster or generic Kubernetes if you're not on AWS. This is because all clusters contain servers that are always on and fully available to you. This cost is not yet included in this document and Medic hopes to include this cost over time.
 
-To be clear, this document is very much a hosting TCO and not a generic TCO document.  
+###  Production vs Development
 
+A production deployment means the CHT is hosted either at a cloud provider or in a datacenter. Both provide high quality connectivity, power and cooling so the cost is higher than a development instance.  This ensures users do not have service interruptions and can continue to have trust the CHT will be up when they need to deliver care.
+
+When analyzing the hosting total cost of ownership (TCO), only production instances were looked at.
+
+It should be noted that a development environment can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
+
+Running an easy to set up Docker based development environment (instead of Kubernetes) on a laptop is an acceptable practice: there is no expectation of high uptime for development instances.
+
+## Expenses behind the per user cost
+
+To be clear, this document is very much a hosting TCO and not a generic TCO document.  As such, below is a list of what's included in the hosting casts above and what is excluded.
 
 ### Included
 
@@ -63,10 +67,10 @@ Items that are included in the basic costs of hosting the CHT:
 
 * Servers - This is the most likely place where Medic can leverage their intimate knowledge from hosting many dozen production instances of the CHT.  This includes:
     * Average monthly cost to host the CHT
-    * Ability to adjust based on expected CHW count, number of workflows and a few other program specific numbers like how many workflows there are.
+    * Ability to adjust based on expected user count, number of workflows and a few other program specific numbers like how many workflows there are.
     * Amount of CPU/RAM/Storage needed - while it is assumed this will be for AWS, it will come in the form of something like "20 vCPUs" which can be translated to any hosting environment.
 * Built in overprovisioning to allow for bursts and a bit of growth
-* Monitoring and Alerting - Since all software fails eventually, we need to be prepared to defend against this with aggressive monitoring and alerting.  The goal will be to fix the problem before any CHWs notice.
+* Monitoring and Alerting - Since all software fails eventually, you need to be prepared to defend against this with aggressive monitoring and alerting.  The goal will be to fix the problem before any users notice.
 * Ingress/Egress - This is the ability to send and receive data to the CHT.  Pricing from Datacenters and Cloud is readily available and "Servers" above can not exist without it.
 * CHT Core updates and system maintenance - Both the CHT and underlying operating system will be upgraded on a regular basis.  This not only ensures there are no security vulnerabilities, but also ensures the deployments gains the benefit of new features and performance gains in the CHT.
 
@@ -78,13 +82,13 @@ There are many assumptions about what else is needed to run the CHT. While impor
 * Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware.  This takes up a disk space which should be accounted for when budgeting to host the CHT.
 * Building a Datacenter (DC) - While some well funded MoH's may have the budget and time to build a complete data center, this is out of the scope of Medic's core competency.  Therefore it is assumed an existing DC will be used or cloud hosting will be used.  In the case where a MoH wants to build a DC, a competent 3rd party should be selected
 * Training of Systems Administrators/IT - System administrator IT systems that have not used Kubernetes or have not hosted the CHT, will need to be trained on how to do both.
-* Training of Trainers (ToT) and CHW Training -
+* Training of Trainers (ToT) and user Training -
 * Data Warehousing & Dashboards - While close to "Servers" above, not all deployments have a data warehouse (CHT Sync + Postgres) and dashboards (Superset/Klipfolio) at launch.  These are easy to add on at a later date and cost can be estimated at that time.
 * Upfront Purchase of Hardware - It is assumed that a deployment will either be using cloud based solutions or using managed bare metal, so these costs don't apply.
 * App Development - Each deployment needs to have the default CHT app customized for each of the required workflows.
-* Smartphones - Device purchase, setup, and distribution for CHWs to use the CHT.
+* Smartphones - Device purchase, setup, and distribution for users to use the CHT.
 * Analog -> Digital Workflow conversion - The process of documenting paper processes in places that the CHT will replace.
-* SMS - Some projects need the ability to send SMS to CHWs from the CHT.
+* SMS - Some projects need the ability to send SMS to users from the CHT.
 * Interoperability - While the CHT supports this out of the box - development work is needed to ensure it works with the specific 3rd party systems.
 * Mobile Device Management - optional.
 * Cellphone telecom services - Users actually uploading/downloading data
