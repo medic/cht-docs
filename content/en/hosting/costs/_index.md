@@ -9,7 +9,7 @@ aliases:
 
 ## Cost per CHT per Month
 
-In a production environment, the CHT costs USD$0.10 per user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
+In a production environment, the CHT costs USD$0.10 per active user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
 
 {{% pageinfo %}}
 Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
@@ -73,6 +73,7 @@ Items that are included in the basic costs of hosting the CHT:
 * Monitoring and Alerting - Since all software fails eventually, you need to be prepared to defend against this with aggressive monitoring and alerting.  The goal will be to fix the problem before any users notice.
 * Ingress/Egress - This is the ability to send and receive data to the CHT.  Pricing from Datacenters and Cloud is readily available and "Servers" above can not exist without it.
 * CHT Core updates and system maintenance - Both the CHT and underlying operating system will be upgraded on a regular basis.  This not only ensures there are no security vulnerabilities, but also ensures the deployments gains the benefit of new features and performance gains in the CHT.
+* Active users - this is the total amount of users that engage with the CHT every day.  If there are credentials that are created, but no users logging in with those credentials, these do not increase costs.
 
 ### Excluded
 
