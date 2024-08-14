@@ -93,4 +93,4 @@ There are many assumptions about what else is needed to run the CHT. While impor
 * Interoperability - While the CHT supports this out of the box - development work is needed to ensure it works with the specific 3rd party systems.
 * Mobile Device Management - optional.
 * Cellphone telecom services - Users actually uploading/downloading data
-* Transfer of hosting from Medic hosted to MoH Self Hosted - Many person hours needed to help with transfer of data to new MoH based hosting.
+* Setup and/or transfer of hosting provider
