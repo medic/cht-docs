@@ -9,7 +9,7 @@ aliases:
 
 ## Cost per CHT per Month
 
-In a production environment, the CHT costs $0.10 per user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
+In a production environment, the CHT costs USD$0.10 per user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
 
 {{% pageinfo %}}
 Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
