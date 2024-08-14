@@ -6,8 +6,8 @@ description: >
 keywords: users user-roles user-permissions
 relatedContent: >
   design/personas
-  apps/tutorials/contact-and-users-1
-  apps/tutorials/contact-and-users-2
+  building/contact-management/contact-and-users-1
+  building/contact-management/contact-and-users-2
   apps/guides/data/users-bulk-load
 ---
 

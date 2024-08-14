@@ -9,7 +9,7 @@ relatedContent: >
   apps/reference/forms/contact
   apps/reference/contact-page
   apps/guides/updates/moving-contacts
-  apps/tutorials/contact-and-users-1
+  building/contact-management/contact-and-users-1
   apps/examples/contact-tracing
 ---
 <!-- ## Contacts: Person and Family Profiles -->

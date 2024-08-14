@@ -7,7 +7,7 @@ description: >
 relatedContent: >
     apps/guides/training/onboarding
     apps/guides/database/couchdb-authentication
-    apps/tutorials/contact-and-users-1
+    building/contact-management/contact-and-users-1
     apps/guides/data/users-bulk-load
     apps/concepts/users
     apps/concepts/access/#magic-links-for-logging-in-token-login
