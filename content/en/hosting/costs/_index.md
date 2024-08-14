@@ -81,7 +81,7 @@ There are many assumptions about what else is needed to run the CHT. While impor
 
 * Kubernetes cluster - Current CHT production best practices include a Kubernetes cluster that will have a fixed monthly cost to operate, including the worker nodes which may be large in size (RAM & CPU).
 * Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware.  This takes up a disk space which should be accounted for when budgeting to host the CHT.
-* Building a Datacenter (DC) - While some well funded MoH's may have the budget and time to build a complete data center, this is out of the scope of Medic's core competency.  Therefore it is assumed an existing DC will be used or cloud hosting will be used.  In the case where a MoH wants to build a DC, a competent 3rd party should be selected
+* Building a Datacenter (DC) - While some well funded MoH's may have the budget and time to build a complete data center, this is out of the scope for this calculation.  Therefore it is assumed an existing DC will be used or cloud hosting will be used.  In the case where a MoH wants to build a DC, a competent 3rd party should be selected
 * Training of Systems Administrators/IT - System administrator IT systems that have not used Kubernetes or have not hosted the CHT, will need to be trained on how to do both.
 * Training of Trainers (ToT) and user Training -
 * Data Warehousing & Dashboards - While close to "Servers" above, not all deployments have a data warehouse (CHT Sync + Postgres) and dashboards (Superset/Klipfolio) at launch.  These are easy to add on at a later date and cost can be estimated at that time.
