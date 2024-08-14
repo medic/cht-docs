@@ -21,23 +21,30 @@ Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes S
 
 By looking at dozens of instances and focusing on the highest usage ones, an accurate representation can be derived of a higher cost a self hosting partner.  
 
-Here's some real costs for two week period for two instances that have been renamed to simply **A** and **B**:
+Here's real costs for two week period for an actual production instance which informs our USD$0.10 per active user per month cost, including a bit of over-provisioning to give a deployment some headroom:
 
-| Per Month | A | B | 
-| --- | --- | --- | --- |
-| $/User | $0.05 | $0.10 |  |
-| $ | $94 | $68 |  |
-| Active Users (30 days) | 2000 | 661 |  |
-| DB Size (Millions) | 7.5M | 10.7M |  |
-| DB Growth (Thousands) | 123.2K | 248.0K |  |
-| RAM | $16 | $22 |  |
-| CPU | $6 | $8 |  |
-| Storage | $53 | $24 |  |
-| CPU max used (vCPUs) | 2.9 | 8 |  |
-| RAM max (Gigs) | 20 | 15 |  |
-| Storage Max PVC (TBs) | 0.96 | 0.42 |  |
+| Total Monthly Cost     | $68    | 
+|------------------------|--------| 
+| Active Users (30 days) | 661    | 
+| $/User                 | $0.10  | 
+| RAM                    | $22    |  
+| CPU                    | $8     |  
+| Storage                | $24    |
+| Over provision         | $14    |
 
-Deployment **A** has a lot of active users, but a slower database growth as compared to deployment **B** which has fewer users but faster database growth. These are the types of variations that can cause changes in costs mentioned in the next section.
+We derive the $/User/Month cost by taking $68/mo and deciding it by 661 active users to arrive at $0.10.  The bottom 4 lines  are the sub-items that make the total $68/mo amount. Note that if a deployment has a lot of active users, but a slower database growth than shown above, this can cause changes in costs mentioned in the next section.
+
+By using OpenCost, we not only know costs as shown above, but we also know actual resources used with in the cluster.  This allows us to be able to know CPU, storage and RAM usage.  At a higher level, we can also know how many documents were stored and document growth.  Documents are created, for example, when a CHW follows a health workflow on their device and syncronizes to the CHT:
+
+| Monthly Resources |        | 
+|-------------------|--------| 
+| CPU               | 8      | 
+| RAM (Gigs)        | 15     | 
+| Storage (TBs)     | 0.42   | 
+| Documents         | 10.7M  |
+| Documents Growth  | 248.0K |  
+
+
 
 ### Accuracy
 
