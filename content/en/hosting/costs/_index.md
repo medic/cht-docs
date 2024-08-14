@@ -65,7 +65,7 @@ To be clear, this document is very much a hosting TCO and not a generic TCO docu
 
 Items that are included in the basic costs of hosting the CHT:
 
-* Servers - This is the most likely place where Medic can leverage their intimate knowledge from hosting many dozen production instances of the CHT.  This includes:
+* Servers - Given the large number of hosted CHT instances this is the area with the most data to use to build the calculator.  This includes:
     * Average monthly cost to host the CHT
     * Ability to adjust based on expected user count, number of workflows and a few other program specific numbers like how many workflows there are.
     * Amount of CPU/RAM/Storage needed - while it is assumed this will be for AWS, it will come in the form of something like "20 vCPUs" which can be translated to any hosting environment.
