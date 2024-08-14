@@ -83,7 +83,7 @@ There are many assumptions about what else is needed to run the CHT. While impor
 * Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware.  This takes up a disk space which should be accounted for when budgeting to host the CHT.
 * Building a Datacenter (DC) - While some well funded MoH's may have the budget and time to build a complete data center, this is out of the scope for this calculation.  Therefore it is assumed an existing DC will be used or cloud hosting will be used.  In the case where a MoH wants to build a DC, a competent 3rd party should be selected
 * Training of Systems Administrators/IT - System administrator IT systems that have not used Kubernetes or have not hosted the CHT, will need to be trained on how to do both.
-* Training of Trainers (ToT) and user Training -
+* Training of Trainers (ToT) and user Training
 * Data Warehousing & Dashboards - While close to "Servers" above, not all deployments have a data warehouse (CHT Sync + Postgres) and dashboards (Superset/Klipfolio) at launch.  These are easy to add on at a later date and cost can be estimated at that time.
 * Upfront Purchase of Hardware - It is assumed that a deployment will either be using cloud based solutions or using managed bare metal, so these costs don't apply.
 * App Development - Each deployment needs to have the default CHT app customized for each of the required workflows.
