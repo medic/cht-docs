@@ -5,7 +5,7 @@ weight: 23
 description: >
  How to use and configure a user management tool for your CHT project.
 relatedContent: >
-  apps/tutorials/contact-and-users-1
+  building/contact-management/contact-and-users-1
   apps/guides/data/users-bulk-load
 ---
 

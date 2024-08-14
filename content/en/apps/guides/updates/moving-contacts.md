@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/features/contacts
   apps/reference/app-settings/hierarchy
-  apps/tutorials/contact-and-users-2
+  building/contact-management/contact-and-users-2
   apps/concepts/hierarchy
 
 ---

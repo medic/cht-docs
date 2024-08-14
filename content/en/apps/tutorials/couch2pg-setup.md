@@ -5,7 +5,7 @@ weight: 2
 description: >
   Setting up a Couch2pg service to download data from CouchDB to Postgres Database
 relatedContent: >
-  apps/tutorials/local-setup
+  building/local-setup
 ---
 
 {{% pageinfo %}}
@@ -44,7 +44,7 @@ Before you begin, you need to have some useful software and tools that are requi
 * [PostgreSQL](https://www.postgresql.org/) 9.4 or later
 
 ## Prerequisites
-You should have a functioning [CHT instance installed locally]({{< ref "apps/tutorials/local-setup" >}})
+You should have a functioning [CHT instance installed locally]({{< ref "building/local-setup" >}})
 
 You should have a working database with a user that has full creation rights on the database. A database `POSTGRES_DB_NAME` and `couch2pg` user can be created and access granted using the following query:
 ```

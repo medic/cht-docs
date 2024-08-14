@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/concepts/users
   apps/reference/app-settings
-  apps/tutorials/contact-and-users-1
+  building/contact-management/contact-and-users-1
 ---
 
 {{% pageinfo %}}
@@ -36,7 +36,7 @@ The [CHT application settings]({{< relref "apps/tutorials/application-settings" 
 
 ## Pre-requisites
 
-- You should be familiar with contact and user management. View detailed tutorial on [How to create contacts and their associated users]({{% ref "apps/tutorials/contact-and-users-1" %}}) 
+- You should be familiar with contact and user management. View detailed tutorial on [How to create contacts and their associated users]({{% ref "building/contact-management/contact-and-users-1" %}}) 
 - You should be familiar with managing CHT application settings. Read [How to manage CHT application settings]({{% ref "apps/tutorials/application-settings" %}}) 
 
 

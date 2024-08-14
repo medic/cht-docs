@@ -1,13 +1,14 @@
 ---
 title: "Roadmap"
 linkTitle: "Roadmap"
-weight: 10
+weight: 3
 description: >
   Improvements that are being worked on, and those that are being considered next
 aliases:
   -    /core/overview/technical-roadmap
+  -    /core/overview/roadmap
 relatedContent:
-  core/releases
+  building/core/releases
 ---
 
 {{% pageinfo %}}
