@@ -41,7 +41,7 @@ Deployment **A** has a lot of active users, but a slower database growth as comp
 
 ### Accuracy
 
-As our research was based on live instances, the costs are realistic.  However, since not all users will use the CHT in the exact same way and not all deployments have the same number of users and work flows, these numbers are still subject to some per-deployment fluctuation.
+This research was based on live instances so the costs are realistic.  However, since not all programs use the CHT in the exact same way, and not all deployments have the same number of users and workflows, these numbers are still subject to some fluctuation.
 
 Further, the costs in the table above only cover the variable costs.  That is, the costs incurred of actual usage with in an EKS cluster.  In a multi-tenant deployment where you have maybe three instances (Staging, User Acceptance Testing and Production), this can be critical to know what the three different deployments incurred costs are within your EKS cluster.  
 
