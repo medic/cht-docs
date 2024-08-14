@@ -57,7 +57,7 @@ It should be noted that a [development environment]({{< relref "hosting/4.x/app-
 
 Running an easy to set up Docker based development environment (instead of Kubernetes) on a laptop is an acceptable practice: there is no expectation of high uptime for development instances.
 
-## Expenses behind the per user cost
+## What's included in the per user cost
 
 To be clear, this document is very much a hosting TCO and not a generic TCO document.  As such, below is a list of what's included in the hosting casts above and what is excluded.
 
