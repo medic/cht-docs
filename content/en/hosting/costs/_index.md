@@ -37,7 +37,7 @@ Here's some real costs for two week period for two instances that have been rena
 | RAM max (Gigs) | 20 | 15 |  |
 | Storage Max PVC (TBs) | 0.96 | 0.42 |  |
 
-Deployment **A** has a lot of active users (`2000/mo`), but a slower database growth (`123.2K/mo`) as compared to deployment **B** which has fewer users (`661/mo`) but faster growth (`248K/mo`). These are the types of variations that can cause changes in costs mentioned in the next section.
+Deployment **A** has a lot of active users, but a slower database growth as compared to deployment **B** which has fewer users but faster database growth. These are the types of variations that can cause changes in costs mentioned in the next section.
 
 ### Accuracy
 
