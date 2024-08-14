@@ -17,7 +17,7 @@ Be sure to read the [Accuracy section](#accuracy) so you understand what the cos
 
 ## How the number was calculated
 
-Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). By using [OpenCost](https://www.opencost.io/), Medic closely monitoring real world costs with actual end users. OpenCost allows us to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
+Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). By using [OpenCost](https://www.opencost.io/), Medic closely monitoring real world costs with actual end users. OpenCost was used to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
 
 By looking at dozens of instances and focusing on the highest usage ones, an accurate representation can be derived of a higher cost a self hosting partner.  
 
