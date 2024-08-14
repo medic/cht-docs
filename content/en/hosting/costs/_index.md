@@ -59,7 +59,7 @@ Running an easy to set up Docker based development environment (instead of Kuber
 
 ## What's included in the per user cost
 
-To be clear, this document is very much a hosting TCO and not a generic TCO document.  As such, below is a list of what's included in the hosting casts above and what is excluded.
+This document covers hosting cost and does not cover Total Cost of Ownership (TCO).  Below is a list of what's included in the hosting casts above and what is excluded.
 
 ### Included
 
