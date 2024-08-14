@@ -53,7 +53,7 @@ A production deployment means the CHT is hosted either at a cloud provider or in
 
 When analyzing the hosting total cost of ownership (TCO), only production instances were looked at.
 
-It should be noted that a development environment can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
+It should be noted that a [development environment]({{< relref "hosting/4.x/app-developer" >}})  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
 
 Running an easy to set up Docker based development environment (instead of Kubernetes) on a laptop is an acceptable practice: there is no expectation of high uptime for development instances.
 
