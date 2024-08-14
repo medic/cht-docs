@@ -32,7 +32,7 @@ Here's real costs for two week period for an actual production instance which in
 | Storage                | $24    |
 | Over provision         | $14    |
 
-We derive the $/User/Month cost by taking $68/mo and deciding it by 661 active users to arrive at $0.10.  The bottom 4 lines  are the sub-items that make the total $68/mo amount. Note that if a deployment has a lot of active users, but a slower database growth than shown above, this can cause changes in costs mentioned in the next section.
+We derive the $/User/Month cost by taking $68/mo and dividing it by 661 active users to arrive at $0.10.  The bottom 4 lines  are the sub-items that make the total $68/mo amount. Note that if a deployment has a lot of active users, but a slower database growth than shown above, it can cause changes in costs mentioned in [the next section](#accuracy).
 
 By using OpenCost, we not only know costs as shown above, but we also know actual resources used with in the cluster.  This allows us to be able to know CPU, storage and RAM usage.  At a higher level, we can also know how many documents were stored and document growth.  Documents are created, for example, when a CHW follows a health workflow on their device and syncronizes to the CHT:
 
