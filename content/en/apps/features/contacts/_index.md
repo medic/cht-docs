@@ -12,8 +12,6 @@ relatedContent: >
   building/contact-management/contact-and-users-1
   apps/examples/contact-tracing
 ---
-<!-- ## Contacts: Person and Family Profiles -->
-<!-- TODO Refine screenshots, and add desktop view. -->
 
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
