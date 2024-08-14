@@ -7,7 +7,7 @@ description: >
 aliases:
   -    /core/releases/feature_releases/
 relatedContent: >
-    cht-components/core/releases
+    building/core/releases
     contribute#are-you-a-partner-wondering-how-issues-are-prioritized
     
 ---

@@ -23,7 +23,7 @@ See more [key concepts]({{% ref "apps/tutorials/contact-and-users-1#brief-overvi
 
 ## Required Resources
 
-You should have a functioning CHT instance and have cht-conf installed locally. Read [How to set up a CHT local configuration environment]({{% ref "apps/tutorials/local-setup" %}})
+You should have a functioning CHT instance and have cht-conf installed locally. Read [How to set up a CHT local configuration environment]({{% ref "building/local-setup" %}})
 
 ## Implementation Steps
 

@@ -8,7 +8,7 @@ aliases:
   -    /core/overview/technical-roadmap
   -    /core/overview/roadmap
 relatedContent:
-  cht-components/core/releases
+  building/core/releases
 ---
 
 {{% pageinfo %}}
