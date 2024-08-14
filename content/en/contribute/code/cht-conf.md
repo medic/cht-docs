@@ -15,7 +15,7 @@ description: >
 
 ### Operating System Specific
 
-{{< tabpane persistLang=false lang=shell >}}
+{{< tabpane persist=false lang=shell >}}
 {{< tab header="Linux (Ubuntu)" >}}
 npm install -g cht-conf
 sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
