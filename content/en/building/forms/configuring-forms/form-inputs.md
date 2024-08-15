@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/reference/forms
   apps/reference/contact-page
-  apps/guides/tasks/pass-data-to-form
+  building/tasks/pass-data-to-form
   
 ---
 
@@ -93,7 +93,7 @@ Contact summary data is not available in `contact` forms or in forms created fro
 
 ### `inputs` data from task
 
-`app` forms created via a task have access to any data [supplied by the task]({{< ref "apps/guides/tasks/pass-data-to-form" >}}) in the `inputs` group. 
+`app` forms created via a task have access to any data [supplied by the task]({{< ref "building/tasks/pass-data-to-form" >}}) in the `inputs` group. 
 
 ---
 

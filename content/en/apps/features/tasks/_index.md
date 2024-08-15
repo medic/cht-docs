@@ -5,7 +5,7 @@ description: >
   Ensuring that the right actions are taken for the right people at the right time
 keywords: tasks
 relatedContent: >
-  apps/reference/tasks
+  building/tasks/tasks-js
   apps/concepts/workflows
 ---
 

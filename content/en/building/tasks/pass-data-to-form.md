@@ -4,9 +4,9 @@ linkTitle: Passing Data from Tasks to Forms
 description: >
   Demonstrates how to pass data into an application form via tasks
 relatedContent: >
-  apps/tutorials/tasks-2
+  building/tasks/complex-tasks
   apps/tutorials/app-forms
-  apps/reference/tasks
+  building/tasks/tasks-js
   building/forms/configuring-forms/form-inputs
   
 ---
@@ -17,15 +17,15 @@ This guide explains how to pass data from a task into the action _application fo
 
 ## Prerequisites
 
-* [Complex Tasks Tutorial]({{< ref "apps/tutorials/tasks-2" >}})
+* [Complex Tasks Tutorial]({{< ref "building/tasks/complex-tasks" >}})
 * [Application Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}})
 
 ## Scenario
 
-Let's look deeper at the scenario from the [Complex Tasks Tutorial]({{< ref "apps/tutorials/tasks-2" >}}) where we have an ANC follow-up task which recurs eight times, and we want to ask the user different questions on the first and last follow-up.
+Let's look deeper at the scenario from the [Complex Tasks Tutorial]({{< ref "building/tasks/complex-tasks" >}}) where we have an ANC follow-up task which recurs eight times, and we want to ask the user different questions on the first and last follow-up.
 
 ## Developing the task
-From the [Complex Tasks Tutorial]({{< ref "apps/tutorials/tasks-2" >}}), here is the task.
+From the [Complex Tasks Tutorial]({{< ref "building/tasks/complex-tasks" >}}), here is the task.
 
 ```javascript
 const { DateTime } = require('luxon');
@@ -76,7 +76,7 @@ module.exports = {
 ```
 
 ## modifyContent
-Let's take a look at the `actions` section and specifically the [modifyContent]({{< ref "apps/reference/tasks" >}}) attribute. This `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). The `content` object is the object which binds to the `inputs` section in the app form. You can pass data into the app form by assigning values onto this object. 
+Let's take a look at the `actions` section and specifically the [modifyContent]({{< ref "building/tasks/tasks-js" >}}) attribute. This `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). The `content` object is the object which binds to the `inputs` section in the app form. You can pass data into the app form by assigning values onto this object. 
 
 This function calculates `t_followup_count` to be the index of the event which is being completed. So the first task event (which appears after 12 weeks) is followup `1`, and the task event after 34 weeks is followup `5`. 
 

@@ -4,7 +4,7 @@ linkTitle: Querying Task Documents
 description: >
   Querying the data which results from an example task. Notes on the performance implications of tasks.
 relatedContent: >
-  apps/tutorials/tasks-1
+  building/tasks
   core/overview/db-schema#tasks
   core/overview/data-flows-for-analytics
 ---
@@ -27,7 +27,7 @@ The task system running on each user's device is powered by [task documents]({{<
 {{< see-also page="core/overview/data-flows-for-analytics" title="Data flows for analytics" >}}
 
 ### First Assessment Completion Rate
-Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "apps/tutorials/tasks-1" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
+Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "building/tasks/" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
 
 Let's query data from the last three months to see how the _first assessment_ task is behaving in production:
 
@@ -68,7 +68,7 @@ module.exports = [{
 **What is this code doing?**
 * `useview_task` - This is a materialized view created automatically by the medic-couch2pg service. It is an intuitive view of the data from the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
 * `task_state` - The meaning of each task state is explained in the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
-* `WHERE title` - The _name_ attribute in the [task.js schema]({{< ref "apps/reference/tasks#tasksjs" >}}) is used exclusively in the task's backend data. Here we limit the query to task documents resulting from our named task. The `title` in postgres maps to the `name` in JavaScript not the `title` in JavaScript - which is confusing.
+* `WHERE title` - The _name_ attribute in the [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}}) is used exclusively in the task's backend data. Here we limit the query to task documents resulting from our named task. The `title` in postgres maps to the `name` in JavaScript not the `title` in JavaScript - which is confusing.
 * `WHERE duedate` - One task document is created per event and this task has one event per contact which is due 7 days after the contact's creation date. Here we limit the query to task documents which are _due in the last 3 calendar months_.
 
 ## Understanding the data

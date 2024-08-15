@@ -4,11 +4,11 @@ linkTitle: Task Schema Parameters
 description: >
   Understanding the data which is passed into Task interfaces
 relatedContent: >
-  apps/reference/tasks
+  building/tasks/tasks-js
   apps/guides/data/hydration
   core/overview/db-schema#contacts-persons-and-places
   core/overview/db-schema#reports
-  apps/tutorials/tasks-1
+  building/tasks
 
 ---
 
@@ -45,7 +45,7 @@ With this constraint in mind, we can infer that tasks cannot know the answer to 
 
 ## The special significance of the appliesTo attribute
 
-The [task.js schema]({{< ref "apps/reference/tasks#tasksjs" >}}) includes the noteworthy attribute `appliesTo` which has two options: `contacts` and `reports`. This attribute is important! It changes the algorithm used to process the task, and the meaning of other attributes in the schema.
+The [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}}) includes the noteworthy attribute `appliesTo` which has two options: `contacts` and `reports`. This attribute is important! It changes the algorithm used to process the task, and the meaning of other attributes in the schema.
 
 {{% alert title="Hint" %}}
 `appliesTo` is important. When you're ready to write a task, one of the first thing you must decide is the `appliesTo` value.

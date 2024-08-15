@@ -35,7 +35,7 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 # Step 3: Configure the training form
 
-Create a [properties file]({{< relref "apps/tutorials/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
+Create a [properties file]({{< relref "building/forms/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
 
 ```
 {

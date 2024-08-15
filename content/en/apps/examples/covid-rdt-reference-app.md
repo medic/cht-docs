@@ -163,7 +163,7 @@ These are the files in the COVID-19 app where you'll want to focus your customiz
 
 The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms (`xlsx`, `xml` and `properties.json`) represent the provision and capture portions of the forms.  The tasks that get created are defined in `tasks.js`.  Not shown are standard contact definitions in `forms/contact/*` as well as supporting configurations for icons and other CHT application settings.  
 
-To read more about how these files all work together, see [app forms]({{< ref "building/forms/app" >}}), [contact forms]({{< ref "building/forms/contact" >}}), and [task]({{< ref "apps/reference/tasks" >}}) reference documentation
+To read more about how these files all work together, see [app forms]({{< ref "building/forms/app" >}}), [contact forms]({{< ref "building/forms/contact" >}}), and [task]({{< ref "building/tasks/tasks-js" >}}) reference documentation
 
 ## Example form submission
 
