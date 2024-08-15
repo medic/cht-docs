@@ -26,7 +26,7 @@ It is recommended that all projects update regularly multiple times a year to ge
 | 4.9.x   | Supported | 25-Jun-2024  | 15-Nov-2024 |
 | 4.8.x   | Supported | 22-May-2024  | 25-Sep-2024 |
 | 4.7.x   | Supported | 07-May-2024  | 22-Aug-2024 |
-| 4.6.x   | Supported | 20-Mar-2024  | 10-Aug-2024 |
+| 4.6.x   | EOL       | 20-Mar-2024  | 10-Aug-2024 |
 | 4.5.x   | EOL       | 20-Nov-2023  | 20-Jun-2024 |
 | 4.4.x   | EOL       | 20-Sep-2023  | 20-Feb-2024 |
 | 4.3.x   | EOL       | 18-Aug-2023  | 20-Dec-2023 |
