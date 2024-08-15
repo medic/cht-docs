@@ -6,7 +6,7 @@ description: >
   Reference application for maternal and newborn care for CHW's using a mobile app
 relatedContent: >
   apps/concepts
-  apps/reference/forms/app
+  building/forms/app
   apps/reference/tasks
 ---
 
@@ -35,7 +35,7 @@ Once a [hierarchy]({{< relref "apps/concepts/hierarchy" >}}) of people and place
 
 {{< figure src="forms-hierarchy.png" link="forms-hierarchy.png" class="right col-12 col-lg-12" >}}
 
-{{< see-also page="apps/reference/forms/app" title="Controlling form properties" >}}
+{{< see-also page="building/forms/app" title="Controlling form properties" >}}
 
 ## Workflows
 

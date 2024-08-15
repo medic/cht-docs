@@ -8,7 +8,7 @@ aliases:
   -    /apps/guides/messaging/rapidpro
 relatedContent: >
     apps/reference/app-settings/sms
-    apps/guides/forms/app-form-sms
+    building/forms/configuring-forms/app-form-sms
     apps/guides/messaging/sms-states
     apps/guides/messaging/message-loops
     apps/guides/messaging/shortcodes

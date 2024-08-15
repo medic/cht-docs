@@ -5,8 +5,8 @@ weight: 17
 description: >
   Seeding data with cht-conf
 relatedContent: >
-  apps/guides/forms/additional-docs
-  apps/reference/forms/contact
+  building/forms/configuring-forms/additional-docs
+  building/forms/contact
 ---
 
 

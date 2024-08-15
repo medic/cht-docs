@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/concepts
   apps/features/supervision
-  apps/reference/forms/app
+  building/forms/app
   apps/reference/tasks
 ---
 

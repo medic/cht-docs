@@ -5,8 +5,8 @@ weight: 7
 description: >
   Building CHT app forms
 relatedContent: >
-  apps/reference/forms/contact
-  apps/reference/forms/app
+  building/forms/contact
+  building/forms/app
   design/best-practices/#forms
   design/best-practices/#content-and-layout
   design/best-practices/#summary-page
@@ -27,11 +27,11 @@ You will be building assessment workflow that allows Community Health Workers to
 
 ## Brief Overview of Key Concepts
 
-*[App forms]({{< ref "apps/reference/forms/app" >}})* serve as actions within the app.
+*[App forms]({{< ref "building/forms/app" >}})* serve as actions within the app.
 
-*[XLSForm]({{< ref "apps/reference/forms/app#xlsform" >}})* is a form [standard](http://xlsform.org/en/) created to help simplify the authoring of forms in Excel.
+*[XLSForm]({{< ref "building/forms/app#xlsform" >}})* is a form [standard](http://xlsform.org/en/) created to help simplify the authoring of forms in Excel.
 
-*[XForm]({{< ref "apps/reference/forms/app#xform" >}})* is a CHT-enhanced version of the [ODK XForm](https://getodk.github.io/xforms-spec/) standard.
+*[XForm]({{< ref "building/forms/app#xform" >}})* is a CHT-enhanced version of the [ODK XForm](https://getodk.github.io/xforms-spec/) standard.
 
 ## Required Resources
 

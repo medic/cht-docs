@@ -7,7 +7,7 @@ relatedContent: >
   apps/tutorials/tasks-2
   apps/tutorials/app-forms
   apps/reference/tasks
-  apps/guides/forms/form-inputs
+  building/forms/configuring-forms/form-inputs
   
 ---
 

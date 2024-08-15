@@ -6,7 +6,7 @@ description: >
   The people and places that are being cared for
 keywords: hierarchy contacts care-guides
 relatedContent: >
-  apps/reference/forms/contact
+  building/forms/contact
   apps/reference/contact-page
   apps/guides/updates/moving-contacts
   building/contact-management/contact-and-users-1

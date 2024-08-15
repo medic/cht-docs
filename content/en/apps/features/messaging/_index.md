@@ -6,7 +6,7 @@ description: >
 relatedContent: >
   apps/reference/app-settings/schedules
   apps/guides/messaging
-  apps/guides/forms/app-form-sms
+  building/forms/configuring-forms/app-form-sms
 ---
 
 Messaging is a quick way to coordinate with other health workers. The Messages tab allows users to send a SMS message to any person or group of people in the app. Common uses of messages include asking questions, coordinating care logistics, providing encouragement or confirming training times.

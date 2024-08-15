@@ -43,7 +43,7 @@ Once you obtain the list of data elements on the data set, be sure to go through
 {{% /alert %}}
 
 
-{{< see-also page="apps/concepts/forms" title="Forms" >}}
+{{< see-also page="building/forms" title="Forms" >}}
 
 ### Workflows and User Access
 
@@ -77,7 +77,7 @@ Update the contact document of each place you wish to map to an organisation uni
 {{% /alert %}}
 
 
-{{< see-also page="apps/reference/forms/contact" title="Contact Forms" >}}
+{{< see-also page="building/forms/contact" title="Contact Forms" >}}
 
 ```json
 {

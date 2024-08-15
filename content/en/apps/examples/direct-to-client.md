@@ -6,7 +6,7 @@ description: >
   Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
 relatedContent: >
   apps/concepts
-  apps/reference/forms/app
+  building/forms/app
   apps/reference/tasks
 ---
 

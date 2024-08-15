@@ -205,7 +205,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 #### New XPath functions
 
 * Custom CHT functions:
-    * [`add-date`]({{< relref "apps/reference/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
+    * [`add-date`]({{< relref "building/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
 * ODK Functions:
     * Repeats and other node sets:
         * [`position`](https://docs.getodk.org/form-operators-functions/#position) - Returns the current iteration index within a repeat group.

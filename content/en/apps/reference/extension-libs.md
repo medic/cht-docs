@@ -86,4 +86,4 @@ The function will now be available via the CHT API for [tasks]({{< ref "tasks" >
 
 #### CHT xPath functions
 
-To execute the function from within an xform use the [`cht:extension-lib` xpath function]({{< ref "forms/app#chtextension-lib" >}}).
+To execute the function from within an xform use the [`cht:extension-lib` xpath function]({{< ref "building/forms/app#chtextension-lib" >}}).

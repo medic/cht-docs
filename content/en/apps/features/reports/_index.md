@@ -6,7 +6,7 @@ description: >
 relatedContent: >
   apps/reference/app-settings/patient_reports
   apps/guides/data/invalid-reports
-  apps/guides/forms/report-titles
+  building/forms/configuring-forms/report-titles
 ---
 
 The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferable for CHW users). 
@@ -90,7 +90,7 @@ The buttons at the bottom are configurable. The ones you see will depend on your
 ## Defining Forms
 
 The reports shown in your app are the completed and submitted *forms*. These forms must be defined and included with the application. There are two types of form definitions for reports:
-- **App forms**: actions within the app, such as a completed task, or an action on a contact's profile or reports tab. App forms are defined as [XForms]({{< ref "apps/reference/forms/app" >}}).
+- **App forms**: actions within the app, such as a completed task, or an action on a contact's profile or reports tab. App forms are defined as [XForms]({{< ref "building/forms/app" >}}).
 - **JSON forms**: data coming from external channels such as SMS, or via interoperability with other tools. JSON forms are defined using a [JavaScript Object Notation schema]({{< ref "apps/reference/app-settings/forms" >}}). 
 
 
