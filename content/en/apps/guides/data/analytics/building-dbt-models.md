@@ -20,17 +20,38 @@ If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settin
 
 ## Setup
 
-CHT Sync runs models using a [DBT package](https://docs.getdbt.com/docs/build/packages), which is configured by providing a URL to a GitHub repository.
-If application-specific models need to be private, the [cht-pipeline repository](https://github.com/medic/cht-pipeline/) can be forked into a private repository.
-A branch of the public repository can be created if the models can be public.
+To create application specifc models, create a new dbt project as described [here](https://docs.getdbt.com/reference/commands/init)  and a Github repository (it may be public or private).
+The [CHT Pipeline](https://docs.getdbt.com/docs/build/packages) dbt project, should be included as a dependency in `packages.yml`
+```yml
+packages:
+  - git: "https://github.com/medic/cht-pipeline"
+    revision: "1.0.0"
+```
+To avoid breaking changes in downstream models, include a version tag in the dependency.
 
-The URL of the branch is set in the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in ´.env´ if using ´docker-compose´, or in ´values.yaml´ if using Kubernetes.
+In CHT Sync config, set the URL of this repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in ´.env´ if using ´docker compose´, or in ´values.yaml´ if using Kubernetes.
 
-When models are changed, CHT Sync needs to be restarted for the change to take effect. When it restarts, it automatically downloads the latest version of CHT Pipeline and applies the changes. For models materialized as views, they are updated instantly. For models materialized as incremental tables, the table is dropped and will be unavailable until it is rebuilt from scratch.
+### Deploying models
+
+CHT Sync automatically checks for updates to the DBT project at `CHT_PIPELINE_BRANCH_URL`
+Use the main branch for changes that should be released; they will applied as soon as they are pushed to the repository.
+For models that are in development, any other branch can be used.
+
+Rebuilding tables can take some time (a rough estimate is several hours for tables between 1M and 10M rows, upt to 24H for tables between 10M and 100M rows) so plan for affected dashboards to be out of date when releasing new changes to models; only changed tables and their dependencies will be rebuilt.
+
+New releases of the base models are rare, but schema changes to the CHT or new features may require changes.
+Generally, these changes will be backwards compatible so that a new release of the CHT, or to the base models, does not break application specific models.
+
+When it is necessary to update the base models, update the version tag in the dependency that refers to cht-pipeline, make any changes to application specific models that are necessary, rerun any unit tests, and push to the main branch to release. 
+
+
+### Testing models and dashboards
+
+It is highly encouraged to write dbt [tests](https://docs.getdbt.com/docs/build/data-tests) for application specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in [CHT Pipeline](https://github.com/medic/cht-pipeline/tree/main/test).
+
 
 ## Base Models
 
-The base models define the data which is common to all CHT applications.
 All tables contain a `uuid` which is the primary key for the table; it is also the `_id` from the source CouchDB document.
 
 {{< figure src="cht-pipeline-er.png" link="cht-pipeline-er.png" class=" center col-16 col-lg-12" >}}
@@ -44,9 +65,6 @@ This table can be used to get any field from a CouchDB document; however, it is 
 |`type`|The general type of the document, see below|
 |`doc`| JSON of the source document|
 
-### `couchdb_lambda_view`
-This is a [lambda view](https://discourse.getdbt.com/t/how-to-create-near-real-time-models-with-just-dbt-sql/1457) with the same structure as the `couchdb` table. It contains the latest data coming in from CouchDB, and is useful for near-real-time data. However, to take full advantage of it, all downstream models built on top of it need to be views. This comes with a few drawbacks, such as not being able to index columns and performance issues when building views on top of views.
-
 ### `data_record`
 All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
 This table contains columns for the contact who made the report, the parent of that contact, the report data, and a copy of fields in `jsonb` format.
@@ -56,8 +74,7 @@ It is not recommended to use the fields column directly, but instead to add one 
 |--|--|
 |`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
 |`contact_uuid`| uuid of the `contact` who made the report|
-|`contact_parent_uuid`| uuid of the parent of `contact` who made the report|
-|`fields`| JSON of the `fields` property from the couchdb document|
+|`contact_parent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 |`reported`| the reported timestamp from the couchdb document, stored as a date|
 
 For SMS forms, there is also an `sms_form` table which contains the raw message and sender phone number (for SMS form response, `contact_uuid` may be `NULL`)
@@ -94,52 +111,140 @@ Patients also have a `patient_id`, which is useful to link to `data_record`.
 
 ## Building App models
 
-An overview of building DBT models can be found [here]
+An overview of building DBT models can be found [here](https://docs.getdbt.com/docs/build/models)
 The additional models that need to be developed for a CHT application are:
 
  - One model for each form
- - Any additional contact models
+ - Models for contacts that are defined by the configurable hierarchy
  - Models to contain aggregates that may be useful for dashboards or analysis
 
 ### Form models
 For each form in the CHT application, create one model that selects from `data_record where form = 'theformyouwant'`, moves the fields from the `fields` JSON into columns, applies any convenient transformations, and, if necessary, add indexes to them.
 
+CHT Pipeline provides a macro for these models, `cht_form_model` to add boilerplate and commonly used columns.
+
+#### `cht_form_model`
+|Argument|Description|
+|--|--|
+|`form_name`| The name of the form to be selected |
+|`form_columns`| The columns to be selected |
+|`form_indexes`| Any additional indexes for the above columns |
+
 This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC visit number` from a typical pregnancy registration form.
-
 ```sql
-{{
-    config(materialized = 'view')
-}}
+-- add any indexes specific to this form
+{%- set form_indexes = [
+  {'columns': ['edd']},
+  {'columns': ['danger_signs']}]
+  {'columns': ['risk_factors']}]
+-%}
+-- add columns specific to this form
+{%- set form_indexes = [
+{% set form_columns %}
+  NULLIF(couchdb.doc->'fields'->>'lmp_date','')::date as lmp, -- CAST lmp string to date or NULL if empty
+  NULLIF(couchdb.doc->'fields' ->> 'edd','')::date as edd, -- CAST edd string to date or NULL if empty
 
-
-SELECT
-  uuid,
-
-  NULLIF(fields ->> 'lmp_date','')::date as lmp, -- CAST lmp string to date or NULL if empty
-  NULLIF(fields ->> 'edd','')::date as edd, -- CAST edd string to date or NULL if empty
-
-  fields ->> 'lmp_method' as lmp_method,
-  fields ->> 'danger_signs' AS danger_signs,
-  fields ->> 'risk_factors' AS risk_factors,
+  couchdb.doc->'fields' ->> 'lmp_method' as lmp_method,
+  couchdb.doc->'fields' ->> 'danger_signs' AS danger_signs,
+  couchdb.doc->'fields' ->> 'risk_factors' AS risk_factors,
 
   -- extract the ANC visit number
   CASE
-    WHEN fields ->>'anc_visit_identifier' <> ''
-      THEN (fields ->>'anc_visit_identifier')::int
-    WHEN fields #>>'{group_repeat,anc_visit_repeat,anc_visit_identifier}' <> ''
-      THEN RIGHT(fields #>>'{group_repeat,anc_visit_repeat,anc_visit_identifier}'::text[], 1)::int
+    WHEN couchdb.doc->'fields' ->>'anc_visit_identifier' <> ''
+      THEN (couchdb.doc->'fields' ->>'anc_visit_identifier')::int
+    WHEN couchdb.doc->'fields' #>>'{group_repeat,anc_visit_repeat,anc_visit_identifier}' <> ''
+      THEN RIGHT(couchdb.doc->'fields' #>>'{group_repeat,anc_visit_repeat,anc_visit_identifier}'::text[], 1)::int
+    ELSE 0 -- if not included default to 0
+  END AS anc_visit
+{% endset %}
+
+-- call the macro with the form name, the columns and indexes to create the actual model
+{{ cht_form_model('pregnancy', form_columns, form_indexes) }}
+```
+
+this creates the following model:
+
+```sql
+  {{
+    config(
+      materialized='incremental',
+      unique_key='uuid',
+      on_schema_change='append_new_columns',
+      indexes=[
+        {'columns': ['uuid'], 'type': 'hash'}, 
+        {'columns': ['saved_timestamp']},
+        {'columns': ['reported_by']},
+        {'columns': ['reported_by_parent']},
+        {'columns': ['reported']}
+      ]
+    )
+  }}
+
+  SELECT
+  data_record.uuid as uuid,
+  data_record.saved_timestamp,
+  data_record.contact_uuid as reported_by,
+  data_record.parent_uuid as reported_by_parent,
+  data_record.reported
+
+  NULLIF(couchdb.doc->'fields'->>'lmp_date','')::date as lmp, -- CAST lmp string to date or NULL if empty
+  NULLIF(couchdb.doc->'fields' ->> 'edd','')::date as edd, -- CAST edd string to date or NULL if empty
+
+  couchdb.doc->'fields' ->> 'lmp_method' as lmp_method,
+  couchdb.doc->'fields' ->> 'danger_signs' AS danger_signs,
+  couchdb.doc->'fields' ->> 'risk_factors' AS risk_factors,
+
+  -- extract the ANC visit number
+  CASE
+    WHEN couchdb.doc->'fields' ->>'anc_visit_identifier' <> ''
+      THEN (couchdb.doc->'fields' ->>'anc_visit_identifier')::int
+    WHEN couchdb.doc->'fields' #>>'{group_repeat,anc_visit_repeat,anc_visit_identifier}' <> ''
+      THEN RIGHT(couchdb.doc->'fields' #>>'{group_repeat,anc_visit_repeat,anc_visit_identifier}'::text[], 1)::int
     ELSE 0 -- if not included default to 0
   END AS anc_visit
 
-FROM
-  {{ ref("data_record") }} couchdb
-WHERE
-  form = 'pregnancy'
-
+  FROM {{ ref('data_record') }} data_record
+  INNER JOIN {{ env_var('POSTGRES_SCHEMA') }}.{{ env_var('POSTGRES_TABLE') }} couchdb ON couchdb._id = data_record.uuid
+  WHERE
+    data_record.form = 'pregnancy'
+  {% if is_incremental() %}
+    AND data_record.saved_timestamp >= {{ max_existing_timestamp('saved_timestamp') }}
+  {% endif %}
 ```
 
+### Contacts hierarchy
+
+It is often useful for aggregates to have a table for CHWs which contains the entire hierarchy.
+
+```sql
+{{
+  config(
+    materialized = 'materialized_view',
+    indexes=[
+      {'columns': ['chw_uuid']},
+      {'columns': ['clinic_uuid']},
+      {'columns': ['health_center_uuid']},
+      {'columns': ['district_hospital_uuid']},
+    ]
+  )
+}}
+
+SELECT
+  chw.uuid as chw_uuid,
+  clinic.uuid as clinic_uuid,
+  health_center.uuid as health_center_uuid,
+  district_hospital.uuid as district_hospital_uuid
+FROM
+  {{ref('contact')}} chw
+  INNER JOIN {{ref('contact')}} clinic ON chw.parent_uuid = clinic.uuid
+  LEFT JOIN {{ref('contact')}} health_center ON clinic.parent_uuid = health_center.uuid
+  LEFT JOIN {{ref('contact')}} district_hospital ON health_center.parent_uuid = district_hospital.uuid
+WHERE chw.contact_type = 'person' AND clinic.contact_type = 'clinic';
+```
+
+### Aggregates
+
 To aggregate on contacts and report data, join to the `data_record` and `contacts` tables as in the example below.
-It is not recommended to redefine columns from `data_record` or `contacts` in these form models, but instead to join to `data_record` in queries.
 
 ```sql
 SELECT
@@ -148,10 +253,9 @@ SELECT
   chw.name as chw_name,
   area.uuid as area_uuid,
   area.name as area_name,
-  date_trunc('month', data_record.reported) as report_month
+  date_trunc('month', pregnancy.reported) as report_month
 FROM
   pregnancy
-INNER JOIN  data_record ON data_record.uuid = pregnancy.uuid
 INNER JOIN contacts chw ON chw.uuid = data_record.contact_uuid
 LEFT JOIN contacts area ON area.uuid = data_record.parent_contact_uuid
 GROUP BY
@@ -168,7 +272,7 @@ With the pregnancy form model above, if there was also a postnatal care form the
 
 ```sql
 {{
-    config(materialized = 'view')
+    config(materialized = 'materialized_view')
 }}
 
 SELECT
@@ -212,14 +316,14 @@ To convert a view to an incremental table, change the materialization to `increm
     unique_key='uuid',
     indexes=[
       {'columns': ['"uuid"'], 'type': 'hash'},
-      {'columns': ['"@timestamp"'], 'type': 'btree'}
+      {'columns': ['"saved_timestamp"'], 'type': 'btree'}
     ]
 }}
 
 
 SELECT
   uuid,
-  "@timestamp",
+  "saved_timestamp",
 
   ...
 
@@ -229,8 +333,8 @@ WHERE
   form = 'pregnancy'
 
 {% if is_incremental() %}
-  AND "@timestamp" >= {{ max_existing_timestamp('"@timestamp"') }}
+  AND "data_record.saved_timestamp" >= {{ max_existing_timestamp('"saved_timestamp"') }}
 {% endif %}
 ```
 
-To be performant, the table this model is reading from needs to have the @timestamp column indexed.
+To be performant, the table this model is reading from needs to have the saved_timestamp column indexed.
