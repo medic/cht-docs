@@ -51,7 +51,7 @@ Meet the [Medic team](https://medic.org/team/)!
 
 #### Funding
 Our organization relies on both restricted and unrestricted funds to support our mission. 
-* Restricted funds are designated for specific programs or projects, ensuring that funder intent is fulfilled. To ensure the timely release of our restricted funding, accurate and on-time submission of ClickTime timesheets is crucial. These records provide essential data for financial reporting. Please prioritize submitting your timesheets monthly and contact the finance team for any assistance.
+* Restricted funds are designated for specific programs or projects, ensuring that funder intent is fulfilled. To ensure the timely payment of restricted funding, accurate and on-time submission of ClickTime timesheets is crucial. These records provide essential data for financial reporting. Please prioritize submitting your timesheets monthly and contact the finance team for any assistance.
 * Unrestricted funds provide the flexibility to address urgent needs, cover operational costs, and seize new opportunities to advance our cause.
 
 #### Travel 
