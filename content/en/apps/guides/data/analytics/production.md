@@ -18,7 +18,7 @@ We recommend running cht-sync in production using Kubernetes. This guide will wa
 
 ## Setup
 - Using `git`, clone the  [CHT Sync repository from GitHub](https://github.com/medic/cht-sync): `git clone https://github.com/medic/cht-sync.git`
-- In the your `cht-repo` folder, copy the values in `deploy/cht_sync/values.yaml.template` file to a new file named `deploy/cht_sync/values.yaml`.
+- In the `cht-sync` folder, copy the values in `deploy/cht_sync/values.yaml.template` file to a new file named `deploy/cht_sync/values.yaml`.
 - If you require a Postgres database to be set up in the cluster, you can use the `postgres.enabled` flag in the `values.yaml` file. If you already have a Postgres database outside the cluster, you can set the `postgres.enabled` flag to `false`.
 - If outside the cluster, specify `host` and `port` in this section
 - In either case, specify `user`, `password`, `db`, `schema`, and `table`
