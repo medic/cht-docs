@@ -67,7 +67,7 @@ After you have created a ticket per "Request permission" above, you should get a
    Default region name [None]: eu-west-2
    Default output format [None]:
    ```
-6. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours: `aws eks update-kubeconfig --name mrjones-dev --profile mrjones --region eu-west-2`
+6. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours: `aws eks update-kubeconfig --name dev-cht-eks --profile mrjones --region eu-west-2`
 
 
 
