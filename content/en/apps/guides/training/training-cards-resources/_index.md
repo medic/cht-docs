@@ -18,7 +18,7 @@ If you are deploying new training cards, here are some best practices to follow:
 - Test training card content with a small set of users to ensure learnability and understanding before deploying to your live instance
 - Test on a physical device to see what content will look like on different screen sizes
 - Keep content to a minimum and try to have as few cards as possible
-- If using images, ensure they aren't confused with UI elements by adding outlines or shadows as a visual indicator that they are for demonstrative purposes only
+- Ensure images aren't confused with UI elements: Add outlines or shadows indicating they're for demonstrative purposes only. Never include navigation buttons in your screenshots (e.g., "Next" or "Cancel").
 - Make sure users know who to contact if they run into issues
 - Establish success criteria for the training cards
 
