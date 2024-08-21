@@ -20,7 +20,7 @@ If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settin
 
 ## Setup
 
-To create application specifc models, create a new dbt project as described [here](https://docs.getdbt.com/reference/commands/init)  and a Github repository (it may be public or private).
+To create application specific models, create a new dbt project as described [here](https://docs.getdbt.com/reference/commands/init)  and a Github repository (it may be public or private).
 The [CHT Pipeline](https://docs.getdbt.com/docs/build/packages) dbt project, should be included as a dependency in `packages.yml`
 ```yml
 packages:
@@ -58,29 +58,48 @@ All tables contain a `uuid` which is the primary key for the table; it is also t
 
 ### `couchdb`
 All documents are stored in the `couchdb` table; downstream models move fields from the document into fields and index them.
+Deleted documents will still be present in this table with the `_deleted` flag set to true.
 This table can be used to get any field from a CouchDB document; however, it is recommended that the columns from downstream models be used instead for performance reasons.
+The name is configurable using the `POSTGRES_TABLE` environment variable.
+|Field|Description|
+|--|--|
+|`_id`|CouchDB's unique identifier of the record|
+|`saved_timestamp`| timestamp when this row was inserted|
+|`_deleted`| true if the document was deleted, false otherwise. |
+|`doc`| JSON of the source document|
+
+### `document_metadata`
+This table contains the metadata about all documents and is the root for all other models.
+It contains a `type` column describing the type of the document.
+Deleted documents do not appear as rows in this table and deletes from this table cascade to all other models.
+The document itself is not copied to this table; to use it requires joining to the `couchdb` table.
 |Field|Description|
 |--|--|
 |`uuid`|CouchDB's unique identifier of the record|
+|`saved_timestamp`|timestamp when this row was inserted|
 |`type`|The general type of the document, see below|
-|`doc`| JSON of the source document|
 
 ### `data_record`
 All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
-This table contains columns for the contact who made the report, the parent of that contact, the report data, and a copy of fields in `jsonb` format.
-It is not recommended to use the fields column directly, but instead to add one new model for each form, moving the relevant fields for that form into columns
+This table contains columns for the contact who made the report, the parent of that contact, and the date it was reported.
 
 |Field|Description|
 |--|--|
 |`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
-|`contact_uuid`| uuid of the `contact` who made the report|
-|`contact_parent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
+|`saved_timestamp`| timestamp when this row was inserted|
 |`reported`| the reported timestamp from the couchdb document, stored as a date|
+|`form`| the name of the form|
+|`from_phone`| phone number of the reporter, if available|
+|`patient_id`| subject of the form; if it has a field for `patient_id`, it will be copied to this column|
+|`place_id`| subject of the form; if it has a field for `place_id`, it will be copied to this column|
+|`contact_uuid`| uuid of the `contact` who made the report|
+|`parent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
+|`grandparent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 
-For SMS forms, there is also an `sms_form` table which contains the raw message and sender phone number (for SMS form response, `contact_uuid` may be `NULL`)
+For SMS forms, there is also an `sms_form` table which contains the raw message and sender phone number (for SMS form response, `contact_uuid` may be `NULL`).
 The `contact_uuid` column contains a foreign key to the `contacts` table.
 
-### `contacts`
+### `contact`
 See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
 Every person and place is stored in the `contacts` table. Persons and patients are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
 The contact hierarchy defines "is a" relationships between contact types; e.g., a patient is a person is a contact. This is modeled as one table per type, where the `uuid` is both the primary key for the child table and a foreign key to the parent table.
@@ -88,12 +107,17 @@ The contact hierarchy defines "is a" relationships between contact types; e.g., 
 |Field|Description|
 |--|--|
 |`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
+|`saved_timestamp`| timestamp when this row was inserted|
 |`parent_uuid`| uuid of the parent contact. For people, will be a place contact.|
 |`name`| name |
-|`type`| for data created <= 3.7, the same as type of the CouchDB document, when using the configurable hierarchy, `contact_type` |
+|`contact_type`| for data created <= 3.7, the same as type of the CouchDB document, when using the configurable hierarchy, `contact_type` |
 |`reported`| the reported timestamp from the CouchDB document, stored as a date|
 |`phone`| contacts primary phone number |
-|`phone_number`| alternate phone number, if available|
+|`phone2`| alternate phone number, if available|
+|`notes`| |
+|`active`| |
+|`contact_id`| |
+|`muted`| true if this contact has been muted|
 
 ### `person`
 |Field|Description|
