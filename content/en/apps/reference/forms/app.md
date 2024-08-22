@@ -214,6 +214,25 @@ To instruct the widget to process an array of strings or numbers, create a new `
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
 
+### Phone number input
+
+When accepting telephone numbers in a form, the phone widget validates the given phone number is valid for the server's configured locale and can optionally check to see if a duplicate contact already exists with the same phone number.
+
+To use the widget, create a `string` field with the appearance `numbers tel`. This will produce a text box input field in the form where the user can enter the phone number. Values entered for this field will be rejected if they are not valid phone numbers for the server's configured `default_country_code` (as determined by the [google-libphonenumber](https://github.com/google/libphonenumber) library).  Additionally, valid input will be normalized to the `E164` format (e.g. `+1234567890`) before storing it in the form data model.
+
+The widget can also reject phone numbers that are already associated with an existing contact. (A contact already exists with the same phone number value in its `phone` field.) To enable this duplicate checking for a particular field, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, in the "survey" tab, add a column called `instance::cht:unique_tel` and set the value to `true` for the phone number field.
+
+A validation failure, either for an invalid or duplicate phone number will prevent the form from being submitted. To also display an error message to the user, set `true` in the `constraint` column for the phone number field and enter localized messages in the desired `constraint_message::xx` columns.
+
+| type   | appearance  | instance::cht:unique_tel | constraint | constraint_message::en             |
+|--------|-------------|--------------------------|------------|------------------------------------|
+| string | numbers tel | true                     | true       | Please enter a valid phone number. |
+
+
+{{% alert title="Note" %}}
+Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact. 
+{{% /alert %}}
+
 ## CHT XPath Functions
 
 ### `add-date`
