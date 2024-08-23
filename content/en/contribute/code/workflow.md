@@ -266,19 +266,19 @@ Create a Draft Pull Request to facilitate discussion and collaboration with qual
 Once you are confident that the change is complete and ready to be merged:
 
 1. Change the Pull Request from `Draft` to `Ready for review`.
-2. The request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
+2. The Pull Request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
 3. Add a Pull Request description:
 
-   - Add a description of changes, decisions, backstory, and any extra information for the reviewers to make facilitate the process and reduce follow-ups. 
-   - Add a videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch anything that might have been missing.
+   - Add a description of changes, decisions, backstory, and any extra information to facilitate review process and reduce follow-ups. 
+   - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch any uncovered case.
    - Add the issue number, example: `medic/cht-core#123`
 
 4. Do a self-code review before asking for a review, this a good practice, almost always you will find things to fix. It saves a lot of time from you and the reviewers.
-5. Always assign a QA engineer and a developer as reviewers, they will give valuable feedback on their domain of expertise. It's okay to include one additional reviewer that might have more experience of a particular subject. 
-6. Follow up on your PR, the review should happen in 24h business days. If you haven't received any feedback from the reviewers after that time, check if they are available, otherwise it's okay to reassign the review to another person.
+5. Always assign a QA engineer and a developer as reviewers, they will give valuable feedback on their domain of expertise. It is okay to include one additional reviewer that has more experience in particular subject. 
+6. Follow up on your PR, to keep momentum, the review should happen in 24h business days. If you haven't received any feedback from the reviewers after that time, check if they are available, otherwise it's okay to request a review from another person.
 7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
 8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`
-9. Finally merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the commit history in the repository clean.
+9. Finally merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the repository's commit history clean.
 
 Additional considerations:
 
