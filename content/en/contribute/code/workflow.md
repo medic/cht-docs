@@ -175,7 +175,7 @@ Issues in this column have been prioritised and are ready for development. The i
 
 Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing. An issue is considered complete when the documentation and test coverage (unit tests, e2e tests or integration tests) are finalized and the reviewers have approved it.
 
-#### Involve quality assistance early
+#### Quality Assistance
 
 Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) from the start of the process to take full ownership of what you are building.
 
