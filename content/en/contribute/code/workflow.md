@@ -173,7 +173,7 @@ Issues in this column have been prioritised and are ready for development. The i
 
 ### In progress
 
-Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing. A work is considered complete when the documentation and test coverage (unit tests, e2e tests or integration tests) are finalized and the reviewers have approved it.
+Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing. An issue is considered complete when the documentation and test coverage (unit tests, e2e tests or integration tests) are finalized and the reviewers have approved it.
 
 #### Involve quality assistance early
 
