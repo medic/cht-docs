@@ -255,9 +255,7 @@ Involve [Quality Assistance]({{< ref "contribute/medic/product-development-proce
 
 #### Create a branch
 
-Any code should be in a branch in each repository you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example, `1104-inclusive-export`. 
-
-Push commits at least once a day to a remote repository, ensures that the code is always backed up and safe, protects against accidental deletes and allows team members to see the latest changes and work together more effectively.
+Create a branch following the [guide line]({{< ref "#Branches" >}}) and push [commits]({{< ref "#Commits" >}}) at least once a day to a remote repository, ensures that the code is always backed up and safe, protects against accidental deletes and allows team members to see the latest changes and work together more effectively.
 
 #### Pull requests
 
@@ -269,12 +267,15 @@ Once you are confident that the change is complete and ready to be merged:
 2. The Pull Request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
 3. Add a Pull Request description:
 
-   - Add a description of changes, decisions, backstory, and any extra information to facilitate review process and reduce follow-ups. 
+   - Add a description of changes, decisions, backstory, thinking process and any extra information to facilitate review process and reduce follow-ups. 
    - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch any uncovered case.
    - Add the issue number, example: `medic/cht-core#123`
 
 4. Do a self-code review before asking for a review, this a good practice, almost always you will find things to fix. It saves a lot of time from you and the reviewers.
-5. Always assign a QA engineer and a developer as reviewers, they will give valuable feedback on their domain of expertise. It is okay to include one additional reviewer that has more experience in particular subject. 
+5. Pick one reviewer for the PR and work with them until the code passes review. It is okay to include one additional reviewer that has more experience in particular subject. 
+   
+   - Coordinate with the QA engineer and add them as reviewers when you need support. For example, when major changes or new features are introduced to the codebase, security-related changes are made, and substantial user experience improvements are required.
+   
 6. Follow up on your PR, to keep momentum, the review should happen in 24h business days. If you haven't received any feedback from the reviewers after that time, check if they are available, otherwise it's okay to request a review from another person.
 7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
 8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`.
