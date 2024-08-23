@@ -948,7 +948,7 @@ Content-Type: application/json; charset=utf-8
                 "sha256": "b76e6304218d7e5d7f63c044da514784f0db4b293c1b35ac301ac7ec99876824"
             }
         },
-        ... // 95 more records or all
+        ... // 95 more records or less if database has less than 100 records
     ],
     "cursor": null
 }
