@@ -104,6 +104,26 @@ After you have created a ticket per "Request permission" above, you should get a
    helm delete USERNAME-dev --namespace USERNAME-dev
    ```
 
+## Cloning a Medic hosted instance
+
+Sometimes a Medic teammate will need to run tests on data from an instance hosted in a Medic [EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) deployment. When cloning a production instance, use extreme caution as it will have real PII/PHI in it.  This includes, but is not limited to:
+
+* Using a secure password
+* Only ever share credentials over 1Password
+* Deleting the instances, volume and snapshot when they're no longer being used
+
+Otherwise, as Medic has selected AWS as it's provider to host production instances, making clones is safe when the above basic security measures are followed.
+
+### Overview
+
+The cloning process assumes you have access to EKS and to the snapshots and volumes you wish to clone and create.  This is not a permission granted to normal teammates who use EKS, so check with SRE as needed.  
+
+After checking your permissions,  first find a snapshot of the data you're wanting to clone.  Only production data has automated snapshots, so when cloning a development instance, manually create a snapshot first.  After finding the snapshot and it' ID (e.g. `snap-081d1cc18de16d8c7`), create a new volume from this snapshot.  Now label the volume so it's flagged for EKS use.  Finally, put your newly created volume ID  (e.g. `vol-047f57544f4085fb2`) in a `values.yml` file to use with `helm` and the [deploy](https://github.com/medic/cht-core/tree/master/scripts/deploy) script.
+
+Read on below for the exact steps on how to do this.
+
+### Steps
+
 ## References and Debugging
 
 More information on `cht-deploy` script is available in the [CHT Core GitHub repository](https://github.com/medic/cht-core/blob/master/scripts/deploy/README.md) which includes specifics of the `values.yaml` file and more details about the debugging utilities listed below.
