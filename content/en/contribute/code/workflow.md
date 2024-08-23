@@ -277,14 +277,9 @@ Once you are confident that the change is complete and ready to be merged:
 5. Always assign a QA engineer and a developer as reviewers, they will give valuable feedback on their domain of expertise. It is okay to include one additional reviewer that has more experience in particular subject. 
 6. Follow up on your PR, to keep momentum, the review should happen in 24h business days. If you haven't received any feedback from the reviewers after that time, check if they are available, otherwise it's okay to request a review from another person.
 7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
-8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`
+8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`.
 9. Finally merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the repository's commit history clean.
-
-Additional considerations:
-
-1. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
-2. Ensure the issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
-3. Once all PRs have been merged, close the issue. This will automatically move it to "Done".
+   - If a backport is required cherry-pick the merged commit back to the release branches it's required in.
 
 ### Done
 
@@ -293,4 +288,5 @@ An issue is considered complete when:
  - The test coverage (unit tests, e2e tests or integration tests) are finalized
  - The reviewers have approved the Pull Request
  - All code has been merged into the main branch and/or release branches and are ready for release
+ - The issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes
  - Lastly, the issue status is updated to `Done`
