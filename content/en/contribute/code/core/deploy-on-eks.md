@@ -124,14 +124,92 @@ Read on below for the exact steps on how to do this.
 
 ### Steps
 
-Raw steps from Hareet - mrjones to manually step through and update these before submitting PR for review:
+Note that a number of these steps can be done either on the command line or in the AWS web admin GUI.  Do it the way you feel most comfortable!
 
-1. aws ec2 describe-snapshots --region=eu-west-2 --filters "Name=tag:Name,Values='Production:muso-mali.app.medicmobile.org'"
-2. aws ec2 create-volume --region eu-west-2 --snapshot-id <snapshot_id_from_above>, grab --volume-id from output
-3. Poll describe-volumesuntil that volume is in available state
-4. Once you have that volume created, you have to tag that volume with kubernetes.io/cluster/dev-cht-eks: owned  and KubernetesCluster: prod-cht-eks
-5. Now you can use that volume id in your EKS helm chart and deploy the project to any namespace and any ingress url
-6. You must change admin passwords once its up. 
+1. Find the ID of the snapshot by using the production URL to retrieve the ID and date of the latest snapshot. Be sure to replace `moh-foo.app` with the real URL of the instance:
+   ```bash
+   aws ec2 describe-snapshots --region=eu-west-2 --filters  "Name=tag:Address,Values='moh-foo.app.medicmobile.org'" | jq '.Snapshots[0]'
+   ```
+   This should result with the following JSON from which you can both verify it is current, but also that it is the correct instance to get the `SnapshotId` value from. This JSON truncated for brevity:
+   ```json
+   {
+     "Description": "Created for policy: policy-43210483209 schedule: Default Schedule",
+     "SnapshotId": "snap-432490821280432092",
+     "StartTime": "2024-08-18T15:52:59.831000+00:00",
+     "State": "completed",
+     "VolumeId": "vol-4392148120483212",
+     "VolumeSize": 900,
+     "Tags": [
+       {
+         "Key": "Address",
+         "Value": "moh-foo.app.medicmobile.org"
+       },
+       {
+         "Key": "Name",
+         "Value": "Production: moh-foo.app.medicmobile.org"
+       },
+       {
+         "Key": "Description",
+         "Value": "4x foo production for bar"
+       }
+     ]
+   }
+   ```
+2. Now that you found your snapshot ID, use it to create a volume from. Being sure to replace `snap-432490821280432092` with your ID, call:
+   ```
+   aws ec2 create-volume --region eu-west-2 --snapshot-id snap-432490821280432092
+   ```
+   Be sure to grab the `VolumeId` from the resulting JSON, `vol-f9dsa0f9sad09f0dsa` in this case:
+   ```json
+   {
+    "AvailabilityZone": "eu-west-2a",
+    "CreateTime": "2024-08-23T21:31:27+00:00",
+    "Encrypted": false,
+    "Size": 900,
+    "SnapshotId": "snap-432490821280432092",
+    "State": "creating",
+    "VolumeId": "vol-f9dsa0f9sad09f0dsa",
+    "Iops": 2700,
+    "Tags": [],
+    "VolumeType": "gp2",
+    "MultiAttachEnabled": false
+   }
+   ```
+4. Run `describe-volumes` until that volume has a `State` of `available`:
+   ```shell
+   aws ec2 describe-volumes --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa | jq '.Volumes[0].State' 
+   "available"
+   ```
+5. Once you have that volume created and `available`,  tag it with `kubernetes.io/cluster/dev-cht-eks: owned`  and `KubernetesCluster: dev-cht-eks`:
+   ```shell
+   aws ec2 create-tags --resources vol-f9dsa0f9sad09f0dsa --tags Key=kubernetes.io/cluster/dev-cht-eks,Value=owned Key=KubernetesCluster,Value=dev-cht-eks
+   ```
+   You can verify your tags took effect by calling `describe-volumes` again:
+   ```shell
+   aws ec2 describe-volumes --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa | jq '.Volumes[0].Tags'
+   ```
+   Which should result in this JSON:
+   ```json
+    [
+       {
+           "Key": "kubernetes.io/cluster/dev-cht-eks",
+           "Value": "owned"
+       },
+       {
+           "Key": "KubernetesCluster",
+           "Value": "dev-cht-eks"
+       }
+   ]
+   ```
+6. Create a `values.yml` file from [this template](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and edit the bottom `remote:` section to set use existing EBS to `true`, the existing volume ID to the one we got above and the volume size to the value of `Size` from above as well:
+   ```yaml
+   remote:
+      existingEBS: "false"
+      existingEBSVolumeID: "vol-f9dsa0f9sad09f0dsa"
+      existingEBSVolumeSize: "900Gi"
+   ```
+7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting).
+8. You must change admin passwords once its up. 
 
 
 
