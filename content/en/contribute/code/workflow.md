@@ -267,11 +267,11 @@ Once you are confident that the change is complete and ready to be merged:
 
 1. Change the Pull Request from `Draft` to `Ready for review`.
 2. The request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
-3. Add a description to the Pull request 
+3. Add a Pull Request description:
 
-   3.1. Add a description of changes, decisions, backstory, and any extra information for the reviewers to make facilitate the process and reduce follow-ups. 
-   3.2. Add a videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch anything that might have been missing.
-   3.3. Add the issue number, example: `medic/cht-core#123`
+   - Add a description of changes, decisions, backstory, and any extra information for the reviewers to make facilitate the process and reduce follow-ups. 
+   - Add a videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch anything that might have been missing.
+   - Add the issue number, example: `medic/cht-core#123`
 
 4. Do a self-code review before asking for a review, this a good practice, almost always you will find things to fix. It saves a lot of time from you and the reviewers.
 5. Always assign a QA engineer and a developer as reviewers, they will give valuable feedback on their domain of expertise. It's okay to include one additional reviewer that might have more experience of a particular subject. 
