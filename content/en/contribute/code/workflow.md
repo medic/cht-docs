@@ -173,7 +173,7 @@ Issues in this column have been prioritised and are ready for development. The i
 
 ### In progress
 
-Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing. An issue is considered complete when the documentation and test coverage (unit tests, e2e tests or integration tests) are finalized and the reviewers have approved it.
+Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing.
 
 #### Quality Assistance
 
@@ -288,4 +288,9 @@ Additional considerations:
 
 ### Done
 
-Issues in this column are complete, all code has been merged into the main branch and/or release branches, and are ready for release.
+An issue is considered complete when:
+ - The documentation is finalized 
+ - The test coverage (unit tests, e2e tests or integration tests) are finalized
+ - The reviewers have approved the Pull Request
+ - All code has been merged into the main branch and/or release branches and are ready for release
+ - Lastly, the issue status is updated to `Done`
