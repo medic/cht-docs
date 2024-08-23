@@ -106,79 +106,6 @@ The CHT has a [fully automated end-to-end testing suite](https://github.com/medi
 
 From time to time QA Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
 
-### Migrating
-
-When the schema is changed you must also provide a migration so when instances are upgraded existing data is compatible with the new code.
-
-## Commits
-
-The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this (almost) all development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
-
-### Commit message format
-
-The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means that some of the release process can be automated. See the list of commit types and examples below:
-
-Type | Description | Example commit message | Release type
--- | -- | -- | --
-Bug fixes | Change code that wasn't working as intended. | fix(#123): infinite spinner when clicking contacts tab twice | patch
-Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules | patch
-Features | A new feature or improvement that users will notice. | feat(#456): add home tab | minor
-Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README | none
-
-{{% alert title="Note" %}} 
-Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
-Consider the following example:
-
-```
-  perf(#2): remove reporting rates feature
-  BREAKING CHANGE: reporting rates no longer supported
-``` 
-
-Any other further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
-{{% /alert %}}
-
-See tips on [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) and add your favorites here.
-
-Never force push remote. Prefer rebasing over merging as it makes for a cleaner history.
-
-Commit reformats and refactors separately from actual code changes to make reviewing easier.
-
-Read more about [using git](https://git-scm.com/doc/ext).
-
-## Branches
-
-- The main branch is `main` or `master` and is the github default branch and contains the latest code.
-- Release branches have the form `<major>.<minor>.x` and should be stable.
-- Feature branches have the form `<issue-number>-<issue-description>` and are work in progress.
-
-{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from the main branch into the release branch. Then use a pull request to make sure tests pass on CI before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
-
-## Issues
-
-Issues are managed in Github. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue it should be opened in the private `medic-projects` repository.
-
-When creating issues add the appropriate [Priority](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Priority%3A+) and [Type](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Type%3A+) labels.
-
-### Regressions
-
-When a bug is found that impacts functionality that worked in a previous version, it's important that these are labelled properly so someone who is planning to upgrade can find it. To flag this, add the "Regression" label, and a labels in the form "Affects: {{version}}" (e.g.: "Affects: 3.14.0") for each version where this bug exists. It's likely that the label for this specific version doesn't exist so you may have to create it. This ensures that issue is listed as a Known Issue in the Release Notes for that version.
-
-## Project States
-
-When the issue is scheduled for development it will be added to the [Product Team Activities project](https://github.com/orgs/medic/projects/134). Each column in the project represents the state the issue is in.
-
-### Todo
-
-Issues in this column have been prioritised and are ready for development. The issue has all the detail needed to begin development and it is free for anyone to start work on. If you start work on an issue, assign it to yourself and move it to "In progress".
-
-### In progress
-
-Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing.
-
-#### Quality Assistance
-
-Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) as early as possible in the development process so you can work together on a testing strategy for that specific issue.
-
 Use the following template for QA feedback throughout the development.
 
 {{< tabpane persist=false lang="markdown">}}
@@ -252,6 +179,79 @@ The ticket needs further development.
 
 {{< /tab >}}
 {{< /tabpane >}}
+
+### Migrating
+
+When the schema is changed you must also provide a migration so when instances are upgraded existing data is compatible with the new code.
+
+## Commits
+
+The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this (almost) all development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it hits the `main` branch.
+
+### Commit message format
+
+The commit format should follow this [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means that some of the release process can be automated. See the list of commit types and examples below:
+
+Type | Description | Example commit message | Release type
+-- | -- | -- | --
+Bug fixes | Change code that wasn't working as intended. | fix(#123): infinite spinner when clicking contacts tab twice | patch
+Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules | patch
+Features | A new feature or improvement that users will notice. | feat(#456): add home tab | minor
+Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README | none
+
+{{% alert title="Note" %}} 
+Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
+Consider the following example:
+
+```
+  perf(#2): remove reporting rates feature
+  BREAKING CHANGE: reporting rates no longer supported
+``` 
+
+Any other further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
+{{% /alert %}}
+
+See tips on [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) and add your favorites here.
+
+Never force push remote. Prefer rebasing over merging as it makes for a cleaner history.
+
+Commit reformats and refactors separately from actual code changes to make reviewing easier.
+
+Read more about [using git](https://git-scm.com/doc/ext).
+
+## Branches
+
+- The main branch is `main` or `master` and is the github default branch and contains the latest code.
+- Release branches have the form `<major>.<minor>.x` and should be stable.
+- Feature branches have the form `<issue-number>-<issue-description>` and are work in progress.
+
+{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from the main branch into the release branch. Then use a pull request to make sure tests pass on CI before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
+
+## Issues
+
+Issues are managed in Github. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue it should be opened in the private `medic-projects` repository.
+
+When creating issues add the appropriate [Priority](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Priority%3A+) and [Type](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Type%3A+) labels.
+
+### Regressions
+
+When a bug is found that impacts functionality that worked in a previous version, it's important that these are labelled properly so someone who is planning to upgrade can find it. To flag this, add the "Regression" label, and a labels in the form "Affects: {{version}}" (e.g.: "Affects: 3.14.0") for each version where this bug exists. It's likely that the label for this specific version doesn't exist so you may have to create it. This ensures that issue is listed as a Known Issue in the Release Notes for that version.
+
+## Project States
+
+When the issue is scheduled for development it will be added to the [Product Team Activities project](https://github.com/orgs/medic/projects/134). Each column in the project represents the state the issue is in.
+
+### Todo
+
+Issues in this column have been prioritised and are ready for development. The issue has all the detail needed to begin development and it is free for anyone to start work on. If you start work on an issue, assign it to yourself and move it to "In progress".
+
+### In progress
+
+Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing.
+
+#### Quality Assistance
+
+Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) as early as possible in the development process so you can work together on a testing strategy for that specific issue.
 
 #### Create a branch
 
