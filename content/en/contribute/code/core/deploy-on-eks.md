@@ -124,6 +124,17 @@ Read on below for the exact steps on how to do this.
 
 ### Steps
 
+Raw steps from Hareet - mrjones to manually step through and update these before submitting PR for review:
+
+1. aws ec2 describe-snapshots --region=eu-west-2 --filters "Name=tag:Name,Values='Production:muso-mali.app.medicmobile.org'"
+2. aws ec2 create-volume --region eu-west-2 --snapshot-id <snapshot_id_from_above>, grab --volume-id from output
+3. Poll describe-volumesuntil that volume is in available state
+4. Once you have that volume created, you have to tag that volume with kubernetes.io/cluster/dev-cht-eks: owned  and KubernetesCluster: prod-cht-eks
+5. Now you can use that volume id in your EKS helm chart and deploy the project to any namespace and any ingress url
+6. You must change admin passwords once its up. 
+
+
+
 ## References and Debugging
 
 More information on `cht-deploy` script is available in the [CHT Core GitHub repository](https://github.com/medic/cht-core/blob/master/scripts/deploy/README.md) which includes specifics of the `values.yaml` file and more details about the debugging utilities listed below.
