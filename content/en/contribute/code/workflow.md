@@ -177,7 +177,7 @@ Issues in this column are being actively worked on, which includes development, 
 
 #### Quality Assistance
 
-Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) from the start of the process to take full ownership of what you are building.
+Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) as early as possible in the development process so you can work together on a testing strategy for that specific issue.
 
 Use the following template for QA feedback throughout the development.
 
