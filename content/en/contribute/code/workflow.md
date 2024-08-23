@@ -173,9 +173,11 @@ Issues in this column have been prioritised and are ready for development. The i
 
 ### In progress
 
-Issues in this column are being actively worked on, which includes development, design, code reviews, and testing.
+Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing. A work is considered complete when the documentation and test coverage (unit tests, e2e tests, integration tests) are finalized and the reviewers have approved it.
 
-Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Follow the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) process to take full ownership of what you are building.
+#### Involve quality assistance early
+
+Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) from the start of the process to take full ownership of what you are building.
 
 Use the following template for QA feedback throughout the development.
 
@@ -251,21 +253,36 @@ The ticket needs further development.
 {{< /tab >}}
 {{< /tabpane >}}
 
-A great way to facilitate discussion and collaboration is with a Draft PR.
+#### Create a branch
 
-Once you're confident that the change is complete and ready to be merged:
+Any code should be in a branch in each repository you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example, `1104-inclusive-export`. 
 
-1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
-1. Wait for the builds to succeed and ensure there are no conflicts with the the main branch so the PR can be merged.
-1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can collaborate on PRs even if they aren't an official Reviewer. If you add a QA Engineer as a Reviewer, briefly comment in the ticket about what kind of testing review you expect from that engineer.
+Push commits at least once a day to a remote repository, ensures that the code is always backed up and safe, protects agaist accidental deletes and allows team members to see the latest changes and work together more effectively.
 
-Once all PRs have been approved:
+#### Pull requests
 
-1. Write a useful commit message in the PR using the [commit message format]({{< ref "#commit-message-format" >}}).
-2. Click the button to "Squash and Merge" the PR.
-3. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
-4. Ensure the issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
-5. Once all PRs have been merged, close the issue. This will automatically move it to "Done".
+Create a Draft Pull Request to facilitate discussion and collaboration with quality assistance engineers and developers.
+
+Once you are confident that the change is complete and ready to be merged:
+
+1. Change the Pull Request from `Draft` to `Ready for review`.
+2. The request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
+3. Add a description to the Pull request 
+   3.1. Add a description of changes, decisions, back story, and any extra information for the reviewers to make facilitate the process and reduce follow ups. 
+   3.2. Add a videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch anything that might have been missing.
+   3.3. Add the issue number, example: `medic/cht-core#123`
+4. Do a self-code review before asking for a review, this a good practice, almost always you will find things to fix. It saves a lot of time from you and the reviewers.
+5. Always assign a QA engineer and a developer as reviewers, they will give valuable feedback on their domain of expertise. It's okay to include one additional reviewer that might have more experience of a particular subject. 
+6. Follow up on your PR, the review should happen in 24h business days. If you haven't received any feedback from the reviewers after that time, check if they are available, otherwise it's okay to reassign the review to another person.
+7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
+8. Double check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`
+9. Finally merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the commit history in the repository clean.
+
+Additional considerations:
+
+1. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
+2. Ensure the issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
+3. Once all PRs have been merged, close the issue. This will automatically move it to "Done".
 
 ### Done
 
