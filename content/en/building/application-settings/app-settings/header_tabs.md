@@ -44,7 +44,7 @@ These values can also be changed from the Admin console, on the Images page unde
 | property | type | required | description |
 | -------- | ---- | -------- | ----------- |
 | `icon` | string | no | [FontAwesome](https://fontawesome.com/v4.7.0/) icon name |
-| `resource_icon` | string | no | [Resource icon]({{<  relref "apps/reference/resources" >}}) name.
+| `resource_icon` | string | no | [Resource icon]({{<  relref "building/resources" >}}) name.
 
 {{% alert title="Note" %}}  
 Selected Resource icons take precedence over selected FontAwesome icons.  

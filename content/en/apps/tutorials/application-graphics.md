@@ -152,7 +152,7 @@ We will then add a `header_tabs` key within app_settings with the following stru
 The above assumes you have the following resource icons already in your instance (either uploaded or out-of-the-box): `medic-health-center`, `icon-treatment`.
 
 Finally run the command: `cht --url=<instance-url> upload-app-settings`
-{{< see-also page="apps/reference/resources" title="Icons" >}}
+{{< see-also page="building/resources" title="Icons" >}}
 
 #### Using the admin interface
 
