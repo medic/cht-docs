@@ -4,7 +4,7 @@ weight: 5
 description: >
   Messaging for Care Coordination, Alerts, and Notifications
 relatedContent: >
-  apps/reference/app-settings/schedules
+  building/application-settings/app-settings/schedules
   apps/guides/messaging
   building/forms/configuring-forms/app-form-sms
 ---

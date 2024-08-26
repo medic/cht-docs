@@ -15,7 +15,7 @@ These triggers can apply to all document types (not just common types such as re
 
 ## Configuration
 
-For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config]({{% ref "apps/reference/app-settings/transitions#available-transitions" %}}):
+For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config]({{% ref "building/application-settings/app-settings/transitions#available-transitions" %}}):
 ```json
 {
   "transitions": {

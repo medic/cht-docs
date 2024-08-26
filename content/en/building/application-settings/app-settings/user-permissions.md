@@ -14,7 +14,7 @@ Permissions are defined by the `permissions` object in the `base_settings.json` 
 
 Permissions can be assigned to user roles either directly in `base_settings.json` as an array of user role identifiers, or configured in the App Management app.
 
-{{< see-also page="apps/reference/app-settings/user-roles" title="User roles" >}}
+{{< see-also page="building/application-settings/app-settings/user-roles" title="User roles" >}}
 
 ### System defined permissions
 

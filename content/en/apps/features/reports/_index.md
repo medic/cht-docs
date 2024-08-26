@@ -4,7 +4,7 @@ weight: 6
 description: >
   Reports for Data & Report Management
 relatedContent: >
-  apps/reference/app-settings/patient_reports
+  building/application-settings/app-settings/patient_reports
   apps/guides/data/invalid-reports
   building/forms/configuring-forms/report-titles
 ---
@@ -45,14 +45,14 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 <br clear="all">
 
-{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) documentation for more info {{% /alert %}}
+{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "building/application-settings/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) documentation for more info {{% /alert %}}
 
 <br clear="all">
 
 
 ## Action Buttons
 
-The action buttons at the bottom of the screen are configurable using [permissions]({{< ref "apps/reference/app-settings/user-permissions" >}}). Options include submit, edit, delete, review and export reports.
+The action buttons at the bottom of the screen are configurable using [permissions]({{< ref "building/application-settings/app-settings/user-permissions" >}}). Options include submit, edit, delete, review and export reports.
 
 Clicking on the “Export” button will download a CSV file with all the data from the reports. And clicking the “+ Submit report” button opens a menu of forms a user can choose to complete.
 
@@ -62,7 +62,7 @@ Clicking on the “Export” button will download a CSV file with all the data f
 
 ## Bulk Delete Reports
 
-Allows the user to select multiple reports and delete them. **Please Note**: This action cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature by disabling the [permission]({{< ref "apps/reference/app-settings/user-permissions" >}}) `can_bulk_delete_reports`.
+Allows the user to select multiple reports and delete them. **Please Note**: This action cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature by disabling the [permission]({{< ref "building/application-settings/app-settings/user-permissions" >}}) `can_bulk_delete_reports`.
 
 {{< figure src="reports-bulk-mobile.png" link="reports-bulk-mobile.png" class="left col-3 col-lg-3" >}}
 
@@ -91,6 +91,6 @@ The buttons at the bottom are configurable. The ones you see will depend on your
 
 The reports shown in your app are the completed and submitted *forms*. These forms must be defined and included with the application. There are two types of form definitions for reports:
 - **App forms**: actions within the app, such as a completed task, or an action on a contact's profile or reports tab. App forms are defined as [XForms]({{< ref "building/forms/app" >}}).
-- **JSON forms**: data coming from external channels such as SMS, or via interoperability with other tools. JSON forms are defined using a [JavaScript Object Notation schema]({{< ref "apps/reference/app-settings/forms" >}}). 
+- **JSON forms**: data coming from external channels such as SMS, or via interoperability with other tools. JSON forms are defined using a [JavaScript Object Notation schema]({{< ref "building/application-settings/app-settings/forms" >}}). 
 
 

@@ -6,7 +6,7 @@ description: >
   Customizing the title shown in the Reports list
 relatedContent: >
   apps/features/reports
-  apps/reference/app-settings/patient_reports
+  building/application-settings/app-settings/patient_reports
 ---
 
 _Added in 3.9.0_

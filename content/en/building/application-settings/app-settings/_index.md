@@ -12,8 +12,8 @@ The settings which control CHT apps are defined in the `app_settings.json` file,
 The settings get compiled into the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool.
 Manually configurable settings are added to the `app_settings` folder at the root of the config folder.
 The `app_settings/base_settings.json` file can be manually edited to modify individual settings.
-[`forms`]({{% ref "apps/reference/app-settings/forms" %}}), [`schedules`]({{% ref "apps/reference/app-settings/schedules" %}}),
-and [`assetlinks`]({{% ref "apps/reference/app-settings/assetlinks" %}}) sections can be defined in separate files named
+[`forms`]({{% ref "building/application-settings/app-settings/forms" %}}), [`schedules`]({{% ref "building/application-settings/app-settings/schedules" %}}),
+and [`assetlinks`]({{% ref "building/application-settings/app-settings/assetlinks" %}}) sections can be defined in separate files named
 `app_settings/forms.json`, `app_settings/schedules.json`, and `app_settings/assetlinks.json` respectively with the settings
 in the files overriding what might be already present in the `app_settings/base_settings.json` or `app_settings.json` files.
 

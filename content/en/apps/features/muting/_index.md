@@ -5,7 +5,7 @@ description: >
    Temporarily silence tasks and SMS schedules
 keywords: muting
 relatedContent: >
-  apps/reference/app-settings/transitions/#muting
+  building/application-settings/app-settings/transitions/#muting
 ---
 
 Muting is a way for CHWs to temporarily silence notifications about Contacts (people and places) and is commonly used when a person or family has temporarily relocated or refused services. When a Contact is muted, they will appear differently on the People tab and CHWs will no longer receive tasks or SMS about them.  

@@ -32,7 +32,7 @@ JSON forms are defined in either the `base_settings.json` or the `app_settings/f
 | `fields.${field}.length` | array with two integers | Inclusive range accepted for length of the field. | no |
 | `fields.${field}.required` | boolean | Determines if a report without this field is considered valid. | no |
 | `public_form` | boolean | Determines if reports will be accepted from phone numbers not associated to a contact. Set to false if you want to reject reports from unknown senders. Default: true. | no |
-| `facility_reference` | string | The form field whose value is to be used to match the incoming report to a contact's `rc_code`. Useful when reports are sent on behalf of a facility by unknown or various phone numbers. Requires the [`update_clinics` transition]({{% ref "apps/reference/app-settings/transitions#available-transitions" %}}). | no |
+| `facility_reference` | string | The form field whose value is to be used to match the incoming report to a contact's `rc_code`. Useful when reports are sent on behalf of a facility by unknown or various phone numbers. Requires the [`update_clinics` transition]({{% ref "building/application-settings/app-settings/transitions#available-transitions" %}}). | no |
 
 ## Code Sample
 

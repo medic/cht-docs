@@ -5,8 +5,8 @@ weight: 5
 description: >
   Building CHT application SMS forms
 relatedContent: >
-  apps/reference/app-settings/forms
-  apps/reference/app-settings/#validations
+  building/application-settings/app-settings/forms
+  building/application-settings/app-settings/#validations
   apps/guides/messaging
 
 ---
@@ -26,9 +26,9 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 ## Brief Overview of Key Concepts
 
-*[SMS forms]({{< ref "apps/reference/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
+*[SMS forms]({{< ref "building/application-settings/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
 
-SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool, then stored in the settings doc in the database.
+SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "building/application-settings/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool, then stored in the settings doc in the database.
 
 *[SMS gateways]({{< ref "apps/guides/messaging/gateways" >}})* allow the CHT core framework to send and receive SMS transmission to or from a mobile network operator.
 
@@ -40,11 +40,11 @@ SMS forms are defined in either the `base_settings.json` or the `app_settings/fo
 
 You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}).
 
-You also need to have some [prior knowledge on `app_settings.json`]({{% ref "apps/tutorials/application-settings" %}}).
+You also need to have some [prior knowledge on `app_settings.json`]({{% ref "building/application-settings" %}}).
 
 ## Implementation Steps
 
-SMS forms are defined [using JSON]({{< ref "apps/reference/app-settings/forms#app_settingsjson-forms" >}}) in the `app_settings.json` file.
+SMS forms are defined [using JSON]({{< ref "building/application-settings/app-settings/forms#app_settingsjson-forms" >}}) in the `app_settings.json` file.
 
 ### 1. Enable Transitions
 
@@ -58,7 +58,7 @@ To ensure SMS forms function as expected, you will first need to enable the foll
   "death_reporting": true
 ```
 
-{{< see-also page="apps/reference/app-settings/transitions" title="Transitions" >}}
+{{< see-also page="building/application-settings/app-settings/transitions" title="Transitions" >}}
 
 ### 2. Define a Place Registration Form
 
@@ -143,7 +143,7 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 ]
 ```
 
-You can also define your own [validation rules]({{< ref "apps/reference/app-settings#validations" >}}).
+You can also define your own [validation rules]({{< ref "building/application-settings/app-settings#validations" >}}).
 
 {{% alert title="Note" %}} `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "building/translations/configuring-translations" >}}) file. {{% /alert %}}
 

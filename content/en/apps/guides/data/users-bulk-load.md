@@ -157,7 +157,7 @@ If you have miss-matched contact types, you will get an error upon import:
 > **Wrong type, this is not a person.**
 
 
-As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
+As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "building/application-settings/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
 
 ```shell
 =if(NOT(ISBLANK(D2)),"person","") 

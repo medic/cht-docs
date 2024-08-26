@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   apps/features/messaging
   apps/guides/messaging/message-loops
-  apps/reference/app-settings/sms
+  building/application-settings/app-settings/sms
 keywords: messaging
 ---
 

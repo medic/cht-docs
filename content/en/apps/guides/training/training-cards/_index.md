@@ -13,7 +13,7 @@ relatedContent: >
 ---
 _Introduced in 4.2.0_
 
-[Training Cards]({{< relref "apps/features/training" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "apps/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "apps/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
+[Training Cards]({{< relref "apps/features/training" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "apps/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/application-settings/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
 
 {{% alert title="Note" %}} Example training forms are available [here]({{< relref "apps/guides/training/training-cards-resources" >}}) and provide a good starting point. {{% /alert %}}
 

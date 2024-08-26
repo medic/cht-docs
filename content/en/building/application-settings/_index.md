@@ -5,7 +5,7 @@ weight: 6
 description: >
   Managing CHT application settings
 relatedContent: >
-  apps/reference/app-settings
+  building/application-settings/app-settings
   apps/guides/performance/replication
   core/overview/transitions 
 ---
@@ -22,7 +22,7 @@ App settings allow you to both persist information that is critical to the appli
 
 ## Brief Overview of Key Concepts
 
-The settings which control CHT apps are defined in the *[app_settings.json]({{< relref "apps/reference/app-settings" >}})* file, and stored in the settings doc in the database.
+The settings which control CHT apps are defined in the *[app_settings.json]({{< relref "building/application-settings/app-settings" >}})* file, and stored in the settings doc in the database.
 
 *[Permissions]({{< relref "apps/concepts/users#permissions" >}})* are settings that control access to specific app features and functionality.
 
@@ -53,7 +53,7 @@ Configure a CHW role by adding the following snippet to the `"roles"` object:
   }
 ```
 
-{{< see-also page="apps/reference/app-settings/user-roles" title="Roles" >}}
+{{< see-also page="building/application-settings/app-settings/user-roles" title="Roles" >}}
 
 Set permissions for the new role by adding the role to the relevant permission in the `"permissions"` object.
 
@@ -73,11 +73,11 @@ For instance, to grant the CHW role permission to create people, add the role to
   }
 ```
 
-{{< see-also page="apps/reference/app-settings/user-permissions" title="Permissions" >}}
+{{< see-also page="building/application-settings/app-settings/user-permissions" title="Permissions" >}}
 
 ### 2. Set Transitions
 
-To enable or disable a transition, edit the object corresponding to the `"transitions"` key in `app_settings.json`. Enable the `transition` by setting its corresponding value to `true`, disable it by settings its value to `false`. {{< see-also page="apps/reference/app-settings/transitions" title="Transitions" >}}
+To enable or disable a transition, edit the object corresponding to the `"transitions"` key in `app_settings.json`. Enable the `transition` by setting its corresponding value to `true`, disable it by settings its value to `false`. {{< see-also page="building/application-settings/app-settings/transitions" title="Transitions" >}}
 
 ```json
   "transitions": {
@@ -109,7 +109,7 @@ When configuring a new deployment, it's important to plan your hierarchy well.  
 For an example of where all the forms are represented in the default configuration, please see the [default config directory](https://github.com/medic/cht-core/tree/master/config/default/).
 
 
-{{< see-also page="apps/reference/app-settings/hierarchy" title="Hierarchy" >}}
+{{< see-also page="building/application-settings/app-settings/hierarchy" title="Hierarchy" >}}
 
 ```json
   "contact_types": [

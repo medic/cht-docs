@@ -25,7 +25,7 @@ Data submitted in one form can generate several tasks at once, for example, mult
 ## SMS Messaging
 
 Workflows can include notifications and interactions with CHWs, nurses, supervisors, and patients via SMS. A report can trigger SMS messages to be sent immediately or upon a set schedule. Responses via SMS or the app can update the workflows.
-{{< see-also page="apps/reference/app-settings" anchor="sms-workflows" title="Defining SMS Workflows" >}}
+{{< see-also page="building/application-settings/app-settings" anchor="sms-workflows" title="Defining SMS Workflows" >}}
 
 {{< figure src="messages-mobile.png" link="messages-mobile.png" class="left col-3 col-lg-3" >}}
 {{< figure src="messages-desktop.png" link="messages-desktop.png" class="left col-9 col-lg-9" >}}
@@ -33,4 +33,4 @@ Workflows can include notifications and interactions with CHWs, nurses, supervis
 ## Interoperability 
 
 Workflows can incorporate other digital tools, such as a facility-based electronic medical record system for referral workflows. New contacts or reports can trigger an interoperabilty workflow using the [outbound push]() feature. Data can be received as reports using the [CHT API](https://github.com/medic/cht-core/tree/master/api)
-{{< see-also page="apps/reference/app-settings/outbound" title="Outbound Push" >}}
+{{< see-also page="building/application-settings/app-settings/outbound" title="Outbound Push" >}}

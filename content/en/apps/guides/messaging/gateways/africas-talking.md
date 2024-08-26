@@ -7,7 +7,7 @@ description: >
 aliases:
   -    /apps/guides/messaging/africas-talking
 relatedContent: >
-  apps/reference/app-settings/sms
+  building/application-settings/app-settings/sms
   building/forms/configuring-forms/app-form-sms
   apps/guides/messaging/sms-states
   apps/guides/messaging/message-loops

@@ -5,7 +5,7 @@ weight: 11
 description: >
   Building Death Report Workflows
 relatedContent: >
-  apps/reference/app-settings/transitions#death_reporting
+  building/application-settings/app-settings/transitions#death_reporting
 ---
 
 # Death Reporting
@@ -30,7 +30,7 @@ When a contact is marked as deceased within the CHT, the contact will be hidden 
 
 You will need to:
 
-1. [Configure your application hierarchy]({{% ref "apps/tutorials/application-settings" %}})
+1. [Configure your application hierarchy]({{% ref "building/application-settings" %}})
 2. [Create some contacts]({{% ref "building/contact-management/contact-and-users-1" %}})
 3. [Know how to create an app form]({{% ref "apps/tutorials/app-forms" %}})
 4. [Know how to set form properties]({{% ref "building/forms/form-properties" %}})
@@ -39,7 +39,7 @@ You will need to:
 
 1. Create a new app form with a name like "Death Report". This will be used to flag a contact as deceased.
 2. Set the form properties to show for contacts that can die.
-3. Enable the [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}).
+3. Enable the [death_reporting transition]({{% ref "building/application-settings/app-settings/transitions#death_reporting" %}}).
 4. Make some recommended updates to tasks, targets, and contact-summary.
 
 ### 1. Create the Death Form
@@ -56,7 +56,7 @@ This snippet is an example [form properties file]({{% ref "building/forms/form-p
 
 1. Are currently alive
 2. Are within a family
-3. Have a [contact_type with "person: true"]({{% ref "apps/reference/app-settings/hierarchy" %}})
+3. Have a [contact_type with "person: true"]({{% ref "building/application-settings/app-settings/hierarchy" %}})
 
 ```json
 {
@@ -77,7 +77,7 @@ This snippet is an example [form properties file]({{% ref "building/forms/form-p
 
 ### 3. Enable the `death_reporting` Transition
 
-The [death_reporting transition]({{% ref "apps/reference/app-settings/transitions#death_reporting" %}}) will process your death report and update the deceased contact document by adding a `date_of_death` attribute to the document.
+The [death_reporting transition]({{% ref "building/application-settings/app-settings/transitions#death_reporting" %}}) will process your death report and update the deceased contact document by adding a `date_of_death` attribute to the document.
 
 
 To enable death reporting:
