@@ -1,108 +1,62 @@
 ---
-title: "Tasks"
-linkTitle: "Tasks"
-weight: 100
+title: Tasks
+weight: 7
 description: >
- Building and managing Tasks and their data
-relatedContent: >
-  apps/features/tasks
-  building/tasks/tasks-js
-  apps/concepts/workflows
-  design/best-practices#anatomy-of-a-task
+  Ensuring that the right actions are taken for the right people at the right time
+keywords: tasks
 ---
-{{% pageinfo %}}
-Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]({{< ref "apps/tutorials/app-forms" >}}) for new patients within 7 days of registration.
 
-- Creating a straight-forward task
-- Running and testing that task
-{{% /pageinfo %}}
+Tasks help CHWs plan their day by prompting them to complete follow-up visits and other activities. The list might include upcoming scheduled ANC or Immunization visits, treatment or referral follow-ups, or other required activities such as a household survey.
 
-## Prerequisites
+{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="left col-3 col-lg-3" >}}
 
-* Complete the [App Forms Tutorial]({{< ref "apps/tutorials/app-forms" >}}) - Tasks prompt users to _complete activities_ by opening an app form. The app forms tutorial produces an _assessment_ app form which we will use here. You can also elect to substitute that with any [example app form](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
-* Complete the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-2" >}}) to create a hierarchy of contacts and an offline CHW user. 
-* Read [Understanding the data available in tasks and targets]({{< ref "building/tasks/task-schema-parameters" >}})
+{{< figure src="tasks-desktop.png" link="tasks-desktop.png" class="left col-9 col-lg-9" >}}
 
-## Implementation Steps
 
-Create a `tasks.js` file (this may have already been created by the `initialise-project-layout` command).
+## Main List
 
-### 1. Define a Simple Task
+{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="right col-6 col-lg-3" >}}
 
-The appearance, behaviour, and schedule of tasks are all controlled through the JavaScript in the `tasks.js` file. Let's start in that file with a simple first task:
+On the Tasks tab is a consolidated list of tasks for all people and families that the user looks after. The task definition determines how long the task will show on this list before and after it is due.
 
-```javascript
-module.exports = [{
-  name: 'assessment-after-registration',
-  title: 'First Assessment',
-  icon: 'icon-healthcare',
-  appliesTo: 'contacts',
-  appliesToType: ['patient'],
-  appliesIf: c => user.parent && user.parent.contact_type === 'chw_area' && !c.contact.date_of_death && !c.contact.muted,
-  actions: [{ form: 'assessment' }],
-  events: [{
-    start: 7,
-    days: 7,
-    end: 0,
-  }],
-}];
-```
+Each task has an icon on the left side which indicates which type of task it is. The first bold line of text is the person or family that the task is about. The second line of text is the name of the task. The due date for the task is located in the upper right-hand corner. If a task is overdue, the due date will be red.
 
-**What is this code doing?**
+Tasks are listed in order of due date. Tasks that are past due will appear at the top of the list. CHWs should strive to complete tasks before they are overdue. Many programs add targets to track task completion and timeliness.
 
-The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
 
-* `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule.
-* `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
-* `icon` - This references a [resource]({{< ref "apps/reference/resources" >}}) to be used as the task's icon. Refer to [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
-* `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/task-schema-parameters" >}}).
-* `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`. This `appliesToType` is a _short-hand_ equivalent to `appliesIf: c => c.contact.contact_type === 'patient'`.
-* `appliesIf` - A predicate which gates the creation of the task's event schedule. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/task-schema-parameters" >}}).
-  * `user.parent.contact_type` - The user is a CHW iff their parent is of type `chw_area`. The user object is hydrated.
-  * `!c.contact.date_of_death` - The contact must be alive
-  * `!c.contact.muted` - The contact must be unmuted
-* `actions` - Actions control what happens when the user "selects" the task (clicks on it or touches it). We want to have the single option of completing the _assessment form_.
-* `events` - This controls the task's schedule. We want a single event because this is a one-time follow-up. 
-* `events[0].days` - The task event is due 7 days after the contact's creation date.
-* `events[0].start` - The task event should appear 7 days before the due date, or immediately when the contact is created.
-* `events[0].end` - The task event should disappear the day after the due date.
+<br clear="all">
 
-### 2. Uploading the Task
+## Care Guides
 
-To run the `tasks.js` code, you'll need to load the code into your running CHT application. 
+When a CHW clicks on a task, the care guide configured for that task displays. CHWs are then guided through questions for that specific workflow.
 
-```zsh
-cht --url=https://<username>:<password>@localhost
-```
+<div class="container">
+  <div class="row">
+{{< figure src="tasks-care1.png" link="tasks-care1.png" class="col-6 col-lg-3" >}}
+{{< figure src="tasks-care2.png" link="tasks-care2.png" class="col-6 col-lg-3" >}}
+{{< figure src="tasks-care3.png" link="tasks-care3.png" class="col-6 col-lg-3" >}}
+{{< figure src="tasks-care4.png" link="tasks-care4.png" class="col-6 col-lg-3" >}}
+  </div>
+</div>
 
-or for a faster experience, compile and upload only the relevant changes:
+For more information on Care Guides, see the “[Decision Support for Care Guides]()” section of this overview. 
 
-```zsh
-cht --url=https://<username>:<password>@localhost compile-app-settings upload-app-settings
-```
+When the user completes the care guide, the task will be cleared from the Tasks tab, and the report will be accessible from the Reports page or on the profile of the person or place whom the report is about.
 
-### 3. Testing the Task
+## Household Tasks
+    
+{{< figure src="tasks-household.png" class="right col-6 col-lg-3" >}}
+    
+Alternatively, there is an option to configure Household Tasks. When this [permission](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-permissions/) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
 
-Tasks are only available to [offline users]({{< ref "apps/concepts/users#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
+CHWs are able to complete tasks directly from this page, or exit by tapping on the “X”. If the household has no additional tasks, they will return directly to the main task list.
+    
+## Profile Page
 
-Create a new contact in the hierarchy and navigate to the `Tasks` tab. You should see the new `assessment-after-registration` task!
+{{< figure src="tasks-profile.png" class="right col-6 col-lg-3" >}}
 
-{{< figure src="first-task.png" link="first-task.png" >}}
+Tasks are also accessed from a the People tab in the app.
 
-Next, test a few of the expected behaviours for the task:
+Tasks for a particular person or place can be viewed on the contact’s profile in the “Tasks” section. Filters allow you to choose how many tasks you’d like to view for each due date.
 
-* Confirm that clicking on the task causes the _assessment app form_ to load.
-* Confirm that completing the _assessment app form_ causes the task to disappear.
-* Move your system clock forward 7 days and reload the tasks tab. You should see that the task is now "Due Today".
-* Move your system clock forward 8 days and reload the tasks tab. The task should disappear since the 7 day window has expired.
-* Login as a supervisor user. You should not be able to see the task.
-* The task should not appear only for patients - not for places or CHWs.
-* If you mute a contact or [report the contact dead]({{< ref "apps/tutorials/death-reporting" >}}), the task should disappear.
-
-{{% alert title="Note" %}} Remember to reset your system clock to be accurate when you are done testing. {{% /alert %}}
-
-## Frequently Asked Questions
-
-- ["Error fetching tasks" - Tasks not appearing](https://forum.communityhealthtoolkit.org/t/error-fetching-tasks-tasks-not-appearing/537)
-- [Tasks for online users](https://forum.communityhealthtoolkit.org/t/tasks-for-online-users/574)
-- [How can I debug task rules?](https://forum.communityhealthtoolkit.org/t/how-can-i-debug-task-rules/108)
+<br clear="all">

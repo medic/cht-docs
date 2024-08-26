@@ -24,11 +24,11 @@ This integration leverages the **remote onboarding, task & scheduling, and targe
 The CHT Core Framework & OppiaMobile integration currently supports the following capabilities and features:
 
 
-- [Task management]({{< ref "apps/features/tasks" >}}) for notifications on new educational modules and software updates
+- [Task management]({{< ref "building/tasks" >}}) for notifications on new educational modules and software updates
 - [Remote onboarding]({{< ref "apps/examples/training" >}}) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
 - Optimized multimedia content with links to educational modules powered by OppiaMobile
 - Message and feedback options, to contact supervisors with questions and seek support
-- [Supervisor visibility]({{< ref "apps/features/targets/#supervisor-view" >}}) into CHW progress for onboarding, learning, and care
+- [Supervisor visibility]({{< ref "building/targets/#supervisor-view" >}}) into CHW progress for onboarding, learning, and care
 - Hosting options for government-led, government-owned platforms
 
 

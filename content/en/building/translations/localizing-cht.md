@@ -5,8 +5,8 @@ weight: 13
 description: >
  Localizing language in the CHT
 relatedContent: >
-  core/overview/translations
-  apps/reference/translations
+  building/translations
+  building/translations/configuring-translations
 ---
 
 {{% pageinfo %}}
@@ -24,11 +24,11 @@ By the end of the tutorial you should be able to:
 
 *Localization* this is  setting up the desired language in CHT for the end user.
 
-*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here]({{< ref "../reference/translations/#translations" >}}).
+*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here]({{< ref "../translations/configuring-translations/#translations" >}}).
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [messages-sw.properties]({{< ref "../reference/translations" >}}) file.
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [messages-sw.properties]({{< ref "./configuring-translations" >}}) file.
 
 ## Implementation Steps
 
@@ -64,7 +64,7 @@ In our case, the language code is `sw`.
 
 <br clear="all">
 
-Create a `message-sw.properties` file and use the instructions outlined [here]({{< ref "../reference/translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
+Create a `message-sw.properties` file and use the instructions outlined [here]({{< ref "../translations/configuring-translations/#translations" >}}) to learn the structure of a message-{language-code}.properties file.
 
 Populate the `messages-sw.properties` file with the appropriate translation strigs and upload it using the below command:
 
@@ -342,4 +342,4 @@ Change the CHVs language by following: App Management > Users > [Choose CHV user
 
 ### Translating CHT to another language
 
-To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "core/overview/translations" >}}) for reference.
+To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "building/translations" >}}) for reference.

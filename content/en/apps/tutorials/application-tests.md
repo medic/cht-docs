@@ -19,7 +19,7 @@ This tutorial takes you through testing the various configurable components of C
 Complete the following tutorials:
   - [Building App Forms]({{< ref "apps/tutorials/app-forms" >}})
   - [Building A Simple Task]({{< ref "building/tasks" >}})
-  - [Building Target Widgets]({{< ref "apps/tutorials/targets" >}})
+  - [Building Target Widgets]({{< ref "building/targets/configuring-targets" >}})
   - [Building Contact Summary]({{< ref "apps/tutorials/contact-summary" >}})
 
 ## Importance of testing your application
@@ -446,7 +446,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#targets).
 
-To test the first two targets created in the [targets tutorial]({{< ref "apps/tutorials/targets" >}}), use this code:
+To test the first two targets created in the [targets tutorial]({{< ref "building/targets/configuring-targets" >}}), use this code:
 ```js highlight 
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date

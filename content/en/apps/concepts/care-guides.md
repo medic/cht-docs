@@ -6,7 +6,7 @@ description: >
 keywords: care-guides
 relatedContent: >
   building/forms/
-  apps/features/tasks/#care-guides
+  building/tasks/#care-guides
   apps/reference/contact-page/#care-guides
 ---
 

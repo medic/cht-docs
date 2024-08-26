@@ -5,7 +5,7 @@ description: >
   Dashboards to track metrics for an individual CHW or for an entire health facility
 keyword: targets
 relatedContent: >
-  apps/reference/targets
+  building/targets/targets-js
   core/overview/db-schema#targets
   apps/features/integrations/dhis2
   apps/features/supervision/#chw-aggregate-targets

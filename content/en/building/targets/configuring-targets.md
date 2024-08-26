@@ -1,12 +1,12 @@
 ---
 title: "Building Target Widgets"
-linkTitle: Targets
+linkTitle: "Configuring Targets"
 weight: 10
 description: >
  How to build CHT monthly and all time target widgets
 relatedContent: >
-  apps/features/targets
-  apps/reference/targets
+  building/targets
+  building/targets/targets-js
   design/best-practices/#anatomy-of-a-task
 
 ---
@@ -21,15 +21,15 @@ You will be adding target widgets that will allow Community Health Workers (CHWs
 
 ## Brief Overview of Key Concepts
 
-*[Targets]({{< ref "apps/features/targets" >}})* is the user dashboard or analytics tab.
+*[Targets]({{< ref "building/targets" >}})* is the user dashboard or analytics tab.
 
-*[Target widgets]({{< ref "apps/features/targets#types-of-widgets" >}})* provide a summary or analysis of the data in submitted reports.
+*[Target widgets]({{< ref "building/targets#types-of-widgets" >}})* provide a summary or analysis of the data in submitted reports.
 
-*[Count widgets]({{< ref "apps/features/targets#count-widgets" >}})* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria.
+*[Count widgets]({{< ref "building/targets#count-widgets" >}})* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria.
 
-*[Percent widgets]({{< ref "apps/features/targets#percent-widgets" >}})* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
+*[Percent widgets]({{< ref "building/targets#percent-widgets" >}})* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
 
-*[Target schema]({{< ref "apps/reference/targets#targetsjs" >}})* details a set of properties for targets.
+*[Target schema]({{< ref "building/targets#targetsjs" >}})* details a set of properties for targets.
 
 *Target instance* is an object emitted and counted or aggregated based on target configuration.
 
@@ -346,7 +346,7 @@ module.exports = [
 ];
 ```
 
-{{< see-also page="apps/reference/targets" title="Targets overview" >}}
+{{< see-also page="building/targets/targets-js" title="Targets overview" >}}
 
 ### 8. Compile and Upload App Settings
 
@@ -373,7 +373,7 @@ targets.assessments.percentage.cough.title = % Population with cough
 targets.households.with.assessments.title = Total households with assessments
 targets.households.with.gt2.assessments.title = % Household with >=2 assessments
 ```
-To upload *[translations]({{< ref "apps/reference/translations#translations" >}})* to your local instance, run the following command:
+To upload *[translations]({{< ref "building/translations/configuring-translations#translations" >}})* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
