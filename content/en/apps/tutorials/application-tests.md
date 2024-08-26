@@ -20,7 +20,7 @@ Complete the following tutorials:
   - [Building App Forms]({{< ref "apps/tutorials/app-forms" >}})
   - [Building A Simple Task]({{< ref "building/tasks" >}})
   - [Building Target Widgets]({{< ref "building/targets/configuring-targets" >}})
-  - [Building Contact Summary]({{< ref "apps/tutorials/contact-summary" >}})
+  - [Building Contact Summary]({{< ref "building/contact-summary" >}})
 
 ## Importance of testing your application
 ---
@@ -229,11 +229,11 @@ it(`Throws validation error when birth date is in future`, async () => {
 |Minimum:|Fill a contact form and count the number of fields in the contact summary|
 |Ideal:|Targeted tests for calculations of context, fields, cards, etc.|
 
-Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/apps/reference/contact-page/#care-guides). All these can be tested with the test harness.
+Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/building/contact-summary/contact-summary-templated/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/building/contact-summary/contact-summary-templated/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/building/contact-summary/contact-summary-templated/#care-guides). All these can be tested with the test harness.
 
 Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
-To test the contact summary fields added in the [previous tutorial]({{< ref "apps/tutorials/contact-summary#3-export-fields" >}}), use the following test case:
+To test the contact summary fields added in the [previous tutorial]({{< ref "building/contact-summary#3-export-fields" >}}), use the following test case:
 
 ```js highlight 
 const contactSummary = await harness.getContactSummary();
@@ -277,7 +277,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
   ]
 );
 ```
-If you  follow [this code sample]({{< ref "apps/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
+If you  follow [this code sample]({{< ref "building/contact-summary/contact-summary-templated#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
 
 ```js highlight 
 const summaryContext = harness.getContactSummary().context;

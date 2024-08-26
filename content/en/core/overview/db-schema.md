@@ -6,7 +6,7 @@ description: >
   Schema for database objects
 relatedContent: >
   apps/guides/database
-  apps/reference/contact-page
+  building/contact-summary/contact-summary-templated
   building/targets/targets-js
   building/tasks/tasks-js
 ---

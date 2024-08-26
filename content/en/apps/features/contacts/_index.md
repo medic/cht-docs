@@ -7,7 +7,7 @@ description: >
 keywords: hierarchy contacts care-guides
 relatedContent: >
   building/forms/contact
-  apps/reference/contact-page
+  building/contact-summary/contact-summary-templated
   apps/guides/updates/moving-contacts
   building/contact-management/contact-and-users-1
   apps/examples/contact-tracing
@@ -82,7 +82,7 @@ The top card on all profiles contains general information for the contact. All t
   </div>
 </div>
 
-{{< see-also page="contact-page" anchor="contact-summary" title="Defining Contact Summary" >}}
+{{< see-also page="building/contact-summary/contact-summary-templated" anchor="contact-summary" title="Defining Contact Summary" >}}
 
 ### Condition Cards
 
@@ -104,7 +104,7 @@ Configurable elements include:
   </div>
 </div>
 
-{{< see-also page="contact-page" anchor="condition-cards" title="Defining Condition Cards" >}}
+{{< see-also page="building/contact-summary/contact-summary-templated" anchor="condition-cards" title="Defining Condition Cards" >}}
 
 
 ## Care Guides
@@ -119,7 +119,7 @@ You’ll see different forms here depending on which person or place you’re vi
 
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.” 
 
-{{< see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" >}}
+{{< see-also page="building/contact-summary/contact-summary-templated" anchor="care-guides" title="Defining Care Guides" >}}
 
 <br clear="all">
 
