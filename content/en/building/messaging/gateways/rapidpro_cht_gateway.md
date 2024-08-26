@@ -5,7 +5,7 @@ weight: 20
 description: >
     Integration for sending and receiving messages
 relatedContent: >
-    apps/guides/messaging/gateways/rapidpro
+    building/messaging/gateways/rapidpro
 ---
 
 RapidPro - CHT uses your Android phone to send and receive messages on your behalf.

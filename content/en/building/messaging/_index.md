@@ -5,7 +5,7 @@ description: >
   Messaging for Care Coordination, Alerts, and Notifications
 relatedContent: >
   building/application-settings/app-settings/schedules
-  apps/guides/messaging
+  building/messaging
   building/forms/configuring-forms/app-form-sms
 ---
 

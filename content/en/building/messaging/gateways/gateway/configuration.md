@@ -7,8 +7,8 @@ description: >
 aliases:
   -    /apps/guides/messaging/gateway/configuration
 relatedContent: >
-  apps/guides/messaging/gateways/gateway/troubleshooting
-  apps/guides/messaging/gateways/gateway/phones
+  building/messaging/gateways/gateway/troubleshooting
+  building/messaging/gateways/gateway/phones
 ---
 
 CHT gateway supports Android 4.1 and above. To have it up and fully working, follow the 3 steps below.

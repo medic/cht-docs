@@ -7,8 +7,8 @@ description: >
 relatedContent: >
   building/application-settings/app-settings/schedules
   building/forms
-  apps/features/messaging
-  apps/guides/messaging
+  building/messaging
+  building/messaging
 
 ---
 
@@ -22,11 +22,11 @@ This tutorial takes you through how to set up SMS schedules for CHT applications
 
 *[SMS schedules]({{< ref "building/application-settings/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "building/application-settings/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool.
 
-SMS schedules can be triggered by *[SMS forms]({{< ref "apps/tutorials/sms-forms" >}})* or *[App forms]({{< ref "building/forms/app" >}})*.
+SMS schedules can be triggered by *[SMS forms]({{< ref "building/messaging/sms-forms" >}})* or *[App forms]({{< ref "building/forms/app" >}})*.
 
 ## Required Resources
 
-You should have [built a pregnancy SMS form]({{< ref "apps/tutorials/sms-forms#4-define-a-report-submission-form" >}}).
+You should have [built a pregnancy SMS form]({{< ref "building/messaging/sms-forms#4-define-a-report-submission-form" >}}).
 
 ## Implementation Steps
 

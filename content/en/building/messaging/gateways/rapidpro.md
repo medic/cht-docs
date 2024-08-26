@@ -5,13 +5,13 @@ weight: 20
 description: >
     Integration for sending and receiving messages
 aliases:
-  -    /apps/guides/messaging/rapidpro
+  -    /building/messaging/rapidpro
 relatedContent: >
     building/application-settings/app-settings/sms
     building/forms/configuring-forms/app-form-sms
-    apps/guides/messaging/sms-states
-    apps/guides/messaging/message-loops
-    apps/guides/messaging/shortcodes
+    building/messaging/sms-states
+    building/messaging/message-loops
+    building/messaging/shortcodes
 ---
 
 

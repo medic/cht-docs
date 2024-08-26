@@ -501,7 +501,7 @@ Endpoint used by cht-gateway to send sms messages. More documentation in the [ch
 
 ### POST /api/v1/sms/{aggregator}/{endpoint}
 
-Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{< relref "apps/guides/messaging/gateways/rapidpro" >}}) and [Africa's Talking]({{< relref "apps/guides/messaging/gateways/africas-talking" >}}) pages.
+Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{< relref "building/messaging/gateways/rapidpro" >}}) and [Africa's Talking]({{< relref "building/messaging/gateways/africas-talking" >}}) pages.
 
 ## Person
 

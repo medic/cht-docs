@@ -5,8 +5,8 @@ weight: 20
 description: >
   Overview of the possible states of SMS messages
 relatedContent: >
-  apps/features/messaging
-  apps/guides/messaging/message-loops
+  building/messaging
+  building/messaging/message-loops
   building/application-settings/app-settings/sms
 keywords: messaging
 ---
