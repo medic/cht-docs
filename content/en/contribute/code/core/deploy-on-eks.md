@@ -204,7 +204,7 @@ Note that a number of these steps can be done either on the command line or in t
 6. Create a `values.yml` file from [this template](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and edit the bottom `remote:` section to set use existing EBS to `true`, the existing volume ID to the one we got above and the volume size to the value of `Size` from above as well:
    ```yaml
    remote:
-      existingEBS: "false"
+      existingEBS: "true"
       existingEBSVolumeID: "vol-f9dsa0f9sad09f0dsa"
       existingEBSVolumeSize: "900Gi"
    ```
