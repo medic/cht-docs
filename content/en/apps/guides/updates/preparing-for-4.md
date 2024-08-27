@@ -218,7 +218,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 
 ##### Active
 
-* [A regression](https://github.com/medic/cht-core/issues/8225) added in `4.6.0`, causes the [contact selector functionality](https://docs.communityhealthtoolkit.org/apps/guides/forms/form-inputs/#contact-selector) to not work as expected when loading contact data into the `inputs` group _when the group is non-relevant._ More details, including a viable workaround, are documented on the linked issue.
+* [A regression](https://github.com/medic/cht-core/issues/8225) added in `4.6.0`, causes the [contact selector functionality](https://docs.communityhealthtoolkit.org/apps/guides/forms/form-inputs/#contact-selector) to not work as expected when loading contact data into the `inputs` group _when the group is non-relevant._ More details, including a viable workaround, are documented on the  [issue](https://github.com/medic/cht-core/issues/8225).
 
 ##### Resolved
 
