@@ -64,7 +64,7 @@ Create a trigger (`/trigger/`) to start the new flow when a message is not handl
 
 ![trigger_select](trigger_select.png)
 
-For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "apps/guides/integrations/rapidpro" %}}).
+For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "building/integrations/rapidpro/rapidpro-configuration" %}}).
 
 ## CHT Core configuration
 

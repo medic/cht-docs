@@ -1,6 +1,6 @@
 ---
-title: "RapidPro"
-linkTitle: "RapidPro"
+title: "RapidPro Configuration"
+linkTitle: "RapidPro Configuration"
 weight: 
 description: >
   Key concepts, design considerations, how to configure, and best practices
