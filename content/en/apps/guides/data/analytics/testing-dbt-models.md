@@ -51,7 +51,7 @@ Read the [reference doc](https://docs.getdbt.com/reference/resource-properties/u
 
 ## Test implementation in CHT pipeline
 
-We organize our models by grouping them into folders based on their relationships. Each model folder contains a YAML file that holds that folder models properties.
+We organize our models by grouping them into folders based on their relationships (for example: `models/contacts/` folder will have all the models definitions related to contacts). Each model folder contains a YAML file that holds that folder models properties.
 
 ### Data Tests
 
@@ -64,6 +64,9 @@ Records that should be deleted are properly removed from both tables.
 All relevant fields between the two tables match, preserving data accuracy and integrity.
 {{< figure src="contact-sql.png" link="contact-sql.png" class=" center col-16 col-lg-12" >}}
 
+### Unit Tests
+
+Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder (for example, all the unit test for models related to contacts will be in `/models/contacts/tests/contacts.yml` file). We could further divide the tests by models, if needed we could create one files for each model inside the contact folder (for example having `/models/contacts/tests/contact.yml`, `/models/contacts/tests/person.yml`, `/models/contacts/tests/place.yml`, etc.)
 
 ## Test execution
 ## Test failure and debugging
