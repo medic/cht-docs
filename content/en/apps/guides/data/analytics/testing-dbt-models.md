@@ -58,9 +58,9 @@ This is an extract of our folder and file structure necessary to understand the 
     /models
         /contacts
             /tests
-                contacts.yml
+                contacts.yml  --> unit tests
             contact.sql
-            contacts.yml
+            contacts.yml      --> generic data tests
             patient.sql
             person.sql
             place.sql
@@ -69,11 +69,11 @@ This is an extract of our folder and file structure necessary to understand the 
         /root
         /users
     /test
-        /fixtures
+        /fixtures                                     --> input data for unit tests
             data_record_initial_expected.csv
             data_record_source_table_initial.csv
             data_record_document_metadata_initial.csv
-        /sqltest
+        /sqltest                                       --> singular data tests
             contact.sql
             data_record.sql
             patient.sql
