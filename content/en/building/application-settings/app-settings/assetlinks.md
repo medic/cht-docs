@@ -5,14 +5,14 @@ weight: 5
 description: >
   **Assetlinks**: Defining the Digital Asset Links JSON file associating your domain with your Android app.
 relatedContent: >
-  apps/features/integrations/android
+  building/integrations/android
   apps/guides/android/branding
 keywords: android assetlinks
 ---
 
 *Requires CHT Core 4.7.0+, CHT Conf 3.22.0+, and CHT Android 1.3.0+*
 
-When using a [custom flavor of cht-android]({{< ref "apps/guides/android/branding" >}}) to connect to your CHT instance, the ecosystem supports using [deep links]({{< ref "apps/features/integrations/android#sending-a-url" >}}) to open specific content in the app. (E.g. [token login links]({{< ref "apps/concepts/access#magic-links-for-logging-in-token-login" >}})). Security measures in Android require these deep links [be verified](https://developer.android.com/training/app-links/verify-android-applinks) either automatically or manually.  This `assetlinks` configuration enables auto-verification for your CHT links in your Android app. The provided JSON file will be served at `https://<your CHT instance>/.well-known/assetlinks.json`. If you do not provide this configuration, users will be prompted to manually associate the CHT domain with your app.
+When using a [custom flavor of cht-android]({{< ref "apps/guides/android/branding" >}}) to connect to your CHT instance, the ecosystem supports using [deep links]({{< ref "building/integrations/android#sending-a-url" >}}) to open specific content in the app. (E.g. [token login links]({{< ref "apps/concepts/access#magic-links-for-logging-in-token-login" >}})). Security measures in Android require these deep links [be verified](https://developer.android.com/training/app-links/verify-android-applinks) either automatically or manually.  This `assetlinks` configuration enables auto-verification for your CHT links in your Android app. The provided JSON file will be served at `https://<your CHT instance>/.well-known/assetlinks.json`. If you do not provide this configuration, users will be prompted to manually associate the CHT domain with your app.
 
 For more information, see the [docs for building a new CHT Android flavor]({{< ref "apps/guides/android/branding#android-app-links-verification" >}}).
 

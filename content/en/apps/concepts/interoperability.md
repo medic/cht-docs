@@ -6,7 +6,7 @@ description: >
   Exchanging information between the CHT Core and other health systems 
 keywords: interoperability integrations fhir icd openhie openhim
 relatedContent: >
-  apps/features/integrations
+  building/integrations
 ---
 
 ## Introduction 

@@ -7,7 +7,7 @@ keyword: targets
 relatedContent: >
   building/targets/targets-js
   core/overview/db-schema#targets
-  apps/features/integrations/dhis2
+  building/integrations/dhis2
   apps/features/supervision/#chw-aggregate-targets
 ---
 <!-- ## Targets: Performance Dashboards -->

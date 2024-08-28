@@ -6,7 +6,7 @@ description: >
   Key concepts, design considerations, how to configure, and best practices
 keywords: rapidpro 
 relatedContent: >
-  apps/features/integrations/rapidpro
+  building/integrations/rapidpro
 aliases:
   - /apps/guides/integrations/best-practices/rapidpro
 ---
