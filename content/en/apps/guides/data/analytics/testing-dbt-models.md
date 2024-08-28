@@ -51,11 +51,37 @@ Read the [reference doc](https://docs.getdbt.com/reference/resource-properties/u
 
 ## Test implementation in CHT pipeline
 
-We organize our models by grouping them into folders based on their relationships (for example: `models/contacts/` folder will have all the models definitions related to contacts). Each model folder contains a YAML file that holds that folder models properties.
+This is an extract of our folder and file structure necessary to understand the followings sections:
+
+```
+./
+    /models
+        /contacts
+            /tests
+                contacts.yml
+            contact.sql
+            contacts.yml
+            patient.sql
+            person.sql
+            place.sql
+        /forms
+        /meta
+        /root
+        /users
+    /test
+        /fixtures
+            data_record_initial_expected.csv
+            data_record_source_table_initial.csv
+            data_record_document_metadata_initial.csv
+        /sqltest
+            contact.sql
+            data_record.sql
+            patient.sql
+```
 
 ### Data Tests
 
-The first test to implement when creating or modifying our models are **generic data tests**. This are included in the YAML file under the `data-tests` tag. We aim to include all necessary basic validation tests to ensure data integrity within the model. For example, the following image contains an extract of the properties of the models under the `contacts` directory and includes several tests, such as `relationships`, `not_null`, and `unique`. In this case for the `contact` model.
+The first test to implement when creating or modifying our models are **generic data tests**. This are included in the YAML file under the `data-tests` tag. We aim to include all necessary basic validation tests to ensure data integrity within the model. The following image contains an extract of the properties of the  `contacts.yml` file and includes several tests, such as `relationships`, `not_null`, and `unique`. In this case for the `contact` model.
 {{< figure src="contacts-yml.png" link="contacts-yml.png" class=" center col-16 col-lg-12" >}}
 
 The **singular data tests** can be found in the `/test/sqltest/` folder.
@@ -66,7 +92,16 @@ All relevant fields between the two tables match, preserving data accuracy and i
 
 ### Unit Tests
 
-Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder (for example, all the unit test for models related to contacts will be in `/models/contacts/tests/contacts.yml` file). We could further divide the tests by models, if needed we could create one files for each model inside the contact folder (for example having `/models/contacts/tests/contact.yml`, `/models/contacts/tests/person.yml`, `/models/contacts/tests/place.yml`, etc.)
+Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder. We could further divide the tests by models, if needed we could create one files for each model inside the contact folder (for example having `/models/contacts/tests/contact.yml`, `/models/contacts/tests/person.yml`, `/models/contacts/tests/place.yml`, etc.). The input format of choise is csv using fixtures. The fixture csv files are defined in /test/fixture folder.
+
+The following image shows an excerpt of the content in `/models/contacts/tests/contact.yml` file showing the test to validate transformation and data integrity for document_metadata model.
+{{< figure src="contact-unit-test.png" link="contact-unit-test.png" class=" center col-16 col-lg-12" >}}
+
+The following images shows the content of the input fixtures.
+{{< figure src="contact-document-metadata-initial.png" link="contact-document-metadata-initial.png" class=" center col-16 col-lg-12" >}}{{< figure src="contact-source-table-initial.png" link="contact-source-table-initial.png" class=" center col-16 col-lg-12" >}}
+
+And finally, the fixture representing the expected data:
+{{< figure src="contact-initial-expected.png" link="contact-initial-expected.png" class=" center col-16 col-lg-12" >}}
 
 ## Test execution
 ## Test failure and debugging
