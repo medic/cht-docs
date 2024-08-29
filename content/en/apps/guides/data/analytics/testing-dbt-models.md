@@ -21,35 +21,39 @@ Data tests ensure your warehouse data meets specific criteria and are run at eve
 Data tests can be further divided into two types:
 - Generic tests: These are foundational tests provided by DBT core, focusing on basic schema validation and source freshness. DBT core provides [four built-in generic tests](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests) that are essential for data modeling and ensuring data integrity. Generic tests can accept [additional test configurations](https://docs.getdbt.com/reference/data-test-configs).
 It is also possible to define your own [custom generic tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests).
-Using a generic test is done by adding it to the model's property (yml) file.
 
 - [Singular tests](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests): These are written in a SQL file with a query that returns records that fail the test. This type of test is straightforward and focuses on specific conditions or rules that data must meet.
 
-Regardless of the type of data test, the process is the same: dbt will compile the code to a SQL SELECT statement and execute it against your database. If the query returns any rows, this indicates a failure.
-
 ### Unit Tests
 
-From dbt official documentation ([When to add a unit test to your model | dbt Developer Hub](https://docs.getdbt.com/docs/build/unit-tests#when-to-add-a-unit-test-to-your-model) ):
+Unit tests are essential for validating complex SQL logic and transformations in dbt models. These tests are especially valuable when working with intricate SQL expressions. They help catch errors before deploying changes, ensuring the logic behaves as expected, particularly in critical models or when handling edge cases.
 
-> You should unit test a model:
-> - When your SQL contains complex logic:
->   - Regex
->   - Date math
->   - Window functions
->   - `case when` statements when there are many `when`s
->   - Truncation
-> - When you're writing custom logic to process input data, similar to creating a function.
-> - We don't recommend conducting unit testing for functions like `min()` since these functions are tested extensively by the warehouse. If an unexpected issue arises, it's more likely a result of issues in the underlying data rather than the function itself. Therefore, fixture data in the unit test won't provide valuable information.
-> - Logic for which you had bugs reported before.
-> - Edge cases not yet seen in your actual data that you want to handle.
-> - Prior to refactoring the transformation logic (especially if the refactor is significant).
-> - Models with high "criticality" (public, contracted models or models directly upstream of an exposure).
+For more details on formatting unit tests, refer to the [official dbt documentation](https://docs.getdbt.com/reference/resource-properties/unit-tests).
 
-Unit tests must be defined in a YML file in your `models/` directory.
 
-Read the [reference doc](https://docs.getdbt.com/reference/resource-properties/unit-tests) for more details about formatting unit tests.
+## Test Recommendations for the CHT Pipeline
+To ensure data integrity and the reliability of our dbt models in the CHT Pipeline, it is essential to follow these testing guidelines:
+
+- Basic generic tests for all models:
+Every model should have generic tests to enforce critical constraints and relationships. Use dbt core build in generic tests.
+
+- Singular or custom generic data tests for aggregation models:
+For models that perform data aggregation, it is crucial to include singular data tests or custom generic data tests to ensure that the aggregated data meets the expected criteria. These tests help verify that:
+  - Data is accurately aggregated according to the defined logic.
+  - The results align with business expectations and requirements.
+  - Custom data tests are particularly important for aggregation models, as errors in these models can lead to significant discrepancies in reports and analyses.
+
+- Unit Tests for complex logic:
+Unit tests are not strictly required but are highly recommended, especially for models with complex transformation logic. Examples of when to use unit tests include:
+  - Complex SQL Logic: Such as regex, date math, window functions, or extensive CASE WHEN statements.
+  - Custom Calculations: When creating functions or applying unique data processing logic.
+  - Edge Cases: To handle scenarios that are not typically found in actual data but may arise unexpectedly.
 
 ## Test implementation in CHT pipeline
+
+Have schema tests for all models and specifically enforcing unique, not_null, and relationships where relevant. (All models should have these tests)
+Add custom data tests for aggregation models to ensure the data is as expected (Only specific models need these tests)
+Add unit tests for complex logic e.g. data math, window functions e.t.c. (not required but good to have especially if model is covered by data tests)
 
 Our project is organized with a `/models` directory containing SQL files and YAML files for generic tests, and a `/test` directory with folders for fixtures and singular tests.
 
