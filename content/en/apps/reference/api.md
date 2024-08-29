@@ -1211,6 +1211,174 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### GET /api/v1/place
+
+*Added in 4.11.0*
+
+Returns a JSON array of places based on the specified page parameters.
+
+#### Query Parameters
+
+| Name   | Required | Description                                                                                                                                                                                                              |
+|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type   | true     | ID of the contact_type for the places to fetch.                                                                                                                                                                          |
+| cursor | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
+| limit  | false    | The total number of places to fetch. Defaults to `100`.                                                                                                                                                                  |
+
+#### Examples
+
+1. Get places of type `clinic`.
+
+```
+GET /api/v1/place?type=clinic
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        {
+            "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
+            "_rev": "1-ec14166e5a1b0014d923a6c0aef85362",
+            "parent": {
+                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "A clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722842989644,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
+            "_rev": "1-d1444e92bd1973e9d8366c0a55346c0a",
+            "parent": {
+                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "B clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004087809,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        ... // 98 more records or less if database has less than 100 records
+    ],
+    "cursor": null
+}
+```
+
+2. Get 2 places of type `clinic` by using cursor `1`.
+
+```
+GET /api/v1/place?type=clinic&cursor=1&limit=2
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        {
+            "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
+            "_rev": "1-ec14166e5a1b0014d923a6c0aef85362",
+            "parent": {
+                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "A clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722842989644,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
+            "_rev": "1-d1444e92bd1973e9d8366c0a55346c0a",
+            "parent": {
+                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "B clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004087809,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        }
+    ],
+    "cursor": "3"
+}
+```
+
+
 ## Places
 
 By default any user can create or modify a place.
@@ -1372,173 +1540,6 @@ Content-Type: application/json
 {
   "id": "1d83f2b4a27eceb40df9e9f9ad06d137",
   "rev": "12-a4060843d78f46a60a6f41051e40e3b5"
-}
-```
-
-### GET /api/v1/places
-
-*Added in 4.11.0*
-
-Returns a JSON array of places based on the specified page parameters.
-
-#### Query Parameters
-
-| Name      | Required | Description                                                                                                                                                                                                              |
-|-----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| placeType | true     | ID of the contact_type for the places to fetch.                                                                                                                                                                          |
-| cursor    | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
-| limit     | false    | The total number of places to fetch. Defaults to `100`.                                                                                                                                                                  |
-
-#### Examples
-
-1. Get places of type `clinic`.
-
-```
-GET /api/v1/places?placeType=clinic
-```
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-    "data": [
-        {
-            "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
-            "_rev": "1-ec14166e5a1b0014d923a6c0aef85362",
-            "parent": {
-                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
-                "parent": {
-                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
-                }
-            },
-            "type": "clinic",
-            "is_name_generated": "true",
-            "name": "A clinic",
-            "external_id": "",
-            "notes": "",
-            "contact": {
-                "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852"
-            },
-            "geolocation": "",
-            "meta": {
-                "created_by": "medic",
-                "created_by_person_uuid": "",
-                "created_by_place_uuid": ""
-            },
-            "reported_date": 1722842989644,
-            "form_version": {
-                "time": 1720158606678,
-                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
-            }
-        },
-        {
-            "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
-            "_rev": "1-d1444e92bd1973e9d8366c0a55346c0a",
-            "parent": {
-                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
-                "parent": {
-                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
-                }
-            },
-            "type": "clinic",
-            "is_name_generated": "true",
-            "name": "B clinic",
-            "external_id": "",
-            "notes": "",
-            "contact": {
-                "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22"
-            },
-            "geolocation": "",
-            "meta": {
-                "created_by": "medic",
-                "created_by_person_uuid": "",
-                "created_by_place_uuid": ""
-            },
-            "reported_date": 1722004087809,
-            "form_version": {
-                "time": 1720158606678,
-                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
-            }
-        },
-        ... // 98 more records or less if database has less than 100 records
-    ],
-    "cursor": null
-}
-```
-
-2. Get 2 places of type `clinic` by using cursor `1`.
-
-```
-GET /api/v1/places?placeType=clinic&cursor=1&limit=2
-```
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-    "data": [
-        {
-            "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
-            "_rev": "1-ec14166e5a1b0014d923a6c0aef85362",
-            "parent": {
-                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
-                "parent": {
-                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
-                }
-            },
-            "type": "clinic",
-            "is_name_generated": "true",
-            "name": "A clinic",
-            "external_id": "",
-            "notes": "",
-            "contact": {
-                "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852"
-            },
-            "geolocation": "",
-            "meta": {
-                "created_by": "medic",
-                "created_by_person_uuid": "",
-                "created_by_place_uuid": ""
-            },
-            "reported_date": 1722842989644,
-            "form_version": {
-                "time": 1720158606678,
-                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
-            }
-        },
-        {
-            "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
-            "_rev": "1-d1444e92bd1973e9d8366c0a55346c0a",
-            "parent": {
-                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
-                "parent": {
-                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
-                }
-            },
-            "type": "clinic",
-            "is_name_generated": "true",
-            "name": "B clinic",
-            "external_id": "",
-            "notes": "",
-            "contact": {
-                "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22"
-            },
-            "geolocation": "",
-            "meta": {
-                "created_by": "medic",
-                "created_by_person_uuid": "",
-                "created_by_place_uuid": ""
-            },
-            "reported_date": 1722004087809,
-            "form_version": {
-                "time": 1720158606678,
-                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
-            }
-        }
-    ],
-    "cursor": "3"
 }
 ```
 
