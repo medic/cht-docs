@@ -18,7 +18,7 @@ Data tests ensure your warehouse data meets specific criteria and are run at eve
 
 ### Data Tests
 
-Can be further divided into two types:
+Data tests can be further divided into two types:
 - Generic tests: These are foundational tests provided by DBT core, focusing on basic schema validation and source freshness. DBT core provides [four built-in generic tests](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests) that are essential for data modeling and ensuring data integrity. Generic tests can accept [additional test configurations](https://docs.getdbt.com/reference/data-test-configs).
 It is also possible to define your own [custom generic tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests).
 Using a generic test is done by adding it to the model's property (yml) file.
@@ -51,7 +51,7 @@ Read the [reference doc](https://docs.getdbt.com/reference/resource-properties/u
 
 ## Test implementation in CHT pipeline
 
-This is an extract of our folder and file structure necessary to understand the followings sections:
+Our project is organized with a `/models` directory containing SQL files and YAML files for generic tests, and a `/test` directory with folders for fixtures and singular tests.
 
 ```
 ./
@@ -83,11 +83,10 @@ This is an extract of our folder and file structure necessary to understand the 
 
 ### Data Tests
 
-The first test to implement when creating or modifying our models are **generic data tests**. This are included in the YAML file under the `data-tests` tag. We aim to include all necessary basic validation tests to ensure data integrity within the model. The following image contains an extract of the properties of the  `contacts.yml` file and includes several tests, such as `relationships`, `not_null`, and `unique`. In this case for the `contact` model.
+***Generic data tests*** are included in the model's YAML file under the `data-tests` tag, ensuring basic validations like `relationships`, `not_null`, and `unique`. The following image contains an extract of the properties of the  `contacts.yml` file.
 {{< figure src="contacts-yml.png" link="contacts-yml.png" class=" center col-16 col-lg-12" >}}
 
-The **singular data tests** can be found in the `/test/sqltest/` folder.
-This singular test aims to ensure that data between the source and the final tables is synchronized correctly. By running this test, you can quickly identify any discrepancies or errors in data synchronization and take appropriate action to resolve them, maintaining the overall consistency and reliability of your data systems. For example, the following image shows the test to ensure that data between the `source` table and `contact` tables is synchronized correctly.
+***Singular data tests*** are located in the `/test/sqltest/` folder and check data synchronization between source and final tables. For example, the following image shows the test to ensure that data between the `source` table and `contact` tables is synchronized correctly.
 Records that should be deleted are properly removed from both tables.
 All relevant fields between the two tables match, preserving data accuracy and integrity.
 {{< figure src="contact-sql.png" link="contact-sql.png" class=" center col-16 col-lg-12" >}}
