@@ -626,89 +626,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## People
-
-### Supported Properties
-
-Use JSON in the request body to specify a person's details.
-
-Note: this does not accommodate having a `place` field on your form and will likely be revised soon.
-
-#### Required
-
-| Key  | Description                         |
-| ---- | ----------------------------------- |
-| name | String used to describe the person. |
-| type | ID of the `contact_type` for the new person. Defaults to 'person' for backwards compatibility. |
-
-#### Optional
-
-| Key           | Description                                                            |
-| ------------- | ---------------------------------------------------------------------- |
-| place         | String that references a place or object that defines a new place.     |
-| reported_date | Timestamp of when the record was reported or created. Defaults to now. |
-
-### POST /api/v1/people
-
-Create new people.
-
-#### Permissions
-
-By default any user can create or modify a place. Use these permissions to restrict access:
-
-`can_create_people`, `can_create_places`
-
-#### Examples
-
-Create new person and place hierarchy.
-
-```
-POST /api/v1/people
-Content-Type: application/json
-
-{
-  "name": "Hannah",
-  "phone": "+2548277210095",
-  "type": "contact",
-  "contact_type": "patient",
-  "place": {
-    "name": "CHP Area One",
-    "type": "health_center",
-    "parent": {
-      "name": "CHP Branch One",
-      "type": "district_hospital"
-    }
-  }
-}
-```
-
-Create new person and assign existing place.
-
-```
-POST /api/v1/people
-Content-Type: application/json
-
-{
- "name": "Samuel",
- "place": "1d83f2b4a27eceb40df9e9f9ad06d137",
- "type": "contact",
- "contact_type": "chp"
-}
-```
-
-Example response:
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "id": "71df9d25ed6732ea3b4435862510d115",
-  "rev": "1-a4060843d78f46a60a6f41051e40e3b5"
-}
-```
-
-### GET /api/v1/people
+### GET /api/v1/person
 
 *Added in 4.11.0*
 
@@ -720,18 +638,18 @@ Returns a JSON array of people based on the specified page parameters.
 
 #### Query Parameters
 
-| Name       | Required | Description                                                                                                                                                                                                              |
-|------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| personType | true     | ID of the contact_type for the people to fetch.                                                                                                                                                                          |
-| cursor     | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
-| limit      | false    | The total number of people to fetch. Defaults to `100`.                                                                                                                                                                  |
+| Name   | Required | Description                                                                                                                                                                                                              |
+|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type   | true     | ID of the contact_type for the people to fetch.                                                                                                                                                                               |
+| cursor | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
+| limit  | false    | The total number of people to fetch. Defaults to `100`.                                                                                                                                                                  |
 
 #### Examples
 
 1. Get people of type `person`.
 
 ```
-GET /api/v1/person?personType=person
+GET /api/v1/person?type=person
 ```
 
 ```
@@ -957,7 +875,7 @@ Content-Type: application/json; charset=utf-8
 2. Get 3 people of type `person` by using cursor `1`.
 
 ```
-GET /api/v1/person?personType=person&cursor=1&limit=3
+GET /api/v1/person?type=person&cursor=1&limit=3
 ```
 
 ```
@@ -1094,6 +1012,88 @@ Content-Type: application/json; charset=utf-8
         }
     ],
     "cursor": "4"
+}
+```
+
+## People
+
+### Supported Properties
+
+Use JSON in the request body to specify a person's details.
+
+Note: this does not accommodate having a `place` field on your form and will likely be revised soon.
+
+#### Required
+
+| Key  | Description                         |
+| ---- | ----------------------------------- |
+| name | String used to describe the person. |
+| type | ID of the `contact_type` for the new person. Defaults to 'person' for backwards compatibility. |
+
+#### Optional
+
+| Key           | Description                                                            |
+| ------------- | ---------------------------------------------------------------------- |
+| place         | String that references a place or object that defines a new place.     |
+| reported_date | Timestamp of when the record was reported or created. Defaults to now. |
+
+### POST /api/v1/people
+
+Create new people.
+
+#### Permissions
+
+By default any user can create or modify a place. Use these permissions to restrict access:
+
+`can_create_people`, `can_create_places`
+
+#### Examples
+
+Create new person and place hierarchy.
+
+```
+POST /api/v1/people
+Content-Type: application/json
+
+{
+  "name": "Hannah",
+  "phone": "+2548277210095",
+  "type": "contact",
+  "contact_type": "patient",
+  "place": {
+    "name": "CHP Area One",
+    "type": "health_center",
+    "parent": {
+      "name": "CHP Branch One",
+      "type": "district_hospital"
+    }
+  }
+}
+```
+
+Create new person and assign existing place.
+
+```
+POST /api/v1/people
+Content-Type: application/json
+
+{
+ "name": "Samuel",
+ "place": "1d83f2b4a27eceb40df9e9f9ad06d137",
+ "type": "contact",
+ "contact_type": "chp"
+}
+```
+
+Example response:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": "71df9d25ed6732ea3b4435862510d115",
+  "rev": "1-a4060843d78f46a60a6f41051e40e3b5"
 }
 ```
 
