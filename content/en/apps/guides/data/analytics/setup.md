@@ -65,4 +65,4 @@ docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f d
 To remove all the data volumes, add `-v` at the end of this command.
 
 ## Setup Superset
-To build data visualization dashboards, follow the [Superset instructions](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/) to run Superset and connect it to the PostgreSQL database.
+To build data visualization dashboards, follow the [Superset instructions](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/) to run Superset and connect it to the PostgreSQL database. Medic recommends adding a way to track Superset changes via a git repository to make it easier to track changes over time and potentially catch and remediate bugs and regressions. This [guide](https://www.restack.io/docs/superset-knowledge-apache-superset-dashboard-code) provides instructions on how to manage Superset dashboards with as code.
