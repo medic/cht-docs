@@ -59,6 +59,7 @@ This is an extract of our folder and file structure necessary to understand the 
         /contacts
             /tests
                 contacts.yml  --> unit tests
+                persons.yml
             contact.sql
             contacts.yml      --> generic data tests
             patient.sql
@@ -70,9 +71,10 @@ This is an extract of our folder and file structure necessary to understand the 
         /users
     /test
         /fixtures                                     --> input data for unit tests
-            data_record_initial_expected.csv
-            data_record_source_table_initial.csv
-            data_record_document_metadata_initial.csv
+            data_record/
+                data_record_initial_expected.csv
+                data_record_source_table_initial.csv
+                data_record_document_metadata_initial.csv
         /sqltest                                       --> singular data tests
             contact.sql
             data_record.sql
@@ -92,9 +94,9 @@ All relevant fields between the two tables match, preserving data accuracy and i
 
 ### Unit Tests
 
-Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder. We could further divide the tests by models, if needed we could create one files for each model inside the contact folder (for example having `/models/contacts/tests/contact.yml`, `/models/contacts/tests/person.yml`, `/models/contacts/tests/place.yml`, etc.). The input format of choise is csv using fixtures. The fixture csv files are defined in /test/fixture folder.
+Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder. The input format of choice is CSV using fixtures, defined in `/test/fixture` folder.
 
-The following image shows an excerpt of the content in `/models/contacts/tests/contact.yml` file showing the test to validate transformation and data integrity for document_metadata model.
+The following image shows the content in `/models/contacts/tests/contacts.yml` file showing the test to validate transformation and data integrity for `contact` model.
 {{< figure src="contact-unit-test.png" link="contact-unit-test.png" class=" center col-16 col-lg-12" >}}
 
 The following images shows the content of the input fixtures.
@@ -103,8 +105,31 @@ The following images shows the content of the input fixtures.
 And finally, the fixture representing the expected data:
 {{< figure src="contact-initial-expected.png" link="contact-initial-expected.png" class=" center col-16 col-lg-12" >}}
 
-## Test execution
-## Test failure and debugging
-## Integration with CI/CD Pipeline
-## Documentation and Maintenance
-## Additional Resources
+## Test execution using Docker
+
+By running dbt tests in a Dockerized environment, we isolate dependencies and configurations, making the testing process more reproducible and easier to manage. These scripts and configuration files work together to automate the process of setting up a testing environment, running dbt models and tests:
+
+`docker-compose.yml`: Defines Docker services. It starts by running PostgreSQL with the initial setup using init.sql and then builds and runs a dbt Docker container configured to connect to PostgreSQL.
+
+`init.sql`: A SQL script that initializes the PostgreSQL database by creating the required schema and table.
+
+`dbt/Dockerfile`: Builds the dbt Docker image. It sets up the Python environment, installs dbt and its dependencies, and copies the necessary project files into the container.
+
+`run_dbt_tests.sh`: This script orchestrates the process of running dbt tests using Docker. It starts PostgreSQL, waits for it to initialize, runs the dbt container to execute tests, and then cleans up by stopping and removing all containers.
+
+`run_dbt_tests_docker.sh`: This script runs inside the dbt container. It sets the profiles directory, installs dbt dependencies, runs the dbt models, and ***executes the tests***.
+
+`profile.yml`: The dbt profile configuration file that defines the database connection settings, using environment variables to connect to the PostgreSQL database.
+
+### Prerequisites
+- `Docker`
+
+### Run the tests
+
+1. Navigate to `test` folder.
+2. Run the test script
+
+```sh
+./run_dbt_tests.sh
+```
+
