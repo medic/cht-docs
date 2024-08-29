@@ -5,7 +5,7 @@ weight:
 description: >
   How to safely move contacts
 relatedContent: >
-  apps/features/contacts
+  building/contact-management
   building/application-settings/app-settings/hierarchy
   building/contact-management/contact-and-users-2
   apps/concepts/hierarchy

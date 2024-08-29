@@ -5,7 +5,7 @@ weight: 12
 description: >
   Building CHT application condition cards
 relatedContent: >
-  apps/features/contacts#condition-cards
+  building/contact-management#condition-cards
   building/contact-summary/contact-summary-templated#condition-cards
 ---
 
