@@ -6,7 +6,7 @@ description: >
   **Tasks**: Definition of tasks shown to app users
 relatedContent: >
   building/tasks
-  apps/concepts/workflows
+  building/workflows
   design/best-practices
 keywords: tasks workflows
 ---

@@ -5,7 +5,7 @@ weight: 5
 description: >
   **Patient Reports**: Defining SMS workflows with schedules, registration, and patient reports.
 relatedContent: >
-  apps/concepts/workflows
+  building/workflows
   building/application-settings/app-settings/_index.md#sms-recipient-resolution
 keywords: workflows
 ---

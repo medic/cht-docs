@@ -96,7 +96,7 @@ There should be a one-to-one relationship between DHIS2 organisation units and C
 {{% /alert %}}
 
 
-{{< see-also page="apps/concepts/hierarchy" title="Hierarchies" >}}
+{{< see-also page="building/workflows/hierarchy" title="Hierarchies" >}}
 
 
 ### Fields and calculations

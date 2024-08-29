@@ -11,7 +11,7 @@ relatedContent: >
 
 The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferable for CHW users). 
 
-The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the [hierarchy]({{< ref "apps/concepts/hierarchy" >}}). Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs. Advanced configuration options are available for a specific off-line user role to manage what [level of report data]({{< ref "apps/guides/performance/replication#report-depth" >}}) is copied to their device. 
+The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the [hierarchy]({{< ref "building/workflows/hierarchy" >}}). Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs. Advanced configuration options are available for a specific off-line user role to manage what [level of report data]({{< ref "apps/guides/performance/replication#report-depth" >}}) is copied to their device. 
 
 {{< figure src="reports-mobile.png" link="reports-mobile.png" class="left col-3 col-lg-3" >}}
 
@@ -45,7 +45,7 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 <br clear="all">
 
-{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "building/application-settings/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "apps/guides/updates/feature-flags" >}}) documentation for more info {{% /alert %}}
+{{% alert title="Note" %}} A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "building/application-settings/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "building/updates/feature-flags" >}}) documentation for more info {{% /alert %}}
 
 <br clear="all">
 

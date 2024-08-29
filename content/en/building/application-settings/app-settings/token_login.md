@@ -5,7 +5,7 @@ weight: 5
 description: >
   **Token login**: Instructions and schema for Login by SMS
 relatedContent: >
-  apps/reference/api#login-by-sms
+  building/api#login-by-sms
 ---
 
 Login via SMS settings are defined under the `token_login` key, as an object supporting the following properties:

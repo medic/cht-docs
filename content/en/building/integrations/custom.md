@@ -86,18 +86,18 @@ The CHT has a number of different API endpoints that can be used to look up data
 
 {{% alert title="Example 1" %}} You have a patient's phone number and you want to look up more information about that patient, such as who their CHW is or what Catchment Area they live in. {{% /alert %}}
 
-You can use the `contacts_by_phone` [endpoint]({{< ref "apps/reference/api#get-apiv1contacts-by-phone" >}}) will return the fully hydrated contact information for those patients.
+You can use the `contacts_by_phone` [endpoint]({{< ref "building/api#get-apiv1contacts-by-phone" >}}) will return the fully hydrated contact information for those patients.
 
 {{% alert title="Example 2" %}} You just have the internal UUID of a particular contact but want to get the complete information available for that contact. {{% /alert %}}
 
-You can use the `hydrate` [endpoint]({{< ref "apps/reference/api#get-apiv1hydrate" >}}) to obtain this information. to look up the complete information for that contact.
+You can use the `hydrate` [endpoint]({{< ref "building/api#get-apiv1hydrate" >}}) to obtain this information. to look up the complete information for that contact.
 
 ### POST data to the CHT
 The CHT API also allows you to POST data. Using these endpoints, you can create new records in your CHT API. You can store activities that took place in another system on that contact's profile in the CHT, and even create tasks for CHWs in the CHT based on activities that took place in the other system.
 
 {{% alert title="Example 1" %}} You use RapidPro to send daily quarantine follow-up messages to a patient. You want to store the patient's responses to those messages on their profile in the CHT. {{% /alert %}}
 
-You can do this by submitting a JSON Form to the records [endpoint]({{< ref "apps/reference/api#post-apiv2records" >}}).
+You can do this by submitting a JSON Form to the records [endpoint]({{< ref "building/api#post-apiv2records" >}}).
 
 {{% alert title="Example 2" %}} Continuing from Example 1, create a task for a CHW in the CHT whenever a patient responds that they have developed symptoms. {{% /alert %}}
 

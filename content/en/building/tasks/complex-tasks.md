@@ -103,7 +103,7 @@ module.exports = {
 
 This function starts with the standard stuff from the [Configuring Tasks Tutorial]({{< ref "building/tasks" >}}). We want to confirm the user is a CHW, and the patient is alive and unmuted.
 
-Then, the code searches through each contact's reports to find the most recent (_newest_) pregnancy registration using the [Utils helper library]({{< ref "apps/reference/_partial_utils" >}}). It gets that report's value for `report.fields.g_details.estimated_lmp`, which is a date string calculated by the app form. It parses that string using the luxon library and returns true if it is a valid date.
+Then, the code searches through each contact's reports to find the most recent (_newest_) pregnancy registration using the [Utils helper library]({{< ref "building/api" >}}). It gets that report's value for `report.fields.g_details.estimated_lmp`, which is a date string calculated by the app form. It parses that string using the luxon library and returns true if it is a valid date.
 
 Defining `lmp` as a property of `this`, _stores_ the LMP DateTime and we will use that value later.
 
@@ -123,7 +123,7 @@ We're using the `this.lmp` value which was calculated and saved in the `appliesI
 
 `resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "building/tasks/tasks-js#default-resolvedif-method" >}}). 
 
-This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "apps/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
+This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "building/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
 
 The concept of _task completion_ is covered in more depth in [Task Completion vs Cancellation]({{< ref "building/tasks/query-task-data#completion-vs-cancellation" >}}).
 

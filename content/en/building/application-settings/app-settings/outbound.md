@@ -76,7 +76,7 @@ Basic auth example:
 }
 ```
 
-Here `password_key` is a key used to find the password in CHT credentials. For more information about how to store credentials, refer to the [API documentation](/apps/reference/api#put-apiv1credentials).
+Here `password_key` is a key used to find the password in CHT credentials. For more information about how to store credentials, refer to the [API documentation](/building/api#put-apiv1credentials).
 
 If you don't provide an authentication parameter then the request will be sent without authentication.
 
@@ -245,4 +245,4 @@ Outbound may send your request multiple times even if the user just hit save onc
 
 ## Inbound?
 
-The outbound feature is used for sending data to an external service. If you are looking to **receive** data from an external service, take a look at [the records api]({{< relref "apps/reference/api#records" >}}).
+The outbound feature is used for sending data to an external service. If you are looking to **receive** data from an external service, take a look at [the records api]({{< relref "building/api#records" >}}).

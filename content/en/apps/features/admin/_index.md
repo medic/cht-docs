@@ -4,7 +4,7 @@ weight: 12
 description: >
   An interface for non-technical administrative users to manage users and settings
 relatedContent: >
-  apps/concepts/prerequisites
+  building/prerequisites
 ---
 
 *App Management* is an interface for non-technical administrative users. With it you can manage users and make minor changes to the app, such as setting the SMS gateway phone number, and changing the default language for the app.

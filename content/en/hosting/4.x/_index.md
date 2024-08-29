@@ -6,7 +6,7 @@ aliases:
 description: >
     Guides for hosting CHT 4.x applications
 relatedContent: >
-    apps/guides/updates/preparing-for-4/
+   building/updates/preparing-for-4/
 ---
 
 {{% alert title="Note" %}} To get an overview on how these hosting solutions use `docker` and `docker-compose`, as well as other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "building/local-setup" >}}). {{% /alert %}}

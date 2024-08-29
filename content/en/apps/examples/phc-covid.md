@@ -7,7 +7,7 @@ description: >
 keywords:  
 relatedContent: >
   apps/examples/training
-  apps/concepts/workflows
+  building/workflows
   apps/concepts/care-guides
 ---
 

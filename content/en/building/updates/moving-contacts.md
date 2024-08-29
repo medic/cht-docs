@@ -8,7 +8,7 @@ relatedContent: >
   building/contact-management
   building/application-settings/app-settings/hierarchy
   building/contact-management/contact-and-users-2
-  apps/concepts/hierarchy
+  building/workflows/hierarchy
 
 ---
 

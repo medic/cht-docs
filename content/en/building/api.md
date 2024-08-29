@@ -1515,7 +1515,7 @@ Content-Type: application/json
 
 Create new users with a place and a contact from a CSV file.
 
-Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "apps/reference/api#post-apiv1users" >}})
+Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "building/api#post-apiv1users" >}})
 where a row represents a user object and a column represents a user object property.
 Columns with a `:excluded` suffix will be ignored, this allows providing a more user-friendly experience with
 autocompletion on fields or dealing with names instead of long, unreadable ids.

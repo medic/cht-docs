@@ -219,7 +219,7 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
   }
 ```
 
-{{< see-also page="apps/concepts/hierarchy" title="Hierarchies" >}}
+{{< see-also page="building/workflows/hierarchy" title="Hierarchies" >}}
 
 {{< figure src="households_gt2_goal_reached.png" link="households_gt2_goal_reached.png" class="right col-6 col-lg-4" >}}
 {{< figure src="households_gt2_goal_not_reached.png" link="households_gt2_goal_not_reached.png" class="right col-6 col-lg-4" >}}
