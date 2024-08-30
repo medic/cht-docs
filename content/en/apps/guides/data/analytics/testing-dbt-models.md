@@ -55,7 +55,9 @@ Unit tests are not strictly required but are highly recommended, especially for 
 
 - All models should have **schema tests**, specifically enforcing `unique`, `not_null`, and `relationships` where relevant.
 
-Add custom data tests for aggregation models to ensure the data is as expected (Only specific models need these tests)
+
+- Custom data tests for aggregation models should be added to ensure the data is as expected. Only specific models need these tests.
+
 Add unit tests for complex logic e.g. data math, window functions e.t.c. (not required but good to have especially if model is covered by data tests)
 
 Our project is organized with a `/models` directory containing SQL files and YAML files for generic tests, and a `/test` directory with folders for fixtures and singular tests.
