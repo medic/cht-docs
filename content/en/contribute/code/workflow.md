@@ -255,7 +255,7 @@ Involve [Quality Assistance]({{< ref "contribute/medic/product-development-proce
 
 #### Create a branch
 
-Create a branch following the [guide line]({{< ref "#Branches" >}}) and push [commits]({{< ref "#Commits" >}}) at least once a day to a remote repository, ensures that the code is always backed up and safe, protects against accidental deletes and allows team members to see the latest changes and work together more effectively.
+Create a branch following the [guideline]({{< ref "#branches" >}}) and push [commits]({{< ref "#commits" >}}) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows team members to see the latest changes and work together more effectively.
 
 #### Pull requests
 
