@@ -117,7 +117,7 @@ The fixture below represents the expected data:
 
 ## Running tests with Docker
 
-By running dbt tests in a Dockerized environment, we isolate dependencies and configurations, making the testing process more reproducible and easier to manage. These scripts and configuration files work together to automate the process of setting up a testing environment, running dbt models and tests:
+dbt tests are run with Docker, to isolate dependencies and configurations, making the testing process reproducible and easier to manage. The scripts and configuration files below work together to automate the process of setting up a testing environment, and running dbt models and tests:
 
 `docker-compose.yml`: Defines Docker services. It starts by running PostgreSQL with the initial setup using init.sql and then builds and runs a dbt Docker container configured to connect to PostgreSQL.
 
