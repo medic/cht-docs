@@ -274,7 +274,7 @@ Once you are confident that the change is complete and ready to be merged:
 4. Do a self-code review before asking for a review. This is a good practice, as you will almost always find things to fix. It saves a lot of time for you and the reviewers.
 5. Pick one reviewer for the PR and work with them until the code passes review. It is okay to include one additional reviewer who has more experience in a particular subject. 
    
-   - Coordinate with the QA engineer and add them as reviewers when you need support. For example, when major changes or new features are introduced to the codebase, security-related changes are made, and substantial user experience improvements are required.
+   - Coordinate with a QA engineer and add them as reviewers when you need specific quality/testing support. For example, when major changes or new features are introduced to the codebase, security-related changes are made, and substantial user experience improvements are required.
    
 6. Follow up on your PR, to keep momentum, the review should happen in 24h business days. If you haven't received any feedback from the reviewers after that time, check if they are available, otherwise it's okay to request a review from another person.
 7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
