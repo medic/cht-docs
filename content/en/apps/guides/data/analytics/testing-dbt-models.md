@@ -104,7 +104,7 @@ All relevant fields between the two tables match, preserving data accuracy and i
 
 ### Writing unit tests
 
-Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder. The input format of choice is CSV using fixtures, defined in `/test/fixture` folder.
+Unit tests are defined in a YAML file inside a `tests` folder in each `model` group folder. The input format of choice is CSV using fixtures, defined in `/test/fixture` folder.
 
 The following image shows the content in `/models/contacts/tests/contacts.yml` file showing the test to validate transformation and data integrity for `contact` model.
 {{< figure src="contact-unit-test.png" link="contact-unit-test.png" class=" center col-16 col-lg-12" >}}
