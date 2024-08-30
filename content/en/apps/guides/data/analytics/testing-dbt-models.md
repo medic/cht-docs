@@ -48,7 +48,7 @@ For models that perform data aggregation, it is crucial to include singular data
 Unit tests are not strictly required but are highly recommended, especially for models with complex transformation logic. Examples of when to use unit tests include:
   - Complex SQL Logic: Such as regex, date math, window functions, or extensive `CASE WHEN` statements.
   - Custom calculations: When creating functions or applying unique data processing logic.
-  - Edge Cases: To handle scenarios that are not typically found in actual data but may arise unexpectedly.
+  - Edge cases: To handle scenarios that are not typically found in actual data but may arise unexpectedly.
 
 ## Test implementation in CHT pipeline
 
