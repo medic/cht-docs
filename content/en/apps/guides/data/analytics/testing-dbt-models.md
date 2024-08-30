@@ -1,6 +1,6 @@
 ---
 title: "Testing dbt models"
-linkTitle: "Testing DBT Models in CHT Pipeline"
+linkTitle: "Testing dbt models"
 weight: 6
 description: >
   Guide for testing dbt models in CHT Pipeline
