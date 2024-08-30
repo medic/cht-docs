@@ -290,4 +290,4 @@ An issue is considered complete when:
  - The reviewers have approved the Pull Request
  - All code has been merged into the main branch and/or release branches and are ready for release
  - The issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes
- - Lastly, the issue status is updated to `Done`
+ - Lastly, the issue status is updated to `Done`.
