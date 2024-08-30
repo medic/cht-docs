@@ -92,7 +92,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
             patient.sql
 ```
 
-### Data Tests
+### Writing data tests
 
 ***Generic data tests*** are included in the model's YAML file under the `data-tests` tag, ensuring basic validations like `relationships`, `not_null`, and `unique`. The following image contains an extract of the properties of the  `contacts.yml` file.
 {{< figure src="contacts-yml.png" link="contacts-yml.png" class=" center col-16 col-lg-12" >}}
