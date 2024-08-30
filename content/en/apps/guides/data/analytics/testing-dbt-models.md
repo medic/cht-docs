@@ -10,7 +10,7 @@ description: >
 
 To ensure code accuracy and data integrity, and also to prevent data quality regressions on dbt models, it is recommended to write dbt tests. dbt tests help validate the accuracy and reliability of data and data models and identify issues before they cause downstream impacts on analytics and decision-making. Additionally, they increase developer confidence in making changes to the data models. 
 
-## Types of tests in DBT Core
+## Types of dbt tests 
 
 In DBT Core, there are two main types of tests: [data tests](https://docs.getdbt.com/docs/build/data-tests) and [unit tests](https://docs.getdbt.com/docs/build/unit-tests). The main difference is that data tests are meant to be executed with every pipeline run to validate data integrity, and unit tests are meant to be executed with every CI run to validate transformation logic integrity.
 
