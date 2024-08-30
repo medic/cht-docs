@@ -33,7 +33,7 @@ Unit tests are essential for validating complex SQL logic and transformations in
 For more details on formatting unit tests, refer to the [official dbt documentation](https://docs.getdbt.com/reference/resource-properties/unit-tests).
 
 ## Guidelines for CHT Pipeline tests
-To ensure data integrity and the reliability of our dbt models in the CHT Pipeline, it is essential to follow these testing guidelines:
+To ensure data integrity and the reliability of the dbt models in the CHT Pipeline, it is essential to follow these testing guidelines:
 
 - Basic generic tests for all models:
 Every model should have generic tests to enforce critical constraints and relationships. Use dbt core build in generic tests.
