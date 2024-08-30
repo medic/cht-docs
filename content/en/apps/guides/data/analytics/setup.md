@@ -22,36 +22,36 @@ The first time you run the commands from any of the sections below it will need 
 {{% /alert %}}
 
 ### Run all CHT Sync services locally
-This setup involves starting couch2pg, PostgreSQL, pgAdmin, DBT, and CouchDB.
+This setup involves starting couch2pg, PostgreSQL, pgAdmin, dbt, and CouchDB.
 
 Run the Docker containers and wait for every container to be up and running:
 ```sh
 docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 5 containers running including couch2pg, DBT, PostgreSQL, CouchDB and pgAdmin.
+You can verify this command worked by running `docker ps`. It should show 5 containers running including couch2pg, dbt, PostgreSQL, CouchDB and pgAdmin.
 
 Now that all services are running, use pgAdmin to connect to server `postgres:5432` with user `postgres` and password `postgres`. You should be able to see data being inserted into the `v1.medic` table when inserting sample data into the CouchDB instance.
 
 ### Separate CouchDB instance 
-This setup involves starting couch2pg, PostgreSQL, pgAdmin and DBT. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
+This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
 docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 4 containers running including couch2pg, DBT, PostgreSQL, and pgAdmin.
+You can verify this command worked by running `docker ps`. It should show 4 containers running including couch2pg, dbt, PostgreSQL, and pgAdmin.
 
 ### Separate CouchDB and PostgreSQL instances
-This local setup involves starting couch2pg and DBT. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
+This local setup involves starting couch2pg and dbt. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
 docker-compose -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and DBT.
+You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and dbt.
 
 ### Cleanup
 When you are done using the services, you can clean everything by running `down`.
