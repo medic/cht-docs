@@ -81,7 +81,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
         /root
         /users
     /test
-        /fixtures                                     --> input data for unit tests
+        /fixtures             --> input data for unit tests
             data_record/
                 data_record_initial_expected.csv
                 data_record_source_table_initial.csv
