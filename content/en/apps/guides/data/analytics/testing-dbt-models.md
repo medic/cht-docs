@@ -44,7 +44,7 @@ For models that perform data aggregation, it is crucial to include singular data
   - The results align with business expectations and requirements.
   - Custom data tests are particularly important for aggregation models, as errors in these models can lead to significant discrepancies in reports and analyses.
 
-- Unit Tests for complex logic:
+- Unit tests for complex logic:
 Unit tests are not strictly required but are highly recommended, especially for models with complex transformation logic. Examples of when to use unit tests include:
   - Complex SQL Logic: Such as regex, date math, window functions, or extensive `CASE WHEN` statements.
   - Custom calculations: When creating functions or applying unique data processing logic.
