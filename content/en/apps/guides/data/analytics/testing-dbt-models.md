@@ -52,7 +52,9 @@ Unit tests are not strictly required but are highly recommended, especially for 
 
 ## Writing CHT Pipeline tests
 
-Have schema tests for all models and specifically enforcing unique, not_null, and relationships where relevant. (All models should have these tests)
+
+- All models should have **schema tests**, specifically enforcing `unique`, `not_null`, and `relationships` where relevant.
+
 Add custom data tests for aggregation models to ensure the data is as expected (Only specific models need these tests)
 Add unit tests for complex logic e.g. data math, window functions e.t.c. (not required but good to have especially if model is covered by data tests)
 
