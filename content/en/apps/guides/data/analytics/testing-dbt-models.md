@@ -135,7 +135,9 @@ dbt tests are run with Docker, to isolate dependencies and configurations, makin
 
 `run_dbt_tests_docker.sh`: This script runs inside the dbt container. It sets the profiles directory, installs dbt dependencies, runs the dbt models, and ***executes the tests***.
 
-`profile.yml`: The dbt profile configuration file that defines the database connection settings, using environment variables to connect to the PostgreSQL database.
+
+- `profile.yml`: The dbt profile configuration file that defines the database connection settings, using environment variables to connect to the PostgreSQL database.
+
 
 ### Prerequisites
 - `Docker`
