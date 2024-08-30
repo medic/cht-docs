@@ -50,7 +50,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
   - Custom calculations: When creating functions or applying unique data processing logic.
   - Edge cases: To handle scenarios that are not typically found in actual data but may arise unexpectedly.
 
-## Test implementation in CHT pipeline
+## Writing CHT Pipeline tests
 
 Have schema tests for all models and specifically enforcing unique, not_null, and relationships where relevant. (All models should have these tests)
 Add custom data tests for aggregation models to ensure the data is as expected (Only specific models need these tests)
