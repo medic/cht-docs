@@ -121,7 +121,9 @@ dbt tests are run with Docker, to isolate dependencies and configurations, makin
 
 `docker-compose.yml`: Defines Docker services. It starts by running PostgreSQL with the initial setup using init.sql and then builds and runs a dbt Docker container configured to connect to PostgreSQL.
 
-`init.sql`: A SQL script that initializes the PostgreSQL database by creating the required schema and table.
+
+- `init.sql`: A SQL script that initializes the PostgreSQL database by creating the required schema and table.
+
 
 `dbt/Dockerfile`: Builds the dbt Docker image. It sets up the Python environment, installs dbt and its dependencies, and copies the necessary project files into the container.
 
