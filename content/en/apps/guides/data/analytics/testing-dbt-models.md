@@ -26,7 +26,7 @@ It is also possible to define your own [custom generic tests](https://docs.getdb
 
 - [Singular tests](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests): These are written in a SQL file with a query that returns records that fail the test. This type of test is straightforward and focuses on specific conditions or rules that data must meet.
 
-### Unit Tests
+### Unit tests
 
 Unit tests are essential for validating complex SQL logic and transformations in dbt models. These tests are especially valuable when working with intricate SQL expressions. They help catch errors before deploying changes, ensuring the logic behaves as expected, particularly in critical models or when handling edge cases.
 
