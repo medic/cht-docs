@@ -94,7 +94,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
 
 ### Writing data tests
 
-***Generic data tests*** are included in the model's YAML file under the `data-tests` tag, ensuring basic validations like `relationships`, `not_null`, and `unique`. The following image contains an extract of the properties of the  `contacts.yml` file.
+**Generic data tests** are included in the model's YAML file under the `data-tests` tag, ensuring basic validations like `relationships`, `not_null`, and `unique`. The following code block contains an extract of the properties of the  `contacts.yml` file.
 {{< figure src="contacts-yml.png" link="contacts-yml.png" class=" center col-16 col-lg-12" >}}
 
 ***Singular data tests*** are located in the `/test/sqltest/` folder and check data synchronization between source and final tables. For example, the following image shows the test to ensure that data between the `source` table and `contact` tables is synchronized correctly.
