@@ -271,7 +271,7 @@ Once you are confident that the change is complete and ready to be merged:
    - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch any uncovered case.
    - Add the issue number, example: `medic/cht-core#123`
 
-4. Do a self-code review before asking for a review, this a good practice, almost always you will find things to fix. It saves a lot of time from you and the reviewers.
+4. Do a self-code review before asking for a review. This is a good practice, as you will almost always find things to fix. It saves a lot of time for you and the reviewers.
 5. Pick one reviewer for the PR and work with them until the code passes review. It is okay to include one additional reviewer that has more experience in particular subject. 
    
    - Coordinate with the QA engineer and add them as reviewers when you need support. For example, when major changes or new features are introduced to the codebase, security-related changes are made, and substantial user experience improvements are required.
