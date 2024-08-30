@@ -86,7 +86,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
                 data_record_initial_expected.csv
                 data_record_source_table_initial.csv
                 data_record_document_metadata_initial.csv
-        /sqltest                                       --> singular data tests
+        /sqltest              --> singular data tests
             contact.sql
             data_record.sql
             patient.sql
