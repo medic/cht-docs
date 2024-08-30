@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-Adding dbt tests to your workflows will check code accuracy and data integrity. It aims to prevent data quality regressions when dbt models are written or modified. And also very important, it will help the team stay engaged with the data and adapt more quickly. By including testing during the development process, teams ensure their data changes are solid.
+To ensure code accuracy and data integrity, and also to prevent data quality regressions on dbt models, it is recommended to write dbt tests. dbt tests help validate the accuracy and reliability of data and data models and identify issues before they cause downstream impacts on analytics and decision-making. Additionally, they increase developer confidence in making changes to the data models. 
 
 ## Types of tests in DBT Core
 
