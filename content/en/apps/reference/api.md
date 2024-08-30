@@ -1213,7 +1213,7 @@ Content-Type: application/json; charset=utf-8
 
 ### GET /api/v1/place
 
-*Added in 4.11.0*
+*Added in 4.12.0*
 
 Returns a JSON array of places based on the specified page parameters.
 
