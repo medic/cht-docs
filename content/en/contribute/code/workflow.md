@@ -267,7 +267,7 @@ Once you are confident that the change is complete and ready to be merged:
 2. The Pull Request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
 3. Add a Pull Request description:
 
-   - Add a description of changes, decisions, backstory, thinking process and any extra information to facilitate review process and reduce follow-ups. 
+   - Add a description of changes, decisions, backstory, thinking process, and any extra information to facilitate the review process and reduce follow-ups. 
    - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch any uncovered case.
    - Add the issue number, example: `medic/cht-core#123`
 
