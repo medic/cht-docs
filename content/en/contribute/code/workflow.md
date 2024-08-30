@@ -280,7 +280,7 @@ Once you are confident that the change is complete and ready to be merged:
 7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
 8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`.
 9. Merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the repository's commit history clean.
-   - If a backport is required cherry-pick the merged commit back to the release branches it's required in.
+   - If a backport is required, cherry-pick the merged commit back to the release branches it is required in.
 
 ### Done
 
