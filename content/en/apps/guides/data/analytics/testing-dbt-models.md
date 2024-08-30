@@ -112,7 +112,7 @@ The code block below is an extract from the `/models/contacts/tests/contacts.yml
 The following images shows the content of the input fixtures.
 {{< figure src="contact-document-metadata-initial.png" link="contact-document-metadata-initial.png" class=" center col-16 col-lg-12" >}}{{< figure src="contact-source-table-initial.png" link="contact-source-table-initial.png" class=" center col-16 col-lg-12" >}}
 
-And finally, the fixture representing the expected data:
+The fixture below represents the expected data:
 {{< figure src="contact-initial-expected.png" link="contact-initial-expected.png" class=" center col-16 col-lg-12" >}}
 
 ## Test execution using Docker
