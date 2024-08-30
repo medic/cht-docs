@@ -268,7 +268,7 @@ Once you are confident that the change is complete and ready to be merged:
 3. Add a Pull Request description:
 
    - Add a description of changes, decisions, backstory, thinking process, and any extra information to facilitate the review process and reduce follow-ups. 
-   - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work, and allows the reviewers to catch any uncovered case.
+   - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work and allows the reviewers to catch any uncovered case.
    - Add the issue number, example: `medic/cht-core#123`
 
 4. Do a self-code review before asking for a review. This is a good practice, as you will almost always find things to fix. It saves a lot of time for you and the reviewers.
