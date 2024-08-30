@@ -102,7 +102,7 @@ Records that should be deleted are properly removed from both tables.
 All relevant fields between the two tables match, preserving data accuracy and integrity.
 {{< figure src="contact-sql.png" link="contact-sql.png" class=" center col-16 col-lg-12" >}}
 
-### Unit Tests
+### Writing unit tests
 
 Unit tests are defined in a YML file inside a `tests` folder in each `model` group folder. The input format of choice is CSV using fixtures, defined in `/test/fixture` folder.
 
