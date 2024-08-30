@@ -18,7 +18,7 @@ There are two main types of dbt tests:
 - [**unit tests**](https://docs.getdbt.com/docs/build/unit-tests) - meant to be executed with every CI run to validate transformation logic integrity. They allow you to validate your SQL modeling logic on a small set of static inputs (typically defined using seeds or fixtures) before you materialize your full model in production.
 
 
-### Data Tests
+### Data tests
 
 Data tests can be further divided into two types:
 - Generic tests: These are foundational tests provided by DBT core, focusing on basic schema validation and source freshness. DBT core provides [four built-in generic tests](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests) that are essential for data modeling and ensuring data integrity. Generic tests can accept [additional test configurations](https://docs.getdbt.com/reference/data-test-configs).
