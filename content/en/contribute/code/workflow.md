@@ -284,17 +284,14 @@ Once you are confident that the change is complete and ready to be merged:
 
 ### Done
 
-An issue is considered complete when:
+Issues in this column are complete, all code has been merged into the main branch and/or release branches, and are ready for release. An issue is considered complete when:
+
  - The documentation is finalized.
    - It includes merged updates in CHT Docs, updated README files, and necessary code comments.
-   - This is specially important as we care community-first and where they can find the latest details about CHT. 
+   - This is especially important as the CHT community can always access up-to-date documentation.  
  - Unit tests, e2e tests and/or integration tests are written.
- - The static checks like linting and Sonar should pass successfully as part of the quality process, any issues should be fixed. 
+ - The static checks like linting and Sonar should pass successfully as part of the quality process, and any issues should be fixed. 
  - The reviewers have approved the Pull Request.
  - All code has been merged into the main branch and/or release branches and are ready for release.
  - The issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
  - Lastly, the issue status is updated to `Done`.
-
-{{% alert title="Note" %}}
-Issues in this column are complete, all code has been merged into the main branch and/or release branches, and are ready for release.
-{{% /alert %}}
