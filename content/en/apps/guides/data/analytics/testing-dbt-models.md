@@ -62,7 +62,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
 - Add unit tests for complex logic, such as data math or window functions. These are not required but are good to have, especially if the model is covered by data tests. 
 
 
-Our project is organized with a `/models` directory containing SQL files and YAML files for generic tests, and a `/test` directory with folders for fixtures and singular tests.
+[CHT Pipeline](https://github.com/medic/cht-pipeline) contains a `/models` directory containing SQL files and YAML files for generic tests and a `/test` directory with folders for fixtures and singular tests.
 
 ```
 ./
