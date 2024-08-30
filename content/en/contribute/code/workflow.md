@@ -286,7 +286,7 @@ Once you are confident that the change is complete and ready to be merged:
 
 An issue is considered complete when:
  - The documentation is finalized 
- - The test coverage (unit tests, e2e tests or integration tests) are finalized
+ - Unit tests, e2e tests and/or integration tests are written
  - The reviewers have approved the Pull Request
  - All code has been merged into the main branch and/or release branches and are ready for release
  - The issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes
