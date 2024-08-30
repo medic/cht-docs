@@ -115,7 +115,7 @@ The following images shows the content of the input fixtures.
 The fixture below represents the expected data:
 {{< figure src="contact-initial-expected.png" link="contact-initial-expected.png" class=" center col-16 col-lg-12" >}}
 
-## Test execution using Docker
+## Running tests with Docker
 
 By running dbt tests in a Dockerized environment, we isolate dependencies and configurations, making the testing process more reproducible and easier to manage. These scripts and configuration files work together to automate the process of setting up a testing environment, running dbt models and tests:
 
