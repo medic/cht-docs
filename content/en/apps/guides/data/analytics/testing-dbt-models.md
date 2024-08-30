@@ -1,5 +1,5 @@
 ---
-title: "Testing DBT models in CHT Pipeline"
+title: "Testing dbt models"
 linkTitle: "Testing DBT Models in CHT Pipeline"
 weight: 6
 description: >
