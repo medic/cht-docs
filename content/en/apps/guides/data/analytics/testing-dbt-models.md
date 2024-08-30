@@ -8,11 +8,11 @@ description: >
 
 ## Overview
 
-To ensure code accuracy and data integrity, and also to prevent data quality regressions on dbt models, it is recommended to write dbt tests. dbt tests help validate the accuracy and reliability of data and data models and identify issues before they cause downstream impacts on analytics and decision-making. Additionally, they increase developer confidence in making changes to the data models. 
+To ensure code accuracy and data integrity, and also to prevent data quality regressions on dbt models, it is recommended to write dbt tests. dbt tests help validate the accuracy and reliability of data and data models and identify issues before they cause downstream impacts on analytics and decision-making. Additionally, they increase developer confidence in making changes to the data models.
 
-## Types of dbt tests 
+## Types of dbt tests
 
-There are two main types of dbt tests: 
+There are two main types of dbt tests:
 
 - [**data tests**](https://docs.getdbt.com/docs/build/data-tests) - meant to be executed with every pipeline run to validate data integrity. They ensure your warehouse data meets specific criteria and are run at every data refresh.
 - [**unit tests**](https://docs.getdbt.com/docs/build/unit-tests) - meant to be executed with every CI run to validate transformation logic integrity. They allow you to validate your SQL modeling logic on a small set of static inputs (typically defined using seeds or fixtures) before you materialize your full model in production.
@@ -21,10 +21,10 @@ There are two main types of dbt tests:
 ### Data tests
 
 Data tests can be further divided into two types:
-- [Generic tests](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests): These are foundational tests provided by dbt core, focusing on basic schema validation and source freshness. dbt core provides four built-in generic tests that are essential for data modeling and ensuring data integrity. Generic tests can accept [additional test configurations](https://docs.getdbt.com/reference/data-test-configs).
+- [**generic tests**](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests): These are foundational tests provided by dbt core, focusing on basic schema validation and source freshness. dbt core provides four built-in generic tests that are essential for data modeling and ensuring data integrity. Generic tests can accept [additional test configurations](https://docs.getdbt.com/reference/data-test-configs).
 It is also possible to define your own [custom generic tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests).
 
-- [Singular tests](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests): These are written in a SQL file with a query that returns records that fail the test. This type of test is straightforward and focuses on specific conditions or rules that data must meet.
+- [**singular tests**](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests): These are written in a SQL file with a query that returns records that fail the test. This type of test is straightforward and focuses on specific conditions or rules that data must meet.
 
 ### Unit tests
 
@@ -35,16 +35,16 @@ For more details on formatting unit tests, refer to the [official dbt documentat
 ## Guidelines for CHT Pipeline tests
 To ensure data integrity and the reliability of the dbt models in the CHT Pipeline, it is essential to follow these testing guidelines:
 
-- Basic generic tests for all models:
+- **Basic generic tests** for all models:
 Every model should have generic tests to enforce critical constraints and relationships. Use dbt core build in generic tests.
 
-- Singular or custom generic data tests for aggregation models:
+- **Singular or custom generic data tests** for aggregation models:
 For models that perform data aggregation, it is crucial to include singular data tests or custom generic data tests to ensure that the aggregated data meets the expected criteria. These tests help verify that:
   - Data is accurately aggregated according to the defined logic.
   - The results align with business expectations and requirements.
   - Custom data tests are particularly important for aggregation models, as errors in these models can lead to significant discrepancies in reports and analyses.
 
-- Unit tests for complex logic:
+- **Unit tests** for complex logic:
 Unit tests are not strictly required but are highly recommended, especially for models with complex transformation logic. Examples of when to use unit tests include:
   - Complex SQL Logic: Such as regex, date math, window functions, or extensive `CASE WHEN` statements.
   - Custom calculations: When creating functions or applying unique data processing logic.
@@ -53,13 +53,13 @@ Unit tests are not strictly required but are highly recommended, especially for 
 ## Writing CHT Pipeline tests
 
 
-- All models should have **schema tests**, specifically enforcing `unique`, `not_null`, and `relationships` where relevant.
+- All models should have **basic generic tests**, specifically enforcing `unique`, `not_null`, and `relationships` where relevant.
 
 
-- Custom data tests for aggregation models should be added to ensure the data is as expected. Only specific models need these tests.
+- **Custom data tests** for aggregation models should be added to ensure the data is as expected. Only specific models need these tests.
 
 
-- Add unit tests for complex logic, such as data math or window functions. These are not required but are good to have, especially if the model is covered by data tests. 
+- Add **unit tests** for complex logic, such as data math or window functions. These are not required but are good to have, especially if the model is covered by data tests.
 
 
 [CHT Pipeline](https://github.com/medic/cht-pipeline) contains a `/models` directory containing SQL files and YAML files for generic tests and a `/test` directory with folders for fixtures and singular tests.
@@ -95,25 +95,140 @@ Unit tests are not strictly required but are highly recommended, especially for 
 ### Writing data tests
 
 **Generic data tests** are included in the model's YAML file under the `data-tests` tag, ensuring basic validations like `relationships`, `not_null`, and `unique`. The following code block contains an extract of the properties of the  `contacts.yml` file.
-{{< figure src="contacts-yml.png" link="contacts-yml.png" class=" center col-16 col-lg-12" >}}
+
+```YAML
+version: 1
+
+models:
+  - name: contact
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: uuid
+        data_type: string
+        constraints:
+          - type: foreign_key
+            expression: "{{ env_var('POSTGRES_SCHEMA') }}.document_metadata (uuid) ON DELETE CASCADE"
+          - type: unique
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('document_metadata')
+              field: uuid
+      - name: saved_timestamp
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: reported
+        data_type: timestamp with time zone
+        data_tests:
+          - not_null
+      - name: parent_uuid
+        data_type: string
+      - name: name
+        data_type: string
+        data_tests:
+          - not_null
+      - name: contact_type
+        data_type: string
+        data_tests:
+          - not_null
+      - name: phone
+        data_type: string
+      - name: phone2
+        data_type: string
+      - name: active
+        data_type: string
+      - name: notes
+        data_type: string
+      - name: contact_id
+        data_type: string
+      - name: muted
+        data_type: string
+```
 
 **Singular data tests** are located in the `/test/sqltest/` folder and check data synchronization between source and final tables. The code block below contains a test to ensure that data between the `source` table and `contact` tables is synchronized correctly.
 Records that should be deleted are properly removed from both tables.
 All relevant fields between the two tables match, preserving data accuracy and integrity.
-{{< figure src="contact-sql.png" link="contact-sql.png" class=" center col-16 col-lg-12" >}}
+
+```SQL
+SELECT
+FROM {{ source('couchdb', env_var('POSTGRES_TABLE')) }} couchdb
+LEFT JOIN {{ ref('contact') }} contact ON couchdb._id = contact.uuid
+WHERE
+  couchdb.doc->>'type' IN ('contact', 'clinic', 'district_hospital', 'health_center', 'person')
+  -- TEST CONDITIONS
+  AND (
+    -- in couchdb, not deleted, but not in contact table
+    (contact.uuid IS NULL AND couchdb._deleted = false)
+    OR
+    -- in couchdb, deleted, but still in contact table
+    (contact.uuid IS NOT NULL AND couchdb._deleted = true)
+    OR -- fields dont match
+    contact.parent_uuid <> couchdb.doc->'parent'->>'_id' OR
+    contact.contact_type <> COALESCE(couchdb.doc->>'contact_type', couchdb.doc->>'type') OR
+    contact.phone <> couchdb.doc->>'phone'
+  )
+```
 
 ### Writing unit tests
 
 Unit tests are defined in a YAML file inside a `tests` folder in each `model` group folder. The input format of choice is CSV using fixtures, defined in `/test/fixture` folder.
 
 The code block below is an extract from the `/models/contacts/tests/contacts.yml` file containing the test to validate transformation and data integrity for the `contact` model.
-{{< figure src="contact-unit-test.png" link="contact-unit-test.png" class=" center col-16 col-lg-12" >}}
 
-The following images shows the content of the input fixtures.
-{{< figure src="contact-document-metadata-initial.png" link="contact-document-metadata-initial.png" class=" center col-16 col-lg-12" >}}{{< figure src="contact-source-table-initial.png" link="contact-source-table-initial.png" class=" center col-16 col-lg-12" >}}
+```YAML
+unit_tests:
+  - name: test_contact_model_transformation_and_data_integrity
+    description: |
+      This unit test validates the transformation logic in the `contact` model and ensures data integrity.
+      It uses fixture data for both `document_metadata` and `source_table` to test the complete logic.
+    model: contact
+    overrides:
+      macros:
+        is_incremental: false
+    given:
+      - input: ref('document_metadata')
+        format: csv
+        fixture: contact_document_metadata_initial
+      - input: source('couchdb', "{{ env_var('POSTGRES_TABLE') }}")
+        format: csv
+        fixture: contact_source_table_initial
+    expect:
+      format: csv
+      fixture: contact_initial_expected
+```
+
+The following code block shows the content of the input fixtures.
+
+```
+uuid,saved_timestamp,doc_type,_deleted
+c1,2024-08-01 00:00:00,contact,false
+c2,2024-08-01 00:00:00,clinic,false
+c3,2024-08-02 00:00:00,person,false
+c4,2024-08-02 00:00:00,district_hospital,false
+```
+
+```
+_id,saved_timestamp,_deleted,doc
+c1,2024-08-01 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"": {""_id"": ""p1""}, ""name"": ""John Doe"", ""contact_type"": ""person"", ""phone"": ""12345"", ""alternative_phone"": ""54321"", ""is_active"": ""true"", ""notes"": ""Note 1"", ""contact_id"": ""C-123"", ""muted"": ""false""}"
+c2,2024-08-01 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"": {""_id"": ""p2""}, ""name"": ""Jane Doe"", ""contact_type"": ""clinic"", ""phone"": ""67890"", ""alternative_phone"": ""09876"", ""is_active"": ""true"", ""notes"": ""Note 2"", ""contact_id"": ""C-456"", ""muted"": ""true""}"
+c3,2024-08-02 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"": {""_id"": ""p3""}, ""name"": ""Mike Smith"", ""contact_type"": ""person"", ""phone"": ""11223"", ""alternative_phone"": ""33211"", ""is_active"": ""false"", ""notes"": ""Note 3"", ""contact_id"": ""C-789"", ""muted"": ""false""}"
+c4,2024-08-02 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"": {""_id"": ""p4""}, ""name"": ""Sara Smith"", ""contact_type"": ""district_hospital"", ""phone"": ""44556"", ""alternative_phone"": ""65544"", ""is_active"": ""true"", ""notes"": ""Note 4"", ""contact_id"": ""C-101"", ""muted"": ""true""}"
+
+```
 
 The fixture below represents the expected data:
-{{< figure src="contact-initial-expected.png" link="contact-initial-expected.png" class=" center col-16 col-lg-12" >}}
+
+```
+uuid,saved_timestamp,reported,parent_uuid,name,contact_type,phone,phone2,active,notes,contact_id,muted
+c1,2024-08-01 00:00:00,2024-07-31 08:00:00+00,p1,John Doe,person,12345,54321,true,Note 1,C-123,false
+c2,2024-08-01 00:00:00,2024-07-31 08:00:00+00,p2,Jane Doe,clinic,67890,09876,true,Note 2,C-456,true
+c3,2024-08-02 00:00:00,2024-07-31 08:00:00+00,p3,Mike Smith,person,11223,33211,false,Note 3,C-789,false
+c4,2024-08-02 00:00:00,2024-07-31 08:00:00+00,p4,Sara Smith,district_hospital,44556,65544,true,Note 4,C-101,true
+```
 
 ## Running tests with Docker
 
@@ -154,4 +269,38 @@ dbt tests are run with Docker, to isolate dependencies and configurations, makin
 ```sh
 ./run_dbt_tests.sh
 ```
+3. After running the following shell script, you should see the Docker containers start, the tests run and pass, and finally, the Docker containers are stopped and removed. This ensures that the testing environment is clean and ready for future runs.
 
+Here's a partial example of what the output should look like:
+```shell
+✔ Network test_default
+Created
+✔ Container test-postgres-1
+Started
+Waiting for PostgreSQL to be ready...
+FINISHED
+run_dbt_tests_docker.sh
+✔ Container test-dbt-1
+Created
+Attaching to dbt-1
+dbt-1  | Install dbt dependencies ...
+dbt-1  | Running dbt ...
+dbt-1  | 13:39:49  Completed successfully
+dbt-1  | 13:39:49  Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+dbt-1  | Running tests ...
+dbt-1  | 13:39:56  Completed successfully
+dbt-1  | 13:39:56  Done. PASS=34 WARN=0 ERROR=0 SKIP=0 TOTAL=34
+dbt-1 exited with code 0
+Aborting on container exit...
+✔ Container test-dbt-1  Stopped
+✔ Container test-dbt-1
+Removed
+✔ Container test-postgres-1
+Removed
+✔ Network test_default
+Removed
+DBT tests passed
+```
+{{% alert title="Note" %}}
+This snippet shows the key steps of the process. The full output will contain more details, but the above highlights the main actions performed by the script.
+{{% /alert %}}
