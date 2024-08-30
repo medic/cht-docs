@@ -145,7 +145,7 @@ dbt tests are run with Docker, to isolate dependencies and configurations, makin
 ### Run the tests
 
 1. Navigate to `test` folder.
-2. Run the test script
+2. Run the test script:
 
 ```sh
 ./run_dbt_tests.sh
