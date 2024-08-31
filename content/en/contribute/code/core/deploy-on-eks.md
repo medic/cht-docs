@@ -126,6 +126,7 @@ Read on below for the exact steps on how to do this.
 
 Note that a number of these steps can be done either on the command line or in the AWS web admin GUI.  Do it the way you feel most comfortable!
 
+
 1. Find the ID of the snapshot by using the production URL to retrieve the ID and date of the latest snapshot. Be sure to replace `moh-foo.app` with the real URL of the instance:
    ```bash
    aws ec2 describe-snapshots --region=eu-west-2 --filters  "Name=tag:Address,Values='moh-foo.app.medicmobile.org'" | jq '.Snapshots[0]'
@@ -215,7 +216,7 @@ Note that a number of these steps can be done either on the command line or in t
       * `preExistingDataAvailable` - set this to be `true`
       * `preExistingEBSVolumeID` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
       * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
-7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting).
+7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call `./cht-deploy`! Always create test instances on the dev cluster.
 8. You must change admin passwords once its up.
 
 
