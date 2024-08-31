@@ -201,16 +201,22 @@ Note that a number of these steps can be done either on the command line or in t
        }
    ]
    ```
-6. Create a `values.yml` file from [this template](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml) and edit the bottom `remote:` section to set use existing EBS to `true`, the existing volume ID to the one we got above and the volume size to the value of `Size` from above as well:
-   ```yaml
-   remote:
-      existingEBS: "true"
-      existingEBSVolumeID: "vol-f9dsa0f9sad09f0dsa"
-      existingEBSVolumeSize: "900Gi"
-   ```
+6. Create a `values.yml` file from [this template](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml) and edit the following fields:
+      * `project_name` - likely your username followed by `-dev`. For example `mrjones-dev`
+      * `namespace` - likely the same as project name, your user followed by `-dev`. For example `mrjones-dev`
+      * `chtversion` - this should match the version you cloned from
+      * `password` - use a good one!
+      * `secret` - use `uuidgen` command line to generate a UUID
+      * `user` - use `medic` user
+      * `uuid` - use `uuidgen` command line to generate a UUID
+      * `couchdb_node_storage_size` - use the same size as the volume you just cloned 
+      * `subdomain` - this should be your username followed by `dev.medicmobile.org`.  For example `mrjones.dev.medicmobile.org`
+      * `hosted_zone_id` - this should always be `Z3304WUAJTCM7P`
+      * `preExistingDataAvailable` - set this to be `true`
+      * `preExistingEBSVolumeID` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
+      * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
 7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting).
-8. You must change admin passwords once its up. 
-
+8. You must change admin passwords once its up.
 
 
 ## References and Debugging
