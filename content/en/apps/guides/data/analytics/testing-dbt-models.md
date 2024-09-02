@@ -53,15 +53,6 @@ Unit tests are not strictly required but are highly recommended, especially for 
 ## Writing CHT Pipeline tests
 
 
-- All models should have **basic generic tests**, specifically enforcing `unique`, `not_null`, and `relationships` where relevant.
-
-
-- **Custom data tests** for aggregation models should be added to ensure the data is as expected. Only specific models need these tests.
-
-
-- Add **unit tests** for complex logic, such as data math or window functions. These are not required but are good to have, especially if the model is covered by data tests.
-
-
 [CHT Pipeline](https://github.com/medic/cht-pipeline) contains a `/models` directory containing SQL files and YAML files for generic tests and a `/test` directory with folders for fixtures and singular tests.
 
 ```
