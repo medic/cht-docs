@@ -1,9 +1,9 @@
 ---
-title: "DBT models for CHT Applications"
-linkTitle: "DBT Models"
+title: "dbt models for CHT Applications"
+linkTitle: "dbt Models"
 weight: 2
 description: >
-  Guide for building DBT models for CHT applications
+  Guide for building dbt models for CHT applications
 relatedContent: >
   core/overview/db-schema
   apps/reference/app-settings/hierarchy
@@ -11,9 +11,9 @@ relatedContent: >
 
 ## Overview
 
-[CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single table. This is not possible to query for analytics, so it uses [DBT](https://www.getdbt.com/) to convert the document data to a relational database format.
+[CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
-[CHT Pipeline](https://github.com/medic/cht-pipeline) defines a DBT project, which contains model files for the data schema described [in the Database schema conventions]({{< ref "core/overview/db-schema" >}}).
+[CHT Pipeline](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described [in the Database schema conventions]({{< ref "core/overview/db-schema" >}}).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
@@ -24,7 +24,7 @@ To create application specific models, create a  [new dbt project](https://docs.
 ```yml
 packages:
   - git: "https://github.com/medic/cht-pipeline"
-    revision: "1.0.0"
+    revision: "v1.0.0"
 ```
 To avoid breaking changes in downstream models, include a version tag in the dependency.
 
@@ -32,7 +32,7 @@ In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BR
 
 ### Deploying models
 
-CHT Sync automatically checks for updates to the DBT project at `CHT_PIPELINE_BRANCH_URL`
+CHT Sync automatically checks for updates to the dbt project at `CHT_PIPELINE_BRANCH_URL`
 Use the main branch for changes that should be released; they will applied as soon as they are pushed to the repository.
 For models that are in development, any other branch can be used.
 
@@ -134,7 +134,7 @@ Patients also have a `patient_id`, which is useful to link to `data_record`.
 
 ## Building App models
 
-An overview of building DBT models can be found [here](https://docs.getdbt.com/docs/build/models)
+An overview of building dbt models can be found [here](https://docs.getdbt.com/docs/build/models)
 The additional models that need to be developed for a CHT application are:
 
  - One model for each form
@@ -142,16 +142,16 @@ The additional models that need to be developed for a CHT application are:
  - Models to contain aggregates that may be useful for dashboards or analysis.
 
 ### Form models
-For each form in the CHT application, create one model that selects from `data_record where form = 'theformyouwant'`, moves the fields from the `fields` JSON into columns, applies any convenient transformations, and, if necessary, add indexes to them.
+For each form in the CHT application that is relevant for analysis, create a model using the `cht_form_model` macro. This macro creates a model that selects from `data_record where form = 'theformyouwant'`, joins to the `couchdb` table to get the `jsonb` fields, moves the fields into columns, applies any convenient transformations, and, if necessary, add indexes to them.
 
-CHT Pipeline provides a macro for these models, `cht_form_model` to add boilerplate and commonly used columns.
+To use this macro, select the fields to move into columns and any indexes as in the example below.
 
 #### `cht_form_model`
 |Argument|Description|
 |--|--|
 |`form_name`| The name of the form to be selected |
-|`form_columns`| The columns to be selected |
-|`form_indexes`| Any additional indexes for the above columns |
+|`form_columns`| The columns to be selected, as a SQL string to be inserted into the SELECT clause, using `couchdb.doc->fields` |
+|`form_indexes`| Any additional indexes for the above columns, as a dbt index list |
 
 This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC visit number` from a typical pregnancy registration form.
 ```sql
@@ -162,7 +162,6 @@ This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC
   {'columns': ['risk_factors']}]
 -%}
 -- add columns specific to this form
-{%- set form_indexes = [
 {% set form_columns %}
   NULLIF(couchdb.doc->'fields'->>'lmp_date','')::date as lmp, -- CAST lmp string to date or NULL if empty
   NULLIF(couchdb.doc->'fields' ->> 'edd','')::date as edd, -- CAST edd string to date or NULL if empty
@@ -325,11 +324,10 @@ WHERE
 
 ## Views vs. Incremental Tables
 
-There are two options for building models using DBT: _views_ and _incremental tables_; see a full description [in the DBT documentation](https://docs.getdbt.com/docs/build/materializations).
-In short, views are normal SQL views, and incremental tables are actual tables, which are periodically updated as new data is created.
+There are two options for building models using dbt: _views_ and _incremental tables_; see a full description [in the dbt documentation](https://docs.getdbt.com/docs/build/materializations).
+In short, views are normal SQL views, and incremental tables are actual tables, which are periodically updated as new data is created, updated or deleted.
 
-For CHT DBT models, it is generally preferred to start with views. Views are always up to date and do not require a full refresh when changed.
-However, indexing the columns of views is impossible, and views built on top of other views can cause performance issues.
+For CHT dbt models, it is generally preferred to start with materialized views. Materialized views are refreshed on every `dbt run`, columns can still be indexed, and they don't require much extra configuration. Non-materialized or non-incremental tables are possible but not recommended because they are unavailable during `dbt run` and anything that depends on them (including dashboards) will also be unavailable. Some base models use incremental tables to ensure good performance for `dbt run`.
 
 To convert a view to an incremental table, change the materialization to `incremental` and add a condition to the `WHERE` clause:
 
@@ -351,7 +349,7 @@ SELECT
   ...
 
 FROM
-  {{ ref("data_record") }} couchdb
+  {{ ref("data_record") }} data_record
 WHERE
   form = 'pregnancy'
 
@@ -360,4 +358,4 @@ WHERE
 {% endif %}
 ```
 
-To be performant, the table this model is reading from needs to have the saved_timestamp column indexed.
+To be performant, the table this model is reading from needs to have the `saved_timestamp` column indexed.
