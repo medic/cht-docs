@@ -117,9 +117,11 @@ docker compose down
 docker compose up -d
 ``` 
 
-#### CHT Sync Data
+#### couch2pg and CHT Sync Data (Local)
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "apps/guides/data/analytics/introduction" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "apps/guides/data/analytics/introduction" >}}) and [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
+
+These instructions apply to both CHT Sync and couch2pg as they both store their information in Postgres and the exporter in this repo is compatible with either.
 
 1. Copy the example config file, so you can add the correct contents in them:
    ```shell
@@ -141,18 +143,43 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 
 {{% alert title="Note" %}}
 Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
-This configuration also works for [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}} data. Edit `sql_servers.yml` to set the value of `collectors` to `couch2pg`.
 {{% /alert %}}
 
-#### CHT Sync Data (Remote)
+#### couch2pg and CHT Sync Data (Remote)
 
-While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync or couch2pg data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
 
-If you are running CHT Sync using Kubernetes:
+This section has two steps. The first is to expose the password-less metrics endpoint and the second is to scrape it with Prometheus.   Here's documentation on how to set up a Kubernetes endpoint only for CHT Sync or a Docker endpoint for either CHT Sync or couch2pg.
+
+##### Postgres exporter on Kubernetes (CHT Sync only) 
 1. Uncomment the `metrics_exporter` value in your `values.yaml` file and make sure `enabled` is set to `true`.
 1. Expose the metrics endpoint to the internet. This can be done by setting the `service.type` to `LoadBalancer` or `NodePort` in your `values.yaml` file.
+
+Continue on to [set up the scrape on Watchdog](#set-up-watchdog-to-scrape-the-sql-exporter).
+
+##### Postgres exporter on Docker (CHT Sync and couch2pg)
+ 
+These commands set up a SQL Exporter and should be run on your Postgres server:
+
+1. Clone this repo: `git clone git@github.com:medic/cht-watchdog.git` and `cd` into `cht-watchdog`
+1. Copy `exporters/postgres/sql_servers_example.yml` to `exporters/postgres/sql_servers.yml`
+1. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address and port also, but likely the default values are correct.
+1. Copy `.env.example` to `.env` 
+1. In the new `.env` file, edit `SQL_EXPORTER_IP` to be the public IP of the Posgtres server
+1. Start the service with these two compose files*:
+   ```shell
+   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.stand-alone.yml up -d
+   ```
+1. Verify that you see the SQL Exporters metrics:  If `SQL_EXPORTER_IP` was set to `10.220.249.15`, then this would be: `http://10.220.249.15:9399/metrics`. The last line starting with `up{job="db_targets"...` should end in a `1` denoting the system is working. If it ends in `0` - check your docker logs for errors.
+
+Continue on to [set up the scrape on Watchdog](#set-up-watchdog-to-scrape-the-sql-exporter).
+
+##### Set up Watchdog to scrape the SQL Exporter
+
+No matter which way you set up your SQL exporter, follow these steps to tell your Watchdog instance to scrape the new endpoint.
+
 1. On your watchdog instance, create a custom scrape definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
-1. Edit `scrape-custom.yml` so that it has the ip address of `SQL_EXPORTER_IP` from step 2 above.  If that was `10.220.249.15`, then you file would look like:
+1. Edit `scrape-custom.yml` so that it has the ip address of `SQL_EXPORTER_IP` from step 7 above.  If that was `10.220.249.15`, then you file would look like:
    ```yaml
     scrape_configs:
       - job_name: sql_exporter
@@ -164,37 +191,9 @@ If you are running CHT Sync using Kubernetes:
     docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.scrape-only.yml up -d
     ```
 
-To run a remote instance of only the SQL Exporter on your Postgres server:
-
-1. Clone this repo: `git clone git@github.com:medic/cht-watchdog.git` and `cd` into `cht-watchdog`
-2. Copy `exporters/postgres/sql_servers_example.yml` to `exporters/postgres/sql_servers.yml`
-3. Edit the new `exporters/postgres/sql_servers.yml` file to have the correct credentials for your server. You need to update the `USERNAME` and `PASSWORD`.   You may need to update the IP address and port also, but likely the default values are correct.
-4. Copy `.env.example` to `.env` 
-5. In the new `.env` file, edit `SQL_EXPORTER_IP` to be the public IP of the Posgtres server
-6. Start the service with these two compose files*:
-   ```shell
-   docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.stand-alone.yml up -d
-   ```
-7. Verify that you see the SQL Exporters metrics:  If `SQL_EXPORTER_IP` was set to `10.220.249.15`, then this would be: `http://10.220.249.15:9399/metrics`. The last line starting with `up{job="db_targets"...` should end in a `1` denoting the system is working. If it ends in `0` - check your docker logs for errors.
-8. On your watchdog instance, create a custom scrape definition file: `cp exporters/postgres/scrape.yml ./exporters/postgres/scrape-custom.yml`
-9. Edit `scrape-custom.yml` so that it has the ip address of `SQL_EXPORTER_IP` from step 7 above.  If that was `10.220.249.15`, then you file would look like:
-   ```yaml
-    scrape_configs:
-      - job_name: sql_exporter
-        static_configs:
-          - targets: ['10.220.249.15:9399']
-   ```
-10. Finally, on your watchdog instance, start (or restart) your server including the `compose.scrape-only.yml` compose file:
-    ```bash
-    docker compose --env-file .env  -f exporters/postgres/compose.yml -f exporters/postgres/compose.scrape-only.yml up -d
-    ```
-   
 
 \* _The `compose.stand-alone.yml` and `compose.scrape-only.yml` compose files override some services.  This is done so that no manual edits are needed to any compose files._ 
 
-{{% alert title="Note" %}}
-This configuration also works for [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}} data.
-{{% /alert %}}
 
 #### Prometheus Retention and Storage
 
