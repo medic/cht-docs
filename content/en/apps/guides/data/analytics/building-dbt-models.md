@@ -20,8 +20,7 @@ If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settin
 
 ## Setup
 
-To create application specific models, create a new dbt project as described [here](https://docs.getdbt.com/reference/commands/init)  and a Github repository (it may be public or private).
-The [CHT Pipeline](https://docs.getdbt.com/docs/build/packages) dbt project, should be included as a dependency in `packages.yml`
+To create application specific models, create a  [new dbt project](https://docs.getdbt.com/reference/commands/init).   Edit the `packages.yml` in your new dbt project to add the [CHT Pipeline](https://docs.getdbt.com/docs/build/packages)  as a dependency.   So that you can track changes in your models, put your dbt new project in a GitHub repository (it may be public or private).
 ```yml
 packages:
   - git: "https://github.com/medic/cht-pipeline"
@@ -29,7 +28,7 @@ packages:
 ```
 To avoid breaking changes in downstream models, include a version tag in the dependency.
 
-In CHT Sync config, set the URL of this repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in ´.env´ if using ´docker compose´, or in ´values.yaml´ if using Kubernetes.
+In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in ´.env´ if using ´docker compose´, or in ´values.yaml´ if using Kubernetes.
 
 ### Deploying models
 
@@ -140,7 +139,7 @@ The additional models that need to be developed for a CHT application are:
 
  - One model for each form
  - Models for contacts that are defined by the configurable hierarchy
- - Models to contain aggregates that may be useful for dashboards or analysis
+ - Models to contain aggregates that may be useful for dashboards or analysis.
 
 ### Form models
 For each form in the CHT application, create one model that selects from `data_record where form = 'theformyouwant'`, moves the fields from the `fields` JSON into columns, applies any convenient transformations, and, if necessary, add indexes to them.
@@ -268,7 +267,7 @@ WHERE chw.contact_type = 'person' AND clinic.contact_type = 'clinic';
 
 ### Aggregates
 
-To aggregate on contacts and report data, join to the `data_record` and `contacts` tables as in the example below.
+To aggregate on contacts and report data, join to the `data_record` and `contact` tables as in the example below.
 
 ```sql
 SELECT
@@ -280,8 +279,8 @@ SELECT
   date_trunc('month', pregnancy.reported) as report_month
 FROM
   pregnancy
-INNER JOIN contacts chw ON chw.uuid = data_record.contact_uuid
-LEFT JOIN contacts area ON area.uuid = data_record.parent_contact_uuid
+INNER JOIN contact chw ON chw.uuid = data_record.contact_uuid
+LEFT JOIN contact area ON area.uuid = data_record.parent_contact_uuid
 GROUP BY
   chw.uuid,
   chw.name,
