@@ -36,7 +36,7 @@ For more details on formatting unit tests, refer to the [official dbt documentat
 To ensure data integrity and the reliability of the dbt models in the CHT Pipeline, it is essential to follow these testing guidelines:
 
 - **Basic generic tests** for all models:
-Every model should have generic tests to enforce critical constraints and relationships. Use dbt core build in generic tests.
+Every model should have generic tests to enforce critical constraints and relationships. Use the generic tests provided in dbt core.
 
 - **Singular or custom generic data tests** for aggregation models:
 For models that perform data aggregation, it is crucial to include singular data tests or custom generic data tests to ensure that the aggregated data meets the expected criteria. These tests help verify that:
