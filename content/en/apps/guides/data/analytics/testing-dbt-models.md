@@ -269,7 +269,7 @@ dbt tests are run with Docker, to isolate dependencies and configurations, makin
 ```sh
 ./run_dbt_tests.sh
 ```
-3. After running the following shell script, you should see the Docker containers start, the tests run and pass, and finally, the Docker containers are stopped and removed. This ensures that the testing environment is clean and ready for future runs.
+3. After running the shell script, you should see the Docker containers start, the tests run and pass, and finally, the Docker containers are stopped and removed. This ensures that the testing environment is clean and ready for future runs.
 
 Here's a partial example of what the output should look like:
 ```shell
