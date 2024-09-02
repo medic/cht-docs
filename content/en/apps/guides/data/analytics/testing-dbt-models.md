@@ -14,7 +14,7 @@ To ensure code accuracy and data integrity, and also to prevent data quality reg
 
 There are two main types of dbt tests:
 
-- [**data tests**](https://docs.getdbt.com/docs/build/data-tests) - meant to be executed with every pipeline run to validate data integrity. They ensure your warehouse data meets specific criteria and are run at every data refresh.
+- [data tests](https://docs.getdbt.com/docs/build/data-tests) - meant to be executed with every pipeline run to validate data integrity. They ensure the warehouse data meets specific criteria and are run at every data refresh.
 - [**unit tests**](https://docs.getdbt.com/docs/build/unit-tests) - meant to be executed with every CI run to validate transformation logic integrity. They allow you to validate your SQL modeling logic on a small set of static inputs (typically defined using seeds or fixtures) before you materialize your full model in production.
 
 
