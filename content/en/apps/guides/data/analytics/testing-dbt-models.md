@@ -24,7 +24,7 @@ Data tests can be further divided into two types:
 - [generic tests](https://docs.getdbt.com/docs/build/data-tests#generic-data-tests): These are foundational tests provided by dbt core, focusing on basic schema validation and source freshness. dbt core provides four built-in generic tests that are essential for data modeling and ensuring data integrity. Generic tests can accept [additional test configurations](https://docs.getdbt.com/reference/data-test-configs).
 It is also possible to define your own [custom generic tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests).
 
-- [**singular tests**](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests): These are written in a SQL file with a query that returns records that fail the test. This type of test is straightforward and focuses on specific conditions or rules that data must meet.
+- [singular tests](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests): These are written in an SQL file with a query that returns records that fail the test. This type of test is straightforward and focuses on specific conditions or rules that data must meet.
 
 ### Unit tests
 
