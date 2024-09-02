@@ -74,7 +74,7 @@ All changes to `main` branch run a [GitHub action](.github/workflows/ci.yml) to 
 
 The version of Hugo used to deploy the site is specified in `.tool-versions`. 
 
-_(Note there is also a minimum version of Hugo required to deploy the site specified via `module.hugoVersion` in the [`config.toml`](./config.toml) file.)_
+_(Note there is also a minimum version of Hugo required to deploy the site specified via `module.hugoVersion` in the [`hugo.toml`](./hugo.toml) file.)_
 
 See the [Hugo Release Notes](https://github.com/gohugoio/hugo/releases) for documentation regarding what has changed in the new versions.
 
