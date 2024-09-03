@@ -28,7 +28,7 @@ As CHT Sync puts all new data into a PostgreSQL database into a single table tha
 
 #### couch2pg
 
-[couch2pg](https://github.com/medic/cht-sync/tree/main/couch2pg) streams data from CouchDB and forwards it to PostgreSQL, ensuring real-time updates.
+An updated version of couch2pg which streams data from CouchDB and forwards it to PostgreSQL, ensuring real-time updates.  Note the modern couch2pg code is [embedded in CHT Sync repository](https://github.com/medic/cht-sync/tree/main/couch2pg) and no longer uses the [deprecated repository](https://github.com/medic/couch2pg). 
 
 #### PostgreSQL
 
