@@ -1,7 +1,7 @@
 ---
 title: "Prerequisites for App Development"
 linkTitle: "Prerequisites"
-weight: 9
+weight: 1
 description: >
   Tools and background skills that are helpful for developing CHT apps
 relatedContent: > 
