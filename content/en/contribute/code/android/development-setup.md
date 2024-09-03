@@ -166,7 +166,7 @@ Refer to the [CHT Core Developer Guide]({{< relref "contribute/code/core/dev-env
 
 _Only CHT Android_
 
-Later versions of the CHT, only support [running on Chrome/Webview 90+]({{< relref "building/core/releases#dependencies" >}}). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
+Later versions of the CHT, only support [running on Chrome/Webview 90+]({{< relref "core/releases#dependencies" >}}). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
 
 To upgrade the necessary apk on an emulated Android device:
 

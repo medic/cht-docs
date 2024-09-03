@@ -11,7 +11,7 @@ As such, on this site you will find documentation for both Docker Compose (known
 
 Given all this, we currently recommend:
 * Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker Compose.
-* Production 3.x CHT deployments should use [Docker Compose]({{< relref "hosting/3.x" >}})  - Note that 3.x is [end of life]({{< relref "building/core/releases#supported-versions" >}})  and should only be used to support existing 3.x deployments.
+* Production 3.x CHT deployments should use [Docker Compose]({{< relref "hosting/3.x" >}})  - Note that 3.x is [end of life]({{< relref "core/releases#supported-versions" >}})  and should only be used to support existing 3.x deployments.
 * All new production 4.x CHT deployments should use [Kubernetes]({{< relref "hosting/4.x/self-hosting" >}})
 
 ## Kubernetes
