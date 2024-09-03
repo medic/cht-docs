@@ -9,13 +9,13 @@ relatedContent: >
   core/overview/data-flows-for-analytics/
 ---
 
-This page outlines guidelines for migrating from [couch2pg](https://github.com/medic/cht-couch2pg) to the data pipeline based on CHT Sync and CHT Pipeline. One of the main changes in this flow is separating the syncing process from the data transformation, with CHT Pipeline and dbt now handling the latter. This migration requires dbt models with CHT Pipeline instead of SQL views and tables. One thing to note is that the schema for CHT Sync differs from couch2pg, so dbt models will not directly replace the SQL views and tables. For instructions on how to get started with dbt models, refer to the [dbt models guide](({{< relref "apps/guides/data/analytics/building-dbt-models" >}})).
+This page outlines guidelines for migrating from [couch2pg](https://github.com/medic/cht-couch2pg) to the data pipeline based on CHT Sync and CHT Pipeline. One of the main changes in this flow is separating the syncing process from the data transformation, with CHT Pipeline and dbt now handling the latter. This migration requires dbt models with CHT Pipeline instead of SQL views and tables. One thing to note is that the schema for CHT Sync differs from couch2pg, so dbt models will not directly replace the SQL views and tables. For instructions on how to get started with dbt models, refer to the [dbt models guide](({{< relref "apps/guides/data/analytics/testing-dbt-models.md" >}})).
 
 ## Key Considerations
 - **Server resources**: To minimize downtime, running both couch2pg and CHT Sync in parallel during the migration process is recommended. With this in mind, ensure that the server and database resources are sufficient to handle the load.
 - **dbt Modelling**: Avoid the temptation to model new dbt models after existing SQL views and tables. Instead, take the opportunity to re-evaluate the data needs and design new models that are more efficient and effective. Think of what data needs to be shown and how it should be shown in data visualization tools and use that to guide the design of the new models.
 <!-- TODO: Link to docs for testing dbt models once they are ready -->
-- **Testing**: After migrating, thoroughly test the new dbt models to ensure that they work as expected.
+- **Testing**: After migrating, thoroughly test the new dbt models to ensure that they work as expected. Refer to the [testing dbt models guide](({{< relref "apps/guides/data/analytics/building-dbt-models" >}})) for more information on testing.
 - **Feedback**: Provide any feedback and create issues for errors or bugs encountered in the [CHT Sync](https://github.com/medic/cht-sync) and [CHT Pipeline](https://github.com/medic/cht-pipeline/) repositories to improve the tools.
 
 ## Migration Steps
