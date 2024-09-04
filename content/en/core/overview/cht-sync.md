@@ -36,7 +36,7 @@ A free and open source SQL database used for analytics queries. See more at the 
 
 #### dbt
 
-Once the data is synchronized and stored in PostgreSQL, it undergoes transformation using predefined [dbt](https://www.getdbt.com/) models from the [cht-pipeline](https://github.com/medic/cht-pipeline). dbt is used to ingest raw JSON data from the PosgtreSQL database (`jsonb` column) and normalize it into a relational schema to make it easier to query. A daemon runs cht-pipeline, and it updates the database whenever the data in the `jsonb` column changes.
+Once the data is synchronized and stored in PostgreSQL, it undergoes transformation using predefined [dbt](https://www.getdbt.com/) models from the [cht-pipeline](https://github.com/medic/cht-pipeline). dbt is used to ingest raw JSON data from the PosgtreSQL database (`jsonb` column) and normalize it into a relational schema to make it easier to query. A daemon runs the dbt models, and it updates the database whenever the data in the `jsonb` column changes.
 
 #### Data Visualization
 
