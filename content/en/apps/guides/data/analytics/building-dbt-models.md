@@ -95,42 +95,58 @@ This table contains columns for the contact who made the report, the parent of t
 |`parent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 |`grandparent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 
-For SMS forms, there is also an `sms_form` table which contains the raw message and sender phone number (for SMS form response, `contact_uuid` may be `NULL`).
-The `contact_uuid` column contains a foreign key to the `contacts` table.
+The `contact_uuid` column contains a foreign key to the `contact` table.
 
 ### `contact`
 See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
-Every person and place is stored in the `contacts` table. Persons and patients are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
+Every person and place is stored in the `contact` table. Persons and places are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
 The contact hierarchy defines "is a" relationships between contact types; e.g., a patient is a person is a contact. This is modeled as one table per type, where the `uuid` is both the primary key for the child table and a foreign key to the parent table.
 
 |Field|Description|
 |--|--|
 |`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
 |`saved_timestamp`| timestamp when this row was inserted|
-|`parent_uuid`| uuid of the parent contact. For people, will be a place contact.|
+|`parent_uuid`| uuid of the parent contact. |
 |`name`| name |
-|`contact_type`| for data created <= 3.7, the same as type of the CouchDB document, when using the configurable hierarchy, `contact_type` |
+|`contact_type`| for data created <= 3.7, the same as type of the CouchDB document, when using the configurable hierarchy, `contact_type`. |
 |`reported`| the reported timestamp from the CouchDB document, stored as a date|
-|`phone`| contacts primary phone number |
-|`phone2`| alternate phone number, if available|
 |`notes`| |
 |`active`| |
-|`contact_id`| |
 |`muted`| true if this contact has been muted|
 
-### `person`
+### `contact_type`
+This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "apps/reference/app-settings/hierarchy/#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
+The `person` column defines which contact types are persons and which are places. It uses the `person` field from the settings, or if the contact type is not in settings, it is assumed to be a place unless `id` is `person`
+
 |Field|Description|
 |--|--|
-|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
+|`id`| the id of the contact type, either from the `id` field in app settings, or from the `contact_type` field from contacts|
+|`person`| `true` if this contact type represents a person. if `false`, this contact type is a place|
+|`configured`| `true` if this contact type is in settings, `false` if not |
+
+### `person`
+This table stores all contacts where the `contact_type` is person, and has additional fields that are relevant only for person contacts.
+
+|Field|Description|
+|--|--|
+|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `contact` and `couchdb` tables.|
+|`saved_timestamp`| timestamp when this row was inserted|
 |`date_of_birth`|  |
 |`sex`| |
+|`phone`| contacts primary phone number |
+|`phone2`| alternate phone number, if available|
+|`place_id`|  | if a secondary patient id is generated, it will be stored in this column |
 
-### `patient`
-Patients also have a `patient_id`, which is useful to link to `data_record`.
+### `place`
+This table stores all contacts where the `contact_type` is place, and has additional columns that are relevant only for place contacts.
+The `contact_id` column contains a foreign key to a person contact who is the primary contact for the place.
+
 |Field|Description|
 |--|--|
-|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `couchdb` table.|
-|`patient_id`|  | patient id |
+|`uuid`|Unique identifier of the record. Note this is both the primary key for this table, and a foreign key to the `contact` and `couchdb` tables.|
+|`saved_timestamp`| timestamp when this row was inserted|
+|`place_id`|  | if a secondary place id is generated, it will be stored in this column |
+|`contact_id`| places have another contact that represents the person who is the primary contact for the place; for example a facility administrator|
 
 ## Building App models
 
