@@ -14,7 +14,6 @@ This page outlines guidelines for migrating from [couch2pg](https://github.com/m
 ## Key Considerations
 - **Server resources**: To minimize downtime, running both couch2pg and CHT Sync in parallel during the migration process is recommended. With this in mind, ensure that the server and database resources are sufficient to handle the load.
 - **dbt Modelling**: Avoid the temptation to model new dbt models after existing SQL views and tables. Instead, take the opportunity to re-evaluate the data needs and design new models that are more efficient and effective. Think of what data needs to be shown and how it should be shown in data visualization tools and use that to guide the design of the new models.
-<!-- TODO: Link to docs for testing dbt models once they are ready -->
 - **Testing**: After migrating, thoroughly test the new dbt models to ensure that they work as expected. Refer to the [testing dbt models guide](({{< relref "apps/guides/data/analytics/building-dbt-models" >}})) for more information on testing.
 - **Feedback**: Provide any feedback and create issues for errors or bugs encountered in the [CHT Sync](https://github.com/medic/cht-sync) and [CHT Pipeline](https://github.com/medic/cht-pipeline/) repositories to improve the tools.
 
@@ -26,6 +25,5 @@ This page outlines guidelines for migrating from [couch2pg](https://github.com/m
 1. **Create replica dashboards**: In the data visualization tool of your choice, create replica dashboards of your current setup and compare the data from the old and new pipelines.
 1. **Test and adjust the dbt models**: Test the dbt models to ensure they are working as expected and that the replica and initial dashboards match. Adjust the models to ensure they are accurate.
 1. **Optimize**: Once the dbt models are working as expected and the dashboards display the expected data, optimize the models to improve performance. This may involve restructuring the models, adding indexes, or making other adjustments to improve the speed and efficiency of the models. Having a look at the [dbt models guide](({{< relref "apps/guides/data/analytics/building-dbt-models" >}})) will help you understand how to optimize the models.
-<!-- TODO: Link to docs for setting up CHT Watchdog once they are ready -->
-1. **Set up monitoring and alerting**: Setup CHT Watchdog to monitor the running of CHT Sync and CHT Pipeline and set up alerts for any failures.
+1. **Set up monitoring and alerting**: [Setup CHT Watchdog](({{< relref "hosting/monitoring/setup" >}})) to monitor the running of CHT Sync and CHT Pipeline and set up alerts for any failures.
 1. **Remove couch2pg and the duplicate database**: Once the new pipeline runs as expected, you can remove couch2pg and the duplicate database. Ensure that all data is being synced correctly, that the dbt models are working as expected, and that the dashboards display the expected data before switching them off and removing couch2pg.
