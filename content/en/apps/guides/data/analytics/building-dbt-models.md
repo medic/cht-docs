@@ -252,32 +252,31 @@ this creates the following model:
 
 ### Contacts hierarchy
 
-It is often useful for aggregates to have a table for CHWs which contains the entire hierarchy.
+The base models have tables for `person` and `place`, but its often useful for other contact types to have their own specialized tables, which can have additional columns specific to that type, and can have foreign keys to parents in the hierarchy.
+For example, households, patients, chws and supervisors are all common objects in data analysis, but do not have any definition common to all applications and so need to be build in application specific models.
+
+To do this, use the `cht_contact_model` macro, specifying the `contact_type` id, any custom fields and indexes, and a list of parent models.
+
+#### `cht_contact_model`
+|Argument|Description|
+|--|--|
+|`contact_type`| the id of the `contact_type` to be selected |
+|`parents`| a list of parent contacts to join to this table, in this format: `[{'id': '', 'table': ''}, {'id': '', 'table':''}]` |
+|`custom_contact_columns`| The columns to be selected, as a SQL string to be inserted into the SELECT clause, using `couchdb.doc` |
+|`custom_indexes`| Any additional indexes for the above columns, as a dbt index list |
+
+This example show how this macro can be used to build a household model which has some custom columns a foreign key to its parent, a community health area.
 
 ```sql
-{{
-  config(
-    materialized = 'materialized_view',
-    indexes=[
-      {'columns': ['chw_uuid']},
-      {'columns': ['clinic_uuid']},
-      {'columns': ['health_center_uuid']},
-      {'columns': ['district_hospital_uuid']},
-    ]
-  )
-}}
+{% set custom_fields %}
+  contact.name AS household_name,
+  contact.contact_id AS household_contact_id,
+  community_health_unit.uuid as chu_area_id,
+  NULLIF(couchdb.doc ->> 'uses_treated_water', '')::boolean AS uses_treated_water,
+  NULLIF(couchdb.doc ->> 'has_functional_latrine', '')::boolean AS has_functional_latrine
+{% endset %}
+{{ cht_contact_model('household', custom_fields, [{'id': 'community_health_unit', 'table': 'community_health_units'}]) }}
 
-SELECT
-  chw.uuid as chw_uuid,
-  clinic.uuid as clinic_uuid,
-  health_center.uuid as health_center_uuid,
-  district_hospital.uuid as district_hospital_uuid
-FROM
-  {{ref('contact')}} chw
-  INNER JOIN {{ref('contact')}} clinic ON chw.parent_uuid = clinic.uuid
-  LEFT JOIN {{ref('contact')}} health_center ON clinic.parent_uuid = health_center.uuid
-  LEFT JOIN {{ref('contact')}} district_hospital ON health_center.parent_uuid = district_hospital.uuid
-WHERE chw.contact_type = 'person' AND clinic.contact_type = 'clinic';
 ```
 
 ### Aggregates
