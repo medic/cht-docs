@@ -24,7 +24,7 @@ Read more about setting up [CHT Sync]({{< relref "apps/guides/data/analytics/set
 [CHT Sync](https://github.com/medic/cht-sync) replicates data from CouchDB to PostgreSQL in a near real-time manner. It listens to changes in the CHT database, and updates the analytics database accordingly.
 It is not designed to be accessed by users, and it does not have a user interface. It is designed to be run on the same server as the CHT, but it can be run on a separate server if necessary. 
 
-As CHT Sync puts all new data into a PostgreSQL database into a single table that has a `jsonb` column, this is not very useful for analytics. [cht-pipeline](https://github.com/medic/cht-pipeline) is a set of SQL queries that transform the data in the `jsonb` column into a more useful format. It uses [dbt](https://www.getdbt.com/) to define the models that are translated into PostgreSQL tables or views, which makes it easier to query the data in the analytics platform of choice. 
+As CHT Sync puts all new data into a PostgreSQL database into a single table that has a `jsonb` column, this is not very useful for analytics. [cht-pipeline](https://github.com/medic/cht-pipeline) contains a set of SQL queries that transform the data in the `jsonb` column into a more useful format. It uses [dbt](https://www.getdbt.com/) to define the models that are translated into PostgreSQL tables or views, which makes it easier to query the data in the analytics platform of choice. 
 
 #### couch2pg
 
