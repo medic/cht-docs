@@ -1,7 +1,7 @@
 ---
 title: "extension-libs/"
 linkTitle: "Extension libraries"
-weight: 5
+weight: 12
 description: >
   Used for providing custom scripts for execution in CHT apps
 keywords: extension libs extensibility

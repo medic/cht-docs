@@ -1,6 +1,6 @@
 ---
 title: Messaging
-weight: 5
+weight: 18
 description: >
   Messaging for Care Coordination, Alerts, and Notifications
 relatedContent: >

@@ -1,7 +1,7 @@
 ---
 title: "Building Contact Summary"
 linkTitle: Contact Summary
-weight: 11
+weight: 9
 description: >
   Building CHT application contact summary
 relatedContent: >

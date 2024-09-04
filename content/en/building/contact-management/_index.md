@@ -1,7 +1,7 @@
 ---
 title: "Contact and User management"
 linkTitle: "Contact management"
-weight: 5
+weight: 4
 description: >
   Managing contacts and users in your CHT Application
 ---

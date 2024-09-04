@@ -1,6 +1,6 @@
 ---
 title: Training
-weight: 9
+weight: 19
 description: >
   Remotely train health workers
 keyword: training

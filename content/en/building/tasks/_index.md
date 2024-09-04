@@ -1,6 +1,6 @@
 ---
 title: Tasks
-weight: 7
+weight: 6
 description: >
   Ensuring that the right actions are taken for the right people at the right time
 keywords: tasks

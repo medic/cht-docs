@@ -1,7 +1,7 @@
 ---
 title: "How To Manage Translations"
 linkTitle: "Translations"
-weight: 5
+weight: 8
 description: >
   Process for managing translations in CHT Core
 ---

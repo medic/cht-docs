@@ -1,7 +1,7 @@
 ---
 title: "Resources"
 linkTitle: "Resources"
-weight: 2
+weight: 13
 description: >
   **Graphics**: Used for custom branding, logos, and icons
 keywords: icons branding
