@@ -26,7 +26,7 @@ This setup involves starting couch2pg, PostgreSQL, pgAdmin, dbt, and CouchDB.
 
 Run the Docker containers and wait for every container to be up and running:
 ```sh
-docker-compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
+docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
 You can verify this command worked by running `docker ps`. It should show 5 containers running including couch2pg, dbt, PostgreSQL, CouchDB and pgAdmin.
@@ -38,7 +38,7 @@ This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes y
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
-docker-compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
+docker compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
 You can verify this command worked by running `docker ps`. It should show 4 containers running including couch2pg, dbt, PostgreSQL, and pgAdmin.
@@ -48,7 +48,7 @@ This local setup involves starting couch2pg and dbt. It assumes that CouchDB and
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
-docker-compose -f docker-compose.yml up -d
+docker compose -f docker-compose.yml up -d
 ```
 
 You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and dbt.
