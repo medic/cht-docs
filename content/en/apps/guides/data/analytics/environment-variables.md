@@ -22,7 +22,7 @@ All the variables in the `.env` file:
 | `POSTGRES_TABLE`          | `couchdb`                                             | PostgreSQL table where the CouchDB data is copied                                                                                          |
 | `POSTGRES_HOST`           | `postgres`                                            | PostgreSQL instance                                                                                                                        |
 | `POSTGRES_PORT`           | `5432`                                                | PostgreSQL port  |
-| `CHT_PIPELINE_BRANCH_URL` | `"https://github.com/medic/cht-pipeline.git#main"`    | CHT Pipeline branch containing the `DBT` models                                                                                            |
+| `CHT_PIPELINE_BRANCH_URL` | `"https://github.com/medic/cht-pipeline.git#main"`    | cht-pipeline branch containing the dbt models                                                                                            |
 | `DATAEMON_INTERVAL`       | `5`                                                   | Interval (in minutes) for looking for new changes in the CouchDB data                                                                      |
 | `COUCHDB_USER`            | `medic`                                               | Username of the CouchDB instance                                                                                             |
 | `COUCHDB_PASSWORD`        | `password`                                            | Password of the CouchDB instance                                                                                              |

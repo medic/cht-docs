@@ -69,7 +69,7 @@ couchdbs:
     password: "password3"
   ```
 
-- Set the CHT Pipeline Branch URL in the `values.yaml` file.
+- Set the cht-pipeline branch URL in the `values.yaml` file.
 ```yaml
 cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
 ```
