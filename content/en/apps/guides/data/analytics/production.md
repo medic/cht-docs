@@ -9,9 +9,9 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
-We recommend running cht-sync in production using Kubernetes. This guide will walk you through setting up a production deployment of [CHT Sync](https://github.com/medic/cht-sync) with the CHT using Kubernetes.
+We recommend running [CHT Sync](https://github.com/medic/cht-sync) in production using Kubernetes. This guide will walk you through setting up a production deployment of CHT Sync with the CHT using Kubernetes.
 
-## Pre-requisites:
+## Prerequisites:
 - A Kubernetes cluster: You can use a managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS), or you can set up a cluster using a tool like Minikube.
 - kubectl: The Kubernetes command-line tool. You can install it using the [kubectl installation](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instructions.
 - Helm: The Kubernetes package manager. You can install it using the [helm installation guide](https://helm.sh/docs/intro/install/).
@@ -22,9 +22,9 @@ We recommend running cht-sync in production using Kubernetes. This guide will wa
 - If you require a Postgres database to be set up in the cluster, you can use the `postgres.enabled` flag in the `values.yaml` file. If you already have a Postgres database outside the cluster, you can set the `postgres.enabled` flag to `false`.
 - If outside the cluster, specify `host` and `port` in this section
 - In either case, specify `user`, `password`, `db`, `schema`, and `table`
-  - schema can be used to separate cht models from any other data that may already be in the database
-  - table is the name of the table that couch2pg will write couch documents to, and the source table for dbt models. It is recommended to leave this as `couchdb`
-```
+  - `schema` can be used to separate CHT models from any other data that may already be in the database
+  - `table` is the name of the table that couch2pg will write couch documents to, and the source table for dbt models. It is recommended to leave this as `couchdb`.
+```yaml
 postgres:
   enabled: true
   user: "postgres"
@@ -34,7 +34,7 @@ postgres:
   table: "couchdb"
 ```
 - Set CouchDB shared values in the `values.yaml` file.
-```
+```yaml
 couchdb:
   user: "your_couchdb_user"
   dbs: "medic"
@@ -42,13 +42,13 @@ couchdb:
   secure: "true"
 ```
 - Configure the CouchDB instance to be replicated in the `values.yaml` file. For the host, use the CouchDB host URL used to publicly access the instance and for the password, use the password associated with the user set above.
-```
+```yaml
 couchdbs:
   - host: "host1.cht-core.test"
     password: "password1"
 ```
 - If you have multiple CouchDB instances to replicate, you can add them to the `couchdbs` list.
-```
+```yaml
 couchdbs:
   - host: "host1.cht-core.test"
     password: "password1"
@@ -56,7 +56,7 @@ couchdbs:
     password: "password2"
 ```
 - If an instance has a different port, user or different CouchDB databases to be synced, you can specify it in the `couchdbs` list.
-```
+```yaml
   - host: "host1" # required for all couchdb instances
     password: "" # required for all couchdb instances
   - host: "host2.cht-core.test"
@@ -70,26 +70,26 @@ couchdbs:
   ```
 
 - Set the CHT Pipeline Branch URL in the `values.yaml` file.
-```
+```yaml
 cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
 ```
 - (Optional) Configure the Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in prometheus format at a service with name `metrics` at port 9399, for use with [cht watchdog](https://docs.communityhealthtoolkit.org/hosting/monitoring/setup/) or any other monitoring service.
 An HTTP ingress needs to be created to allow access from outside the cluster.
-```
+```yaml
 metrics_exporter:
   enabled: true
 ```
 ## Deploy
-- Run the command below to deploy the cht-sync helm chart. If installing from root, specify path to directory containing `chart.yaml` and `values.yaml`
-```
+Run the command below to deploy the cht-sync helm chart. If installing from root, specify path to directory containing `chart.yaml` and `values.yaml`
+```shell
 helm install cht-sync cht-sync --values values.yaml
 ```
 ## Verify the deployment
-- Run the following command to get the status of the deployment.
-```
+Run the following command to get the status of the deployment.
+```shell
 kubectl get pods
 ```
-- Run the following command to get the logs of a pod.
-```
+Run the following command to get the logs of a pod.
+```shell
 kubectl logs -f cht-sync-<pod-id>
 ```
