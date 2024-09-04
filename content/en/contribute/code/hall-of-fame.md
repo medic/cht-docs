@@ -15,7 +15,6 @@ Thank you to everyone who has contributed to the CHT codebase over the years! To
 - [CHT Core](https://github.com/medic/cht-core/graphs/contributors)
 - [CHT Docs](https://github.com/medic/cht-docs/graphs/contributors)
 - [CHT Interoperability](https://github.com/medic/cht-interoperability/graphs/contributors)
-- [CHT Pipeline](https://github.com/medic/cht-pipeline/graphs/contributors)
 - [CHT Sync](https://github.com/medic/cht-sync/graphs/contributors)
 - [CHT Watchdog](https://github.com/medic/cht-watchdog/graphs/contributors)
 

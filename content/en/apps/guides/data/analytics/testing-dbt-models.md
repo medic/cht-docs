@@ -3,7 +3,7 @@ title: "Testing dbt models"
 linkTitle: "Testing dbt models"
 weight: 6
 description: >
-  Guide for testing dbt models in CHT Pipeline
+  Guide for testing dbt models
 ---
 
 ## Overview
@@ -32,8 +32,8 @@ Unit tests are essential for validating complex SQL logic and transformations in
 
 For more details on formatting unit tests, refer to the [official dbt documentation](https://docs.getdbt.com/reference/resource-properties/unit-tests).
 
-## Guidelines for CHT Pipeline tests
-To ensure data integrity and the reliability of the dbt models in the CHT Pipeline, it is essential to follow these testing guidelines:
+## Guidelines for dbt tests
+To ensure data integrity and the reliability of the dbt models in the [cht-pipeline](https://github.com/medic/cht-pipeline), it is essential to follow these testing guidelines:
 
 - **Basic generic tests** for all models:
 Every model should have generic tests to enforce critical constraints and relationships. Use the generic tests provided in dbt core.
@@ -50,10 +50,10 @@ Unit tests are not strictly required but are highly recommended, especially for 
   - Custom calculations: When creating functions or applying unique data processing logic.
   - Edge cases: To handle scenarios that are not typically found in actual data but may arise unexpectedly.
 
-## Writing CHT Pipeline tests
+## Writing dbt tests
 
 
-[CHT Pipeline](https://github.com/medic/cht-pipeline) contains a `/models` directory containing SQL files and YAML files for generic tests and a `/test` directory with folders for fixtures and singular tests.
+cht-pipeline contains a `/models` directory containing SQL files and YAML files for generic tests and a `/test` directory with folders for fixtures and singular tests.
 
 ```
 ./
