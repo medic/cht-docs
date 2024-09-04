@@ -115,7 +115,7 @@ The contact hierarchy defines "is a" relationships between contact types; e.g., 
 |`muted`| true if this contact has been muted|
 
 ### `contact_type`
-This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "apps/reference/app-settings/hierarchy/#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
+This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
 The `person` column defines which contact types are persons and which are places. It uses the `person` field from the settings, or if the contact type is not in settings, it is assumed to be a place unless `id` is `person`
 
 |Field|Description|
