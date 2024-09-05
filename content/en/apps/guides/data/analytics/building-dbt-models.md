@@ -13,14 +13,14 @@ relatedContent: >
 
 [CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
-[CHT Pipeline](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described [in the Database schema conventions]({{< ref "core/overview/db-schema" >}}).
+[cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [Database schema conventions]({{< ref "core/overview/db-schema" >}}).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
 
 ## Setup
 
-To create application specific models, create a  [new dbt project](https://docs.getdbt.com/reference/commands/init).   Edit the `packages.yml` in your new dbt project to add the [CHT Pipeline](https://docs.getdbt.com/docs/build/packages)  as a dependency.   So that you can track changes in your models, put your dbt new project in a GitHub repository (it may be public or private).
+To create application specific models, create a  [new dbt project](https://docs.getdbt.com/reference/commands/init). Edit the `packages.yml` in your new dbt project to add [cht-pipeline](https://docs.getdbt.com/docs/build/packages) as a dependency. So that you can track changes in your models, put your dbt new project in a GitHub repository (it may be public or private).
 ```yml
 packages:
   - git: "https://github.com/medic/cht-pipeline"
@@ -28,15 +28,15 @@ packages:
 ```
 To avoid breaking changes in downstream models, include a version tag in the dependency.
 
-In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in ´.env´ if using ´docker compose´, or in ´values.yaml´ if using Kubernetes.
+In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in `.env` if using `docker compose`, or in `values.yaml` if using Kubernetes.
 
 ### Deploying models
 
 CHT Sync automatically checks for updates to the dbt project at `CHT_PIPELINE_BRANCH_URL`
-Use the main branch for changes that should be released; they will applied as soon as they are pushed to the repository.
+Use the `main` branch for changes that should be released; they will be applied as soon as they are pushed to the repository.
 For models that are in development, any other branch can be used.
 
-Rebuilding tables can take some time (a rough estimate is several hours for tables between 1M and 10M rows, upt to 24H for tables between 10M and 100M rows) so plan for affected dashboards to be out of date when releasing new changes to models; only changed tables and their dependencies will be rebuilt.
+Rebuilding tables can take some time (a rough estimate is several hours for tables between 1M and 10M rows, up to 24H for tables between 10M and 100M rows), so plan for affected dashboards to be out of date when releasing new changes to models; only changed tables and their dependencies will be rebuilt.
 
 New releases of the base models are rare, but schema changes to the CHT or new features may require changes.
 Generally, these changes will be backwards compatible so that a new release of the CHT, or to the base models, does not break application specific models.
@@ -46,7 +46,7 @@ When it is necessary to update the base models, update the version tag in the de
 
 ### Testing models and dashboards
 
-It is highly encouraged to write dbt [tests](https://docs.getdbt.com/docs/build/data-tests) for application specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in [CHT Pipeline](https://github.com/medic/cht-pipeline/tree/main/test).
+It is highly encouraged to write [dbt tests]({{< ref "apps/guides/data/analytics/testing-dbt-models" >}}) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/test).
 
 
 ## Base Models
@@ -57,14 +57,14 @@ All tables contain a `uuid` which is the primary key for the table; it is also t
 
 ### `couchdb`
 All documents are stored in the `couchdb` table; downstream models move fields from the document into fields and index them.
-Deleted documents will still be present in this table with the `_deleted` flag set to true.
+Deleted documents will still be present in this table with the `_deleted` flag set to `true`.
 This table can be used to get any field from a CouchDB document; however, it is recommended that the columns from downstream models be used instead for performance reasons.
 The name is configurable using the `POSTGRES_TABLE` environment variable.
 |Field|Description|
 |--|--|
 |`_id`|CouchDB's unique identifier of the record|
 |`saved_timestamp`| timestamp when this row was inserted|
-|`_deleted`| true if the document was deleted, false otherwise. |
+|`_deleted`| `true` if the document was deleted, `false` otherwise. |
 |`doc`| JSON of the source document|
 
 ### `document_metadata`
@@ -112,7 +112,7 @@ The contact hierarchy defines "is a" relationships between contact types; e.g., 
 |`reported`| the reported timestamp from the CouchDB document, stored as a date|
 |`notes`| |
 |`active`| |
-|`muted`| true if this contact has been muted|
+|`muted`| `true` if this contact has been muted|
 
 ### `contact_type`
 This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
@@ -150,7 +150,7 @@ The `contact_id` column contains a foreign key to a person contact who is the pr
 
 ## Building App models
 
-An overview of building dbt models can be found [here](https://docs.getdbt.com/docs/build/models)
+An overview of building dbt models can be found [in the dbt documentation](https://docs.getdbt.com/docs/build/models).
 The additional models that need to be developed for a CHT application are:
 
  - One model for each form
@@ -158,7 +158,7 @@ The additional models that need to be developed for a CHT application are:
  - Models to contain aggregates that may be useful for dashboards or analysis.
 
 ### Form models
-For each form in the CHT application that is relevant for analysis, create a model using the `cht_form_model` macro. This macro creates a model that selects from `data_record where form = 'theformyouwant'`, joins to the `couchdb` table to get the `jsonb` fields, moves the fields into columns, applies any convenient transformations, and, if necessary, add indexes to them.
+For each form in the CHT application that is relevant for analysis, create a model using the `cht_form_model` macro. This macro creates a model that selects from `data_record where form = 'theformyouwant'`, joins to the `couchdb` table to get the `jsonb` fields, moves the fields into columns, applies any convenient transformations, and, if necessary, adds indexes to them.
 
 To use this macro, select the fields to move into columns and any indexes as in the example below.
 
@@ -200,7 +200,7 @@ This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC
 {{ cht_form_model('pregnancy', form_columns, form_indexes) }}
 ```
 
-this creates the following model:
+This creates the following model:
 
 ```sql
   {{
@@ -252,8 +252,8 @@ this creates the following model:
 
 ### Contacts hierarchy
 
-The base models have tables for `person` and `place`, but its often useful for other contact types to have their own specialized tables, which can have additional columns specific to that type, and can have foreign keys to parents in the hierarchy.
-For example, households, patients, chws and supervisors are all common objects in data analysis, but do not have any definition common to all applications and so need to be build in application specific models.
+The base models have tables for `person` and `place`, but it's often useful for other contact types to have their own specialized tables, which can have additional columns specific to that type, and can have foreign keys to parents in the hierarchy.
+For example, households, patients, chws and supervisors are all common objects in data analysis, but do not have any definition common to all applications and so need to be built in application-specific models.
 
 To do this, use the `cht_contact_model` macro, specifying the `contact_type` id, any custom fields and indexes, and a list of parent models.
 
@@ -265,7 +265,7 @@ To do this, use the `cht_contact_model` macro, specifying the `contact_type` id,
 |`custom_contact_columns`| The columns to be selected, as a SQL string to be inserted into the SELECT clause, using `couchdb.doc` |
 |`custom_indexes`| Any additional indexes for the above columns, as a dbt index list |
 
-This example show how this macro can be used to build a household model which has some custom columns a foreign key to its parent, a community health area.
+This example shows how this macro can be used to build a household model which has some custom columns, a foreign key to its parent, and a community health area.
 
 ```sql
 {% set custom_fields %}
@@ -305,7 +305,7 @@ GROUP BY
 
 ### Aggregations
 It may be useful to save some common queries as views, so that they can be reused in dashboards or downstream aggregations.
-With the pregnancy form model above, if there was also a postnatal care form they could be joined to view outcomes together with registrations.
+With the pregnancy form model above, if there was also a postnatal care form, they could be joined to view outcomes together with registrations.
 
 ```sql
 {{
@@ -373,4 +373,4 @@ WHERE
 {% endif %}
 ```
 
-To be performant, the table this model is reading from needs to have the `saved_timestamp` column indexed.
+To be performant, the table from this model is reading form needs to have the `saved_timestamp` column indexed.
