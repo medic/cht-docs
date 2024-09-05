@@ -118,7 +118,7 @@ Otherwise, as Medic has selected AWS as it's provider to host production instanc
 
 The cloning process assumes you have access to EKS and to the snapshots and volumes you wish to clone and create.  This is not a permission granted to normal teammates who use EKS, so check with SRE as needed.  
 
-After checking your permissions,  first find a snapshot of the data you're wanting to clone.  Only production data has automated snapshots, so when cloning a development instance, manually create a snapshot first.  After finding the snapshot and it' ID (e.g. `snap-081d1cc18de16d8c7`), create a new volume from this snapshot.  Now label the volume so it's flagged for EKS use.  Finally, put your newly created volume ID  (e.g. `vol-047f57544f4085fb2`) in a `values.yml` file to use with `helm` and the [deploy](https://github.com/medic/cht-core/tree/master/scripts/deploy) script.
+After checking your permissions,  first find a snapshot of the data you're wanting to clone.  Only production data has automated snapshots, so when cloning a development instance, manually create a snapshot first.  After finding the snapshot and its ID (e.g. `snap-081d1cc18de16d8c7`), create a new volume from this snapshot.  Now label the volume so it's flagged for EKS use.  Finally, put your newly created volume ID  (e.g. `vol-047f57544f4085fb2`) in a `values.yml` file to use with `helm` and the [deploy](https://github.com/medic/cht-core/tree/master/scripts/deploy) script.
 
 Read on below for the exact steps on how to do this.
 
