@@ -156,7 +156,7 @@ Note that a number of these steps can be done either on the command line or in t
      ]
    }
    ```
-2. Now that you found your snapshot ID, use it to create a volume from. Being sure to replace `snap-432490821280432092` with your ID, call:
+2. Now that you found your snapshot ID, create a volume from it. Being sure to replace `snap-432490821280432092` with your ID, call:
    ```
    aws ec2 create-volume --region eu-west-2 --availability-zone eu-west-2b --snapshot-id snap-432490821280432092
    ```
