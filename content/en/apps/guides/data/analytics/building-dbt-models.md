@@ -11,7 +11,7 @@ relatedContent: >
 
 ## Overview
 
-[CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
+[CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
 [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [Database schema conventions]({{< ref "core/overview/db-schema" >}}).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
@@ -32,7 +32,7 @@ In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BR
 
 ### Deploying models
 
-CHT Sync automatically checks for updates to the dbt project at `CHT_PIPELINE_BRANCH_URL`
+CHT Sync automatically checks for updates to the dbt project at `CHT_PIPELINE_BRANCH_URL`.
 Use the `main` branch for changes that should be released; they will be applied as soon as they are pushed to the repository.
 For models that are in development, any other branch can be used.
 
