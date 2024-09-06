@@ -76,7 +76,8 @@ The document itself is not copied to this table; to use it requires joining to t
 |--|--|
 |`uuid`|CouchDB's unique identifier of the record|
 |`saved_timestamp`|timestamp when this row was inserted|
-|`type`|The general type of the document, see below|
+|`doc_type`|The general type of the document, see below|
+|`_deleted`| in this table, always false; rows which are copied with `_deleted = true` are immediately deleted  |
 
 ### `data_record`
 All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
