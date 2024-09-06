@@ -13,20 +13,20 @@ relatedContent: >
 
 [CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
-[cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [Database schema conventions]({{< ref "core/overview/db-schema" >}}).
+The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions]({{< ref "core/overview/db-schema" >}}).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
 
 ## Setup
 
-To create application specific models, create a  [new dbt project](https://docs.getdbt.com/reference/commands/init). Edit the `packages.yml` in your new dbt project to add [cht-pipeline](https://docs.getdbt.com/docs/build/packages) as a dependency. So that you can track changes in your models, put your dbt new project in a GitHub repository (it may be public or private).
+To create application specific models, create a [new dbt project](https://docs.getdbt.com/reference/commands/init). Edit the `packages.yml` in your new dbt project to add [cht-pipeline](https://github.com/medic/cht-pipeline) as a dependency. So that you can track changes in your models, put your dbt new project in a GitHub repository (it may be public or private).
 ```yml
 packages:
   - git: "https://github.com/medic/cht-pipeline"
-    revision: "v1.0.0"
+    revision: "v1.2.0"
 ```
-To avoid breaking changes in downstream models, include a version tag in the dependency.
+To avoid breaking changes in downstream models, include `revision` in the dependency, which should be a version tag for `cht-pipeline`.
 
 In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "apps/guides/data/analytics/environment-variables" >}}), either in `.env` if using `docker compose`, or in `values.yaml` if using Kubernetes.
 
@@ -46,7 +46,7 @@ When it is necessary to update the base models, update the version tag in the de
 
 ### Testing models and dashboards
 
-It is highly encouraged to write [dbt tests]({{< ref "apps/guides/data/analytics/testing-dbt-models" >}}) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/test).
+It is highly encouraged to write [dbt tests]({{< ref "apps/guides/data/analytics/testing-dbt-models" >}}) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
 
 
 ## Base Models
@@ -56,7 +56,7 @@ All tables contain a `uuid` which is the primary key for the table; it is also t
 {{< figure src="cht-pipeline-er.png" link="cht-pipeline-er.png" class=" center col-16 col-lg-12" >}}
 
 ### `couchdb`
-All documents are stored in the `couchdb` table; downstream models move fields from the document into fields and index them.
+All documents are stored in the `couchdb` table; downstream models move fields from the document into columns and index them.
 Deleted documents will still be present in this table with the `_deleted` flag set to `true`.
 This table can be used to get any field from a CouchDB document; however, it is recommended that the columns from downstream models be used instead for performance reasons.
 The name is configurable using the `POSTGRES_TABLE` environment variable.
@@ -77,7 +77,7 @@ The document itself is not copied to this table; to use it requires joining to t
 |`uuid`|CouchDB's unique identifier of the record|
 |`saved_timestamp`|timestamp when this row was inserted|
 |`doc_type`|The general type of the document, see below|
-|`_deleted`| in this table, always false; rows which are copied with `_deleted = true` are immediately deleted  |
+|`_deleted`| in this table, always `false`; rows which are copied with `_deleted = true` are immediately deleted  |
 
 ### `data_record`
 All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
@@ -95,8 +95,6 @@ This table contains columns for the contact who made the report, the parent of t
 |`contact_uuid`| uuid of the `contact` who made the report|
 |`parent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 |`grandparent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
-
-The `contact_uuid` column contains a foreign key to the `contact` table.
 
 ### `contact`
 See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
@@ -280,33 +278,12 @@ This example shows how this macro can be used to build a household model which h
 
 ```
 
-### Aggregates
-
-To aggregate on contacts and report data, join to the `data_record` and `contact` tables as in the example below.
-
-```sql
-SELECT
-  COUNT(*),
-  chw.uuid as chw_uuid,
-  chw.name as chw_name,
-  area.uuid as area_uuid,
-  area.name as area_name,
-  date_trunc('month', pregnancy.reported) as report_month
-FROM
-  pregnancy
-INNER JOIN contact chw ON chw.uuid = data_record.contact_uuid
-LEFT JOIN contact area ON area.uuid = data_record.parent_contact_uuid
-GROUP BY
-  chw.uuid,
-  chw.name,
-  area.uuid,
-  area.name,
-  report_month;
-```
-
 ### Aggregations
+
+After defining the form and contact models, they can be joined together by subject (`patient_id` or `place_id`), `reported_by`, or any of the other contact fields, to build aggregates of form submissions grouped by report date, area, or reporter.
+
 It may be useful to save some common queries as views, so that they can be reused in dashboards or downstream aggregations.
-With the pregnancy form model above, if there was also a postnatal care form, they could be joined to view outcomes together with registrations.
+For example, with the pregnancy form model above, if there was also a postnatal care form, they could be joined to view outcomes together with registrations.
 
 ```sql
 {{
@@ -343,7 +320,7 @@ WHERE
 There are two options for building models using dbt: _views_ and _incremental tables_; see a full description [in the dbt documentation](https://docs.getdbt.com/docs/build/materializations).
 In short, views are normal SQL views, and incremental tables are actual tables, which are periodically updated as new data is created, updated or deleted.
 
-For CHT dbt models, it is generally preferred to start with materialized views. Materialized views are refreshed on every `dbt run`, columns can still be indexed, and they don't require much extra configuration. Non-materialized or non-incremental tables are possible but not recommended because they are unavailable during `dbt run` and anything that depends on them (including dashboards) will also be unavailable. Some base models use incremental tables to ensure good performance for `dbt run`.
+For CHT dbt models, it is generally preferred to start with materialized views. Materialized views are refreshed on every `dbt run`, columns can still be indexed, and they don't require much extra configuration. Non-materialized views or non-incremental tables are possible but not recommended because they are unavailable during `dbt run` and anything that depends on them (including dashboards) will also be unavailable. Some base models use incremental tables to ensure good performance for `dbt run`, because materialized views can take a long time to refresh.
 
 To convert a view to an incremental table, change the materialization to `incremental` and add a condition to the `WHERE` clause:
 
