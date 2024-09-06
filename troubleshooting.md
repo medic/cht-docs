@@ -21,7 +21,7 @@ You can see the list of Hugo releases [here](https://github.com/gohugoio/hugo/re
 
 There's currently an [issue running versions later than `0.123` or later](https://github.com/medic/cht-docs/issues/1302).  You should run `0.122` to avoid the error until this issue is fixed.  Follow these steps to install the older `0.122` version.  While they mention `snap` which is specific to Linux, the install steps should work for macOS and Windows with WSL 2 as well: 
 
-1. Remove the too new verison of `hugo`.  If you used `snap`, you can uninstall with: `sudo snap remove hugo`
+1. Remove the too new version of `hugo`.  If you used `snap`, you can uninstall with: `sudo snap remove hugo`
 2. Download the specific `hugo` tarball: `wget https://github.com/gohugoio/hugo/releases/download/v0.122.0/hugo_extended_0.122.0_linux-amd64.tar.gz`
 3. Uncompressed it: `tar xvzf hugo_extended_0.122.0_linux-amd64.tar.gz`
 4. Move the binary into your `$PATH`: `sudo mv hugo /usr/local/bin`
@@ -41,7 +41,7 @@ sudo sysctl -w kern.maxfiles=100000
 sudo sysctl -w kern.maxfilesperproc=65535
 ```
 
-To ensure these calls are made every time before runing `hugo server`, consider using this script. Be sure to update the `HUGO_DIRECTORY` to match your install:
+To ensure these calls are made every time before running `hugo server`, consider using this script. Be sure to update the `HUGO_DIRECTORY` to match your install:
 
 ```shell
 #!/bin/bash
@@ -53,7 +53,7 @@ sudo sysctl -w kern.maxfilesperproc=65535
 hugo server
 ```
 
-Save this in file with the `.commmand` suffix (e.g. `cht-docs-server.command`) to enable an easy double clicking to start the server.
+Save this in file with the `.command` suffix (e.g. `cht-docs-server.command`) to enable an easy double clicking to start the server.
 
 Note - be sure to enter your MacOS user password in the terminal when prompted. 
 

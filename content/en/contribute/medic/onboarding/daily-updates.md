@@ -7,10 +7,10 @@ description: >
 ---
 
 ## What
-In our fully remote environment, staying connected and informed is crucial. One of the ways we can ensure transparency, and collaboration, and keep everyone in the loop is by utilizing the #dailies channel in Slack for sharing daily updates.  
+In our fully remote environment, staying connected and informed is crucial. One of the ways we can ensure transparency, and collaboration, and keep everyone in the loop is by utilizing the *#product-dailies* channel in Slack for sharing daily updates.  
 
 ## Who
-All the Product Team members are expected to share daily updates in Slack (#dailies channel). Due to the nature of their work, Leadership Product colleagues might share less regular, but more consolidated updates. 
+All the Product Team members are expected to share daily updates in Slack (*#product-dailies* channel). Due to the nature of their work, Leadership Product colleagues might share less regular, but more consolidated updates. 
 
 ## Why are daily updates essential? 
 Here's why it's relevant:
@@ -21,16 +21,16 @@ Here's why it's relevant:
 
 - **Accountability**: Sharing daily updates holds us all accountable for our tasks and goals. It helps us track progress and ensure that we're moving forward on our projects. Plus, it motivates us to stay focused and productive.
 
-- **Remote Communication**: In a fully remote setup, communication can sometimes be a challenge. The #dailies channel serves as a centralized hub for communication, making it easier for us to stay connected despite the physical distance.
+- **Remote Communication**: In a fully remote setup, communication can sometimes be a challenge. The *#product-dailies* channel serves as a centralized hub for communication, making it easier for us to stay connected despite the physical distance.
 
 - **Celebrating Wins and Learning from Challenges**: Sharing daily updates isn't just about reporting tasks; it's also about celebrating our wins, big or small, and learning from the challenges we encounter. It allows us to acknowledge achievements, share best practices, and support each other in overcoming obstacles.
 
 - **Improves team morale**: Team status updates don’t single out blocked team members. Plus, everyone feels like they are contributing to the team.
 
-By embracing the #dailies channel and actively participating in sharing our daily updates, we strengthen our team collaboration, enhance transparency, and ultimately drive our collective success.
+By embracing the *#product-dailies* channel and actively participating in sharing our daily updates, we strengthen our team collaboration, enhance transparency, and ultimately drive our collective success.
 
 ## What this looks like in practice?
-Daily updates in the #dailies Slack channel are *mandatory* for the whole Product Team. 
+Daily updates in the *#product-dailies* Slack channel are *mandatory* for the whole Product Team. 
 
 You can find some examples of prompts to answer in your daily update below (Feel free to answer how many you wish. Also, feel free to find another prompts that make more sense to you at the moment when you write your update): 
 - Are there any blockers or impediments preventing you from doing your work?
@@ -74,7 +74,7 @@ A: We shared some [examples of updates]({{< relref "#bad-update-vs-good-update-e
 ### Q: What should I do if I have no significant updates for the day?
 A: If you don’t have significant updates about what you did, you can always share updates about how you feel about it. Maybe a task was simply straightforward and it doesn’t require many updates. Or maybe there were a number of difficult, unforeseen issues that came up, and you didn’t progress as much as you wanted. Maybe you had a super productive day. Tell the team how you feel; the channel is a safe space to speak honestly! (*Pro tip*: [Feelings Wheel](https://feelingswheel.com/))
 
-### Q: Is it okay to post challenges or roadblocks in the #dailies?
+### Q: Is it okay to post challenges or roadblocks in the *#product-dailies*?
 A: Absolutely, someone can help you after reading your update. If you think of someone in particular who could give you a hand, just tag them!
 
 ### Q: Should I respond to other team members' updates in the daily channel?

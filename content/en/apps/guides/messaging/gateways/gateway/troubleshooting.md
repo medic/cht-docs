@@ -11,7 +11,7 @@ relatedContent: >
   apps/guides/messaging/gateways/gateway/configuration
 ---
 
-In a techlead heaven, we would have immeadiate physical access to gateway phones, but alas, most of the time we have to hand them over to the partner. Fortunately, comes this guide on debugging gateway problems.
+In a techlead heaven, we would have immediate physical access to gateway phones, but alas, most of the time we have to hand them over to the partner. Fortunately, comes this guide on debugging gateway problems.
 
 Follow the steps as below (if you don't have physical access to the phone, start with step 2 i.e debug from the server side first)
 
@@ -22,9 +22,9 @@ Follow the steps as below (if you don't have physical access to the phone, start
 
         ![Settings Screen](settings_screen.png)
 
-	3. Has the latest Gateway version. Get the latest version by opening the Google Playstore, searching for `Medic Gateway` and updating the existing app
+	3. Has the latest Gateway version. Get the latest version by opening the Google Play Store, searching for `Medic Gateway` and updating the existing app
 
-	4. Medic Gatway should be set as the default app for SMS. To check, go to `Settings` in the Gateway app. If Medic Gateway is not the default, you will be met with the below app screen. In that case, click `Help me change`.
+	4. Medic Gateway should be set as the default app for SMS. To check, go to `Settings` in the Gateway app. If Medic Gateway is not the default, you will be met with the below app screen. In that case, click `Help me change`.
 
         ![Not Default](not_default.png)
 
@@ -36,7 +36,7 @@ Follow the steps as below (if you don't have physical access to the phone, start
 
 	8. Check if the phone has adequate free space
 
-	9. Restart the phone if no solution seems to work. Resetting the Adroind state sometimes resolves some persistent problems
+	9. Restart the phone if no solution seems to work. Resetting the Android state sometimes resolves some persistent problems
 
 2.  When attacking the problem from the phones end does not work, move on to the server and try to solve it from there. Maybe the server has a configuration issue which hinders the processing or the acceptance of the messages by `Medic-Api`
 Follow the steps:

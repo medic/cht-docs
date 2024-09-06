@@ -19,7 +19,7 @@ relatedContent: >
 
 ## Copy certs into medic-os container
 
-On your server  copy the `.crt` and `.key` files to the `medic-os` container. The existing self signed `.crt` and `.key` files will be overwitten:
+On your server  copy the `.crt` and `.key` files to the `medic-os` container. The existing self signed `.crt` and `.key` files will be overwritten:
 
 ```bash
 sudo docker cp /path/to/ssl.crt medic-os:/srv/settings/medic-core/nginx/private/default.crt

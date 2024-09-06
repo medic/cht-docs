@@ -214,11 +214,30 @@ To instruct the widget to process an array of strings or numbers, create a new `
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
 
+### Phone number input
+
+When accepting telephone numbers in a form, the phone widget validates the given phone number is valid for the server's configured locale and can optionally check to see if a duplicate contact already exists with the same phone number.
+
+To use the widget, create a `string` field with the appearance `numbers tel`. This will produce a text box input field in the form where the user can enter the phone number. Values entered for this field will be rejected if they are not valid phone numbers for the server's configured `default_country_code` (as determined by the [google-libphonenumber](https://github.com/google/libphonenumber) library).  Additionally, valid input will be normalized to the `E164` format (e.g. `+1234567890`) before storing it in the form data model.
+
+The widget can also reject phone numbers that are already associated with an existing contact. (A contact already exists with the same phone number value in its `phone` field.) To enable this duplicate checking for a particular field, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, in the "survey" tab, add a column called `instance::cht:unique_tel` and set the value to `true` for the phone number field.
+
+A validation failure, either for an invalid or duplicate phone number will prevent the form from being submitted. To also display an error message to the user, set `true` in the `constraint` column for the phone number field and enter localized messages in the desired `constraint_message::xx` columns.
+
+| type   | appearance  | instance::cht:unique_tel | constraint | constraint_message::en             |
+|--------|-------------|--------------------------|------------|------------------------------------|
+| string | numbers tel | true                     | true       | Please enter a valid phone number. |
+
+
+{{% alert title="Note" %}}
+Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact. 
+{{% /alert %}}
+
 ## CHT XPath Functions
 
 ### `add-date`
 
-_Available in +4.0.0._
+_Added in 4.0.0._
 
 Adds the provided number of years/months/days/hours/minutes to a date value. 
 
@@ -232,13 +251,13 @@ You can also add negative numbers to get dates in the past. This can be used to 
 
 ### `cht:difference-in-days`
 
-_Available in +4.7.0._
+_Added in 4.7.0._
 
 Calculates the number of whole days between two dates.
 
 ### `cht:difference-in-weeks`
 
-_Available in +4.7.0._
+_Added in 4.7.0._
 
 Calculates the number of whole calendar weeks between two dates.
 
@@ -252,9 +271,46 @@ For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` funct
 
 ### `cht:difference-in-years`
 
-_Available in +4.7.0._
+_Added in 4.7.0._
 
 Calculates the number of whole calendar years between two dates.
+
+### `cht:extension-lib`
+
+_Added in 4.2.0._
+
+This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
+
+### `cht:strip-whitespace`
+
+_Added in 4.10.0._
+
+Removes all whitespace characters from a string.
+
+### `cht:validate-luhn`
+
+_Added in 4.10.0._
+
+Validate a given number using the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) to help detect typos. Provide the field as the first parameter and optionally include the expected string length in the second parameter. Returns `true` if the number is valid.
+
+### `parse-timestamp-to-date`
+
+_Added in 3.13.0._
+
+Use this function to parse from a timestamp number to a date. This is useful when using other XForm utility functions that receive date type as parameter, see example below:
+
+| type | name | label | calculation | default | ... |
+|------|------|-------|-------------|---------|-----|
+| string | start_date_time | NO_LABEL |    | 1628945040308 |
+| string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
+
+### `to-bikram-sambat`
+
+_Added in 3.14.0._
+
+This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
+
+See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
 
 ### `z-score`
 
@@ -264,7 +320,7 @@ The `z-score` function takes four parameters:
 - The name of z-score table to use, which corresponds to value of the database document's `_id` attribute.
 - Patient's sex, which corresponds to the data object's name. In the example below `male` for this parameter corresponds to `charts[].data.male` in the database document.
 - First parameter for the table lookup, such as age. Value maps to the `key` value in the database document.
-- Second parameter for the table lookup, such as height. Value is compared against the `points` in the databae document.
+- Second parameter for the table lookup, such as height. Value is compared against the `points` in the database document.
 
 #### Example Use
 [This example XForm form](https://github.com/medic/cht-core/blob/3.13.x/demo-forms/z-score.xml) shows the use of the z-score function. To calculate the z-score for a patient given their sex, age, and weight the XPath calculation is as follows:
@@ -277,56 +333,17 @@ The data used by this function needs to be added to CouchDB. The example below s
 ```json
 {
   "_id": "zscore-charts",
-  "charts": [
-    {
-      "id": "weight-for-age",
-      "data": {
-        "male": [
-          {
-            "key": 0,
-            "points": [
-              1.701,
-              2.08,
-              2.459,
-              2.881,
-              3.346,
-              3.859,
-              4.419,
-              5.031,
-              5.642
-            ]
-          }
-        ]
-      }
+  "charts": [{
+    "id": "weight-for-age",
+    "data": {
+      "male": [{
+        "key": 0,
+        "points": [ 1.701, 2.08, 2.459, 2.881, 3.346, 3.859, 4.419, 5.031, 5.642 ]
+      }]
     }
-  ]
+  }]
 }
 ```
-
-### `parse-timestamp-to-date`
-
-_Available in +3.13.0._
-
-Use this function to parse from a timestamp number to a date. This is useful when using other XForm utility functions that receive date type as parameter, see example below:
-
-| type | name | label | calculation | default | ... |
-|------|------|-------|-------------|---------|-----|
-| string | start_date_time | NO_LABEL |    | 1628945040308 |
-| string | start_date_time_formatted | Started on: | format-date-time(**parse-timestamp-to-date(${start_date_time})**, "%e/%b/%Y %H:%M:%S") |  |
-
-### `to-bikram-sambat`
-
-_Available in +3.14.0._
-
-This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
-
-See also: [Bikram Sambat Datepicker]({{< ref "apps/reference/forms/app#cht-xform-widgets" >}})
-
-### `cht:extension-lib`
-
-_Available in +4.2.0._
-
-This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
 ## Input data
 

@@ -23,9 +23,9 @@ Sentinel has now made a change to the first version of your document, and you're
 
 ## How to manage conflicts
 
-Conflicts will appear on the #downtime Slack channel, along with the other alerts. If a server you manage has a conflict, you should do the following:
+If a server you manage has a conflict, you should do the following:
 
-### Identify why conflicts are occuring
+### Identify why conflicts are occurring
 
 Take a look at the conflicts view, at `https://yourserver/medic/_design/medic-conflicts/_view/conflicts`. Each entry in that view looks like this:
 ```json
@@ -59,7 +59,7 @@ If you get stuck feel free to escalate to a developer, who can take a look.
 
 If you determine (or just suspect) that the problem could be in our code or data structures, feel free to raise a bug to development. For example, historically read status has been stored against the document, which can easily cause conflicts if you create a document and then instantly view it with sentinel processing in the background.
 
-While some conflicts are inevitable, we want to architect away from them as much as possible. Ideally tech leads would never have to resolve conflicts.
+While some conflicts are inevitable, we want to architect away from them as much as possible.
 
 ### Regardless, resolve the conflicts
 
@@ -221,4 +221,4 @@ This will help you to identify which documents are affected by this change. Usua
 
 In this example, there are two references to `7FADDF76-55E4-4E50-9444-5E468E61EA83`, both in the `1B7922A6-A6D6-C956-BBAE-DE5EB5A2E6C8` document, one at `fields.inputs.contact._id` and one at `fields.patient_id`.
 
-If you get stuck, feel free to contact a developer (either a specific one, or just post in `#development`) and they can help you out.
+If you get stuck, feel free to raise a question in the [CHT forum](https://forum.communityhealthtoolkit.org) and people can help you out.

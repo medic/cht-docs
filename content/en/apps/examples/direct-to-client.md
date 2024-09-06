@@ -102,7 +102,7 @@ If the client has not responded to any of the daily check in-messages by day 3, 
 A VMMC client who responds with a potential complication triggers a Client review: Potential complication task for the 2WT nurse. They then report and fill in whether the client was reviewed by a clinician. If the client has been reviewed by a clinician, they record the details of the review, time, place and adverse events identified. If the client has not been reviewed by a clinician, the 2WT nurse will try and trace them by SMS, phone call or a home visit; and report the tracing outcomes as shown in figure 6 below.
 
 
-{{< figure src="Figure6Escalted.png"  link="Figure6Escalted.png" alt="" title="" caption="<b>Figure 6:</b> Direct-to-client messaging for voluntary male circumcision clients without adverse effects" class="col-9">}}
+{{< figure src="Figure6Escalated.png"  link="Figure6Escalated.png" alt="" title="" caption="<b>Figure 6:</b> Direct-to-client messaging for voluntary male circumcision clients without adverse effects" class="col-9">}}
 
 
 #### 4. Clients can share requests by messaging health care providers.

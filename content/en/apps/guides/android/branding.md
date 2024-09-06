@@ -63,7 +63,7 @@ If you are going to publish the app in the **Play Store**, Google will require t
 - A background image.
 - Screenshots.
 
-Google is constantly changing the requirments to publish in the Play Store, it's a good practice to check in advance whether all the requirements are met (checkout _[Add preview assets...](https://support.google.com/googleplay/android-developer/answer/9866151)_).
+Google is constantly changing the requirements to publish in the Play Store, it's a good practice to check in advance whether all the requirements are met (checkout _[Add preview assets...](https://support.google.com/googleplay/android-developer/answer/9866151)_).
 
 ##### Test data
 
@@ -233,7 +233,7 @@ Releasing a new flavor requires the following steps:
 1. Make a pull request to the release branch in the CHT Android repository.
 2. Once approved it's recommended to create an alpha version to do final tests.
 3. Merge the pull request.
-4. [Release the flavor]({{< ref "apps/guides/android/publishing" >}}).
+4. [Release the flavor]({{< ref "contribute/code/android/releasing" >}}).
 
 ### 6. Publish the app
 
@@ -256,6 +256,20 @@ All you have to do to make the CHT serve your assetlinks at `/.well-known/assetl
    keytool -printcert -jarfile ./path/to/project.apk
    ```
 3. Set the cert fingerprint in the [`assetlinks` configuration]({{< ref "apps/reference/app-settings/assetlinks" >}}) for your CHT instance and deploy it to your server with cht-conf.
+
+#### Note for Apps Using Google Play Signing
+
+For apps signed by Google Play, you need to use the SHA256 fingerprint provided in the Google Play Console to ensure successful domain verification.
+
+#### Steps to Retrieve SHA256 Fingerprint from Google Play
+
+1. **Log in to Google Play Console**.
+2. **Navigate to your app**: Select your app from the list of published applications.
+3. **Setup > App signing**: In the left-hand menu, under the Setup Menu, there is App Signing.
+4. **Find SHA256 fingerprint**: Google Play will display the SHA256 fingerprint required for your app.
+5. **Update assetlinks.json**: Use this SHA256 fingerprint in your `assetlinks.json` file. (Google Play also provides the full JSON)
+
+Once added and pushed to the server, the deep link can be monitored from the console as well, under the **Deep Links** in the left-hand menu where the Play Console allows you to check the deep link settings and also provides hints to fix any errors (providing the right SHA256 fingerprint to add).
 
 ### Verifying it works
 

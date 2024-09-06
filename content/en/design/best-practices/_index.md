@@ -318,9 +318,9 @@ H4: normal body text
 
 - Bold text is indicated by ** or “bold” or `<strong>`
 - Italic text is indicated by * or “italic” or _
-- List item is indicated by either specifying li in the appearance column or formating the label text using html tag li
+- List item is indicated by either specifying li in the appearance column or formatting the label text using html tag li
 - Numbers: needs to be hard coded
-- H1, h2, h3 ..., em, i, ul, li, p, span html tags work as expected including use of the style attribute within the tages e.g `<i style=”color: red”></i>`
+- H1, h2, h3 ..., em, i, ul, li, p, span html tags work as expected including use of the style attribute within the tags e.g `<i style=”color: red”></i>`
 - Explicit new line space translates to a new line (`\n` translates to a hard break)
 - You could potentially specify an inline list using standard html
 `<ol><li>Blah</li></ol> (ordered list)`

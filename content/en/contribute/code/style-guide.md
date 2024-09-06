@@ -8,14 +8,21 @@ description: >
 
 ## Language
 
-Prefer JavaScript or TypeScript wherever possible, including in webapps, on the server, and for scripting. This is because:
-
-- every developer on the team knows it already, so we can all maintain it together,
-- it makes it easy to write cross-platform code and we have developers on all major operating systems,
-- it has a vast number of libraries that are easy to include, and
-- it's easy to unit test
+Prefer **TypeScript** and **JavaScript** when writing CHT code.
 
 Exceptions to this can be made on a case-by-case basis, but the decision must be made collectively before coding has begun to avoid having to rewrite.
+
+### Web applications
+
+Use TypeScript. This is preferred because it has all the benefits of JavaScript while adding better developer tooling and compile time checks which can detect bugs earlier. It is not essential to use types for every variable, but it's highly recommended for exported interfaces to help future developers who don't know the internal workings of a module. There currently exists a mix of JavaScript and TypeScript in the codebase as it is gradually being migrated to use more TypeScript.
+
+### Server side
+
+Use JavaScript. One of the major advantages of using pure JavaScript on the server side is because you don't have a compile step there is a shorter lag between development and execution of the code. Furthermore when running compiled code in production it is more difficult to debug issues because the error stacktrace is obfuscated. For these reasons JavaScript is still preferred for server side code, and in scripts. In future it may be possible to run TypeScript natively without compilation, at which point this position will be revisited.
+
+### Scripting
+
+Use JavaScript. It's well known in the community, it's easy to write cross-platform code, the npm repository is extensive, and it's easy to unit test.
 
 ## Styles
 

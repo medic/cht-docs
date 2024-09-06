@@ -8,57 +8,43 @@ relatedContent: >
   apps/reference/translations
 ---
 
-Apps built with CHT Core are localized so that users can use it in the language of their choice. It is currently available in English, French, Hindi, Nepali, Spanish, and Swahili. The goal of this doc is to help our team manage these and future translations.
+Apps built with CHT Core are localized so that users can use them in the language of their choice. Languages supported by default are English, French, Nepali, Spanish, and Swahili. The goal of this doc is to help the community manage these and future translations.
 
 ## Overview
-Like the rest of our code, the translation files live in our GitHub repo. These translation files are [properties](https://en.wikipedia.org/wiki/.properties) files, which are a series of keys and their corresponding values. We use the English file as our default, and as such contains the entire set of keys. If any key is missing from another language file the English value is used.
 
-In order to collaboratively edit the translations we use POEditor.com. Translators can be given access to specific languages so that we can more effectively edit language text to be included in CHT Core. Once the text is ready it can be exported from POEditor to GitHub and included in the next release of our app.
-
-Note that "keys" in .properties files are referred to as `terms` in POEditor.
+Like the rest of the code the translation files live in the GitHub repo. These translation files are [properties files](https://en.wikipedia.org/wiki/.properties), which are a series of keys and their corresponding values. The English file is used by default, and as such, it contains the entire set of keys. If any key is missing from another language file the English value is used.
 
 ## Adding new languages
-New languages must be added and configured in several places:
-- *In GitHub*
-  - Create a new `messages-XX.properties` file in the [`api/resources/translations`](https://github.com/medic/cht-core/tree/master/api/resources/translations) folder, replacing XX with the 2 or 3 letter language code.
-  - Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/master/api/src/translations.js#L8). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
-  - Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/3.11.x/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
-- *In POEditor*
-  - In the [CHT Core project](https://poeditor.com/projects/view?id=33025), add the language
-  - Add translations for a new language in the POEditor app
-  - Export file from POEditor to GitHub, as described below
 
+New languages must be added and configured in several places:
+
+- Create a new `messages-xx.properties` file in the [`api/resources/translations`](https://github.com/medic/cht-core/tree/master/api/resources/translations) folder, replacing "xx" with the 2 or 3 letter [language code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+- Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/api/src/translations.js#L17). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
+- Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
 
 ## Adding new keys
-In order to trace the addition of new terms and also updates to existing translations,
-the default translation file (messages-en.properties) must be updated directly.
-Our GitHub repo provides with a [command line tool (CLI)](https://github.com/medic/cht-core/tree/master/scripts/poe) to
-import updates into the POEditor app.
-If you don't have an API token, please contact a Medic developer. Please do not disclose this API token to anyone else.
+
+1. First check if an appropriate key already exists in [`messages-en.properties`](https://github.com/medic/cht-core/blob/master/api/resources/translations/messages-en.properties). Using existing keys when possible reduces the effort required to translate the app into a new language.
+2. Create a new key and default English value.
+3. Reach out to the community to translate the value into all supported languages. The CI will block merging PRs unless all values are provided.
+4. Validate the translations are complete and correct by executing `npm run lint-translations`.
 
 ### Translating static text
 
-All text in the app is internationalised.
+In angular this is done using angular-translate, and ideally using the [translate directive](http://angular-translate.github.io/docs/#/guide/05_using-translate-directive) to reduce the number of watchers, eg: `<h3 translate>date.incorrect.title</h3>`.
 
-- Pick a key.
-  - First check if an appropriate key already exists in messages-en.properties (medic/config/standard/translations).
-  - Otherwise create a new key and default English value. Keys must be all lower case, dot separated, and descriptive but not verbose. The values should include as much text as possible (eg: trailing punctuation), and must not contain any markup. Don't add any values for other languages as this will be done later in the POEditor app.
-- Use the translation. In angular this is done using angular-translate, and ideally using the [translate directive](http://angular-translate.github.io/docs/#/guide/05_using-translate-directive) to reduce the number of watchers, eg: `<h3 translate>date.incorrect.title</h3>`.
-
-### Translating help pages
-
-Because help pages are too large to manage easily through the standard translation mechanism, and we want to include lots of markup, help pages are translated by providing md documents for each language. This isn't yet up and running so ask for help.
+Use the translation functions in the config module in [API](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/api/src/config.js#L72) and [Sentinel](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/sentinel/src/config.js#L88).
 
 ### Translating configurations
 
-Much of the app is configurable (eg: forms and schedules). Because the specifics of the configuration aren't known during development time these can't be provided via messages. Instead we allow configurers to provide a map of locale to value for each translated property. Then use the `translateFrom` filter to translate from the configured map using the user's language.
+Much of the app is configurable (eg: forms and schedules). Because the specifics of the configuration aren't known during development time, these can't be provided via messages. Instead configurers can provide a map of locale to value for each translated property. Then use the `translateFrom` filter to translate from the configured map using the user's language.
 
 ## Modifying any existing translation values
-To be done *only* by updating messages-en.properties, importing to POEditor through the CLI tool and updating the other language translations through the POEditor app.
 
-## Modifying or removing translation keys:
-To be done *only* by updating messages-en.properties and importing to POEditor through the CLI tool.
+1. Update the default English value.
+2. Reach out to the community to translate the value into all supported languages.
+3. Validate the translations are complete and correct by executing `npm run lint-translations`.
 
-## Exporting changes from POEditor to GitHub
-To be done *only* by exporting all translations through the CLI tool.
-If you don't have an API token, please contact a Medic developer. Please do not disclose this API token to anyone else.
+## Removing translation keys
+
+Carefully verify that the translation key isn't used. This can be challenging if keys have been concatenated or generated because then you won't be able to find the complete string in the source code. Once this has been confirmed, then simply remove the key and value from all translation files.

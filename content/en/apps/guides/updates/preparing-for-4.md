@@ -4,6 +4,7 @@ linkTitle: "Preparing to upgrade to CHT 4.0"
 weight:
 aliases:
   - /apps/guides/hosting/3.x/preparing-for-4.0
+  - /apps/guides/updates/preparing-for-4.md
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 4.0 and later
   
@@ -215,9 +216,17 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 
 #### Known issues
 
+##### Active
+
+* [A regression](https://github.com/medic/cht-core/issues/8225) added in `4.6.0`, causes the [contact selector functionality](https://docs.communityhealthtoolkit.org/apps/guides/forms/form-inputs/#contact-selector) to not work as expected when loading contact data into the `inputs` group _when the group is non-relevant._ More details, including a viable workaround, are documented on the  [issue](https://github.com/medic/cht-core/issues/8225).
+
+##### Resolved
+
 * The answer to a non-relevant question [is not immediately cleared](https://github.com/medic/cht-core/issues/7674) when the question becomes non-relevant and is still provided to XPath expressions that reference the question. When the form is submitted, the non-relevant answers will be cleared and any dependent XPath expressions will be re-evaluated.
     * This behavior applies both to questions that were answered and later became non-relevant as well as to questions which have configured default values.
+    * This issue was resolved in CHT `4.6.0` and so only affects versions `4.0` - `4.5`. 
 * In `3.x` versions of the CHT you could simulate a _bulleted list_ in a form label (e.g. a `note`) by using `-` or `*`. Now, in `4.x`, the bullets are no longer properly displayed in the label due to [this bug](https://github.com/medic/cht-core/issues/8002). 
+    * This issue was resolved in CHT `4.6.0` and so only affects versions `4.0` - `4.5`.
 
 #### Community cht-upgrade-helper
 

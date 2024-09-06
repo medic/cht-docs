@@ -98,13 +98,87 @@ An example of a good thorough comment/template is as follows:
 
 Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) dedicated page).
 
-Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or addding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
+Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or adding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
 
 All features and bug fixes must have at least one unit test. All features must have at least one end-to-end test.
 
 The CHT has a [fully automated end-to-end testing suite](https://github.com/medic/cht-core/tree/master/tests/e2e) which is executed in CI and must pass before any change is merged. This means you can have reasonable confidence that all code merged to the main branch is safe and ready for release without further regression testing. The suite isn't fully comprehensive but it is being constantly improved and expanded.
 
 From time to time QA Engineers will perform smoke tests, scalability tests, performance tests, and penetration tests to pick up on gradual regressions that may have crept in. The ultimate goal is that these tests will eventually be automated and added to the CI suite as well.
+
+Use the following template for QA feedback throughout the development.
+
+{{< tabpane persist=false lang="markdown">}}
+{{< tab header="Test passed" >}}
+
+### Test details
+
+**Config:** <Default/standard>
+**Environment:** <Local>
+**Platform:** <WebApp>
+**Browser:** <Chrome>
+
+---
+
+### Test scenario:
+Description of the scenario - This is not required for all the tests
+
+### Reproducible on `master`
+A small description of how it was reproduced, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</summary>
+</details>
+
+### Fixed on `####-branch-name`
+A small description, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</summary>
+</details>
+
+---
+
+Test passed successfully. :white_check_mark:
+The ticket is ready to merge.
+@<developer's name>
+
+{{< /tab >}}
+{{< tab header="Test failed" >}}
+### Test details
+
+**Config:** <Default/standard>
+**Environment:** <Local>
+**Platform:** <WebApp>
+**Browser:** <Chrome>
+
+---
+
+### Test scenario:
+Description of the scenario - This is not required for all the tests
+
+### Reproducible on `master`
+A small description of how it was reproduced, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</summary>
+</details>
+
+### Not working on `####-branch-name`
+A small description, and images or videos that support the comment.
+
+<details>
+<summary>Image/video attached</summary>
+</details>
+
+---
+
+Test failed :x:
+The ticket needs further development.
+@<developer's name>
+
+{{< /tab >}}
+{{< /tabpane >}}
 
 ### Migrating
 
@@ -173,100 +247,51 @@ Issues in this column have been prioritised and are ready for development. The i
 
 ### In progress
 
-Issues in this column are being actively worked on, which includes development, design, code reviews, and testing.
+Issues in this column are being actively worked on, which includes development, design, documentation, code reviews, and testing.
 
-Any code should be in a branch in each of the repositories you update. The name of the branch should be in the form `<issue-number>-<readable-name>`, for example `1104-inclusive-export`. Follow the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) process to take full ownership of what you are building.
+#### Quality Assistance
 
-Use the following template for QA feedback throughout the development.
+Involve [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) as early as possible in the development process so you can work together on a testing strategy for that specific issue.
 
-{{< tabpane persistLang=false lang="markdown">}}
-{{< tab header="Test passed" >}}
+#### Create a branch
 
-### Test details
+Create a branch following the [guideline]({{< ref "#branches" >}}) and push [commits]({{< ref "#commits" >}}) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows team members to see the latest changes and work together more effectively.
 
-**Config:** <Default/standard>
-**Environment:** <Local>
-**Platform:** <WebApp>
-**Browser:** <Chrome>
+#### Pull requests
 
----
+Create a Draft Pull Request to facilitate discussion and collaboration with quality assistance engineers and developers.
 
-### Test scenario:
-Description of the scenario - This is not required for all the tests
+Once you are confident that the change is complete and ready to be merged:
 
-### Reproducible on `master`
-A small description of how it was reproduced, and images or videos that support the comment.
+1. Change the Pull Request from `Draft` to `Ready for review`.
+2. The Pull Request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
+3. Add a Pull Request description:
 
-<details>
-<summary>Image/video attached</sumamry>
-</details>
+   - Add a description of changes, decisions, backstory, thinking process, and any extra information to facilitate the review process and reduce follow-ups. 
+   - Add videos or screenshots of the tests you did before submitting the Pull Request. This increases understanding of the work and allows the reviewers to catch any uncovered case.
+   - Add the issue number, for example: `medic/cht-core#123`.
 
-### Fixed on `####-branch-name`
-A small description, and images or videos that support the comment.
-
-<details>
-<summary>Image/video attached</sumamry>
-</details>
-
----
-
-Test passed successfully. :white_check_mark:
-The ticket is ready to merge.
-@<developer's name>
-
-{{< /tab >}}
-{{< tab header="Test failed" >}}
-### Test details
-
-**Config:** <Default/standard>
-**Environment:** <Local>
-**Platform:** <WebApp>
-**Browser:** <Chrome>
-
----
-
-### Test scenario:
-Description of the scenario - This is not required for all the tests
-
-### Reproducible on `master`
-A small description of how it was reproduced, and images or videos that support the comment.
-
-<details>
-<summary>Image/video attached</sumamry>
-</details>
-
-### Not working on `####-branch-name`
-A small description, and images or videos that support the comment.
-
-<details>
-<summary>Image/video attached</sumamry>
-</details>
-
----
-
-Test failed :x:
-The ticket needs further development.
-@<developer's name>
-
-{{< /tab >}}
-{{< /tabpane >}}
-
-A great way to facilitate discussion and collaboration is with a Draft PR.
-
-Once you're confident that the change is complete and ready to be merged:
-
-1. Submit a PR for each of the repositories. Each PR message and description will become the commit message and description so keep the message concise, describe what and why rather than how, and link to the issue in the description (eg: "medic/cht-core#123").
-1. Wait for the builds to succeed and ensure there are no conflicts with the the main branch so the PR can be merged.
-1. Pick one Reviewer for the PR and work with them until the code passes review. In some special cases more than one Reviewer may be necessary, but be specific about additional Reviewers and ensure you really need each of their additional reviews for a good reason. Remember, anyone can collaborate on PRs even if they aren't an official Reviewer. If you add a QA Engineer as a Reviewer, briefly comment in the ticket about what kind of testing review you expect from that engineer.
-
-Once all PRs have been approved:
-
-1. Write a useful commit message in the PR using the [commit message format]({{< ref "#commit-message-format" >}}).
-2. Click the button to "Squash and Merge" the PR.
-3. If a backport is required cherry-pick the merged commit back to the release branches it's required in.
-4. Ensure the issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
-5. Once all PRs have been merged, close the issue. This will automatically move it to "Done".
+4. Do a self-code review before asking for a review. This is a good practice, as you will almost always find things to fix. It saves a lot of time for you and the reviewers.
+5. Pick one reviewer for the PR and work with them until the code passes review. It is okay to include one additional reviewer who has more experience in a particular subject. 
+   
+   - Coordinate with a QA engineer and add them as reviewers when you need specific quality/testing support. For example, when major changes or new features are introduced to the codebase, security-related changes are made, and substantial user experience improvements are required. The QA engineer can advise whether that needs to be considered in the current e2e suite, they can advise on edge cases or other scenarios to consider for testing.
+   
+6. Follow up on your PR to keep momentum; the review should happen in 24h business days. If you haven't received feedback from the reviewers after that time, check if they are available. Otherwise, it's okay to request a review from another person.
+7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
+8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <gitnub user>`.
+9. Merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the repository's commit history clean.
+   - If a backport is required, cherry-pick the merged commit back to the release branches it is required in.
 
 ### Done
 
-Issues in this column are complete, all code has been merged into the main branch and/or release branches, and are ready for release.
+Issues in this column are complete, all code has been merged into the main branch and/or release branches, and are ready for release. An issue is considered complete when:
+
+ - The documentation is finalized.
+   - It includes merged updates in CHT Docs, updated README files, and necessary code comments.
+   - This is especially important as the CHT community can always access up-to-date documentation.  
+ - Unit tests, e2e tests and/or integration tests are written.
+ - The static checks like linting and Sonar should pass successfully as part of the quality process, and any issues should be fixed. 
+ - The reviewers have approved the Pull Request.
+ - All code has been merged into the main branch and/or release branches and are ready for release.
+ - The issue is added to the appropriate release milestone, which is the earliest semver version the change will be released in. This ensures it will be included in the release notes.
+ - Lastly, the issue status is updated to `Done`.

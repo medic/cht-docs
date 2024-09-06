@@ -50,8 +50,9 @@ Meet the [Medic team](https://medic.org/team/)!
 * Reach out to Internal Operations team for guidance on how to submit expenses and get refunded. When submitting expenses, follow up to make sure things get through.  
 
 #### Funding
-* Restricted - Clicktime. Getting our ClickTime timesheets submitted on time is vital to source the projects adequately. If necessary, take extra steps to remind yourself of submitting these on a monthly basis. If you have any question about filling in the reports properly, reach out to the finance team.
-* Unrestricted
+Medic relies on both restricted and unrestricted funds to support our mission. 
+* Restricted funds are designated for specific programs or projects, ensuring that funder intent is fulfilled. To ensure the timely payment of restricted funding, accurate and on-time submission of ClickTime timesheets is crucial. These records provide essential data for financial reporting. Please prioritize submitting your timesheets monthly and contact the finance team for any assistance.
+* Unrestricted funds provide the flexibility to address urgent needs, cover operational costs, and seize new opportunities to advance Medic's mission.
 
 #### Travel 
 * Team Meetups are a great way to build relations with your team! These are usually planned weeks ahead; if you feel comfortable joining, please do!

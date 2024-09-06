@@ -28,20 +28,22 @@ When looking at a well-factored codebase there are three common ways to automate
     - Frontend integration tests
 3. End-to-end tests
 
+**Note:** All the commands to execute the different tests can be found in [package.json](https://github.com/medic/cht-core/blob/master/package.json) file.
+
 ## Unit Tests
 
 ### Description
 Small tests of specific behavior. Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. Any dependencies are often mocked.
 
 ### Expectations
-High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, you need to evaluate if a lower test should be writen.
+High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, you need to evaluate if a lower test should be written.
 
 | Execution Speed     | Complexity | Fragility |
 |------------|---------|---------|
 | Extremely fast | Extremely low | Extremely stable |
 
 ### Implementation
-In cht-core unit tests are located in the `tests` directories of each app  (e.g. in `webapp/tests` you can find unit test for the webapp). Run them locally with: `npm run unit`.
+In cht-core unit tests are located in the `tests` directories of each app  (e.g. in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
 
@@ -59,7 +61,7 @@ Dramatically fewer than unit tests. The goal is not to verify all branches; it i
 For us, backend integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
 We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
 
-**Backend integration tests** are located in `tests/integration`. Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
+**Backend integration tests** are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
 ```mermaid
 flowchart LR
@@ -85,7 +87,7 @@ flowchart LR
 
 **Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
 
-Frontend integration tests are located in `tests/integration`. To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
+Frontend integration tests are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
 
 ## E2E Tests
 
@@ -135,17 +137,21 @@ flowchart LR
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
 
+### How to write automated e2e tests
+
+Read the [style guide for automated tests]({{< relref "contribute/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
+
 ### Debugging E2E tests
 
 End to end (e2e) tests can be really difficult to debug - sometimes they fail seemingly at random, and sometimes they only fail on certain environments (eg: ci but not locally). This can make reproducing and reliably fixing the issue challenging, so here are some tips to help!
 
 #### Set the `DEBUG` flag
 
-Setting the `DEBUG` environment variable (e.g. `DEBUG=true npm run wdio-local`) when running the tests locally will do the following:
+Setting the `DEBUG` environment variable (e.g. [`DEBUG=true npm run wdio-local`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L103)) when running the tests locally will do the following:
 
-- Run the browser without the `headless` flag (details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L86-L87)), so the browser will be displayed when running the tests
+- Run the browser without the `headless` flag (details in the [`wdio.conf`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L35) file), so the browser will be displayed when running the tests
 - Increase the test timeout from 2 minutes to 10 minutes
-- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details [here](https://github.com/medic/cht-core/blob/master/tests/e2e/wdio.conf.js#L177))
+- Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details in the [`wdio.conf`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L198)file)
 - Prevent the `cht-e2e` Docker containers from being torn down after the test finishes
 
 #### Read the logs
@@ -159,11 +165,25 @@ Read the failure carefully - it often has really good info but sometimes it's ju
 
 #### Other logs and screenshots
 
-There are logs and screenshots stored in the allure reports. [Here](https://github.com/medic/cht-core/blob/master/TESTING.md#view-the-ci-report) are the instructions to access that information.
+GitHub actions will artifact all files in tests/logs. This is the directory any logs, results, images, etc... should save to if you want to review them if a build fails.
+
+##### View the CI report
+There are logs and screenshots stored in the allure reports when a job failed on the CI. To access to those logs follow these steps:
+- Download the CI run artifact zip file located in the failed build's `Archive Results` section.
+  {{< figure src="archiveResultsSection.png" link="archiveResultsSection.png" class=" center col-12 col-lg-12" >}}
+- Extract the `.zip` file.
+- From your cht-core directory, run `npx allure open <path>/allure-report/`. Being `<path>` the location where the zip file was extracted.
 
 #### Running just the failing test
 
-Running e2e tests can be quite slow so to save time modify the `specs` property of `/tests/e2e/**/wdio.conf.js` so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
+Running e2e tests can be quite slow so to save time modify the `specs` property of [`/tests/e2e/**/wdio.conf.js`](https://github.com/medic/cht-core/blob/master/tests/e2e/default/wdio.conf.js#L7) so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
+
+##### IntelliJ Based
+
+1. In a terminal, run `npm run build-dev-watch`
+2. In Intellij, open the [package.json](https://github.com/medic/cht-core/blob/master/package.json) file
+3. Scroll to the scripts section and click the ▶ button next to `wdio-local`
+4. Select `Debug 'wdio-local'`
 
 #### Watching the test run
 
@@ -181,6 +201,8 @@ To run the upgrade e2e tests in your local environment, follow these steps:
     - `export MARKET_URL_READ=https://staging.dev.medicmobile.org`.
     - `export STAGING_SERVER=_couch/builds_4`.
     - `export BRANCH=<your branch name>`.
+    - `export BASE_VERSION=<CHT base version>`(it can be used `latest` as the value).
+    - `export TAG=<CHT version>`(Optional, e.g. `4.8.1`).
 - Run the upgrade e2e tests: `npm run upgrade-wdio`
 
 If you experience errors such as:
@@ -202,4 +224,10 @@ Either run the test multiple times until you load all images, download images ma
 Try the following:
 - Manually downloaded the images. To download images manually, you can use either docker-compose or docker:
   - With docker, you'd do a docker pull  <image tag> for every image you want to download.
-  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. [Compose pull documentation](https://docs.docker.com/engine/reference/commandline/compose_pull/)
+  - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. Read more on [docker compose pull](https://docs.docker.com/engine/reference/commandline/compose_pull/)
+
+
+### Test Architecture
+
+Our GitHub actions spin up an ubuntu-22.04 machine. They install software and then launch couchdb and horticulturalist in a docker container. This is needed to run our applications in the specific node versions we support, while allowing our test code to run in versions of node it supports. This creates a paradigm to keep in mind when writing tests. Tests run on the ubuntu machine. 
+Any test code that starts a server or runs an executable is running outside of the horti container. The ports are exposed for all our services and horti has access to the cht-core root via a volume. Horti can also talk to the host by getting the gateway of the docker network. 

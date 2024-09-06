@@ -1,7 +1,7 @@
 ---
 title: "Static Analysis"
 linkTitle: "Static Analysis"
-weight: 9
+weight: 11
 description: >
   Guidelines for static analysis of CHT code.
 ---
@@ -36,7 +36,7 @@ When Sonar flags an issue with the code in your pull request, use this decision 
    1. If the rule is one that should not be applied to any CHT code:
       1. [Remove the rule]({{< ref "#removing-a-rule" >}}) from the default Quality Profile.
    1. If it does not make sense to apply the rule to this particular code, you can do one of the following:
-      1. Completely ignore Sonar issues [on that line of code](https://docs.sonarsource.com/sonarqube/latest/user-guide/issues/#technical-review) by adding the `// NOSONAR` comment to the end of the line.
+      1. Completely ignore Sonar issues [on that line of code](https://docs.sonarsource.com/sonarqube/latest/user-guide/issues/managing/) by adding the `// NOSONAR` comment to the end of the line.
       1. Completely ignore Sonar issues for [that block of code]({{< ref "#ignoring-all-rules-for-a-block-of-code" >}}).
       1. Update the `.sonarcloud.properties` to [ignore _that rule_ for that particular file]({{< ref "#ignoring-a-specific-rule-for-a-file" >}}).
       1. Update the `.sonarcloud.properties` to [ignore _all rules_ for that particular file]({{< ref "#ignoring-all-rules-for-a-file" >}}) (useful if the file has been copied from an external dependency).

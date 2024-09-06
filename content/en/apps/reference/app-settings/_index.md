@@ -124,7 +124,7 @@ messages.registration.report_accepted = Thank you {{contact.name}} for registeri
 ```
 
 ### Date Format Filters
-The following filter functions are available for formating dates.
+The following filter functions are available for formatting dates.
 
 |filter|description|
 |-------|---------|

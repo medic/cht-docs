@@ -43,4 +43,4 @@ You can change any contact type configuration easily except for the IDs. To chan
 
 ### Migration
 
-If you already have person and place documents, switching from using the fixed hierarchy requires that you also update all the exisitng docs. Each contact and report holds the IDs of ancestors in their hierarchy so they will all need to be updated to be consistent with the changes you've made. You can use the cht-conf `move-contacts` command to help with this migration.
+If you already have person and place documents, switching from using the fixed hierarchy requires that you also update all the existing docs. Each contact and report holds the IDs of ancestors in their hierarchy so they will all need to be updated to be consistent with the changes you've made. You can use the cht-conf `move-contacts` command to help with this migration.

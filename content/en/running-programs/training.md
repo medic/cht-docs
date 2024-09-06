@@ -5,9 +5,9 @@ weight : 1
 ---
 ## CHT training process
 
-In the implementation of CHT supported community health programs, health care workers such as CHWs, CHW supervisors and facility based health care providers need training to help equip them with the required knowledge and skills to effectively carry out their roles and responsibilities. For most deployments, program leads and ministry of health officials may also need training for them to perform their roles, oversee and supervise the community health programs. 
+In the implementation of CHT supported community health programs, health care workers such as CHWs, CHW supervisors and facility based health care providers need training to help equip them with the required knowledge and skills to effectively carry out their roles and responsibilities. For most deployments, program leads and ministry of health officials may also need training for them to perform their roles, oversee and supervise the community health programs. End user training needs to be well planned and implemented using standardized training methods and approaches which take into account the capacity of end users. 
 
-During the training, end users are trained in the following common areas to help improve their skills and delivery:
+For most community health programs, CHW training is divided into two major sections consisting of basic modules and technical modules. For basic module training, CHWs are trained on basic skills such as leadership, communication and counselling, basic health promotion practices and basic lifesaving skills. For technical training, end users are trained in the following common areas to help improve their skills and delivery:
 * Thematic training - this training focuses on the health program areas of interest, this will vary from one program to another depending on the specific health areas users are expected to support. For example, for an MNCH program, users will be trained in ANC, PNC and immunization.
 * Hardware and software training - users are trained on how they can operate an android phone, reboot the hardware, install and reinstall applications and how they can log into the CHT app. This training is critical for end users who have never interacted with a smart phone before.
 * CHT tool training - this involves training users on how they can use different CHT tools (SMS, mobile and web applications) to guide them to deliver health care services. 
@@ -19,7 +19,7 @@ Proper training of health care workers leads to increased job satisfaction ensur
 This guide highlights some of the considerations and steps for planning and conducting end user training. It is based on the learnings from many collaborative trainings that have been conducted over the years. Some of the training resources have been co-created with various implementing partners and ministries of health. This guide can help partners learn how they can plan and conduct training.
 
 The CHT training process comprises a series of steps highlighted below that need to be followed systematically to ensure an efficient training programme.
-* Training needs assessment - this is the first step prior to conducting the training to help understand the users needs, bahaviour, roles and how they perform their responsibilities. At this stage, information on the literacy and numerical skills of end users, demographics (age, gender, language of instruction), potential program champions is collected, this information helps inform the training approach, duration and methods of training. To collect the needs assessment information, various methods can be used including observation, interviews,focused group discussions and surveys. 
+* Training needs assessment - this is the first step prior to conducting the training to help understand the users needs, behaviour, roles and how they perform their responsibilities. At this stage, information on the literacy and numerical skills of end users, demographics (age, gender, language of instruction), potential program champions is collected, this information helps inform the training approach, duration and methods of training. To collect the needs assessment information, various methods can be used including observation, interviews,focused group discussions and surveys. 
 * Define the training objectives - In this step, the training outcomes are defined, these are things end users should be able to do as a result of the training.  
 * Develop a training plan or checklist - The checklist lists the tasks, activities and resources needed to train the end users
 * Create the training materials and resources 
@@ -37,8 +37,8 @@ Before training is done, a training preparation checklist is prepared to ensure 
 
 #### Logistics
 
-* Identify the total number of participants
-* Confirm and organize training venue
+* Identify the total number of participants. It is recommended that the ratio of facilitators to participants should be 1:10 and each training class should have a maximum of 30 participants.
+* Confirm and organize training venue. The venue should be well ventilated, have adequate lighting, good sanitation and security and be at a central location for easy access. It is recommended that the training of the CHWs takes place in a community setting such as schools, churches or mosques while training of CHAs and program teams can happen in a facility or hotel.
 * Phone preparation
     * Procure phones for the training  with [minimum specs requirements]({{< relref "apps/concepts/access" >}})
     * Ensure phones are fully charged prior to training
@@ -49,6 +49,8 @@ Before training is done, a training preparation checklist is prepared to ensure 
 * Prepare the mobile and SIM handover form with a documented mobile and SIM Management guideline handout
 * Confirm availability of electricity, mobile network and internet at the training venue
 * Invite the partner or ministry of health to lead the training
+* Organize a facilitators pre-planning meeting to assign each facilitator sessions they will be covering.
+* Facilitators should visit the training site prior to the training to make sure the site is ready for the planned training.
 * Organize and process payment forms, if applicable, for:
     * Trainer and co-trainer allowance
     * Participation allowance
@@ -95,7 +97,7 @@ There are a number of training methods that can be used to train end users. Blen
 
 
 ## Post training activities
-After the training, ministries of health, implementing partners and CHT users agree on a date when the project can go live. Below are the critical activities that take place before go-live.
+After every day of training, facilitators should conduct training evaluation to discuss what went well and the areas to improve on the subsequent training days. After the completion of the training, ministries of health, implementing partners and CHT users agree on a date when the project can go live. Below are the critical activities that take place before go-live.
 * Participants are informed when the project will go live. In most cases, the project goes live a few weeks after the training
 * Participants are trained on how to install the production application
 * Paricipants are reminded to uninstall the training application
@@ -106,7 +108,7 @@ After the training, ministries of health, implementing partners and CHT users ag
 ## Evaluation
 Evaluation assesses whether the training objectives have been achieved. Evaluation of the training involves assessing the effect of the training observed against a set standard considered as an indication of learning. A common model used to evaluate the training consists of the following four levels:
 
-* Level 1 - this is the participants reaction towards the learning usually performed through a feedback survey. Trainers use this feedback to improve the training content and approach
+* Level 1 - this is the participants reaction towards the learning usually performed through a feedback survey, participants can evaluate the training content, facilitators, training approaches and the training venue. Trainers use this feedback to improve the training content and approach
 * Level 2 - This measures what learners have learnt and what they are able to perform as a result of the training. This can be done during the training through pre and post tests, simulations, practical tests and tasks
 * Level 3 - After the training event, the learners are evaluated if they are able to apply what they have learned when working. This can be done through observations, learning and interviews
 * Level 4 - This is concerned with the extent to which changes in behaviour after the training contribute to improved results and increased impact. This can be done after a series of training and refresher trainings and it requires before and after the training comparison  

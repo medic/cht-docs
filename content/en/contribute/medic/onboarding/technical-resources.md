@@ -18,7 +18,7 @@ Some of the suggestions below could be for internal courses and/or material crea
 {{% /alert %}}
 
 ## Exercises
-There is a Slack channel *#exercism* where engineers and tech enthusiats meet and discuss JavaScript and TypeScript exercises from [exercism.org](https://exercism.org/) on a weekly basis. The primary goal of this channel is to discuss with your teammates and have a fun, open discussion on how the provided solutions can be improved, while also having the opportunity to connect with people from other teams. Even though this is optional, it is highly encouraged to join and participate frequently.
+There is a Slack channel *#exercism* where engineers and tech enthusiasts meet and discuss JavaScript and TypeScript exercises from [exercism.org](https://exercism.org/) on a weekly basis. The primary goal of this channel is to discuss with your teammates and have a fun, open discussion on how the provided solutions can be improved, while also having the opportunity to connect with people from other teams. Even though this is optional, it is highly encouraged to join and participate frequently.
 
 ## Technical Resources
 
@@ -37,7 +37,4 @@ There is a Slack channel *#exercism* where engineers and tech enthusiats meet an
 | **Web Performance** | [High Performance Browser Networking](https://hpbn.co/)|
 | **PostgreSQL** | [PostgreSQL Tutorial](https://www.postgresqltutorial.com/) <br> [PostgreSQL Cheat Sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) <br> [PostgreSQL Views Tutorial](https://www.postgresqltutorial.com/postgresql-views/) <br> [PostgreSQL Views Documentation](https://www.postgresql.org/docs/current/tutorial-views.html) <br> [Common Table Expressions (CTEs)](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cte/) <br> [PostgreSQL Queries with CTEs Documentation](https://www.postgresql.org/docs/current/queries-with.html) |
 | **Superset** | [Introduction to Superset](https://superset.apache.org/docs/intro/) <br> [Creating Your First Dashboard](https://superset.apache.org/docs/creating-charts-dashboards/creating-your-first-dashboard/) |
-| **DBT** | [DBT Core Manual Installation Guide](https://docs.getdbt.com/docs/core/installation) <br> [DBT Video Playlist](https://www.youtube.com/playlist?list=PLohMhitTY9xuEVMpLG3xXhsKG9j2XCTeF) |
-| **Logstash** | [Getting Started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html) <br> [Logstash Tutorial](https://logz.io/blog/logstash-tutorial/) |
-| **PostgREST** | [PostgREST Tutorial](https://postgrest.org/en/stable/tutorials/tut0.html) |
-
+| **dbt** | [dbt Core Manual Installation Guide](https://docs.getdbt.com/docs/core/installation) <br> [dbt Video Playlist](https://www.youtube.com/playlist?list=PLohMhitTY9xuEVMpLG3xXhsKG9j2XCTeF) |

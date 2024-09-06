@@ -1,86 +1,49 @@
 ---
-title: "Requirements"
+title: "CHT hosting requirements"
 linkTitle: "Requirements"
-weight: 5
+weight: 1
 aliases:  
   - /apps/guides/hosting/requirements
 description: >
-  Requirements for hosting CHT
+  Requirements for hosting CHT applications
 relatedContent: >
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
 ---
 
 {{% pageinfo %}}
-For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For CHT development, Linux or macOS may be used. Windows can be used for either, but without recommendation.
+For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
 {{% /pageinfo %}}
 
-{{% alert title="Note" %}}
-These requirements apply to both 3.x and 4.x CHT hosting
-{{% /alert %}}
+Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
 
-Hosting a CHT instance in a cloud provider like AWS or on bare-metal requires you have sufficient hardware specifications, Docker and Docker Compose installed and other infrastructure requirements met.
+CHT 3.x is [End-of-Life]({{< relref "core/releases#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
 
-## Infrastructure Requirements
+## Docker Compose App Developer Hosting
 
-- A static IP
-- A DNS Entry pointing to the IP
-- TLS certificates
+* 4 GB RAM  / 2 CPU / 8 GB SSD
+* Root Access
+* TLS certificates -  Docker Helper for [3.x]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) or [4.x]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}) provides these  for you.
+* [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` has been [deprecated in favor of Compose V2](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 
-## Minimum Hardware Requirements
 
-- 4 GiB RAM
-- 2 CPU/vCPU
-- 8 GB Hard Disk (SSD preferred)
-- Root Access
 
-Depending on the scale of your operation these may need to be increased. Be sure to monitor disk usage so that the 8 GB can be increased as needed.
+## Kubernetes Production Hosting
 
-## Docker
+This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/self-hosting/self-hosting-k3s-multinode" >}}). 
 
-Install both `docker` and `docker-compose` to run CHT and related containers.
+Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
 
-{{% alert title="Note" %}}
-Skip this step if you're following the [EC2 guide 3.x]({{< relref "hosting/3.x/ec2-setup-guide#create-and-configure-ec2-instance" >}}) as `docker` and `docker-compose` are automatically installed when following the setup scripts.
-{{% /alert %}}
+* 1 x HA control-plane nodes: 2 GB RAM  / 2 CPU / 20 GB SSD
+* 3 x worker servers: 16 GB RAM  / 8 CPU / 50 GB SSD
+* 500GB storage area network (SAN)* - Will host [Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+* Root Access
+* Static IP with DNS entry - Kubernetes will use this to provision a valid TLS certificate
+* `helm` [application](https://helm.sh/docs/intro/install/)
+* [K3s](https://docs.k3s.io/)
+* [Current version](https://docs.docker.com/engine/install/) of `docker` (used to bootstrap K3s)
 
-### Linux
+_\* During some upgrades, up to 3x current space used by CouchDB can be needed_
 
-Depending on which distro you run, install the Docker packages from [Docker's Linux options](https://docs.docker.com/engine/install/#server). Historically, Medic runs Ubuntu: see [Docker CE](https://docs.docker.com/engine/install/ubuntu/) and [Docker-compose](https://docs.docker.com/compose/install/) install pages.
-
-### Windows
-
-Docker Desktop for Windows needs either Hyper-V support or Windows Subsystem for Linux 2 (WSL 2). [Docker's Windows Docker Desktop install page](https://docs.docker.com/docker-for-windows/install/) covers both scenarios.
-
-### macOS
-
-See [Docker's macOS Docker Desktop install page](https://docs.docker.com/docker-for-mac/install/).
-
-### Verify install
-
-Test that `docker` and `docker-compose` installed correctly by showing their versions with `sudo docker-compose --version` and `sudo docker --version`. Note, your version may be different:
-
-```bash
-
-sudo docker-compose --version
-docker-compose version 1.27.1, build 509cfb99
-
-sudo docker --version
-Docker version 19.03.12, build 48a66213fe
-```
-
-Finally, confirm you can run the "hello world" docker container: `sudo docker run hello-world`
-
-## Considerations
-
-There are serious implications to consider when deploying a CHT instance beyond the above requirements. Be sure to account for:
-
-- Alerting - How will alerts be sent in the case of downtime or degraded service?
-- Power failures and unplanned restarts - Will the server cleanly restart such that the CHT resumes service correctly?
-- Backups - What happens to the CHT data if there's a hard drive failure?
-- Disaster Recovery - What happens if there is a flood at the facility and on-site active and backup data are destroyed?
-- Scale - What happens when the hardware deployed needs to be upgraded to increase capacity?
-- Updates - By definition TLS certificates expire and software needs to be updated - how will the deployment get these updates on a regular basis?
-- Security - While the TLS certificate will protect data on the LAN, is the server hard drive encrypted in the event of property theft?
-- Privacy - The CHT inherently carries sensitive patient medical information in the database. Are there sufficient measures in place to protect this sensitive data?
-
+## Required skills
+In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).

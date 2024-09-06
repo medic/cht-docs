@@ -33,7 +33,7 @@ Through adaptations to PHC workflows, health program administrators are able to:
 * Support COVID-19 prevention, detection, and containment efforts within communities
 * Create a coordinated approach that safely serves health workers, facilities, and communities 
 * Support home-based care for non-emergent COVID-19 cases to reduce overburdening on hospital systems
-* Capture program learnings to create more robust and resilient health systems beyond supporting the immediate COVID-19 reponse
+* Capture program learnings to create more robust and resilient health systems beyond supporting the immediate COVID-19 response
 
 ## Users and Hierarchy Example
 

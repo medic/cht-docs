@@ -67,9 +67,9 @@ Following the [vSphere docs](https://docs.vmware.com/en/VMware-vSphere-Container
 
 Now, on the VM settings, we can apply these roles as described in the above document.
 
-Any provisioned VM in the previous step, should recieve CNS-VM role.
-The top-level vCenter server will recieve CNS-SEARCH-AND-SPBM role.
-Virtual-SAN should recieve CNS-DATASTORE.
+Any provisioned VM in the previous step, should receive CNS-VM role.
+The top-level vCenter server will receive CNS-SEARCH-AND-SPBM role.
+Virtual-SAN should receive CNS-DATASTORE.
 And all servers should have the READONLY role (this may already be active)
 
 
@@ -173,7 +173,7 @@ govc ls /<datacenter-name>/vm \
 
 SSH into your first control-plane VM that was provisioned and configured above and [install docker](https://docs.docker.com/engine/install/ubuntu/).
 
-For k3s version compatibiltiy with vCenter and vMware CPI/CSI, we will need to use k3s v1.25, cpi v1.25, and csi v2.7.2 per the `curl` call below.
+For k3s version compatibility with vCenter and vMware CPI/CSI, we will need to use k3s v1.25, cpi v1.25, and csi v2.7.2 per the `curl` call below.
 
 Run the following CLI command inside the control-plane VM, filling out these two specific values:
   - `<TOKEN>`: Please generate a token ID, and save it. This will be required for the entirety of the k3s cluster existence and required to add additional servers to the k3s cluster
@@ -273,7 +273,7 @@ Modify the vsphere-cloud-controller-manager.yaml file downloaded above and updat
     data:
       # NOTE: this is just an example configuration, update with real values based on your environment
       vsphere.conf: |
-        # Global properties in this section will be used for all specified vCenters unless overriden in VirtualCenter section.
+        # Global properties in this section will be used for all specified vCenters unless overridden in VirtualCenter section.
         global:
           port: 443
           # set insecureFlag to true if the vCenter uses a self-signed cert
@@ -317,7 +317,7 @@ Follow the [VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSph
     /usr/local/bin/k3s kubectl create namespace vmware-system-csi
     ```
 
-2) Taint your control-lane node servers by running the following command. This taint may already exist, if so, thats okay. Please replace `<CONTROL_PLANE_SERVER>` with each of your control plane servers. 
+2) Taint your control-lane node servers by running the following command. This taint may already exist, if so, that's okay. Please replace `<CONTROL_PLANE_SERVER>` with each of your control plane servers. 
     ```
     You can retrieve the names by running `/usr/local/bin/k3s kubectl get nodes -o wide`
     /usr/local/bin/k3s kubectl taint node <CONTROL_PLANE_SERVER> node-role.kubernetes.io/control-plane=:NoSchedule
@@ -415,7 +415,7 @@ status: {}
 Here are links to docs surrounding the kubernetes concepts that we use in a cht-core project deployed to a k3s cluster.
 
 * [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) - This is the main kubernetes resource that contains information regarding all the cht services that will be deployed.
-* [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) - This contains configuration files, or credentials that containers can retrieve. If you edit the configmap, you should delete containers, which will trigger a new container to download your new edits to any configrations for that service
+* [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) - This contains configuration files, or credentials that containers can retrieve. If you edit the configmap, you should delete containers, which will trigger a new container to download your new edits to any configurations for that service
 * [ServiceAccounts](https://kubernetes.io/docs/concepts/security/service-accounts/) - This is used by the upgrade-service that is running inside the cht-core pods (as a container titled upgrade-service). This serviceAccount restricts the upgrade-service from interacting with any other cht-core projects outside of its namespace, and gives the upgrade-service permissions to talk to kubernetes API to upgrade container images when a CHT ADMIN clicks *upgrade* through the Admin interface.
 * [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) - This is what forwards traffic to a particular project or pods. In most use-cases, there is an nginx deployed outside of the k3s cluster than contains DNS entries for existing projects, and contains a proxy_pass parameter to send traffic based on host header to any of the k3s server IPs. Inside the k3s cluster, the traefik container and servicelb-traefik containers in kube-system namespace will handle forwarding traffic to the correct cht-core containers based on url
 * [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) - This is where our project data will be stored. Important to ensure you have configured this correctly, with retain policies intact so the data is not deleted if the project is removed. It's also vital to ensure you have a backup policy either set-up in VMware vCenter GUI or you have configured the csi-snapshotter that comes with vSphere CSI.

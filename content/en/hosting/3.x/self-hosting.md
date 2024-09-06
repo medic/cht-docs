@@ -18,7 +18,7 @@ Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (
 
 ## Installing with a compose file
 
-The CHT containers are installed using [docker compose](https://docs.docker.com/compose/reference/overview/) so that you can run multiple containers  as a single service.
+The CHT containers are installed using [docker compose](https://docs.docker.com/compose/) so that you can run multiple containers  as a single service.
 
 Start by choosing the location where you would like to save your compose configuration file.  Then create the `docker-compose.yml` file by `cd`ing into the correct directory and running:
 

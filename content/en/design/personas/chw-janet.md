@@ -41,7 +41,7 @@ Janet has a trusted boda driver who she uses to help her deliver drugs.
 - Accurate information about the health status of her patients
 - Close monitoring of the pregnant women to ensure that all deliveries take place at the health facilities
 - All children to be immunized according to the expanded immunization program 
-- Childrens growth to be monitored
+- Children's growth to be monitored
 - Fast transfer of community members who need emergency health care to the health facilities- ambulance transfer
 
 ## Motivations

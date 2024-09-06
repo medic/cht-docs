@@ -26,19 +26,62 @@ Selecting an aggregate widget opens the detailed view with the data for each ind
 
 {{% alert title="Note" %}} Aggregate targets were introduced in v3.9, and can be configured for both online and offline users. Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
 
-## Supervisor Dashboards
+### Filtering Aggregate Targets
 
-{{< figure src="supervisor-dashboards.png" link="supervisor-dashboards.png" class="right col-7 col-lg-6" >}}
+The ability for one user to manage multiple areas / facilities was introduced in v4.9.0. With that change it was important for users who manage multiple areas to filter aggregate targets by the respective facilities. The ability for users to filter Aggregate Targets was introduced in v4.10.0.
 
-Program dashboards track, visualize, and share health progress with stakeholders more broadly. Supervisors can use program dashboards to help articulate their CHW cohorts activities and how they align with program impact standards and indicators. Summary statistics of CHW service area performance (e.g. number of home visits, number of protocol errors, etc) help to identify areas for continued improvement and deeper audits of care data. 
+The following images show the various screens CHW supervisors see in Aggregate Targets. The example user in this illustration manages two facilities: **First Health Facility** and **Second Health Facility**
 
-The data that can be visualized is highly configurable, and depends on what data fields are configured in a particular CHT app’s forms. Dashboards can be built using any software that supports visualizing data with the widely used PostgreSQL database. Examples include the open source tool [Superset](https://superset.incubator.apache.org), as well as proprietary technologies like [Klipfolio](https://www.klipfolio.com) and [Tableau](https://www.tableau.com). 
+<br clear="all">
 
-## DHIS2 Data Verification
+{{< figure src="multi-facility-aggregate-supervisor-landing" link="multi-facility-aggregate-supervisor-landing.png" class="right col-6 col-lg-8" >}}
 
-Supervisors often provide a critical bridge between CHWs and broader health system reporting. Using the CHT’s [DHIS2 integration]({{< relref "apps/features/integrations/dhis2" >}}), Supervisors can see the aggregate of each DHIS2 Data Value across all CHWs in their area. By tapping on a target, they can also see each CHW’s contribution towards that total. Once the Supervisor has verified data accuracy with CHWs, they can communicate with Health Records Information Officers to feed data into the national health information system.
+This is the landing page for the Aggregate Targets for a user who manages multiple areas / facilities. 
 
-{{% alert title="Note" %}} DHIS2 integration was introduced in v3.9. {{% /alert %}}
+The name of the facility appears in the breadcrumbs of the aggregate widgets on the Left Hand Side list and underneath the Target Title.
+
+On the Top Right the user can click the **Filter** button to open the sidebar and change the Aggregate Targets of the other facilities.
+
+
+<br clear="all">
+
+<br clear="all">
+
+{{< figure src="multi-facility-aggregate-supervisor-filter" link="multi-facility-aggregate-supervisor-filter.png" class="right col-6 col-lg-8" >}}
+
+Clicking the **Filter** button opens the sidebar, which allows the user to filter the Aggregate Targets by **Facility** or **Reporting Period**
+
+Selecting the Second Health Facility in the filter updates the Facility name in the breadcrumbs of the aggregate widgets on the Left Hand Side list and underneath the Target Title.
+
+<br clear="all">
+
+<br clear="all">
+
+{{< figure src="multi-facility-aggregate-supervisor-period" link="multi-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
+
+Filtering the Aggregate Targets by **Reporting Period** adds the name of the previous month to the breadcrumbs of the aggregate widgets on the Left Hand Side list and in the Target details.
+
+<br clear="all">
+
+<br clear="all">
+
+{{< figure src="one-facility-aggregate-supervisor-period" link="one-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
+
+Users who manage one area / facility can only filter their Aggregate Targets by **Reporting Period**.
+
+The name of the facility **does not** appear in the breadcrumbs of the aggregate widgets on the Left Hand Side list or underneath the Target Title.
+
+Filtering the Aggregate Targets by **Reporting Period** adds the name of the previous month to the breadcrumbs of the aggregate widgets on the Left Hand Side list and in the Target Details.
+
+<br clear="all">
+
+{{% alert title="Note" %}} 
+- The list of facilities in the sidebar are sorted in alphabetic order.
+- The default filter option for the facilities filter is the first facility in the sorted `array` of user Facilities.
+- The default filter option for the reporting period is `This month`.
+- The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings]({{< relref "apps/reference/app-settings/hierarchy" >}})
+- The reporting period label in this example (Reporting Period) is added as a translation key `analytics.target.aggregates.reporting_period`.
+ {{% /alert %}}
 
 ## Supervisor Tasks
 
@@ -55,4 +98,28 @@ Supervisors are able to set up users in the CHT without contacting a system admi
 When _creating_ a new user account, Supervisors fill out the necessary details, including the CHW's phone number, from their own device. They can do this while offline, but must sync before the actual user account is created. Once the Supervisor syncs, the CHT will send an SMS to the new CHW with a [magic link]({{< relref "apps/concepts/access#magic-links-for-logging-in-token-login" >}}) that enables them to login and start using the app.
 
 When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.  
+
 This can be used to manage both CHW and CHW supervisor roles.
+
+## Managing Multiple Areas
+
+CHT hierarchies tend to mimic geographical areas but Supervisors often manage CHWs across multiple geographical areas. (Offline) Supervisors who manage multiple areas can see data for all the different areas they manage from one app.
+
+ {{% alert title="Note" %}} The ability for one user to replicate data from multiple areas was introduced in v4.9.0. A video demonstration of setting up a multi-facility user and what this looks like from a user's perspective can be found [on the forum](https://forum.communityhealthtoolkit.org/t/support-for-supervisors-who-need-to-manage-multiple-areas/3497/2?u=michael) and in the [June 2024 CHT Round-up](https://youtu.be/hrhdrzP41gE?si=_7wglk7Nm7CCSFbY&t=606). {{% /alert %}}
+
+
+
+## Supervisor Dashboards
+
+{{< figure src="supervisor-dashboards.png" link="supervisor-dashboards.png" class="right col-7 col-lg-6" >}}
+
+Program dashboards track, visualize, and share health progress with stakeholders more broadly. Supervisors can use program dashboards to help articulate their CHW cohorts activities and how they align with program impact standards and indicators. Summary statistics of CHW service area performance (e.g. number of home visits, number of protocol errors, etc) help to identify areas for continued improvement and deeper audits of care data. 
+
+The data that can be visualized is highly configurable, and depends on what data fields are configured in a particular CHT app’s forms. Dashboards can be built using any software that supports visualizing data with the widely used PostgreSQL database. Examples include the open source tool [Superset](https://superset.incubator.apache.org), as well as proprietary technologies like [Klipfolio](https://www.klipfolio.com) and [Tableau](https://www.tableau.com). 
+
+## DHIS2 Data Verification
+
+Supervisors often provide a critical bridge between CHWs and broader health system reporting. Using the CHT’s [DHIS2 integration]({{< relref "apps/features/integrations/dhis2" >}}), Supervisors can see the aggregate of each DHIS2 Data Value across all CHWs in their area. By tapping on a target, they can also see each CHW’s contribution towards that total. Once the Supervisor has verified data accuracy with CHWs, they can communicate with Health Records Information Officers to feed data into the national health information system.
+
+{{% alert title="Note" %}} DHIS2 integration was introduced in v3.9. {{% /alert %}}
+

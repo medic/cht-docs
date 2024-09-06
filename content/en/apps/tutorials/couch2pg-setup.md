@@ -23,7 +23,7 @@ By the end of the tutorial you should be able to:
 
 *COUCHDB_URL* is the CouchDB instance URL with no trailing slash after `/medic`, format: `https://[user]:[password]@localhost:[port]/medic`
 
-*POSTGRESQL_URL* is the PostgresSQL instance URL, format: `postgres://[user]:[password]@localhost:[port]/[database name]`
+*POSTGRESQL_URL* is the PostgreSQL instance URL, format: `postgres://[user]:[password]@localhost:[port]/[database name]`
 
 *COUCH2PG_SLEEP_MINS* is the interval size in minutes Couch2pg will use to poll Couchdb.
 
@@ -39,7 +39,7 @@ To read more about environmental variables, see the [CHT Couch2pg readme](https:
 
 Before you begin, you need to have some useful software and tools that are required for things to work:
 
-* [nodejs](https://nodejs.org/en/) 8 upto 12. 
+* [nodejs](https://nodejs.org/en/) 8 up to 12. 
 * [npm](https://www.npmjs.com/get-npm)
 * [PostgreSQL](https://www.postgresql.org/) 9.4 or later
 
@@ -94,7 +94,7 @@ If you want to set and save all possible variables:
 
 ## Using docker-compose
 
-The simplest way to run couch2pg is with `docker-compose` which only needs configuration of the CouchDB instance URL. The compose file will then create a PostgresSQL container, connect to the CouchDB server and proceed to download couchDB documents to the PostgreSQL container:
+The simplest way to run couch2pg is with `docker-compose` which only needs configuration of the CouchDB instance URL. The compose file will then create a PostgreSQL container, connect to the CouchDB server and proceed to download couchDB documents to the PostgreSQL container:
 
 1. Change directory into the repo's directory where you cloned it: `cd /path/to/cht-couch2pg`
 

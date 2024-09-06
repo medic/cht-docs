@@ -15,7 +15,7 @@ set -e
 #    1. `sudo npm install -D --save autoprefixer`
 #    2. `sudo npm install -D --save postcss-cli`
 
-# 2. Follow [the Hugo intructions](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-and-deployment) for publishing a project to GitHub pages using the `gh-pages` branch
+# 2. Follow [the Hugo instructions](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-and-deployment) for publishing a project to GitHub pages using the `gh-pages` branch
 #    1. `rm -rf public`
 #    2. `git worktree add -B gh-pages public upstream/gh-pages`
 #    3. `hugo`

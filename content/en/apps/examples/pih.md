@@ -53,7 +53,7 @@ This workflow consists of the pregnancy, delivery and postnatal workflows.The pr
         resolution="The woman visits the health facility, gets a pregnancy test and starts ANC clinic."
   %}}
   {{% workflow
-        condition="Incase of a confirmed pregnancy(woman has started ANC visits) the CHW submits a **Pregnancy Registration Form** with gestational age and facility EDD if available."
+        condition="In case of a confirmed pregnancy(woman has started ANC visits) the CHW submits a **Pregnancy Registration Form** with gestational age and facility EDD if available."
         task="Every first day of the month, the CHW receives **Pregnancy Follow-Up Task** to remind that it is time to check into pregnant mother. The tasks continue for 42 weeks."
         resolution="The CHW submits **Pregnancy Follow-Up Form** demonstrating that she provided ANC counseling, gathered information from prior facility visits, screened for danger signs and reminded the woman of her upcoming facility ANC visit."
   %}}

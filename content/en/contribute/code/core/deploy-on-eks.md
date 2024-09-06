@@ -67,7 +67,7 @@ After you have created a ticket per "Request permission" above, you should get a
    Default region name [None]: eu-west-2
    Default output format [None]:
    ```
-6. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours: `aws eks update-kubeconfig --name mrjones-dev --profile mrjones --region eu-west-2`
+6. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours: `aws eks update-kubeconfig --name dev-cht-eks --profile mrjones --region eu-west-2`
 
 
 
@@ -81,6 +81,8 @@ After you have created a ticket per "Request permission" above, you should get a
    ```shell
    kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
    ```
+
+   If get an error `no context exists with the name`, change `use-context` to `set-context` in the  command.  This will create the entry the first time.  Subsequent calls should use `use-context`.
 3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml). Be sure to update these values after you create it: 
    * `alpha-dev` values to `USERNAME-dev` 
    * Update `certificate` to the latest value from SRE - currently it's `arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain`

@@ -11,6 +11,7 @@ relatedContent: >
 aliases: >
   /apps/guides/hosting/android-app/
   /core/guides/android/publishing
+  /core/guides/android/
 ---
 
 Once the flavor is [built]({{< ref "apps/guides/android/branding" >}}) there are many different ways to publish the binaries for installation.

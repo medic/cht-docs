@@ -22,8 +22,8 @@ Every minor release we update dependencies to get the latest fixes and improveme
 ## Steps
 
 1. Checkout and pull the latest default branch - get the latest code
-2. Make a branch: `git checkout -b "<issue>-update-dendencies"`
-3. Take a look at the current [list of dependencies related issues](https://github.com/medic/cht-core/issues?q=is%3Aopen+is%3Aissue+label%3ADependencies), where you can find the latest conversations and information.  
+2. Make a branch: `git checkout -b "<issue>-update-dependencies"`
+3. Take a look at the current [list of dependencies related issues](https://github.com/medic/cht-core/issues?q=is%3Aopen+is%3Aissue+label%3ADependencies), where you can find the latest conversations and information. 
 
 Then for each folder go through these steps.
 
@@ -62,7 +62,7 @@ When upgrading Webapp's Angular, you might get the following exception:
 ```
 Running "exec:build-webapp" (exec) task
 ________________________________________
-An unhandled exception occured: Class extends value undefined is not a constructor or null
+An unhandled exception occurred: Class extends value undefined is not a constructor or null
 see "/private/var/folders/tx/lskdwi/T/ng-23kdi/angular-errors.log" for further details.
 >> Exited with code: 127
 ```

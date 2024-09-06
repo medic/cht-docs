@@ -1,6 +1,6 @@
 ---
 title: 4.x
-weight: 100
+weight: 5
 aliases:
   - /apps/guides/hosting/4.x
 description: >

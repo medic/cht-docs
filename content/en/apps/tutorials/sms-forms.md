@@ -30,9 +30,9 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "apps/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool, then stored in the settings doc in the database.
 
-*[SMS gateways]({{< ref "apps/guides/messaging/gateways" >}})* allow the CHT coreframework to send and recieve SMS transmission to or from a mobile network operator.
+*[SMS gateways]({{< ref "apps/guides/messaging/gateways" >}})* allow the CHT core framework to send and receive SMS transmission to or from a mobile network operator.
 
-*SMS aggregators* act as intermediaries between the mobile network operators and the CHT coreframework. They allow for greater customization of SMS workflows in the CHT.
+*SMS aggregators* act as intermediaries between the mobile network operators and the CHT core framework. They allow for greater customization of SMS workflows in the CHT.
 
 *Interoperability:* CHT apps can receive data from other software when it is submitted as reports using the same JSON/SMS form notation.
 
@@ -118,7 +118,7 @@ To set the validation rules and autoresponses, edit the array corresponding to t
       }
     ],
     "validations": {
-      "join_respones": false,
+      "join_responses": false,
       "list": [
         {
           "property": "place_name",
@@ -135,7 +135,7 @@ To set the validation rules and autoresponses, edit the array corresponding to t
     "messages": [
       {
         "event_type":"report_accepted",
-        "recepient": "reporting_unit",
+        "recipient": "reporting_unit",
         "translation_key": "messages.hr.report_accepted"
       }
     ]

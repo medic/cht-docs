@@ -10,7 +10,7 @@ There are many ways to contribute to the Community Health Toolkit.
 
 ### Are you a developer?
 
-The [Development](https://forum.communityhealthtoolkit.org/c/developement/7) section of the forum is a great place to introduce yourself and ask questions. Or you can also jump right in:
+The [Development](https://forum.communityhealthtoolkit.org/c/support/development/7) section of the forum is a great place to introduce yourself and ask questions. Or you can also jump right in:
 - Issues labeled [help wanted](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Help%20wanted%22) are a great place to start. 
 - Learn to [build and host apps]({{% ref "apps" %}}), and share your experiences
 - [Share a new idea or question](https://forum.communityhealthtoolkit.org/) on our Forum

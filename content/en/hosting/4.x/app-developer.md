@@ -48,7 +48,7 @@ CHT_COMPOSE_PROJECT_NAME=app-devl COUCHDB_SECRET=foo DOCKER_CONFIG_PATH=${PWD} C
 
 This may take some minutes to fully start depending on the speed of the internet connection and speed of the host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost](https://localhost). You can log in with username `medic` and password `password`.
 
-When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" (see [screenshot](/apps/tutorials/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
+When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/apps/tutorials/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
 
 ## Running the Nth CHT instance
 
@@ -132,7 +132,7 @@ This script brings a lot of benefits with it:
 
 To get started using it:
 1. Clone the [CHT Core](https://github.com/medic/cht-core/) repo
-2. When you want to check for updates, just run `git pull orign` in the `cht-core` directory.
+2. When you want to check for updates, just run `git pull origin` in the `cht-core` directory.
 
 If you want a more stand-alone version, you can `curl` the bash script directly, but you can't use `git` to easily update it then:
 

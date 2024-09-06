@@ -163,7 +163,7 @@ For instance, to include the parent district's doc in a health center's doc, the
 
 ##### Including value from another doc
 
-Similar to including another doc, it is also possible to get the value of a specific field in another doc. For instance, if `parent:GET _id OF place WHERE reference_id=COL_VAL` were used in the example above, the `parent` field's value would have been set to the `_id` of the refered to doc instead of including the whole doc. Note that `_id` is a generated value included in all generated docs.
+Similar to including another doc, it is also possible to get the value of a specific field in another doc. For instance, if `parent:GET _id OF place WHERE reference_id=COL_VAL` were used in the example above, the `parent` field's value would have been set to the `_id` of the referred to doc instead of including the whole doc. Note that `_id` is a generated value included in all generated docs.
 
 | reference_id:excluded | parent:GET _id OF place WHERE reference_id=COL_VAL | is_name_generated | name | reported_date:timestamp |
 | --------------------- | -------------------------------------------------- | ----------------- | ---- | ----------------------- |

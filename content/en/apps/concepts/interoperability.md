@@ -74,8 +74,5 @@ The flexibility of mediators also means the CHT is future-proof and can be confi
 4. [Organization](https://build.fhir.org/organization.html)
 5. [Endpoint](https://build.fhir.org/endpoint.html)
 
-## Important Links
-- [cht-interoperability repository](https://github.com/medic/cht-interoperability): A reference application for the LTFU workflow
-- [CHT Instance with LTFU configuration](https://interop-cht-test.dev.medicmobile.org/medic/login?redirect=https%3A%2F%2Finterop-cht-test.dev.medicmobile.org%2F)
-- [OpenHIM Admin Console](https://interoperability.dev.medicmobile.org/#!/login) 
+You can find additional information and instructions for setting up locally in the [cht-interoperability repository](https://github.com/medic/cht-interoperability).
 

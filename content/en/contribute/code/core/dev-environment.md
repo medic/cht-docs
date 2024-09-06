@@ -5,7 +5,8 @@ weight: 1
 description: >
   Getting your local machine ready to do development work on CHT Core.
 aliases: >
-  apps/guides/hosting/core-developer
+  /apps/guides/hosting/core-developer
+  /apps/guides/hosting/hosting/4.x/app-developer
 ---
 
 {{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
@@ -26,7 +27,7 @@ First, update your current packages and install some supporting tools:
 
 _(Node {{< param nodeVersion >}} is the environment used to run the CHT server in production, so this is the recommended version of Node to use for development.)_
 
-{{< tabpane persistLang=false lang=shell >}}
+{{< tabpane persist=false lang=shell >}}
 {{< tab header="Linux (Ubuntu)" >}}
 sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install xsltproc curl uidmap jq python2 git make g++
@@ -147,7 +148,7 @@ COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.ym
 
 Now you have everything installed and can begin development! You'll need three separate terminals when doing development. 
 
-In the first terminal we'll compile and deploy the web application by runing:
+In the first terminal we'll compile and deploy the web application by running:
 
 ```shell
 cd ~/cht-core && npm run build-dev-watch

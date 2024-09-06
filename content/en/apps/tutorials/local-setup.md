@@ -64,7 +64,7 @@ cd ~/cht-project
 
 To build CHT apps on your local system, you need to have some additional tools:
 
-{{< tabpane persistLang=false lang=shell >}}
+{{< tabpane persist=false lang=shell >}}
 {{< tab header="Linux (Ubuntu)" >}}
 sudo apt update && sudo apt -y dist-upgrade
 sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
@@ -231,11 +231,11 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 This step will erase the default Maternal & Newborn Health Reference Application. 
 {{% /alert %}}
 
-You can also upload the blank project you created above (via the `cht initilise-project-layout` command).
+You can also upload the blank project you created above (via the `cht initialise-project-layout` command).
 
 Deploy the blank project onto your local test environment with the following command:
 
-{{< tabpane persistLang=false lang=shell >}}
+{{< tabpane persist=false lang=shell >}}
 {{< tab header="Local" >}}
 # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
 cht --url=https://medic:password@localhost --accept-self-signed-certs

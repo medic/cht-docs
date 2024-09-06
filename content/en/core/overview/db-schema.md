@@ -220,7 +220,7 @@ The record in the `_users` database includes:
  - The `type` of `user`
  - The password hash and associated data
 
-The `_users` database is what CouchDB uses for authentication and is only editable by administrative users, so is authoritive when it comes to roles and the like.
+The `_users` database is what CouchDB uses for authentication and is only editable by administrative users, so is authoritative when it comes to roles and the like.
 
 The `medic` database stores a copy of roles and permissions along with:
  - The `type` of `user-settings`

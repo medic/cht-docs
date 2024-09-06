@@ -1,7 +1,7 @@
 ---
 title: "Using NPM"
 linkTitle: "Using NPM"
-weight: 9
+weight: 10
 description: >
   Quick guide to using NPM
 aliases: >

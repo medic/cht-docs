@@ -6,11 +6,11 @@ weight: 1
 cascade:
 - _target:
     path: "/**"
-  kind: "page"
+    _kind: "page"
   type: "docs"
 - _target:
     path: "/**"
-  kind: "section"
+    _kind: "page"
   type: "docs"
 ---
 

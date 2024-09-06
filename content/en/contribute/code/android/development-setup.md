@@ -29,7 +29,7 @@ Finally, you will learn how to assemble the app, run the tests, and how to choos
 
 **Gradle** is also used but it's downloaded and installed in the user space the first time `make` is executed. You can also build and launch the app with [Android Studio](#android-studio).
 
-Bellow are the instructions of how to install and setup some of the tools required.
+Below are the instructions of how to install and setup some of the tools required.
 
 
 ## Install

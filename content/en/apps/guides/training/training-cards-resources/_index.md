@@ -10,9 +10,29 @@ relatedContent: >
   apps/guides/training/training-cards
 ---
 
-This is a list of [trainings cards]({{< relref "apps/features/training" >}}) that you can use in your project to train users about new updates in CHT. Read the [step by step guide]({{< relref "apps/guides/training/training-cards" >}}) to deploy the training cards.
+## Best practices
 
-## Floating Action Button
+If you are deploying new training cards, here are some best practices to follow: 
+
+- When deploying training cards for the first time, provide guidance in advance as to what users should expect from the cards and how to use them
+- Test training card content with a small set of users to ensure learnability and understanding before deploying to your live instance
+- Test on a physical device to see what content will look like on different screen sizes
+- Keep content to a minimum and try to have as few cards as possible
+- Ensure images aren't confused with UI elements: Add outlines or shadows indicating they're for demonstrative purposes only. Never include navigation buttons in your screenshots (e.g., "Next" or "Cancel").
+- Make sure users know who to contact if they run into issues
+- Establish success criteria for the training cards
+
+Some examples of data to monitor include:
+
+- Users who have completed the training within X days
+- Outliers, ex. users who have seen the cards multiple times and not completed the training
+- The intended users have received the training
+
+## Examples
+
+Below is a list of [trainings cards]({{< relref "apps/features/training" >}}) that you can use in your project to train users about new updates in CHT. Read the [step by step guide]({{< relref "apps/guides/training/training-cards" >}}) to deploy the training cards.
+
+### Floating Action Button
 
 _Introduced in 4.2.0_
 
@@ -24,7 +44,7 @@ Get the training card files [here](https://github.com/medic/cht-docs/tree/main/c
 
 <br clear="all">
 
-## More Options Menu
+### More Options Menu
 
 _Introduced in 4.2.0_
 

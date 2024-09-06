@@ -9,63 +9,87 @@ relatedContent: >
   core/overview/cht-sync
 ---
 
+We recommend running [CHT Sync](https://github.com/medic/cht-sync) in production using Kubernetes. This guide will walk you through setting up a production deployment of CHT Sync with the CHT using Kubernetes.
 
-##  Services & Security
+## Prerequisites:
+- A Kubernetes cluster: You can use a managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS), or you can set up a cluster using a tool like Minikube.
+- kubectl: The Kubernetes command-line tool. You can install it using the [kubectl installation](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instructions.
+- Helm: The Kubernetes package manager. You can install it using the [helm installation guide](https://helm.sh/docs/intro/install/).
 
-### Main Services
+## Setup
+- Using `git`, clone the  [CHT Sync repository from GitHub](https://github.com/medic/cht-sync): `git clone https://github.com/medic/cht-sync.git`
+- In the `cht-sync` folder, copy the values in `deploy/cht_sync/values.yaml.template` file to a new file named `deploy/cht_sync/values.yaml`.
+- If you require a Postgres database to be set up in the cluster, you can use the `postgres.enabled` flag in the `values.yaml` file. If you already have a Postgres database outside the cluster, you can set the `postgres.enabled` flag to `false`.
+- If outside the cluster, specify `host` and `port` in this section
+- In either case, specify `user`, `password`, `db`, `schema`, and `table`
+  - `schema` can be used to separate CHT models from any other data that may already be in the database
+  - `table` is the name of the table that couch2pg will write couch documents to, and the source table for dbt models. It is recommended to leave this as `couchdb`.
+```yaml
+postgres:
+  enabled: true
+  user: "postgres"
+  password: ""
+  db: ""
+  schema: "v1"
+  table: "couchdb"
+```
+- Set CouchDB shared values in the `values.yaml` file.
+```yaml
+couchdb:
+  user: "your_couchdb_user"
+  dbs: "medic"
+  port: "443"
+  secure: "true"
+```
+- Configure the CouchDB instance to be replicated in the `values.yaml` file. For the host, use the CouchDB host URL used to publicly access the instance and for the password, use the password associated with the user set above.
+```yaml
+couchdbs:
+  - host: "host1.cht-core.test"
+    password: "password1"
+```
+- If you have multiple CouchDB instances to replicate, you can add them to the `couchdbs` list.
+```yaml
+couchdbs:
+  - host: "host1.cht-core.test"
+    password: "password1"
+  - host: "host2.cht-core.test"
+    password: "password2"
+```
+- If an instance has a different port, user or different CouchDB databases to be synced, you can specify it in the `couchdbs` list.
+```yaml
+  - host: "host1" # required for all couchdb instances
+    password: "" # required for all couchdb instances
+  - host: "host2.cht-core.test"
+    password: "new_password"
+    user: "separate_user"
+    dbs: "medic medic_sentinel"
+    port: "5984"
+    secure: "false"
+  - host: "host3.cht-core.test"
+    password: "password3"
+  ```
 
-Running [CHT Sync]({{< relref "core/overview/cht-sync" >}}) in production includes DBT, PostgREST and Logstash services. Details about deploying these services can be found [below](#create-and-configure-a-cht-sync-aws-ec2-instance).   
-
-### External Services
-
-While CHT Sync can run against a stand alone CouchDB instance, it's assumed you are configuring CHT Sync against an existing [production CHT Core instance]({{< relref "hosting" >}}), which includes CouchDB. 
-
-Along with CouchDB, these docs assume you have PostgreSQL deployed with an optional Data Visualization Tool, like [Apache Superset](https://superset.apache.org/).
-
-### Security
-
-Production deployments require extra precautions around security and backup. These include, but are not limited to always:
-* Use SSH to access the server, requiring SSH keys, not allowing SSH passwords.
-* Encrypt all web-server connections with a valid TLS cert - this may involve using a load balancer or reverse proxy.
-* Ensure software is kept up to date to defend against security vulnerabilities.
-* Keeping good backups that are regularly tested.
-
- Also, see the general CHT Core [production hosting considerations]({{< relref "hosting/requirements#considerations" >}}), all of which apply to CHT Sync production hosting as well.
-
-## Create and configure a CHT Sync AWS EC2 Instance 
-
-After meeting the [prerequisites]({{< relref "apps/guides/data/analytics/introduction#cht-sync-prerequisites" >}}), install CHT Sync:
-
-1. Deploy a `t2.medium` EC2 instance with the Ubuntu 22 AMI and allow SSH in network permissions. Assign it `60 GiB` of storage ensuring it can grow past the default `8 GiB`.
-2. Now that you have the static IP, in Route 53, set up DNS `A` record using your real domain and IPs instead of these examples: `cht-sync.example.com` -> `1.2.3.4`.
-3. Add SSH keys for users who should have access to the server in the `/home/ubuntu/.ssh/authorized_keys` so that they can SSH in with `ubuntu@cht-sync.example.com`.
-4. Install Docker: `curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh`.
-5. Install updates: `apt update&&apt dist-upgrade&&apt autoremove`.
-6. Create 2 Docker compose files, one for Postgrest and  one for DBT and Logstash: 
-    ```bash
-    curl -o /root/compose-files/posgtrest.yml https://raw.githubusercontent.com/medic/cht-sync/main/docker-compose.postgrest.yml
-    curl -o /root/compose-files/dbt-logstash.yml https://raw.githubusercontent.com/medic/cht-sync/main/docker-compose.yml
-    ```
-7. Download and edit the file with Docker environment variables by running this `curl` command and referencing the [Environment Variables page]({{< relref "apps/guides/data/analytics/environment-variables" >}}):
-    ```bash
-    curl -o  /root/compose-files/.env https://raw.githubusercontent.com/medic/cht-sync/main/env.template
-    ```
-8. Create a  `/root/compose-files/down.up.sh` script for keeping tabs which Docker files to include on stop and start:
-    ```bash
-    #!/bin/bash
-    docker compose \
-            -f postgrest.yml \
-            -f dbt-logstash.yml \
-            down
-
-    docker compose \
-            -f postgrest.yml \
-            -f dbt-logstash.yml \
-            up --remove-orphans -d
-    ```       
-9. Set the script as executable and start CHT Sync:
-    ```bash
-    chmod +x /root/compose-files/down.up.sh
-    /root/compose-files/down.up.sh
-    ```
-10. Confirm the services are running with `docker ps`. The command should show the DBT, Postgrest and Logstash services running. 
+- Set the cht-pipeline branch URL in the `values.yaml` file.
+```yaml
+cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
+```
+- (Optional) Configure the Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in prometheus format at a service with name `metrics` at port 9399, for use with [cht watchdog](https://docs.communityhealthtoolkit.org/hosting/monitoring/setup/) or any other monitoring service.
+An HTTP ingress needs to be created to allow access from outside the cluster.
+```yaml
+metrics_exporter:
+  enabled: true
+```
+## Deploy
+Run the command below to deploy the cht-sync helm chart. If installing from root, specify path to directory containing `chart.yaml` and `values.yaml`
+```shell
+helm install cht-sync cht-sync --values values.yaml
+```
+## Verify the deployment
+Run the following command to get the status of the deployment.
+```shell
+kubectl get pods
+```
+Run the following command to get the logs of a pod.
+```shell
+kubectl logs -f cht-sync-<pod-id>
+```
