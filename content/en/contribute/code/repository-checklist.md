@@ -63,4 +63,4 @@ A: It depends on the nature of the code. Some things to consider are: is the new
 
 ## More info
 
-This policy was inspired by [Microsoft's Engineering Fundamentals Checklist](https://microsoft.github.io/code-with-engineering-playbook/ENG-FUNDAMENTALS-CHECKLIST/).
+This policy was inspired by [Microsoft's Engineering Fundamentals Checklist](https://microsoft.github.io/code-with-engineering-playbook/engineering-fundamentals-checklist/).

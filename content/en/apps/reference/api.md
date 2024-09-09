@@ -626,6 +626,395 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### GET /api/v1/person
+
+*Added in 4.11.0*
+
+Returns a JSON array of people based on the specified page parameters.
+
+#### Permissions
+
+`can_view_contacts`
+
+#### Query Parameters
+
+| Name   | Required | Description                                                                                                                                                                                                              |
+|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type   | true     | ID of the contact_type for the people to fetch.                                                                                                                                                                               |
+| cursor | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
+| limit  | false    | The total number of people to fetch. Defaults to `100`.                                                                                                                                                                  |
+
+#### Examples
+
+1. Get people of type `person`.
+
+```
+GET /api/v1/person?type=person
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        {
+            "_id": "0c9cc77d-7858-44dd-bf44-a25b14334801",
+            "_rev": "1-5fd1e08353c3d102e9b6710eed98dd65",
+            "type": "person",
+            "name": "A",
+            "short_name": "",
+            "date_of_birth": "1961-09-15",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1961-09-15",
+                "dob_method": "",
+                "dob_approx": "2024-08-05T00:00:00.000+06:45",
+                "dob_raw": "1961-09-15",
+                "dob_iso": "1961-09-15"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "manager",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722840232495,
+            "parent": {
+                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "form_version": {
+                "time": 1720158606681,
+                "sha256": "b76e6304218d7e5d7f63c044da514784f0db4b293c1b35ac301ac7ec99876824"
+            }
+        },
+        {
+            "_id": "6fbd5d57-28aa-4a2a-93aa-e9b9f4a3dde3",
+            "_rev": "1-3824f633dda834f676d7d27622ed9371",
+            "type": "person",
+            "name": "B",
+            "short_name": "",
+            "date_of_birth": "1989-02-10",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1989-02-10",
+                "dob_method": "",
+                "dob_approx": "2024-07-26T00:00:00.000+06:45",
+                "dob_raw": "1989-02-10",
+                "dob_iso": "1989-02-10"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "manager",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004033697,
+            "parent": {
+                "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+            },
+            "form_version": {
+                "time": 1720158606680,
+                "sha256": "a2bce7debe191964d6f0a26e0d9cce2ca4437c87a59753688cefac6d2edc9873"
+            }
+        },
+        {
+            "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22",
+            "_rev": "1-2eea14e985aeffd40b33552b33db55a9",
+            "type": "person",
+            "name": "C",
+            "short_name": "",
+            "date_of_birth": "1989-02-11",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1989-02-11",
+                "dob_method": "",
+                "dob_approx": "2024-07-26T00:00:00.000+06:45",
+                "dob_raw": "1989-02-11",
+                "dob_iso": "1989-02-11"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "patient",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004087809,
+            "parent": {
+                "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
+                "parent": {
+                    "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                    "parent": {
+                        "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                    }
+                }
+            },
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852",
+            "_rev": "1-4a5920ecc73521905fa6661b9b142346",
+            "type": "person",
+            "name": "D",
+            "short_name": "",
+            "date_of_birth": "1991-03-05",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1991-03-05",
+                "dob_method": "",
+                "dob_approx": "2024-08-05T00:00:00.000+06:45",
+                "dob_raw": "1991-03-05",
+                "dob_iso": "1991-03-05"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "patient",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722842989644,
+            "parent": {
+                "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
+                "parent": {
+                    "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                    "parent": {
+                        "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                    }
+                }
+            },
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "dc2506e6-55c0-4874-a4a1-334fabef3044",
+            "_rev": "1-a9fa456db5b1aff444819ca91cd07c5b",
+            "type": "person",
+            "name": "E",
+            "short_name": "",
+            "date_of_birth": "1916-06-14",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1916-06-14",
+                "dob_method": "",
+                "dob_approx": "2024-07-26T00:00:00.000+06:45",
+                "dob_raw": "1916-06-14",
+                "dob_iso": "1916-06-14"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "manager",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004065958,
+            "parent": {
+                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "form_version": {
+                "time": 1720158606681,
+                "sha256": "b76e6304218d7e5d7f63c044da514784f0db4b293c1b35ac301ac7ec99876824"
+            }
+        },
+        ... // 95 more records or less if database has less than 100 records
+    ],
+    "cursor": null
+}
+```
+
+2. Get 3 people of type `person` by using cursor `1`.
+
+```
+GET /api/v1/person?type=person&cursor=1&limit=3
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        {
+            "_id": "6fbd5d57-28aa-4a2a-93aa-e9b9f4a3dde3",
+            "_rev": "1-3824f633dda834f676d7d27622ed9371",
+            "type": "person",
+            "name": "X",
+            "short_name": "x",
+            "date_of_birth": "1989-02-10",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1989-02-10",
+                "dob_method": "",
+                "dob_approx": "2024-07-26T00:00:00.000+06:45",
+                "dob_raw": "1989-02-10",
+                "dob_iso": "1989-02-10"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "manager",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004033697,
+            "parent": {
+                "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+            },
+            "form_version": {
+                "time": 1720158606680,
+                "sha256": "a2bce7debe191964d6f0a26e0d9cce2ca4437c87a59753688cefac6d2edc9873"
+            }
+        },
+        {
+            "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22",
+            "_rev": "1-2eea14e985aeffd40b33552b33db55a9",
+            "type": "person",
+            "name": "Y",
+            "short_name": "y",
+            "date_of_birth": "1989-02-11",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1989-02-11",
+                "dob_method": "",
+                "dob_approx": "2024-07-26T00:00:00.000+06:45",
+                "dob_raw": "1989-02-11",
+                "dob_iso": "1989-02-11"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "patient",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004087809,
+            "parent": {
+                "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
+                "parent": {
+                    "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                    "parent": {
+                        "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                    }
+                }
+            },
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852",
+            "_rev": "1-4a5920ecc73521905fa6661b9b142346",
+            "type": "person",
+            "name": "Z",
+            "short_name": "z",
+            "date_of_birth": "1991-03-05",
+            "date_of_birth_method": "",
+            "ephemeral_dob": {
+                "dob_calendar": "1991-03-05",
+                "dob_method": "",
+                "dob_approx": "2024-08-05T00:00:00.000+06:45",
+                "dob_raw": "1991-03-05",
+                "dob_iso": "1991-03-05"
+            },
+            "phone": "",
+            "phone_alternate": "",
+            "sex": "male",
+            "role": "patient",
+            "external_id": "",
+            "notes": "",
+            "user_for_contact": {
+                "create": "false"
+            },
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722842989644,
+            "parent": {
+                "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
+                "parent": {
+                    "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                    "parent": {
+                        "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                    }
+                }
+            },
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        }
+    ],
+    "cursor": "4"
+}
+```
+
 ## People
 
 ### Supported Properties
@@ -821,6 +1210,174 @@ Content-Type: application/json; charset=utf-8
 	"place_id": "17437"
 }
 ```
+
+### GET /api/v1/place
+
+*Added in 4.12.0*
+
+Returns a JSON array of places based on the specified page parameters.
+
+#### Query Parameters
+
+| Name   | Required | Description                                                                                                                                                                                                              |
+|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type   | true     | ID of the contact_type for the places to fetch.                                                                                                                                                                          |
+| cursor | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
+| limit  | false    | The total number of places to fetch. Defaults to `100`.                                                                                                                                                                  |
+
+#### Examples
+
+1. Get places of type `clinic`.
+
+```
+GET /api/v1/place?type=clinic
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        {
+            "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
+            "_rev": "1-ec14166e5a1b0014d923a6c0aef85362",
+            "parent": {
+                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "A clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722842989644,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
+            "_rev": "1-d1444e92bd1973e9d8366c0a55346c0a",
+            "parent": {
+                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "B clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004087809,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        ... // 98 more records or less if database has less than 100 records
+    ],
+    "cursor": null
+}
+```
+
+2. Get 2 places of type `clinic` by using cursor `1`.
+
+```
+GET /api/v1/place?type=clinic&cursor=1&limit=2
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        {
+            "_id": "1c5c9538-4832-47f4-9398-e113ec0bc856",
+            "_rev": "1-ec14166e5a1b0014d923a6c0aef85362",
+            "parent": {
+                "_id": "8f98977e-8475-4bef-a064-2ba305b93f3f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "A clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "a4e075ce-66cb-47bf-afe8-4c72d1674852"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722842989644,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        },
+        {
+            "_id": "be9eb905-1dd3-4957-89ed-b74d080a8246",
+            "_rev": "1-d1444e92bd1973e9d8366c0a55346c0a",
+            "parent": {
+                "_id": "b132829c-6267-4d4f-aa8e-11862828e65f",
+                "parent": {
+                    "_id": "a7922ef9-ea7a-47d9-b3eb-b78b13d31460"
+                }
+            },
+            "type": "clinic",
+            "is_name_generated": "true",
+            "name": "B clinic",
+            "external_id": "",
+            "notes": "",
+            "contact": {
+                "_id": "99ea9cf6-8bef-475c-a769-3db0d1888f22"
+            },
+            "geolocation": "",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1722004087809,
+            "form_version": {
+                "time": 1720158606678,
+                "sha256": "c533208263cb5892a50ede65acd31553863a1b9ac84d2b19e993ddc6f9690e1b"
+            }
+        }
+    ],
+    "cursor": "3"
+}
+```
+
 
 ## Places
 
