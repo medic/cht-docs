@@ -77,12 +77,7 @@ nvm install {{< param nodeVersion >}}
 {{< tab header="macOS" >}}
 # Uses Homebrew: https://brew.sh/
 brew update
-brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
-# Python no longer included by default in macOS >12.3
-pyenv install 2.7.18
-pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
+brew install curl jq git make node@{{< param nodeVersion >}} gcc python
 {{< /tab >}}
 {{< tab header="Windows (WSL2)" >}}
 sudo apt update && sudo apt -y dist-upgrade

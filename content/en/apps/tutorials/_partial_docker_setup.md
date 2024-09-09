@@ -5,6 +5,10 @@ hide_summary: true
 ---
 {{< tabpane text=true >}}
 {{% tab header="Linux (Ubuntu)" %}}
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).  
+
+Alternatively, on Linux you can use the following commands to install [Docker Engine](https://docs.docker.com/engine/). (This will reduce the layers of technical abstraction for running containers, but will not include a GUI application for managing your Docker resources.) 
+
 ```shell
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 # OPTIONAL: Allow user to run Docker without sudo
