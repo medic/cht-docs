@@ -43,6 +43,7 @@ apdex_scores AS (
 )
 SELECT
   event_category,
+  satisfied_count + tolerable_count + frustrated_count AS total_count,
   satisfied_count,
   tolerable_count,
   frustrated_count,
