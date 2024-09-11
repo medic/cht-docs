@@ -9,6 +9,7 @@ relatedContent: >
   building/features/integrations/rapidpro
 aliases:
   - /apps/guides/integrations/best-practices/rapidpro
+  - /apps/guides/integrations/rapidpro/ 
 ---
 
 [RapidPro](https://app.rapidpro.io/) is the open-source platform that powers [TextIt](https://textit.com/), developed by UNICEF and Nyaruka. RapidPro allows you to visually build messaging workflows for mobile-based services. Review RapidPro’s documentation to familiarize yourself with various components that include the [API](https://rapidpro.io/api/v2/). Before you embark on designing an integrated RapidPro/CHT workflow, you should start by understanding the needs of your users, identifying a problem to solve, and establishing goals. While an integrated RapidPro/CHT workflow can open up many powerful and personalized messaging capabilities, introducing an additional technology solution does come with complexities and cost. A good way to mitigate some of the complexities of setting up and [hosting](https://rapidpro.github.io/rapidpro/docs/hosting/) RapidPro yourself is to utilize a SaaS solution such as [TextIt](https://textit.in/). TextIt offers transparent per message [pricing](https://textit.com/pricing) and free credits to start off.

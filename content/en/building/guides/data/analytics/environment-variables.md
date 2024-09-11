@@ -4,7 +4,9 @@ weight: 4
 linkTitle: "Environment Variables"
 description: >
   Environment variables for running CHT Sync 
----
+aliases:
+   - /apps/guides/data/analytics/environment-variables
+----
 
 There are three environment variable groups in the `.env` file. To successfully set up CHT Sync, it is important to understand the difference between them.
 1. `POSTGRES_`: Used by PostgreSQL to establish the PostgreSQL database to synchronize CouchDB data to. They define the schema and table names to store the CouchDB data, as well as where the tables and views for the models defined in `CHT_PIPELINE_BRANCH_URL` will be created. 

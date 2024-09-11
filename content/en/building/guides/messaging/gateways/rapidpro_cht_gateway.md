@@ -6,7 +6,9 @@ description: >
     Integration for sending and receiving messages
 relatedContent: >
     building/guides/messaging/gateways/rapidpro
----
+aliases:
+   - /apps/guides/messaging/gateways/rapidpro_cht_gateway
+----
 
 RapidPro - CHT uses your Android phone to send and receive messages on your behalf.
 

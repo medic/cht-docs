@@ -9,7 +9,9 @@ relatedContent: >
   building/reference/app-settings/#validations
   building/guides/messaging
 
----
+aliases:
+   - /apps/tutorials/sms-forms
+----
 
 SMS forms allow users to submit reports from any device including [feature phones](https://en.wikipedia.org/wiki/Feature_phone) without internet access. SMS forms are ideal in scenarios where targeted users have no way of accessing internet or where they are restricted to using feature phones.
 

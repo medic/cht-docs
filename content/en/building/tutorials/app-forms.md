@@ -11,7 +11,9 @@ relatedContent: >
   design/best-practices/#content-and-layout
   design/best-practices/#summary-page
 
----
+aliases:
+   - /apps/tutorials/app-forms
+----
 
 App forms allow users to submit reports from Android devices
 

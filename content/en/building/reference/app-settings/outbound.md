@@ -5,7 +5,9 @@ weight: 5
 description: >
   **Outbound Push**: Exchanging data between CHT applications and other tools
 relevantLinks: >
----
+aliases:
+   - /apps/reference/app-settings/outbound
+----
 
 *Outbound is only available in CHT Core 3.5.0 and above*
 

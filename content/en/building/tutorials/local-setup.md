@@ -8,7 +8,9 @@ relatedContent: >
   contribute/code/core/using-windows
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
----
+aliases:
+   - /apps/tutorials/local-setup
+----
 
 {{% pageinfo %}}
 This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.

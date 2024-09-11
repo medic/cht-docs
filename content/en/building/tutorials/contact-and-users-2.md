@@ -9,7 +9,9 @@ relatedContent: >
   core/overview/db-schema
   building/guides/data/users-bulk-load
   building/concepts/users
----
+aliases:
+   - /apps/tutorials/contact-and-users-2
+----
 
 {{% pageinfo %}}
 In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using cht-conf. If you haven't already, have a look at [part 1]({{% ref "building/tutorials/contact-and-users-1" %}}) of this tutorial for a useful overview of key concepts.

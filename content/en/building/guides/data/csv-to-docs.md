@@ -7,7 +7,9 @@ description: >
 relatedContent: >
   building/guides/forms/additional-docs
   building/reference/forms/contact
----
+aliases:
+   - /apps/guides/data/csv-to-docs
+----
 
 
 ## Seeding data with cht-conf

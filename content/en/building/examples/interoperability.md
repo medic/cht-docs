@@ -5,7 +5,9 @@ weight:
 description: >
   Generating patients with missed follow-up appointments between CHT and requesting system
 keywords: Loss to Follow Up 
----
+aliases:
+   - /apps/examples/interoperability
+----
 
 ## Loss to Follow Up Workflow (LTFU)
 

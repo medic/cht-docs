@@ -8,7 +8,9 @@ relatedContent: >
   building/features/uhc-mode
   building/reference/app-settings/user-roles
   building/reference/app-settings/user-permissions
----
+aliases:
+   - /apps/guides/forms/uhc-mode
+----
 
 _Introduced in v2.18.0_
 

@@ -5,7 +5,9 @@ weight: 2
 description: >
   **Graphics**: Used for custom branding, logos, and icons
 keywords: icons branding
----
+aliases:
+   - /apps/reference/resources
+----
 
 ## Icons
 Apps can be customized by defining the icons to use for tasks, targets, and contacts.

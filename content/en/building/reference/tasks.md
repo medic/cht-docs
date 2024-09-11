@@ -9,7 +9,9 @@ relatedContent: >
   building/concepts/workflows
   design/best-practices
 keywords: tasks workflows
----
+aliases:
+   - /apps/reference/tasks
+----
 
 ![task](task-with-description.png)
 

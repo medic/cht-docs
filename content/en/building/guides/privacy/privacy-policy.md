@@ -4,6 +4,7 @@ linkTitle: "Adding Policies"
 weight: 100
 aliases:
   -    /apps/guides/security/
+  - /apps/guides/privacy/privacy-policy/
 description: >
   Guide for adding privacy policies that users must accept before being allowed to use the app
 ---

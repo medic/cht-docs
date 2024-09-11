@@ -7,5 +7,7 @@ description: >
 relevantLinks: >
   docs/design/best-practices
 keywords: app-forms
----
+aliases:
+   - /apps/reference/forms/
+----
 

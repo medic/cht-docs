@@ -8,7 +8,9 @@ relatedContent: >
   building/guides/forms/additional-docs
   building/guides/forms/multimedia
   building/reference/forms/contact
----
+aliases:
+   - /apps/guides/forms/app-form-sms
+----
 
 ## Triggering Calls and SMS
 

@@ -8,7 +8,9 @@ relatedContent: >
   building/reference/tasks
   building/examples/anc
 
----
+aliases:
+   - /apps/tutorials/tasks-2
+----
 
 {{% pageinfo %}}
 Tasks prompt users to complete activities on a programmatic schedule. This tutorial will guide you through the development of an advanced task. This is an _optional_ tutorial and is not required to _get started_ with CHT Application development.

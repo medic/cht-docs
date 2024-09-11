@@ -10,7 +10,9 @@ relatedContent: >
   building/features/reports
   building/guides/data/invalid-reports
   building/reference/app-settings/patient_reports
----
+aliases:
+   - /apps/guides/performance/purging
+----
 
 *Only available in 3.7.0 and above*
 

@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts/workflows
   building/reference/app-settings/_index.md#sms-recipient-resolution
 keywords: workflows
----
+aliases:
+   - /apps/reference/app-settings/schedules
+----
 
 Schedules are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool.
 

@@ -6,7 +6,9 @@ description: >
   Using cht-conf to obtain form files stored in Google Drive
 relatedContent: >
   building/guides/forms/
----
+aliases:
+   - /apps/guides/forms/google-drive
+----
 
 
 To work collaboratively on form design it can be helpful to keep XLSForms in Google Drive. The `fetch-forms-from-google-drive` action downloads these XLSForms so that they can be converted to XForms and uploaded to your CHT app. 

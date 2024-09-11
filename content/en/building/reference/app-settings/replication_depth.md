@@ -5,7 +5,9 @@ weight: 5
 description: >
   **Replications**: Instructions for replication depth
 keywords: replication
----
+aliases:
+   - /apps/reference/app-settings/replication_depth
+----
 
 Replication depth is defined under `replication_depth` as an array of objects. It grants the ability to limit document replication depending on user roles.
  

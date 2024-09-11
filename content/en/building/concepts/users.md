@@ -9,7 +9,9 @@ relatedContent: >
   building/tutorials/contact-and-users-1
   building/tutorials/contact-and-users-2
   building/guides/data/users-bulk-load
----
+aliases:
+   - /apps/concepts/users
+----
 
 Apps built with the Core Framework use roles and permissions to determine who has access to what data. User roles are general categories you can use to assign a collection of broad permissions to users. There are two classes of roles: online and offline. Generally speaking, CHWs are usually offline users, while managers and nurses are usually online users. SMS users do not use the app, and thus do not have a user role.
 

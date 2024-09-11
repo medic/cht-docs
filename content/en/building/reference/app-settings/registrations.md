@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts/workflows
   building/reference/app-settings/_index.md#sms-recipient-resolution
 keywords: workflows
----
+aliases:
+   - /apps/reference/app-settings/registrations
+----
 
 The `registrations` key contains actions that need to be performed for incoming reports of the specified form.
 

@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts/forms
   building/features/tasks/#care-guides
   building/reference/contact-page/#care-guides
----
+aliases:
+   - /apps/concepts/care-guides
+----
 
 ## Care Guides
 

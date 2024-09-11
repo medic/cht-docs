@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts
   building/reference/forms/app
   building/reference/tasks
----
+aliases:
+   - /apps/examples/direct-to-client
+----
 
 {{% pageinfo %}}
 

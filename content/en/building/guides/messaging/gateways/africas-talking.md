@@ -6,6 +6,7 @@ description: >
   Integration for sending and receiving SMS
 aliases:
   -    /apps/guides/messaging/africas-talking
+  - /apps/guides/messaging/gateways/africas-talking/
 relatedContent: >
   building/reference/app-settings/sms
   building/guides/forms/app-form-sms

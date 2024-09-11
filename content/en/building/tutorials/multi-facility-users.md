@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts/users
   building/reference/app-settings
   building/tutorials/contact-and-users-1
----
+aliases:
+   - /apps/tutorials/multi-facility-users
+----
 
 {{% pageinfo %}}
 This tutorial will take you through how to create and assign users to multiple places in the CHT UI. Assigning users to multiple places is only available from **CHT 4.9.0**.

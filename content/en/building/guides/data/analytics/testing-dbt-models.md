@@ -4,7 +4,9 @@ linkTitle: "Testing dbt models"
 weight: 6
 description: >
   Guide for testing dbt models
----
+aliases:
+   - /apps/guides/data/analytics/testing-dbt-models
+----
 
 ## Overview
 

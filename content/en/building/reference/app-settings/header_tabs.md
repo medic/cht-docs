@@ -7,7 +7,9 @@ description: >
 relevantContent: >
   building/reference/resources
 keywords: icons
----
+aliases:
+   - /apps/reference/app-settings/header_tabs
+----
 
 ## `app_settings.js .header_tabs`
 As of `3.10.0`, app header tabs icons can be configured by modifying the `header_tabs` section in the app settings.

@@ -5,7 +5,9 @@ weight:
 description: >
   How to write SQL queries excluding muted contacts correctly
 relevantLinks: >
----
+aliases:
+   - /apps/guides/database/muting_in_dashboards
+----
 
 When a contact gets muted, two of [many things]({{< ref "building/reference/app-settings/transitions#muting" >}}) happen: 
 

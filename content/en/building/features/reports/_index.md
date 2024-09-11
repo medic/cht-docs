@@ -7,7 +7,9 @@ relatedContent: >
   building/reference/app-settings/patient_reports
   building/guides/data/invalid-reports
   building/guides/forms/report-titles
----
+aliases:
+   - /apps/features/reports/
+----
 
 The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferable for CHW users). 
 

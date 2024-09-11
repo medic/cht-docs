@@ -5,7 +5,9 @@ weight: 1
 description: >
   Starting up your digital health apps
   
----
+aliases:
+   - /apps/concepts/access
+----
 
 Apps built with the Core Framework run on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
 

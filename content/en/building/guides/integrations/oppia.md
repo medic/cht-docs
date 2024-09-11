@@ -8,7 +8,9 @@ keywords: oppia
 relatedContent: >
   building/features/integrations/oppia
   building/examples/learning-care
----
+aliases:
+   - /apps/guides/integrations/oppia
+----
 
 The training modules configuration consists of five main components:
 - App Forms - Content that the user will interact with;

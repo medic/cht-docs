@@ -8,7 +8,9 @@ relevantLinks: >
   docs/building/concepts/user-permissions
   docs/building/concepts/user-roles
 keywords: user-roles user-permissions
----
+aliases:
+   - /apps/reference/app-settings/user-permissions
+----
 
 Permissions are defined by the `permissions` object in the `base_settings.json` file. The list below illustrates the available system defined permissions. To utilize a permission, you will need to first add the permission as a property of the `permissions` object, and then associate the permission to user role(s).
 

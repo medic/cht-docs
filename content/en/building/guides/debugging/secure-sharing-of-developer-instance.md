@@ -6,7 +6,9 @@ description: >
   Use a publicly accessible Linux web server to forward https requests to your development environment
 relatedContent: >
   
----
+aliases:
+   - /apps/guides/debugging/secure-sharing-of-developer-instance
+----
 
 {{% alert title="Warning" %}} 
 Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.

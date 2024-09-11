@@ -7,7 +7,9 @@ keywords: tasks
 relatedContent: >
   building/reference/tasks
   building/concepts/workflows
----
+aliases:
+   - /apps/features/tasks/
+----
 
 Tasks help CHWs plan their day by prompting them to complete follow-up visits and other activities. The list might include upcoming scheduled ANC or Immunization visits, treatment or referral follow-ups, or other required activities such as a household survey.
 

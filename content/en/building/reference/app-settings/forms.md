@@ -8,7 +8,9 @@ relevantLinks: >
   docs/building/concepts/workflows
   docs/building/features/interop
 keywords: workflows interop json-forms
----
+aliases:
+   - /apps/reference/app-settings/forms
+----
 
 JSON forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool. JSON Forms are used for parsing reports from formatted SMS, SIM applications, and Medic Collect. JSON form definitions are also used for interoperability with third-party systems. Each form is defined as an JSON form object according to the following schema. The key for each object must be unique and all characters must be uppercase. 
 

@@ -6,6 +6,7 @@ description: >
   How to create users in bulk
 aliases:
   -    /core/guides/users-bulk-load
+  - /apps/guides/data/users-bulk-load/
 relatedContent: >
   building/guides/data/csv-to-docs
   building/reference/api/#post-apiv2users

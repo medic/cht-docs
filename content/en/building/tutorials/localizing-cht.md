@@ -7,7 +7,9 @@ description: >
 relatedContent: >
   core/overview/translations
   building/reference/translations
----
+aliases:
+   - /apps/tutorials/localizing-cht
+----
 
 {{% pageinfo %}}
 Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.

@@ -13,7 +13,9 @@ relatedContent: >
   building/guides/forms/multimedia
   building/guides/forms/app-form-sms
 keywords: hierarchy contacts contact-forms
----
+aliases:
+   - /apps/reference/forms/contact
+----
 
 Contact forms are used to create and edit contacts (persons and places). Each contact-type should ideally have two forms; one for creation, and another for editing.
 

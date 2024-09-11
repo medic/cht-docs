@@ -5,7 +5,9 @@ weight: 5
 description: >
   Configure SMS reminders to users
 relevantLinks: >
----
+aliases:
+   - /apps/reference/app-settings/reminders
+----
 
 Configure SMS reminders to notify primary contacts to submit reports for their places.
 

@@ -5,6 +5,7 @@ weight:
 aliases:
   - /apps/guides/hosting/3.x/preparing-for-4.0
   - /apps/guides/updates/preparing-for-4.md
+  - /apps/guides/updates/preparing-for-4/
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 4.0 and later
   

@@ -8,6 +8,8 @@ aliases: >
   /core/guides/android/branding
 relatedContent: >
    building/reference/app-settings/assetlinks
+aliases:
+   - /apps/guides/android/branding/
 ---
 
 {{% pageinfo %}}

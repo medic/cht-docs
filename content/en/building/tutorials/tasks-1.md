@@ -10,7 +10,9 @@ relatedContent: >
   building/concepts/workflows
   design/best-practices#anatomy-of-a-task
 
----
+aliases:
+   - /apps/tutorials/tasks-1
+----
 
 {{% pageinfo %}}
 Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]({{< ref "building/tutorials/app-forms" >}}) for new patients within 7 days of registration.

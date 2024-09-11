@@ -8,7 +8,9 @@ relatedContent: >
   building/guides/forms/app-form-sms
   building/guides/messaging/sms-states
   building/guides/messaging/shortcodes
----
+aliases:
+   - /apps/guides/messaging/message-loops
+----
 Endless messaging loops can between the webapp and a mobile number via the gateway due to autoreplies from the webapp.
 
 See the [Github Issue](https://github.com/medic/cht-core/issues/750).

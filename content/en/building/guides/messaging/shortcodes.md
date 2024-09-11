@@ -7,7 +7,9 @@ description: >
 relatedContent: >
   building/reference/app-settings/sms
   building/guides/messaging/sms-states
----
+aliases:
+   - /apps/guides/messaging/shortcodes
+----
 
 Short unique identifiers for contacts are often used to identify contacts in messaging workflows. Unique short codes  are generated on `doc.patient_id` against any document of a `person` `type`, and on every `doc.place_id` against any document of a `place` `type`. By default, these IDs start at 5 numeric digits long, and will increase in length as deemed necessary by the generation algorithm.
 

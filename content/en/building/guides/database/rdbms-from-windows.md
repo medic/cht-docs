@@ -6,7 +6,9 @@ description: >
   How to connect to the PostgreSQL RDBMS server from Windows   
 relatedContent: >
   building/guides/database/rdbms-from-mac
----
+aliases:
+   - /apps/guides/database/rdbms-from-windows
+----
 Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix systems. In Windows there are a couple of things you need to do to get it up and running. 
 
 ## SSH Key Generation and Importing

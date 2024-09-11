@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts
   building/reference/forms/app
   building/reference/tasks
----
+aliases:
+   - /apps/examples/anc
+----
 
 {{% pageinfo %}}
 This "reference application" for maternal and newborn health provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration, and test code. It can be used as is, or serve as a great way to learn about the CHT's foundation for forms, data fields, and analytics that can be easily customized to fit your context.

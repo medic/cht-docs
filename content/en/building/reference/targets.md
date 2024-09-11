@@ -8,7 +8,9 @@ relatedContent: >
   building/features/targets
   design/best-practices
 keywords: targets workflows
----
+aliases:
+   - /apps/reference/targets
+----
 
 ![Percentages](counts.png)
 

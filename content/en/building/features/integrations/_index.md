@@ -6,4 +6,7 @@ description: >
 keywords: integrations interoperability
 relatedContent: >
   building/guides/integrations
+aliases:
+  - /apps/features/integrations/
 ---
+

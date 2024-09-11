@@ -7,7 +7,9 @@ relatedContent: >
   building/tutorials/tasks-1
   core/overview/db-schema#tasks
   core/overview/data-flows-for-analytics
----
+aliases:
+   - /apps/guides/tasks/query-task-data
+----
 
 {{% pageinfo %}}
 This guide explains the data which results from tasks and how to query it.

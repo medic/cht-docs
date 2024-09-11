@@ -9,7 +9,9 @@ relatedContent: >
   building/guides/messaging/message-loops
   building/reference/app-settings/sms
 keywords: messaging
----
+aliases:
+   - /apps/guides/messaging/sms-states
+----
 
 ## Interaction with SMS providers
 

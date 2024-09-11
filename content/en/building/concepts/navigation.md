@@ -4,7 +4,9 @@ linkTitle: "Navigation"
 weight: 2
 description: >
   Browsing your digital health apps
----
+aliases:
+   - /apps/concepts/navigation
+----
 
 ## Summary of Page Tabs
 

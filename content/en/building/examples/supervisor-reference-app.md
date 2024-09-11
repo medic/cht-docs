@@ -9,7 +9,9 @@ relatedContent: >
   building/features/supervision
   building/reference/forms/app
   building/reference/tasks
----
+aliases:
+   - /apps/examples/supervisor-reference-app
+----
 
 {{% pageinfo %}}
 

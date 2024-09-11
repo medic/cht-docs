@@ -7,7 +7,9 @@ description: >
 relevantLinks: >
   docs/building/concepts/workflows
 keywords: workflows
----
+aliases:
+   - /apps/reference/app-settings/accept_case_reports
+----
 
 The `accept_case_reports` key contains the actions to take when reports about cases are received.
 

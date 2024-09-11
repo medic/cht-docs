@@ -9,7 +9,9 @@ relatedContent: >
   building/reference/contact-page
   building/guides/tasks/pass-data-to-form
   
----
+aliases:
+   - /apps/guides/forms/form-inputs
+----
 
 CHT forms have access to varying amounts of input data depending on the type of form and its source.
 

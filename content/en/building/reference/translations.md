@@ -5,7 +5,9 @@ weight: 2
 description: >
   **Localization**: Localized labels for CHT applications
 keywords: localization languages translations
----
+aliases:
+   - /apps/reference/translations
+----
 
 Given that CHT apps are used around the world, the Core Framework was designed with localization in mind. The Core Framework itself is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.  
 In the `app_settings.json` file the default language for the application is set by the `locale` property, along with a separate default language for outgoing messages that are sent via SMS with the `locale_outgoing` property.  

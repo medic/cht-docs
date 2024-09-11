@@ -8,7 +8,9 @@ relatedContent: >
   building/reference/forms/app/#formsappform_namepropertiesjson
   design/best-practices
 
----
+aliases:
+   - /apps/tutorials/form-properties
+----
 
 {{% pageinfo %}}
 This tutorial will take you through how to write the `<form_name>.properties.json` file.

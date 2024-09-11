@@ -7,7 +7,9 @@ description: >
 keywords: hierarchy
 relatedContent: >
   building/reference/app-settings/hierarchy
----
+aliases:
+   - /apps/concepts/hierarchy
+----
 
 The Core Framework requires a hierarchy to organize the information in the app. It is often based on the hierarchy of a health system within a particular geographic region. 
 

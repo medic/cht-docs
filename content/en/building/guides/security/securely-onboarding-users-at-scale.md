@@ -12,7 +12,9 @@ relatedContent: >
     building/concepts/users
     building/concepts/access/#magic-links-for-logging-in-token-login
 
----
+aliases:
+   - /apps/guides/security/securely-onboarding-users-at-scale
+----
 
 {{% pageinfo %}}
 This document shows how to achieve a high level of credential management security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 

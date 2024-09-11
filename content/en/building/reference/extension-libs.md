@@ -5,7 +5,9 @@ weight: 5
 description: >
   Used for providing custom scripts for execution in CHT apps
 keywords: extension libs extensibility
----
+aliases:
+   - /apps/reference/extension-libs
+----
 
 _Introduced in v4.2.0_
 

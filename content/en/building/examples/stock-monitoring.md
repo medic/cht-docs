@@ -5,7 +5,9 @@ weight:
 description: >
   Guidance on design and development of stock monitoring workflows.
 keywords: stock monitoring
----
+aliases:
+   - /apps/examples/stock-monitoring
+----
 
 ## Problem Being Addressed
 

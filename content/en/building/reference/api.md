@@ -4,7 +4,9 @@ linkTitle: "API"
 weight: 1
 description: >
   RESTful Application Programming Interfaces for integrating with CHT applications
----
+aliases:
+   - /apps/reference/api
+----
 
 <style>
 .td-content #TableOfContents ul ul ul {

@@ -8,7 +8,9 @@ relatedContent: >
   building/concepts/workflows
   building/reference/app-settings/_index.md#sms-recipient-resolution
 keywords: workflows
----
+aliases:
+   - /apps/reference/app-settings/patient_reports
+----
 
 The `patient_reports` key contains the actions to take when reports about people are received.
 

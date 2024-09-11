@@ -6,6 +6,7 @@ description: >
   List of Phones that work well with CHT Gateway
 aliases:
   -    /apps/guides/messaging/gateway/phones
+  - /apps/guides/messaging/gateways/gateway/phones/
 relatedContent: >
   building/guides/messaging/gateways/gateway/troubleshooting
   building/guides/messaging/gateways/gateway/configuration

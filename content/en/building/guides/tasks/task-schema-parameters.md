@@ -10,7 +10,9 @@ relatedContent: >
   core/overview/db-schema#reports
   building/tutorials/tasks-1
 
----
+aliases:
+   - /apps/guides/tasks/task-schema-parameters
+----
 
 {{% pageinfo %}}
 This guide explains the parameters available in the Task Schema and important constraints governing the design of tasks.

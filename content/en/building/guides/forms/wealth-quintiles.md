@@ -6,7 +6,9 @@ description: >
   How to track wealth quintiles on the profile of each family member in the household
 relatedContent: >
 
----
+aliases:
+   - /apps/guides/forms/wealth-quintiles
+----
 
 _Introduced in v2.16.0_
 

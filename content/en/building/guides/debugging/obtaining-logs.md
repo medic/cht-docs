@@ -7,7 +7,9 @@ description: >
 relatedContent: >
   building/guides/debugging/sharing-4x-logs.md
   hosting/4.x/logs
----
+aliases:
+   - /apps/guides/debugging/obtaining-logs
+----
 
 There are many places where useful logs reside. This details all those places, and the easiest way to get a hold of them.
 

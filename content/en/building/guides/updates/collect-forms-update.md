@@ -5,7 +5,9 @@ weight:
 description: >
   How to do over-the-air updates of forms in Collect
   
----
+aliases:
+   - /apps/guides/updates/collect-forms-update
+----
 
 To do over the air Medic Collect form updates via HTTP rather than sending APKs which have a long manual install process, follow the steps below:
 

@@ -6,6 +6,8 @@ description: >
 keywords: rapidpro
 relatedContent: >
   building/guides/integrations/rapidpro
+aliases:
+  - /apps/features/integrations/rapidpro/
 ---
 
 [RapidPro](https://rapidpro.io/) is a software product that allows you to visually build logic to support interactive messaging flows. The flows support a variety of technologies such as: SMS, USSD, IVR, Telegram, Facebook Messenger, and WhatsApp. RapidPro is open source and provides an [API](https://community.rapidpro.io/rapidpros-api/) to integrate with other applications. To learn more about the platform, check out RapidPro on [GitHub](https://rapidpro.github.io/rapidpro/), their [Community](https://community.rapidpro.io/) website, or join their Google [Group](https://groups.google.com/g/rapidpro). 

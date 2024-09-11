@@ -8,7 +8,9 @@ relatedContent: >
   building/guides/forms/additional-docs
   building/guides/forms/app-form-sms
   building/reference/forms/contact
----
+aliases:
+   - /apps/guides/forms/multimedia
+----
 
 ## Multimedia Formats
 

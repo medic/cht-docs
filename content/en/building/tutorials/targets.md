@@ -9,7 +9,9 @@ relatedContent: >
   building/reference/targets
   design/best-practices/#anatomy-of-a-task
 
----
+aliases:
+   - /apps/tutorials/targets
+----
 
 {{% pageinfo %}}
 This tutorial will take you through how to build target widgets.

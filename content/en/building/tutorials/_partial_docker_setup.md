@@ -2,7 +2,9 @@
 title: "Local Docker Setup"
 toc_hide: true
 hide_summary: true
----
+aliases:
+   - /apps/tutorials/_partial_docker_setup
+----
 {{< tabpane text=true >}}
 {{% tab header="Linux (Ubuntu)" %}}
 ```shell

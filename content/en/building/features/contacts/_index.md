@@ -11,7 +11,9 @@ relatedContent: >
   building/guides/updates/moving-contacts
   building/tutorials/contact-and-users-1
   building/examples/contact-tracing
----
+aliases:
+   - /apps/features/contacts/
+----
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
 

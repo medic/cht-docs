@@ -8,7 +8,9 @@ keywords: dhis2
 relatedContent: >
   building/features/integrations/dhis2
   building/reference/app-settings/dhis2
----
+aliases:
+   - /apps/guides/integrations/dhis2-aggregate
+----
 
 One of the first things you’ll need to do is identify the specific [DHIS2 data set](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/data-sets-and-forms.html#what-is-a-data-set) that you plan to implement. You’ll need a list of all the [data elements](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/data-elements-and-custom-dimensions.html#data-elements) on that data set, a detailed understanding of how each is calculated, the frequency in which the data set is submitted (weekly, monthly, etc…), and for which [organisation units](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/organisation-units.html) the data set applies. You’ll also want to identify and engage the appropriate DHIS2 stakeholders to get access to DHIS2 metadata, test environments, and discuss workflows. The DHIS2 documentation site provides additional background and advice [here](https://docs.dhis2.org/2.34/en/dhis2_implementation_guide/integration-concepts.html#integration-concepts).
 
