@@ -149,6 +149,14 @@ In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VL
 Add some new rows at the bottom (item 1), enter the new place name in column A (item 2) and paste the UUID in column B (item 3)
 ![open your existing spreadsheet](adding-places-existing-spreadsheet.png)
 
+## Configuring custom places types
+
+The third use case mentioned in the [workbook instructions section]({{< relref "#workbook-instructions" >}}) links to
+a Google Sheets to create user places alongside their account and their contact. This works out of the box with the
+`default` CHT configuration but will require adjustments to be made in the `place.type_VLOOKUP` spreadsheet when dealing
+with a CHT configuration with custom places types.
+
+
 ## Trouble shooting
 
 ### "Wrong type, this is not a person."
