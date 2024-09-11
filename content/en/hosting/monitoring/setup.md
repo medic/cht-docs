@@ -3,7 +3,7 @@ title: "CHT Watchdog Setup"
 linkTitle: "Setup"
 weight: 100
 aliases:  
-  - /apps/guides/hosting/monitoring/setup
+  - /building/guides/hosting/monitoring/setup
 description: >
     Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
@@ -119,7 +119,7 @@ docker compose up -d
 
 #### couch2pg and CHT Sync Data (Local)
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "apps/guides/data/analytics/introduction" >}}) and [couch2pg]({{< relref "apps/tutorials/couch2pg-setup" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "building/guides/data/analytics/introduction" >}}) and [couch2pg]({{< relref "building/tutorials/couch2pg-setup" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
 These instructions apply to both CHT Sync and couch2pg as they both store their information in Postgres and the exporter in this repo is compatible with either.
 
@@ -147,7 +147,7 @@ Always run this longer version of the `docker compose` command which specifies b
 
 #### couch2pg and CHT Sync Data (Remote)
 
-While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync or couch2pg data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync or couch2pg data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "building/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
 
 This section has two steps. The first is to expose the password-less metrics endpoint and the second is to scrape it with Prometheus.   Here's documentation on how to set up a Kubernetes endpoint only for CHT Sync or a Docker endpoint for either CHT Sync or couch2pg.
 

@@ -7,8 +7,8 @@ aliases:
 description: >
     What to do when you need to find server side errors in CHT 4.x
 relatedContent: >
-   apps/guides/debugging/sharing-4x-logs.md
-   apps/guides/debugging/obtaining-logs
+   building/guides/debugging/sharing-4x-logs.md
+   building/guides/debugging/obtaining-logs
 ---
 
 CHT 4.x has the following services running via Docker and each can have its logs queried:

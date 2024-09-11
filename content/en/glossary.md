@@ -133,7 +133,7 @@ The parts of the software that users see and interact with.
 
 ###### Integration
 
-An arrangement of an organization's information systems that allows them to communicate efficiently and effectively. {{< see-also page="apps/features/integrations" prefix="Read more" >}}
+An arrangement of an organization's information systems that allows them to communicate efficiently and effectively. {{< see-also page="building/features/integrations" prefix="Read more" >}}
 
 ###### Internet of Things (IoT)
 
@@ -141,7 +141,7 @@ An arrangement of an organization's information systems that allows them to comm
 
 ###### Interoperability
 
-The ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. {{< see-also page="apps/concepts/interoperability" prefix="Read more" >}}
+The ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. {{< see-also page="building/concepts/interoperability" prefix="Read more" >}}
 
 ## J
 
@@ -187,7 +187,7 @@ A minimum viable product is a product with enough features to attract early-adop
 
 ###### Mobile Device Management (MDM)
 
-More information on the [MDM page]({{< relref "apps/guides/android/publishing#mobile-device-management" >}}).
+More information on the [MDM page]({{< relref "building/guides/android/publishing#mobile-device-management" >}}).
 
 ###### Monitor and Evaluation (M&E)
 
