@@ -27,26 +27,50 @@ docker kill $(docker ps -q)
 After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory:
 
 ```shell 
-mkdir  ~/cht-4-app-developer && cd ~/cht-4-app-developer
-curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-curl -s -o cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
-curl -s -o cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
+
+mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && cd ~/cht_4_app_developer-dir
+curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
 ```
 
-You should now have 3 compose files which we can check with `ls`:
+You should now have 3 compose files and 2 directories which we can check with `ls -R`:
 
 ```shell
-ls
-cht-core.yml  cht-couchdb.yml  docker-compose.yml
+ls -R
+compose  compose.yml  couch
+
+./compose:
+cht-core.yml  cht-couchdb.yml
+
+./couch:
 ```
 
-To start the first developer CHT instance, run `docker-compose`, prepending the needed environment variables:
+To prepare for the first developer CHT instance, write all environment variables to the `.env` file with this code:
+
+```sh
+cat > ~/cht_4_app_developer-dir/.env << EOF
+NGINX_HTTP_PORT=8080
+NGINX_HTTPS_PORT=8443
+COUCHDB_USER=medic
+COUCHDB_PASSWORD=password
+CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
+DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
+COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
+COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
+COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couch
+CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
+CHT_NETWORK=cht_4_app_developer
+EOF
+```
+
+Start the first CHT instance by calling `docker`:
 
 ```shell script
-CHT_COMPOSE_PROJECT_NAME=app-devl COUCHDB_SECRET=foo DOCKER_CONFIG_PATH=${PWD} COUCHDB_DATA=${PWD}/couchd CHT_COMPOSE_PATH=${PWD} COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose up
+cd ~/cht_4_app_developer-dir && docker compose up
 ```
 
-This may take some minutes to fully start depending on the speed of the internet connection and speed of the host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost](https://localhost). You can log in with username `medic` and password `password`.
+This may take some minutes to fully start depending on the speed of the internet connection and speed of the host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost:8443](https://localhost:8443). You can log in with username `medic` and password `password`.
 
 When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/apps/tutorials/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
 
@@ -61,52 +85,44 @@ After running the first instance of the CHT, it's easy to run as many more as ar
 Assuming you want to start a new project called `the_second` and  start the instance on `HTTP` port `8081` and `HTTPS` port `8443`, we would first create a new directory and download the same files:
 
 ```shell 
-mkdir  ~/the_second && cd ~/the_second
-curl -s -o docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-curl -s -o cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
-curl -s -o cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
+mkdir -p ~/cht_4_app_developer-2nd-dir/{compose,couchdb} && cd ~/cht_4_app_developer-2nd-dir
+curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
 ```
 
+Then, we would create an `.env` file like before
 
-Then, we would use the same `docker-compose` command as above, but this time specify the ports:
+```sh
+cat > ~/cht_4_app_developer-2nd-dir/.env << EOF
+NGINX_HTTP_PORT=8081
+NGINX_HTTPS_PORT=8444
+COUCHDB_USER=medic
+COUCHDB_PASSWORD=password
+CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer-2nd
+DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-2nd-dir
+COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
+COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
+COUCHDB_DATA=${HOME}/cht_4_app_developer-2nd-dir/couch
+CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-2nd-dir/compose
+CHT_NETWORK=cht_4_app_developer-2nd
+EOF
+```
+
+And finally use the same `docker compose` command as above:
 
 ```shell script
-NGINX_HTTP_PORT=8081 NGINX_HTTPS_PORT=8444 CHT_COMPOSE_PROJECT_NAME=app-devl COUCHDB_SECRET=foo DOCKER_CONFIG_PATH=${PWD} COUCHDB_DATA=${PWD}/couchd CHT_COMPOSE_PATH=${PWD} COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose up
+cd ~/cht_4_app_developer-2nd-dir && docker compose up
 ```
 
 The second instance is now accessible at  [https://localhost:8444](https://localhost:8444) and again using username `medic` and password `password` to login.
 
-## The `.env` file
-
-Often times it's convenient to use revision control, like GitHub, to store and publish changes in a CHT app.  A nice compliment to this is to store the specifics on how to run the `docker-compose` command for each app. By using a shared `docker-compose` configuration for all developers on the same app, it avoids any port collisions and enables all developers to have a unified configuration.
-
-Using the above `the_second` sample project, we can create a file `~/the_second/.env` with this contents:
-
-```shell
-NGINX_HTTP_PORT=8081 
-NGINX_HTTPS_PORT=8444 
-CHT_COMPOSE_PROJECT_NAME=second 
-COUCHDB_SECRET=foo 
-DOCKER_CONFIG_PATH=./
-COUCHDB_DATA=./couchd 
-CHT_COMPOSE_PATH=./
-COUCHDB_USER=medic 
-COUCHDB_PASSWORD=password
-```
-
-Now it's easy to boot this environment:
-
-```shell
-cd ~/the_second
-docker-compose up
-```
-
 ## Switching & concurrent projects
 
-The easiest way to switch between projects is to stop the first set of containers and start the second set. Cancel the first project running in the foreground with `ctrl + c` and `stop` all the project's services:
+The easiest way to switch between projects is to stop the first set of containers and start the second set. Cancel the first project running in the foreground with `ctrl + c` and `stop` all the project's services. Here any container named `cht_4_app_developer-2nd*` is stopped:
 
 ```shell
-docker stop second_api_1 second_cht-upgrade-service_1 second_couchdb_1 second_haproxy_1 second_healthcheck_1 second_nginx_1 second_sentinel_1
+docker stop $(docker ps -q --filter "name=cht_4_app_developer-2nd*")
 ```
 
 Alternately, you can stop ALL containers (even non-CHT ones!) with `docker kill $(docker ps -q)`. Then start the other CHT project using either the `.env` file or use the explicit command with ports and other environment variables as shown above.
