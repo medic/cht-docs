@@ -8,7 +8,7 @@ relatedContent: >
   building/features/reports
 aliases:
    - /apps/guides/forms/versioning
-----
+---
 
 _Added in cht-core 3.15.0 and cht-conf 3.10.0_
 

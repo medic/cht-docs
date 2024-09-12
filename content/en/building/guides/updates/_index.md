@@ -6,4 +6,4 @@ description: >
   Guides for managing updates to CHT applications, their content, and data
 aliases:
    - /apps/guides/updates/
-----
+---

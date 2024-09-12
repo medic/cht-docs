@@ -9,7 +9,7 @@ relatedContent: >
   building/reference/contact-page#condition-cards
 aliases:
    - /apps/tutorials/condition-cards
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through building a condition card for CHT applications.

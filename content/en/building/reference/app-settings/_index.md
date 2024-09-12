@@ -7,7 +7,7 @@ description: >
 keywords: settings
 aliases:
    - /apps/reference/app-settings/
-----
+---
 
 The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{% ref "building/features/admin" %}}) app, which updates the same settings file in the database. 
 

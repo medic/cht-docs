@@ -6,4 +6,4 @@ description: >
  Creating and managing data in CHT applications
 aliases:
    - /apps/guides/data/
-----
+---

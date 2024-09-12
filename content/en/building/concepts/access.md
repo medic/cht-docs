@@ -7,7 +7,7 @@ description: >
   
 aliases:
    - /apps/concepts/access
-----
+---
 
 Apps built with the Core Framework run on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
 

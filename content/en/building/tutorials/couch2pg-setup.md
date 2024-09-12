@@ -8,7 +8,7 @@ relatedContent: >
   building/tutorials/local-setup
 aliases:
    - /apps/tutorials/couch2pg-setup
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through setting up a Couch2pg service.

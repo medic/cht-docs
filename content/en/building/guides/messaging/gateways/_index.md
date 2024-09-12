@@ -6,4 +6,4 @@ description: >
  Guides for setting up and maintaining messaging gateways
 aliases:
    - /apps/guides/messaging/gateways/
-----
+---

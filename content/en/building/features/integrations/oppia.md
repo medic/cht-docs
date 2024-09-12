@@ -9,7 +9,7 @@ relatedContent: >
   building/guides/integrations/oppia
 aliases:
    - /apps/features/integrations/oppia
-----
+---
 
 [OppiaMobile](https://digital-campus.org/oppiamobile) is an open source mobile learning platform built by Digital Campus specially designed for delivering learning content, multimedia, and quizzes in low connectivity settings. All the content and activities can be accessed and used when no internet connection is available, and users can earn points and badges for completing activities and watching videos. To learn more about the platform, check out the [overview](https://digital-campus.org/oppiamobile/developers), OppiaMobile on [Github](https://github.com/DigitalCampus), and their [documentation site](http://oppiamobile.readthedocs.io/en/latest). You can also join the OppiaMobile [Community Discussion Board](https://community.oppia-mobile.org).
 

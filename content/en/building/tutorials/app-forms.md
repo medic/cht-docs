@@ -13,7 +13,7 @@ relatedContent: >
 
 aliases:
    - /apps/tutorials/app-forms
-----
+---
 
 App forms allow users to submit reports from Android devices
 

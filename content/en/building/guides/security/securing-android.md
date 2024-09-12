@@ -11,7 +11,7 @@ relatedContent: >
 
 aliases:
    - /apps/guides/security/securing-android
-----
+---
 
 To secure an android device you should enable at least a pin code lock on the device, enable FDE (full disc encryption) and setup remote wiping capabilities by enabling mobile device management.
 

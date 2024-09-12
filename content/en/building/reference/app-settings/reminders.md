@@ -7,7 +7,7 @@ description: >
 relevantLinks: >
 aliases:
    - /apps/reference/app-settings/reminders
-----
+---
 
 Configure SMS reminders to notify primary contacts to submit reports for their places.
 

@@ -11,7 +11,7 @@ relatedContent: >
   building/concepts/access/#magic-links-for-logging-in
 aliases:
    - /apps/examples/covid-education
-----
+---
 
 The COVID-19 pandemic has created unique challenges to providing in-person Community Health Worker training. To support CHWs, three learning modules were created to rapidly and remotely train them on COVID-19 safety protocols and patient care. Through CHT app and SMS deployments, Supervisors can now train CHWs on care workflows without being physically present. This example covers the following learning modules:
 

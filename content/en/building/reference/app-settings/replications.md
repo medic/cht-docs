@@ -7,7 +7,7 @@ description: >
 keywords: replications
 aliases:
    - /apps/reference/app-settings/replications
-----
+---
 
 
 {{% alert title="Deprecated" %}} 

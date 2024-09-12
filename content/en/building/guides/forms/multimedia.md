@@ -10,7 +10,7 @@ relatedContent: >
   building/reference/forms/contact
 aliases:
    - /apps/guides/forms/multimedia
-----
+---
 
 ## Multimedia Formats
 

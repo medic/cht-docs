@@ -12,7 +12,7 @@ relatedContent: >
 
 aliases:
    - /apps/tutorials/sms-schedules
-----
+---
 
 SMS schedules allow you to send reminder messages at predetermined times. These reminders serve as useful prompts for end-users to take specific actions.
 

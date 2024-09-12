@@ -10,7 +10,7 @@ relatedContent: >
   building/guides/training/training-cards
 aliases:
    - /apps/guides/training/training-cards-resources/
-----
+---
 
 ## Best practices
 

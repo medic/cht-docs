@@ -6,7 +6,7 @@ description: >
   Browsing your digital health apps
 aliases:
    - /apps/concepts/navigation
-----
+---
 
 ## Summary of Page Tabs
 

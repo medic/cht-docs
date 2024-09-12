@@ -6,7 +6,7 @@ description: >
   Managing databases used by CHT applications
 aliases:
    - /apps/guides/database/
-----
+---
 
 ## CouchDB
 

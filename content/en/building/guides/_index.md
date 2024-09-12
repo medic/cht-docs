@@ -6,4 +6,4 @@ description: >
   These quick guides address focused CHT app development topics
 aliases:
    - /apps/guides/
-----
+---

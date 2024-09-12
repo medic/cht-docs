@@ -8,7 +8,7 @@ relatedContent: >
   
 aliases:
    - /apps/guides/database/couchdb-authentication
-----
+---
 
 ### To invalidate a session in couchdb, there are two options:
 

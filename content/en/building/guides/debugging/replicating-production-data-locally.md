@@ -8,7 +8,7 @@ relatedContent: >
   building/guides/performance/replication
 aliases:
    - /apps/guides/debugging/replicating-production-data-locally
-----
+---
 
 Sometimes there will be a production problem that you need to dig into locally to solve. This guide explains how to:
 

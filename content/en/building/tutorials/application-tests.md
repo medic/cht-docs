@@ -9,7 +9,7 @@ relatedContent: >
   building/guides/tasks/query-task-data/#testing-task-document-data
 aliases:
    - /apps/tutorials/application-tests
-----
+---
 
 {{% pageinfo %}}
 This tutorial takes you through testing the various configurable components of CHT applications using [`cht-conf-test-harness`](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).

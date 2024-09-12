@@ -8,7 +8,7 @@ relatedContent: >
   building/reference/app-settings/transitions#death_reporting
 aliases:
    - /apps/tutorials/death-reporting
-----
+---
 
 # Death Reporting
 

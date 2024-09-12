@@ -11,7 +11,7 @@ relatedContent: >
 
 aliases:
    - /apps/guides/forms/additional-docs
-----
+---
 In version 2.13.0 and higher, you can configure app forms to generate additional docs upon submission. You can create one or more docs using variations on the configuration described below. One case where this can be used is to register a newborn from a delivery report, as shown below. First, here is an overview of what you can do and how the configuration should look in XML:
 
 ## Extra Docs

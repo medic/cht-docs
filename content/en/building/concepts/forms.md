@@ -12,7 +12,7 @@ relatedContent: >
   building/reference/app-settings/forms
 aliases:
    - /apps/concepts/forms
-----
+---
 
 Forms are a building block of all CHT apps. They are used when creating or editing contacts, and when completing a care guide or survey within the app. Forms are also used to interpret SMS interactions with the CHT. 
 

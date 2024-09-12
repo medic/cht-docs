@@ -11,7 +11,7 @@ relatedContent: >
 keywords: messaging
 aliases:
    - /apps/guides/messaging/sms-states
-----
+---
 
 ## Interaction with SMS providers
 

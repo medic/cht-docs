@@ -9,7 +9,7 @@ relatedContent: >
   building/features/integrations
 aliases:
    - /apps/concepts/interoperability
-----
+---
 
 ## Introduction 
 

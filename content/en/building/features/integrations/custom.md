@@ -12,7 +12,7 @@ relatedContent: >
   building/features/integrations/openmrs
 aliases:
    - /apps/features/integrations/custom
-----
+---
 
 The CHT Core Framework includes functionality that allows sharing data with any API-based system. Developers have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom electronic medical records (EMR), and several other systems.  
 

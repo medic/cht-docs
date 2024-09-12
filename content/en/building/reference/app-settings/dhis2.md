@@ -8,7 +8,7 @@ relevantLinks: >
 keywords: dhis2
 aliases:
    - /apps/reference/app-settings/dhis2
-----
+---
 
 From 3.9.0 it is possible to integrate with DHIS2 by modifying the `dhis_data_sets` property in `app_settings.json`. 
 

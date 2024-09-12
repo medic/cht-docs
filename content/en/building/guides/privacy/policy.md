@@ -9,7 +9,7 @@ relatedContent: >
   building/reference/app-settings/patient_reports
 aliases:
    - /apps/guides/privacy/policy
-----
+---
 
 {{% alert title="Note" %}}
 This policy is reviewed and updated periodically by our Responsible Data Working Group and is intended as a resource for the CHT community. 

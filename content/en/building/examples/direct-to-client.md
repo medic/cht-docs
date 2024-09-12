@@ -10,7 +10,7 @@ relatedContent: >
   building/reference/tasks
 aliases:
    - /apps/examples/direct-to-client
-----
+---
 
 {{% pageinfo %}}
 

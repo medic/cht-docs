@@ -9,7 +9,7 @@ relatedContent: >
   building/reference/contact-page#contact-summary
 aliases:
    - /apps/tutorials/contact-summary
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through building a contact summary for CHT applications.

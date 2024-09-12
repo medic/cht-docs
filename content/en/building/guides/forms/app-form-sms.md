@@ -10,7 +10,7 @@ relatedContent: >
   building/reference/forms/contact
 aliases:
    - /apps/guides/forms/app-form-sms
-----
+---
 
 ## Triggering Calls and SMS
 

@@ -11,7 +11,7 @@ relatedContent: >
   building/examples/learning-care/
 aliases:
    - /apps/features/training/
-----
+---
 
 *Training Cards* help health workers learn about changes to CHT apps remotely, directly in their app. Training content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. They are perfect for training on a very specific topic and are not meant to replace a comprehensive onboarding program.
 

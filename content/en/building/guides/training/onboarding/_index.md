@@ -10,7 +10,7 @@ relatedContent: >
 
 aliases:
    - /apps/guides/training/onboarding/
-----
+---
 
 When onboarding new users, having a dedicated CHT app and instance for training can be helpful; it allows new users to do training exercises with mock data to get familiar with the app, while not having the data from their training interfering with the future use of their CHT app. Different approaches are possible, such as only entering real patient data during training, or manually deleting all the training data, but these methods are less practical for large deployments.
 

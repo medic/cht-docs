@@ -9,7 +9,7 @@ relatedContent: >
   building/reference/app-settings/dhis2
 aliases:
    - /apps/features/integrations/dhis2
-----
+---
 
 Most health systems have regular reporting requirements for community-level activities. Health workers often carry around heavy logbooks to manually record all relevant activities. When it is time to submit their data, community health workers (CHWs) summarize what was recorded in their logbooks and share this information with their supervisors, who in turn create paper records of these totals across entire community units or health facilities. This paper record is often passed to yet another individual whose responsibility is to manually key in the data into a health information management system, such as DHIS2.
 

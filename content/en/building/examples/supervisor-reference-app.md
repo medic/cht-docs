@@ -11,7 +11,7 @@ relatedContent: >
   building/reference/tasks
 aliases:
    - /apps/examples/supervisor-reference-app
-----
+---
 
 {{% pageinfo %}}
 

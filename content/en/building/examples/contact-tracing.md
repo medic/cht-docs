@@ -7,7 +7,7 @@ description: >
 keywords:  
 aliases:
    - /apps/examples/contact-tracing
-----
+---
 
 The CHT’s Contact Tracing functionality enables effective disease surveillance within communities to help control infectious disease outbreaks. It is a community public health tool that is designed to: 
 

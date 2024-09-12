@@ -8,7 +8,7 @@ relatedContent: >
   building/reference/api#login-by-sms
 aliases:
    - /apps/reference/app-settings/token_login
-----
+---
 
 Login via SMS settings are defined under the `token_login` key, as an object supporting the following properties:
 ## `app_settings.json .token_login`

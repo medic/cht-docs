@@ -9,7 +9,7 @@ relatedContent: >
   core/overview/cht-sync
 aliases:
    - /apps/guides/data/analytics/production
-----
+---
 
 We recommend running [CHT Sync](https://github.com/medic/cht-sync) in production using Kubernetes. This guide will walk you through setting up a production deployment of CHT Sync with the CHT using Kubernetes.
 

@@ -9,7 +9,7 @@ relatedContent: >
   core/overview/cht-sync
 aliases:
    - /apps/guides/data/analytics/setup
-----
+---
 
 Before setting up CHT Sync in production, it's very handy to be able to run it locally. This will allow you to experiment with the data flow and easily query development data quickly and locally. 
 
