@@ -8,7 +8,7 @@ relatedContent: >
 
 aliases:
    - /apps/guides/forms/wealth-quintiles
-----
+---
 
 _Introduced in v2.16.0_
 

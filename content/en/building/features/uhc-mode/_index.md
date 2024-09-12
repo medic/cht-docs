@@ -10,7 +10,7 @@ relatedContent: >
   building/reference/app-settings/user-permissions
 aliases:
    - /apps/features/uhc-mode/
-----
+---
 
 {{% pageinfo %}}
 CHT apps using the _UHC Mode_ empower CHWs to provide equitable and timely care to families in their catchment area. This feature was [codeveloped with Muso](https://www.musohealth.org/post/new-study-demonstrates-how-digital-health-tools-can-enable-progress-towards-universal-health-care), and showed an increase in household coverage for both rural and peri-urban settings, thereby increasing the effectiveness of CHWs and improving access to care for the populations they serve. 

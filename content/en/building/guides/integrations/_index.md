@@ -8,4 +8,4 @@ aliases:
   - apps/guides/integrations/best-practices
 aliases:
    - /apps/guides/integrations/
-----
+---

@@ -11,7 +11,7 @@ relatedContent: >
   building/guides/training/onboarding/
 aliases:
    - /apps/examples/training
-----
+---
 
 The CHT’s Remote Onboarding and Training functionality enables Supervisors and Administrators to train CHWs on care workflows and related app use without being physically present. It is designed for:
 

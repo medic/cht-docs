@@ -10,7 +10,7 @@ relevantLinks: >
 keywords: workflows sms
 aliases:
    - /apps/reference/app-settings/sms
-----
+---
 
 SMS settings are defined under the `sms` key, as an object supporting the following properties:
 ## `app_settings.json .sms`

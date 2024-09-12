@@ -10,7 +10,7 @@ relatedContent: >
   building/guides/database/#postgresql
 aliases:
    - /apps/guides/database/querying_apdex_telemetry
-----
+---
 
 Added in `4.7.0`, CHT now records the Apdex (Application Performance Index) that is an open standard for measuring performance of software applications.
 

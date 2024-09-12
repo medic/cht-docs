@@ -7,7 +7,7 @@ description: >
 relevantLinks: >
 aliases:
    - /apps/guides/database/database-conflicts
-----
+---
 
 Conflicts are a natural and unavoidable part of working in a distributed system.
 

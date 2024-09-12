@@ -10,7 +10,7 @@ relatedContent: >
 keywords: android assetlinks
 aliases:
    - /apps/reference/app-settings/assetlinks
-----
+---
 
 *Requires CHT Core 4.7.0+, CHT Conf 3.22.0+, and CHT Android 1.3.0+*
 

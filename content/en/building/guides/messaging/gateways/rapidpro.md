@@ -14,7 +14,7 @@ relatedContent: >
     building/guides/messaging/shortcodes
 aliases:
    - /apps/guides/messaging/gateways/rapidpro
-----
+---
 
 
 As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/features/integrations/rapidpro" %}}) as a messaging gateway.

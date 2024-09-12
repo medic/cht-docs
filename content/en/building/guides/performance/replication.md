@@ -10,7 +10,7 @@ relatedContent: >
   building/guides/debugging/replicating-production-data-locally
 aliases:
    - /apps/guides/performance/replication
-----
+---
 
 Replication is what we call it when users download a copy of the data on to their device.
 

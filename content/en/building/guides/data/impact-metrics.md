@@ -10,7 +10,7 @@ relatedContent: >
   building/guides/performance/telemetry
 aliases:
    - /apps/guides/data/impact-metrics
-----
+---
 
 Impact monitoring is an essential part of both the Community Health Toolkit and Medic's processes and ethos. We are committed to harnessing data to: 
 

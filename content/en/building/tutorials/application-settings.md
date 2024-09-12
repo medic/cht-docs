@@ -10,7 +10,7 @@ relatedContent: >
   core/overview/transitions 
 aliases:
    - /apps/tutorials/application-settings
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through how to manage the CHT application settings, including;

@@ -10,7 +10,7 @@ relatedContent: >
   building/reference/app-settings/user-permissions
 aliases:
    - /apps/guides/forms/uhc-mode
-----
+---
 
 _Introduced in v2.18.0_
 

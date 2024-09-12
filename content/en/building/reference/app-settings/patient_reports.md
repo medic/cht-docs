@@ -10,7 +10,7 @@ relatedContent: >
 keywords: workflows
 aliases:
    - /apps/reference/app-settings/patient_reports
-----
+---
 
 The `patient_reports` key contains the actions to take when reports about people are received.
 

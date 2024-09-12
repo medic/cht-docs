@@ -12,7 +12,7 @@ relatedContent: >
 
 aliases:
    - /apps/guides/tasks/task-schema-parameters
-----
+---
 
 {{% pageinfo %}}
 This guide explains the parameters available in the Task Schema and important constraints governing the design of tasks.

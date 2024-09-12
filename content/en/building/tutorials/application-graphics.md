@@ -10,7 +10,7 @@ relatedContent: >
 
 aliases:
    - /apps/tutorials/application-graphics
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through customising some graphical elements of CHT core.

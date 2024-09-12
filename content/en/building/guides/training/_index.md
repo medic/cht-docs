@@ -6,4 +6,4 @@ description: >
   Building and managing training resources
 aliases:
    - /apps/guides/training/
-----
+---

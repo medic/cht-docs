@@ -9,7 +9,7 @@ relatedContent: >
   building/reference/app-settings/hierarchy
 aliases:
    - /apps/guides/data/analytics/building-dbt-models
-----
+---
 
 ## Overview
 

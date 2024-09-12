@@ -9,7 +9,7 @@ relatedContent: >
   building/reference/app-settings/patient_reports
 aliases:
    - /apps/guides/forms/report-titles
-----
+---
 
 _Added in 3.9.0_
 

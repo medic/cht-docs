@@ -9,7 +9,7 @@ relatedContent: >
   core/overview/db-schema
 aliases:
    - /apps/guides/data/hydration
-----
+---
 
 Documents are connected with each other via their document `_id`. 
 For example: 

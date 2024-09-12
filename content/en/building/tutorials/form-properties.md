@@ -10,7 +10,7 @@ relatedContent: >
 
 aliases:
    - /apps/tutorials/form-properties
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through how to write the `<form_name>.properties.json` file.

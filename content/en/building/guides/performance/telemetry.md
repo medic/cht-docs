@@ -8,7 +8,7 @@ relatedContent: >
   core/overview/data-flows-for-analytics
 aliases:
    - /apps/guides/performance/telemetry
-----
+---
 
 _Introduced in v3.4.0_
 

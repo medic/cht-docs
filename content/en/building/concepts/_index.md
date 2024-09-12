@@ -5,7 +5,7 @@ description: >
   Basic concepts that will help you understand how CHT applications are built
 aliases:
    - /apps/concepts/
-----
+---
 
 CHT Applications support health workers with activities in their community. Health workers are guided through tasks — such as screening for high-risk pregnancies or diagnosing and providing treatments for children — and get real-time indicators for progress towards their goals. These workflows are highly flexible and developed using a combination of JavaScript, JSON, and XForms.
 

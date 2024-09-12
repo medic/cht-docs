@@ -11,7 +11,7 @@ relatedContent: >
 
 aliases:
    - /apps/tutorials/targets
-----
+---
 
 {{% pageinfo %}}
 This tutorial will take you through how to build target widgets.

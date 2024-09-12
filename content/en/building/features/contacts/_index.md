@@ -13,7 +13,7 @@ relatedContent: >
   building/examples/contact-tracing
 aliases:
    - /apps/features/contacts/
-----
+---
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
 

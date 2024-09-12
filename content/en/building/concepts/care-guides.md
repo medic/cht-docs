@@ -10,7 +10,7 @@ relatedContent: >
   building/reference/contact-page/#care-guides
 aliases:
    - /apps/concepts/care-guides
-----
+---
 
 ## Care Guides
 

@@ -9,7 +9,7 @@ relevantLinks: >
 keywords: hierarchy contacts
 aliases:
    - /apps/reference/app-settings/hierarchy
-----
+---
 
 From 3.7.0 it is possible to configure what types of places and people are available by modifying the `contact_types` array in the app settings. Each type has the following properties.
 

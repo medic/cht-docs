@@ -9,7 +9,7 @@ relatedContent: >
   core/overview/data-flows-for-analytics/
 aliases:
    - /apps/guides/data/analytics/introduction
-----
+---
 
 {{% pageinfo %}}
 The pages in this section apply to both CHT 3.x (beyond 3.12) and CHT 4.x. 
