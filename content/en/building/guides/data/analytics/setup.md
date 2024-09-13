@@ -46,10 +46,10 @@ You can verify this command worked by running `docker ps`. It should show 2 cont
 ### Cleanup
 When you are done using the services, you can clean everything by running `down`.
 
-For example, in the scenario of [running all CHT Sync services]({{< relref "#run-all-cht-sync-services-locally" >}}), the command should look like:
+For example, in the scenario of [running all CHT Sync services]({{< relref "#separate-couchdb-instance" >}}), the command should look like:
 
 ```sh
-docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml down
+docker compose -f docker-compose.postgres.yml -f docker-compose.yml down
 ```
 
 To remove all the data volumes, add `-v` at the end of this command.
