@@ -23,18 +23,6 @@ Copy the values in `env.template` file to the `.env` file. For more information,
 The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
 {{% /alert %}}
 
-### Run all CHT Sync services locally
-This setup involves starting couch2pg, PostgreSQL, pgAdmin, dbt, and CouchDB.
-
-Run the Docker containers and wait for every container to be up and running:
-```sh
-docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
-```
-
-You can verify this command worked by running `docker ps`. It should show 5 containers running including couch2pg, dbt, PostgreSQL, CouchDB and pgAdmin.
-
-Now that all services are running, use pgAdmin to connect to server `postgres:5432` with user `postgres` and password `postgres`. You should be able to see data being inserted into the `v1.medic` table when inserting sample data into the CouchDB instance.
-
 ### Separate CouchDB instance 
 This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
@@ -58,10 +46,10 @@ You can verify this command worked by running `docker ps`. It should show 2 cont
 ### Cleanup
 When you are done using the services, you can clean everything by running `down`.
 
-For example, in the scenario of [running all CHT Sync services]({{< relref "#run-all-cht-sync-services-locally" >}}), the command should look like:
+For example, in the scenario of [running all CHT Sync services]({{< relref "#separate-couchdb-instance" >}}), the command should look like:
 
 ```sh
-docker compose -f docker-compose.couchdb.yml -f docker-compose.postgres.yml -f docker-compose.yml down
+docker compose -f docker-compose.postgres.yml -f docker-compose.yml down
 ```
 
 To remove all the data volumes, add `-v` at the end of this command.
