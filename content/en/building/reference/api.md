@@ -2539,6 +2539,22 @@ curl http://localhost:5988/api/v2/monitoring
 - A metric of `""` (for string values) or `-1` (for numeric values) indicates an error occurred while querying the metric - check the API logs for details.
 - If no response or an error response is received the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
 
+#### Supported view indexes
+
+- `medic` database:
+  - `medic`
+  - `medic-admin`
+  - `medic-client`
+  - `medic-conflicts`
+  - `medic-scripts`
+  - `medic-sms`
+- `medic-sentinel` database:
+  - `sentinel`
+- `medic-users-meta` database:
+  - `users-meta`
+- `_users` database:
+  - `users`
+
 ### GET /api/v1/express-metrics
 
 *Added in 4.3.0*
