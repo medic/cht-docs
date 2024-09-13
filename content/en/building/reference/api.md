@@ -2450,14 +2450,11 @@ curl http://localhost:5988/api/v1/monitoring
 | `couchdb.<dbname>.doc_count` | Number | The number of docs in the db. |
 | `couchdb.<dbname>.doc_del_count` | Number | The number of deleted docs in the db. |
 | `couchdb.<dbname>.fragmentation` | Number | The fragmentation of the entire db (including view indexes) as stored on disk. A lower value is better. `1` is no fragmentation. |
-| `couchdb.<dbname>.compact_running` | Boolean | Indicates a compaction routine is currently operating on this db. |
-| `couchdb.<dbname>.sizes.active` | Number | The size in bytes of live data inside the database. This includes documents, metadata, and attachments, but does not include view indexes. |
-| `couchdb.<dbname>.sizes.file` | Number | The size in bytes of the database file on disk. This includes documents, metadata, and attachments, but does not include view indexes. |
-| `couchdb.<dbname>.view_index.<designName>.name` | String | The name of the view index (the design). See the table below for which view indexes tracked for each db. |
-| `couchdb.<dbname>.view_index.<designName>.compact_running` | Boolean | Indicates a compaction routine is currently operating on this view. |
-| `couchdb.<dbname>.view_index.<designName>.updater_running` | Boolean | Indicates the view is currently being updated. |
-| `couchdb.<dbname>.view_index.<designName>.sizes.active` | Number | The size in bytes of live data inside the view. |
-| `couchdb.<dbname>.view_index.<designName>.sizes.file` | Number | The size in bytes of the view as stored on disk. |
+| `couchdb.<dbname>.sizes.active` | Number | The size in bytes of live data inside the database. This includes documents, metadata, and attachments, but does not include view indexes. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.sizes.file` | Number | The size in bytes of the database file on disk. This includes documents, metadata, and attachments, but does not include view indexes. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.view_indexes[*].name` | String | The name of the view index (the design). See the table below for which view indexes are tracked for each db. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.view_indexes[*].sizes.active` | Number | The size in bytes of live data inside the view. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.view_indexes[*].sizes.file` | Number | The size in bytes of the view as stored on disk. Requires CHT Core `4.11.0` or later. |
 | `date.current` | Number | The current server date in millis since the epoch, useful for ensuring the server time is correct. |
 | `date.uptime` | Number | How long API has been running in seconds. |
 | `sentinel.backlog` | Number | Number of changes yet to be processed by Sentinel. |
@@ -2509,14 +2506,11 @@ curl http://localhost:5988/api/v2/monitoring
 | `couchdb.<dbname>.doc_count` | Number | The number of docs in the db. |
 | `couchdb.<dbname>.doc_del_count` | Number | The number of deleted docs in the db. |
 | `couchdb.<dbname>.fragmentation` | Number | The fragmentation of the entire db (including view indexes) as stored on disk. A lower value is better. `1` is no fragmentation. |
-| `couchdb.<dbname>.compact_running` | Boolean | Indicates a compaction routine is currently operating on this db. |
-| `couchdb.<dbname>.sizes.active` | Number | The size in bytes of live data inside the database. This includes documents, metadata, and attachments, but does not include view indexes. |
-| `couchdb.<dbname>.sizes.file` | Number | The size in bytes of the database file on disk. This includes documents, metadata, and attachments, but does not include view indexes. |
-| `couchdb.<dbname>.view_index.<designName>.name` | String | The name of the view index (the design). See the table below for which view indexes tracked for each db. |
-| `couchdb.<dbname>.view_index.<designName>.compact_running` | Boolean | Indicates a compaction routine is currently operating on this view. |
-| `couchdb.<dbname>.view_index.<designName>.updater_running` | Boolean | Indicates the view is currently being updated. |
-| `couchdb.<dbname>.view_index.<designName>.sizes.active` | Number | The size in bytes of live data inside the view. |
-| `couchdb.<dbname>.view_index.<designName>.sizes.file` | Number | The size in bytes of the view as stored on disk. |
+| `couchdb.<dbname>.sizes.active` | Number | The size in bytes of live data inside the database. This includes documents, metadata, and attachments, but does not include view indexes. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.sizes.file` | Number | The size in bytes of the database file on disk. This includes documents, metadata, and attachments, but does not include view indexes. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.view_indexes[*].name` | String | The name of the view index (the design). See the table below for which view indexes are tracked for each db. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.view_indexes[*].sizes.active` | Number | The size in bytes of live data inside the view. Requires CHT Core `4.11.0` or later. |
+| `couchdb.<dbname>.view_indexes[*].sizes.file` | Number | The size in bytes of the view as stored on disk. Requires CHT Core `4.11.0` or later. |
 | `date.current` | Number | The current server date in millis since the epoch, useful for ensuring the server time is correct. |
 | `date.uptime` | Number | How long API has been running. |
 | `sentinel.backlog` | Number | Number of changes yet to be processed by Sentinel. |
@@ -2556,6 +2550,8 @@ curl http://localhost:5988/api/v2/monitoring
 - If no response or an error response is received the instance is unreachable. Thus, this API can be used as an uptime monitoring endpoint.
 
 #### Supported view indexes
+
+_Requires CHT Core `4.11.0` or later._
 
 - `medic` database:
   - `medic`
