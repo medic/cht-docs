@@ -7,7 +7,7 @@ description: >
 keywords: icons branding
 aliases:
    - /apps/reference/resources
-----
+---
 
 ## Icons
 Apps can be customized by defining the icons to use for tasks, targets, and contacts.

@@ -12,7 +12,7 @@ relatedContent: >
 keywords: workflows app-forms
 aliases:
    - /apps/reference/forms/app
-----
+---
 
 App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/features/reports" >}} ).
 

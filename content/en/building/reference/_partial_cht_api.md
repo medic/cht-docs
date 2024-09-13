@@ -4,7 +4,7 @@ toc_hide: true
 hide_summary: true
 aliases:
    - /apps/reference/_partial_cht_api
-----
+---
 _Introduced in v3.12.0_
 
 Provides CHT-Core Framework's functions to contact summary, targets and tasks. The API is available in the `cht` reserved variable under the `v1` version.
