@@ -10,7 +10,7 @@ relatedContent: >
 keywords: targets workflows
 aliases:
    - /apps/reference/targets
-----
+---
 
 ![Percentages](counts.png)
 

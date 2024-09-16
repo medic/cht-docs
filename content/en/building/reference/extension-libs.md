@@ -7,7 +7,7 @@ description: >
 keywords: extension libs extensibility
 aliases:
    - /apps/reference/extension-libs
-----
+---
 
 _Introduced in v4.2.0_
 

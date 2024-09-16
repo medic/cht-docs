@@ -6,4 +6,4 @@ description: >
   Technical details of CHT app components for app developers 
 aliases:
    - /apps/reference/
-----
+---

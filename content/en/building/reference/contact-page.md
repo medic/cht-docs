@@ -12,7 +12,7 @@ relevantLinks: >
 keywords: hierarchy contacts care-guides
 aliases:
    - /apps/reference/contact-page
-----
+---
 
 Contact profile pages display basic information about the contact along with their history and upcoming tasks.
 A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.

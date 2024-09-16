@@ -4,7 +4,7 @@ toc_hide: true
 hide_summary: true
 aliases:
    - /apps/reference/_partial_utils
-----
+---
 
 Utility functions in the Core Framework can make common tasks much easier. These are available only for Tasks and Targets. To use the function call `Utils.<function-name>(<params>)`, for example `Utils.addDate(report.reported_date, 10)`.
 
