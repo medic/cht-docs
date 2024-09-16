@@ -149,6 +149,12 @@ In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VL
 Add some new rows at the bottom (item 1), enter the new place name in column A (item 2) and paste the UUID in column B (item 3)
 ![open your existing spreadsheet](adding-places-existing-spreadsheet.png)
 
+## Configuring custom places types
+
+The third use case mentioned in the [workbook instructions section]({{< relref "#workbook-instructions" >}}) links to a Google Sheets to create user places alongside their account and their contact. This works out of the box with the `default` CHT configuration but will require adjustments to be made in the `place.type_VLOOKUP` spreadsheet when dealing with a CHT configuration with custom places types.
+
+The `place.type_VLOOKUP` spreadsheet has two columns that contain the name of the places types set in the [`.contact_types[]`]({{< relref "building/reference/app-settings/hierarchy" >}}) property of your `app_settings.json` and their respective IDs. The place type name is used by the `User-Place-Type:excluded` column in the `contact.chw` spreadsheet to provide a user-friendly way to pick a place with autocompletion. You will want to keep this spreadsheet in sync with your CHT configuration to create users' places.
+
 ## Trouble shooting
 
 ### "Wrong type, this is not a person."
