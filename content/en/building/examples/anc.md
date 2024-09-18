@@ -101,6 +101,6 @@ Both maternal and newborn care workflows are defined to connect form actions and
 Here are a few additional resources to help get you started with the maternal and newborn health reference application.
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-core/tree/master/config/default/)
-- Install the reference app following these [easy installation instructions]({{< ref "building/tutorials/local-setup" >}})
+- Install the reference app following these [easy installation instructions]({{< ref "building/local-setup" >}})
 - Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}}) 
 - Understand the basis for measuring the impact of maternal and newborn workflows by reviewing the World Health Organization's [Core Health Indicators](https://www.who.int/data/gho/data/indicators/indicators-index)

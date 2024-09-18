@@ -286,7 +286,7 @@ The Human Immunodeficiency Virus (HIV) workflow is designed to guide CHWs in HIV
 Here are a few additional resources to help get you started with the integrated health reference application.
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-pih-malawi-app)
-- Install the reference app following these [easy installation instructions]({{< ref "building/tutorials/local-setup" >}})
+- Install the reference app following these [easy installation instructions]({{< ref "building/local-setup" >}})
 - Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}})
 
 The open sharing of digital health apps used by CHWs is a monumental milestone in the digital health space, and for the CHT Community. Reach out on the [forum](https://forum.communityhealthtoolkit.org/) to share how you will leverage these resources, along with your feedback and continued innovations that could benefit the larger community.

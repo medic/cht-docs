@@ -40,7 +40,7 @@ SMS forms are defined in either the `base_settings.json` or the `app_settings/fo
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/tutorials/local-setup" >}}).
+You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}).
 
 You also need to have some [prior knowledge on `app_settings.json`]({{% ref "building/tutorials/application-settings" %}}).
 
