@@ -28,10 +28,10 @@ mediator_a([Mediator])
 mediator_b([Mediator])
 openhim[OpenHIM]
 
-cht -- Outbound push\nfa:fa-arrow-right --- mediator_a
-cht -- API request\nfa:fa-arrow-left --- mediator_b
-mediator_a -- Request\nfa:fa-arrow-right --- openhim
-mediator_b -- Channel\nfa:fa-arrow-left --- openhim
+cht -- Outbound pushfa:fa-arrow-right --- mediator_a
+cht -- API requestfa:fa-arrow-left --- mediator_b
+mediator_a -- Requestfa:fa-arrow-right --- openhim
+mediator_b -- Channelfa:fa-arrow-left --- openhim
 ```
 OpenHIM was utilised as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "building/reference/app-settings/outbound" >}}) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource, which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
 
