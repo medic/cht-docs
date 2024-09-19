@@ -38,7 +38,7 @@ In this tutorial you will learn how to create and edit contacts and their associ
 
 ## Required Resources
 
-You should have a functioning CHT instance with contact forms configured. Read [How to set up a CHT local configuration environment]({{% ref "building/tutorials/local-setup" %}})
+You should have a functioning CHT instance with contact forms configured. Read [How to set up a CHT local configuration environment]({{% ref "building/local-setup" %}})
 
 ## Implementation Steps
 

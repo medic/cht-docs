@@ -1,18 +1,19 @@
 ---
 title: "Prerequisites for App Development"
 linkTitle: "Prerequisites"
-weight: 9
+weight: 1
 description: >
   Tools and background skills that are helpful for developing CHT apps
 relatedContent: > 
-  building/tutorials/local-setup
+  building/local-setup
 aliases:
+   - /building/concepts/prerequisites
    - /apps/concepts/prerequisites
 ---
 There are no set prerequisites for users of CHT apps, yet the following are helpful for developing CHT applications.
 
 ## Test Instance
-To build your own application using the Core Framework you will need an instance set up for testing. You can set up a local instance by [following these instructions]({{< ref "building/tutorials/local-setup" >}}).
+To build your own application using the Core Framework you will need an instance set up for testing. You can set up a local instance by [following these instructions]({{< ref "building/local-setup" >}}).
 
 ## Build tool
 The build tool for applications using the Core Framework is `cht-conf`. To set it up, follow the [installation instructions](https://github.com/medic/cht-conf/blob/master/README.md). To properly use the tool you will need your application files in set locations within a folder. Once you are set up with the basic file structure you can edit the files, and rebuild the application by compiling or converting components as needed, and uploading them to your test instance.

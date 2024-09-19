@@ -1,7 +1,7 @@
 ---
 title: "Getting started building a CHT app"
 linkTitle: Getting started
-weight: 1
+weight: 2
 description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
@@ -9,6 +9,7 @@ relatedContent: >
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
 aliases:
+   - /building/tutorials/local-setup
    - /apps/tutorials/local-setup
 ---
 
