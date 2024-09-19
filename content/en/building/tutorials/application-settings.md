@@ -36,7 +36,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 ## Required Resources
 
-You should have a functioning CHT instance and have cht-conf installed locally. {{< see-also page="building/tutorials/local-setup" title="How to set up a CHT local configuration environment" >}}
+You should have a functioning CHT instance and have cht-conf installed locally. {{< see-also page="building/local-setup" title="How to set up a CHT local configuration environment" >}}
 
 ## Implementation Steps
 

@@ -39,7 +39,7 @@ Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](htt
 ## Preparation
 
 Writing tests for CHT apps requires a good understanding of the project workflows and requirements. To test using the harness, there are a few things you need to set up:
-1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/tutorials/local-setup" >}}) and a [project folder set up]({{< ref "building/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}). 
+1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}) and a [project folder set up]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}). 
 `cht-conf` which is short for CHT app configurer, is a command-line interface tool used to manage and configure your CHT apps. It is used for backup, conversion, validation, uploading and other actions which can be found by running `cht --help`.
 2. Ensure your `package.json` file has the required libraries. A `package.json` file is used to record important metadata about a project and defines functional attributes that npm uses to install dependencies and run scripts. This file should be at the root of your project folder. 
 If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:

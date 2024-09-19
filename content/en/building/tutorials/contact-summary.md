@@ -28,7 +28,7 @@ The *properties* for each object determine how and when the field is shown.
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/tutorials/local-setup" >}}), and completed a [project folder]({{< ref "building/tutorials/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
+You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), and completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
 
 ## Implementation Steps
 

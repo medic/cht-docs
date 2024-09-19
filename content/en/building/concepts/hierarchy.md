@@ -32,16 +32,16 @@ linkStyle default stroke-width:1px,stroke:lightgrey
 
 classDef none fill:none,stroke:none
 
-super_area_a[<img src='health-center.svg' width='30' />\nCHW Supervisor Area A]:::none
-chw_area_a[<img src='chw-area.svg' width='30' />\nCHW CHW Area A]:::none
-chw_area_b[<img src='chw-area.svg' width='30' />\nCHW CHW Area B]:::none
-chw_area_c[<img src='chw-area.svg' width='30' />\nCHW CHW Area C]:::none
-family_a[<img src='family.svg' width='30' />\nFamily A]:::none
-family_b[<img src='family.svg' width='30' />\nFamily B]:::none
-family_c[<img src='family.svg' width='30' />\nFamily C]:::none
-family_d[<img src='family.svg' width='30' />\nFamily D]:::none
-family_e[<img src='family.svg' width='30' />\nFamily E]:::none
-family_f[<img src='family.svg' width='30' />\nFamily F]:::none
+super_area_a[<img src='health-center.svg' width='30' />CHW Supervisor Area A]:::none
+chw_area_a[<img src='chw-area.svg' width='30' />CHW CHW Area A]:::none
+chw_area_b[<img src='chw-area.svg' width='30' />CHW CHW Area B]:::none
+chw_area_c[<img src='chw-area.svg' width='30' />CHW CHW Area C]:::none
+family_a[<img src='family.svg' width='30' />Family A]:::none
+family_b[<img src='family.svg' width='30' />Family B]:::none
+family_c[<img src='family.svg' width='30' />Family C]:::none
+family_d[<img src='family.svg' width='30' />Family D]:::none
+family_e[<img src='family.svg' width='30' />Family E]:::none
+family_f[<img src='family.svg' width='30' />Family F]:::none
 
 super_area_a --- chw_area_a & chw_area_b & chw_area_c
 chw_area_a --- family_a & family_b
@@ -66,45 +66,45 @@ classDef node fill:none,stroke:none
 classDef cluster fill:none,stroke:#ccc
 
 subgraph district[ ]
-  admin[<img src='district-hospital.svg' width='30' />\nAdmin]:::none
-  officer[<img src='officer.svg' width='30' />\nProgram Officer]:::none
+  admin[<img src='district-hospital.svg' width='30' />Admin]:::none
+  officer[<img src='officer.svg' width='30' />Program Officer]:::none
   admin --- officer
 end
 district:::none
 
 subgraph supervision[ ]
-  super_area_a[<img src='health-center.svg' width='30' />\nCHW Supervisor\nArea A]:::none
-  super_a[<img src='supervisor.svg' width='30' />\nCHW Supervisor A]:::none
+  super_area_a[<img src='health-center.svg' width='30' />CHW Supervisor Area A]:::none
+  super_a[<img src='supervisor.svg' width='30' />CHW Supervisor A]:::none
   super_area_a --- super_a
 end
 supervision:::none
 
 subgraph chw_group_a[ ]
-  chw_area_a[<img src='chw-area.svg' width='30' />\nCHW\nArea A]:::none
-  chw_a[<img src='chw.svg' width='30' />\nCHW]:::none
+  chw_area_a[<img src='chw-area.svg' width='30' />CHW Area A]:::none
+  chw_a[<img src='chw.svg' width='30' />CHW]:::none
   chw_area_a --- chw_a
 end
 chw_group_a:::none
 
 subgraph chw_group_b[ ]
-  chw_area_b[<img src='chw-area.svg' width='30' />\nCHW\nArea B]:::none
-  chw_b[<img src='chw.svg' width='30' />\nCHW]:::none
+  chw_area_b[<img src='chw-area.svg' width='30' />CHW Area B]:::none
+  chw_b[<img src='chw.svg' width='30' /CHW]:::none
   chw_area_b --- chw_b
 end
 chw_group_b:::none
 
-family_a[<img src='family.svg' width='30' />\nFamily\nA]:::none
-family_b[<img src='family.svg' width='30' />\nFamily\nB]:::none
-family_c[<img src='family.svg' width='30' />\nFamily\nC]:::none
-family_d[<img src='family.svg' width='30' />\nFamily\nD]:::none
-family_e[<img src='family.svg' width='30' />\nFamily\nE]:::none
-family_f[<img src='family.svg' width='30' />\nFamily\nF]:::none
-person_a_b[<img src='person.svg' width='30' /><img src='person.svg' width='30' />\nFamily\nMembers\nA and B]:::none
-person_c[<img src='person.svg' width='30' />\nFamily\nMember\nC]:::none
-person_d[<img src='person.svg' width='30' />\nFamily\nMember\nD]:::none
-person_e_f[<img src='person.svg' width='30' /><img src='person.svg' width='30' />\nFamily\nMembers\nE and F]:::none
-person_g[<img src='person.svg' width='30' />\nFamily\nMember\nG]:::none
-person_h_i_j[<img src='person.svg' width='30' /><img src='person.svg' width='30' /><img src='person.svg' width='30' />\nFamily Members\nH, I, and J]:::none
+family_a[<img src='family.svg' width='30' />Family A]:::none
+family_b[<img src='family.svg' width='30' />Family B]:::none
+family_c[<img src='family.svg' width='30' />Family C]:::none
+family_d[<img src='family.svg' width='30' />Family D]:::none
+family_e[<img src='family.svg' width='30' />Family E]:::none
+family_f[<img src='family.svg' width='30' />Family F]:::none
+person_a_b[<img src='person.svg' width='30' /><img src='person.svg' width='30' />Family Members A and B]:::none
+person_c[<img src='person.svg' width='30' />Family Member C]:::none
+person_d[<img src='person.svg' width='30' />Family Member D]:::none
+person_e_f[<img src='person.svg' width='30' /><img src='person.svg' width='30' />Family Members E and F]:::none
+person_g[<img src='person.svg' width='30' />Family Member G]:::none
+person_h_i_j[<img src='person.svg' width='30' /><img src='person.svg' width='30' /><img src='person.svg' width='30' />Family Members H, I, and J]:::none
 
 district --- supervision
 supervision --- chw_group_a & chw_group_b 
