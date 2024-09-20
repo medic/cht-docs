@@ -21,7 +21,7 @@ Also not - if you only want to test with mobile devices that require a valid TLS
 ## Overview
 When using a local [development environment]({{< relref "contribute/code/core/dev-environment" >}}), you may want to share your work with other collaborators. By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
 
-[<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/apps/guides/debugging/images/SSH.tunnel.diagram.svg)
+[<img src="/apps/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/building/guides/debugging/images/SSH.tunnel.diagram.svg)
 
 Once you have this web server set up, you may continue to use it whenever you want by simply reconnecting to it via the secure tunnel.
 
@@ -83,7 +83,7 @@ The steps in this guide can be done on any of the cheap server providers out the
 
 From the SSH command in step 10 above:
 
-[<img src="/apps/guides/debugging/images/ssh.ports.svg" width=100% height=100%>](/apps/guides/debugging/images/ssh.ports.svg)
+[<img src="/building/guides/debugging/images/ssh.ports.svg" width=100% height=100%>](/building/guides/debugging/images/ssh.ports.svg)
 
 1. `8081` -  Remote port on cht.domain.com to listen to. This is the same port that apache redirects to in step 2 above.
 1. `127.0.0.1` - Host to send forwarded traffic to. In this case, your local machine.
