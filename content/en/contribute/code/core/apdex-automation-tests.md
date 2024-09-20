@@ -13,7 +13,7 @@ aliases: >
 This documentation will guide you on how to setup and configure automation to run performance tests for your CHT Applications.
 
 #### Prerequisites
-Before continuing with the setup steps below, ensure you have a [cht instance deployed]({{< ref "hosting/4.x/app-developer/" >}}) and running either locally or globally.
+Before continuing with the setup steps below, ensure you have a [cht instance deployed]({{< ref "hosting/4.x/app-developer" >}}) and running either locally or globally.
 
 Also, make sure you have some pre-existing users and data already loaded on the app. Use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
 
