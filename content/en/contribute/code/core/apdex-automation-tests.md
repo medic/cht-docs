@@ -9,37 +9,38 @@ aliases: >
   /contribute/code/core/fixing-e2e-tests
 ---
 
-## Setup
+## Configuration
 This documentation will guide you on how to setup and configure automation to run performance tests for your CHT Applications.
 
 #### Prerequisites
-Before continuing with the setup steps below, ensure you have a [cht instance deployed]({{< ref "hosting/4.x/app-developer" >}}) and running either locally or globally.
+Before continuing with the steps below, ensure:
+1. You have a [cht instance deployed]({{< ref "hosting/4.x/app-developer" >}}) and running either locally or globally.
 
-Also, make sure you have some pre-existing users and data already loaded on the app. Use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
+1. You have some pre-existing users and data already loaded on the app. Use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
 
-If you already have the CHT Android app installed, set the `appPath` value (in the capabilities section of the settings file) to an empty string.
+1. If you already have the CHT Android app installed, set the `appPath` value (in the capabilities section of the settings file) to an empty string.
 
-However, if you do not have the CHT Android app installed on your mobile device, download the preferred [apk version](https://github.com/medic/cht-android/releases) and then set the `appPath` value to the absolute path of the apk file.
+1. If you do not have the CHT Android app installed on your mobile device, download the preferred [apk version](https://github.com/medic/cht-android/releases) and then set the `appPath` value to the absolute path of the apk file.
 
-Finally, ensure you have done the following installations on your machine:
-1. Install [NodeJS](https://nodejs.org/en/download) and [Java JDK](https://www.oracle.com/java/technologies/downloads/) then ensure JAVA_HOME path is correctly set up.
-      ```
-      export JAVA_HOME=$(/usr/libexec/java_home)
-      ```
-2. Install and Set-up [Android studio](https://developer.android.com/studio/install) and the `adb tool` to enable you run adb commands.
-   - Add the Android SDK directory to your system’s ANDROID_HOME environment variable.
+1. Finally, ensure you have done the following installations on your machine:
+  - Install [NodeJS](https://nodejs.org/en/download) and [Java JDK](https://www.oracle.com/java/technologies/downloads/) then ensure JAVA_HOME path is correctly set up.
+    ```
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    ```
+  - Install and Set-up [Android studio](https://developer.android.com/studio/install) and the `adb tool` to enable you run adb commands.
+    - Add the Android SDK directory to your system’s ANDROID_HOME environment variable.
      ```
       export ANDROID_HOME="/Users/yourpath/Library/Android/sdk/"
       export PATH=$ANDROID_HOME/platform-tools:$PATH
       export PATH=$ANDROID_HOME/tools:$PATH
      ```
-   - To set up an Android Virtual Device (AVD), open Android Studio, click on _More Actions_ > _Virtual Device Manager_, and then proceed with the virtual device creation by selecting the hardware and system image.
-3. Install appium and appium doctor.
+    - To set up an Android Virtual Device (AVD), open Android Studio, click on _More Actions_ > _Virtual Device Manager_, and then proceed with the virtual device creation by selecting the hardware and system image.
+  - Install appium and appium doctor.
    ```
    npm install -g appium@next
    npm install -g appium-doctor
    ```
-4. Install appium driver - `appium driver install uiautomator2`
+  - Install appium driver - `appium driver install uiautomator2`
 
 
 #### Steps (running the tests)
