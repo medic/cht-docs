@@ -1,7 +1,7 @@
 ---
 title: "Apdex Automation Tests"
 linkTitle: "Apdex Automation Tests"
-weight: 12
+weight: 13
 description: >
   Automated test execution for creating telemetry data and calculating the Apdex scores
 aliases: >
@@ -15,11 +15,11 @@ This documentation will guide you on how to setup and configure automation to ru
 #### Prerequisites
 Before continuing with the setup steps below, ensure you have a [cht instance deployed]({{< ref "hosting/4.x/app-developer/" >}}) and running either locally or globally.
 
-Also, make sure you have some pre-existing users and data already loaded on the app. You can use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
+Also, make sure you have some pre-existing users and data already loaded on the app. Use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
 
-If you already have the CHT Android app installed just set the `appPath` value (in the capabilities section of the settings file) to an empty string.
+If you already have the CHT Android app installed, set the `appPath` value (in the capabilities section of the settings file) to an empty string.
 
-However, if you do not have the CHT Android app installed on your mobile device, you can download the preferred [apk version](https://github.com/medic/cht-android/releases) and then set the `appPath` value to the absolute path of the apk file.
+However, if you do not have the CHT Android app installed on your mobile device, download the preferred [apk version](https://github.com/medic/cht-android/releases) and then set the `appPath` value to the absolute path of the apk file.
 
 Finally, ensure you have done the following installations on your machine:
 1. Install [NodeJS](https://nodejs.org/en/download) and [Java JDK](https://www.oracle.com/java/technologies/downloads/) then ensure JAVA_HOME path is correctly set up.
