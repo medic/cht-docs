@@ -10,11 +10,12 @@ aliases: >
 ---
 
 ## Setup
+This documentation will guide you on how to setup and configure automation to run performance tests for your CHT Applications.
 
 #### Prerequisites
-Before continuing with the setup steps below, ensure you have a cht instance deployed and running either locally or globally - check out the [documentation](https://docs.communityhealthtoolkit.org/hosting/4.x/app-developer/) on how to do this.
+Before continuing with the setup steps below, ensure you have a [cht instance deployed]({{< ref "hosting/4.x/app-developer/" >}}) and running either locally or globally.
 
-Also, make sure you have some pre-existing users and data already loaded on the app - you can use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
+Also, make sure you have some pre-existing users and data already loaded on the app. You can use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
 
 If you already have the CHT Android app installed just set the `appPath` value (in the capabilities section of the settings file) to an empty string.
 
