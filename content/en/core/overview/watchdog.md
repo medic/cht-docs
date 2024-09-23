@@ -27,7 +27,7 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 ### JSON Exporter
 
-[JSON Exporter](https://github.com/prometheus-community/json_exporter) is a wrapper utility to convert a JSON API to be compatible with Prometheus scrape config. This is used to convert the CHT [Monitoring API's JSON]({{< relref "apps/reference/api#get-apiv2monitoring" >}}).
+[JSON Exporter](https://github.com/prometheus-community/json_exporter) is a wrapper utility to convert a JSON API to be compatible with Prometheus scrape config. This is used to convert the CHT [Monitoring API's JSON]({{< relref "building/reference/api#get-apiv2monitoring" >}}).
 
 ### Postgres Exporter
 

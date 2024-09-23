@@ -20,7 +20,7 @@ This guide uses example instances of CHT Core (`cht.example.com`) and CHT Watchd
 
 ### Default Flow
 
-Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API]({{< relref "apps/reference/api#get-apiv2monitoring" >}}):
+Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API]({{< relref "building/reference/api#get-apiv2monitoring" >}}):
 
 ```mermaid
 flowchart LR
