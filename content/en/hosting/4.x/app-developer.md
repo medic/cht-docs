@@ -252,7 +252,7 @@ cd ~/cht_4_app_developer-dir && docker compose up
 
 This may take some minutes to fully start depending on the speed of the internet connection and speed of the host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost:8443](https://localhost:8443). You can log in with username `medic` and password `password`.
 
-When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/building/tutorials/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
+When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/building/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
 
 ## Running the Nth CHT instance
 
