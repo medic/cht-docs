@@ -6,8 +6,8 @@ description: >
 keywords: users user-roles user-permissions
 relatedContent: >
   design/personas
-  building/tutorials/contact-and-users-1
-  building/tutorials/contact-and-users-2
+  building/contact-management/contact-and-users-1
+  building/contact-management/contact-and-users-2
   building/guides/data/users-bulk-load
 aliases:
    - /apps/concepts/users

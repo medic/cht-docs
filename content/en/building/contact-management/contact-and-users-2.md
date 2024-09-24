@@ -5,23 +5,24 @@ weight: 4
 description: >
   Creating and editing contacts and users with cht-conf
 relatedContent: >
-  building/tutorials/contact-and-users-1
+  building/contact-management/contact-and-users-1
   core/overview/db-schema
   building/guides/data/users-bulk-load
   building/concepts/users
 aliases:
+   - /building/tutorials/contact-and-users-2/
    - /apps/tutorials/contact-and-users-2
 ---
 
 {{% pageinfo %}}
-In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using cht-conf. If you haven't already, have a look at [part 1]({{% ref "building/tutorials/contact-and-users-1" %}}) of this tutorial for a useful overview of key concepts.
+In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using cht-conf. If you haven't already, have a look at [part 1]({{% ref "building/contact-management/contact-and-users-1" %}}) of this tutorial for a useful overview of key concepts.
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
 [*cht-conf*](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure your apps built using the Core Framework of the Community Health Toolkit.
 
-See more [key concepts]({{% ref "building/tutorials/contact-and-users-1#brief-overview-of-key-concepts" %}}) in part 1 of this tutorial.
+See more [key concepts]({{% ref "building/contact-management/contact-and-users-1#brief-overview-of-key-concepts" %}}) in part 1 of this tutorial.
 
 ## Required Resources
 
