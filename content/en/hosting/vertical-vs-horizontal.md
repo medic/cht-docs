@@ -1,7 +1,7 @@
 ---
 title: "Vertical vs Horizontal scaling"
 linkTitle: "Vertical vs Horizontal Scaling"
-weight: 2
+weight: 3
 aliases:  
   - /apps/guides/hosting/vertical-vs-horizontal
 description: >
