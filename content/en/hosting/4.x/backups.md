@@ -1,7 +1,7 @@
 ---
 title: "Backups in CHT 4.x"
 linkTitle: "Backups"
-weight: 330
+weight: 6
 aliases:
   - /apps/guides/hosting/4.x/backups
 description: >
