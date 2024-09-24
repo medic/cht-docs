@@ -1,6 +1,6 @@
 ---
 title: Kubernetes vs Docker
-weight: 3
+weight: 4
 description: >
  Options for installing CHT applications
 ---
