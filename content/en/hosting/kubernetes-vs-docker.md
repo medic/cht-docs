@@ -250,13 +250,8 @@ spec:
       labels:
         cht.service: couchdb
     spec:
-      #tolerations:
-      # - key: test-echistraining-4
-      #operator: Equals
-      #value: "true"
-      #effect: NoSchedule
       nodeSelector:
-        kubernetes.io/hostname: {{ .Values.hostname }}
+        kubernetes.io/hostname: <node name>
       containers:
         - env:
             - name: COUCHDB_LOG_LEVEL
@@ -282,7 +277,7 @@ spec:
                   name: cht-couchdb-credentials
                   key: COUCHDB_UUID
             - name: SVC_NAME
-              value: couchdb.{{ .Values.namespace }}.svc.cluster.local
+              value: couchdb.my_cht_project_namespace.svc.cluster.local
           image: public.ecr.aws/medic/cht-couchdb:4.2.2
           name: cht-couchdb
           ports:
@@ -291,11 +286,7 @@ spec:
           volumeMounts:
             - mountPath: /opt/couchdb/data
               name: local-volume
-              #subPath: data
               subPath: couchdb
-              # I think we need to use subPath couchdb here since our directory on disk is /home/echisadmin/cht/couchdb. We will want the hostPath
-              # below to be one-level up, so effectively subPath maps to "couchdb" folder. This allows local.d to work, if we mount local.d inside couchdb's data directory
-              # it will error the couchdb installation.
             - mountPath: /opt/couchdb/etc/local.d
               name: local-volume
               subPath: local.d
@@ -331,7 +322,7 @@ spec:
         cht.service: haproxy
     spec:
       nodeSelector:
-        kubernetes.io/hostname: {{ .Values.hostname }}
+        kubernetes.io/hostname: <node name>
       containers:
         - env:
             - name: COUCHDB_PASSWORD
@@ -354,7 +345,7 @@ spec:
             - name: HAPROXY_PORT
               value: "5984"
             - name: HEALTHCHECK_ADDR
-              value: healthcheck.{{ .Values.namespace }}.svc.cluster.local
+              value: healthcheck.my_cht_project_namespace.svc.cluster.local
           image: public.ecr.aws/medic/cht-haproxy:4.2.2
           name: cht-haproxy
           ports:
@@ -389,7 +380,7 @@ spec:
         cht.service: healthcheck
     spec:
       nodeSelector:
-        kubernetes.io/hostname: {{ .Values.hostname }}
+        kubernetes.io/hostname: <node name>
       containers:
         - env:
             - name: COUCHDB_PASSWORD
@@ -444,7 +435,7 @@ spec:
         cht.service: api
     spec:
       nodeSelector:
-        kubernetes.io/hostname: {{ .Values.hostname }}
+        kubernetes.io/hostname: <node name>
       containers:
         - env:
             - name: BUILDS_URL
@@ -455,7 +446,7 @@ spec:
                   name: cht-couchdb-credentials
                   key: COUCH_URL
             - name: UPGRADE_SERVICE_URL
-              value: http://upgrade-service.{{ .Values.namespace }}.svc.cluster.local:5008
+              value: http://upgrade-service.my_cht_project_namespace.svc.cluster.local:5008
             - name: API_PORT
               value: "5988"
           image: public.ecr.aws/medic/cht-api:4.2.2
@@ -493,7 +484,7 @@ spec:
       containers:
         - env:
             - name: API_HOST
-              value: api.{{ .Values.namespace }}.svc.cluster.local
+              value: api.my_cht_project_namespace.svc.cluster.local
             - name: COUCH_URL
               valueFrom:
                 secretKeyRef:
@@ -521,7 +512,7 @@ metadata:
   name: api-ingress
 spec:
   rules:
-  - host: {{ .Values.county }}.echis.go.ke
+  - host: <my domain>
     http:
       paths:
       - pathType: Prefix
@@ -531,7 +522,7 @@ spec:
             name: api
             port:
               number: 5988
-  - host: {{ .Values.county }}-echis.health.go.ke
+  - host: <my domain>
     http:
       paths:
       - pathType: Prefix
@@ -543,4 +534,4 @@ spec:
               number: 5988
 ```
 
-### USing Helm
+### Using Helm
