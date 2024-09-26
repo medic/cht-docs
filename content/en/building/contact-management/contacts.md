@@ -8,7 +8,7 @@ keywords: hierarchy contacts care-guides
 relatedContent: >
   building/reference/forms/contact
   building/reference/contact-page
-  building/guides/updates/moving-contacts
+  building/contact-management/moving-contacts
   building/contact-management/contact-and-users-1
   building/examples/contact-tracing
 aliases:
