@@ -3,6 +3,8 @@
 #  - If you bump one version up to latest, please bump them all so we stay current!
 #  - Hugo builds the site twice: once for link checking and once minified for pushing live
 #  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
+# 
+# this line to hopefully fix medic/cht-docs/issues/1552
 
 
 # Scheduled workflows run on the latest commit on
