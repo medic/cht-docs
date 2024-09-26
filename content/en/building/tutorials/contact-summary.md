@@ -5,7 +5,7 @@ weight: 11
 description: >
   Building CHT application contact summary
 relatedContent: >
-  building/features/contacts#contact-summary
+  building/contact-management#contact-summary
   building/reference/contact-page#contact-summary
 aliases:
    - /apps/tutorials/contact-summary

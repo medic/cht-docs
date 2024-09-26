@@ -1,17 +1,18 @@
 ---
-title: "Contacts"
-identifier: "contacts"
+title: "Contact and User management"
+linkTitle: "Contact management"
 weight: 4
 description: >
-  The people and places that are being cared for
+  Managing contacts and users in your CHT Application
 keywords: hierarchy contacts care-guides
 relatedContent: >
   building/reference/forms/contact
   building/reference/contact-page
   building/guides/updates/moving-contacts
-  building/tutorials/contact-and-users-1
+  building/contact-management/contact-and-users-1
   building/examples/contact-tracing
 aliases:
+   - /building/features/contacts/
    - /apps/features/contacts/
 ---
 <!-- ## Contacts: Person and Family Profiles -->

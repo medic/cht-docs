@@ -33,7 +33,7 @@ When a contact is marked as deceased within the CHT, the contact will be hidden 
 You will need to:
 
 1. [Configure your application hierarchy]({{% ref "building/tutorials/application-settings" %}})
-2. [Create some contacts]({{% ref "building/tutorials/contact-and-users-1" %}})
+2. [Create some contacts]({{% ref "building/contact-management/contact-and-users-1" %}})
 3. [Know how to create an app form]({{% ref "building/tutorials/app-forms" %}})
 4. [Know how to set form properties]({{% ref "building/tutorials/form-properties" %}})
 

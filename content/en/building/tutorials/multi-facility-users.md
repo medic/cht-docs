@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/concepts/users
   building/reference/app-settings
-  building/tutorials/contact-and-users-1
+  building/contact-management/contact-and-users-1
 aliases:
    - /apps/tutorials/multi-facility-users
 ---
@@ -30,15 +30,15 @@ The [CHT application settings]({{< relref "building/tutorials/application-settin
 
 *[Roles]({{< relref "building/concepts/users#roles" >}})* define permissions for users to access a group of app features and functionality.
 
-*[Contacts]({{< relref "building/features/contacts" >}})*  are people or places that are created in the CHT application.
+*[Contacts]({{< relref "building/contact-management" >}})*  are people or places that are created in the CHT application.
 
-*[People]({{< relref "building/features/contacts" >}})* are both patients in the system and users of the system, such as CHWs or Nurses.
+*[People]({{< relref "building/contact-management" >}})* are both patients in the system and users of the system, such as CHWs or Nurses.
 
-*[Places]({{< relref "building/features/contacts" >}})* represent either an actual physical location such as a health facility, clinic, or a grouping such as a household or CHW Area.
+*[Places]({{< relref "building/contact-management" >}})* represent either an actual physical location such as a health facility, clinic, or a grouping such as a household or CHW Area.
 
 ## Pre-requisites
 
-- You should be familiar with contact and user management. View detailed tutorial on [How to create contacts and their associated users]({{% ref "building/tutorials/contact-and-users-1" %}}) 
+- You should be familiar with contact and user management. View detailed tutorial on [How to create contacts and their associated users]({{% ref "building/contact-management/contact-and-users-1" %}}) 
 - You should be familiar with managing CHT application settings. Read [How to manage CHT application settings]({{% ref "building/tutorials/application-settings" %}}) 
 
 
