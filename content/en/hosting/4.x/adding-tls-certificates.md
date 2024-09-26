@@ -1,7 +1,7 @@
 ---
 title: "Adding TLS certificates in CHT 4.x"
 linkTitle: "TLS Certificates"
-weight: 100
+weight: 4
 aliases:
   - /apps/guides/hosting/4.x/adding-tls-certificates
 description: >

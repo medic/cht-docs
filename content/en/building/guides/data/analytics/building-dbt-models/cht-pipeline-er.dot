@@ -1,0 +1,114 @@
+digraph g {
+fontname="Helvetica,Arial,sans-serif"
+node [fontname="Helvetica,Arial,sans-serif", fillcolor="blue"]
+edge [fontname="Helvetica,Arial,sans-serif"]
+graph [
+rankdir = "LR"
+];
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+edge [
+];
+"couchdb" [
+label = "<title> couchdb| 
+  <_id> _id: text|
+  <saved_timestamp> saved_timestamp: timestamp|
+  <_deleted> _deleted: boolean"
+shape = "record"
+];
+"document_metadata" [
+label = "<title> document_metadata| 
+  <uuid> uuid: text|
+  <saved_timestamp> saved_timestamp: timestamp|
+  <doc_type> doc_type: text|
+  <_deleted> _deleted: boolean"
+shape = "record"
+];
+"data_record" [
+label = "<title> data_record|
+  <uuid> uuid: text|
+  <saved_timestamp> saved_timestamp: timestamp|
+  <reported> reported: timestamp|
+  <f4> form: text|
+  <f5> from_phone: text|
+  <patient_id> patient_id: text|
+  <place_id> place_id: text|
+  <contact_uuid> contact_uuid: text|
+  <parent_uuid> parent_uuid: text|
+  <grandparent_uuid> grandparent_uuid: text"
+shape = "record"
+];
+"contact" [
+label = "<title> contact|
+  <uuid> uuid: text|
+  <saved_timestamp> saved_timestamp: timestamp|
+  <reported> reported: timestamp|
+  <parent_uuid> parent_uuid: text|
+  <contact_type> contact_type: text|
+  <active> active: boolean|
+  <notes> notes: text|
+  <muted> muted: boolean"
+shape = "record"
+];
+"person" [
+label = "<title> person|
+  <uuid> uuid: text|
+  <saved_timestamp> saved_timestamp: timestamp|
+  <date_of_birth> date_of_birth: timestamp|
+  <sex> sex: text|
+  <phone> phone: text|
+  <phone2> phone2: text|
+  <patient_id> patient_id: text"
+shape = "record"
+];
+"place" [
+label = "<title> place|
+  <uuid> uuid: text|
+  <saved_timestamp> saved_timestamp: timestamp|
+  <contact_id> contact_id: text|
+  <place_id> place_id: text"
+shape = "record"
+];
+"contact_type" [
+label = "<title> contact_type|
+  <id> id: text|
+  <person> person: boolean|
+  <configured> configured: boolean"
+shape = "record"
+];
+"document_metadata":uuid -> "couchdb":_id [
+id = 0
+];
+"data_record":uuid -> "document_metadata":uuid [
+id = 1
+];
+"contact":uuid -> "document_metadata":uuid [
+id = 2
+];
+"person":uuid -> "contact":uuid [
+id = 3
+];
+"place":uuid -> "contact":uuid [
+id = 4
+];
+"contact":contact_type -> "contact_type":id [
+id = 5
+];
+"data_record":patient_id -> "person":uuid [
+id = 6
+];
+"data_record":place_id -> "place":uuid [
+id = 7
+];
+"data_record":contact_uuid -> "contact":uuid [
+id = 8
+];
+"data_record":parent_uuid -> "contact":uuid [
+id = 9
+];
+"data_record":grandparent_uuid -> "contact":uuid [
+id = 10 
+];
+}

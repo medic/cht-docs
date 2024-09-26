@@ -5,8 +5,8 @@ weight: 3
 description: >
   An overview of data flows in the CHT for analytics, impact monitoring, and data science
 relatedContent: >
-  apps/guides/data
-  apps/guides/database
+  building/guides/data
+  building/guides/database
 ---
 
 

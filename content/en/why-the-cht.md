@@ -6,7 +6,7 @@ weight : 1
 ---
 
 {{% pageinfo %}}
-The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref apps >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
+The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref building >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
 {{% /pageinfo %}}
 
 
@@ -52,7 +52,7 @@ The Core Framework makes it faster to build full-featured, scalable digital heal
 
 App developers are able to define health system roles, permissions and reporting hierarchies, and make use of five highly configurable areas of functionality: messaging, task and schedule management, decision support workflows, longitudinal person profiles, and analytics.
 
-The Core Framework can be used to support the unique needs of a given health system and the work of community health workers, frontline supervisors, facility-based nurses, health system managers, and even patients and caregivers. [Tutorials]({{< ref "apps/tutorials" >}}) and [guides]({{< ref "apps/guides" >}}) are available to help you kick things off, and you'll also find an [active forum](https://forum.communityhealthtoolkit.org) where the community of practice comes together to support each other.
+The Core Framework can be used to support the unique needs of a given health system and the work of community health workers, frontline supervisors, facility-based nurses, health system managers, and even patients and caregivers. [Tutorials]({{< ref "building/tutorials" >}}) and [guides]({{< ref "building/guides" >}}) are available to help you kick things off, and you'll also find an [active forum](https://forum.communityhealthtoolkit.org) where the community of practice comes together to support each other.
 
 
 ## Offline-first technology
@@ -73,16 +73,16 @@ Apps built with the Core Framework are fully responsive Progressive Web Applicat
 
 ## Ready for national scale
 
-Around the world, countries are adopting a model of primary health care that starts in communities and homes where high-quality, integrated services are delivered by trusted health workers who are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are [well integrated]({{< ref "apps/concepts/interoperability" >}}) throughout the hierarchy of national health systems and across the patient continuum of care. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
+Around the world, countries are adopting a model of primary health care that starts in communities and homes where high-quality, integrated services are delivered by trusted health workers who are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are [well integrated]({{< ref "building/concepts/interoperability" >}}) throughout the hierarchy of national health systems and across the patient continuum of care. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
 
 ## Made for localization
 
 <img src="localization.png" width="23%" align="right" />
 
-Apps can be customized for different deployments and types of workflows. The Core Framework has been used in dozens of countries around the world with [localization settings]({{< ref "apps/reference/translations" >}}).
+Apps can be customized for different deployments and types of workflows. The Core Framework has been used in dozens of countries around the world with [localization settings]({{< ref "building/reference/translations" >}}).
 
 Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
 
 ## Example and reference apps
 
-The Community Health Toolkit’s [Example and Reference Apps]({{< ref "apps/examples" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.
+The Community Health Toolkit’s [Example and Reference Apps]({{< ref "building/examples" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.
