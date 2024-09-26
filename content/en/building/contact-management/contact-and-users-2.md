@@ -1,7 +1,7 @@
 ---
 title: "Contact and User Management - Part 2"
 linkTitle: Contacts + Users 2
-weight: 4
+weight: 3
 description: >
   Creating and editing contacts and users with cht-conf
 relatedContent: >
