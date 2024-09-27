@@ -20,7 +20,7 @@ When creating issues add the appropriate [Priority](https://github.com/medic/med
 
 ### Regressions
 
-When a bug is found that impacts functionality that worked in a previous version, it's important that these are labelled properly so someone who is planning to upgrade can find it. To flag this, add the "Regression" label, and a label in the form "Affects: {{version}}" (e.g.: "Affects: 3.14.0") for each version where this bug exists. It's likely that the label for this specific version doesn't exist so you may have to create it. This ensures that issue is listed as a Known Issue in the Release Notes for that version.
+When a bug is found that impacts functionality that worked in a previous version, it's important that this is labelled properly so someone who is planning to upgrade can find it. To flag this, add the "Regression" label, and a label in the form "Affects: {{version}}" (e.g.: "Affects: 3.14.0") for each version where this bug exists. It's likely that the label for this specific version doesn't exist so you may have to create it. This ensures that issue is listed as a Known Issue in the Release Notes for that version.
 
 ### Issue Status
 
@@ -42,7 +42,7 @@ Issues in this column are complete, all code has been merged into the main branc
 
 ### Branches
 
-The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this (almost) all development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it is included in the `main` branch.
+The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this, development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it is included in the `main` branch.
 
 Create a branch following the guideline below and push [commits]({{< ref "#commits" >}}) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows team members to see the latest changes and work together more effectively.
 
@@ -121,7 +121,7 @@ Once you are confident that the change is complete and ready to be merged:
    - Coordinate with a QA engineer and add them as reviewers when you need specific quality/testing support. For example, when major changes or new features are introduced to the codebase, security-related changes are made, and substantial user experience improvements are required. The QA engineer can advise whether that needs to be considered in the current e2e suite, they can advise on edge cases or other scenarios to consider for testing.
    
 6. Follow up on your PR to keep momentum; the review should happen in 24h business days. If you haven't received feedback from the reviewers after that time, check if they are available. Otherwise, it's okay to request a review from another person.
-7. Once the PR has been approved by a QA engineer and a developer, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
+7. Once the PR has been approved, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
 8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <GitHub user>`.
 9. Merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the repository's commit history clean.
    - If a backport is required, cherry-pick the merged commit back to the release branches it is required in.
