@@ -95,7 +95,11 @@ Never push commits directly to the main branch (`main` or `master`). Always use 
 
 A good workflow would be to work locally, pushing to a remote branch as you make progress, possibly open a draft PR for some initial collaboration on tricky parts, and once everything is done, convert the draft PR to a regular PR to be reviewed.
 
-Once your pull request has been approved, it can be merged to the main branch by anyone with write access to the repository. When merging a PR, avoid the "Create a merge commit" option. Merge commits in the main branch cause the history of the branch to be non-linear and make it more difficult to understand exactly when a code change was introduced. Instead, use the "Squash and merge" option to combine the commits in the PR into a single commit on the main branch. Alternatively, you can use the "Rebase and merge" option if you want _all_ the commits in the PR to be preserved in the main branch (this should only be used in special cases). See below for instructions on [how to format your commit messages]({{< ref "#commit-message-format" >}}). 
+Once your pull request has been approved, it can be merged to the main branch by anyone with write access to the repository. 
+
+When merging a PR, avoid the "Create a merge commit" option. Merge commits in the main branch cause the history of the branch to be non-linear and make it more difficult to understand exactly when a code change was introduced. Instead, use the "Squash and merge" option to combine the commits in the PR into a single commit on the main branch. Alternatively, you can use the "Rebase and merge" option if you want _all_ the commits in the PR to be preserved in the main branch (this should only be used in special cases). 
+
+See above for instructions on [how to format your commit messages]({{< ref "#commit-message-format" >}}). 
 
 #### Opening Pull Requests 
 
