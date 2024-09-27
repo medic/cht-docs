@@ -1,16 +1,16 @@
 ---
-title: "Self Hosting in CHT 4.x - Single CouchDB Node"
-linkTitle: "Single Node - Docker"
+title: "Production Hosting in CHT 4.x - Single CouchDB Node"
+linkTitle: "Single Node"
 weight: 10
 aliases:
    - /apps/guides/hosting/4.x/self-hosting/single-node/
    - ../self-hosting-single-node
 description: >
-   Self Hosting in CHT 4.x - Single CouchDB Node
+   Production Hosting in CHT 4.x - Single CouchDB Node on Docker
 ---
 
 {{% pageinfo %}}
-This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/self-hosting/multiple-nodes" >}}).
+This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/production/docker/multiple-nodes" >}}).
 {{% /pageinfo %}}
 
 ## Prerequisites 
@@ -112,7 +112,7 @@ To login as the `medic` user in the web app, you can find your password with thi
 
 ## TLS Certificates
 
-See the [TLS Certificates page]({{< relref "hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates.
+See the [TLS Certificates page]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) for how to import your certificates.
 
 ## Upgrades
 

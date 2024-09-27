@@ -1,6 +1,6 @@
 ---
-title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes on k3s on VMWare"
-linkTitle: "Multiple Nodes - k3s"
+title: "Production Hosting in CHT 4.x - Multiple CouchDB Nodes on k3s on VMWare"
+linkTitle: "k3s Multiple Node"
 weight: 20
 aliases:
 - /apps/guides/hosting/4.x/self-hosting/self-hosting-k3s-multinode

@@ -1,18 +1,18 @@
 ---
-title: "Self Hosting in CHT 4.x - Multiple CouchDB Nodes on Docker Swarm"
-linkTitle: "Multiple Nodes - Docker"
+title: "Production Hosting in CHT 4.x - Multiple CouchDB Nodes on Docker Swarm"
+linkTitle: "Multiple Node"
 weight: 20
 aliases:
   - /apps/guides/hosting/4.x/self-hosting/multiple-nodes
   - ../self-hosting-multiple-nodes
 description: >
-  Hosting the CHT on self run infrastructure with horizontally scaled CouchDB nodes
+  Production Hosting in CHT 4.x - Multi-Node CouchDB Node on Docker
 ---
 
 {{% pageinfo %}}
 The clustered multi-node hosting described below is recommended for deployments that need increased performance gains. These gains will increase the complexity of troubleshooting and decrease the ease ongoing maintenance.
 
-If you are unsure which deployment to use check out [Self-hosting recommendations]({{< ref "hosting/4.x/self-hosting#recommendations-and-considerations" >}}).
+If you are unsure which deployment to use check out [Production recommendations]({{< ref "hosting/4.x/production#recommendations-and-considerations" >}}).
 
 {{% /pageinfo %}}
 
@@ -157,7 +157,7 @@ sleep 120
 docker kill $(docker ps --quiet)
 ```
 
-With docker volume having been created, see the [TLS Certificates page]({{< relref "hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates on the CHT Core node.
+With docker volume having been created, see the [TLS Certificates page]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) for how to import your certificates on the CHT Core node.
 
 ## CouchDB installation on 3 nodes
 

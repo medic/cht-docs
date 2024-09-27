@@ -1,7 +1,7 @@
 ---
 title: "Viewing server logs in CHT 4.x"
 linkTitle: "Logs"
-weight: 5
+weight: 50
 aliases:
   - /apps/guides/hosting/4.x/logs
 description: >

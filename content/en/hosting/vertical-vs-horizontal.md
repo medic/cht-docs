@@ -7,7 +7,7 @@ aliases:
 description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
-    hosting/4.x/self-hosting/multiple-nodes
+    hosting/4.x/production/docker/multiple-nodes
     hosting/4.x/data-migration
     core/overview/architecture/
 ---

@@ -1,6 +1,6 @@
 ---
 title: "AWS Hosting in CHT 3.x"
-linkTitle: "AWS Hosting"
+linkTitle: "Production Hosting - AWS"
 weight: 10
 description: >
   Hosting the CHT on Amazon EC2

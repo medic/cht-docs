@@ -21,7 +21,7 @@ When you run CHT Watchdog in production, and it is publicly accessible on the In
 * ensuring if the server were to fail, you can recover the data
 
 
-This guide assumes you have already [set up TLS]({{< relref "hosting/4.x/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "hosting/monitoring/setup" >}}) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
+This guide assumes you have already [set up TLS]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "hosting/monitoring/setup" >}}) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
 
 
 {{% alert title="Note" %}}
