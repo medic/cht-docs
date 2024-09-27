@@ -26,7 +26,7 @@ When a bug is found that impacts functionality that worked in a previous version
 
 When the issue is scheduled for development it will be added to the [Product Team Activities project](https://github.com/orgs/medic/projects/134). The issue has a status property that represents the state the issue is in.
 
-#### Todo
+#### To do
 
 Issues in this column have been prioritised and are ready for development. The issue has all the detail needed to begin development and it is free for anyone to start work on. If you start work on an issue, assign it to yourself and move it to "In progress".
 
