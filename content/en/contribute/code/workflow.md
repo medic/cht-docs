@@ -24,7 +24,7 @@ When a bug is found that impacts functionality that worked in a previous version
 
 ### Issue Status
 
-When the issue is scheduled for development it will be added to the [Product Team Activities project](https://github.com/orgs/medic/projects/134). Each column in the project represents the state the issue is in.
+When the issue is scheduled for development it will be added to the [Product Team Activities project](https://github.com/orgs/medic/projects/134). The issue has a status property that represents the state the issue is in.
 
 #### Todo
 
