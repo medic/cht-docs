@@ -4,6 +4,7 @@ linkTitle: "Logs"
 weight: 50
 aliases:
   - /apps/guides/hosting/4.x/logs
+  - /hosting/4.x/logs
 description: >
     What to do when you need to find server side errors in CHT 4.x
 relatedContent: >

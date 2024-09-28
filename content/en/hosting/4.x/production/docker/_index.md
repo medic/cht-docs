@@ -2,6 +2,8 @@
 title: "Docker Production Hosting in CHT 4.x"
 linkTitle: "Docker"
 weight: 2
+aliases:
+  - /hosting/4.x/self-hosting
 description: >
   Production hosting the CHT 
 relatedContent: >
