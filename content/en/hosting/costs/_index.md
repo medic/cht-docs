@@ -66,6 +66,27 @@ It should be noted that a [development environment]({{< relref "hosting/4.x/app-
 
 Running an easy to set up Docker based development environment (instead of Kubernetes) on a laptop is an acceptable practice: there is no expectation of high uptime for development instances.
 
+## Small deployment example costs
+
+In order to get a better idea of what it might cost to run the CHT, let's look at the smallest Kubernetes based deployment when following our [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Please note different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+
+### Initial monthly costs as of 2024
+
+| Item           | Cost     | Count      | Total/mo      | Note                    |
+|----------------|----------|------------|---------------|-------------------------|
+| EC2 c5.large   | $0.10/hr | 1          | $72           | Control-plane node      | 
+| EC2 c5.2xlarge | $0.40/mr | 4          | $1,152        | Worker nodes            |
+| EBS SSD (gp3)  | $0.09/mo | 500        | $45           | 500GB of shared storage |
+|                |          |            |               |                         |
+|                |          | **TOTAL**  | **$1,269/mo** |                         | 
+
+### On-going costs and growth
+
+When running a small instance, be sure to plan for future costs.  Do not assume that costs will stay flat or go down.  Assume they will go up.  Areas where costs can increase are:
+* Backups - As your CouchDB instance takes more and more room, backups will cost more and more to store.
+* Storage - As with backups, if the 500GB of storage approaches being full, or upgrades require a burst of disk use, plan on adding more active storage. 
+* More users - offline and online CHT Core users increase the load on the system.  Be prepared to either add more worker nodes or increase the size of existing worker nodes to add more CPU and RAM. As well, consider stronger CPUs which might have higher clock speeds, more cache and be more efficient. 
+
 ## What's included in the per user cost
 
 This document covers hosting cost and does not cover Total Cost of Ownership (TCO).  Below is a list of what's included in the hosting casts above and what is excluded.
