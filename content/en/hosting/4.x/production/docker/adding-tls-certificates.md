@@ -1,9 +1,10 @@
 ---
 title: "Adding TLS certificates in CHT 4.x"
 linkTitle: "TLS Certificates"
-weight: 4
+weight: 40
 aliases:
   - /apps/guides/hosting/4.x/adding-tls-certificates
+  - /hosting/4.x/adding-tls-certificates
 description: >
     How to add TLS certificates to your docker hosted CHT 4.x instance
 ---

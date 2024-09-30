@@ -1,9 +1,9 @@
 ---
-title: "Self Hosting in CHT 4.x"
-linkTitle: "Self Hosting"
-weight: 2
+title: "Production Hosting in CHT 4.x"
+linkTitle: "Production Hosting"
+weight: 40
 aliases:
-  - /apps/guides/hosting/4.x/self-hosting/
+  - /apps/guides/hosting/4.x/production/
 description: >
   Details for hosting the CHT on self run infrastructure
 ---
@@ -23,8 +23,8 @@ For smaller deployments a [single node CouchDB][single-couch] instance can be us
 | Seamless upgrade with multi-node docker compose          | {{< icon/yes >}}                    | {{< icon/no >}}                             |
 | Seamless upgrade with multi-node kubernetes/k3s          | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 
-[single-couch]: {{< relref "hosting/4.x/self-hosting/single-node" >}}
-[multi-couch]: {{< relref "hosting/4.x/self-hosting/multiple-nodes" >}}
+[single-couch]: {{< relref "hosting/4.x/production/docker/single-node" >}}
+[multi-couch]: {{< relref "hosting/4.x/production/docker/multiple-nodes" >}}
 
 ## Cloud provider vs Bare metal
 
