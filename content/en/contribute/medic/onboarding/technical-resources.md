@@ -17,8 +17,8 @@ Keep in mind that this is a living document, and every contributor is encouraged
 Some of the suggestions below could be for internal courses and/or material created and maintained by other teammates at Medic, free resources on the internet, or paid courses, which for Medic teammates could be considered as part of the [Professional Development Benefit](https://www.notion.so/Professional-Development-f5fc299ecf984dacbd65100af100ed14) at Medic.
 {{% /alert %}}
 
-## Exercises
-There is a Slack channel *#exercism* where engineers and tech enthusiasts meet and discuss JavaScript and TypeScript exercises from [exercism.org](https://exercism.org/) on a weekly basis. The primary goal of this channel is to discuss with your teammates and have a fun, open discussion on how the provided solutions can be improved, while also having the opportunity to connect with people from other teams. Even though this is optional, it is highly encouraged to join and participate frequently.
+## Developer Workshops
+There is a Slack channel *#cht-dev-workshop* for CHT community members to grow their coding skills. The group meets on a weekly basis. The primary goal of this group is to discuss with other developers and have a fun, open discussion on how the provided solutions can be improved, while also having the opportunity to connect with people from other teams. Even though this is optional, it is highly encouraged to join and participate frequently.
 
 ## Technical Resources
 
@@ -36,5 +36,4 @@ There is a Slack channel *#exercism* where engineers and tech enthusiasts meet a
 | **Web Browsers** | [Inside look at modern web browsers, part I](https://developer.chrome.com/blog/inside-browser-part1/) <br> [Inside look at modern web browsers, part II](https://developer.chrome.com/blog/inside-browser-part2/) <br> [Inside look at modern web browsers, part III](https://developer.chrome.com/blog/inside-browser-part3/) <br> [Inside look at modern web browsers, part IV](https://developer.chrome.com/blog/inside-browser-part4/)|
 | **Web Performance** | [High Performance Browser Networking](https://hpbn.co/)|
 | **PostgreSQL** | [PostgreSQL Tutorial](https://www.postgresqltutorial.com/) <br> [PostgreSQL Cheat Sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) <br> [PostgreSQL Views Tutorial](https://www.postgresqltutorial.com/postgresql-views/) <br> [PostgreSQL Views Documentation](https://www.postgresql.org/docs/current/tutorial-views.html) <br> [Common Table Expressions (CTEs)](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cte/) <br> [PostgreSQL Queries with CTEs Documentation](https://www.postgresql.org/docs/current/queries-with.html) |
-| **Superset** | [Introduction to Superset](https://superset.apache.org/docs/intro/) <br> [Creating Your First Dashboard](https://superset.apache.org/docs/creating-charts-dashboards/creating-your-first-dashboard/) |
 | **dbt** | [dbt Core Manual Installation Guide](https://docs.getdbt.com/docs/core/installation) <br> [dbt Video Playlist](https://www.youtube.com/playlist?list=PLohMhitTY9xuEVMpLG3xXhsKG9j2XCTeF) |

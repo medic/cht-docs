@@ -63,7 +63,6 @@ Medic relies on both restricted and unrestricted funds to support our mission.
 * Organization-wide calls are recorded.
 * No meetings on Fridays, as we consider Fridays as Deep Work days! 
 * Retrospective sessions
-* Daily Standups available in 2 timezones (pick the one that suits you best)
 * Weekly Focused Working Groups meetings
 * Weekly 1-to-1s with your manager
 
@@ -82,8 +81,6 @@ Medic relies on both restricted and unrestricted funds to support our mission.
   * [cht-conf](https://github.com/medic/cht-conf)
   * [cht-android](https://github.com/medic/cht-android) 
   * [cht-sync](https://github.com/medic/cht-sync) 
-  * [cht-pipeline](https://github.com/medic/cht-pipeline)
-  * [couch2pg](https://github.com/medic/couch2pg)
   * [cht-watchdog](https://github.com/medic/cht-watchdog)
 * Continuous Integration (CI) with GitHub Actions
 * No Continuous Deployment, as no SaaS setup
@@ -94,12 +91,10 @@ Medic relies on both restricted and unrestricted funds to support our mission.
 * Tons of things happen here.
 * Recommendation: [Set up your reminders/notifications](https://medic.slack.com/archives/C024KTGRW/p1617308776092600) 
 * A few important boards: 
-  * [SRE Engineering](https://github.com/orgs/medic/projects/38)
   * [SRE Support](https://github.com/orgs/medic/projects/19)
   * [Ecosystem Workstream](https://github.com/orgs/medic/projects/134/views/11)
   * [Allies Workstream](https://github.com/orgs/medic/projects/134/views/3)
   * [Care Teams Workstream](https://github.com/orgs/medic/projects/134/views/2)
-  * [Infrastructure Workstream](https://github.com/orgs/medic/projects/134/views/26)
   * [Test Automation](https://github.com/orgs/medic/projects/134/views/12)
 
 #### Quality Assistance
@@ -132,7 +127,6 @@ Medic relies on both restricted and unrestricted funds to support our mission.
   * [Focused Working Groups]({{% ref "focused-groups" %}}) within the product team to focus on specific groups of users
     * Allies
     * Care Teams
-    * Infrastructure
     * Ecosystem
 
 #### Technology Radars
