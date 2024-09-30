@@ -68,14 +68,14 @@ Running an easy to set up Docker based development environment (instead of Kuber
 
 ## Small deployment example costs
 
-In order to get a better idea of what it might cost to run the CHT, let's look at the smallest Kubernetes based deployment when following our [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Please note different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Please note different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
 
 ### Initial monthly costs as of 2024
 
 | Item           | Cost     | Count      | Total/mo      | Note                    |
 |----------------|----------|------------|---------------|-------------------------|
 | EC2 c5.large   | $0.10/hr | 1          | $72           | Control-plane node      | 
-| EC2 c5.2xlarge | $0.40/mr | 4          | $1,152        | Worker nodes            |
+| EC2 c5.2xlarge | $0.40/hr | 4          | $1,152        | Worker nodes            |
 | EBS SSD (gp3)  | $0.09/mo | 500        | $45           | 500GB of shared storage |
 |                |          |            |               |                         |
 |                |          | **TOTAL**  | **$1,269/mo** |                         | 
