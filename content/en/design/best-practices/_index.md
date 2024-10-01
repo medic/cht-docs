@@ -31,7 +31,7 @@ The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks tha
 
 Each Task has an icon on the left side which indicates what type of Task it is. <br>
 The first bold line of text is the name of the person or family that the Task is about. <br>
-The second line of text is the name of the Task. <br>
+The second line of text is the title of the Task. <br>
 The days left for the Task to be done is located in the upper right-hand corner. <br>
 If a Task is overdue, the due date will be red. Tasks are listed in order of due date. <br>
 
