@@ -33,7 +33,7 @@ Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({
 
 Let's query data from the last three months to see how the _first assessment_ task is behaving in production:
 
-```sql (thanks to CHT Sync)
+```sql
 SELECT
  date_trunc('month', duedate) AS due_date_month,
  task_state,
