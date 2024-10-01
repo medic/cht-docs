@@ -1,6 +1,7 @@
 ---
 title: "Building A Complex Task (Optional)"
 linkTitle: Complex Tasks
+weight: 20
 description: >
   Building a more complex task
 relatedContent: >
