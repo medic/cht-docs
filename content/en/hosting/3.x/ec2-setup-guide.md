@@ -9,7 +9,6 @@ aliases:
    - /apps/guides/hosting/ec2-setup-guide 
 relatedContent: >
   hosting/3.x/self-hosting
-  building/guides/database/couch2pg-oom-errors
 ---
 
 
