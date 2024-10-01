@@ -33,7 +33,7 @@ Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({
 
 Let's query data from the last three months to see how the _first assessment_ task is behaving in production:
 
-```sql (thanks to couch2pg)
+```sql (thanks to CHT Sync)
 SELECT
  date_trunc('month', duedate) AS due_date_month,
  task_state,
@@ -68,7 +68,7 @@ module.exports = [{
 ```
 
 **What is this code doing?**
-* `useview_task` - This is a materialized view created automatically by the medic-couch2pg service. It is an intuitive view of the data from the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
+* `useview_task` - This is a materialized view of the data from the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
 * `task_state` - The meaning of each task state is explained in the [task document schema]({{< ref "core/overview/db-schema#tasks" >}}).
 * `WHERE title` - The _name_ attribute in the [task.js schema]({{< ref "building/reference/tasks#tasksjs" >}}) is used exclusively in the task's backend data. Here we limit the query to task documents resulting from our named task. The `title` in postgres maps to the `name` in JavaScript not the `title` in JavaScript - which is confusing.
 * `WHERE duedate` - One task document is created per event and this task has one event per contact which is due 7 days after the contact's creation date. Here we limit the query to task documents which are _due in the last 3 calendar months_.
