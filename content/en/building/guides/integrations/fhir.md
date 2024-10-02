@@ -12,22 +12,24 @@ relatedContent: >
 ## Overview
 
 CHT has an interoperability tool which supports building FHIR workflows.
-See [this page](/building/concepts/interoperability) for an overview of this tool; in particular, it supports:
+You can see more details of the tool [here](https://github.com/medic/cht-interoperability). The following [FHIR resources](https://hl7.org/fhir/) are supported:
 1. Sending [Patient](https://build.fhir.org/patient.html) data from the CHT to interoperating systems.
 2. Sending reports as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from the CHT to interoperating systems.
 3. Sending [Patient](https://build.fhir.org/patient.html) data created in interoperating systems to CHT applications.
 4. Sending health information represented as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from interoperating systems to CHT applications.
 
-To send data created in a CHT application to an interoperating system, use [outbound push](/building/reference/app-settings/outbound/) to configure which documents should be sent and at what point.
+## Sending Data
+When sending data to an interoperating system, we use [outbound push](/building/reference/app-settings/outbound/) to configure which documents should be sent and at what point.
 A [mediator](http://openhim.org/docs/configuration/mediators/) then converts these documents to FHIR resources and orchestrates sending them to interoperating systems.
 The default mediator makes any resources sent to it queryable via a FHIR api using [HAPI](https://hapifhir.io/).
 
-To receive data from an interoperating system in a CHT application, configure [forms](/building/reference/app-settings/forms/) and [transitions](/building/reference/app-settings/transitions/) to map the incoming data to CHT documents.
+## Receiving data
+When receiving data from an interoperating system in a CHT application, configure [forms](/building/reference/app-settings/forms/) and [transitions](/building/reference/app-settings/transitions/) to map the incoming data to CHT documents.
 A [mediator](http://openhim.org/docs/configuration/mediators/) is responsible for getting these resources from an interoperating system (either by exposing API endpoints or pulling them from an API), and converting from FHIR resources to a format that can be submitted to [the records API](/building/reference/api/#records).
 
 ## Outbound Patients
 
-To send [Patient](https://build.fhir.org/patient.html) data collected from CHT to an interoperating system, first identify which documents represent patients. In the example below, a patient is a document with type person and role 'patient'. This may not apply to all CHT applications.
+When sending [Patient](https://build.fhir.org/patient.html) data collected from CHT to an interoperating system, first identify which documents represent patients. In the example below, a patient is a document with type person and role 'patient'. This may not apply to all CHT applications.
 Add a condition in the `relevant_to` field; whenever any documents matching this condition are created or updated, a request will be sent to the url specified in `base_url` and `path`.
 
 The outbound push config contains the following fields.
