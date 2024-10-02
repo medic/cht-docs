@@ -25,7 +25,7 @@ This change is straightforward in that CHT 4.x no longer supports versions _befo
 
 ### Versions in use
 
-After you have published your app, you need to instruct your users to check the Play Store for upgrades. You can then check [CHT Telemetry]({{< relref "building/guides/performance/telemetry" >}})  to see what CHT Android versions are in use. Assuming you have [couch2pg set up](https://github.com/medic/couch2pg) to pull in your CouchDB data to a PostgreSQL database, this query will list Android versions `count`s for the current year, broken out by `month`, `year` and `version`:
+After you have published your app, you need to instruct your users to check the Play Store for upgrades. You can then check [CHT Telemetry]({{< relref "building/guides/performance/telemetry" >}})  to see what CHT Android versions are in use. Assuming you have [CHT Sync set up](https://github.com/medic/cht-sync) to pull in your CouchDB data to a PostgreSQL database, this query will list Android versions `count`s for the current year, broken out by `month`, `year` and `version`:
 
 ```sql
 SELECT

@@ -61,12 +61,12 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 The following table shows the dependencies for deploying the CHT.
 
-| cht-core | NodeJS | CouchDB | Supported browsers | SMS bridge | Android OS | cht-android | cht-couch2pg |
+| cht-core | NodeJS | CouchDB | Supported browsers | SMS bridge | Android OS | cht-android | cht-sync |
 |----|----|----|----|----|----|----|---|
-| **4.4.x+** | N/A | 3.3.2+ | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 3.0+ |
-| **4.0.x-4.3.x** | N/A | 2.x | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 3.0+ |
-| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 3.0+ |
-| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | 2.0 < 3.0 |
+| **4.4.x+** | N/A | 3.3.2+ | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
+| **4.0.x-4.3.x** | N/A | 2.x | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
+| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 1.1.0+ |
+| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
 | **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 
 {{< see-also page="hosting/requirements" title="Hosting Requirements" >}}

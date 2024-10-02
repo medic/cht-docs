@@ -75,6 +75,6 @@ Used to store documents on the client device to allow for [Offline-First]({{< re
 
 ## PostgreSQL
 
-Used to store data for performant analytical queries such as impact and monitoring dashboards. The CHT uses [medic-couch2pg](https://github.com/medic/medic-couch2pg) to handle replication of docs from "medic", "medic-sentinel", and "medic-users-meta" databases into Postgres.
+Used to store data for performant analytical queries such as impact and monitoring dashboards. The CHT uses [CHT Sync](https://github.com/medic/cht-sync) to handle replication of docs from "medic", "medic-sentinel", and "medic-users-meta" databases into Postgres.
 
 {{< see-also page="core/overview/data-flows-for-analytics" >}}
