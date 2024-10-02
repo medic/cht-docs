@@ -13,10 +13,10 @@ relatedContent: >
 
 CHT has an interoperability tool which supports building FHIR workflows.
 See [this page](/building/concepts/interoperability) for an overview of this tool; in particular, it supports:
-1. sending patient data from the CHT to interoperating systems
-2. sending reports as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from the CHT to interoperating systems.
-3. sending patient data created in interoperating systems to CHT applications
-4. sending health information represented as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from interoperating systems to CHT applications.
+1. Sending [Patient](https://build.fhir.org/patient.html) data from the CHT to interoperating systems.
+2. Sending reports as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from the CHT to interoperating systems.
+3. Sending [Patient](https://build.fhir.org/patient.html) data created in interoperating systems to CHT applications.
+4. Sending health information represented as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from interoperating systems to CHT applications.
 
 To send data created in a CHT application to an interoperating system, use [outbound push](/building/reference/app-settings/outbound/) to configure which documents should be sent and at what point.
 A [mediator](http://openhim.org/docs/configuration/mediators/) then converts these documents to FHIR resources and orchestrates sending them to interoperating systems.
@@ -27,21 +27,29 @@ A [mediator](http://openhim.org/docs/configuration/mediators/) is responsible fo
 
 ## Outbound Patients
 
-To send patient data collected from CHT to an interoperating system, first identify which documents represent patients. In the example below, a patient is a document with type person and role 'patient'. This may not apply to all CHT applications.
-Use the `relevant_to` field in outbound push config; then whenever these documents are created or updated they will be sent to the url configured in base and path; this hould be openhim.
+To send [Patient](https://build.fhir.org/patient.html) data collected from CHT to an interoperating system, first identify which documents represent patients. In the example below, a patient is a document with type person and role 'patient'. This may not apply to all CHT applications.
+Add a condition in the `relevant_to` field; whenever any documents matching this condition are created or updated, a request will be sent to the url specified in `base_url` and `path`.
 
-The fields in the patient document need to be mapped to the FHIR format.
-It is possible to convert the document to a FHIR patient resource in outbound push config (an example can be found in the [reference application](https://github.com/medic/cht-interoperability/blob/6318b9f0fba8d8293dfec890004e18e489af538c/cht-config/app_settings.json#L445).
-This can be difficult to configure correctly, so the default mediator also accepts a shorter form which is the `id`, `name`, `phone`, `date_of_birth` and `patient_id` fields from the document itself.
-
+The outbound push config contains the following fields.
 |Field|Description|
 |--|--|
-|`_id`|CouchDB's unique identifier of the record. This will be converted to an [Identifier](https://build.fhir.org/datatypes.html#identifier) with type `CHT Document Id`|
-|`name`| Patients name|
-|`phone`| Patients phone number|
-|`date_of_birth`| patients date of birth|
-|`sex`| patient's sex|
-|`patient_id`| If a separate `patient_id` is generated, it can be sent here. This will be converted to an [Identifier](https://build.fhir.org/datatypes.html#identifier) with type `CHT Patient Id`|
+|`relevant_to`| An "expression" (some JS code that resolves to a truthy or falsy value) that defines which documents are patients.|
+|`base_url`| The url of the OpenHIM instance where the mediator is hosted|
+|`path`| `/mediator/cht/patient`|
+
+The fields in the patient document need to be mapped to the FHIR format.
+It is possible to convert the document to a FHIR [Patient](https://build.fhir.org/patient.html) resource in outbound push config (an example can be found in the [reference application](https://github.com/medic/cht-interoperability/blob/6318b9f0fba8d8293dfec890004e18e489af538c/cht-config/app_settings.json#L445)).
+This can be difficult to configure correctly, so the default mediator also accepts a shorter form which is the `id`, `name`, `phone`, `date_of_birth` and `patient_id` fields from the document itself.
+
+The mapping field in outbound push config contains the following fields.
+|Field|Description|
+|--|--|
+|`_id`|CouchDB's unique identifier of the record. This will be converted to an [Identifier](https://build.fhir.org/datatypes.html#identifier) with type `CHT Document Id`.|
+|`name`| Patients name.|
+|`phone`| Patients phone number.|
+|`date_of_birth`| Patient's date of birth.|
+|`sex`| Patient's sex.|
+|`patient_id`| If a separate `patient_id` is generated, it can be sent here. This will be converted to an [Identifier](https://build.fhir.org/datatypes.html#identifier) with type `CHT Patient Id`.|
 
 This example outbound push config selects documents where `patient_id` exists, and `doc.role === patient`
 ```json
@@ -71,32 +79,44 @@ This example outbound push config selects documents where `patient_id` exists, a
 
 ## Outbound Reports
 
-To send reports from the CHT to an interoperating system, an [Encounter](https://build.fhir.org/encounter.html) resource is created to represent the [Encounter](https://build.fhir.org/encounter.html) between the patient and the CHW. Any data in the report that is sent to the interoperating system is represented as [Observations](https://build.fhir.org/observation.html) linked to the [Encounter](https://build.fhir.org/encounter.html).
+To send reports from the CHT to an interoperating system, an [Encounter](https://build.fhir.org/encounter.html) resource is created to represent the encounter between the patient and the CHW. Any data in the report that is sent to the interoperating system is represented as [Observations](https://build.fhir.org/observation.html) linked to the [Encounter](https://build.fhir.org/encounter.html).
 
-[Encounters](https://build.fhir.org/encounter.html) have a reference to patients, so setting up outbound patients is a requirement for outbound reports.
+[Encounters](https://build.fhir.org/encounter.html) have a reference to [Patients](https://build.fhir.org/patient.html), so setting up outbound patients is a requirement for outbound reports.
 
 Similarly to patients, create an outbound push configuration with the `relevant_to` field having `doc.type === 'data_record' && doc.form === '{{the form to be sent}}'`
+
+The outbound push config contains the following fields.
+|Field|Description|
+|--|--|
+|`relevant_to`| An "expression" (some JS code that resolves to a truthy or falsy value) that defines which forms should be sent. `doc.type === 'data_record' && doc.form === '{{the form to be sent}}'`.|
+|`base_url`| The url of the OpenHIM instance where the mediator is hosted.|
+|`path`| `/mediator/cht/encounter`|
+
 The fields in the form that need to be exchanged need to be mapped to a format that a mediator can convert to [Observations](https://build.fhir.org/observation.html).
 [Observations](https://build.fhir.org/observation.html) need to have a [Code](https://build.fhir.org/datatypes.html#code) that is understood by the interoperating system, and the response values may need to be converted to a different format.
 
 For example a yes/no question may need to be converted to the presence (if yes) or absence (if no) of an observation with a code.
+
 'Does the patient show signs of fever?' can be converted to an observation with the code for fever if the answer was yes, or be omitted entirely if the answer was no.
+
 Another example is multiple choice questions, which can be converted to a coded question where each of the choices is assigned a code
-'Which danger signs does the patient show?' can be converted to [Observations](https://build.fhir.org/observation.html) with the code for pregnancy danger signs, and for each danger sign selected, the `valueCode` is the code of the danger sign.
+
+'Which danger signs does the patient show?' can be converted to [Observations](https://build.fhir.org/observation.html) with the code for pregnancy danger signs, and for each danger sign selected, the value is the code of the danger sign.
 
 The mapping field in outbound push config contains the following fields.
 |Field|Description|
 |--|--|
 |`id`|CouchDB's unique identifier of the record. This will be converted to an [Identifier](https://build.fhir.org/datatypes.html#identifier) with type `CHT Document Id`.|
-|`patient_uuid`| document uuid of the patient document that is the subject of the report.|
-|`reported_date`| date when the report was made.|
-|`observations`| a list of the form fields to be converted to [Observations](https://build.fhir.org/observation.html), with format `observations.{{number}}.code` and `observations.{{number}}.{{value}}` where value can be one of `valueCode`, `valueDateTem` and `valueString`|
-|`observation.n.code`| for each form field to convert to observations, a code for the observation.|
-|`observation.n.valueCode`| for multiple choice questions with valueCoded responses, the code for the response value. If `false`, the observation will be omitted.|
-|`observation.n.valueDateTime`| for datetiem questions, the date for the value.|
-|`observation.n.valueString`| for string questions, the value|
+|`patient_uuid`| Document uuid of the patient document that is the subject of the report.|
+|`reported_date`| Date when the report was made.|
+|`observations`| A list of the form fields to be converted to [Observations](https://build.fhir.org/observation.html), with format `observations.{{number}}.code` and `observations.{{number}}.{{value}}` where value can be one of `valueCode`, `valueDateTime` and `valueString`.|
+|`observation.n.code`| For each form field to convert to observations, a code for the observation.|
+|`observation.n.valueCode`| For multiple choice questions with valueCoded responses, the code for the response value. If `false`, the observation will be omitted.|
+|`observation.n.valueDateTime`| For datetime questions, the date for the value.|
+|`observation.n.valueString`| For string questions, the value.|
 
-In this example, a 'danger signs' question is converted into [Observations](https://build.fhir.org/observation.html) where 'danger signs' has code '17a57368-5f59-42c8-aaab-f2774d21501e', and the yes/no questions `fever` and `breathlessness` with codes `43221561-0600-410e-8932-945665533510` and `070dca86-c275-4369-b405-868904d78156` are present if the response was 'yes' or absent if the response was 'no'.
+In this example, a `danger signs` question is converted into [Observations](https://build.fhir.org/observation.html) where `danger signs` has code `17a57368-5f59-42c8-aaab-f2774d21501e`, and the yes/no questions `fever` and `breathlessness` with codes `43221561-0600-410e-8932-945665533510` and `070dca86-c275-4369-b405-868904d78156` are present if the response was `yes` or absent if the response was `no`.
+
 ```json
 {
   "relevant_to": "doc.type === 'data_record' && doc.form === 'pregnancy'",
@@ -144,38 +164,34 @@ In this example, a 'danger signs' question is converted into [Observations](http
 ## Inbound Patients
 
 It is also possbile to create Patients in the CHT from patients that were created in external systems.
-Patients in CHT applications are represented as contacts, and require a parent to be assigned to a CHW, facility, or other location. This requires a mediator to have the ids of contacts in CHT and currently cannot be done automatically by the default mediator. A custom mediator needs to be created which assigns a field to use as the `parent_id`.
+Patients in CHT applications are represented as [contacts](building/contact-management/contacts/), and require a parent to be assigned to a CHW, facility, or other location. This requires a mediator to have the ids of contacts in CHT and currently cannot be done automatically by the default mediator. A custom mediator needs to be created which assigns a field to use as the `parent_id`.
 
-To create data in CHT, a mediator converts a FHIR patients to a json object that it submits as a request to [the records API](/building/reference/api/#records).
+To create data in CHT, a mediator converts a FHIR [Patients](https://build.fhir.org/patient.html) to a json object that it submits as a request to [the records API](/building/reference/api/#records).
 This requires a [form](/building/reference/app-settings/forms/) to be configured in the CHT; the incoming data will be saved as a report.
 Then, the actual patient document is created by assigning a [create patient transition](/building/reference/app-settings/transitions/#add_patient) to the form.
+
 Because the patient creation form is a CHT form like an other, messages, validations and other transitions can be assigned to it to build more complex workflows.
 
 This example form allows an interoperating system to create a patient with some common fields: `patient_name`, `age_in_days`, `phone_number`, and an `id` in the external system.
-In this example, `location_id` is used as the `parent_id` field; this field will usually have to be configured in a customer mediator.
+In this example, `location_id` is used as the `parent_id` field; this field will usually have to be configured in a custom mediator.
 
 |Field|Description|
 |--|--|
-|`patient_name`| Patients name|
-|`phone_number`| Patients phone number|
-|`age_in_days`| patients age, in days.|
-|`sex`| patient's sex|
-|`external_id`| this preferred identifier from the external system|
+|`patient_name`| Patient's name.|
+|`phone_number`| Patient's phone number.|
+|`age_in_days`| Patient's age, in days.|
+|`sex`| Patient's sex.|
+|`external_id`| The preferred identifier from the external system.|
 
 ```json
 {
-  "OPENMRS_PATIENT": {
+  "INTEROP_PATIENT": {
     "meta": {
-      "code": "openmrs_patient",
-      "translation_key": "forms.n.title",
-      "icon": "medic-person"
+      "code": "interop_patient",
     },
     "fields": {
       "age_in_days": {
         "labels": {
-          "tiny": {
-            "en": "Age in Days"
-          },
           "short": {
             "en": "Age in Days"
           }
@@ -186,9 +202,6 @@ In this example, `location_id` is used as the `parent_id` field; this field will
       },
       "patient_name": {
         "labels": {
-          "tiny": {
-            "en": "patient_name"
-          },
           "short": {
             "en": "Patient Name"
           }
@@ -203,9 +216,6 @@ In this example, `location_id` is used as the `parent_id` field; this field will
       },
       "phone_number": {
         "labels": {
-          "tiny": {
-            "en": "patient phone"
-          },
           "short": {
             "en": "patient Phone"
           }
@@ -219,9 +229,6 @@ In this example, `location_id` is used as the `parent_id` field; this field will
       },
       "location_id": {
         "labels": {
-          "tiny": {
-            "en": "location_id"
-          },
           "short": {
             "en": "location_id"
           }
@@ -236,11 +243,8 @@ In this example, `location_id` is used as the `parent_id` field; this field will
       },
       "external_id": {
         "labels": {
-          "tiny": {
-            "en": "OpenMRS ID"
-          },
           "short": {
-            "en": "OpenMRS ID"
+            "en": "External ID"
           }
         },
         "position": 4,
@@ -257,11 +261,11 @@ In this example, `location_id` is used as the `parent_id` field; this field will
 }
 ```
 
-Using the above example form, this transition will create a patient document and add a birth_date field using patient_age_in_days.
+Using the above example form, this transition will create a patient document and add a `birth_date` field using `patient_age_in_days`.
 
 ```json
 {
-  "form": "openmrs_patient",
+  "form": "interop_patient",
   "events": [
     {
       "name": "on_create",
@@ -285,28 +289,26 @@ Using the above example form, this transition will create a patient document and
 
 [Encounters](https://build.fhir.org/encounter.html) and [Observations](https://build.fhir.org/observation.html) created by interoperating systems can be sent to the CHT to be visible to CHT users.
 Similarly to patients, a mediator converts the FHIR resources to a json format that is submitted to the records API.
-Reports need to be linked to patients using a `patient_id` field which is the uuid of the patient document in CHT. The mediator extracts this id from the 'CHT Document ID' identifier of the fhir patient. 
-For patients created by CHT, they need to have been sent to the interoperating system before receiving any reports. For patients created by the interoperating system, the 'CHT Docuemnt ID' needs to have been set; see the section below on Patient IDS.
+Reports need to be linked to patients using a `patient_id` field which is the uuid of the patient document in CHT. The mediator extracts this id from the `CHT Document ID` identifier of the fhir patient. 
+For patients created by CHT, they need to have been sent to the interoperating system before receiving any reports. For patients created by the interoperating system, the `CHT Document ID` needs to have been set; see the section below on [Patient Ids](building/guides/integrations/fhir/#populating-ids).
 
 A CHT form needs to be configured to receive the reports via the records API.
 In the form configuration, the names of fields which should be extracted from [Observations](https://build.fhir.org/observation.html) should be the codes of the [Observations](https://build.fhir.org/observation.html). Human readable labels can be added for display.
+
 Because these forms are CHT forms like an other, messages, validations and other transitions can be assigned to it to build more complex workflows.
 
 This example configures the form for a typical antenatal care form.
 ```json
 {
-  "OPENMRS_ANC": {
+  "INTEROP_ANC": {
     "meta": {
-      "code": "openmrs_anc",
-      "translation_key": "forms.openmrs_anc.title",
+      "code": "interop_anc",
+      "translation_key": "forms.interop_anc.title",
       "icon": "icon-anc-followup"
     },
     "fields": {
       "patient_id": {
         "labels": {
-          "tiny": {
-            "en": "id"
-          },
           "short": {
             "en": "Patient Id"
           }
@@ -367,24 +369,25 @@ This example configures the form for a typical antenatal care form.
 }
 ```
 
-## Populating ids.
+## Populating Ids.
 
-When patients from an interoperating system are sent to a CHT application, the mediator needs to maintain a link between the CHT Patient and the external patient by saving the document and patient ids from CHT, and forwarding them back to the interoperating system. Because the patient docuemnt is created aynschronously with the request to create the patient, the mediator exposes a callback endpoint to add these ids asynchronously. 
+When patients from an interoperating system are sent to a CHT application, the mediator needs to maintain a link between the CHT patient and the external patient by saving the document and patient ids from CHT, and forwarding them back to the interoperating system. Because the patient document is created aynschronously with the request to create the patient, the mediator exposes a callback endpoint to add these ids asynchronously. 
 
 To use this endpoint, create another outbound push config with `patient_id` and `external_id`.
-relevant to should be `doc.type === 'data_record' && doc.form === {{the code of the patient creation form}}`
-mapping contains three fields, `id`, `patient_id`, and `external_id`.
+relevant to should be `doc.type === 'data_record' && doc.form === {{the code of the patient creation form}}`.
+
+Mapping contains three fields, `id`, `patient_id`, and `external_id`.
 
 |Field|Description|
 |--|--|
 |`_id`| Id of the report document that created the patient. This is used to retrieve the patient document, but is not directly the CHT document ID that will be used. |
-|`patient_id`| `patient_id`|
-|`external_id`| The external id which will be used to create the link between the cht and external patient|
+|`patient_id`| The patient_id from CHT.|
+|`external_id`| The external id which will be used to create the link between the cht and external patient.|
 
 ```json
 {
   "patient_id": {
-    "relevant_to": "doc.type === 'data_record' && doc.form === 'OPENMRS_PATIENT'",
+    "relevant_to": "doc.type === 'data_record' && doc.form === 'INTEROP_PATIENT'",
     "destination": {
       "base_url": "http://openhim-core:5001",
       "path": "/mediator/cht/patient_ids",
