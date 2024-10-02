@@ -3,12 +3,14 @@ title: "Test Data Generator"
 linkTitle: "Test Data Generator"
 weight: 2
 description: >
-  This tool is intended for application builders or CHT developer contributors that have knowledge about the design of docs from the CHT's CouchDB. Design the test data that fit your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
+  This tool is intended for application builders or CHT developer contributors that have knowledge on the design of docs from the CHT's CouchDB. Design the test data that fits your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
 ---
 
 # Test Data Generator for CHT Test Instances
 
-> ⚠ WARNING! It is not recommended to use this tool to push data into production instances. ⚠ 
+{{% alert title="Warning" %}} 
+It is not recommended to use this tool to push data into production instances.
+{{% /alert %}}
 
 This tool is intended for application builders or CHT developer contributors that have knowledge about the design of docs from the CHT's CouchDB. 
 
@@ -28,35 +30,35 @@ Design the test data that fit your project hierarchy and reports. The tool will 
 
 ## Setup and Getting Started
 
-Instructions on setting up the project and getting it running on a local machine.
+Instructions on setting up the project and getting it running on a local machine:
 
-- Set the `COUCH_URL` environment variable to point your test instance, for example it is something similar to this: `http://[user]:[pass]@[host]:[port]/medic`
-- Double-check your CHT test instance is running
-- Clone or fork the [test data generator repository](https://github.com/medic/test-data-generator)
-- Install and build the project by running `npm ci` in the project root folder
-- Design the test data in a custom JavaScript file. See section [Designing Test Data](#designing-test-data).
-- Build, generate data and upload by running `npm run generate *path_to_your_custom_design_file*`
+1. Set the `COUCH_URL` environment variable to point to your test instance, for example: `http://[user]:[pass]@[host]:[port]/medic`
+1. Double-check your CHT test instance is running
+1. Clone or fork the [test data generator repository](https://github.com/medic/test-data-generator)
+1. Install and build the project by running `npm ci` in the project root folder
+1. Design the test data in a custom JavaScript file. See section on [designing test data](#designing-test-data).
+1. Build, generate data and upload by running `npm run generate *path_to_your_custom_design_file*`
 
-### Install it globally
+### Install test data generator globally
 Another option is to install the tool globally:
-- Install package dependencies and build the project `npm ci`
-- Run `npm install -g` in the project root folder
-- Build, generate and upload data by running `tdg <path_to_your_custom_design_file>`.
+1. Install package dependencies and build the project `npm ci`
+1. Run `npm install -g` in the project root folder
+1. Build, generate and upload data by running `tdg <path_to_your_custom_design_file>`.
 
 ### Use it with Docker
 The tool is also available in Docker:
-- Create the image `docker build -t test-data-generator .`
-- Run the container `docker run --rm -it -v <folder_path_of_your_design_file>:/app/test-data -e COUCH_URL=<test_instance_CouchDB_URL> -e FILE=<your_design_file> test-data-generator`
+1. Create the image `docker build -t test-data-generator .`
+1. Run the container `docker run --rm -it -v <folder_path_of_your_design_file>:/app/test-data -e COUCH_URL=<test_instance_CouchDB_URL> -e FILE=<your_design_file> test-data-generator`
 
 ## Designing Test Data
 
 Steps to design the test data:
 
 1. Create a custom JavaScript file that exports a `default` function. This function should match the [`DocDesign` type](https://github.com/medic/test-data-generator/blob/main/src/doc-design.ts).
-2. Your custom function should return an array of [`DesignSpec`](https://github.com/medic/test-data-generator/blob/main/src/doc-design.ts) objects that define the structure of your data to create.
+2. Your custom function should return an array of [`DesignSpec`](https://github.com/medic/test-data-generator/blob/main/src/doc-design.ts) objects that define the structure of the data to be created.
 3. Generate and upload data `npm run generate *path_to_your_custom_design_file*`. That's all! You can check the data in the CHT's CouchDB.
 
-Note that `getDoc` function should return an object with at least a `type: string`. Remember that `type` is a `data_record` for reports, but when it comes to contacts, use the `contact_types` defined in your CHT project's `app-settings.json`. 
+Note that `getDoc` function should return an object with at least a `type: string`. Remember that `type` is a `data_record` for reports, but when it comes to contacts, use the `contact_types` defined in your CHT project's `app-settings.json` file. 
 
 ### Example
 ```js
@@ -94,7 +96,7 @@ export default (context) => {
 }
 ```
 
-Based on that previous example. The tool will create and push 14 report docs at once (the `amount` is also the batch size pushed into the CHT instance), then it creates 10 hospitals docs, and lastly it will create 5 people docs per each hospital (it's sent in groups of 5 docs to the CHT instance).
+Based on the example above, the tool will create and push 14 report docs at once (the `amount` is also the batch size pushed into the CHT instance), it then creates 10 hospitals docs, and lastly creates 5 people docs for each hospital (it's sent in groups of 5 docs to the CHT instance).
 
 See the [sample-designs](https://github.com/medic/test-data-generator/tree/main/sample-designs) folder for more examples.
 
@@ -108,9 +110,10 @@ However, when running against a local CouchDB instance and inserting data into a
 
 ### Generate then replicate
 
-When generating a massive dataset (100,000+ documents) for an existing database with views (e.g. the `medic` database), it may be preferable to actually generate the data into a temporary database (on the same CouchDB instance) and then replicate the data into the target database (e.g. using the Fauxton form at `_utils/#/replication/_create`). The document creation rate for this process (including generating into the temp DB, replicating to `medic` DB, and indexing views) has been measured at `~11,000 docs/min`.
+When generating a massive dataset (100,000+ documents) for an existing database with views (e.g. the `medic` database), it is advisable to generate the data into a temporary database (on the same CouchDB instance) and then replicate the data into the target database (e.g. using the Fauxton form at `_utils/#/replication/_create`). The document creation rate for this process (including generating into the temp DB, replicating to `medic` DB, and indexing views) has been measured at `~11,000 docs/min`.
 
 While the speed gains of this approach are somewhat modest, it has a couple additional benefits:
 
-- The time spent running the actual generation script is minimal (since docs are added to the temp db at `~360,000 docs/min`). So, there is less danger of the script being interrupted or becoming disconnected from the CouchDB instance. Once all the docs are saved in the temp DB, the replication/indexing happens internally within the Couch instance. This is where the vast majority of the time is spent.
+- The time spent running the actual generation script is minimal (since docs are added to the temp db at `~360,000 docs/min`). Therefore, there is less risk of the script being interrupted or becoming disconnected from the CouchDB instance. 
+Once all the docs are saved in the temp DB, the replication/indexing happens internally within the Couch instance. This is where the vast majority of the time is spent.
 - You can keep your generated dataset in the temp DB for future use, without having to regenerate it each time you want to test with it.
