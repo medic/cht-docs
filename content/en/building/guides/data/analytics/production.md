@@ -99,9 +99,10 @@ metrics_exporter:
   enabled: true
 ```
 ## Deploy
-Run the command below to deploy the cht-sync helm chart. If installing from root, specify path to directory containing `chart.yaml` and `values.yaml`
+Run the command below to deploy the cht-sync helm chart. The chart is at `deploy/cht_sync`, if values.yaml is in a different directory, specify the path.
 ```shell
-helm install cht-sync cht-sync --values values.yaml
+cd deploy/cht_sync
+helm install cht-sync . --values values.yaml
 ```
 ## Verify the deployment
 Run the following command to get the status of the deployment.
