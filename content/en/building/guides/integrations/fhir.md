@@ -30,7 +30,7 @@ A [mediator](http://openhim.org/docs/configuration/mediators/) is responsible fo
 ## Outbound Patients
 
 When sending [Patient](https://build.fhir.org/patient.html) data collected from CHT to an interoperating system, first identify which documents represent patients. In the example below, a patient is a document with type person and role 'patient'. This may not apply to all CHT applications.
-Add a condition in the `relevant_to` field; whenever any documents matching this condition are created or updated, a request will be sent to the url specified in `base_url` and `path`.
+Then, create an outbound push configuration to send these documents to the interoperating system.
 
 The outbound push config contains the following fields.
 |Field|Description|
@@ -38,6 +38,8 @@ The outbound push config contains the following fields.
 |`relevant_to`| An "expression" (some JS code that resolves to a truthy or falsy value) that defines which documents are patients.|
 |`base_url`| The url of the OpenHIM instance where the mediator is hosted|
 |`path`| `/mediator/cht/patient`|
+
+Add a condition in the `relevant_to` field; whenever any documents matching this condition are created or updated, a request will be sent to the url specified in `base_url` and `path`.
 
 The fields in the patient document need to be mapped to the FHIR format.
 It is possible to convert the document to a FHIR [Patient](https://build.fhir.org/patient.html) resource in outbound push config (an example can be found in the [reference application](https://github.com/medic/cht-interoperability/blob/6318b9f0fba8d8293dfec890004e18e489af538c/cht-config/app_settings.json#L445)).
