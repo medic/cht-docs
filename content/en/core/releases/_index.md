@@ -23,8 +23,8 @@ It is recommended that all projects update regularly multiple times a year to ge
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
 | 4.12.x  | Supported | 02-Oct-2024  | TBA         |
-| 4.11.x  | Supported | 26-Sep-2024  | 26-Mar-2025 |
-| 4.10.x  | Supported | 15-Aug-2024  | 06-Jan-2025 |
+| 4.11.x  | Supported | 26-Sep-2024  | 02-Jan-2025 |
+| 4.10.x  | Supported | 15-Aug-2024  | 26-Dec-2024 |
 | 4.9.x   | Supported | 25-Jun-2024  | 15-Nov-2024 |
 | 4.8.x   | EOL       | 22-May-2024  | 25-Sep-2024 |
 | 4.7.x   | EOL       | 07-May-2024  | 22-Aug-2024 |
