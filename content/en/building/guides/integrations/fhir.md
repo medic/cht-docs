@@ -165,10 +165,10 @@ In this example, a `danger signs` question is converted into [Observations](http
 
 ## Inbound Patients
 
-It is also possbile to create Patients in the CHT from patients that were created in external systems.
+It is also possbile to create patients in the CHT from patients that were created in external systems.
 Patients in CHT applications are represented as [contacts](building/contact-management/contacts/), and require a parent to be assigned to a CHW, facility, or other location. This requires a mediator to have the ids of contacts in CHT and currently cannot be done automatically by the default mediator. A custom mediator needs to be created which assigns a field to use as the `parent_id`.
 
-To create data in CHT, a mediator converts a FHIR [Patients](https://build.fhir.org/patient.html) to a json object that it submits as a request to [the records API](/building/reference/api/#records).
+To create data in CHT, a mediator converts a FHIR [Patient](https://build.fhir.org/patient.html) to a json object that it submits as a request to [the records API](/building/reference/api/#records).
 This requires a [form](/building/reference/app-settings/forms/) to be configured in the CHT; the incoming data will be saved as a report.
 Then, the actual patient document is created by assigning a [create patient transition](/building/reference/app-settings/transitions/#add_patient) to the form.
 
@@ -297,7 +297,7 @@ For patients created by CHT, they need to have been sent to the interoperating s
 A CHT form needs to be configured to receive the reports via the records API.
 In the form configuration, the names of fields which should be extracted from [Observations](https://build.fhir.org/observation.html) should be the codes of the [Observations](https://build.fhir.org/observation.html). Human readable labels can be added for display.
 
-Because these forms are CHT forms like an other, messages, validations and other transitions can be assigned to it to build more complex workflows.
+Because these forms are CHT forms like an other, messages, validations and other transitions can be assigned to them to build more complex workflows.
 
 This example configures the form for a typical antenatal care form.
 ```json
