@@ -13,7 +13,7 @@ It is not recommended to use this tool to push data into production instances.
 {{% /alert %}}
 
 
-Design the test data that fit your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
+Design the test data that fits your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
 
 ## Technologies and Packages Used
 
