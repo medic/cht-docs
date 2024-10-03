@@ -3,7 +3,7 @@ title: "Test Data Generator"
 linkTitle: "Test Data Generator"
 weight: 2
 description: >
-  This tool is intended for application builders or CHT developer contributors that have knowledge on the design of docs from the CHT's CouchDB. Design the test data that fits your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
+  A tool for CHT developers to design, generate, and push CouchDB docs tailored to project hierarchies and reports .
 ---
 
 # Test Data Generator for CHT Test Instances
