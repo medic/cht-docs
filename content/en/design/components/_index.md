@@ -90,7 +90,7 @@ Use radio buttons to select a single item within a form. When necessary, use a d
 
 ## Inputs
 Use an input field as a basic text control to enable the user to type a small amount of text. The input size should reflect the amount of text a user is expected to enter. When necessary, use a descriptive error state.
-        {< codepen KKVXrYE >}}
+        {{< codepen KKVXrYE >}}
 
 ## Dropdowns
 Dropdowns are used within forms that have 7 or more options and as filters within tabs.
