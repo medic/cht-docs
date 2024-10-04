@@ -7,6 +7,7 @@ description: >
 keywords: interoperability integrations fhir icd openhie openhim
 relatedContent: >
   building/features/integrations
+  building/guides/integrations/fhir
 aliases:
    - /apps/concepts/interoperability
 ---
