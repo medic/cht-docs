@@ -72,13 +72,13 @@ In order to get a better idea of fixed monthly costs, let's look at the smallest
 
 ### Initial monthly costs as of 2024
 
-| Item           | Cost     | Count      | Total/mo      | Note                    |
-|----------------|----------|------------|---------------|-------------------------|
-| EC2 c5.large   | $0.10/hr | 1          | $72           | Control-plane node      | 
-| EC2 c5.2xlarge | $0.40/hr | 4          | $1,152        | Worker nodes            |
-| EBS SSD (gp3)  | $0.09/mo | 500        | $45           | 500GB of shared storage |
-|                |          |            |               |                         |
-|                |          | **TOTAL**  | **$1,269/mo** |                         | 
+| Item            | Cost     | Count     | Total/mo   | Note                    |
+|-----------------|----------|-----------|------------|-------------------------|
+| EC2 t4g.small   | $0.01/hr | 1         | $8         | Control-plane node      | 
+| EC2 c6g.2xlarge | $0.32/hr | 3         | $692       | Worker nodes            |
+| EBS SSD (gp3)   | $0.09/mo | 500       | $45        | 500GB of shared storage |
+|                 |          |           |            |                         |
+|                 |          | **TOTAL** | **745/mo** |                         | 
 
 ### On-going costs and growth
 
