@@ -25,7 +25,6 @@ SELECT pg_size_pretty(pg_database_size('your_database_name'));
 ```
 
 If Postgres is running in a Kubernetes cluster, you can use the following command to get the disk usage:
-
 ```shell
 kubectl exec -it postgres-pod-name -- psql -U postgres -c "SELECT pg_size_pretty(pg_database_size('your_database_name'));"
 ```
