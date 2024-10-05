@@ -176,12 +176,12 @@ Note that a number of these steps can be done either on the command line or in t
     "MultiAttachEnabled": false
    }
    ```
-4. Run `describe-volumes` until that volume has a `State` of `available`:
+3. Run `describe-volumes` until that volume has a `State` of `available`:
    ```shell
    aws ec2 describe-volumes --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa | jq '.Volumes[0].State' 
    "available"
    ```
-5. Once you have that volume created and `available`,  tag it with `kubernetes.io/cluster/dev-cht-eks: owned`  and `KubernetesCluster: dev-cht-eks`:
+4. Once you have that volume created and `available`,  tag it with `kubernetes.io/cluster/dev-cht-eks: owned`  and `KubernetesCluster: dev-cht-eks`:
    ```shell
    aws ec2 create-tags --resources vol-f9dsa0f9sad09f0dsa --tags Key=kubernetes.io/cluster/dev-cht-eks,Value=owned Key=KubernetesCluster,Value=dev-cht-eks
    ```
@@ -202,11 +202,16 @@ Note that a number of these steps can be done either on the command line or in t
        }
    ]
    ```
-6. Find the `subPath` of the deployment by running `./troubleshooting/get-volume-binding <your-namespace> <the-couchdb-deployment-name>`. This will give you a json that contains the subPath.
-  `"subPath": "storage/medic-core/couchdb/data"`
-The couchdb-deployment is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1`. To find out the list of deployments in your namespace, run from within the deploy directory of the CHT: 
-`./troubleshooting/list-deployments <your-namespace>`
-7. Create a `values.yml` file from [this template](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml) and edit the following fields:
+5. Find the `subPath` of the deployment you made the snapshot from: `./troubleshooting/get-volume-binding <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'` which shows  the path.  For example:
+
+   ```
+   "storage/medic-core/couchdb/data"
+   ```
+
+   The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1`. 
+
+   To find out the list of deployments in your namespace, run from within the deploy directory of the CHT: `./troubleshooting/list-deployments <your-namespace>`
+6. Create a `values.yml` file from [this template](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml) and edit the following fields:
       * `project_name` - likely your username followed by `-dev`. For example `mrjones-dev`
       * `namespace` - likely the same as project name, your user followed by `-dev`. For example `mrjones-dev`
       * `chtversion` - this should match the version you cloned from
@@ -215,14 +220,14 @@ The couchdb-deployment is usually `cht-couchdb`. But, it can sometimes be `cht-c
       * `user` - use `medic` user
       * `uuid` - use `uuidgen` command line to generate a UUID
       * `couchdb_node_storage_size` - use the same size as the volume you just cloned 
-      * `subdomain` - this should be your username followed by `dev.medicmobile.org`.  For example `mrjones.dev.medicmobile.org`
+      * `host` - this should be your username followed by `dev.medicmobile.org`.  For example `mrjones.dev.medicmobile.org`
       * `hosted_zone_id` - this should always be `Z3304WUAJTCM7P`
       * `preExistingDataAvailable` - set this to be `true`
-      * `preExistingEBSVolumeID` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
+      * `preExistingEBSVolumeID-1` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
       * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
-      *  `dataPathOnDiskForCouchDB` - use the subPath you got in step 6.
-8. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call `./cht-deploy`! Always create test instances on the dev cluster.
-9. You must change admin passwords once its up.
+      *  `dataPathOnDiskForCouchDB` - use the subPath you got in step 5.
+7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call `./cht-deploy`! Always create test instances on the dev cluster.
+8. You must change admin passwords once its up.
 
 
 ## References and Debugging
