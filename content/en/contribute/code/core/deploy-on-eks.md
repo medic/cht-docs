@@ -202,7 +202,11 @@ Note that a number of these steps can be done either on the command line or in t
        }
    ]
    ```
-6. Create a `values.yml` file from [this template](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml) and edit the following fields:
+6. Find the `subPath` of the deployment by running `./troubleshooting/get-volume-binding <your-namespace> <the-couchdb-deployment-name>`. This will give you a json that contains the subPath.
+  `"subPath": "storage/medic-core/couchdb/data"`
+The couchdb-deployment is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1`. To find out the list of deployments in your namespace, run from within the deploy directory of the CHT: 
+`./troubleshooting/list-deployments <your-namespace>`
+7. Create a `values.yml` file from [this template](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml) and edit the following fields:
       * `project_name` - likely your username followed by `-dev`. For example `mrjones-dev`
       * `namespace` - likely the same as project name, your user followed by `-dev`. For example `mrjones-dev`
       * `chtversion` - this should match the version you cloned from
@@ -216,8 +220,9 @@ Note that a number of these steps can be done either on the command line or in t
       * `preExistingDataAvailable` - set this to be `true`
       * `preExistingEBSVolumeID` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
       * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
-7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call `./cht-deploy`! Always create test instances on the dev cluster.
-8. You must change admin passwords once its up.
+      *  `dataPathOnDiskForCouchDB` - use the subPath you got in step 6.
+8. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call `./cht-deploy`! Always create test instances on the dev cluster.
+9. You must change admin passwords once its up.
 
 
 ## References and Debugging
