@@ -15,7 +15,7 @@ cascade:
 ---
 
 {{% pageinfo %}}
-The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref apps >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
+The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref building >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
 
 **This documentation site is being actively updated to make it as easy as possible to deploy CHT apps. Please [notify us](https://github.com/medic/cht-docs/issues/new) if you find any errors or inconsistencies.**
 {{% /pageinfo %}}
@@ -48,14 +48,14 @@ The CHT provides you with resources to design, build, deploy, and monitor digita
 ## Getting Started
 
 ### Why the CHT?
-A great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "apps/examples/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
+A great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "building/examples/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
 
 {{< see-also page="why-the-cht" prefix="Read More" >}}
 
 ### CHT Applications
 Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT apps. This section also includes quick guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start.
 
-{{< see-also page="apps" prefix="Read More" >}}
+{{< see-also page="building" prefix="Read More" >}}
 
 ### CHT Core Framework
 An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).

@@ -1,6 +1,6 @@
 ---
-title: "Self Hosting in CHT 3.x"
-linkTitle: "Self Hosting"
+title: "Production Hosting in CHT 3.x"
+linkTitle: "Production Hosting - Docker"
 weight: 20
 description: >
   Hosting the CHT on self run infrastructure
@@ -18,7 +18,7 @@ Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (
 
 ## Installing with a compose file
 
-The CHT containers are installed using [docker compose](https://docs.docker.com/compose/reference/overview/) so that you can run multiple containers  as a single service.
+The CHT containers are installed using [docker compose](https://docs.docker.com/compose/) so that you can run multiple containers  as a single service.
 
 Start by choosing the location where you would like to save your compose configuration file.  Then create the `docker-compose.yml` file by `cd`ing into the correct directory and running:
 

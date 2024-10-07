@@ -31,7 +31,7 @@ The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks tha
 
 Each Task has an icon on the left side which indicates what type of Task it is. <br>
 The first bold line of text is the name of the person or family that the Task is about. <br>
-The second line of text is the name of the Task. <br>
+The second line of text is the title of the Task. <br>
 The days left for the Task to be done is located in the upper right-hand corner. <br>
 If a Task is overdue, the due date will be red. Tasks are listed in order of due date. <br>
 
@@ -224,7 +224,7 @@ After all of the required questions in a form are answered, a summary page is di
 
 *Note: The form is not submitted until the user scrolls to the end of the page and clicks “Submit”.*
 
-All care guides are defined using [ODK XForms](https://opendatakit.github.io/xforms-spec/), an XML definition of the structure and format for a set of questions. Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [cht-conf](https://github.com/medic/cht-conf) command line configurer tool to convert them to XForm format. Because the XLSForms are converted directly to XForms, they essentially are the form, and so it’s important that the XLS be set up properly and consistently. Read more about configuring forms [here]({{< ref "apps/reference/forms/app">}}).
+All care guides are defined using [ODK XForms](https://opendatakit.github.io/xforms-spec/), an XML definition of the structure and format for a set of questions. Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [cht-conf](https://github.com/medic/cht-conf) command line configurer tool to convert them to XForm format. Because the XLSForms are converted directly to XForms, they essentially are the form, and so it’s important that the XLS be set up properly and consistently. Read more about configuring forms [here]({{< ref "building/reference/forms/app">}}).
 
 
 #### Page Sections

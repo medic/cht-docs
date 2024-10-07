@@ -29,10 +29,10 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. Notify that person via Slack that they should think up a question and add it to the doc any time prior to the call. Special note: If we have a new teammate, they give to be first and set the question. Just modify the list to make it so.
     1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together. Past activities have included [GeoGuessr](https://www.geoguessr.com/), [Gartic Phone](https://garticphone.com/), and [Kahoot trivia](https://kahoot.com/)).
     1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all. 
-1. Create a new Jamboard in the [team meeting folder](https://drive.google.com/drive/folders/1jV-8APqEQ85MOr1Irc4vRKRuKZOmI1r_)
-    1. Make the Jamboard accessible for all teammates
+1. Create a new Google Drawings board in the [team meeting folder](https://drive.google.com/drive/folders/1jV-8APqEQ85MOr1Irc4vRKRuKZOmI1r_)
+    1. Make the file accessible for all teammates
     1. Link it in the agenda under "Celebrations and good fun stuff"
-    1. Send a message to the whole team in Slack so they know the jamboard is available and can start putting fun things on it, and also that the agenda is open now for team-wide or org information to add.
+    1. Send a message to the whole team in Slack so they know the board is available and can start putting fun things on it, and also that the agenda is open now for team-wide or org information to add.
 
 #### Running the call on the day-of
 1. Start the call on time (mostly). We can't sit around forever, but this is mostly a fun thing, so it's ok if people are just chatting for a couple minutes while waiting for stragglers.
@@ -40,7 +40,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
 1. Do the question of the week activity.
     1. Sometimes people get the order mixed up. Be prepared to nudge people if needed.
 1. Move to the regular agenda. If there are special items, someone's name should be on it already.
-1. Do the Jamboard.
+1. Do the Celebrations board.
   1. Ask for someone to mark the cards as you call them out. Enough people seem to take joy in this, and it'll be a thing all on its own!
   1. Note which card you're looking at, read it, and ask if anyone (or the author) wants to add more. Sometimes it's quick stuff, sometimes it's big fun things everyone wants to spend more time on. Cool.
 1. Pass the mic to the activity of the week person.

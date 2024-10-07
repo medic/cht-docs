@@ -27,7 +27,7 @@ Looking for other ways to help? You can also:
 * Review or add a [translation](#translations)
 * Find and mark duplicate issues
 * Try to reproduce issues and help with troubleshooting
-* Learn to [build and host apps]({{% ref "apps" %}}), and share your experiences
+* Learn to [build and host apps]({{% ref "building" %}}), and share your experiences
 * Or [share a new idea or question](https://forum.communityhealthtoolkit.org) with us!
 
 ### Submitting code
@@ -52,7 +52,7 @@ Want to talk about Documentation generally? Join our [Community Forum](https://f
 
 ### Translations
 
-If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translating]({{% ref "apps/reference/translations" %}}) software for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
+If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translating]({{% ref "building/reference/translations" %}}) software for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
 
 ### Disclosing vulnerabilities
 

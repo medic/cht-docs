@@ -40,7 +40,7 @@ At the end of the week, the team realigns around work towards the chosen outcome
 
 Projects are large refactors that are therefore expensive and risky to undertake. These need to be discussed with Product and Medic leadership and will likely require deep analysis and prototyping to verify the approach.
 
-Examples of projects are upgrading from AngularJS to Angular, rewriting couch2pg as cht-sync, and switching from medic-os to containerized deployment.
+Examples of projects are upgrading from AngularJS to Angular, rewriting cht-couch2pg as cht-sync, and switching from medic-os to containerized deployment.
 
 Projects should take around 5% of your time, or one project every few years.
 

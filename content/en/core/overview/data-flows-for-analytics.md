@@ -5,14 +5,11 @@ weight: 3
 description: >
   An overview of data flows in the CHT for analytics, impact monitoring, and data science
 relatedContent: >
-  apps/guides/data
-  apps/guides/database
+  building/guides/data
+  building/guides/database
 ---
 
-
 In this section, we focus on how data flows through the various components of the Community Health Toolkit. The CHT is built to support the delivery of quality community health care at the last mile. The CHT is designed to work in areas with low connectivity, which means it is an [Offline-First]({{< ref "core/overview/offline-first" >}}) toolkit for care provision. The architectural and technology choices in the stack are mostly guided by this principle, which will be evident in the discussion of the data management pipeline.
-
-
 
 ## Overview
 
@@ -22,9 +19,9 @@ At a high level:
 
 - Data are collected from the device of a health worker;
 - Data are pushed to an online instance from where data are available to other health workers, supervisors, and decision makers;
-- Data are transferred to a relational database (PostgreSQL) using [couch2pg](https://github.com/medic/medic-couch2pg) and made available for impact monitoring, data science projects, and visualizations;
+- Data are transferred to a relational database (PostgreSQL) using [CHT Sync](https://github.com/medic/cht-sync) and made available for impact monitoring, data science projects, and visualizations;
 - Access to PostreSQL is given to relevant parties at this level, for example members of the Research & Learning team for impact monitoring and data science;
-- Visualization platforms, such as [Klipfolio](https://www.klipfolio.com/), are then connected to PostgreSQL from where program managers and other partner representatives can access visualizations of their data for decision-making
+- Visualization platforms, such as [Klipfolio](https://www.klipfolio.com/) or [Superset](https://superset.apache.org/), are then connected to PostgreSQL from where program managers and other partner representatives can access visualizations of their data for decision-making.
 
 
 ## Details of the data flow
@@ -49,7 +46,7 @@ Ultimately all the data ends up in a CouchDB instance deployed in the cloud whet
 
 #### 2. Data Transformation
 
-We use [couch2pg](https://github.com/medic/medic-couch2pg) or [cht-sync]({{< relref "core/overview/cht-sync" >}}) to move data from CouchDB to a relational database, PostgreSQL in this case. The choice of PostgreSQL for analytics dashboard data sources is to allow use of the more familiar SQL querying. It is an open source tool that can be [easily deployed](https://github.com/medic/medic-couch2pg#user-content-installation-steps-if-applicable). When deployed the service uses [CouchDB's changes feed](https://docs.couchdb.org/en/stable/api/database/changes.html) which allows capturing of everything happening in CouchDB in incremental updates. It is run and monitored by the operating system where it is configured to fetch data at a configurable interval.
+[CHT Sync]({{< relref "core/overview/cht-sync" >}}) is used to move data from CouchDB to a relational database, PostgreSQL in this case. The choice of PostgreSQL for analytics dashboard data sources is to allow use of the more familiar SQL querying. It is an open source tool that can be [easily deployed]({{< ref "building/guides/data/analytics" >}}). When deployed the service uses [CouchDB's changes feed](https://docs.couchdb.org/en/stable/api/database/changes.html) which allows capturing of everything happening in CouchDB in incremental updates. It is run and monitored by the operating system where it is configured to fetch data at a configurable interval.
 
 Data copied over to PostgreSQL is first stored as raw json (document) making use of PostgreSQL's jsonb data type to create an exact replica of a CouchDB database. From this, default views are created at deployment of the service and refreshed during every subsequent run. Additional custom materialized views created later are also refreshed at this time.
 
@@ -80,9 +77,8 @@ The objects present here are not limited to views and functions. Additional tabl
 
 ### Beyond Our Current Pipeline
 
-The [cht-core](https://github.com/medic/cht-core) is mostly data collection tools and is the first component of the data management pipeline. It is the core part of a deployment but the rest of the tools can be easily replaced with other preferred options. It also helps that couch2pg is an open source tool which provides the opportunity for collaboration to extend its functionality to support other implementations. Klipfolio, the tool that we currently use for visualizations, is a proprietary tool but there are many open source options, such as [Apache Superset](https://superset.incubator.apache.org/) that are worth exploring and building into future iterations of our impact monitoring and analytics support for the CHT.
+The [cht-core](https://github.com/medic/cht-core) is mostly data collection tools and is the first component of the data management pipeline. It is the core part of a deployment but the rest of the tools can be easily replaced with other preferred options. It also helps that CHT Sync is an open source tool which provides the opportunity for collaboration to extend its functionality to support other implementations. Klipfolio, the tool that we currently use for visualizations, is a proprietary tool but there are many open source options, such as [Apache Superset](https://superset.incubator.apache.org/) that are worth exploring and building into future iterations of our impact monitoring and analytics support for the CHT.
 
 ## Backup
 
 The machines running each of CouchDB and PostgreSQL instances are backed up daily.
-

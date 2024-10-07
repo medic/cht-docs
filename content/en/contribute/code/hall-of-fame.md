@@ -10,14 +10,14 @@ description: >
 
 Thank you to everyone who has contributed to the CHT codebase over the years! To see the full list, visit each repo on GitHub.
 
-- [CHT Android](https://github.com/medic/cht-android/graphs/contributors)
-- [CHT Conf](https://github.com/medic/cht-conf/graphs/contributors)
-- [CHT Core](https://github.com/medic/cht-core/graphs/contributors)
-- [CHT Docs](https://github.com/medic/cht-docs/graphs/contributors)
-- [CHT Interoperability](https://github.com/medic/cht-interoperability/graphs/contributors)
-- [CHT Pipeline](https://github.com/medic/cht-pipeline/graphs/contributors)
-- [CHT Sync](https://github.com/medic/cht-sync/graphs/contributors)
-- [CHT Watchdog](https://github.com/medic/cht-watchdog/graphs/contributors)
+- [cht-android](https://github.com/medic/cht-android/graphs/contributors)
+- [cht-conf](https://github.com/medic/cht-conf/graphs/contributors)
+- [cht-core](https://github.com/medic/cht-core/graphs/contributors)
+- [cht-docs](https://github.com/medic/cht-docs/graphs/contributors)
+- [cht-interoperability](https://github.com/medic/cht-interoperability/graphs/contributors)
+- [cht-pipeline](https://github.com/medic/cht-pipeline/graphs/contributors)
+- [cht-sync](https://github.com/medic/cht-sync/graphs/contributors)
+- [cht-watchdog](https://github.com/medic/cht-watchdog/graphs/contributors)
 
 #### Security
 
