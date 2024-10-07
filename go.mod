@@ -1,6 +1,6 @@
 module github.com/medic/cht-docs
 
-go 1.13
+go 1.22.8
 
 require (
 	github.com/google/docsy v0.10.0 // indirect
