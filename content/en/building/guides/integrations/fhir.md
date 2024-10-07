@@ -19,7 +19,7 @@ You can see more details of the tool [in the cht-interoperability repository](ht
 4. Sending health information represented as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from interoperating systems to CHT applications.
 
 ## Sending Data
-When sending data to an interoperating system, [outbound push](/building/reference/app-settings/outbound/) is used to configure which documents should be sent and at what point.
+When sending data to an interoperating system, [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) is used to configure which documents should be sent and at what point.
 A [mediator](http://openhim.org/docs/configuration/mediators/) then converts these documents to FHIR resources and orchestrates sending them to interoperating systems.
 The default mediator makes any resources sent to it queryable via a FHIR API using [HAPI](https://hapifhir.io/).
 
@@ -294,7 +294,7 @@ Using the above example form, this transition will create a patient document and
 `Encounters` and `Observations` created by interoperating systems can be sent to the CHT to be visible to CHT users.
 Similarly to patients, a mediator converts the FHIR resources to a json format that is submitted to the records API.
 Reports need to be linked to patients using a `patient_id` field which is the uuid of the patient document in CHT. The mediator extracts this id from the `CHT Document ID` identifier of the FHIR `Patient`. 
-For patients created by CHT, they need to have been sent to the interoperating system before receiving any reports. For patients created by the interoperating system, the `CHT Document ID` needs to have been set; see the section below on [Patient Ids](building/guides/integrations/fhir/#populating-ids).
+For patients created by CHT, they need to have been sent to the interoperating system before receiving any reports. For patients created by the interoperating system, the `CHT Document ID` needs to have been set; see the section below on [Patient Ids]({{< ref "building/guides/integrations/fhir#populating-ids" >}}).
 
 A CHT form needs to be configured to receive the reports via the records API.
 In the form configuration, the names of fields which should be extracted from `Observations` should be the codes of the `Observations`. Human readable labels can be added for display.
@@ -373,7 +373,7 @@ This example configures the form for a typical antenatal care form.
 }
 ```
 
-## Populating Ids.
+## Populating Ids
 
 When patients from an interoperating system are sent to a CHT application, the mediator needs to maintain a link between the CHT patient and the external patient by saving the document and patient ids from CHT, and forwarding them back to the interoperating system. Because the patient document is created aynschronously with the request to create the patient, the mediator exposes a callback endpoint to add these ids asynchronously. 
 

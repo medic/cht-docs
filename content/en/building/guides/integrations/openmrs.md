@@ -25,7 +25,7 @@ The CHT Core Framework supports integrations with OpenMRS in a variety of ways:
 3. Exposing an API for OpenMRS developers to pull data from CHT Core
 4. Receiving data from OpenMRS
 
-Sending patients, patient contacts, and reports data can be achieved using the [Outbound push](({{< ref "building/reference/app-settings/outbound" >}})). Receiving data from OpenMRS can be achieved using the CHT Core Web [API](https://docs.communityhealthtoolkit.org/building/reference/api/).
+Sending patients, patient contacts, and reports data can be achieved using the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}). Receiving data from OpenMRS can be achieved using the CHT Core Web [API](https://docs.communityhealthtoolkit.org/building/reference/api/).
 
 Common OpenMRS use cases include:
 
