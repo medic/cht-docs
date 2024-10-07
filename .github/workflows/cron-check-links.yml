@@ -36,7 +36,7 @@ jobs:
 
       - name: Install Muffet
         run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet/v2@latest
+          GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
           asdf reshim golang
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
