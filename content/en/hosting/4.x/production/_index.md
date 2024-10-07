@@ -23,8 +23,8 @@ For smaller deployments a [single node CouchDB][single-couch] instance can be us
 | Seamless upgrade with multi-node docker compose          | {{< icon/yes >}}                    | {{< icon/no >}}                             |
 | Seamless upgrade with multi-node kubernetes/k3s          | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 
-[single-couch]: {{< relref "hosting/4.x/production/docker/single-node" >}}
-[multi-couch]: {{< relref "hosting/4.x/production/docker/multiple-nodes" >}}
+[single-couch]: {{< relref "hosting/4.x/production/docker/" >}}
+[multi-couch]: {{< relref "hosting/4.x/production/kubernetes" >}}
 
 ## Cloud provider vs Bare metal
 

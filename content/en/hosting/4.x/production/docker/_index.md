@@ -13,6 +13,8 @@ description: >
 
 {{% pageinfo %}}
 This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/production/kubernetes" >}}).
+
+Docker Swarm, mentioned in prior versions of this document, is **no longer recommended**. For multinode CouchDB deployments utilizing multiple VMs, see [Kubernetes instructions]({{< relref "hosting/4.x/production/kubernetes" >}}).
 {{% /pageinfo %}}
 
 ## Prerequisites
@@ -21,7 +23,26 @@ Be sure you have followed [the requirements document]({{< relref "hosting/requir
 
 ## Directory Structure
 
-{{< read-content file="_partial_docker_directories.md" >}}
+Create the following directory structure:
+
+```
+|-- /home/ubuntu/cht/
+                  |-- compose/
+                  |-- certs/
+                  |-- couchdb/
+                  |-- upgrade-service/
+```
+
+By calling this `mkdir` commands:
+
+```shell
+mkdir -p /home/ubuntu/cht/{compose,certs,upgrade-service,couchdb}
+```
+
+1. `compose` - docker-compose files for cht-core and CouchDB
+2. `certs` -  TLS certificates directory
+3. `upgrade-service` - where docker-compose file for the upgrade-service
+4. `couchdb` - the path for the docker-compose file of the upgrade-service (not used in multi-node)
 
 ## Download required docker-compose files
 
@@ -120,4 +141,20 @@ See the [TLS Certificates page]({{< relref "hosting/4.x/production/docker/adding
 
 During upgrades, the CHT upgrade service updates the docker-compose files located in `/home/ubuntu/cht/compose/`. This means that any and all changes made to the docker-compose files will be overwritten. If there is ever a need to make any changes to the docker-compose files, be sure to re-do them post upgrades or should consider implementing them outside of those docker-compose files.
 
-{{< read-content file="_partial_upgrade_service.md" >}}
+### Upgrading the cht-upgrade-service
+
+The [CHT Upgrade Service](https://github.com/medic/cht-upgrade-service) provides an interface between the CHT Core API and Docker to allow easy startup and one-click upgrades from the CHT Admin UI. Occasionally, the CHT Upgrade Service, itself, will need to be upgraded. If an upgrade is available, it is highly recommended that you install the upgrade for the CHT Upgrade Service before performing further upgrades on your CHT instance. This is done via the following steps:
+
+1. Verify that the _version_ of the `cht-upgrade-service` image in your `./upgrade-service/docker-compose.yml` files is set to `latest`.
+1. Pull the latest `cht-upgrade-service` image from Docker Hub and replace the current container by running the following command:
+    ```shell
+    cd /home/ubuntu/cht/upgrade-service
+    docker compose pull
+    docker compose up --detach
+    ``` 
+
+{{% alert title="Note" %}}
+Upgrading the CHT Upgrade Service will not cause a new CHT version to be installed.  The CHT Core and CouchDB containers are not affected.
+{{% /alert %}}
+
+Follow the [Product Releases channel](https://forum.communityhealthtoolkit.org/c/product/releases/26) on the CHT forum to stay informed about new releases and upgrades.
