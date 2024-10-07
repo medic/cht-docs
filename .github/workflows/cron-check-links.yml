@@ -10,6 +10,7 @@
 # Scheduled workflows run on the latest commit on
 #    the default or base branch
 on:
+  pull_request:
   schedule:
     # runs at 3:15am every Sunday
     - cron:  '15 3 * * 0'
@@ -35,7 +36,7 @@ jobs:
 
       - name: Install Muffet
         run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+          GO111MODULE=on go install github.com/raviqqe/muffet@v2.10.3
           asdf reshim golang
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
