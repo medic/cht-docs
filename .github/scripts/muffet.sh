@@ -17,8 +17,8 @@
 muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 35 \
-  --ignore-fragments \
   --concurrency 2 \
+  --ignore-fragments \
   --accepted-status-codes "200..300,403" \
   --exclude ".*demo\.app\.medicmobile\.org.*" \
   --exclude ".*download\.docker\.com.*" \
