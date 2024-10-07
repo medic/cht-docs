@@ -28,7 +28,6 @@ muffet http://localhost:1313 \
   --exclude "https://github\.com/medic/cht-core/commit.*" \
   --exclude "https://github\.com/medic/cht-docs/edit/main/.*" \
   --exclude "https://github.com/orgs/medic/projects/19" \
-  --exclude "https://github.com/orgs/medic/projects/38" \
   --exclude "https://github.com/medic/medic-infrastructure*" \
   --exclude "http[s]*://localhost[8443|5984]*" \
   --exclude "http[s]*://.*my.local-ip.co*" \
