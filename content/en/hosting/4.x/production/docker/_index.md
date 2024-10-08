@@ -129,9 +129,10 @@ Take note of the `STATUS` column and make sure no errors are displayed there. If
 If all has gone well, nginx should now be listening at both port 80 and port 443. Port 80 has a permanent redirect to port 443, so you can only access the CHT using https.
 
 To login as the `medic` user in the web app, you can find your password with this command:
-   ```shell
-   grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
-   ```
+
+```shell
+grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
+```
 
 ## TLS Certificates
 
