@@ -8,7 +8,7 @@ aliases:
    - ../self-hosting-single-node
    - /hosting/4.x/production/docker/single-node/
 description: >
-   Production Hosting in CHT 4.x - Single CouchDB Node on Docker
+   Production Hosting CHT 4.x - Single CouchDB Node on Docker
 ---
 
 {{% pageinfo %}}
