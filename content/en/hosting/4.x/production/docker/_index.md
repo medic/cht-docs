@@ -1,6 +1,6 @@
 ---
 title: "Production Hosting CHT 4.x - Single CouchDB Node"
-linkTitle: "Production hosting single CouchDB node"
+linkTitle: "Docker"
 weight: 10
 aliases:
    - /apps/guides/hosting/4.x/self-hosting/single-node/
@@ -86,7 +86,7 @@ Note that secure passwords and UUIDs were generated on the first four calls and 
 ## Launch containers
 
 {{% alert title="Note" %}}
-This section has the first use of `docker compose`.  This should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command.`.
+This section has the first use of `docker compose`.  If you get an error calling this, please double check [hosting requirements]({{< relref "hosting/requirements" >}}). 
 {{% /alert %}}
 
 To start your CHT instance, run the following
