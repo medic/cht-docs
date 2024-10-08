@@ -1,5 +1,5 @@
 ---
-title: "Production Hosting in CHT 4.x - Single CouchDB Node"
+title: "Production Hosting CHT 4.x - Single CouchDB Node"
 linkTitle: "Docker"
 weight: 10
 aliases:
