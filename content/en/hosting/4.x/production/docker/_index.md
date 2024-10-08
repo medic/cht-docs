@@ -19,7 +19,7 @@ Docker Swarm, mentioned in prior versions of this document, is **no longer recom
 
 ## Prerequisites
 
-Be sure you have followed [the requirements document]({{< relref "hosting/requirements" >}}) including installing Docker and Docker Compose. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
+Be sure you have followed [the requirements document]({{< relref "hosting/requirements" >}}) including installing Docker. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
 
 ## Directory Structure
 
