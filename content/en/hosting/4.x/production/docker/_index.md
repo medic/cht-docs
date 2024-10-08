@@ -1,6 +1,6 @@
 ---
 title: "Production Hosting CHT 4.x - Single CouchDB Node"
-linkTitle: "Docker"
+linkTitle: "Production hosting single CouchDB node"
 weight: 10
 aliases:
    - /apps/guides/hosting/4.x/self-hosting/single-node/
