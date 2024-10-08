@@ -10,7 +10,6 @@
 # Scheduled workflows run on the latest commit on
 #    the default or base branch
 on:
-  pull_request:
   schedule:
     # runs at 3:15am every Sunday
     - cron:  '15 3 * * 0'
