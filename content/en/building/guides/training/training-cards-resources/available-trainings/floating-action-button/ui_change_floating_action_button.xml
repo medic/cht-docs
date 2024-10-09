@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms">
   <h:head>
-    <h:title>training:ui_change_more_options</h:title>
+    <h:title>training:ui_change_floating_action_button</h:title>
     <model>
       <itext>
         <translation lang="en">
@@ -32,7 +32,7 @@
         </translation>
       </itext>
       <instance>
-        <ui_change_floating_action_button id="training:ui_change_more_options" prefix="J1!training:ui_change_more_options!" delimiter="#" version="1 (2022-07-20 14:28:16)">
+        <ui_change_floating_action_button id="training:ui_change_floating_action_button" prefix="J1!training:ui_change_floating_action_button!" delimiter="#" version="1 (2022-07-20 14:28:16)">
           <intro>
             <intro_txt_1/>
             <intro_txt_2/>
