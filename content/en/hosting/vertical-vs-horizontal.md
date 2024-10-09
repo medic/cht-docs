@@ -7,7 +7,6 @@ aliases:
 description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
-    hosting/4.x/production/docker/multiple-nodes
     hosting/4.x/data-migration
     core/overview/architecture/
 ---
@@ -49,6 +48,10 @@ API["API"] --> HAProxy -->  couch2
 ```
 
 Since both CHT 3.x and 4.x support this, vertical scaling is an easy, good first step in addressing performance issues in the CHT. 
+
+### Re-sharding
+
+For those self hosting who are looking to maximize their vertically scaled deployment, consider [splitting CouchDB shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#splitting-shards) to have more shards. CouchDB uses 1 core to manage each shard.  By default, a CHT Core 4.x deployment will have 8 shards.  If you have available unused CPUs, by re-sharding you divide up CouchDB's shard management to take advantage of more cores. 
 
 ## Horizontal scaling 4.x
 
