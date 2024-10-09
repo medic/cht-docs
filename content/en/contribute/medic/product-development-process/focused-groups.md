@@ -49,7 +49,6 @@ Key users: Data scientists, Integrators, Program Administrators and Implementing
 
 Team members:
 - Technical Product Owner
-- Product Designer
 - UX Researchers
 - Software Developers
 - Quality Assurance Engineer

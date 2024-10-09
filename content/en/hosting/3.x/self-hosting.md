@@ -1,6 +1,6 @@
 ---
-title: "Self Hosting in CHT 3.x"
-linkTitle: "Self Hosting"
+title: "Production Hosting in CHT 3.x"
+linkTitle: "Production Hosting - Docker"
 weight: 20
 description: >
   Hosting the CHT on self run infrastructure

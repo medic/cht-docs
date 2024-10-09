@@ -21,7 +21,7 @@ Supervisors can actively monitor CHWs as they register their first household. If
 
 ### Centralized database checks
 
-From an administrative perspective, passive monitoring can be done by querying the Postgres instance that [couch2pg](https://github.com/medic/cht-couch2pg/) is populating. If `2020-09-14` was the date to stop use the training instance, this SQL query would show CHWs using the wrong instance after `2020-09-14`:
+From an administrative perspective, passive monitoring can be done by querying the Postgres instance that [CHT Sync](https://github.com/medic/cht-sync/) is populating. If `2020-09-14` was the date to stop use the training instance, this SQL query would show CHWs using the wrong instance after `2020-09-14`:
 
 ```shell
 with forms as (

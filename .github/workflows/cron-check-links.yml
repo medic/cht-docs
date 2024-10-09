@@ -3,6 +3,8 @@
 #  - If you bump one version up to latest, please bump them all so we stay current!
 #  - Hugo builds the site twice: once for link checking and once minified for pushing live
 #  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
+# 
+# this line to hopefully fix medic/cht-docs/issues/1552
 
 
 # Scheduled workflows run on the latest commit on
@@ -33,7 +35,7 @@ jobs:
 
       - name: Install Muffet
         run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+          GO111MODULE=on go install github.com/raviqqe/muffet/v2@latest
           asdf reshim golang
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step

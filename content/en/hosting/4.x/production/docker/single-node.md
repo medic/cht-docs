@@ -1,16 +1,17 @@
 ---
-title: "Self Hosting in CHT 4.x - Single CouchDB Node"
-linkTitle: "Single Node - Docker"
+title: "Production Hosting in CHT 4.x - Single CouchDB Node"
+linkTitle: "Single Node"
 weight: 10
 aliases:
    - /apps/guides/hosting/4.x/self-hosting/single-node/
+   - /hosting/4.x/self-hosting/single-node/
    - ../self-hosting-single-node
 description: >
-   Self Hosting in CHT 4.x - Single CouchDB Node
+   Production Hosting in CHT 4.x - Single CouchDB Node on Docker
 ---
 
 {{% pageinfo %}}
-This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/self-hosting/multiple-nodes" >}}).
+This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/production/docker/multiple-nodes" >}}).
 {{% /pageinfo %}}
 
 ## Prerequisites 
@@ -23,12 +24,12 @@ Be sure you have followed [the requirements document]({{< relref "hosting/requir
 
 ## Download required docker-compose files
 
-The following 3 `curl` commands download CHT version `4.0.1` compose files, which you can change as needed. Otherwise, call:
+The following 3 `curl` commands download CHT version `4.11.0` compose files, which you can change as needed. Otherwise, call:
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-core.yml
-curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.3.1/docker-compose/cht-couchdb.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.11.0/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:4.11.0/docker-compose/cht-couchdb.yml
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
@@ -112,7 +113,7 @@ To login as the `medic` user in the web app, you can find your password with thi
 
 ## TLS Certificates
 
-See the [TLS Certificates page]({{< relref "hosting/4.x/adding-tls-certificates" >}}) for how to import your certificates.
+See the [TLS Certificates page]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) for how to import your certificates.
 
 ## Upgrades
 

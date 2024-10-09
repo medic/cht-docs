@@ -24,7 +24,7 @@ Tasks help CHWs plan their day by prompting them to complete follow-up visits an
 
 On the Tasks tab is a consolidated list of tasks for all people and families that the user looks after. The task definition determines how long the task will show on this list before and after it is due.
 
-Each task has an icon on the left side which indicates which type of task it is. The first bold line of text is the person or family that the task is about. The second line of text is the name of the task. The due date for the task is located in the upper right-hand corner. If a task is overdue, the due date will be red.
+Each task has an icon on the left side which indicates which type of task it is. The first bold line of text is the person or family that the task is about. The second line of text is the title of the task. The due date for the task is located in the upper right-hand corner. If a task is overdue, the due date will be red.
 
 Tasks are listed in order of due date. Tasks that are past due will appear at the top of the list. CHWs should strive to complete tasks before they are overdue. Many programs add targets to track task completion and timeliness.
 

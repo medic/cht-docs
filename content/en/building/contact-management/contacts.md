@@ -1,17 +1,18 @@
 ---
-title: "Contacts"
-identifier: "contacts"
-weight: 4
+title: "Contacts and Users"
+linkTitle: "Contacts"
+weight: 1
 description: >
-  The people and places that are being cared for
+  Contacts and users overview
 keywords: hierarchy contacts care-guides
 relatedContent: >
   building/reference/forms/contact
   building/reference/contact-page
-  building/guides/updates/moving-contacts
-  building/tutorials/contact-and-users-1
+  building/contact-management/moving-contacts
+  building/contact-management/contact-and-users-1
   building/examples/contact-tracing
 aliases:
+   - /building/features/contacts/
    - /apps/features/contacts/
 ---
 <!-- ## Contacts: Person and Family Profiles -->

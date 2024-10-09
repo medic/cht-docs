@@ -17,19 +17,6 @@ This policy is reviewed and updated periodically by our Responsible Data Working
 
 If you have any questions, please reach out to our Data Protection Officer at support@medic.org. 
 
-## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Our responsible data promise](#our-responsible-data-promise)
-- [Compliance with applicable data regulations and policies](#compliance-with-applicable-data-regulations-and-policies)
-- [Data and protected health information](#data-and-protected-health-information)
-  - [Use of software to collect and process data](#use-of-software-to-collect-and-process-data)
-  - [Protected health information policy](#protected-health-information-policy)
-- [Security practices](#security-practices)
-  - [Technology security overview](#technology-security-overview)
-  - [Security training for our Partners](#security-training-for-our-partners)
-- [Inquiries with Medic’s Data Protection Officer](#inquiries-with-medics-data-protection-officer)
-
-
 
 ## Our responsible data promise
 

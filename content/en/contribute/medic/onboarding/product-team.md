@@ -13,7 +13,7 @@ The Product Team manages the entire software development life-cycle to understan
 We achieve this by working with CHT partners and health workers to design, build, and maintain the Community Health Toolkit and its open source tools.
 
 ## Composition
-The Product Team comprises a Community Team and 4 Focused Working Groups, each focusing on outcomes to serve different people.
+The Product Team comprises a Community Team and 3 Focused Working Groups, each focusing on outcomes to serve different people.
 
 ### Focused Working Groups
 The Product Team operates in a way that is most commonly referred to as Continuous Discovery. That process helps us to focus on the impact of our work and keep teammates well-aligned with the people who use the CHT. Read more about the process [here]({{< ref "contribute/medic/product-development-process" >}}). 

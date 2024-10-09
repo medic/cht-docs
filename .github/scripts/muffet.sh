@@ -17,37 +17,20 @@
 muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 35 \
-  --concurrency 2 \
   --ignore-fragments \
+  --accepted-status-codes "200..300,403" \
   --exclude ".*demo\.app\.medicmobile\.org.*" \
-  --exclude ".*download\.docker\.com.*" \
   --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
   --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
   --exclude "https://github\.com/medic/cht-core/issues/new.*" \
   --exclude "https://github\.com/medic/cht-docs/commit.*" \
   --exclude "https://github\.com/medic/cht-core/commit.*" \
   --exclude "https://github\.com/medic/cht-docs/edit/main/.*" \
-  --exclude "https://github.com/orgs/medic/projects/19" \
-  --exclude "https://github.com/orgs/medic/projects/38" \
   --exclude "https://github.com/medic/medic-infrastructure*" \
   --exclude "http[s]*://localhost[8443|5984]*" \
   --exclude "http[s]*://.*my.local-ip.co*" \
   --exclude "http[s]*://cht\.domain\.com.*" \
   --exclude "http[s]*://127\.0\.0*" \
-  --exclude "http[s]*://.*rapidpro.io.*" \
-  --exclude "http[s]*://.*africastalking.com*" \
-  --exclude "http[s]*://.*udemy.com.*" \
-  --exclude "http[s]*://.*notion.so.*" \
-  --exclude "http[s]*://.*medium.com.*" \
-  --exclude "http[s]*://.*twitter.com.*" \
-  --exclude "https://tools.google.com.*" \
-  --exclude "https://fhir.org/" \
   --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
   --exclude "https://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0/*" \
-  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
-  --exclude "https://journals.sagepub.com/doi/full/10.1177/20552076231194924" \
-  --exclude "http[s]*://.*oppiamobile.readthedocs.io.*" \
-  --exclude "http[s]*://.*docs.couchdb.org.*" \
-  --exclude "http[s]*://.*borgbackup.readthedocs.io.*" \
-  --exclude "https://www.tableau.com" \
-  --exclude "https://doi.org/10.1080/02681102.2019.1667289" 
+  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" 
