@@ -126,8 +126,15 @@ Read on below for the exact steps on how to do this.
 
 Note that a number of these steps can be done either on the command line or in the AWS web admin GUI.  Do it the way you feel most comfortable!
 
+Always always be sure of which `context` you're working on! Start off by setting your `context` to `dev-cht-eks`:
 
-1. Find the ID of the snapshot by using the production URL to retrieve the ID and date of the latest snapshot. Be sure to replace `moh-foo.app` with the real URL of the instance:
+```bash
+kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
+```
+
+And then follow these steps:
+
+1. Find the ID of the snapshot by using the production URL to retrieve the ID and date of the latest snapshot. Be sure to replace `moh-foo.app` with the real URL of the instance (note: this doesn't matter what `context` you're on):
    ```bash
    aws ec2 describe-snapshots --region=eu-west-2 --filters  "Name=tag:Address,Values='moh-foo.app.medicmobile.org'" | jq '.Snapshots[0]'
    ```
@@ -156,6 +163,7 @@ Note that a number of these steps can be done either on the command line or in t
      ]
    }
    ```
+   
 2. Now that you found your snapshot ID, create a volume from it. Being sure to replace `snap-432490821280432092` with your ID, call:
    ```
    aws ec2 create-volume --region eu-west-2 --availability-zone eu-west-2b --snapshot-id snap-432490821280432092
@@ -176,11 +184,13 @@ Note that a number of these steps can be done either on the command line or in t
     "MultiAttachEnabled": false
    }
    ```
+   
 3. Run `describe-volumes` until that volume has a `State` of `available`:
    ```shell
    aws ec2 describe-volumes --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa | jq '.Volumes[0].State' 
    "available"
    ```
+   
 4. Once you have that volume created and `available`,  tag it with `kubernetes.io/cluster/dev-cht-eks: owned`  and `KubernetesCluster: dev-cht-eks`:
    ```shell
    aws ec2 create-tags --resources vol-f9dsa0f9sad09f0dsa --tags Key=kubernetes.io/cluster/dev-cht-eks,Value=owned Key=KubernetesCluster,Value=dev-cht-eks
@@ -202,32 +212,39 @@ Note that a number of these steps can be done either on the command line or in t
        }
    ]
    ```
-5. Find the `subPath` of the deployment you made the snapshot from: `./troubleshooting/get-volume-binding <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'` which shows  the path.  For example:
+5. Switch to the production cluster and then find the `subPath` of the deployment you made the snapshot from. The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1` (check `./troubleshooting/list-deployments <your-namespace>` if you still don't know).  Including the `use-context`, the two calls are: 
 
+   ```shell
+   kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/prod-cht-eks
+   ./troubleshooting/get-volume-binding <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'`
    ```
+
+   Which shows the path like this:
+   
+   ```shell
    "storage/medic-core/couchdb/data"
    ```
 
-   The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1`. 
-
-   To find out the list of deployments in your namespace, run from within the deploy directory of the CHT: `./troubleshooting/list-deployments <your-namespace>`
 6. Create a `values.yml` file from [this template](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml) and edit the following fields:
       * `project_name` - likely your username followed by `-dev`. For example `mrjones-dev`
       * `namespace` - likely the same as project name, your user followed by `-dev`. For example `mrjones-dev`
       * `chtversion` - this should match the version you cloned from
-      * `password` - use a good one!
-      * `secret` - use `uuidgen` command line to generate a UUID
+      * `password` - this should match the version you cloned from
+      * `secret` - this should match the version you cloned from
       * `user` - use `medic` user
-      * `uuid` - use `uuidgen` command line to generate a UUID
+      * `uuid` - this should match the version you cloned from
       * `couchdb_node_storage_size` - use the same size as the volume you just cloned 
       * `host` - this should be your username followed by `dev.medicmobile.org`.  For example `mrjones.dev.medicmobile.org`
       * `hosted_zone_id` - this should always be `Z3304WUAJTCM7P`
       * `preExistingDataAvailable` - set this to be `true`
       * `preExistingEBSVolumeID-1` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
       * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
-      *  `dataPathOnDiskForCouchDB` - use the subPath you got in step 5.
-7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call `./cht-deploy`! Always create test instances on the dev cluster.
-8. You must change admin passwords once its up.
+      *  `dataPathOnDiskForCouchDB` - use the subPath you got in the step above. For example `storage/medic-core/couchdb/data`
+   
+7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - **Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call** `./cht-deploy`! Always create test instances on the dev cluster.
+
+8. Login using the `user` and `password` set above, which should match the production instance.
+
 
 
 ## References and Debugging
