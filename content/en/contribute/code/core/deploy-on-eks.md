@@ -27,8 +27,8 @@ Be sure you have these tools installed and repos cloned:
 Both `helm` and `kubectl` have autocomplete libraries. For power users and beginners alike, it adds a lot of discoverability. This code is for `zsh`, but `bash`, `fish` and `powershell` are supported as well:
 
    ```shell
-   source <(kubectl completion zsh)
-   source <(helm completion zsh)
+   source <(kubectl completion "$(basename "$SHELL")")
+   source <(helm completion "$(basename "$SHELL")")
    ```
 
 See [helm](https://helm.sh/docs/helm/helm_completion_bash/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion) docs to automatically loading these on every new session.
