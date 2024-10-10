@@ -30,7 +30,7 @@ packages:
 ```
 To avoid breaking changes in downstream models, include `revision` in the dependency, which should be a version tag for `cht-pipeline`.
 
-In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "building/guides/data/analytics/environment-variables" >}}), either in `.env` if using `docker compose`, or in `values.yaml` if using Kubernetes.
+In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}), either in `.env` if using `docker compose`, or in `values.yaml` if using Kubernetes.
 
 ### Deploying models
 
@@ -48,7 +48,7 @@ When it is necessary to update the base models, update the version tag in the de
 
 ### Testing models and dashboards
 
-It is highly encouraged to write [dbt tests]({{< ref "building/guides/data/analytics/testing-dbt-models" >}}) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
+It is highly encouraged to write [dbt tests]({{< ref "hosting/analytics/testing-dbt-models" >}}) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
 
 
 ## Base Models

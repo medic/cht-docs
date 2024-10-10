@@ -61,7 +61,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
     - See [SSL Certificates]({{< relref "hosting/3.x/ssl-cert-install">}}) to install new certificates
 
 1. Configure CHT Sync
-    See the [CHT Sync configuration]({{< relref "building/guides/data/analytics">}}).
+    See the [CHT Sync configuration]({{< relref "hosting/analytics">}}).
 
 1. Setup postgres to work with CHT Sync
     - Creating the database, setting up permissions, exploring the tables and what they store

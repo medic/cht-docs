@@ -11,7 +11,7 @@ aliases:
 ---
 
 {{% pageinfo %}}
-Couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "building/guides/data/analytics" >}}).
+Couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 {{% /pageinfo %}}
 
 This tutorial will take you through setting up a Couch2pg service.
