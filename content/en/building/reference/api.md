@@ -874,10 +874,10 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-2. Get 3 people of type `person` by using cursor `1`.
+2. Get the second set of 100 people of type `person` by using cursor `100`.
 
 ```
-GET /api/v1/person?type=person&cursor=1&limit=3
+GET /api/v1/person?type=person&cursor=100&limit=100
 ```
 
 ```
