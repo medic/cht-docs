@@ -874,7 +874,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-2. Get the first 3 people of type `person` by using cursor `0`.
+2. Get 3 people of type `person` by using cursor `0`.
 
 ```
 GET /api/v1/person?type=person&cursor=0&limit=3
