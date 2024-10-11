@@ -238,9 +238,9 @@ And then follow these steps:
       * `host` - this should be your username followed by `dev.medicmobile.org`.  For example `mrjones.dev.medicmobile.org`
       * `hosted_zone_id` - this should always be `Z3304WUAJTCM7P`
       * `preExistingDataAvailable` - set this to be `true`
+      * `dataPathOnDiskForCouchDB` - use the subPath you got in the step above. For example `storage/medic-core/couchdb/data`
       * `preExistingEBSVolumeID-1` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
       * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
-      *  `dataPathOnDiskForCouchDB` - use the subPath you got in the step above. For example `storage/medic-core/couchdb/data`
    
 7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - **Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call** `./cht-deploy`! Always create test instances on the dev cluster.
 
