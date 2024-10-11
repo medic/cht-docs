@@ -11,7 +11,7 @@ aliases:
 ---
 
 {{% pageinfo %}}
-Couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "building/guides/data/analytics" >}}).
+Couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 {{% /pageinfo %}}
 
 Some times when couch2pg is replicating documents to postgres, it encounters very large info docs that are larger than the memory allocation of the document sync array and causes out-of-memory errors.
