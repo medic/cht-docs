@@ -103,7 +103,7 @@ cht --url=http://admin-user:secretpass@my-xyz-project.org upload-training-forms 
 
 # Step 7: Verify and monitor
 
-At this point the training cards are ready to use. You can verify by logging in with a user that has a valid role assigned for the training card, on the day that the training starts. Remember, to sync the app to see the results.
+At this point the training cards are ready to use. You can verify by logging in with a user that has a valid role assigned for the training card, on the day that the training starts. Remember, to sync the app to see the results (the uncompleted training will display once a day).
 
 Using [telemetry]({{< relref "building/guides/performance/telemetry" >}}) you can monitor user interaction with each training card "set". Some key metrics you can view include:
 
