@@ -212,11 +212,11 @@ And then follow these steps:
        }
    ]
    ```
-5. Switch to the production cluster and then find the `subPath` of the deployment you made the snapshot from. The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1` (check `./troubleshooting/list-deployments <your-namespace>` if you still don't know).  Including the `use-context`, the two calls are: 
+5. Switch to the production cluster and then find the `subPath` of the deployment you made the snapshot from. The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1` (check `./troubleshooting/list-deployments <your-namespace>` if you still don't know).  Including the `use-context`, the two calls are below.  Note that `troubleshooting` directory is in the [CHT Core repo](https://github.com/medic/cht-core/tree/master/scripts/deploy/troubleshooting): 
 
    ```shell
    kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/prod-cht-eks
-   ./troubleshooting/get-volume-binding <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'`
+   ./troubleshooting/get-volume-binding <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'
    ```
 
    Which shows the path like this:
@@ -233,19 +233,31 @@ And then follow these steps:
       * `secret` - this should match the version you cloned from
       * `user` - use `medic` user
       * `uuid` - this should match the version you cloned from
-      * `couchdb_node_storage_size` - use the same size as the volume you just cloned 
+      * `couchdb_node_storage_size` - use the same size as the volume you just cloned
+      * `account-id` - this should always be `720541322708`
       * `host` - this should be your username followed by `dev.medicmobile.org`.  For example `mrjones.dev.medicmobile.org`
       * `hosted_zone_id` - this should always be `Z3304WUAJTCM7P`
       * `preExistingDataAvailable` - set this to be `true`
+      * `dataPathOnDiskForCouchDB` - use the subPath you got in the step above. For example `storage/medic-core/couchdb/data`
       * `preExistingEBSVolumeID-1` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
       * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
-      *  `dataPathOnDiskForCouchDB` - use the subPath you got in the step above. For example `storage/medic-core/couchdb/data`
    
 7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - **Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call** `./cht-deploy`! Always create test instances on the dev cluster.
 
 8. Login using the `user` and `password` set above, which should match the production instance.
 
+9. When you're done with this deployment, you can delete it with helm:
 
+   ```shell
+   helm delete USERNAME-dev --namespace USERNAME-dev
+   ```
+   
+10. Now that no resources are using the volume, you should delete it.  If you created a snapshot, you should delete that as well.  Be sure to replace `vol-f9dsa0f9sad09f0dsa` and `snap-432490821280432092` with your actual IDs. You only need to delete the snapshot if you created it above, **do no delete snapshots you did not create**:
+
+   ```shell
+   aws ec2 delete-volume --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa
+   aws ec2 delete-snapshot --snapshot-id snap-432490821280432092
+   ```
 
 ## References and Debugging
 
