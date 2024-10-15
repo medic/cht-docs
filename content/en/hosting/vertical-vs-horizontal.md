@@ -1,13 +1,12 @@
 ---
 title: "Vertical vs Horizontal scaling"
 linkTitle: "Vertical vs Horizontal Scaling"
-weight: 2
+weight: 3
 aliases:  
   - /apps/guides/hosting/vertical-vs-horizontal
 description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
-    hosting/4.x/self-hosting/multiple-nodes
     hosting/4.x/data-migration
     core/overview/architecture/
 ---
@@ -29,7 +28,7 @@ Here we see a normal deployment following the bare minimum [hosting requirements
 ```mermaid
 flowchart TD
 
-subgraph couch1[" CouchDB - Single ''short'' Node "]
+subgraph couch1[" CouchDB - 1 x ''short'' Node "]
     couchInner1["2 CPU/4 GB RAM"]
 end
 
@@ -41,7 +40,7 @@ After looking at the logs, and seeing error messages about API timeouts to Couch
 ```mermaid
 flowchart TD
 
-subgraph couch2[" CouchDB - Single ''tall'' Node "]
+subgraph couch2[" CouchDB - 1 x ''tall'' Node "]
     couchInner2["16 CPU/16 GB RAM"]
 end
 
@@ -49,6 +48,10 @@ API["API"] --> HAProxy -->  couch2
 ```
 
 Since both CHT 3.x and 4.x support this, vertical scaling is an easy, good first step in addressing performance issues in the CHT. 
+
+### Re-sharding
+
+For those self hosting who are looking to maximize their vertically scaled deployment, consider [splitting CouchDB shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#splitting-shards) to have more shards. CouchDB uses 1 core to manage each shard.  By default, a CHT Core 4.x deployment will have 8 shards.  If you have available unused CPUs, by re-sharding you divide up CouchDB's shard management to take advantage of more cores. 
 
 ## Horizontal scaling 4.x
 
@@ -63,7 +66,7 @@ it is time to consider horizontally scaling your CHT instance.  The benefit is t
 ```mermaid
 flowchart TD
 
-subgraph couch4["CouchDB - Three Nodes"]
+subgraph couch4["CouchDB - 3 x Nodes"]
     couchInner4["6 CPU/6 GB RAM "]
     couchInner5["6 CPU/6 GB RAM "]
     couchInner6["6 CPU/6 GB RAM "]
@@ -77,11 +80,14 @@ To read up on how to migrate your data from a single to multi-node, please see t
 It should be noted that, unlike vertical scaling, horizontal scaling of a large, existing dataset can take a while to prepare the transfer (hours to days) and may involve a brief service outage. This should be taken into consideration when planning a move of a CHT instance with a lot of data.
 
 <style>
-svg g .nodes #flowchart-couchInner2-5 .label div {
-    padding: 30px 0 30px 0;
+svg g .nodes #flowchart-couchInner2-4 .label div {
+    padding: 40px 0 40px 0;
 }
-svg g div  .nodeLabel  {
-    padding: 0 10px 0 10px;
+svg g .nodes #flowchart-couchInner4-8 .label div,
+svg g .nodes #flowchart-couchInner5-9 .label div,
+svg g .nodes #flowchart-couchInner6-10 .label div
+{
+    padding: 15px 0 15px 0;
 }
 .mermaid  {
     justify-content: center;

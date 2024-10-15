@@ -15,6 +15,8 @@ In a production environment, the CHT costs USD$0.10 per active user per month to
 Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
 {{% /pageinfo %}}
 
+Note: This page applies to deployments that wish to self host their instance of the CHT.  It does apply when contracting with Medic to host your CHT instance.
+
 ## How the number was calculated
 
 Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). By using [OpenCost](https://www.opencost.io/), Medic can closely monitor real world costs with actual end users. OpenCost was used to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
@@ -63,6 +65,27 @@ When analyzing the hosting total cost of ownership (TCO), only production instan
 It should be noted that a [development environment]({{< relref "hosting/4.x/app-developer" >}})  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
 
 Running an easy to set up Docker based development environment (instead of Kubernetes) on a laptop is an acceptable practice: there is no expectation of high uptime for development instances.
+
+## Small deployment example costs
+
+In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Please note different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+
+### Initial monthly costs as of 2024
+
+| Item            | Cost     | Count     | Total/mo   | Note                    |
+|-----------------|----------|-----------|------------|-------------------------|
+| EC2 t4g.small   | $0.01/hr | 1         | $8         | Control-plane node      | 
+| EC2 c6g.2xlarge | $0.32/hr | 3         | $692       | Worker nodes            |
+| EBS SSD (gp3)   | $0.09/mo | 500       | $45        | 500GB of shared storage |
+|                 |          |           |            |                         |
+|                 |          | **TOTAL** | **745/mo** |                         | 
+
+### On-going costs and growth
+
+When running a small instance, be sure to plan for future costs.  Do not assume that costs will stay flat or go down.  Assume they will go up.  Areas where costs can increase are:
+* Backups - As your CouchDB instance takes more and more room, backups will cost more and more to store.
+* Storage - As with backups, if the 500GB of storage approaches being full, or upgrades require a burst of disk use, plan on adding more active storage. 
+* More users - offline and online CHT Core users increase the load on the system.  Be prepared to either add more worker nodes or increase the size of existing worker nodes to add more CPU and RAM. As well, consider stronger CPUs which might have higher clock speeds, more cache and be more efficient. 
 
 ## What's included in the per user cost
 

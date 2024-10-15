@@ -1,6 +1,6 @@
 ---
 title: "AWS Hosting in CHT 3.x"
-linkTitle: "AWS Hosting"
+linkTitle: "Production Hosting - AWS"
 weight: 10
 description: >
   Hosting the CHT on Amazon EC2
@@ -9,7 +9,6 @@ aliases:
    - /apps/guides/hosting/ec2-setup-guide 
 relatedContent: >
   hosting/3.x/self-hosting
-  apps/guides/database/couch2pg-oom-errors
 ---
 
 
@@ -61,13 +60,13 @@ This guide will walk you through the process of creating an EC2 instance, mounti
     - Name the key file is `default.key` and the certificate file is `default.crt`
     - See [SSL Certificates]({{< relref "hosting/3.x/ssl-cert-install">}}) to install new certificates
 
-1. Configure couch2pg
-    See the [couch2pg basic configuration](https://github.com/medic/cht-couch2pg/blob/main/README.md) in the `cht-couch2pg` repository.
+1. Configure CHT Sync
+    See the [CHT Sync configuration]({{< relref "hosting/analytics">}}).
 
-1. Setup postgres to work with couch2pg
+1. Setup postgres to work with CHT Sync
     - Creating the database, setting up permissions, exploring the tables and what they store
 
-1. Debugging couch2pg/postgres
+1. Debugging CHT Sync/postgres
     - Understanding the log and what the entries mean
 
 ## Troubleshooting

@@ -80,7 +80,6 @@ h2, h3 {
   }
   .td-sidebar-link {
     &__page {
-      color: #222222;
       font-weight: $font-weight-normal;
     }
     &__page.active {
@@ -140,10 +139,8 @@ h2, h3 {
   padding-bottom: 30px;
 }
 
-.td-navbar .td-navbar-nav-scroll .navbar-nav {
-  padding-bottom: 0 !important;
+.td-content .highlight pre {
+  position: relative;
 }
 
-.td-navbar .td-navbar-nav-scroll {
-  height: 0 !important;
-}
+@import 'td/code-dark';

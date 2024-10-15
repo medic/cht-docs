@@ -5,10 +5,10 @@ weight: 2
 description: >
   Schema for database objects
 relatedContent: >
-  apps/guides/database
-  apps/reference/contact-page
-  apps/reference/targets
-  apps/reference/tasks
+  building/guides/database
+  building/reference/contact-page
+  building/reference/targets
+  building/reference/tasks
 ---
 
 CouchDB (and PouchDB in the browser) is a JSON-based NoSQL datastore that we use to store our data. While unlike SQL databases there is no enforced schema, code still follows conventions, and this document aims to describe the schema as defined by how our code operates.
@@ -31,7 +31,7 @@ In this document "record" means a JSON object that resides in CouchDB or PouchDB
 Contacts are either places (e.g. clinic), groupings (e.g. family) or people (e.g. a patient or CHW).
 
 The `type` property of contact records depends on the version of Medic you are running:
- - If you are running 3.7 or later you get to [configure your contact hierarchy]({{< ref "apps/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), and the `type` of contacts is `contact`, and the configured type is in the `contact_type` property.
+ - If you are running 3.7 or later you get to [configure your contact hierarchy]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), and the `type` of contacts is `contact`, and the configured type is in the `contact_type` property.
  - In earlier versions the type depended on hierarchical location of the contact. There are 3 hard coded place types: `district_hospital`, `health_centre` and `clinic` and one people type `person`. These place names are often meaningless (hence the configurable contact hierarchy in later versions) to the configured project, and are textually (ie in the UI not in data structures) renamed to mean other things. For example, as `clinic` is the lowest level it is often used to represent a family.
 
 ### Places
@@ -95,7 +95,7 @@ Generally when contacts are **used** in the app they are first "hydrated", with 
 }
 ```
 
-{{< see-also page="apps/guides/data/hydration" title="Document hydration" >}}
+{{< see-also page="building/guides/data/hydration" title="Document hydration" >}}
 
 As of version **3.10**, you can connect contacts with other documents via the `linked_docs` property. This allows the app to have access to these linked documents when the contact is used.
 
@@ -194,7 +194,7 @@ Additionally, XML reports:
 
 ## Forms
 
-SMS forms are defined in [application config]({{< ref "apps/reference/app-settings/patient_reports#app_settingsjson-patient_reports" >}}).
+SMS forms are defined in [application config]({{< ref "building/reference/app-settings/patient_reports#app_settingsjson-patient_reports" >}}).
 
 XML forms are stored in the database and have:
  - An `_id` of `form:<formname>`
@@ -237,7 +237,7 @@ Users then, can be represented by up to 3 docs:
 
  ## Tasks
 
-[Partner configuration code]({{< ref "apps/reference/tasks#tasksjs" >}}) running inside the Core Framework can cause tasks to appear within the Tasks tab. Each task in the tab is powered by a task document. Task documents are:
+[Partner configuration code]({{< ref "building/reference/tasks#tasksjs" >}}) running inside the Core Framework can cause tasks to appear within the Tasks tab. Each task in the tab is powered by a task document. Task documents are:
 
 * updated only after the data for their emitting contact changes or every 7 days
 * created in the database for any task due within the last 60 days
@@ -293,7 +293,7 @@ To understand the difference between a task requester and a task owner, kindly s
 ```
 
 ## Targets
-[Partner configuration code]({{< ref "apps/reference/targets#targetsjs" >}}) can configure targets to appear within the Targets/Analytics tab. Target documents are:
+[Partner configuration code]({{< ref "building/reference/targets#targetsjs" >}}) can configure targets to appear within the Targets/Analytics tab. Target documents are:
 
 * one per analytics reporting period
 * updated when the user loads the application or when they view the targets tab 
