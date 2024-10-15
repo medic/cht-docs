@@ -5,14 +5,12 @@ description: >
  Options for installing CHT applications
 ---
 
-Since the release of CHT Core 4.0.0 in late 2022, Medic has been perfecting the hosting for the toolkit to balance the need for high uptimes so CHWs can always deliver care while having an easy and approachable technical back end hosting solution.  While initially [Docker Compose](https://docs.docker.com/compose/) with an [overlay network](https://docs.docker.com/compose/networking/#multi-host-networking) was thought to be our goto solution, field testing this overlay networks in production has shown them to unreliable.  
-
-As such, on this site you will find documentation for both Docker Compose (known as "Medic OS" in CHT 3.x) and Kubernetes. Medic is in the process of phasing out Docker Compose and will ultimately deprecate it in favor of Kubernetes, including simplified versions like k3s and cloud based solutions like Amazon's [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS).
+Since the release of CHT Core 4.0.0 in late 2022, Medic has been perfecting the hosting for the toolkit to balance the need for high uptimes so CHWs can always deliver care while having an easy and approachable technical back end hosting solution.  While initially [Docker Compose](https://docs.docker.com/compose/) with an [overlay network](https://docs.docker.com/compose/networking/#multi-host-networking) was thought to be our goto solution, field testing this overlay networks in production has shown them to unreliable.  As such, on this site you will find documentation for both Docker Compose for smaller deployments (with no overlay network) and Kubernetes for larger deployments. 
 
 Given all this, we currently recommend:
 * Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker Compose.
 * Production 3.x CHT deployments should use [Docker Compose]({{< relref "hosting/3.x" >}})  - Note that 3.x is [end of life]({{< relref "core/releases#supported-versions" >}})  and should only be used to support existing 3.x deployments.
-* All new production 4.x CHT deployments should use [Kubernetes]({{< relref "hosting/4.x/production/kubernetes/" >}})
+* New, smaller production 4.x CHT deployments can use either [Docker]({{< relref "hosting/4.x/production/docker/" >}}) or [Kubernetes]({{< relref "hosting/4.x/production/kubernetes/" >}}) depending on their expected use and growth.
 
 ## Kubernetes
 
@@ -36,8 +34,6 @@ The main components of a Kubernetes deployment include:
 ## Docker Compose
 
 The Docker Compose based CHT Core deployment  was Medic's first attempt to make CHT 4.x cloud native.  The Compose files work quite well for application developer setups on laptops and the like (check out the [Docker Helper]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}})!). Additionally, we have existing published guides on how to deploy single and multi-node Compose based solutions.  For small, low use instances, likely the single node Compose deployments will be fine.  We do not recommend setting up a multi-node deployment on Compose with an overlay network.  Please use Kubernetes instead for a more stable and [horizontally scalable]({{< relref "hosting/vertical-vs-horizontal" >}}) solution.
-
-The Compose documentation here is only for reference until Medic is ready to fully deprecate this content.
 
 Like Kubernetes above, Docker Compose deploys the same services but adds an additional 7th to allow for ingress/egress via a reverse proxy:
 

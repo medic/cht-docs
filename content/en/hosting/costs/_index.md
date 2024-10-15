@@ -70,15 +70,17 @@ Running an easy to set up Docker based development environment (instead of Kuber
 
 In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Please note different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
 
-### Initial monthly costs as of 2024
+### Monthly costs 
 
-| Item            | Cost     | Count     | Total/mo   | Note                    |
-|-----------------|----------|-----------|------------|-------------------------|
-| EC2 t4g.small   | $0.01/hr | 1         | $8         | Control-plane node      | 
-| EC2 c6g.2xlarge | $0.32/hr | 3         | $692       | Worker nodes            |
-| EBS SSD (gp3)   | $0.09/mo | 500       | $45        | 500GB of shared storage |
-|                 |          |           |            |                         |
-|                 |          | **TOTAL** | **745/mo** |                         | 
+| Item            | Cost     | Count     | Total/mo     | Note                    |
+|-----------------|----------|-----------|--------------|-------------------------|
+| EC2 t4g.small   | $0.01/hr | 1         | $8           | Control-plane node      | 
+| EC2 c6g.2xlarge | $0.32/hr | 3         | $692         | Worker nodes            |
+| EBS SSD (gp3)   | $0.09/mo | 500       | $45          | 500GB of shared storage |
+|                 |          |           |              |                         |
+|                 |          | **TOTAL** | **$745/mo*** |                         | 
+
+_* These estimates are as of 2024._
 
 ### On-going costs and growth
 

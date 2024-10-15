@@ -13,8 +13,6 @@ All CHT 3.x deployments have been end of life since November 2023 and are not lo
 
 New developers to the CHT should start on CHT 4.x with our [Application Developer Hosting]({{< relref "hosting/4.x/app-developer" >}}).
 
-Medic is standardizing production CHT Core hosting on Kubernetes - read up on [Kubernetes vs Docker Compose]({{< relref "hosting/kubernetes-vs-docker" >}}) to understand why.
-
 System administrators looking to deploy CHT into production should understand when to use [single vs multi-node CouchDB]({{< relref "hosting/4.x/production" >}}) first, then read the [4.x production hosting section]({{< relref "hosting/4.x/production" >}}) to select a style of hosting that best fits them.
 
 Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first.
