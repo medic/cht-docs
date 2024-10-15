@@ -12,7 +12,7 @@ description: >
 
 ## Multi vs Single node couchdb requirements
 
-For smaller deployments a [single node CouchDB][single-couch] instance can be used, for larger deployments a [multi-node CouchDB][multi-couch] cluster is generally recommended
+For smaller deployments a [single-node]({{< relref "hosting/4.x/production/docker/" >}}) instance can be used, for larger deployments a [multi-node cluster]({{< relref "hosting/4.x/production/kubernetes" >}}) is generally recommended
 
 | Consideration                                            | [Single node CouchDB][single-couch] | [Multi-node clustered CouchDB][multi-couch] |
 | -------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
@@ -23,8 +23,8 @@ For smaller deployments a [single node CouchDB][single-couch] instance can be us
 | Seamless upgrade with multi-node docker compose          | {{< icon/yes >}}                    | {{< icon/no >}}                             |
 | Seamless upgrade with multi-node kubernetes/k3s          | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 
-[single-node]: {{< relref "hosting/4.x/production/docker/" >}}
-[multi-node]: {{< relref "hosting/4.x/production/kubernetes" >}}
+
+
 
 ## Cloud provider vs Bare metal
 
