@@ -14,7 +14,7 @@ description: >
 
 For smaller deployments a [single-node]({{< relref "hosting/4.x/production/docker/" >}}) instance can be used, for larger deployments a [multi-node cluster]({{< relref "hosting/4.x/production/kubernetes" >}}) is generally recommended
 
-| Consideration                                            | [Single node CouchDB][single-couch] | [Multi-node clustered CouchDB][multi-couch] |
+| Consideration                                            | Single node CouchDB                 | Multi-node clustered CouchDB                |
 | -------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
 | Less than {{< format-number 4_000 >}} users              | {{< icon/yes >}}                    | {{< icon/yes >}}                            |
 | More than {{< format-number 4_000 >}} users              | {{< icon/no >}}                     | {{< icon/yes >}}                            |
