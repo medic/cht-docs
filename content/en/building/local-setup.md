@@ -80,10 +80,10 @@ nvm install {{< param nodeVersion >}}
 {{< tab header="macOS" >}}
 # Uses Homebrew: https://brew.sh/
 brew update
-brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
+brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc openssl readline sqlite3 xz zlib tcl-tk
 # Python no longer included by default in macOS >12.3
-pyenv install 2.7.18
-pyenv global 2.7.18
+pyenv install 3
+pyenv global 3
 echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
 . ~/.$(basename $SHELL)rc
 {{< /tab >}}
