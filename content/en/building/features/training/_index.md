@@ -5,8 +5,8 @@ description: >
   Remotely train health workers
 keyword: training
 relatedContent: >
-  building/guides/training/training-cards
-  building/guides/training/training-cards-resources
+  building/training/training-cards
+  building/training/training-cards-resources
   building/examples/training
   building/examples/learning-care/
 aliases:
@@ -15,7 +15,7 @@ aliases:
 
 *Training Cards* help health workers learn about changes to CHT apps remotely, directly in their app. Training content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. They are perfect for training on a very specific topic and are not meant to replace a comprehensive onboarding program.
 
-[Template training content]({{< relref "building/guides/training/training-cards-resources" >}}) for new CHT features is made available from time to time. These templates can be customized to the local context.
+[Template training content]({{< relref "building/training/training-cards-resources" >}}) for new CHT features is made available from time to time. These templates can be customized to the local context.
 
 {{< figure src="training-deck.png" link="training-deck.png" class="col-12 col-lg-10" >}}
  
