@@ -39,6 +39,7 @@ FROM
 WHERE
 	doc#>>'{type}' = 'telemetry'  
 	AND doc#>>'{metadata,year}' = to_char(current_date, 'yyyy')
+	AND doc#>>'{device,deviceInfo,app,version}' is not null
 GROUP BY 
 	telemetry_month, cht_android_version	
 ORDER BY 
