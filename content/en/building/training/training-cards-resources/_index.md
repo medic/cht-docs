@@ -9,6 +9,7 @@ relatedContent: >
   building/features/training
   building/training/training-cards
 aliases:
+   - /building/guides/training/training-cards-resources/
    - /apps/guides/training/training-cards-resources/
 ---
 
