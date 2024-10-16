@@ -136,9 +136,27 @@ The following filter functions are available for formatting dates.
 
 
 ## Validations
+
 Validation rules are code fragments used to determine if some input is valid. For example, to say a field is only valid if the value has at least five characters, you would use the lenMin(5). They are used in `registrations[].validations.list[].rule` and `patient_reports[].validations.list[].rule` to determine if an incoming report is accepted. A report is accepted as valid only if all rules return `true`. If any validation rule returns `false` then the report is marked as invalid, and a message is automatically sent to the submitter. The content for the message is set in the `translation_key` associated to each rule. If a report fails multiple validations then each message will be sent. These can be combined into a single SMS by specifying `"*.validations.join_responses" : true`.
 
+The syntax aims to mimic C-like languages. You can use logical operators, ternaries, nested "blocks" (`rule && (some || nested || rules)`) and validation functions (`validationFunction("arg1", "arg2")`).
+
+**String parameters for validation functions, such as the regex in the "regex" function, should be quoted.**
+
+Non-quoted parameters will be cast to floats (numbers with decimals).
+
+For each validation function, there is also a matching function prepended by `other` that allows you to run functions on other values than the one the rule string is for. This can be useful for fields that have differing requirements depending on another field. For example:
+
+```json
+{
+  "state": "otherEquals('country', 'US') ? lenMin(2) : lenMin(0)"
+}
+```
+
+Validation function arguments can be either strings or numerical values. Numerical arguments should not be wrapped in quotation marks or apostrophes: `lenMin(5)`.
+
 ### Operators
+
 The available operators are:
 
 | Operator | Description |
@@ -147,11 +165,10 @@ The available operators are:
 | \|\| |or |
 | ! |not |
 | a ? b : c | ternary, ie: if 'a' is true, then check 'b', otherwise check 'c' |
-| () | nested blocks, eg: 'a && (b || c)' |
+| () | nested blocks, eg: `a && (b \|\| c)` |
 
 ### Rules
-Validation settings may consist of Pupil.js rules and rules specific to the CHT.
-These two types of rules cannot be combined as part of the same rule.
+Validation settings may consist of Pupil.js rules and rules specific to the CHT. These two types of rules cannot be combined as part of the same rule.
 
 Not OK:
 `rule: "regex(\d{5}) && unique('patient_id')"`
@@ -159,40 +176,32 @@ Not OK:
 OK:
 `rule: "regex(\d{5}) && max(11111)"`
      
-If for example you want to validate that patient_id is 5 numbers and it
-is unique (or some other custom validation) you need to define two
-validation configs/separate rules in your settings. Example validation
-settings:
+If for example you want to validate that patient_id is 5 numbers and it is unique (or some other custom validation) you need to define two validation configs/separate rules in your settings. Example validation settings:
 
-```
+```json
 [
-	{
-		property: "patient_id",
-		rule: "regex(\d{5})",
-		message: [{
-		    content: "Patient ID must be 5 numbers.",
-		    locale: "en"
-	}]
-	},
-	{
-		property: "patient_id",
-		rule: "unique('patient_id')",
-		message: [{
-		    content: "Patient ID must be unique.",
-		    locale: "en"
-		}]
-	}
+  {
+    "property": "patient_id",
+    "rule": "regex(\d{5})",
+    "message": [{
+      "content": "Patient ID must be 5 numbers.",
+      "locale": "en"
+    }]
+  },
+  {
+    "property": "patient_id",
+    "rule": "unique('patient_id')",
+    "message": [{
+      "content": "Patient ID must be unique.",
+      "locale": "en"
+    }]
+  }
 ]
 ```
 
-`validate()` modifies the property value of the second item to
-`patient_id_unique` so that pupil.validate() still returns a valid
-result.  Then we process the result once more to extract the custom
-validation results and error messages.
+`validate()` modifies the property value of the second item to `patient_id_unique` so that pupil.validate() still returns a valid result.  Then we process the result once more to extract the custom validation results and error messages.
 
 #### Pupil.js validation functions
-
-Available validation functions are available in the [Pupil documentation](https://github.com/medic/cht-core/tree/master/shared-libs/validation/src/pupil#validation-functions).
 
 The following functions are available by default:
 
@@ -221,12 +230,9 @@ The following functions are available by default:
 
 ##### Sample usage
 
-For case-insensitive comparison `iEquals` function in Pupil, 
-And you can use `||` for logical OR. Find documentation on these rules in the [Pupil documentation](https://github.com/medic/cht-core/tree/master/shared-libs/validation/src/pupil#rule-strings).
+For case-insensitive comparison `iEquals` function in Pupil, and you can use `||` for logical OR.
 
-So you can do this : 
-`rule: 'iEquals("mary") || iEquals("john")'`
-matches "mary", "Mary", "john", "John", "JOhN", etc. Not "maryjohn"
+So the rule `iEquals("mary") || iEquals("john")` matches "mary", "Mary", "john", "John", and "JOhN", but not "maryjohn"
 
 #### CHT validation functions
 | Function | Description |
