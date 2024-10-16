@@ -29,7 +29,7 @@ Here we see a normal deployment following the bare minimum [hosting requirements
 flowchart TD
 
 subgraph couch1[" CouchDB - 1 x ''short'' Node "]
-    couchInner1["2 CPU/4 GB RAM"]
+    couchInner1["4 CPU/8 GB RAM"]
 end
 
 API["API"] --> HAProxy -->  couch1
@@ -41,7 +41,7 @@ After looking at the logs, and seeing error messages about API timeouts to Couch
 flowchart TD
 
 subgraph couch2[" CouchDB - 1 x ''tall'' Node "]
-    couchInner2["16 CPU/16 GB RAM"]
+    couchInner2["16 CPU/64 GB RAM"]
 end
 
 API["API"] --> HAProxy -->  couch2
