@@ -1,6 +1,6 @@
 ---
 title: "Production CHT Sync Setup"
-weight: 3
+weight: 5
 linkTitle: "Production CHT Sync Setup"
 description: >
   Setting up a production deployment of CHT Sync with the CHT

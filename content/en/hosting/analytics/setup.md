@@ -1,6 +1,6 @@
 ---
 title: "Local CHT Sync Setup"
-weight: 2
+weight: 4
 linkTitle: "Local CHT Sync Setup"
 description: >
   Setting up a local deployment of CHT Sync with the CHT
@@ -14,6 +14,13 @@ aliases:
 Before setting up CHT Sync in production, it's very handy to be able to run it locally. This will allow you to experiment with the data flow and easily query development data quickly and locally. 
 
 These instructions assume you're running CHT Sync, CHT Core and PostgreSQL either locally on your workstation or on a local server. They are not meant to be used to deploy a secure, always on production instance.
+
+## CHT Sync Prerequisites
+
+- [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  (Node 20 LTS or newer)
+- [CHT Sync](https://github.com/medic/cht-sync) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-sync`).
 
 ## Setup
 

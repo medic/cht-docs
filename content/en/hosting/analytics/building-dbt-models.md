@@ -1,7 +1,7 @@
 ---
 title: "dbt models for CHT Applications"
 linkTitle: "dbt Models"
-weight: 2
+weight: 3
 description: >
   Guide for building dbt models for CHT applications
 relatedContent: >
@@ -31,6 +31,10 @@ packages:
 To avoid breaking changes in downstream models, include `revision` in the dependency, which should be a version tag for `cht-pipeline`.
 
 In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}), either in `.env` if using `docker compose`, or in `values.yaml` if using Kubernetes.
+
+{{% alert title="Note" %}}
+If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll need an access token in the URL. Assuming your repository is `medic/cht-pipeline`, you would replace  `<PAT>`  with an access token: `https://<PAT>@github.com/medic/cht-pipeline.git#main`. Please see [GitHub's instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) on how to generate a token. If you create a fine-grained access token you need to provide read and write access to the [contents](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28#repository-permissions-for-contents) of the repository.
+{{% /alert %}}
 
 ### Deploying models
 
