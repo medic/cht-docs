@@ -3,5 +3,5 @@ title: "Onboarding"
 linkTitle: "Onboarding"
 weight: 3
 description: >
-  Onboarding resources for Medic contributors
+  Onboarding resources for new Medic contributors
 ---
