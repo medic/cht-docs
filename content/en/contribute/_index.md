@@ -11,7 +11,7 @@ There are many ways to contribute to the Community Health Toolkit.
 ### Are you a developer?
 
 The [Development](https://forum.communityhealthtoolkit.org/c/support/development/7) section of the forum is a great place to introduce yourself and ask questions. Or you can also jump right in:
-- [Get up to speed]({{% ref "medic/onboarding/technical-resources" %}}) with the technologies and tools used by the CHT. Additionally, the [Technology Radar for CHT Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/) gives an overview of the technologies used to build the CHT tools. 
+- [Get up to speed]({{% ref "technical-resources" %}}) with the technologies and tools used by the CHT. Additionally, the [Technology Radar for CHT Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/) gives an overview of the technologies used to build the CHT tools. 
 - [Request a demo](https://communityhealthtoolkit.org/contact) to test out the CHT (login details will be emailed to you).
 - Issues labeled [help wanted](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Help%20wanted%22) are a great place to start coding. 
 - Learn to [build and host apps]({{% ref "building" %}}), and share your experiences.
