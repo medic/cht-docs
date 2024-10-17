@@ -225,6 +225,23 @@ Try the following:
 - Manually downloaded the images. To download images manually, you can use either docker-compose or docker:
   - With docker, you'd do a docker pull  <image tag> for every image you want to download.
   - With docker-compose, you'd save all docker-compose files in a folder, do a docker-compose pull, and point to your files as a source. Read more on [docker compose pull](https://docs.docker.com/engine/reference/commandline/compose_pull/)
+ 
+If you experience errors such as:
+
+```
+A user session timing out while running the test.
+```
+This could be because there are some issues with data or there could be a large number of images and volumes that caused docker to crash.
+We recommend cleaning all the docker data to be able to start afresh and clean. It is important, however, to note that these commands will delete everything.
+And the e2e tests might take a little longer to run because all the images need to be downloaded again.
+
+Try running the following commands:
+- `docker system prune`
+- `docker image prune -a`
+- `docker volume prune -a`
+- `docker network prune`
+
+Repeat the above steps until all data has been deleted.
 
 
 ### Test Architecture
