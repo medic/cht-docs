@@ -1,7 +1,7 @@
 ---
 title: "Contributing Documentation"
 linkTitle: "Documentation"
-weight: 1
+weight: 2
 description: >
   How to contribute to documentation for the CHT
 ---
