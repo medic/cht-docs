@@ -1,7 +1,7 @@
 ---
 title: "External Resources"
 linkTitle: "External Resources"
-weight: 2
+weight: 7
 description: Use these resources when designing for the CHT.
 ---
 
