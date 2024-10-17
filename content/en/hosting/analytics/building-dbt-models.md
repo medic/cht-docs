@@ -1,7 +1,7 @@
 ---
 title: "dbt models for CHT Applications"
 linkTitle: "dbt Models"
-weight: 2
+weight: 3
 description: >
   Guide for building dbt models for CHT applications
 relatedContent: >

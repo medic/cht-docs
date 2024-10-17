@@ -1,6 +1,6 @@
 ---
 title: "Migrating from couch2pg to CHT Sync"
-weight: 1
+weight: 2
 linkTitle: "Couch2pg to CHT Sync Migration"
 description: >
   Instructions on migrating from couch2pg to CHT Sync for data synchronization and analytics.
@@ -11,12 +11,12 @@ aliases:
    - /apps/guides/data/analytics/couch2pg-to-cht-sync-migration
 ---
 
-This page outlines guidelines for migrating from [couch2pg](https://github.com/medic/cht-couch2pg) to the data pipeline based on CHT Sync. One of the main changes in this flow is separating the syncing process from the data transformation, with dbt now handling the latter in [cht-pipeline](https://github.com/medic/cht-pipeline/). This migration requires dbt models in the cht-pipeline repository instead of SQL views and tables. One thing to note is that the schema for CHT Sync differs from couch2pg, so dbt models will not directly replace the SQL views and tables. For instructions on how to get started with dbt models, refer to the [dbt models guide]({{< relref "hosting/analytics/testing-dbt-models" >}}).
+This page outlines guidelines for migrating from [couch2pg](https://github.com/medic/cht-couch2pg) to the data pipeline based on CHT Sync. One of the main changes in this flow is separating the syncing process from the data transformation, with dbt now handling the latter in [cht-pipeline](https://github.com/medic/cht-pipeline/). This migration requires dbt models in the cht-pipeline repository instead of SQL views and tables. One thing to note is that the schema for CHT Sync differs from cht-couch2pg, so dbt models will not directly replace the SQL views and tables. For instructions on how to get started with dbt models, refer to the [dbt models guide]({{< relref "hosting/analytics/testing-dbt-models" >}}).
 
 ## Key Considerations
 - **Kubernetes vs Docker Compose**: CHT Sync provides configurations to support deployment to production with Docker Compose or Kubernetes. You can read more about the CHT hosting options in the [dedicated page]({{< relref "hosting/kubernetes-vs-docker" >}}). 
-- **Server resources**: To minimize downtime, running both couch2pg and CHT Sync in parallel during the migration process is recommended. With this in mind, ensure that the server and [database resources are sufficient]({{< relref "hosting/analytics/production#database-disk-space-requirements" >}}) to handle the load.
-- **dbt Modelling**: Avoid the temptation to model new dbt models after existing SQL views and tables. Instead, take the opportunity to re-evaluate the data needs and design new models that are more efficient and effective. Think of what data needs to be shown and how it should be shown in data visualization tools and use that to guide the design of the new models.
+- **Server resources**: To minimize downtime, running both couch2pg and CHT Sync in parallel during the migration process is recommended. With this in mind, ensure that the server and [database resources]({{< relref "hosting/analytics/production#database-disk-space-requirements" >}}) are sufficient to handle the load.
+- **dbt modelling**: Avoid the temptation to model new dbt models after existing SQL views and tables. Instead, take the opportunity to re-evaluate the data needs and design new models that are more efficient and effective. Think of what data needs to be shown and how it should be shown in data visualization tools and use that to guide the design of the new models.
 - **Testing**: After migrating, thoroughly test the new dbt models to ensure that they work as expected. Refer to the [testing dbt models guide]({{< relref "hosting/analytics/building-dbt-models" >}}) for more information on testing.
 - **Feedback**: Provide any feedback and create issues for errors or bugs encountered in the [cht-sync](https://github.com/medic/cht-sync) and [cht-pipeline](https://github.com/medic/cht-pipeline/) repositories to improve the tools.
 

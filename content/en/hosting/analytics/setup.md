@@ -1,6 +1,6 @@
 ---
 title: "Local CHT Sync Setup"
-weight: 2
+weight: 4
 linkTitle: "Local CHT Sync Setup"
 description: >
   Setting up a local deployment of CHT Sync with the CHT
