@@ -231,6 +231,9 @@ If you experience errors such as:
 ```
 A user session timing out while running the test.
 ```
+This could be because there are some issues with data or there could be a large number of images and volumes that caused docker to crash.
+We recommend cleaning all the docker data to be able to start afresh and clean. It is important, however, to note that these commands will delete everything.
+And the e2e tests might take a little longer to run because all the images need to be downloaded again.
 
 Try running the following commands:
 - `docker system prune`
