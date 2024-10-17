@@ -6,7 +6,8 @@ description: >
   Resources to get started as a contributor to the CHT
 ---
 
-This page contains materials that will help a CHT Contributor to master all the technical details they need to be successful when building tools related to the CHT. For Medic team members, this content is complimentary on a technical level to the Onboarding documents shared by the Internal Operations team. 
+This page contains materials that will help a CHT Contributor to learn the technical details they need to be successful when building tools related to the CHT. 
+
 Keep in mind that this is a living document, and every contributor is encouraged to add to it when identifying learning opportunities that can set them up for success with the CHT. The main goal here is to provide the technical people who are new to the CHT with a list of resources that could be beneficial for them in both the short and long term. However, the expectation is not to complete every course listed in this document but instead to share some resources that other contributors found helpful. It is valid if you prefer to use other training material, as long as you cover the skill/topic during the onboarding. That means you will need to learn JavaScript, TypeScript, Docker, CouchDB, and others mentioned in the “Skills” column, as you will use them in your day-to-day activities, and the list provided in the “Resources” column is meant to support you in this. It is OK if you prefer to learn with alternative resources. 
 
 ## Developer Workshops
