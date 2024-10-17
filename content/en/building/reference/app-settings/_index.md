@@ -153,6 +153,8 @@ For each validation function, there is also a matching function prepended by `ot
 }
 ```
 
+This rule validates the length `state` property if the `country` is set to "US", but skips validation otherwise.
+
 Validation function arguments can be either strings or numerical values. Numerical arguments should not be wrapped in quotation marks or apostrophes: `lenMin(5)`.
 
 ### Operators
