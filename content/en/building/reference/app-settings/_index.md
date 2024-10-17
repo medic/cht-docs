@@ -230,7 +230,7 @@ The following functions are available by default:
 
 ##### Sample usage
 
-For case-insensitive comparison `iEquals` function in Pupil, and you can use `||` for logical OR.
+For case-insensitive comparison, use `iEquals` function in Pupil, and you can use `||` for logical OR.
 
 So the rule `iEquals("mary") || iEquals("john")` matches "mary", "Mary", "john", "John", and "JOhN", but not "maryjohn"
 
