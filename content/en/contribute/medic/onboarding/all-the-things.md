@@ -85,7 +85,7 @@ Medic relies on both restricted and unrestricted funds to support our mission.
 * Continuous Integration (CI) with GitHub Actions
 * No Continuous Deployment, as no SaaS setup
 * Sonar for [Code Static Analysis]({{% ref "contribute/code/static-analysis" %}})
-* [Technical resources & learning material]({{% ref "contribute/medic/onboarding/technical-resources" %}}) for CHT contributors.
+* [Technical resources & learning material]({{% ref "contribute/technical-resources" %}}) for CHT contributors.
 
 #### GitHub 
 * Tons of things happen here.
