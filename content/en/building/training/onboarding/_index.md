@@ -7,8 +7,8 @@ description: >
 relatedContent: >
   building/guides/android/branding/
   building/examples/training/
-
 aliases:
+   - /building/guides/training/onboarding/
    - /apps/guides/training/onboarding/
 ---
 

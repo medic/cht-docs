@@ -7,8 +7,9 @@ description: >
 keyword: training
 relatedContent: >
   building/features/training
-  building/guides/training/training-cards
+  building/training/training-cards
 aliases:
+   - /building/guides/training/training-cards-resources/
    - /apps/guides/training/training-cards-resources/
 ---
 
@@ -32,7 +33,7 @@ Some examples of data to monitor include:
 
 ## Examples
 
-Below is a list of training cards that you can use in your project to train users about new updates in CHT. Read the [step by step guide]({{< relref "building/guides/training/training-cards" >}}) to deploy the training cards.
+Below is a list of training cards that you can use in your project to train users about new updates in CHT. Read the [step by step guide]({{< relref "building/training/training-cards" >}}) to deploy the training cards.
 
 ### Floating Action Button
 
@@ -40,7 +41,7 @@ _Introduced in 4.2.0_
 
 The additive actions (creating reports, places, people, etc...) have moved from the bottom action bar to a Floating Action Button. Use this training to introduce the change to your users. 
 
-Get the training card files [here](https://github.com/medic/cht-docs/tree/main/content/en/building/guides/training/training-cards-resources/available-trainings/floating-action-button).
+Get the training card files [here](https://github.com/medic/cht-docs/tree/main/content/en/building/training/training-cards-resources/available-trainings/floating-action-button).
 
 {{< figure src="images/floating-action-button.png" class="left col-10" >}}
 
@@ -52,12 +53,12 @@ _Introduced in 4.2.0_
 
 The Edit, Delete and Export actions have been moved to the More Options menu. Use this training to introduce the change to your users. 
 
-Get the training card files [here](https://github.com/medic/cht-docs/tree/main/content/en/building/guides/training/training-cards-resources/available-trainings/more-options).
+Get the training card files [here](https://github.com/medic/cht-docs/tree/main/content/en/building/training/training-cards-resources/available-trainings/more-options).
 
 {{< figure src="images/more-options.png" class="left col-10" >}}
 
 <br clear="all">
 
-Once you have downloaded the training card files, follow the [step by step guide]({{< relref "building/guides/training/training-cards" >}}) to learn how to edit the `properties file` to configure: 
+Once you have downloaded the training card files, follow the [step by step guide]({{< relref "building/training/training-cards" >}}) to learn how to edit the `properties file` to configure: 
 - The `roles` of users who can view the training cards 
 - The `start_date` to define the training start day (when the training cards should show)
