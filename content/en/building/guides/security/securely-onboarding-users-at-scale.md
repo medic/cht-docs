@@ -5,7 +5,7 @@ weight:
 description: >
     How to securely create users, handle password changes and password breaches
 relatedContent: >
-    building/guides/training/onboarding
+    building/training/onboarding
     building/guides/database/couchdb-authentication
     building/contact-management/contact-and-users-1
     building/guides/data/users-bulk-load

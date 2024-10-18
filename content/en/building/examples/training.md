@@ -8,7 +8,7 @@ keywords: training onboarding
 relatedContent: >
   building/reference/app-settings/token_login/
   building/concepts/access/
-  building/guides/training/onboarding/
+  building/training/onboarding/
 aliases:
    - /apps/examples/training
 ---
