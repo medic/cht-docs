@@ -20,6 +20,12 @@ With this in mind, it is typically easier to query the data using SQL from an [a
 
 This guide includes several SQL queries that can act as a starting point for identifying useful metrics. 
 
+{{% alert title="Note" %}} 
+Creating the following index can improve the performance of running these queries 
+
+`CREATE INDEX idx_couchdb_users_meta_type ON couchdb_users_meta((doc->>'type'));`
+{{% /alert %}}
+
 In these examples the training cards set has an ID of `chp_self_assessment` which you can replace to get the metrics for any training card set.
 
 1. Total number of users who have viewed a particular training set:
@@ -115,7 +121,7 @@ WHERE
 7. How long each user took on the training set for users who have completed the training:
 
 ```
-SELECT distinct
+SELECT DISTINCT
   doc#>>'{metadata,user}' AS cht_user,
   COALESCE(doc#>>'{metrics,enketo:training:chp_self_assessment:add:user_edit_time,max}','0')::int/1000 AS max_seconds_on_form,    
   COALESCE(doc#>>'{metrics,enketo:training:chp_self_assessment:add:user_edit_time,min}','0')::int/1000 AS min_seconds_on_form
