@@ -11,7 +11,7 @@ aliases:
    - /apps/guides/data/analytics/production
 ---
 
-Follow the installation guides to set up CHT Sync with [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}}) or [Docker Compose]({{< relref "hosting/analytics/setup-docker-compose" >}}).
+Follow the installation guides to set up and deploy CHT Sync with [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}}) or [Docker Compose]({{< relref "hosting/analytics/setup-docker-compose" >}}).
 
 ## Database disk space requirements
 The disk space required for the database depends on a few things including the size the of CouchDB databases being replicated, and the [models]({{< relref "hosting/analytics/building-dbt-models" >}}) defined. The database will grow over time as more data is added to CouchDB. The database should be monitored to ensure that it has enough space to accommodate the data. To get an idea of the size requirements of the database, you can replicate 10% of the data from CouchDB to Postgres and then run the following command to see disk usage:
