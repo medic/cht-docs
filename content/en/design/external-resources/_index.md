@@ -7,7 +7,7 @@ description: Use these resources when designing for the CHT.
 
 ## Material Design
 
-To ensure the consistency with other Android apps and user experiences, please refer to and align with [Material Design](https://m3.material.io/) guidelines and standards when designing for the CHT.
+To ensure consistency with other Android apps and user experiences, please refer to and align with [Material Design](https://m3.material.io/) guidelines and standards when designing for the CHT.
 
 ## Google Fonts
 
