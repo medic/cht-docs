@@ -131,7 +131,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    - targets:
       "db-example-com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
    ```
-   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to give each entry a unique name based of the Postgres server (eg `db-example-com` as shown).
+   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to match the key (`db-example-com` in this example) to the exact value define in your your `cht-instances.yml` file while also enduring that the entry is unique.
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
