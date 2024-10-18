@@ -1,7 +1,7 @@
 ---
 title: "Testing dbt Models"
 linkTitle: "Testing dbt Models"
-weight: 7
+weight: 8
 description: >
   Guide for testing dbt models
 aliases:
