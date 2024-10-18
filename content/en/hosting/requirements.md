@@ -53,39 +53,6 @@ Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/
 
 _\* During some upgrades, up to 3x current space used by CouchDB can be needed_
 
-## K3s
-
-K3s is lightweight, but requires some minimum requirements to run.
-Whether you're installing K3s to run a native linux service or a container, each node should meet a minimum requirements.
-
-### **Architecture**
-
-* x86_64
-* armhf
-* arm64/aarch64
-* s390x
-
-### **Operating Systems**
-
-* K3s is expected to work on most modern Linux systems
-
-### **Hardware requirements**
-
-| Spec | Minimum | Recommended |
-| ---- | ------- | ----------- |
-| CPU  | 1 Core  | 2 Cores     |
-| RAM  | 512 MB  | 1 GB        |
-
-##### Disks
-
-K3s performance depends on the performance of the database. To ensure optimal speed, we recommend using an SSD when possible.
-Disk performance will vary on ARM devices utilizing an SD card or eMMC
-
-### **Networking**
-
-The K3s server needs port 6443 to be accessible by all nodes.
-The nodes need to be able to reach other nodes over UDP port 8472 when using the Flannel VXLAN backend, or over UDP port 51820 (and 51821 if IPv6 is used) when using the Flannel WireGuard backend.
-
 ## Required skills
 
 In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
