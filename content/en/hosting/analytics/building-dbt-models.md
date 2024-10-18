@@ -20,6 +20,12 @@ Forms may be specific to each CHT application; additional models will need to be
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
 
+## Prerequisites
+
+- [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [cht-pipeline](https://github.com/medic/cht-pipeline) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-pipeline`).
+
 ## Setup
 
 To create application specific models, create a [new dbt project](https://docs.getdbt.com/reference/commands/init). Edit the `packages.yml` in your new dbt project to add [cht-pipeline](https://github.com/medic/cht-pipeline) as a dependency. Add your dbt new project in a GitHub repository (it may be public or private) so you can track changes in your models.

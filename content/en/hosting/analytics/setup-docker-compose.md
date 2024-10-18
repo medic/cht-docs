@@ -17,7 +17,7 @@ This guide will walk you through setting up a deployment of CHT Sync with the CH
 
 - [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [CHT Sync](https://github.com/medic/cht-sync) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-sync`).
+- [cht-sync](https://github.com/medic/cht-sync) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-sync`).
 
 ## Setup
 
