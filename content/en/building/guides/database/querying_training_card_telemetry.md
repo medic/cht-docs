@@ -7,7 +7,6 @@ description: >
 relatedContent: >
   building/guides/performance/telemetry/
   core/overview/data-flows-for-analytics
-  building/guides/training/training-cards
 aliases:
    - /apps/guides/database/querying_training_card_telemetry
 ---
