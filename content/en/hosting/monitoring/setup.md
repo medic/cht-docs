@@ -119,7 +119,7 @@ docker compose up -d
 
 #### CHT Sync Data (Local)
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "hosting/analytics/introduction" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "hosting/analytics" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
 1. Copy the example config file, so you can add the correct contents in them:
    ```shell
