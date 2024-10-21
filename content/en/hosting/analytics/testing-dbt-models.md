@@ -1,6 +1,6 @@
 ---
-title: "Testing dbt models"
-linkTitle: "Testing dbt models"
+title: "Testing dbt Models"
+linkTitle: "dbt Testing"
 weight: 6
 description: >
   Guide for testing dbt models

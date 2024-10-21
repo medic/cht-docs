@@ -1,7 +1,7 @@
 ---
-title: "dbt models for CHT Applications"
+title: "dbt Models for CHT Applications"
 linkTitle: "dbt Models"
-weight: 2
+weight: 5
 description: >
   Guide for building dbt models for CHT applications
 relatedContent: >
@@ -20,9 +20,15 @@ Forms may be specific to each CHT application; additional models will need to be
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
 
+## Prerequisites
+
+- An existing install of CHT Sync via [Docker]({{< relref "hosting/analytics/setup-docker-compose" >}}) or [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}})
+- [cht-pipeline](https://github.com/medic/cht-pipeline) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-pipeline`).
+
 ## Setup
 
-To create application specific models, create a [new dbt project](https://docs.getdbt.com/reference/commands/init). Edit the `packages.yml` in your new dbt project to add [cht-pipeline](https://github.com/medic/cht-pipeline) as a dependency. So that you can track changes in your models, put your dbt new project in a GitHub repository (it may be public or private).
+To create application specific models, create a [new dbt project](https://docs.getdbt.com/reference/commands/init). Edit the `packages.yml` in your new dbt project to add [cht-pipeline](https://github.com/medic/cht-pipeline) as a dependency. Add your dbt new project in a GitHub repository (it may be public or private) so you can track changes in your models.
+
 ```yml
 packages:
   - git: "https://github.com/medic/cht-pipeline"
@@ -30,7 +36,11 @@ packages:
 ```
 To avoid breaking changes in downstream models, include `revision` in the dependency, which should be a version tag for `cht-pipeline`.
 
-In CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}), either in `.env` if using `docker compose`, or in `values.yaml` if using Kubernetes.
+In the CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}), either in `.env` if using Docker compose, or in `values.yaml` if using Kubernetes.
+
+{{% alert title="Note" %}}
+If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll need an access token in the URL. Assuming your repository is `medic/cht-pipeline`, you would replace  `<PAT>`  with an access token: `https://<PAT>@github.com/medic/cht-pipeline.git#main`. Please see [GitHub's instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) on how to generate a token. If you create a fine-grained access token you need to provide read and write access to the [contents](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28#repository-permissions-for-contents) of the repository.
+{{% /alert %}}
 
 ### Deploying models
 
@@ -354,3 +364,20 @@ WHERE
 ```
 
 To be performant, the table from this model is reading form needs to have the `saved_timestamp` column indexed.
+
+## Database disk space requirements
+The disk space required for the database depends on a few things including the size the of CouchDB databases being replicated, and the [models]({{< relref "hosting/analytics/building-dbt-models" >}}) defined. The database will grow over time as more data is added to CouchDB. The database should be monitored to ensure that it has enough space to accommodate the data. To get an idea of the size requirements of the database, you can replicate 10% of the data from CouchDB to Postgres and then run the following command to see disk usage:
+```shell
+SELECT pg_size_pretty(pg_database_size('your_database_name'));
+```
+
+If Postgres is running in a Kubernetes cluster, you can use the following command to get the disk usage:
+```shell
+kubectl exec -it postgres-pod-name -- psql -U postgres -c "SELECT pg_size_pretty(pg_database_size('your_database_name'));"
+```
+
+You can then multiply this figure by 10 to get an estimate of the disk space required for the full dataset and then add some extra space for indexes and other overhead as well as future growth.
+
+For example if the size of the database is 1GB, you can expect the full dataset to be around 10GB. If the CouchDB docs grow by 20% every year then you can compound this growth over 5 years to get an estimate of the disk space required: `10GB * 1.2^5 = 18.5GB`. You can add an extra 20% for indexes and overhead to get an estimate of 22.2GB.
+
+Please note that this is just an estimate and the actual disk space required may vary so actively monitoring the disk space usage and making necessary adjustments is recommended.
