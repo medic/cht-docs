@@ -76,7 +76,7 @@ If you follow these guidelines when reporting an issue to us, we commit to:
 
 #### Scope
 
-- https://alpha.dev.medicmobile.org
+A local CHT instance is included in the scope. Follow the [manual instructions]({{< relref "hosting/4.x/app-developer" >}}) to set up a CHT instance. 
 
 #### Out of scope
 
