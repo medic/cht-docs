@@ -1,7 +1,7 @@
 ---
 title: "CHT Sync Setup with Docker Compose"
-weight: 5
-linkTitle: "Setup with Docker Compose"
+weight: 3
+linkTitle: "Docker"
 description: >
   Setting up CHT Sync with Docker Compose and the CHT
 relatedContent: >
@@ -11,7 +11,7 @@ aliases:
    - /apps/guides/data/analytics/setup
 ---
 
-This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker Compose.
+This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker Compose. This path is recommended if you host the [CHT with Docker]({{< relref "hosting/4.x/production/docker" >}}).
 
 ## Prerequisites
 

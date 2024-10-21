@@ -1,6 +1,6 @@
 ---
 title: "Environment Variables"
-weight: 7
+weight: 8
 linkTitle: "Environment Variables"
 description: >
   Environment variables for running CHT Sync 

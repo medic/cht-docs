@@ -1,7 +1,7 @@
 ---
-title: "dbt models for CHT Applications"
+title: "dbt Models for CHT Applications"
 linkTitle: "dbt Models"
-weight: 3
+weight: 5
 description: >
   Guide for building dbt models for CHT applications
 relatedContent: >
@@ -22,8 +22,7 @@ If using the [configurable contact hierarchy]({{< ref "building/reference/app-se
 
 ## Prerequisites
 
-- [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- An existing install of CHT Sync via [Docker]({{< relref "hosting/analytics/setup-docker-compose" >}}) or [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}})
 - [cht-pipeline](https://github.com/medic/cht-pipeline) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-pipeline`).
 
 ## Setup
@@ -365,3 +364,20 @@ WHERE
 ```
 
 To be performant, the table from this model is reading form needs to have the `saved_timestamp` column indexed.
+
+## Database disk space requirements
+The disk space required for the database depends on a few things including the size the of CouchDB databases being replicated, and the [models]({{< relref "hosting/analytics/building-dbt-models" >}}) defined. The database will grow over time as more data is added to CouchDB. The database should be monitored to ensure that it has enough space to accommodate the data. To get an idea of the size requirements of the database, you can replicate 10% of the data from CouchDB to Postgres and then run the following command to see disk usage:
+```shell
+SELECT pg_size_pretty(pg_database_size('your_database_name'));
+```
+
+If Postgres is running in a Kubernetes cluster, you can use the following command to get the disk usage:
+```shell
+kubectl exec -it postgres-pod-name -- psql -U postgres -c "SELECT pg_size_pretty(pg_database_size('your_database_name'));"
+```
+
+You can then multiply this figure by 10 to get an estimate of the disk space required for the full dataset and then add some extra space for indexes and other overhead as well as future growth.
+
+For example if the size of the database is 1GB, you can expect the full dataset to be around 10GB. If the CouchDB docs grow by 20% every year then you can compound this growth over 5 years to get an estimate of the disk space required: `10GB * 1.2^5 = 18.5GB`. You can add an extra 20% for indexes and overhead to get an estimate of 22.2GB.
+
+Please note that this is just an estimate and the actual disk space required may vary so actively monitoring the disk space usage and making necessary adjustments is recommended.
