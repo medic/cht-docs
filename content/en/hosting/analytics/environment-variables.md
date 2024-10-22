@@ -6,6 +6,7 @@ description: >
   Environment variables for running CHT Sync 
 aliases:
    - /apps/guides/data/analytics/environment-variables
+   - /building/guides/data/analytics/environment-variables
 ---
 
 There are two environment variable groups in the `.env` file (if using Docker Compose), or in the `values.yaml` file (if using Kubernetes). To successfully set up CHT Sync, it is important to understand the difference between them.

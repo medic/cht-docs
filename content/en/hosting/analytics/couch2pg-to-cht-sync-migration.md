@@ -9,6 +9,7 @@ relatedContent: >
   core/overview/data-flows-for-analytics/
 aliases:
    - /apps/guides/data/analytics/couch2pg-to-cht-sync-migration
+   - /building/guides/data/analytics/couch2pg-to-cht-sync-migration
 ---
 
 This page outlines guidelines for migrating from [couch2pg](https://github.com/medic/cht-couch2pg) to the data pipeline based on [CHT Sync](https://github.com/medic/cht-sync). One of the main changes in this flow is separating the syncing process from the data transformation, with dbt now handling the latter in [cht-pipeline](https://github.com/medic/cht-pipeline/). This migration requires dbt models in the cht-pipeline repository instead of SQL views and tables. One thing to note is that the schema for CHT Sync differs from cht-couch2pg, so dbt models will not directly replace the SQL views and tables. For instructions on how to get started with dbt models, refer to the [dbt models guide]({{< relref "hosting/analytics/testing-dbt-models" >}}).

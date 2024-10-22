@@ -9,6 +9,7 @@ relatedContent: >
   core/overview/cht-sync
 aliases:
    - /apps/guides/data/analytics/setup
+   - /building/guides/data/analytics/setup
 ---
 
 This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker. This path is recommended if you host the [CHT with Docker]({{< relref "hosting/4.x/production/docker" >}}).
