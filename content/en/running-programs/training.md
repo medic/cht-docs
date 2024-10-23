@@ -23,7 +23,7 @@ The CHT training process comprises a series of steps highlighted below that need
 * Define the training objectives - In this step, the training outcomes are defined, these are things end users should be able to do as a result of the training.  
 * Develop a training plan or checklist - The checklist lists the tasks, activities and resources needed to train the end users
 * Create the training materials and resources 
-* Conduct the training - Different training approaches can be adopted. Training can be done in person or virtually. It includes direct training of end users, training of trainers (ToT) model which involves training program champions to cascade the training, use of [CHT training cards]({{< relref "building/features/training" >}}) in which users are able to access training resources in-app, remote online training and self learning through a learning management system.   
+* Conduct the training - Different training approaches can be adopted. Training can be done in person or virtually. It includes direct training of end users, training of trainers (ToT) model which involves training program champions to cascade the training, use of [CHT training cards]({{< relref "building/training/training-cards" >}}) in which users are able to access training resources in-app, remote online training and self learning through a learning management system.   
 * Evaluate the training - In this stage, the training outcomes are assessed to determine if the training has achieved the expected outcomes. The learning objectives will help to determine the evaluation process that would be most appropriate.  
 
 ##  Pre training preparation

@@ -1,7 +1,7 @@
 ---
 title: "Onboarding Using a Training App"
 linkTitle: "Onboarding"
-weight: 15
+weight: 1
 description: >
    Best practices when using a Training App to keep training and production data apart
 relatedContent: >
