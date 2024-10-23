@@ -1,12 +1,12 @@
 ---
 title: "Training Cards Resources"
 linkTitle: "Training Cards Resources"
-weight: 15
+weight: 3
 description: >
   Training cards for CHT
 keyword: training
 relatedContent: >
-  building/features/training
+  building/training/training-cards
   building/training/training-cards
 aliases:
    - /building/guides/training/training-cards-resources/
@@ -15,7 +15,7 @@ aliases:
 
 ## Best practices
 
-If you are deploying new [trainings cards]({{< relref "building/features/training" >}}), here are some best practices to follow: 
+If you are deploying new [trainings cards]({{< relref "building/training/training-cards" >}}), here are some best practices to follow: 
 
 - When deploying training cards for the first time, provide guidance in advance as to what users should expect from the cards and how to use them
 - Test training card content with a small set of users to ensure learnability and understanding before deploying to your live instance
