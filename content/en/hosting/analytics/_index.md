@@ -9,6 +9,8 @@ relatedContent: >
 aliases:
     - /apps/guides/data/analytics/
     - /apps/guides/data/analytics/introduction
+    - /building/guides/data/analytics/
+    - /building/guides/data/analytics/introduction
 ---
 
 {{% pageinfo %}}
