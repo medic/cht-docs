@@ -11,7 +11,6 @@ relatedContent: >
   building/examples/training
   building/examples/learning-care/
 aliases:
-   - /building/training/training-cards/
    - /building/guides/training/training-cards/
    - /apps/guides/training/training-cards/
 ---
