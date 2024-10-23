@@ -1,6 +1,6 @@
 ---
 title: "Training Cards Configuration"
-linkTitle: "Training Cards Configuration"
+linkTitle: "Configuration"
 weight: 15
 description: >
   Deploy in-app training cards for remote training.
