@@ -20,7 +20,7 @@ This tutorial takes you through testing the various configurable components of C
 
 Complete the following tutorials:
   - [Building App Forms]({{< ref "building/tutorials/app-forms" >}})
-  - [Building A Simple Task]({{< ref "building/tutorials/tasks-1" >}})
+  - [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}})
   - [Building Target Widgets]({{< ref "building/tutorials/targets" >}})
   - [Building Contact Summary]({{< ref "building/tutorials/contact-summary" >}})
 
@@ -296,7 +296,7 @@ expect(summaryContext).to.include({
 |Minimum:|Trigger and resolve the task|
 |Ideal:|One test for each use scenario<br/>Code coverage for any arc with an external dependency<br/>Negative cases - confirm tasks don’t trigger|
 
-When testing the tasks [manually]({{< ref "tasks-1#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
+When testing the tasks [manually]({{< ref "building/tasks/simple-tasks#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
 
 Every task has a source document (contact or report). When testing, you can mock the source document. Yet, the recommended approach is to fill the source form and then proceed with checking the associated tasks.
 
@@ -312,7 +312,7 @@ Commonly used harness methods when testing tasks are:
 
 With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#tasks).
 
-Let's look back at the simple task from this tutorial: [Building A Simple Task]({{< ref "building/tutorials/tasks-1" >}}).
+Let's look back at the simple task from this tutorial: [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}}).
 
 According to the task configuration, these conditions need to be met for the assessment task to be visible:
 1. The `contact_type` of the subject (patient) is: `patient`

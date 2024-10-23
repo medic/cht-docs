@@ -5,7 +5,7 @@ weight: 20
 description: >
   Building a more complex task
 relatedContent: >
-  building/tutorials/tasks-1
+  building/tasks/simple-tasks
   building/reference/tasks
   building/examples/anc
 
@@ -24,7 +24,7 @@ Tasks prompt users to complete activities on a programmatic schedule. This tutor
 
 ## Prerequisites
 
-* [Building a simple task]({{< ref "building/tutorials/tasks-1" >}})
+* [Building a simple task]({{< ref "building/tasks/simple-tasks" >}})
 * [Maternal and Newborn Health Reference App]({{< ref "building/examples/anc" >}})
 
 ## Scenario
@@ -104,7 +104,7 @@ module.exports = {
 2. Pregnancy visits should appear for pregnant patients after their pregnancy registration
 ```
 
-This function starts with the standard stuff from the [Configuring Tasks Tutorial]({{< ref "building/tutorials/tasks-1" >}}). We want to confirm the user is a CHW, and the patient is alive and unmuted.
+This function starts with the standard stuff from the [Configuring Tasks Tutorial]({{< ref "building/tasks/simple-tasks" >}}). We want to confirm the user is a CHW, and the patient is alive and unmuted.
 
 Then, the code searches through each contact's reports to find the most recent (_newest_) pregnancy registration using the [Utils helper library]({{< ref "building/reference/_partial_utils" >}}). It gets that report's value for `report.fields.g_details.estimated_lmp`, which is a date string calculated by the app form. It parses that string using the luxon library and returns true if it is a valid date.
 
@@ -115,7 +115,7 @@ Defining `lmp` as a property of `this`, _stores_ the LMP DateTime and we will us
 3. Pregnancy visits should be scheduled eight times between the last mentrual period (LMP) and delivery.
 ```
 
-This is a recurring task, unlike the one-time task we wrote in [Configuring Tasks Tutorial]({{< ref "building/tutorials/tasks-1" >}}). This task is going to appear once 12 weeks after the estimated LMP date, again after 20 weeks, and again 6 more times. The `dueDate` on the event says that the task event is due _a variable number of weeks after the estimated LMP_. The time the CHW has to complete the visit is shorter toward the end of the schedule.
+This is a recurring task, unlike the one-time task we wrote in [Configuring Tasks Tutorial]({{< ref "building/tasks/simple-tasks" >}}). This task is going to appear once 12 weeks after the estimated LMP date, again after 20 weeks, and again 6 more times. The `dueDate` on the event says that the task event is due _a variable number of weeks after the estimated LMP_. The time the CHW has to complete the visit is shorter toward the end of the schedule.
 
 We're using the `this.lmp` value which was calculated and saved in the `appliesIf` function.
 
