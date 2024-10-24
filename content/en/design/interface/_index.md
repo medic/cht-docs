@@ -5,3 +5,4 @@ weight: 2
 description: >
   Interface principles serve as guides that shape the design of the CHT and provide support in effective implementation.
 ---
+The purpose of this guide is to document the standard aspects of the core framework and allow designers and developers to focus on solving challenges, rather than reinventing interface elements that are already in use.
