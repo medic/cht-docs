@@ -12,7 +12,6 @@ relatedContent: >
 aliases:
    - /building/tutorials/tasks-1
    - /apps/tutorials/tasks-1
-   - /apps/tutorials/tasks-1
 ---
 
 {{% pageinfo %}}
