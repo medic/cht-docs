@@ -1,6 +1,6 @@
 ---
 title: "Building A Simple Task"
-linkTitle: Tasks
+linkTitle: Simple Tasks
 weight: 9
 description: >
   Writing and testing a simple task
@@ -9,8 +9,8 @@ relatedContent: >
   building/reference/tasks
   building/concepts/workflows
   design/best-practices#anatomy-of-a-task
-
 aliases:
+   - /building/tutorials/tasks-1
    - /apps/tutorials/tasks-1
 ---
 

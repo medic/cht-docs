@@ -4,7 +4,7 @@ linkTitle: Querying Task Documents
 description: >
   Querying the data which results from an example task. Notes on the performance implications of tasks.
 relatedContent: >
-  building/tutorials/tasks-1
+  building/tasks/simple-tasks
   core/overview/db-schema#tasks
   core/overview/data-flows-for-analytics
 aliases:
@@ -29,7 +29,7 @@ The task system running on each user's device is powered by [task documents]({{<
 {{< see-also page="core/overview/data-flows-for-analytics" title="Data flows for analytics" >}}
 
 ### First Assessment Completion Rate
-Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "building/tutorials/tasks-1" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
+Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "building/tasks/simple-tasks" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
 
 Let's query data from the last three months to see how the _first assessment_ task is behaving in production:
 

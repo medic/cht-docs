@@ -8,7 +8,7 @@ relatedContent: >
   building/guides/data/hydration
   core/overview/db-schema#contacts-persons-and-places
   core/overview/db-schema#reports
-  building/tutorials/tasks-1
+  building/tasks/simple-tasks
 
 aliases:
    - /apps/guides/tasks/task-schema-parameters
