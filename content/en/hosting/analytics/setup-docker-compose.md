@@ -24,6 +24,8 @@ This guide will walk you through setting up a deployment of CHT Sync with the CH
 
 In the `cht-sync` folder, copy the values from the `env.template` file to a `.env` file. For more information, see the references on the [Environment variables page]({{< relref "hosting/analytics/environment-variables" >}}).
 
+For production CHT Core deployments, most likely the port will need to be set to `443` like this: `COUCHDB_PORT=443`. This is because CHT Core uses an `nginx` reverse proxy on port `443`, instead the default `5984` port used in a stand alone CouchDB instance which the `env.template` [has](https://github.com/medic/cht-sync/blob/bbe9801b678761165262d0f1325007fc9eae31cf/env.template#L22).
+
 {{% alert title="Note" %}}
 The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
 {{% /alert %}}
