@@ -87,7 +87,7 @@ Filtering the Aggregate Targets by **Reporting Period** adds the name of the pre
 
 ## Supervisor Tasks
 
-The CHT can be configured to create [Tasks]({{< relref "building/features/tasks" >}}) for Supervisors to help plan their performance management reviews. Tasks can be generated based on routine CHW supervision interactions, or data-driven based on specific events (e.g. to follow up with health workers whom haven’t submitted any forms in x period of time). Using Supervisor tasks to ensure that the right actions are taken for the right CHWs at the right time strengthens supervisory program design through routine assessments and timely feedback.
+The CHT can be configured to create [Tasks]({{< relref "building/tasks" >}}) for Supervisors to help plan their performance management reviews. Tasks can be generated based on routine CHW supervision interactions, or data-driven based on specific events (e.g. to follow up with health workers whom haven’t submitted any forms in x period of time). Using Supervisor tasks to ensure that the right actions are taken for the right CHWs at the right time strengthens supervisory program design through routine assessments and timely feedback.
 
 {{% pageinfo %}}
 ### Deployment Case Study

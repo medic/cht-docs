@@ -20,7 +20,7 @@ For more complex messaging workflows or to utilize other messaging platforms, yo
 ## Workflows
 Integrated RapidPro/CHT workflows are very flexible and leverage the full functionality of each application; You configure RapidPro directly in RapidPro, and configure the CHT in the CHT and the two systems communicate with each other through APIs and [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}). With this architecture, you are not limited to a subset of functionality within either application.
 
-A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task]({{< ref "building/features/tasks" >}}) for a health worker in the CHT based on the patient responses from the RapidPro flow. 
+A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task]({{< ref "building/tasks" >}}) for a health worker in the CHT based on the patient responses from the RapidPro flow. 
 
 App builders have built and deployed a number of interactive messaging workflows that integrate RapidPro and the CHT already, see below for a few examples.
 

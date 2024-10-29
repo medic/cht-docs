@@ -5,7 +5,7 @@ weight: 5
 description: >
   **Tasks**: Definition of tasks shown to app users
 relatedContent: >
-  building/features/tasks
+  building/tasks
   building/concepts/workflows
   design/best-practices
 keywords: tasks workflows
@@ -19,7 +19,7 @@ Task generation is configured in the `tasks.js` file. This file is a JavaScript 
 
 Task generation occurs on the client periodically and creates documents which track the status of the task over time. To avoid performance issues the developer needs to be conscious about generating too many tasks. For example, to remind a user to do something every day, you could generate one task for each day and fill up the user's device. The recommended approach is to only generate the tasks for the near future, or only once the previous task is resolved. To limit the impact of this misconfiguration, the CHT will only generate tasks that can be completed between 60 days in the past, and (as of 4.0.0) 180 days in the future.
 
-{{< see-also page="building/features/tasks" title="Tasks Overview" >}}
+{{< see-also page="building/tasks" title="Tasks Overview" >}}
 
 ## `tasks.js`
 

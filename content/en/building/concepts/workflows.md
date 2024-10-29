@@ -16,7 +16,7 @@ Workflows can be defined within apps built with the Core Framework to connect ac
 
 Tasks within the app can drive a workflow, ensuring that the right actions are taken for people at the right time. Tasks indicate a recommended action to the user. They indicate who the user should perform the action with, and the recommended timeframe of that action. When the user taps the task, they are directed to a form where the details of the action are captured.
 
-Tasks can be triggered by a set of conditions, such as contact details or submitted reports. Tasks are accessible in the Tasks tab and the profile in the Contact tab, and initiate a follow up action to complete a form. More information on building app workflows is available in the [Tasks section]({{< ref "building/features/tasks" >}}).
+Tasks can be triggered by a set of conditions, such as contact details or submitted reports. Tasks are accessible in the Tasks tab and the profile in the Contact tab, and initiate a follow up action to complete a form. More information on building app workflows is available in the [Tasks section]({{< ref "building/tasks" >}}).
 
 Data submitted in one form can generate several tasks at once, for example, multiple ANC visits following one pregnancy registration. Some workflows involve a series of sequential forms and tasks, such as a child health assessment form, a follow up task scheduled 48 hours later, a referral form (only if the child’s condition hasn’t improved), and then a referral follow up task. Tasks are accessible on the Tasks tab, as well as the Tasks section of profiles. 
 {{< see-also page="building/reference/tasks" title="Defining Tasks" >}}
