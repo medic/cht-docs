@@ -59,7 +59,7 @@ CHWs are able to complete tasks directly from this page, or exit by tapping on t
 
 {{< figure src="tasks-profile.png" class="right col-6 col-lg-3" >}}
 
-Tasks are also accessed from a the People tab in the app.
+Tasks are also accessed from the People tab in the app.
 
 Tasks for a particular person or place can be viewed on the contact’s profile in the “Tasks” section. Filters allow you to choose how many tasks you’d like to view for each due date.
 
