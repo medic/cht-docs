@@ -51,7 +51,7 @@ When the user completes the care guide, the task will be cleared from the Tasks 
     
 {{< figure src="tasks-household.png" class="right col-6 col-lg-3" >}}
     
-Alternatively, there is an option to configure Household Tasks. When this [permission](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-permissions/) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
+Alternatively, there is an option to configure Household Tasks. When this [permission]({{< relref "building/reference/app-settings/user-permissions" >}}) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
 
 CHWs are able to complete tasks directly from this page, or exit by tapping on the “X”. If the household has no additional tasks, they will return directly to the main task list.
     
