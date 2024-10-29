@@ -110,7 +110,7 @@ Assuming your CHT instance is **already running with the default self-signed cer
 4. Generate certs:
    ```shell
    cd /home/ubuntu/cht/certbot
-   docker compose up
+   docker compose up --detach
    ```
 5. Run this command to find the name of your CHT ngnix container:
    ```shell
@@ -122,7 +122,7 @@ Assuming your CHT instance is **already running with the default self-signed cer
     ```
 7. Attempt to renew your certificates once a week by adding this cronjob via `crontab -e`.  Certbot will only renew them as needed:
    ```shell
-   0 0 * * 0 cd /home/ubuntu/cht/certbot&&docker compose up
+   0 0 * * 0 cd /home/ubuntu/cht/certbot&&docker compose up --detach
    ```
 
 ## Troubleshooting
