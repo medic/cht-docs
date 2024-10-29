@@ -4,11 +4,10 @@ linkTitle: Passing Data from Tasks to Forms
 description: >
   Demonstrates how to pass data into an application form via tasks
 relatedContent: >
-  building/tutorials/tasks-2
+  building/tasks/complex-tasks
   building/tutorials/app-forms
   building/reference/tasks
-  building/guides/forms/form-inputs
-  
+  building/guides/forms/form-inputs  
 aliases:
    - /apps/guides/tasks/pass-data-to-form
 ---
@@ -19,15 +18,15 @@ This guide explains how to pass data from a task into the action _application fo
 
 ## Prerequisites
 
-* [Complex Tasks Tutorial]({{< ref "building/tutorials/tasks-2" >}})
+* [Complex Tasks Tutorial]({{< ref "building/tasks/complex-tasks" >}})
 * [Application Forms Tutorial]({{< ref "building/tutorials/app-forms" >}})
 
 ## Scenario
 
-Let's look deeper at the scenario from the [Complex Tasks Tutorial]({{< ref "building/tutorials/tasks-2" >}}) where we have an ANC follow-up task which recurs eight times, and we want to ask the user different questions on the first and last follow-up.
+Let's look deeper at the scenario from the [Complex Tasks Tutorial]({{< ref "building/tasks/complex-tasks" >}}) where we have an ANC follow-up task which recurs eight times, and we want to ask the user different questions on the first and last follow-up.
 
 ## Developing the task
-From the [Complex Tasks Tutorial]({{< ref "building/tutorials/tasks-2" >}}), here is the task.
+From the [Complex Tasks Tutorial]({{< ref "building/tasks/complex-tasks" >}}), here is the task.
 
 ```javascript
 const { DateTime } = require('luxon');
