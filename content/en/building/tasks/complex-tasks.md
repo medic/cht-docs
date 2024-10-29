@@ -8,8 +8,8 @@ relatedContent: >
   building/tasks/simple-tasks
   building/reference/tasks
   building/examples/anc
-
 aliases:
+   - /building/tutorials/tasks-2
    - /apps/tutorials/tasks-2
 ---
 
