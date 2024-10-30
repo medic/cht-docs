@@ -13,7 +13,7 @@ relatedContent: >
 
 [OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Integrating CHT apps with OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
 
-Integrating CHT apps with OpenMRS can be achieved using the [Interoperability Tools](https://rest.openmrs.org/) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/guides/interoperability/cht_config" >}}). 
+Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/guides/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/guides/interoperability/cht_config" >}}). 
 
 ## Overview
 
@@ -24,7 +24,7 @@ The CHT's interoperability tools support integrations with OpenMRS in a variety 
 3. Receiving patient and patient contact data from OpenMRS
 4. Receiving reports data (encounters and observations) from OpenMRS
 
-The steps to create an OpenMRS interoperability flow.
+The steps to create an OpenMRS interoperability flow are:
 
 1. Profile the workflow in terms of what data needs to be exchanged between OpenMRS and CHT.
 2. Set up OpenMRS, or get Basic Authentication credentials from an existing OpenMRS deployment. 
@@ -36,13 +36,12 @@ The steps to create an OpenMRS interoperability flow.
 
 ## Technical Overview
 
-It may be useful to have a general understanding of CHT and OpenMRS can interoperate.
-* Outbound push is used to send CHT documents to the CHT Mediator, which converts them into FHIR resources, and stores a copy on a FHIR Server using HAPI.
-This intermediate storage in the FHIR is used to link patients and encounters from OpenMRS and CHT with identifiers from both CHT and OpenMRS and to store additional FHIR metadata.
+It may be useful to have a general understanding of how CHT and OpenMRS can interoperate.
+* Outbound push is used to send CHT documents to the CHT Mediator, which converts them into FHIR resources, and stores a copy on a FHIR Server using [HAPI](https://hapifhir.io/).
+This intermediate storage is used to link patients and encounters from OpenMRS and CHT with identifiers from both CHT and OpenMRS and to store additional FHIR metadata.
 * An OpenMRS mediator polls the OpenMRS FHIR API periodically (the default is every minute) and synchronizes resources between the FHIR server and OpenMRS.
 Synchronizing involves comparing the resources from the FHIR server and OpenMRS and forwarding any new or updated data from one to the other.
 This is used both to create CHT data in OpenMRS and to create OpenMRS data in a CHT application.
-
 
 ## Getting started
 
@@ -56,12 +55,15 @@ The first step is to profile the workflow.
 
 ## Configuring CHT And OpenMRS
 
+Depending on what data needs to be exchanged, outbound push configurations and JSON forms need to be added to CHT.
+
 ### Sending patients CHT->OpenMRS
 
 When sending patient data to OpenMRS, configure an outbound push mapping as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht_config#outbound-patients" >}}).
 Patients synced to OpenMRS will have two new [identifier types](https://guide.openmrs.org/getting-started/openmrs-information-model/#patient-identifier): `CHT Document Id`, the uuid of the document that is sent, and `CHT Patient ID`, if there is a `patient_id` field on the patient document.
 These identifier types are created automatically when the OpenMRS Channel is registered.
 
+This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-outgoing-patients.png)
 
 ### Sending forms CHT->OpenMRS
@@ -70,15 +72,16 @@ Any data sent from CHT to OpenMRS needs to map to a [concept](https://wiki.openm
 For any fields to send to OpenMRS, first find or create matching concepts in OpenMRS.
 Then, using the appropriate codes, configure an outbound push as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht_config#outbound-reports" >}}).
 
-In OpenMRS, all forms are represented as 'Home Visit' Encounter types, with a 'Visit Note' Encounter.
-Any fields in the outbound push config are converted to Observations, which are linked to the Visit Note.
+In OpenMRS, all form submissions are represented as `Home Visit` Encounter types, with a `Visit Note` Encounter.
+Any fields in the outbound push config are converted to FHIR Observations, which are linked to the `Visit Note`.
 
+This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-form-submission.png)
 
 ### Sending patients OpenMRS->CHT
 
 Receiving patient and form data from OpenMRS in CHT is possible, but requires some additional configuration to assign patients to a CHW or CHW Area.
-All patients in CHT applications require a parent, which is assumed to be a CHW area or equivalent and defines to which CHW the patient is assigned.
+All patients in CHT applications require a parent, which is assumed to be a CHW area or equivalent and defines which CHW the patient is assigned to.
 For interoperability with OpenMRS, this means that patients created by OpenMRS must be matched to CHT locations.
 
 A default implementation is provided which uses the [OpenMRS address add on](https://addons.openmrs.org/show/org.openmrs.module.addresshierarchy) to match locations in OpenMRS to contacts in CHT.
@@ -86,11 +89,12 @@ This can be complicated to set up and maintain; an alternative is to customize t
 If using the default implementation
 1. Install the address hierarchy add-on.
 2. Download the contact hierarchy from the CHT application.
-2. Upload these contacts to OpenMRS: address 5 should be a CHW area, or the direct parent of the patient. If address 5 is not specified, the mediator will use address 4. 
-3. The mediator will attempt to find CHT locations by using a place id formatted like `[12345]` at the end of the address string. `place_id` must match a CHT place id. If `place_id` is not included in the OpenMRS addresses, the mediator will attempt to match by the place name. This is not as reliable since the name must match exactly, and changes to either the CHT or OpenMRS will 
+3. Upload these contacts to OpenMRS: address 5 should be a CHW area, or the direct parent of the patient. If address 5 is not specified, the mediator will use address 4. 
+4. The mediator will attempt to find CHT locations by using a place id formatted like `[12345]` at the end of the address string. `place_id` must match a CHT place id. If `place_id` is not included in the OpenMRS addresses, the mediator will attempt to match by the place name. This is not as reliable since the name must match exactly, and changes to either the CHT or OpenMRS will 
 
 Patients that do not have an address or otherwise cannot be assigned a parent in CHT will be queryable in the FHIR Server and linked to OpenMRS Patients, but will not be sent to CHT.
 
+This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-incoming-patients.png)
 
 ### Sending forms OpenMRS->CHT
@@ -100,11 +104,12 @@ Then a form in CHT to receive the reports [as described in the CHT interop confi
 When a Visit is completed in OpenMRS, the mediator will sync it to the FHIR Server.
 Then, it will be forwarded to CHT depending on the visit type. 
 
+This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-incoming-forms.png)
 
 ## Starting the interop project
 
-Once the CHT and OpenMRS configs are ready, deploy the CHT interoperability project.
+Once the CHT and OpenMRS configs are ready, [Interoperability Tools]({{< ref "building/guides/interoperability/openhim" >}}).
 Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the necessary channel automatically.
 | Name                      | Description                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------|
@@ -115,22 +120,29 @@ Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the n
 
 When these variables are set, a channel for OpenMRS will automatically be created on startup.
 
-Follow the instructions to deploy OpenHIM, the mediators, and the OpenHIM configuration.
-
 ### OpenHIM resources
 
 The interoperability project will automatically create the following resources
 * The CHT Mediator is used to convert CHT documents to FHIR resources and store them on the FHIR Server.
 * The OpenMRS mediator is used to send FHIR Resources from the FHIR Server to OpenMRS. It contains only one endpoint, `sync`.
 
+![](mediators.png)
+
 * The CHT Mediator Channel contains routes to the CHT Mediator
 * The FHIR Channel contains routes to the FHIR Server. Although it is not used by this integration, it can be used to expose any CHT documents sent to it as a FHIR API.
 * The OpenMRS Channel contains routes to the FHIR API of an external deployment of OpenMRS
-* The OpenMRS Polling Channel is a polling channel that triggers the sync
+* The OpenMRS Polling Channel is a [polling channel](https://openhim.org/docs/user-guide/polling-channels/) that triggers the sync
 
-## Error Handling and debugging
+![](channels.png)
 
-In case anything does not work as expected, it can be helpful to first check the transaction log page of OpenHIM to see which requests were sent, and the request and response bodies.
+### Troubleshooting
+
+In case of errors when setting up the OpenHIM project please see the [Troubleshooting guide]({{< ref "building/guides/interoperability/troubleshooting" >}}).
+
+If the openhim project starts up correctly but something else does not work as expected, it can be helpful to first check the transaction log page of OpenHIM to see which requests were sent, and the request and response bodies.
+See the sequence diagrams above for the expected requests/responses.
+
+![](transaction_log.png)
 
 ### CHT->OpenMRS
 * No outbound push sent: check outbound push config, and logs for sentinel

@@ -8,6 +8,7 @@ keywords: openmrs interoperability
 relatedContent: >
   building/guides/interoperability/cht_config
   building/guides/interoperability/ltfu_reference_workflow
+  building/guides/interoperability/troubleshooting
   building/concepts/interoperability/
   building/guides/integrations/openmrs/
 ---
@@ -39,7 +40,7 @@ See more information on the [CHT interoperability](https://docs.communityhealtht
 
 ### Troubleshooting
 
-Users getting errors when running the following installation steps, please see the [Troubleshooting guide](/TROUBLESHOOTING.md).
+Users getting errors when running the following installation steps, please see the [Troubleshooting guide]({{< ref "building/guides/interoperability/troubleshooting" >}}).
 
 ### Install & First Time Run
 
