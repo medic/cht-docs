@@ -220,6 +220,7 @@ git clone https://github.com/medic/cht-core.git
 
 ```shell
 cht --url=https://medic:password@localhost --accept-self-signed-certs
+cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
 ```
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
