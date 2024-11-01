@@ -219,6 +219,7 @@ git clone https://github.com/medic/cht-core.git
 - Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
 ```shell
+cht --url=https://medic:password@localhost --accept-self-signed-certs
 cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
 ```
 
