@@ -170,40 +170,6 @@ The available operators are:
 | () | nested blocks, eg: `a && (b \|\| c)` |
 
 ### Rules
-Validation settings may consist of Pupil.js rules and rules specific to the CHT. These two types of rules cannot be combined as part of the same rule.
-
-Not OK:
-`rule: "regex(\d{5}) && unique('patient_id')"`
-
-OK:
-`rule: "regex(\d{5}) && max(11111)"`
-     
-If for example you want to validate that patient_id is 5 numbers and it is unique (or some other custom validation) you need to define two validation configs/separate rules in your settings. Example validation settings:
-
-```json
-[
-  {
-    "property": "patient_id",
-    "rule": "regex(\d{5})",
-    "message": [{
-      "content": "Patient ID must be 5 numbers.",
-      "locale": "en"
-    }]
-  },
-  {
-    "property": "patient_id",
-    "rule": "unique('patient_id')",
-    "message": [{
-      "content": "Patient ID must be unique.",
-      "locale": "en"
-    }]
-  }
-]
-```
-
-`validate()` modifies the property value of the second item to `patient_id_unique` so that pupil.validate() still returns a valid result.  Then we process the result once more to extract the custom validation results and error messages.
-
-#### Pupil.js validation functions
 
 The following functions are available by default:
 
@@ -229,16 +195,6 @@ The following functions are available by default:
 | `email` |  Email address format |
 | `regex` |  A custom regular expression |
 | `equalsTo` | Compare to another field by its key |
-
-##### Sample usage
-
-For case-insensitive comparison, use `iEquals` function in Pupil, and you can use `||` for logical OR.
-
-So the rule `iEquals("mary") || iEquals("john")` matches "mary", "Mary", "john", "John", and "JOhN", but not "maryjohn"
-
-#### CHT validation functions
-| Function | Description |
-|----|----|
 | `unique(*fields)` | Returns `true` if no existing valid report has the same value for all of the listed fields. Fields are compared to those at the top level and within `fields` for every report doc. To include the form type use `'form'` as one of the fields. Eg `unique('form', 'patient_id')` checks that this form was never submitted for this patient. |
 | `uniquePhone(field)` | Returns `true` if contact with the phone number already exists. _Added in 4.3.0_ |
 | `validPhone(field)` | Returns `true` if the field is a valid phone number else returns false. _Added in 4.3.1_ |
@@ -247,3 +203,23 @@ So the rule `iEquals("mary") || iEquals("john")` matches "mary", "Mary", "john",
 | `isISOWeek(weekFieldName[, yearFieldName])` | Returns `true` if the current report has a week value that is less or equal to the number of ISO weeks of the current year or the year value of the same report. The first parameter is the field name for the week and the second parameter is the field name for the year: `isISOWeek('week', 'year')`. If the second parameter is not specified, then the current year is used: `isISOWeek('week')`. |
 | `isAfter(duration)` | Returns `true` if the date property comes after today plus the duration. For this to work, the property should be a date type. e.g. `isAfter('2 weeks')` checks that the date property is at least two weeks in the future from today. Negative values are also supported. |
 | `isBefore(duration)` | Returns `true` if the date property comes before today minus the duration. For this to work, the property should be a date type. e.g. `isBefore('2 weeks')` checks that the date property is at least two weeks in the past from today. Negative values are also supported. |
+
+#### Sample usage
+
+To ensure the `patient_id` is 5 digits and not already registered.
+
+```json
+[
+  {
+    "property": "patient_id",
+    "rule": "regex(\d{5}) && unique('patient_id')",
+    "translation_key": "patient_id_invalid"
+  }
+]
+```
+
+For case-insensitive comparison, use `iEquals` function, and you can use `||` for logical OR. So the rule `iEquals("mary") || iEquals("john")` matches "mary", "Mary", "john", "John", and "JOhN", but not "maryjohn"
+
+#### Combining rules
+
+Prior to 4.15.0 you could not combine certain rules. Check this [bug report](https://github.com/medic/cht-core/issues/8806#issuecomment-2451994409) for more information.
