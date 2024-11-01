@@ -26,10 +26,10 @@ After meeting these requirements, download the developer YAML file in the direct
 curl -o docker-compose-developer-3.x-only.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
 ```
 
-To start the first developer CHT instance, run `docker-compose` and specify the file that was just download:
+To start the first developer CHT instance, run `docker compose` and specify the file that was just download:
 
 ```shell script
-docker-compose -f docker-compose-developer-3.x-only.yml up
+docker compose -f docker-compose-developer-3.x-only.yml up
 ```
 
 This may take some minutes to fully start depending on the speed of the Internet connection and speed of the bare-metal host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost](https://localhost).
@@ -47,14 +47,14 @@ After running the first instance of the CHT, it's easy to run as many more as ar
 Assuming you want to start a new project called `the_second` and  start the instance on `HTTP` port `8081` and `HTTPS` port `8443`, this would be the command:
 
 ```shell script
-CHT_HTTP=8081 CHT_HTTPS=8443 docker-compose -p the_second -f docker-compose-developer-3.x-only.yml up
+CHT_HTTP=8081 CHT_HTTPS=8443 docker compose -p the_second -f docker-compose-developer-3.x-only.yml up
 ```
 
 The second instance is now accessible at  [https://localhost:8443](https://localhost:8443).
 
 ## The `.env` file 
 
-Often times it's convenient to use revision control, like GitHub, to store and publish changes in a CHT app.  A nice compliment to this is to store the specifics on how to run the `docker-compose` command for each app. By using a shared `docker-compose` configuration for all developers on the same app, it avoids any port collisions and enables all developers to have a unified configuration.
+Often times it's convenient to use revision control, like GitHub, to store and publish changes in a CHT app.  A nice compliment to this is to store the specifics on how to run the `docker compose` command for each app. By using a shared `docker compose` configuration for all developers on the same app, it avoids any port collisions and enables all developers to have a unified configuration.
 
 Using the above `the_second` sample project, we can create another directory to host this project's configuration:
 
@@ -73,7 +73,7 @@ CHT_HTTPS=8443
 Now it's easy to boot this environment by specifying which `.env` file to use:
 
 ```shell
-docker-compose --env-file ../the_second/.env-docker-compose -f docker-compose-developer-3.x-only.yml up
+docker compose --env-file ../the_second/.env-docker-compose -f docker-compose-developer-3.x-only.yml up
 ```
 
 ## Switching & concurrent projects
@@ -99,14 +99,14 @@ This script has been heavily tested on Ubuntu and should work very well there.  
 
 #### Software
 
-The script will check and require these commands. All but `docker` and `docker-compose` should be installed by default on Ubuntu:
+The script will check and require these commands. All but `docker` and `docker compose` should be installed by default on Ubuntu:
 
 * awk
 * curl
 * cut
 * dirname
 * docker (At least version 20.x)
-* docker-compose  (At least version 1.27)
+* docker compose  (At least version 2.29.7)
 * file
 * grep
 * head

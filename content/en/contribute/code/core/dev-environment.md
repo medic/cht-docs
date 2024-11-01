@@ -141,7 +141,7 @@ Now you can start CouchDB. The login for your CHT instance will be `medic` and t
 
 ```shell
 cd ~/cht-docker 
-COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.yml -f couchdb-override.yml up -d
+COUCHDB_USER=medic COUCHDB_PASSWORD=password docker compose -f docker-compose.yml -f couchdb-override.yml up -d
 ```
 
 ### Developing

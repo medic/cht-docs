@@ -46,7 +46,7 @@ CHT apps can be built on your local system (with the necessary libraries install
 Before you begin, ensure you have the following tools:
 
 - [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
-- [docker and docker-compose]({{< relref "hosting/requirements#docker" >}}).
+- [docker and docker compose]({{< relref "hosting/requirements#docker" >}}).
 
 ### Installing Docker
 
