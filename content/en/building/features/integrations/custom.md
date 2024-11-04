@@ -103,4 +103,4 @@ You can do this by submitting a JSON Form to the records [endpoint]({{< ref "bui
 
 {{% alert title="Example 2" %}} Continuing from Example 1, create a task for a CHW in the CHT whenever a patient responds that they have developed symptoms. {{% /alert %}}
 
-You would do this by simply configuring a [task]({{< ref "building/features/tasks" >}}) to be generated based on criteria available in the report that was created in Example 1.
+You would do this by simply configuring a [task]({{< ref "building/tasks" >}}) to be generated based on criteria available in the report that was created in Example 1.

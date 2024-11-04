@@ -5,7 +5,7 @@ weight: 9
 description: >
   Writing and testing a simple task
 relatedContent: >
-  building/features/tasks
+  building/tasks
   building/reference/tasks
   building/concepts/workflows
   design/best-practices#anatomy-of-a-task
