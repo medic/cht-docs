@@ -9,6 +9,7 @@ relatedContent: >
   design/best-practices
 keywords: targets workflows
 aliases:
+  - /building/reference/targets/
    - /apps/reference/targets
 ---
 
