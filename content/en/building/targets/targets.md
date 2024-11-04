@@ -1,15 +1,15 @@
 ---
-title: "Building Target Widgets"
+title: "Target Widgets"
 linkTitle: Targets
-weight: 10
+weight: 2
 description: >
  How to build CHT monthly and all time target widgets
 relatedContent: >
-  building/features/targets
-  building/reference/targets
+  building/targets/targets-overview
+  building/targets/targets-js
   design/best-practices/#anatomy-of-a-task
-
 aliases:
+   - /apps/tutorials/targets
    - /apps/tutorials/targets
 ---
 
@@ -23,15 +23,15 @@ You will be adding target widgets that will allow Community Health Workers (CHWs
 
 ## Brief Overview of Key Concepts
 
-*[Targets]({{< ref "building/features/targets" >}})* is the user dashboard or analytics tab.
+*[Targets]({{< ref "building/targets/targets-overview" >}})* is the user dashboard or analytics tab.
 
-*[Target widgets]({{< ref "building/features/targets#types-of-widgets" >}})* provide a summary or analysis of the data in submitted reports.
+*[Target widgets]({{< ref "building/targets/targets-overview#types-of-widgets" >}})* provide a summary or analysis of the data in submitted reports.
 
-*[Count widgets]({{< ref "building/features/targets#count-widgets" >}})* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria.
+*[Count widgets]({{< ref "building/targets/targets-overview#count-widgets" >}})* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria.
 
-*[Percent widgets]({{< ref "building/features/targets#percent-widgets" >}})* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
+*[Percent widgets]({{< ref "building/targets/targets-overview#percent-widgets" >}})* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
 
-*[Target schema]({{< ref "building/reference/targets#targetsjs" >}})* details a set of properties for targets.
+*[Target schema]({{< ref "building/targets/targets-js#targetsjs" >}})* details a set of properties for targets.
 
 *Target instance* is an object emitted and counted or aggregated based on target configuration.
 
@@ -348,7 +348,7 @@ module.exports = [
 ];
 ```
 
-{{< see-also page="building/reference/targets" title="Targets overview" >}}
+{{< see-also page="building/targets/targets-js" title="Targets overview" >}}
 
 ### 8. Compile and Upload App Settings
 

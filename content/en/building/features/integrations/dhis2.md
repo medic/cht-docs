@@ -49,7 +49,7 @@ CHWs support patients in their community by following care guides and recording 
 
 ![CHWs](chw.png "Feature Overview CHWs")
 
-{{< see-also page="building/features/targets" title="Targets" >}}
+{{< see-also page="building/targets/targets-overview" title="Targets" >}}
 
 ### Supervisors
 
