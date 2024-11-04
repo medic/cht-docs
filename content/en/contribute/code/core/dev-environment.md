@@ -183,7 +183,7 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
 * [Node.js {{< param nodeVersion >}}.x](https://nodejs.org/) & [npm {{< param npmVersion >}}.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
-* [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
+* [xsltproc](https://github.com/ilyar/xsltproc) 
 * [python 2.7](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
