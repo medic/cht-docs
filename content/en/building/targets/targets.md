@@ -10,7 +10,7 @@ relatedContent: >
   design/best-practices/#anatomy-of-a-task
 aliases:
    - /apps/tutorials/targets
-   - /apps/tutorials/targets
+   - /building/tutorials/targets
 ---
 
 {{% pageinfo %}}
