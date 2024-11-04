@@ -1,6 +1,6 @@
 ---
 title: "Target Widgets"
-linkTitle: Targets
+linkTitle: Targets Widgets
 weight: 2
 description: >
  How to build CHT monthly and all time target widgets
