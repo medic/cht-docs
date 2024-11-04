@@ -31,19 +31,19 @@ The install requires an admin password that it will configure in the database. Y
 
 `export DOCKER_COUCHDB_ADMIN_PASSWORD=myAwesomeCHTAdminPassword`
 
-You can then run `docker-compose` in the folder where you put your compose  `docker-compose.yml` file. To start, run it interactively to see all the logs on screen and be able to stop the containers with `ctrl` + `c`:
+You can then run `docker compose` in the folder where you put your compose `docker-compose.yml` file. To start, run it interactively to see all the logs on screen and be able to stop the containers with `ctrl` + `c`:
 
 ```bash
-sudo docker-compose up 
+sudo docker compose up 
 ```
 
 If there are no errors, stop the containers with `ctrl` + `c` and then run it detached with `-d`:
 
 ```bash
-sudo docker-compose up -d
+sudo docker compose up -d
 ```
 
-Note In certain shells, `docker-compose` may not interpolate the admin password that was exported in `DOCKER_COUCHDB_ADMIN_PASSWORD`. Check if this is the case by searching the logs in the medic-os dockers instance. If the `docker logs medic-os` command below returns a user and password, then the export above failed, and you should use this user and password to complete the installation:
+Note In certain shells, `docker compose` may not interpolate the admin password that was exported in `DOCKER_COUCHDB_ADMIN_PASSWORD`. Check if this is the case by searching the logs in the medic-os dockers instance. If the `docker logs medic-os` command below returns a user and password, then the export above failed, and you should use this user and password to complete the installation:
 
 ```bash
 docker logs medic-os  |grep 'New CouchDB Admin'
@@ -77,10 +77,10 @@ If some  instructions were missed and there's a broken CHT deployment, use the c
 1. Remove containers: `docker rm medic-os && docker rm haproxy`
 1. Clean data volume:`docker volume rm medic-data`
 
-    Note: Running `docker-compose down -v`  would do all the above 3 steps
+    Note: Running `docker compose down -v`  would do all the above 3 steps
 1. Prune system: `docker system prune`
 
-After following the above commands, you can re-run docker-compose up and create a clean install:  `docker-compose up -d`
+After following the above commands, you can re-run `docker compose` up and create a clean install:  `docker compose up -d`
 
 ### Port Conflicts
 
@@ -110,11 +110,11 @@ services:
 
 Turn off and remove all existing containers that were started:
 
- `sudo docker-compose down`
+ `sudo docker compose down`
 
 Bring Up the containers in detached mode with the new forwarded ports.
 
- `sudo docker-compose up -d`
+ `sudo docker compose up -d`
 
 Note: You can  substitute 8080, 444 with whichever ports are free on your host. You would now visit https://localhost:444 to visit your project.
 

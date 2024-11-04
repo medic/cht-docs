@@ -96,9 +96,9 @@ If you want to set and save all possible variables:
 
  *****
 
-## Using docker-compose
+## Using docker compose
 
-The simplest way to run couch2pg is with `docker-compose` which only needs configuration of the CouchDB instance URL. The compose file will then create a PostgreSQL container, connect to the CouchDB server and proceed to download couchDB documents to the PostgreSQL container:
+The simplest way to run couch2pg is with `docker compose` which only needs configuration of the CouchDB instance URL. The compose file will then create a PostgreSQL container, connect to the CouchDB server and proceed to download couchDB documents to the PostgreSQL container:
 
 1. Change directory into the repo's directory where you cloned it: `cd /path/to/cht-couch2pg`
 
@@ -109,7 +109,7 @@ export COUCHDB_URL=https://medic:password@192-168-68-26.local-ip.medicmobile.org
 
 {{% alert title="Note" %}} The CouchDB URL needs to be reachable from the docker container (i.e. not localhost). {{% /alert %}}
 
-3. Run: `docker-compose up`
+3. Run: `docker compose up`
 
 4. Connect to the PostgreSQL instance with login `cht_couch2pg`, password `cht_couch2pg_password` and database `cht`.
 
