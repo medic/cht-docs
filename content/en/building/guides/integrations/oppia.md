@@ -100,7 +100,7 @@ The code snippet below illustrates an example of a task configured for the educa
 
 ### Targets
 
-The users also have access to [targets]({{< ref "building/reference/targets" >}}). Targets are a visual representation of the progress and goals of the user. These are app analytics accessed through the targets tab, where the user is able to view how many modules they have completed. Similar to tasks, targets are defined as an array of objects in a targets.js file under the project folder, with each target following the targets schema. The required properties of a target object include:
+The users also have access to [targets]({{< ref "building/targets/targets-js" >}}). Targets are a visual representation of the progress and goals of the user. These are app analytics accessed through the targets tab, where the user is able to view how many modules they have completed. Similar to tasks, targets are defined as an array of objects in a targets.js file under the project folder, with each target following the targets schema. The required properties of a target object include:
 
 - Id - unique identifier of the target;
 - Translation_key - title displayed for the widget;

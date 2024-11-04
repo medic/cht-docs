@@ -5,7 +5,7 @@ description: >
   Supervision and workforce management to strengthen health systems
 keywords: supervisor
 relatedContent: >
-  building/features/targets
+  building/targets/targets-overview
   design/best-practices/#targets
   building/features/integrations/dhis2
   building/reference/app-settings/transitions#create_user_for_contacts
@@ -22,7 +22,7 @@ The importance of regular and systematic CHW supervision is emphasized by the WH
 
 {{< figure src="aggregate-supervisor.png" link="aggregate-supervisor.png" class="right col-7 col-lg-6" >}}
 
-For CHW Supervisors, the [Targets]({{< relref "building/features/targets" >}}) tab provides important insights into their community unit. It presents Supervisors with actionable information about their CHWs, by aggregating data for each of the CHWs that a Supervisor manages and presenting it in an easily digestible format. This enables Supervisors to gain insight into how well their team of CHWs is working together to meet common goals.
+For CHW Supervisors, the [Targets]({{< relref "building/targets/targets-overview" >}}) tab provides important insights into their community unit. It presents Supervisors with actionable information about their CHWs, by aggregating data for each of the CHWs that a Supervisor manages and presenting it in an easily digestible format. This enables Supervisors to gain insight into how well their team of CHWs is working together to meet common goals.
 
 Selecting an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up for coaching and performance management.
 

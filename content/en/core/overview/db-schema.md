@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/guides/database
   building/reference/contact-page
-  building/reference/targets
+  building/targets/targets-js
   building/reference/tasks
 ---
 
@@ -293,7 +293,7 @@ To understand the difference between a task requester and a task owner, kindly s
 ```
 
 ## Targets
-[Partner configuration code]({{< ref "building/reference/targets#targetsjs" >}}) can configure targets to appear within the Targets/Analytics tab. Target documents are:
+[Partner configuration code]({{< ref "building/targets/targets-js#targetsjs" >}}) can configure targets to appear within the Targets/Analytics tab. Target documents are:
 
 * one per analytics reporting period
 * updated when the user loads the application or when they view the targets tab 

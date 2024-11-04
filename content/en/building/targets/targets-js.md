@@ -1,14 +1,15 @@
 ---
 title: "targets.js"
 linkTitle: "targets.js"
-weight: 5
+weight: 3
 description: >
-  **Targets**: Definition of target widgets calculated and seen in the app
+  Definition of target widgets calculated and seen in the app
 relatedContent: >
-  building/features/targets
+  building/targets/targets-overview
   design/best-practices
 keywords: targets workflows
 aliases:
+   - /building/reference/targets/
    - /apps/reference/targets
 ---
 
@@ -18,7 +19,7 @@ aliases:
 
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 
-{{< see-also page="building/features/targets" title="Targets Overview" >}}
+{{< see-also page="building/targets/targets-overview" title="Targets Overview" >}}
 
 ## `targets.js`
 
