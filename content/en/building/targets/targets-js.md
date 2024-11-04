@@ -1,6 +1,6 @@
 ---
-title: "Targets.js"
-linkTitle: "Targets.js"
+title: "targets.js"
+linkTitle: "targets.js"
 weight: 3
 description: >
   Definition of target widgets calculated and seen in the app
@@ -9,7 +9,7 @@ relatedContent: >
   design/best-practices
 keywords: targets workflows
 aliases:
-  - /building/reference/targets/
+   - /building/reference/targets/
    - /apps/reference/targets
 ---
 
