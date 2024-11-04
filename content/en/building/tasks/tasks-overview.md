@@ -6,6 +6,7 @@ weight: 3
 description: >
   Overview of CHT Tasks
 aliases:
+   - /building/tasks/overview/
    - /building/features/tasks/
    - /apps/features/tasks/
 ---
