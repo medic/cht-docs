@@ -128,7 +128,7 @@ COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
-e) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.
+e) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker compose` call exits without errors and logs `CouchDb is Ready`.
 ```shell
 cd ~/couchdb-migration/
 docker compose run couch-migration check-couchdb-up
@@ -196,7 +196,7 @@ COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
-h) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
+h) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker compose` call exits without errors and logs `CouchDb Cluster is Ready`.
 ```shell
 cd ~/couchdb-migration/
 docker compose run couch-migration check-couchdb-up <number-of-nodes>
