@@ -101,7 +101,7 @@ In `targets.js`, configure one or more data elements by setting the `dhis.dataSe
 
 
 
-{{< see-also page="building/reference/targets" title="Targets" >}}
+{{< see-also page="building/targets/targets-js" title="Targets" >}}
 
 ```javascript
 module.export = [
