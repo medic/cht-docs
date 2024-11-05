@@ -1,7 +1,7 @@
 ---
 title: "Icon Library"
 linkTitle: "Icon Library"
-weight: 4
+weight: 
 description: >
   Icons for use in CHT application based on our human centered design principles
 ---

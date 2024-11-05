@@ -54,7 +54,7 @@ Create a `resources.json` *file* in your project folder and add key/value pairs 
 }
 ```
 
-{{< see-also page="design/icons" title="Icon Library" >}}
+{{< see-also page="design/interface" title="Interface" >}}
 
 Add an `icon` key in the `assessment.properties.json` file. Pick the key of the icon you require from the `resources.json` file and add it as the `icon` value.
 

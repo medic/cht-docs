@@ -1,12 +1,12 @@
 ---
-title: "Component Library"
-linkTitle: "Component Library"
-weight: 3
+title: "Interface"
+linkTitle: "Interface"
+weight: 2
 description: >
-  The standard aspects of our core framework for reuse to encourage consistency when building new pages or components
+  Interface principles serve as guides that shape the design of the CHT and provide support in effective implementation.
 ---
 
-The purpose of this guide is to document the standard aspects of our core framework and allow designers and developers to focus on solving challenges, rather than reinventing interface elements that are already in use.   Changes to the styles in this document should go through product design and be implemented throughout the app before this document is updated. 
+The purpose of this guide is to document the standard aspects of the core framework and allow designers and developers to focus on solving challenges, rather than reinventing interface elements that are already in use.
 
 ## Colors
 Color helps users interpret and interact with app content by establishing a hierarchy of information, highlighting actions, indicating states, and conveying meaning.
@@ -55,6 +55,11 @@ These are the status indication colors of the system. When necessary, use white 
 
 For more information on how these colors are applied in the app, see our [color variables file](https://github.com/medic/cht-core/blob/master/webapp/src/css/variables.less). 
 
+## Icons
+
+Icons for use in CHT application based on our human centered design principles.
+
+We believe in making our simple but strong visual iconography open and accessible to all. We have assembled and designed these icons for use with the Community Health Toolkit based on our human centered design principles.
 
 ## Typography
 
@@ -76,42 +81,49 @@ H5 is a smaller body text size that we use sparingly in places where space is ti
 
         {{< codepen PoZObmY >}}
 
-## Buttons
+### Buttons
 Primary buttons are used for actions, such as “Next” and “Submit”. Secondary buttons are the alternative to the primary action, such as "Previous". Text links are used for less important or less commonly used actions, such as “Cancel”.
         {{< codepen WNrZKoz >}}
 
-## Checkboxes
+### Checkboxes
 Use checkboxes to select multiple items within a form. When necessary, use a descriptive error state.
         {{< codepen YzwrRRV >}}
 
-## Radios
+### Radios
 Use radio buttons to select a single item within a form. When necessary, use a descriptive error state.
         {{< codepen RwrLqqZ >}}
 
-## Inputs
+### Inputs
 Use an input field as a basic text control to enable the user to type a small amount of text. The input size should reflect the amount of text a user is expected to enter. When necessary, use a descriptive error state.
         {{< codepen KKVXrYE >}}
 
-## Dropdowns
+### Dropdowns
 Dropdowns are used within forms that have 7 or more options and as filters within tabs.
         {{< codepen xxZXJgK >}}
 
-## Modals
+### Modals
 Use modals when a user is exiting a flow where information may be lost or for experiences outside the main user flows.
         {{< codepen MWKEzbP >}}
 
-## Condition Cards
+### Condition Cards
 Use these cards in contact summary pages to display an overview of tasks, people, reports, etc
         {{< codepen MWKEzyq >}}
 
-## Content Rows
+### Content Rows
 Content rows are used for tasks, messages, reports and people as an overview of the content name, description, date and/or priority.
         {{< codepen zYrEMqX >}}
 
-## Targets
+### Targets
 Targets include counts and percentages with and without goals.
         {{< codepen wvMrxOx >}}
 
-## Action Bars
+### Action Bars
 Use action bars to prompt new actions or workflows on relative pages.
         {{< codepen YzwEqpB >}}
+
+
+## UI Kit
+
+Use these sample CHT screens and components as needed to test and validate new designs or workflows.
+
+To ensure consistency with other Android apps and user experiences, please refer to and align with Material Design guidelines and standards when designing new components for the CHT.
