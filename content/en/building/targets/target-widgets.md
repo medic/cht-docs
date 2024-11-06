@@ -375,7 +375,7 @@ targets.assessments.percentage.cough.title = % Population with cough
 targets.households.with.assessments.title = Total households with assessments
 targets.households.with.gt2.assessments.title = % Household with >=2 assessments
 ```
-To upload *[translations]({{< ref "building/reference/translations#translations" >}})* to your local instance, run the following command:
+To upload *[translations]({{< ref "building/translations/localizing-translations#translations" >}})* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
