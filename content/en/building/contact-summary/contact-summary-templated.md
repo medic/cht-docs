@@ -1,9 +1,9 @@
 ---
-title: "contact-summary.templated.js"
-linkTitle: "contact-summary.templated.js"
-weight: 5
+title: contact-summary.templated.js
+linkTitle: contact-summary.templated.js
+weight: 2
 description: >
-  **Contact Pages**: Customizing the fields, cards, and actions on profile pages
+  Customizing the fields, cards, and actions on profile pages
 relatedContent: >
   building/guides/forms/form-inputs
 relevantLinks: >
@@ -11,6 +11,7 @@ relevantLinks: >
   docs/building/concepts/hierarchies
 keywords: hierarchy contacts care-guides
 aliases:
+   - /building/reference/contact-page
    - /apps/reference/contact-page
 ---
 

@@ -162,7 +162,7 @@ Below is a code snippet for a target configured for the educational modules:
 
 ### Contact Summary
 
-In addition to targets, the user is able to see which specific modules they have completed, and view upcoming tasks and other general information on their profile. The section containing this information is known as the [contact summary]({{< ref "building/reference/contact-page" >}}). The contact summary has 3 main outputs: cards, fields, and context. Contact summary is defined in the `contact-summary.templated.js` file under the project folder.
+In addition to targets, the user is able to see which specific modules they have completed, and view upcoming tasks and other general information on their profile. The section containing this information is known as the [contact summary]({{< ref "building/contact-summary/contact-summary-templated" >}}). The contact summary has 3 main outputs: cards, fields, and context. Contact summary is defined in the `contact-summary.templated.js` file under the project folder.
 
 Cards are an array of objects which can be customized to group information viewed on a contact’s profile. The required properties of a card include:
 
