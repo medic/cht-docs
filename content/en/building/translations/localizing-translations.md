@@ -3,7 +3,7 @@ title: Localizing
 linkTitle: Localizing
 weight: 3
 description: >
-  **Localization**: Localized labels for CHT applications
+  Localization for CHT applications
 keywords: localization languages translations
 aliases:
    - /building/reference/translations
