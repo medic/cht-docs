@@ -1,6 +1,6 @@
 ---
 title: Building Contact Summary
-linkTitle: Overview
+linkTitle: Building
 weight: 1
 description: >
   Building CHT application contact summary
