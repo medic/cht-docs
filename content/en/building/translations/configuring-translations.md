@@ -1,11 +1,13 @@
 ---
-title: "How To Manage Translations"
-linkTitle: "Translations"
-weight: 5
+title: Configuring
+linkTitle: Configuring
+weight: 2
 description: >
   Process for managing translations in CHT Core
 relatedContent: >  
-  building/reference/translations
+  building/translations/localizing-translations
+aliases:
+   - /core/overview/translations
 ---
 
 Apps built with CHT Core are localized so that users can use them in the language of their choice. Languages supported by default are English, French, Nepali, Spanish, and Swahili. The goal of this doc is to help the community manage these and future translations.
