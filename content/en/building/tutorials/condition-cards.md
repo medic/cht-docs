@@ -6,7 +6,7 @@ description: >
   Building CHT application condition cards
 relatedContent: >
   building/contact-management
-  building/reference/contact-page#condition-cards
+  building/contact-summary/contact-summary-templated#condition-cards
 aliases:
    - /apps/tutorials/condition-cards
 ---
@@ -42,7 +42,7 @@ Create a `contact-summary.templated.js` file if it doesn't exist. (This may have
 
 ### 1. Add Dependencies and Variable Definitions
 
-Add the following dependencies and variable definitions at the top of the file (some of them may have been added from the [contact summary tutorial]({{< ref "building/tutorials/contact-summary" >}})):
+Add the following dependencies and variable definitions at the top of the file (some of them may have been added from the [contact summary tutorial]({{< ref "building/contact-summary/contact-summary-overview" >}})):
 
 ```javascript
 const thisContact = contact;
