@@ -8,7 +8,7 @@ relatedContent: >
   building/guides/database
   building/contact-summary/contact-summary-templated
   building/targets/targets-js
-  building/reference/tasks
+  building/tasks/tasks-js
 ---
 
 CouchDB (and PouchDB in the browser) is a JSON-based NoSQL datastore that we use to store our data. While unlike SQL databases there is no enforced schema, code still follows conventions, and this document aims to describe the schema as defined by how our code operates.
@@ -237,7 +237,7 @@ Users then, can be represented by up to 3 docs:
 
  ## Tasks
 
-[Partner configuration code]({{< ref "building/reference/tasks#tasksjs" >}}) running inside the Core Framework can cause tasks to appear within the Tasks tab. Each task in the tab is powered by a task document. Task documents are:
+[Partner configuration code]({{< ref "building/tasks/tasks-js#tasksjs" >}}) running inside the Core Framework can cause tasks to appear within the Tasks tab. Each task in the tab is powered by a task document. Task documents are:
 
 * updated only after the data for their emitting contact changes or every 7 days
 * created in the database for any task due within the last 60 days

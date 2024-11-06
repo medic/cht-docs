@@ -57,7 +57,7 @@ This image shows the outcome of the button configuration:
 
 ### Tasks
 
-[Tasks]({{< ref "building/reference/tasks" >}}) are a set of actions available to users from the task tab. Selecting a task opens up a specific form that completes a workflow. Tasks are available within a given timeframe, after which they expire and the user is unable to view or do them. Tasks are defined as an array of objects in a tasks.js file under the project folder, with each task following the task schema. The required properties of a task include:
+[Tasks]({{< ref "building/tasks/tasks-js" >}}) are a set of actions available to users from the task tab. Selecting a task opens up a specific form that completes a workflow. Tasks are available within a given timeframe, after which they expire and the user is unable to view or do them. Tasks are defined as an array of objects in a tasks.js file under the project folder, with each task following the task schema. The required properties of a task include:
 
 - Name - unique identifier of the task;
 - Title - displays the workflow to be completed for a contact;

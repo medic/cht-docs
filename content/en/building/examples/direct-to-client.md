@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/concepts
   building/reference/forms/app
-  building/reference/tasks
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/direct-to-client
 ---
