@@ -27,7 +27,7 @@ By the end of the tutorial you should be able to:
 
 *Localization* this is  setting up the desired language in CHT for the end user.
 
-*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here]({{< ref "building/translations/localizing-translation#translations" >}}).
+*Translations* this is manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do that [here]({{< ref "building/translations/localizing-translations#translations" >}}).
 
 ## Required Resources
 
