@@ -1,13 +1,14 @@
 ---
-title: "Building Condition Cards"
+title: Condition Cards
 linkTitle: Condition Cards
-weight: 12
+weight: 3
 description: >
   Building CHT application condition cards
 relatedContent: >
   building/contact-management
   building/reference/contact-page#condition-cards
 aliases:
+   - /building/tutorials/condition-cards
    - /apps/tutorials/condition-cards
 ---
 

@@ -252,7 +252,7 @@ expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
 
 Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 
-Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "building/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
+Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "building/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
 ```js highlight 
 // Load the assessment form and fill in 'yes' on the first page and '7' on the second page
