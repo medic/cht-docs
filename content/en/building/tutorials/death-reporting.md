@@ -139,7 +139,7 @@ You typically don't want users doing actions like "health assessment" for deceas
 
 #### Condition card for "Date of Death"
 
-On your [contact page]({{% ref "building/reference/contact-page" %}}) you may want to add a condition card to display the date of the patient's death.
+On your [contact page]({{% ref "building/contact-summary/contact-summary-templated" %}}) you may want to add a condition card to display the date of the patient's death.
 
 ```javascript
 const cards = [

@@ -84,7 +84,7 @@ This will create or update a document to CouchDB with an ID of `extension-libs` 
 
 #### CHT API
 
-The function will now be available via the CHT API for [tasks]({{< ref "tasks" >}}), [targets]({{< ref "building/targets/targets-js" >}}), and [contact summary]({{< ref "contact-page" >}}) configurations.
+The function will now be available via the CHT API for [tasks]({{< ref "tasks" >}}), [targets]({{< ref "building/targets/targets-js" >}}), and [contact summary]({{< ref "building/contact-summary/contact-summary-templated" >}}) configurations.
 
 #### CHT xPath functions
 

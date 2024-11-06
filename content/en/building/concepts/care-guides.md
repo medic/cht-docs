@@ -7,7 +7,7 @@ keywords: care-guides
 relatedContent: >
   building/concepts/forms
   building/tasks/#care-guides
-  building/reference/contact-page/#care-guides
+  building/contact-summary/contact-summary-templated/#care-guides
 aliases:
    - /apps/concepts/care-guides
 ---

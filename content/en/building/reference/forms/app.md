@@ -29,7 +29,7 @@ A CHT-enhanced version of the ODK XForm standard is supported.
 
 Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
 
-{{< see-also page="building/reference/contact-page" anchor="care-guides" title="Passing contact data to care guides" >}}
+{{< see-also page="building/contact-summary/contact-summary-templated" anchor="care-guides" title="Passing contact data to care guides" >}}
 
 A typical form ends with a summary group (eg `group_summary`, or `group_review`) where important information is shown to the user before they submit the form.
 

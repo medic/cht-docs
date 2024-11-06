@@ -22,7 +22,7 @@ Complete the following tutorials:
   - [Building App Forms]({{< ref "building/tutorials/app-forms" >}})
   - [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}})
   - [Building Target Widgets]({{< ref "building/targets/target-widgets" >}})
-  - [Building Contact Summary]({{< ref "building/tutorials/contact-summary" >}})
+  - [Building Contact Summary]({{< ref "building/contact-summary/contact-summary-overview" >}})
 
 ## Importance of testing your application
 ---
@@ -235,7 +235,7 @@ Contact summary consists of visible components such as [cards](https://docs.comm
 
 Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
-To test the contact summary fields added in the [previous tutorial]({{< ref "building/tutorials/contact-summary#3-export-fields" >}}), use the following test case:
+To test the contact summary fields added in the [previous tutorial]({{< ref "building/contact-summary/contact-summary-overview#3-export-fields" >}}), use the following test case:
 
 ```js highlight 
 const contactSummary = await harness.getContactSummary();
@@ -279,7 +279,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
   ]
 );
 ```
-If you  follow [this code sample]({{< ref "building/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
+If you  follow [this code sample]({{< ref "building/contact-summary/contact-summary-templated#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
 
 ```js highlight 
 const summaryContext = harness.getContactSummary().context;
