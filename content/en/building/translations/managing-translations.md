@@ -3,7 +3,7 @@ title: Managing
 linkTitle: Managing
 weight: 2
 description: >
-  Process for managing translations in CHT Core
+  Adding translations in CHT Core
 relatedContent: >  
   building/translations/localizing-translations
 aliases:
