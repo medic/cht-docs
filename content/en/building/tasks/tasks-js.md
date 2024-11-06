@@ -1,15 +1,16 @@
 ---
-title: "tasks.js"
-linkTitle: "tasks.js"
-weight: 5
+title: tasks.js
+linkTitle: tasks.js
+weight: 4
 description: >
-  **Tasks**: Definition of tasks shown to app users
+  Definition of tasks shown to app users
 relatedContent: >
   building/tasks
   building/concepts/workflows
   design/best-practices
 keywords: tasks workflows
 aliases:
+   - /building/reference/tasks
    - /apps/reference/tasks
 ---
 

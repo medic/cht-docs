@@ -1,12 +1,12 @@
 ---
 title: "Building A Simple Task"
 linkTitle: Simple Tasks
-weight: 9
+weight: 2
 description: >
   Writing and testing a simple task
 relatedContent: >
   building/tasks
-  building/reference/tasks
+  building/tasks/tasks-js
   building/concepts/workflows
   design/best-practices#anatomy-of-a-task
 aliases:
@@ -54,7 +54,7 @@ module.exports = [{
 
 **What is this code doing?**
 
-The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "building/reference/tasks#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
+The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
 
 * `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule.
 * `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).

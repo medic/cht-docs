@@ -2,7 +2,7 @@
 title: "Overview"
 linkTitle: "Overview"
 identifier: "Tasks overview"
-weight: 3
+weight: 1
 description: >
   Overview of CHT Tasks
 aliases:

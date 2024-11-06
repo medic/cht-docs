@@ -19,7 +19,7 @@ Tasks within the app can drive a workflow, ensuring that the right actions are t
 Tasks can be triggered by a set of conditions, such as contact details or submitted reports. Tasks are accessible in the Tasks tab and the profile in the Contact tab, and initiate a follow up action to complete a form. More information on building app workflows is available in the [Tasks section]({{< ref "building/tasks" >}}).
 
 Data submitted in one form can generate several tasks at once, for example, multiple ANC visits following one pregnancy registration. Some workflows involve a series of sequential forms and tasks, such as a child health assessment form, a follow up task scheduled 48 hours later, a referral form (only if the child’s condition hasn’t improved), and then a referral follow up task. Tasks are accessible on the Tasks tab, as well as the Tasks section of profiles. 
-{{< see-also page="building/reference/tasks" title="Defining Tasks" >}}
+{{< see-also page="building/tasks/tasks-js" title="Defining Tasks" >}}
 
 {{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="left col-3 col-lg-3" >}}
 {{< figure src="tasks-desktop.png" link="tasks-desktop.png" class="left col-9 col-lg-9" >}}

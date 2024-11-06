@@ -115,7 +115,7 @@ To enable death reporting:
 
 #### Disable tasks for deceased contacts
 
-If a contact is dead, you may want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "building/reference/tasks#tasksjs" %}}).
+If a contact is dead, you may want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "building/tasks/tasks-js#tasksjs" %}}).
 
 ```javascript
 {
