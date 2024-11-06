@@ -377,7 +377,7 @@ If Postgres is running in a Kubernetes cluster, you can use the following comman
 kubectl exec -it postgres-pod-name -- psql -U postgres -c "SELECT pg_size_pretty(pg_database_size('your_database_name'));"
 ```
 
-To get the percentage od cousments that have synced you can run the following query in your Postgres database:
+To get the percentage of documents that have synced you can run the following query in your Postgres database:
 ```sql
 select (count(*) * 100 / (count(*) + (select sum(pending) from v1.couchdb_progress))) as sync_percentage from v1.medic;
 ```
