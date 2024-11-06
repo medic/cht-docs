@@ -1,7 +1,7 @@
 ---
 title: Condition Cards
 linkTitle: Condition Cards
-weight: 3
+weight: 7
 description: >
   Building CHT application condition cards
 relatedContent: >
