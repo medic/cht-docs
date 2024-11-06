@@ -1,6 +1,6 @@
 ---
-title: Configuring
-linkTitle: Configuring
+title: Managing
+linkTitle: Managing
 weight: 2
 description: >
   Process for managing translations in CHT Core

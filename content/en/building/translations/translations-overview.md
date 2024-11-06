@@ -5,7 +5,7 @@ weight: 1
 description: >
  Localizing language in the CHT
 relatedContent: >
-  building/translations/configuring-translations
+  building/translations/managing-translations
   building/translations/localizing-translations
 aliases:
    - /building/tutorials/localizing-cht
@@ -345,4 +345,4 @@ Change the CHVs language by following: App Management > Users > [Choose CHV user
 
 ### Translating CHT to another language
 
-To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "building/translations/configuring-translations" >}}) for reference.
+To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "building/translations/managing-translations" >}}) for reference.
