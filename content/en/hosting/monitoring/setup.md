@@ -4,6 +4,7 @@ linkTitle: "Setup"
 weight: 100
 aliases:  
   - /building/guides/hosting/monitoring/setup
+  - /apps/guides/hosting/monitoring/setup
 description: >
     Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
