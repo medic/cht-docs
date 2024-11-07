@@ -5,7 +5,7 @@ weight: 5
 description: >
   **SMS Schedules**: Defining SMS workflows with schedules, registration, and patient reports.
 relatedContent: >
-  building/concepts/workflows
+  building/workflows/workflows-overview
   building/reference/app-settings/_index.md#sms-recipient-resolution
 keywords: workflows
 aliases:

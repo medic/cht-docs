@@ -1,6 +1,6 @@
 ---
 title: "Concepts"
-weight: 3
+weight: 13
 description: >
   Basic concepts that will help you understand how CHT applications are built
 aliases:

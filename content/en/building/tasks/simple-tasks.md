@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/tasks
   building/tasks/tasks-js
-  building/concepts/workflows
+  building/workflows/workflows-overview
   design/best-practices#anatomy-of-a-task
 aliases:
    - /building/tutorials/tasks-1
