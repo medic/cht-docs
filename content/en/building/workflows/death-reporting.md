@@ -12,7 +12,7 @@ aliases:
 ---
 
 {{% pageinfo %}}
-In this tutorial you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
+In this section you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
 By the end of the tutorial you should be able to:
 
 - Mark select contacts as deceased
