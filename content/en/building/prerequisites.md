@@ -18,8 +18,28 @@ To build your own application using the Core Framework you will need an instance
 ## Build tool
 The build tool for applications using the Core Framework is `cht-conf`. To set it up, follow the [installation instructions](https://github.com/medic/cht-conf/blob/master/README.md). To properly use the tool you will need your application files in set locations within a folder. Once you are set up with the basic file structure you can edit the files, and rebuild the application by compiling or converting components as needed, and uploading them to your test instance.
 
-## Background skills
-To build applications with the Core Framework the following skills are helpful, ordered by importance:
+## Required skills
+
+Building a CHT Application or altering an existing app is a technical undertaking requiring a technical skillset.
+
+### To Build an App
+
+* Use of command line tools to compile and deploy configuration code
+* [XLSForms](http://xlsform.org) for building forms (to create contacts, add contact actions, complete tasks)
+* JSON for modifying settings
+* JavaScript for modifying tasks and targets
+
+### To Deploy an App
+
+* System administration
+* Database administration for CouchDB and PostgreSQL
+* Familiarity with AWS including EC2 and CloudWatch
+* Familiarity with Docker
+* Service monitoring
+* Use of command line tools
+
+## Configuration skills
+Technically speaking, CHT Applications consist of JSON files, XLSForms, JavaScript code, media (images/videos), and translations. Collectively, this is referred to as "configuration code". The following technical skills are necessary to work with all the aspects of configuration code, ordered by importance:
 
 ### XLSForms and XForms
 Many workflows in your application, including completing tasks and creating contacts, will be generated using [ODK XForms](https://opendatakit.github.io/xforms-spec/). Many app developers use XLSForms as an easier way to generate XForms. A strong knowledge of [XLSForm standard](http://xlsform.org/) is very useful in building your own application.
