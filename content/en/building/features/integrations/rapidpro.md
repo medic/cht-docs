@@ -13,7 +13,7 @@ aliases:
 [RapidPro](https://rapidpro.io/) is a software product that allows you to visually build logic to support interactive messaging flows. The flows support a variety of technologies such as: SMS, USSD, IVR, Telegram, Facebook Messenger, and WhatsApp. RapidPro is open source and provides an [API](https://rapidpro.io/api/v2/) to integrate with other applications. To learn more about the platform, check out RapidPro on [GitHub](https://rapidpro.github.io/rapidpro/) or join their Google [Group](https://groups.google.com/g/rapidpro). 
 
 ## Overview
-CHT-based [SMS workflows]({{< ref "building/concepts/workflows#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/features/messaging" >}}) from the Messages tab. 
+CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/features/messaging" >}}) from the Messages tab. 
 
 For more complex messaging workflows or to utilize other messaging platforms, you can design workflows that leverage the functionality of RapidPro and the CHT together. This enables semi-automated, direct to patient approaches to health assessments and care coordination at the community level.
 

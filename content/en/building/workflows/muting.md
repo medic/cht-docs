@@ -7,6 +7,7 @@ keywords: muting
 relatedContent: >
   building/reference/app-settings/transitions/#muting
 aliases:
+   - /building/features/muting/
    - /apps/features/muting/
 ---
 

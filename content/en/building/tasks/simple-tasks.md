@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/tasks
   building/tasks/tasks-js
-  building/concepts/workflows
+  building/workflows/workflows-overview
   design/best-practices#anatomy-of-a-task
 aliases:
    - /building/tutorials/tasks-1
@@ -101,7 +101,7 @@ Next, test a few of the expected behaviours for the task:
 * Move your system clock forward 8 days and reload the tasks tab. The task should disappear since the 7 day window has expired.
 * Login as a supervisor user. You should not be able to see the task.
 * The task should not appear only for patients - not for places or CHWs.
-* If you mute a contact or [report the contact dead]({{< ref "building/tutorials/death-reporting" >}}), the task should disappear.
+* If you mute a contact or [report the contact dead]({{< ref "building/workflows/death-reporting" >}}), the task should disappear.
 
 {{% alert title="Note" %}} Remember to reset your system clock to be accurate when you are done testing. {{% /alert %}}
 

@@ -1,12 +1,11 @@
 ---
-title: Building Workflows
-linkTitle: "Workflows"
+title: Overview
 weight: 5
 description: >
   Building connections between people, actions, and data systems
 keywords: workflows
-relatedContent: >
 aliases:
+   - /building/concepts/workflows
    - /apps/concepts/workflows
 ---
 
