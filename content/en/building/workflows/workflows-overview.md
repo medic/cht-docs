@@ -1,6 +1,5 @@
 ---
 title: Overview
-linkTitle: Workflows Overview
 weight: 5
 description: >
   Building connections between people, actions, and data systems

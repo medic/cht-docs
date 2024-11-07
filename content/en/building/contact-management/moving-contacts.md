@@ -8,8 +8,7 @@ relatedContent: >
   building/contact-management
   building/reference/app-settings/hierarchy
   building/contact-management/contact-and-users-2
-  building/concepts/hierarchy
-
+  building/workflows/hierarchy
 aliases:
    - /building/guides/updates/moving-contacts/
    - /apps/guides/updates/moving-contacts
