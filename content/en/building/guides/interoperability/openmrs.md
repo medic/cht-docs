@@ -27,12 +27,13 @@ The CHT's interoperability tools support integrations with OpenMRS in a variety 
 The steps to create an OpenMRS interoperability flow are:
 
 1. Profile the workflow in terms of what data needs to be exchanged between OpenMRS and CHT.
-2. Set up OpenMRS, or get Basic Authentication credentials from an existing OpenMRS deployment. 
-3. Create or find concepts in OpenMRS that represent any data that needs to be exchanged.
-4. Configure outbound push and forms in CHT to match the interoperability workflow.
-5. Set OpenMRS credentials and CHT credentials in the interoperability project.
-6. Start the interoperability project with docker compose and install the Mediator channels
-7. Test and debug any configuration issues
+1. set up a test environment
+1. Set up OpenMRS, or get Basic Authentication credentials from an existing OpenMRS deployment. 
+1. Create or find concepts in OpenMRS that represent any data that needs to be exchanged.
+1. Configure outbound push and forms in CHT to match the interoperability workflow.
+1. Set OpenMRS credentials and CHT credentials in the interoperability project.
+1. Start the interoperability project with docker compose and install the Mediator channels
+1. Test and debug any configuration issues
 
 ## Technical Overview
 
@@ -43,7 +44,12 @@ This intermediate storage is used to link patients and encounters from OpenMRS a
 Synchronizing involves comparing the resources from the FHIR server and OpenMRS and forwarding any new or updated data from one to the other.
 This is used both to create CHT data in OpenMRS and to create OpenMRS data in a CHT application.
 
-## Getting started
+## Environments
+
+run `./starup.sh up-test` to create a test environment with a sample openmrs and cht config. 
+You can edit the cht config to test it before deploying to production
+
+## Profiling
 
 The first step is to profile the workflow.
 
@@ -63,6 +69,78 @@ When sending patient data to OpenMRS, configure an outbound push mapping as desc
 Patients synced to OpenMRS will have two new [identifier types](https://guide.openmrs.org/getting-started/openmrs-information-model/#patient-identifier): `CHT Document Id`, the uuid of the document that is sent, and `CHT Patient ID`, if there is a `patient_id` field on the patient document.
 These identifier types are created automatically when the OpenMRS Channel is registered.
 
+After setting up the putbound push, test that it works in the test environment by cerating a patient in the CHT.
+Log in to OpenHIM and view the transaction log. You should see:
+1. a request from CHT to the CHT Mediator
+    ![](cht-post-patient.png)
+    ```json
+    {
+      "doc": {
+        "_id": "75905106a4bc2a9046ed28df070016ce",
+        "name": "John Test",
+        "phone": "+2548277217095",
+        "date_of_birth": "1980-06-06",
+        "sex": "male",
+        "patient_id": "13985"
+      }
+    }
+    ```
+1. a request from the CHT mediator to the FHIR Server, PUTing the newly created FHIR resource
+    ![](fhir-put-patient.png)
+    ```json
+    {
+      "resourceType": "Patient",
+      "id": "75905106a4bc2a9046ed28df070016ce",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2024-10-31T04:53:44.026+00:00"
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">John <b>TEST </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>13985</td></tr><tr><td>Date of birth</td><td><span>06 June 1980</span></td></tr></tbody></table></div>"
+      },
+      "identifier": [
+        {
+          "use": "official",
+          "type": {
+            "text": "CHT Patient ID"
+          },
+          "value": "13985"
+        },
+        {
+          "use": "secondary",
+          "type": {
+            "text": "CHT Document ID"
+          },
+          "value": "75905106a4bc2a9046ed28df070016ce"
+        }
+      ],
+      "name": [
+        {
+          "family": "Test",
+          "given": [
+            "John"
+          ]
+        }
+      ],
+      "telecom": [
+        {
+          "value": "+2548277217095"
+        }
+      ],
+      "gender": "male",
+      "birthDate": "1980-06-06"
+    }
+    ```
+1. After a maximum of 1 minute, a polling request from the OpenMRS mediator to the FHIR server. The results should include the newly created patient.
+    ![](openmrs-sync-patient.png)
+1. A request to OpenMRS containing the newly created patient.
+    ![](openmrs-post-patient.png)
+1. A request to the FHIR server updating the patient with the corresponding id from OpenMRS.
+    ![](fhir-put-patient.png)
+
+If all the above look OK, you should now be able to search in OpenMRS for the patient.
+
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-outgoing-patients.png)
 
@@ -74,6 +152,41 @@ Then, using the appropriate codes, configure an outbound push as described in th
 
 In OpenMRS, all form submissions are represented as `Home Visit` Encounter types, with a `Visit Note` Encounter.
 Any fields in the outbound push config are converted to FHIR Observations, which are linked to the `Visit Note`.
+
+After setting up the putbound push, test that it works in the test environment by cerating a patient in the CHT.
+Log in to OpenHIM and view the transaction log. You should see: 
+1. a request from CHT to the CHT Mediator
+    ![](cht-post-encounter.png)
+    ```json
+    {
+      "id": "442b0937-a32f-443e-8d28-7d9a7552fda2",
+      "patient_uuid": "75905106a4bc2a9046ed28df070016ce",
+      "reported_date": 1730355950419,
+      "observations": [
+        {
+          "code": "5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "valueQuantity": 175,
+          "valueUnit": "cm",
+          "label": "Height in cm"
+        },
+        {
+          "code": "5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "valueQuantity": 60,
+          "valueUnit": "kg",
+          "label": "Weight in kg"
+        }
+      ]
+    }
+    ```
+1. Requests to FHIR server to create a FHIR Encounter, and one request for each Observation contained in that Encounter
+    ![](openhim-put-encounter.png)
+1. After a maximum of 1 minute, a polling request from the OpenMRS mediator to the FHIR server. The results should an Encounter to represent the form submission, and several Observation resources for any fields that were mapped to Codes.
+    ![](openmrs-sync-encounter.png)
+1. Requests to OpenMRS for a `Home Visit` Encounter, a `Visit Note` encounter, and one request for each `Observation`.
+    ![](openmrs-post-observation.png)
+1. A request to the FHIR server updating the encounter with the corresponding id from OpenMRS.
+
+If all the above look OK, you should now be able to see the Encounter on OpenMRS
 
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-form-submission.png)
@@ -94,6 +207,16 @@ If using the default implementation
 
 Patients that do not have an address or otherwise cannot be assigned a parent in CHT will be queryable in the FHIR Server and linked to OpenMRS Patients, but will not be sent to CHT.
 
+After setting up the forms, test that it works in the test environment by creating a patient in OpenMRS.
+Log in to OpenHIM and view the transaction log. You should see:
+1. After a maximum of 1 minute, a polling request from the OpenMRS mediator to the FHIR server. The results should include the newly created Patient.
+1. A request to the patient creation form.
+1. A request from CHT to the patient_ids endpoint in the mediator
+1. A request to the FHIR server updating the patient with the corresponding id from CHT.
+1. A request to OpenMRS with the CHT id.
+
+If all the above look OK, you should now be able to see the Patient in CHT.
+
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-incoming-patients.png)
 
@@ -102,7 +225,13 @@ This sequence diagrams shows the entire flow including the OpenMRS Mediator and 
 When sending form data to CHT, first find, create, or import the concepts in OpenMRS, and create the forms in OpenMRS.
 Then a form in CHT to receive the reports [as described in the CHT interop config documentation]({{< ref "building/guides/interoperability/cht_config#outbound-reports" >}}); the codes from OpenMRS are the field names, and labels can be added for human readability.
 When a Visit is completed in OpenMRS, the mediator will sync it to the FHIR Server.
-Then, it will be forwarded to CHT depending on the visit type. 
+
+After setting up the forms, test that it works in the test environment by submitting the form in OpenMRS
+Log in to OpenHIM and view the transaction log. You should see 
+1. After a maximum of 1 minute, a polling request from the OpenMRS mediator to the FHIR server. The results should include an Encounter to represent the visit when the form was submitted. submission, and any Observations that were a part of that form.
+1. A request to the records API with any Observations mapped to Codes.
+
+If all the above look OK, you should now be able to see the data submitted in the CHT.
 
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-incoming-forms.png)
