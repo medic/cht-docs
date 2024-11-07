@@ -12,7 +12,7 @@ description: >
 Getting to see each other all in one place at the same time, even if only online, lets people get to be around each other, learn from each other, and hear other perspectives. We're real people! ...terrific people too. This is a small space to spend some time around each other as a group. We're mostly trying to learn more about each other, celebrate recent successes, and cover the occasional big news or team-wide changes. It's mostly about being together to smile a bit.  
 
 ### When
-Roughly the first Tuesday (or Wednesday, for New Zealand teammates) week of each month.
+Roughly the first Tuesday (or Wednesday, for New Zealand teammates) of each month.
 
 ### Who is there
 The whole Product Team.
@@ -27,7 +27,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
     1. [Randomize](https://www.random.org/lists/) the list of teammate names.
     1. Put the name of whoever ended up first on the randomized list as the question of the month person.
     1. Notify that person via Slack that they should think up a question and add it to the doc any time prior to the call. Special note: If we have a new teammate, they give to be first and set the question. Just modify the list to make it so.
-    1. The last randomized person on the list will be in charge of "activity of the week" (anything small and fun we can all do together. Past activities have included [GeoGuessr](https://www.geoguessr.com/), [Gartic Phone](https://garticphone.com/), and [Kahoot trivia](https://kahoot.com/)).
+    1. The last randomized person on the list will be in charge of "activity of the month" (anything small and fun we can all do together. Past activities have included [GeoGuessr](https://www.geoguessr.com/), [Gartic Phone](https://garticphone.com/), and [Kahoot trivia](https://kahoot.com/)).
     1. Notify that person via Slack that they should find such an activity and be prepared to lead it for us all. 
 1. Create a new Google Drawings board in the [team meeting folder](https://drive.google.com/drive/folders/1jV-8APqEQ85MOr1Irc4vRKRuKZOmI1r_).
     1. Make the file accessible for all teammates
@@ -40,7 +40,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
 1. Say hello and all that.
 1. Move the group from one section to the next. This is mostly just being the person to recognize we’ve completed one thing and calling on the person for the next part.
 1. Keep an eye on time. If something is going too long, nudge them to wrap it up.
-1. Do the question of the week activity.
+1. Do the question of the month activity.
     1. Sometimes people get the order mixed up. Be prepared to nudge people if needed.
 1. Move to the regular agenda. If there are special items, someone's name should be on it already.
 1. Do the Celebrations board.
