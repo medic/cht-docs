@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/guides/forms/app-form-sms
   building/guides/forms/multimedia
-  building/reference/forms/contact
+  building/cht-forms/forms/contact
 
 aliases:
    - /apps/guides/forms/additional-docs

@@ -5,7 +5,7 @@ description: >
   Taking health workers through care protocols and providing decision support
 keywords: care-guides
 relatedContent: >
-  building/concepts/forms
+  building/cht-forms
   building/tasks/#care-guides
   building/contact-summary/contact-summary-templated/#care-guides
 aliases:

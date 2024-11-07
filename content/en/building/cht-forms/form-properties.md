@@ -1,14 +1,15 @@
 ---
 title: "Setting Form Properties"
 linkTitle: Form Properties
-weight: 8
+weight: 3
 description: >
  How to set form properties that contain meta information related to App forms
 relatedContent: >
-  building/reference/forms/app/#formsappform_namepropertiesjson
+  building/cht-forms/forms/app/#formsappform_namepropertiesjson
   design/best-practices
 
 aliases:
+   - /building/tutorials/form-properties
    - /apps/tutorials/form-properties
 ---
 
@@ -22,7 +23,7 @@ You will be adding meta-data and context to an assessment workflow that allows C
 
 ## Brief Overview of Key Concepts
 
-*[Form context]({{< ref "building/reference/forms/app#formsappform_namepropertiesjson" >}})* defines when and where the form should be available in the app.
+*[Form context]({{< ref "building/cht-forms/forms/app#formsappform_namepropertiesjson" >}})* defines when and where the form should be available in the app.
 
 ## Required Resources
 

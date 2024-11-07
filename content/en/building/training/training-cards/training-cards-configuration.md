@@ -15,13 +15,13 @@ aliases:
    - /apps/guides/training/training-cards/
 ---
 
-[Training Cards]({{< relref "building/training/training-cards" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/reference/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
+[Training Cards]({{< relref "building/training/training-cards" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/cht-forms/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
 
 {{% alert title="Note" %}} Example training forms are available [here]({{< relref "building/training/training-cards-resources" >}}) and provide a good starting point. {{% /alert %}}
 
 # Step 1: Create the training form
 
-Create an [XLS Form]({{< relref "building/reference/forms/app#xlsform" >}}). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
+Create an [XLS Form]({{< relref "building/cht-forms/forms/app#xlsform" >}}). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
 
 {{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="left col-10" >}}
 
@@ -37,7 +37,7 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 # Step 3: Configure the training form
 
-Create a [properties file]({{< relref "building/tutorials/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
+Create a [properties file]({{< relref "building/cht-forms/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
 
 ```
 {
