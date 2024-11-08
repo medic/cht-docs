@@ -5,7 +5,7 @@ weight: 2
 description: >
   Customizing the fields, cards, and actions on profile pages
 relatedContent: >
-  building/guides/forms/form-inputs
+  building/cht-forms/configuring-forms/form-inputs
 relevantLinks: >
   docs/building/features/contacts
   docs/building/concepts/hierarchies

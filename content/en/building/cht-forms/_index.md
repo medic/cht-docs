@@ -1,12 +1,12 @@
 ---
-title: CHT Forms
-linkTitle: CHT Forms
+title: Forms
+linkTitle: Forms
 weight: 5
 description: >
   Building block for all CHT apps
 relatedContent: >
   building/concepts/care-guides
-  building/guides/forms
+  building/cht-forms/configuring-forms
   building/cht-forms/forms
   building/reference/app-settings/forms
 aliases:

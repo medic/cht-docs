@@ -5,8 +5,8 @@ weight:
 description: >
   How to include multimedia files in forms
 relatedContent: >
-  building/guides/forms/additional-docs
-  building/guides/forms/app-form-sms
+  building/cht-forms/configuring-forms/additional-docs
+  building/cht-forms/configuring-forms/app-form-sms
   building/cht-forms/forms/contact
 aliases:
    - /apps/guides/forms/multimedia

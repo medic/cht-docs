@@ -5,8 +5,8 @@ weight:
 description: >
   Trigger calls and SMS from within the form, or send an SMS once submitted.
 relatedContent: >
-  building/guides/forms/additional-docs
-  building/guides/forms/multimedia
+  building/cht-forms/configuring-forms/additional-docs
+  building/cht-forms/configuring-forms/multimedia
   building/cht-forms/forms/contact
 aliases:
    - /apps/guides/forms/app-form-sms

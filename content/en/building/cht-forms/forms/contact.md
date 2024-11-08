@@ -8,10 +8,10 @@ relevantLinks: >
   docs/building/features/contacts
   docs/building/concepts/hierarchies
 relatedContent: >
-  building/guides/forms/form-inputs
-  building/guides/forms/additional-docs
-  building/guides/forms/multimedia
-  building/guides/forms/app-form-sms
+  building/cht-forms/configuring-forms/form-inputs
+  building/cht-forms/configuring-forms/additional-docs
+  building/cht-forms/configuring-forms/multimedia
+  building/cht-forms/configuring-forms/app-form-sms
 keywords: hierarchy contacts contact-forms
 aliases:
    - /apps/reference/forms/contact
@@ -44,7 +44,7 @@ For edit forms, the name of the top-level group should still match the contact_t
 
 #### Input data
 
-`contact` forms have access to a variety of [input data]({{< ref "building/guides/forms/form-inputs#app-forms" >}}).
+`contact` forms have access to a variety of [input data]({{< ref "building/cht-forms/configuring-forms/form-inputs#app-forms" >}}).
 
 ### Settings sheet
 

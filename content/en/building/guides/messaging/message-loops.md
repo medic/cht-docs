@@ -5,7 +5,7 @@ weight: 90
 description: >
   How to avoid messaging loops
 relatedContent: >
-  building/guides/forms/app-form-sms
+  building/cht-forms/configuring-forms/app-form-sms
   building/guides/messaging/sms-states
   building/guides/messaging/shortcodes
 aliases:

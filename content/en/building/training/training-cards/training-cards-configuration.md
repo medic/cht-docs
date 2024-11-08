@@ -64,7 +64,7 @@ In the example above, the training cards could be shown to any user with the "nu
 
 If your training form has images, create a folder with the same name as the form and add `-media` suffix. In our example, the form name is `my_new_feature`, then the folder name should be `my_new_feature-media`.
 
-Inside that new folder, make another one called images and put inside all the `images` that your form needs. See more about [multimedia in forms]({{< relref "building/guides/forms/multimedia" >}}).
+Inside that new folder, make another one called images and put inside all the `images` that your form needs. See more about [multimedia in forms]({{< relref "building/cht-forms/configuring-forms/multimedia" >}}).
 
 # Step 5: Put everything in the right place
 

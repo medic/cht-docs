@@ -9,7 +9,7 @@ aliases:
   - /apps/guides/messaging/gateways/africas-talking/
 relatedContent: >
   building/reference/app-settings/sms
-  building/guides/forms/app-form-sms
+  building/cht-forms/configuring-forms/app-form-sms
   building/guides/messaging/sms-states
   building/guides/messaging/message-loops
   building/guides/messaging/shortcodes
