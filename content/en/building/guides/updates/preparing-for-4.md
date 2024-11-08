@@ -16,6 +16,7 @@ description: >
 ## Introduction
 
 Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 3.x version to the 4.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes. Aside from the Docker hosting infrastructure (out of scope for this prep document), the two breaking changes are around CHT Android and Enketo.
+Upgrading to CHT 4.0  can be quite time consuming, especially for large deployments that may need to do handset upgrades in a worst case.  The sooner deployments start preparing for the upgrade, the easier it will be when it comes to the upgrade itself.  Conveniently, all device and Android app changes to prepare for 4.x are backwards compatible with 3.x. Prepare now, so you will be ready to upgrade sooner than later!
 
 ## CHT Android v1.0.0+ 
 
