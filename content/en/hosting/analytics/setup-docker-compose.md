@@ -39,7 +39,34 @@ Run the Docker containers locally and wait for every container to be up and runn
 docker compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 4 containers running including couch2pg, dbt, PostgreSQL, and pgAdmin.
+You can verify this command worked by running `docker ps`. It should show 4 containers running including couch2pg, dbt and PostgreSQL.
+
+#### Postgres access
+
+If you need to have remote access to the Postgres instance running in docker you have two options.  The first is to run an instance of the `pgadmin` [application](https://www.pgadmin.org/). Be aware that this exposes an administrative interface with no password. Generally this should A) be used with development setups only and B) always be secured immediately after deploying.  
+
+Run it with the following compose call:
+```sh
+docker compose -f docker-compose.pgadmin.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
+```
+
+The pgadmin app will be accessible at `http://your-server.com/5050`
+
+The more secure and production ready option is to run a bastion host.  First start by copying the `./bastion/authorized_keys.example` file to `./bastion/authorized_keys`.  Add the SSH keys in `authorized_keys`, one per line, that you would like to have access to the server via the bastion host.
+
+Run it with the following compose call:
+```sh
+docker compose -f docker-compose.bastion.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
+```
+
+You can then set up an SSH tunnel with the following shell command, being sure to replace `YOUR-SERVER-ADDRESS` with your real server address:
+
+```sh
+ssh -N -L 5432:cht-sync-postgres-1:5432 bastion@YOUR-SERVER-ADDRESS -p 22222
+```
+
+The point your Postgres client of choice to `127.0.0.1:5432` to access the database.
+
 
 ### Separate CouchDB and PostgreSQL instances
 
@@ -51,6 +78,8 @@ docker compose -f docker-compose.yml up -d
 ```
 
 You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and dbt.
+
+
 
 ### Cleanup
 
