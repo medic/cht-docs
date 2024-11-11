@@ -6,7 +6,7 @@ description: >
   Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
 relatedContent: >
   building/concepts
-  building/cht-forms/forms/app
+  building/cht-forms/app
   building/tasks/tasks-js
 aliases:
    - /apps/examples/direct-to-client

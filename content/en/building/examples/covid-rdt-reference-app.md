@@ -5,9 +5,9 @@ weight:
 description: >
  CHT example application that uses a third party app to capture the result of a Rapid Diagnostic Test.
 relatedContent: >
-  building/cht-forms/forms/app/#android-app-launcher
-  building/cht-forms/forms/app/#cht-xform-widgets
-  building/cht-forms/forms/app/#parse-timestamp-to-date
+  building/cht-forms/app/#android-app-launcher
+  building/cht-forms/app/#cht-xform-widgets
+  building/cht-forms/app/#parse-timestamp-to-date
 aliases:
    - /apps/examples/covid-rdt-reference-app
 ---
@@ -41,7 +41,7 @@ For more information on these features, see the ["Related Content"](#related-con
 
 Additional requirements for this application beyond CHT 3.13, include [CHT Android 0.10.0](https://github.com/medic/cht-android) or later and Dimagi's [RD-Toolkit 0.9.8](https://github.com/dimagi/rd-toolkit/) or later. 
 
-While this application calls the RD-Toolkit, the integration features in the CHT Core and CHT Android are generic.  This means you could use a different RDT Android application if you prefer. Beyond the scope of RDTs, you could use this integration feature to launch any other Android app to perform an action and save the result in the CHT. To read more about this feature, see the [Android App Launcher section in the Forms reference documentation]({{< ref "building/cht-forms/forms/app#android-app-launcher" >}}). 
+While this application calls the RD-Toolkit, the integration features in the CHT Core and CHT Android are generic.  This means you could use a different RDT Android application if you prefer. Beyond the scope of RDTs, you could use this integration feature to launch any other Android app to perform an action and save the result in the CHT. To read more about this feature, see the [Android App Launcher section in the Forms reference documentation]({{< ref "building/cht-forms/app#android-app-launcher" >}}). 
 
 ## Workflow
 
@@ -165,7 +165,7 @@ These are the files in the COVID-19 app where you'll want to focus your customiz
 
 The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms (`xlsx`, `xml` and `properties.json`) represent the provision and capture portions of the forms.  The tasks that get created are defined in `tasks.js`.  Not shown are standard contact definitions in `forms/contact/*` as well as supporting configurations for icons and other CHT application settings.  
 
-To read more about how these files all work together, see [app forms]({{< ref "building/cht-forms/forms/app" >}}), [contact forms]({{< ref "building/cht-forms/forms/contact" >}}), and [task]({{< ref "building/tasks/tasks-js" >}}) reference documentation
+To read more about how these files all work together, see [app forms]({{< ref "building/cht-forms/app" >}}), [contact forms]({{< ref "building/cht-forms/contact" >}}), and [task]({{< ref "building/tasks/tasks-js" >}}) reference documentation
 
 ## Example form submission
 

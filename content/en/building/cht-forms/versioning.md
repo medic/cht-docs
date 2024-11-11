@@ -1,7 +1,7 @@
 ---
 title: Versioning forms
-linkTitle: Versioning forms
-weight: 5
+linkTitle: Versioning
+weight: 6
 description: >
   Record the version of the form when creating reports
 relatedContent: >

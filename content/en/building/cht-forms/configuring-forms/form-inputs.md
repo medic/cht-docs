@@ -5,7 +5,7 @@ weight:
 description: >
   Data accessible from within CHT forms
 relatedContent: >
-  building/cht-forms/forms
+  building/cht-forms
   building/contact-summary/contact-summary-templated
   building/guides/tasks/pass-data-to-form
   
@@ -38,7 +38,7 @@ Forms for adding contacts have access to a small group of fields contained in a 
 
 #### Edit forms
 
-Forms for editing contacts have access to _all the contact's current data_. These fields are contained in a top-level group that is named for the contact_type id of the contact being added (so `person`, `clinic`, etc). If fields in the top-level group are [edited by the form]({{< ref "building/cht-forms/forms/contact" >}}), these changes will be saved to the contact's doc.
+Forms for editing contacts have access to _all the contact's current data_. These fields are contained in a top-level group that is named for the contact_type id of the contact being added (so `person`, `clinic`, etc). If fields in the top-level group are [edited by the form]({{< ref "building/cht-forms/contact" >}}), these changes will be saved to the contact's doc.
 
 In addition, the contact's `parent` data is hydrated so that the form has access to the data stored on the parent contact doc in the `parent` group.
 

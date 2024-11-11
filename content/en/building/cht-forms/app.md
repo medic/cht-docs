@@ -1,7 +1,7 @@
 ---
 title: "app"
 linkTitle: "app"
-weight: 5
+weight: 1
 description: >
   **App Forms**: Used to complete reports, tasks, and actions in the app
 relevantLinks: >
@@ -91,7 +91,7 @@ Some XForm widgets have been added or modified for use in CHT applications. The 
 ### Bikram Sambat Datepicker
 
 Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
-{{< see-also page="building/cht-forms/forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
+{{< see-also page="building/cht-forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
 
 ### Countdown Timer
 
@@ -312,7 +312,7 @@ _Added in 3.14.0._
 
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
-See also: [Bikram Sambat Datepicker]({{< ref "building/cht-forms/forms/app#cht-xform-widgets" >}})
+See also: [Bikram Sambat Datepicker]({{< ref "building/cht-forms/app#cht-xform-widgets" >}})
 
 ### `z-score`
 

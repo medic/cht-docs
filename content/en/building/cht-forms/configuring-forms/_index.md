@@ -1,7 +1,7 @@
 ---
 title: Configuring
 linkTitle: Configuring
-weight: 2
+weight: 4
 description: >
  Configuring and using forms in the CHT
 aliases:

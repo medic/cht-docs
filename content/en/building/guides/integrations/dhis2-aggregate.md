@@ -79,7 +79,7 @@ Update the contact document of each place you wish to map to an organisation uni
 {{% /alert %}}
 
 
-{{< see-also page="building/cht-forms/forms/contact" title="Contact Forms" >}}
+{{< see-also page="building/cht-forms/contact" title="Contact Forms" >}}
 
 ```json
 {
