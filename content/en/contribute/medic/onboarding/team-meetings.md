@@ -39,7 +39,7 @@ Maybe you! We'll have a rotation of teammates leading the call. It doesn't mean 
 1. Start the call on time (mostly). We can't sit around forever, but this is mostly a fun thing, so it's ok if people are just chatting for a couple minutes while waiting for stragglers.
 1. Say hello and all that.
 1. Move the group from one section to the next. This is mostly just being the person to recognize we’ve completed one thing and calling on the person for the next part.
-1. Keep an eye on time. If something is going too long, nudge them to wrap it up.
+1. Keep an eye on time. If something is taking too long, nudge them to wrap it up.
 1. Do the question of the month activity.
     1. Sometimes people get the order mixed up. Be prepared to nudge people if needed.
 1. Move to the regular agenda. If there are special items, someone's name should be on it already.
