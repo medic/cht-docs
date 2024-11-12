@@ -14,7 +14,7 @@ Mockups of the CHT on mobile devices can be easily made using the components in 
 {{< figure src="mockup-phone.png" class="left col-12 col-lg-9" >}} 
 
 ## Desktop
-Mockups of the CHT in a desktop view are possible using this [Google Slide deck](https://docs.google.com/presentation/d/1TRLNZRAI6r0ypd2EKzkYK1o077sAXXGIbx146ATL1P0/edit#slide=id.g2d1bf74782_0_463).
+Mockups of the CHT in a desktop view are possible using this [Google Slide deck](https://docs.google.com/presentation/d/1tUiElHDALl89d2-lwjVPb4Qxndm3nzqScYx0feBgLxY/edit?usp=sharing).
 
 {{< figure src="mockup-desktop.png" class="left col-12 col-lg-9" >}}
 
