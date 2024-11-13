@@ -92,7 +92,7 @@ time_format_blog = "02.01.2006"
 [params]
 copyright = "CHT"
 privacy_policy = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
-nodeVersion = "20"
+nodeVersion = "22"
 npmVersion = "10"
 
 # Custom shortcodes and partial will error on broken references unless set to "WARNING"  
