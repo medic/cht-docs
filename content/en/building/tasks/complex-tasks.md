@@ -128,11 +128,11 @@ We're using the `this.lmp` value which was calculated and saved in the `appliesI
 
 This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "building/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
 
-The concept of _task completion_ is covered in more depth in [Task Completion vs Cancellation]({{< ref "building/guides/tasks/query-task-data#completion-vs-cancellation" >}}).
+The concept of _task completion_ is covered in more depth in [Task Completion vs Cancellation]({{< ref "building/tasks/managing-tasks/query-task-data#completion-vs-cancellation" >}}).
 
 ## Actions
 ```
 5. The first pregnancy visit should prompt the CHW to ask some additional questions
 ```
 
-The `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). Check out the guide for [Passing data from a task into the app form]({{< ref "building/guides/tasks/pass-data-to-form" >}}).
+The `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). Check out the guide for [Passing data from a task into the app form]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}).
