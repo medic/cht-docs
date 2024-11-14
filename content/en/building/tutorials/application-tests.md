@@ -6,7 +6,7 @@ description: >
   Guides for writing automated tests for CHT applications
 relatedContent: >
   building/reference
-  building/guides/tasks/query-task-data/#testing-task-document-data
+  building/tasks/managing-tasks/query-task-data/#testing-task-document-data
 aliases:
    - /apps/tutorials/application-tests
 ---
@@ -425,7 +425,7 @@ it('followup schedule', async () => {
 });
 ```
 
-You may [pass other data](https://docs.communityhealthtoolkit.org/building/guides/tasks/pass-data-to-form/) from a task to the action form using [modifyContent ](https://docs.communityhealthtoolkit.org/building/guides/tasks/pass-data-to-form/#modifycontent)attribute of a task. You can also verify that these data are present in the task.
+You may [pass other data](https://docs.communityhealthtoolkit.org/building/tasks/managing-tasks/pass-data-to-form/) from a task to the action form using [modifyContent ](https://docs.communityhealthtoolkit.org/building/tasks/managing-tasks/pass-data-to-form/#modifycontent)attribute of a task. You can also verify that these data are present in the task.
 
 
 ```js
