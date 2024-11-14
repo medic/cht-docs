@@ -62,7 +62,7 @@ Each field that can be shown on a contact's profile is defined as an object in t
 
 ## Condition Cards
 
-Each condition card is defined as a card object in the `cards` array of `contact-summary.templated.js`. The properties for each object determine how and when the card and its fields are shown.
+Each condition card is defined as a card object in the `cards` array of `contact-summary.templated.js`. Condition cards are conditional and are configured to appear when a certain report is submitted or condition is met. The properties for each object determine how and when the card and its fields are shown.
 
 ### `contact-summary.templated.js .cards[]`
 
