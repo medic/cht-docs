@@ -23,7 +23,7 @@ All upgrades are expected to succeed without issue.  Do not attempt any fixes un
 tk - flesh out, but be prepared by:
 
 * Have and have tested backups
-* Have extra disk space (up t 5x!)
+* Have extra disk space (up to 5x!)
 * Have tested the upgrade on a dev instance
 * ?
 
@@ -51,14 +51,27 @@ CouchDB
 [notice] 2024-07-26T20:52:45.468469Z couchdb@127.0.0.1 <0.11029.4> 3bf85c6071 haproxy:5984 172.22.0.4 medic GET /_active_tasks 200 ok 1
 ```
 
-**Fix:** 
+**Fix:**
+1. I'm checking that all the indexes are warmed by loading them one by one in fauxton.
+2. Restart all services, **retry** upgrade from Admin GUI (not cancel and upgrade)
 
-> Eventually I just abandoned using the upgrade API and started indexing process manually (by navigating to the views one by one). This seems to not trigger the same behavior.
->
-> I'm suspecting we're ending up queuing too many requests because of the 2 minute timeout we set in API: https://github.com/medic/cht-core/blob/4.2.x/api/src/services/setup/view-indexer.js#L69
-> I believe this timeout doesn't end up cancelling the request at CouchDb level, so it's possible we're running out of file descriptors or something (???). Because there are no logs, it's not possible to know.
- 
+## CHT 4.2.4 - 4.c.x: view indexing can become stuck after indexing is finished
 
+**[issue](https://github.com/medic/cht-core/issues/9617):** Starting an upgrade that involves view indexing can become stuck after indexing is finished
+
+upgrade process stalls after view indexes are built
+
+tk - get screenshot of admin UI with no progress bar
+
+**Fix:**
+
+Unfortunately, the workaround is manual and very technical and involves:
+
+* When API goes stuck after view indexing, simply restart API.
+* The admin upgrade page will say that the upgrade was interrupted, click retry upgrade.
+* Depending on the state of the database, you might see view indexing again. Depending on how many docs need to be indexed, indexing might get stuck again. Go back to 1 if that happens.
+* Eventually, when indexing jobs are short enough not to trigger a request hang, you will get the button to complete the upgrade.
+* 
 ## CHT 4.0.1 - 4.9.0: CouchDB restart causes all services to go down
 
 **Note** - This is a Docker only issue.
@@ -87,34 +100,11 @@ nginx reports:
 **Fix:** Restart all services
 
 
-## CHT 4.2.4 - 4.3.x: CouchDB Crashes
-
-**[issue](https://github.com/medic/cht-core/issues/9617):** Starting an upgrade that involves view indexing can become stuck after indexing is finished
-
-upgrade process stalls after view indexes are built
-
-**Fix:**
-
-Unfortunately, the workaround is manual and very technical and involves:
-
-* identifying the upgrade log document in the medic-logs db.
-* updating the action to stage, in case it was upgrade
-* setting the state from indexing to indexed
-* save and reload the upgrade page.
-
-## CHT 4.2.x upgrade to 4.11 - no more free disk space  
+## CHT 4.x.x upgrade to 4.x.x - no more free disk space  
 
 [Issue](https://github.com/moh-kenya/config-echis-2.0/issues/2578#issuecomment-2455702112): prod instance couch is  crashing, stuck at compaction initiation - escalated to MoH Team to resolve [lack of free disk space issue]
 
-CouchDB Logs
-```shell
-[info] 2024-11-04T20:18:46.692239Z couchdb@127.0.0.1 <0.6832.4663> -------- Starting compaction for db "shards/7ffffffe-95555552/medic-user-mikehaya-meta.1690191139" at 10
-[info] 2024-11-04T20:19:47.821999Z couchdb@127.0.0.1 <0.7017.4653> -------- Starting compaction for db "shards/7ffffffe-95555552/medic-user-marnyakoa-meta.1690202463" at 21
-```
-
-
-
-![Screenshot of Admin UI showing stuck "Indexing starged views" progress bar](disk-space-indexing.png)
+tk - can't (re)start services during upgrade
 
 **Fix:** Give CouchDB more disk and Restart all services
 
@@ -140,21 +130,4 @@ Running `kubectl get po` shows 3 pods with status of `ContainerStatusUnknown`:
 (tk - is this syntax legal/correct?)
 
 `kubectl delete po 'cht.service in (api, sentinel, haproxy, couchdb)'`
-
-## 4.2 -> 4.11 upgrades when stuck in "indexing"
-
-Issue: ?? just slack thread on ticket https://github.com/medic/cht-docs/issues/1699
-
-**Fix:**
-1. I'm checking that all the indexes are warmed by loading them one by one in fauxton.
-1. If all views load, then I'm going to medic-logs database and finding the latest upgrade_log
-1. I'm setting the state from `indexing` to `indexed` and creating a fake section in `state_history`
-
----- OR IS IT THIS SOLUTION?! ----
-
-
-1. When API goes stuck after view indexing, restart
-1. The admin upgrade page will say that the upgrade was interrupted, click retry upgrade.
-1. Depending on the state of the database, you might see view indexing again. Depending on how many docs need to be indexed, indexing might get stuck again. Go back to 1 if that happens.
-1. Eventually, when indexing jobs are short enough not to trigger a request hang, you will get the button to complete the upgrade.
 
