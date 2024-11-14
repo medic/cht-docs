@@ -12,7 +12,7 @@ aliases:
 
 Page tabs are the primary way to navigate apps built with the Core Framework. The number of tabs is variable depending on the user’s role and place in the hierarchy. For example, non-admin users don’t have Messages. The Reports tab is accessible to CHWs but often located inside the secondary menu drawer.
 
-{{< figure src="tabs.gif" link="tabs.gif" class="left col-12 col-lg-7" >}}
+{{< figure src="nav.png" link="nav.png" class="left col-12 col-lg-7" >}}
 
 <br><br><br><br>
 
@@ -60,9 +60,9 @@ If the sync status is green and says “All reports synced,” this means you ha
 If the indicator is red, it means you have data changes waiting to be uploaded to the server. You should check your internet and data connection to ensure a successful sync.
 
 <aside class="right col-6 col-lg-4">
-{{< figure src="sync-inprogress.jpg" link="sync-inprogress.jpg" >}}
-{{< figure src="sync-failure.jpg" link="sync-failure.jpg" >}}
-{{< figure src="sync-successful.jpg" link="sync-successful.jpg" >}}
+{{< figure src="sync-inprogress.png" link="sync-inprogress.png" >}}
+{{< figure src="sync-failure.png" link="sync-failure.png" >}}
+{{< figure src="sync-successful.png" link="sync-successful.png" >}}
 </aside>
 
 Triggering a manual sync by clicking the "Sync now" button will provide feedback at every step of the process through a snackbar appearing on the bottom side of the screen. This performs upward and downward synchronization of both databases. It will also retry the sync process in case of failure..
