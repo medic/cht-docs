@@ -36,13 +36,23 @@ Automated tests cover different [CHT Configs](https://github.com/medic/cht-core/
 ## Tips to write test cases
 ### File Structure (spec files)
 
-Test files should represent a feature within the application. Use `describe` to identify the feature and to group test cases. Use `it` to detail individual test cases covering the feature's functionality.
+Test files should represent a feature within the application. Use `describe` to identify the feature and to group helper functions and test cases. Use `it` to detail individual test cases covering the feature's functionality.
+It is important that the database is clean and settings are restored once the tests are complete; we re-try the tests if they fail, and we need to make sure that for every new try, the environment is as it was the first time.
 
-Observe how the following example defines a `describe` using the feature name `Immunization Visit`. It contains two test cases which detail the expected results `should add a new child under 2 years old` and `should submit an immunization visit`.
+Observe how the following example defines a `describe` using the feature name `Immunization Visit`. It contains the `before` and `after` hooks to prepare the environment, helper functions, and  two test cases that detail the expected results `should add a new child under 2 years old` and `should submit an immunization visit`.
 
 Ex:
 ```
   describe('Immunization Visit', () => {
+    const firstHelperFunction = () => { .... }
+    const secondHelperFunction = () => { .... }
+    
+    before(async () => { .... });    
+    beforeEach(async () => { .... });
+
+    after(async () => { .... });
+    afterEach(async () => { .... });
+    
     it('should add a new child under 2 years old', () => { .... });
     it('should submit an immunization visit', () => { .... });
     ...
