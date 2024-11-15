@@ -8,7 +8,7 @@ relevantLinks: >
   docs/building/concepts/workflows
   docs/design/best-practices
 relatedContent: >
-  building/cht-forms/configuring-forms/form-inputs
+  building/forms/configuring-forms/form-inputs
 keywords: workflows app-forms
 aliases:
    - /apps/reference/forms/app
@@ -21,7 +21,7 @@ App forms are defined by the following files:
 - A XML form definition using a CHT-enhanced ODK XForm format
 - A XLSForm form definition, easier to write and converts to the XForm (optional)
 - Meta information in the `{form_name}.properties.json` file (optional)
-- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "building/cht-forms/configuring-forms/multimedia" >}} ).
+- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "building/forms/configuring-forms/multimedia" >}} ).
 
 ## XForm
 
@@ -91,7 +91,7 @@ Some XForm widgets have been added or modified for use in CHT applications. The 
 ### Bikram Sambat Datepicker
 
 Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
-{{< see-also page="building/cht-forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
+{{< see-also page="building/forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
 
 ### Countdown Timer
 
@@ -109,7 +109,7 @@ The `trigger` implementation of the countdown timer is only supported for CHT ve
 
 
 ### Contact Selector
-A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "building/cht-forms/configuring-forms/form-inputs#contact-selector" >}}) for an example.
+A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "building/forms/configuring-forms/form-inputs#contact-selector" >}}) for an example.
 
 ### Rapid Diagnostic Test Capture
 Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
@@ -312,7 +312,7 @@ _Added in 3.14.0._
 
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
-See also: [Bikram Sambat Datepicker]({{< ref "building/cht-forms/app#cht-xform-widgets" >}})
+See also: [Bikram Sambat Datepicker]({{< ref "building/forms/app#cht-xform-widgets" >}})
 
 ### `z-score`
 
@@ -349,17 +349,17 @@ The data used by this function needs to be added to CouchDB. The example below s
 
 ## Input data
 
-`app` forms have access to a variety of [input data]({{< ref "building/cht-forms/configuring-forms/form-inputs#app-forms" >}}) depending on the source of the form.
+`app` forms have access to a variety of [input data]({{< ref "building/forms/configuring-forms/form-inputs#app-forms" >}}) depending on the source of the form.
 
 ## CHT Special Fields
 
 Some fields in app forms control specific aspects of CHT Apps, either to bring data into forms or for a feature outside of the form.
 
 ### Quintiles
-The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="building/cht-forms/configuring-forms/wealth-quintiles" >}} 
+The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="building/forms/configuring-forms/wealth-quintiles" >}} 
 
 ### UHC Mode
-When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "building/features/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="building/cht-forms/configuring-forms/uhc-mode" >}} 
+When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "building/features/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="building/forms/configuring-forms/uhc-mode" >}} 
 
 ## Uploading Binary Attachments
 

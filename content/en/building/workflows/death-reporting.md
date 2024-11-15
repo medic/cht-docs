@@ -32,7 +32,7 @@ You will need to:
 1. [Configure your application hierarchy]({{% ref "building/tutorials/application-settings" %}})
 2. [Create some contacts]({{% ref "building/contact-management/contact-and-users-1" %}})
 3. [Know how to create an app form]({{% ref "building/tutorials/app-forms" %}})
-4. [Know how to set form properties]({{% ref "building/cht-forms/form-properties" %}})
+4. [Know how to set form properties]({{% ref "building/forms/form-properties" %}})
 
 ## Implementation Steps
 
@@ -51,7 +51,7 @@ It is common to want to know the date of death, place of death, or cause of deat
 
 It doesn't make sense to have "places" in your hierarchy that can be deceased. It also doesn't make sense for somebody who is dead to die again. But can the administration of a health facility die? That is for you to decide.
 
-This snippet is an example [form properties file]({{% ref "building/cht-forms/form-properties" %}}) which constrains the death form to show only for contacts which:
+This snippet is an example [form properties file]({{% ref "building/forms/form-properties" %}}) which constrains the death form to show only for contacts which:
 
 1. Are currently alive
 2. Are within a family

@@ -6,7 +6,7 @@ description: >
   Contacts and users overview
 keywords: hierarchy contacts care-guides
 relatedContent: >
-  building/cht-forms/contact
+  building/forms/contact
   building/contact-summary/contact-summary-templated
   building/contact-management/moving-contacts
   building/contact-management/contact-and-users-1

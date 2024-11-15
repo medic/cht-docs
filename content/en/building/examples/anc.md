@@ -6,7 +6,7 @@ description: >
   Reference application for maternal and newborn care for CHW's using a mobile app
 relatedContent: >
   building/concepts
-  building/cht-forms/app
+  building/forms/app
   building/tasks/tasks-js
 aliases:
    - /apps/examples/anc
@@ -37,7 +37,7 @@ Once a [hierarchy]({{< relref "building/workflows/hierarchy" >}}) of people and 
 
 {{< figure src="forms-hierarchy.png" link="forms-hierarchy.png" class="right col-12 col-lg-12" >}}
 
-{{< see-also page="building/cht-forms/app" title="Controlling form properties" >}}
+{{< see-also page="building/forms/app" title="Controlling form properties" >}}
 
 ## Workflows
 

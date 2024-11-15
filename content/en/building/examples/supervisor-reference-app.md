@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/concepts
   building/features/supervision
-  building/cht-forms/app
+  building/forms/app
   building/tasks/tasks-js
 aliases:
    - /apps/examples/supervisor-reference-app

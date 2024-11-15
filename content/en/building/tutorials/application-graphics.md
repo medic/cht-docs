@@ -222,6 +222,6 @@ To modify the icon used in contacts, you will need to edit the icon subkey in ap
 
 Finally run the command: `cht --local upload-app-settings`
 
-To customise the icons used in tasks or the action bar, you will need to edit a form properties file and add an icon property as outline in [form properties]({{< ref "building/cht-forms/form-properties" >}}) tutorial.
+To customise the icons used in tasks or the action bar, you will need to edit a form properties file and add an icon property as outline in [form properties]({{< ref "building/forms/form-properties" >}}) tutorial.
 
 To customise the icons used in targets, you will need to add an icon property in a target's definition as shown in the [targets]({{< ref "building/targets/target-widgets" >}}) tutorial.

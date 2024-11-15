@@ -5,7 +5,7 @@ weight: 11
 description: >
   Supporting equitable and timely care to families to increase Universal Health Coverage (UHC)
 relatedContent: >
-  building/cht-forms/configuring-forms/uhc-mode
+  building/forms/configuring-forms/uhc-mode
   building/reference/app-settings/user-roles
   building/reference/app-settings/user-permissions
 aliases:
@@ -28,4 +28,4 @@ The _UHC Mode_ in the CHT allows health workers to see when a household within t
 When using the _UHC Mode_, the households in the contact list can be sorted by when they were last visited. The days since the last visit is also shown in the app, along with the number of visits made to a household in a month period. 
 
 ## Configurability
-The last visited date is calculated based on the number of days since an action was taken for that household, and the number of visits reflects the actions taken for that household in the current month. What constitutes as an action for a household, along with the start date for the reporting period, [are configurable]({{< relref "building/cht-forms/configuring-forms/uhc-mode" >}}) to CHT app developers.
+The last visited date is calculated based on the number of days since an action was taken for that household, and the number of visits reflects the actions taken for that household in the current month. What constitutes as an action for a household, along with the start date for the reporting period, [are configurable]({{< relref "building/forms/configuring-forms/uhc-mode" >}}) to CHT app developers.

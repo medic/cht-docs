@@ -5,7 +5,7 @@ weight: 2
 description: >
   Customizing the fields, cards, and actions on profile pages
 relatedContent: >
-  building/cht-forms/configuring-forms/form-inputs
+  building/forms/configuring-forms/form-inputs
 relevantLinks: >
   docs/building/features/contacts
   docs/building/concepts/hierarchies
@@ -87,7 +87,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 
 ## Care Guides
 
-Each care guide accessible from a contact profile is defined as an [App Form]({{< ref "building/cht-forms/app" >}}). Context information can be provided to forms via the `context` object of `contact-summary.templated.js`.
+Each care guide accessible from a contact profile is defined as an [App Form]({{< ref "building/forms/app" >}}). Context information can be provided to forms via the `context` object of `contact-summary.templated.js`.
 
 To show an App Form on a contact's profile, the form's `expression` field in its properties file must evaluate to true for that contact. The context information from the profile is accessible as the variable `summary`.
 

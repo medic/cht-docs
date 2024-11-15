@@ -7,7 +7,7 @@ relatedContent: >
   building/tasks/complex-tasks
   building/tutorials/app-forms
   building/tasks/tasks-js
-  building/cht-forms/configuring-forms/form-inputs  
+  building/forms/configuring-forms/form-inputs  
 aliases:
    - /apps/guides/tasks/pass-data-to-form
 ---

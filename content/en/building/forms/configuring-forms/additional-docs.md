@@ -5,9 +5,9 @@ weight:
 description: >
   Integration for sending and receiving SMS
 relatedContent: >
-  building/cht-forms/configuring-forms/app-form-sms
-  building/cht-forms/configuring-forms/multimedia
-  building/cht-forms/contact
+  building/forms/configuring-forms/app-form-sms
+  building/forms/configuring-forms/multimedia
+  building/forms/contact
 
 aliases:
    - /apps/guides/forms/additional-docs
