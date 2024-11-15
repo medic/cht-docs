@@ -24,9 +24,13 @@ _Introduced in 4.2.0_
 
 ## Accessing
 
-When health workers open or reload their app, configured training cards will automatically show on top of all other content in the app. If it is not a convenient time to complete the training, they can cancel out at any time and will be prompted again the next day they open their app (training will start from the beginning). 
+When health workers open or reload their app, configured training cards will automatically show on top of all other content in the app. If it is not a convenient time to complete the training, they can cancel out at any time and will be prompted again the next day they open their app (training will start from the beginning).
 
 {{% alert title="Note" %}} If there are multiple training sets configured to start on the same day, the CHT will determine the order alphabetically based on the form ID. Subsequent training sets will only be displayed once the previous ones are either completed or no longer valid the next day the app is opened. {{% /alert %}}
+
+Training materials can also be accessed in the training page found in the auxiliary menu for users to revisit as needed. Completed training is displayed with a green checkmark. _Added in 4.15.0_.
+
+{{< figure src="training-materials-page.png" link="training-materials-page.png" class="col-10 col-lg-10" >}}
 
 ## Completing
 
