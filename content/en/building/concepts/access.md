@@ -55,7 +55,19 @@ Users may log out by going to the options menu available in the top right corner
 
 {{< figure src="login-mobile.png" link="login-mobile.png" class="left col-3 col-lg-3" >}}
 
-{{< figure src="login-desktop.png" link="login-desktop.png" class="left col-9 col-lg-9" >}}
+{{< figure src="login-desktop.png" link="login-desktop.png" class="right col-8 col-lg-8" >}}
+
+### Password reset on first login
+
+Added in 4.16.0.
+
+To enhance the security of CHT applicationsI, users logging in for the first time are encouraged to change the password provided by the system administrator to their own strong password. 
+
+{{< figure src="password-change.png" link="password-change.png" class="col-12 col-lg-12" >}}
+
+This feature will be enabled by default because it encourages best practices. However, only new users will be prompted to go through this flow or those users which the system administration has reset their password.  Projects can disable this feature by enabling the can_skip_password_change permission. 
+
+Subsequent logins won’t require a password change – if the app closes before changing the password, the user will be prompted again when they reopen it. If a user is unable to update their password they won’t be able to access the app.
 
 
 ## Magic Links for Logging In (Token Login)
@@ -79,8 +91,3 @@ With token login, the password is never known by the admin or the user because t
 {{% alert title="Note" %}}
 The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
 {{% /alert %}}
-
-
-
-
-
