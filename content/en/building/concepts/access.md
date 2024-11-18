@@ -61,11 +61,12 @@ Users may log out by going to the options menu available in the top right corner
 
 Added in 4.16.0.
 
-To enhance the security of CHT applicationsI, users logging in for the first time are encouraged to change the password provided by the system administrator to their own strong password. 
+To enhance the security of CHT applications, users logging in for the first time, or who have had their password reset, are prompted to change the password provided by the system administrator to their own strong password.
 
 {{< figure src="password-change.png" link="password-change.png" class="col-12 col-lg-12" >}}
 
-This feature will be enabled by default because it encourages best practices. However, only new users will be prompted to go through this flow or those users which the system administration has reset their password.  Projects can disable this feature by enabling the can_skip_password_change permission. 
+This feature will be enabled by default because it encourages best practices. However, only new users will be prompted to go through this flow or those users which the system administration has reset their password. 
+Projects can disable this feature by enabling the `can_skip_password_change` permission.
 
 Subsequent logins won’t require a password change – if the app closes before changing the password, the user will be prompted again when they reopen it. If a user is unable to update their password they won’t be able to access the app.
 
