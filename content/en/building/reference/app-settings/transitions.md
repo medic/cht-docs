@@ -29,7 +29,7 @@ As of version 3.12.0 some transitions will partially run on the client for offli
 }
 ```
 
-In this example the `d` transition will not be applied, `a`, `b` `c` will be applied on the server and on the client, while `e` will only be applied on the server. 
+In the example above, the `d` transition will not be applied, `a`, `b` `c` will be applied on the server and on the client, while `e` will only be applied on the server. 
 
 ## Available transitions
 
@@ -57,11 +57,10 @@ The following transitions are available and executed in order.
 | [mark_for_outbound]({{% ref "building/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
 | [create_user_for_contacts](#create_user_for_contacts) | Allows for automatically creating or replacing users based on data from their associated contact. Available since 4.1.x  | |
-## Transition Configuration Guide
 
-Guides for how to setup specific transitions.
+Below are guides to setup specific transitions.
 
-### multi_report_alerts
+## multi_report_alerts
 
 Send alert messages by SMS when specific conditions are received through reports. More flexible than simple Alerts.
 
@@ -87,7 +86,7 @@ Understanding the different types of reports used in the configuration:
 
 `0`, `1` : `new_reports` : `counted_reports` that came in since the previous alert was sent. They haven't been messaged about yet.
 
-#### Configuration
+##### Configuration
 
 ```
 "multi_report_alerts" : [
@@ -112,11 +111,11 @@ Note that we are using Mustache templates for our message templates (anything wi
 
 For performance reasons the `num_reports_threshold` cannot exceed 100.
 
-### death_reporting
+## death_reporting
 
 Updates patient documents with a `date_of_death` field which updates how the patient is displayed in the UI.
 
-#### Configuration
+##### Configuration
 
 Configuration is stored in the `death_reporting` field of the settings.
 
@@ -136,7 +135,7 @@ Configuration is stored in the `death_reporting` field of the settings.
 }
 ```
 
-### Registration
+## registration
 
 Configuration is held at `app_settings.registrations`, as a list of objects connecting forms to validations, events and messages.
 
@@ -307,22 +306,22 @@ To provide an alternative location for the place name, provide a `place_name_fie
 
 Sets the `case_id` on the root of the registration document.
 
-### Generate Shortcode on Contacts
+## generate_shortcode_on_contacts
 
-No custom configuration for `generate_shortcode_on_contacts`.
+There is no custom configuration for `generate_shortcode_on_contacts`.
 
-### Generate Patient ID On People
+## generate_patient_id_on_people
 
 **Deprecated since 3.8.x** in favor of `generate_shortcode_on_contacts`
 
-No custom configuration for `generate_patient_id_on_people`.
+There is no custom configuration for `generate_patient_id_on_people`.
 
 
-### update_notifications
+## update_notifications
 
 **Deprecated in favor of [Muting](#muting)**
 
-#### Configuration
+##### Configuration
 
 ```
 "notifications": {
@@ -352,53 +351,57 @@ No custom configuration for `generate_patient_id_on_people`.
   }
 ```
 
-### Muting
+## muting
 
 Implements muting/unmuting of persons and places. Supports multiple forms for each action, for webapp and sms workflows.
 
-##### Muting action 
+### Muting action 
 
 As of 3.12.0, client-side muting only runs on new reports or new contacts, before they are saved in the local database:
 
-- updates the target contact and all its descendants<sup>[10]</sup>, setting the `muted` property equal to the device's current `date` in ISO format<sup>[8]</sup>. 
-- adds/updates the `muting_history`<sup>[11]</sup> property on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- updates the target contact and all its descendants, setting the `muted` property equal to the device's current `date` in ISO format. 
+- adds/updates the `muting_history` property on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 Server-side:
 
-- updates the target contact and all its descendants<sup>[1]</sup>, setting the `muted` property equal to the current `date` in ISO format<sup>[2]</sup>. If the contact was already muted by a client, the `muted` date will be overwritten. The client-side `muting_history` will have a copy of the client-side muting date.
-- adds a `muting_history` entry to Sentinel `info` docs for every updated contact<sup>[7]</sup>
-- updates all connected registrations<sup>[3]</sup>, changing the state of all unsent<sup>[4]</sup> `scheduled_tasks` to `muted`
+- updates the target contact and all its descendants, setting the `muted` property equal to the current `date` in ISO format. If the contact was already muted by a client, the `muted` date will be overwritten. The client-side `muting_history` will have a copy of the client-side muting date.
+- adds a `muting_history` entry to Sentinel `info` docs for every updated contact
+- updates all connected registrations, changing the state of all unsent `scheduled_tasks` to `muted`
 - as of 3.12.0, updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
-- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report<sup>[9]</sup>. 
+- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report. 
 
-##### Unmuting action:
+### Unmuting action
 
 As of 3.12.0, client-side unmuting only runs on new reports before they are saved in the local database:
 
-- updates the target contact's topmost muted ancestor<sup>[10][5]</sup> and all its descendants, removing the `muted` property.
-- adds/updates the `muting_history`<sup>[9]</sup> property on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- updates the target contact's topmost muted ancestor and all its descendants, removing the `muted` property.
+- adds/updates the `muting_history` property on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 Server-side:
 
-- updates the target contact's topmost muted ancestor<sup>[1][5]</sup> and all its descendants, removing the `muted` property
-- adds a `muting_history` entry to Sentinel `info` docs for every updated contact<sup>[7]</sup>
-- updates all connected registrations<sup>[3]</sup>, changing the state of all present/future<sup>[6]</sup> `muted` `scheduled_tasks` to `scheduled`
+- updates the target contact's topmost muted ancestor and all its descendants, removing the `muted` property
+- adds a `muting_history` entry to Sentinel `info` docs for every updated contact
+- updates all connected registrations, changing the state of all present/future `muted` `scheduled_tasks` to `scheduled`
 - as of 3.12.0, updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
-- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report<sup>[10]</sup>.
+- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report.
 
-[1] Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).  
-[2] The date represents the moment Sentinel has processed the muting action  
-[3] target contact and descendants' registrations  
-[4] `scheduled_tasks` being in either `scheduled` or `pending` state  
-[5] Because the muted state is inherited, unmuting cascades upwards to the highest level muted ancestor. If none of the ancestors is muted, unmuting cascades downwards only.  
-[6] `scheduled_tasks` which are due today or in the future. All `scheduled_tasks` with a due date in the past will remain unchanged.  
-[8] The date represents the device's date when the report is processed.  
-[9] Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.    
-[10] The updated contacts are limited to the contacts available on the device.  
+<details>
+  <summary>Here are a couple of things to take note of:</summary>
 
-##### [7] Muting history
+* Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).  
+* The date represents the moment Sentinel has processed the muting action  
+* `scheduled_tasks` are in either `scheduled` or `pending` state  
+* Because the muted state is inherited, unmuting cascades upwards to the highest level muted ancestor. If none of the ancestors is muted, unmuting cascades downwards only.  
+* All `scheduled_tasks` with a due date in the past will remain unchanged.  
+* The date represents the device's date when the report is processed.  
+* Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.    
+* The updated contacts are limited to the contacts available on the device.  
+</details>
+
+
+### Muting history
 Each time the `muted` state of a contact changes, an entry is added to a `muting_history` list saved in Sentinel `info` docs (stored as an array property with the same name).
 Entries in `muting_history` contain the following information:
 
@@ -409,7 +412,7 @@ Entries in `muting_history` contain the following information:
 | report_id | An `_id` reference to the report that triggered the action |
 
 
-##### [11] Client-side Muting history as of 3.12.0
+##### Client-side Muting history as of 3.12.0
 Each time the client changes the `muted` state of a contact, an entry is added to a `muting_history` property on the contact's doc. The `last_update` entry is also changed to `client_side`.
 The `muting_history` property contains the following information:
 
@@ -425,7 +428,7 @@ The `muting_history` property contains the following information:
 | client_side[].report_id | uuid | The uuid  of the muting/unmuting report that triggered the update |
 
 
-#### Configuration
+##### Configuration
 Configuration is stored in the `muting` field of `app_settings.json`.
 
 | Property | Description |
@@ -501,15 +504,15 @@ When muting events are processed both client-side and server-side, there is no g
   }
 ```
 
-### Accept patient reports
+## accept_patient_reports
 
 Allow reporting about patient and place centric workflows by
-- validating the report,
-- assigning the relevant subject (patient or place) to the report if a registration with the given shortcode (patient_id or place_id) exists,
-- clearing messages on the registration, and
-- generating response messages on the report.
+- validating the report
+- assigning the relevant subject (patient or place) to the report if a registration with the given shortcode (patient_id or place_id) exists
+- clearing messages on the registration
+- generating response messages on the report
 
-#### Example
+##### Example
 
 ```json
 "transitions": {
@@ -546,7 +549,7 @@ Allow reporting about patient and place centric workflows by
 }]
 ```
 
-### Accept case reports
+## accept_case_reports
 
 Allow reporting about case centric workflows by
 - validating the report configuration documentation,
@@ -554,7 +557,7 @@ Allow reporting about case centric workflows by
 - clearing messages on the registration, and
 - generating response messages on the report.
 
-#### Example
+##### Example
 
 ```json
 "registrations": [{
@@ -576,13 +579,13 @@ Allow reporting about case centric workflows by
 }]
 ```
 
-### self_report
+## self_report
 
 Updates a `data_record` to set its patient to its sender. The resulting doc will have `fields.patient_uuid` and `fields.patient_id` filled with the sender's information. Provides hydrated patient information to subsequent transitions.
 The `sender` is the contact associated with the phone number that sent the original SMS.  
 If a doc already contains a `patient` field, does not have a sender or its `form` is not configured to be enabled for this transition, it will be ignored.
 
-#### Configuration
+##### Configuration
 Configuration is stored in the `self_report` field of `app_settings.json` as a list of objects connecting forms to messages.
 Every object should have this structure:
 
@@ -635,10 +638,10 @@ Supported `events_types` are:
 ]
 ```
 
-### update_clinics
+## update_clinics
 Adds a contact’s info to a data record so as to attribute an incoming SMS message or report to the appropriate contact. 
 
-#### Configuration
+##### Configuration
 As of version 3.12 you can add configuration to send a message whenever a contact match fails while running this transition. Configuration is stored in the `update_clinics` field of app_settings.json as a list of objects connecting forms to messages. Every object should have this structure:
 
 | Property | Description |
@@ -680,11 +683,11 @@ If this configuration is not set then the message defaults to what is set in the
 ]
 ```
 
-### create_user_for_contacts
+## create_user_for_contacts
 
 Users are automatically created for certain contacts.  Both creating a new user for a new contact and replacing an existing user with a new user are supported.
 
-#### Configuration
+##### Configuration
 
 Several configurations are required in `app_settings` to enable the `create_user_for_contacts` transition.
 
@@ -703,8 +706,6 @@ The [`app_url` property]({{< ref "building/reference/app-settings#app_settingsjs
   "create_user_for_contacts": true
 }
 ```
-
-#### Create User
 
 When adding a new person contact, the `create_user_for_contacts` transition can be triggered to create a new user associated with that contact. _Available since 4.2.x._
 
@@ -732,7 +733,7 @@ The new person contacts _must_ have the following fields set:
 
 See the `person-create` contact form provided in the [Default config](https://github.com/medic/cht-core/tree/master/config/default) as an example. This form will trigger the creation of a new user for the contact when the role is set to `chw` or `chw_supervisor` and a phone number is provided.
 
-#### Replace User
+### Replace User
 
 An existing offline user can be replaced on a device so that a new user can use that device without needing to immediately sync with the server. _Available since 4.1.x._
 
@@ -775,7 +776,7 @@ See the `replace_user` app form provided in the [Default config](https://github.
 }
 ```
 
-#### Troubleshooting
+## Troubleshooting
 
 Configuration is validated when Sentinel starts. Issues with the configuration will be show in the Sentinel logs.
 
