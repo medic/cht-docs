@@ -68,7 +68,7 @@ To enhance the security of CHT applications, users logging in for the first time
 This feature will be enabled by default because it encourages best practices. However, only new users will be prompted to go through this flow or those users whose passwords have been reset by the system administration. 
 Projects can disable this feature by enabling the `can_skip_password_change` permission.
 
-Subsequent logins won’t require a password change – if the app closes before changing the password, the user will be prompted again when they reopen it. If a user is unable to update their password they won’t be able to access the app.
+Subsequent logins won’t require a password change – if the app closes before changing the password, the user will be prompted again when they reopen it. If a user is unable to update their password, they won’t be able to access the app.
 
 
 ## Magic Links for Logging In (Token Login)
