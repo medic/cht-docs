@@ -59,7 +59,7 @@ Users may log out by going to the options menu available in the top right corner
 
 ### Password reset on first login
 
-Added in 4.16.0.
+**Added in 4.16.0.**
 
 To enhance the security of CHT applications, users logging in for the first time, or who have had their password reset, are prompted to change the password provided by the system administrator to their own strong password.
 
