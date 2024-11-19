@@ -14,6 +14,7 @@ relatedContent: >
   building/forms/configuring-forms/app-form-sms
 keywords: hierarchy contacts contact-forms
 aliases:
+   - /building/reference/forms/contact
    - /apps/reference/forms/contact
 ---
 

@@ -9,6 +9,7 @@ relatedContent: >
   building/forms/configuring-forms/multimedia
   building/forms/contact
 aliases:
+   - /building/guides/forms/app-form-sms
    - /apps/guides/forms/app-form-sms
 ---
 

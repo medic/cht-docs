@@ -7,7 +7,6 @@ description: >
 relatedContent: >
   building/forms/app/#formsappform_namepropertiesjson
   design/best-practices
-
 aliases:
    - /building/tutorials/form-properties
    - /apps/tutorials/form-properties

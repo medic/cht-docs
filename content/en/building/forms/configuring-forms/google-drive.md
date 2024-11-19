@@ -7,6 +7,7 @@ description: >
 relatedContent: >
   building/forms/configuring-forms/
 aliases:
+   - /building/guides/forms/google-drive
    - /apps/guides/forms/google-drive
 ---
 

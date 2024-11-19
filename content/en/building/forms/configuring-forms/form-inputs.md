@@ -7,9 +7,9 @@ description: >
 relatedContent: >
   building/forms
   building/contact-summary/contact-summary-templated
-  building/tasks/managing-tasks/pass-data-to-form
-  
+  building/tasks/managing-tasks/pass-data-to-form  
 aliases:
+   - /building/guides/forms/form-inputs
    - /apps/guides/forms/form-inputs
 ---
 

@@ -11,6 +11,7 @@ relatedContent: >
   building/forms/configuring-forms/form-inputs
 keywords: workflows app-forms
 aliases:
+   - /building/reference/forms/app
    - /apps/reference/forms/app
 ---
 

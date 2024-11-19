@@ -4,9 +4,8 @@ linkTitle: "Quintiles"
 weight: 
 description: >
   How to track wealth quintiles on the profile of each family member in the household
-relatedContent: >
-
 aliases:
+   - /building/guides/forms/wealth-quintiles
    - /apps/guides/forms/wealth-quintiles
 ---
 
