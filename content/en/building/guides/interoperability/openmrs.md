@@ -3,7 +3,7 @@ title: "OpenMRS Interoperability"
 linkTitle: "OpenMRS Interoperability"
 weight:
 description: >
-   Exchange data with systems based on the OpenMRS using FHIR APIs
+   Exchange data with systems based on OpenMRS using FHIR APIs
 keywords: openmrs interoperability
 relatedContent: >
   building/guides/interoperability/cht_config
@@ -64,7 +64,7 @@ When sending patient data to OpenMRS, configure an outbound push mapping as desc
 Patients synced to OpenMRS will have two new [identifier types](https://guide.openmrs.org/getting-started/openmrs-information-model/#patient-identifier): `CHT Document Id`, the uuid of the document that is sent, and `CHT Patient ID`, if there is a `patient_id` field on the patient document.
 These identifier types are created automatically when the OpenMRS Channel is registered.
 
-After setting up the putbound push, test that it works in the test environment by creating a patient in the CHT application.
+After setting up the outbound push config, test that it works in the test environment by creating a patient in the CHT application.
 Log in to OpenHIM and view the transaction log. You should see:
 1. A request from the CHT application to the CHT Mediator, containing the patient document.
     ![](cht-post-patient.png)

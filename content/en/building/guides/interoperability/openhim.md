@@ -23,7 +23,7 @@ The components and reference information for interoperability used in this proje
 
 #### CHT
 
-The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. To achieve interoperability we used a middleware to convert the CHT data structure into a standardized form so the other systems can read it. Below is the standard data workflow:
+The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. To achieve interoperability Medic used a middleware to convert the CHT data structure into a standardized form so the other systems can read it. Below is the standard data workflow:
 
 ![](flow.png)
 
