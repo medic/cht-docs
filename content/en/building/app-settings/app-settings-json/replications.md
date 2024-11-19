@@ -6,6 +6,7 @@ description: >
   **Replications** [deprecated]: Configure replication of databases to a main meta database.
 keywords: replications
 aliases:
+   - /building/app-settings/app-settings-json/replications
    - /apps/reference/app-settings/replications
 ---
 

@@ -25,7 +25,7 @@ These forms are stored in the `forms/contact` sub-folder of the project config d
 
 ### Survey sheet
 
-To collect information about the contact, use a top-level group with the [id of the contact_type]({{< ref "building/reference/app-settings/hierarchy" >}}) as the `name` of the group (e.g. `person` when adding or editing a person contact). Information in this group will be saved to the contact's document in the database.
+To collect information about the contact, use a top-level group with the [id of the contact_type]({{< ref "building/app-settings/app-settings-json/hierarchy" >}}) as the `name` of the group (e.g. `person` when adding or editing a person contact). Information in this group will be saved to the contact's document in the database.
 
 | type        | name   | label::en    |
 |-------------|--------|--------------|

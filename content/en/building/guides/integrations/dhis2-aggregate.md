@@ -7,7 +7,7 @@ description: >
 keywords: dhis2 
 relatedContent: >
   building/features/integrations/dhis2
-  building/reference/app-settings/dhis2
+  building/app-settings/app-settings-json/dhis2
 aliases:
    - /apps/guides/integrations/dhis2-aggregate
 ---
@@ -68,7 +68,7 @@ For the CHT to be able to export the file for DHIS2, it needs to know the specif
 
 Configure the data set in `app_settings.json`.
 
-{{< see-also page="building/reference/app-settings/dhis2" title="DHIS2 in App Settings" >}}
+{{< see-also page="building/app-settings/app-settings-json/dhis2" title="DHIS2 in App Settings" >}}
 
 ### Organisation units
 

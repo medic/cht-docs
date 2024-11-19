@@ -121,7 +121,7 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Partners
 
 As of cht-core 3.10, app header tabs icons are configurable. CHT currently has five tabs: messages, tasks, reports, contacts, analytics.
 
-{{< see-also page="building/reference/app-settings/header_tabs" title="Header tabs" >}}
+{{< see-also page="building/app-settings/app-settings-json/header_tabs" title="Header tabs" >}}
 
 
 #### Using cht-conf

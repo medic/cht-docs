@@ -8,6 +8,7 @@ relevantContent: >
   building/reference/resources
 keywords: icons
 aliases:
+   - /building/app-settings/app-settings-json/header_tabs
    - /apps/reference/app-settings/header_tabs
 ---
 

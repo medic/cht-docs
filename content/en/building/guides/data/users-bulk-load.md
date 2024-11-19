@@ -153,7 +153,7 @@ Add some new rows at the bottom (item 1), enter the new place name in column A (
 
 The third use case mentioned in the [workbook instructions section]({{< relref "#workbook-instructions" >}}) links to a Google Sheets to create user places alongside their account and their contact. This works out of the box with the `default` CHT configuration but will require adjustments to be made in the `place.type_VLOOKUP` spreadsheet when dealing with a CHT configuration with custom places types.
 
-The `place.type_VLOOKUP` spreadsheet has two columns that contain the name of the places types set in the [`.contact_types[]`]({{< relref "building/reference/app-settings/hierarchy" >}}) property of your `app_settings.json` and their respective IDs. The place type name is used by the `User-Place-Type:excluded` column in the `contact.chw` spreadsheet to provide a user-friendly way to pick a place with autocompletion. You will want to keep this spreadsheet in sync with your CHT configuration to create users' places.
+The `place.type_VLOOKUP` spreadsheet has two columns that contain the name of the places types set in the [`.contact_types[]`]({{< relref "building/app-settings/app-settings-json/hierarchy" >}}) property of your `app_settings.json` and their respective IDs. The place type name is used by the `User-Place-Type:excluded` column in the `contact.chw` spreadsheet to provide a user-friendly way to pick a place with autocompletion. You will want to keep this spreadsheet in sync with your CHT configuration to create users' places.
 
 ## Trouble shooting
 
@@ -164,7 +164,7 @@ If you have miss-matched contact types, you will get an error upon import:
 > **Wrong type, this is not a person.**
 
 
-As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
+As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "building/app-settings/app-settings-json/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
 
 ```shell
 =if(NOT(ISBLANK(D2)),"person","") 

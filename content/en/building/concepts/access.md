@@ -67,7 +67,7 @@ When creating users, the admin has the option to enable a user to login in by si
 With token login, the password is never known by the admin or the user because the password is changed to a random string after every successful token login. If the user needs to login again, they need to contact the admin so that the admin can either send a new magic link or switch their account back to using a manual login and password.
 
 {{< see-also page="building/examples/training" >}}
-{{< see-also page="building/reference/app-settings/token_login" >}}
+{{< see-also page="building/app-settings/app-settings-json/token_login" >}}
 
 
 {{< figure src="link.png" link="link.png" class="left col-3 col-lg-3" >}}

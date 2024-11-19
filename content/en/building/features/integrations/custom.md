@@ -45,7 +45,7 @@ There are a number of different interactions that may occur between digital heal
 
 ## Sending data to other systems 
 
-Using the [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
+Using the [outbound push]({{< ref "building/app-settings/app-settings-json/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
 
 To send data to other systems from the CHT, you will need to do the following:
 
@@ -56,25 +56,25 @@ To send data to other systems from the CHT, you will need to do the following:
 5. Set up credentials for the destination system
 
 ### Enable outbound
-[Enable]({{< ref "building/reference/app-settings/outbound#configuration" >}}) the `mark_for_outbound` transition in `app_settings`.
+[Enable]({{< ref "building/app-settings/app-settings-json/outbound#configuration" >}}) the `mark_for_outbound` transition in `app_settings`.
 
 ### When data is sent
-Whenever a document is changed (such as submitting a form, creating a new contact, or editing an existing one) you can configure outbound to send data to another system. The `relevant_to` [property]({{< ref "building/reference/app-settings/outbound#relevant_to" >}}) in the outbound configuration is used to identify which activities will trigger the sending of data.
+Whenever a document is changed (such as submitting a form, creating a new contact, or editing an existing one) you can configure outbound to send data to another system. The `relevant_to` [property]({{< ref "building/app-settings/app-settings-json/outbound#relevant_to" >}}) in the outbound configuration is used to identify which activities will trigger the sending of data.
 
 {{% alert title="Example" %}} Send data to the EMR whenever a CHW submits an `assessment` form where `referral = true`. {{% /alert %}}
 
 ### Where data is sent
-The `destination` [property]({{< ref "building/reference/app-settings/outbound#destination" >}}) in the outbound configuration is used to specify *where* to send data. This will normally be the API endpoint of the destination system or interoperabiliy layer. 
+The `destination` [property]({{< ref "building/app-settings/app-settings-json/outbound#destination" >}}) in the outbound configuration is used to specify *where* to send data. This will normally be the API endpoint of the destination system or interoperabiliy layer. 
 
 {{% alert title="Example" %}} Send data to the `/api/v1/referral` endpoint in the destination system. {{% /alert %}}
 
 ### What data is sent
-You configure *what* data is sent using the `mapping` [property]({{< ref "building/reference/app-settings/outbound#mapping" >}}). You will map data from the CHT to the format required by the destination API endpoint.
+You configure *what* data is sent using the `mapping` [property]({{< ref "building/app-settings/app-settings-json/outbound#mapping" >}}). You will map data from the CHT to the format required by the destination API endpoint.
 
 {{% alert title="Example" %}} Map the `contact.name` field in the CHT to the `patient.name` field in the EMR. {{% /alert %}}
 
 ### Authentication
-Credentials for the destination system are [stored in CouchdDB]({{< ref "building/reference/app-settings/outbound#credentials" >}}). You will need to set this up before you can test your configuration.
+Credentials for the destination system are [stored in CouchdDB]({{< ref "building/app-settings/app-settings-json/outbound#credentials" >}}). You will need to set this up before you can test your configuration.
 
 ## Requests from other systems 
 The CHT has a complete RESTful API that other systems can utilize to interact with data in the CHT.

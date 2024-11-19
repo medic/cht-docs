@@ -97,7 +97,7 @@ Once you have configured a Global value, you can easily use it in your flows lik
 
 ### Start RapidPro Flow from CHT
 
-One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "building/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro. 
+One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "building/app-settings/app-settings-json/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro. 
 
 Below is an example `outbound` config in the CHT called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where `symptom = no`. It will also pass an extra date value for `self_quarantine_enrollment`.
 
@@ -139,7 +139,7 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 
 |Step |Application  |Config step |
 |-----|--|--|
-|1|CHT| Configure a [JSON Form]({{< ref "building/reference/app-settings/forms" >}}) that includes the fields from RapidPro you want to send to the CHT.|
+|1|CHT| Configure a [JSON Form]({{< ref "building/app-settings/app-settings-json/forms" >}}) that includes the fields from RapidPro you want to send to the CHT.|
 |2|RapidPro|Add a *Call a Webhook* node.|
 |3|RapidPro|`POST` to the [records endpoint]({{< ref "building/reference/api#post-apiv2records" >}}) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
 |4|RapidPro|Set a `Result Name`| 

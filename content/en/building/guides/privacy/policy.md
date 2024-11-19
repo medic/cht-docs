@@ -6,7 +6,7 @@ description: >
   Medic’s Privacy and Data Protection Policy, which applies to the Community Health Toolkit
 keywords: 
 relatedContent: >
-  building/reference/app-settings/patient_reports
+  building/app-settings/app-settings-json/patient_reports
 aliases:
    - /apps/guides/privacy/policy
 ---

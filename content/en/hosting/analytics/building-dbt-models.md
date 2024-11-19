@@ -6,7 +6,7 @@ description: >
   Guide for building dbt models for CHT applications
 relatedContent: >
   core/overview/db-schema
-  building/reference/app-settings/hierarchy
+  building/app-settings/app-settings-json/hierarchy
 aliases:
    - /apps/guides/data/analytics/building-dbt-models
    - /building/guides/data/analytics/building-dbt-models
@@ -19,7 +19,7 @@ aliases:
 The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions]({{< ref "core/overview/db-schema" >}}).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
-If using the [configurable contact hierarchy]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
+If using the [configurable contact hierarchy]({{< ref "building/app-settings/app-settings-json/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
 
 ## Prerequisites
 
@@ -127,7 +127,7 @@ The contact hierarchy defines "is a" relationships between contact types; e.g., 
 |`muted`| `true` if this contact has been muted|
 
 ### `contact_type`
-This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
+This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "building/app-settings/app-settings-json/hierarchy#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
 The `person` column defines which contact types are persons and which are places. It uses the `person` field from the settings, or if the contact type is not in settings, it is assumed to be a place unless `id` is `person`
 
 |Field|Description|

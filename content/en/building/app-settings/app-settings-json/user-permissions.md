@@ -9,6 +9,7 @@ relevantLinks: >
   docs/building/concepts/user-roles
 keywords: user-roles user-permissions
 aliases:
+   - /building/app-settings/app-settings-json/user-permissions
    - /apps/reference/app-settings/user-permissions
 ---
 
@@ -16,7 +17,7 @@ Permissions are defined by the `permissions` object in the `base_settings.json` 
 
 Permissions can be assigned to user roles either directly in `base_settings.json` as an array of user role identifiers, or configured in the App Management app.
 
-{{< see-also page="building/reference/app-settings/user-roles" title="User roles" >}}
+{{< see-also page="building/app-settings/app-settings-json/user-roles" title="User roles" >}}
 
 ### System defined permissions
 

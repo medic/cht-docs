@@ -4,8 +4,8 @@ weight: 1
 description: >
    Launch the Android App with a link or from another app
 relatedContent: >
-  building/reference/app-settings/token_login
-  building/reference/app-settings/assetlinks
+  building/app-settings/app-settings-json/token_login
+  building/app-settings/app-settings-json/assetlinks
 aliases:
    - /apps/features/integrations/android
 ---

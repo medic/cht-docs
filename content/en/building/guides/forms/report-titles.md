@@ -6,7 +6,7 @@ description: >
   Customizing the title shown in the Reports list
 relatedContent: >
   building/features/reports
-  building/reference/app-settings/patient_reports
+  building/app-settings/app-settings-json/patient_reports
 aliases:
    - /apps/guides/forms/report-titles
 ---

@@ -26,7 +26,7 @@ Differing levels of access and permissions are assigned to each persona. A user 
 | CHWs            | Logs in at CHW Area level                      | Phone     | Users at this level have online and offline access to view households and family members, submit reports about them, and view tasks and targets about them.                                                                                                         |
 | Family members  | Registered at Household level, does not log in | Messaging | Family members might include fathers, mothers, children, and other adults. The program model determines which family members should be registered in the app. However, they are not users of the app, and do not log in themselves.                      |
 
-{{< see-also page="building/reference/app-settings/user-roles" anchor="" title="Defining User Roles" >}}
+{{< see-also page="building/app-settings/app-settings-json/user-roles" anchor="" title="Defining User Roles" >}}
 
 ### Online Users
 
@@ -44,6 +44,6 @@ User Permissions are settings that can be individually toggled on or off to allo
 
 Viewing permissions determine which page tabs a user sees in the app and which types of data they do and don’t have access to. User action permissions include who can create (e.g., create new users), who can delete (e.g., delete reports), who can edit (e.g., edit profiles), and who can export (e.g., export server logs).
 
-{{< see-also page="building/reference/app-settings/user-permissions" title="Defining User Permissions" >}}
+{{< see-also page="building/app-settings/app-settings-json/user-permissions" title="Defining User Permissions" >}}
 
 {{< figure src="/building/features/admin/admin-roles.png" link="/building/features/admin/admin-roles.png" class="left col-12 col-lg-10" >}}

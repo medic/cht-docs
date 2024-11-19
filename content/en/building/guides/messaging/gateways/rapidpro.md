@@ -7,7 +7,7 @@ description: >
 aliases:
   -    /apps/guides/messaging/rapidpro
 relatedContent: >
-    building/reference/app-settings/sms
+    building/app-settings/app-settings-json/sms
     building/guides/forms/app-form-sms
     building/guides/messaging/sms-states
     building/guides/messaging/message-loops

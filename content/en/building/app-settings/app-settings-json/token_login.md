@@ -7,6 +7,7 @@ description: >
 relatedContent: >
   building/reference/api#login-by-sms
 aliases:
+   - /building/app-settings/app-settings-json/token_login
    - /apps/reference/app-settings/token_login
 ---
 

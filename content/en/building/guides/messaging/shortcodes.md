@@ -5,7 +5,7 @@ weight: 30
 description: >
  Using unique short codes to identify places and people via messaging
 relatedContent: >
-  building/reference/app-settings/sms
+  building/app-settings/app-settings-json/sms
   building/guides/messaging/sms-states
 aliases:
    - /apps/guides/messaging/shortcodes

@@ -1,14 +1,15 @@
 ---
-title: "CHT Application Settings"
-linkTitle: Application Settings
-weight: 6
+title: Configuring
+linkTitle: Configuring
+weight: 1
 description: >
-  Managing CHT application settings
+  Configuring CHT application settings
 relatedContent: >
-  building/reference/app-settings
+  building/app-settings/app-settings-json
   building/guides/performance/replication
   core/overview/transitions 
 aliases:
+   - /building/tutorials/application-settings
    - /apps/tutorials/application-settings
 ---
 
@@ -21,22 +22,6 @@ This tutorial will take you through how to manage the CHT application settings, 
 
 App settings allow you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
 {{% /pageinfo %}}
-
-## Brief Overview of Key Concepts
-
-The settings which control CHT apps are defined in the *[app_settings.json]({{< relref "building/reference/app-settings" >}})* file, and stored in the settings doc in the database.
-
-*[Permissions]({{< relref "building/concepts/users#permissions" >}})* are settings that control access to specific app features and functionality.
-
-*[Roles]({{< relref "building/concepts/users#roles" >}})* define permissions for users to access a group of app features and functionality.
-
-*[Replication]({{< relref "building/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
-
-*[Transitions]({{< relref "core/overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
-
-## Required Resources
-
-You should have a functioning CHT instance and have cht-conf installed locally. {{< see-also page="building/local-setup" title="How to set up a CHT local configuration environment" >}}
 
 ## Implementation Steps
 
@@ -55,7 +40,7 @@ Configure a CHW role by adding the following snippet to the `"roles"` object:
   }
 ```
 
-{{< see-also page="building/reference/app-settings/user-roles" title="Roles" >}}
+{{< see-also page="building/app-settings/app-settings-json/user-roles" title="Roles" >}}
 
 Set permissions for the new role by adding the role to the relevant permission in the `"permissions"` object.
 
@@ -75,11 +60,11 @@ For instance, to grant the CHW role permission to create people, add the role to
   }
 ```
 
-{{< see-also page="building/reference/app-settings/user-permissions" title="Permissions" >}}
+{{< see-also page="building/app-settings/app-settings-json/user-permissions" title="Permissions" >}}
 
 ### 2. Set Transitions
 
-To enable or disable a transition, edit the object corresponding to the `"transitions"` key in `app_settings.json`. Enable the `transition` by setting its corresponding value to `true`, disable it by settings its value to `false`. {{< see-also page="building/reference/app-settings/transitions" title="Transitions" >}}
+To enable or disable a transition, edit the object corresponding to the `"transitions"` key in `app_settings.json`. Enable the `transition` by setting its corresponding value to `true`, disable it by settings its value to `false`. {{< see-also page="building/app-settings/app-settings-json/transitions" title="Transitions" >}}
 
 ```json
   "transitions": {
@@ -111,7 +96,7 @@ When configuring a new deployment, it's important to plan your hierarchy well.  
 For an example of where all the forms are represented in the default configuration, please see the [default config directory](https://github.com/medic/cht-core/tree/master/config/default/).
 
 
-{{< see-also page="building/reference/app-settings/hierarchy" title="Hierarchy" >}}
+{{< see-also page="building/app-settings/app-settings-json/hierarchy" title="Hierarchy" >}}
 
 ```json
   "contact_types": [

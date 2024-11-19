@@ -7,7 +7,7 @@ description: >
 aliases: >
   /core/guides/android/branding
 relatedContent: >
-   building/reference/app-settings/assetlinks
+   building/app-settings/app-settings-json/assetlinks
 aliases:
    - /apps/guides/android/branding/
 ---
@@ -257,7 +257,7 @@ All you have to do to make the CHT serve your assetlinks at `/.well-known/assetl
    # or alternatively:
    keytool -printcert -jarfile ./path/to/project.apk
    ```
-3. Set the cert fingerprint in the [`assetlinks` configuration]({{< ref "building/reference/app-settings/assetlinks" >}}) for your CHT instance and deploy it to your server with cht-conf.
+3. Set the cert fingerprint in the [`assetlinks` configuration]({{< ref "building/app-settings/app-settings-json/assetlinks" >}}) for your CHT instance and deploy it to your server with cht-conf.
 
 #### Note for Apps Using Google Play Signing
 

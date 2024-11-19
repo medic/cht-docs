@@ -6,8 +6,8 @@ description: >
   Supporting equitable and timely care to families to increase Universal Health Coverage (UHC)
 relatedContent: >
   building/guides/forms/uhc-mode
-  building/reference/app-settings/user-roles
-  building/reference/app-settings/user-permissions
+  building/app-settings/app-settings-json/user-roles
+  building/app-settings/app-settings-json/user-permissions
 aliases:
    - /apps/features/uhc-mode/
 ---

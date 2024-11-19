@@ -9,7 +9,7 @@ relatedContent: >
   design/personas/chw-janet
   building/features/reports
   building/guides/data/invalid-reports
-  building/reference/app-settings/patient_reports
+  building/app-settings/app-settings-json/patient_reports
 aliases:
    - /apps/guides/performance/purging
 ---
@@ -109,7 +109,7 @@ This function takes six parameters:
 - `reports`, an array of all reports for that subject that are present on the server.
 - `messages`, an array of sms messages that the contact has sent or received.
 - `chtScriptApi` (Optional) the CHT API that provides CHT-Core Framework's functions to other parts of the app. More info on the API can be found [here]({{<ref "building/reference/_partial_cht_api" >}}). Added in 4.3.0.
-- `permissions` (Optional) string or array of permissions that the user has. More info on permissions can be found [here]({{<ref "building/reference/app-settings/user-permissions" >}}). Added in 4.3.0.
+- `permissions` (Optional) string or array of permissions that the user has. More info on permissions can be found [here]({{<ref "building/app-settings/app-settings-json/user-permissions" >}}). Added in 4.3.0.
 
 And should return an array of `_id` values for docs you would like to be purged (or `undefined` / nothing if you don't wish to purge anything). `Only ids of docs that were passed to the function are valid for purging: you are not allowed to purge other documents.
 

@@ -8,7 +8,7 @@ relatedContent: >
   building/targets/targets-overview
   design/best-practices/#targets
   building/features/integrations/dhis2
-  building/reference/app-settings/transitions#create_user_for_contacts
+  building/app-settings/app-settings-json/transitions#create_user_for_contacts
   building/examples/supervisor-reference-app
 aliases:
    - /apps/features/supervision/
@@ -81,7 +81,7 @@ Filtering the Aggregate Targets by **Reporting Period** adds the name of the pre
 - The list of facilities in the sidebar are sorted in alphabetic order.
 - The default filter option for the facilities filter is the first facility in the sorted `array` of user Facilities.
 - The default filter option for the reporting period is `This month`.
-- The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings]({{< relref "building/reference/app-settings/hierarchy" >}})
+- The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings]({{< relref "building/app-settings/app-settings-json/hierarchy" >}})
 - The reporting period label in this example (Reporting Period) is added as a translation key `analytics.target.aggregates.reporting_period`.
  {{% /alert %}}
 

@@ -6,6 +6,7 @@ description: >
   Configure SMS reminders to users
 relevantLinks: >
 aliases:
+   - /building/app-settings/app-settings-json/reminders
    - /apps/reference/app-settings/reminders
 ---
 

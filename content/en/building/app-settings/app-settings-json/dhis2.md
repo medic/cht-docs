@@ -7,6 +7,7 @@ description: >
 relevantLinks: >
 keywords: dhis2
 aliases:
+   - /building/app-settings/app-settings-json/dhis2
    - /apps/reference/app-settings/dhis2
 ---
 

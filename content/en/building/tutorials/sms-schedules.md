@@ -5,7 +5,7 @@ weight: 6
 description: >
   Building CHT application SMS schedules
 relatedContent: >
-  building/reference/app-settings/schedules
+  building/app-settings/app-settings-json/schedules
   building/concepts/forms
   building/features/messaging
   building/guides/messaging
@@ -22,7 +22,7 @@ This tutorial takes you through how to set up SMS schedules for CHT applications
 
 ## Brief Overview of Key Concepts
 
-*[SMS schedules]({{< ref "building/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "building/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool.
+*[SMS schedules]({{< ref "building/app-settings/app-settings-json/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "building/app-settings/app-settings-json" >}})* file with the `compile-app-settings` action in the `cht-conf` tool.
 
 SMS schedules can be triggered by *[SMS forms]({{< ref "building/tutorials/sms-forms" >}})* or *[App forms]({{< ref "building/reference/forms/app" >}})*.
 
@@ -32,7 +32,7 @@ You should have [built a pregnancy SMS form]({{< ref "building/tutorials/sms-for
 
 ## Implementation Steps
 
-SMS schedules are defined [using JSON]({{< ref "building/reference/app-settings/schedules#app_settingsjson-schedules" >}}) in the `app_settings.json` file.
+SMS schedules are defined [using JSON]({{< ref "building/app-settings/app-settings-json/schedules#app_settingsjson-schedules" >}}) in the `app_settings.json` file.
 
 ### 1. Define a Pregnancy Follow Up Schedule
 
@@ -103,7 +103,7 @@ schedules: [
 ]
 ```
 
-{{< see-also page="building/reference/app-settings/schedules" title="Schedule properties" >}}
+{{< see-also page="building/app-settings/app-settings-json/schedules" title="Schedule properties" >}}
 
 ### 2. Assign the Schedule
 

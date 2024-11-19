@@ -6,6 +6,7 @@ description: >
   **Outbound Push**: Exchanging data between CHT applications and other tools
 relevantLinks: >
 aliases:
+   - /building/app-settings/app-settings-json/outbound
    - /apps/reference/app-settings/outbound
 ---
 
@@ -17,7 +18,7 @@ These triggers can apply to all document types (not just common types such as re
 
 ## Configuration
 
-For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config]({{% ref "building/reference/app-settings/transitions#available-transitions" %}}):
+For outbound pushes to occur, you must [enable the `mark_for_outbound` transition in config]({{% ref "building/app-settings/app-settings-json/transitions#available-transitions" %}}):
 ```json
 {
   "transitions": {

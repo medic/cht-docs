@@ -8,6 +8,7 @@ relevantLinks: >
   docs/apps/concepts/hierarchy
 keywords: hierarchy contacts
 aliases:
+   - /building/app-settings/app-settings-json/hierarchy
    - /apps/reference/app-settings/hierarchy
 ---
 

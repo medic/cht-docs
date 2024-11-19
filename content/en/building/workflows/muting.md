@@ -5,7 +5,7 @@ description: >
    Temporarily silence tasks and SMS schedules
 keywords: muting
 relatedContent: >
-  building/reference/app-settings/transitions/#muting
+  building/app-settings/app-settings-json/transitions/#muting
 aliases:
    - /building/features/muting/
    - /apps/features/muting/

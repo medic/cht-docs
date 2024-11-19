@@ -6,6 +6,7 @@ description: >
   **Replications**: Instructions for replication depth
 keywords: replication
 aliases:
+   - /building/app-settings/app-settings-json/replication_depth
    - /apps/reference/app-settings/replication_depth
 ---
 

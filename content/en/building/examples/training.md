@@ -6,7 +6,7 @@ description: >
   App and care workflow training using remote capabilities.
 keywords: training onboarding
 relatedContent: >
-  building/reference/app-settings/token_login/
+  building/app-settings/app-settings-json/token_login/
   building/concepts/access/
   building/training/onboarding/
 aliases:

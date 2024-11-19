@@ -6,7 +6,7 @@ description: >
   Settings for downloading copies of data onto a user's device.
 keywords: 
 relatedContent: >
-  building/reference/app-settings/replication_depth
+  building/app-settings/app-settings-json/replication_depth
   building/guides/debugging/replicating-production-data-locally
 aliases:
    - /apps/guides/performance/replication
@@ -42,7 +42,7 @@ In 3.10, we add the ability to limit replication depth for reports, in conjuncti
 }
 ```
 
-{{< see-also page="building/reference/app-settings/replication_depth" title="Replication Depth" >}}
+{{< see-also page="building/app-settings/app-settings-json/replication_depth" title="Replication Depth" >}}
 
 ##### Contact Depth
 

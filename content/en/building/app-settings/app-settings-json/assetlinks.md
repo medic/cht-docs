@@ -9,6 +9,7 @@ relatedContent: >
   building/guides/android/branding
 keywords: android assetlinks
 aliases:
+   - /building/app-settings/app-settings-json/assetlinks
    - /apps/reference/app-settings/assetlinks
 ---
 

@@ -6,10 +6,11 @@ description: >
   **SMS Schedules**: Defining SMS workflows with schedules, registration, and patient reports.
 relatedContent: >
   building/workflows/workflows-overview
-  building/reference/app-settings/_index.md#sms-recipient-resolution
+  building/app-settings/app-settings-json/_index.md#sms-recipient-resolution
 keywords: workflows
 aliases:
-   - /apps/reference/app-settings/schedules
+   - building/app-settings/app-settings-json/schedules
+   - apps/reference/app-settings/schedules
 ---
 
 Schedules are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled in to the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool.
@@ -32,7 +33,7 @@ The `schedules` key contains an array of schedule objects, each representing the
 |`messages[].offset`| Time interval from the `start_from` date for when the message should be sent. It is structured as a string with an integer value followed by a space and the time unit. For instance `8 weeks` or `2 days`. The units available are `seconds`, `minutes`, `hours`, `days`, `weeks`, `months`, `years`, and their singular forms as well. Note that although you can specify `seconds`, the accuracy of the sending time will be determined by delays in the processing the message on the server and on the gateway.|yes|
 |`messages[].send_day`| String value of the day of the week on which the message should be sent. For instance, to send a message at the beginning of the week setting it to `"Monday"` will make sure the message goes out on the closest Monday _after_ the `start_date` + `offset`. |no|
 |`messages[].send_time`| Time of day that the message should be sent in 24 hour format.|no|
-|`messages[].recipient`| Recipient of the message. It can be set to `reporting_unit` (sender of the form), `clinic` (clinic that the sender of the form is attached to), `parent` (parent of the sender of the form), or a specific phone number. [See SMS Recipients]({{< relref "building/reference/app-settings/_index.md#sms-recipient-resolution" >}})|no|
+|`messages[].recipient`| Recipient of the message. It can be set to `reporting_unit` (sender of the form), `clinic` (clinic that the sender of the form is attached to), `parent` (parent of the sender of the form), or a specific phone number. [See SMS Recipients]({{< relref "building/app-settings/app-settings-json/_index.md#sms-recipient-resolution" >}})|no|
 
 ## Code Sample
 

@@ -6,8 +6,8 @@ description: >
   How to enable Universal Health Coverage monitoring with UHC Mode
 relatedContent: >
   building/features/uhc-mode
-  building/reference/app-settings/user-roles
-  building/reference/app-settings/user-permissions
+  building/app-settings/app-settings-json/user-roles
+  building/app-settings/app-settings-json/user-permissions
 aliases:
    - /apps/guides/forms/uhc-mode
 ---

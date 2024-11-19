@@ -9,6 +9,7 @@ relevantLinks: >
   docs/apps/concepts/user-permissions
 keywords: user-roles user-permissions
 aliases:
+   - /building/app-settings/app-settings-json/user-roles
    - /apps/reference/app-settings/user-roles
 ---
 

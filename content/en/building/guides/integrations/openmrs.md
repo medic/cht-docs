@@ -25,7 +25,7 @@ The CHT Core Framework supports integrations with OpenMRS in a variety of ways:
 3. Exposing an API for OpenMRS developers to pull data from CHT Core
 4. Receiving data from OpenMRS
 
-Sending patients, patient contacts, and reports data can be achieved using the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}). Receiving data from OpenMRS can be achieved using the CHT Core Web [API](https://docs.communityhealthtoolkit.org/building/reference/api/).
+Sending patients, patient contacts, and reports data can be achieved using the [Outbound push]({{< ref "building/app-settings/app-settings-json/outbound" >}}). Receiving data from OpenMRS can be achieved using the CHT Core Web [API](https://docs.communityhealthtoolkit.org/building/reference/api/).
 
 Common OpenMRS use cases include:
 
@@ -136,7 +136,7 @@ Remember to convert and upload your forms
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
-{{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}
+{{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "building/app-settings/app-settings-json/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}
 
 
 #### Handling the data
@@ -208,7 +208,7 @@ This includes defining a scheduler and a task that will be compiling the payload
 The CHT API can be used to process incoming reports. For custom payloads, the [{db}/bulk_docs](https://docs.couchdb.org/en/stable/api/database/bulk-api.html#db-bulk-docs) can be utilized to save multiple payloads concurrent
 #### Listener script in the CHT
 
-This is a service that would help shift information in the CHT [hierarchy]({{< ref "building/reference/app-settings/hierarchy" >}}) to support the usecases of interest. Through {db}/bulk_docs, OpenMRS posts a data record that contains data objects such as observations and contact list (if available) details. The service obtains the record, and unpacks it into a contact in CHT and parented under the correct hierarchy level based on the metadata received from OpenMRS. The script should:
+This is a service that would help shift information in the CHT [hierarchy]({{< ref "building/app-settings/app-settings-json/hierarchy" >}}) to support the usecases of interest. Through {db}/bulk_docs, OpenMRS posts a data record that contains data objects such as observations and contact list (if available) details. The service obtains the record, and unpacks it into a contact in CHT and parented under the correct hierarchy level based on the metadata received from OpenMRS. The script should:
 1. Do patient matching to avoid duplicate details. Querying can be achieved via available endpoints such as `contacts_by_phone` [endpoint]({{< ref "building/reference/api#get-apiv1contacts-by-phone" >}}) and `hydrate` [endpoint]({{< ref "building/reference/api#get-apiv1hydrate" >}}) among others/
 2. If the incoming data matches what exists, update the contact found in CHT.
 3. Process all reports payloads and append them to the linked contact’s profile. Note that the `<report type>` xml or JSON form has to be defined in the CHT. 

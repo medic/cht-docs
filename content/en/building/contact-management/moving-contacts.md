@@ -6,7 +6,7 @@ description: >
   How to safely move contacts
 relatedContent: >
   building/contact-management
-  building/reference/app-settings/hierarchy
+  building/app-settings/app-settings-json/hierarchy
   building/contact-management/contact-and-users-2
   building/workflows/hierarchy
 aliases:
@@ -28,7 +28,7 @@ docDirectoryPath | This action outputs files to local disk at this destination |
 
 Some constraints when moving contacts:
 
-* **Allowed Parents** - When moving contacts on WebApp &gt;v3.7, your chosen parent must be listed as a valid parent for the contact as defined in the [configuration for place hierarchy]({{< ref "building/reference/app-settings/hierarchy" >}}). For WebApp &lt;v3.7, the default hierarchy is enforced.
+* **Allowed Parents** - When moving contacts on WebApp &gt;v3.7, your chosen parent must be listed as a valid parent for the contact as defined in the [configuration for place hierarchy]({{< ref "building/app-settings/app-settings-json/hierarchy" >}}). For WebApp &lt;v3.7, the default hierarchy is enforced.
 * **Circular Hierarchy** - Nobody's parent can ever be themself or their child.
 * **Primary Contacts** - Primary contacts must be a descendant of the place for which they are the primary contact. You may need to select a new primary contact for a place through the WebApp if you'd like to move a primary contact to a new place in the hierarchy.
 * **Minification** - Due to contact "minification" (#2635) which was implemented in v2.13, this script should not be used for versions prior to v2.13.

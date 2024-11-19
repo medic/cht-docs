@@ -6,7 +6,7 @@ description: >
   Creating and assigning users to multiple places in the CHT UI
 relatedContent: >
   building/concepts/users
-  building/reference/app-settings
+  building/app-settings/app-settings-json
   building/contact-management/contact-and-users-1
 aliases:
    - /apps/tutorials/multi-facility-users
@@ -21,7 +21,7 @@ This tutorial covers;
 - Creating places and assign contacts to those places
 - Assigning users to multiple places
 
-The [CHT application settings]({{< relref "building/tutorials/application-settings" >}}) allows you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
+The [CHT application settings]({{< relref "building/app-settings/configuring-application-settings" >}}) allows you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
 {{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
@@ -39,7 +39,7 @@ The [CHT application settings]({{< relref "building/tutorials/application-settin
 ## Pre-requisites
 
 - You should be familiar with contact and user management. View detailed tutorial on [How to create contacts and their associated users]({{% ref "building/contact-management/contact-and-users-1" %}}) 
-- You should be familiar with managing CHT application settings. Read [How to manage CHT application settings]({{% ref "building/tutorials/application-settings" %}}) 
+- You should be familiar with managing CHT application settings. Read [How to manage CHT application settings]({{% ref "building/app-settings/configuring-application-settings" %}}) 
 
 
 ## Implementation Steps

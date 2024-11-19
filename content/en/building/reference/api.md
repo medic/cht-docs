@@ -403,7 +403,7 @@ Content-Type: application/json
 
 ### POST /api/v2/records
 
-Create a new record based on a [JSON form]({{% ref "building/reference/app-settings/forms" %}}) that has been configured.
+Create a new record based on a [JSON form]({{% ref "building/app-settings/app-settings-json/forms" %}}) that has been configured.
 
 Records can be created one of two ways, parsing the form data yourself and submitting a JSON object or by submitting the raw message string.
 
@@ -1596,7 +1596,7 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 | false | existent, no token | None. |
 | false | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. Existent sessions are invalidated. |
 
-This feature uses [`app_settings.app_url`]({{< relref "building/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "building/reference/app-settings/token_login.md" >}}) to be defined and enabled.
+This feature uses [`app_settings.app_url`]({{< relref "building/app-settings/app-settings-json/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "building/app-settings/app-settings-json/token_login.md" >}}) to be defined and enabled.
 If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct.
 
 {{< see-also page="building/concepts/access" anchor="remote-login" >}}
@@ -1852,7 +1852,7 @@ Create new users with a place and a contact.
 All users need to meet the following requirements before any of them are created:
 - All required fields are filled in
 - The password is at least 8 characters long and difficult to guess
-- The phone number is valid when [`token_login`]({{< ref "building/reference/app-settings/token_login" >}}) is enabled
+- The phone number is valid when [`token_login`]({{< ref "building/app-settings/app-settings-json/token_login" >}}) is enabled
 
 Users are created in parallel and the creation is not aborted even if one of the users fails to be created.
 

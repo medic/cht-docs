@@ -9,6 +9,7 @@ relevantLinks: >
   building/guides/messaging
 keywords: workflows sms
 aliases:
+   - /building/app-settings/app-settings-json/sms
    - /apps/reference/app-settings/sms
 ---
 

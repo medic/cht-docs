@@ -5,8 +5,9 @@ weight: 5
 description: >
   **Sentinel Transitions**: functions executed when database documents change
 relatedContent: >
-  building/reference/app-settings/_index.md#sms-recipient-resolution
+  building/app-settings/app-settings-json/_index.md#sms-recipient-resolution
 aliases:
+   - /building/app-settings/app-settings-json/transitions
    - /apps/reference/app-settings/transitions
 ---
 
@@ -38,7 +39,7 @@ The following transitions are available and executed in order.
 | Key | Description |
 |---|---|
 | maintain_info_document | Records metadata about the document such as when it was replicated. Enabled by default. |
-| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition]({{< ref "building/reference/app-settings/forms#app_settingsjson-forms" >}}). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
+| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition]({{< ref "building/app-settings/app-settings-json/forms#app_settingsjson-forms" >}}). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
 | [registration](#registration) | For registering a patient or place to a schedule. Performs some validation and creates the patient document if the patient does not already exist. Can create places (as of 3.8.x). Can assign schedules to places (as of 3.11.x) |
 | [accept_patient_reports](#accept-patient-reports) | Validates reports about a patient or place and silences relevant reminders. |
 | [accept_case_reports](#accept-case-reports) | Validates reports about a case, assigns the associated place_uuid, and silences relevant reminders. Available since 3.9.0 |
@@ -54,7 +55,7 @@ The following transitions are available and executed in order.
 | update_scheduled_reports | If a report has a month/week/week_number, year and clinic then look for duplicates and update those instead. |
 | resolve_pending | Sets the state of pending messages to sent. It is useful during builds where we don't want any outgoing messages queued for sending. |
 | [muting](#muting) | Implements muting/unmuting actions of people and places. Available since 3.2.x. Is partially applied on the client, as of 3.12.0. |
-| [mark_for_outbound]({{% ref "building/reference/app-settings/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
+| [mark_for_outbound]({{% ref "building/app-settings/app-settings-json/outbound" %}}) | Enables outbound pushes. Available since 3.5.x |
 | [self_report](#self_report) | Maps patient to sender. Available since 3.9.x |
 | [create_user_for_contacts](#create_user_for_contacts) | Allows for automatically creating or replacing users based on data from their associated contact. Available since 4.1.x  | |
 ## Transition Configuration Guide
@@ -690,7 +691,7 @@ Several configurations are required in `app_settings` to enable the `create_user
 
 [Login by SMS]({{< ref "building/reference/api#login-by-sms" >}}) must be enabled by setting the `token_login` configuration.
 
-The [`app_url` property]({{< ref "building/reference/app-settings#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
+The [`app_url` property]({{< ref "building/app-settings/app-settings-json#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
 
 ##### Example
 ```json
