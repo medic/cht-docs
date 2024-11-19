@@ -5,6 +5,7 @@ weight: 7
 description: >
   Building block for all CHT apps
 aliases:
+   - /building/reference/forms
    - /building/concepts/forms
    - /apps/concepts/forms
 ---
