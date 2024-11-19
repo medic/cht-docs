@@ -93,7 +93,7 @@ You can tag mocha tests and update suites to only include or exclude certain tag
 
 Existent tags:
 #### @docker
-Tests that should run exclusively when running the suite over docker infrastructure. These tests will fail if run over k3d.
+Tests that should run exclusively when running the suite over docker infrastructure. These tests will fail if run over [k3d]({{% ref "glossary#k3d" %}}).
 
 ### Notes:
 
