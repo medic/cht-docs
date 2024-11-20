@@ -20,6 +20,7 @@ These sessions provide valuable insights into the experiences of users developin
 3. The projects’ team shares a list of current issues, with context on how they encountered the problem they are trying to solve, in order of priority beforehand
 4. Medic reviews the issues in order to attend the session with prepared documentation and identifies the teammates who are best suited to address them (often a Product Owner, Software Engineer, UX Researcher)
 
+Here is a [sample technical working session document](https://docs.google.com/document/d/1GNt8oswkHnbNxXfsC7oSpPzppkQ0TcevTqSucY_iST4/edit?usp=sharing)
 
 
 ## Executing
@@ -28,12 +29,16 @@ These sessions provide valuable insights into the experiences of users developin
 
 1. Have the session participants introduce themselves
 2. Explain the purpose and duration of the session
-3. Confirm the priority order of the topics before starting
-4. Ask permission to record the conversation and start recording
-5. Begin reviewing each topic, asking the user to provide additional context before diving in
-6. Once all topics have been covered, ask the user if they have any questions or anything they’d like to discuss
-7. Agree on potential next steps from the call
-8. Thank them for their time and let them know to encourage a continual discussion after the call; on the forum or via email
+3. If a Medic-Initiated Session:
+    1. Confirm the priority order of the topics before starting
+4. If a Partner-Initiated Session:
+    1. Hand over to partner and allow them to lead the session based on their issues priority
+5. Ask permission to record the conversation and start recording
+6. Begin reviewing each topic, asking the user to provide additional context before diving in
+7. Once all topics have been covered, ask the user if they have any questions or anything they’d like to discuss
+8. Agree on potential next steps from the call
+9. Thank them for their time and let them know to encourage a continual discussion after the call; on the forum or via email
+
 
 
 #### Tips:
@@ -48,7 +53,7 @@ These sessions provide valuable insights into the experiences of users developin
 * Give users the chance to ask questions themselves
 * Where possible, share screen and replicate the issues to see the issue in real time
 * Record your session and have someone take notes so you can focus on being present
-* Ensure all shared resources are kept in the meeting document for reference \
+* Ensure all shared resources are kept in the meeting document for reference
 
 
 
