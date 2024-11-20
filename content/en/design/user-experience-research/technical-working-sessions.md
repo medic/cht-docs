@@ -20,7 +20,7 @@ These sessions provide valuable insights into the experiences of users developin
 3. The projects’ team shares a list of current issues, with context on how they encountered the problem they are trying to solve, in order of priority beforehand
 4. Medic reviews the issues in order to attend the session with prepared documentation and identifies the teammates who are best suited to address them (often a Product Owner, Software Engineer, UX Researcher)
 
-Here is a [sample technical working session document](https://docs.google.com/document/d/1GNt8oswkHnbNxXfsC7oSpPzppkQ0TcevTqSucY_iST4/edit?usp=sharing)
+Here is a [sample technical working session document](https://docs.google.com/document/d/1i2YTZPvFmjocx0KUZ9Ele-kT-vclqETObTTQy9A-M_w/edit?usp=sharing)
 
 
 ## Executing
