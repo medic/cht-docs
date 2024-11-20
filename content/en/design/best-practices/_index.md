@@ -1,7 +1,7 @@
 ---
 title: "Configuration Best Practices"
 linkTitle: "Best Practices"
-weight: 
+weight: 5
 description: >
   This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
 ---
