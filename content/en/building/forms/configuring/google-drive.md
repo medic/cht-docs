@@ -5,7 +5,7 @@ weight:
 description: >
   Using cht-conf to obtain form files stored in Google Drive
 relatedContent: >
-  building/forms/configuring-forms/
+  building/forms/configuring/
 aliases:
    - /building/guides/forms/google-drive
    - /apps/guides/forms/google-drive

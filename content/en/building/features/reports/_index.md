@@ -6,7 +6,7 @@ description: >
 relatedContent: >
   building/reference/app-settings/patient_reports
   building/guides/data/invalid-reports
-  building/forms/configuring-forms/report-titles
+  building/forms/configuring/report-titles
 aliases:
    - /apps/features/reports/
 ---
