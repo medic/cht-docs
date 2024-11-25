@@ -2,8 +2,6 @@
 title: "Migration from CHT 3.x to CHT 4.x in Kubernetes"
 linkTitle: "K8s Data Migration to 4.x"
 weight: 1
-aliases:
-  - /apps/guides/hosting/4.x/k8s-data-migration
 description: >
   Guide to migrate existing data from CHT 3.x to CHT 4.x in Kubernetes environments
 relatedContent: >
@@ -36,16 +34,14 @@ kubectl exec -it -n $NAMESPACE <medic-os-pod-name> -- bash
 
 Once inside the pod, install required dependencies:
 ```shell
-# Install Node.js
+# Add node apt repository and update apt
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-apt install -y nodejs
-
-# Install npm (if not installed with Node.js)
-apt install -y npm
-
-# Install git and clone repository
 apt update
-apt install -y git
+
+# Ensure nodejs, npm and git are installed
+apt install -y nodejs npm git
+
+#  clone repository
 git clone https://github.com/medic/couchdb-migration.git
 cd couchdb-migration
 npm ci --omit=dev
@@ -53,7 +49,7 @@ npm ci --omit=dev
 
 ### 4. Run Pre-Migration Commands on 3.x
 
-Get credentials from 1Password and set them inside the pod:
+While still `exec`ed in the `medic-os` container,  get credentials from 1Password and set them inside the pod:
 ```shell
 export ADMIN_USER=<admin_username_from_1password>
 export ADMIN_PASSWORD=<admin_password_from_1password>
@@ -141,7 +137,7 @@ aws ec2 describe-volumes --region eu-west-2 --volume-id $NEW_VOLUME_ID | jq '.Vo
 
 ### 6. Deploy CHT 4.x with Existing Data
 
-Create a values.yaml file using the volume ID from the previous step:
+Create a `values.yaml` file using the volume ID from the previous step:
 
 ```yaml
 project_name: <your-namespace-defined-in-NAMESPACE>
