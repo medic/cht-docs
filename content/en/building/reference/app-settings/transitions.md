@@ -354,54 +354,61 @@ There is no custom configuration for `generate_patient_id_on_people`.
 ## muting
 
 Implements muting/unmuting of persons and places. Supports multiple forms for each action, for webapp and sms workflows.
-
 ### Muting action 
 
-As of 3.12.0, client-side muting only runs on new reports or new contacts, before they are saved in the local database:
+Updates the target contact and all its descendants, setting the `muted` property equal to the current date in ISO format.
 
-- updates the target contact and all its descendants, setting the `muted` property equal to the device's current `date` in ISO format. 
-- adds/updates the `muting_history` property on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
-- updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
+#### Client-side
 
-Server-side:
+*Added in 3.12.0*
 
-- updates the target contact and all its descendants, setting the `muted` property equal to the current `date` in ISO format. If the contact was already muted by a client, the `muted` date will be overwritten. The client-side `muting_history` will have a copy of the client-side muting date.
-- adds a `muting_history` entry to Sentinel `info` docs for every updated contact
-- updates all connected registrations, changing the state of all unsent `scheduled_tasks` to `muted`
-- as of 3.12.0, updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
-- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report. 
+Client-side muting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
+
+- Sets the `muted` property on the target contact and all its descendants to the device's current `date` (the moment the report is processed). 
+- Adds/updates the [`muting_history` property]({{< ref "#client-side-muting-history" >}}) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
+
+#### Server-side
+
+Server-side muting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
+
+- Sets the `muted` property on the target contact and all its descendants to the moment Sentinel processed the muting action.
+  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`]({{< ref "#client-side-muting-history" >}}) will have a copy of the client-side muting date.
+- Adds a [`muting_history` entry]({{< ref "#server-side-muting-history" >}}) to Sentinel `info` docs for every updated contact
+- Updates all connected registrations (for the target contact and descendants), changing the state of all unsent `scheduled_tasks` to `muted`
+  - Unsent `scheduled_tasks` have either a `scheduled` or `pending` state
+- Updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
+- If the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report. 
+  - Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.
 
 ### Unmuting action
 
-As of 3.12.0, client-side unmuting only runs on new reports before they are saved in the local database:
+Updates the target contact's topmost muted ancestor and all its descendants, removing the `muted` property. Because the muted state is inherited, unmuting cascades upwards to the highest level muted ancestor. If none of the ancestors is muted, unmuting cascades downwards only.
 
-- updates the target contact's topmost muted ancestor and all its descendants, removing the `muted` property.
-- adds/updates the `muting_history` property on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
-- updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
+#### Client-side
 
-Server-side:
+*Added in 3.12.0*
 
-- updates the target contact's topmost muted ancestor and all its descendants, removing the `muted` property
-- adds a `muting_history` entry to Sentinel `info` docs for every updated contact
-- updates all connected registrations, changing the state of all present/future `muted` `scheduled_tasks` to `scheduled`
-- as of 3.12.0, updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
-- as of 3.12.0, if the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report.
+Client-side unmuting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
-<details>
-  <summary>Here are a couple of things to take note of:</summary>
+- Adds/updates the [`muting_history` property]({{< ref "#client-side-muting-history" >}}) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
-* Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).  
-* The date represents the moment Sentinel has processed the muting action  
-* `scheduled_tasks` are in either `scheduled` or `pending` state  
-* Because the muted state is inherited, unmuting cascades upwards to the highest level muted ancestor. If none of the ancestors is muted, unmuting cascades downwards only.  
-* All `scheduled_tasks` with a due date in the past will remain unchanged.  
-* The date represents the device's date when the report is processed.  
-* Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.    
-* The updated contacts are limited to the contacts available on the device.  
-</details>
+#### Server-side
 
+Server-side unmuting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
+
+- Adds a [`muting_history` entry]({{< ref "#server-side-muting-history" >}}) to Sentinel `info` docs for every updated contact
+- Updates all connected registrations (for the target contact and descendants), changing the state of all present/future `scheduled_tasks` (ones due today or in the future) with the `muted` state to have the `scheduled` state.
+  - All `scheduled_tasks` with a due date in the past will remain unchanged.
+- Updates the contact's [client-side `muting_history`]({{< ref "#client-side-muting-history" >}}) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
+- If the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report.
+  - Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.
 
 ### Muting history
+
+#### Server-side muting history
+
 Each time the `muted` state of a contact changes, an entry is added to a `muting_history` list saved in Sentinel `info` docs (stored as an array property with the same name).
 Entries in `muting_history` contain the following information:
 
@@ -411,8 +418,10 @@ Entries in `muting_history` contain the following information:
 | date | Date in ISO Format |
 | report_id | An `_id` reference to the report that triggered the action |
 
+#### Client-side muting history
 
-##### Client-side Muting history as of 3.12.0
+*Added in 3.12.0*
+
 Each time the client changes the `muted` state of a contact, an entry is added to a `muting_history` property on the contact's doc. The `last_update` entry is also changed to `client_side`.
 The `muting_history` property contains the following information:
 
@@ -426,8 +435,6 @@ The `muting_history` property contains the following information:
 | client_side[].muted | `true` or `false` | Client-side muting state | 
 | client_side[].date | Date in ISO format | Client-side muting/unmuting date |
 | client_side[].report_id | uuid | The uuid  of the muting/unmuting report that triggered the update |
-
-
 ##### Configuration
 Configuration is stored in the `muting` field of `app_settings.json`.
 
