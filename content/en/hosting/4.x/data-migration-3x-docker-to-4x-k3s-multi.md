@@ -138,13 +138,17 @@ git clone https://github.com/medic/couchdb-migration.git
 cd couchdb-migration
 npm ci --omit=dev
 
+# Create a global symlink to enable running commands directly
+# Note: This may require sudo if npm's global directories aren't writable
+npm link
+
 export ADMIN_USER=<your-admin-user>
 export ADMIN_PASSWORD=<your-admin-password>
 export COUCH_URL="http://${ADMIN_USER}:${ADMIN_PASSWORD}@localhost:5984"
 
 # Get shard distribution instructions
-shard_matrix=$(./bin/generate-shard-distribution-matrix)
-./bin/shard-move-instructions $shard_matrix
+shard_matrix=$(generate-shard-distribution-matrix)
+shard-move-instructions $shard_matrix
 ```
 
 Example output:
@@ -204,11 +208,11 @@ ssh user@node3-hostname "sudo find /srv/couchdb3/data/.shards -type f -exec touc
 In the primary CouchDB pod:
 ```shell
 # Apply shard distribution
-./bin/move-shards $shard_matrix
+move-shards $shard_matrix
 
 # Remove old node configuration
-./bin/remove-node couchdb@127.0.0.1
+remove-node couchdb@127.0.0.1
 
 # Verify migration
-./bin/verify
+verify
 ```

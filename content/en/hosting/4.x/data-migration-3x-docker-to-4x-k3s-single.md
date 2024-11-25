@@ -136,16 +136,20 @@ git clone https://github.com/medic/couchdb-migration.git
 cd couchdb-migration
 npm ci --omit=dev
 
+# Create a global symlink to enable running commands directly
+# Note: This may require sudo if npm's global directories aren't writable
+npm link
+
 export ADMIN_USER=<your-admin-user>
 export ADMIN_PASSWORD=<your-admin-password>
 export COUCH_URL="http://${ADMIN_USER}:${ADMIN_PASSWORD}@localhost:5984"
 
 # Verify CouchDB is up and responding
-./bin/check-couchdb-up
+check-couchdb-up
 
 # Update node configuration
-./bin/move-node
+move-node
 
 # Verify migration
-./bin/verify
+verify
 ```
