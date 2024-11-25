@@ -435,6 +435,7 @@ The `muting_history` property contains the following information:
 | client_side[].muted | `true` or `false` | Client-side muting state | 
 | client_side[].date | Date in ISO format | Client-side muting/unmuting date |
 | client_side[].report_id | uuid | The uuid  of the muting/unmuting report that triggered the update |
+
 ##### Configuration
 Configuration is stored in the `muting` field of `app_settings.json`.
 
