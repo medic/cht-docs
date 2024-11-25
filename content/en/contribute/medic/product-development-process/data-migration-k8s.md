@@ -7,21 +7,23 @@ description: >
 relatedContent: >
 ---
 
-The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. When both versions are running in Kubernetes, migrating data requires specific steps using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
+Like the [Deploy to EKS guide]({{< relref "contribute/medic/product-development-process/deploy-on-eks" >}}), this guide is meant for Medic Teammates migrating Medic hosted CHT Core deployments.  However, given there may be other users who will benefit from understanding the process, this document is published for all to read.
+
+CHT Core hosting architecture differs entirely between 3.x and 4.x. When both versions are running in Kubernetes, migrating data requires specific steps using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
 
 {{% alert title="Note" %}}
 If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
 {{% /alert %}}
 
-## Migration Steps
 
-1. Initial Setup
+## Initial Setup
+
 ```shell
 # Set your namespace
 NAMESPACE=<your-namespace>
 ```
 
-2. Access the Source CouchDB (3.x)
+##  Access the Source CouchDB (3.x)
 ```shell
 # List all pods to find medic-os pod
 kubectl get pods -n $NAMESPACE
@@ -30,7 +32,7 @@ kubectl get pods -n $NAMESPACE
 kubectl exec -it -n $NAMESPACE <medic-os-pod-name> -- bash
 ```
 
-3. Set Up Migration Tool Inside 3.x Pod
+## Set Up Migration Tool Inside 3.x Pod
 
 Once inside the pod, install required dependencies:
 ```shell
@@ -51,7 +53,7 @@ npm ci --omit=dev
 npm link
 ```
 
-4. Run Pre-Migration Commands on 3.x
+## Run Pre-Migration Commands on 3.x
 
 While still `exec`ed in the `medic-os` container,  get credentials from 1Password and set them inside the pod:
 ```shell
@@ -86,7 +88,7 @@ Save the output containing:
 
 You can now exit the medic-os container by running `exit`.
 
-5. Clone the 3.x Data Volume
+## Clone the 3.x Data Volume
 
 First, identify the volume ID from your 3.x data:
 ```shell
@@ -141,66 +143,31 @@ aws ec2 create-tags \
 aws ec2 describe-volumes --region eu-west-2 --volume-id $NEW_VOLUME_ID | jq '.Volumes[0].Tags'
 ```
 
-6. Deploy CHT 4.x with Existing Data
+## Deploy CHT 4.x with Existing Data
 
 Create a `values.yaml` file using the volume ID from the previous step:
 
-For single node deployment:
+For single node deployment, create a YAML file with this contents, being sure to update:
+
+* `<your-namespace-defined-in-NAMESPACE>` (_two occurrences_)
+* `<version>` - 4.x version you're upgrading too
+* `<password>` - retrieved from `get-env` call above
+* `<secret>` - retrieved from `get-env` call above
+* `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
+* `<uuid>` - retrieved from `get-env` call above
+* `<size>` - Size of original 3.x EBS volume, eg `100Mi` for 100 Megabytes or `100Gi` for 100 Gigabytes (_two occurrences_)
+* `<couch-key>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
+* `<groupname>` - For production use `prod-cht-alb`, for dev use `dev-cht-alb`
+* `<environment>` - For production use `prod`, for dev use `dev`
+* `<url>` - For production use `your-url.app`, for dev use `your-url.dev`
+* `load_balancer` - what are dev and prod values?
+* `certificate` - what are dev and prod values?
+* `<volume-ID>` - `NEW_VOLUME_ID` from previous step, is volume containing 3.x data
 
 ```yaml
-project_name: <your-namespace-defined-in-NAMESPACE>
-namespace: <your-namespace-defined-in-NAMESPACE>
-chtversion: 4.10.0  # Can be 4.10.0 or latest version
-
-upstream_servers:
-  docker_registry: "public.ecr.aws/medic"
-  builds_url: "https://staging.dev.medicmobile.org/_couch/builds_4"
-
-couchdb:
-  password: <from_get-env_command>  # Avoid using non-url-safe characters
-  secret: <from_get-env_command>
-  user: <admin_user>
-  uuid: <from_get-env_command>
-  clusteredCouch_enabled: false
-  couchdb_node_storage_size: 100Mi
-
-toleration:  # For production, change key to "prod-couchdb-only"
-  key: "dev-couchdb-only"
-  operator: "Equal"
-  value: "true"
-  effect: "NoSchedule"
-
-ingress:
-  annotations:  # For production, update groupname to "prod-cht-alb" and Environment to "prod"
-    groupname: "dev-cht-alb"
-    tags: "Environment=dev,Team=QA"
-    certificate: "arn:aws:iam::<account-id>:server-certificate/2024-wildcard-dev-medicmobile-org-chain"
-  host: <your-url>  # eg. yyyy.app.medicmobile.org
-  hosted_zone_id: <your-hosted-zone-id>
-  # For production, use the production load balancer address
-  load_balancer: "dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com"
-
-environment: "remote"
-cluster_type: "eks"
-cert_source: "eks-medic"
-
-couchdb_data:
-  preExistingDataAvailable: "true"
-  dataPathOnDiskForCouchDB: "storage/medic-core/couchdb/data"  # Use subPath from 3.x instance
-  partition: "0"
-
-ebs:
-  preExistingEBSVolumeID-1: <NEW_VOLUME_ID-from-previous-step>  # Volume containing 3.x data
-  preExistingEBSVolumeSize: "100Gi"
-
-```
-
-For a clustered deployment.
-
-```yaml
-project_name: <your-namespace-defined-in-NAMESPACE>
-namespace: <your-namespace-defined-in-NAMESPACE>
-chtversion: 4.10.0  # Can be 4.10.0 or latest version
+project_name: "<your-namespace-defined-in-NAMESPACE>"
+namespace: "<your-namespace-defined-in-NAMESPACE>"
+chtversion: <version> 
 
 upstream_servers:
   docker_registry: "public.ecr.aws/medic"
@@ -209,30 +176,95 @@ upgrade_service:
   tag: 0.32
 
 couchdb:
-  password: <from_get-env_command>  # Avoid using non-url-safe characters
-  secret: <from_get-env_command>
-  user: <admin_user>
-  uuid: <from_get-env_command>
-  clusteredCouch_enabled: true  # Set to true if you want clustered CouchDB in 4.x
-  couchdb_node_storage_size: 100Mi #Set equal to the migrated disk
+  password: "<password>"
+  secret: "<secret>"
+  user: "<admin_user>"
+  uuid: "<uuid>"
+  clusteredCouch_enabled: false
+  couchdb_node_storage_size: "<size>"
 
-clusteredCouch:  # Only relevant if clusteredCouch_enabled is true
-  noOfCouchDBNodes: 3
-
-toleration:  # For production, change key to "prod-couchdb-only"
-  key: "dev-couchdb-only"
+toleration:  
+  key: "<couch-key>"
   operator: "Equal"
   value: "true"
   effect: "NoSchedule"
 
 ingress:
-  annotations:  # For production, update groupname to "prod-cht-alb" and Environment to "prod"
-    groupname: "dev-cht-alb"
-    tags: "Environment=dev,Team=QA"
-    certificate: "arn:aws:iam::<account-id>:server-certificate/2024-wildcard-dev-medicmobile-org-chain"
-  host: <your-url>  # eg. yyyy.app.medicmobile.org
-  hosted_zone_id: <your-hosted-zone-id>
-  # For production, use the production load balancer address
+  annotations:  
+    groupname: "<groupname>"
+    tags: "Environment=<environment>,Team=QA"
+    certificate: "arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain"
+  host: "<url>" 
+  hosted_zone_id: "Z3304WUAJTCM7P"
+  load_balancer: "dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com"
+
+environment: "remote"
+cluster_type: "eks"
+cert_source: "eks-medic"
+
+couchdb_data:
+  preExistingDataAvailable: "true"
+  dataPathOnDiskForCouchDB: "storage/medic-core/couchdb/data"  
+  partition: "0"
+
+ebs:
+  preExistingEBSVolumeID-1: "<volume-ID>"  
+  preExistingEBSVolumeSize: "<size>"
+
+```
+
+For a clustered deployment, create a YAML file with this contents, being sure to update:
+
+* `<your-namespace-defined-in-NAMESPACE>` (two occurrences)
+* `<version>` - 4.x version you're upgrading too
+* `<password>` - retrieved from `get-env` call above
+* `<secret>` - retrieved from `get-env` call above
+* `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
+* `<uuid>` - retrieved from `get-env` call above
+* `<size>` - Size of original 3.x EBS volume, eg `100Mi` for 100 Megabytes or `100Gi` for 100 Gigabytes (_two occurrences_)
+* `<couch-key>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
+* `<groupname>` - For production use `prod-cht-alb`, for dev use `dev-cht-alb`
+* `<environment>` - For production use `prod`, for dev use `dev`
+* `<url>` - For production use `your-url.app`, for dev use `your-url.dev`
+* `load_balancer` - Henok what are dev and prod values?
+* `certificate` - Henok what are dev and prod values?
+* `<volume-ID>` - `NEW_VOLUME_ID` from previous step, is volume containing 3.x data
+
+```yaml
+project_name: "<your-namespace-defined-in-NAMESPACE>"
+namespace: "<your-namespace-defined-in-NAMESPACE>"
+chtversion: <version>
+
+upstream_servers:
+  docker_registry: "public.ecr.aws/medic"
+  builds_url: "https://staging.dev.medicmobile.org/_couch/builds_4"
+upgrade_service:
+  tag: 0.32
+
+couchdb:
+  password: "<password>"
+  secret: "<secret>"
+  user: "<admin_user>"
+  uuid: "<uuid>"
+  clusteredCouch_enabled: true  
+  couchdb_node_storage_size: "<size>"
+
+clusteredCouch:  # Only relevant if clusteredCouch_enabled is true
+  noOfCouchDBNodes: 3
+
+toleration:
+  key: "<couch-key>"
+  operator: "Equal"
+  value: "true"
+  effect: "NoSchedule"
+
+ingress:
+  annotations:
+    groupname: "<groupname>"
+    tags: "Environment=<environment>,Team=QA"
+    certificate: "arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain"
+  host: "<url>"
+  hosted_zone_id: "Z3304WUAJTCM7P"
   load_balancer: "dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com"
 
 environment: "remote"
@@ -251,10 +283,10 @@ couchdb_data:
   partition: "0"
 
 ebs:
-  preExistingEBSVolumeID-1: <NEW_VOLUME_ID-from-previous-step>  # Volume containing 3.x data
+  preExistingEBSVolumeID-1: "<volume-ID>"
   preExistingEBSVolumeID-2: ""  # Leave empty for secondary nodes
   preExistingEBSVolumeID-3: ""  # Leave empty for tertiary nodes
-  preExistingEBSVolumeSize: "100Gi" #Set equal to the migrated disk
+  preExistingEBSVolumeSize: "<size>"
 ```
 
 Deploy using cht-deploy script from cht-core repository:
@@ -263,7 +295,7 @@ cd cht-core/scripts/deploy
 ./cht-deploy -f PATH_TO/values.yaml
 ```
 
-7. Verify Deployment and Run Migration Commands
+## Verify Deployment and Run Migration Commands
 
 First verify CouchDB is running properly:
 ```shell
@@ -319,16 +351,18 @@ verify
 ```
 
 For clustered deployment:
+
+{{% alert title="Note" %}}
+For clustered setups, shards must be moved both in software (using the migration commands) and physically (the actual data must be moved between EBS volumes). Follow the instructions from shard-move-instructions carefully.
+{{% /alert %}}
+
+
 ```shell
 # Generate distribution matrix
 shard_matrix=$(generate-shard-distribution-matrix)
 
 # Get movement instructions
 shard-move-instructions $shard_matrix
-
-{{% alert title="Note" %}}
-For clustered setups, shards must be moved both in software (using the migration commands) and physically (the actual data must be moved between EBS volumes). Follow the instructions from shard-move-instructions carefully.
-{{% /alert %}}
 
 # After moving shards according to instructions
 move-shards $shard_matrix
