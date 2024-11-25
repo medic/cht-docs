@@ -45,6 +45,10 @@ apt install -y nodejs npm git
 git clone https://github.com/medic/couchdb-migration.git
 cd couchdb-migration
 npm ci --omit=dev
+
+# Create a global symlink to enable running commands directly
+# Note: This may require sudo if npm's global directories aren't writable
+npm link
 ```
 
 4. Run Pre-Migration Commands on 3.x
@@ -63,7 +67,7 @@ curl -s $COUCH_URL/_up
 
 Pre-index views to minimize downtime:
 ```shell
-./bin/pre-index-views <desired CHT version>
+pre-index-views <desired CHT version>
 ```
 
 {{% alert title="Note" %}} 
@@ -72,7 +76,7 @@ If pre-indexing is omitted, 4.x API will fail to respond to requests until all v
 
 Save CouchDB configuration:
 ```shell
-./bin/get-env
+get-env
 ```
 
 Save the output containing:
@@ -295,39 +299,43 @@ git clone https://github.com/medic/couchdb-migration.git
 cd couchdb-migration
 npm ci --omit=dev
 
+# Create a global symlink to enable running commands directly
+# Note: This may require sudo if npm's global directories aren't writable
+npm link
+
 # Set up CouchDB connection
 export ADMIN_USER=<admin_username_from_1password>
 export ADMIN_PASSWORD=<admin_password_from_1password>
 export COUCH_URL="http://${ADMIN_USER}:${ADMIN_PASSWORD}@localhost:5984"
 
 # Verify CouchDB is up and responding
-./bin/check-couchdb-up
+check-couchdb-up
 ```
 
 For single node deployment:
 ```shell
-./bin/move-node
-./bin/verify
+move-node
+verify
 ```
 
 For clustered deployment:
 ```shell
 # Generate distribution matrix
-shard_matrix=$(./bin/generate-shard-distribution-matrix)
+shard_matrix=$(generate-shard-distribution-matrix)
 
 # Get movement instructions
-./bin/shard-move-instructions $shard_matrix
+shard-move-instructions $shard_matrix
 
 {{% alert title="Note" %}}
 For clustered setups, shards must be moved both in software (using the migration commands) and physically (the actual data must be moved between EBS volumes). Follow the instructions from shard-move-instructions carefully.
 {{% /alert %}}
 
 # After moving shards according to instructions
-./bin/move-shards $shard_matrix
+move-shards $shard_matrix
 
 # Remove old node from cluster
-./bin/remove-node couchdb@127.0.0.1
+remove-node couchdb@127.0.0.1
 
 # Verify the migration
-./bin/verify
+verify
 ```
