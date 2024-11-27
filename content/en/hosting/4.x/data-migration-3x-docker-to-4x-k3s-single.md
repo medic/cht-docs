@@ -13,9 +13,8 @@ The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x.
 If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
 {{% /alert %}}
 
-## Migration Steps
 
-1. Install Migration Tool
+## Install Migration Tool
 ```shell
 mkdir -p ~/couchdb-migration/
 cd ~/couchdb-migration/
@@ -23,13 +22,13 @@ curl -s -o ./docker-compose.yml https://raw.githubusercontent.com/medic/couchdb-
 docker compose up
 ```
 
-2. Set Up Environment Variables
+## Set Up Environment Variables
 ```shell
 # Replace with your actual CouchDB URL from the Docker Compose setup
-export COUCH_URL=http://<admin>:<password>@<couchdb-host>:5984
+export COUCH_URL=http://<your-admin-user>:<your-admin-password>@<couchdb-host>:5984
 ```
 
-3. Run Pre-Migration Commands
+## Run Pre-Migration Commands
 ```shell
 cd ~/couchdb-migration/
 docker compose run couch-migration pre-index-views 4.10.0
@@ -39,7 +38,7 @@ docker compose run couch-migration pre-index-views 4.10.0
 If pre-indexing is omitted, 4.x API will fail to respond to requests until all views are indexed. For large databases, this could take many hours or days.
 {{% /alert %}}
 
-4. Save CouchDB Configuration
+## Save CouchDB Configuration
 ```shell
 cd ~/couchdb-migration/
 docker compose run couch-migration get-env
@@ -50,9 +49,9 @@ Save the output containing:
 - CouchDB server UUID (used for replication checkpointing)
 - CouchDB admin credentials
 
-The next part of  the guide assumes your k3s cluster is already prepared. If not, please run the set of commands [here](https://docs.k3s.io/quick-start).
+The next part of  the guide assumes your K3s cluster is already prepared. If not, please run the set of commands [here](https://docs.k3s.io/quick-start).
 
-5. Prepare Node Storage
+## Prepare Node Storage
 
 ```shell
 # Create directory on the node
@@ -64,7 +63,7 @@ sudo rsync -avz --progress --partial --partial-dir=/tmp/rsync-partial \
     /srv/couchdb1/data/
 ```
 
-6. Create values.yaml for K3s Deployment
+## Create values.yaml for K3s Deployment
 ```yaml
 project_name: "your-namespace-name"
 namespace: "your-namespace-name"
@@ -77,7 +76,7 @@ upgrade_service:
   tag: 0.32
 
 couchdb:
-  password: "<your-saved-password>"
+  password: "<your-admin-password>"
   secret: "<your-saved-secret>"
   user: "<your-admin-user>"
   uuid: "<your-saved-uuid>"
@@ -90,8 +89,8 @@ ingress:
 environment: "remote"
 cluster_type: "k3s-k3d"
 cert_source: "specify-file-path"
-certificate_crt_file_path: "/home/henok/certs/fullchain.crt"
-certificate_key_file_path: "/home/henok/certs/privkey.key"
+certificate_crt_file_path: "<path-to-tls>/fullchain.crt"
+certificate_key_file_path: "<path-to-tls>/privkey.key"
 
 nodes:
   node-1: "couch01"
@@ -105,13 +104,13 @@ local_storage:
   preExistingDiskPath-1: "/srv/couchdb1"
 ```
 
-7. Deploy to K3s
+## Deploy to K3s
 ```shell
 cd cht-core/scripts/deploy
 ./cht-deploy -f /path/to/your/values.yaml
 ```
 
-8. Run Migration Commands
+## Run Migration Commands
 
 First verify CouchDB is running:
 ```shell
