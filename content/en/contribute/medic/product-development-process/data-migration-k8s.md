@@ -156,12 +156,13 @@ For single node deployment, create a YAML file with this contents, being sure to
 * `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
 * `<uuid>` - retrieved from `get-env` call above
 * `<size>` - Size of original 3.x EBS volume, eg `100Mi` for 100 Megabytes or `100Gi` for 100 Gigabytes (_two occurrences_)
-* `<couch-key>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
+* `<toleration-value>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
 * `<groupname>` - For production use `prod-cht-alb`, for dev use `dev-cht-alb`
 * `<environment>` - For production use `prod`, for dev use `dev`
-* `<url>` - For production use `your-url.app`, for dev use `your-url.dev`
-* `load_balancer` - what are dev and prod values?
-* `certificate` - what are dev and prod values?
+* `<maintainers>` - For production use `SRE`, for dev use `QA`
+* `<url>` - For production use `your-url.app.medicmobile.org`, for dev use `your-url.dev.medicmobile.org`
+* `load_balancer` - For dev, use: `dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com` For prod, use: `k8s-prodchtalb-dcc00345ac-1792311525.eu-west-2.elb.amazonaws.com`
+* `certificate` - Inquire what the latest certificates are. For 2024 dev, use: `arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain`. For 2024 prod, use: `arn:aws:iam::720541322708:server-certificate/2024-wildcard-app-medicmobile-org-chain`.
 * `<volume-ID>` - `NEW_VOLUME_ID` from previous step, is volume containing 3.x data
 
 ```yaml
@@ -184,7 +185,7 @@ couchdb:
   couchdb_node_storage_size: "<size>"
 
 toleration:  
-  key: "<couch-key>"
+  key: "<toleration-value>"
   operator: "Equal"
   value: "true"
   effect: "NoSchedule"
@@ -192,11 +193,11 @@ toleration:
 ingress:
   annotations:  
     groupname: "<groupname>"
-    tags: "Environment=<environment>,Team=QA"
-    certificate: "arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain"
+    tags: "Environment=<environment>,Team=<maintainers>"
+    certificate: "<certificate>"
   host: "<url>" 
   hosted_zone_id: "Z3304WUAJTCM7P"
-  load_balancer: "dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com"
+  load_balancer: "<load_balancer>"
 
 environment: "remote"
 cluster_type: "eks"
@@ -213,6 +214,17 @@ ebs:
 
 ```
 
+A Note about the following section:
+
+```yaml
+couchdb_data:
+  preExistingDataAvailable: "true"
+  dataPathOnDiskForCouchDB: "storage/medic-core/couchdb/data"  # Use subPath from 3.x instance
+  partition: "0"
+
+```
+The value for partition is usually `"0"` - not partitioned. If you would like to change this, you can go to your 3.x pod and run `df -h` and observe if the existing data is on a specific partition. You then update this value to be the partition number.
+
 For a clustered deployment, create a YAML file with this contents, being sure to update:
 
 * `<your-namespace-defined-in-NAMESPACE>` (two occurrences)
@@ -222,12 +234,13 @@ For a clustered deployment, create a YAML file with this contents, being sure to
 * `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
 * `<uuid>` - retrieved from `get-env` call above
 * `<size>` - Size of original 3.x EBS volume, eg `100Mi` for 100 Megabytes or `100Gi` for 100 Gigabytes (_two occurrences_)
-* `<couch-key>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
+* `<toleration-value>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
 * `<groupname>` - For production use `prod-cht-alb`, for dev use `dev-cht-alb`
 * `<environment>` - For production use `prod`, for dev use `dev`
-* `<url>` - For production use `your-url.app`, for dev use `your-url.dev`
-* `load_balancer` - Henok what are dev and prod values?
-* `certificate` - Henok what are dev and prod values?
+* `<maintainers>` - For production use `SRE`, for dev use `QA`
+* `<url>` - For production use `your-url.app.medicmobile.org`, for dev use `your-url.dev.medicmobile.org`
+* `<load_balancer>` - For dev, use: `dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com` For prod, use: `k8s-prodchtalb-dcc00345ac-1792311525.eu-west-2.elb.amazonaws.com`
+* `<certificate>` - Inquire what the latest certificates are. For 2024 dev, use: `arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain`. For 2024 prod, use: `arn:aws:iam::720541322708:server-certificate/2024-wildcard-app-medicmobile-org-chain`.
 * `<volume-ID>` - `NEW_VOLUME_ID` from previous step, is volume containing 3.x data
 
 ```yaml
@@ -253,7 +266,7 @@ clusteredCouch:  # Only relevant if clusteredCouch_enabled is true
   noOfCouchDBNodes: 3
 
 toleration:
-  key: "<couch-key>"
+  key: "<toleration-value>"
   operator: "Equal"
   value: "true"
   effect: "NoSchedule"
@@ -261,11 +274,11 @@ toleration:
 ingress:
   annotations:
     groupname: "<groupname>"
-    tags: "Environment=<environment>,Team=QA"
-    certificate: "arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain"
+    tags: "Environment=<environment>,Team=<maintainers>"
+    certificate: "<certificate>"
   host: "<url>"
   hosted_zone_id: "Z3304WUAJTCM7P"
-  load_balancer: "dualstack.k8s-devchtalb-3eb0781cbb-694321496.eu-west-2.elb.amazonaws.com"
+  load_balancer: "<load_balancer>"
 
 environment: "remote"
 cluster_type: "eks"
@@ -288,6 +301,17 @@ ebs:
   preExistingEBSVolumeID-3: ""  # Leave empty for tertiary nodes
   preExistingEBSVolumeSize: "<size>"
 ```
+
+A Note about the following section:
+
+```yaml
+couchdb_data:
+  preExistingDataAvailable: "true"
+  dataPathOnDiskForCouchDB: "storage/medic-core/couchdb/data"  # Use subPath from 3.x instance
+  partition: "0"
+
+```
+The value for partition is usually `"0"` - not partitioned. If you would like to change this, you can go to your 3.x pod and run `df -h` and observe if the existing data is on a specific partition. You then update this value to be the partition number.
 
 Deploy using cht-deploy script from cht-core repository:
 ```shell
