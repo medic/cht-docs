@@ -88,7 +88,7 @@ This second video shows the right side of the workflow above to capture RDT resu
 
 Like all applications written for the CHT, there are built-in mechanisms to retrieve raw and aggregate data to generate reports and dashboards. Here are some ways that the data can be accessed:
 
- * **[In app targets]({{< ref "building/features/targets" >}}):** Gives the CHW or their supervisor an aggregate view of any of the form fields. Since targets rely on the data on the device, if targets include data from other users then permissions must be set on the relevant forms so that the data can be replicated and synchronized accordingly.
+ * **[In app targets]({{< ref "building/targets/targets-overview" >}}):** Gives the CHW or their supervisor an aggregate view of any of the form fields. Since targets rely on the data on the device, if targets include data from other users then permissions must be set on the relevant forms so that the data can be replicated and synchronized accordingly.
  * **API Calls:** Given that all form submissions are captured in JSON and that we know the data model well, you can easily do API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports]({{< ref "building/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "building/reference/api#get-apiv2monitoring" >}}). 
  * **[PostgreSQL queries](https://github.com/medic/cht-sync):** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched near real time from the CHT. 
  * **Dashboards:** Medic has used both [Klipfolio](https://www.klipfolio.com/) and, more recently, [Superset](https://superset.incubator.apache.org/) to create more complex yet still user-friendly dashboards. This is particular useful for those who need to view the data but wouldn't otherwise be logging in to CHT apps. These dashboards generally access the relational data in the Postgres database as the back end.
@@ -165,7 +165,7 @@ These are the files in the COVID-19 app where you'll want to focus your customiz
 
 The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms (`xlsx`, `xml` and `properties.json`) represent the provision and capture portions of the forms.  The tasks that get created are defined in `tasks.js`.  Not shown are standard contact definitions in `forms/contact/*` as well as supporting configurations for icons and other CHT application settings.  
 
-To read more about how these files all work together, see [app forms]({{< ref "building/reference/forms/app" >}}), [contact forms]({{< ref "building/reference/forms/contact" >}}), and [task]({{< ref "building/reference/tasks" >}}) reference documentation
+To read more about how these files all work together, see [app forms]({{< ref "building/reference/forms/app" >}}), [contact forms]({{< ref "building/reference/forms/contact" >}}), and [task]({{< ref "building/tasks/tasks-js" >}}) reference documentation
 
 ## Example form submission
 

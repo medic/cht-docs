@@ -377,6 +377,13 @@ If Postgres is running in a Kubernetes cluster, you can use the following comman
 kubectl exec -it postgres-pod-name -- psql -U postgres -c "SELECT pg_size_pretty(pg_database_size('your_database_name'));"
 ```
 
+To get the percentage of documents that have synced you can run the following query in your Postgres database:
+```sql
+SELECT (COUNT(*) * 100 / (COUNT(*) + (SELECT SUM(pending) FROM v1.couchdb_progress))) AS sync_percentage FROM v1.couchdb;
+```
+
+This query selects the total number of documents that have been synced to the `v1.couchdb` table and divides it by the total number of documents that have been synced and the number of documents that are pending to be synced. This will give you the percentage of documents that have been synced. Please note that the schema and table name could differ according to the [environment variables]({{< relref "hosting/analytics/environment-variables" >}}) you set so update them accordingly. Run this query periodically to monitor the progress of the sync and stop the sync process once you get to the desired percentage. It's okay if it is not exactly 10% as long as it is close enough to give you an idea of the disk space required.
+
 You can then multiply this figure by 10 to get an estimate of the disk space required for the full dataset and then add some extra space for indexes and other overhead as well as future growth.
 
 For example if the size of the database is 1GB, you can expect the full dataset to be around 10GB. If the CouchDB docs grow by 20% every year then you can compound this growth over 5 years to get an estimate of the disk space required: `10GB * 1.2^5 = 18.5GB`. You can add an extra 20% for indexes and overhead to get an estimate of 22.2GB.

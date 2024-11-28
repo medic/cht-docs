@@ -14,7 +14,7 @@ Docker images for CHT projects can be published to the [medicmobile](https://hub
 
 First, create a repository for your new image on Docker Hub.
 
-1. Use the admin Docker account to [create a new repository](https://hub.docker.com/orgs/medicmobile/repositories) in the `medicmobile` organization.
+1. Use the admin Docker account to [create a new repository](https://hub.docker.com/u/medicmobile) in the `medicmobile` organization.
 2. For your new repository, update the permissions to give the `developers` team the ability to `Read & Write`.  This will allow the GitHub action to push to the repository.
 
 ## Add GitHub Action Workflow configuration

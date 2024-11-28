@@ -57,7 +57,7 @@ This image shows the outcome of the button configuration:
 
 ### Tasks
 
-[Tasks]({{< ref "building/reference/tasks" >}}) are a set of actions available to users from the task tab. Selecting a task opens up a specific form that completes a workflow. Tasks are available within a given timeframe, after which they expire and the user is unable to view or do them. Tasks are defined as an array of objects in a tasks.js file under the project folder, with each task following the task schema. The required properties of a task include:
+[Tasks]({{< ref "building/tasks/tasks-js" >}}) are a set of actions available to users from the task tab. Selecting a task opens up a specific form that completes a workflow. Tasks are available within a given timeframe, after which they expire and the user is unable to view or do them. Tasks are defined as an array of objects in a tasks.js file under the project folder, with each task following the task schema. The required properties of a task include:
 
 - Name - unique identifier of the task;
 - Title - displays the workflow to be completed for a contact;
@@ -100,7 +100,7 @@ The code snippet below illustrates an example of a task configured for the educa
 
 ### Targets
 
-The users also have access to [targets]({{< ref "building/reference/targets" >}}). Targets are a visual representation of the progress and goals of the user. These are app analytics accessed through the targets tab, where the user is able to view how many modules they have completed. Similar to tasks, targets are defined as an array of objects in a targets.js file under the project folder, with each target following the targets schema. The required properties of a target object include:
+The users also have access to [targets]({{< ref "building/targets/targets-js" >}}). Targets are a visual representation of the progress and goals of the user. These are app analytics accessed through the targets tab, where the user is able to view how many modules they have completed. Similar to tasks, targets are defined as an array of objects in a targets.js file under the project folder, with each target following the targets schema. The required properties of a target object include:
 
 - Id - unique identifier of the target;
 - Translation_key - title displayed for the widget;
@@ -162,7 +162,7 @@ Below is a code snippet for a target configured for the educational modules:
 
 ### Contact Summary
 
-In addition to targets, the user is able to see which specific modules they have completed, and view upcoming tasks and other general information on their profile. The section containing this information is known as the [contact summary]({{< ref "building/reference/contact-page" >}}). The contact summary has 3 main outputs: cards, fields, and context. Contact summary is defined in the `contact-summary.templated.js` file under the project folder.
+In addition to targets, the user is able to see which specific modules they have completed, and view upcoming tasks and other general information on their profile. The section containing this information is known as the [contact summary]({{< ref "building/contact-summary/contact-summary-templated" >}}). The contact summary has 3 main outputs: cards, fields, and context. Contact summary is defined in the `contact-summary.templated.js` file under the project folder.
 
 Cards are an array of objects which can be customized to group information viewed on a contact’s profile. The required properties of a card include:
 
