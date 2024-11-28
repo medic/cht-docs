@@ -154,6 +154,10 @@ Setting the `DEBUG` environment variable (e.g. [`DEBUG=true npm run wdio-local`]
 - Prevent Mocha from automatically retrying tests that fail (by default a failing test is retried 5 times, details in the [`wdio.conf`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L198)file)
 - Prevent the `cht-e2e` Docker containers from being torn down after the test finishes
 
+#### Run the e2e tests without re-building docker images
+
+After the tests were executed the first time using the command  `npm run wdio-local` the docker images were built in your local environment using the checkout branch name. If it is needed to run the tests over and over again and there is a certainty that the cht core code didn't change, you can use the command `npm run ci-webdriver-default`, this command will execute the e2e tests as they are run with the `wdio-local` command but without re-building the images, it will use the images that were built previously, which will make the process faster.
+
 #### Read the logs
 
 Read the failure carefully - it often has really good info but sometimes it's just hard to find. Most importantly it tells you exactly the line in the test that failed and you can look that up in the source to see what it was trying to do. The error message itself is also really useful. Also sometimes one error causes the next, so always start with the first test failure before looking at the others.
