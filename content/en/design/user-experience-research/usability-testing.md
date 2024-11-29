@@ -3,7 +3,7 @@ title: "Usability Testing"
 linkTitle: "Usability Testing"
 weight: 3
 description: >
-  Usability testing is the practice of testing how easy or difficult a design solution is to use by observing how users interact with it. 
+  How to conduct Usability Testing 
 ---
 
  Usability testing is the practice of testing how easy or difficult a design solution is to use by observing how users interact with it. These are one on one sessions that can be done in person where the facilitator observes the user directly, or remotely where the facilitator shares their screen and asks the user what they would do next and acts as their proxy.
