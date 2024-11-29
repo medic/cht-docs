@@ -3,7 +3,7 @@ title: "User Interviews"
 linkTitle: "User Interviews"
 weight: 1
 description: >
-  User interviews serve the purpose of uncovering opportunities for innovation and for illuminating solutions to problems. 
+  How to conduct User Interviews
 ---
 
 Generative interviews are used in the discovery phase of the development process when you’re looking for opportunities to solve for. Scoped interviews are used when a topic of interest has been identified and you’d like to gain a deeper understanding.
