@@ -19,7 +19,7 @@ Find reusable components of the CHT in this [Figma file](https://www.figma.com/d
 <br>
 
 ### Desktop
-Mockups of the CHT on desktop/tablet view can be easily made using the components in this <a href="https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=369-9899">Figma UI Kit</a>.
+Mockups of the CHT on desktop/tablet view can be easily made using the components in this [Figma UI Kit](https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=369-9899).
 
 
 <br>
