@@ -85,23 +85,32 @@ After you have created a ticket per "Request permission" above, you should get a
    ```
 
    If get an error `no context exists with the name`, change `use-context` to `set-context` in the  command.  This will create the entry the first time.  Subsequent calls should use `use-context`.
-3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/cht-projects/alpha-dev-cht-deploy-values.yaml). Be sure to update these values after you create it: 
-   * `alpha-dev` values to `USERNAME-dev` 
-   * Update `certificate` to the latest value from SRE - currently it's `arn:aws:iam::720541322708:server-certificate/2024-wildcard-dev-medicmobile-org-chain`
-   * Add a strong `password` - this instance is exposed to the Internet!
-   * Put a UUID in `secret` - the command `uuidgen` is great for this
-   * Update `host` to be your `username`.  For example: `mrjones.dev.medicmobile.org`
-4. Use `uuidgen` to fill in the `secret` in `values.yaml`
-5. Use a good passphrase (diceware!) to fill in `password` in `values.yaml`. _Please note that a few special characters are unsupported in this field like `:`, `@`, `"`, `'`, etc. Add your password as a string by enclosing it in quotes `""`, and do not use spaces in your password. This will not impact the deployment but will not let you log in to the CHT instance._
-6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
+3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
+
+   {{< tabpane text=true >}}
+   {{% tab header="Single node CouchDB" %}}
+   * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
+   * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
+   * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
+   {{% /tab %}}
+   {{% tab header="Multi node CouchDB" %}}
+   * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
+   * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
+   * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
+   * `clusteredCouch_enabled` - set to `true`
+   {{% /tab %}}
+   {{< /tabpane >}}
+
+   _\* Please note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
+5. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin
    ```
-7. Deploy!:
+6. Deploy!:
    ```shell
    cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
    ```
-8. Delete it when you're done:
+7. Delete it when you're done:
    ```shell
    helm delete USERNAME-dev --namespace USERNAME-dev
    ```

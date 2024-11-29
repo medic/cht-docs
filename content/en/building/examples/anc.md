@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/concepts
   building/reference/forms/app
-  building/reference/tasks
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/anc
 ---
@@ -33,7 +33,7 @@ The maternal and newborn health workflow ensures that women receive the care tha
 
 ## Forms Hierarchy
 
-Once a [hierarchy]({{< relref "building/concepts/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either. 
+Once a [hierarchy]({{< relref "building/workflows/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either. 
 
 {{< figure src="forms-hierarchy.png" link="forms-hierarchy.png" class="right col-12 col-lg-12" >}}
 

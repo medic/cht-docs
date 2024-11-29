@@ -7,7 +7,7 @@ description: >
 keywords: hierarchy contacts care-guides
 relatedContent: >
   building/reference/forms/contact
-  building/reference/contact-page
+  building/contact-summary/contact-summary-templated
   building/contact-management/moving-contacts
   building/contact-management/contact-and-users-1
   building/examples/contact-tracing
@@ -20,7 +20,7 @@ aliases:
 
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
-“Places” is the generic name that represents a level in the [hierarchy]({{< ref "building/concepts/hierarchy" >}}). “People” belong to “places”, and “places” belong to other higher level “places” in the hierarchy. A “place” could be a geographic area, like a district with the "people" associated to it being health officers. A "place" could also be a structure in the health system, such as a health facility, and the "people" associated to it being nurses. In deployments with CHWs, the lowest "place" in the hierarchy often represents individual households or families, and the individual members of that household are the "people" associated to it. 
+“Places” is the generic name that represents a level in the [hierarchy]({{< ref "building/workflows/hierarchy" >}}). “People” belong to “places”, and “places” belong to other higher level “places” in the hierarchy. A “place” could be a geographic area, like a district with the "people" associated to it being health officers. A "place" could also be a structure in the health system, such as a health facility, and the "people" associated to it being nurses. In deployments with CHWs, the lowest "place" in the hierarchy often represents individual households or families, and the individual members of that household are the "people" associated to it. 
 
 Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data]({{< ref "building/guides/performance/replication#contact-depth" >}}) is downloaded and stored on their device.
 
@@ -87,7 +87,7 @@ The top card on all profiles contains general information for the contact. All t
   </div>
 </div>
 
-{{< see-also page="contact-page" anchor="contact-summary" title="Defining Contact Summary" >}}
+{{< see-also page="contact-summary-templated" anchor="contact-summary" title="Defining Contact Summary" >}}
 
 ### Condition Cards
 
@@ -109,7 +109,7 @@ Configurable elements include:
   </div>
 </div>
 
-{{< see-also page="contact-page" anchor="condition-cards" title="Defining Condition Cards" >}}
+{{< see-also page="contact-summary-templated" anchor="condition-cards" title="Defining Condition Cards" >}}
 
 
 ## Care Guides
@@ -124,7 +124,7 @@ You’ll see different forms here depending on which person or place you’re vi
 
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.” 
 
-{{< see-also page="contact-page" anchor="care-guides" title="Defining Care Guides" >}}
+{{< see-also page="contact-summary-templated" anchor="care-guides" title="Defining Care Guides" >}}
 
 <br clear="all">
 

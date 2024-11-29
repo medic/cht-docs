@@ -33,7 +33,7 @@ There should be a one-to-one relationship between DHIS2 organisation units and C
 {{% /alert %}}
 
 
-{{< see-also page="building/concepts/hierarchy" title="Hierarchies" >}}
+{{< see-also page="building/workflows/hierarchy" title="Hierarchies" >}}
 
 
 ### Fields and calculations
@@ -101,7 +101,7 @@ In `targets.js`, configure one or more data elements by setting the `dhis.dataSe
 
 
 
-{{< see-also page="building/reference/targets" title="Targets" >}}
+{{< see-also page="building/targets/targets-js" title="Targets" >}}
 
 ```javascript
 module.export = [

@@ -1,21 +1,18 @@
 ﻿---
-title: "Building Death Report Workflows"
-linkTitle: Death Report Workflow
+title: Death Reporting
+linkTitle: Death Reporting
 weight: 11
 description: >
-  Building Death Report Workflows
+  Building death report workflows
 relatedContent: >
   building/reference/app-settings/transitions#death_reporting
 aliases:
+   - /buidling/tutorials/death-reporting
    - /apps/tutorials/death-reporting
 ---
 
-# Death Reporting
-
-#### Guide for setting up a comprehensive death report workflow
-
 {{% pageinfo %}}
-In this tutorial you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
+In this section you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
 By the end of the tutorial you should be able to:
 
 - Mark select contacts as deceased
@@ -115,7 +112,7 @@ To enable death reporting:
 
 #### Disable tasks for deceased contacts
 
-If a contact is dead, you may want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "building/reference/tasks#tasksjs" %}}).
+If a contact is dead, you may want to disable the majority of tasks for that contact. You will need to update each of your [task's definitions]({{% ref "building/tasks/tasks-js#tasksjs" %}}).
 
 ```javascript
 {
@@ -139,7 +136,7 @@ You typically don't want users doing actions like "health assessment" for deceas
 
 #### Condition card for "Date of Death"
 
-On your [contact page]({{% ref "building/reference/contact-page" %}}) you may want to add a condition card to display the date of the patient's death.
+On your [contact page]({{% ref "building/contact-summary/contact-summary-templated" %}}) you may want to add a condition card to display the date of the patient's death.
 
 ```javascript
 const cards = [

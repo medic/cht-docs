@@ -18,6 +18,20 @@ This documentation site does not involve release management and acceptance testi
 
 Documentation for the Community Health Toolkit is written is American English.
 
+## Voice and tone 
+
+The voice and tone should be inclusive and accessible to its audience. Consider that readers come from different backgrounds and may have varying levels of ability reading English, as well as technical abilities. 
+
+### Write like you speak
+Aim for a voice and tone that’s conversational and approachable. Try to sound like a knowledgeable friend who understands what the developer wants to do.
+
+### Get to the point quickly
+Lead with what’s most important. Make steps obvious to make your documentation easily scannable. 
+
+### Be brief
+Give the audience just enough context and information to make decisions confidently. Avoid long sentences.
+
+
 ## General guidelines and best practices
 
 This section contains suggested best practices for clear, concise, and consistent content.
@@ -122,7 +136,7 @@ Connecting readers to related content in different pages is an important aspect 
    
    A custom title and anchor can be provided as well. For example, `{{</* see-also page="design/interface/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/interface/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
    
-   Please use `see-also` when referencing _related topics_ , as seen in [Workflows]({{< ref "building/concepts/workflows" >}}), and use `read-more` when referencing the _same topic_ in more depth, as in the [Home Page]({{< ref "/" >}}).  
+   Please use `see-also` when referencing _related topics_ , as seen in [Workflows]({{< ref "building/workflows/workflows-overview" >}}), and use `read-more` when referencing the _same topic_ in more depth, as in the [Home Page]({{< ref "/" >}}).  
 
 1. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
    ```

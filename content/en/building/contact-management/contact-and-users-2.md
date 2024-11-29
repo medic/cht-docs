@@ -37,7 +37,7 @@ In these steps you are going to create a Health Facility, CHW Areas, primary con
 
 To create contacts and their associated users with cht-conf, you will need to create a CSV file with the information of the contacts and the users that you would like to create. The name of the file determines the type of doc created for rows contained in the file.
 
-For example, file named `place.district_hospital.csv` adds the property `"type":"district_hospital"` and a file named `person.clinic.csv` add the property `"type":"person"`
+For example, file named `place.district_hospital.csv` adds the property `"type":"district_hospital"` and a file named `person.clinic.csv` adds the property `"type":"person"`
 
 Create a CSV file named `place.district_hospital.csv` and add the details of the Health Facilities you would like to create.
 

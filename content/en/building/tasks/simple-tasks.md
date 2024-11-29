@@ -1,13 +1,13 @@
 ---
 title: "Building A Simple Task"
 linkTitle: Simple Tasks
-weight: 9
+weight: 2
 description: >
   Writing and testing a simple task
 relatedContent: >
-  building/features/tasks
-  building/reference/tasks
-  building/concepts/workflows
+  building/tasks
+  building/tasks/tasks-js
+  building/workflows/workflows-overview
   design/best-practices#anatomy-of-a-task
 aliases:
    - /building/tutorials/tasks-1
@@ -25,7 +25,7 @@ Tasks prompt users to complete activities on a programmatic schedule. This guide
 
 * Complete the [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) - Tasks prompt users to _complete activities_ by opening an app form. The app forms tutorial produces an _assessment_ app form which we will use here. You can also elect to substitute that with any [example app form](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
 * Complete the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-2" >}}) to create a hierarchy of contacts and an offline CHW user. 
-* Read [Understanding the data available in tasks and targets]({{< ref "building/guides/tasks/task-schema-parameters" >}})
+* Read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}})
 
 ## Implementation Steps
 
@@ -54,14 +54,14 @@ module.exports = [{
 
 **What is this code doing?**
 
-The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "building/reference/tasks#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
+The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
 
 * `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule.
 * `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
 * `icon` - This references a [resource]({{< ref "building/reference/resources" >}}) to be used as the task's icon. Refer to [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
-* `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/guides/tasks/task-schema-parameters" >}}).
+* `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}}).
 * `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`. This `appliesToType` is a _short-hand_ equivalent to `appliesIf: c => c.contact.contact_type === 'patient'`.
-* `appliesIf` - A predicate which gates the creation of the task's event schedule. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/guides/tasks/task-schema-parameters" >}}).
+* `appliesIf` - A predicate which gates the creation of the task's event schedule. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}}).
   * `user.parent.contact_type` - The user is a CHW iff their parent is of type `chw_area`. The user object is hydrated.
   * `!c.contact.date_of_death` - The contact must be alive
   * `!c.contact.muted` - The contact must be unmuted
@@ -101,7 +101,7 @@ Next, test a few of the expected behaviours for the task:
 * Move your system clock forward 8 days and reload the tasks tab. The task should disappear since the 7 day window has expired.
 * Login as a supervisor user. You should not be able to see the task.
 * The task should not appear only for patients - not for places or CHWs.
-* If you mute a contact or [report the contact dead]({{< ref "building/tutorials/death-reporting" >}}), the task should disappear.
+* If you mute a contact or [report the contact dead]({{< ref "building/workflows/death-reporting" >}}), the task should disappear.
 
 {{% alert title="Note" %}} Remember to reset your system clock to be accurate when you are done testing. {{% /alert %}}
 

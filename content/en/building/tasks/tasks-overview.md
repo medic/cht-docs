@@ -1,13 +1,13 @@
 ---
-title: Tasks
-weight: 7
+title: "Overview"
+linkTitle: "Overview"
+identifier: "Tasks overview"
+weight: 1
 description: >
-  Ensuring that the right actions are taken for the right people at the right time
-keywords: tasks
-relatedContent: >
-  building/reference/tasks
-  building/concepts/workflows
+  Overview of CHT Tasks
 aliases:
+   - /building/tasks/overview/
+   - /building/features/tasks/
    - /apps/features/tasks/
 ---
 
@@ -44,7 +44,7 @@ When a CHW clicks on a task, the care guide configured for that task displays. C
   </div>
 </div>
 
-For more information on Care Guides, see the “[Decision Support for Care Guides]()” section of this overview. 
+Find more information on how [care guides]({{< relref "building/concepts/care-guides" >}}) provide decision support for healthcare workers.
 
 When the user completes the care guide, the task will be cleared from the Tasks tab, and the report will be accessible from the Reports page or on the profile of the person or place whom the report is about.
 
@@ -52,7 +52,7 @@ When the user completes the care guide, the task will be cleared from the Tasks 
     
 {{< figure src="tasks-household.png" class="right col-6 col-lg-3" >}}
     
-Alternatively, there is an option to configure Household Tasks. When this [permission](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-permissions/) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
+Alternatively, there is an option to configure Household Tasks. When this [permission]({{< relref "building/reference/app-settings/user-permissions" >}}) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
 
 CHWs are able to complete tasks directly from this page, or exit by tapping on the “X”. If the household has no additional tasks, they will return directly to the main task list.
     
@@ -60,7 +60,7 @@ CHWs are able to complete tasks directly from this page, or exit by tapping on t
 
 {{< figure src="tasks-profile.png" class="right col-6 col-lg-3" >}}
 
-Tasks are also accessed from a the People tab in the app.
+Tasks are also accessed from the People tab in the app.
 
 Tasks for a particular person or place can be viewed on the contact’s profile in the “Tasks” section. Filters allow you to choose how many tasks you’d like to view for each due date.
 

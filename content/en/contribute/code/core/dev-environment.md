@@ -128,7 +128,6 @@ Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-
 mkdir -p ~/cht-docker
 curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
 cat > ~/cht-docker/couchdb-override.yml << EOF
-version: '3.9'
 services:
     couchdb:
         ports:
@@ -141,7 +140,7 @@ Now you can start CouchDB. The login for your CHT instance will be `medic` and t
 
 ```shell
 cd ~/cht-docker 
-COUCHDB_USER=medic COUCHDB_PASSWORD=password docker-compose -f docker-compose.yml -f couchdb-override.yml up -d
+COUCHDB_USER=medic COUCHDB_PASSWORD=password docker compose -f docker-compose.yml -f couchdb-override.yml up -d
 ```
 
 ### Developing
@@ -183,7 +182,7 @@ If you weren't able to follow [the happy path above](#the-happy-path-installatio
 If you had issues with following the above steps, check out these links for how to install the prerequisites on your specific platform:
 
 * [Node.js {{< param nodeVersion >}}.x](https://nodejs.org/) & [npm {{< param npmVersion >}}.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
-* [xsltproc](http://www.sagehill.net/docbookxsl/InstallingAProcessor.html) 
+* [xsltproc](https://github.com/ilyar/xsltproc) 
 * [python 2.7](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
@@ -233,7 +232,7 @@ Medic recommends you familiarise yourself with other Docker commands to make doc
 ### Required environment variables
 
 Medic needs the following environment variables to be declared:
-- `COUCH_URL`: the full authenticated url to the `medic` DB. Locally this would be  `http://myadminuser:myadminpass@localhost:5984/medic`
+- `COUCH_URL`: the full authenticated url to the `medic` DB. Locally this would be  `http://medic:password@localhost:5984/medic`
 - `COUCH_NODE_NAME`: the name of your CouchDB's node. The Docker image default is `nonode@nohost`. Other installations may use `couchdb@127.0.0.1`. You can find out by querying [CouchDB's membership API](https://docs.couchdb.org/en/stable/api/server/common.html#membership)
 - (optional) `COUCHDB_USER`: the name of your CouchDB's user. The Docker image default is `medic`
 - (optional) `COUCHDB_PASSWORD`: the credentials of your CouchDB user. The Docker image default is `password`
@@ -244,7 +243,7 @@ How to permanently define environment variables depends on your OS and shell (e.
 
 ```shell
 export COUCH_NODE_NAME=nonode@nohost
-export COUCH_URL=http://myadminuser:myadminpass@localhost:5984/medic
+export COUCH_URL=http://medic:password@localhost:5984/medic
 ```
 
 ## Tests

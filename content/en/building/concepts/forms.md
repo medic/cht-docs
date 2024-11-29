@@ -16,7 +16,7 @@ aliases:
 
 Forms are a building block of all CHT apps. They are used when creating or editing contacts, and when completing a care guide or survey within the app. Forms are also used to interpret SMS interactions with the CHT. 
 
-When a completed form is submitted, it is treated as a Report in the app. All reports can be viewed in the [Reports tab]({{< ref "building/features/reports" >}}) by those with the proper access within the [hierarchy]({{< ref "building/concepts/hierarchy" >}}).
+When a completed form is submitted, it is treated as a Report in the app. All reports can be viewed in the [Reports tab]({{< ref "building/features/reports" >}}) by those with the proper access within the [hierarchy]({{< ref "building/workflows/hierarchy" >}}).
 
 There are four different types of forms:
 - [**Contact Forms**]({{< ref "building/reference/forms/contact" >}}): used to create and edit contacts. Defined as CHT-enhanced XForms.

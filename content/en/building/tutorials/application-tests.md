@@ -6,7 +6,7 @@ description: >
   Guides for writing automated tests for CHT applications
 relatedContent: >
   building/reference
-  building/guides/tasks/query-task-data/#testing-task-document-data
+  building/tasks/managing-tasks/query-task-data/#testing-task-document-data
 aliases:
    - /apps/tutorials/application-tests
 ---
@@ -21,8 +21,8 @@ This tutorial takes you through testing the various configurable components of C
 Complete the following tutorials:
   - [Building App Forms]({{< ref "building/tutorials/app-forms" >}})
   - [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}})
-  - [Building Target Widgets]({{< ref "building/tutorials/targets" >}})
-  - [Building Contact Summary]({{< ref "building/tutorials/contact-summary" >}})
+  - [Building Target Widgets]({{< ref "building/targets/target-widgets" >}})
+  - [Building Contact Summary]({{< ref "building/contact-summary/contact-summary-overview" >}})
 
 ## Importance of testing your application
 ---
@@ -235,7 +235,7 @@ Contact summary consists of visible components such as [cards](https://docs.comm
 
 Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
-To test the contact summary fields added in the [previous tutorial]({{< ref "building/tutorials/contact-summary#3-export-fields" >}}), use the following test case:
+To test the contact summary fields added in the [previous tutorial]({{< ref "building/contact-summary/contact-summary-overview#3-export-fields" >}}), use the following test case:
 
 ```js highlight 
 const contactSummary = await harness.getContactSummary();
@@ -252,7 +252,7 @@ expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
 
 Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 
-Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "building/tutorials/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
+Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "building/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
 
 ```js highlight 
 // Load the assessment form and fill in 'yes' on the first page and '7' on the second page
@@ -279,7 +279,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
   ]
 );
 ```
-If you  follow [this code sample]({{< ref "building/reference/contact-page#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
+If you  follow [this code sample]({{< ref "building/contact-summary/contact-summary-templated#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
 
 ```js highlight 
 const summaryContext = harness.getContactSummary().context;
@@ -425,7 +425,7 @@ it('followup schedule', async () => {
 });
 ```
 
-You may [pass other data](https://docs.communityhealthtoolkit.org/building/guides/tasks/pass-data-to-form/) from a task to the action form using [modifyContent ](https://docs.communityhealthtoolkit.org/building/guides/tasks/pass-data-to-form/#modifycontent)attribute of a task. You can also verify that these data are present in the task.
+You may [pass other data](https://docs.communityhealthtoolkit.org/building/tasks/managing-tasks/pass-data-to-form/) from a task to the action form using [modifyContent ](https://docs.communityhealthtoolkit.org/building/tasks/managing-tasks/pass-data-to-form/#modifycontent)attribute of a task. You can also verify that these data are present in the task.
 
 
 ```js
@@ -448,7 +448,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/core/overview/db-schema/#targets).
 
-To test the first two targets created in the [targets tutorial]({{< ref "building/tutorials/targets" >}}), use this code:
+To test the first two targets created in the [targets tutorial]({{< ref "building/targets/target-widgets" >}}), use this code:
 ```js highlight 
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date

@@ -1,9 +1,9 @@
 ---
-title: "contact-summary.templated.js"
-linkTitle: "contact-summary.templated.js"
-weight: 5
+title: contact-summary.templated.js
+linkTitle: contact-summary.templated.js
+weight: 2
 description: >
-  **Contact Pages**: Customizing the fields, cards, and actions on profile pages
+  Customizing the fields, cards, and actions on profile pages
 relatedContent: >
   building/guides/forms/form-inputs
 relevantLinks: >
@@ -11,6 +11,7 @@ relevantLinks: >
   docs/building/concepts/hierarchies
 keywords: hierarchy contacts care-guides
 aliases:
+   - /building/reference/contact-page
    - /apps/reference/contact-page
 ---
 
@@ -54,14 +55,14 @@ Each field that can be shown on a contact's profile is defined as an object in t
 | `width` | `integer` | The horizontal space for the field. Common values are 12 for full width, 6 for half width, or 3 for quarter width. Default 12. | no |
 | `translate` | `boolean` | Whether or not to translate the `value`. Defaults to false. | no |
 | `context` | `object` | When `translate: true` and `value` uses [translation variables](https://angular-translate.github.io/docs/#/guide/06_variable-replacement), this value should provide the translation variables. | no |
-| `appliesIf` | `function()` or `boolean` | Return true if the field should be shown. | no |
+| `appliesIf` | `function()` | Return `true` if the field should be shown, and `false` if it should be hidden. Default is `true`. | no |
 | `appliesToType` | `string[]` | Filters the contacts for which `appliesIf` will be evaluated. For example, `['person']` or `['clinic', 'health_center']`. It defaults to all types if it is not defined. | no |
 
 <!-- TODO: See [How to configure profile pages]() for an example.  -->
 
 ## Condition Cards
 
-Each condition card is defined as a card object in the `cards` array of `contact-summary.templated.js`. The properties for each object determine how and when the card and its fields are shown.
+Each condition card is defined as a card object in the `cards` array of `contact-summary.templated.js`. Condition cards are conditional and are configured to appear when a certain report is submitted or condition is met. The properties for each object determine how and when the card and its fields are shown.
 
 ### `contact-summary.templated.js .cards[]`
 

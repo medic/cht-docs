@@ -1,12 +1,12 @@
 ---
 title: "Building A Complex Task (Optional)"
 linkTitle: Complex Tasks
-weight: 20
+weight: 3
 description: >
   Building a more complex task
 relatedContent: >
   building/tasks/simple-tasks
-  building/reference/tasks
+  building/tasks/tasks-js
   building/examples/anc
 aliases:
    - /building/tutorials/tasks-2
@@ -124,15 +124,15 @@ We're using the `this.lmp` value which was calculated and saved in the `appliesI
 4. A pregnancy visit should be skipped if an _assessment followup_ is completed within the scheduled window for the pregancy visit.
 ```
 
-`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "building/reference/tasks#default-resolvedif-method" >}}). 
+`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "building/tasks/tasks-js#default-resolvedif-method" >}}). 
 
 This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "building/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
 
-The concept of _task completion_ is covered in more depth in [Task Completion vs Cancellation]({{< ref "building/guides/tasks/query-task-data#completion-vs-cancellation" >}}).
+The concept of _task completion_ is covered in more depth in [Task Completion vs Cancellation]({{< ref "building/tasks/managing-tasks/query-task-data#completion-vs-cancellation" >}}).
 
 ## Actions
 ```
 5. The first pregnancy visit should prompt the CHW to ask some additional questions
 ```
 
-The `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). Check out the guide for [Passing data from a task into the app form]({{< ref "building/guides/tasks/pass-data-to-form" >}}).
+The `modifyContent` attribute allows the task to pass data from the task (in JavaScript) into the action app form (xlsx). Check out the guide for [Passing data from a task into the app form]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}).

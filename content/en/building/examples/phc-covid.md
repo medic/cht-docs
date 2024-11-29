@@ -7,7 +7,7 @@ description: >
 keywords:  
 relatedContent: >
   building/examples/training
-  building/concepts/workflows
+  building/workflows/workflows-overview
   building/concepts/care-guides
 aliases:
    - /apps/examples/phc-covid

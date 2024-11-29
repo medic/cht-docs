@@ -8,7 +8,7 @@ relatedContent: >
   building/concepts
   building/features/supervision
   building/reference/forms/app
-  building/reference/tasks
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/supervisor-reference-app
 ---

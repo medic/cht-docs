@@ -6,8 +6,8 @@ description: >
   Data accessible from within CHT forms
 relatedContent: >
   building/reference/forms
-  building/reference/contact-page
-  building/guides/tasks/pass-data-to-form
+  building/contact-summary/contact-summary-templated
+  building/tasks/managing-tasks/pass-data-to-form
   
 aliases:
    - /apps/guides/forms/form-inputs
@@ -87,7 +87,7 @@ Contact data is not available in forms created from the "Reports" tab.
 
 ### `contact-summary` data
 
-`app` forms with a contact in context can access the contact-summary data associated with the contact. This is done by referencing an instance named `contact-summary`. E.g. `instance('contact-summary')/context/${variable}`.  See [the reference documentation]({{< ref "building/reference/contact-page#care-guides" >}}) for more information.
+`app` forms with a contact in context can access the contact-summary data associated with the contact. This is done by referencing an instance named `contact-summary`. E.g. `instance('contact-summary')/context/${variable}`.  See [the reference documentation]({{< ref "building/contact-summary/contact-summary-templated#care-guides" >}}) for more information.
 
 {{% alert title="Note" %}}
 Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
@@ -95,7 +95,7 @@ Contact summary data is not available in `contact` forms or in forms created fro
 
 ### `inputs` data from task
 
-`app` forms created via a task have access to any data [supplied by the task]({{< ref "building/guides/tasks/pass-data-to-form" >}}) in the `inputs` group. 
+`app` forms created via a task have access to any data [supplied by the task]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}) in the `inputs` group. 
 
 ---
 

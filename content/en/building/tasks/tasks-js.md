@@ -1,15 +1,16 @@
 ---
-title: "tasks.js"
-linkTitle: "tasks.js"
-weight: 5
+title: tasks.js
+linkTitle: tasks.js
+weight: 4
 description: >
-  **Tasks**: Definition of tasks shown to app users
+  Definition of tasks shown to app users
 relatedContent: >
-  building/features/tasks
-  building/concepts/workflows
+  building/tasks
+  building/workflows/workflows-overview
   design/best-practices
 keywords: tasks workflows
 aliases:
+   - /building/reference/tasks
    - /apps/reference/tasks
 ---
 
@@ -19,7 +20,7 @@ Task generation is configured in the `tasks.js` file. This file is a JavaScript 
 
 Task generation occurs on the client periodically and creates documents which track the status of the task over time. To avoid performance issues the developer needs to be conscious about generating too many tasks. For example, to remind a user to do something every day, you could generate one task for each day and fill up the user's device. The recommended approach is to only generate the tasks for the near future, or only once the previous task is resolved. To limit the impact of this misconfiguration, the CHT will only generate tasks that can be completed between 60 days in the past, and (as of 4.0.0) 180 days in the future.
 
-{{< see-also page="building/features/tasks" title="Tasks Overview" >}}
+{{< see-also page="building/tasks" title="Tasks Overview" >}}
 
 ## `tasks.js`
 
@@ -28,9 +29,9 @@ Task generation occurs on the client periodically and creates documents which tr
 | `name`| `string` | A unique identifier for the task. Used for querying task completeness. | yes, unique |
 | `icon` | `string` | The icon to show alongside the task. Should correspond with a value defined in `resources.json`. | no |
 | `title` | `translation key` | The title of the task (labeled above). | yes |
-| `appliesTo` | `'contacts'` or `'reports'` | Do you want to emit one task per report, or one task per contact? See [Understanding the Parameters in the Task Schema]({{< ref "building/guides/tasks/task-schema-parameters.md" >}}). | yes |
-| `appliesIf` | `function(contact, report)` | If `appliesTo: 'contacts'`, this function is invoked once per contact and `report` is undefined. If `appliesTo: 'reports'`, this function is invoked once per report. Return true if the task should appear for the given documents. See [Understanding the Parameters in the Task Schema]({{< ref "building/guides/tasks/task-schema-parameters.md" >}}). | no |
-| `appliesToType` | `string[]` | Filters the contacts or reports for which `appliesIf` will be evaluated. If `appliesTo: 'reports'`, this is an array of form codes. If `appliesTo: 'contacts'`, this is an array of contact types. For example, `['person']` or `['clinic', 'health_center']`. For example, `['pregnancy']` or `['P', 'pregnancy']`. See [Understanding the Parameters in the Task Schema]({{< ref "building/guides/tasks/task-schema-parameters.md" >}}). | no |
+| `appliesTo` | `'contacts'` or `'reports'` | Do you want to emit one task per report, or one task per contact? See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | yes |
+| `appliesIf` | `function(contact, report)` | If `appliesTo: 'contacts'`, this function is invoked once per contact and `report` is undefined. If `appliesTo: 'reports'`, this function is invoked once per report. Return true if the task should appear for the given documents. See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | no |
+| `appliesToType` | `string[]` | Filters the contacts or reports for which `appliesIf` will be evaluated. If `appliesTo: 'reports'`, this is an array of form codes. If `appliesTo: 'contacts'`, this is an array of contact types. For example, `['person']` or `['clinic', 'health_center']`. For example, `['pregnancy']` or `['P', 'pregnancy']`. See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | no |
 | `contactLabel` | `string` or `function(contact, report)` | Controls the label describing the subject of the task. Defaults to the name of the contact (`contact.contact.name`). | no |
 | `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | no, if any `actions[n].type` is `'report'` |
 | `events` | `object[]` | An event is used to specify the timing of the task. | yes |
@@ -43,7 +44,7 @@ Task generation occurs on the client periodically and creates documents which tr
 | `actions[n].type` | `'report'` or `'contact'` | When `'report'`, the action opens the given form. When `'contact'`, the action redirects to a contact's profile page. Defaults to 'report'. | no |
 | `actions[n].form` | `string` | The code of the form that should open when you select the action. | yes, if `actions[n].type` is `'report'` |
 | `actions[n].label`| `translation key` | The label that should appear on the task summary screen if multiple actions are present. | no |
-| `actions[n].modifyContent`| `function (content, contact, report, event)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. See [Passing data from a task into the app form]({{< ref "building/guides/tasks/pass-data-to-form" >}}). | no |
+| `actions[n].modifyContent`| `function (content, contact, report, event)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. See [Passing data from a task into the app form]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}). | no |
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
 | `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 

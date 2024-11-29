@@ -25,7 +25,7 @@ Open your terminal and run these commands. They will create a new directory, dow
 mkdir -p ~/couchdb-migration/
 cd ~/couchdb-migration/
 curl -s -o ./docker-compose.yml https://raw.githubusercontent.com/medic/couchdb-migration/main/docker-compose.yml
-docker-compose up
+docker compose up
 ```
 
 For the following steps, the tool needs access to your CouchDb installation. To allow this access, you will need to provide a URL to your CouchDB installation that includes authentication.
@@ -55,7 +55,7 @@ The migration tool provides a command which will download all 4.x views to your 
 
 ```shell
 cd ~/couchdb-migration/
-docker-compose run couch-migration pre-index-views <desired CHT version>
+docker compose run couch-migration pre-index-views <desired CHT version>
 ```
 
 Once view indexing is finished, proceed with the next step.
@@ -68,7 +68,7 @@ Some CouchDb configuration values must be ported from existent CouchDb to the 4.
 Use the migration tool to obtain these values:
 ```shell
 cd ~/couchdb-migration/
-docker-compose run couch-migration get-env
+docker compose run couch-migration get-env
 ```
 
 ##### a) CouchDB secret
@@ -114,7 +114,7 @@ EOF
 c) Start 4.x CouchDb.
 ```shell
 cd ~/couchdb-single/
-docker-compose up -d
+docker compose up -d
 ```
 
 d) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
@@ -128,20 +128,20 @@ COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
-e) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker-compose` call exits without errors and logs `CouchDb is Ready`.
+e) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker compose` call exits without errors and logs `CouchDb is Ready`.
 ```shell
 cd ~/couchdb-migration/
-docker-compose run couch-migration check-couchdb-up
+docker compose run couch-migration check-couchdb-up
 ```
 
 f) Change metadata to match the new CouchDb node
 ```shell
 cd ~/couchdb-migration/
-docker-compose run couch-migration move-node
+docker compose run couch-migration move-node
 ```
 g) Run the `verify` command to check whether the migration was successful.
 ```shell
-docker-compose run couch-migration verify
+docker compose run couch-migration verify
 ```
 If all checks pass, you should see a message `Migration verification passed`. It is then safe to proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-single/.env`.
 
@@ -183,7 +183,7 @@ EOF
 f) Start 4.x CouchDb.
 ```shell
 cd ~/couchdb-cluster/
-docker-compose up -d
+docker compose up -d
 ```
 
 g) Update `couchdb-migration` environment variables. Depending on your setup, it's possible you will need to update `CHT_NETWORK` and `COUCH_URL` to match the newly started 4.x CouchDb.
@@ -196,17 +196,17 @@ COUCH_URL=http://<authentication>@<docker-container-name>:<port>
 EOF
 ```
 
-h) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker-compose` call exits without errors and logs `CouchDb Cluster is Ready`.
+h) Check that `couchdb-migration` can connect to the CouchDb instance and that CouchDb is running. You'll know it is working when the `docker compose` call exits without errors and logs `CouchDb Cluster is Ready`.
 ```shell
 cd ~/couchdb-migration/
-docker-compose run couch-migration check-couchdb-up <number-of-nodes>
+docker compose run couch-migration check-couchdb-up <number-of-nodes>
 ```
 
 i) Generate the shard distribution matrix and get instructions for final shard locations.
 ```shell
 cd ~/couchdb-migration/
-shard_matrix=$(docker-compose run couch-migration generate-shard-distribution-matrix)
-docker-compose run couch-migration shard-move-instructions $shard_matrix
+shard_matrix=$(docker compose run couch-migration generate-shard-distribution-matrix)
+docker compose run couch-migration shard-move-instructions $shard_matrix
 ```
 
 j) Follow the instructions from the step above and move the shard files to the correct location, according to the shard distribution matrix. This is a manual step that requires to physically move data around on disk.
@@ -275,17 +275,17 @@ After moving two shards: `55555554-6aaaaaa8` and `6aaaaaa9-7ffffffd`
 k) Change metadata to match the new shard distribution. We declared `$shard_matrix` in step "g" above, so it is still set now:
 
 ```shell
-docker-compose run couch-migration move-shards $shard_matrix
+docker compose run couch-migration move-shards $shard_matrix
 ```
 
 l) Remove old node from the cluster:
 ```shell
-docker-compose run couch-migration remove-node couchdb@127.0.0.1
+docker compose run couch-migration remove-node couchdb@127.0.0.1
 ```
 
 j) Run the `verify` command to check whether the migration was successful.
 ```shell
-docker-compose run couch-migration verify
+docker compose run couch-migration verify
 ```
 If all checks pass, you should see a message `Migration verification passed`. It is then safe to proceed with starting CHT-Core 4.x, using the same environment variables you saved in `~/couchdb-cluster/.env`.
 

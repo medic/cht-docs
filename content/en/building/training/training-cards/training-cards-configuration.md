@@ -41,7 +41,7 @@ Create a [properties file]({{< relref "building/tutorials/form-properties#3-defi
 
 ```
 {
-  "title": "",
+  "title": "New workflow",
   "context": {
     "start_date": "2023-07-13",
     "duration": 60,
@@ -53,7 +53,7 @@ Create a [properties file]({{< relref "building/tutorials/form-properties#3-defi
 In the example above, the training cards could be shown to any user with the "nurse" role between July 13, 2023 and September 11, 2023 (inclusive). See more information about these configuration settings below: 
 | Property | Description |
 |---|----|
-| "title" | Optional. Enketo’s form title that is displayed under the modal’s header section. Leave this property empty if you don’t need to display a title. |
+| "title" | Enketo’s form title that is displayed in the modal’s header section. |
 | "start_date" | Optional. Define the training start day using `yyyy-mm-dd` format. If not defined then the training will start immediately. |
 | "duration" | Optional. Number of days this training should be active. If not defined then the training will never expire. |
 | "user_roles" | Optional. List of user roles that can access this training. If not defined then all users can access the training. |
