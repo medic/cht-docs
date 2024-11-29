@@ -156,7 +156,7 @@ Setting the `DEBUG` environment variable (e.g. [`DEBUG=true npm run wdio-local`]
 
 #### Run the e2e tests without re-building docker images
 
-After the tests were executed the first time using the command  `npm run wdio-local` the docker images were built in your local environment using the checkout branch name. If it is needed to run the tests over and over again and there is a certainty that the cht core code didn't change, you can use the command `npm run ci-webdriver-default`, this command will execute the e2e tests as they are run with the `wdio-local` command but without re-building the images, it will use the images that were built previously, which will make the process faster.
+After the tests are executed the first time using the command `npm run wdio-local`, the docker images are built in your local environment using the checkout branch name. If it is needed to run the tests repeatedly and there is a certainty that the cht-core code didn't change, you can use the command `npm run ci-webdriver-default`. This command will execute the e2e tests as they are run with the `wdio-local` command but without re-building the images. This command uses the images that were built previously, which makes the process faster.
 
 #### Read the logs
 
