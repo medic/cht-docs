@@ -47,6 +47,8 @@ Save the output containing:
 
 The next part of  the guide assumes your K3s cluster is already prepared. If not, please run the set of commands [here](https://docs.k3s.io/quick-start).
 
+We are also going to utilize the `cht-deploy` script from the [cht-core](https://github.com/medic/cht-core) repo. If you don't already have that, clone it.
+
 ## Prepare Node Storage
 
 ```shell
