@@ -29,7 +29,7 @@ Mockups of the CHT on desktop/tablet view can be easily made using the component
 <br>
 
 ### Mobile
-Mockups of the CHT on mobile devices can be easily made using the components in this <a href="https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=184-1450">Figma UI Kit</a>.
+Mockups of the CHT on mobile devices can be easily made using the components in this [Figma UI Kit](https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=184-1450).
 
 
 <br>
