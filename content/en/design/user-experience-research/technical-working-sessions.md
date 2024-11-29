@@ -6,7 +6,7 @@ description: >
   A Technical Working Session is a collaborative meeting where backend users of the CHT (such as app developers and data scientists) and Medic product managers, software engineers, and UX researchers come together to dive deeper into technical issues and develop potential solutions in real time. 
 ---
 
-These sessions provide valuable insights into the experiences of users developing and configuring the CHT.
+A Technical Working Session is a collaborative meeting where backend users of the CHT (such as app developers and data scientists) and Medic product managers, software engineers, and UX researchers come together to dive deeper into technical issues and develop potential solutions in real time. These sessions provide valuable insights into the experiences of users developing and configuring the CHT.
 
 ## Planning and Recruiting
 
