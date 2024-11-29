@@ -9,7 +9,7 @@ description: >
 ## UI Kit
 
 ### Components
-Find reusable components of the CHT in this <a href="https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=2-3">Figma file</a>. Mockups can easily be created using these components.
+Find reusable components of the CHT in this [Figma file](https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=2-3). Mockups can easily be created using these components.
 
 
 <br>
