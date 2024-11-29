@@ -23,7 +23,7 @@ description: >
 * Aim to keep the survey quick to complete, asking between 8-15 questions 
 * Use the 5-point likert scale
 
-Here is a [sample CES survey](https://docs.google.com/forms/d/1TuD9G4Gjod07jtw4INOWEkoBzuu9pEooSz-UfASjlyc/edit)
+Here is a [sample CES survey](https://docs.google.com/forms/d/1TuD9G4Gjod07jtw4INOWEkoBzuu9pEooSz-UfASjlyc/edit).
 
 
 ## Recruiting
