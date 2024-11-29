@@ -40,4 +40,4 @@ Mockups of the CHT on mobile devices can be easily made using the components in 
 
 *The UI Kit is continuously being updated to match the CHT app and ensure the CHT community is provided with all the necessary assets to ease the design process.*
 
-To ensure consistency with other Android apps and user experiences, please refer to and align with <a href="https://m3.material.io/">Material Design</a> guidelines and standards when designing new components for the CHT.
+To ensure consistency with other Android apps and user experiences, please refer to and align with [Material Design](https://m3.material.io/) guidelines and standards when designing new components for the CHT.
