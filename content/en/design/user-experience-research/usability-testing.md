@@ -6,11 +6,9 @@ description: >
   How to conduct Usability Testing 
 ---
 
- Usability testing is the practice of testing how easy or difficult a design solution is to use by observing how users interact with it. These are one on one sessions that can be done in person where the facilitator observes the user directly, or remotely where the facilitator shares their screen and asks the user what they would do next and acts as their proxy.
+Usability testing is the practice of testing how easy or difficult a design solution is to use by observing how users interact with it. These are one on one sessions that can be done in person where the facilitator observes the user directly, or remotely where the facilitator shares their screen and asks the user what they would do next and acts as their proxy.
 
 ## Planning
-
-
 
 1. Prepare your design prototypes to test
 2. Identify your test goals and objectives
@@ -21,16 +19,11 @@ description: >
     3. Location or connectivity if remote
     4. Testing devices or device with screen sharing capabilities if remote
 
-
-
-Here is a [sample usability test](https://docs.google.com/document/d/1su4B0SZLZl32DvcFxlKP7mHHLa_mTZ4C_vwW1OJ7O5Y/edit#heading=h.ekb2g8hgnfts)
-
+Here is a [sample usability test](https://docs.google.com/document/d/1su4B0SZLZl32DvcFxlKP7mHHLa_mTZ4C_vwW1OJ7O5Y/edit#heading=h.ekb2g8hgnfts).
 
 ## Recruiting
 
 Test with 6-8 users based on the relevant persona the prototype is designed for, considering:
-
-
 
 * Engagement (active vs inactive users)
 * Technical literacy 
@@ -39,10 +32,7 @@ Test with 6-8 users based on the relevant persona the prototype is designed for,
 * Location
 * Experience with the CHT 
 
-
 ## Executing
-
-
 
 1. If the usability test is being run in person, make sure the user is physically comfortable with the testing setup
 2. If the test is being run remotely, ensure a proper connection and that the user can hear you properly
@@ -52,17 +42,13 @@ Test with 6-8 users based on the relevant persona the prototype is designed for,
 6. Begin the session and run through the scenarios and tasks until all are completed
 7. Thank the user for their participation, ask them if they have any questions and let them know their feedback is important in improving the CHT 
 
-
-#### Tips:
-
-
+### Tips:
 
 * Watch for verbal cues and body language. Some users won’t explicitly say they are confused but could sigh in frustration
 * Don’t speak too much to avoid interfering with the users’ thought – ask them to say what they are thinking out loud as they are performing each task
 * Keep an even tone, don’t agree or disagree with the user to avoid influencing their answers
 * If a user is confused, probe to find out why instead of guiding them to the correct answer
 * Whether the user passes or fails the task, do not give an indication of either and simply thank them for completing the task
-
 
 ## Synthesizing
 

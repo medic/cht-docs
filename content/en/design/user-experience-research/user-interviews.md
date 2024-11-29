@@ -19,22 +19,15 @@ Generative interviews are used in the discovery phase of the development process
     2. Personnel
     3. Location, or connectivity if remote
 
+[Here is a generative interview template](https://docs.google.com/document/d/1Geunh4dANz1Q0nWmAbwVlXbqv8_kcxbee_o1yLi1dQU/edit?tab=t.0).
 
-
-[Here is a generative interview template](https://docs.google.com/document/d/1Geunh4dANz1Q0nWmAbwVlXbqv8_kcxbee_o1yLi1dQU/edit?tab=t.0)
-
-[Here is a scoped interview template](https://docs.google.com/document/d/1q7n9d6xW0G0ypx3jLJf3gz_5NsLY0BX0HLiyBq0IUb0/edit?tab=t.0)
-
-
-
+[Here is a scoped interview template](https://docs.google.com/document/d/1q7n9d6xW0G0ypx3jLJf3gz_5NsLY0BX0HLiyBq0IUb0/edit?tab=t.0).
 
 ## Recruiting
 
 For generative interviews, recruit users on a regular cadence for continuous, wide and varied feedback. 
 
 For scoped interviews, recruit 5-8 users considering the following criteria:
-
-
 
 1. Engagement (active vs inactive users)
 2. Technical literacy
@@ -45,10 +38,7 @@ For scoped interviews, recruit 5-8 users considering the following criteria:
 
 Agree on a mutually convenient time and date – if doing remote research, make sure you give the time and date in your users timezone. For interviews scheduled a week or more in advance, follow up a week before the interview and again the day before. Avoid user burnout by repeatedly recruiting the same users unless they have consented to be part of a study series.
 
-
 ## Executing
-
-
 
 1. Start the call and ensure it’s still a good time to speak with the user
 2. Explain the purpose of the interview, what questions will be covered and the time it might take
@@ -58,10 +48,7 @@ Agree on a mutually convenient time and date – if doing remote research, make 
 6. Once all topics have been covered, ask the user if they have any questions or anything they’d like to discuss
 7. Thank them for their time and let them know their feedback is valuable to improving the CHT
 
-
 #### Tips:
-
-
 
 * Be warm and professional
 * Listen lots, speak little
@@ -72,12 +59,10 @@ Agree on a mutually convenient time and date – if doing remote research, make 
 * Give users the chance to ask questions themselves
 * Record your session or have someone take notes so you can focus on being present
 
-[Here is a recording of a sample interview](https://www.google.com/url?q=https://drive.google.com/file/d/1MM4mZ8Swr2vzg9YyEuQa1sDS4619fCT1/view&sa=D&source=docs&ust=1730388599836960&usg=AOvVaw15rkBJwKrzHipwrmMeNs4x)
+[Here is a recording of a sample interview](https://www.google.com/url?q=https://drive.google.com/file/d/1MM4mZ8Swr2vzg9YyEuQa1sDS4619fCT1/view&sa=D&source=docs&ust=1730388599836960&usg=AOvVaw15rkBJwKrzHipwrmMeNs4x).
 
 
 ## Synthesizing
-
-
 
 1. Identify insights or key findings from user feedback from the interviews
 2. Categorize them into themes

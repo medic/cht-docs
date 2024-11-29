@@ -3,15 +3,16 @@ title: "Configuration Best Practices"
 linkTitle: "Best Practices"
 weight: 5
 description: >
-  This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
+  Best Practices for configuring CHT Applications
 ---
+
+This section covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
 
 ## Forms
 
 We use forms to build the **Tasks**, **Care Guides**, and **Reports** that take health workers through care protocols and provide decision support for their interactions with patients.
 
 In this context, a form is any document with questions and blank spaces or selectable options for answers. Forms can be found in many parts of your app including the **Tasks**, **People**, and **Reports** tabs
-
 
 While both Tasks and Reports are built with forms, there are key differences. Tasks are blank forms that need to be completed, while Reports are forms that have already been submitted. When a Task is completed and submitted, it automatically becomes a Report.
 
