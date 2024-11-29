@@ -4,8 +4,8 @@ linkTitle: Mapping Hierarchy
 weight: 4
 description: >
   Mapping users on the CHT hierarchy
-relatedContent: >
-
+aliases:
+   - /design/guides/mapping-hierarchy
 ---
 
 ## Purpose Of the Guide

@@ -25,7 +25,7 @@ The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks tha
 
 <br>
 
-![Anatomy of a Task](img/anatomy-task.png)
+![Anatomy of a Task](anatomy-task.png)
 
 <br>
 
@@ -42,7 +42,7 @@ If a Task is overdue, the due date will be red. Tasks are listed in order of due
 
 <br>
 
-![Anatomy of a Report](img/anatomy-report.png)
+![Anatomy of a Report](anatomy-report.png)
 
 <br>
 
@@ -94,7 +94,7 @@ The screenshots here represent some of the smallest phones our users have. As yo
 
 <br>
 
-![Anatomy of a Report](img/history.png)
+![Anatomy of a Report](history.png)
 
 <br>
 
@@ -191,13 +191,13 @@ Ex. Is your patient still pregnant? → Did she attend the ANC visit? → Does s
 **Reflect Input Length in Field** <br>
 Employ this for fields that have a defined character count like phone numbers, zip codes, etc.
 
-![Input Length](img/input-length.png) <br>
+![Input Length](input-length.png) <br>
 
 
 **Don’t Put Placeholder Or Helper Text Inside The Form Fields** <br>
 People go through forms quickly and if a field looks like it already has an answer they may accidentally miss it. Research shows that empty fields draw more attention than those with placeholder text.
 
-![Placeholder Text](img/no-placeholder-text.png) <br>
+![Placeholder Text](no-placeholder-text.png) <br>
 
 **Distinguish Optional And Required Fields** <br>
 Users don’t always know what is implied by the required field marker ( * ). Instead, denoting what is optional is a preferred method, especially for forms with many required fields. If you do use asterisks, make the meaning of the symbol clear by stating “Fields with an asterisk ( * ) are mandatory.” <br>
@@ -205,17 +205,17 @@ Users don’t always know what is implied by the required field marker ( * ). In
 **Always Stack Radio Buttons And Checkboxes In A Single Vertical Column** <br>
 Placing the options underneath each other allows for easy scanning and makes it less likely that a user will completely overlook one of the options.
 
-![Radio Buttons](img/radio-buttons-stacked.png) <br>
+![Radio Buttons](radio-buttons-stacked.png) <br>
 
 **Don’t Use Dropdowns If There Are Less Than Seven Options** <br>
 For smaller lists, use radio buttons instead of drop-down menus. Radio buttons have lower cognitive load because they make all options visible for easy comparison.
 
-![Radio vs Dropdown](img/radio-dropdown.png) <br>
+![Radio vs Dropdown](radio-dropdown.png) <br>
 
 **Make Use Of Images** <br>
 Where it makes sense, use images to aid in the understanding of a question
 
-![Form Images](img/form-images.png) <br>
+![Form Images](form-images.png) <br>
 
 
 ### Summary Page
@@ -312,7 +312,7 @@ H2: text with a colored line under it, centered <br>
 H3: left aligned text, simple grey line under it <br>
 H4: normal body text
 
-![Summary](img/summary.png)
+![Summary](summary.png)
 
 **Other body text styling**
 
@@ -344,7 +344,7 @@ This information can be organized into cards specific to a condition (e.g. pregn
 
 <br>
 
-![Condition Card](img/condition-cards.png)
+![Condition Card](condition-cards.png)
 
 <br>
 
@@ -432,7 +432,7 @@ Ex.  Summary of past pregnancies rather than card for each past pregnancy
 
 <br>
 
-![Past Pregnancies](img/past-pregnancies.png)
+![Past Pregnancies](past-pregnancies.png)
 
 <br>
 
@@ -451,7 +451,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 <br>
 
-![Targets](img/counts.png)
+![Targets](counts.png)
 
 <br>
 
@@ -464,7 +464,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 <br>
 
-![Percentages](img/percentages.png)
+![Percentages](percentages.png)
 
 <br>
 
