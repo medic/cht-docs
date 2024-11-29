@@ -3,7 +3,7 @@ title: "Components"
 linkTitle: "Components"
 weight: 4
 description: >
-  The standard aspects of our core framework for reuse to encourage consistency when building new pages or components 
+  The standard aspects of the core framework for reuse to encourage consistency when building new pages or components 
 ---
 
 ### Buttons
