@@ -3,7 +3,7 @@ title: "UI Kit"
 linkTitle: "UI Kit"
 weight: 5
 description: >
-  Use these sample CHT screens and components as needed to test and validate new designs or workflows.
+  Sample CHT screens and components for testing and validating new designs or workflows
 ---
 
 ## UI Kit
