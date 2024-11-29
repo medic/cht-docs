@@ -4,6 +4,8 @@ linkTitle: "Colors"
 weight: 1
 description: >
   Color helps users interpret and interact with app content by establishing a hierarchy of information, highlighting actions, indicating states, and conveying meaning.
+aliases:
+   - /design/components/
 ---
 
 ## Colors

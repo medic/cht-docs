@@ -106,69 +106,69 @@ The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "
 
 |Icon | People and Places Hierarchies |
 |-|:-|
-| ![Hospital](../icons/people_and_places/SVGs/hierarchies-district-hospital.svg)| Hospital or District |
-| ![CHW Area](../icons/people_and_places/SVGs/hierarchies-chw-area.svg) | CHW Area |
-| ![Facility](../icons/people_and_places/SVGs/hierarchies-health-center.svg) | Branch or Health Facility |
-| ![Family](../icons/people_and_places/SVGs/hierarchies-family.svg) | Family |
-| ![Person](../icons/people_and_places/SVGs/hierarchies-person.svg) | Person
+| ![Hospital](../interface/icons/people_and_places/SVGs/hierarchies-district-hospital.svg)| Hospital or District |
+| ![CHW Area](../interface/icons/people_and_places/SVGs/hierarchies-chw-area.svg) | CHW Area |
+| ![Facility](../interface/icons/people_and_places/SVGs/hierarchies-health-center.svg) | Branch or Health Facility |
+| ![Family](../interface/icons/people_and_places/SVGs/hierarchies-family.svg) | Family |
+| ![Person](../interface/icons/people_and_places/SVGs/hierarchies-person.svg) | Person
 
 
 | Icon 	| Family Planning                                 	|
 |------	|:--------------------------------------	|
-| ![Family Planning](../icons/forms_tasks_targets/SVGs/icon-family-planning.svg)	| - Family Planning Screening<br>- Family Planning Referral or Follow-Up 	|
+| ![Family Planning](../interface/icons/forms_tasks_targets/SVGs/icon-family-planning.svg)	| - Family Planning Screening<br>- Family Planning Referral or Follow-Up 	|
 
 
 
 | Icon 	| ANC                                         	|
 |------	|:-----------------------------------------------	|
-| ![ANC](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANC Follow-Up 	|
-| ![ANC Danger](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | - ANC Danger Sign<br>- ANC Danger Sign Follow-Up|
+| ![ANC](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANC Follow-Up 	|
+| ![ANC Danger](../interface/icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | - ANC Danger Sign<br>- ANC Danger Sign Follow-Up|
 
 
 
 | Icon  	| PNC                                         	|
 |------	|:-----------------------------------------------	|
-| ![PNC](../icons/forms_tasks_targets/SVGs/icon-people-woman-baby.svg) | - PNC Registration<br>- PNC Visit or Missed Visit<br>- PNC Follow-Up|
-| ![PNC Danger Mother](../icons/forms_tasks_targets/SVGs/icon-PNC-danger-sign.svg) | - PNC Danger Sign<br>- PNC Danger Sign Follow-Up (Mother)|
-| ![PNC Danger Baby](../icons/forms_tasks_targets/SVGs/icon-PNC-baby-danger-sign.svg) | - PNC Danger Sign Follow-Up (Baby)|
+| ![PNC](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-baby.svg) | - PNC Registration<br>- PNC Visit or Missed Visit<br>- PNC Follow-Up|
+| ![PNC Danger Mother](../interface/icons/forms_tasks_targets/SVGs/icon-PNC-danger-sign.svg) | - PNC Danger Sign<br>- PNC Danger Sign Follow-Up (Mother)|
+| ![PNC Danger Baby](../interface/icons/forms_tasks_targets/SVGs/icon-PNC-baby-danger-sign.svg) | - PNC Danger Sign Follow-Up (Baby)|
 
 
 
 | Icon  	| ICCM and Child Health                         	|
 |------	|:-----------------------------------------------	|
-| ![ICCM](../icons/forms_tasks_targets/SVGs/icon-people-child.svg) | - ICCM Assessment<br>- ICCM Treatment<br>- ICCM Referral or Follow-Up|
-| ![ICCM Danger](../icons/forms_tasks_targets/SVGs/icon-ICCM-danger-sign.svg) | - ICCM Danger Sign<br>- ICCM Danger Sign Follow-Up|
+| ![ICCM](../interface/icons/forms_tasks_targets/SVGs/icon-people-child.svg) | - ICCM Assessment<br>- ICCM Treatment<br>- ICCM Referral or Follow-Up|
+| ![ICCM Danger](../interface/icons/forms_tasks_targets/SVGs/icon-ICCM-danger-sign.svg) | - ICCM Danger Sign<br>- ICCM Danger Sign Follow-Up|
 
 
 
 | Icon 	| Immunization                                	|
 |------	|:-----------------------------------------------	|
-| ![Immunization](../icons/forms_tasks_targets/SVGs/icon-healthcare-immunization.svg) | - Immunization Visit<br>- Immunization Follow-Up|
+| ![Immunization](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-immunization.svg) | - Immunization Visit<br>- Immunization Follow-Up|
 
 
 
 | Icon 	| Visits                                      	|
 |------	|:-----------------------------------------------	|
-| ![Visits](../icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | - General Follow-Up<br>- Proactive Visit<br>- Educational Visit|
+| ![Visits](../interface/icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | - General Follow-Up<br>- Proactive Visit<br>- Educational Visit|
 
 
 
 | Icon  	|Community                                       	|
 |------	|:-----------------------------------------------	|
-| ![Community](../icons/forms_tasks_targets/SVGs/icon-community.svg) | - Community Event<br>- Community Meeting|
+| ![Community](../interface/icons/forms_tasks_targets/SVGs/icon-community.svg) | - Community Event<br>- Community Meeting|
 
 
 
 | Icon  | Various |
 |-|:-|
-| ![Delivery](../icons/forms_tasks_targets/SVGs/icon-delivery.svg) | Delivery |
-| ![Malnutrition](../icons/forms_tasks_targets/SVGs/icon-child-nutrition.svg) | Malnutrition |
-| ![Growth](../icons/forms_tasks_targets/SVGs/icon-child-growth.svg) | Growth Monitoring |
-| ![Cognition](../icons/forms_tasks_targets/SVGs/icon-child-cognition.svg) | Cognition |
-| ![General](../icons/forms_tasks_targets/SVGs/icon-form-general.svg) | General Forms |
-| ![Assessments](../icons/forms_tasks_targets/SVGs/icon-healthcare-assessment.svg) | General Assessments |
-| ![Equity](../icons/forms_tasks_targets/SVGs/icon-household-equity.svg) | Equity Survey |
-| ![Net](../icons/forms_tasks_targets/SVGs/icon-household-bednet.svg) | Bed Net Distribution |
+| ![Delivery](../interface/icons/forms_tasks_targets/SVGs/icon-delivery.svg) | Delivery |
+| ![Malnutrition](../interface/icons/forms_tasks_targets/SVGs/icon-child-nutrition.svg) | Malnutrition |
+| ![Growth](../interface/icons/forms_tasks_targets/SVGs/icon-child-growth.svg) | Growth Monitoring |
+| ![Cognition](../interface/icons/forms_tasks_targets/SVGs/icon-child-cognition.svg) | Cognition |
+| ![General](../interface/icons/forms_tasks_targets/SVGs/icon-form-general.svg) | General Forms |
+| ![Assessments](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-assessment.svg) | General Assessments |
+| ![Equity](../interface/icons/forms_tasks_targets/SVGs/icon-household-equity.svg) | Equity Survey |
+| ![Net](../interface/icons/forms_tasks_targets/SVGs/icon-household-bednet.svg) | Bed Net Distribution |
 
 <br>
 
@@ -293,15 +293,15 @@ Suggested icons for each section:
 
 | Icon 	| Section                                         	|
 |------	|:-----------------------------------------------	|
-| ![Patient Details](../icons/forms_tasks_targets/SVGs/icon-people-person-general.svg) | Patient Details	|
-| ![Visit Information](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | Visit Information|
-| ![Pregnancy Specific](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | Pregnancy Specific|
-| ![Child Health Specific](../icons/forms_tasks_targets/SVGs/icon-people-child.svg) | Child Health Specific|
-| ![Signs and Symptoms](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Signs and Symptoms	|
-| ![Warnings and Referrals](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Warnings and Referrals|
-| ![Diagnosis and Treatment](../icons/forms_tasks_targets/SVGs/icon-healthcare-diagnosis.svg) | Diagnosis and Treatment	|
-| ![Follow Ups](../icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | Follow-Ups	|
-| ![General/Misc](../icons/forms_tasks_targets/SVGs/icon-healthcare-generic.svg) | Misc/General|
+| ![Patient Details](../interface/icons/forms_tasks_targets/SVGs/icon-people-person-general.svg) | Patient Details	|
+| ![Visit Information](../interface/icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | Visit Information|
+| ![Pregnancy Specific](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | Pregnancy Specific|
+| ![Child Health Specific](../interface/icons/forms_tasks_targets/SVGs/icon-people-child.svg) | Child Health Specific|
+| ![Signs and Symptoms](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Signs and Symptoms	|
+| ![Warnings and Referrals](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Warnings and Referrals|
+| ![Diagnosis and Treatment](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-diagnosis.svg) | Diagnosis and Treatment	|
+| ![Follow Ups](../interface/icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | Follow-Ups	|
+| ![General/Misc](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-generic.svg) | Misc/General|
 
 <br>
 
