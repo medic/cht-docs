@@ -8,6 +8,7 @@ relatedContent: >
   building/features/reports
   building/reference/app-settings/patient_reports
 aliases:
+   - /building/guides/forms/report-titles
    - /apps/guides/forms/report-titles
 ---
 
