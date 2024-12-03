@@ -4,6 +4,8 @@ linkTitle: "Best Practices"
 weight: 5
 description: >
   Best Practices for configuring CHT Applications
+aliases:
+   - /design/best-practices/
 ---
 
 This section covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
