@@ -6,38 +6,23 @@ description: >
   Sample CHT screens and components for testing and validating new designs or workflows
 ---
 
-## UI Kit
-
-### Components
+## Components
 Find reusable components of the CHT in this [Figma file](https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=2-3). Mockups can easily be created using these components.
-
-
-<br>
 
 ![Components](figma-components.png)
 
-<br>
-
-### Desktop
+## Desktop
 Mockups of the CHT on desktop/tablet view can be easily made using the components in this [Figma UI Kit](https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=369-9899).
-
-
-<br>
 
 ![Desktop](figma-desktop.png)
 
-<br>
-
-### Mobile
+## Mobile
 Mockups of the CHT on mobile devices can be easily made using the components in this [Figma UI Kit](https://www.figma.com/design/mi8e2RnOh4iuBO5GWCulyc/CHT-UI-Kit-%7C-September-2024?node-id=184-1450).
-
-
-<br>
 
 ![Mobile](figma-mobile.png)
 
-<br>
-
-*The UI Kit is continuously being updated to match the CHT app and ensure the CHT community is provided with all the necessary assets to ease the design process.*
+{{% alert title="Note" %}}
+The UI Kit is continuously being updated to match the CHT app and ensure the CHT community is provided with all the necessary assets to ease the design process.
+{{% /alert %}}
 
 To ensure consistency with other Android apps and user experiences, please refer to and align with [Material Design](https://m3.material.io/) guidelines and standards when designing new components for the CHT.
