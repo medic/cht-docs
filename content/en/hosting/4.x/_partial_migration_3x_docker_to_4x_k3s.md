@@ -27,7 +27,7 @@ export COUCH_URL=http://<your-admin-user>:<your-admin-password>@<couchdb-host>:5
 ## Run Pre-Migration Commands
 ```shell
 cd ~/couchdb-migration/
-docker compose run couch-migration pre-index-views 4.10.0
+docker compose run couch-migration pre-index-views <put-your-intended-cht-version>
 ```
 
 {{% alert title="Note" %}} 
