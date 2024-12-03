@@ -150,7 +150,7 @@ Create a `values.yaml` file using the volume ID from the previous step:
 For single node deployment, create a YAML file with this contents, being sure to update:
 
 * `<your-namespace-defined-in-NAMESPACE>` (_two occurrences_)
-* `<version>` - 4.x version you're upgrading too
+* `<version>` - 4.x version you're upgrading to
 * `<password>` - retrieved from `get-env` call above
 * `<secret>` - retrieved from `get-env` call above
 * `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
