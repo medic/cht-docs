@@ -3,12 +3,12 @@ title: "Nurse, Mary"
 linkTitle: "Nurse"
 weight: 4
 description: >
-  Nurses are stationed at the health facility and spend their days seeing patients. They are typically very busy and may see 50 or more patients a day. At the clinic, they sometimes deal with staff shortages, stock-outs, and poor internet connectivity. They help train and manage CHWs, particularly during monthly meetings at the facility. They are interested in seeing improvements in health metrics for the areas their facility serves. 
+  Training and managing CHWs
 ---
 
-![Nurse](nurse.png)
+Nurses are stationed at the health facility and spend their days seeing patients. They are typically very busy and may see 50 or more patients a day. At the clinic, they sometimes deal with staff shortages, stock-outs, and poor internet connectivity. They help train and manage CHWs, particularly during monthly meetings at the facility. They are interested in seeing improvements in health metrics for the areas their facility serves. 
 
-<br>
+![Nurse](nurse.png)
 
 ## About
 
