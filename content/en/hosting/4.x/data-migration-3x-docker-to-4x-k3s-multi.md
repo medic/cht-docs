@@ -16,10 +16,12 @@ ssh <user>@<node3-hostname> "sudo mkdir -p /srv/couchdb3/data/shards /srv/couchd
 ```
 
 ## Create values.yaml for K3s Deployment
+{{ < read-content file="hosting/4.x/_partial_values_explanation.md"  }}
+
 ```yaml
 project_name: "your-namespace"
 namespace: "your-namespace"
-chtversion: 4.10.0
+chtversion: <version>
 
 upstream_servers:
   docker_registry: "public.ecr.aws/medic"
@@ -28,10 +30,10 @@ upgrade_service:
   tag: 0.32
 
 couchdb:
-  password: "<your-saved-password>"
-  secret: "<your-saved-secret>"
-  user: "<your-admin-user>"
-  uuid: "<your-saved-uuid>"
+  password: "<password>"
+  secret: "<secret>"
+  user: "<admin-user>"
+  uuid: "<uuid>"
   clusteredCouch_enabled: true
   couchdb_node_storage_size: 100Gi
 
@@ -39,7 +41,7 @@ clusteredCouch:
   noOfCouchDBNodes: 3
 
 ingress:
-  host: "your-url.org"
+  host: "<url>"
 
 environment: "remote"
 cluster_type: "k3s-k3d"
