@@ -366,6 +366,26 @@ WHERE
 
 To be performant, the table from this model is reading form needs to have the `saved_timestamp` column indexed.
 
+## Breaking changes
+Due to the way models can be imported, extended, and built upon, it's necessary to take precautions against breaking backwards compatibility when making changes upstream. 
+Model collections should be versioned, following semver rules, and breaking changes should only be published in major releases. 
+
+Examples of changes that are considered breaking:   
+- deleting/renaming a model    
+- deleting/renaming a field    
+- changing a field data type  
+- changing a field data definition significantly  
+- removing/changing an index  
+- removing/changing a macro  
+
+Examples of changes that are not considered breaking:   
+- adding a model  
+- adding a field     
+- updating an existent field data definition to fix a bug  
+- adding a macro  
+- adding an index  
+- adding tests
+ 
 ## Database disk space requirements
 The disk space required for the database depends on a few things including the size the of CouchDB databases being replicated, and the [models]({{< relref "hosting/analytics/building-dbt-models" >}}) defined. The database will grow over time as more data is added to CouchDB. The database should be monitored to ensure that it has enough space to accommodate the data. To get an idea of the size requirements of the database, you can replicate 10% of the data from CouchDB to Postgres and then run the following command to see disk usage:
 ```shell

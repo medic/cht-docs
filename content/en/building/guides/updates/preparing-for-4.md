@@ -16,8 +16,7 @@ description: >
 ## Introduction
 
 Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 3.x version to the 4.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes. Aside from the Docker hosting infrastructure (out of scope for this prep document), the two breaking changes are around CHT Android and Enketo.
-
-While CHT 4.0 has not been released yet, the effort to be prepared can be quite time consuming, especially for large deployments that may need to do handset upgrades in a worst case.  The sooner deployments start preparing for the upgrade, the easier it will be when it comes to the upgrade itself.  Conveniently, all device and Android app changes to prepare for 4.x are backwards compatible with 3.x. Prepare now, so you will be ready to upgrade sooner than later!
+Upgrading to CHT 4.0  can be quite time consuming, especially for large deployments that may need to do handset upgrades in a worst case.  The sooner deployments start preparing for the upgrade, the easier it will be when it comes to the upgrade itself.  Conveniently, all device and Android app changes to prepare for 4.x are backwards compatible with 3.x. Prepare now, so you will be ready to upgrade sooner than later!
 
 ## CHT Android v1.0.0+ 
 
@@ -207,7 +206,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 #### New XPath functions
 
 * Custom CHT functions:
-    * [`add-date`]({{< relref "building/reference/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
+    * [`add-date`]({{< relref "building/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
 * ODK Functions:
     * Repeats and other node sets:
         * [`position`](https://docs.getodk.org/form-operators-functions/#position) - Returns the current iteration index within a repeat group.
