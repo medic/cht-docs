@@ -1,6 +1,6 @@
 ---
 title: "Migration from CHT 3.x to CHT 4.x in Kubernetes"
-linkTitle: "K8s Data Migration to 4.x"
+linkTitle: "Migration: 3.x EKS to 4.x EKS"
 weight: 1
 description: >
   Guide to migrate existing data from CHT 3.x to CHT 4.x in Kubernetes environments
