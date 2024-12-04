@@ -19,9 +19,11 @@ docker compose up
 ```
 
 ## Set Up Environment Variables
+
+Be sure to replace both `<admin-user>` and `<password>` with your actual username and password.  As well, update `<couchdb-host>` to the CouchDB URL from the Docker Compose setup:
+
 ```shell
-# Replace with your actual CouchDB URL from the Docker Compose setup
-export COUCH_URL=http://<your-admin-user>:<your-admin-password>@<couchdb-host>:5984
+export COUCH_URL=http://<admin-user>:<password>@<couchdb-host>:5984
 ```
 
 ## Run Pre-Migration Commands
