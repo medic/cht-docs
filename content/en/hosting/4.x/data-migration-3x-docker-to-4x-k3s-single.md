@@ -6,14 +6,14 @@ description: >
   Guide on how to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x single-node K3s deployment
 relatedContent: >
 ---
-{{ < read-content file="hosting/4.x/_partial_migration_3x_docker_to_4x_k3s.md"  }}
+{{< read-content file="hosting/4.x/_partial_migration_3x_docker_to_4x_k3s.md"  >}}
 
 ## Create values.yaml for K3s Deployment
-{{ < read-content file="hosting/4.x/_partial_values_explanation.md"  }}
+{{< read-content file="hosting/4.x/_partial_values_explanation.md"  >}}
 
 ```yaml
-project_name: "your-namespace"
-namespace: "your-namespace"
+project_name: "<your-namespace>"
+namespace: "<your-namespace>"
 chtversion: <version>
 
 upstream_servers:
