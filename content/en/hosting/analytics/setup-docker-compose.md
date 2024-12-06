@@ -32,29 +32,67 @@ The first time you run the commands from any of the sections below it will need 
 
 ### Separate CouchDB instance 
 
-This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
+This setup involves starting couch2pg, PostgreSQL and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
 docker compose -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show 4 containers running including couch2pg, dbt and PostgreSQL.
+You can verify this command worked by running `docker ps`. It should show 3 containers running including couch2pg, dbt and PostgreSQL:
 
-#### Postgres access
+```shell
+docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Names}}" --filter "name=cht-sync*" 
+IMAGE               STATUS              NAMES
+cht-sync-couch2pg   Up 59 seconds       cht-sync-couch2pg-1
+cht-sync-dbt        Up About a minute   cht-sync-dbt-1
+postgres:16         Up About a minute   cht-sync-postgres-1
+```
 
-If you need to have remote access to the Postgres instance running in docker you have two options.  The first is to run an instance of the `pgadmin` [application](https://www.pgadmin.org/). Be aware that this exposes an administrative interface with no password. Generally this should A) be used with development setups only and B) always be secured immediately after deploying.  
+### Separate CouchDB and PostgreSQL instances
 
-Run it with the following compose call:
+This local setup involves starting couch2pg and dbt. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
+
+Run the Docker containers locally and wait for every container to be up and running:
+
+```sh
+docker compose -f docker-compose.yml up -d
+```
+
+You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and dbt.
+
+```shell
+docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Names}}" --filter "name=cht-sync*" 
+IMAGE               STATUS              NAMES
+cht-sync-couch2pg   Up 59 seconds       cht-sync-couch2pg-1
+cht-sync-dbt        Up About a minute   cht-sync-dbt-1
+```
+
+### PostgreSQL access
+
+By default, the PostgreSQL server is only accessible to `dbt` and `couch2pg` via the Docker network. This is an intentional secure by default design. If you need to have remote access to PostgreSQL, you have two options:
+
+1. Development: Run [pgAdmin](https://www.pgadmin.org/) and also expose PostgreSQL ports 
+2. Production: Run a bastion host and use SSH tunnels 
+
+#### PGAdmin + PostgreSQL ports
+
+pgAdmin is a web GUI client for PostgreSQL. Run it with the following compose call:
+
 ```sh
 docker compose -f docker-compose.pgadmin.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
 
-The pgadmin app will be accessible at `http://your-server.com/5050`
+Be aware that this exposes an the pgAdmin app with no password. Always secure this immediately after deploying by logging in and it will request you to set a password. The pgadmin app will be accessible at `http://your-server.com:5050`.
 
-The more secure and production ready option is to run a bastion host.  First start by copying the `./bastion/authorized_keys.example` file to `./bastion/authorized_keys`.  Add the SSH keys in `authorized_keys`, one per line, that you would like to have access to the server via the bastion host.
+Additionally, `docker-compose.pgadmin.yml` file extends the PostgreSQL Docker service to expose it on the standard `5432` port.  Using any PostgreSQL client, you can connect using the IP of your server.
 
-Run it with the following compose call:
+#### Bastion host
+
+The more secure and production ready option is to run a bastion host.  First start by copying the `./bastion/authorized_keys.example` file to `./bastion/authorized_keys`.  Add the SSH keys of users who need access, one per line, in the `authorized_keys` you just created.
+
+Start the bastion host, along with other services, with the following compose call:
+
 ```sh
 docker compose -f docker-compose.bastion.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
 ```
@@ -65,21 +103,7 @@ You can then set up an SSH tunnel with the following shell command, being sure t
 ssh -N -L 5432:cht-sync-postgres-1:5432 bastion@YOUR-SERVER-ADDRESS -p 22222
 ```
 
-The point your Postgres client of choice to `127.0.0.1:5432` to access the database.
-
-
-### Separate CouchDB and PostgreSQL instances
-
-This local setup involves starting couch2pg and dbt. It assumes that CouchDB and PostgreSQL instances are run separately from the Docker Compose provided with CHT Sync, and the `.env` variables were updated to match those instances details.
-
-Run the Docker containers locally and wait for every container to be up and running:
-```sh
-docker compose -f docker-compose.yml up -d
-```
-
-You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and dbt.
-
-
+Then point your PostgreSQL client of choice to `YOUR-SERVER-ADDRESS:5432` to access the database, again being sure to replace `YOUR-SERVER-ADDRESS` with your real server address.
 
 ### Cleanup
 
