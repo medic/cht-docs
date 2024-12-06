@@ -71,6 +71,7 @@ Permissions can be assigned to user roles either directly in `base_settings.json
 | `can_view_old_action_bar` | Allows users to see the old action bar in Message Tab, Reports Tab and Contact Tab which is considered deprecated and will be completely removed in a future release. The More Options menu will be hidden when this permission is enabled. The Admin user will always see the new More Options menu. See [Feature Flags]({{< ref "building/guides/updates/feature-flags" >}}) for more info. |
 | `can_default_facility_filter` | Defaults the Place Filter in Reports tab to the user's associated facility. The user should have a contact associated that belongs to a facility. This feature is not available for Admin and Offline type of users. Use with caution, online users that can access thousands of reports can experience slow performance especially where the network is slow. Added in 4.3.  |
 |`can_have_multiple_places`| Allows users to be assigned more than one `facility_id`. Helps support health systems where offline Supervisors manage CHWs from different geographical areas. Each `facility_id` must be at the same level in the hierarchy. Added in 4.9.0 |
+|`can_skip_password_change`| Turns off the password change prompt for users logging in for the first time or who have had their password reset. Added in 4.16.0 |
 
 ### Code sample
 This sample shows how to define the `permissions` object in the `base_settings.json` file. Observe how `can_edit` permission has been associated to `supervisor_role` and `chw_role` user roles.
