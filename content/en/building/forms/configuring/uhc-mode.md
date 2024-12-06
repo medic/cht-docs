@@ -9,6 +9,7 @@ relatedContent: >
   building/reference/app-settings/user-roles
   building/reference/app-settings/user-permissions
 aliases:
+   - /building/guides/forms/uhc-mode
    - /apps/guides/forms/uhc-mode
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: "collect"
 linkTitle: "collect"
-weight: 5
+weight: 3
 description: >
   **Collect Forms**: Served to the Medic Collect application
 keywords: collect-forms collect
 aliases:
+   - /building/reference/forms/collect
    - /apps/reference/forms/collect
 ---
 

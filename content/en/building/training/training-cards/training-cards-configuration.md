@@ -15,13 +15,13 @@ aliases:
    - /apps/guides/training/training-cards/
 ---
 
-[Training Cards]({{< relref "building/training/training-cards" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/reference/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
+[Training Cards]({{< relref "building/training/training-cards" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
 
 {{% alert title="Note" %}} Example training forms are available [here]({{< relref "building/training/training-cards-resources" >}}) and provide a good starting point. {{% /alert %}}
 
 # Step 1: Create the training form
 
-Create an [XLS Form]({{< relref "building/reference/forms/app#xlsform" >}}). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
+Create an [XLS Form]({{< relref "building/forms/app#xlsform" >}}). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
 
 {{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="left col-10" >}}
 
@@ -37,11 +37,11 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 # Step 3: Configure the training form
 
-Create a [properties file]({{< relref "building/tutorials/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
+Create a [properties file]({{< relref "building/forms/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
 
 ```
 {
-  "title": "",
+  "title": "New workflow",
   "context": {
     "start_date": "2023-07-13",
     "duration": 60,
@@ -53,7 +53,7 @@ Create a [properties file]({{< relref "building/tutorials/form-properties#3-defi
 In the example above, the training cards could be shown to any user with the "nurse" role between July 13, 2023 and September 11, 2023 (inclusive). See more information about these configuration settings below: 
 | Property | Description |
 |---|----|
-| "title" | Optional. Enketo’s form title that is displayed under the modal’s header section. Leave this property empty if you don’t need to display a title. |
+| "title" | Enketo’s form title that is displayed in the modal’s header section. |
 | "start_date" | Optional. Define the training start day using `yyyy-mm-dd` format. If not defined then the training will start immediately. |
 | "duration" | Optional. Number of days this training should be active. If not defined then the training will never expire. |
 | "user_roles" | Optional. List of user roles that can access this training. If not defined then all users can access the training. |
@@ -64,7 +64,7 @@ In the example above, the training cards could be shown to any user with the "nu
 
 If your training form has images, create a folder with the same name as the form and add `-media` suffix. In our example, the form name is `my_new_feature`, then the folder name should be `my_new_feature-media`.
 
-Inside that new folder, make another one called images and put inside all the `images` that your form needs. See more about [multimedia in forms]({{< relref "building/guides/forms/multimedia" >}}).
+Inside that new folder, make another one called images and put inside all the `images` that your form needs. See more about [multimedia in forms]({{< relref "building/forms/configuring/multimedia" >}}).
 
 # Step 5: Put everything in the right place
 

@@ -147,6 +147,21 @@ The ability of health information systems to work together, even if they weren't
 
 ###### Joint United Nations Programme on HIV/AIDS (UNAIDS)
 
+## K
+
+###### k3d 
+
+k3d is a lightweight wrapper to run k3s in docker. More information on [their site](https://k3d.io/).
+
+
+###### k3s
+
+Lightweight Kubernetes in a single binary. More information on [their site](https://github.com/k3s-io/k3s).
+
+###### Kubernetes
+
+Kubernetes, also known as K8s, is an open source system for automating deployment, scaling, and management of containerized applications. More information on [their site](https://kubernetes.io/).
+
 ## L
 
 ###### Last Menstruation Period (LMP)
