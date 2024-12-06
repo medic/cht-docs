@@ -18,6 +18,20 @@ This documentation site does not involve release management and acceptance testi
 
 Documentation for the Community Health Toolkit is written is American English.
 
+## Voice and tone 
+
+The voice and tone should be inclusive and accessible to its audience. Consider that readers come from different backgrounds and may have varying levels of ability reading English, as well as technical abilities. 
+
+### Write like you speak
+Aim for a voice and tone that’s conversational and approachable. Try to sound like a knowledgeable friend who understands what the developer wants to do.
+
+### Get to the point quickly
+Lead with what’s most important. Make steps obvious to make your documentation easily scannable. 
+
+### Be brief
+Give the audience just enough context and information to make decisions confidently. Avoid long sentences.
+
+
 ## General guidelines and best practices
 
 This section contains suggested best practices for clear, concise, and consistent content.

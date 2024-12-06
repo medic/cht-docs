@@ -1,19 +1,20 @@
 ---
 title: "contact"
 linkTitle: "contact"
-weight: 5
+weight: 2
 description: >
   **Contact Forms**: Used for creating and editing people and places
 relevantLinks: >
   docs/building/features/contacts
   docs/building/concepts/hierarchies
 relatedContent: >
-  building/guides/forms/form-inputs
-  building/guides/forms/additional-docs
-  building/guides/forms/multimedia
-  building/guides/forms/app-form-sms
+  building/forms/configuring/form-inputs
+  building/forms/configuring/additional-docs
+  building/forms/configuring/multimedia
+  building/forms/configuring/app-form-sms
 keywords: hierarchy contacts contact-forms
 aliases:
+   - /building/reference/forms/contact
    - /apps/reference/forms/contact
 ---
 
@@ -44,7 +45,7 @@ For edit forms, the name of the top-level group should still match the contact_t
 
 #### Input data
 
-`contact` forms have access to a variety of [input data]({{< ref "building/guides/forms/form-inputs#app-forms" >}}).
+`contact` forms have access to a variety of [input data]({{< ref "building/forms/configuring/form-inputs#app-forms" >}}).
 
 ### Settings sheet
 
@@ -52,7 +53,7 @@ The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where C
 
 ### Properties
 
-Starting in cht-core release 3.10, we can now configure property files in contact create forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "building/reference/forms/app#formsappform_namepropertiesjson" >}}). Note: this applies only to the create form, not the contacts themselves.
+Starting in cht-core release 3.10, we can now configure property files in contact create forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "building/forms/app#formsappform_namepropertiesjson" >}}). Note: this applies only to the create form, not the contacts themselves.
 
 {{% alert title="Note" %}}
 The form expression for contact forms will only have access to `user` data. The `contact` and `summary` data are [not currently available](https://github.com/medic/cht-core/issues/6612). 
