@@ -20,7 +20,7 @@ All upgrades are expected to succeed without issue.  Do not attempt any fixes un
 
 ## Considerations
 
-When troubleshooting, consider make sure there are:
+When troubleshooting, consider making sure there are:
 
 * Backups exist and restores have been tested 
 * Extra disk space is availabe (up to 5x!)
