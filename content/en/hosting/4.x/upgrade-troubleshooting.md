@@ -10,7 +10,9 @@ relatedContent: >
   hosting/4.x/data-migration
 ---
 
-4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to unstick 4.x upgrades that get stuck.  Below are some specific tips as well as general practices on upgrading 4.x.
+4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed 4.x upgrades.  Below are some specific tips as well as general practices on upgrading 4.x.
+
+There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage.
 
 {{% pageinfo %}}
 All tips apply to both [Docker]({{< relref "hosting/4.x/production/docker" >}}) and [Kubernetes]({{< relref "hosting/4.x/production/kubernetes" >}}) based deployments unless otherwise specified.
