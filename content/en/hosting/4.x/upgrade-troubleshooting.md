@@ -28,7 +28,7 @@ When troubleshooting, consider making sure there are:
 
 ## A go-to fix: restart
 
-A safe fix for any upgrade getting stuck is to restart all services.  Any views that were being re-indexed will be picked up where they left off without loosing any work.  This should be your first step when trouble shooting a stuck upgrade. 
+A safe fix for any upgrade getting stuck is to restart all services.  Any views that were being re-indexed will be picked up where they left off without losing any work.  This should be your first step when trouble shooting a stuck upgrade. 
 
 If you're able to, after a restart go back into the admin web GUI and try to upgrade again.  Consider trying this at least twice.
 
