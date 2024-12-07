@@ -10,7 +10,7 @@ relatedContent: >
   hosting/4.x/data-migration
 ---
 
-4.0.0 was released in November of 2022 so 4.x is now well into a mature and Medic has learned a number of important lessons on how to unstick 4.x upgrades that get stuck.  Below are some specific tips as well as general practices on upgrading 4.x.
+4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to unstick 4.x upgrades that get stuck.  Below are some specific tips as well as general practices on upgrading 4.x.
 
 {{% pageinfo %}}
 All tips apply to both [Docker]({{< relref "hosting/4.x/production/docker" >}}) and [Kubernetes]({{< relref "hosting/4.x/production/kubernetes" >}}) based deployments unless otherwise specified.
