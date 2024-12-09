@@ -71,8 +71,6 @@ Upgrade process stalls while trying to index staged views:
 
 **Fix:**
 
-Unfortunately, the workaround is manual and very technical and involves:
-
 * When API goes stuck after view indexing, simply restart API.
 * The admin upgrade page will say that the upgrade was interrupted, click retry upgrade.
 * Depending on the state of the database, you might see view indexing again. Depending on how many docs need to be indexed, indexing might get stuck again. Go back to 1 if that happens.
