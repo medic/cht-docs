@@ -56,7 +56,10 @@ CouchDB
 
 **Fix:**
 1. Check that all the indexes are warmed by loading them one by one in fauxton.
-2. Restart all services, **retry** upgrade from Admin GUI - do not cancel and upgrade.
+2. Restart all services, **retry** upgrade from Admin GUI, do not cancel and upgrade. Here's a screenshot showing the retry button:  
+
+
+![Admin web GUI showing "Retry upgrade" button in the lower right ](retry.upgrade.png)
 
 ## CHT 4.0.0 - 4.2.2: view indexing can become stuck after indexing is finished
 
