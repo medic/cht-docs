@@ -66,6 +66,9 @@ local_storage:
 ```
 
 ## Deploy to K3s
+
+We are going to use cht-deploy from the [cht-core](https://github.com/medic/cht-core) repo.
+
 ```shell
 cd cht-core/scripts/deploy
 ./cht-deploy -f /path/to/your/values.yaml
