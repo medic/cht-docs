@@ -6,7 +6,7 @@ description: >
   Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes
 relatedContent: >
 ---
-{{< read-content file="hosting/4.x/_partial_migration_3x_docker_to_4x_k3s.md"  >}}
+{{< read-content file="hosting/4.x/migration/_partial_migration_3x_docker_to_4x_k3s.md"  >}}
 
 # Create directories on secondary nodes
 
@@ -16,7 +16,7 @@ ssh <user>@<node3-hostname> "sudo mkdir -p /srv/couchdb3/data/shards /srv/couchd
 ```
 
 ## Create values.yaml for K3s Deployment
-{{< read-content file="hosting/4.x/_partial_values_explanation.md"  >}}
+{{< read-content file="hosting/4.x/migration/_partial_values_explanation.md"  >}}
 
 ```yaml
 project_name: "<your-namespace>"
