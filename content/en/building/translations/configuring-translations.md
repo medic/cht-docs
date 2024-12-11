@@ -24,11 +24,11 @@ By the end of the section you should be able to:
 
 ## Configuration Steps
 
-Create a new file in the 'translations/' folder called `messages-sw.properties`.
+Create a new file in the `translations/` folder called `messages-sw.properties`.
 
 After an edit or addition of a translation, upload the current `messages-sw.properties` onto your local environment using the below command.
 
-```
+```shell
 cht --url=https://medic:password@localhost --upload-custom-translations
 ```
 
@@ -334,4 +334,4 @@ Change the CHVs language by following: App Management > Users > [Choose CHV user
 
 ### Translating CHT to another language
 
-To translate CHT to a new language (we have English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian already in CHT), follow the steps outlined [here]({{< ref "building/translations/managing-translations" >}}) for reference.
+To translate CHT to a new language, follow the steps outlined [in the dedicated section]({{< ref "building/translations/managing-translations" >}}).
