@@ -75,7 +75,7 @@ end
 API["API"] --> HAProxy -->  couch4
 ```
 
-To read up on how to migrate your data from a single to multi-node, please see the  [data migration guide]({{< relref "hosting/4.x/data-migration" >}}).
+To read up on how to migrate your data from a single to multi-node, please see the  [data migration guide]({{< relref "hosting/4.x/migration/migration-to-4x-docker" >}}).
 
 It should be noted that, unlike vertical scaling, horizontal scaling of a large, existing dataset can take a while to prepare the transfer (hours to days) and may involve a brief service outage. This should be taken into consideration when planning a move of a CHT instance with a lot of data.
 
