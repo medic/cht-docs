@@ -59,19 +59,18 @@ cd cht-core/scripts/deploy
 
 ## Run Migration Commands
 
-First verify CouchDB is running:
-```shell
-# Check pod status
-kubectl get pods -n your-namespace-name
+First verify CouchDB is running by getting the pod status and running `curl` inside the couchdb service to see if `localhost` is accessible. Be sure to replace `<your-namespace>` with your actual namespace:
 
-# Check CouchDB is up
-kubectl exec -it -n your-namespace-name $(kubectl get pod -n your-namespace-name -l cht.service=couchdb -o name) -- \
+```shell
+kubectl get pods -n <your-namespace>
+
+kubectl exec -it -n <your-namespace> $(kubectl get pod -n <your-namespace> -l cht.service=couchdb -o name) -- \
   curl -s http://localhost:5984/_up
 ```
 
 Access the CouchDB pod:
 ```shell
-kubectl exec -it -n your-namespace-name $(kubectl get pod -n your-namespace-name -l cht.service=couchdb -o name) -- bash
+kubectl exec -it -n <your-namespace> $(kubectl get pod -n <your-namespace> -l cht.service=couchdb -o name) -- bash
 ```
 
 Set up migration tool in pod:
@@ -86,8 +85,8 @@ npm ci --omit=dev
 # Note: This may require sudo if npm's global directories aren't writable
 npm link
 
-export ADMIN_USER=<your-admin-user>
-export ADMIN_PASSWORD=<your-admin-password>
+export ADMIN_USER=<admin-user>
+export ADMIN_PASSWORD=<password>
 export COUCH_URL="http://${ADMIN_USER}:${ADMIN_PASSWORD}@localhost:5984"
 
 # Verify CouchDB is up and responding

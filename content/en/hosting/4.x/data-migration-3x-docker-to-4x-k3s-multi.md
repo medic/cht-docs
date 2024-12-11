@@ -73,9 +73,10 @@ cd cht-core/scripts/deploy
 
 ## Get Shard Distribution Instructions
 
-Access the primary CouchDB pod:
+Access the primary CouchDB pod, being sure to replace `<your-namespace>` with the name of your actual namespace: 
+
 ```shell
-kubectl exec -it -n your-namespace $(kubectl get pod -n your-namespace -l cht.service=couchdb-1 -o name) -- bash
+kubectl exec -it -n <your-namespace> $(kubectl get pod -n <your-namespace> -l cht.service=couchdb-1 -o name) -- bash
 ```
 
 Set up the migration tool:
@@ -90,8 +91,8 @@ npm ci --omit=dev
 # Note: This may require sudo if npm's global directories aren't writable
 npm link
 
-export ADMIN_USER=<your-admin-user>
-export ADMIN_PASSWORD=<your-admin-password>
+export ADMIN_USER=<admin-user>
+export ADMIN_PASSWORD=<password>
 export COUCH_URL="http://${ADMIN_USER}:${ADMIN_PASSWORD}@localhost:5984"
 
 # Get shard distribution instructions

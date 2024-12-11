@@ -153,7 +153,7 @@ For single node deployment, create a YAML file with this contents, being sure to
 * `<version>` - 4.x version you're upgrading to
 * `<password>` - retrieved from `get-env` call above
 * `<secret>` - retrieved from `get-env` call above
-* `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
+* `<admin-user>` - needs to be the same as used in 3.x - likely `medic`
 * `<uuid>` - retrieved from `get-env` call above
 * `<size>` - Size of original 3.x EBS volume, eg `100Mi` for 100 Megabytes or `100Gi` for 100 Gigabytes (_two occurrences_)
 * `<toleration-value>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
