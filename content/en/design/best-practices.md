@@ -1,17 +1,20 @@
 ---
 title: "Configuration Best Practices"
 linkTitle: "Best Practices"
-weight: 2
+weight: 5
 description: >
-  This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
+  Best Practices for configuring CHT Applications
+aliases:
+   - /design/best-practices/
 ---
+
+This section covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
 
 ## Forms
 
 We use forms to build the **Tasks**, **Care Guides**, and **Reports** that take health workers through care protocols and provide decision support for their interactions with patients.
 
 In this context, a form is any document with questions and blank spaces or selectable options for answers. Forms can be found in many parts of your app including the **Tasks**, **People**, and **Reports** tabs
-
 
 While both Tasks and Reports are built with forms, there are key differences. Tasks are blank forms that need to be completed, while Reports are forms that have already been submitted. When a Task is completed and submitted, it automatically becomes a Report.
 
@@ -25,7 +28,7 @@ The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks tha
 
 <br>
 
-![Anatomy of a Task](img/anatomy-task.png)
+![Anatomy of a Task](anatomy-task.png)
 
 <br>
 
@@ -42,7 +45,7 @@ If a Task is overdue, the due date will be red. Tasks are listed in order of due
 
 <br>
 
-![Anatomy of a Report](img/anatomy-report.png)
+![Anatomy of a Report](anatomy-report.png)
 
 <br>
 
@@ -94,81 +97,81 @@ The screenshots here represent some of the smallest phones our users have. As yo
 
 <br>
 
-![Anatomy of a Report](img/history.png)
+![Anatomy of a Report](history.png)
 
 <br>
 
 
 ### Icons
 
-The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "/design/icons" >}}) that represent key elements of different community health workflows and protocols. Please review the recommended usages that follow.
+The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "/design/interface/icons" >}}) that represent key elements of different community health workflows and protocols. Please review the recommended usages that follow.
 
 
 |Icon | People and Places Hierarchies |
 |-|:-|
-| ![Hospital](../icons/people_and_places/SVGs/hierarchies-district-hospital.svg)| Hospital or District |
-| ![CHW Area](../icons/people_and_places/SVGs/hierarchies-chw-area.svg) | CHW Area |
-| ![Facility](../icons/people_and_places/SVGs/hierarchies-health-center.svg) | Branch or Health Facility |
-| ![Family](../icons/people_and_places/SVGs/hierarchies-family.svg) | Family |
-| ![Person](../icons/people_and_places/SVGs/hierarchies-person.svg) | Person
+| ![Hospital](../interface/icons/people_and_places/SVGs/hierarchies-district-hospital.svg)| Hospital or District |
+| ![CHW Area](../interface/icons/people_and_places/SVGs/hierarchies-chw-area.svg) | CHW Area |
+| ![Facility](../interface/icons/people_and_places/SVGs/hierarchies-health-center.svg) | Branch or Health Facility |
+| ![Family](../interface/icons/people_and_places/SVGs/hierarchies-family.svg) | Family |
+| ![Person](../interface/icons/people_and_places/SVGs/hierarchies-person.svg) | Person
 
 
 | Icon 	| Family Planning                                 	|
 |------	|:--------------------------------------	|
-| ![Family Planning](../icons/forms_tasks_targets/SVGs/icon-family-planning.svg)	| - Family Planning Screening<br>- Family Planning Referral or Follow-Up 	|
+| ![Family Planning](../interface/icons/forms_tasks_targets/SVGs/icon-family-planning.svg)	| - Family Planning Screening<br>- Family Planning Referral or Follow-Up 	|
 
 
 
 | Icon 	| ANC                                         	|
 |------	|:-----------------------------------------------	|
-| ![ANC](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANC Follow-Up 	|
-| ![ANC Danger](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | - ANC Danger Sign<br>- ANC Danger Sign Follow-Up|
+| ![ANC](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANC Follow-Up 	|
+| ![ANC Danger](../interface/icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | - ANC Danger Sign<br>- ANC Danger Sign Follow-Up|
 
 
 
 | Icon  	| PNC                                         	|
 |------	|:-----------------------------------------------	|
-| ![PNC](../icons/forms_tasks_targets/SVGs/icon-people-woman-baby.svg) | - PNC Registration<br>- PNC Visit or Missed Visit<br>- PNC Follow-Up|
-| ![PNC Danger Mother](../icons/forms_tasks_targets/SVGs/icon-PNC-danger-sign.svg) | - PNC Danger Sign<br>- PNC Danger Sign Follow-Up (Mother)|
-| ![PNC Danger Baby](../icons/forms_tasks_targets/SVGs/icon-PNC-baby-danger-sign.svg) | - PNC Danger Sign Follow-Up (Baby)|
+| ![PNC](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-baby.svg) | - PNC Registration<br>- PNC Visit or Missed Visit<br>- PNC Follow-Up|
+| ![PNC Danger Mother](../interface/icons/forms_tasks_targets/SVGs/icon-PNC-danger-sign.svg) | - PNC Danger Sign<br>- PNC Danger Sign Follow-Up (Mother)|
+| ![PNC Danger Baby](../interface/icons/forms_tasks_targets/SVGs/icon-PNC-baby-danger-sign.svg) | - PNC Danger Sign Follow-Up (Baby)|
 
 
 
 | Icon  	| ICCM and Child Health                         	|
 |------	|:-----------------------------------------------	|
-| ![ICCM](../icons/forms_tasks_targets/SVGs/icon-people-child.svg) | - ICCM Assessment<br>- ICCM Treatment<br>- ICCM Referral or Follow-Up|
-| ![ICCM Danger](../icons/forms_tasks_targets/SVGs/icon-ICCM-danger-sign.svg) | - ICCM Danger Sign<br>- ICCM Danger Sign Follow-Up|
+| ![ICCM](../interface/icons/forms_tasks_targets/SVGs/icon-people-child.svg) | - ICCM Assessment<br>- ICCM Treatment<br>- ICCM Referral or Follow-Up|
+| ![ICCM Danger](../interface/icons/forms_tasks_targets/SVGs/icon-ICCM-danger-sign.svg) | - ICCM Danger Sign<br>- ICCM Danger Sign Follow-Up|
 
 
 
 | Icon 	| Immunization                                	|
 |------	|:-----------------------------------------------	|
-| ![Immunization](../icons/forms_tasks_targets/SVGs/icon-healthcare-immunization.svg) | - Immunization Visit<br>- Immunization Follow-Up|
+| ![Immunization](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-immunization.svg) | - Immunization Visit<br>- Immunization Follow-Up|
 
 
 
 | Icon 	| Visits                                      	|
 |------	|:-----------------------------------------------	|
-| ![Visits](../icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | - General Follow-Up<br>- Proactive Visit<br>- Educational Visit|
+| ![Visits](../interface/icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | - General Follow-Up<br>- Proactive Visit<br>- Educational Visit|
 
 
 
 | Icon  	|Community                                       	|
 |------	|:-----------------------------------------------	|
-| ![Community](../icons/forms_tasks_targets/SVGs/icon-community.svg) | - Community Event<br>- Community Meeting|
+| ![Community](../interface/icons/forms_tasks_targets/SVGs/icon-community.svg) | - Community Event<br>- Community Meeting|
 
 
 
 | Icon  | Various |
 |-|:-|
-| ![Delivery](../icons/forms_tasks_targets/SVGs/icon-delivery.svg) | Delivery |
-| ![Malnutrition](../icons/forms_tasks_targets/SVGs/icon-child-nutrition.svg) | Malnutrition |
-| ![Growth](../icons/forms_tasks_targets/SVGs/icon-child-growth.svg) | Growth Monitoring |
-| ![Cognition](../icons/forms_tasks_targets/SVGs/icon-child-cognition.svg) | Cognition |
-| ![General](../icons/forms_tasks_targets/SVGs/icon-form-general.svg) | General Forms |
-| ![Assessments](../icons/forms_tasks_targets/SVGs/icon-healthcare-assessment.svg) | General Assessments |
-| ![Equity](../icons/forms_tasks_targets/SVGs/icon-household-equity.svg) | Equity Survey |
-| ![Net](../icons/forms_tasks_targets/SVGs/icon-household-bednet.svg) | Bed Net Distribution |
+| ![Delivery](../interface/icons/forms_tasks_targets/SVGs/icon-delivery.svg) | Delivery |
+| ![Malnutrition](../interface/icons/forms_tasks_targets/SVGs/icon-child-nutrition.svg) | Malnutrition |
+| ![Growth](../interface/icons/forms_tasks_targets/SVGs/icon-child-growth.svg) | Growth Monitoring |
+| ![Cognition](../interface/icons/forms_tasks_targets/SVGs/icon-child-cognition.svg) | Cognition |
+| ![General](../interface/icons/forms_tasks_targets/SVGs/icon-form-general.svg) | General Forms |
+| ![Assessments](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-assessment.svg) | General Assessments |
+| ![Equity](../interface/icons/forms_tasks_targets/SVGs/icon-household-equity.svg) | Equity Survey |
+| ![Net](../interface/icons/forms_tasks_targets/SVGs/icon-household-bednet.svg) | Bed Net Distribution |
 
 <br>
 
@@ -191,13 +194,13 @@ Ex. Is your patient still pregnant? → Did she attend the ANC visit? → Does s
 **Reflect Input Length in Field** <br>
 Employ this for fields that have a defined character count like phone numbers, zip codes, etc.
 
-![Input Length](img/input-length.png) <br>
+![Input Length](input-length.png) <br>
 
 
 **Don’t Put Placeholder Or Helper Text Inside The Form Fields** <br>
 People go through forms quickly and if a field looks like it already has an answer they may accidentally miss it. Research shows that empty fields draw more attention than those with placeholder text.
 
-![Placeholder Text](img/no-placeholder-text.png) <br>
+![Placeholder Text](no-placeholder-text.png) <br>
 
 **Distinguish Optional And Required Fields** <br>
 Users don’t always know what is implied by the required field marker ( * ). Instead, denoting what is optional is a preferred method, especially for forms with many required fields. If you do use asterisks, make the meaning of the symbol clear by stating “Fields with an asterisk ( * ) are mandatory.” <br>
@@ -205,17 +208,17 @@ Users don’t always know what is implied by the required field marker ( * ). In
 **Always Stack Radio Buttons And Checkboxes In A Single Vertical Column** <br>
 Placing the options underneath each other allows for easy scanning and makes it less likely that a user will completely overlook one of the options.
 
-![Radio Buttons](img/radio-buttons-stacked.png) <br>
+![Radio Buttons](radio-buttons-stacked.png) <br>
 
 **Don’t Use Dropdowns If There Are Less Than Seven Options** <br>
 For smaller lists, use radio buttons instead of drop-down menus. Radio buttons have lower cognitive load because they make all options visible for easy comparison.
 
-![Radio vs Dropdown](img/radio-dropdown.png) <br>
+![Radio vs Dropdown](radio-dropdown.png) <br>
 
 **Make Use Of Images** <br>
 Where it makes sense, use images to aid in the understanding of a question
 
-![Form Images](img/form-images.png) <br>
+![Form Images](form-images.png) <br>
 
 
 ### Summary Page
@@ -293,15 +296,15 @@ Suggested icons for each section:
 
 | Icon 	| Section                                         	|
 |------	|:-----------------------------------------------	|
-| ![Patient Details](../icons/forms_tasks_targets/SVGs/icon-people-person-general.svg) | Patient Details	|
-| ![Visit Information](../icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | Visit Information|
-| ![Pregnancy Specific](../icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | Pregnancy Specific|
-| ![Child Health Specific](../icons/forms_tasks_targets/SVGs/icon-people-child.svg) | Child Health Specific|
-| ![Signs and Symptoms](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Signs and Symptoms	|
-| ![Warnings and Referrals](../icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Warnings and Referrals|
-| ![Diagnosis and Treatment](../icons/forms_tasks_targets/SVGs/icon-healthcare-diagnosis.svg) | Diagnosis and Treatment	|
-| ![Follow Ups](../icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | Follow-Ups	|
-| ![General/Misc](../icons/forms_tasks_targets/SVGs/icon-healthcare-generic.svg) | Misc/General|
+| ![Patient Details](../interface/icons/forms_tasks_targets/SVGs/icon-people-person-general.svg) | Patient Details	|
+| ![Visit Information](../interface/icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | Visit Information|
+| ![Pregnancy Specific](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | Pregnancy Specific|
+| ![Child Health Specific](../interface/icons/forms_tasks_targets/SVGs/icon-people-child.svg) | Child Health Specific|
+| ![Signs and Symptoms](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Signs and Symptoms	|
+| ![Warnings and Referrals](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-warning.svg) | Warnings and Referrals|
+| ![Diagnosis and Treatment](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-diagnosis.svg) | Diagnosis and Treatment	|
+| ![Follow Ups](../interface/icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | Follow-Ups	|
+| ![General/Misc](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-generic.svg) | Misc/General|
 
 <br>
 
@@ -312,7 +315,7 @@ H2: text with a colored line under it, centered <br>
 H3: left aligned text, simple grey line under it <br>
 H4: normal body text
 
-![Summary](img/summary.png)
+![Summary](summary.png)
 
 **Other body text styling**
 
@@ -344,7 +347,7 @@ This information can be organized into cards specific to a condition (e.g. pregn
 
 <br>
 
-![Condition Card](img/condition-cards.png)
+![Condition Card](condition-cards.png)
 
 <br>
 
@@ -432,7 +435,7 @@ Ex.  Summary of past pregnancies rather than card for each past pregnancy
 
 <br>
 
-![Past Pregnancies](img/past-pregnancies.png)
+![Past Pregnancies](past-pregnancies.png)
 
 <br>
 
@@ -451,7 +454,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 <br>
 
-![Targets](img/counts.png)
+![Targets](counts.png)
 
 <br>
 
@@ -464,7 +467,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 <br>
 
-![Percentages](img/percentages.png)
+![Percentages](percentages.png)
 
 <br>
 
