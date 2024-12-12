@@ -147,7 +147,7 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 
 You can also define your own [validation rules]({{< ref "building/reference/app-settings#validations" >}}).
 
-{{% alert title="Note" %}} `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "building/translations/localizing-translations" >}}) file. {{% /alert %}}
+{{% alert title="Note" %}} `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "building/translations/managing" >}}) file. {{% /alert %}}
 
 ### 3. Define a Person Registration Form
 
