@@ -81,7 +81,7 @@ Around the world, countries are adopting a model of primary health care that sta
 
 Apps can be customized for different deployments and types of workflows. The Core Framework has been used in dozens of countries around the world with [localization settings]({{< ref "building/translations/localizing" >}}).
 
-Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
+Users can currently interact with the app in English, French, Hindi, Nepali, Spanish, Swahili, Arabic, or Indonesian and new languages can be added in the admin console. The app also supports Bikram Sambat or Gregorian calendars and localized date formatting.
 
 ## Example and reference apps
 

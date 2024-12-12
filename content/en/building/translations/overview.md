@@ -10,7 +10,7 @@ aliases:
    - /apps/reference/translations
 ---
 
-Given that CHT applications are used around the world, the Core Framework was designed with localization in mind. The Core Framework is available in English, French, Hindi, Nepali, Spanish, Swahili, and Indonesian.
+Given that CHT applications are used around the world, the Core Framework was designed with localization in mind. The Core Framework is available in English, French, Hindi, Nepali, Spanish, Swahili, Arabic, and Indonesian.
 
 ## Key Concepts
 
