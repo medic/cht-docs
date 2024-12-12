@@ -320,7 +320,8 @@ To change the language of outgoing texts for a CHV or Supervisor to Swahili, fol
 - Set up the translation for the reply message:
 
 ```json
-"messages": [{
+{
+  "messages": [{
 		"message": [{
 				"content": "Thank you, visit for {{patient_name}} ({{patient_id}}) has been recorded.",
 				"locale": "en"
@@ -333,6 +334,7 @@ To change the language of outgoing texts for a CHV or Supervisor to Swahili, fol
 		"event_type": "report_accepted",
 		"recipient": "reporting_unit"
 	}]
+}
 ```
 
 <br clear="all">
