@@ -1,9 +1,9 @@
 ---
-title: "Migration from CHT 3.x to CHT 4.x in Kubernetes"
-linkTitle: "K8s Data Migration to 4.x"
+title: "Migration from CHT 3.x to CHT 4.x in EKS - Kubernetes"
+linkTitle: "Migration: 3.x EKS to 4.x EKS"
 weight: 1
 description: >
-  Guide to migrate existing data from CHT 3.x to CHT 4.x in Kubernetes environments
+  Guide to migrate existing data from CHT 3.x on EKS to CHT 4.x on EKS (Kubernetes Environments)
 relatedContent: >
 ---
 
@@ -150,10 +150,10 @@ Create a `values.yaml` file using the volume ID from the previous step:
 For single node deployment, create a YAML file with this contents, being sure to update:
 
 * `<your-namespace-defined-in-NAMESPACE>` (_two occurrences_)
-* `<version>` - 4.x version you're upgrading too
+* `<version>` - 4.x version you're upgrading to
 * `<password>` - retrieved from `get-env` call above
 * `<secret>` - retrieved from `get-env` call above
-* `<admin_user>` - needs to be the same as used in 3.x - likely `medic`
+* `<admin-user>` - needs to be the same as used in 3.x - likely `medic`
 * `<uuid>` - retrieved from `get-env` call above
 * `<size>` - Size of original 3.x EBS volume, eg `100Mi` for 100 Megabytes or `100Gi` for 100 Gigabytes (_two occurrences_)
 * `<toleration-value>` -  For production use `prod-couchdb-only`, for dev use `dev-couchdb-only`
