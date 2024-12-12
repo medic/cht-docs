@@ -1,7 +1,7 @@
 ---
 title: Localizing
 linkTitle: Localizing
-weight: 3
+weight: 4
 description: >
   Localization for CHT applications
 keywords: localization languages translations

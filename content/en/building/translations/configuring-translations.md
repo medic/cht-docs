@@ -1,7 +1,7 @@
 ---
 title: Configuring
 linkTitle: Configuring
-weight: 2
+weight: 3
 description: >
  Localizing language in the CHT
 relatedContent: >
