@@ -321,19 +321,22 @@ To change the language of outgoing texts for a CHV or Supervisor to Swahili, fol
 
 ```json
 {
-  "messages": [{
-		"message": [{
-				"content": "Thank you, visit for {{patient_name}} ({{patient_id}}) has been recorded.",
-				"locale": "en"
-			},
-			{
-				"content": "Asante, kuhudhuria kwa {{patient_name}} ({{patient_id}} kumerekodiwa.",
-				"locale": "sw"
-			}
-		],
-		"event_type": "report_accepted",
-		"recipient": "reporting_unit"
-	}]
+  "messages":[
+    {
+      "message":[
+        {
+          "content":"Thank you, visit for {{patient_name}} ({{patient_id}}) has been recorded.",
+          "locale":"en"
+        },
+        {
+          "content":"Asante, kuhudhuria kwa {{patient_name}} ({{patient_id}} kumerekodiwa.",
+          "locale":"sw"
+        }
+      ],
+      "event_type":"report_accepted",
+      "recipient":"reporting_unit"
+    }
+  ]
 }
 ```
 
