@@ -30,6 +30,8 @@ New languages must be added and configured in several places:
 - Create a new `messages-xx.properties` file in the [`api/resources/translations`](https://github.com/medic/cht-core/tree/master/api/resources/translations) folder, replacing "xx" with the 2 or 3 letter [language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes). The language code will be used to identify the language in the application. For instance, for English, we would have a `translations/messages-en.properties` file. 
 - Add the language to the [`LOCAL_NAME_MAP` in api](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/api/src/translations.js#L17). Use the language code for the key, and the local name followed by the English name for the language in brackets, eg: "fr: 'Français (French)'".
 - Import the moment language pack in the [main.ts file](https://github.com/medic/cht-core/blob/e6d184946affc62773d569168216a5b913f38a30/webapp/src/ts/main.ts#L23). If moment doesn't provide the required language pack you may need to contribute it upstream to the moment library.
+- Import the bootstrap-datepicker language pack in the [Enketo main.ts file](https://github.com/medic/cht-core/blob/master/webapp/src/js/enketo/main.js). If bootstrap-datepicker doesn't provide the required language pack you may need to create a custom language pack as in the [Luganda language example](https://github.com/medic/cht-core/blob/master/webapp/src/js/enketo/bootstrap-datepicker.lg.js).
+- Add a `TRANSLATIONS` entry for the new language in the [translator.js file](https://github.com/medic/cht-core/blob/master/webapp/src/js/bootstrapper/translator.js).
 
 ## Adding new keys
 
