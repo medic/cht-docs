@@ -8,7 +8,6 @@ keywords: openmrs interoperability
 relatedContent: >
   building/guides/interoperability/cht-config
   building/guides/interoperability/ltfu
-  building/guides/interoperability/troubleshooting
   building/concepts/interoperability/
   building/guides/integrations/openmrs/
 ---
@@ -37,10 +36,6 @@ See more information on the [CHT interoperability page]({{< ref "building/concep
 
 - `docker`
 - `Postman` or similar tool for API testing.
-
-### Troubleshooting
-
-Users getting errors when running the following installation steps, please see the [Troubleshooting guide]({{< ref "building/guides/interoperability/troubleshooting" >}}).
 
 ### Install & First Time Run
 
@@ -113,3 +108,34 @@ curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/a
 - To then restart the containers, run `./startup.sh up`. You do not need to run `init` again like you did in the initial install above.
 - To shut-down and delete _everything_, run `./startup.sh destroy`. You will have to subsequently run `./startup.sh init` if you wish to start the containers.
 
+### Troubleshooting
+
+#### Error "bind: address already in use"
+Users encountering:
+
+> Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:5000 -> 0.0.0.0:0: listen tcp 0.0.0.0:5000: bind: address already in use
+
+when running `./startup.sh init` need to update ports to available values in the `/docker/docker-compose.yml` file, under the `ports` verb.
+
+#### Error when running mediator `curl` request
+If the mediator `curl` request fails, visit [http://localhost:9000/#!/clients](http://localhost:9000/#!/clients) and click on the icon the red arrow points to in the image below.
+
+![](bad-client-screen.png)
+
+#### Error "Preset ts-jest is invalid:" when running `npm test`
+Users encountering the error below when running `npm test`: 
+
+> Preset ts-jest is invalid:
+> The "id" argument must be of type string. Received null
+> TypeError [ERR_INVALID_ARG_TYPE]: The "id" argument must be of type string. Received null
+
+need to run `npm i --save-dev ts-jest` before running `npm test`. 
+
+#### Error "unsuccessful npm install" when running `npm install`
+Users encountering the error when running `npm install`:
+
+> npm ERR! code EACCES
+> npm ERR! syscall unlink
+> npm ERR! path /Users/phil/interoperability/cht-config/node_modules/.package-lock.json
+
+need to run `npm install` as root user.

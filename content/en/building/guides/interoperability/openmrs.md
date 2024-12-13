@@ -377,7 +377,7 @@ The interoperability project will automatically create the following resources
 
 ### Troubleshooting
 
-In case of errors when setting up the OpenHIM project please see the [Troubleshooting guide]({{< ref "building/guides/interoperability/troubleshooting" >}}).
+In case of errors when setting up the OpenHIM project please see the [Troubleshooting guide]({{< ref "building/guides/interoperability/openhim#troubleshooting" >}}).
 
 If the openhim project starts up correctly but something else does not work as expected, it can be helpful to first check the transaction log page of OpenHIM to see which requests were sent, and the request and response bodies.
 See the sequence diagrams above for the expected requests/responses.
