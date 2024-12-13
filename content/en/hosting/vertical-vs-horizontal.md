@@ -7,7 +7,7 @@ aliases:
 description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
-    hosting/4.x/data-migration
+    hosting/4.x/migration/migration-to-4x-docker.md
     core/overview/architecture/
 ---
 
@@ -21,7 +21,7 @@ CHT Core 4.0.0 introduces [a new architecture]({{< relref "core/overview/archite
 
 Before getting into how the CHT horizontally scales, it should be well understood the importance of vertical scaling and what it is.  This is the ability of the CHT to support more users by adding more RAM and CPU to either the bare-metal or virtual machine host. This ensures key services like API, Sentinel and, most importantly, CouchDB, can operate without performance degradation. 
 
-When thousands of users are simultaneously trying to synchronize with the CHT, the load can overwhelm CouchDB. As discovered [through extensive research](https://forum.communityhealthtoolkit.org/t/how-we-tested-scalability-of-cht-infrastructure/1532) and [large production deployments](https://github.com/medic/cht-core/issues/8324#issuecomment-1691411542), administrators will start to see errors in their logs and end users will complain of slow sync times.  Before moving to more CouchDB nodes, administrators should consider adding more RAM and CPU to the single server where the CHT is hosted. This applies to both CHT 3.x and CHT 4.x. Given the ease of allocating more resources, presumably in virtualized environment like [EC2](https://aws.amazon.com/ec2/), [Proxmox](https://www.proxmox.com/en/) or [ESXi](https://www.vmware.com/products/cloud-infrastructure/esxi-and-esx), this is much easier than moving [from a single to multi-node CouchDB instance]({{< relref "hosting/4.x/data-migration" >}}).
+When thousands of users are simultaneously trying to synchronize with the CHT, the load can overwhelm CouchDB. As discovered [through extensive research](https://forum.communityhealthtoolkit.org/t/how-we-tested-scalability-of-cht-infrastructure/1532) and [large production deployments](https://github.com/medic/cht-core/issues/8324#issuecomment-1691411542), administrators will start to see errors in their logs and end users will complain of slow sync times.  Before moving to more CouchDB nodes, administrators should consider adding more RAM and CPU to the single server where the CHT is hosted. This applies to both CHT 3.x and CHT 4.x. Given the ease of allocating more resources, presumably in virtualized environment like [EC2](https://aws.amazon.com/ec2/), [Proxmox](https://www.proxmox.com/en/) or [ESXi](https://www.vmware.com/products/cloud-infrastructure/esxi-and-esx), this is much easier than moving [from a single to multi-node CouchDB instance]({{< relref "hosting/4.x/migration/migration-to-4x-docker" >}}).
 
 Here we see a normal deployment following the bare minimum [hosting requirements]({{< relref "hosting/requirements" >}}) for the CHT.  We'll call this a "short" deployment because it is not yet vertically scaled:
 
@@ -75,7 +75,7 @@ end
 API["API"] --> HAProxy -->  couch4
 ```
 
-To read up on how to migrate your data from a single to multi-node, please see the  [data migration guide]({{< relref "hosting/4.x/data-migration" >}}).
+To read up on how to migrate your data from a single to multi-node, please see the  [data migration guide]({{< relref "hosting/4.x/migration/migration-to-4x-docker" >}}).
 
 It should be noted that, unlike vertical scaling, horizontal scaling of a large, existing dataset can take a while to prepare the transfer (hours to days) and may involve a brief service outage. This should be taken into consideration when planning a move of a CHT instance with a lot of data.
 
