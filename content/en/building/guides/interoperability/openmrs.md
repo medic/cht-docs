@@ -1,7 +1,7 @@
 ---
 title: "OpenMRS Interoperability"
-linkTitle: "OpenMRS Interoperability"
-weight:
+linkTitle: "OpenMRS"
+weight: 4
 description: >
    Exchange data with systems based on OpenMRS using FHIR APIs
 keywords: openmrs interoperability

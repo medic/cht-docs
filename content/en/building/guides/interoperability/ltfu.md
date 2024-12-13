@@ -1,9 +1,9 @@
 ---
-title: "LTFU reference workflow"
-linkTitle: "LTFU reference workflow"
-weight:
+title: "Loss To Follow-Up reference workflow"
+linkTitle: "Loss To Follow-Up"
+weight: 3
 description: >
-   Guide to testing the LTFU reference workflow
+   Guide to testing the Loss to Follow-Up (LTFU) reference workflow
 keywords: openmrs interoperability
 relatedContent: >
   building/guides/interoperability/cht-config
@@ -12,11 +12,11 @@ relatedContent: >
 
 ## Workflow Testing
 
-This document outlines the steps for testing the Loss To Follow-Up (LTFU) workflow, in addition to documenting the various endpoints available on the mediator. It provides a comprehensive guide on navigating the LTFU workflow and utilizing the endpoints to facilitate the necessary actions.
+This section outlines the steps for testing the Loss To Follow-Up (LTFU) workflow, in addition to documenting the various endpoints available on the mediator. It provides a comprehensive guide on navigating the LTFU workflow and utilizing the endpoints to facilitate the necessary actions.
 
 ## Environments
 
-The document provided includes placeholders for URLs. Replacing these placeholders with the appropriate endpoints for your specific environment is essential to utilize the document correctly. Below are the endpoints provided for each available environment. It is important to note that if your setup differs from the documentation provided, you may need to use different endpoints. By ensuring that the correct endpoints are used, you can be confident in successfully implementing and utilizing the LTFU workflow.
+The section includes placeholders for URLs. Replacing these placeholders with the appropriate endpoints for your specific environment is essential to utilize the guide correctly. Below are the endpoints provided for each available environment. It is important to note that if your setup differs from the documentation provided, you may need to use different endpoints. By ensuring that the correct endpoints are used, you can be confident in successfully implementing and utilizing the LTFU workflow.
 
 ### Docker - Local Setup
 

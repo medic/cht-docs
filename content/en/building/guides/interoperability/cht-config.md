@@ -1,7 +1,7 @@
 ---
 title: "Configuring CHT applications for interoperability workflows"
-linkTitle: "Configuring CHT applications for interoperability workflows"
-weight:
+linkTitle: "Configuring"
+weight: 1
 description: >
    Guide to setting up forms and outbound push for interoperability
 keywords: interoperability fhir integrations openmrs
