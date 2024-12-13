@@ -27,13 +27,13 @@ The CHT's interoperability tools support interoperability with OpenMRS in a vari
 The steps to create an OpenMRS interoperability workflow are:
 
 1. Profile the workflow in terms of what data needs to be exchanged between OpenMRS and the CHT application.
-1. Set up a test environment including an OpenMRS instance, a CHT instance, and OpenHIM. The [interoperability project](https://github.com/medic/cht-interoperability) has docker compose files so that you can set this up locally by running `startup.sh up-test` in the interoperability project.
-1. Create or find concepts in OpenMRS that represent any data that needs to be exchanged.
-1. Configure [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) and forms in the CHT application to match the interoperability workflow.
+1. Set up a test environment including an OpenMRS instance, a CHT instance, and OpenHIM. The [interoperability project](https://github.com/medic/cht-interoperability) has docker compose files so that you can set this up locally by running `startup.sh up-openmrs` in the interoperability project.
+1. Create or find [concepts](https://guide.openmrs.org/configuration/managing-concepts-and-metadata/)  in OpenMRS that represent any data that needs to be exchanged.
+1. [Configure outbound push and forms]({{< ref "building/guides/interoperability/cht-config" >}}) in the CHT application to match the interoperability workflow.
 1. Test and debug any configuration issues in the test environment.
 1. Once the configuration is confirmed to be working as expected, start deploying to production by uploading the CHT configuration to production.
 1. Add any OpenMRS concepts or forms to production.
-1. Set OpenMRS credentials and CHT credentials in the interoperability project, and start it in a production deployment.
+1. [Set OpenMRS credentials and CHT credentials](#starting-the-interop-project)  in the interoperability project, and start it in a production deployment.
 
 ## Technical Overview
 
@@ -136,6 +136,10 @@ Log in to OpenHIM and view the transaction log. You should see:
 
 If all the above look OK, you should now be able to search in OpenMRS for the patient by name, phone number, or patient id.
 
+```bash
+curl -X GET localhost:8090/openmrs/ws/fhir2/R4/Patient/?identifier=[identifier] -H "Authorization: Basic $(echo -n admin:Admin123 | base64)"
+```
+
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-outgoing-patients.png)
 
@@ -186,6 +190,10 @@ Log in to OpenHIM and view the transaction log. You should see:
 1. A request to the FHIR server updating the encounter with the corresponding id from OpenMRS.
 
 If all the above look OK, you should now be able to see the encounter in OpenMRS.
+
+```bash
+curl -X GET localhost:8090/openmrs/ws/fhir2/R4/Encounter/?identifier=[identifier] -H "Authorization: Basic $(echo -n admin:Admin123 | base64)"
+```
 
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-form-submission.png)
