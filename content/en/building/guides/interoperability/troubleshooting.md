@@ -6,8 +6,8 @@ description: >
    Guide to troubleshooting OpenHIM, Mediators, and configurations for interoperability workflows
 keywords: openmrs interoperability
 relatedContent: >
-  building/guides/interoperability/cht_config
-  building/guides/interoperability/ltfu_reference_workflow
+  building/guides/interoperability/cht-config
+  building/guides/interoperability/ltfu
   building/guides/interoperability/openhim
   building/guides/interoperability/openmrs
   building/concepts/interoperability/

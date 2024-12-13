@@ -6,14 +6,14 @@ description: >
    Exchange data with systems based on OpenMRS using FHIR APIs
 keywords: openmrs interoperability
 relatedContent: >
-  building/guides/interoperability/cht_config
+  building/guides/interoperability/cht-config
   building/concepts/interoperability
   building/guides/interoperability/openhim
 ---
 
 [OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Integrating CHT apps with OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
 
-Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/guides/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/guides/interoperability/cht_config" >}}). 
+Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/guides/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/guides/interoperability/cht-config" >}}). 
 
 ## Overview
 
@@ -60,7 +60,7 @@ Depending on what data needs to be exchanged, [outbound push]({{< ref "building/
 
 ### Sending patients CHT->OpenMRS
 
-When sending patient data to OpenMRS, configure an outbound push mapping as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht_config#outbound-patients" >}}).
+When sending patient data to OpenMRS, configure an outbound push mapping as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht-config#outbound-patients" >}}).
 Patients synced to OpenMRS will have two new [identifier types](https://guide.openmrs.org/getting-started/openmrs-information-model/#patient-identifier): `CHT Document Id`, the uuid of the document that is sent, and `CHT Patient ID`, if there is a `patient_id` field on the patient document.
 These identifier types are created automatically when the OpenMRS Channel is registered.
 
@@ -143,7 +143,7 @@ This sequence diagrams shows the entire flow including the OpenMRS Mediator and 
 
 Any data sent from CHT to OpenMRS needs to map to a [concept](https://wiki.openmrs.org/display/docs/Concept+Dictionary+Basics) in OpenMRS. Each concept has a code which will be used to identify the concept in the CHT Application, the FHIR Server, and OpenMRS.
 For any fields to send to OpenMRS, first find or create matching concepts in OpenMRS.
-Then, using the appropriate codes, configure an outbound push as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht_config#outbound-reports" >}}).
+Then, using the appropriate codes, configure an outbound push as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht-config#outbound-reports" >}}).
 
 In OpenMRS, all form submissions are represented as `Home Visit` encounter types, with a `Visit Note` encounter.
 Any fields in the outbound push config are converted to FHIR observations, which are linked to the `Visit Note`.
@@ -193,7 +193,7 @@ This sequence diagrams shows the entire flow including the OpenMRS Mediator and 
 ### Sending forms OpenMRS->CHT
 
 When sending form data to CHT, first find, create, or import the concepts in OpenMRS, and create the forms in OpenMRS.
-Then create a form in CHT to receive the reports [as described in the CHT interop config documentation]({{< ref "building/guides/interoperability/cht_config#outbound-reports" >}}); the codes from OpenMRS are the field names, and labels can be added for human readability.
+Then create a form in CHT to receive the reports [as described in the CHT interop config documentation]({{< ref "building/guides/interoperability/cht-config#outbound-reports" >}}); the codes from OpenMRS are the field names, and labels can be added for human readability.
 When a visit is completed in OpenMRS, the mediator will sync it to the FHIR Server.
 
 After setting up the forms, test that it works in the test environment by submitting the form in OpenMRS.

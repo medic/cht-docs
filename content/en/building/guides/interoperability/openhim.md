@@ -6,8 +6,8 @@ description: >
    Guide to running OpenHIM and Mediators with Docker Compose
 keywords: openmrs interoperability
 relatedContent: >
-  building/guides/interoperability/cht_config
-  building/guides/interoperability/ltfu_reference_workflow
+  building/guides/interoperability/cht-config
+  building/guides/interoperability/ltfu
   building/guides/interoperability/troubleshooting
   building/concepts/interoperability/
   building/guides/integrations/openmrs/
