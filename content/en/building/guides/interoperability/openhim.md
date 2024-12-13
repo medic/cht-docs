@@ -27,16 +27,16 @@ The structure of documents in the CHT database reflect the configuration of the 
 
 ![](flow.png)
 
-This project uses OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
+This project uses OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "building/reference/app-settings/outbound" >}}) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
 
-Conversely, to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs](https://docs.communityhealthtoolkit.org/apps/reference/api/) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
+Conversely, to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs]({{< ref "building/reference/api" >}}) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
 
-See more information on the [CHT interoperability](https://docs.communityhealthtoolkit.org/apps/concepts/interoperability/) page on the CHT documentation site.
+See more information on the [CHT interoperability]({{< ref "building/concepts/interoperability" >}}) page on the CHT documentation site.
 
 ### Prerequisites
 
 - `docker`
-- `Postman` or similar tool for API testing. This will play the role of the `Requesting System` from the sequence diagram above.
+- `Postman` or similar tool for API testing.
 
 ### Troubleshooting
 
@@ -69,6 +69,43 @@ You should get as a response:
 If everything is successful you should see this:
 
 <img src="good-client-screen.png" width="600">
+
+### CHT configuration with Docker
+
+The following steps apply when running CHT via the Docker setup provided in this repository:
+
+1. CHT can be accessed via `http://localhost:5988`, and the credentials are `medic`/`password`.
+2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Please note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
+3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curls request is below:
+
+```bash
+curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
+```
+
+### Local setup of CHT Configuration
+
+The following steps apply when running CHT locally in development mode and when making configuration changes locally:
+
+#### CHT Development Environment
+
+1. Set up a local CHT instance using [these instructions]({{< ref "building/local-setup" >}}).
+2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Please note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
+3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curls request is below:
+
+```bash
+curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
+```
+4. After updating the mediator code or cht configuration, you need to run `./startup.sh up-dev` to upload the changes to docker compose.
+
+#### CHT Configuration
+
+1. Go into the `cht-config` directory by running `cd cht-config`.
+1. Run `npm install` to install the dependencies.
+1. Create a file named `.env` under `/mediator` folder, copy over the contents of `/mediator/.env.template` and update the `CHT_USERNAME` and `CHT_PASSWORD` values with the admin credentials of your CHT instance.
+1. Set up a proxy to your local CHT instance by running using something like [nginx-local-ip](https://github.com/medic/nginx-local-ip) or [ngrok](https://ngrok.com/) and update the `CHT_URL` value in the `.env` file with the new URL.
+1. Ensure you have [cht-conf](https://www.npmjs.com/package/cht-conf) installed and run `cht --local` to compile and upload the app settings configuration to your local CHT instance.
+1. To verify if the configuration is loaded correctly is to create a `Patient` and to access a URL like `https://*****.my.local-ip.co/#/contacts/patientUUID/report/interop_follow_up`. This should retrieve correctly the follow up form.
+1. To verify if the configuration in CouchDB, access `http://localhost:5984/_utils/#database/medic/settings`.
 
 ### Shutdown the servers
 

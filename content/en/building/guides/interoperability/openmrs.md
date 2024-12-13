@@ -29,7 +29,7 @@ The steps to create an OpenMRS interoperability workflow are:
 1. Profile the workflow in terms of what data needs to be exchanged between OpenMRS and the CHT application.
 1. Set up a test environment including an OpenMRS instance, a CHT instance, and OpenHIM. The [interoperability project](https://github.com/medic/cht-interoperability) has docker compose files so that you can set this up locally by running `startup.sh up-test` in the interoperability project.
 1. Create or find concepts in OpenMRS that represent any data that needs to be exchanged.
-1. Configure outbound push and forms in the CHT application to match the interoperability workflow.
+1. Configure [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) and forms in the CHT application to match the interoperability workflow.
 1. Test and debug any configuration issues in the test environment.
 1. Once the configuration is confirmed to be working as expected, start deploying to production by uploading the CHT configuration to production.
 1. Add any OpenMRS concepts or forms to production.
@@ -56,7 +56,7 @@ The first step is to profile the workflow.
 
 ## Configuring CHT And OpenMRS
 
-Depending on what data needs to be exchanged, outbound push configurations and JSON forms need to be added to CHT.
+Depending on what data needs to be exchanged, [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) configurations and JSON forms need to be added to CHT.
 
 ### Sending patients CHT->OpenMRS
 
@@ -148,7 +148,7 @@ Then, using the appropriate codes, configure an outbound push as described in th
 In OpenMRS, all form submissions are represented as `Home Visit` encounter types, with a `Visit Note` encounter.
 Any fields in the outbound push config are converted to FHIR observations, which are linked to the `Visit Note`.
 
-After setting up the putbound push, test that it works in the test environment by submitting a report to the form in the CHT application.
+After setting up the outbound push, test that it works in the test environment by submitting a report to the form in the CHT application.
 Log in to OpenHIM and view the transaction log. You should see: 
 1. A request from the CHT application to the CHT Mediator, containing all the fields from the form that were mapped to concepts.
     ![](cht-post-encounter.png)
