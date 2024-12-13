@@ -20,9 +20,8 @@ Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperabil
 The CHT's interoperability tools support interoperability with OpenMRS in a variety of ways:
 
 1. Sending patient and patient contact data.
-2. Sending reports data (encounters and observations).
-3. Receiving patient and patient contact data from OpenMRS.
-4. Receiving reports data (encounters and observations) from OpenMRS.
+1. Sending reports data (encounters and observations).
+1. Receiving reports data (encounters and observations) from OpenMRS.
 
 The steps to create an OpenMRS interoperability workflow are:
 
@@ -51,7 +50,6 @@ The first step is to profile the workflow.
 1. Which patients should be sent to OpenMRS, and how is a patient defined in the CHT application?
 2. Which forms should be sent to OpenMRS?
 3. Which fields on those forms should be sent to OpenMRS, and which concepts do they map to?
-4. Should patients from OpenMRS be sent back to CHT? If so, what will be used to assign them to CHWs or CHW areas?
 5. Which forms or other data from OpenMRS should be sent back to CHT?
 
 ## Configuring CHT And OpenMRS
@@ -325,35 +323,6 @@ If all the above look OK, you should now be able to see the data submitted in th
 
 This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
 ![](cht-incoming-forms.png)
-
-### Sending patients OpenMRS->CHT
-
-Creating patients in a CHT application from patients registered in OpenMRS is possible, but requires some additional configuration to assign patients to a CHW or CHW Area.
-All patients in CHT applications require a parent, which is assumed to be a CHW area or equivalent and defines which CHW the patient is assigned to.
-For interoperability with OpenMRS, this means that patients created by OpenMRS must be matched to CHT locations.
-
-A default implementation is provided which uses the [OpenMRS address add on](https://addons.openmrs.org/show/org.openmrs.module.addresshierarchy) to match locations in OpenMRS to contacts in CHT.
-This can be complicated to set up and maintain; an alternative is to customize the OpenMRS mediator for specific applications.
-If using the default implementation
-1. Install the address hierarchy add-on.
-2. Download the contact hierarchy from the CHT application.
-3. Upload these contacts to OpenMRS: address 5 should be a CHW area, or the direct parent of the patient. If address 5 is not specified, the mediator will use address 4. 
-4. The mediator will attempt to find CHT locations by using a place id formatted like `[12345]` at the end of the address string. `place_id` must match a CHT place id. If `place_id` is not included in the OpenMRS addresses, the mediator will attempt to match by the place name. This is not as reliable since the name must match exactly, and changes to either the CHT or OpenMRS will 
-
-Patients that do not have an address or otherwise cannot be assigned a parent in CHT will be queryable in the FHIR Server and linked to OpenMRS patients, but will not be sent to CHT.
-
-After setting up the forms, test that it works in the test environment by creating a patient in OpenMRS.
-Log in to OpenHIM and view the transaction log. You should see:
-1. After a maximum of 1 minute, a polling request from the OpenMRS mediator. The results from OpenMRS should include the newly created patient.
-1. A request to the patient creation form.
-1. A request from CHT to the `patient_ids` endpoint in the mediator
-1. A request to the FHIR server updating the patient with the corresponding id from CHT.
-1. A request to OpenMRS with the CHT id.
-
-If all the above look OK, you should now be able to see the patient in CHT.
-
-This sequence diagrams shows the entire flow including the OpenMRS Mediator and the intermediate FHIR Server.
-![](cht-incoming-patients.png)
 
 ## Starting the interop project
 
