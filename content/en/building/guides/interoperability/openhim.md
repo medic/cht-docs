@@ -1,7 +1,7 @@
 ---
 title: "OpenHIM Mediators"
 linkTitle: "OpenHIM Mediators"
-weight:
+weight: 2
 description: >
    Guide to running OpenHIM and Mediators with Docker Compose
 keywords: openmrs interoperability
@@ -15,7 +15,7 @@ relatedContent: >
 
 #### Overview
 
-The components and reference information for interoperability used in this project are:
+The components and reference information for interoperability used in CHT Interoperability project are:
 
 - [OpenHIE](https://ohie.org/) defines the architecture for an interoperability layer.
 - [OpenHIM](http://openhim.org/) is a middleware component designed to ease interoperability between systems.
@@ -23,7 +23,7 @@ The components and reference information for interoperability used in this proje
 
 #### CHT
 
-The structure of documents in the CHT database reflect the configuration of the system, and therefore do not map directly to a FHIR message format. To achieve interoperability Medic used a middleware to convert the CHT data structure into a standardized form so the other systems can read it. Below is the standard data workflow:
+The structure of documents in the CHT database reflects the configuration of the system, and therefore, does not map directly to a FHIR message format. To achieve interoperability, the CHT uses a middleware to convert the CHT data structure into a standardized form so the other systems can read it. Below is the standard data workflow:
 
 ![](flow.png)
 

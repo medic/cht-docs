@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting Interoperability"
-linkTitle: "Troubleshooting Interoperability"
-weight:
+linkTitle: "Troubleshooting"
+weight: 5
 description: >
    Guide to troubleshooting OpenHIM, Mediators, and configurations for interoperability workflows
 keywords: openmrs interoperability
