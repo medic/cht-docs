@@ -132,6 +132,16 @@ Once you are confident that the change is complete and ready to be merged:
 
 The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
+##### Labeling review comments
+
+The reviewer should prefix labels in the review comments wherever possible. The labels could be `suggestion`, `issue`, `nitpick`, `question`, etc. that would clarify the intention of the comment and possibly remove any misunderstanding that might happen. It also helps the author in prioritizing the comments that they need to address. [More details here](https://conventionalcomments.org/).
+
+Sample comments:
+
+![Issue comment](issue-comment.png)
+
+![Suggestion comment](suggestion-comment.png)
+
 #### Suggestions
 
 When doing a code review aim to be extremely clear. This helps things move quickly and avoids lost time in misunderstandings. One especially useful GitHub feature for doing this is suggesting a change. Consider the following example code:
