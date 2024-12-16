@@ -19,30 +19,30 @@ muffet http://localhost:1313 \
   --timeout 35 \
   --concurrency 2 \
   --ignore-fragments \
-  --exclude ".*demo\.app\.medicmobile\.org.*" \
-  --exclude ".*www\.npmjs\.com/org/medic/team/developers" \
-  --exclude "https://github\.com/medic/cht-docs/issues/new.*" \
-  --exclude "https://github\.com/medic/cht-core/issues/new.*" \
-  --exclude "https://github\.com/medic/cht-docs/commit.*" \
-  --exclude "https://github\.com/medic/cht-core/commit.*" \
-  --exclude "https://github\.com/medic/cht-docs/edit/main/.*" \
-  --exclude "https://github.com/medic/medic-infrastructure*" \
-  --exclude "http[s]*://localhost[8443|5984]*" \
+  --exclude "http[s]*://github.com/medic/.*/issues/new*" \
+  --exclude "http[s]*://github.com/medic/.*/commit*" \
+  --exclude "http[s]*://github.com/medic/cht-docs/edit/main*" \
+  --exclude "http[s]*://github.com/medic/medic-infrastructure*" \
+  --exclude "http[s]*://github.com/moh-kenya/config-echis-2.0*" \
+  --exclude "http[s]*://docs.google.com/spreadsheets/d/12345ABCDEF*" \
+  --exclude "http[s]*://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0*" \
+  --exclude "http[s]*://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G*" \
+  --exclude "http[s]*://tools.google.com*" \
+  --exclude "http[s]*://www.tableau.com*" \
+  --exclude "http[s]*://doi.org/10.1080/02681102.2019.1667289" \
+  --exclude "http[s]*://journals.sagepub.com/doi/full/10.1177/20552076231194924" \
+  --exclude "http[s]*://garticphone.com*" \
+  --exclude "http[s]*://www.hl7.org*" \
+  --exclude "http[s]*://demo.app.medicmobile.org*" \
+  --exclude "http[s]*://www.npmjs.com/org/medic/team/developers" \
+  --exclude "http[s]*://docs.couchdb.org*" \
+  --exclude "http[s]*://oppiamobile.readthedocs.io*" \
+  --exclude "http[s]*://africastalking.com*" \
+  --exclude "http[s]*://borgbackup.readthedocs.io*" \
+  --exclude "http[s]*://udemy.com*" \
+  --exclude "http[s]*://udacity.com*" \
   --exclude "http[s]*://.*my.local-ip.co*" \
-  --exclude "http[s]*://cht\.domain\.com.*" \
-  --exclude "http[s]*://127\.0\.0*" \
-  --exclude "https://docs.google.com/spreadsheets/d/12345ABCDEF/.*" \
-  --exclude "https://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0/*" \
-  --exclude "https://tools.google.com.*" \
-  --exclude "http[s]*://.*docs.couchdb.org.*" \
-  --exclude "http[s]*://.*oppiamobile.readthedocs.io.*" \
-  --exclude "http[s]*://.*africastalking.com*" \
-  --exclude "http://www.hl7.org*" \
-  --exclude "https://garticphone.com/" \
-  --exclude "http[s]*://.*borgbackup.readthedocs.io.*" \
-  --exclude "https://www.tableau.com" \
-  --exclude "https://doi.org/10.1080/02681102.2019.1667289" \
-  --exclude "https://journals.sagepub.com/doi/full/10.1177/20552076231194924" \
-  --exclude "http[s]*://.*udemy.com.*" \
-  --exclude "http[s]*://.*udacity.com.*" \
-  --exclude "https://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" 
+  --exclude "http[s]*://.*local-ip.medicmobile.org*" \
+  --exclude "http[s]*://cht.domain.com*" \
+  --exclude "http[s]*://localhost*" \
+  --exclude "http[s]*://127.*" 
