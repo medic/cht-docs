@@ -15,7 +15,7 @@
 # use extremely granular URLs so as not to exclude more than we need to.
 
 muffet http://localhost:1313/ \
-  --dns-resolver 192.168.68.20:53 \
+  --dns-resolver 9.9.9.9:53 \
   --buffer-size 50000 \
   --timeout 35 \
   --max-connections 2 \
