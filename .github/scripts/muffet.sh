@@ -14,8 +14,8 @@
 # download.docker.com are excluded below) you can add additional sites as needed. Please
 # use extremely granular URLs so as not to exclude more than we need to.
 
-muffet http://localhost:1313/ \
-  --dns-resolver 9.9.9.9:53 \
+muffet http://localhost:1313 \
+  --dns-resolver 9.9.9.9:9953 \
   --buffer-size 50000 \
   --timeout 35 \
   --max-connections 2 \
