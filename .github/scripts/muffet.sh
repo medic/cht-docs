@@ -45,7 +45,6 @@ muffet http://localhost:1313/ \
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \
   --exclude "http[s]*://cht.domain.com.*" \
-  --exclude "http[s]*://localhost:5.*" \
-  --exclude "http[s]*://localhost:8.*" \
+  --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
   --exclude "http[s]*://127*"
