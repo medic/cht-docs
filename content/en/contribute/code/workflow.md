@@ -12,6 +12,12 @@ Where possible, follow the [coding style guide]({{< ref "contribute/code/style-g
 
 Aim for self-documenting code. Where code cannot be made self-documenting add commenting. Usually comments are useful when they explain why some code exists, and should not be explaining what some code is doing. 
 
+### Code Quality
+
+Several [static analysis tools]({{< ref "contribute/code/static-analysis" >}}) are used to support code quality. These tools are run automatically on every pull request and will fail the build if they find any issues.
+
+For a more efficient feedback loop, developers should run linting scripts locally before pushing code to the repository. Additionally, both [ESLint]({{< ref "contribute/code/static-analysis#eslint" >}}) and [Sonar]({{< ref "contribute/code/static-analysis#during-development" >}}) have IDE plugins that show code issues in real-time. 
+
 ## Issues
 
 Issues are managed in GitHub. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue it should be opened in the private `medic-projects` repository.
