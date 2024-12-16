@@ -35,7 +35,7 @@ jobs:
 
       - name: Install Muffet
         run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
+          GO111MODULE=on go install github.com/raviqqe/muffet@v2.10.6
           asdf reshim golang
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
@@ -43,10 +43,6 @@ jobs:
         run: |
           hugo server&
           sleep 30
-
-      - name: Set DNS to 9.9.9.9
-        shell: bash
-        run: ./.github/scripts/set_dns.sh
 
       - name: Run Muffet link checker
         shell: bash
