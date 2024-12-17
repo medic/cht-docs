@@ -27,6 +27,7 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://github.com/moh-kenya/config-echis-2.0.*" \
   --exclude "http[s]*://docs.google.com/spreadsheets/d/12345ABCDEF.*" \
   --exclude "http[s]*://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0.*" \
+  --exclude "http[s]*://docs.google.com/document/d/1pPk6FAuLUPKUYnCRgruPk6Lh5IeWzu6IPD1KTFOi6YQ.*" \
   --exclude "http[s]*://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
   --exclude "http[s]*://tools.google.com.*" \
   --exclude "http[s]*://www.tableau.com.*" \
