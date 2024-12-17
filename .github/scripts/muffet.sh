@@ -17,8 +17,8 @@
 muffet http://localhost:1313 \
   --dns-resolver 9.9.9.9:9953 \
   --buffer-size 50000 \
-  --timeout 35 \
-  --max-connections 2 \
+  --timeout 135 \
+  --rate-limit 2 \
   --ignore-fragments \
   --exclude "http[s]*://github.com/medic/.*/issues/new.*" \
   --exclude "http[s]*://github.com/medic/.*/commit.*" \
