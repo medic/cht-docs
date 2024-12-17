@@ -17,8 +17,8 @@
 muffet http://localhost:1313 \
   --dns-resolver 9.9.9.9:9953 \
   --buffer-size 50000 \
-  --timeout 135 \
-  --rate-limit 2 \
+  --timeout 35 \
+  --rate-limit 4 \
   --ignore-fragments \
   --exclude "http[s]*://github.com/medic/.*/issues/new.*" \
   --exclude "http[s]*://github.com/medic/.*/commit.*" \
@@ -28,6 +28,7 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://docs.google.com/spreadsheets/d/12345ABCDEF.*" \
   --exclude "http[s]*://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0.*" \
   --exclude "http[s]*://docs.google.com/document/d/1pPk6FAuLUPKUYnCRgruPk6Lh5IeWzu6IPD1KTFOi6YQ.*" \
+  --exclude "http[s]*://docs.google.com/document/d/1uXSqntenhxlGOeFtP7ScLcFmoid3kagPYn-EDoodP3s.*" \
   --exclude "http[s]*://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
   --exclude "http[s]*://tools.google.com.*" \
   --exclude "http[s]*://www.tableau.com.*" \
@@ -41,11 +42,11 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://africastalking.com.*" \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
-  --exclude "http[s]*://udemy.com.*" \
-  --exclude "http[s]*://udacity.com.*" \
+  --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://.*udacity.com.*" \
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \
   --exclude "http[s]*://cht.domain.com.*" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
-  --exclude "http[s]*://127*"
+  --exclude "http[s]*://127.*"
