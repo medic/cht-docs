@@ -17,9 +17,11 @@
 muffet http://localhost:1313 \
   --dns-resolver 9.9.9.9:9953 \
   --buffer-size 50000 \
-  --timeout 35 \
+  --timeout 55 \
   --rate-limit 4 \
+  --max-connections-per-host 4 \
   --ignore-fragments \
+  --header "User-Agent: Muffet/$(muffet --version)" \
   --exclude "http[s]*://github.com/medic/.*/issues/new.*" \
   --exclude "http[s]*://github.com/medic/.*/commit.*" \
   --exclude "http[s]*://github.com/medic/cht-docs/edit/main.*" \
@@ -29,6 +31,7 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://docs.google.com/document/d/14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0.*" \
   --exclude "http[s]*://docs.google.com/document/d/1pPk6FAuLUPKUYnCRgruPk6Lh5IeWzu6IPD1KTFOi6YQ.*" \
   --exclude "http[s]*://docs.google.com/document/d/1uXSqntenhxlGOeFtP7ScLcFmoid3kagPYn-EDoodP3s.*" \
+  --exclude "http[s]*://docs.google.com/a/medicmobile.org/spreadsheet/ccc?key=0Ao9l2yegOFn7dEJRTEw1Z3RmZm0wTEo4Nk92NjVocnc.*" \
   --exclude "http[s]*://drive.google.com/file/d/1YPXoba9gVmD7SP-X88PpJIsIVGvY86_G.*" \
   --exclude "http[s]*://tools.google.com.*" \
   --exclude "http[s]*://www.tableau.com.*" \
@@ -40,7 +43,7 @@ muffet http://localhost:1313 \
   --exclude "http[s]*://www.npmjs.com/org/medic/team/developers" \
   --exclude "http[s]*://docs.couchdb.org.*" \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
-  --exclude "http[s]*://africastalking.com.*" \
+  --exclude "http[s]*://account.africastalking.com.*" \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
   --exclude "http[s]*://.*udemy.com.*" \
   --exclude "http[s]*://.*udacity.com.*" \
