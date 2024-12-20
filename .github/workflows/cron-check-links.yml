@@ -18,7 +18,7 @@ name: Test site for broken links
 jobs:
   BuildLinkCheckPushLive:
     name:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 15
     steps:
 
@@ -26,6 +26,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Install asdf & tools in .tool-versions
+        uses: asdf-vm/actions/install@v2
+
+      - name: Install npm modules for Hugo
+        run: npm install
+
+      # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
+      - name: Serve Hugo site
+        run: |
+          hugo server&
+          sleep 30
 
       - name: Run Muffet link checker
         shell: bash
