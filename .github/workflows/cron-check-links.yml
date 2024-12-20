@@ -18,7 +18,7 @@ name: Test site for broken links
 jobs:
   BuildLinkCheckPushLive:
     name:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
 
@@ -27,26 +27,12 @@ jobs:
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Install asdf & tools in .tool-versions
-        uses: asdf-vm/actions/install@v2
-
-      - name: Install npm modules for Hugo
-        run: npm install
-
-      - name: Install Muffet
-        run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet@v2.10.6
-          asdf reshim golang
-
-      # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
-      - name: Serve Hugo site
-        run: |
-          hugo server&
-          sleep 30
-
       - name: Run Muffet link checker
         shell: bash
-        run: ./.github/scripts/muffet.sh
+        run:  |
+          cd .github/scripts/
+          chmod +x *muffet*
+          muffet.sh
 
       - name: Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
