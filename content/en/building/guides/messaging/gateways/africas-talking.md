@@ -22,7 +22,7 @@ As of v3.6.0, SMS messages can be sent and received using the [Africa's Talking]
 
 First generate a long unique key to use as the `cht-api-key`.
 
-Log on to the [Africa's Talking Dashboard](https://account.africastalking.com) and configure your callback URLs as follows.
+Log on to the [Africa's Talking Dashboard](https://account.africastalking.com/auth/login) and configure your callback URLs as follows.
 
 - Delivery Reports: `https://<hostname>/api/v1/sms/africastalking/delivery-reports?key=<cht-api-key>`
 - Incoming Messages: `https://<hostname>/api/v1/sms/africastalking/incoming-messages?key=<cht-api-key>`
