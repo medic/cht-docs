@@ -44,6 +44,9 @@
   --exclude "http[s]*://garticphone.com.*" \
   --exclude "http[s]*://www.hl7.org.*" \
   --exclude "http[s]*://build.fhir.org.*" \
+  --exclude "http[s]*://www.apkmirror.com/apk/google-inc.*" \
+  --exclude "http[s]*://www.pluralsight.com/courses/kubernetes-packaging-applications-helm.*" \
+  --exclude "http[s]*://www.pluralsight.com/paths/using-kubernetes-as-a-developer.*" \
   --exclude "http[s]*://www.intellisoftkenya.com.*" \
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
   --exclude "http[s]*://www.npmjs.com/org/medic/team/developers" \
