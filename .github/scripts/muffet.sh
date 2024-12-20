@@ -15,7 +15,7 @@
 # download.docker.com are excluded below) you can add additional sites as needed. Please
 # use extremely granular URLs so as not to exclude more than we need to.
 
-# when upgrading muffet, upload new binary here and rename so version is explicit in filname
+# when upgrading muffet, upload new binary here and rename so version is explicit in filename
 ./2.10.6.muffet http://localhost:1313 \
   --dns-resolver 9.9.9.9:9953 \
   --buffer-size 50000 \
