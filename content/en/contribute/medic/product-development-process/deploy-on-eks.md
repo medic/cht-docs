@@ -22,6 +22,7 @@ Be sure you have these tools installed and repos cloned:
 * [kubectl](https://kubernetes.io/docs/tasks/tools): Must be within one minor version of cluster. If cluster is `1.24.x`, use `1.23.x`, `1.24.x` or `1.25.x`.
 * [helm](https://helm.sh/docs/intro/install/)
 * [jq](https://jqlang.github.io/jq/download/)
+* [node](https://nodejs.org/en/download) (including `npm`)
 * [Medic Infra](https://github.com/medic/medic-infrastructure/) repo cloned
 
 #### Optional:  Autocomplete
@@ -106,11 +107,15 @@ After you have created a ticket per "Request permission" above, you should get a
    ```shell
    git checkout master;git pull origin
    ```
-6. Deploy!:
+6. Ensure you have `node` dependencies installed for `cht-deploy` script:
    ```shell
-   cd scripts/deploy;./cht-deploy -f PATH_TO/values.yaml
+   cd scripts/deploy;npm install
    ```
-7. Delete it when you're done:
+7. Run deploy, being sure to update `PATH_TO` to be where you saved it in the prior step:
+   ```shell
+   ./cht-deploy -f PATH_TO/values.yaml
+   ```
+8. Delete it when you're done:
    ```shell
    helm delete USERNAME-dev --namespace USERNAME-dev
    ```
