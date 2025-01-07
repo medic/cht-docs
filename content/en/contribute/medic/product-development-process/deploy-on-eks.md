@@ -22,7 +22,7 @@ Be sure you have these tools installed and repos cloned:
 * [kubectl](https://kubernetes.io/docs/tasks/tools): Must be within one minor version of cluster. If cluster is `1.24.x`, use `1.23.x`, `1.24.x` or `1.25.x`.
 * [helm](https://helm.sh/docs/intro/install/)
 * [jq](https://jqlang.github.io/jq/download/)
-* [node](https://nodejs.org/en/download) version 22 or later. Be sure that `npm` was installed as well with `node` (it normally is)
+* [node](https://nodejs.org/en/download) version `22` or later. Be sure that `npm` was installed as well with `node` (it normally is)
 * [Medic Infra](https://github.com/medic/medic-infrastructure/) repo cloned
 
 #### Optional:  Autocomplete
