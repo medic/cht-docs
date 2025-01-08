@@ -51,7 +51,7 @@ a core value of our community. Consider the points of [the opposition][], but
 be a traditionalist when it comes to abusing error correction mechanisms for
 cheap syntactic pleasures.
 
-[the opposition]: [the opposition]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
+[the opposition]: https://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
 [hnsemicolons]: http://news.ycombinator.com/item?id=1547647
 
 ### Use single quotes
