@@ -33,24 +33,18 @@ jobs:
       - name: Install npm modules for Hugo
         run: npm install
 
-      - name: Install Muffet
-        run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet@v1.5.7
-          asdf reshim golang
-
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
       - name: Serve Hugo site
         run: |
           hugo server&
           sleep 30
 
-      - name: Set DNS to 9.9.9.9
-        shell: bash
-        run: ./.github/scripts/set_dns.sh
-
       - name: Run Muffet link checker
         shell: bash
-        run: ./.github/scripts/muffet.sh
+        run:  |
+          cd .github/scripts/
+          chmod +x *muffet*
+          muffet.sh
 
       - name: Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}

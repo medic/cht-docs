@@ -100,7 +100,7 @@ const harness = new TestRunner({ verbose: true });
 ```
 
 Other useful options are:
-1. `{ headless: false }` -  Passed to [puppeteer](https://developers.google.com/web/tools/puppeteer/get-started#default_runtime_settings), launches browser with GUI. Helpful to see how the form is getting filled.
+1. `{ headless: false }` -  Passed to [puppeteer](https://pptr.dev/guides/getting-started), launches browser with GUI. Helpful to see how the form is getting filled.
 2. `{ harnessDataPath: 'harness.clinic.json'}`: Specify different harness configuration
 
 You can find more harness options and examples [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html).
