@@ -35,11 +35,10 @@ See the [OpenHIM guide]({{< ref "building/guides/interoperability/openhim" >}}) 
 
     1. **HTTP Request** - Create an `Organization` Resource in the Mediator using as `endpoint.reference` the example value replacing `${ENDPOINT_ID}` with the actual `id` of the `Endpoint` you created in the previous step. Once you send the request, the Mediator will return a JSON response containing the `id` of the newly created `Organization`. You can view the API documentation for creating an `Organization` [here](#organization-resource).
 
-
 > It is important to note that you only need to create an `Organization` once, which you can use for future requests. So, after creating the `Organization`, you can save the `organization.identifier[0].value` value and use it for all future `ServiceRequest` requests.
 
 
-1.  Create a **Patient**
+2.  Create a **Patient**
 
     1. **CHT** - Log in to the CHT platform using the credentials for the `chw` user. If the `chw` user does not already exist, you can [create one]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}).
     1. **CHT** - Navigate to the `People` tab in the CHT dashboard. From there, select a Facility where you want to create a new `Person`. Click on the `New Person` button and fill in the required details for the Person. Make sure to select `Patient` as the `Person`'s role for this flow.
@@ -47,14 +46,14 @@ See the [OpenHIM guide]({{< ref "building/guides/interoperability/openhim" >}}) 
     1. **OpenHIM Admin Console** - To verify that the `Patient` creation was successful, navigate to the `Transaction Log` in the OpenHIM Admin Console. You should see two successful API calls recorded in the log, one to `/mediator/patient/` and one to `/fhir/Patient/`.
        ![](instance-patient.png)
 
-1.  Request the LTFU for the Patient
+3.  Request the LTFU for the Patient
 
     1. **HTTP Request** - To trigger the LTFU process for the newly created patient, you need to create a `ServiceRequest`. You can refer to the API documentation available [here](#servicerequest-resource) to learn how to create a `ServiceRequest`. Replace the `requester.reference` and the `subject.reference` with the `Organization` and `Patient` identifiers respectively. Once the `ServiceRequest` is received by the mediator, it will initiate the LTFU workflow for the patient, which includes reminders for follow-up appointments and check-ins. 
 
     1. **HTTP Request** - Verify that the `ServiceRequest` was successful in both OpenHIM Mediator & FHIR Resource. Navigate to the `Transaction Log` in the Admin Console. You should see three successful API calls, as in the image below:
        ![](/docs/images/instance-service-request.png)
 
-1.  Handle LTFU Task
+4.  Handle LTFU Task
 
     1. **CHT** - Navigate to the `Tasks` tab. There should be an automatically created `Task` for the Patient. If it is not the case, sync data via `Sync now` option. The `Task` should look like in the image below:
 
