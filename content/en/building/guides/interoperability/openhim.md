@@ -12,7 +12,7 @@ relatedContent: >
   building/guides/integrations/openmrs/
 ---
 
-#### Overview
+### Overview
 
 The components and reference information for interoperability used in CHT Interoperability project are:
 
@@ -20,7 +20,7 @@ The components and reference information for interoperability used in CHT Intero
 - [OpenHIM](http://openhim.org/) is a middleware component designed to ease interoperability between systems.
 - [HL7 FHIR](https://www.hl7.org/fhir/index.html) is a messaging format to allow all systems to understand the format of the message.
 
-#### CHT
+#### Interoperability with the CHT
 
 The structure of documents in the CHT database reflects the configuration of the system, and therefore, does not map directly to a FHIR message format. To achieve interoperability, the CHT uses a middleware to convert the CHT data structure into a standardized form so the other systems can read it. Below is the standard data workflow:
 
@@ -36,16 +36,22 @@ See more information on the [CHT interoperability page]({{< ref "building/concep
 
 - `docker`
 - `Postman` or similar tool for API testing.
+- [cht-interoperability](https://github.com/medic/cht-interoperability) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-interoperability`).
+
+
+{{% alert title="Note" %}} 
+Users getting errors when running the following installation steps, please see the [Troubleshooting guide]({{< ref "#troubleshooting" >}}).
+{{% /alert %}}
 
 ### Install & First Time Run
 
-1. Run `./startup.sh init` to start-up the docker containers on the first run or after calling `./startup.sh destroy`. Use `./startup.sh up` for subsequent runs after calling `init` without calling `destroy`.
+In the cht-interoperability folder, run `./startup.sh init` to start up the docker containers on the first run or after calling `./startup.sh destroy`. Use `./startup.sh up` for subsequent runs after calling `init` without calling `destroy`.
 
 ### OpenHIM Admin Console
 
 1. Visit the OpenHIM Admin Console at http://localhost:9000 and login with the following credentials: email - `interop@openhim.org` and password - `interop-password`. The default User username for OpenHIM is `interop@openhim.org` and password is `interop-password`. The default Client username is `interop-client` and password is `interop-password`.
 
-1. Once logged in, visit [http://localhost:9000/#!/mediators](http://localhost:9000/#!/mediators) and select the only mediator with the `Name` 'Loss to Follow Up Mediator'.
+1. Once logged in, visit [http://localhost:9000/#!/mediators](http://localhost:9000/#!/mediators) and select the only mediator with the `Name` "Loss to Follow Up Mediator".
 
 1. Select the green `+` button to the right of the default channel to add the mediator.
 
@@ -67,11 +73,11 @@ If everything is successful you should see this:
 
 ### CHT configuration with Docker
 
-The following steps apply when running CHT via the Docker setup provided in this repository:
+The following steps apply when running CHT via the Docker setup provided in the cht-interoperability repository:
 
 1. CHT can be accessed via `http://localhost:5988`, and the credentials are `medic`/`password`.
 2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Please note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
-3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curls request is below:
+3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curl request is below:
 
 ```bash
 curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
@@ -90,7 +96,7 @@ The following steps apply when running CHT locally in development mode and when 
 ```bash
 curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
 ```
-4. After updating the mediator code or cht configuration, you need to run `./startup.sh up-dev` to upload the changes to docker compose.
+4. After updating the mediator code or the CHT configuration, you need to run `./startup.sh up-dev` to upload the changes to docker compose.
 
 #### CHT Configuration
 
