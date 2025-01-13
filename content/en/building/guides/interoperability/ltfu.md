@@ -26,7 +26,7 @@ The section includes placeholders for URLs. Replacing these placeholders with th
 
 ## Steps
 
-The following steps assume that you successfully logged in into OpenHIM and the CHT instances.
+The following steps assume you have running OpenHIM and CHT instances you successfully logged into.
 See the [OpenHIM guide]({{< ref "building/guides/interoperability/openhim" >}}) for instructions to set up a local development instance of OpenHIM.
 
 1.  Create an **Endpoint** and an **Organization**
@@ -66,7 +66,7 @@ See the [OpenHIM guide]({{< ref "building/guides/interoperability/openhim" >}}) 
     1. If your callback URL test service was set up correctly, you should receive a notification from the mediator.
 
 
-An API test collection that can be used with Postman or similar tools can be found under `/docs/local-test`. This collection allows testing the LTFU flow while running the instances locally.
+An API test collection that can be used with Postman or similar tools can be found under `/docs/local-test` in the [cht-interoperability repository](https://github.com/medic/cht-interoperability/tree/main/docs/local-test). This collection allows testing the LTFU flow while running the instances locally.
 
 ## Resources
 

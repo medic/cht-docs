@@ -26,7 +26,7 @@ The CHT's interoperability tools support interoperability with OpenMRS in a vari
 The steps to create an OpenMRS interoperability workflow are:
 
 1. Profile the workflow in terms of what data needs to be exchanged between OpenMRS and the CHT application.
-1. Set up a test environment including an OpenMRS instance, a CHT instance, and OpenHIM. The [interoperability project](https://github.com/medic/cht-interoperability) has docker compose files so that you can set this up locally by running `startup.sh up-openmrs` in the interoperability project.
+1. Set up a test environment including an OpenMRS instance, a CHT instance, and OpenHIM. The [interoperability project](https://github.com/medic/cht-interoperability) has docker compose files so that you can set this up locally by running `./startup.sh up-openmrs` in the interoperability project.
 1. Create or find [concepts](https://guide.openmrs.org/configuration/managing-concepts-and-metadata/)  in OpenMRS that represent any data that needs to be exchanged.
 1. [Configure outbound push and forms]({{< ref "building/guides/interoperability/cht-config" >}}) in the CHT application to match the interoperability workflow.
 1. Test and debug any configuration issues in the test environment.
