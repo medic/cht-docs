@@ -43,7 +43,8 @@ jobs:
         shell: bash
         run:  |
           chmod +x ./.github/scripts/*muffet*
-          ./.github/scripts/muffet.sh
+          cd .github/scripts
+          ./muffet.sh
 
       - name: Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
