@@ -10,6 +10,8 @@ description: >
 
 All code must pass an eslint check which runs early in the CI cycle and uses the [standard medic eslint configuration](https://github.com/medic/eslint-config).
 
+ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
+
 ## Sonar
 
 [Sonar](https://www.sonarsource.com/) static analysis supports development by providing feedback on code quality and security issues. Sonar analysis must pass on all _new code_.
