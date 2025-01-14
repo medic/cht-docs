@@ -42,9 +42,9 @@ jobs:
       - name: Run Muffet link checker
         shell: bash
         run:  |
-          cd .github/scripts/
-          chmod +x *muffet*
-          muffet.sh
+          chmod +x ./.github/scripts/*muffet*
+          cd .github/scripts
+          ./muffet.sh
 
       - name: Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
