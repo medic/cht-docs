@@ -22,12 +22,13 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 4.15.x  | Supported | 20-Nov-2024  | TBA         |
+| 4.16.x  | Supported | 16-Jan-2025  | TBA         |
+| 4.15.x  | Supported | 20-Nov-2024  | 16-Apr-2025 |
 | 4.14.x  | Supported | 31-Oct-2024  | 20-Feb-2025 |
-| 4.13.x  | Supported | 22-Oct-2024  | 31-Jan-2025 |
-| 4.12.x  | Supported | 02-Oct-2024  | 22-Jan-2025 |
-| 4.11.x  | Supported | 26-Sep-2024  | 02-Jan-2025 |
-| 4.10.x  | Supported | 15-Aug-2024  | 26-Dec-2024 |
+| 4.13.x  | EOL       | 22-Oct-2024  | 31-Jan-2025 |
+| 4.12.x  | EOL       | 02-Oct-2024  | 22-Jan-2025 |
+| 4.11.x  | EOL       | 26-Sep-2024  | 02-Jan-2025 |
+| 4.10.x  | EOL       | 15-Aug-2024  | 26-Dec-2024 |
 | 4.9.x   | EOL       | 25-Jun-2024  | 15-Nov-2024 |
 | 4.8.x   | EOL       | 22-May-2024  | 25-Sep-2024 |
 | 4.7.x   | EOL       | 07-May-2024  | 22-Aug-2024 |
@@ -99,6 +100,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 4.x
+- [4.16.0]({{% ref "core/releases/4.16.0.md" %}})
 - [4.15.0]({{% ref "core/releases/4.15.0.md" %}})
 - [4.14.0]({{% ref "core/releases/4.14.0.md" %}})
 - [4.13.0]({{% ref "core/releases/4.13.0.md" %}})
