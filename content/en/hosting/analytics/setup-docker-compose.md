@@ -30,6 +30,15 @@ For production CHT Core deployments, the port will most likely need to be set to
 The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
 {{% /alert %}}
 
+### Running DBT models locally
+
+When developing DBT models, it is helpful to test changes locally before commiting them to a remote repository.
+Set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env` and use `docker-compose.local.yml`.
+
+```sh
+docker compose -f docker-compose.postgres.yml -f docker-compose.local.yml up -d
+```
+
 ### Separate CouchDB instance 
 
 This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
