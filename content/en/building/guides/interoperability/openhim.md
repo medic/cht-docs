@@ -51,11 +51,11 @@ In the cht-interoperability folder, run `./startup.sh init` to start up the dock
 
 1. Visit the OpenHIM Admin Console at [http://localhost:9000](http://localhost:9000) and login with the following credentials: email - `interop@openhim.org` and password - `interop-password`. The default User username for OpenHIM is `interop@openhim.org` and password is `interop-password`. The default Client username is `interop-client` and password is `interop-password`.
 
-1. Once logged in, visit [http://localhost:9000/#!/mediators](http://localhost:9000/#!/mediators) and select the only mediator with the `Name` "Loss to Follow Up Mediator".
+1. Once logged in, visit [http://localhost:9000/#!/mediators](http://localhost:9000/#!/mediators) and select the mediator named 'CHT Mediator'.
 
 1. Select the green `+` button to the right of the default channel to add the mediator.
 
-1. You can test the mediator by running:
+1. You can test the CHT mediator by running:
 
 ```bash
 curl -X GET http://localhost:5001/mediator -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
@@ -70,7 +70,7 @@ You should get as a response similar to this:
     "processuptime": 56940.700039383
 }
 
-If everything is successful you should see this:
+If everything is successful, when visiting [http://localhost:9000/#!/clients](http://localhost:9000/#!/clients) you should see this:
 
 <img src="good-client-screen.png" width="600">
 
