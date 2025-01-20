@@ -49,7 +49,7 @@ In the cht-interoperability folder, run `./startup.sh init` to start up the dock
 
 ### OpenHIM Admin Console
 
-1. Visit the OpenHIM Admin Console at http://localhost:9000 and login with the following credentials: email - `interop@openhim.org` and password - `interop-password`. The default User username for OpenHIM is `interop@openhim.org` and password is `interop-password`. The default Client username is `interop-client` and password is `interop-password`.
+1. Visit the OpenHIM Admin Console at [http://localhost:9000](http://localhost:9000) and login with the following credentials: email - `interop@openhim.org` and password - `interop-password`. The default User username for OpenHIM is `interop@openhim.org` and password is `interop-password`. The default Client username is `interop-client` and password is `interop-password`.
 
 1. Once logged in, visit [http://localhost:9000/#!/mediators](http://localhost:9000/#!/mediators) and select the only mediator with the `Name` "Loss to Follow Up Mediator".
 
@@ -61,11 +61,14 @@ In the cht-interoperability folder, run `./startup.sh init` to start up the dock
 curl -X GET http://localhost:5001/mediator -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
 ```
 
-You should get as a response:
+You should get as a response similar to this:
 
 ```json
-{ "status": "success" }
-```
+{
+    "status": "success",
+    "osuptime": 74012.24,
+    "processuptime": 56940.700039383
+}
 
 If everything is successful you should see this:
 
@@ -75,12 +78,12 @@ If everything is successful you should see this:
 
 The following steps apply when running CHT via the Docker setup provided in the cht-interoperability repository:
 
-1. CHT can be accessed via `http://localhost:5988`, and the credentials are `medic`/`password`.
+1. CHT can be accessed via [http://localhost:5988](http://localhost:5988), and the credentials are `admin`/`password`.
 2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Please note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
 3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curl request is below:
 
 ```bash
-curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
+curl -X PUT -H "Content-Type: text/plain" http://admin:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
 ```
 
 ### Local setup of CHT Configuration
