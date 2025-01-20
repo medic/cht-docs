@@ -69,10 +69,18 @@ You should get as a response similar to this:
     "osuptime": 74012.24,
     "processuptime": 56940.700039383
 }
+```
 
 If everything is successful, when visiting [http://localhost:9000/#!/clients](http://localhost:9000/#!/clients) you should see this:
 
 <img src="good-client-screen.png" width="600">
+
+For testing other mediators, replace the URL (http://localhost:5001/mediator) with the appropriate values for the specific mediator you are testing.
+For example if using the OpenMRS mediator, you can test it by running:
+
+```bash
+curl -X GET localhost:5001/mediator/openmrs/sync -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
+```
 
 ### CHT configuration with Docker
 

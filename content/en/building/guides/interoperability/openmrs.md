@@ -198,7 +198,7 @@ This sequence diagrams shows the entire flow including the OpenMRS Mediator and 
 
 ### Sending forms OpenMRS->CHT
 
-When sending form data to CHT, first find, create, or import the concepts in OpenMRS, and create the forms in OpenMRS.
+When sending form data to CHT, first find, create, or import the [https://guide.openmrs.org/configuration/managing-concepts-and-metadata/](concepts in OpenMRS), and create the forms in OpenMRS.
 Then create a form in CHT to receive the reports [as described in the CHT interop config documentation]({{< ref "building/guides/interoperability/cht-config#outbound-reports" >}}); the codes from OpenMRS are the field names, and labels can be added for human readability.
 When a visit is completed in OpenMRS, the mediator will sync it to the FHIR Server.
 
@@ -351,6 +351,13 @@ The interoperability project will automatically create the following resources
 * The OpenMRS Polling Channel is a [polling channel](https://openhim.org/docs/user-guide/polling-channels/) that triggers the sync.
 
 ![](channels.png)
+
+When running `./startup.sh up-openmrs`, a cht instances with a sample configuration is created for testing.
+This includes:
+* A sample outbound push configuration for patients.
+* A sample outbound push configuration for encounters with a form `openmrs_height`.
+* A sample form `HEIGHT_WEIGHT` for outgoing encounters.
+* A sample form `OPENMRS_INCOMING` for incoming encounters.
 
 ### Troubleshooting
 
