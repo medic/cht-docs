@@ -12,6 +12,15 @@ aliases:
    - /apps/examples/direct-to-client
 ---
 
+<!-- Force tables on this page to have columns same width -->
+<!-- somewhat brittle b/c it's tied to the header ID , but allows us to hit one table only -->
+<style>
+  #workflows ~ table tr th {
+    vertical-align: top;
+    width: 20%;
+  }
+</style>
+
 {{% pageinfo %}}
 
 This documentation provides a guide for designing and deploying direct-to-client (D2C), two-way texting (2wT) workflows to support client follow-up care using the community health toolkit (CHT). 2wT is a mobile text messaging system built on open-source, CHT tools to engage clients in their health care; to facilitate  prompt client - healthcare provider interactions; to provide low-cost telehealth; and, to improve health care outcomes through the early identification of, and referral for,  potential complications.
@@ -28,14 +37,13 @@ Recipients of health care  in sub-Saharan Africa face significant barriers in ac
 
 The CHT offers general guidance on how  SMS workflows can be built on CHT. CHT SMS based workflows can be configured to support D2C / 2wT between health care providers and clients. The D2C / 2wT workflows can be designed to support:
 
-<ul>
-<li><strong>Regular client check-ins</strong> to help keep track of the client's condition</li>
-<li>Sending of <strong>client follow up appointment reminders</strong> with confirmation requests</li>
-<li>Sharing of <strong>information and educational health messages</strong> with the clients</li>
-<li><strong>Client tracing and client review tasks</strong> can be assigned to specific healthcare workers. Escalated workflows can result in tasks in CHT apps for CHWs, clerks or nurses, depending on need</li>
-<li><strong>Two-way conversation messaging</strong> between healthcare providers and clients</li>
-<li><strong>2wT-based telehealth</strong>, providing a lower cost format for clinical triaging, reassurance or referral to in-person care via SMS</li>
-</ul>
+ * **Regular client check-ins** to help keep track of the client's condition
+ * Sending of **client follow up appointment reminders** with confirmation requests
+ * Sharing of **information and educational health messages** with the clients
+ * **Client tracing and client review tasks** can be assigned to specific healthcare workers. Escalated workflows can result in tasks in CHT apps for CHWs, clerks or nurses, depending on need
+ * **Two-way conversation messaging** between healthcare providers and clients
+ * **2wT-based telehealth**, providing a lower cost format for clinical triaging, reassurance or referral to in-person care via SMS
+
 
 Furthermore, CHT allows integration with other health information systems including District Health Information Software 2 (DHIS2) and facility-based electronic medical record systems such as OpenMRS.
 
@@ -53,7 +61,7 @@ The CHT-RapidPro integration enables App builders to build complex conversationa
 Clients are enrolled directly using the CHT D2C, 2wT app using a phone, tablet or computer. Clients need only simple phones and do not need to download an app. The resulting client data is then stored and managed using CouchDB and a PostgreSQL database system. Through the CHT application programming interface (API), client messages are sent to Rapidpro, and RapidPro pushes summary data back to the CHT to  update client responses and status. On the client interface these can be automated messages or interactive free text with healthcare providers. An SMS text message aggregator service and a short code channel linked to RapidPro streamlines the incoming and outgoing SMS text messages; while the CHT generates the appropriate tasks (help clinicians triage, refer, track, and trace clients)and reports (keep track of completed actions and monitor clients) as represented in figure 1.
 
 
-{{< figure src="Figure1SystemArchitecture.jpg" link="Figure1SystemArchitecture.jpg" alt="Direct Messaging technical architecture" title="" caption="<b>Figure 1:</b> System architecture of direct-to-client (D2C), two-way texting (2wT) for voluntary medical male circumcision (VMMC) postoperative care. API: application programming interface; CHT: Community Health Toolkit." class="left col-10">}}
+{{< figure src="Figure1SystemArchitecture.jpg" link="Figure1SystemArchitecture.jpg" alt="Direct Messaging technical architecture" title="" caption="**Figure 1:** System architecture of direct-to-client (D2C), two-way texting (2wT) for voluntary medical male circumcision (VMMC) postoperative care. API: application programming interface; CHT: Community Health Toolkit." class="left col-10">}}
 
 The CHT core framework has  inbuilt [privacy/security features](https://docs.communityhealthtoolkit.org/building/guides/privacy/) including two- factor authentication, role based authorization, data security, and a range of protected data access endpoints. The system can be configured to manage [user roles and permissions](https://docs.communityhealthtoolkit.org/building/concepts/users/) for access of CHT applications. Responsible data practices is enforced through the  [Privacy and Data Protection Policy](https://docs.communityhealthtoolkit.org/building/guides/privacy/policy/).
 
@@ -72,13 +80,13 @@ The University of Washington, Department of Global Health’s International Trai
 |Site nurse|Health facility or outreach site|Smartphone|Users are routine MC nurses at health facilities or outreach sites who enroll D2C clients and interact with clients enrolled at their site via the CHT D2C messaging app. In higher volume facilities, data clerks may also be involved in data entry of client enrolment details.|
 |VMMC Clients|Community / household level|Smartphone / feature phone|VMMC clients with access to mobile devices and who have consented to participate in and have been enrolled into the D2C, 2wT app. They will receive daily check in messages and can communicate with their health care providers via text.|
 
-<b>Figure 2:</b> User types and hierarchy
-
 ### Workflows
-Current workflow for VMMC client enrollment, screening and VMMC procedures (without messaging) are as described in figure 3 below.
 
-{{< figure src="Figure3Workflows.png"  link="Figure3Workflows.png" alt="Users and hierarchy example" title="" caption="<b>Figure 3:</b> Voluntary male circumcision workflow before direct-to-client messaging was introduced" class="col-9">}}
-
+Current workflow for voluntary medical male circumcision client enrollment, screening and procedures, before direct-to-client messaging was introduced:
+| {{< figure src="Figure3_1.png" >}} | {{< figure src="Figure3_2.png" >}} | {{< figure src="Figure3_3.png">}} | {{< figure src="Figure3_1.png" >}}  | {{< figure src="Figure3_4.png" >}} |
+|--|--|--|--|--|
+| **1.** Enrolment - Static/Outreach Site visit | **2.** HIV Testing, screening & counseling | **3.** Procedure | **4.** Static/Outreach Site visit | **5.** Follow up visit  |
+| Nurse enrols clients | Client tested for HIV, screened for wounds, any form of bleeding, and any other medical issues. Counselling  provided as needed.| If client's HIV status doesn't pose risks, procedure is done. Post-operative counseling  offered | Register after surgery | On Day 2 and Day 7 after surgery | 
 
 #### 1. Automated check-in workflow to support client care
 
@@ -88,14 +96,28 @@ After the registration, the VMMC clients registered on the VMMC app receive prec
 
 An adverse event (AE) is any complication or problem that may happen during or after a surgery, including a VMMC surgery. AEs may be mild, moderate or severe. All moderate and severe AEs should be reviewed by a clinician. Moderate and severe AEs after VMMC are rare, but occur about 2% of the time. . Identifying AEs swiftly and managing them properly is a sign of a quality surgical program, including VMMC programs.  
 
+Direct to client messaging for voluntary male circumcision clients without AE:
 
-{{< figure src="Figure4PatientAutomated.png"  link="Figure4PatientAutomated.png" alt="Patient automated check-in SMS workflows" title="" caption="<b>Figure 4:</b> Direct to client messaging for voluntary male circumcision clients without adverse effects" class="col-9">}}
+|{{< figure src="Figure4_1.png" >}} | {{< figure src="Figure4_2.png" >}} | {{< figure src="Figure4_3.png">}}|
+|--|--|--|
+| **Enrolment** | **Automated, daily check-in SMS** | **{{No Action}}** |
+| **1a** Static/Outreach Site visit  Data Clerk/Site Nurse enrolls eligible clients into the D2C program using the enrollment form|**2** System sends automated daily SMS to client to see how they are doing. |**3** SMS response AE absent |
+|**1b** Registration and SMS confirmation  Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present | Continue automated daily check-in SMS until day 13 | 
+||**2b** Client SMS response AE absent |  |
+
 
 #### 2. Triaging to care workflow for clients with potential complications
 
-Clients with potential AEs (those who respond with 1 or a free text indicating concerns) are followed up by nurses and given care via the D2C, 2wT intervention. Clients may be followed up via SMS / call. Nurses provide education and reassurance, or refer in cases where they need to go to a health facility for in-person review if an emergency was suspected (Figure 5). The clients could request a call back to speak with the nurse during routine clinic hours; the nurse could also initiate calls to follow up with clients when desired.
+Clients with potential AEs (those who respond with 1 or a free text indicating concerns) are followed up by nurses and given care via the D2C, 2wT intervention. Clients may be followed up via SMS / call. Nurses provide education and reassurance, or refer in cases where they need to go to a health facility for in-person review if an emergency was suspected. The clients could request a call back to speak with the nurse during routine clinic hours; the nurse could also initiate calls to follow up with clients when desired.
 
-{{< figure src="Figure5Triage.png"  link="Figure5Triage.png" alt="" title="" caption="<b>Figure 5:</b> Direct-to-client messaging for voluntary male circumcision clients without adverse effects" class="col-9">}}
+Direct-to-client messaging for voluntary male circumcision clients without AEs:
+
+|{{< figure src="Figure4_1.png" >}} | {{< figure src="Figure4_2.png" >}} | {{< figure src="Figure5Triage3.png">}} | {{< figure src="Figure5Triage4.png">}}|
+|--|--|--|--|
+| **Enrolment** | **Automated, daily check-in SMS** | **Referral for care task** | **Client review visit**  |
+|**1a**  Static/Outreach Site visit. Data Clerk/Site Nurse enrolls eligible VMMC clients into the D2C, 2wT program using the enrollment form |**2** Check in SMS of Wellbeing.  System sends automated daily SMS to client to see how they are doing.|**3** 2wT/HUB Nurse triages patient, provides guidance.2wT/HUB Nurse triages patient, provides guidance.2wT/HUB Nurse triages patient, provides guidance.|**4** When the client comes to the health facility after a referral, the clinicians (nurses or clinical associates) at site level use the Client in-person visit form to complete the details of the review|
+|**1b** Registration and SMS confirmation.   Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present|**3a** If nurse and client satisfied, no further response.|If client just comes into the clinic, the site Nurse completes the Client in-person visit form to complete the details of the review|
+||**2b** Client SMS response AE absent|**3b** If nurse thinks client may have AE referral for care task is cleared by completing the Referral for Care form, calling site nurse to alert of referral. and the client is informed via call or message||
 
 #### 3. Escalated workflow to generate tasks when clients do not respond
 
@@ -103,17 +125,40 @@ If the client has not responded to any of the daily check in-messages by day 3, 
 
 A VMMC client who responds with a potential complication triggers a Client review: Potential complication task for the 2WT nurse. They then report and fill in whether the client was reviewed by a clinician. If the client has been reviewed by a clinician, they record the details of the review, time, place and adverse events identified. If the client has not been reviewed by a clinician, the 2WT nurse will try and trace them by SMS, phone call or a home visit; and report the tracing outcomes as shown in figure 6 below.
 
+Direct-to-client messaging for voluntary male circumcision clients without adverse effects:
 
-{{< figure src="Figure6Escalated.png"  link="Figure6Escalated.png" alt="" title="" caption="<b>Figure 6:</b> Direct-to-client messaging for voluntary male circumcision clients without adverse effects" class="col-9">}}
+|{{< figure src="Figure4_1.png" >}} | {{< figure src="Figure4_2.png" >}} | {{< figure src="Figure5Triage3.png">}} | {{< figure src="Figure5Triage4.png">}} |
+|--|--|--|--|
+| **Enrolment** | **Automated, daily check-in SMS** | **Tracing follow up task** | **Client review visit**  |
+|**1a** Static/Outreach Site visit  Data Clerk/Site Nurse enrols eligible VMMC clients into the D2C, 2wT program using the enrolment form |**2** Check in SMS of Wellbeing  System sends automated daily SMS to client to see how they are doing.|**3a** No client response by day 3= additional check-in SMS at noon |**4** When the client comes to the health facility after a referral, the clinicians (nurses or clinical associates) at site level use the Client in-person visit form to complete the details of the review|
+**1b** Registration and SMS confirmation  Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present |**3b** No client response by day 4. Trace Client task is generated 2wT/HUB Nurse initiates the tracing activity. - Client traced and no concern; no action   - Client traced & AE referral follow up task   - Client reviewed complete review form   - No response at all Notes in tracing report|If client just comes into the clinic, the site Nurse completes the Client in-person visit form to complete the details of the review|
+||**2b** Client SMS response AE absent |**3c** 2wT/HUB Nurse triages patient, provides guidance. If nurse and client satisfied, no further response. If nurse thinks client may have AE referral for care task is cleared by completing the Referral for Care form, calling site nurse to alert of referral, and the client is informed via call or message | |
 
 
 #### 4. Clients can share requests by messaging health care providers.
 Clients registered in the intervention can also initiate the bidirectional messaging with a 2WT Nurse by messaging a central phone number or a short code. Clients can report any concern, ask a question about wound healing, or request for help from health care providers via SMS. For this workflow, the logic can be preconfigured to support health triage and clinical referrals. Using the messaging functionality on CHT, health care providers based at the facility can view, manage and respond to incoming texts from VMMC clients.
 
 ## Evidence of Impact
-In collaboration with researchers at the University of Washington, we  assessed the effectiveness of the 2wT intervention through randomized controlled trials in Zimbabwe and South Africa. The foundational [randomized control trial in Zimbabwe in 2018](https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-019-3470-9), demonstrated that post-surgical client follow up via SMS was as safe as follow up care at the clinic, and that the transition to SMS-based follow-up option enabled an 85% reduction in unnecessary clinic visits. Similar findings were reported in [South Africa](https://www.jmir.org/2023/1/e42111/). This approach to messaging with clients was more efficient and [cheaper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239915) than standard care, thereby lowering costs. Both clients and clinicians both found the approach to be [highly usable](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234) and [acceptable for post-operative care](https://journals.sagepub.com/doi/full/10.1177/20552076231194924) and further [usability studies](https://formative.jmir.org/2023/1/e44122) found that it was preferred by clients  and providers alike (see figure 7). We are also expanding our application of D2C, 2wT for antiretroviral therapy (ART) clients in Malawi, aiming to have similarly [positive impact on engagement in ART and retention in HIV care](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0278806).
+In collaboration with researchers at the University of Washington, we  assessed the effectiveness of the 2wT intervention through randomized controlled trials in Zimbabwe and South Africa. The foundational [randomized control trial in Zimbabwe in 2018](https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-019-3470-9), demonstrated that post-surgical client follow up via SMS was as safe as follow up care at the clinic, and that the transition to SMS-based follow-up option enabled an 85% reduction in unnecessary clinic visits. Similar findings were reported in [South Africa](https://www.jmir.org/2023/1/e42111/). This approach to messaging with clients was more efficient and [cheaper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239915) than standard care, thereby lowering costs. Both clients and clinicians both found the approach to be [highly usable](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234) and [acceptable for post-operative care](https://journals.sagepub.com/doi/full/10.1177/20552076231194924) and further [usability studies](https://formative.jmir.org/2023/1/e44122) found that it was preferred by clients  and providers alike (see "Benefits" below). We are also expanding our application of D2C, 2wT for antiretroviral therapy (ART) clients in Malawi, aiming to have similarly [positive impact on engagement in ART and retention in HIV care](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0278806).
 
-{{< figure src="Figure7EvidenceOfImpact.png"  link="Figure7EvidenceOfImpact.png" alt="" title="" caption="<b>Figure 7:</b> Evidence supported benefits of direct-to-client messaging for voluntary male circumcision clients" class="col-9">}}
+### Benefits
+
+#### For Clients
+
+* Reduced cost of follow-up 
+* Comfort and ease of usability of 2WT
+* Real-time clinical support in your pocket
+* Rapid support in case of suspected AE 
+
+#### Of Participation
+
+* Increase demand/interest from men who would opt for MMC but not for the follow-up visits
+* Early identification of AE's
+* Ability to scale based on organizational needs
+* Less clinical time spend on unnecessary followup-visits
+* Publications
+* Great focus/time on incoming clients for MMC
+
 
 ## More scenarios where direct-to-client messaging can be used to support client care
 
@@ -148,8 +193,8 @@ VMMC code can be accessed using the following link [D2C messaging app for post-o
   - 2wT is scale up, reaching over 45,000 in [Zimbabwe](https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000066)
 
 
-<strong>Related pages</strong> - [UW website](https://sites.uw.edu/twowaytexting/), [I-tech/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients)
+**Related pages** - [UW website](https://sites.uw.edu/twowaytexting/), [I-tech/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients)
 
 {{< figure src="Figure8Collab.png"  link="Figure8Collab.png" alt="" title="" class="col-9">}}
 
-<strong>Funding:</strong> 2wT Zimbabwe was supported by the Fogarty International Center of the National Institutes of Health under Award Number R21TW010583, PI Feldacker. 2wT South Africa is supported by National Institute of Nursing Research of the National Institutes of Health (NIH) under award number 5R01NR019229, PIs Feldacker and Setswe. The content is solely the responsibility of the collaborators and authors and does not necessarily represent the official views of the National Institutes of Health.
+**Funding:** 2wT Zimbabwe was supported by the Fogarty International Center of the National Institutes of Health under Award Number R21TW010583, PI Feldacker. 2wT South Africa is supported by National Institute of Nursing Research of the National Institutes of Health (NIH) under award number 5R01NR019229, PIs Feldacker and Setswe. The content is solely the responsibility of the collaborators and authors and does not necessarily represent the official views of the National Institutes of Health.
