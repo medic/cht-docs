@@ -111,7 +111,7 @@ CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Fo
 Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
 
 ```shell
-docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v ~/cht-docker/local.d:/opt/couchdb/data -v ~/cht-docker/local.d:/opt/couchdb/etc/local.d apache/couchdb:3.4.2
+docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v ~/cht-docker/local.d:/opt/couchdb/data -v ~/cht-docker/local.d:/opt/couchdb/etc/local.d apache/couchdb:2
 ```
 
 Let's ensure CouchDB is set up with a test `curl` call. This should show "nonode@nohost" in JSON:
