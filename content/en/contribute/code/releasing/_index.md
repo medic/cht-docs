@@ -16,12 +16,12 @@ A release is a set of code changes bundled together, ideally with at least one d
 
 The high-level steps for a release are as follows:
 
-* The [Focused Working Group]({{% ref "/contribute/medic/product-development-process/focused-groups" %}}) sees an opportunity they want to go after. The opportunity addresses a need of at least one CHT app deployment and will be used by that deployment after the release.
-* The Focused Working Group agrees on a solution for it.
-* Tickets are added to the [Product Team Activities board](https://github.com/orgs/medic/projects/134/views/3) for what's being built.
+* The CHT Community sees an opportunity they want to go after. The opportunity addresses a need of at least one CHT app deployment and will be used by that deployment after the release.
+* The CHT Community forms a squad and works with it on a solution.
+* Tickets are added to GitHub for what's being built.
 * A [release manager](#release-manager) is assigned from the team.
 * The release manager [creates an issue](https://github.com/medic/cht-core/issues/new/choose) for either a [Major/Minor or Patch](#majorminorpatch-release) release and follows the process outlined in the issue template.
-* Code is built by a developer together with [quality assistance]({{% ref "/contribute/medic/product-development-process/quality-assistance" %}}).
+* Code is built by a developer together with [quality assistance]({{% ref "/contribute/code/quality-assistance" %}}).
 * [Code is reviewed]({{% ref "/contribute/code/workflow#code-reviews" %}}).
 * Code is merged.
 * Code is released.
