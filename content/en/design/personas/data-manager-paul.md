@@ -3,12 +3,12 @@ title: "Data Manager, Paul"
 linkTitle: "Data Manager"
 weight: 5
 description: >
-  Data Managers are often based at a regional health facility or a program or administrative unit and serve many local facilities. They are responsible for collating and reporting on community and health system data. Their work often involves following up with supervisors and nurses to verify data and retrieve missing information.
+  Collating and reporting on community and health system data
 ---
 
-![HRIO](hrio.png)
+Data Managers are often based at a regional health facility or a program or administrative unit and serve many local facilities. They are responsible for collating and reporting on community and health system data. Their work often involves following up with supervisors and nurses to verify data and retrieve missing information.
 
-<br>
+![HRIO](hrio.png)
 
 > “It’s all about training them. The Community Health Workers are just villagers and farmers, so it’s training and more training.”
 

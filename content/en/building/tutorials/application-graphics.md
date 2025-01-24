@@ -6,7 +6,7 @@ description: >
   Configuring CHT Application Graphics
 relatedContent: >
   building/features/admin
-  design/icons
+  design/interface/icons
 
 aliases:
    - /apps/tutorials/application-graphics
@@ -180,7 +180,7 @@ Add icons to the `resources` folder, and include them by name in the `resources.
  }
 ```
 
-{{< see-also page="design/icons" title="Icon Library" >}}
+{{< see-also page="design/interface/icons" title="Icon Library" >}}
 
 The folder and files structure would look like this:
 

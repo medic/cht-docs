@@ -1,16 +1,14 @@
 ---
-title: "Mapping User on the CHT Hierarchy"
+title: "Mapping Users on the CHT Hierarchy"
 linkTitle: Mapping Hierarchy
-weight: 5
+weight: 4
 description: >
   Mapping users on the CHT hierarchy
-relatedContent: >
-
+aliases:
+   - /design/guides/mapping-hierarchy
 ---
 
-## Purpose Of the Guide
-
-This guide will take you through mapping of users on CHT hierarchy, including:
+This section will take you through mapping of users on CHT hierarchy, including:
 
 - defining the hierarchy (reporting structure)
 - defining user roles

@@ -388,7 +388,7 @@ The image on the right-hand side shows the updated target titles. Your image may
 {{% alert title="Note" %}} Be sure to have the correct translation key in your target widget's `translation_key` property.  {{% /alert %}}
 
 ### 10. Target icons
-You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library]({{< ref "design/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
+You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library]({{< ref "design/interface/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
 
 ```json
 {
@@ -399,7 +399,7 @@ You may add `icons` to your target widgets to enhance their appearance and to he
 ```
 {{% alert title="Note" %}} The `key` in the `resources.json` file is the value of the `icon` property in the target widget configuration. {{% /alert %}}
 
-{{< see-also page="design/icons" title="Icon Library" >}}
+{{< see-also page="design/interface/icons" title="Icon Library" >}}
 
 To upload *[resources]({{< ref "building/reference/resources#icons" >}})* to your local instance, run the following command:
 

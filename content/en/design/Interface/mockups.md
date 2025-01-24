@@ -1,9 +1,11 @@
 ---
 title: "Editable Mockups"
 linkTitle: "Mockups"
-weight: 
+weight: 6
 description: >
   Slide decks with components for testing and validating concepts
+aliases:
+   - /design/mockups/
 ---
 
 Use these sample CHT screens and components as needed to test and validate workflows. Make a copy of the slides to edit and use with your content. 
