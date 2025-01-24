@@ -30,7 +30,7 @@ When a bug is found that impacts functionality that worked in a previous version
 
 ### Issue Status
 
-When the issue is scheduled for development it will be added to the [Product Team Activities project](https://github.com/orgs/medic/projects/134). The issue has a status property that represents the state the issue is in.
+When the issue is scheduled for development it will be added to a project. The issue has a status property that represents the state the issue is in.
 
 #### To do
 
@@ -188,7 +188,7 @@ Code reviews should be completed within 24 hours of assignment (excluding weeken
 
 ### Testing
 
-Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "contribute/medic/product-development-process/quality-assistance" >}}) dedicated page).
+Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "contribute/code/quality-assistance" >}}) dedicated page).
 
 Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or adding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
 

@@ -19,13 +19,9 @@ This page is meant to serve as a point of conversation, with a wide range of top
 
 ### Teams at Medic
 Meet the [Medic team](https://medic.org/team/)!
-* [Product]({{% ref "contribute/medic/onboarding/product-team" %}})
-* Programs
-* Internal Operations
-* External Affairs
 
 ### Lifecycle of a [CHT Application]({{% ref "/running-programs/#cht-lifecycle" %}}) being built
-1. Programs team starts relationship with an organization.
+1. A program or initiative is started by one or multiple organizations.
 1. Service designers and app developers figure out how they want their system to work.
 1. App developers take latest version of the CHT and build the app for the organization.
 1. Android flavor deployed to get branded app onto CHW devices / deployment.
@@ -56,23 +52,23 @@ Medic relies on both restricted and unrestricted funds to support our mission.
 
 #### Travel 
 * Team Meetups are a great way to build relations with your team! These are usually planned weeks ahead; if you feel comfortable joining, please do!
-* Focused Working Groups team members may sometimes organize in-person meetups to meet with the people they serve. It's highly recommended to join those trips to get more connected to the team and the mission! 
+* The different teams may sometimes organize in-person meetups to meet with the people from the community. It's highly recommended to join those trips to get more connected to the community and the mission! 
 
 #### Meetings
 * There a few calls where you will be required to join. We know that depending on your timezone, you might need to adjust your calendar to be able to attend and we provide great flexibility to do so. 
 * Organization-wide calls are recorded.
 * No meetings on Fridays, as we consider Fridays as Deep Work days! 
 * Retrospective sessions
-* Weekly Focused Working Groups meetings
+* Weekly team meetings
 * Weekly 1-to-1s with your manager
 
 ### Process
 
 #### Development
-* [Current development process]({{% ref "contribute/code/workflow" %}}). Keep in mind to involve [Quality Assistance]({{% ref "contribute/medic/product-development-process/quality-assistance" %}}) from the start. 
+* [Current development process]({{% ref "contribute/code/workflow" %}}). Keep in mind to involve [Quality Assistance]({{% ref "contribute/code/quality-assistance" %}}) from the start. 
 * [Releasing]({{% ref "contribute/code/releasing" %}})
 * Backwards compatibility matters a lot, so CHWs can keep using the app and delivery care to their community without interruptions. 
-* It can feel slow at times, but we’re making a lot of progress here. See below about how Focused Working Groups work.
+* It can feel slow at times, but we’re making a lot of progress here.
 * Quality matters a lot!
 * [Data Flow]({{% ref "core/overview/data-flows-for-analytics" %}})
 * [Monitoring & Alerting]({{% ref "hosting/monitoring" %}})
@@ -90,12 +86,6 @@ Medic relies on both restricted and unrestricted funds to support our mission.
 #### GitHub 
 * Tons of things happen here.
 * Recommendation: [Set up your reminders/notifications](https://medic.slack.com/archives/C024KTGRW/p1617308776092600) 
-* A few important boards: 
-  * [SRE Support](https://github.com/orgs/medic/projects/19)
-  * [Ecosystem Workstream](https://github.com/orgs/medic/projects/134/views/11)
-  * [Allies Workstream](https://github.com/orgs/medic/projects/134/views/3)
-  * [Care Teams Workstream](https://github.com/orgs/medic/projects/134/views/2)
-  * [Test Automation](https://github.com/orgs/medic/projects/134/views/12)
 
 #### Quality Assistance
 * High emphasis on automation
@@ -110,26 +100,13 @@ Medic relies on both restricted and unrestricted funds to support our mission.
 * Not on-call
 * We’re offline first, so not every outage calls for immediate action/resolution.
 
-### Product
-#### [CHT Forum](https://forum.communityhealthtoolkit.org/)
+
+### [CHT Forum](https://forum.communityhealthtoolkit.org/)
 * We keep the forum active. It's a great place to talk with people working with the CHT.
 * Encourage teammates to post and answer questions there instead of Slack when the community might benefit
 * Expecting you to be proactive and support the team with checking forum posts and helping when questions arise
 
-#### Partners
-* Medic-hosted
-* Self-hosted
-* Technical partners
-
-#### Product Development Process
-* At Medic, we follow [Continuous Discovery]({{% ref "continuous-discovery-overview" %}}) as a [Product Development Process]({{% ref "product-development-process" %}})
-  * Trying to follow closely with the [Continuous Discovery Habits](https://www.producttalk.org/2021/05/continuous-discovery-habits/) book by Teresa Torres
-  * [Focused Working Groups]({{% ref "focused-groups" %}}) within the product team to focus on specific groups of users
-    * Allies
-    * Care Teams
-    * Ecosystem
-
-#### Technology Radars
+### Technology Radars
 * A [Technology Radar]({{% ref "contribute/tech-radar" %}}) is a compilation of technologies and their adoption status in the context of the CHT. When in doubt of using a certain technology or feature of the CHT, check the radars for their adoption status.
   * [CHT Technology Radar for Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/index.html)
   * [CHT Technology Radar for Implementers](https://docs.communityhealthtoolkit.org/cht-tech-radar-implementers/index.html).

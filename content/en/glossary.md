@@ -196,7 +196,7 @@ mHealth stands for mobile-based or mobile-enhanced solutions that deliver health
 
 ###### Minimum Viable Project/Product (MVP)
 
-A minimum viable product is a product with enough features to attract early-adopter customers and validate a product idea early in the product development cycle. The MVP can help the product team receive user feedback as quickly as possible to iterate and improve the product.
+A minimum viable product is a product with enough features to attract early-adopter customers and validate a product idea early in the product development cycle. The MVP can help the community receive user feedback as quickly as possible to iterate and improve the product.
 
 ###### Ministry of Health (MOH)
 

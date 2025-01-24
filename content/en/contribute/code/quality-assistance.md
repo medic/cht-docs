@@ -1,9 +1,11 @@
 ---
 title: "Quality Assistance"
 linkTitle: "Quality Assistance"
-weight: 5
+weight: 15
 description: >
   How the Quality Assistance process works at Medic
+aliases:
+   - /contribute/medic/product-development-process/quality-assistance
 ---
 
 ## Goals
@@ -31,7 +33,7 @@ The big difference to that AT step though will be the depth in which it is perfo
 There may still be cases of a ticket getting coded up totally unrelated to Focused Working Group work, perhaps even unannounced to anyone. For work like this the traditional AT step is still appropriate for now. Still though, it is preferred for the software developer to get a QA engineer involved as early as possible; it helps us get the best contributions from everyone.
 
 ## An Example of QA Assistance in Practice
-Imagine a scenario where a Focused Working Group is going to change the display of the targets screen. The group would discuss the needs of the users and work out solutions, where the selected solution was to make this change. This discussion would involve a PM/PO, designer, developer, and QA engineer. The developer would be thinking about how to code the proposed solution and the QA engineer would be considering that as well as what might go wrong.
+Imagine a scenario where a community member or a squad is going to change the display of the targets screen. The group would discuss the needs of the users and work out solutions, where the selected solution was to make this change. This discussion could involve project managers, designers, developers, and QA engineers. The developer would be thinking about how to code the proposed solution and the QA engineer would be considering that as well as what might go wrong.
 
 In the case where a UI change is being made, a design will be created. At this point the group can see what is to be built. When meeting and discussing the user interactions with the designer the QA engineer can get some early ideas around test scenarios.
 
@@ -50,6 +52,6 @@ At this point the ideal action to take would be that the developer merges the fi
 The last part here is to merge it. That extra poking around should be quick, so the developer should be ready to click the green button soon!
 
 ## But, but, but!!! (some questions you might have)
-- Who checks if the right thing got built? – The Focused Working Group members should be aware of what’s being built, why, and if it’s coming together as expected. That’s not to be solely delegated to a QA engineer to do. Developers should be working with their teammates and showing their work (demos, screenshots, etc). This should feel like a team collaborating to build useful working software, not an assembly line of disassociated parts.
+- Who checks if the right thing got built? – The community/squad members should be aware of what’s being built, why, and if it’s coming together as expected. That’s not to be solely delegated to a QA engineer to do. Developers should be working with the community and showing their work (demos, screenshots, etc). This should feel like a team collaborating to build useful working software, not an assembly line of disassociated parts.
 - What if a developer is bad at testing? – That’s something to improve, not outsource to someone else. Even still, the QA engineer isn’t disappearing and they will still offer deeper advice on what tests the developer should perform.
 - What will QA engineers do if not doing manual acceptance testing? – Automating more. That can be in more end-to-end tests for better regression testing, automating mobile device testing, adding better structures to enable the whole team to automate better, improving CI pipeline, etc.
