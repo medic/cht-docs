@@ -33,7 +33,7 @@ The big difference to that AT step though will be the depth in which it is perfo
 There may still be cases of a ticket getting coded up totally unrelated to Focused Working Group work, perhaps even unannounced to anyone. For work like this the traditional AT step is still appropriate for now. Still though, it is preferred for the software developer to get a QA engineer involved as early as possible; it helps us get the best contributions from everyone.
 
 ## An Example of QA Assistance in Practice
-Imagine a scenario where a community member or a squad is going to change the display of the targets screen. The group would discuss the needs of the users and work out solutions, where the selected solution was to make this change. This discussion could involve involve project managers, designers, developers, and QA engineers. The developer would be thinking about how to code the proposed solution and the QA engineer would be considering that as well as what might go wrong.
+Imagine a scenario where a community member or a squad is going to change the display of the targets screen. The group would discuss the needs of the users and work out solutions, where the selected solution was to make this change. This discussion could involve project managers, designers, developers, and QA engineers. The developer would be thinking about how to code the proposed solution and the QA engineer would be considering that as well as what might go wrong.
 
 In the case where a UI change is being made, a design will be created. At this point the group can see what is to be built. When meeting and discussing the user interactions with the designer the QA engineer can get some early ideas around test scenarios.
 
