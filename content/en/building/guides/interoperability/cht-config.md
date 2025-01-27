@@ -1,12 +1,14 @@
 ---
-title: "Building Interoperability with FHIR systems"
-linkTitle: "Building Interoperability with FHIR systems"
-weight:
+title: "Configuring CHT applications for interoperability workflows"
+linkTitle: "Configuring"
+weight: 1
 description: >
-   Exchange patients and reports with FHIR compliant systems
+   Guide to setting up forms and outbound push for interoperability
 keywords: interoperability fhir integrations openmrs
 aliases: 
   - /building/guides/integrations/fhir/
+  - /building/guides/interoperability/fhir/
+  - /building/guides/interoperability/cht-config/
 relatedContent: >
   building/concepts/interoperability/
 ---
@@ -296,7 +298,7 @@ Using the above example form, this transition will create a patient document and
 `Encounters` and `Observations` created by interoperating systems can be sent to the CHT to be visible to CHT users.
 Similarly to patients, a mediator converts the FHIR resources to a json format that is submitted to the records API.
 Reports need to be linked to patients using a `patient_id` field which is the uuid of the patient document in CHT. The mediator extracts this id from the `CHT Document ID` identifier of the FHIR `Patient`. 
-For patients created by CHT, they need to have been sent to the interoperating system before receiving any reports. For patients created by the interoperating system, the `CHT Document ID` needs to have been set; see the section below on [Patient Ids]({{< ref "building/guides/interoperability/fhir#populating-ids" >}}).
+For patients created by CHT, they need to have been sent to the interoperating system before receiving any reports. For patients created by the interoperating system, the `CHT Document ID` needs to have been set; see the section below on [Patient Ids](#populating-ids).
 
 A CHT form needs to be configured to receive the reports via the records API.
 In the form configuration, the names of fields which should be extracted from `Observations` should be the codes of the `Observations`. Human readable labels can be added for display.
