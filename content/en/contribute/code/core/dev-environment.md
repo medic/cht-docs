@@ -30,7 +30,7 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
 {{< tabpane persist=false lang=shell >}}
 {{< tab header="Linux (Ubuntu)" >}}
 sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq python2 git make g++
+sudo apt -y install xsltproc curl uidmap jq python3 git make g++
 # Use NVM to install NodeJS:
 export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
