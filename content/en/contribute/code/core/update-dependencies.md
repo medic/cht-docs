@@ -32,6 +32,7 @@ Then for each folder go through these steps.
 
 ## Problems
 
+- See [issue #9770](https://github.com/medic/cht-core/issues/9770) for a list of the known dependencies that cannot be upgraded further because their latest versions only support ES Modules.
 - Don't update `bootstrap` to 4+ as it has many breaking changes. One day we will either raise an issue to upgrade it or migrate off it, but that is outside the scope of this change.
 - Don't update `bootstrap-daterangepicker`.
 - Don't update the `webapp` version of `jquery` to 3.6.0+ as the `select2` search input loses focus on click event, this is a [known issue](https://github.com/select2/select2/issues/5993) in their repository.
