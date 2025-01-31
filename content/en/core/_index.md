@@ -1,7 +1,7 @@
 ---
 title: "CHT Core Framework"
 linkTitle: "CHT Core Framework"
-weight: 4
+weight: 3
 description: >
   Technical overview and architecture of CHT Core used to build digital health applications
 ---
