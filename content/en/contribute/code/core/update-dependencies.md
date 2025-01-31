@@ -8,16 +8,12 @@ aliases: >
   /core/guides/update-dependencies
 ---
 
-Every minor release we update dependencies to get the latest fixes and improvements. We do this early in the release cycle so that we have some more time to find regressions and issues. This is done on all folders with a package.json, including:
+Every minor release we update dependencies to get the latest fixes and improvements. We do this early in the release cycle so that we have some more time to find regressions and issues. This is done on all folders with a package-lock.json, including:
 
 - cht-core
   - / (root)
   - /admin
-  - /api
-  - /sentinel
-  - /shared-libs/*
   - /webapp
-- cht-conf
 
 ## Steps
 
@@ -38,21 +34,10 @@ Then for each folder go through these steps.
 
 - Don't update `bootstrap` to 4+ as it has many breaking changes. One day we will either raise an issue to upgrade it or migrate off it, but that is outside the scope of this change.
 - Don't update `bootstrap-daterangepicker`.
-- Don't update `select2` as the latest patch always seems to fail.
-- Don't update `jquery` to 3.6.0+ as the `select2` search input loses focus on click event, this is an [open issue](https://github.com/select2/select2/issues/5993) in their repository.
-- CHT-Core's webapp is using Enketo and jQuery library, at the same time Enketo internally uses a specific version of jQuery. Make sure webapp installs the same jQuery version than the one Enketo uses internally: `3.2.x`.
-
-  Do this by checking the jquery entry in `./webapp/package.json` matches `./webapp/node_modules/enketo-core/package.json`:
-
-  ```
-  grep '"jquery"' ./webapp/package.json
-  "jquery": "3.2.x",
-  grep '"jquery"' ./webapp/node_modules/enketo-core/package.json
-  "jquery": "3.2.x",
-  ```
-
-- Make sure the version of `api/enketo-xslt` is the same as `webapp/enketo-core/enketo-transformer/enketo-xslt`.
-- If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue with `Upgrade dependencies` tag, to upgrade just that dependency. Don't hold up all the other upgrades you've made.
+- Don't update the `webapp` version of `jquery` to 3.6.0+ as the `select2` search input loses focus on click event, this is a [known issue](https://github.com/select2/select2/issues/5993) in their repository.
+    - Note that the `webapp` webpack config is aliasing the `jquery` package to make sure we only bundle one version of jquery. Currently `enketo-core` is targeting `3.6.3`, but we cannot take that version because of this select2 issue.
+    - This select2 issue is actually resolved by upgrading to jquery `3.7+`, but we cannot move to that version because it is not compatible with our current version of enketo-core (`7.2.5`).
+- If you have trouble upgrading any other dependency and you think it'll be challenging to fix it then raise a new issue with `Dependencies` tag, to upgrade just that dependency. Don't hold up all the other upgrades you've made.
 
 ## Troubleshooting
 
