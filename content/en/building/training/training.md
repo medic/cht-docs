@@ -1,8 +1,11 @@
 ---
 title: "CHT training resources"
-linkTitle: "Training of End Users"
-weight : 1
+linkTitle: "Training CHT Users"
+weight : 4
+aliases:
+   - /running-programs/training
 ---
+
 ## CHT training process
 
 In the implementation of CHT supported community health programs, health care workers such as CHWs, CHW supervisors and facility based health care providers need training to help equip them with the required knowledge and skills to effectively carry out their roles and responsibilities. For most deployments, program leads and ministry of health officials may also need training for them to perform their roles, oversee and supervise the community health programs. End user training needs to be well planned and implemented using standardized training methods and approaches which take into account the capacity of end users. 
