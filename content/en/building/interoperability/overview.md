@@ -11,8 +11,8 @@ relatedContent: >
   building/interoperability/openhim
   building/interoperability/ltfu
 aliases:
-   - /apps/concepts/interoperability
-   - /building/concepts/interoperability
+  - /apps/concepts/interoperability
+  - /building/concepts/interoperability
 ---
 
 ## Introduction 

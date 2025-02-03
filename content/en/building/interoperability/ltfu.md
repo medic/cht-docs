@@ -8,7 +8,7 @@ keywords: openmrs interoperability
 relatedContent: >
   building/interoperability/cht-config
 aliases:
-   - /building/guides/interoperability/ltfu
+  - /building/guides/interoperability/ltfu
 ---
 
 ## Workflow Testing
