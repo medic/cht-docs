@@ -51,7 +51,7 @@ See the [OpenHIM guide]({{< ref "building/guides/interoperability/openhim" >}}) 
     1. **HTTP Request** - To trigger the LTFU process for the newly created patient, you need to create a `ServiceRequest`. You can refer to the API documentation available [here](#servicerequest-resource) to learn how to create a `ServiceRequest`. Replace the `requester.reference` and the `subject.reference` with the `Organization` and `Patient` identifiers respectively. Once the `ServiceRequest` is received by the mediator, it will initiate the LTFU workflow for the patient, which includes reminders for follow-up appointments and check-ins. 
 
     1. **HTTP Request** - Verify that the `ServiceRequest` was successful in both OpenHIM Mediator & FHIR Resource. Navigate to the `Transaction Log` in the Admin Console. You should see three successful API calls, as in the image below:
-       ![](/docs/images/instance-service-request.png)
+       ![](./instance-service-request.png)
 
 4.  Handle LTFU Task
 
@@ -291,7 +291,7 @@ The `Encounter` resource is an essential part of the LTFU workflow, which is aut
 
 **ENCOUNTER_IDENTIFIER:** An identifier for the encounter that can be used when querying the FHIR database in the future. Ideally, it should point to a document on the source system (CHT) that represents this encounter.
 
-> NOTE: The `ENCOUNTER_IDENTIFIER` should be the same as the `PATIENT_IDENTIFIER`. The FHIR Subscription won't be resolved properly if they don't match. Updating an existing `Encounter` will also trigger pending `Subscription` that matches the `Encounter` document, which is one of the downsides of using this method. You can learn more about it by visiting [Official FHIR Subscription Resource Scope](https://fhir-ru.github.io/subscription.html#scope).
+> NOTE: The `ENCOUNTER_IDENTIFIER` should be the same as the `PATIENT_IDENTIFIER`. The FHIR Subscription won't be resolved properly if they don't match. Updating an existing `Encounter` will also trigger pending `Subscription` that matches the `Encounter` document, which is one of the downsides of using this method. You can learn more about it by visiting [Official FHIR Subscription Resource Scope](https://build.fhir.org/subscription.html#scope).
 
 
 ##### Request

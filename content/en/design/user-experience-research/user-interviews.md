@@ -8,7 +8,7 @@ aliases:
    - /design/guides/designing-interviews
 ---
 
-User interviews serve the purpose of uncovering opportunities for innovation and for illuminating solutions to problems. 
+User interviews serve the purpose of uncovering opportunities for innovation and for illuminating solutions to problems.
 
 Generative interviews are used in the discovery phase of the development process when you’re looking for opportunities to solve for. Scoped interviews are used when a topic of interest has been identified and you’d like to gain a deeper understanding.
 
@@ -23,11 +23,12 @@ Generative interviews are used in the discovery phase of the development process
 
 [Here is a generative interview template](https://docs.google.com/document/d/1Geunh4dANz1Q0nWmAbwVlXbqv8_kcxbee_o1yLi1dQU/edit?tab=t.0).
 
-[Here is a scoped interview template](https://docs.google.com/document/d/1q7n9d6xW0G0ypx3jLJf3gz_5NsLY0BX0HLiyBq0IUb0/edit?tab=t.0).
+[Here is a scoped interview template]({{< ref "scoped" >}})
+
 
 ## Recruiting
 
-For generative interviews, recruit users on a regular cadence for continuous, wide and varied feedback. 
+For generative interviews, recruit users on a regular cadence for continuous, wide and varied feedback.
 
 For scoped interviews, recruit 5-8 users considering the following criteria:
 
