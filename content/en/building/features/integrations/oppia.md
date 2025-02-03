@@ -5,7 +5,7 @@ description: >
    Integrate CHT core with OppiaMobile’s learning management platform
 keywords: oppia
 relatedContent: >
-  building/examples/learning-care
+  exploring/learning-care
   building/guides/integrations/oppia
 aliases:
    - /apps/features/integrations/oppia
@@ -27,7 +27,7 @@ The CHT Core Framework & OppiaMobile integration currently supports the followin
 
 
 - [Task management]({{< ref "building/tasks" >}}) for notifications on new educational modules and software updates
-- [Remote onboarding]({{< ref "building/examples/training" >}}) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
+- [Remote onboarding]({{< ref "exploring/training" >}}) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
 - Optimized multimedia content with links to educational modules powered by OppiaMobile
 - Message and feedback options, to contact supervisors with questions and seek support
 - [Supervisor visibility]({{< ref "building/targets/targets-overview#supervisor-view" >}}) into CHW progress for onboarding, learning, and care

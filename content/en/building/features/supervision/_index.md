@@ -9,7 +9,7 @@ relatedContent: >
   design/best-practices/#targets
   building/features/integrations/dhis2
   building/reference/app-settings/transitions#create_user_for_contacts
-  building/examples/supervisor-reference-app
+  exploring/supervisor-reference-app
 aliases:
    - /apps/features/supervision/
 ---

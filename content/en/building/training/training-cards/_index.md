@@ -6,8 +6,8 @@ description: >
 keyword: training
 relatedContent: >
   building/training/training-cards-resources
-  building/examples/training
-  building/examples/learning-care/
+  exploring/training
+  exploring/learning-care/
 aliases:
    - /building/features/training/
    - /apps/features/training/

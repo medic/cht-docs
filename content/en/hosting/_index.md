@@ -1,6 +1,6 @@
 ---
 title: Hosting
-weight: 6
+weight: 7
 aliases:
     - /apps/guides/hosting/
 description: >

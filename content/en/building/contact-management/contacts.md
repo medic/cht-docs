@@ -10,7 +10,7 @@ relatedContent: >
   building/contact-summary/contact-summary-templated
   building/contact-management/moving-contacts
   building/contact-management/contact-and-users-1
-  building/examples/contact-tracing
+  exploring/contact-tracing
 aliases:
    - /building/features/contacts/
    - /apps/features/contacts/

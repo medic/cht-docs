@@ -6,11 +6,12 @@ description: >
   Primary health care workflow and training adaptations for COVID-19
 keywords:  
 relatedContent: >
-  building/examples/training
+  exploring/training
   building/workflows/workflows-overview
   building/concepts/care-guides
 aliases:
    - /apps/examples/phc-covid
+   - /building/examples/phc-covid
 ---
 
 Primary Health Care (PHC) workflows using the CHT are easily adaptable to help communities and facilities strengthen continuity of routine primary care services during COVID-19. Adapting PHC workflows is designed to:

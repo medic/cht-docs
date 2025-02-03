@@ -6,7 +6,7 @@ description: >
    Best practices when using a Training App to keep training and production data apart
 relatedContent: >
   building/guides/android/branding/
-  building/examples/training/
+  exploring/training/
 aliases:
    - /building/guides/training/onboarding/
    - /apps/guides/training/onboarding/

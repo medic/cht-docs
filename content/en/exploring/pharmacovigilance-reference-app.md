@@ -4,10 +4,9 @@ linkTitle: "Pharmacovigilance"
 weight:
 description: >
  CHT example application that supports pharmacovigilance in a community setting.
-relatedContent: >
-
 aliases:
    - /apps/examples/pharmacovigilance-reference-app
+   - /building/examples/pharmacovigilance-reference-app
 ---
 
 ## Problem Being Addressed

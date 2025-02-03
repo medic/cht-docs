@@ -10,6 +10,7 @@ relatedContent: >
   building/tasks/tasks-js
 aliases:
    - /apps/examples/direct-to-client
+   - /building/examples/direct-to-client
 ---
 
 <!-- Force tables on this page to have columns same width -->

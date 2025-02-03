@@ -4,7 +4,7 @@ linkTitle: "Building"
 identifier: "Building"
 aliases:
     - /apps/
-weight: 5
+weight: 6
 description: >
   Overview and reference for building CHT Applications
 ---
