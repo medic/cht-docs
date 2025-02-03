@@ -55,7 +55,7 @@ There are three main components to this application:
 
 ## Training Materials
 
-Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "building/examples/covid-education" >}}) if needed. As well, the RD-Toolkit has in app instructions for how to use specific RDTs.  
+Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "exploring/covid-education" >}}) if needed. As well, the RD-Toolkit has in app instructions for how to use specific RDTs.  
 
 ### Images
 
