@@ -6,10 +6,11 @@ description: >
    Guide to running OpenHIM and Mediators with Docker Compose
 keywords: openmrs interoperability
 relatedContent: >
-  building/guides/interoperability/cht-config
-  building/guides/interoperability/ltfu
-  building/concepts/interoperability/
-  building/guides/integrations/openmrs/
+  building/interoperability/cht-config
+  building/interoperability/ltfu
+  building/guides/integrations/openmrs
+aliases:
+   - /building/guides/interoperability/openhim
 ---
 
 ### Overview
@@ -24,13 +25,24 @@ The components and reference information for interoperability used in CHT Intero
 
 The structure of documents in the CHT database reflects the configuration of the system, and therefore, does not map directly to a FHIR message format. To achieve interoperability, the CHT uses a middleware to convert the CHT data structure into a standardized form so the other systems can read it. Below is the standard data workflow:
 
-![](flow.png)
+```mermaid
+graph LR
+cht[CHT]
+mediator_a([Mediator])
+mediator_b([Mediator])
+openhim[OpenHIM]
+
+cht -- Outbound pushfa:fa-arrow-right --- mediator_a
+cht -- API requestfa:fa-arrow-left --- mediator_b
+mediator_a -- Requestfa:fa-arrow-right --- openhim
+mediator_b -- Channelfa:fa-arrow-left --- openhim
+```
 
 CHT Interoperability uses OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "building/reference/app-settings/outbound" >}}) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
 
 Conversely, to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs]({{< ref "building/reference/api" >}}) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
 
-See more information on the [CHT interoperability page]({{< ref "building/concepts/interoperability" >}}).
+See more information on the [CHT interoperability page]({{< ref "building/interoperability/overview" >}}).
 
 ### Prerequisites
 

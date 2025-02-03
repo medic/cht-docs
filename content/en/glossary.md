@@ -141,7 +141,7 @@ An arrangement of an organization's information systems that allows them to comm
 
 ###### Interoperability
 
-The ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. {{< see-also page="building/concepts/interoperability" prefix="Read more" >}}
+The ability of health information systems to work together, even if they weren't specifically designed to work together. With interoperability, patient information can be seen, exchanged, and used across different platforms. {{< see-also page="building/interoperability" prefix="Read more" >}}
 
 ## J
 
