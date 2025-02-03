@@ -48,7 +48,7 @@ The CHT provides you with resources to design, build, deploy, and monitor digita
 ## Getting Started
 
 ### Why the CHT?
-A great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "building/examples/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
+A great place to start for high-level context on what our community is building together. To explore the diverse kinds of digital health apps you can build with the CHT, you might also find it helpful to read about the [ANC Reference App]({{< ref "exploring/anc" >}}), or watch demo videos for [contact tracing](https://youtu.be/I8bBeh80j-0), [covid education](https://youtu.be/pFEFIY_SA7M), or [covid symptom checking](https://youtu.be/9zPnhNMDzh4) apps. If you want to try out the software for yourself, feel free to [request a demo account](https://communityhealthtoolkit.org/contact). 
 
 {{< see-also page="why-the-cht" prefix="Read More" >}}
 

@@ -25,10 +25,10 @@ A simple RapidPro/CHT integration might include triggering an interactive SMS me
 App builders have built and deployed a number of interactive messaging workflows that integrate RapidPro and the CHT already, see below for a few examples.
 
 ### Contact Tracing
-The [COVID-19 Contact Tracing app]({{< ref "building/examples/contact-tracing#workflow-example" >}}) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
+The [COVID-19 Contact Tracing app]({{< ref "exploring/contact-tracing#workflow-example" >}}) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
 
 ### Remote Training
-The [Remote Training by SMS app]({{< ref "building/examples/training#remote-training-by-sms" >}}) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
+The [Remote Training by SMS app]({{< ref "exploring/training#remote-training-by-sms" >}}) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
 
 ### CHW Symptom and Mental Health Checks
 The [CHW Symptom and Mental Health Checks app](https://docs.google.com/document/d/19F6vOCNFKQnSyREiaBnryUmre20s5QZzYe0hWuWn-0k/edit) is used to proactively check in with health workers to screen for COVID-19 symptoms and/or the need for psychosocial counseling.

@@ -85,4 +85,4 @@ Users can currently interact with the app in English, French, Hindi, Nepali, Spa
 
 ## Example and reference apps
 
-The Community Health Toolkit’s [Example and Reference Apps]({{< ref "building/examples" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.
+The Community Health Toolkit’s [Example and Reference Apps]({{< ref "exploring" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.

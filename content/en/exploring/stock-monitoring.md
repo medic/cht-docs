@@ -7,6 +7,7 @@ description: >
 keywords: stock monitoring
 aliases:
    - /apps/examples/stock-monitoring
+   - /building/examples/stock-monitoring
 ---
 
 ## Problem Being Addressed

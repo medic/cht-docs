@@ -8,8 +8,8 @@ keyword: training
 relatedContent: >
   building/training/training-cards
   building/training/training-cards-resources/
-  building/examples/training
-  building/examples/learning-care/
+  exploring/training
+  exploring/learning-care/
 aliases:
    - /building/guides/training/training-cards/
    - /apps/guides/training/training-cards/

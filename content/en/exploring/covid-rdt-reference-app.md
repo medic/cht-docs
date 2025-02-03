@@ -10,6 +10,7 @@ relatedContent: >
   building/forms/app/#parse-timestamp-to-date
 aliases:
    - /apps/examples/covid-rdt-reference-app
+   - /building/examples/covid-rdt-reference-app
 ---
 
 Medic has worked with [FIND](https://www.finddx.org) to build a CHT reference application for COVID-19 point-of-care testing with Rapid Diagnostic Tests (RDT). Using the reference app as an example, CHT app developers can easily include the provisioning and capture of RDT in workflows. These workflows can include third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), that guide health workers through the use of the RDT.

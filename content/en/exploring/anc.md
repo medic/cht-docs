@@ -10,6 +10,7 @@ relatedContent: >
   building/tasks/tasks-js
 aliases:
    - /apps/examples/anc
+   - /building/examples/anc
 ---
 
 {{% pageinfo %}}
