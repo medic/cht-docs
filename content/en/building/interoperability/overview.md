@@ -1,17 +1,18 @@
 ---
-title: Interoperability
-linkTitle: "Interoperability"
-weight: 8
+title: Overview
+linkTitle: "Overview"
+weight: 1
 description: >
-  Exchanging information between the CHT Core and other health systems 
+  Interoperability key concepts
 keywords: interoperability integrations fhir icd openhie openhim
 relatedContent: >
   building/features/integrations
-  building/guides/interoperability/cht-config
-  building/guides/interoperability/openhim
-  building/guides/interoperability/ltfu
+  building/interoperability/cht-config
+  building/interoperability/openhim
+  building/interoperability/ltfu
 aliases:
-   - /apps/concepts/interoperability
+  - /apps/concepts/interoperability
+  - /building/concepts/interoperability
 ---
 
 ## Introduction 
@@ -19,26 +20,6 @@ aliases:
 Interoperability refers to the ability of different health information systems and applications to communicate with each other and exchange data seamlessly. With interoperability, patient information can be seen, exchanged, and used across different platforms. The information/data exchanged has to be understood across the different software for these systems to become interoperable. This is different from _integration_ which requires custom development to connect two specific systems together.
 
 Interoperability is the best practice for health systems because it allows information from one system to be shared with one or more other systems with no additional development. Interoperability allows technical teams to scale in an efficient and repeatable manner due to the already predefined standards. 
-
-## CHT Interoperability
-
-The native CHT database structure does not map directly to a [Fast Healthcare Interoperability Resources (FHIR)](http://www.hl7.org/fhir/) message format. To be compatible, we use a middleware to convert the CHT data structure into a standardized JSON format so the other systems can read it. See below the data workflow:
-
-```mermaid
-graph LR
-cht[CHT]
-mediator_a([Mediator])
-mediator_b([Mediator])
-openhim[OpenHIM]
-
-cht -- Outbound pushfa:fa-arrow-right --- mediator_a
-cht -- API requestfa:fa-arrow-left --- mediator_b
-mediator_a -- Requestfa:fa-arrow-right --- openhim
-mediator_b -- Channelfa:fa-arrow-left --- openhim
-```
-OpenHIM was utilised as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push]({{< ref "building/reference/app-settings/outbound" >}}) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource, which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
-
-Conversely to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs]({{< ref "building/reference/api" >}}) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
 
 ## Standards & Components
 
@@ -48,8 +29,9 @@ Conversely to bring data into the CHT, OpenHIM is configured to route the update
 
 - [FHIR](http://www.hl7.org/fhir): FHIR is a standard for exchanging healthcare data electronically. FHIR provides a modern, web-based approach to exchanging healthcare data and is rapidly becoming the preferred standard for healthcare interoperability.
 
-A reference application for this pattern is available in the [CHIS Interoperability repository](https://github.com/medic/cht-interoperability). 
-This application implements a Loss to Follow Up (LTFU) workflow system for CHIS based on the OpenHIE LTFU Guide. 
+## CHT Interoperability
+
+[CHT Interoperability](https://github.com/medic/cht-interoperability) implements interoperability between the CHT and other health information systems based on [OpenHIE architecture](https://ohie.org/) and [HL7 FHIR](https://www.hl7.org/fhir/index.html) messaging format.
 
 ## Frequently Asked Questions
 
@@ -79,5 +61,5 @@ The flexibility of mediators also means the CHT is future-proof and can be confi
 4. [Organization](https://build.fhir.org/organization.html)
 5. [Endpoint](https://build.fhir.org/endpoint.html)
 
-You can find additional information and instructions for setting up locally in the [cht-interoperability repository](https://github.com/medic/cht-interoperability).
+You can find additional information and instructions for setting up [cht-interoperability](https://github.com/medic/cht-interoperability) in the [dedicated guidelines]({{< ref "building/interoperability/openhim" >}}) .
 

@@ -1,16 +1,16 @@
 ---
 title: "Configuring CHT applications for interoperability workflows"
 linkTitle: "Configuring"
-weight: 1
+weight: 3
 description: >
    Guide to setting up forms and outbound push for interoperability
 keywords: interoperability fhir integrations openmrs
 aliases: 
   - /building/guides/integrations/fhir/
-  - /building/guides/interoperability/fhir/
-  - /building/guides/interoperability/cht-config/
-relatedContent: >
-  building/concepts/interoperability/
+  - /building/interoperability/fhir/
+  - /building/interoperability/cht-config/
+aliases:
+  - /building/guides/interoperability/cht-config
 ---
 
 ## Overview
