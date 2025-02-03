@@ -73,7 +73,7 @@ Apps built with the Core Framework are fully responsive Progressive Web Applicat
 
 ## Ready for national scale
 
-Around the world, countries are adopting a model of primary health care that starts in communities and homes where high-quality, integrated services are delivered by trusted health workers who are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are [well integrated]({{< ref "building/concepts/interoperability" >}}) throughout the hierarchy of national health systems and across the patient continuum of care. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
+Around the world, countries are adopting a model of primary health care that starts in communities and homes where high-quality, integrated services are delivered by trusted health workers who are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are [well integrated]({{< ref "building/interoperability" >}}) throughout the hierarchy of national health systems and across the patient continuum of care. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
 
 ## Made for localization
 

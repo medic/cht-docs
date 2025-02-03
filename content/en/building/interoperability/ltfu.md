@@ -1,13 +1,14 @@
 ---
 title: "Loss To Follow-Up reference workflow"
 linkTitle: "Loss To Follow-Up"
-weight: 3
+weight: 4
 description: >
    Guide to testing the Loss to Follow-Up (LTFU) reference workflow
 keywords: openmrs interoperability
 relatedContent: >
-  building/guides/interoperability/cht-config
-  building/concepts/interoperability/
+  building/interoperability/cht-config
+aliases:
+   - /building/guides/interoperability/ltfu
 ---
 
 ## Workflow Testing
@@ -27,7 +28,7 @@ The section includes placeholders for URLs. Replacing these placeholders with th
 ## Steps
 
 The following steps assume you have running OpenHIM and CHT instances you successfully logged into.
-See the [OpenHIM guide]({{< ref "building/guides/interoperability/openhim" >}}) for instructions to set up a local development instance of OpenHIM.
+See the [OpenHIM guide]({{< ref "building/interoperability/openhim" >}}) for instructions to set up a local development instance of OpenHIM.
 
 1.  Create an **Endpoint** and an **Organization**
 

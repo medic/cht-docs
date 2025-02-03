@@ -1,19 +1,20 @@
 ---
 title: "OpenMRS Interoperability"
 linkTitle: "OpenMRS"
-weight: 4
+weight: 5
 description: >
    Exchange data with systems based on OpenMRS using FHIR APIs
 keywords: openmrs interoperability
 relatedContent: >
-  building/guides/interoperability/cht-config
-  building/concepts/interoperability
-  building/guides/interoperability/openhim
+  building/interoperability/cht-config
+  building/interoperability/openhim
+aliases:
+   - /building/guides/interoperability/openmrs
 ---
 
 [OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Integrating CHT apps with OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
 
-Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/guides/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/guides/interoperability/cht-config" >}}). 
+Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
 
 ## Overview
 
@@ -24,7 +25,7 @@ The steps to create an OpenMRS interoperability workflow are:
 1. Profile the workflow in terms of what data needs to be exchanged between OpenMRS and the CHT application.
 1. Set up a test environment including an OpenMRS instance, a CHT instance, and OpenHIM. The [interoperability project](https://github.com/medic/cht-interoperability) has docker compose files so that you can set this up locally by running `./startup.sh up-openmrs` in the interoperability project.
 1. Create or find [concepts](https://guide.openmrs.org/configuration/managing-concepts-and-metadata/)  in OpenMRS that represent any data that needs to be exchanged.
-1. [Configure outbound push and forms]({{< ref "building/guides/interoperability/cht-config" >}}) in the CHT application to match the interoperability workflow.
+1. [Configure outbound push and forms]({{< ref "building/interoperability/cht-config" >}}) in the CHT application to match the interoperability workflow.
 1. Test and debug any configuration issues in the test environment.
 1. Once the configuration is confirmed to be working as expected, start deploying to production by uploading the CHT configuration to production.
 1. Add any OpenMRS concepts or forms to production.
@@ -44,7 +45,7 @@ Depending on what data needs to be exchanged, [outbound push]({{< ref "building/
 
 ### Sending patients CHT->OpenMRS
 
-When sending patient data to OpenMRS, configure an outbound push mapping as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht-config#outbound-patients" >}}).
+When sending patient data to OpenMRS, configure an outbound push mapping as described in the [CHT FHIR config documentation]({{< ref "building/interoperability/cht-config#outbound-patients" >}}).
 Patients synced to OpenMRS will have two new [identifier types](https://guide.openmrs.org/getting-started/openmrs-information-model/#patient-identifier): `CHT Document Id`, the uuid of the document that is sent, and `CHT Patient ID`, if there is a `patient_id` field on the patient document.
 These identifier types are created automatically when the OpenMRS Channel is registered.
 
@@ -126,7 +127,7 @@ curl -X GET localhost:8090/openmrs/ws/fhir2/R4/Patient/?identifier=[identifier] 
 
 Any data sent from CHT to OpenMRS needs to map to a [concept](https://wiki.openmrs.org/display/docs/Concept+Dictionary+Basics) in OpenMRS. Each concept has a code which will be used to identify the concept in the CHT Application, the FHIR Server, and OpenMRS.
 For any fields to send to OpenMRS, first find or create matching concepts in OpenMRS.
-Then, using the appropriate codes, configure an outbound push as described in the [CHT FHIR config documentation]({{< ref "building/guides/interoperability/cht-config#outbound-reports" >}}).
+Then, using the appropriate codes, configure an outbound push as described in the [CHT FHIR config documentation]({{< ref "building/interoperability/cht-config#outbound-reports" >}}).
 
 In OpenMRS, all form submissions are represented as `Home Visit` encounter types, with a `Visit Note` encounter.
 Any fields in the outbound push config are converted to FHIR observations, which are linked to the `Visit Note`.
@@ -173,7 +174,7 @@ curl -X GET localhost:8090/openmrs/ws/fhir2/R4/Encounter/?identifier=[identifier
 ```
 ## Starting the interop project
 
-Once the CHT and OpenMRS configs are ready, set up OpenHIM and install the mediators by following the instructions [here]({{< ref "building/guides/interoperability/openhim" >}}).
+Once the CHT and OpenMRS configs are ready, set up OpenHIM and install the mediators by following the instructions [here]({{< ref "building/interoperability/openhim" >}}).
 Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the necessary channel automatically.
 | Name                      | Description                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------|
@@ -206,7 +207,7 @@ This includes:
 
 ### Troubleshooting
 
-In case of errors when setting up the OpenHIM project please see the [Troubleshooting guide]({{< ref "building/guides/interoperability/openhim#troubleshooting" >}}).
+In case of errors when setting up the OpenHIM project please see the [Troubleshooting guide]({{< ref "building/interoperability/openhim#troubleshooting" >}}).
 
 If the openhim project starts up correctly but something else does not work as expected, it can be helpful to first check the transaction log page of OpenHIM to see which requests were sent, and the request and response bodies.
 See the sequence diagrams above for the expected requests/responses.
