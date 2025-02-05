@@ -21,7 +21,7 @@ Generative interviews are used in the discovery phase of the development process
     2. Personnel
     3. Location, or connectivity if remote
 
-[Here is a generative interview template](https://docs.google.com/document/d/1Geunh4dANz1Q0nWmAbwVlXbqv8_kcxbee_o1yLi1dQU/edit?tab=t.0).
+[Here is a generative interview template]({{< ref "generative-template" >}})
 
 [Here is a scoped interview template]({{< ref "scoped" >}})
 
