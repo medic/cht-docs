@@ -1,7 +1,7 @@
 ---
 title: "Development Workflow"
 linkTitle: "Workflow"
-weight: 6
+weight: 1
 description: >
   Overview of the development workflow
 ---
