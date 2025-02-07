@@ -8,7 +8,7 @@ relatedContent: >
   building/integrations/openmrs
   building/integrations/custom
   building/features/integrations/rapidpro
-  building/features/integrations/dhis2
+  building/integrations/dhis2
 aliases:
    - /apps/features/integrations/openmrs
 ---

@@ -5,7 +5,7 @@ description: >
    Integrate the CHT with other systems using RESTful APIs
 keywords: generic, custom, integrations
 relatedContent: >
-  building/features/integrations/dhis2
+  building/integrations/dhis2
   building/features/integrations/rapidpro
   building/features/integrations/openmrs
 aliases:

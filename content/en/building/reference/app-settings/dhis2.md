@@ -12,7 +12,7 @@ aliases:
 
 From 3.9.0 it is possible to integrate with DHIS2 by modifying the `dhis_data_sets` property in `app_settings.json`. 
 
-{{< see-also page="building/features/integrations/dhis2" title="DHIS2 Integration" >}}
+{{< see-also page="building/integrations/dhis2" title="DHIS2 Integration" >}}
 
 ## `app_settings.js .dhis_data_sets[]`
 

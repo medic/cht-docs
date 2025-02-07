@@ -6,7 +6,7 @@ description: >
   Design considerations and how to configure
 keywords: dhis2 
 relatedContent: >
-  building/features/integrations/dhis2
+  building/integrations/dhis2
   building/reference/app-settings/dhis2
 aliases:
    - /apps/guides/integrations/dhis2-aggregate

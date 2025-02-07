@@ -7,7 +7,7 @@ keyword: targets
 relatedContent: >
   building/targets/targets-js
   core/overview/db-schema#targets
-  building/features/integrations/dhis2
+  building/integrations/dhis2
   building/features/supervision/#chw-aggregate-targets
 aliases:
    - /building/features/targets/
