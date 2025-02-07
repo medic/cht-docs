@@ -3,15 +3,17 @@ title: "CHT App Configurer"
 linkTitle: "CHT Conf"
 weight: 2
 description: >
-  CHT Conf is a command-line interface tool to manage and configure apps built using the [Core Framework](https://github.com/medic/cht-core) of the [Community Health Toolkit](https://communityhealthtoolkit.org/).
+  Manage and configure apps built using the CHT Core Framework
 ---
 
-## Installation
+[CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 
+## Installation
 Read more about setting up [CHT Conf]({{< relref "contribute/code/cht-conf" >}}).
 
 ## Currently Supported
 The different items that are supported by CHT Conf include:
+
 ### Settings
 * Compile app settings from:
     - tasks
