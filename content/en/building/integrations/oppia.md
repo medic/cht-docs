@@ -3,7 +3,8 @@ title: "OppiaMobile"
 linkTitle: "OppiaMobile"
 weight: 7
 description: >
-   Integrate CHT core with OppiaMobile’s learning management platformkeywords: oppia
+   Integrate CHT with OppiaMobile’s learning management platform
+keywords: oppia
 relatedContent: >
   exploring /learning-care
 aliases:
