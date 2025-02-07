@@ -10,7 +10,6 @@ aliases: >
   /core/guides/android/development-setup
 ---
 
-
 {{% pageinfo %}}
 The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, and the **[CHT Gateway](https://github.com/medic/cht-gateway)** app as well.
 

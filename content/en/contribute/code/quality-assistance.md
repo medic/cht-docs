@@ -3,7 +3,7 @@ title: "Quality Assistance"
 linkTitle: "Quality Assistance"
 weight: 15
 description: >
-  How the Quality Assistance process works at Medic
+  How the Quality Assistance process works
 aliases:
    - /contribute/medic/product-development-process/quality-assistance
 ---
@@ -30,7 +30,7 @@ The aim is to get to a place where the developer of a change can do everything a
 
 The big difference to that AT step though will be the depth in which it is performed. Rather than being a single exhaustive step where all testing is performed, it will be more like a smoke test where a QA engineer gets a little extra creative in testing.
 
-There may still be cases of a ticket getting coded up totally unrelated to Focused Working Group work, perhaps even unannounced to anyone. For work like this the traditional AT step is still appropriate for now. Still though, it is preferred for the software developer to get a QA engineer involved as early as possible; it helps us get the best contributions from everyone.
+There may still be cases of a ticket getting coded up totally unrelated to bigger initiative work, perhaps even unannounced to anyone. For work like this the traditional AT step is still appropriate for now. Still though, it is preferred for the software developer to get a QA engineer involved as early as possible; it helps us get the best contributions from everyone.
 
 ## An Example of QA Assistance in Practice
 Imagine a scenario where a community member or a squad is going to change the display of the targets screen. The group would discuss the needs of the users and work out solutions, where the selected solution was to make this change. This discussion could involve project managers, designers, developers, and QA engineers. The developer would be thinking about how to code the proposed solution and the QA engineer would be considering that as well as what might go wrong.
