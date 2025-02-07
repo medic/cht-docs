@@ -3,7 +3,7 @@ title: "DHIS2 Aggregate"
 linkTitle: "DHIS2 Aggregate"
 weight: 4
 description: >
-  Design considerations and how to configure
+  Design and configure DHIS2 Aggregate
 keywords: dhis2 
 relatedContent: >
   building/integrations/dhis2
