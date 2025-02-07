@@ -6,7 +6,7 @@ description: >
 keywords: oppia
 relatedContent: >
   exploring/learning-care
-  building/guides/integrations/oppia
+  building/integrations/oppia
 aliases:
    - /apps/features/integrations/oppia
 ---

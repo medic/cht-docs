@@ -5,7 +5,7 @@ description: >
    Integrate interactive messaging conversations into your workflows
 keywords: rapidpro
 relatedContent: >
-  building/guides/integrations/rapidpro
+  building/integrations/rapidpro
 aliases:
   - /apps/features/integrations/rapidpro/
 ---

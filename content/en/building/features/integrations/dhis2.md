@@ -5,7 +5,7 @@ description: >
    Send aggregate, patient, and event data to DHIS2
 keywords: dhis2
 relatedContent: >
-  building/guides/integrations/dhis2-aggregate
+  building/integrations/dhis2-aggregate
   building/reference/app-settings/dhis2
 aliases:
    - /apps/features/integrations/dhis2

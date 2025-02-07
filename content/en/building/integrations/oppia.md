@@ -10,6 +10,7 @@ relatedContent: >
   exploring /learning-care
 aliases:
    - /apps/guides/integrations/oppia
+   - /building/guides/integrations/oppia
 ---
 
 The training modules configuration consists of five main components:

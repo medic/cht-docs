@@ -29,7 +29,7 @@ Below are a few example integration use cases:
 3. **Contact Tracing**: Similar to Lost to Follow-Up, the EMR generates a list of contacts to be followed up with and this is sent to the CHT so that a tracer can call those contacts to see if they have symptoms.
 4. **Interactive Messaging**: Integrate with a messaging platform (such as RapidPro) to allow community members to initiate self-screening assessments, which can then be sent to the CHT for follow-up by a healthworker.
 
-As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here]({{< ref "building/guides/integrations/rapidpro#sequence-diagrams" >}}) is an example sequence diagram for an integration use case with RapidPro.
+As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here]({{< ref "building/integrations/rapidpro#sequence-diagrams" >}}) is an example sequence diagram for an integration use case with RapidPro.
 
 ## Integration Design Patterns
 

@@ -1,7 +1,7 @@
 ---
 title: "Training"
 linkTitle: "Training"
-weight: 100
+weight: 10
 description: >
   Building and managing training resources
 aliases:
