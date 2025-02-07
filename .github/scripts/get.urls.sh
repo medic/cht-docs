@@ -53,7 +53,7 @@ then
   path=""
   declare -a visited_urls=()
   crawl_urls "$base_url" "$path" "${visited_urls[@]}" | sort -u > urls.txt
-  count=$(wc -l urls.txt)
+  count=$(wc -l urls.txt|cut -d' ' -f1)
   echo "Saved $count URLs in urls.txt"
 fi
 
