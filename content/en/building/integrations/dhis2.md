@@ -1,6 +1,6 @@
 ---
 title: "DHIS2"
-weight: 1
+weight: 3
 description: >
    Send aggregate, patient, and event data to DHIS2
 keywords: dhis2

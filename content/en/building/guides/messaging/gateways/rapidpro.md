@@ -17,7 +17,7 @@ aliases:
 ---
 
 
-As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/features/integrations/rapidpro" %}}) as a messaging gateway.
+As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/integrations/rapidpro" %}}) as a messaging gateway.
 
 ## RapidPro configuration
 

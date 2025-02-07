@@ -1,7 +1,7 @@
 ---
 title: "DHIS2 Aggregate"
 linkTitle: "DHIS2 Aggregate"
-weight: 
+weight: 4
 description: >
   Design considerations and how to configure
 keywords: dhis2 

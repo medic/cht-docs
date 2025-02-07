@@ -6,8 +6,8 @@ description: >
 keywords: generic, custom, integrations
 relatedContent: >
   building/integrations/dhis2
-  building/features/integrations/rapidpro
-  building/features/integrations/openmrs
+  building/integrations/rapidpro
+  building/integrations/openmrs
 aliases:
    - /apps/features/integrations/custom
    - /building/features/integrations/custom

@@ -1,6 +1,6 @@
 ---
 title: "Android"
-weight: 1
+weight: 2
 description: >
    Launch the Android App with a link or from another app
 relatedContent: >

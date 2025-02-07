@@ -133,7 +133,7 @@ The parts of the software that users see and interact with.
 
 ###### Integration
 
-An arrangement of an organization's information systems that allows them to communicate efficiently and effectively. {{< see-also page="building/features/integrations" prefix="Read more" >}}
+An arrangement of an organization's information systems that allows them to communicate efficiently and effectively. {{< see-also page="building/integrations" prefix="Read more" >}}
 
 ###### Internet of Things (IoT)
 
