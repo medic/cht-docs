@@ -2,16 +2,16 @@
 title: "Custom"
 weight: 1
 description: >
-   Integrate with any system using RESTful APIs
+   Integrate the CHT with other systems using RESTful APIs
 keywords: generic, custom, integrations
-aliases:
-  -    /apps/features/integrations/generic/
 relatedContent: >
   building/features/integrations/dhis2
   building/features/integrations/rapidpro
   building/features/integrations/openmrs
 aliases:
    - /apps/features/integrations/custom
+   - /building/features/integrations/custom
+   - /apps/features/integrations/generic/
 ---
 
 The CHT Core Framework includes functionality that allows sharing data with any API-based system. Developers have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom electronic medical records (EMR), and several other systems.  

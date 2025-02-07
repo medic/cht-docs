@@ -8,6 +8,7 @@ relatedContent: >
   building/reference/app-settings/assetlinks
 aliases:
    - /apps/features/integrations/android
+   - /building/features/integrations/android
 ---
 
 The [CHT Android application](https://github.com/medic/cht-android) can be launched by clicking on a link or invoking an intent in another Android app. This is useful for enabling login by SMS, directing a user to a specific page, and integrating between Android applications.

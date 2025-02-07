@@ -5,7 +5,7 @@ description: >
   Exchange data with other systems
 keywords: integrations interoperability
 relatedContent: >
-  building/guides/integrations
+  building/integrations
 aliases:
   - /apps/features/integrations/
 ---

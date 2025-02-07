@@ -6,10 +6,9 @@ description: >
 keywords: openmrs
 relatedContent: >
   building/integrations/openmrs
-  building/features/integrations/custom
+  building/integrations/custom
   building/features/integrations/rapidpro
   building/features/integrations/dhis2
-  
 aliases:
    - /apps/features/integrations/openmrs
 ---
