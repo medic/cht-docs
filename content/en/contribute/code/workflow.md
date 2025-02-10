@@ -20,7 +20,7 @@ For a more efficient feedback loop, developers should run linting scripts locall
 
 ## Issues
 
-Issues are managed in GitHub. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue it should be opened in the private `medic-projects` repository.
+Issues are managed in GitHub. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue, reach out privately to the [CHT maintainers](https://github.com/orgs/medic/teams/development-team) so they can open an issue in the private `medic-projects` repository.
 
 When creating issues add the appropriate [Priority](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Priority%3A+) and [Type](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Type%3A+) labels.
 
@@ -30,7 +30,7 @@ When a bug is found that impacts functionality that worked in a previous version
 
 ### Issue Status
 
-When the issue is scheduled for development it will be added to a project. The issue has a status property that represents the state the issue is in.
+When the issue is scheduled for development it can be added to a project. When linked to a GitHub project, the issue has a status property that represents the state the issue is in.
 
 #### To do
 
@@ -48,9 +48,9 @@ Issues in this column are complete, all code has been merged into the main branc
 
 ### Branches
 
-The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this, development should be done in a branch and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it is included in the `main` branch.
+The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this, development should be done in a branch (only possible for maintaners) or fork and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it is included in the `main` branch.
 
-Create a branch following the guideline below and push [commits]({{< ref "#commits" >}}) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows team members to see the latest changes and work together more effectively.
+Create a branch following the guideline below and push [commits]({{< ref "#commits" >}}) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows community members to see the latest changes and work together more effectively.
 
 - The main branch is `main` or `master` and is the GitHub default branch and contains the latest code.
 - Release branches have the form `<major>.<minor>.x` and should be stable.
@@ -136,7 +136,7 @@ Once you are confident that the change is complete and ready to be merged:
 
 #### Guidelines
 
-The author and reviewer should use this [guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
+The author and reviewer should use [this guide to code reviewing](https://google.github.io/eng-practices/review/developer/).
 
 ##### Labeling review comments
 
