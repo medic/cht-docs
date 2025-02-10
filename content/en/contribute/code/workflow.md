@@ -20,7 +20,7 @@ For a more efficient feedback loop, developers should run linting scripts locall
 
 ## Issues
 
-Issues are managed in GitHub. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue, reach out privately to the CHT maintainers so they can open an issue in the private `medic-projects` repository.
+Issues are managed in GitHub. Issues should be created in the repository where the changes need to be made. If it is not clear in which repo to open an issue the default should be the `cht-core` repository. If it is a security or sensitive issue, reach out privately to the [CHT maintainers](https://github.com/orgs/medic/teams/development-team) so they can open an issue in the private `medic-projects` repository.
 
 When creating issues add the appropriate [Priority](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Priority%3A+) and [Type](https://github.com/medic/medic/labels?utf8=%E2%9C%93&q=Type%3A+) labels.
 
