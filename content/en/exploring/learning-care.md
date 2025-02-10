@@ -6,8 +6,7 @@ description: >
   An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19. 
 keywords: oppia
 relatedContent: >
-  building/features/integrations/oppia
-  building/guides/integrations/oppia
+  building/integrations/oppia
 aliases:
    - /apps/examples/learning-care
    - /building/examples/learning-care

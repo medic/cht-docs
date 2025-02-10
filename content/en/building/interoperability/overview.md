@@ -6,7 +6,7 @@ description: >
   Interoperability key concepts
 keywords: interoperability integrations fhir icd openhie openhim
 relatedContent: >
-  building/features/integrations
+  building/integrations
   building/interoperability/cht-config
   building/interoperability/openhim
   building/interoperability/ltfu

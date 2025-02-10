@@ -17,7 +17,7 @@ aliases:
 ---
 
 
-As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/features/integrations/rapidpro" %}}) as a messaging gateway.
+As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/integrations/rapidpro" %}}) as a messaging gateway.
 
 ## RapidPro configuration
 
@@ -66,7 +66,7 @@ Create a trigger (`/trigger/`) to start the new flow when a message is not handl
 
 ![trigger_select](trigger_select.png)
 
-For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "building/guides/integrations/rapidpro" %}}).
+For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "building/integrations/rapidpro" %}}).
 
 ## CHT Core configuration
 

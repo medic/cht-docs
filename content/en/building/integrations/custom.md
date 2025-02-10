@@ -2,16 +2,16 @@
 title: "Custom"
 weight: 1
 description: >
-   Integrate with any system using RESTful APIs
+   Integrate the CHT with other systems using RESTful APIs
 keywords: generic, custom, integrations
-aliases:
-  -    /apps/features/integrations/generic/
 relatedContent: >
-  building/features/integrations/dhis2
-  building/features/integrations/rapidpro
-  building/features/integrations/openmrs
+  building/integrations/dhis2
+  building/integrations/rapidpro
+  building/integrations/openmrs
 aliases:
    - /apps/features/integrations/custom
+   - /building/features/integrations/custom
+   - /apps/features/integrations/generic/
 ---
 
 The CHT Core Framework includes functionality that allows sharing data with any API-based system. Developers have configured CHT integrations with OpenMRS, KenyaEMR, Bahmni, DHIS2, RapidPro, Apache NiFi, OpenHIM, custom electronic medical records (EMR), and several other systems.  
@@ -29,7 +29,7 @@ Below are a few example integration use cases:
 3. **Contact Tracing**: Similar to Lost to Follow-Up, the EMR generates a list of contacts to be followed up with and this is sent to the CHT so that a tracer can call those contacts to see if they have symptoms.
 4. **Interactive Messaging**: Integrate with a messaging platform (such as RapidPro) to allow community members to initiate self-screening assessments, which can then be sent to the CHT for follow-up by a healthworker.
 
-As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here]({{< ref "building/guides/integrations/rapidpro#sequence-diagrams" >}}) is an example sequence diagram for an integration use case with RapidPro.
+As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here]({{< ref "building/integrations/rapidpro#sequence-diagrams" >}}) is an example sequence diagram for an integration use case with RapidPro.
 
 ## Integration Design Patterns
 
