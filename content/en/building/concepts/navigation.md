@@ -3,7 +3,7 @@ title: "Navigating CHT Apps"
 linkTitle: "Navigation"
 weight: 2
 description: >
-  Browsing your digital health apps
+  Browsing a digital health app
 aliases:
    - /apps/concepts/navigation
 ---

@@ -2,7 +2,7 @@
 title: Reports
 weight: 6
 description: >
-  Reports for Data & Report Management
+  Reports for data & report management
 relatedContent: >
   building/reference/app-settings/patient_reports
   building/guides/data/invalid-reports

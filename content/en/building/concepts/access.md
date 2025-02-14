@@ -3,7 +3,7 @@ title: "Accessing CHT Apps"
 linkTitle: "Access"
 weight: 1
 description: >
-  Starting up your digital health apps
+  Starting up a digital health app
   
 aliases:
    - /apps/concepts/access

@@ -3,7 +3,7 @@ title: "Sentinel Transitions"
 linkTitle: "Sentinel Transitions"
 weight: 4
 description: >
-  Overview of Transitions, JavaScript code that runs server-side when database documents change
+  Overview of transitions and database documents change
 relatedContent: >  
   building/reference/app-settings/transitions
 ---

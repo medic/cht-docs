@@ -3,7 +3,7 @@ title: "Publishing"
 linkTitle: "Publishing"
 weight: 4
 description: >
-  Instructions for Publishing Android Apps
+  Instructions for publishing Android Apps
 relatedContent: >
   contribute/code/android/releasing
   building/guides/android/branding

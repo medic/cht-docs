@@ -3,7 +3,7 @@ title: "Prerequisites for App Development"
 linkTitle: "Prerequisites"
 weight: 1
 description: >
-  Tools and background skills that are helpful for developing CHT apps
+  Tools and skills needed for developing CHT Applications
 relatedContent: > 
   building/local-setup
 aliases:

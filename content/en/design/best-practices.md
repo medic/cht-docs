@@ -3,7 +3,7 @@ title: "Configuration Best Practices"
 linkTitle: "Best Practices"
 weight: 5
 description: >
-  Best Practices for configuring CHT Applications
+  Best practices for configuring CHT Applications
 aliases:
    - /design/best-practices/
 ---

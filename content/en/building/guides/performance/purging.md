@@ -3,7 +3,7 @@ title: "Purging"
 linkTitle: "Purging"
 weight:
 description: >
-  Remove unneeded documents from offline users devices.
+  Remove unneeded documents from offline users devices
 keywords:
 relatedContent: >
   design/personas/chw-janet

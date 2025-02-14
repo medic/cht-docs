@@ -1,9 +1,9 @@
 ---
-title: "Reference Application for CHW Supervision and Performance Management"
+title: "CHW Supervision and Performance Management Reference App "
 linkTitle: "Supervision & Performance Management"
 weight:
 description: >
-  A reference app for CHW supervisors to support performance management of CHWs using a mobile app.
+  A reference app for CHW supervisors to support performance management of CHWs
 relatedContent: >
   building/concepts
   building/features/supervision

@@ -3,7 +3,7 @@ title: "Loss to Follow Up"
 linkTitle: "Loss to Follow Up"
 weight: 
 description: >
-  Generating patients with missed follow-up appointments between the CHT and requesting system
+  Handling patients with missed follow-up appointments between the CHT and other health systems
 keywords: Loss to Follow Up 
 relatedContent: >
   building/interoperability

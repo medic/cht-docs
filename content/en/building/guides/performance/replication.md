@@ -3,7 +3,7 @@ title: "CouchDB replication"
 linkTitle: "Replication"
 weight: 
 description: >
-  Settings for downloading copies of data onto a user's device.
+  Settings for downloading copies of data onto a user's device
 keywords: 
 relatedContent: >
   building/reference/app-settings/replication_depth
