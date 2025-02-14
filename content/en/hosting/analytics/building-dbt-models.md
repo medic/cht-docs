@@ -186,7 +186,7 @@ This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC
 -- add any indexes specific to this form
 {%- set form_indexes = [
   {'columns': ['edd']},
-  {'columns': ['danger_signs']}]
+  {'columns': ['danger_signs']},
   {'columns': ['risk_factors']}]
 -%}
 -- add columns specific to this form
