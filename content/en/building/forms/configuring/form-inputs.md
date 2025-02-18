@@ -97,6 +97,13 @@ Contact summary data is not available in `contact` forms or in forms created fro
 
 `app` forms created via a task have access to any data [supplied by the task]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}) in the `inputs` group. 
 
+Additionally, these forms have access to the [contact data]({{< ref "#inputs-data-for-contact-in-app-forms" >}}) for the contact associated with the task.
+
+The following fields will also be available in the `inputs` group:
+
+- `task_id`: The unique identifier of the task in context.
+- `source_id`: For tasks with `appliesTo: 'contacts`, this is the id of the contact for the task. For tasks with `appliesTo: 'reports'`, this is the id of the report which triggered the task.
+
 ---
 
 ## `user` data
