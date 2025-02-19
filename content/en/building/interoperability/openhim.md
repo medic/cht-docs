@@ -8,7 +8,7 @@ keywords: openmrs interoperability
 relatedContent: >
   building/interoperability/cht-config
   building/interoperability/ltfu
-  building/guides/integrations/openmrs
+  building/integrations/openmrs
 aliases:
    - /building/guides/interoperability/openhim
 ---

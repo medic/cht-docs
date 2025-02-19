@@ -7,7 +7,7 @@ keywords: supervisor
 relatedContent: >
   building/targets/targets-overview
   design/best-practices/#targets
-  building/features/integrations/dhis2
+  building/integrations/dhis2
   building/reference/app-settings/transitions#create_user_for_contacts
   exploring/supervisor-reference-app
 aliases:
@@ -121,7 +121,7 @@ The data that can be visualized is highly configurable, and depends on what data
 
 ## DHIS2 Data Verification
 
-Supervisors often provide a critical bridge between CHWs and broader health system reporting. Using the CHT’s [DHIS2 integration]({{< relref "building/features/integrations/dhis2" >}}), Supervisors can see the aggregate of each DHIS2 Data Value across all CHWs in their area. By tapping on a target, they can also see each CHW’s contribution towards that total. Once the Supervisor has verified data accuracy with CHWs, they can communicate with Health Records Information Officers to feed data into the national health information system.
+Supervisors often provide a critical bridge between CHWs and broader health system reporting. Using the CHT’s [DHIS2 integration]({{< relref "building/integrations/dhis2" >}}), Supervisors can see the aggregate of each DHIS2 Data Value across all CHWs in their area. By tapping on a target, they can also see each CHW’s contribution towards that total. Once the Supervisor has verified data accuracy with CHWs, they can communicate with Health Records Information Officers to feed data into the national health information system.
 
 {{% alert title="Note" %}} DHIS2 integration was introduced in v3.9. {{% /alert %}}
 
