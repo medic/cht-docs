@@ -56,6 +56,7 @@ if [[ ! $REPLY =~ ^[nN]$ ]]
 then
     prod_urls=$(get_urls_from_prod_site_map)
     url_count=$(echo "$prod_urls" | wc -l | cut -d' ' -f1)
+    echo;echo "Checking ${url_count} URLs, be patent.  Any non 200 URLs will be listed here:"
     run_checks "$prod_urls"
-    echo;echo "Successfully checked ${url_count} URLs!"
+    echo "Successfully checked ${url_count} URLs!"
 fi
