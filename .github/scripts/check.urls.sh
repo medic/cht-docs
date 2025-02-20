@@ -54,9 +54,10 @@ read -p "\"y\" to proceed, \"n\" to cancel " -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[nN]$ ]]
 then
+    echo;echo "Fetching URLs from production."
     prod_urls=$(get_urls_from_prod_site_map)
     url_count=$(echo "$prod_urls" | wc -l | cut -d' ' -f1)
-    echo;echo "Checking ${url_count} URLs, be patent.  Any non 200 URLs will be listed here:"
+    echo;echo "Checking ${url_count} URLs, be patient.  Any non 200 URLs will be listed here:"
     run_checks "$prod_urls"
     echo "Successfully checked ${url_count} URLs!"
 fi
