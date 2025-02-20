@@ -37,6 +37,8 @@ To ensure quality, the CHT Products should also follow the guidelines below:
 
 ### CI/CD
 - [ ] Repository runs GitHub Actions CI with automated build and test on each PR.
+- [ ] When using `semantic-release` (or a similar technology) to automate releases, configure the `medic-ci` bot to have permission to update the repository.
+    - In the repository settings, go to "Collaborators and teams" > "Add people" and add the `medic-ci` bot with `admin` permissions.
 
 ### Testing
 - [ ] Unit tests and successful builds for PR merges are set up.
