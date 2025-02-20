@@ -3,7 +3,7 @@ title: "Installation as a Progressive Web App"
 linkTitle: "Progressive Web App"
 weight: 2
 description: >
-  What it means that the CHT Core web application is a Progressive Web App.
+  What it means that the CHT Core web application is a Progressive Web App
 ---
 
 ## What is a Progressive Web App (PWA)?

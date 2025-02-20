@@ -3,7 +3,7 @@ title: "Migrating from couch2pg to CHT Sync"
 weight: 4
 linkTitle: "couch2pg to CHT Sync"
 description: >
-  Instructions on migrating from couch2pg to CHT Sync for data synchronization and analytics.
+  Instructions on migrating from couch2pg to CHT Sync for data synchronization and analytics
 relatedContent: >
   core/overview/cht-sync
   core/overview/data-flows-for-analytics/

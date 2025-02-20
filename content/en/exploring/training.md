@@ -3,7 +3,7 @@ title: "Remote Onboarding and Training"
 linkTitle: "Remote Training"
 weight: 
 description: >
-  App and care workflow training using remote capabilities.
+  App and care workflow training using remote capabilities
 keywords: training onboarding
 relatedContent: >
   building/reference/app-settings/token_login/

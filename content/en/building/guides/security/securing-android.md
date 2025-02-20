@@ -3,7 +3,7 @@ title: "Securing Android Devices"
 linkTitle: "Securing Android"
 weight: 
 description: >
-  How to secure android devices used in deployments
+  How to secure Android devices used in deployments
 relatedContent: >
   building/guides/debugging/replicating-production-data-locally
   hosting/3.x/ssl-cert-install

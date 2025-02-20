@@ -2,7 +2,7 @@
 title: Messaging
 weight: 5
 description: >
-  Messaging for Care Coordination, Alerts, and Notifications
+  Messaging for care coordination, alerts, and notifications
 relatedContent: >
   building/reference/app-settings/schedules
   building/guides/messaging

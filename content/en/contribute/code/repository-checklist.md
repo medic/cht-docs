@@ -3,7 +3,7 @@ title: "CHT Product Repository Checklist"
 linkTitle: "Repository Checklist"
 weight: 8
 description: >
-  Checklist to consider when creating CHT Product repositories under Medic's GitHub organization account
+  Checklist to consider when creating CHT Product repositories
 ---
 
 ## Repository Creation Checklist

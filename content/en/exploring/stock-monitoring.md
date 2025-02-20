@@ -3,7 +3,7 @@ title: "Stock Monitoring"
 linkTitle: "Stock Monitoring"
 weight: 
 description: >
-  Guidance on design and development of stock monitoring workflows.
+  Guidance on design and development of stock monitoring workflows
 keywords: stock monitoring
 aliases:
    - /apps/examples/stock-monitoring

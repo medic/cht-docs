@@ -3,7 +3,7 @@ title: "Configuring CHT Application Graphics"
 linkTitle: Branding
 weight: 14
 description: >
-  Configuring CHT Application Graphics
+  Configuring CHT Application graphics
 relatedContent: >
   building/features/admin
   design/interface/icons

@@ -3,7 +3,7 @@ title: "Offline-First in the CHT"
 linkTitle: "Offline-First"
 weight: 2
 description: >
-  An overview of what Offline-First means, why the CHT uses it, and how to contribute code that uses it.
+  Overview of Offline-First in the context of the CHT
 ---
 
 ## Introduction

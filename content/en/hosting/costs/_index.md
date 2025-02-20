@@ -2,10 +2,11 @@
 title: "Hosting Costs"
 linkTitle: "Hosting Costs"
 weight: 2
+description: >
+  A guide for calculating CHT hosting costs
 aliases:
 
 ---
-
 
 ## Cost per CHT per Month
 

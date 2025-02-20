@@ -3,7 +3,7 @@ title: Condition Cards
 linkTitle: Condition Cards
 weight: 6
 description: >
-  Building CHT application condition cards
+  Building CHT condition cards
 relatedContent: >
   building/contact-management
   building/contact-summary/contact-summary-templated#condition-cards

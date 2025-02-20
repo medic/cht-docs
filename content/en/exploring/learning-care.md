@@ -3,7 +3,7 @@ title: "Learning and Care"
 linkTitle: "Learning & Care"
 weight: 
 description: >
-  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19. 
+  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19 
 keywords: oppia
 relatedContent: >
   building/integrations/oppia

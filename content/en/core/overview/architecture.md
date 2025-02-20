@@ -3,7 +3,7 @@ title: "Architecture of CHT Instances"
 linkTitle: "CHT Core"
 weight: 1
 description: >
-  The different pieces of a CHT project, how they interact, and what they're used for
+  Overview of CHT projects components and interactions
 relatedContent: >  
   core/overview/watchdog
   core/overview/cht-sync

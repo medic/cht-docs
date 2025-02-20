@@ -267,6 +267,24 @@ This is a sample note.
 This is a sample note.
 {{% /alert */%}}`
 
+### Page descriptions
+
+Page descriptions show on index pages, and at the top of the individual pages.
+
+Use active and concise language in page descriptions.
+
+| Do | Don't |
+|---|---|
+|Best practices for configuring CHT Applications|This document covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app|
+
+Use sentence case and no punctuation. Avoid multiple sentences.
+
+| Do | Don't |
+|---|---|
+|Best practices for configuring CHT Applications|Best Practices For Configuring CHT Applications|
+|Developing and delivering world-class software|Developing and delivering world-class software.|
+|The central users of CHT Applications|CHWs are the central users of apps built with the Core Framework. CHWs conduct household visits and are responsible for the health of their community.|
+
 ### Images
 
 The [image markdown syntax](https://www.markdownguide.org/basic-syntax/#images-1) can be used for images, but if any styling is required use the built-in `figure` shortcode. With the `figure` shortcode [many fields are configurable](https://gohugo.io/content-management/shortcodes/#figure), and the position and size can be responsive with [Bootstrap grid classes](https://getbootstrap.com/docs/4.0/layout/grid/#responsive-classes). You should avoid using the HTML `img` tag in the documentation.
