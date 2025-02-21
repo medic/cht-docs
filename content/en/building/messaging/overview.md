@@ -1,14 +1,9 @@
 ---
-title: Messaging
-weight: 5
+title: "Overview"
+linkTitle: "Overview"
+weight: 1
 description: >
-  Messaging for care coordination, alerts, and notifications
-relatedContent: >
-  building/reference/app-settings/schedules
-  building/guides/messaging
-  building/forms/configuring/app-form-sms
-aliases:
-   - /apps/features/messaging/
+  Overview of CHT messaging functionalities
 ---
 
 Messaging is a quick way to coordinate with other health workers. The Messages tab allows users to send a SMS message to any person or group of people in the app. Common uses of messages include asking questions, coordinating care logistics, providing encouragement or confirming training times.

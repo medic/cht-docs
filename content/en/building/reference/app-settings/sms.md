@@ -6,7 +6,7 @@ description: >
   **SMS Settings**: Instructions and schema for defining SMS settings
 relevantLinks: >
   building/concepts/workflows
-  building/guides/messaging
+  building/messaging
 keywords: workflows sms
 aliases:
    - /apps/reference/app-settings/sms
@@ -16,7 +16,7 @@ SMS settings are defined under the `sms` key, as an object supporting the follow
 ## `app_settings.json .sms`
 | property         | default       | description                                                                                                                                                                              |
 |------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| outgoing_service | medic-gateway | Defines the service to use to send SMS messages. Currently supports "medic-gateway", "africas-talking" or "rapidpro". For more information read the documentation on ["africas-talking" configuration]({{% ref "building/guides/messaging/gateways/africas-talking" %}}) and ["rapidpro" configuration]({{% ref "building/guides/messaging/gateways/rapidpro" %}}). |
+| outgoing_service | medic-gateway | Defines the service to use to send SMS messages. Currently supports "medic-gateway", "africas-talking" or "rapidpro". For more information read the documentation on ["africas-talking" configuration]({{% ref "building/messaging/gateways/africas-talking" %}}) and ["rapidpro" configuration]({{% ref "building/messaging/gateways/rapidpro" %}}). |
 | duplicate_limit  | 5             | The number of identical sms message allowed to be sent to the same recipient.
 
 ## Code sample

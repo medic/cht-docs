@@ -7,8 +7,8 @@ description: >
 aliases:
   -    /apps/guides/messaging/gateways/gateway/troubleshooting
 relatedContent: >
-  building/guides/messaging/gateways/gateway/phones
-  building/guides/messaging/gateways/gateway/configuration
+  building/messaging/gateways/gateway/phones
+  building/messaging/gateways/gateway/configuration
 ---
 
 In a techlead heaven, we would have immediate physical access to gateway phones, but alas, most of the time we have to hand them over to the partner. Fortunately, comes this guide on debugging gateway problems.

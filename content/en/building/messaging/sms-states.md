@@ -5,12 +5,13 @@ weight: 20
 description: >
   Overview of the possible states of SMS messages
 relatedContent: >
-  building/features/messaging
-  building/guides/messaging/message-loops
+  building/messaging
+  building/messaging/message-loops
   building/reference/app-settings/sms
 keywords: messaging
 aliases:
    - /apps/guides/messaging/sms-states
+   - /building/guides/messaging/sms-states
 ---
 
 ## Interaction with SMS providers
