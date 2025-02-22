@@ -61,6 +61,8 @@ We have two types of link checking:
 
 We validate that all links on the docs site work (do not 404) using a tool called [Muffet](https://github.com/raviqqe/muffet) along with [Actions](https://github.com/features/actions). If you're creating a lot of new links, or editing a lot of existing links, you may optionally run Muffet locally before pushing your commits. Running Muffet locally can save time by exposing broken links before pushing a build since you can avoid waiting for the Action to run, finding you have a broken link, fixing it, and pushing a new change.
 
+#### Running
+
 1. Start the docker container: `docker compose up -d`
 2. Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/main/.github/scripts/muffet.sh) script: `docker exec cht-hugo sh -c "cd .github/scripts/; ./muffet.sh"`
   
@@ -68,7 +70,10 @@ It can take many minutes depending on your Internet connection. If Muffet return
 
 _Note_: The `muffet.sh` script here is the identical script we run on GitHub. If you simply run `muffet http://localhost:1313` you will hit GitHub's rate limiting and get lots of [429's](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429). Our script intentionally reduces concurrency and excludes some repetitive GitHub URLs.
 
+#### Example
+
 Note that you may see transient errors as shown here with lookup errors:
+
 
 ```shell
 $ docker exec  cht-hugo sh -c "cd .github/scripts/; ./muffet.sh" 
@@ -89,12 +94,14 @@ If you're moving more than ~5 pages around, you should check that they either co
 
 This is mainly to help preserve SEO and to help folks who bookmark specific pages.  
 
-To test:
+#### Running
 
 1. Make your changes, for example moving 10s of pages to a new location
 2. Check that `hugo` compiles and doesn't complain of any broken links
 3. Start the docker container: `docker compose up -d`
 4. Test the links with the bash script: `docker exec cht-hugo .github/scripts/check.urls.sh`
+
+#### Example
 
 ```shell
 $ docker exec  cht-hugo .github/scripts/check.urls.sh           
