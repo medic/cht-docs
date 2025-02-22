@@ -52,17 +52,68 @@ Any users who experience errors running `hugo server`, please see our [Troublesh
 
 ## Link Checking [Optional]
 
+We have two types of link checking:
+
+* All links - tests all links within docs and outbound
+* Internal links - takes all internal links from [production site](https://docs.communityhealthtoolkit.org/) and tests them on your branch
+
+### All links, including outbound 
+
 We validate that all links on the docs site work (do not 404) using a tool called [Muffet](https://github.com/raviqqe/muffet) along with [Actions](https://github.com/features/actions). If you're creating a lot of new links, or editing a lot of existing links, you may optionally run Muffet locally before pushing your commits. Running Muffet locally can save time by exposing broken links before pushing a build since you can avoid waiting for the Action to run, finding you have a broken link, fixing it, and pushing a new change.
 
-1. Install [Go](https://golang.org/doc/install) as a prerequisite 
-2. Install Muffet: `go get -u github.com/raviqqe/muffet`
-    - If using `asdf` you need to reshim (`asdf reshim golang`)
-3. Ensure you've run `hugo server` so your local docs instance is reachable at http://localhost:1313/
-4. Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/main/.github/scripts/muffet.sh) script.  If you're in the root of this repo, that'd be: `./.github/scripts/muffet.sh` 
+#### Running
+
+1. Start the docker container: `docker compose up -d`
+2. Test the links with the [`muffet.sh`](https://github.com/medic/cht-docs/blob/main/.github/scripts/muffet.sh) script: `docker exec cht-hugo sh -c "cd .github/scripts/; ./muffet.sh"`
   
-It should take about 60 seconds depending on your Internet connection. If Muffet returns no output, you have no broken links, congrats! 
+It can take many minutes depending on your Internet connection. If Muffet returns no output, you have no broken links, congrats! 
 
 _Note_: The `muffet.sh` script here is the identical script we run on GitHub. If you simply run `muffet http://localhost:1313` you will hit GitHub's rate limiting and get lots of [429's](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429). Our script intentionally reduces concurrency and excludes some repetitive GitHub URLs.
+
+#### Example
+
+Note that you may see transient errors as shown here with lookup errors:
+
+
+```shell
+$ docker exec  cht-hugo sh -c "cd .github/scripts/; ./muffet.sh" 
+
+http://localhost:1313/hosting/4.x/production/docker/adding-tls-certificates/
+        lookup letsencrypt.org: i/o timeout     https://letsencrypt.org/
+http://localhost:1313/core/overview/offline-first/
+        lookup blog.couchdb.org: i/o timeout    https://blog.couchdb.org/2017/09/19/couchdb-takes-medic-mobile-to-the-front-lines-of-healthcare-work/
+http://localhost:1313/hosting/monitoring/production/
+        lookup letsencrypt.org: i/o timeout     https://letsencrypt.org/
+http://localhost:1313/building/forms/app/
+        lookup www.w3.org: i/o timeout  https://www.w3.org/TR/1999/REC-xpath-19991116/ 
+```
+
+### Internal links after major re-organization
+
+If you're moving more than ~5 pages around, you should check that they either correctly redirect with the `aliases` [feature](https://hugo-docs.netlify.app/en/content-management/urls/#aliases) or 404 if the page is indeed removed with no replacement.  There's a script that will get all the URLs from the [production site](https://docs.communityhealthtoolkit.org/) and then check your branch for the result of every URL.  If it gets a `200` with no redirect, nothing is shown.  All other results, like `404` or a `200` which results in a redirect are shown.
+
+This is mainly to help preserve SEO and to help folks who bookmark specific pages.  
+
+#### Running
+
+1. Make your changes, for example moving 10s of pages to a new location
+2. Check that `hugo` compiles and doesn't complain of any broken links
+3. Start the docker container: `docker compose up -d`
+4. Test the links with the bash script: `docker exec cht-hugo .github/scripts/check.urls.sh`
+
+#### Example
+
+```shell
+$ docker exec  cht-hugo .github/scripts/check.urls.sh           
+
+Are you on a test branch and is hugo running on http://localhost:1313 ?
+
+Fetching URLs from production.
+
+Checking 435 URLs, be patient.  Any non 200 URLs will be listed here:
+
+Successfully checked 435 URLs!
+```
 
 ## Continuous Deployment
 

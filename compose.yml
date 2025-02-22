@@ -6,4 +6,7 @@ services:
       - 1313:1313
     volumes:
       - ./:/src
-    command: hugo server --buildDrafts --buildFuture --bind 0.0.0.0
+    command: >
+      sh -c "apk add bash curl grep &&
+      hugo server --buildDrafts --buildFuture --bind 0.0.0.0"
+      
