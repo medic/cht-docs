@@ -1,7 +1,7 @@
 ---
 title: Integrations
 linkTitle: "Integrations"
-weight: 12
+weight: 13
 description: >
    How to build integrations with external software and data sources
 aliases:

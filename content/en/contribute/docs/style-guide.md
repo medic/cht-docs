@@ -143,7 +143,7 @@ Connecting readers to related content in different pages is an important aspect 
    ---
    title: Messaging
    relatedContent: >
-    building/guides/messaging/
+    building/messaging/
     design/building/
     ---
    ``` 

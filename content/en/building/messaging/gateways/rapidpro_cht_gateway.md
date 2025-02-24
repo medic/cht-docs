@@ -5,7 +5,7 @@ weight: 20
 description: >
     Integration for sending and receiving messages
 relatedContent: >
-    building/guides/messaging/gateways/rapidpro
+    building/messaging/gateways/rapidpro
 aliases:
    - /apps/guides/messaging/gateways/rapidpro_cht_gateway
 ---

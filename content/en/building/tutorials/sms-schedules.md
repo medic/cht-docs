@@ -7,9 +7,7 @@ description: >
 relatedContent: >
   building/reference/app-settings/schedules
   building/forms
-  building/features/messaging
-  building/guides/messaging
-
+  building/messaging
 aliases:
    - /apps/tutorials/sms-schedules
 ---

@@ -20,7 +20,7 @@ To learn more about the platform, check out RapidPro on [GitHub](https://rapidpr
 Coming up with a design to accommodate user needs requires a detailed understanding of the capabilities of both systems and conceptually where it makes sense to introduce interactions between them. Below we introduce some of the key concepts in RapidPro, but to learn more you can have a look at their [documentation](https://rapidpro.github.io/rapidpro/docs/).
 
 ## Overview
-CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/features/messaging" >}}) from the Messages tab. 
+CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/messaging" >}}) from the Messages tab. 
 
 For more complex messaging workflows or to utilize other messaging platforms, you can design workflows that leverage the functionality of RapidPro and the CHT together. This enables semi-automated, direct to patient approaches to health assessments and care coordination at the community level.
 

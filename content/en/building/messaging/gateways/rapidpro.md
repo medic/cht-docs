@@ -9,9 +9,9 @@ aliases:
 relatedContent: >
     building/reference/app-settings/sms
     building/forms/configuring/app-form-sms
-    building/guides/messaging/sms-states
-    building/guides/messaging/message-loops
-    building/guides/messaging/shortcodes
+    building/messaging/sms-states
+    building/messaging/message-loops
+    building/messaging/shortcodes
 aliases:
    - /apps/guides/messaging/gateways/rapidpro
 ---
