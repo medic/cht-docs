@@ -53,7 +53,7 @@ Before designing your integrated RapidPro/CHT workflow, it's important to unders
 *Use Case Example:* Send an SMS to a patient asking if they are experiencing any new symptoms today. If so, let the patient know that a CHW will contact them. If not, let the patient know that they will receive another check-in message in three days and to contact their CHW if any new symptoms develop before then.
 
 
-*Additional Resources:* [Mastering Flows](https://app.rapidpro.io/video/) and [How to Build a RapidPro Flow](https://youtu.be/WcFhpSFhFug).
+*Additional Resource:* [How to Build a RapidPro Flow](https://youtu.be/WcFhpSFhFug).
 
 ### Campaigns
 
