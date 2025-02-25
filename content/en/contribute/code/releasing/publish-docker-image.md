@@ -25,7 +25,7 @@ First, create a repository for your new image on Docker Hub.
 
 There are two Amazon ERC repositories that can be used for publishing CHT images. `public.ecr.aws/medic` contains the released versions of the images, while `720541322708.dkr.ecr.eu-west-2.amazonaws.com/medic` is used to store branch builds (useful for CI testing, etc).
 
-Use an AWS admin account to add a new _public_ repository configuration for the new Docker image.  For example:
+Use an AWS admin account to add a new _public_ repository configuration for the new Docker image.  For example, for the `cht-couchdb-nouveau` image, it would look like:
 
 ```json
 {
