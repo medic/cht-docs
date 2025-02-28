@@ -1,9 +1,9 @@
 ---
 title: "Configuring CHT Application Graphics"
-linkTitle: Branding
+linkTitle: CHT Application Graphics
 weight: 1
 description: >
-  Configuring CHT Application graphics
+  Branding and configuring CHT Application graphics
 relatedContent: >
   building/features/admin
   design/interface/icons

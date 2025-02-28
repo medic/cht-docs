@@ -6,7 +6,7 @@ description: >
   Instructions for releasing Android Apps
 relatedContent: >
   building/guides/android/publishing
-  building/guides/android/branding
+  building/branding/android
 aliases: >
   /core/guides/android/releasing
 ---
