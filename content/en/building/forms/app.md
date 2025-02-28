@@ -377,7 +377,7 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | property | description | required |
 |---|---|---|
 | `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section]({{< relref "building/translations/localizing" >}}). | yes |
-| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section]({{< relref "building/reference/resources#icons" >}}) | yes |
+| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section]({{< relref "building/branding/resources#icons" >}}) | yes |
 | `subject_key` | Override the default report list title with a custom translation key. The translation uses a summary of the report as the evaluation context so you can include report fields in your value, for example: `Case registration {{case_id}}`. Useful properties available in the summary include: `from` (the phone number of the sender), `phone` (the phone number of the report contact), `form` (the form code), `subject.name` (the name of the subject), and `case_id` (the generated case id). Defaults to the name of the report subject. | no |
 | `hidden_fields` | Array of Strings of form fields to hide in the view report UI in the app. This is only applied to future reports and will not change how existing reports are displayed. | no |
 | `context` | The context defines when and where the form should be available in the app | no |
