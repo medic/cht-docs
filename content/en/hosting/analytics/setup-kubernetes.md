@@ -123,3 +123,35 @@ Run the following command to get the logs of a pod.
 ```shell
 kubectl logs -f cht-sync-<pod-id>
 ```
+
+### Controlling DBT Performance
+
+In production setups with large tables, it can be helpful to control how DBT runs.
+
+#### Threads
+
+the `dbt_threads` variable can be used to allow dbt to run independent models concurrently in same process using threads.
+
+```yaml
+dbt_thread_count: 3
+```
+
+#### Batching
+
+For large tables, it may take a long time for all rows to be copied from the source table into the base models if the base models are very out of date or the first time cht-sync is run. The `dbt_batch_size` value can be used to limit the number of records inserted in a single dbt run, which allows models to catch up to real time gradually and progressively.
+
+```yaml
+dbt_batch_size: 100000
+```
+
+#### Separate DBT pods
+You can use [dbt tags](https://docs.getdbt.com/reference/resource-configs/tags) to run different sets of models independently. This can be useful if any custom models take a long time to update; by running some models independently from others, faster models can be allowed to complete before the slower models are finished. 
+To do this, specify the tags in a list called `dbt_selectors`. These will be passed to dbt as `--select` arguments. If this value is specified, only models matching one [select condition](https://docs.getdbt.com/reference/node-selection/syntax#how-does-selection-work) will be run. Although its possible to include any condition, using tags is the simplest way to separate models. Ensure that models match only one condition, and include a selector `package:cht_pipeline_base` so that base models are run.
+
+```yaml
+dbt_selectors:
+  - "package:cht_pipeline_base"
+  - "tag:tag-one"
+  - "tag:tag-two"
+```
+
