@@ -15,7 +15,7 @@ The [CHT Android application](https://github.com/medic/cht-android) can be launc
 
 ## Sending a URL
 
-{{< figure src="../guides/android/branding/android-12-prompt.png" link="../guides/android/branding/android-12-prompt.png" class="right col-6 col-md-4 col-lg-2" >}}
+{{< figure src="../../branding/android/android-12-prompt.png" link="../../branding/android/android-12-prompt.png" class="right col-6 col-md-4 col-lg-2" >}}
 {{< figure src="android-prompt.png" link="android-prompt.png" class="right col-4 col-lg-3" >}}
 
 When the user clicks on a link to a CHT instance from an SMS, email, WhatsApp, or any other app, Android will prompt the user to choose whether to open the URL in the Android app or the browser. If a CHT app is not installed then the URL will be opened in the browser.
