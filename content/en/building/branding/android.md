@@ -1,15 +1,15 @@
 ---
 title: "Building CHT Android Flavors"
 linkTitle: CHT Android Flavors
-weight: 13
+weight: 3
 description: >
   Branding the CHT Android applications
-aliases: >
-  /core/guides/android/branding
 relatedContent: >
    building/reference/app-settings/assetlinks
 aliases:
    - /apps/guides/android/branding/
+   - /core/guides/android/branding
+   - /building/guides/android/branding/
 ---
 
 {{% pageinfo %}}

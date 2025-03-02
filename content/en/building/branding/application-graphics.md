@@ -1,15 +1,15 @@
 ---
 title: "Configuring CHT Application Graphics"
-linkTitle: Branding
-weight: 14
+linkTitle: CHT Application Graphics
+weight: 1
 description: >
-  Configuring CHT Application graphics
+  Branding and configuring CHT Application graphics
 relatedContent: >
   building/features/admin
   design/interface/icons
-
 aliases:
    - /apps/tutorials/application-graphics
+   - /building/tutorials/application-graphics
 ---
 
 {{% pageinfo %}}
@@ -154,7 +154,7 @@ We will then add a `header_tabs` key within app_settings with the following stru
 The above assumes you have the following resource icons already in your instance (either uploaded or out-of-the-box): `medic-health-center`, `icon-treatment`.
 
 Finally run the command: `cht --url=<instance-url> upload-app-settings`
-{{< see-also page="building/reference/resources" title="Icons" >}}
+{{< see-also page="building/branding/resources" title="Icons" >}}
 
 #### Using the admin interface
 

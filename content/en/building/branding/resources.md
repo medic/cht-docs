@@ -7,6 +7,7 @@ description: >
 keywords: icons branding
 aliases:
    - /apps/reference/resources
+   - /building/reference/resources
 ---
 
 ## Icons

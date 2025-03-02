@@ -401,7 +401,7 @@ You may add `icons` to your target widgets to enhance their appearance and to he
 
 {{< see-also page="design/interface/icons" title="Icon Library" >}}
 
-To upload *[resources]({{< ref "building/reference/resources#icons" >}})* to your local instance, run the following command:
+To upload *[resources]({{< ref "building/branding/resources#icons" >}})* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
