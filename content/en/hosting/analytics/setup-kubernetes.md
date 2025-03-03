@@ -103,7 +103,7 @@ metrics_exporter:
 ```
 ## Deploy
 
-Run the command below to deploy the cht-sync helm chart. The chart is at `deploy/cht_sync`; if `values.yaml` is in a different directory, specify the path.
+Run the command below to deploy the CHT Sync helm chart. The chart is at `deploy/cht_sync`; if `values.yaml` is in a different directory, specify the path.
 
 ```shell
 cd deploy/cht_sync
@@ -130,7 +130,7 @@ In production setups with large tables, it can be helpful to control how DBT run
 
 #### Threads
 
-the `dbt_threads` variable can be used to allow dbt to run independent models concurrently in same process using threads.
+the `dbt_threads` variable can be used to allow dbt to run independent models concurrently in the same process using threads.
 
 ```yaml
 dbt_thread_count: 3
@@ -138,7 +138,7 @@ dbt_thread_count: 3
 
 #### Batching
 
-For large tables, it may take a long time for all rows to be copied from the source table into the base models if the base models are very out of date or the first time cht-sync is run. The `dbt_batch_size` value can be used to limit the number of records inserted in a single dbt run, which allows models to catch up to real time gradually and progressively.
+For large tables, it may take a long time for all rows to be copied from the source table into the base models if the base models are very out of date or the first time CHT Sync is run. The `dbt_batch_size` value can be used to limit the number of records inserted in a single dbt run, which allows models to catch up to real time gradually and progressively.
 
 ```yaml
 dbt_batch_size: 100000

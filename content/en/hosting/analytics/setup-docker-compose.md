@@ -50,7 +50,7 @@ docker compose --profile local up -d
 
 You can verify this command worked by running `docker ps`. It should show four containers running including couch2pg, dbt, PostgreSQL, and pgAdmin.
 
-When developing DBT models, it is helpful to test changes locally before commiting them to a remote repository.
+When developing DBT models, it is helpful to test changes locally before committing them to a remote repository.
 
 Set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`.
 
@@ -73,15 +73,15 @@ In production setups with large tables, it can be helpful to control how DBT run
 
 #### Threads
 
-the `DBT_THREADS` variable can be used to allow dbt to run independent models concurrently in same process using threads.
+the `DBT_THREADS` variable can be used to allow dbt to run independent models concurrently in the same process using threads.
 
 #### Batching
 
-For large tables, it may take a long time for all rows to be copied from the source table into the base models if the base models are very out of date or the first time CHT Sync is run. The `DBT_BATCH_SIZE` variable can be used to limit the number of records inserted in a single dbt run, which allows models to catch up to real time gradually and progressively.
+For large tables, it may take a long time for all rows to be copied from the source table into the base models if the base models are very out of date or the first time CHT Sync is run. The `DBT_BATCH_SIZE` variable can be used to limit the number of records inserted in a single dbt run, which allows models to catch up to real-time gradually and progressively.
 
 #### DBT tags
 You can use [dbt tags](https://docs.getdbt.com/reference/resource-configs/tags) to run different sets of models independently. This can be useful if any custom models take a long time to update; by running some models independently from others, faster models can be allowed to complete before the slower models are finished.
-To do this, add dbt containers with different values set for the `DBT_SELECTOR` environment variable. This variable will be passed to each dbt container as a `--select` argument. If it is set, the dbt conatiner will only run models matching the [select condition](https://docs.getdbt.com/reference/node-selection/syntax#how-does-selection-work). Although its possible to include any condition, using tags is the simplest way to separate models. Ensure that models match only one condition, and include a selector `package:cht_pipeline_base` so that base models are run.
+To do this, add dbt containers with different values set for the `DBT_SELECTOR` environment variable. This variable will be passed to each dbt container as a `--select` argument. If it is set, the dbt container will only run models matching the [select condition](https://docs.getdbt.com/reference/node-selection/syntax#how-does-selection-work). Although its possible to include any condition, using tags is the simplest way to separate models. Ensure that models match only one condition, and include a selector `package:cht_pipeline_base` so that base models are run.
 
 To do this, add an additional docker-compose file with different dbt containers and use profiles to control which services run.
 
