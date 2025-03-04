@@ -9,9 +9,10 @@ aliases:
    - /building/guides/data/analytics/environment-variables
 ---
 
-There are two environment variable groups in the `.env` file (if using Docker Compose), or in the `values.yaml` file (if using Kubernetes).
+There are three groups of environment variables. One for Postgres, one for CouchDB and one for DBT. These are found in the `.env` [file](https://github.com/medic/cht-sync/blob/main/env.template) and the `values.yaml` [file](https://github.com/medic/cht-sync/blob/main/deploy/cht_sync/values.yaml.template) for docker and Kubernetes respectively."
 1. `POSTGRES_`: Used by PostgreSQL to establish the PostgreSQL database to synchronize CouchDB data to. They define the schema and table names to store the CouchDB data, as well as where the tables and views for the models defined in `CHT_PIPELINE_BRANCH_URL` will be created. 
 2. `COUCHDB_`: Used by CouchDB to define the CouchDB instance to sync with. With `COUCHDB_DBS`, we can specify a list of databases to sync.
+3. `DBT_`: Used by dbt to pull from the remote `git` repository, declare sync frequency and concurrency. 
 
 | Name                      | Default                                               | Description                                                                                                                                |
 |---------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|

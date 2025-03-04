@@ -65,9 +65,9 @@ Run the Docker containers with profile `production` and wait for every container
 docker compose --profile production up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show three containers running; dbt, couch2pg and bastion.
+You can verify this command worked by running `docker ps`. It should show three containers running: dbt, couch2pg and bastion.
 
-### Controlling DBT performance
+### Tuning DBT performance
 
 In production setups with large tables, it can be helpful to control how DBT runs.
 

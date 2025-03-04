@@ -124,7 +124,7 @@ Run the following command to get the logs of a pod.
 kubectl logs -f cht-sync-<pod-id>
 ```
 
-### Controlling DBT Performance
+### Tuning DBT Performance
 
 In production setups with large tables, it can be helpful to control how DBT runs.
 
