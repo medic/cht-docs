@@ -19,6 +19,7 @@ This guide will walk you through setting up a deployment of CHT Sync with the CH
 - [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [cht-sync](https://github.com/medic/cht-sync) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-sync`).
+- [A dbt project](https://docs.getdbt.com/docs/build/projects).
 
 ## Setup
 
@@ -43,9 +44,9 @@ The following profiles are available:
 
 This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly. 
 
-When developing DBT models, it is helpful to test changes locally before committing them to a remote repository. To do this, set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`. You must set this to a valid directory where you have your CHT Pipeline models. You can not use `--local` profile without setting this.
+The dbt container needs a project to run. To develop and test models locally, [set up a dbt project]({{< relref "hosting/analytics/building-dbt-models#setup" >}}) and set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`. You must set this to a valid directory where you have your CHT Pipeline models. You can not use `--local` profile without setting this.
 
-When running, the  dbt container then will use the local models in the path specified in `DBT_LOCAL_PATH` with out needing to query a remote git repository.
+When running, the dbt container then will use the local models in the path specified in `DBT_LOCAL_PATH` with out needing to query a remote git repository.
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
