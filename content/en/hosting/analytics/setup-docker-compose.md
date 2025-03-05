@@ -41,18 +41,28 @@ The following profiles are available:
 
 #### Local
 
-This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly.
+This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly. 
+
+When developing DBT models, it is helpful to test changes locally before committing them to a remote repository. To do this, set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`. You must set this to a valid directory where you have your CHT Pipeline models. You can not use `--local` profile without setting this.
+
+When running, the  dbt container then will use the local models in the path specified in `DBT_LOCAL_PATH` with out needing to query a remote git repository.
 
 Run the Docker containers locally and wait for every container to be up and running:
 ```sh
 docker compose --profile local up -d
 ```
 
-You can verify this command worked by running `docker ps`. It should show four containers running including couch2pg, dbt, PostgreSQL, and pgAdmin.
+You can verify this command worked by running `docker compose --profile local ps --format "{{.Names}}\t{{.Status}}"`. It should show four containers running including couch2pg, dbt, PostgreSQL, and pgAdmin:
+
+```
+cht-sync-couch2pg-1     Up About a minute
+cht-sync-dbt-local-1    Up About a minute
+cht-sync-pgadmin-1      Up About a minute
+cht-sync-postgres-1     Up About a minute
+```
 
 When developing dbt models, it is helpful to test changes locally before committing them to a remote repository.
 
-Set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`.
 
 The dbt container will run the models in the path specified in `DBT_LOCAL_PATH`.
 

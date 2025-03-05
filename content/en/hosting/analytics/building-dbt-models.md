@@ -45,9 +45,7 @@ If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll 
 
 ### Local development
 
-It is helpful to test changes locally before commiting them to a remote repository.
-For local testing and development, in the CHT Sync config, set the path to the dbt project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`
-Use the [docker compose setup]({{< relref "hosting/analytics/setup-docker-compose" >}}) for CHT Sync with the `--local` profile.
+When doing development, it  is convenient to be able to test changes locally with out needing to push to a remote repository and then have dbt pull those same changes back down. To expedite local development, set the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) to point to the dbt models directory on your computer.  Then, use the the `--local` profile [option]({{< relref "hosting/analytics/setup-docker-compose" >}}) when calling `docker` which avoids the `CHT_PIPELINE_BRANCH_URL` and uses the  `DBT_LOCAL_PATH` you just declared.
 
 ### Deploying models
 
