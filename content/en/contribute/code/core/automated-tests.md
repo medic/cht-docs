@@ -10,12 +10,9 @@ aliases: >
 ---
 
 ## The goal of automated testing
-We welcome contributors from all backgrounds to make changes in the codebase. Our testing framework is designed to help you contribute with confidence, regardless of your experience level.
-A big part of this means knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
-This guide will help you understand our testing approach and how you can contribute effectively.
+We welcome contributors from all backgrounds to make changes in the codebase. Our testing framework is designed to help you contribute with confidence, regardless of your experience level. This guide will help you understand our testing approach and how you can contribute effectively.
 
-Of course any new functionality itself may or may not work as expected and it is up to the developer to write the appropriate tests to ensure it works correctly in both expected and unexpected scenarios. Tests should give a developer confidence in their own work, and prior tests should give future developers similar confidence.
-
+A key part of this confidence comes from knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
 Automation of testing should speed up development in two significant areas:
 1. While making changes, new automated tests can be run regularly to ensure (without lots of manual effort) that the changes continue to work as expected
 2. Avoid large amounts of time spent manually performing regression testing of the whole application to ensure existing functionality keeps working
@@ -288,8 +285,10 @@ Any test code that starts a server or runs an executable is running outside of t
 
 ### Support and Community Resources
 We're here to help you succeed with testing:
+
 - Questions? Ask in our [Community Forum](https://forum.communityhealthtoolkit.org/)
 - Need help debugging? Check our [Troubleshooting Guide](https://docs.communityhealthtoolkit.org/contribute/code/core/automated-tests/#debugging-e2e-tests)
 - Found a bug? [Open an issue](https://github.com/medic/cht-core/issues)
 - Want to contribute to testing? See our [Contribution Guide](https://docs.communityhealthtoolkit.org/contribute/code/core/automated-tests/#ways-to-get-involved)
+
 Remember, every contributor was once new to the project. Don't hesitate to ask for help!
