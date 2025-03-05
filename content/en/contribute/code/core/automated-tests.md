@@ -10,7 +10,9 @@ aliases: >
 ---
 
 ## The goal of automated testing
-Developers should be able to make changes in the codebase quickly and confidently. A big part of this means knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
+We welcome contributors from all backgrounds to make changes in the codebase. Our testing framework is designed to help you contribute with confidence, regardless of your experience level.
+A big part of this means knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
+This guide will help you understand our testing approach and how you can contribute effectively.
 
 Of course any new functionality itself may or may not work as expected and it is up to the developer to write the appropriate tests to ensure it works correctly in both expected and unexpected scenarios. Tests should give a developer confidence in their own work, and prior tests should give future developers similar confidence.
 
@@ -19,9 +21,7 @@ Automation of testing should speed up development in two significant areas:
 2. Avoid large amounts of time spent manually performing regression testing of the whole application to ensure existing functionality keeps working
 
 ## Test types and expectations
-We seek to have a quality codebase that developers can work on with speed. This means balancing test strategies, quantity, and coverage.
-
-When looking at a well-factored codebase there are three common ways to automate tests (ordered by levels low to high):
+We maintain different types of tests, each serving a specific purpose (ordered by levels low to high):
 1. Unit tests
 2. Integration tests
     - Backend integration tests
@@ -34,9 +34,15 @@ When looking at a well-factored codebase there are three common ways to automate
 
 ### Description
 Small tests of specific behavior. Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. Any dependencies are often mocked.
+These are typically the easiest to write and are a great starting point for new contributors.
+
+**When to write unit tests:**
+- Testing individual functions or methods
+- Verifying component behavior
+- Checking edge cases
 
 ### Expectations
-High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, you need to evaluate if a lower test should be written.
+High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, We encourage evaluating if a lower-level test should be written.
 
 | Execution Speed     | Complexity | Fragility |
 |------------|---------|---------|
@@ -49,6 +55,11 @@ In cht-core unit tests are located in the `tests` directories of each app  (e.g.
 
 ### Description
 Tests to exercise how multiple components interact with each other. With a dynamic language like JavaScript these are especially important to verify expectations of interface points. These may mock some parts, but often use the "real" components since the point is to exercise those components together. As a result, these tests likely involve more setup, potentially involving data scenarios.
+
+**When to write integration tests:**
+- Testing interactions between components
+- Verifying API endpoints
+- Checking database operations
 
 ### Expectations
 Dramatically fewer than unit tests. The goal is not to verify all branches; it is to gain confidence in interface points.
@@ -93,6 +104,12 @@ Frontend integration tests are located in [`tests/integration`](https://github.c
 
 ### Description
 Tests that simulate real user experiences to validate the complete system. You can think of e2e test as the user main workflows when using the system.
+E2E tests verify the entire application works as expected from a user's perspective.
+
+**When to write E2E tests:**
+- Testing complete user workflows
+- Verifying critical paths
+- Checking cross-browser compatibility
 
 ### Expectations
  E2e tests give us the most confidence to decide if the feature is working, but must only check the parts of code that the lower-level tests can't cover. We should push the testing levels as far down as possible.
@@ -136,6 +153,21 @@ flowchart LR
     e2e-tests <--wdio--> browser
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
+
+## Contributing Section
+### Ways to Get Involved
+We value various forms of contributions to our testing ecosystem:
+- Writing new tests
+- Improving existing tests
+- Enhancing test documentation
+- Reporting test failures
+- Suggesting test scenarios
+
+### Getting Started
+1. Set up your development environment
+2. Run existing tests to familiarize yourself
+3. Join our community channels for support
+4. Start with small, manageable changes
 
 ### How to write automated e2e tests
 
@@ -229,7 +261,7 @@ Try the following:
 - Manually downloaded the images. To download images manually, you can use either `docker compose` or `docker`:
   - With `docker`, you'd do a docker pull  <image tag> for every image you want to download.
   - With `docker compose`, you'd save all docker-compose files in a folder, do a `docker compose pull`, and point to your files as a source. Read more on [docker compose pull](https://docs.docker.com/engine/reference/commandline/compose_pull/)
- 
+
 If you experience errors such as:
 
 ```
@@ -250,5 +282,14 @@ Repeat the above steps until all data has been deleted.
 
 ### Test Architecture
 
-Our GitHub actions spin up an ubuntu-22.04 machine. They install software and then launch couchdb and horticulturalist in a docker container. This is needed to run our applications in the specific node versions we support, while allowing our test code to run in versions of node it supports. This creates a paradigm to keep in mind when writing tests. Tests run on the ubuntu machine. 
-Any test code that starts a server or runs an executable is running outside of the horti container. The ports are exposed for all our services and horti has access to the cht-core root via a volume. Horti can also talk to the host by getting the gateway of the docker network. 
+Our GitHub actions spin up an ubuntu-22.04 machine. They install software and then launch couchdb and horticulturalist in a docker container. This is needed to run our applications in the specific node versions we support, while allowing our test code to run in versions of node it supports. This creates a paradigm to keep in mind when writing tests. Tests run on the ubuntu machine.
+Any test code that starts a server or runs an executable is running outside of the horti container. The ports are exposed for all our services and horti has access to the cht-core root via a volume. Horti can also talk to the host by getting the gateway of the docker network.
+
+
+### Support and Community Resources
+We're here to help you succeed with testing:
+- Questions? Ask in our [Community Forum](https://forum.communityhealthtoolkit.org/)
+- Need help debugging? Check our [Troubleshooting Guide](https://docs.communityhealthtoolkit.org/contribute/code/core/automated-tests/#debugging-e2e-tests)
+- Found a bug? [Open an issue](https://github.com/medic/cht-core/issues)
+- Want to contribute to testing? See our [Contribution Guide](https://docs.communityhealthtoolkit.org/contribute/code/core/automated-tests/#ways-to-get-involved)
+Remember, every contributor was once new to the project. Don't hesitate to ask for help!
