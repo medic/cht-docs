@@ -161,7 +161,7 @@ We value various forms of contributions to our testing ecosystem:
 - Suggesting test scenarios
 
 ### Getting Started
-1. Set up your development environment
+1. Set up your [development environment](https://docs.communityhealthtoolkit.org/contribute/code/core/dev-environment/)
 2. Run existing tests to familiarize yourself
 3. Join our community channels for support
 4. Start with small, manageable changes
