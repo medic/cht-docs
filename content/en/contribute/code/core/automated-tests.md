@@ -53,7 +53,7 @@ In cht-core unit tests are located in the `tests` directories of each app  (e.g.
 ### Description
 Tests to exercise how multiple components interact with each other. With a dynamic language like JavaScript these are especially important to verify expectations of interface points. These may mock some parts, but often use the "real" components since the point is to exercise those components together. As a result, these tests likely involve more setup, potentially involving data scenarios.
 
-**When to write integration tests:**
+**Write integration tests for:**
 - Testing interactions between components
 - Verifying API endpoints
 - Checking database operations
