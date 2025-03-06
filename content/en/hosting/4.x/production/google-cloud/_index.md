@@ -32,6 +32,8 @@ Cloud-vendor optimized container images such as Google-optimized container image
 
 ### Cluster creation
 
+As a system support administrator, the impacts of a Zonal cluster mean there is only 1 control plane server. If that control plane server goes down, I am unable to modify, or create any resources inside the Cluster. The workloads are still running and available to the end-users but the administrator should be aware of the constraint. Easing this burden requires an increase in costs (more control plane server redudancy).
+
 #### Zonal cluster
 
 * Pros: Less costly
@@ -47,6 +49,10 @@ Cloud-vendor optimized container images such as Google-optimized container image
 Each public subnet contains a NAT and a load balancer node.
 The servers run in the private subnets and receive traffic from the load balancer .
 The servers can connect to the internet by using the NAT.
+
+* Add our CIDR
+* Small description to why VMs that run containers are in the private subnet
+* Add a section for bastion/ssh-jumpbox setup. That's how we will troubleshoot underlying VM issues. We will want to add a VM to the public subnet that includes routes to the private servers. After tomorrow' session, we can fill that out with exact config details or photos showing how to deploy bastion. There's already existing work in cht-core we can perhaps utilize and link to.
 
 #### Private subnets
 
