@@ -103,7 +103,7 @@ Frontend integration tests are located in [`tests/integration`](https://github.c
 Tests that simulate real user experiences to validate the complete system. You can think of e2e test as the user main workflows when using the system.
 E2E tests verify the entire application works as expected from a user's perspective.
 
-**When to write E2E tests:**
+**Write E2E tests for:**
 - Testing complete user workflows
 - Verifying critical paths
 - Checking cross-browser compatibility
