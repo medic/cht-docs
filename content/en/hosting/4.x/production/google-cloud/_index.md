@@ -17,12 +17,7 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 2. Enable Billing: In GCP, enable [billing](https://console.cloud.google.com/billing), including a valid credit card
 3. GCP Project: Each resource in GCP must belong to it's [own project](https://console.cloud.google.com/projectcreate)
 
-## Template resources, changes required and some considerations
-
-Let's start writing out the detail as to what and why, and gathering those links on info so the cht-docs PR will be easier.
-For example, what is the main docker image constraint (base image selection)? Why don't we want to use google-optimized container images, or Amazon-optimized container images? Why do we need to modify u-limit (and link to the relevant couchdb performance doc)
-
-## **Recommendations and considerations**
+## **Template resources, Recommendations and Considerations**
 
 ### Why not to use optimized container images and why modify ulimit ?
 
