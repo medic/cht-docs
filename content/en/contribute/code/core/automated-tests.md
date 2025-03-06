@@ -163,7 +163,7 @@ You can contribute to the CHT testing in various ways:
 ### Getting Started
 1. Set up your [development environment](https://docs.communityhealthtoolkit.org/contribute/code/core/dev-environment/)
 2. Run existing tests to familiarize yourself
-3. Join our community channels for support
+3. Join the CHT community channels for support
 4. Start with small, manageable changes
 
 ### How to write automated e2e tests
