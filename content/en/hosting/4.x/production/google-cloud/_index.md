@@ -1,21 +1,21 @@
 ---
 title: "Production Hosting CHT 4.x - Google Cloud Platform"
-linkTitle: "Google Cloud Platform"
+linkTitle: "GCP Single Node"
 weight: 10
 aliases:
    - /hosting/4.x/production/docker/google-cloud/
 description: >
    Production Hosting CHT 4.x - Google Cloud Platform
 ---
-This for a step by step to migrate or deploy CHT 4.x instance and is the recommended solution  on Google Cloud Platform.
+How to deploy the CHT 4.x on Google Cloud Platform
 
 ## Prerequisites
 
-Before you can start using  **Google Cloud Platform (GCP)** , you need to meet certain requirements
+Before you can start using  Google Cloud Platform (GCP) to host the CHT, you need to meet certain requirements:
 
-1. **Google Account:** a valid Google account (Gmail or Google Workspace)
-2. **Enable Billing & Free Trial ($300 Credit)**: a valid **credit card** (identity verification)
-3. **Create a GCP Project**: each resource in GCP must belong to a **project**
+1. Google Account:  valid [free Gmail](https://workspace.google.com/intl/en-US/gmail/) or [paid Google Workspace](https://workspace.google.com/pricing.html) account
+2. Enable Billing: In GCP, enable [billing](https://console.cloud.google.com/billing), including a valid credit card
+3. GCP Project: Each resource in GCP must belong to it's [own project](https://console.cloud.google.com/projectcreate)
 
 ## Template resources, changes required and some considerations
 
@@ -24,11 +24,11 @@ For example, what is the main docker image constraint (base image selection)? Wh
 
 ## **Recommendations and considerations**
 
-### Why not to use optimized container images and why modify Ulimit ?
+### Why not to use optimized container images and why modify ulimit ?
 
-On a system with many databases or many views, CouchDB can very rapidly hit the Ulimit, and this is not possible with either Google-optimized container images or Amazon-optimized container images. [More details for couchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
+In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for couchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
 
-This is why we use Ubuntu with containerd (ubuntu_containerd)
+Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
 
 ### Cluster creation
 
@@ -56,7 +56,7 @@ Private subnets are used so we do not expose CouchDB nodes to internet an not be
 
 Public subnet in a Kubernetes node pool is used to allowing direct access to and from the internet. And this is for CHT API and Sentinel.
 
-#### How is the Kubernetes Engine, persistent data storage, compute engine, base images are related?
+#### How are the Kubernetes Engine, persistent data storage, compute engine and base images related?
 
 **Compute Engine** (Virtual Machines, Bare Metal, Cloud Instances) is the physical or virtual infrastructure that runs Kubernetes clusters, whereas **Kubernetes** is a container orchestration platform that manages containerized workloads across a cluster of machines and It automates deployment, scaling, networking, and management of applications.
 
@@ -95,7 +95,7 @@ kubectl get namespaces
 
 There are two ways to create a project in GCP
 
-1. GCP UI: if you decide to use the UI, follow the steps [here](https://console.cloud.google.com/projectcreate)
+1. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
 2. GCP CLI: use below command after you have authenticated to your GCP account
 
    ```
@@ -106,8 +106,7 @@ There are two ways to create a project in GCP
 
 To create a cluster we can do it either through the UI or CLI
 
-1. Create kubernetes cluster
-   Follow the steps [here](https://console.cloud.google.com/kubernetes/list/overview)
+1. UI**:** Follow the [create cluster steps](https://console.cloud.google.com/kubernetes/list/overview)
 2. Using CLI
    1. Enable Google Kubernetes Engine API
 
@@ -122,3 +121,53 @@ To create a cluster we can do it either through the UI or CLI
       --num-nodes 3
       --machine-type e2-medium
       ```
+
+
+### Persistent Disk Creation
+
+Below are the methods and steps to create a persitent disk in GCP
+
+* UI: Follow persistent disk creation [here](https://console.cloud.google.com/compute/disksAdd?inv=1&invt=AbrSOA&authuser=1&project=profound-hydra-451517-p5)
+* CLI:  run below command to create volume
+
+```
+gcloud compute disks create  [DISK_NAME]\
+  --size [DISK_SIZE]\
+  --type [DISK_TYPE]
+```
+
+### Storage Class Configuration
+
+In order to bind and apply the created storage class to a cluster use below  the yamel  script for configuring  storage class
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: xfs-class
+provisioner: pd.csi.storage.gke.io
+parameters:
+  type: pd-balanced
+  csi.storage.k8s.io/fstype: xfs
+volumeBindingMode: Immediate
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+```
+
+#### Configuration Process
+
+* Created the StorageClass configuration
+* Applied the configuration using kubectl apply
+* Verified the StorageClass was successfully created and registered in the cluster
+
+#### Key Configurations meaning
+
+* **`volumeBindingMode: Immediate`** :
+  * Creates and binds Persistent Volume (PV) immediately
+  * Triggers PV creation when Persistent Volume Claim (PVC) is created
+* **`reclaimPolicy: Retain`** :
+  * Preserves volume and data after PVC deletion
+  * Prevents accidental data loss
+* **`allowVolumeExpansion: true`** :
+  * Enables PVC size expansion without recreation
+  * Provides storage flexibility
