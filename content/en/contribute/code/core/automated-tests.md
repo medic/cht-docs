@@ -10,7 +10,7 @@ aliases: >
 ---
 
 ## The goal of automated testing
-We welcome contributors from all backgrounds to make changes in the codebase. Our testing framework is designed to help you contribute with confidence, regardless of your experience level. This guide will help you understand our testing approach and how you can contribute effectively.
+Contributors from all backgrounds are welcome to make changes in the codebase. The CHT testing framework is designed to help you contribute with confidence, regardless of your experience level. This guide will help you understand the CHT testing approach and how you can contribute effectively.
 
 A key part of this confidence comes from knowing that new changes have not impacted other functionality in the system and everything continues to work as expected.
 Automation of testing should speed up development in two significant areas:
