@@ -33,7 +33,7 @@ CHT Core contains three types of tests, each serving a specific purpose (ordered
 Small tests of specific behavior. Each unit test is only intended to validate an isolated piece (unit) of functionality separated from the rest of the system. Any dependencies are often mocked.
 These are typically the easiest to write and are a great starting point for new contributors.
 
-**When to write unit tests:**
+**Write unit tests for:**
 - Testing individual functions or methods
 - Verifying component behavior
 - Checking edge cases
