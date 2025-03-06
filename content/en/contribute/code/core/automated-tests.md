@@ -18,7 +18,7 @@ Automation of testing should speed up development in two significant areas:
 2. Avoid large amounts of time spent manually performing regression testing of the whole application to ensure existing functionality keeps working
 
 ## Test types and expectations
-We maintain different types of tests, each serving a specific purpose (ordered by levels low to high):
+CHT Core contains three types of tests, each serving a specific purpose (ordered by levels low to high):
 1. Unit tests
 2. Integration tests
     - Backend integration tests
