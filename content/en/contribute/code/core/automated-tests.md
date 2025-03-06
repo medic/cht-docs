@@ -46,7 +46,7 @@ High coverage of functionality. If measured in branch coverage percentage,  aim 
 | Extremely fast | Extremely low | Extremely stable |
 
 ### Implementation
-In cht-core unit tests are located in the `tests` directories of each app  (e.g. in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: `npm run unit`.
+In cht-core unit tests are located in the `tests` directories of each app  (For example, in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: `npm run unit`.
 
 ## Integration Tests
 
@@ -176,7 +176,7 @@ End to end (e2e) tests can be really difficult to debug - sometimes they fail se
 
 #### Set the `DEBUG` flag
 
-Setting the `DEBUG` environment variable (e.g. [`DEBUG=true npm run wdio-local`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L103)) when running the tests locally will do the following:
+Setting the `DEBUG` environment variable (For example: [`DEBUG=true npm run wdio-local`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L103)) when running the tests locally will do the following:
 
 - Run the browser without the `headless` flag (details in the [`wdio.conf`](https://github.com/medic/cht-core/blob/master/tests/wdio.conf.js#L35) file), so the browser will be displayed when running the tests
 - Increase the test timeout from 2 minutes to 10 minutes
@@ -220,7 +220,7 @@ Running e2e tests can be quite slow so to save time modify the `specs` property 
 
 #### Watching the test run
 
-Running the tests locally (e.g. with `npm run wdio-local`) will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
+Running the tests locally (For example, with `npm run wdio-local`) will allow you to watch it run but if you interact with the page the test will fail in unexpected ways. Furthermore the browser will close after a short timeout so you won't be able to inspect the console or DOM. To do this, force quit the process running the test before it tears down and you will be able to navigate around the app, use Chrome dev tools, and inspect the docs in the database to (hopefully) work out what's going wrong.
 
 #### Running the upgrade e2e test locally
 
@@ -235,7 +235,7 @@ To run the upgrade e2e tests in your local environment, follow these steps:
     - `export STAGING_SERVER=_couch/builds_4`.
     - `export BRANCH=<your branch name>`.
     - `export BASE_VERSION=<CHT base version>`(it can be used `latest` as the value).
-    - `export TAG=<CHT version>`(Optional, e.g. `4.8.1`).
+    - `export TAG=<CHT version>`(Optional, For example: `4.8.1`).
 - Run the upgrade e2e tests: `npm run upgrade-wdio`
 
 If you experience errors such as:
