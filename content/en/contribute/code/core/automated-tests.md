@@ -153,7 +153,7 @@ flowchart LR
 
 ## Contributing Section
 ### Ways to Get Involved
-We value various forms of contributions to our testing ecosystem:
+You can contribute to the CHT testing in various ways:
 - Writing new tests
 - Improving existing tests
 - Enhancing test documentation
