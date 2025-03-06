@@ -109,7 +109,7 @@ E2E tests verify the entire application works as expected from a user's perspect
 - Checking cross-browser compatibility
 
 ### Expectations
- E2e tests give us the most confidence to decide if the feature is working, but must only check the parts of code that the lower-level tests can't cover. We should push the testing levels as far down as possible.
+E2e tests give the most confidence to decide if the feature is working, but must only check the parts of code that the lower-level tests can't cover. The testing levels should be pushed as far down as possible.
 
 | Execution Speed     | Complexity | Fragility |
 |------------|---------|---------|
