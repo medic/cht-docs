@@ -39,7 +39,7 @@ These are typically the easiest to write and are a great starting point for new 
 - Checking edge cases
 
 ### Expectations
-High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, We encourage evaluating if a lower-level test should be written.
+High coverage of functionality. If measured in branch coverage percentage,  aim for 100%. This is  the place to guarantee confidence in the system. If a higher-level test spots and error and there's no lower-level test failing, you should evaluate if a lower-level test should be written.
 
 | Execution Speed     | Complexity | Fragility |
 |------------|---------|---------|
