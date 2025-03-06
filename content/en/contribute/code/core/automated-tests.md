@@ -279,7 +279,7 @@ Repeat the above steps until all data has been deleted.
 
 ### Test Architecture
 
-Our GitHub actions spin up an ubuntu-22.04 machine. They install software and then launch couchdb and horticulturalist in a docker container. This is needed to run our applications in the specific node versions we support, while allowing our test code to run in versions of node it supports. This creates a paradigm to keep in mind when writing tests. Tests run on the ubuntu machine.
+CHT Core GitHub actions spin up an ubuntu-22.04 machine. They install software and then launch couchdb and horticulturalist in a docker container. This is needed to run the applications in the specific supported `node` versions, while allowing the test code to run in versions of `node` it supports. This creates a paradigm to keep in mind when writing tests. Tests run on the ubuntu machine.
 Any test code that starts a server or runs an executable is running outside of the horti container. The ports are exposed for all our services and horti has access to the cht-core root via a volume. Horti can also talk to the host by getting the gateway of the docker network.
 
 
