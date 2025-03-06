@@ -66,8 +66,8 @@ Dramatically fewer than unit tests. The goal is not to verify all branches; it i
 | Fast execution, but slower startup when working with a DB | Mid-to-high. Things can get complex fast when combining parts! | Mostly stable. Fragility risks tend to come from DB setup. |
 
 ### Implementation
-For us, backend integration testing means testing through the entire stack of our application connected to other applications within our system. In the image below, it means that we test each application (box) and its interaction with other applications within our system.
-We isolate the tests from the webapp and make the necessary shortcuts to make the test more straightforward and faster. We do not mock any part of the system.
+Backend integration testing means testing through the entire stack of the application connected to other applications within the system. In the image below, this involves testing each application (box) and its interaction with other applications within the system.
+The tests are isolated from the webapp with necessary shortcuts to make testing more straightforward and faster. No part of the system is mocked.
 
 **Backend integration tests** are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
 
@@ -265,8 +265,8 @@ If you experience errors such as:
 A user session timing out while running the test.
 ```
 This could be because there are some issues with data or there could be a large number of images and volumes that caused docker to crash.
-We recommend cleaning all the docker data to be able to start afresh and clean. It is important, however, to note that these commands will delete everything.
-And the e2e tests might take a little longer to run because all the images need to be downloaded again.
+To resolve this, it's recommended to clean all docker data for a fresh start. Note that these commands will delete everything.
+The e2e tests might take a little longer to run because all the images need to be downloaded again.
 
 Try running the following commands:
 - `docker system prune`
