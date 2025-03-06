@@ -289,6 +289,6 @@ The CHT Community is here to help you succeed with testing:
 - Questions? Ask in the [Community Forum](https://forum.communityhealthtoolkit.org/)
 - Need help debugging? Check the [Troubleshooting Guide]({{< ref "contribute/code/core/automated-tests/#debugging-e2e-tests" >}})
 - Found a bug? [Open an issue](https://github.com/medic/cht-core/issues)
-- Want to contribute to testing? See our [Contribution Guide](https://docs.communityhealthtoolkit.org/contribute/code/core/automated-tests/#ways-to-get-involved)
+- Want to contribute to testing? See the [Contribution Guide]({{< ref "contribute/code/core/automated-tests/#ways-to-get-involved" >}})
 
 Remember, every contributor was once new to the project. Don't hesitate to ask for help!
