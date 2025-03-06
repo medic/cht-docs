@@ -284,7 +284,7 @@ Any test code that starts a server or runs an executable is running outside of t
 
 
 ### Support and Community Resources
-We're here to help you succeed with testing:
+The CHT Community is here to help you succeed with testing:
 
 - Questions? Ask in our [Community Forum](https://forum.communityhealthtoolkit.org/)
 - Need help debugging? Check our [Troubleshooting Guide](https://docs.communityhealthtoolkit.org/contribute/code/core/automated-tests/#debugging-e2e-tests)
