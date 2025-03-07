@@ -154,3 +154,25 @@ docker compose -f docker-compose.yml down
 ```
 
 To remove all the data volumes, add `-v` at the end of this command.
+
+### Upgrading
+
+To upgrade to a newer version of CHT Sync with docker, stop all containers, and pull the newer version.
+If there are any database changes that require a migration script, the major version will be changed and the changes detailed below.
+After running any migrations scripts, restart containers with the new docker-compose.yml
+
+```sh
+docker compose --profile production up -d
+```
+
+#### Upgrading V1 to V2
+
+V2 added the `source` column to the `couchdb` table, and several other columns to the metadata table.
+To add these columns log in to the database and run this sql. 
+
+```sql
+  ALTER TABLE _dataemon ADD COLUMN IF NOT EXISTS manifest jsonb;
+  ALTER TABLE _dataemon ADD COLUMN IF NOT EXISTS dbt_selector text;
+  ALTER TABLE couchdb ADD COLUMN IF NOT EXISTS source varchar;
+  CREATE INDEX IF NOT EXISTS source ON couchdb(source);
+```
