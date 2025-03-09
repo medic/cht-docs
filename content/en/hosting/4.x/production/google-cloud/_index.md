@@ -1,6 +1,6 @@
 ---
 title: "Production Hosting CHT 4.x - Google Cloud Platform"
-linkTitle: "GCP Single Node"
+linkTitle: "GCP Multi Node CouchDB"
 weight: 10
 aliases:
    - /hosting/4.x/production/docker/google-cloud/
@@ -19,25 +19,25 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 
 ## **Template resources, Recommendations and Considerations**
 
-### Why not to use optimized container images and why modify ulimit ?
+### Why not to use optimized container images and why modify ulimit?
 
-In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for couchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
+In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
 
 Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
 
 ### Cluster creation
 
-As a system support administrator, the impacts of a Zonal cluster mean there is only 1 control plane server. If that control plane server goes down, I am unable to modify, or create any resources inside the Cluster. The workloads are still running and available to the end-users but the administrator should be aware of the constraint. Easing this burden requires an increase in costs (more control plane server redudancy).
-
 #### Zonal cluster
 
 * Pros: Less costly
 * Cons: Single control plane in single zone
+* Considerations: A single control plane becoming unavailable (going down) would result in no access for the administrator to modify any resources in the cluster. The workloads, such as containers and the application remain working for the end-user.
 
 #### Regional cluster
 
 * Pros: Multiple control plane replicas across multiple compute zones
 * Cons: High cost
+* Considerations: Multiple administrators accessing the cluster may benefit from ensuring the control plane servers are redundant. Recommended for national-scale implementations
 
 ### VPC Network
 
