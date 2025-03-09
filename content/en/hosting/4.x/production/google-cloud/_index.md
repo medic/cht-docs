@@ -9,6 +9,10 @@ description: >
 ---
 How to deploy the CHT 4.x on Google Cloud Platform
 
+## Audience
+
+This document is intended for system administrators who are setting up a Cht-Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale cht-core, please see our guide [here for setting up a simpler installation](../docker). 
+
 ## Prerequisites
 
 Before you can start using  Google Cloud Platform (GCP) to host the CHT, you need to meet certain requirements:
@@ -17,15 +21,19 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 2. Enable Billing: In GCP, enable [billing](https://console.cloud.google.com/billing), including a valid credit card
 3. GCP Project: Each resource in GCP must belong to it's [own project](https://console.cloud.google.com/projectcreate)
 
-## **Template resources, Recommendations and Considerations**
+## Setting up access for other users to your GCP Project
 
-### Why not to use optimized container images and why modify ulimit?
+Once we have a GCP project, let's make sure everyone else on our team can help out!
 
-In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
+At the welcome screen after creating a GCP project, we want to note the * Project ID:, marked by a * in the screenshot below. Clicking on `Dashboard` we arrive at a detailed screen of our GCP project. 
 
-Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
+![Welcome to dashboard](./images/welcome_project_id_dashboard.png)
 
-### Cluster creation
+At the Dashboard page, looking at the `Project Info` section, clicking on ![ADD PEOPLE TO THIS PROJECT](./images/add_people_to_project.png) opens up a dialog where we can add users by their gmail address. To simplify this process until further narrow/specific permissions are determined, we are going to use basic Owner and Editor roles for users we create. If you have a Cht-Core GKE setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
+
+![Add User Details](./images/add_user_details.png)
+
+## GKE (Google Kubernetes Engine) Cluster creation
 
 #### Zonal cluster
 
@@ -39,11 +47,19 @@ Cloud-vendor optimized container images such as Google-optimized container image
 * Cons: High cost
 * Considerations: Multiple administrators accessing the cluster may benefit from ensuring the control plane servers are redundant. Recommended for national-scale implementations
 
+### **Template resources, Recommendations and Considerations**
+
+#### Why not to use optimized container images and why modify ulimit?
+
+In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
+
+Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
+
 ### VPC Network
 
-Each public subnet contains a NAT and a load balancer node.
-The servers run in the private subnets and receive traffic from the load balancer .
-The servers can connect to the internet by using the NAT.
+We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access. 
+
+For troubleshooting underlying VM issues, we will need to [launch a bastion](#link_to_bastion) server or ssh-jumpbox in the same public subnet as the load balancer that after accessing allows us to jump into the private subnet virtual machines. 
 
 * Add our CIDR
 * Small description to why VMs that run containers are in the private subnet
