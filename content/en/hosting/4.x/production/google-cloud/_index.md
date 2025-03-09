@@ -20,6 +20,14 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 1. Google Account:  valid [free Gmail](https://workspace.google.com/intl/en-US/gmail/) or [paid Google Workspace](https://workspace.google.com/pricing.html) account
 2. Enable Billing: In GCP, enable [billing](https://console.cloud.google.com/billing), including a valid credit card
 3. GCP Project: Each resource in GCP must belong to it's [own project](https://console.cloud.google.com/projectcreate)
+  - Create and manage Google Cloud Platform project
+  - There are two ways to create a project in GCP
+
+    - a. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
+    - b. GCP CLI: use below command after you have authenticated to your GCP account
+   ```
+   gcloud projects create my-new-project --set-as-default
+   ```
 
 ## Setting up access for other users to your GCP Project
 
@@ -29,11 +37,19 @@ At the welcome screen after creating a GCP project, we want to note the * Projec
 
 ![Welcome to dashboard](./images/welcome_project_id_dashboard.png)
 
-At the Dashboard page, looking at the `Project Info` section, clicking on ![ADD PEOPLE TO THIS PROJECT](./images/add_people_to_project.png) opens up a dialog where we can add users by their gmail address. To simplify this process until further narrow/specific permissions are determined, we are going to use basic Owner and Editor roles for users we create. If you have a Cht-Core GKE setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
+At the Dashboard page, looking at the `Project Info` section, clicking on `ADD PEOPLE TO THIS PROJECT`![ADD PEOPLE TO THIS PROJECT](./images/add_people_to_project.png) opens up a dialog where we can add users by their gmail address. To simplify this process until further narrow/specific permissions are determined, we are going to use basic Owner and Editor roles for users we create. If you have a Cht-Core GKE setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
 
 ![Add User Details](./images/add_user_details.png)
 
 ## GKE (Google Kubernetes Engine) Cluster creation
+
+### Create a cluster in GCP project
+
+To create a cluster and easily setup necessary options, we will navigate through the console UI 
+
+UI: Follow the [create cluster steps](https://console.cloud.google.com/kubernetes/list/overview)
+
+You will have to click enable Kubernetes API in the prompt that comes up.
 
 #### Zonal cluster
 
@@ -47,31 +63,25 @@ At the Dashboard page, looking at the `Project Info` section, clicking on ![ADD 
 * Cons: High cost
 * Considerations: Multiple administrators accessing the cluster may benefit from ensuring the control plane servers are redundant. Recommended for national-scale implementations
 
-### **Template resources, Recommendations and Considerations**
-
 #### Why not to use optimized container images and why modify ulimit?
 
 In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
 
 Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
 
-### VPC Network
+### VPC Network and Subnets
 
-We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access. 
+We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines or enabled private nodes that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access. 
 
-For troubleshooting underlying VM issues, we will need to [launch a bastion](#link_to_bastion) server or ssh-jumpbox in the same public subnet as the load balancer that after accessing allows us to jump into the private subnet virtual machines. 
+For troubleshooting underlying VM issues, we will need to [launch a bastion](https://cloud.google.com/kubernetes-engine/docs/tutorials/private-cluster-bastion) server or ssh-jumpbox in the same public subnet as the load balancer that after accessing allows us to jump into the private subnet virtual machines. 
 
-* Add our CIDR
-* Small description to why VMs that run containers are in the private subnet
-* Add a section for bastion/ssh-jumpbox setup. That's how we will troubleshoot underlying VM issues. We will want to add a VM to the public subnet that includes routes to the private servers. After tomorrow' session, we can fill that out with exact config details or photos showing how to deploy bastion. There's already existing work in cht-core we can perhaps utilize and link to.
+VPC CIDR: `10.128.0.0/20` (default network)
 
-#### Private subnets
+Make sure the 3 option boxes are checked: `Enable Private Nodes`, `Access using the control plane's external IP address`, `Access using the control plane's internal IP address from any region`
 
-Private subnets are used so we do not expose CouchDB nodes to internet an not be accessible to anyone. They should only communicate through their internal IP over the private subnet.
+![Cluster Networking Options](./images/cluster_networking_options.png)
 
-#### Public subnets
-
-Public subnet in a Kubernetes node pool is used to allowing direct access to and from the internet. And this is for CHT API and Sentinel.
+### **Template resources, Recommendations and Considerations**
 
 #### How are the Kubernetes Engine, persistent data storage, compute engine and base images related?
 
@@ -107,37 +117,6 @@ gcloud compute instances list
  # List namespaces
 kubectl get namespaces
 ```
-
-## Create and manage Google Cloud Platform project
-
-There are two ways to create a project in GCP
-
-1. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
-2. GCP CLI: use below command after you have authenticated to your GCP account
-
-   ```
-   gcloud projects create my-new-project --set-as-default
-   ```
-
-### Create a cluster in GCP project
-
-To create a cluster we can do it either through the UI or CLI
-
-1. UI: Follow the [create cluster steps](https://console.cloud.google.com/kubernetes/list/overview)
-2. Using CLI
-   1. Enable Google Kubernetes Engine API
-
-      ```
-      gcloud services enable container.googleapis.com
-      ```
-   2. Create the Cluster
-
-      ```
-      gcloud container clusters create my-cluster
-      --zone us-central1-a
-      --num-nodes 3
-      --machine-type e2-medium
-      ```
 
 
 ### Create a Storage Disk
