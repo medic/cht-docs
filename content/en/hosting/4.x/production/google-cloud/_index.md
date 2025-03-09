@@ -63,12 +63,6 @@ You will have to click enable Kubernetes API in the prompt that comes up.
 * Cons: High cost
 * Considerations: Multiple administrators accessing the cluster may benefit from ensuring the control plane servers are redundant. Recommended for national-scale implementations
 
-#### Why not to use optimized container images and why modify ulimit?
-
-In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
-
-Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
-
 ### VPC Network and Subnets
 
 We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines or enabled private nodes that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access. 
@@ -80,6 +74,36 @@ VPC CIDR: `10.128.0.0/20` (default network)
 Make sure the 3 option boxes are checked: `Enable Private Nodes`, `Access using the control plane's external IP address`, `Access using the control plane's internal IP address from any region`
 
 ![Cluster Networking Options](./images/cluster_networking_options.png)
+
+### NodePool Configuration
+
+Here we will define how many virtual machines we will run, which ones will run the database cluster, and how much resources (CPU/RAM) the virtual machines will have.
+
+We will be creating 2 nodepools, one for the CouchDB cluster, and one for cht-core services (api, sentinel, haproxy, healthcheck, upgrade-service).
+
+##### Base Image Consideration
+
+In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
+
+Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
+
+Creating a 3 nodepool configuration for CouchDB:
+![CouchDB nodepool](./images/nodepool_couchdb_3_nodes.png)
+
+As noted in the previous paragraph, be sure to select Nodes under your new CouchDB nodepool in the left-side navigation bar. In the node details menu, select `Ubuntu with containerd` for image type, and `n2-standard-8`for machine type.
+
+![CouchDB base image and machine types](./images/nodepool_base_image_machine_size.png)
+
+In order for our CouchDB containers to be placed onto these specific virtual machines we designated for this nodepool, we need to add kubernetes labels to the nodepool, which we will correspond with nodeSelector parameters in our CouchDB deployment templates. 
+
+Clicking on `Metadata` on the left-side navigation bar underneath the nodepool name, we can add Kubernetes Labels.
+
+![CouchDB nodepool kubernetes labels](./images/nodepool_labels.png)
+
+A separate nodepool configuration created for cht-core services.
+For the cht-core nodepool, select a 4 core, 16gb RAM machine, 20gb persistent disk, and there is no need to create specific kubernetes labels.
+
+![CHT-Core nodepool](./images/nodepool_chtcore_add.png)
 
 ### **Template resources, Recommendations and Considerations**
 
