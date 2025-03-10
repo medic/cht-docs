@@ -1,6 +1,6 @@
 ---
 title: "Production Hosting CHT 4.x - Google Cloud Platform"
-linkTitle: "GCP Multi Node CouchDB"
+linkTitle: "GCP Multi Node CouchDB on GKE"
 weight: 10
 aliases:
    - /hosting/4.x/production/docker/google-cloud/
@@ -105,19 +105,11 @@ For the cht-core nodepool, select a 4 core, 16gb RAM machine, 20gb persistent di
 
 ![CHT-Core nodepool](./images/nodepool_chtcore_add.png)
 
-### **Template resources, Recommendations and Considerations**
+Click on Create Cluster and wait a few minutes for everything to come up!
 
-#### How are the Kubernetes Engine, persistent data storage, compute engine and base images related?
+## Accessing your GKE Cluster 
 
-**Compute Engine** (Virtual Machines, Bare Metal, Cloud Instances) is the physical or virtual infrastructure that runs Kubernetes clusters, whereas **Kubernetes** is a container orchestration platform that manages containerized workloads across a cluster of machines and It automates deployment, scaling, networking, and management of applications.
-
-**Containers** are built from  base images(`ubuntu`, `debian`) , which define the OS and runtime environment and applications are packaged into container images and deployed on Kubernetes.
-
-**Containers** are **stateless** by design, but some applications need to persist data (`databases`, `application logs`) and  Kubernetes provides **Persistent Volumes (PVs)** and **Persistent Volume Claims (PVCs)** to manage storage separately from compute.
-
-So we are using PVs for CouchDB and application logs in this case.
-
-## Install google cloud SDK
+#### Install google cloud SDK
 
 **Google Cloud SDK (gcloud CLI)** helps manage GCP resources via command line.
 
@@ -142,23 +134,36 @@ gcloud compute instances list
 kubectl get namespaces
 ```
 
+## Create a Storage Disk for CouchDB
 
-### Create a Storage Disk
+Creating separate storage disks are essential for persisting CouchDB data across VM restarts or replacements in your CHT deployment. This dedicated disk ensures your database information remains intact regardless of VM lifecycle events.
 
-Creating a separate storage disk is essential for persisting CouchDB data across VM restarts or replacements in your CHT deployment. This dedicated disk ensures your database information remains intact regardless of VM lifecycle events.
-
-Below are the methods and steps to create a storage disk in GCP
+Below are the methods and steps to create a storage disk in GCP.
+We will need 3 storage disks, 1 for each CouchDB node.
 
 * UI: Follow persistent disk creation [here](https://console.cloud.google.com/compute/disksAdd?inv=1&invt=AbrSOA&authuser=1&project=profound-hydra-451517-p5)
 * CLI:  run below command to create volume
 
 ```
-gcloud compute disks create  [DISK_NAME]\
+gcloud compute disks create [DISK_NAME]\
   --size [DISK_SIZE]\
   --type [DISK_TYPE]
+  --zone [ZONE]
 ```
 
-### Storage Class Configuration
+### Migrate existing data to newly created Storage Disk
+
+Skip this step if you do not have pre-existing CouchDB data that you need to migrate into your GKE cluster.
+
+We will launch a virtual machine in the same public subnet as the load balancer, with access via SSH. Attach and mount our created storage disk from the previous steps to this virtual machine.
+
+Once mounted, log into your old server, create a session, and run the following rsync command to send data to your new disk. You may have to format the disk in xfs before being able to complete the mount.
+
+`rsync -avhWt --no-compress --info=progress2 -e "ssh -i /tmp/identity.pem" /opt/couchdb/data ubuntu@<server_ip>:/<mounted_directory>/`
+
+Run this command from each CouchDB node to a separate storage disk in GCP.
+
+### Deploy a StorageClass config to GKE cluster
 
 - To bind and apply the created storage disk to a cluster, use the following YAML script for configuring the storage class:
 
@@ -200,7 +205,9 @@ kubectl apply -f <STORAGE_CLASS_FILE_NAME>.yaml
 
 ### Persistent Volume Configuration
 
-- After setting up the Storage Class, you need to create a Persistent Volume (PV) to represent the physical disk in your Kubernetes cluster:
+- After setting up the StorageClass, you need to create a Persistent Volume (PV) that ties the storage disk to your GKE cluster.
+
+- Create 1 PV for each Storage Disk, using naming conventions: `cht-couchdb-1-<project_name_or_namespace>` 
 
 ```yaml
 apiVersion: v1
@@ -233,6 +240,10 @@ kubectl apply -f <PERSISTENT_VOLUME_FILE_NAME>.yaml
 kubectl get pv
 ```
 
+```bash
+kubectl create namespace <NAMESPACE>
+```
+
 #### Key Configurations Explained
 
 * **`storageClassName: <STORAGE_CLASS_NAME>`**:
@@ -253,7 +264,7 @@ kubectl get pv
 
 ### Persistent Volume Claim Configuration
 
-- After creating the Persistent Volume, you need to create a Persistent Volume Claim (PVC) that will be used by your CouchDB pod to mount the storage:
+- After creating the Persistent Volume, you need to create a Persistent Volume Claim (PVC) that ties the PV to your CouchDB container.
 
 ```yaml
 apiVersion: v1
@@ -306,11 +317,127 @@ kubectl get pvc
     * Must match the storage class name specified in the PV
     * Ensures consistent storage policies
 
-### CouchDB Deployment Configuration
+### Setup CouchDB Cluster Resources in GKE
 
-After configuring the storage components, you need to create a deployment for CouchDB that will use the persistent storage. This deployment defines how your CouchDB instance will run within Kubernetes.
+For CouchDB nodes in a cluster to communicate, they have to be able to resolve each other's location. We utilize kubernetes service resources for this DNS service discovery for cluster databases. 
+
+Deploying a service resource allows you to interact with the process that service forwards traffic to over a DNS route simplified to <service_name>.<namespace>.svc.cluster.local.
+
+Deploy the services first, to ensure the cluster can discover all its members and bootstrap accordingly.
 
 ```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: couchdb-1
+  name: couchdb-1
+spec:
+  ports:
+    - name: couchdb1-service
+      port: 5984
+      protocol: TCP
+      targetPort: 5984
+    - name: cluster-api
+      port: 5986
+      protocol: TCP
+      targetPort: 5986
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: 4369
+    - name: erlang
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+  selector:
+    cht.service: couchdb-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: couchdb-2
+  name: couchdb-2
+spec:
+  ports:
+    - name: couchdb2-service
+      port: 5984
+      protocol: TCP
+      targetPort: 5984
+    - name: cluster-api
+      port: 5986
+      protocol: TCP
+      targetPort: 5986
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: 4369
+    - name: erlang
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+  selector:
+    cht.service: couchdb-2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: couchdb-3
+  name: couchdb-3
+spec:
+  ports:
+    - name: couchdb3-service
+      port: 5984
+      protocol: TCP
+      targetPort: 5984
+    - name: cluster-api
+      port: 5986
+      protocol: TCP
+      targetPort: 5986
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: 4369
+    - name: erlang
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+  selector:
+    cht.service: couchdb-3
+---
+```
+
+After configuring the storage components, you need to create a deployment for CouchDB that will use the persistent storage. This deployment defines how your CouchDB instance will run within Kubernetes. We will also create configmap and secrets resource to hold our credentials in one location for all templates.
+
+Fill out the configmap resource below with the namespace your cht-core project will run in
+
+For the secrets resource, fill out the necessary environment variable values.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: couchdb-servers-configmap
+data:
+  COUCHDB_SYNC_ADMINS_NODE: couchdb-1.<namespace>.svc.cluster.local
+  CLUSTER_PEER_IPS: couchdb-2.<namespace>.svc.cluster.local,couchdb-3.<namespace>.svc.cluster.local
+  COUCHDB_SERVERS: couchdb-1.<namespace>.svc.cluster.local,couchdb-2.<namespace>.svc.cluster.local,couchdb-3.<namespace>.svc.cluster.local
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cht-couchdb-credentials
+type: Opaque
+stringData:
+  COUCHDB_PASSWORD: 
+  COUCHDB_SECRET: 
+  COUCHDB_USER: <admin or medic>
+  COUCHDB_UUID: 
+  COUCH_URL: http://<USER>:<PASSWSORD>@haproxy.<NAMESPACE>.svc.cluster.local:5984/medic
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -336,17 +463,36 @@ spec:
         - containerPort: 5984
         env:
         - name: COUCHDB_LOG_LEVEL
-          value: "debug"
+          value: "info"
         - name: COUCHDB_PASSWORD
-          value: "<COUCHDB_PASSWORD>"
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_PASSWORD
         - name: COUCHDB_SECRET
-          value: "<COUCHDB_SECRET>"
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_SECRET
         - name: COUCHDB_USER
-          value: "admin"
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_USER
         - name: COUCHDB_UUID
-          value: "<COUCHDB_UUID>"
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_UUID
         - name: SVC_NAME
-          value: "<SERVICE_NAME>.svc.cluster.local"
+          value: "<SERVICE_NAME>.<NAMESPACE>.svc.cluster.local"
+        - name: NODE_COUNT
+          value: "3"
+        - name: CLUSTER_PEER_IPS
+          valueFrom:
+            configMapKeyRef:
+              name: couchdb-servers-configmap
+              key: CLUSTER_PEER_IPS
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: <PVC_NAME>
@@ -362,6 +508,140 @@ spec:
       - name: <PVC_NAME>
         persistentVolumeClaim:
           claimName: <PVC_CLAIM_NAME>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: couchdb-2
+  name: cht-couchdb-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: couchdb-2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        cht.service: couchdb-2
+    spec:
+      containers:
+      - name: cht-couchdb-2
+        image: public.ecr.aws/medic/cht-couchdb:4.15.0
+        ports:
+        - containerPort: 5984
+        env:
+        - name: COUCHDB_SYNC_ADMINS_NODE
+          valueFrom:
+            configMapKeyRef:
+              name: couchdb-servers-configmap
+              key: COUCHDB_SYNC_ADMINS_NODE   
+        - name: COUCHDB_LOG_LEVEL
+          value: "info"
+        - name: COUCHDB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_PASSWORD
+        - name: COUCHDB_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_SECRET
+        - name: COUCHDB_USER
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_USER
+        - name: COUCHDB_UUID
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_UUID
+        - name: SVC_NAME
+          value: couchdb-2.<namespace>.svc.cluster.local
+        - name: NODE_COUNT
+          value: "3"
+        volumeMounts:
+        - mountPath: /opt/couchdb/data
+          name: couchdb2-<namespace>-claim
+        - mountPath: /opt/couchdb/etc/local.d
+          name: couchdb2-<namespace>-claim
+          subPath: local.d
+      restartPolicy: Always
+      volumes:
+      - name: couchdb2-<namespace>-claim
+        persistentVolumeClaim:
+          claimName: couchdb2-<namespace>-claim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: couchdb-3
+  name: cht-couchdb-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: couchdb-3
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        cht.service: couchdb-3
+    spec:
+      containers:
+      - name: cht-couchdb-3
+        image: public.ecr.aws/medic/cht-couchdb:4.15.0
+        ports:
+        - containerPort: 5984
+        env:
+        - name: COUCHDB_SYNC_ADMINS_NODE
+          valueFrom:
+            configMapKeyRef:
+              name: couchdb-servers-configmap
+              key: COUCHDB_SYNC_ADMINS_NODE   
+        - name: COUCHDB_LOG_LEVEL
+          value: "info"
+        - name: COUCHDB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_PASSWORD
+        - name: COUCHDB_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_SECRET
+        - name: COUCHDB_USER
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_USER
+        - name: COUCHDB_UUID
+          valueFrom:
+            secretKeyRef:
+              name: cht-couchdb-credentials
+              key: COUCHDB_UUID
+        - name: SVC_NAME
+          value: couchdb-3.<namespace>.svc.cluster.local
+        - name: NODE_COUNT
+          value: "3"
+        volumeMounts:
+        - mountPath: /opt/couchdb/data
+          name: couchdb3-<namespace>-claim
+        - mountPath: /opt/couchdb/etc/local.d
+          name: couchdb3-<namespace>-claim
+          subPath: local.d
+      restartPolicy: Always
+      volumes:
+      - name: couchdb3-<namespace>-claim
+        persistentVolumeClaim:
+          claimName: couchdb3-<namespace>-claim
 ```
 
 - Apply the deployment configuration:
