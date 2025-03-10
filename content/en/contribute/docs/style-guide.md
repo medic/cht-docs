@@ -149,7 +149,7 @@ Connecting readers to related content in different pages is an important aspect 
    ``` 
 
 ### Avoid broken links
-To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/cross-references/) for more details.
+To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/shortcodes/#article) for more details.
 
 For example,  `[Icon Library]({{</* relref "design/interface/icons" */>}})` yields "[Icon Library]({{% relref "design/interface/icons" %}})". Using the full path will avoid ambiguous references if a new page of the same is created. 
 
