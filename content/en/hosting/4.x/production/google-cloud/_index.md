@@ -493,6 +493,8 @@ spec:
             configMapKeyRef:
               name: couchdb-servers-configmap
               key: CLUSTER_PEER_IPS
+        nodeSelector:
+          env: prod-couchdb
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: <PVC_NAME>
@@ -564,6 +566,8 @@ spec:
           value: couchdb-2.<namespace>.svc.cluster.local
         - name: NODE_COUNT
           value: "3"
+        nodeSelector:
+          env: prod-couchdb
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: couchdb2-<namespace>-claim
@@ -631,6 +635,8 @@ spec:
           value: couchdb-3.<namespace>.svc.cluster.local
         - name: NODE_COUNT
           value: "3"
+        nodeSelector:
+          env: prod-couchdb
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: couchdb3-<namespace>-claim
