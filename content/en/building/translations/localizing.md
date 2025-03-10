@@ -342,8 +342,4 @@ To change the language of outgoing texts for a CHV or Supervisor to Swahili, fol
 
 <br clear="all">
 
-{{< figure src="change-user-language.png" link="change-user-language.png" class="right col-6 col-lg-8" >}}
 
-Change the CHVs language via: App Management > Users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
-
-<br clear="all">
