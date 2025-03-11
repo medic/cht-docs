@@ -254,7 +254,21 @@ to
 Targets = Lengo
 ```
 
-### 2. App Forms
+### 2. RTL support
+
+As of version 4.18.0, the CHT has support for Right to Left languages, and bundles Arabic translations. Setting the language to Arabic will automatically switch the UI to a mirrored design, to align with standard RTL writing and web elements. 
+
+{{< figure src="rtl-contact.png" link="rtl-contact.png" class="right col-6 col-lg-8" >}}
+
+{{< figure src="rtl-reports.png" link="rtl-reports.png" class="right col-6 col-lg-8" >}}
+
+<br clear="all">
+
+Any language can be set to be a RTL language via App Management > Display > Languages > Add/Edit language 
+
+{{< figure src="rtl-admin.png" link="rtl-admin.png" class="right col-6 col-lg-8" >}}
+
+### 3. App Forms
 
 To localize a CHT app form to Swahili, open the appropriate xlsx of the form and add a `label::sw` column which has the translation for the text. This will work in the `Survey` sheet or the `choices` sheet.
 
@@ -284,7 +298,7 @@ The _App Management - Admin Area_ section will still remain in English even afte
 The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language.
 {{% /alert %}} 
 
-### 3. Outgoing Texts
+### 4. Outgoing Texts
 
 In projects that incorporate SMS workflows, there are SMS notifications/replies that go to CHVs and Supervisors phones.
 
@@ -342,8 +356,4 @@ To change the language of outgoing texts for a CHV or Supervisor to Swahili, fol
 
 <br clear="all">
 
-{{< figure src="change-user-language.png" link="change-user-language.png" class="right col-6 col-lg-8" >}}
 
-Change the CHVs language via: App Management > Users > [Choose CHV username e.g chv_1] > Language > Pick Swahili:
-
-<br clear="all">
