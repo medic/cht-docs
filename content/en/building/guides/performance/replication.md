@@ -31,13 +31,28 @@ For example, if a CHP's `facility_id` property is set to the ID of the Maori Hil
 Sometimes though you want to only access contacts near the top of the hierarchy. This may be because returning all contacts would be too much data to be practical, or for patient privacy, or because it's just not part of your workflow. In this case you can configure a replication depth for a specific role under `replication_depth` in the app settings.
 
 In 3.10, we add the ability to limit replication depth for reports, in conjunction with replication depth for contacts.
+In 4.18, we add the ability to allow replication of primary contacts and their reports at max depth. 
 
 ##### Code sample:
+
 ```json
 {
   "replication_depth": [
-    { "role": "district_manager", "depth": 1, "report_depth": 1 },
-    { "role": "national_manager", "depth": 2 }
+    {
+      "role": "district_manager",
+      "depth": 1,
+      "report_depth": 1
+    },
+    {
+      "role": "supervisor",
+      "depth": 1,
+      "report_depth": 1,
+      "replicate_primary_contacts": true
+    },
+    {
+      "role": "national_manager",
+      "depth": 2
+    }
   ]
 }
 ```
@@ -140,7 +155,44 @@ A user with `roles: ["role1", "role2", "role3"]` will have a replication depth o
 ``` 
 A user with `roles: ["role1", "role2", "role3"]` will have a replication depth of 5 and report replication depth of 2.
 
+##### Replicate primary contacts
 
+_As of 4.18.0._   
+When a `replication_depth` sets `replicate_primary_contacts` to `true`, the corresponding users will replicate the primary contacts of the places they are allowed to see, even if those contacts are deeper than these users are allowed to download, and even if these contacts belong to other branches of the hierarchy. The primary contact is treated as if it is at the same depth as the place, and will follow the report replication depth of the place. 
+
+For example, considering the following settings:
+```json
+{
+  "replication_depth": [
+    {
+      "role": "chw",
+      "depth": 2,
+      "report_depth": 2,
+      "replicate_primary_contacts": true
+    },
+    {
+      "role": "supervisor",
+      "depth": 2,
+      "report_depth": 1,
+      "replicate_primary_contacts": true
+    }
+  ],
+  "contact_types": [
+    { "id": "level1" },
+    { "id": "level2", "parents": ["level1"] },
+    { "id": "level3", "parents": ["level2"] },
+    { "id": "level4", "parents": ["level3"] },
+    { "id": "level5", "parents": ["level4"] },
+    { "id": "person", "parents": ["level1", "level2", "level3", "level4", "level5"], "person": true s}
+  ]
+}
+```
+
+For he configuration above, a user that has the role `chw` is allowed to replicate contacts 2 levels below their facility and replicate reports for contacts 2 levels below their facility and replicate primary contacts. For a `chw` at `level2`, it will replicate contacts at `level2`, `level3` and `level4`, along with their reports. They will also replicate the primary contact of a place at `level4`, even if the primary contact is a child of a `level5` contact, along with this contact's reports.     
+
+
+A user that has the `supervisor` role is allowed to replicate contacts 2 levels below their facility and replicate reports for contacts 1 level below their facility and replicate primary contacts. 
+For the same hierarchy, a `supervisor` at `level2` will replicate contacts at `level2`, `level3` and `level4` and reports for contacts at `level2` and `level3`. They will also replicate primary contacts for places at `level4`, but will not replicate their reports - because a primary contact of a `level4` place will have a depth of 2, and report depth is limited to 1. The `supervisor` will replicate reports for primary contacts of places at `level2` or `level3`. 
 
 ### Supervisor signoff
 
