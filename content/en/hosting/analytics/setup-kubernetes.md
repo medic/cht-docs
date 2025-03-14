@@ -167,3 +167,5 @@ To add these columns log in to the database and run this sql.
   ALTER TABLE couchdb ADD COLUMN IF NOT EXISTS source varchar;
   CREATE INDEX IF NOT EXISTS source ON couchdb(source);
 ```
+
+V2 adds new features for [tuning dbt]({{< relref "hosting/analytics/tuning-dbt" >}}); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables]({{< relref "hosting/analytics/environment-variables" >}}) in `values.yml` as described above.

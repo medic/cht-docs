@@ -176,3 +176,7 @@ To add these columns log in to the database and run this sql.
   ALTER TABLE couchdb ADD COLUMN IF NOT EXISTS source varchar;
   CREATE INDEX IF NOT EXISTS source ON couchdb(source);
 ```
+
+In V2, the commands for running CHT sync have changed; a profile is required as described above.
+When testinging locally and using the `local` profile, the environment variable `DBT_LOCAL_PATH` must be set.
+V2 adds new features for [tuning dbt]({{< relref "hosting/analytics/tuning-dbt" >}}); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables]({{< relref "hosting/analytics/environment-variables" >}}) in `.env` as described above.
