@@ -158,7 +158,7 @@ A user with `roles: ["role1", "role2", "role3"]` will have a replication depth o
 ##### Replicate primary contacts
 
 _As of 4.18.0._   
-When a `replication_depth` sets `replicate_primary_contacts` to `true`, the corresponding users will replicate the primary contacts of the places they are allowed to see, even if those contacts are deeper than these users are allowed to download, and even if these contacts belong to other branches of the hierarchy. The primary contact is treated as if it is at the same depth as the place, and will follow the report replication depth of the place. 
+When a `replication_depth` sets `replicate_primary_contacts` to `true`, users with the assigned role will replicate the primary contacts of the places they are allowed to see. Primary contacts are replicated even if they are deeper than these users are allowed to download, and even if these contacts belong to other branches of the hierarchy. The primary contact is treated as if it is at the same depth as the place, and will follow the report replication depth of the place. 
 
 For example, considering the following settings:
 ```json
@@ -188,11 +188,11 @@ For example, considering the following settings:
 }
 ```
 
-For he configuration above, a user that has the role `chw` is allowed to replicate contacts 2 levels below their facility and replicate reports for contacts 2 levels below their facility and replicate primary contacts. For a `chw` at `level2`, it will replicate contacts at `level2`, `level3` and `level4`, along with their reports. They will also replicate the primary contact of a place at `level4`, even if the primary contact is a child of a `level5` contact, along with this contact's reports.     
+For the configuration above, a user that has the role `chw` is allowed to replicate contacts 2 levels below their facility and replicate reports for contacts 2 levels below their facility and replicate primary contacts. For a `chw` at `level2`, it will replicate contacts at `level2`, `level3` and `level4`, along with their reports. They will also replicate the primary contact of a place at `level4`, even if the primary contact is a child of a `level5` contact, along with this contact's reports.     
 
 
 A user that has the `supervisor` role is allowed to replicate contacts 2 levels below their facility and replicate reports for contacts 1 level below their facility and replicate primary contacts. 
-For the same hierarchy, a `supervisor` at `level2` will replicate contacts at `level2`, `level3` and `level4` and reports for contacts at `level2` and `level3`. They will also replicate primary contacts for places at `level4`, but will not replicate their reports - because a primary contact of a `level4` place will have a depth of 2, and report depth is limited to 1. The `supervisor` will replicate reports for primary contacts of places at `level2` or `level3`. 
+A `supervisor` at `level2` will replicate the same contacts as the `chp` role above. Similar to the `chp`, they will replicate primary contacts for places at `level4`, but the `supervisor` users will not replicate the reports of primary contacts because a primary contact of a `level4` place has a depth of 2. The `supervisor` will replicate reports for primary contacts of places at `level2` or `level3`. 
 
 ### Supervisor signoff
 
