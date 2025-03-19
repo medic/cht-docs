@@ -1070,3 +1070,47 @@ spec:
 #### Key Configurations Explained
 
 This section will be added later
+
+Upgrade service roles required to upgrade to newer versions of cht-core
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cht-upgrade-service-user
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: deployment-manager
+rules:
+- apiGroups:
+  - apps
+  - ""
+  resources:
+  - deployments
+  - pods
+  verbs:
+  - get
+  - update
+  - watch
+  - patch
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: deployment-manager-cht
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: deployment-manager
+subjects:
+- apiGroup: ""
+  kind: ServiceAccount
+  name: cht-upgrade-service-user
+```
+
+#### Key Configurations Explained
+
+This section will be added later
