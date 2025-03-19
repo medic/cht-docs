@@ -11,7 +11,7 @@ How to deploy the CHT 4.x on Google Cloud Platform
 
 ## Audience
 
-This document is intended for system administrators who are setting up a Cht-Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale cht-core, please see our guide [here for setting up a simpler installation](../docker). 
+This document is intended for system administrators who are setting up a Cht-Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale cht-core, please see our guide [here for setting up a simpler installation](../docker).
 
 ## Prerequisites
 
@@ -20,20 +20,22 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 1. Google Account:  valid [free Gmail](https://workspace.google.com/intl/en-US/gmail/) or [paid Google Workspace](https://workspace.google.com/pricing.html) account
 2. Enable Billing: In GCP, enable [billing](https://console.cloud.google.com/billing), including a valid credit card
 3. GCP Project: Each resource in GCP must belong to it's [own project](https://console.cloud.google.com/projectcreate)
-  - Create and manage Google Cloud Platform project
-  - There are two ways to create a project in GCP
 
-    - a. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
-    - b. GCP CLI: use below command after you have authenticated to your GCP account
-   ```
+- Create and manage Google Cloud Platform project
+- There are two ways to create a project in GCP
+
+  - a. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
+  - b. GCP CLI: use below command after you have authenticated to your GCP account
+
+```
    gcloud projects create my-new-project --set-as-default
-   ```
+```
 
 ## Setting up access for other users to your GCP Project
 
 Once we have a GCP project, let's make sure everyone else on our team can help out!
 
-At the welcome screen after creating a GCP project, we want to note the * Project ID:, marked by a * in the screenshot below. Clicking on `Dashboard` we arrive at a detailed screen of our GCP project. 
+At the welcome screen after creating a GCP project, we want to note the * Project ID:, marked by a * in the screenshot below. Clicking on `Dashboard` we arrive at a detailed screen of our GCP project.
 
 ![Welcome to dashboard](./images/welcome_project_id_dashboard.png)
 
@@ -45,7 +47,7 @@ At the Dashboard page, looking at the `Project Info` section, clicking on `ADD P
 
 ### Create a cluster in GCP project
 
-To create a cluster and easily setup necessary options, we will navigate through the console UI 
+To create a cluster and easily setup necessary options, we will navigate through the console UI
 
 UI: Follow the [create cluster steps](https://console.cloud.google.com/kubernetes/list/overview)
 
@@ -65,9 +67,9 @@ You will have to click enable Kubernetes API in the prompt that comes up.
 
 ### VPC Network and Subnets
 
-We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines or enabled private nodes that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access. 
+We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines or enabled private nodes that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access.
 
-For troubleshooting underlying VM issues, we will need to [launch a bastion](https://cloud.google.com/kubernetes-engine/docs/tutorials/private-cluster-bastion) server or ssh-jumpbox in the same public subnet as the load balancer that after accessing allows us to jump into the private subnet virtual machines. 
+For troubleshooting underlying VM issues, we will need to [launch a bastion](https://cloud.google.com/kubernetes-engine/docs/tutorials/private-cluster-bastion) server or ssh-jumpbox in the same public subnet as the load balancer that after accessing allows us to jump into the private subnet virtual machines.
 
 VPC CIDR: `10.128.0.0/20` (default network)
 
@@ -83,7 +85,7 @@ We will be creating 2 nodepools, one for the CouchDB cluster, and one for cht-co
 
 ##### Base Image Consideration
 
-In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)]((https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
+In the case of a cht-core project with millions of docs in CouchDB, we have ran into issues with open file descriptors. In order to modify this parameter [(ulimit)](https://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/)), we are required to select a modifiable base image (Ubuntu). [More details for CouchDB performance](https://docs.couchdb.org/en/stable/maintenance/performance.html)
 
 Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
 
@@ -94,7 +96,7 @@ As noted in the previous paragraph, be sure to select Nodes under your new Couch
 
 ![CouchDB base image and machine types](./images/nodepool_base_image_machine_size.png)
 
-In order for our CouchDB containers to be placed onto these specific virtual machines we designated for this nodepool, we need to add kubernetes labels to the nodepool, which we will correspond with nodeSelector parameters in our CouchDB deployment templates. 
+In order for our CouchDB containers to be placed onto these specific virtual machines we designated for this nodepool, we need to add kubernetes labels to the nodepool, which we will correspond with nodeSelector parameters in our CouchDB deployment templates.
 
 Clicking on `Metadata` on the left-side navigation bar underneath the nodepool name, we can add Kubernetes Labels.
 
@@ -107,7 +109,7 @@ For the cht-core nodepool, select a 4 core, 16gb RAM machine, 20gb persistent di
 
 Click on Create Cluster and wait a few minutes for everything to come up!
 
-## Accessing your GKE Cluster 
+## Accessing your GKE Cluster
 
 #### Install google cloud SDK
 
@@ -161,7 +163,9 @@ Once mounted, log into your old server, create a session, and run the following 
 
 `rsync -avhWt --no-compress --info=progress2 -e "ssh -i /tmp/identity.pem" /opt/couchdb/data ubuntu@<server_ip>:/<mounted_directory>/`
 
-Run this command from each CouchDB node to a separate storage disk in GCP.
+Run this command from each CouchDB node to a separate storage disk Create namespace
+
+`kubectl create namespace muso-app`
 
 ### Deploy a StorageClass config to GKE cluster
 
@@ -206,8 +210,7 @@ kubectl apply -f <STORAGE_CLASS_FILE_NAME>.yaml
 ### Persistent Volume Configuration
 
 - After setting up the StorageClass, you need to create a Persistent Volume (PV) that ties the storage disk to your GKE cluster.
-
-- Create 1 PV for each Storage Disk, using naming conventions: `cht-couchdb-1-<project_name_or_namespace>` 
+- Create 1 PV for each Storage Disk, using naming conventions: `cht-couchdb-1-<project_name_or_namespace>`
 
 ```yaml
 apiVersion: v1
@@ -247,20 +250,21 @@ kubectl create namespace <NAMESPACE>
 #### Key Configurations Explained
 
 * **`storageClassName: <STORAGE_CLASS_NAME>`**:
-    * References the Storage Class created in the previous step
-    * Ensures consistent storage provisioning policies
 
+  * References the Storage Class created in the previous step
+  * Ensures consistent storage provisioning policies
 * **`capacity: storage: <STORAGE_SIZE>`**:
-    * Defines the size of the persistent volume (e.g., 100Gi)
-    * Should match or be less than the actual GCP disk size
 
+  * Defines the size of the persistent volume (e.g., 100Gi)
+  * Should match or be less than the actual GCP disk size
 * **`accessModes: - ReadWriteOnce`**:
-    * Allows the volume to be mounted as read-write by a single node
-    * Appropriate for CouchDB which typically runs on a single node
 
+  * Allows the volume to be mounted as read-write by a single node
+  * Appropriate for CouchDB which typically runs on a single node
 * **`volumeHandle`**:
-    * References the specific GCP disk created earlier
-    * Format: projects/<PROJECT_ID>/zones/<ZONE>/disks/<DISK_NAME>
+
+  * References the specific GCP disk created earlier
+  * Format: projects/<PROJECT_ID>/zones/`<ZONE>`/disks/<DISK_NAME>
 
 ### Persistent Volume Claim Configuration
 
@@ -298,30 +302,31 @@ kubectl get pvc
 #### Key Configurations Explained
 
 * **`labels: cht.service: <SERVICE_LABEL>`**:
-    * Identifies the PVC as part of your CHT deployment
-    * Used for service discovery and organization
 
+  * Identifies the PVC as part of your CHT deployment
+  * Used for service discovery and organization
 * **`accessModes: - ReadWriteOnce`**:
-    * Corresponds to the same access mode defined in the PV
-    * Ensures compatibility between PV and PVC
 
+  * Corresponds to the same access mode defined in the PV
+  * Ensures compatibility between PV and PVC
 * **`resources: requests: storage: <STORAGE_SIZE>`**:
-    * Must be less than or equal to the size specified in the PV
-    * Defines how much storage will be claimed from the PV
 
+  * Must be less than or equal to the size specified in the PV
+  * Defines how much storage will be claimed from the PV
 * **`volumeName: <PV_NAME>`**:
-    * Directly references the specific PV created earlier
-    * Creates a static binding between this PVC and the specific PV
 
+  * Directly references the specific PV created earlier
+  * Creates a static binding between this PVC and the specific PV
 * **`storageClassName: <STORAGE_CLASS_NAME>`**:
-    * Must match the storage class name specified in the PV
-    * Ensures consistent storage policies
+
+  * Must match the storage class name specified in the PV
+  * Ensures consistent storage policies
 
 ### Setup CouchDB Cluster Resources in GKE
 
-For CouchDB nodes in a cluster to communicate, they have to be able to resolve each other's location. We utilize kubernetes service resources for this DNS service discovery for cluster databases. 
+For CouchDB nodes in a cluster to communicate, they have to be able to resolve each other's location. We utilize kubernetes service resources for this DNS service discovery for cluster databases.
 
-Deploying a service resource allows you to interact with the process that service forwards traffic to over a DNS route simplified to <service_name>.<namespace>.svc.cluster.local.
+Deploying a service resource allows you to interact with the process that service forwards traffic to over a DNS route simplified to <service_name>.`<namespace>`.svc.cluster.local.
 
 Deploy the services first, to ensure the cluster can discover all its members and bootstrap accordingly.
 
@@ -666,34 +671,247 @@ kubectl get pods
 #### Key Configurations Explained
 
 * **`replicas: 1`**:
-    * Specifies that only one instance of CouchDB should run
-    * CouchDB in the CHT typically runs as a single instance per node
 
+  * Specifies that only one instance of CouchDB should run
+  * CouchDB in the CHT typically runs as a single instance per node
 * **`strategy: type: Recreate`**:
-    * Ensures the existing pod is terminated before a new one is created
-    * Prevents data conflicts since CouchDB uses disk storage that can't be simultaneously accessed
 
+  * Ensures the existing pod is terminated before a new one is created
+  * Prevents data conflicts since CouchDB uses disk storage that can't be simultaneously accessed
 * **`volumeMounts`**:
-    * Maps two specific directories from the container to the persistent storage:
-        * `/opt/couchdb/data`: Where CouchDB stores all database files
-        * `/opt/couchdb/etc/local.d`: Where configuration files are stored
-    * Uses `subPath` to organize different types of data within the same PVC
 
+  * Maps two specific directories from the container to the persistent storage:
+    * `/opt/couchdb/data`: Where CouchDB stores all database files
+    * `/opt/couchdb/etc/local.d`: Where configuration files are stored
+  * Uses `subPath` to organize different types of data within the same PVC
 * **`securityContext: capabilities: add: ["SYS_RESOURCE"]`**:
-    * This is a critical configuration for CouchDB performance and stability
-    * Grants the container the Linux capability to exceed system resource limits
-    * Specifically allows to increase the number of open file descriptors (ulimit)
-    * Without this capability, CouchDB may encounter "too many open files" errors under heavy load
-    * This is particularly important for production CHT instances that handle substantial traffic
-    * The `SYS_RESOURCE` capability enables CouchDB to set its own resource limits beyond the defaults
 
+  * This is a critical configuration for CouchDB performance and stability
+  * Grants the container the Linux capability to exceed system resource limits
+  * Specifically allows to increase the number of open file descriptors (ulimit)
+  * Without this capability, CouchDB may encounter "too many open files" errors under heavy load
+  * This is particularly important for production CHT instances that handle substantial traffic
+  * The `SYS_RESOURCE` capability enables CouchDB to set its own resource limits beyond the defaults
 * **`env`**:
-    * Contains essential environment variables for CouchDB configuration
-    * `COUCHDB_PASSWORD` & `COUCHDB_USER`: Authentication credentials
-    * `COUCHDB_SECRET`: Used for cookie authentication between nodes
-    * `COUCHDB_UUID`: Unique identifier for this CouchDB instance
-    * `SVC_NAME`: The service name that will be used for network discovery
 
+  * Contains essential environment variables for CouchDB configuration
+  * `COUCHDB_PASSWORD` & `COUCHDB_USER`: Authentication credentials
+  * `COUCHDB_SECRET`: Used for cookie authentication between nodes
+  * `COUCHDB_UUID`: Unique identifier for this CouchDB instance
+  * `SVC_NAME`: The service name that will be used for network discovery
 * **`volumes`**:
-    * References the Persistent Volume Claim created earlier
-    * Creates the link between the deployment and the persistent storage
+
+  * References the Persistent Volume Claim created earlier
+  * Creates the link between the deployment and the persistent storage
+
+CHT-CORE Deployment
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: api
+  name: api
+  namespace: muso-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        cht.service: api
+    spec:
+      containers:
+        - env:
+            - name: BUILDS_URL
+              value: https://staging.dev.medicmobile.org/_couch/builds_4
+            - name: COUCH_URL
+              valueFrom:
+                secretKeyRef:
+                  name: cht-couchdb-credentials
+                  key: COUCH_URL
+            - name: UPGRADE_SERVICE_URL
+              value: http://upgrade-service.muso-app.svc.cluster.local:5008
+            - name: API_PORT
+              value: '5988'
+          image: public.ecr.aws/medic/cht-api:4.15.0
+          name: api
+          ports:
+            - containerPort: 5988
+          resources: {}
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: haproxy
+  name: cht-haproxy
+  namespace: muso-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: haproxy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        cht.service: haproxy
+    spec:
+      containers:
+        - env:
+            - name: COUCHDB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cht-couchdb-credentials
+                  key: COUCHDB_PASSWORD
+            - name: COUCHDB_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: muso-app-couchdb-servers-configmap
+                  key: COUCHDB_SERVERS
+            - name: COUCHDB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: cht-couchdb-credentials
+                  key: COUCHDB_USER
+            - name: HAPROXY_IP
+              value: 0.0.0.0
+            - name: HAPROXY_PORT
+              value: "5984"
+            - name: HEALTHCHECK_ADDR
+              value: healthcheck.muso-app.svc.cluster.local
+          image: public.ecr.aws/medic/cht-haproxy:4.15.0
+          name: cht-haproxy
+          ports:
+            - containerPort: 5984
+          resources: {}
+      hostname: haproxy
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: healthcheck
+  name: haproxy-healthcheck
+  namespace: muso-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: healthcheck
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        cht.service: healthcheck
+    spec:
+      containers:
+        - env:
+            - name: COUCHDB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cht-couchdb-credentials
+                  key: COUCHDB_PASSWORD
+            - name: COUCHDB_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: muso-app-couchdb-servers-configmap
+                  key: COUCHDB_SERVERS
+            - name: COUCHDB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: cht-couchdb-credentials
+                  key: COUCHDB_USER
+          image: public.ecr.aws/medic/cht-haproxy-healthcheck:4.15.0
+          name: cht-haproxy-healthcheck
+          ports:
+            - containerPort: 5555
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: sentinel
+  name: cht-sentinel
+  namespace: muso-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: sentinel
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        cht.service: sentinel
+    spec:
+      containers:
+        - env:
+            - name: API_HOST
+              value: api.muso-app.svc.cluster.local
+            - name: COUCH_URL
+              valueFrom:
+                secretKeyRef:
+                  name: cht-couchdb-credentials
+                  key: COUCH_URL
+            - name: API_PORT
+              value: '5988'
+          image: public.ecr.aws/medic/cht-sentinel:4.15.0
+          name: cht-sentinel
+          resources: {}
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cht.service: upgrade-service
+  name: upgrade-service
+  namespace: muso-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cht.service: upgrade-service
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        cht.service: upgrade-service
+    spec:
+      restartPolicy: Always
+      serviceAccountName: cht-upgrade-service-user
+      containers:
+      - image: medicmobile/upgrade-service:0.32
+        name: upgrade-service
+        resources: {}
+        env:
+          - name: CHT_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: CHT_DEPLOYMENT_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['cht.service']
+          - name: UPGRADE_SERVICE_PORT
+            value: '5008'
+        ports:
+          - containerPort: 5008
+```
