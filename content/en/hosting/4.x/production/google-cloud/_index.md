@@ -704,7 +704,8 @@ kubectl get pods
   * References the Persistent Volume Claim created earlier
   * Creates the link between the deployment and the persistent storage
 
-CHT-CORE Deployment
+#### CHT-CORE Deployment
+
 
 ```
 apiVersion: apps/v1
@@ -915,3 +916,157 @@ spec:
         ports:
           - containerPort: 5008
 ```
+
+#### Key Configurations Explained
+
+This section will be added later
+
+CHT-CORE Services deployment
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: api
+  name: api
+  namespace: muso-app
+spec:
+  ports:
+    - port: 5988
+      targetPort: 5988
+  selector:
+    cht.service: api
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: couchdb-1
+  name: couchdb-1
+  namespace: muso-app
+spec:
+  ports:
+    - name: couchdb1-service
+      port: 5984
+      protocol: TCP
+      targetPort: 5984
+    - name: cluster-api
+      port: 5986
+      protocol: TCP
+      targetPort: 5986
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: 4369
+    - name: erlang
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+  selector:
+    cht.service: couchdb-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: couchdb-2
+  name: couchdb-2
+  namespace: muso-app
+spec:
+  ports:
+    - name: couchdb2-service
+      port: 5984
+      protocol: TCP
+      targetPort: 5984
+    - name: cluster-api
+      port: 5986
+      protocol: TCP
+      targetPort: 5986
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: 4369
+    - name: erlang
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+  selector:
+    cht.service: couchdb-2
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: couchdb-3
+  name: couchdb-3
+  namespace: muso-app
+spec:
+  ports:
+    - name: couchdb3-service
+      port: 5984
+      protocol: TCP
+      targetPort: 5984
+    - name: cluster-api
+      port: 5986
+      protocol: TCP
+      targetPort: 5986
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: 4369
+    - name: erlang
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+  selector:
+    cht.service: couchdb-3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    cht.service: haproxy
+  name: haproxy
+  namespace: muso-app
+spec:
+  ports:
+    - name: "5984"
+      port: 5984
+      targetPort: 5984
+  selector:
+    cht.service: haproxy
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: healthcheck
+  namespace: muso-app
+spec:
+  selector:
+    cht.service: healthcheck
+  ports:
+    - protocol: TCP
+      port: 5555
+      targetPort: 5555
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: upgrade-service
+  namespace: muso-app
+spec:
+  selector:
+    cht.service: upgrade-service
+  ports:
+  - name: upgrade-service
+    port: 5008
+    protocol: TCP
+    targetPort: 5008
+  type: ClusterIP
+```
+
+#### Key Configurations Explained
+
+This section will be added later
