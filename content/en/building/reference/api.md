@@ -664,12 +664,12 @@ Returns a JSON array of strings of UUID's of contacts based on the specified pag
 
 #### Query Parameters
 
-| Name     | Required | Description                                                                                                                                                                                                                                                                                                                       |
-|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type     | true     | ID of the contact_type for the contacts to fetch. _This field or freetext is required for this endpoint._                                                                                                                                                                                                                         |
-| freetext | true     | A string to search the contacts by. The string value should be atleast 3 in length. The additional condition is that the value should not contain a whitespace(' ') unless the value is in the `key:value` pattern. The `key:value` pattern is for exact match searching. _This field or freetext is required for this endpoint._ |
-| cursor   | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`.                                                                                                          |
-| limit    | false    | The total number of contacts to fetch. Defaults to `100`.                                                                                                                                                                                                                                                                         |
+| Name     | Required                         | Description                                                                                                                                                                                                              |
+|----------|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type     | true if freetext is not provided | ID of the contact_type for the contacts to fetch.                                                                                                                                                                        |
+| freetext | true if type is not provided     | A string search term for filtering the contacts to fetch. The string value should be at least 3 characters in length and not contain whitespace.                                                                         |
+| cursor   | false                            | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
+| limit    | false                            | The total number of contacts to fetch. Defaults to `10000`.                                                                                                                                                              |
 
 #### Examples
 1. Get an array of contact UUIDs of type `person`.
@@ -726,10 +726,10 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-3. Get an array of 10 contact UUIDs with type `person` and freetext `abc` after skipping some amount of contacts. _Here 10 does not necessarily mean 10 contacts are being skipped. It is just a token._
+3. Get an array of 10 contact UUIDs with type `person` and freetext `abc` after skipping some amount of contacts.
 
 ```
-GET /api/v1/contact/uuid?type=person&freetext=abc&limit=10&cursor=10
+GET /api/v1/contact/uuid?type=person&freetext=abc&limit=10&cursor=W1t7InZhbHVlIjoyLjc5MzE5LCJAdHlwZSI6ImZ1dXQ==
 ```
 
 ```
@@ -749,7 +749,7 @@ Content-Type: application/json; charset=utf-8
         "01c3db83-b27c-46de-b709-21032a170642",
         "01fbd96b-bd77-40aa-bc08-a1d3a877b9e2"
     ],
-    "cursor": "20"
+    "cursor": "W1t7InZhbHVlIjoyLjc5MzE5LCJAdHlwZSI6ImZsb2F0In0seyjoic3RyaW5nIn1dXQ=="
 }
 ```
 
@@ -1876,11 +1876,11 @@ Returns a JSON array of strings of UUID's of reports based on the specified page
 
 #### Query Parameters
 
-| Name     | Required | Description                                                                                                                                                                                                                                                              |
-|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| freetext | true     | A string to search the reports by. The string value should be atleast 3 in length. The additional condition is that the value should not contain a whitespace(' ') unless the value is in the `key:value` pattern. The `key:value` pattern is for exact match searching. |
-| cursor   | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`.                                                 |
-| limit    | false    | The total number of contacts to fetch. Defaults to `100`.                                                                                                                                                                                                                |
+| Name     | Required | Description                                                                                                                                                                                                              |
+|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| freetext | true     | A string search term for filtering the contacts to fetch. The string value should be at least 3 characters in length and not contain whitespace.                                                                         |
+| cursor   | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
+| limit    | false    | The total number of contacts to fetch. Defaults to `10000`.                                                                                                                                                              |
 
 #### Examples
 
@@ -1911,10 +1911,10 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-2. Get an array of 10 report UUIDs with freetext `abc` after skipping some amount of reports. _Here 10 does not necessarily mean 10 reports are being skipped. It is just a token._
+2. Get an array of 10 report UUIDs with freetext `abc` after skipping some amount of reports.
 
 ```
-GET /api/v1/report/uuid?type=person&freetext=abc&limit=10&cursor=10
+GET /api/v1/report/uuid?type=person&freetext=abc&limit=10&cursor=W1t7InZhbHVlIjoyLjczNTQ2MTIsIkB0eXBlIjoiZmxvY5nIn1dXQ==
 ```
 
 ```
@@ -1934,7 +1934,7 @@ Content-Type: application/json; charset=utf-8
         "01c3db83-b27c-46de-b709-21032a170642",
         "01fbd96b-bd77-40aa-bc08-a1d3a877b9e2"
     ],
-    "cursor": "20"
+    "cursor": "W1t7InZhbHVlIjoyLjczNTQ2MTIsIkB0eXBlIjoiZmxvYXQifSx73LTEzOGYyZjljOWRhMiIsIkB0eXBlIjoic3RyaW5nIn1dXQ=="
 }
 ```
 
