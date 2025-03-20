@@ -505,6 +505,254 @@ Endpoint used by cht-gateway to send sms messages. More documentation in the [ch
 
 Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{< relref "building/messaging/gateways/rapidpro" >}}) and [Africa's Talking]({{< relref "building/messaging/gateways/africas-talking" >}}) pages.
 
+## Contact
+
+### GET/api/v1/contact/{{uuid}}
+
+*Added in 4.18.x*
+
+Returns a contact's data in JSON format.
+
+#### Permissions
+
+`can_view_contacts`
+
+#### Query parameters
+
+| Name         | Required | Description                                                                                        |
+|--------------|----------|----------------------------------------------------------------------------------------------------|
+| with_lineage | false    | If "true", the contact's parent lineage will be included in the returned data. Default is "false". |
+
+#### Examples
+
+Get a contact by uuid:
+
+```
+GET /api/v1/contact/d1c560e2-a07b-4562-a775-a2c7d0a9766f
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "_id": "d1c560e2-a07b-4562-a775-a2c7d0a9766f",
+    "_rev": "1-d13970de1501783cc52de0fd6db8beaf",
+    "type": "person",
+    "name": "Person Person",
+    "short_name": "August",
+    "date_of_birth": "1990-3-0",
+    "date_of_birth_method": "",
+    "ephemeral_dob": {
+        "dob_calendar": "1990-3-0",
+        "dob_method": "",
+        "dob_approx": "1990-04-01T02:12:34.933Z",
+        "dob_raw": "1990-3-0",
+        "dob_iso": "1990-3-0"
+    },
+    "sex": "female",
+    "phone": "+254777205792",
+    "phone_alternate": "",
+    "role": "patient",
+    "external_id": "",
+    "notes": "",
+    "meta": {
+        "created_by": "medic",
+        "created_by_person_uuid": "",
+        "created_by_place_uuid": ""
+    },
+    "reported_date": 1742012068469,
+    "parent": {
+        "_id": "a048aa9d-3fd0-4182-a7c1-ed65cbf29aa0",
+        "parent": {
+            "_id": "d828971b-d796-45b5-ab1a-943622d906a1",
+            "parent": {
+                "_id": "3bb8af4d-ee91-4889-9e11-5ba09a833b2e"
+            }
+        }
+    }
+}
+```
+
+Get a contact with their lineage by uuid:
+
+```
+GET /api/v1/contact/d1c560e2-a07b-4562-a775-a2c7d0a9766f?with_lineage=true
+```
+
+```
+{
+    "_id": "d1c560e2-a07b-4562-a775-a2c7d0a9766f",
+    "_rev": "1-d13970de1501783cc52de0fd6db8beaf",
+    "type": "person",
+    "name": "Person",
+    "short_name": "August",
+    "date_of_birth": "1990-3-0",
+    "date_of_birth_method": "",
+    "ephemeral_dob": {
+        "dob_calendar": "1990-3-0",
+        "dob_method": "",
+        "dob_approx": "1990-04-01T02:12:34.933Z",
+        "dob_raw": "1990-3-0",
+        "dob_iso": "1990-3-0"
+    },
+    "sex": "female",
+    "phone": "+254777205792",
+    "phone_alternate": "",
+    "role": "patient",
+    "external_id": "",
+    "notes": "",
+    "meta": {
+        "created_by": "medic",
+        "created_by_person_uuid": "",
+        "created_by_place_uuid": ""
+    },
+    "reported_date": 1742012068469,
+    "parent": {
+        "_id": "a048aa9d-3fd0-4182-a7c1-ed65cbf29aa0",
+        "_rev": "1-bc7ed2cf5e5997734513faab5f818c3e",
+        "type": "clinic",
+        "name": "Household",
+        "external_id": "rR9Ul",
+        "notes": "Atque non carmen patruus rem toties ceno uredo ad.\nPossimus aro victoria nam terra clamo campana.",
+        "meta": {
+            "created_by": "medic",
+            "created_by_person_uuid": "",
+            "created_by_place_uuid": ""
+        },
+        "reported_date": 1740727312910,
+        "parent": {
+            "_id": "d828971b-d796-45b5-ab1a-943622d906a1",
+            "_rev": "1-1c8e9ae54655e1892686e854e7d404ea",
+            "type": "health_center",
+            "name": "Health Center",
+            "external_id": "GlghB",
+            "notes": "Turbo amor utilis surgo vomica cedo.\nAlveus tabella tondeo itaque.",
+            "meta": {
+                "created_by": "medic",
+                "created_by_person_uuid": "",
+                "created_by_place_uuid": ""
+            },
+            "reported_date": 1742160968002,
+            "parent": {
+                "_id": "3bb8af4d-ee91-4889-9e11-5ba09a833b2e",
+                "_rev": "1-6b109ceccdfcd13f9f78968262d8c82a",
+                "type": "district_hospital",
+                "name": "Hospital",
+                "external_id": "Xge4N",
+                "notes": "Attonbitus sperno cernuus.\nVarius temeritas suadeo cimentarius tum.",
+                "meta": {
+                    "created_by": "medic",
+                    "created_by_person_uuid": "",
+                    "created_by_place_uuid": ""
+                },
+                "reported_date": 1741973509708
+            }
+        }
+    }
+}
+```
+### GET /api/v1/contact/uuid
+
+*Added in 4.18.0*
+
+Returns a JSON array of strings of UUID's of contacts based on the specified page parameters.
+
+#### Permissions
+
+`can_view_contacts`
+
+#### Query Parameters
+
+| Name     | Required | Description                                                                                                                                                                                                                                                                                                                       |
+|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type     | true     | ID of the contact_type for the contacts to fetch. _This field or freetext is required for this endpoint._                                                                                                                                                                                                                         |
+| freetext | true     | A string to search the contacts by. The string value should be atleast 3 in length. The additional condition is that the value should not contain a whitespace(' ') unless the value is in the `key:value` pattern. The `key:value` pattern is for exact match searching. _This field or freetext is required for this endpoint._ |
+| cursor   | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`.                                                                                                          |
+| limit    | false    | The total number of contacts to fetch. Defaults to `100`.                                                                                                                                                                                                                                                                         |
+
+#### Examples
+1. Get an array of contact UUIDs of type `person`.
+
+```
+GET /api/v1/contact/uuid?type=person
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        "0003d4cd-1f52-48ad-9238-bbbddd1c022f",
+        "00078d1a-687f-49d0-8930-21d79f2e05a9",
+        "000f3c80-e22b-4738-a1a9-3212756d00d9",
+        "001b6346-c8be-48b3-8bc1-1ef8ea4ed907",
+        "003d4976-fe39-4ad8-b530-3878fbf0746f",
+        "00405b80-070e-4adf-9b15-52399380307b",
+        "0058269a-061c-4e51-a854-583d5a34ea3e",
+        "005a840b-fa9f-440e-be68-235e50870639",
+        "00afc504-cd27-4b05-b9d7-b50765802314",
+        "00d35973-3365-4653-a0bb-ba8c2d00099d"
+    ],
+    "cursor": null
+}
+```
+
+2. Get an array of contact UUIDs with freetext `abc`.
+
+```
+GET /api/v1/contact/uuid?freetext=abc
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        "0003d4cd-1f52-48ad-9238-bbbddd1c022f",
+        "00078d1a-687f-49d0-8930-21d79f2e05a9",
+        "000f3c80-e22b-4738-a1a9-3212756d00d9",
+        "001b6346-c8be-48b3-8bc1-1ef8ea4ed907",
+        "003d4976-fe39-4ad8-b530-3878fbf0746f",
+        "00405b80-070e-4adf-9b15-52399380307b",
+        "0058269a-061c-4e51-a854-583d5a34ea3e",
+        "005a840b-fa9f-440e-be68-235e50870639",
+        "00afc504-cd27-4b05-b9d7-b50765802314",
+        "00d35973-3365-4653-a0bb-ba8c2d00099d"
+    ],
+    "cursor": null
+}
+```
+
+3. Get an array of 10 contact UUIDs with type `person` and freetext `abc` after skipping some amount of contacts. _Here 10 does not necessarily mean 10 contacts are being skipped. It is just a token._
+
+```
+GET /api/v1/contact/uuid?type=person&freetext=abc&limit=10&cursor=10
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        "00f8d77a-c672-48ee-b6e4-d508ee207e83",
+        "010a727b-7251-4d48-8a0f-4d711429f661",
+        "01192e60-b7f6-4423-a37f-53e458f3d8b3",
+        "012c6ab4-e0ad-4e36-9984-905b02b82607",
+        "014a4b49-7a4f-460e-9718-c64e5754010d",
+        "0162a9c9-9b91-4e83-b296-3095d5c5dd21",
+        "018bbfd2-ac0b-41a7-a0b6-0ab50a5950c4",
+        "01be86c2-1638-4a60-af2e-3857e806e84a",
+        "01c3db83-b27c-46de-b709-21032a170642",
+        "01fbd96b-bd77-40aa-bc08-a1d3a877b9e2"
+    ],
+    "cursor": "20"
+}
+```
+
 ## Person
 
 ### GET /api/v1/person/{{uuid}}
@@ -1542,6 +1790,151 @@ Content-Type: application/json
 {
   "id": "1d83f2b4a27eceb40df9e9f9ad06d137",
   "rev": "12-a4060843d78f46a60a6f41051e40e3b5"
+}
+```
+
+## Report
+
+### GET/api/v1/report/{{uuid}}
+
+*Added in 4.18.x*
+
+Returns a report's data in JSON format.
+
+#### Permissions
+
+`can_view_reports`
+
+#### Examples
+
+Get a report by uuid:
+
+```
+GET /api/v1/report/232a3938-9b1c-4d88-bbd8-8ebd6a688b2d
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "_id": "232a3938-9b1c-4d88-bbd8-8ebd6a688b2d",
+    "_rev": "1-68ec4e77bbba238ef09dab5e8c8131e7",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "content_type": "xml",
+    "reported_date": 1742380956176,
+    "fields": {
+        "patient_uuid": "1f605fc1-ec99-44e3-af38-055d47b72991",
+        "patient_age_in_years": 34,
+        "patient_name": "Della Runolfsdottir",
+        "t_danger_signs_referral_follow_up_date": "2025-03-18T13:14:08.030Z",
+        "t_danger_signs_referral_follow_up": "yes",
+        "danger_signs": {
+            "danger_signs_note": "",
+            "danger_signs_question_note": "",
+            "vaginal_bleeding": "yes",
+            "fits": "no",
+            "severe_abdominal_pain": "yes",
+            "severe_headache": "no",
+            "very_pale": "yes",
+            "fever": "yes",
+            "reduced_or_no_fetal_movements": "yes",
+            "breaking_water": "yes",
+            "easily_tired": "no",
+            "face_hand_swelling": "yes",
+            "breathlessness": "no",
+            "r_danger_sign_present": "yes",
+            "refer_patient_note_1": "",
+            "refer_patient_note_2": ""
+        }
+    },
+    "contact": {
+        "_id": "1f605fc1-ec99-44e3-af38-055d47b72991",
+        "parent": {
+            "_id": "637756e8-6f4d-4f96-8971-23e930fb0562",
+            "parent": {
+                "_id": "9246ada7-85c6-427a-8a48-7790f56b8c44",
+                "parent": {
+                    "_id": "e795199a-924d-4901-8bff-46cb7db2fc34"
+                }
+            }
+        }
+    }
+}
+```
+
+### GET /api/v1/report/uuid
+
+*Added in 4.18.0*
+
+Returns a JSON array of strings of UUID's of reports based on the specified page parameters.
+
+#### Permissions
+
+`can_view_reports`
+
+#### Query Parameters
+
+| Name     | Required | Description                                                                                                                                                                                                                                                              |
+|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| freetext | true     | A string to search the reports by. The string value should be atleast 3 in length. The additional condition is that the value should not contain a whitespace(' ') unless the value is in the `key:value` pattern. The `key:value` pattern is for exact match searching. |
+| cursor   | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`.                                                 |
+| limit    | false    | The total number of contacts to fetch. Defaults to `100`.                                                                                                                                                                                                                |
+
+#### Examples
+
+1. Get an array of report UUIDs with freetext `abc`.
+
+```
+GET /api/v1/report/uuid?freetext=abc
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        "0003d4cd-1f52-48ad-9238-bbbddd1c022f",
+        "00078d1a-687f-49d0-8930-21d79f2e05a9",
+        "000f3c80-e22b-4738-a1a9-3212756d00d9",
+        "001b6346-c8be-48b3-8bc1-1ef8ea4ed907",
+        "003d4976-fe39-4ad8-b530-3878fbf0746f",
+        "00405b80-070e-4adf-9b15-52399380307b",
+        "0058269a-061c-4e51-a854-583d5a34ea3e",
+        "005a840b-fa9f-440e-be68-235e50870639",
+        "00afc504-cd27-4b05-b9d7-b50765802314",
+        "00d35973-3365-4653-a0bb-ba8c2d00099d"
+    ],
+    "cursor": null
+}
+```
+
+2. Get an array of 10 report UUIDs with freetext `abc` after skipping some amount of reports. _Here 10 does not necessarily mean 10 reports are being skipped. It is just a token._
+
+```
+GET /api/v1/report/uuid?type=person&freetext=abc&limit=10&cursor=10
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "data": [
+        "00f8d77a-c672-48ee-b6e4-d508ee207e83",
+        "010a727b-7251-4d48-8a0f-4d711429f661",
+        "01192e60-b7f6-4423-a37f-53e458f3d8b3",
+        "012c6ab4-e0ad-4e36-9984-905b02b82607",
+        "014a4b49-7a4f-460e-9718-c64e5754010d",
+        "0162a9c9-9b91-4e83-b296-3095d5c5dd21",
+        "018bbfd2-ac0b-41a7-a0b6-0ab50a5950c4",
+        "01be86c2-1638-4a60-af2e-3857e806e84a",
+        "01c3db83-b27c-46de-b709-21032a170642",
+        "01fbd96b-bd77-40aa-bc08-a1d3a877b9e2"
+    ],
+    "cursor": "20"
 }
 ```
 
