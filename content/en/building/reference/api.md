@@ -1878,9 +1878,9 @@ Returns a JSON array of strings of UUID's of reports based on the specified page
 
 | Name     | Required | Description                                                                                                                                                                                                              |
 |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| freetext | true     | A string search term for filtering the contacts to fetch. The string value should be at least 3 characters in length and not contain whitespace.                                                                         |
+| freetext | true     | A string search term for filtering the reports to fetch. The string value should be at least 3 characters in length and not contain whitespace.                                                                          |
 | cursor   | false    | The token identifying which page to retrieve. A `null` value indicates the first page should be returned. Subsequent pages can be retrieved by providing the cursor returned with the previous page. Defaults to `null`. |
-| limit    | false    | The total number of contacts to fetch. Defaults to `10000`.                                                                                                                                                              |
+| limit    | false    | The total number of reports to fetch. Defaults to `10000`.                                                                                                                                                               |
 
 #### Examples
 
