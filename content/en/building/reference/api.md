@@ -509,7 +509,7 @@ Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{
 
 ### GET/api/v1/contact/{{uuid}}
 
-*Added in 4.18.x*
+*Added in 4.18.0*
 
 Returns a contact's data in JSON format.
 
@@ -1797,7 +1797,7 @@ Content-Type: application/json
 
 ### GET/api/v1/report/{{uuid}}
 
-*Added in 4.18.x*
+*Added in 4.18.0*
 
 Returns a report's data in JSON format.
 
