@@ -706,7 +706,6 @@ kubectl get pods
 
 #### CHT-CORE Deployment
 
-
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -917,11 +916,40 @@ spec:
           - containerPort: 5008
 ```
 
-#### Key Configurations Explained
+#### Key Configurations
 
-This section will be added later
+* **`replicas: 1`**:
 
-CHT-CORE Services deployment
+  * Specifies that only one instance of ech deployment should run
+* **`strategy: type: RollingUpdate`**:
+
+  * To ensure minimal downtime by gradually replacing old pods with new ones while maintaining service availability.
+  * Ensure that a specified number of healthy pods are always running during the update process, minimizing service interruption
+* **`strategy: rollingUpdate: maxSurge: 0:`**
+
+  * Ensure zero-downtime deployment.
+* **`strategy: rollingUpdate: maxUnavailable: 1`**
+
+  * Ensure one pod is updated at a time
+* **`metadata: labels: cht.service`**
+
+  * Thi assigns a label with the key in our case `cht.service` and the value `[any value]` and this value can be used to **identify**, **group** , or **select** this Pod
+* **`selector: matchLabels: cht.service`**:
+
+  * This ensures only the correct Pods receive traffic from the right service, even if multiple deployment running in the same cluster.
+  * Ensure the Pods created by this Deployment are correctly matched
+* **`valueFrom: fieldRef: fieldPath`**: Used to extract values from the Pod's metadata or environment
+* **`containers: resources: {}`**: Used to define requests to resource and set limits for resources.If the resource is empty, the container does not request any specific CPU or memory and the scheduler will assign resources based on availability, and the container can use as much CPU/memory as allowed by the node
+* **`env:name: API_HOST: value`**: API_HOST is variable that store the CHT API back-end URL and the attribute value containt the actual URL.
+* **`api.muso-app.svc.cluster.local`** :
+
+  * This is local URL used by Kubernetes and allows pods to communicate with one another. It is structured like:
+    * `api`: The ame of the Kubernetes Service
+    * `muso-app` : Name of the Namespace where the service is running
+    * `svc`: Indicates that this is a Service in Kubernetes
+    * `cluster.local`: The default domain for services inside the Kubernetes cluster.
+
+#### CHT-CORE Services deployment
 
 ```
 apiVersion: v1
@@ -1067,7 +1095,7 @@ spec:
   type: ClusterIP
 ```
 
-Upgrade service roles required to upgrade to newer versions of cht-core
+#### Upgrade service roles required to upgrade to newer versions of cht-core
 
 ```
 apiVersion: v1
@@ -1107,13 +1135,18 @@ subjects:
   name: cht-upgrade-service-user
 ```
 
-#### Key Configurations Explained
+#### Kubernetes concepts
 
-This section will be added later
+* [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) - This is the main kubernetes resource that contains information regarding all the cht services that will be deployed.
+* [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) - This contains configuration files, or credentials that containers can retrieve. If you edit the configmap, you should delete containers, which will trigger a new container to download your new edits to any configurations for that service
+* [ServiceAccounts](https://kubernetes.io/docs/concepts/security/service-accounts/) - This is used by the upgrade-service that is running inside the cht-core pods (as a container titled upgrade-service). This serviceAccount restricts the upgrade-service from interacting with any other cht-core projects outside of its namespace, and gives the upgrade-service permissions to talk to kubernetes API to upgrade container images when a CHT ADMIN clicks *upgrade* through the Admin interface.
+* [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) - This is what forwards traffic to a particular project or pods. In most use-cases, there is an nginx deployed outside of the k3s cluster than contains DNS entries for existing projects, and contains a proxy_pass parameter to send traffic based on host header to any of the k3s server IPs. Inside the k3s cluster, the traefik container and servicelb-traefik containers in kube-system namespace will handle forwarding traffic to the correct cht-core containers based on url
+* [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) - This is where our project data will be stored. Important to ensure you have configured this correctly, with retain policies intact so the data is not deleted if the project is removed. It’s also vital to ensure you have a backup policy either set-up in VMware vCenter GUI or you have configured the csi-snapshotter that comes with vSphere CSI.
+* [Services](https://kubernetes.io/docs/concepts/services-networking/service/) - This is utilized for CouchDB nodes to discover each other through DNS rather than internal IPs, which can change. This is also used in the COUCH_URL so API containers can discover where CouchDB is running.
 
 #### SSL Certificate Upload / Preparation
 
-Using [Certbot](https://certbot.eff.org/instructions?ws=nginx&os=osx), ensure the dependencies of one of the challenges is met. 
+Using [Certbot](https://certbot.eff.org/instructions?ws=nginx&os=osx), ensure the dependencies of one of the challenges is met.
 
 Once the certs are generated, create a [kubernetes secret tls](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret_tls/)
 
@@ -1122,6 +1155,7 @@ kubectl -n <namespace> create secret tls --cert=/etc/letsencrypt/live/<domain>/f
 ```
 
 Verify the secret was created by running:
+
 ```
 kubectl -n <namespace> get secrets
 ```
@@ -1130,7 +1164,7 @@ kubectl -n <namespace> get secrets
 
 Deploying an ingress with specific annotations, will create the GCP Load Balancer with internal routes to forward traffic to the API container.
 
-Once we tie in an DNS entry to point to the GCP Load Balancer, we will have completed the ability for the end-user to navigate to the URL in their browser or app. 
+Once we tie in an DNS entry to point to the GCP Load Balancer, we will have completed the ability for the end-user to navigate to the URL in their browser or app.
 
 ```
 apiVersion: networking.k8s.io/v1
@@ -1160,6 +1194,7 @@ spec:
 ```
 
 Remaining work: Map the rest of the following annotations to GCP Load Balancer
+
 ```
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
