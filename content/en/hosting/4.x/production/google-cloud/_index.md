@@ -1169,7 +1169,7 @@ kind: FrontendConfig
 metadata:
   name: redirect-to-https
 spec:
-  sslPolicy: gke-ingress-ssl-policy
+  #sslPolicy: gke-ingress-ssl-policy
   redirectToHttps:
     enabled: true
     responseCodeName: MOVED_PERMANENTLY_DEFAULT
@@ -1182,7 +1182,6 @@ metadata:
     kubernetes.io/ingress.class: "gce"
     networking.gke.io/v1beta1.FrontendConfig: "redirect-to-https"
 spec:
-  #ingressClassName: alb
   rules:
     - host: cht-gcp-test.h4reet.com
       http:
@@ -1196,9 +1195,9 @@ spec:
                   number: 5988
   tls:
     - hosts:
-        - cht-gpc-test.h4reet.com
+        - cht-gcp-test.h4reet.com
       secretName: cht-gcp-test-h4reet
-
+---
 ```
 
 Here is the annotation mapping from our helm-charts used on Ingresses tied to AWS ALBs compared to GCP Load balancer annotations above.
