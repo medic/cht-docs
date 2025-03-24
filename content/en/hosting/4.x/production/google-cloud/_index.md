@@ -1164,12 +1164,23 @@ Deploying an ingress with specific annotations, will create the GCP Load Balance
 Once we tie in an DNS entry to point to the GCP Load Balancer, we will have completed the ability for the end-user to navigate to the URL in their browser or app.
 
 ```
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: redirect-to-https
+spec:
+  sslPolicy: gke-ingress-ssl-policy
+  redirectToHttps:
+    enabled: true
+    responseCodeName: MOVED_PERMANENTLY_DEFAULT
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: api-ingress
   annotations:
     kubernetes.io/ingress.class: "gce"
+    networking.gke.io/v1beta1.FrontendConfig: "redirect-to-https"
 spec:
   #ingressClassName: alb
   rules:
@@ -1190,17 +1201,23 @@ spec:
 
 ```
 
-Remaining work: Map the rest of the following annotations to GCP Load Balancer
+Here is the annotation mapping from our helm-charts used on Ingresses tied to AWS ALBs compared to GCP Load balancer annotations above.
 
 ```
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/tags: {{ .Values.ingress.annotations.tags }}
-    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.annotations.groupname }}
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/scheme: internet-facing 
+    #completed by using "gce" and not "internal-gce"
+    alb.ingress.kubernetes.io/tags: {{ .Values.ingress.annotations.tags }} 
+    #not needed
+    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.annotations.groupname }} 
+    #Not useable in GCP. Vendor pushes to use new Gateway instead of Ingress
+    alb.ingress.kubernetes.io/ssl-redirect: '443' 
+    #Happens via frontendConfig in GCP
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.annotations.certificate }}
+    #above are defaults
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.annotations.certificate }} #Handled via secret 
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    #automatic default in GCP
 
 ```
