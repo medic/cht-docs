@@ -39,7 +39,7 @@ At the welcome screen after creating a GCP project, we want to note the * Projec
 
 ![Welcome to dashboard](./images/welcome_project_id_dashboard.png)
 
-At the Dashboard page, looking at the `Project Info` section, clicking on `ADD PEOPLE TO THIS PROJECT`![ADD PEOPLE TO THIS PROJECT](./images/add_people_to_project.png) opens up a dialog where we can add users by their gmail address. To simplify this process until further narrow/specific permissions are determined, we are going to use basic Owner and Editor roles for users we create. If you have a Cht-Core GKE setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
+At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see ![related image](./images/add_people_to_project.png) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
 
 ![Add User Details](./images/add_user_details.png)
 
@@ -47,11 +47,9 @@ At the Dashboard page, looking at the `Project Info` section, clicking on `ADD P
 
 ### Create a cluster in GCP project
 
-To create a cluster and easily setup necessary options, we will navigate through the console UI
+Using the console UI, follow the [create cluster steps](https://console.cloud.google.com/kubernetes/list/overview). Be sure to click "enable Kubernetes API" when prompted.
 
-UI: Follow the [create cluster steps](https://console.cloud.google.com/kubernetes/list/overview)
-
-You will have to click enable Kubernetes API in the prompt that comes up.
+A sane default is to use the less costly option below unless required by scale. [Google Cloud Blog: Regional vs zonal GKE clusters](https://cloud.google.com/blog/products/containers-kubernetes/choosing-a-regional-vs-zonal-gke-cluster)
 
 #### Zonal cluster
 
@@ -69,19 +67,18 @@ You will have to click enable Kubernetes API in the prompt that comes up.
 
 We are going to create an isolated private network with one public subnet that will contain the Load Balancer, managed and automated by Google. The Load Balancer will have access to the private subnet which contains all of virtual machines or enabled private nodes that run the containers which make up the application. This separation ensures underlying system files and database files are not accessible or modifiable outside of application-level access.
 
-For troubleshooting underlying VM issues, we will need to [launch a bastion](https://cloud.google.com/kubernetes-engine/docs/tutorials/private-cluster-bastion) server or ssh-jumpbox in the same public subnet as the load balancer that after accessing allows us to jump into the private subnet virtual machines.
-
 VPC CIDR: `10.128.0.0/20` (default network)
 
-Make sure the 3 option boxes are checked: `Enable Private Nodes`, `Access using the control plane's external IP address`, `Access using the control plane's internal IP address from any region`
+When creating the cluster, make sure the 3 option boxes are checked:
+* Enable Private Nodes
+* Access using the control plane's external IP address
+* Access using the control plane's internal IP address from any region
 
 ![Cluster Networking Options](./images/cluster_networking_options.png)
 
 ### NodePool Configuration
 
-Here we will define how many virtual machines we will run, which ones will run the database cluster, and how much resources (CPU/RAM) the virtual machines will have.
-
-We will be creating 2 nodepools, one for the CouchDB cluster, and one for cht-core services (api, sentinel, haproxy, healthcheck, upgrade-service).
+NodePools allow you to configure VM quanity,  database cluster VMs, CPU and RAM. In our example, create 2 NodePools, one for the CouchDB cluster and one for CHT Core services (api, sentinel, haproxy, healthcheck, upgrade-service).
 
 ##### Base Image Consideration
 
