@@ -10,7 +10,6 @@ relatedContent: >
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
 ---
-
 {{% pageinfo %}}
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
 {{% /pageinfo %}}
@@ -39,7 +38,7 @@ This leverages Docker and requires:
 
 ### Kubernetes
 
-This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/production/kubernetes/self-hosting-k3s-multinode" >}}). 
+This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/production/kubernetes/self-hosting-k3s-multinode" >}}).
 
 Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
 
@@ -55,4 +54,5 @@ Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/
 _\* During some upgrades, up to 3x current space used by CouchDB can be needed_
 
 ## Required skills
+
 In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
