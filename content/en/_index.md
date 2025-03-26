@@ -14,7 +14,7 @@ cascade:
   type: "docs"
 ---
 
-## CHT Core Framework
+## Core Development
 An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).
 
 {{< see-also page="core" prefix="Read More" >}}
