@@ -175,13 +175,19 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 | `dbInfo.auto_compaction` | Whether or not auto compaction is set. Added in 3.4.0. |
 | `dbInfo.adapter` | The database adapter being used. Added in 3.4.0. |
 
-## Export data to JSON
+## Export data 
+
+### Summary data via API
+
+To get summary data with one item per user, see the `/api/v2/export/user-devices` [API]({{< ref "building/reference/api#get-apiv2exportuser-devices" >}}). 
+
+### Summary data via Node script
 
 {{% alert title="Note" %}}
 Telemetry data can be viewed directly in your browser with [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/) at `https://{{CHT_INSTANCE_URL}}/_utils`, and navigating the `medic-users-meta` database.
 {{% /alert %}}
 
-To export all telemetry in JSON for further analysis or visualization, first meet these prerequisites:
+To bulk export all telemetry in JSON for further analysis or visualization, first meet these prerequisites:
 
 1. Ensure that both [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/get-npm) are installed and that the needed `node` libraries are installed: `npm install inquirer pouchdb-core fs path minimist pouchdb-adapter-http`
 1. Get a current copy of the export script: `curl -s -o get_users_meta_docs.js https://raw.githubusercontent.com/medic/cht-core/master/scripts/get_users_meta_docs.js` 
@@ -200,11 +206,305 @@ node get_users_meta_docs.js --mode batch --type telemetry https://admin:pass@loc
 
 This will save a file named `telemetry.json` containing all the telemetry data in the current directory. 
 
-## Code Samples
+## Telemetry Examples
 
-### Logged in from the browser
+### Offline user on Tecno KC8 Device
 
-```js
+```json
+{
+  "_id": "telemetry-2024-12-18-mrjones-5d2e1833-ed7a-46d7-a50e-b6f3becb9e14",
+  "_rev": "1-c3b23df8b2701839d726576e3d87fd26",
+  "type": "telemetry",
+  "metrics": {
+    "boot_time": {
+      "sum": 3633.899999976158,
+      "min": 3633.899999976158,
+      "max": 3633.899999976158,
+      "count": 1,
+      "sumsqr": 13205229.209826723
+    },
+    "boot_time:1:to_first_code_execution": {
+      "sum": 2280.2000000476837,
+      "min": 2280.2000000476837,
+      "max": 2280.2000000476837,
+      "count": 1,
+      "sumsqr": 5199312.040217456
+    },
+    "boot_time:2:to_bootstrap": {
+      "sum": 1057.2999999523163,
+      "min": 1057.2999999523163,
+      "max": 1057.2999999523163,
+      "count": 1,
+      "sumsqr": 1117883.289899168
+    },
+    "boot_time:2_3:to_purge_meta": {
+      "sum": 126.30000007152557,
+      "min": 126.30000007152557,
+      "max": 126.30000007152557,
+      "count": 1,
+      "sumsqr": 15951.69001806736
+    },
+    "boot_time:3:to_angular_bootstrap": {
+      "sum": 296.39999997615814,
+      "min": 296.39999997615814,
+      "max": 296.39999997615814,
+      "count": 1,
+      "sumsqr": 87852.95998586655
+    },
+    "boot_time:apdex:tolerable": {
+      "sum": 3633.899999976158,
+      "min": 3633.899999976158,
+      "max": 3633.899999976158,
+      "count": 1,
+      "sumsqr": 13205229.209826723
+    },
+    "boot_time:purging_meta:true": {
+      "sum": 1,
+      "min": 1,
+      "max": 1,
+      "count": 1,
+      "sumsqr": 1
+    },
+    "replication:meta:sync:docs": {
+      "sum": 0,
+      "min": 0,
+      "max": 0,
+      "count": 1,
+      "sumsqr": 0
+    },
+    "replication:meta:sync:failure": {
+      "sum": 103,
+      "min": 103,
+      "max": 103,
+      "count": 1,
+      "sumsqr": 10609
+    },
+    "replication:meta:sync:failure:reason:offline:client": {
+      "sum": 1,
+      "min": 1,
+      "max": 1,
+      "count": 1,
+      "sumsqr": 1
+    },
+    "rules-engine:ensureTaskFreshness:cancel": {
+      "sum": 13,
+      "min": 13,
+      "max": 13,
+      "count": 1,
+      "sumsqr": 169
+    },
+    "rules-engine:initialize": {
+      "sum": 957,
+      "min": 957,
+      "max": 957,
+      "count": 1,
+      "sumsqr": 915849
+    },
+    "rules-engine:targets": {
+      "sum": 68,
+      "min": 68,
+      "max": 68,
+      "count": 1,
+      "sumsqr": 4624
+    },
+    "rules-engine:targets:dirty-contacts": {
+      "sum": 0,
+      "min": 0,
+      "max": 0,
+      "count": 1,
+      "sumsqr": 0
+    },
+    "rules-engine:targets:queued": {
+      "sum": 1,
+      "min": 1,
+      "max": 1,
+      "count": 1,
+      "sumsqr": 1
+    },
+    "rules-engine:tasks:all-contacts": {
+      "sum": 9201,
+      "min": 9201,
+      "max": 9201,
+      "count": 1,
+      "sumsqr": 84658401
+    },
+    "rules-engine:tasks:all-contacts:queued": {
+      "sum": 1,
+      "min": 1,
+      "max": 1,
+      "count": 1,
+      "sumsqr": 1
+    },
+    "rules-engine:tasks:dirty-contacts": {
+      "sum": 212,
+      "min": 212,
+      "max": 212,
+      "count": 1,
+      "sumsqr": 44944
+    },
+    "tasks:load": {
+      "sum": 11560,
+      "min": 11560,
+      "max": 11560,
+      "count": 1,
+      "sumsqr": 133633600
+    },
+    "tasks:load:apdex:tolerable": {
+      "sum": 11560,
+      "min": 11560,
+      "max": 11560,
+      "count": 1,
+      "sumsqr": 133633600
+    },
+    "user_settings:language:fr": {
+      "sum": 1,
+      "min": 1,
+      "max": 1,
+      "count": 1,
+      "sumsqr": 1
+    }
+  },
+  "device": {
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; TECNO KC8 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/131.0.6778.104 Mobile Safari/537.36 org.medicmobile.webapp.mobile.moh_echis/v1.4.0-moh-echis-publish.1",
+    "hardwareConcurrency": 4,
+    "screen": {
+      "width": 360,
+      "height": 800
+    },
+    "deviceInfo": {
+      "app": {
+        "version": "v1.4.0-moh-echis-publish.1",
+        "packageName": "org.medicmobile.webapp.mobile.moh_echis",
+        "versionCode": 104000100
+      },
+      "software": {
+        "androidVersion": "10",
+        "osApiLevel": 29,
+        "osVersion": "4.9.190+(LMN-OP-210708V261)"
+      },
+      "hardware": {
+        "device": "TECNO-KC8",
+        "model": "TECNO KC8",
+        "manufacturer": "TECNO",
+        "hardware": "mt6761",
+        "cpuInfo": {
+          "cores": 4,
+          "arch": "armv7l",
+          "model name": "ARMv7 Processor rev 4 (v7l)"
+        }
+      },
+      "storage": {
+        "free": 5767675904,
+        "total": 26175582208
+      },
+      "ram": {
+        "free": 463101952,
+        "total": 1919627264,
+        "threshold": 150994944
+      },
+      "network": {}
+    }
+  },
+  "metadata": {
+    "year": 2024,
+    "month": 12,
+    "day": 18,
+    "aggregate_date": "2024-12-19T11:05:35.661Z",
+    "user": "mrjones",
+    "deviceId": "5d2e1833-ed7a-46d7-a50e-b6f3becb9e14",
+    "versions": {
+      "app": "4.9.0",
+      "forms": {
+        "abandonment": "9-a41211200c43db9c764707dabbc2238e",
+        "contact:ca10_central:create": "11-c220b52b1d0819d24f275de46e4daf33",
+        "contact:ca10_central:edit": "11-1117558099fe46fa3ca76b9d85e4d347",
+        "contact:ca12_central:create": "11-deb8ed9af0084b7320565dbf91ba0920",
+        "contact:ca12_central:edit": "11-9b974247705d31e05a273b36796e5d9e",
+        "contact:cb20_region:create": "11-bc2f2e729938c120c4d30bc31f7fba28",
+        "contact:cb20_region:edit": "11-5d2f4bb626420a00c6779ee7440101c9",
+        "contact:cb22_region:create": "11-0c733613618f2c937dc877463c387358",
+        "contact:cb22_region:edit": "11-e544ff2386627c3992b98251276e22d5",
+        "contact:cc30_district:create": "11-153e78ab566f066057255220bc4bc4e0",
+        "contact:cc30_district:edit": "11-24355edd2d8414f4d2b9389ada6dd38f",
+        "contact:cc32_district:create": "9-0497fbef8565dbf0d8fb97585303d4cd",
+        "contact:cc32_district:edit": "11-e758c62a1b9505c0b8df3941b2d5bddb",
+        "contact:cd40_commun:create": "11-26cc7683af531080ee02606f7017add6",
+        "contact:cd40_commun:edit": "11-569f8bba69371d044584dbdea32851fc",
+        "contact:cd42_commun:create": "9-01c61755d1b40c8be08bfeedfb8820f9",
+        "contact:cd42_commun:edit": "9-7f6e12e8f28b0944e58be204df2b416d",
+        "contact:ce50_followup:create": "11-7cbbf182aa87df82ba8c77d4bd9650dd",
+        "contact:ce50_followup:edit": "11-95ec94462649c71562e546da9c0702d8",
+        "contact:ce52_followup:create": "11-adcb83d8278f191fb80180d0e61dd9e4",
+        "contact:ce52_followup:edit": "11-60a202887d8528b1bd79a4204070887b",
+        "contact:cf60_sanitary:create": "11-401a5f96a02a8db456f98a5df45a2199",
+        "contact:cf60_sanitary:edit": "11-876b85561d192197021e66f24d0e3869",
+        "contact:cf62_sanitary:create": "11-9b0cf1a9250ebc39a0b39be24bb3bb17",
+        "contact:cf62_sanitary:edit": "11-14343ec14f2c2623ab46512e2a10fc4b",
+        "contact:cg70_supervision:create": "11-7663404abd7a43fc28cbf3e12609ae44",
+        "contact:cg70_supervision:edit": "11-53274a1cde318d03813cb915afdefeb3",
+        "contact:c72_supervision:create": "9-45bf71d3999865a87190ccaf7d5e13d1",
+        "contact:cg72_supervision:edit": "11-45dea06d9dae81ed6d8f9d3ab90ce276",
+        "contact:ch80_village:create": "11-ebfdad62acd97b9f1cbcd2c3d875e0a9",
+        "contact:ch80_village:edit": "11-2da76bd17522fecbfce8960a3c92730f",
+        "contact:ch82_village:create": "11-befb0bf6c09bce5bb7ce1a9ca9347097",
+        "contact:ch82_village:edit": "11-9f665fca707c7edde42a72ca9c2f30b3",
+        "contact:ci90_chw_site:create": "11-2bca19b1e0c7b7ed0bd329c7ae1d9aae",
+        "contact:ci90_chw_site:edit": "11-5b4e596b22bf34e43cd2a5aff56c3539",
+        "contact:ci92_chw_site:create": "11-c051ee845ed6e0a9961fff6e2f8b514e",
+        "contact:ci92_chw_site:edit": "9-00b60f694123dfdfec245ec694d6ef0e",
+        "contact:cj100_household:create": "11-ea9babcf7f0d5ad017e5865ccdadd01d",
+        "contact:cj100_household:edit": "11-bad5365ffce4d5664777ead6dfd8429b",
+        "contact:cj102_household:create": "13-dd6b25dfdd3ecafedbc1893c8e1a4eda",
+        "contact:cj102_household:edit": "11-0ab6d23c170d31d7bdf16a41ad1a3481",
+        "cpn_realization": "11-406f71ebfbe11949ba586e4fa873caf5",
+        "death_report": "13-3fc4377de1dc35a9bac7cd81b20412e5",
+        "death_report_household": "11-6099be84a278724f196b8f8f7be96f73",
+        "delivery_registration": "11-0d15989013212b9815b0d50fae91c577",
+        "fp_distribution": "11-da20e0efc7077b43291ad45d324b206c",
+        "fp_followup": "11-b88f83dbeee9ae9692a78486eeaee5f6",
+        "fp_renewal": "11-ee617ebd4d2d436a1f3ea630700acea0",
+        "home_visit": "11-9a2e31b7b11a741c995a15cbc2ad5238",
+        "household_geolocation": "2-9cd287cdb8413226033dc9a99aa3d252",
+        "malnutrition_followup": "9-08cc31f82c6d4f91d3220a478d8cf776",
+        "patient_assessment_over_5": "9-d74aa950905a766af8a0801334895e9a",
+        "patient_assessment_under_5": "11-67f9ca278abb5dbcd595018e99677e0e",
+        "postnatal_followup": "11-4bacf321e1ec9c0a9c4b341b189d592f",
+        "pregnancy_confirmation": "11-7fe39cdcfb27e33c56bfe0a327510137",
+        "pregnancy_registration": "11-a8d5925972801fe3a58aa92c10f5e2c8",
+        "reactivation": "9-ae37487a8490223134353a7520338a9c",
+        "referral_followup_over_5": "9-83c3867a8085724190b45840c9c73d1f",
+        "referral_followup_under_5": "11-d474fac864681170c8ecade533692559",
+        "social_mobilization": "11-5bbeec5e6bd41cf065f4e41c9fe5d79b",
+        "stock_count": "11-7c6afa1ddfbb473e39507b0c80872bb8",
+        "stock_discrepancy_resolution": "9-c8773340c0597934101c67dc97fae86b",
+        "stock_order": "9-e3c42252c5f9e7c0727215c6b93ccd84",
+        "stock_order_supply": "9-6928226970012bb168394a35d520f333",
+        "stock_out": "9-feca14fa9810da975f87c16fd9adf05e",
+        "stock_received": "11-c426c941e055f280c1e5839fa803415c",
+        "stock_return": "11-e93e754b8e289e353075bab94e4ba9ea",
+        "stock_returned": "9-011e3eb380c9b6191f5d27ec03adb761",
+        "stock_supply": "11-082e87d58134804bc16f3f413cd802fe",
+        "tb_treatment_followup_over_5": "9-15ebbbafe1dd9cce77da1274b4792421",
+        "treatment_followup_over_5": "9-a4dc897da5ab8e691ca50c457602cf9f",
+        "treatment_followup_under_5": "11-ba370b4e30e80c57e2610cf89f243b6e"
+      },
+      "settings": "7-ae079730f416fd090c94df3716ff07ee"
+    }
+  },
+  "dbInfo": {
+    "doc_count": 578,
+    "update_seq": 1297,
+    "idb_attachment_format": "binary",
+    "db_name": "medic-user-mrjones",
+    "auto_compaction": true,
+    "adapter": "idb"
+  }
+}
+```
+
+### Online user in the browser
+
+```json
 {
   "_id": "telemetry-2020-5-medic-016304ab-7167-4c97-93bb-a6626ef6128d",
   "_rev": "1-90a94d76eb30ac47e2f498b80cf54cd1",
