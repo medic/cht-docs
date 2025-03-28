@@ -39,9 +39,9 @@ The Africa's Talking integration uses the CHT Credentials service to retrieve th
 
 Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials by running the commands below.
 
-- `curl -X PUT -H "Content-Type: text/plain" https://<user>:<pass>@<domain>/api/v1/credentials/africastalking.com:incoming -d 'cht-api-key'`
+- `curl -X PUT -H "Content-Type: text/plain" https://<user>:<pass>@<hostname>/api/v1/credentials/africastalking.com:incoming -d 'cht-api-key'`
 
-- `curl -X PUT -H "Content-Type: text/plain" https://<user>:<pass>@<domain>/api/v1/credentials/africastalking.com:outgoing -d 'at-api-key'`
+- `curl -X PUT -H "Content-Type: text/plain" https://<user>:<pass>@<hostname>/api/v1/credentials/africastalking.com:outgoing -d 'at-api-key'`
 
 ### App settings
 
