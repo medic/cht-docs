@@ -179,7 +179,7 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 
 ### Summary data via API
 
-To get summary data with one item per user, see the `/api/v2/export/user-devices` [API]({{< ref "building/reference/api#get-apiv2exportuser-devices" >}}). 
+To get summary data with one item per user, see the `/api/v2/export/user-devices` [API]({{< ref "building/reference/api#get-apiv2exportuser-devices" >}}), which was added in CHT 4.7.0. 
 
 ### Summary data via Node script
 
