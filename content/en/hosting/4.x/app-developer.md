@@ -204,20 +204,26 @@ To avoid conflicts, ensure that all other CHT 4.x instances are stopped. To stop
 docker kill $(docker ps -q)
 ````
 
-After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory:
+After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory. If you don't know which to use, use Single Node CouchDB:
 
-```shell 
-
+{{< tabpane persist=false lang=shell >}}
+{{< tab header="Single Node CouchDB" >}}
 mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && cd ~/cht_4_app_developer-dir
 curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
 curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
-```
+{{< /tab >}}
+{{< tab header="Multi-Node CouchDB" >}}
+mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && cd ~/cht_4_app_developer-dir
+curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb-clustered.yml
+{{< /tab >}}
+{{< /tabpane >}}
 
 You should now have 3 compose files and 2 directories which we can check with `ls -R`:
 
 ```shell
-ls -R
 compose  compose.yml  couch
 
 ./compose:
@@ -226,9 +232,10 @@ cht-core.yml  cht-couchdb.yml
 ./couch:
 ```
 
-To prepare for the first developer CHT instance, write all environment variables to the `.env` file with this code:
+To prepare for the first developer CHT instance, write all environment variables to the `.env` file with this code. Be sure to use the same single or multi-node as above. If you don’t know which to use, use Single Node CouchDB:
 
-```sh
+{{< tabpane persist=false lang=shell >}}
+{{< tab header="Single Node CouchDB" >}}
 cat > ~/cht_4_app_developer-dir/.env << EOF
 NGINX_HTTP_PORT=8080
 NGINX_HTTPS_PORT=8443
@@ -242,17 +249,75 @@ COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couch
 CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
 CHT_NETWORK=cht_4_app_developer
 EOF
-```
+{{< /tab >}}
+{{< tab header="Multi-Node CouchDB" >}}
+cat > ~/cht_4_app_developer-dir/.env << EOF
+NGINX_HTTP_PORT=8080
+NGINX_HTTPS_PORT=8443
+COUCHDB_USER=medic
+COUCHDB_PASSWORD=password
+CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
+DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
+COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
+COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
+COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couch
+CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
+CHT_NETWORK=cht_4_app_developer
+DB1_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv1
+DB2_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv2
+DB3_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv3
+COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
+EOF
+{{< /tab >}}
+{{< /tabpane >}}
+
 
 Start the first CHT instance by calling `docker`:
 
 ```shell script
-cd ~/cht_4_app_developer-dir && docker compose up
+cd ~/cht_4_app_developer-dir && docker compose up -d
 ```
 
-This may take some minutes to fully start depending on the speed of the internet connection and speed of the host. This is because docker needs to download all the storage layers for all the containers and the CHT needs to run the first run set up. After downloads and setup has completed, the CHT should be accessible on [https://localhost:8443](https://localhost:8443). You can log in with username `medic` and password `password`.
+This may take some minutes to fully start depending on the speed of the internet connection and speed of the host. Docker needs to download all the container images and first setup needs to run on the CHT. You can check the status with:
 
-When connecting to a new dev CHT instance for the first time, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/building/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
+```shell
+docker ps --filter "name=cht_4_app_developer" --format "{{.Status}} {{.Names}}"
+```
+
+Which should look like this:
+
+{{< tabpane persist=false lang=shell >}}
+{{< tab header="Single Node CouchDB" >}}
+Up 47 seconds cht_4_app_developer-nginx-1
+Up 48 seconds cht_4_app_developer-sentinel-1
+Up 48 seconds cht_4_app_developer-api-1
+Up 48 seconds cht_4_app_developer-haproxy-1
+Up 48 seconds cht_4_app_developer-healthcheck-1
+Up 48 seconds cht_4_app_developer-couchdb-1
+Up 49 seconds cht_4_app_developer-dir-cht-upgrade-service-1
+{{< /tab >}}
+{{< tab header="Multi-Node CouchDB" >}}
+Up 2 seconds cht_4_app_developer-nginx-1
+Up 3 seconds cht_4_app_developer-api-1
+Up 3 seconds cht_4_app_developer-sentinel-1
+Up 4 seconds cht_4_app_developer-couchdb-1.local-1
+Up 4 seconds cht_4_app_developer-couchdb-2.local-1
+Up 4 seconds cht_4_app_developer-haproxy-1
+Up 4 seconds cht_4_app_developer-couchdb-3.local-1
+Up 4 seconds cht_4_app_developer-healthcheck-1
+Up 4 seconds cht_4_app_developer-dir-cht-upgrade-service-1
+{{< /tab >}}
+{{< /tabpane >}}
+
+After running the above `docker ps` command and you see your containers running, the CHT is accessible on [https://localhost:8443](https://localhost:8443). The username is `medic` and password is `password`.
+
+The first time you connect in a browser, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/building/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
+
+To stop this instance run:
+
+```
+docker stop $(docker ps -q --filter "name=cht_4_app_developer")
+```
 
 ## Running the Nth CHT instance
 
