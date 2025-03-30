@@ -70,7 +70,7 @@ Broadly speaking, Sonar configuration is separated into repo-level and org-level
 
 Each repository can include a `.sonarcloud.properties` file in the root directory.
 
-This file must specify the path to the source code in the repository as well as which source files should be considered to be test code. See [the documentation](https://docs.sonarsource.com/sonarqube/latest/project-administration/analysis-scope/) for more details.
+This file must specify the path to the source code in the repository as well as which source files should be considered to be test code. See [the documentation](https://docs.sonarsource.com/sonarqube-server/latest/project-administration/setting-analysis-scope/introduction/) for more details.
 
 ```properties
 # Path to sources
@@ -88,7 +88,7 @@ Additionally, the `.sonarcloud.properties` file can contain configuration regard
 
 ##### Ignoring all rules for a block of code
 
-You can ignore all the rules for a block of code by telling Sonar to [ignore the block](https://docs.sonarsource.com/sonarqube/latest/project-administration/analysis-scope/#ignoring-blocks-within-files). First, make sure your `.sonarcloud.properties` file has the following configuration:
+You can ignore all the rules for a block of code by telling Sonar to [ignore the block](https://docs.sonarsource.com/sonarqube-server/latest/project-administration/setting-analysis-scope/advanced-exclusions/). First, make sure your `.sonarcloud.properties` file has the following configuration:
 
 ```properties
 
