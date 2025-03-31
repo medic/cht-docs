@@ -314,7 +314,7 @@ The first time you connect in a browser, an error will be shown, "Your connectio
 
 To stop this instance run:
 
-```
+```shell
 docker stop $(docker ps -q --filter "name=cht_4_app_developer")
 ```
 
