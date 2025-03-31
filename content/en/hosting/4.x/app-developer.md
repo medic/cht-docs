@@ -208,13 +208,15 @@ After meeting these requirements, create a directory and download the developer 
 
 {{< tabpane persist=false lang=shell >}}
 {{< tab header="Single Node CouchDB" >}}
-mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && cd ~/cht_4_app_developer-dir
+mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb}
+cd ~/cht_4_app_developer-dir
 curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
 curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
 {{< /tab >}}
 {{< tab header="Multi-Node CouchDB" >}}
-mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && cd ~/cht_4_app_developer-dir
+mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && mkdir -p ~/cht_4_app_developer-dir/couchdb/{srv1,srv2,srv3}
+cd ~/cht_4_app_developer-dir
 curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
 curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb-clustered.yml
@@ -262,9 +264,9 @@ COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
 COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
 CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
 CHT_NETWORK=cht_4_app_developer
-DB1_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv1
-DB2_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv2
-DB3_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv3
+DB1_DATA=${HOME}/couchdb/srv1
+DB2_DATA=${HOME}/couchdb/srv2
+DB3_DATA=${HOME}/couchdb/srv3
 COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
 EOF
 {{< /tab >}}
