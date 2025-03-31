@@ -245,7 +245,7 @@ CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
 DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
 COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
 COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
-COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couch
+COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couchdb
 CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
 CHT_NETWORK=cht_4_app_developer
 EOF
@@ -260,7 +260,6 @@ CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
 DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
 COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
 COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
-COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couch
 CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
 CHT_NETWORK=cht_4_app_developer
 DB1_DATA=/var/home/mrjones/Documents/medicmobile/multi-couch-test/couchdb/srv1
