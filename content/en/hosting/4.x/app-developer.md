@@ -264,9 +264,9 @@ COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
 COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
 CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
 CHT_NETWORK=cht_4_app_developer
-DB1_DATA=${HOME}/couchdb/srv1
-DB2_DATA=${HOME}/couchdb/srv2
-DB3_DATA=${HOME}/couchdb/srv3
+DB1_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv1
+DB2_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv2
+DB3_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv3
 COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
 EOF
 {{< /tab >}}
