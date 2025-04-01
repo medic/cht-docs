@@ -33,7 +33,7 @@ Further, be sure you meet the following prerequisites:
     gzip couch2pg.tar
     ```
 3. Copy the resulting `couch2pg.tar.gz` file to your computer - `scp` is good for this!
-4. Check the values for all the environment variables for couch2pg. For example, here's what our current couch2pg has for it's config:
+4. Check the values for all the environment variables for couch2pg. For example, here's what our current couch2pg has for it's config. In our case the `POSTGRESQL_URL` is `localhost` because we're on the same server as the Postgres server:
     ```shell
     POSTGRESQL_URL=postgres://couch2pg:passwordHere1@localhost:5432/cht
     COUCHDB_URL=https://medic:passwordHere2@192-168-68-23.local-ip.medicmobile.org:10443/medic
@@ -43,7 +43,6 @@ Further, be sure you meet the following prerequisites:
     COUCH2PG_RETRY_COUNT=5
     COUCH2PG_USERS_META_DOC_LIMIT=50
     ```
-
 
 ### New Postgres server and couch2pg instance
 
