@@ -29,7 +29,7 @@ Be sure you have 3x the disk space on both the old and new postgres servers.  Th
 
 For example, If a project has millions of documents taking up 175GB of space on your current postgres server with a 400GB disk, this may be fine for day to day operation.  The server has just over 40% of the disk used.  However, if you make a copy of the data (175GB + 175GB = 350GB), you now have the disk over 85% full with only 50GB free.  You very likely will not have room to compress the data.
 
-To work around this, you can run `pg_dump` from another computer with more disk space, but note that this will send the uncompressed data over the network which may take a long time.  The same 
+To work around this, you can run `pg_dump` from another computer with more disk space, but note that this will send the uncompressed data over the network which may take a long time.  The same is true doing the restore over the networ - it will be much slower than if you did it locally.
 
 To show disk use of all databases, run this command, being sure to replace `couch2pg` with your user:
 
