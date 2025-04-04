@@ -7,9 +7,9 @@ description: >
 aliases:
   -    /core/releases/feature_releases/
 relatedContent: >
-    core/releases
+    releases/core
     contribute#are-you-a-partner-wondering-how-issues-are-prioritized
-    
+
 ---
 
 To build and iterate on new features at a pace that is faster than our regular release cycle, some features are released in a _Feature Release_. Feature Releases (FRs) are based on the most recent release and only include improvements related to a feature being developed. These releases are tested to be production-ready so that new features can be studied with CHT partners in a live deployment, with the aim of getting the feature ready for wider use in an upcoming release.
@@ -21,7 +21,7 @@ A Feature Release can easily be identified by its version, which follows the pat
 
 ## Initial FR Installation
 
-### 3.x 
+### 3.x
 When you are on a non-feature release, you need to use horticulturalist (horti) to do the initial install of the FR.  For example, if your instance was running at `192-168-68-26.local-ip.medicmobile.org:8443` and you wanted to install `3.16.0-FR-offline-user-replace-beta.1`, after [installing](https://github.com/medic/horticulturalist#usage) `horti` you could start the installation with this command:
 
 ```
