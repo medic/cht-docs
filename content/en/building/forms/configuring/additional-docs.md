@@ -2,8 +2,7 @@
 title: "Creating Additional Docs from App Forms"
 linkTitle: "Additional Docs"
 weight: 
-description: >
-  Integration for sending and receiving SMS
+
 relatedContent: >
   building/forms/configuring/app-form-sms
   building/forms/configuring/multimedia
