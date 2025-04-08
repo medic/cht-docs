@@ -1,6 +1,6 @@
 ---
 title: "Production Hosting CHT 4.x - Google Cloud Platform"
-linkTitle: "GCP Multi Node CouchDB on GKE"
+linkTitle: "GCP + GKS Multi Node"
 weight: 10
 aliases:
    - /hosting/4.x/production/docker/google-cloud/
@@ -26,10 +26,10 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 
   - a. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
   - b. GCP CLI: use below command after you have authenticated to your GCP account
-
-```
-   gcloud projects create my-new-project --set-as-default
-```
+  
+  ```shell
+  gcloud projects create my-new-project --set-as-default
+  ```
 
 ## Setting up access for other users to your GCP Project
 
@@ -37,11 +37,11 @@ Once we have a GCP project, let's make sure everyone else on our team can help o
 
 At the welcome screen after creating a GCP project, we want to note the * Project ID:, marked by a * in the screenshot below. Clicking on `Dashboard` we arrive at a detailed screen of our GCP project.
 
-![Welcome to dashboard](./images/welcome_project_id_dashboard.png)
+![Welcome to dashboard](welcome_project_id_dashboard.png)
 
-At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see ![related image](./images/add_people_to_project.png) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
+At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see [related image](add_people_to_project.png)) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
 
-![Add User Details](./images/add_user_details.png)
+![Add User Details](add_user_details.png)
 
 ## GKE (Google Kubernetes Engine) Cluster creation
 
@@ -74,7 +74,7 @@ When creating the cluster, make sure the 3 option boxes are checked:
 * Access using the control plane's external IP address
 * Access using the control plane's internal IP address from any region
 
-![Cluster Networking Options](./images/cluster_networking_options.png)
+![Cluster Networking Options](cluster_networking_options.png)
 
 ### NodePool Configuration
 
@@ -87,22 +87,22 @@ In the case of a cht-core project with millions of docs in CouchDB, we have ran 
 Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
 
 Creating a 3 nodepool configuration for CouchDB:
-![CouchDB nodepool](./images/nodepool_couchdb_3_nodes.png)
+![CouchDB nodepool](nodepool_couchdb_3_nodes.png)
 
 As noted in the previous paragraph, be sure to select Nodes under your new CouchDB nodepool in the left-side navigation bar. In the node details menu, select `Ubuntu with containerd` for image type, and `n2-standard-8`for machine type.
 
-![CouchDB base image and machine types](./images/nodepool_base_image_machine_size.png)
+![CouchDB base image and machine types](nodepool_base_image_machine_size.png)
 
 In order for our CouchDB containers to be placed onto these specific virtual machines we designated for this nodepool, we need to add kubernetes labels to the nodepool, which we will correspond with nodeSelector parameters in our CouchDB deployment templates.
 
 Clicking on `Metadata` on the left-side navigation bar underneath the nodepool name, we can add Kubernetes Labels.
 
-![CouchDB nodepool kubernetes labels](./images/nodepool_labels.png)
+![CouchDB nodepool kubernetes labels](nodepool_labels.png)
 
 A separate nodepool configuration created for cht-core services.
 For the cht-core nodepool, select a 4 core, 16gb RAM machine, 20gb persistent disk, and there is no need to create specific kubernetes labels.
 
-![CHT-Core nodepool](./images/nodepool_chtcore_add.png)
+![CHT-Core nodepool](nodepool_chtcore_add.png)
 
 Click on Create Cluster and wait a few minutes for everything to come up!
 
@@ -112,11 +112,11 @@ Click on Create Cluster and wait a few minutes for everything to come up!
 
 **Google Cloud SDK (gcloud CLI)** helps manage GCP resources via command line.
 
-Follow instruction from [here](https://cloud.google.com/sdk/docs/install) to install Google Cloud SDK
+Follow [instruction](https://cloud.google.com/sdk/docs/install) to install Google Cloud SDK
 
 Below are some basic Commands
 
-```
+```shell
 # Authenticate CLI with your Google account
 gcloud auth login
 
@@ -143,7 +143,7 @@ We will need 3 storage disks, 1 for each CouchDB node.
 * UI: Follow persistent disk creation [here](https://console.cloud.google.com/compute/disksAdd?inv=1&invt=AbrSOA&authuser=1&project=profound-hydra-451517-p5)
 * CLI:  run below command to create volume
 
-```
+```shell
 gcloud compute disks create [DISK_NAME]\
   --size [DISK_SIZE]\
   --type [DISK_TYPE]
@@ -703,7 +703,7 @@ kubectl get pods
 
 #### CHT-CORE Deployment
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -948,7 +948,7 @@ spec:
 
 #### CHT-CORE Services deployment
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -1094,7 +1094,7 @@ spec:
 
 #### Upgrade service roles required to upgrade to newer versions of cht-core
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -1163,7 +1163,7 @@ Deploying an ingress with specific annotations, will create the GCP Load Balance
 
 Once we tie in an DNS entry to point to the GCP Load Balancer, we will have completed the ability for the end-user to navigate to the URL in their browser or app.
 
-```
+```yaml
 apiVersion: networking.gke.io/v1beta1
 kind: FrontendConfig
 metadata:
@@ -1202,7 +1202,7 @@ spec:
 
 Here is the annotation mapping from our helm-charts used on Ingresses tied to AWS ALBs compared to GCP Load balancer annotations above.
 
-```
+```yaml
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing 
     #completed by using "gce" and not "internal-gce"
