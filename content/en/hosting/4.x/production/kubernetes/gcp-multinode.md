@@ -177,16 +177,9 @@ We will launch a virtual machine in the same public subnet as the load balancer,
 Once mounted, log into your old server, create a session, and run the following rsync command to send data to your new disk. You may have to format the disk in xfs before being able to complete the mount.
 
 Before running `rsync`,  run the `screen` command first which allows the `rsync` command to when you disconnect
-
 ```shell 
-  screen
+screen
 ``` 
-or 
-
-```shell 
-screen -S <session name>
-```
-
 `rsync -avhWt --no-compress --info=progress2 -e "ssh -i /tmp/identity.pem" /opt/couchdb/data ubuntu@<server_ip>:/<mounted_directory>/`
 
 Run this command from each CouchDB node to a separate storage disk 
