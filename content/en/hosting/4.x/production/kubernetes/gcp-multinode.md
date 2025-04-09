@@ -1274,7 +1274,7 @@ kubectl -n <namespace> create secret tls --cert=/etc/letsencrypt/live/<domain>/f
 
 Verify the secret was created by running:
 
-```bash
+```shell
 kubectl -n <namespace> get secrets
 ```
 
