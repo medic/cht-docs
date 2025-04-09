@@ -26,7 +26,7 @@ Before you can start using  Google Cloud Platform (GCP) to host the CHT, you nee
 
   - a. GCP UI: if you decide to use the UI, [follow these steps](https://console.cloud.google.com/projectcreate)
   - b. GCP CLI: use below command after you have authenticated to your GCP account
-  
+
   ```shell
   gcloud projects create my-new-project --set-as-default
   ```
@@ -70,6 +70,7 @@ We are going to create an isolated private network with one public subnet that w
 VPC CIDR: `10.128.0.0/20` (default network)
 
 When creating the cluster, make sure the 3 option boxes are checked:
+
 * Enable Private Nodes
 * Access using the control plane's external IP address
 * Access using the control plane's internal IP address from any region
@@ -133,6 +134,23 @@ gcloud compute instances list
 kubectl get namespaces
 ```
 
+#### Connect to GKE cluster
+
+You can connect to your cluster via command-line or using a dashboard.
+
+* Commandline
+
+  ![Connect to cluster](gke_connect_command.png)
+
+  In above UI select your cluster and in click on connect, then copy the command and run it in your terminal and you can access any ressource in the cluster.
+
+  ```shell
+  gcloud container clusters get-credentials [cluster-name] --zone [Zone where the cluster is hosted] --project [Project ID]
+  ```
+* Dashboard
+
+  ![GKE cluster dashbaord](gke_dashboard.png)
+
 ## Create a Storage Disk for CouchDB
 
 Creating separate storage disks are essential for persisting CouchDB data across VM restarts or replacements in your CHT deployment. This dedicated disk ensures your database information remains intact regardless of VM lifecycle events.
@@ -158,11 +176,19 @@ We will launch a virtual machine in the same public subnet as the load balancer,
 
 Once mounted, log into your old server, create a session, and run the following rsync command to send data to your new disk. You may have to format the disk in xfs before being able to complete the mount.
 
+Before running `rsync`,  run the `screen` command first which allows the `rsync` command to when you disconnect
+```shell 
+screen
+``` 
 `rsync -avhWt --no-compress --info=progress2 -e "ssh -i /tmp/identity.pem" /opt/couchdb/data ubuntu@<server_ip>:/<mounted_directory>/`
 
-Run this command from each CouchDB node to a separate storage disk Create namespace
+Run this command from each CouchDB node to a separate storage disk 
 
-`kubectl create namespace muso-app`
+### Create namespace
+
+```shell
+kubectl create namespace <NAMESPACE_NAME>
+```
 
 ### Deploy a StorageClass config to GKE cluster
 
@@ -238,10 +264,6 @@ kubectl apply -f <PERSISTENT_VOLUME_FILE_NAME>.yaml
 
 ```bash
 kubectl get pv
-```
-
-```bash
-kubectl create namespace <NAMESPACE>
 ```
 
 #### Key Configurations Explained
@@ -324,6 +346,63 @@ kubectl get pvc
 For CouchDB nodes in a cluster to communicate, they have to be able to resolve each other's location. We utilize kubernetes service resources for this DNS service discovery for cluster databases.
 
 Deploying a service resource allows you to interact with the process that service forwards traffic to over a DNS route simplified to <service_name>.`<namespace>`.svc.cluster.local.
+
+Let's configure some components before deploying service
+
+#### Configmap configuration
+
+Fill out the configmap resource below with the namespace your cht-core project will run in
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: <CONFIGMAP_NAME>
+data:
+  COUCHDB_SYNC_ADMINS_NODE: couchdb-1.
+```
+
+- Apply the secrets configuration:
+
+```shell
+kubectl apply -f <COUCHDB_CONFIGMAP_FILE>.yaml
+```
+
+- Verify that the  configmap was created successfully:
+
+```shell
+kubectl -n <namespace> get configmap
+```
+
+#### Secrets resources configuration
+
+For the secrets resource, fill out the necessary environment variable values.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: <SECRET_NAME>
+type: Opaque
+stringData:
+  COUCHDB_PASSWORD: <COUCHDB PASSWORD>
+  COUCHDB_SECRET: <COUCHDB SECRET> 
+  COUCHDB_USER: <COUCHDB USER>
+```
+
+- Apply the secrets configuration:
+
+```shell
+kubectl apply -f <COUCHDB_SECRETS_FILE>.yaml
+```
+
+- Verify that the secrets were created successfully:
+
+```shell
+kubectl -n <namespace> get secret
+```
+
+#### CouchDB services deployment
 
 Deploy the services first, to ensure the cluster can discover all its members and bootstrap accordingly.
 
@@ -414,32 +493,21 @@ spec:
 
 After configuring the storage components, you need to create a deployment for CouchDB that will use the persistent storage. This deployment defines how your CouchDB instance will run within Kubernetes. We will also create configmap and secrets resource to hold our credentials in one location for all templates.
 
-Fill out the configmap resource below with the namespace your cht-core project will run in
+- Apply the secrets configuration:
 
-For the secrets resource, fill out the necessary environment variable values.
+```shell
+kubectl apply -f <COUCHDB_SERVICES_FILE>.yaml
+```
+
+- Verify that the  configmap was created successfully:
+
+```shell
+kubectl -n <namespace> get services
+```
+
+#### CouchDB Cluster deployment
 
 ```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: couchdb-servers-configmap
-data:
-  COUCHDB_SYNC_ADMINS_NODE: couchdb-1.<namespace>.svc.cluster.local
-  CLUSTER_PEER_IPS: couchdb-2.<namespace>.svc.cluster.local,couchdb-3.<namespace>.svc.cluster.local
-  COUCHDB_SERVERS: couchdb-1.<namespace>.svc.cluster.local,couchdb-2.<namespace>.svc.cluster.local,couchdb-3.<namespace>.svc.cluster.local
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cht-couchdb-credentials
-type: Opaque
-stringData:
-  COUCHDB_PASSWORD: 
-  COUCHDB_SECRET: 
-  COUCHDB_USER: <admin or medic>
-  COUCHDB_UUID: 
-  COUCH_URL: http://<USER>:<PASSWSORD>@haproxy.<NAMESPACE>.svc.cluster.local:5984/medic
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -469,22 +537,22 @@ spec:
         - name: COUCHDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_PASSWORD
         - name: COUCHDB_SECRET
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_SECRET
         - name: COUCHDB_USER
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_USER
         - name: COUCHDB_UUID
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_UUID
         - name: SVC_NAME
           value: "<SERVICE_NAME>.<NAMESPACE>.svc.cluster.local"
@@ -493,10 +561,10 @@ spec:
         - name: CLUSTER_PEER_IPS
           valueFrom:
             configMapKeyRef:
-              name: couchdb-servers-configmap
+              name: <CONFIGMAP_NAME>
               key: CLUSTER_PEER_IPS
         nodeSelector:
-          env: prod-couchdb
+          env: <NAME_GIVEN_IN_CLUSTER_METADATA>
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: <PVC_NAME>
@@ -540,36 +608,36 @@ spec:
         - name: COUCHDB_SYNC_ADMINS_NODE
           valueFrom:
             configMapKeyRef:
-              name: couchdb-servers-configmap
+              name: <CONFIGMAP_NAME>
               key: COUCHDB_SYNC_ADMINS_NODE   
         - name: COUCHDB_LOG_LEVEL
           value: "info"
         - name: COUCHDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_PASSWORD
         - name: COUCHDB_SECRET
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_SECRET
         - name: COUCHDB_USER
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_USER
         - name: COUCHDB_UUID
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_UUID
         - name: SVC_NAME
           value: couchdb-2.<namespace>.svc.cluster.local
         - name: NODE_COUNT
           value: "3"
         nodeSelector:
-          env: prod-couchdb
+          env: <NAME_GIVEN_IN_CLUSTER_METADATA>
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: couchdb2-<namespace>-claim
@@ -609,36 +677,36 @@ spec:
         - name: COUCHDB_SYNC_ADMINS_NODE
           valueFrom:
             configMapKeyRef:
-              name: couchdb-servers-configmap
+              name: <CONFIGMAP_NAME>
               key: COUCHDB_SYNC_ADMINS_NODE   
         - name: COUCHDB_LOG_LEVEL
           value: "info"
         - name: COUCHDB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_PASSWORD
         - name: COUCHDB_SECRET
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_SECRET
         - name: COUCHDB_USER
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_USER
         - name: COUCHDB_UUID
           valueFrom:
             secretKeyRef:
-              name: cht-couchdb-credentials
+              name: <SECRET_NAME>
               key: COUCHDB_UUID
         - name: SVC_NAME
           value: couchdb-3.<namespace>.svc.cluster.local
         - name: NODE_COUNT
           value: "3"
         nodeSelector:
-          env: prod-couchdb
+          env: <NAME_GIVEN_IN_CLUSTER_METADATA>
         volumeMounts:
         - mountPath: /opt/couchdb/data
           name: couchdb3-<namespace>-claim
@@ -703,6 +771,64 @@ kubectl get pods
 
 #### CHT-CORE Deployment
 
+Before deploying CHT core components let's create service account for CHT upgrade component
+
+##### Upgrade service roles:
+
+These roles are required to upgrade to newer versions of cht-core
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: <SERVICE_ACCOUNT_NAME>
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: deployment-manager
+rules:
+- apiGroups:
+  - apps
+  - ""
+  resources:
+  - deployments
+  - pods
+  verbs:
+  - get
+  - update
+  - watch
+  - patch
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: <ROLE_BINDING_NAME>
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: deployment-manager
+subjects:
+- apiGroup: ""
+  kind: ServiceAccount
+  name: <SERVICE_ACCOUNT_NAME>
+```
+
+- Apply the deployment configuration:
+
+```bash
+kubectl apply -f <ROLE_FILE>.yaml
+```
+
+- Verify that the deployment was created successfully:
+
+```bash
+kubectl get sa
+```
+
+##### CHT Core Component deployment
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -710,7 +836,7 @@ metadata:
   labels:
     cht.service: api
   name: api
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   replicas: 1
   selector:
@@ -733,10 +859,10 @@ spec:
             - name: COUCH_URL
               valueFrom:
                 secretKeyRef:
-                  name: cht-couchdb-credentials
+                  name: <SECRET_NAME>
                   key: COUCH_URL
             - name: UPGRADE_SERVICE_URL
-              value: http://upgrade-service.muso-app.svc.cluster.local:5008
+              value: http://upgrade-service.<NAMESPACE>.svc.cluster.local:5008
             - name: API_PORT
               value: '5988'
           image: public.ecr.aws/medic/cht-api:4.15.0
@@ -752,7 +878,7 @@ metadata:
   labels:
     cht.service: haproxy
   name: cht-haproxy
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   replicas: 1
   selector:
@@ -769,24 +895,24 @@ spec:
             - name: COUCHDB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: cht-couchdb-credentials
+                  name: <SECRET_NAME>
                   key: COUCHDB_PASSWORD
             - name: COUCHDB_SERVERS
               valueFrom:
                 configMapKeyRef:
-                  name: muso-app-couchdb-servers-configmap
+                  name: <CONFIGMAP_NAME>
                   key: COUCHDB_SERVERS
             - name: COUCHDB_USER
               valueFrom:
                 secretKeyRef:
-                  name: cht-couchdb-credentials
+                  name: <SECRET_NAME>
                   key: COUCHDB_USER
             - name: HAPROXY_IP
               value: 0.0.0.0
             - name: HAPROXY_PORT
               value: "5984"
             - name: HEALTHCHECK_ADDR
-              value: healthcheck.muso-app.svc.cluster.local
+              value: healthcheck.<NAMESPACE>.svc.cluster.local
           image: public.ecr.aws/medic/cht-haproxy:4.15.0
           name: cht-haproxy
           ports:
@@ -801,7 +927,7 @@ metadata:
   labels:
     cht.service: healthcheck
   name: haproxy-healthcheck
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   replicas: 1
   selector:
@@ -818,17 +944,17 @@ spec:
             - name: COUCHDB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: cht-couchdb-credentials
+                  name: <SECRET_NAME>
                   key: COUCHDB_PASSWORD
             - name: COUCHDB_SERVERS
               valueFrom:
                 configMapKeyRef:
-                  name: muso-app-couchdb-servers-configmap
+                  name: <CONFIGMAP_NAME>
                   key: COUCHDB_SERVERS
             - name: COUCHDB_USER
               valueFrom:
                 secretKeyRef:
-                  name: cht-couchdb-credentials
+                  name: <SECRET_NAME>
                   key: COUCHDB_USER
           image: public.ecr.aws/medic/cht-haproxy-healthcheck:4.15.0
           name: cht-haproxy-healthcheck
@@ -842,7 +968,7 @@ metadata:
   labels:
     cht.service: sentinel
   name: cht-sentinel
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   replicas: 1
   selector:
@@ -857,11 +983,11 @@ spec:
       containers:
         - env:
             - name: API_HOST
-              value: api.muso-app.svc.cluster.local
+              value: api.<NAMESPACE>.svc.cluster.local
             - name: COUCH_URL
               valueFrom:
                 secretKeyRef:
-                  name: cht-couchdb-credentials
+                  name: <SECRET_NAME>
                   key: COUCH_URL
             - name: API_PORT
               value: '5988'
@@ -876,7 +1002,7 @@ metadata:
   labels:
     cht.service: upgrade-service
   name: upgrade-service
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   replicas: 1
   selector:
@@ -893,7 +1019,7 @@ spec:
         cht.service: upgrade-service
     spec:
       restartPolicy: Always
-      serviceAccountName: cht-upgrade-service-user
+      serviceAccountName: <SERVICE_ACCOUNT_NAME>
       containers:
       - image: medicmobile/upgrade-service:0.32
         name: upgrade-service
@@ -911,6 +1037,19 @@ spec:
             value: '5008'
         ports:
           - containerPort: 5008
+```
+
+- Apply the deployment configuration:
+
+```shell
+kubectl apply -f <CHT_CORE_DEPLOYMENT_FILE>.yaml
+```
+
+- Verify that the deployment was created successfully:
+
+```shell
+kubectl get deployments
+kubectl get pods
 ```
 
 #### Key Configurations
@@ -955,7 +1094,7 @@ metadata:
   labels:
     cht.service: api
   name: api
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   ports:
     - port: 5988
@@ -969,7 +1108,7 @@ metadata:
   labels:
     cht.service: couchdb-1
   name: couchdb-1
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   ports:
     - name: couchdb1-service
@@ -997,7 +1136,7 @@ metadata:
   labels:
     cht.service: couchdb-2
   name: couchdb-2
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   ports:
     - name: couchdb2-service
@@ -1026,7 +1165,7 @@ metadata:
   labels:
     cht.service: couchdb-3
   name: couchdb-3
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   ports:
     - name: couchdb3-service
@@ -1054,7 +1193,7 @@ metadata:
   labels:
     cht.service: haproxy
   name: haproxy
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   ports:
     - name: "5984"
@@ -1067,7 +1206,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: healthcheck
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   selector:
     cht.service: healthcheck
@@ -1080,7 +1219,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: upgrade-service
-  namespace: muso-app
+  namespace: <NAMESPACE>
 spec:
   selector:
     cht.service: upgrade-service
@@ -1092,44 +1231,17 @@ spec:
   type: ClusterIP
 ```
 
-#### Upgrade service roles required to upgrade to newer versions of cht-core
+* Apply the deployment configuration:
 
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: cht-upgrade-service-user
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: deployment-manager
-rules:
-- apiGroups:
-  - apps
-  - ""
-  resources:
-  - deployments
-  - pods
-  verbs:
-  - get
-  - update
-  - watch
-  - patch
-  - list
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: deployment-manager-cht
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: deployment-manager
-subjects:
-- apiGroup: ""
-  kind: ServiceAccount
-  name: cht-upgrade-service-user
+```shell
+kubectl apply -f <CHT_SERVICE_FILE.yaml>
+```
+
+- Verify that the deployment was created successfully:
+
+```shell
+kubectl get deployments
+kubectl get pods
 ```
 
 #### Kubernetes concepts
@@ -1147,13 +1259,13 @@ Using [Certbot](https://certbot.eff.org/instructions?ws=nginx&os=osx), ensure th
 
 Once the certs are generated, create a [kubernetes secret tls](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret_tls/)
 
-```
+```bash
 kubectl -n <namespace> create secret tls --cert=/etc/letsencrypt/live/<domain>/fullchain.pem --key=/etc/letsencrypt/live/<domain>/privkey.pem
 ```
 
 Verify the secret was created by running:
 
-```
+```shell
 kubectl -n <namespace> get secrets
 ```
 
@@ -1164,26 +1276,16 @@ Deploying an ingress with specific annotations, will create the GCP Load Balance
 Once we tie in an DNS entry to point to the GCP Load Balancer, we will have completed the ability for the end-user to navigate to the URL in their browser or app.
 
 ```yaml
-apiVersion: networking.gke.io/v1beta1
-kind: FrontendConfig
-metadata:
-  name: redirect-to-https
-spec:
-  #sslPolicy: gke-ingress-ssl-policy
-  redirectToHttps:
-    enabled: true
-    responseCodeName: MOVED_PERMANENTLY_DEFAULT
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: api-ingress
   annotations:
     kubernetes.io/ingress.class: "gce"
-    networking.gke.io/v1beta1.FrontendConfig: "redirect-to-https"
 spec:
+  #ingressClassName: alb
   rules:
-    - host: cht-gcp-test.h4reet.com
+    - host: <DOMAIN_NAME_SERVICE>
       http:
         paths:
           - path: /
@@ -1195,28 +1297,28 @@ spec:
                   number: 5988
   tls:
     - hosts:
-        - cht-gcp-test.h4reet.com
-      secretName: cht-gcp-test-h4reet
----
+        - <DOMAIN_NAME_SERVICE>
+      secretName: <SSL_SECRETS_CREATED>
+
 ```
 
-Here is the annotation mapping from our helm-charts used on Ingresses tied to AWS ALBs compared to GCP Load balancer annotations above.
+* Apply the deployment configuration:
+
+```bash
+  kubectl apply -f <CHT_INGRESS_FILE.yaml>
+```
+
+Remaining work: Map the rest of the following annotations to GCP Load Balancer
 
 ```yaml
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing 
-    #completed by using "gce" and not "internal-gce"
-    alb.ingress.kubernetes.io/tags: {{ .Values.ingress.annotations.tags }} 
-    #not needed
-    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.annotations.groupname }} 
-    #Not useable in GCP. Vendor pushes to use new Gateway instead of Ingress
-    alb.ingress.kubernetes.io/ssl-redirect: '443' 
-    #Happens via frontendConfig in GCP
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/tags: {{ .Values.ingress.annotations.tags }}
+    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.annotations.groupname }}
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-    #above are defaults
-    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.annotations.certificate }} #Handled via secret 
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.annotations.certificate }}
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-    #automatic default in GCP
 
 ```
