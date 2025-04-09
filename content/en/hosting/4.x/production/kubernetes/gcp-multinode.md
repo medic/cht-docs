@@ -176,7 +176,7 @@ We will launch a virtual machine in the same public subnet as the load balancer,
 
 Once mounted, log into your old server, create a session, and run the following rsync command to send data to your new disk. You may have to format the disk in xfs before being able to complete the mount.
 
-Before running `rsync` command you may need to run the `screen` command first which will allow your `rsync` command to continue running when their window is not visible or if you get disconnected
+Before running `rsync`,  run the `screen` command first which allows the `rsync` command to when you disconnect
 
 ```shell 
   screen
