@@ -1050,13 +1050,13 @@ spec:
 
 - Apply the deployment configuration:
 
-```bash
+```shell
 kubectl apply -f <CHT_CORE_DEPLOYMENT_FILE>.yaml
 ```
 
 - Verify that the deployment was created successfully:
 
-```bash
+```shell
 kubectl get deployments
 kubectl get pods
 ```
