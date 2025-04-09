@@ -128,8 +128,20 @@ Health workers can use these Care Guides at any time. If the app has scheduled a
 
 <br clear="all">
 
+## Creating and Editing Contacts
+
+Contacts are created/modified via [contact forms]({{< relref "building/forms/contact" >}}). These forms are highly configurable and allow for specifying detailed workflows for capturing information about contacts.
+
+### Duplicate Contact Detection
+
+_(Added in CHT `4.19.0`)_
+
+{{< figure src="duplicate-contact-screenshot.png" link="duplicate-contact-screenshot.png" class="right col-6 col-lg-3" >}}
+
+One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching]({{< ref "#searching" >}}) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
+
+ The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
+
+The matching logic for duplicate detection is [configurable]({{< relref "building/forms/contact#properties" >}}) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
 
 
-<!-- TODO:
-## Defining Contact Forms
--->

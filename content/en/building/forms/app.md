@@ -386,6 +386,10 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `user`, and `summary` are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario. | no |
 | `context.permission` | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access. | no |
 
+### Expression functions
+
+{{< read-content file="_partial_expression_functions.md" >}}
+
 ### Code sample
 
 In this sample properties file, the associated form would only show on a person's page, and only if their sex is unspecified or female and they are between 10 and 65 years old:
