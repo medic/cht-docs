@@ -504,15 +504,14 @@ After configuring the storage components, you need to create a deployment for Co
 
 - Apply the secrets configuration:
 
-```bash
+```shell
 kubectl apply -f <COUCHDB_SERVICES_FILE>.yaml
 ```
 
 - Verify that the  configmap was created successfully:
 
-```bash
+```shell
 kubectl -n <namespace> get services
-
 ```
 
 #### CouchDB Cluster deployment
