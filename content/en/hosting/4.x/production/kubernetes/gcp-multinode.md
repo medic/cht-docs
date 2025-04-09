@@ -1242,15 +1242,15 @@ spec:
 
 * Apply the deployment configuration:
 
-```bash
-  kubectl apply -f <CHT_SERVICE_FILE.yaml>
+```shell
+kubectl apply -f <CHT_SERVICE_FILE.yaml>
 ```
 
 - Verify that the deployment was created successfully:
 
-```bash
-  kubectl get deployments
-  kubectl get pods
+```shell
+kubectl get deployments
+kubectl get pods
 ```
 
 #### Kubernetes concepts
