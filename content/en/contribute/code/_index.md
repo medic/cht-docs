@@ -44,7 +44,7 @@ Want to talk about Documentation generally? Join our [Community Forum](https://f
 
 ### Translations
 
-If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translatingsoftware for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
+If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translating]({{% ref "building/translations/managing" %}}) software for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
 
 ### Disclosing vulnerabilities
 
