@@ -193,7 +193,7 @@ Run this command from each CouchDB node to a separate storage disk
 
 ### Create namespace
 
-```bash
+```shell
 kubectl create namespace <NAMESPACE_NAME>
 ```
 
