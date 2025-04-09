@@ -371,15 +371,14 @@ data:
 
 - Apply the secrets configuration:
 
-```bash
+```shell
 kubectl apply -f <COUCHDB_CONFIGMAP_FILE>.yaml
 ```
 
 - Verify that the  configmap was created successfully:
 
-```bash
+```shell
 kubectl -n <namespace> get configmap
-
 ```
 
 #### Secrets resources configuration
