@@ -20,15 +20,7 @@ The CHT community welcomes first-time contributors and experts alike. All commen
 
 ### First time contributor?
 
-Issues labeled [help wanted](https://github.com/medic/cht-core/labels/Help%20wanted) are a great place to start. 
-
-Looking for other ways to help? You can also:
-* Improve our [documentation](#improving-our-documentation)
-* Review or add a [translation](#translations)
-* Find and mark duplicate issues
-* Try to reproduce issues and help with troubleshooting
-* Learn to [build and host apps]({{% ref "building" %}}), and share your experiences
-* Or [share a new idea or question](https://forum.communityhealthtoolkit.org) with us!
+Be sure to read the [first time contributors guide]({{% ref "community/first-time-contributors" %}})!
 
 ### Submitting code
 
@@ -52,7 +44,7 @@ Want to talk about Documentation generally? Join our [Community Forum](https://f
 
 ### Translations
 
-If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translating]({{% ref "building/translations/managing" %}}) software for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
+If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translatingsoftware for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
 
 ### Disclosing vulnerabilities
 
@@ -101,7 +93,7 @@ If you believe you've found a security vulnerability in one of our products or p
 
 - Description of the location and potential impact of the vulnerability;
 - A detailed description of the steps required to reproduce the vulnerability (proof of concept source code, screenshots, and compressed screen captures are all helpful to us); and
-- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "./hall-of-fame" %}}).
+- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "community/hall-of-fame" %}}).
 
 ### Code of Conduct
 
