@@ -1,7 +1,7 @@
 ---
 title: "Running CHT implementations"
 linkTitle: "CHT Implementations"
-weight : 2
+weight : 1
 aliases:
    - /running-programs
 ---
