@@ -1,25 +1,26 @@
 ---
-title: "Local Couch2pg Setup"
-linkTitle: Couch2pg Setup
-weight: 21
+title: "Local couch2pg Setup"
+linkTitle: Local Setup
+weight: 3
 description: >
   Setting up a Couch2pg service to download data from CouchDB to Postgres database
 relatedContent: >
   building/local-setup
 aliases:
    - /apps/tutorials/couch2pg-setup
+   - /building/tutorials/couch2pg-setup
 ---
 
 {{% pageinfo %}}
-Couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 {{% /pageinfo %}}
 
-This tutorial will take you through setting up a Couch2pg service.
+This tutorial will take you through setting up a couch2pg service.
 
 By the end of the tutorial you should be able to:
 
-- Set up a Couch2pg service
-- Run the Couch2pg service
+- Set up a couch2pg service
+- Run the couch2pg service
 
 [CHT Couch2pg](https://github.com/medic/cht-couch2pg) is a background process that moves data from Couchdb to Postgres through one way replication. It therefore, needs to have full read and write access to both the Postgres Database and Couchdb upstream.  It is built in nodejs and can be set up as a background process using systemd. Review this [architecture diagram]({{< relref "core/overview/architecture#overview" >}}) to get a conceptual understanding of how couch2pg works.
 
