@@ -6,6 +6,7 @@ description: >
   Guide to migrate existing data from CHT 3.x on EKS to CHT 4.x on EKS (Kubernetes Environments)
 aliases:
    - /contribute/medic/product-development-process/data-migration-3x-eks-to-4x-eks
+   - /contribute/medic/data-migration-3x-eks-to-4x-eks
 relatedContent: >
 ---
 
