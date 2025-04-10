@@ -1,12 +1,12 @@
 ---
 title: Setup and Development
-weight: 40
+weight: 1
 description: >
      How to run and do development of CHT couch2pg
 ---
 
 {{% pageinfo %}}
-CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](https://docs.communityhealthtoolkit.org/core/overview/cht-sync/).
+CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 {{% /pageinfo %}}
 
 
