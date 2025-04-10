@@ -53,8 +53,6 @@ The Core Framework can be used to support the unique needs of a given health sys
 
 ## Offline-first technology
 
-<img src="offline-first-technology.png" width="23%" align="right" />
-
 Digital health apps need to support health systems in a wide range of low infrastructure environments. Apps built with the Core Framework are designed to be [Offline-First]({{< ref "core/overview/offline-first" >}}) and work with only an occasional internet connection.
 
 These apps store a user’s data locally on their device so that workflows can be completed without syncing to the server. When a connection becomes available, data will automatically sync to and from the server. Offline-first technology enables health workers to carry out important duties even when opportunities to sync may be weeks apart. As with any app, there is a limit to how much data can be stored locally, particularly on a mobile device. For users needing access to large amounts of data, online user roles are available.
@@ -72,8 +70,6 @@ Apps built with the Core Framework are fully responsive Progressive Web Applicat
 Around the world, countries are adopting a model of primary health care that starts in communities and homes where high-quality, integrated services are delivered by trusted health workers who are empowered with technology. The scalability and flexibility of the CHT facilitates the creation of holistic digital community health tools that are [well integrated]({{< ref "building/interoperability" >}}) throughout the hierarchy of national health systems and across the patient continuum of care. As of 2022, six governments have selected the CHT as a tool of choice for their national community health systems.
 
 ## Made for localization
-
-<img src="localization.png" width="23%" align="right" />
 
 Apps can be customized for different deployments and types of workflows. The Core Framework has been used in dozens of countries around the world with [localization settings]({{< ref "building/translations/localizing" >}}).
 
