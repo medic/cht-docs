@@ -20,7 +20,7 @@ This page is meant to serve as a point of conversation, with a wide range of top
 ### Teams at Medic
 Meet the [Medic team](https://medic.org/team/)!
 
-### Lifecycle of a [CHT Application]({{% ref "/running-programs/#cht-lifecycle" %}}) being built
+### Lifecycle of a [CHT Application]({{% ref "/building/implementations#cht-lifecycle" %}}) being built
 1. A program or initiative is started by one or multiple organizations.
 1. Service designers and app developers figure out how they want their system to work.
 1. App developers take latest version of the CHT and build the app for the organization.
