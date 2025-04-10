@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the documentation for the CHT"
+title: "Welcome to the CHT Documentation!"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
@@ -13,6 +13,10 @@ cascade:
     _kind: "page"
   type: "docs"
 ---
+
+{{% pageinfo %}}
+The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref why-the-cht >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
+{{% /pageinfo %}}
 
 ## CHT Core Framework
 An overview and reference for development of the Core Framework of the Community Health Toolkit (CHT). Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).

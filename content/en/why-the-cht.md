@@ -5,16 +5,11 @@ menu :
 weight : 1
 ---
 
-{{% pageinfo %}}
-The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref building >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
-{{% /pageinfo %}}
-
-
 Community health systems can dramatically improve the accessibility, quality, speed, and equity of primary health care, but only if health workers are effectively equipped and supported. Advances in open source technology are making it easier and more affordable than ever to deliver impactful, dignified care in even the hardest-to-reach communities.
 
 With thousands of health workers using these tools to support a million home visits every month, the CHT is the most full-featured, mature, and widely-used open source software toolkit designed specifically for community health systems. Hundreds of individuals contribute to the CHT as designers, developers, researchers, health policy experts, health system implementers, and frontline health workers.
 
-{{< youtube SXN76-EZnsM >}}
+{{< youtube Q93_tSyTp_k >}}
 
 <br />
 
