@@ -168,7 +168,7 @@ You can contribute to the CHT testing in various ways:
 
 ### How to write automated e2e tests
 
-Read the [style guide for automated tests]({{< relref "contribute/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
+Read the [style guide for automated tests]({{< relref "community/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
 
 ### Debugging E2E tests
 
@@ -287,8 +287,8 @@ Any test code that starts a server or runs an executable is running outside of t
 The CHT Community is here to help you succeed with testing:
 
 - Questions? Ask in the [Community Forum](https://forum.communityhealthtoolkit.org/)
-- Need help debugging? Check the [Troubleshooting Guide]({{< ref "contribute/code/core/automated-tests#debugging-e2e-tests" >}})
+- Need help debugging? Check the [Troubleshooting Guide]({{< ref "community/code/core/automated-tests#debugging-e2e-tests" >}})
 - Found a bug? [Open an issue](https://github.com/medic/cht-core/issues)
-- Want to contribute to testing? See the [Contribution Guide]({{< ref "contribute/code/core/automated-tests#ways-to-get-involved" >}})
+- Want to contribute to testing? See the [Contribution Guide]({{< ref "community/code/core/automated-tests#ways-to-get-involved" >}})
 
 Remember, every contributor was once new to the project. Don't hesitate to ask for help!

@@ -7,7 +7,7 @@ description: >
 ---
 
 {{% alert title="Setup development environment" %}}
-See the [CHT Core Developer Setup guide]({{% ref "contribute/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
+See the [CHT Core Developer Setup guide]({{% ref "community/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
 {{% /alert %}}
 
 The Core Framework of the Community Health Toolkit is powered by people like you. Your contributions help us create open source technology for a new model of healthcare that reaches everyone.
@@ -20,14 +20,14 @@ The CHT community welcomes first-time contributors and experts alike. All commen
 
 ### First time contributor?
 
-Be sure to read the [first time contributors guide]({{% ref "community/first-time-contributors" %}})!
+Be sure to read the [first time contributors guide]({{% ref "community/code/first-time-contributors" %}})!
 
 ### Submitting code
 
 **Note:** We recommend you raise an issue on Github or start a conversation on our [Community Forum](https://forum.communityhealthtoolkit.org) about the change you want to make before you start on code.
 
 1. Read our [Development Workflow]({{% ref "workflow" %}}) to understand how we work, and review our [Code Style Guide]({{% ref "style-guide" %}}) before you begin.
-2. [Setup]({{% ref "contribute/code/core/dev-environment" %}}) your development environment
+2. [Setup]({{% ref "community/code/core/dev-environment" %}}) your development environment
 3. Before you submit a pull request, please make sure your contribution passes all tests. Test failures need to be addressed before we can merge your contribution.
 3. Provide detail about the issue you are solving in the pull request description. Note: If your pull request addresses a specific issue, please reference it using medic/<repo>#<issue number>
 4. Our CI will automatically schedule a build; monitor the build to ensure it passes.
@@ -39,7 +39,7 @@ Be sure to read the [first time contributors guide]({{% ref "community/first-tim
 
 **Note:** [cht-docs](https://github.com/medic/cht-docs) does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submitting a pull request (PR) with any suggested changes.
 
-Is our documentation up to date? Have we covered everything we should? Could our wording be improved? Read our [Documentation Style Guide]({{% ref "contribute/docs/style-guide" %}}) then open a pull request with your suggested changes or additions.
+Is our documentation up to date? Have we covered everything we should? Could our wording be improved? Read our [Documentation Style Guide]({{% ref "community/docs/style-guide" %}}) then open a pull request with your suggested changes or additions.
 Want to talk about Documentation generally? Join our [Community Forum](https://forum.communityhealthtoolkit.org)!
 
 ### Translations

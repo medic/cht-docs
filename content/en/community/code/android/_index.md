@@ -5,5 +5,5 @@ weight: 5
 description: >
   How to contribute to code to the CHT Android app
 relatedContent: >
-  contribute/code/core/dev-environment
+  community/code/core/dev-environment
 ---

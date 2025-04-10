@@ -19,7 +19,7 @@ Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs
 
 ## Writing Documentation
 
-A high degree of importance is put on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "contribute/docs/style-guide" >}}) will help to write documentation in the most consistent and useful way.
+A high degree of importance is put on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "community/docs/style-guide" >}}) will help to write documentation in the most consistent and useful way.
 
 ## Commits to GitHub
 
@@ -49,7 +49,7 @@ In general, reviewers should:
 7. Once all comments have been resolved, or changes are satisfactory, **Merge pull request** to complete the updates, and delete the branch.
 
 {{% alert title="Note" %}} Additional Tips for Reviewers:
-* Use the [Style Guide]({{< ref "contribute/docs/style-guide" >}}) to maintain documentation quality
+* Use the [Style Guide]({{< ref "community/docs/style-guide" >}}) to maintain documentation quality
 * Compare content to pages within the same section and encourage consistency
 * Be empathetic to the author, commenting on positive aspects of PRs as well as changes
 * Ask clarifying questions where needed to avoid further confusion
