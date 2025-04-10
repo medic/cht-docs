@@ -39,9 +39,7 @@ Detailed instructions on how to host the CHT starting with the most basic Applic
 {{< see-also page="hosting" prefix="Read More" >}}
 
 ## Have Questions?
-Want to learn alongside a community of users? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to star [the CHT Core GitHub repo](https://github.com/medic/cht-core) :)
-
-<br />
+Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to star [the CHT Core GitHub repo](https://github.com/medic/cht-core).
 
 {{% alert title="Feedback appreciated!" %}}
 This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Documentation Issue** link in the upper right corner of your window.
