@@ -2,21 +2,9 @@
 title: "Running CHT implementations"
 linkTitle: "CHT Implementations"
 weight : 2
+aliases:
+   - /running-programs
 ---
-
-There are various ways of running Community Health Toolkit implementations. It is important to understand the different models for integrating CHT tools into a community health program as discussed below.
-
-**Accompaniment approach**
-
-In this approach, Medic accompanies partners; including ministries of health, through their digital journey that may include designing, building, deploying and supporting CHT based tools for their unique health system needs. 
-
-**Community led implementations**
-
-Community led implementations emphasize on the importance of collaboration, local ownership and sustainability. This is a self-led model where a community identifies a digital health problem and solves it using CHT tools. The CHT also has a community of practice that is made up of a network of local and regional technical organizations that have been onboarded on CHT and are able to provide design, development, deployment and support services for implementing partners - including ministries of health. This network also contributes their learnings to the community through documentation, reference applications, CHT forum and CHT core improvements. 
-
-**Research initiatives, innovations and studies**
-
-Through human centered design, research institutions and academia design, test, refine and deploy open source digital health innovations which are based on the CHT or other mature open source technologies. These innovations ultimately contribute knowledge through publications. These implementations incubate and test concepts or interventions before large scale implementation. They run for a limited time and often have pre-determined objectives. 
 
 ## Considerations for digital health implementations
 To run a successful digital health implementation, the following considerations are made:
@@ -51,7 +39,7 @@ In case an implementing partner does not have the expertise listed above, the CH
 ## Running successful community health implementations
 Digital health implementations do no exist in silos. To be successful, there are other critical enablers to be aware of and champion for;
 
-**Community health workers**
+### Community health workers
 
 Community health workers deliver essential health services to the last mile to improve health outcomes. Community health workers require good working conditions and the right tools to perform their responsibilities. To enable this, the items listed below are important. You can learn more on the [eight proCHW best practices](https://joinchic.org/what-we-do/).
 
@@ -60,7 +48,7 @@ Community health workers deliver essential health services to the last mile to i
 - **Salaried**. Compensation for economic growth and sustainability
 - **Supplied**. Equipping with required supplies and kits
 
-**Technical performance optimization**
+### Technical performance optimization
 
 For CHT implementations to be successful and sustainable, the following requirements are integral.
 
