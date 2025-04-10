@@ -1,6 +1,6 @@
 ---
 title: Setup and Development
-weight: 40
+weight: 1
 description: >
      How to run and do development of CHT couch2pg
 ---

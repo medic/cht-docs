@@ -1,6 +1,6 @@
 ---
 title: Migration
-weight: 200
+weight: 2
 description: >
      Migrating from one couch2pg instance to another, including Postgres data
 ---
