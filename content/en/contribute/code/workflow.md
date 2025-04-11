@@ -56,7 +56,8 @@ Create a branch following the guideline below and push [commits]({{< ref "#commi
 - Release branches have the form `<major>.<minor>.x` and should be stable.
 - Feature branches have the form `<issue-number>-<issue-description>` and are work in progress.
 
-{{% alert title="Note" %}} When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from the main branch into the release branch. Then use a pull request to make sure tests pass on CI before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking). {{% /alert %}}
+> [!NOTE] 
+> When backporting changes to an earlier release branch you should `git cherry-pick` the appropriate commit(s) from the main branch into the release branch. Then use a pull request to make sure tests pass on CI before merging (you do not need to get the pull request approved if there were no conflicts when cherry-picking).
 
 ### Commits
 
@@ -71,17 +72,16 @@ Performance | A code change that improves performance. Measure the performance i
 Features | A new feature or improvement that users will notice. | feat(#456): add home tab | minor
 Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README | none
 
-{{% alert title="Note" %}} 
-Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
-Consider the following example:
-
-```
-  perf(#2): remove reporting rates feature
-  BREAKING CHANGE: reporting rates no longer supported
-``` 
-
-Any other further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
-{{% /alert %}}
+> [!NOTE]
+> Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
+> onsider the following example:
+> 
+> ```
+>   perf(#2): remove reporting rates feature
+>   BREAKING CHANGE: reporting rates no longer supported
+> ``` 
+> 
+> Any other further information should be provided in the second line of the commit message, respecting 79 character line widths. Using `git commit -v` is recommended to review your diff while you write your commit message.
 
 See tips on [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) and add your favorites here.
 

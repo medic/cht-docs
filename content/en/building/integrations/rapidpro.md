@@ -201,7 +201,8 @@ A workspace contains models for a set of RapidPro users, and it also identifies 
 
 RapidPro supports both Android channels and SMS aggregators.
 
-{{% alert title="Note" %}} Android channels have a messaging limit of 330 outgoing messages per hour. {{% /alert %}}
+> [!NOTE]
+> Android channels have a messaging limit of 330 outgoing messages per hour.
 
 Ensure that you install the maximum number of SMS packs (available in the  RapidPro SMS Channel Android app) and follow these best practices when using Android channels:
 

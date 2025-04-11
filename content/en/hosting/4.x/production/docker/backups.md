@@ -8,9 +8,9 @@ aliases:
 description: >
     Which data to backup when hosting the CHT 4.x
 ---
-{{% pageinfo %}}
-This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x]({{< relref "hosting/3.x/self-hosting#backup" >}}) which includes backups for 3.x.
-{{% /pageinfo %}}
+
+> [!IMPORTANT]
+> This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x]({{< relref "hosting/3.x/self-hosting#backup" >}}) which includes backups for 3.x.
 
 ## Introduction 
 
@@ -70,9 +70,8 @@ Duplicity has the handy benefit of offering built in encryption using [GPG](http
 
 ## CouchDB
 
-{{% alert title="Note" %}}
-CouchDB backups, by necessity, will have PII and PHI.  They should be safely stored to prevent unauthorized access including encrypting backups. 
-{{% /alert %}}
+> [!CAUTION]
+> CouchDB backups, by necessity, will have PII and PHI.  They should be safely stored to prevent unauthorized access including encrypting backups. 
 
 Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use these steps to back it up:
 
@@ -83,9 +82,8 @@ Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use th
 
 ## Docker Compose files
 
-{{% alert title="Note" %}}
-The `.env` file contains cleartext passwords.  It should be safely stored to prevent unauthorized access.
-{{% /alert %}}
+> [!CAUTION]
+> The `.env` file contains cleartext passwords.  It should be safely stored to prevent unauthorized access.
 
 All compose files, and the corresponding `.env` file, are in these three locations:
 
@@ -100,9 +98,8 @@ As all of these files are only read when Docker first loads a service, you can s
 
 ## TLS certificates
 
-{{% alert title="Note" %}}
-The `.key` file is the private key for TLS certificate.  It should be safely stored to prevent unauthorized access.
-{{% /alert %}}
+> [!CAUTION]
+> The `.key` file is the private key for TLS certificate.  It should be safely stored to prevent unauthorized access.
 
 Like the compose files, the TLS certificate files can easily be regenerated or re-downloaded from your Certificate Authority, like Let's Encrypt for example. However, you want to have a backup of the at the ready to ease the restore process.
 

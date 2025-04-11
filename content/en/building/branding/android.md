@@ -12,13 +12,12 @@ aliases:
    - /building/guides/android/branding/
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through building a CHT Android Application off the existing wrapper.
 
 The CHT Android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
 
 You will be adding a new android flavor based off the [CHT Android](https://github.com/medic/cht-android).
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 

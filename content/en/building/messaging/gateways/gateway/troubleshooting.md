@@ -90,9 +90,8 @@ We can verify whether the SMS Gateway app is responding by sending a test messag
 
 6. If you see the message acknowledgment it means the Gateway is working as expected.
 
-{{% alert title="Note" %}}
-Insist on screenshots even for the most trivial things that partners insist they have performed as you asked. They are also good for giving you a mental image of what is happening on the phone remotely.
-{{% /alert %}}
+> [!TIP]
+> Insist on screenshots even for the most trivial things that partners insist they have performed as you asked. They are also good for giving you a mental image of what is happening on the phone remotely.
 
 
 

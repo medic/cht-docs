@@ -12,14 +12,14 @@ aliases:
    - /apps/tutorials/contact-summary
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through building a contact summary for CHT applications.
 
 Contact summaries display basic information about the contact.
 
 You will be adding a contact summary that displays information about a person's *patient id*, *age*, *sex*, *phone number*, and information about the place they belong to ie. *parent*.
 
-{{% /pageinfo %}}
+  
 
 ## Brief Overview of Key Concepts
 
@@ -44,7 +44,8 @@ const thisContact = contact;
 const thisLineage = lineage;
 ```
 
-{{% alert title="Note" %}} contact, reports, lineage are globally available for contact-summary. {{% /alert %}}
+> [!NOTE] 
+> contact, reports, lineage are globally available for contact-summary.
 
 <br clear="all">
 
@@ -67,7 +68,8 @@ const fields = [
 ];
 ```
 
-{{% alert title="Note" %}} The contact field e.g. `patient_id` and `date_of_birth`, should exist in the contact's document for it to return a value. {{% /alert %}}
+> [!NOTE] 
+> The contact field e.g. `patient_id` and `date_of_birth`, should exist in the contact's document for it to return a value.
 
 <br clear="all">
 
@@ -106,4 +108,5 @@ To compile and upload app settings to your local instance, run the following com
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!NOTE] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.

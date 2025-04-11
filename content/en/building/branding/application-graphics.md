@@ -12,12 +12,12 @@ aliases:
    - /building/tutorials/application-graphics
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through customising some graphical elements of CHT core.
 
 You will cover site branding, partner logos, header tab icons, and app icons (used in tasks, targets, and contacts).
 
-{{% /pageinfo %}}
+  
 
 ## Required Resources
 
@@ -73,9 +73,8 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 ![](menu.png)
 ![](images.png)
 
-{{% alert title="Note" %}}
-If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
-{{% /alert %}}
+> [!NOTE]
+> [!NOTE]If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
 
 ### 2. Partner logos
 

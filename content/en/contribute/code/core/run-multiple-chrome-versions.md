@@ -8,9 +8,8 @@ aliases: >
   /core/guides/multiple-chrome-versions
 ---
 
-{{% alert title="Note" %}}
-These steps are suitable for Mac. It was tested in a Mac Intel.  It can be adapted to any Chrome version.
-{{% /alert %}}
+> [!NOTE] 
+> These steps are suitable for Mac. It was tested in a Mac Intel.  It can be adapted to any Chrome version.
 
 Follow these steps on a Mac to run Chrome version 90 while having another Chrome app on a different version. 
 - Download Chrome `90.0.4430.72` from [slimjet](https://www.slimjet.com/chrome/google-chrome-old-version.php?cmtx_sort=)

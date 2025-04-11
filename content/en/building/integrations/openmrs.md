@@ -138,7 +138,8 @@ Remember to convert and upload your forms
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
-{{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}
+> [!IMPORTANT]
+> Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. 
 
 
 #### Handling the data

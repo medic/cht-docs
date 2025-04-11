@@ -10,10 +10,8 @@ description: >
   Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
 ---
 
-{{% pageinfo %}}
 This page covers an example k3s cluster setup on a VMware datacenter with vSphere 7+ for a national deployment across 50 counties capable of supporting 20,000+ CHWs concurrently. After setup, administrators should only add VMs to the cluster or deploy CHT Core projects to be orchestrated.
 
-{{% /pageinfo %}}
 
 ### About container orchestration
 

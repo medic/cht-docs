@@ -68,14 +68,11 @@ time_format_blog = "02.01.2006"
 [module]
   proxy = "direct"
   # uncomment line below for temporary local development of module
-  # replacements = "github.com/google/docsy -> ../../docsy"
+  # replacements = "github.com/imfing/hextra -> ../../hextra"
   [module.hugoVersion]
     extended = true
   [[module.imports]]
-    path = "github.com/google/docsy"
-    disable = false
-  [[module.imports]]
-    path = "github.com/google/docsy/dependencies"
+    path = "github.com/imfing/hextra"
     disable = false
 
 [markup]
@@ -188,7 +185,7 @@ enable = false
 # # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 # [[params.links.developer]]
 # 	name = "GitHub"
-# 	url = "https://github.com/google/docsy"
+# 	url = "https://github.com/imfing/hextra"
 # 	icon = "fab fa-github"
 #         desc = "Development takes place here!"
 # [[params.links.developer]]

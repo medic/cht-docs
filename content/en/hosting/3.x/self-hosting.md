@@ -14,7 +14,8 @@ relatedContent: >
 
 Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (CHT) core framework has been packaged into a docker container to make it portable and easy to install. It is available from [dockerhub](https://hub.docker.com/r/medicmobile/medic-os). To learn more how to work with docker you could follow the tutorial [here](https://docker-curriculum.com/#getting-started) and the cheat sheet [here](https://docs.docker.com/get-started/docker_cheatsheet.pdf).  
 
-{{% alert title="Note" %}} Before continuing, ensure all [requirements]({{< relref "hosting/requirements" >}}) are met. {{% /alert %}}
+> [!WARNING] 
+> Before continuing, ensure all [requirements]({{< relref "hosting/requirements" >}}) are met.
 
 ## Installing with a compose file
 
@@ -120,7 +121,8 @@ Note: You can  substitute 8080, 444 with whichever ports are free on your host. 
 
 ## Data storage & persistence
 
-{{% alert title="Note" %}} Containers that are already set up will lose all data when following the steps below to remap the `/srv` directory. {{% /alert %}}
+> [!NOTE] 
+> Containers that are already set up will lose all data when following the steps below to remap the `/srv` directory.
 
 Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design.  In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data. The CHT app stores all its data in the `/srv` folder.  This is the folder that you need to map to your volume before you spin up your containers. 
 

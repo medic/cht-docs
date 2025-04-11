@@ -39,9 +39,8 @@ In the screenshot below:
 * `(b)` is the location and filename of your ***public*** key
 * `(c)` are the contents of your ***public*** key
 
-{{% alert title="Note" %}}
-You will need to provide the contents of `(c)` to your Medic contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address.
-{{% /alert %}}
+> [!NOTE]
+> You will need to provide the contents of `(c)` to your Medic contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address.
 
 ![SSH Commands](ssh-commands.png)
 

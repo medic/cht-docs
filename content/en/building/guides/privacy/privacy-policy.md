@@ -36,13 +36,12 @@ cht --local upload-privacy-policies
 
 2. Update and view privacy policies in the [Admin Console]({{< relref "building/features/admin" >}}), under `Display` > `Privacy Policies`
 
-{{< alert title="Note" >}}
-- Use language codes when associating HTML files to languages  
-- Files that are not in HTML format will be skipped  
-- Files that are not associated with a language will not be uploaded
-- Before being displayed to users, privacy policies HTML is [sanitized](https://docs.angularjs.org/api/ngSanitize/service/$sanitize), which strips all unsafe elements and attributes. The admin console has a previewing feature that will display your privacy policy contents after being sanitized.
-- When displayed to users, privacy policy HTML will be styled by webapp CSS.      
-{{< /alert >}}
+> [!NOTE]
+> - Use language codes when associating HTML files to languages  
+> - Files that are not in HTML format will be skipped  
+> - Files that are not associated with a language will not be uploaded
+> - Before being displayed to users, privacy policies HTML is [sanitized](https://docs.angularjs.org/api/ngSanitize/service/$sanitize), which strips all unsafe elements and attributes. The admin console has a previewing feature that will display your privacy policy contents after being sanitized.
+> - When displayed to users, privacy policy HTML will be styled by webapp CSS.      
 
 
 ### View In Webapp

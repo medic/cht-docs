@@ -6,9 +6,7 @@ description: >
   Technical overview and architecture of CHT Core used to build digital health applications
 ---
 
-{{% pageinfo %}}
 This section provides an overview and reference for development of the Core Framework of the Community Health Toolkit (CHT).
-{{% /pageinfo %}}
 
 The Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 

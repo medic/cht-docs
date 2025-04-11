@@ -8,9 +8,8 @@ description: >
     Adding Custom Postgres metrics into CHT Watchdog
 ---
 
-{{% pageinfo %}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+> [!NOTE]
+> These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 
 ## Introduction
 

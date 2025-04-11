@@ -14,9 +14,9 @@ cascade:
   type: "docs"
 ---
 
-{{% pageinfo %}}
-The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref why-the-cht >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
-{{% /pageinfo %}}
+> [!NOTE]
+> The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref why-the-cht >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
+  
 
 ## CHT Core Framework
 An overview and reference for development of the Core Framework of the Community Health Toolkit. Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).
@@ -41,6 +41,6 @@ Detailed instructions on how to host the CHT starting with the most basic Applic
 ## Have Questions?
 Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to star [the CHT Core GitHub repo](https://github.com/medic/cht-core).
 
-{{% alert title="Feedback appreciated!" %}}
-This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Documentation Issue** link in the upper right corner of your window.
-{{% /alert %}}
+> [!NOTE]
+> Feedback appreciated! This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Documentation Issue** link in the upper right corner of your window.
+

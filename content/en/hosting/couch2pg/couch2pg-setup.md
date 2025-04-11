@@ -11,9 +11,8 @@ aliases:
    - /building/tutorials/couch2pg-setup
 ---
 
-{{% pageinfo %}}
-CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
-{{% /pageinfo %}}
+> [!WARNING]
+> CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 
 This tutorial will take you through setting up a couch2pg service.
 
@@ -87,11 +86,13 @@ If you want to set and save all possible variables:
 
 6. Edit `couch2pg.env` to have all the variables you need.
 
-{{% alert title="Note" %}} `POSTGRESQL_URL` shouldn't be edited as it is defined by the variables above it. {{% /alert %}}
+> [!WARNING] 
+> `POSTGRESQL_URL` shouldn't be edited as it is defined by the variables above it.
 
 7. Run: `. ./couch2pg.env && node .`
 
-{{% alert title="Note" %}} To run cht-couch2pg in interactive mode, use `node . -i`. You will be prompted to answer questions to capture the same the environmental variables. For each question, you will be given suggestions for an answer. {{% /alert %}}
+> [!NOTE]
+> To run cht-couch2pg in interactive mode, use `node . -i`. You will be prompted to answer questions to capture the same the environmental variables. For each question, you will be given suggestions for an answer. 
 
 <br clear="all">
 
@@ -108,13 +109,15 @@ The simplest way to run couch2pg is with `docker compose` which only needs confi
 export COUCHDB_URL=https://medic:password@192-168-68-26.local-ip.medicmobile.org:8442/medic
 ```
 
-{{% alert title="Note" %}} The CouchDB URL needs to be reachable from the docker container (i.e. not localhost). {{% /alert %}}
+> [!NOTE]
+> The CouchDB URL needs to be reachable from the docker container (i.e. not localhost).
 
 3. Run: `docker compose up`
 
 4. Connect to the PostgreSQL instance with login `cht_couch2pg`, password `cht_couch2pg_password` and database `cht`.
 
-{{% alert title="Note" %}} To set all possible variables or store the variables in configuration file, follow steps 5 and 6 above. To connect to the PostgreSQL instance, use the server from `POSTGRES_SERVER_NAME`, use login from `COUCH2PG_USER`, password from `COUCH2PG_USER_PASSWORD` and the database from `POSTGRES_DB_NAME`. {{% /alert %}}
+> [!NOTE]
+> To set all possible variables or store the variables in configuration file, follow steps 5 and 6 above. To connect to the PostgreSQL instance, use the server from `POSTGRES_SERVER_NAME`, use login from `COUCH2PG_USER`, password from `COUCH2PG_USER_PASSWORD` and the database from `POSTGRES_DB_NAME`.
 
 <br clear="all">
 

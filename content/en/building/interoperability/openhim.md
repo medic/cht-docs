@@ -51,9 +51,8 @@ See more information on the [CHT interoperability page]({{< ref "building/intero
 - [cht-interoperability](https://github.com/medic/cht-interoperability) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-interoperability`).
 
 
-{{% alert title="Note" %}} 
-Users getting errors when running the following installation steps, please see the [Troubleshooting guide]({{< ref "#troubleshooting" >}}).
-{{% /alert %}}
+> [!NOTE]
+> Users getting errors when running the following installation steps, please see the [Troubleshooting guide]({{< ref "#troubleshooting" >}}).
 
 ### Install & First Time Run
 

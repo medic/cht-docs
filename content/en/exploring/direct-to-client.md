@@ -22,13 +22,11 @@ aliases:
   }
 </style>
 
-{{% pageinfo %}}
 
 This documentation provides a guide for designing and deploying direct-to-client (D2C), two-way texting (2wT) workflows to support client follow-up care using the community health toolkit (CHT). 2wT is a mobile text messaging system built on open-source, CHT tools to engage clients in their health care; to facilitate  prompt client - healthcare provider interactions; to provide low-cost telehealth; and, to improve health care outcomes through the early identification of, and referral for,  potential complications.
 
 The hybrid 2wT system is used for relaying automated health education and check in messages to clients, generating tasks to improve client follow-up and health provider reporting, while also allowing for free text interaction between clients and healthcare providers. This document describes the hybrid 2wT system features and its functionalities. It also provides an opportunity for digital health implementers to explore and learn how direct-to-client communication can be achieved through integrating app features within the CHT, with messaging technologies such as  [RapidPro](https://docs.communityhealthtoolkit.org/building/integrations/rapidpro/) and SMS aggregators.
 
-{{% /pageinfo %}}
 
 
 ## Problem being addressed

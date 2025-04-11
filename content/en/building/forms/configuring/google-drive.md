@@ -59,6 +59,5 @@ cht fetch-forms-from-google-drive
 
 You will be prompted for an access code from your authenticated user. Follow the prompts through Google's authentication page and copy the access code into your command line. The forms will then be downloaded to the locations set in the forms-on-google-drive.json file.
 
-{{% alert title="Note" %}}
-If the browser does not launch own its own copy the URL and paste the authentication url into a browser and then follow the prompts.
-{{% /alert %}}
+> [!TIP]
+> If the browser does not launch own its own, copy the URL and paste the authentication url into a browser and then follow the prompts.

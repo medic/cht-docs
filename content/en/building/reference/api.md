@@ -14,35 +14,32 @@ aliases:
 }
 </style>
 
-{{% pageinfo %}}
+ 
 This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{% ref "core/overview/data-flows-for-analytics" %}}) may also prove useful for data analysis. If additional endpoints would be helpful, please make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
-{{% /pageinfo %}}
+  
 
 {{< toc >}}
 
-{{% alert title="Note" %}}
-
-Various properties throughout this API use a timestamp value, the
+> [!NOTE]
+> Various properties throughout this API use a timestamp value, the
 following formats are supported:
-
-- ISO 8601 combined date and time with timezone of the format below where "Z"
+> 
+> - ISO 8601 combined date and time with timezone of the format below where "Z"
   is offset from UTC like "-03", "+1245", or just "Z" which is UTC (0 offset);
 
        YYYY-MM-DDTHH:mm:ssZ
        YYYY-MM-DDTHH:mm:ss.SSSZ
-
-- Milliseconds since Unix Epoch
-
-A compatible value can be generated using the `toISOString` or `toValue` method
+> 
+> - Milliseconds since Unix Epoch
+> 
+> A compatible value can be generated using the `toISOString` or `toValue` method
 on a Javascript Date object.
-
-##### Examples
-- 2011-10-10T14:48:00-0300
-- 2016-07-01T13:48:24+00:00
-- 2016-07-01T13:48:24Z
-- 1467383343484 (MS since Epoch)
-
-{{% /alert %}}
+> 
+> ##### Examples
+> - 2011-10-10T14:48:00-0300
+> - 2016-07-01T13:48:24+00:00
+> - 2016-07-01T13:48:24Z
+> - 1467383343484 (MS since Epoch)
 
 ## Settings
 

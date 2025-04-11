@@ -85,12 +85,11 @@ An outgoing SMS message configuration has the following fields:
 | *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` | 
 | *valid phone number* | requested phone number |
 
-{{% alert title="Note" %}} 
-- if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
-- if there is no submitter phone number available, the actual `recipient` property value will be used
-- when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
-- except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
-{{% /alert %}}
+> [!NOTE]
+> - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
+> - if there is no submitter phone number available, the actual `recipient` property value will be used
+> - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
+> - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
 
 
 ### Message context

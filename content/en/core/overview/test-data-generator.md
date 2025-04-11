@@ -6,9 +6,8 @@ description: >
   A tool for CHT developers to design, generate, and push CouchDB docs tailored to project hierarchies and reports
 ---
 
-{{% alert title="Warning" %}} 
-It is not recommended to use this tool to push data into production instances.
-{{% /alert %}}
+> [!CAUTION] 
+> It is not recommended to use this tool to push data into production instances.
 
 Design the test data that fits your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
 

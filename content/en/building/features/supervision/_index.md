@@ -26,7 +26,8 @@ For CHW Supervisors, the [Targets]({{< relref "building/targets/targets-overview
 
 Selecting an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up for coaching and performance management.
 
-{{% alert title="Note" %}} Aggregate targets were introduced in v3.9, and can be configured for both online and offline users. Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date. {{% /alert %}}
+> [!NOTE] 
+> Aggregate targets were introduced in v3.9, and can be configured for both online and offline users. Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date.
 
 ### Filtering Aggregate Targets
 
@@ -77,22 +78,21 @@ Filtering the Aggregate Targets by **Reporting Period** adds the name of the pre
 
 <br clear="all">
 
-{{% alert title="Note" %}} 
-- The list of facilities in the sidebar are sorted in alphabetic order.
-- The default filter option for the facilities filter is the first facility in the sorted `array` of user Facilities.
-- The default filter option for the reporting period is `This month`.
-- The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings]({{< relref "building/reference/app-settings/hierarchy" >}})
-- The reporting period label in this example (Reporting Period) is added as a translation key `analytics.target.aggregates.reporting_period`.
- {{% /alert %}}
+> [!NOTE]
+> - The list of facilities in the sidebar are sorted in alphabetic order.
+> - The default filter option for the facilities filter is the first facility in the sorted `array` of user Facilities.
+> - The default filter option for the reporting period is `This month`.
+> - The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings]({{< relref "building/reference/app-settings/hierarchy" >}})
+> - The reporting period label in this example (Reporting Period) is added as a translation key `analytics.target.aggregates.reporting_period`.
 
 ## Supervisor Tasks
 
 The CHT can be configured to create [Tasks]({{< relref "building/tasks" >}}) for Supervisors to help plan their performance management reviews. Tasks can be generated based on routine CHW supervision interactions, or data-driven based on specific events (e.g. to follow up with health workers whom haven’t submitted any forms in x period of time). Using Supervisor tasks to ensure that the right actions are taken for the right CHWs at the right time strengthens supervisory program design through routine assessments and timely feedback.
 
-{{% pageinfo %}}
+ 
 ### Deployment Case Study
 [Muso](https://www.musohealth.org), a leading community health organization and major contributor to the CHT, has implemented ”360º supervision”, achieving some of the lowest child mortality rates in sub-Saharan Africa. This model provides dedicated mentorship and supportive supervision to CHWs tailored to each CHW's particular strengths and challenges. A key theme of our human-centered approach was the idea of using data to improve one-to-one supervision, rather than using analytics to replace Supervisors. Read more about findings from a recent [randomized controlled trial](https://medic.org/stories/new-study-precision-supervision-and-personalized-feedback-dashboards-improve-chw-performance-in-mali/).
-{{% /pageinfo %}}
+  
 
 ## User Management
 Supervisors are able to set up users in the CHT without contacting a system administrator. They can **create** new CHW user accounts or **replace** CHWs on an existing device. 
@@ -107,7 +107,8 @@ This can be used to manage both CHW and CHW supervisor roles.
 
 CHT hierarchies tend to mimic geographical areas but Supervisors often manage CHWs across multiple geographical areas. (Offline) Supervisors who manage multiple areas can see data for all the different areas they manage from one app.
 
- {{% alert title="Note" %}} The ability for one user to replicate data from multiple areas was introduced in v4.9.0. A video demonstration of setting up a multi-facility user and what this looks like from a user's perspective can be found [on the forum](https://forum.communityhealthtoolkit.org/t/support-for-supervisors-who-need-to-manage-multiple-areas/3497/2?u=michael) and in the [June 2024 CHT Round-up](https://youtu.be/hrhdrzP41gE?si=_7wglk7Nm7CCSFbY&t=606). {{% /alert %}}
+ > [!NOTE] 
+ > The ability for one user to replicate data from multiple areas was introduced in v4.9.0. A video demonstration of setting up a multi-facility user and what this looks like from a user's perspective can be found [on the forum](https://forum.communityhealthtoolkit.org/t/support-for-supervisors-who-need-to-manage-multiple-areas/3497/2?u=michael) and in the [June 2024 CHT Round-up](https://youtu.be/hrhdrzP41gE?si=_7wglk7Nm7CCSFbY&t=606).
 
 
 
@@ -123,5 +124,6 @@ The data that can be visualized is highly configurable, and depends on what data
 
 Supervisors often provide a critical bridge between CHWs and broader health system reporting. Using the CHT’s [DHIS2 integration]({{< relref "building/integrations/dhis2" >}}), Supervisors can see the aggregate of each DHIS2 Data Value across all CHWs in their area. By tapping on a target, they can also see each CHW’s contribution towards that total. Once the Supervisor has verified data accuracy with CHWs, they can communicate with Health Records Information Officers to feed data into the national health information system.
 
-{{% alert title="Note" %}} DHIS2 integration was introduced in v3.9. {{% /alert %}}
+> [!NOTE] 
+> DHIS2 integration was introduced in v3.9.
 

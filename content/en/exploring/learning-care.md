@@ -16,9 +16,8 @@ The Learning & Care Apps in the Community Health Toolkit are designed to onboard
 
 The modules can be deployed both (i) via the Android integration with the Academy App (powered by OppiaMobile) described in this documentation, and (ii) within the CHT core alone, to provide a seamless online & offline experience for CHWs, supervisors, and government partners.
 
-{{% alert title="Note" %}}
-It is important to consider the potential use cases for which a CHT core <> OppiaMobile integration is intended, as well as the digital landscape in which it is being designed and deployed. The CHT core <> OppiaMobile integration may be best suited for settings where both apps are already in use, given the inherent complexities in onboarding users remotely to two apps.
-{{% /alert %}}
+> [!IMPORTANT] 
+> It is important to consider the potential use cases for which a CHT core <> OppiaMobile integration is intended, as well as the digital landscape in which it is being designed and deployed. The CHT core <> OppiaMobile integration may be best suited for settings where both apps are already in use, given the inherent complexities in onboarding users remotely to two apps.
 
 ## Problem Being Addressed
 

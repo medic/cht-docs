@@ -12,9 +12,8 @@ relatedContent: >
    core/overview/watchdog
 ---
 
-{{% pageinfo %}} 
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+> [!NOTE]
+> These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 
 Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
@@ -32,9 +31,8 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - URL(s) of the CHT instance(s)
 
-{{% alert title="Note" %}}
-Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
-{{% /alert %}}
+> [!NOTE]
+> Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
 
 ### Setup
 
@@ -140,9 +138,8 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    docker compose -f docker-compose.yml -f exporters/postgres/compose.yml up -d
    ```
 
-{{% alert title="Note" %}}
-Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
-{{% /alert %}}
+> [!NOTE]
+> Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
 
 #### CHT Sync Data (Remote)
 

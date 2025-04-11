@@ -9,13 +9,13 @@ aliases: >
   /apps/guides/hosting/hosting/4.x/app-developer
 ---
 
-{{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
+> [!NOTE] 
+> This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
+> 
+> To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}})
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}){{% /alert %}}
-
-{{% alert title="Note" %}}
-These steps apply to both 3.x and 4.x CHT core development, unless stated otherwise.
-{{% /alert %}}
+> [!IMPORTANT]
+> These steps apply to both 3.x and 4.x CHT core development, unless stated otherwise.
 
 ## The Happy Path Installation
 

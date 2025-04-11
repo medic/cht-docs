@@ -23,7 +23,8 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 
 {{< figure src="targets-desktop.png" link="targets-desktop.png" class="left col-9 col-lg-9" >}}
 
-{{% alert title="Note" %}} Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data. {{% /alert %}}
+> [!NOTE] 
+> Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data.
 
 ## Types of Widgets
 

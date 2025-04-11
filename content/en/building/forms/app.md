@@ -80,10 +80,8 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 
 ## XPath
 Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`openrosa-xpath-evaluator`](https://github.com/enketo/enketo/tree/main/packages/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
-
-{{% alert title="Note" %}} 
-The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
-{{% /alert %}}
+> [!IMPORTANT]
+> The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
 
 ## CHT XForm Widgets
 
@@ -104,9 +102,8 @@ A visual timer widget that starts when tapped/clicked, and has an audible alert 
 
 If you want to make the timer mandatory so users must wait for the timer to complete before continuing to the next page or submitting the form, you can populate the _required_ column with an XPath expression as you would do for any other required question. A value of `"OK"` will be set for the `trigger` field when the timer completes.
 
-{{% alert title="Note" %}}
-The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
-{{% /alert %}}
+> [!NOTE]
+> The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
 
 
 ### Contact Selector
@@ -232,9 +229,8 @@ A validation failure, either for an invalid or duplicate phone number will preve
 | string | numbers tel | true                     | true       | Please enter a valid phone number. |
 
 
-{{% alert title="Note" %}}
-Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact. 
-{{% /alert %}}
+> [!NOTE]
+> Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact. 
 
 ## CHT XPath Functions
 
@@ -268,9 +264,8 @@ Calculates the number of whole calendar weeks between two dates.
 
 Calculates the number of whole calendar months between two dates. This is often used when determining a child's age for immunizations or assessments.
 
-{{% alert title="Note" %}}
-For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` function (without the `cht` namespace) should be used.
-{{% /alert %}}
+> [!NOTE]
+> For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` function (without the `cht` namespace) should be used.
 
 ### `cht:difference-in-years`
 

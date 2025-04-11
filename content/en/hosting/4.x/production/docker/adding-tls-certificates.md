@@ -28,9 +28,8 @@ Also, be sure you have started your CHT instance once and all your volumes are c
 
 ### Loading the certificate
 
-{{% alert title="Note" %}}
-`docker compose` should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command`.
-{{% /alert %}}
+> [!NOTE]
+> `docker compose` should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command`.
 
 1. Find the name of your `cht-ssl` volume with this call:
 

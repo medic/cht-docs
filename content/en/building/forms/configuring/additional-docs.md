@@ -21,10 +21,8 @@ Extra docs can be added by defining structures in the model with the attribute
 db-doc="true"
 ```
 
-{{% alert title="Note" %}}
-You must have lower-case `true` in your XLSform, even though Excel will default to `TRUE`.
-{{% /alert %}}
-
+> [!IMPORTANT]
+> You must have lower-case `true` in your XLSform, even though Excel will default to `TRUE`.
 
 ### Example Form Model
 

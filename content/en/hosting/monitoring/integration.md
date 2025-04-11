@@ -8,9 +8,9 @@ description: >
     Scraping and alerting external sources with CHT Watchdog
 ---
 
-{{% pageinfo %}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+> [!IMPORTANT]
+> These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+
 
 ## Going beyond basic setup
 

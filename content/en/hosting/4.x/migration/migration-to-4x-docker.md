@@ -14,9 +14,8 @@ This guide will present the required steps while using a migration helping tool,
 By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.
 Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#moving-a-shard).
 
-{{% alert title="Note" %}}
-If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around.  This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1.  It was fixed in CHT 4.2.0.
-{{% /alert %}}
+> [!IMPORTANT] 
+> If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around.  This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1.  It was fixed in CHT 4.2.0.
 
 ### 1. Install CHT data migration tool
 
@@ -60,7 +59,8 @@ docker compose run couch-migration pre-index-views <desired CHT version>
 
 Once view indexing is finished, proceed with the next step.
 
-{{% alert title="Note" %}} If this step is omitted, 4.x API will fail to respond to requests until all views are indexed. Depending on the size of the database, this could take many hours, or even days. {{% /alert %}}
+> [!CAUTION] 
+> If this step is omitted, 4.x API will fail to respond to requests until all views are indexed. Depending on the size of the database, this could take many hours, or even days. 
 
 ### 3. Save existent CouchDb configuration
 
@@ -86,7 +86,8 @@ b) If running a custom installation of CouchDb, data would be typically stored a
 Depending on your project scalability needs and technical possibilities, you must decide whether you will deploy CouchDb in a single node or in a cluster with multiple nodes.
 Please consult this guide about clustering and horizontal scalability to make an informed decision. <insert link>
 
-{{% alert title="Note" %}} You can start with single node and then change to a cluster. This involves running the migration tool again to distribute shards from the existent node to the new nodes. {{% /alert %}}
+> [!NOTE] 
+> You can start with single node and then change to a cluster. This involves running the migration tool again to distribute shards from the existent node to the new nodes.
 
 Depending on your choice, follow the instructions that match your deployment below:
 
@@ -295,9 +296,8 @@ k) [Remove unnecessary containers](#6-cleanup).
 
 It's very important to remove temporary containers that were used during migration and containers that deployed the previous CHT-Core 3.x installation. Only follow this step after making sure your CHT-Core 4.x installation is ready and can be used.
 
-{{% alert title="Warning" %}}
-Even if these containers are stopped, depending on their configuration, they could restart when the Docker engine is restarted, for example on system reboot.
-{{% /alert %}}
+> [!WARNING]
+> Even if these containers are stopped, depending on their configuration, they could restart when the Docker engine is restarted, for example on system reboot.
 
 ##### Risks for not removing containers include
 - resource contention - where your new CHT installation might not have access to certain resources (for example network ports) because they are already used.

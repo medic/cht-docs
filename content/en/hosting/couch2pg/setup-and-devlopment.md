@@ -5,9 +5,8 @@ description: >
      How to run and do development of CHT couch2pg
 ---
 
-{{% pageinfo %}}
-CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
-{{% /pageinfo %}}
+> [!WARNING]
+> CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 
 
 Create read-only replicas of CouchDB data inside PostgresSQL.

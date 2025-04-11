@@ -13,19 +13,16 @@ aliases:
    - /apps/tutorials/local-setup
 ---
 
-{{% pageinfo %}}
 This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
 - View the login page to CHT webapp on localhost
 - Upload default settings to localhost
-{{% /pageinfo %}}
 
-{{% alert title="Note" %}} 
-This guide will only work with CHT 4.x instances.  See the 
+> [!NOTE]
+> This guide will only work with CHT 4.x instances.  See the 
 [3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
-{{% /alert %}}
 
 ## Brief Overview of Key Concepts
 
@@ -231,9 +228,8 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 ### Upload a Blank Project
 
-{{% alert title="Note" %}} 
-This step will erase the default Maternal & Newborn Health Reference Application. 
-{{% /alert %}}
+> [!NOTE]
+> This step will erase the default Maternal & Newborn Health Reference Application. 
 
 You can also upload the blank project you created above (via the `cht initialise-project-layout` command).
 

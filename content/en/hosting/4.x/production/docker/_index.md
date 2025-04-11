@@ -11,11 +11,9 @@ description: >
    Production Hosting CHT 4.x - Single CouchDB Node on Docker
 ---
 
-{{% pageinfo %}}
-This for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/production/kubernetes" >}}).
-
-Docker Swarm, mentioned in prior versions of this document, is **no longer recommended**. For multinode CouchDB deployments utilizing multiple VMs, see [Kubernetes instructions]({{< relref "hosting/4.x/production/kubernetes" >}}).
-{{% /pageinfo %}}
+> [!IMPORTANT]
+This page is for a single node CHT 4.x instance and is the recommended solution for small deployments. If you want a more powerful setup, check out [the 4.x multi-node install docs]({{< relref "hosting/4.x/production/kubernetes" >}}).
+> Docker Swarm, mentioned in prior versions of this document, is **no longer recommended**. For multinode CouchDB deployments utilizing multiple VMs, see [Kubernetes instructions]({{< relref "hosting/4.x/production/kubernetes" >}}).
 
 ## Prerequisites
 
@@ -85,9 +83,8 @@ Note that secure passwords and UUIDs were generated on the first four calls and 
 
 ## Launch containers
 
-{{% alert title="Note" %}}
-This section has the first use of `docker compose`.  If you get an error calling this, please double check [hosting requirements]({{< relref "hosting/requirements" >}}). 
-{{% /alert %}}
+> [!IMPORTANT]
+> This section has the first use of `docker compose`.  If you get an error calling this, please double check [hosting requirements]({{< relref "hosting/requirements" >}}). 
 
 To start your CHT instance, run the following
 
@@ -154,8 +151,7 @@ The [CHT Upgrade Service](https://github.com/medic/cht-upgrade-service) provides
     docker compose up --detach
     ``` 
 
-{{% alert title="Note" %}}
-Upgrading the CHT Upgrade Service will not cause a new CHT version to be installed.  The CHT Core and CouchDB containers are not affected.
-{{% /alert %}}
+> [!IMPORTANT]
+> Upgrading the CHT Upgrade Service will not cause a new CHT version to be installed.  The CHT Core and CouchDB containers are not affected.
 
 Follow the [Product Releases channel](https://forum.communityhealthtoolkit.org/c/product/releases/26) on the CHT forum to stay informed about new releases and upgrades.

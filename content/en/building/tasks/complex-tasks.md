@@ -13,14 +13,12 @@ aliases:
    - /apps/tutorials/tasks-2
 ---
 
-{{% pageinfo %}}
 Tasks prompt users to complete activities on a programmatic schedule. This tutorial will guide you through the development of an advanced task. This is an _optional_ tutorial and is not required to _get started_ with CHT Application development.
 
 - Create a task with a complex follow-up schedule
 - Use a 3rd party JavaScript library `luxon` to make Date/Time calculations easier
 - Pass information from the task into the action _app form_
 - Custom logic for resolving a task
-{{% /pageinfo %}}
 
 ## Prerequisites
 
