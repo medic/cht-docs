@@ -17,7 +17,7 @@ For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubun
 
 Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
 
-CHT 3.x is [End-of-Life]({{< relref "releases/core#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
+CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
 
 ## App Developer Hosting
 
