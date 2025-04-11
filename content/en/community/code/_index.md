@@ -7,7 +7,7 @@ description: >
 ---
 
 {{% alert title="Setup development environment" %}}
-See the [CHT Core Developer Setup guide]({{% ref "contribute/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
+See the [CHT Core Developer Setup guide]({{% ref "community/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
 {{% /alert %}}
 
 The Core Framework of the Community Health Toolkit is powered by people like you. Your contributions help us create open source technology for a new model of healthcare that reaches everyone.
@@ -20,22 +20,14 @@ The CHT community welcomes first-time contributors and experts alike. All commen
 
 ### First time contributor?
 
-Issues labeled [help wanted](https://github.com/medic/cht-core/labels/Help%20wanted) are a great place to start. 
-
-Looking for other ways to help? You can also:
-* Improve our [documentation](#improving-our-documentation)
-* Review or add a [translation](#translations)
-* Find and mark duplicate issues
-* Try to reproduce issues and help with troubleshooting
-* Learn to [build and host apps]({{% ref "building" %}}), and share your experiences
-* Or [share a new idea or question](https://forum.communityhealthtoolkit.org) with us!
+Be sure to read the [first time contributors guide]({{% ref "community/code/first-time-contributors" %}})!
 
 ### Submitting code
 
 **Note:** We recommend you raise an issue on Github or start a conversation on our [Community Forum](https://forum.communityhealthtoolkit.org) about the change you want to make before you start on code.
 
 1. Read our [Development Workflow]({{% ref "workflow" %}}) to understand how we work, and review our [Code Style Guide]({{% ref "style-guide" %}}) before you begin.
-2. [Setup]({{% ref "contribute/code/core/dev-environment" %}}) your development environment
+2. [Setup]({{% ref "community/code/core/dev-environment" %}}) your development environment
 3. Before you submit a pull request, please make sure your contribution passes all tests. Test failures need to be addressed before we can merge your contribution.
 3. Provide detail about the issue you are solving in the pull request description. Note: If your pull request addresses a specific issue, please reference it using medic/<repo>#<issue number>
 4. Our CI will automatically schedule a build; monitor the build to ensure it passes.
@@ -47,12 +39,10 @@ Looking for other ways to help? You can also:
 
 **Note:** [cht-docs](https://github.com/medic/cht-docs) does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submitting a pull request (PR) with any suggested changes.
 
-Is our documentation up to date? Have we covered everything we should? Could our wording be improved? Read our [Documentation Style Guide]({{% ref "contribute/docs/style-guide" %}}) then open a pull request with your suggested changes or additions.
+Is our documentation up to date? Have we covered everything we should? Could our wording be improved? Read our [Documentation Style Guide]({{% ref "community/docs/style-guide" %}}) then open a pull request with your suggested changes or additions.
 Want to talk about Documentation generally? Join our [Community Forum](https://forum.communityhealthtoolkit.org)!
 
-### Translations
 
-If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translating]({{% ref "building/translations/managing" %}}) software for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
 
 ### Disclosing vulnerabilities
 
@@ -101,7 +91,7 @@ If you believe you've found a security vulnerability in one of our products or p
 
 - Description of the location and potential impact of the vulnerability;
 - A detailed description of the steps required to reproduce the vulnerability (proof of concept source code, screenshots, and compressed screen captures are all helpful to us); and
-- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "./hall-of-fame" %}}).
+- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "community/hall-of-fame" %}}).
 
 ### Code of Conduct
 

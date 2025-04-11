@@ -169,7 +169,7 @@ CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/
 
 You can also manually test your forms on a non-prod CHT instance. It is possible to test your forms against the new Enekto changes without having to uplift your non-prod CHT instance to the new 4.0 architecture.
 
-An easy way of doing this is to use the [CHT Docker Helper]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "contribute/code/releasing/feature_releases" >}}):
+An easy way of doing this is to use the [CHT Docker Helper]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "community/code/releasing/feature_releases" >}}):
 
 ```shell
 COUCH_URL=https://medic:password@*your-my.local.ip.co-address*:8443/medic horti --local --install=3.17.0-FR-enketo-upgrade-beta.1

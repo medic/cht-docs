@@ -9,7 +9,7 @@ description: >
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 
 ## Installation
-Read more about setting up [CHT Conf]({{< relref "contribute/code/cht-conf" >}}).
+Read more about setting up [CHT Conf]({{< relref "community/code/cht-conf" >}}).
 
 ## Currently Supported
 The different items that are supported by CHT Conf include:

@@ -65,7 +65,7 @@ A local development environment will be useful to you if:
 
 ### Option 1, local development environment
 
-If you don't already have a local dev env, follow the instructions on the [development setup instructions]({{< relref "contribute/code/core/dev-environment" >}}).
+If you don't already have a local dev env, follow the instructions on the [development setup instructions]({{< relref "community/code/core/dev-environment" >}}).
 
 Then you need to:
 
