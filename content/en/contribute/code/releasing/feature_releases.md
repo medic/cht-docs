@@ -7,7 +7,7 @@ description: >
 aliases:
   -    /core/releases/feature_releases/
 relatedContent: >
-    releases/core
+    releases/
     contribute#are-you-a-partner-wondering-how-issues-are-prioritized
 
 ---
