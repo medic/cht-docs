@@ -15,7 +15,6 @@ check_meta_refresh() {
     if grep -q '<meta http-equiv="refresh"' <<< "$html_content"; then
         local redirect_url
         local redirect_response_code
-        # Using sed instead of grep -P for macOS compatibility
         redirect_url=$(echo "$html_content" | sed -n 's/.*url=\([^"]*\).*/\1/p')
         redirect_response_code=$(get_response_code "$redirect_url")
         echo "${url} Is redirected! Result is:"
@@ -29,7 +28,6 @@ run_checks(){
     local count=0
     # Loop through each URL in the file
     while IFS= read -r url; do
-        # Skip empty lines
         [ -z "$url" ] && continue
         ((count++))
         # Get HTTP response code, if it's not 200, print it so they know
@@ -51,7 +49,6 @@ get_urls_from_prod_site_map(){
     local urls
     # thanks https://aruljohn.com/blog/download-extract-urls-sitemaps/
     urls=$(curl -qs https://docs.communityhealthtoolkit.org/sitemap.xml  2>&1 | grep -o "<loc>[^<]*" | sed -e 's/<[^>]*>//g')
-    # Replace the domain without escaping forward slashes
     urls=$(echo "$urls" | sed 's|https://docs.communityhealthtoolkit.org|http://localhost:1313|g')
     echo "$urls"
 }
