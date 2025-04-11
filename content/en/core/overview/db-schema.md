@@ -254,7 +254,7 @@ Failed | Task was never terminated and the endDate has past
 Attribute | Description
 -- | --
 user | The user settings id of the user who calculated and created the document. Used for controlling replication. (eg. `org.couchdb.user:agatha`)
-requester | The [guid]({{< ref "glossary" >}}) of the contact whose data brought about the creation of the document. Used for controlling cancellation. 
+requester | The guid of the contact whose data brought about the creation of the document. Used for controlling cancellation. 
 owner | The guid of the contact whose profile this task will appear on in the contact's tab.
 forId | If completing a task's action opens a form. Completing the form creates a report. `forId` is the guid of the contact information that will be passed into the form. For most forms, the resulting report will be associated with this contact.
 emission | Minified task data emitted from the partner code.
