@@ -9,11 +9,10 @@ description: >
     High level approach to monitoring and alerting with CHT applications
 ---
 
-{{% pageinfo %}} 
-This guide applies to all production instances of the CHT for both 3.x (beyond 3.9) and 4.x.
-
-Be sure to see how to deploy a solution to [monitor and alert on production CHT instances]({{< relref "hosting/monitoring/setup.md" >}}).
-{{% /pageinfo %}}
+> [!IMPORTANT]
+> This guide applies to all production instances of the CHT for both 3.x (beyond 3.9) and 4.x.
+> 
+> Be sure to see how to deploy a solution to [monitor and alert on production CHT instances]({{< relref "hosting/monitoring/setup.md" >}}).
 
 
 Each deployment will experience different stresses on its resources.  Be sure to tune any alerting levels in the case of a false positive so that you may avoid them in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a guarantee of uptime.

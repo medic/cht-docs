@@ -32,7 +32,8 @@ The overall coordination and operation of the release process are the responsibi
 The release manager must perform several tasks for a new release, such as coordinating with team members and following all the steps in the [release issue process](https://github.com/medic/cht-core/issues/new/choose), some of them being manual. The release manager must have adequate permissions to the repositories where the release is made.
 
 ### Major/Minor/Patch Release
-{{% alert title="Note" %}} The following classification is defined by the [Semantic Versioning 2.0.0](https://semver.org). {{% /alert %}}
+> [!NOTE]  
+> The following classification is defined by the [Semantic Versioning 2.0.0](https://semver.org).
 
 Given a version number `MAJOR.MINOR.PATCH`, increment the:
 * `MAJOR` version when the release adds incompatible changes, e.g. when the apps built on top of the CHT require manual intervention to work as expected.
@@ -41,8 +42,8 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 
 `MAJOR` releases represent the biggest scale of code change and their roll out effort is high, as they likely require time and effort to set up or configure. As a consequence, they are the least frequent of the three release types.
 
-{{% alert title="Info" %}} You can find the versions currently supported, dependencies, and release notes for the CHT Core 
- [on the Releases page]({{% ref "core/releases" %}}). {{% /alert %}}
+> [!IMPORTANT]  
+> You can find the versions currently supported, dependencies, and release notes for the CHT Core [on the Releases page]({{% ref "core/releases" %}}). 
 
 ### When to wait to release
 

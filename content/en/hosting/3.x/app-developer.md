@@ -9,11 +9,9 @@ description: >
   Hosting the CHT when developing apps
 ---
 
-{{% pageinfo %}} 
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}). 
 
 To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}})
-{{% /pageinfo %}}
 
 
 ## Getting started

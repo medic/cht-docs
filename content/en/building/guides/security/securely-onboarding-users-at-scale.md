@@ -16,11 +16,11 @@ aliases:
    - /apps/guides/security/securely-onboarding-users-at-scale
 ---
 
-{{% pageinfo %}}
+ 
 This document shows how to achieve a high level of credential management security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
 
 No system is perfectly secure - be prepared to remediate a security breach!
-{{% /pageinfo %}}
+  
 
 When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Patient data is sensitive and should never be accessed in any way by unauthorized parties. By following best practices and preparing for the worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
 
@@ -90,10 +90,9 @@ There's many failures here:
 
 By knowing what the security threats are you can know the most helpful steps to remediate them to limit the damage done to the CHT deployment, the privacy of the patients and the security of CHWs.
 
-{{% alert title="Note" %}}
-Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change, when a CHW attempts to sync, they will be prompted to log in. At that point, they will not be able to continue using the CHT until they log in.
+> [!NOTE]
+> Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change, when a CHW attempts to sync, they will be prompted to log in. At that point, they will not be able to continue using the CHT until they log in.
 No data will be lost if they log in as the _same user_.
-{{% /alert %}}
 
 ### Credential list shared on internet
 

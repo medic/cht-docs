@@ -24,7 +24,8 @@ The most common restriction is by place. This is where we check the user's `faci
 
 For example, if a CHP's `facility_id` property is set to the ID of the Maori Hill clinic, then they will be able to see all patients and all reports about patients at that clinic.
 
-{{% alert title="Note" %}} Starting in v4.9.0, users with the `can_have_multiple_places` permission can be assigned more than one `facility_id`. The primary use case for this is for Supervisors who manage multiple areas. A video demonstration of setting up a multi-facility user and what this looks like from a user's perspective can be found [on the forum](https://forum.communityhealthtoolkit.org/t/support-for-supervisors-who-need-to-manage-multiple-areas/3497/2?u=michael) and in the [June 2024 CHT Round-up](https://youtu.be/hrhdrzP41gE?si=_7wglk7Nm7CCSFbY&t=606). {{% /alert %}}
+> [!NOTE] 
+> Starting in v4.9.0, users with the `can_have_multiple_places` permission can be assigned more than one `facility_id`. The primary use case for this is for Supervisors who manage multiple areas. A video demonstration of setting up a multi-facility user and what this looks like from a user's perspective can be found [on the forum](https://forum.communityhealthtoolkit.org/t/support-for-supervisors-who-need-to-manage-multiple-areas/3497/2?u=michael) and in the [June 2024 CHT Round-up](https://youtu.be/hrhdrzP41gE?si=_7wglk7Nm7CCSFbY&t=606).
 
 ### Depth
 

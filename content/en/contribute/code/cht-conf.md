@@ -17,21 +17,29 @@ description: >
 
 ### Operating System Specific
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
-npm install -g cht-conf
-sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-{{< /tab >}}
-{{< tab header="macOS" >}}
-npm install -g cht-conf
-pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-# As Administrator:
-npm install -g cht-conf
-python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic --upgrade
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Linux (Ubuntu),macOS,Windows (WSL2)" >}}
+
+  {{< tab >}}
+```shell
+  npm install -g cht-conf
+  sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  npm install -g cht-conf
+  pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  # As Administrator:
+  npm install -g cht-conf
+  python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic --upgrade
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 ### Using Docker
 CHT Conf can also be run from within a Docker container. This is useful if you are already familiar with Docker and do not wish to configure the various dependencies required for developing CHT apps on your local machine. The necessary dependencies are pre-packaged in the Docker image.

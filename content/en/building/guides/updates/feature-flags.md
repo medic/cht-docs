@@ -16,7 +16,8 @@ aliases:
 
 Some CHT Core features can be enabled for specific users only. This can be particularly helpful for features that require training. The updated or "new" version will generally be the system default, but users can be configured to see the "old" version. If you do nothing when you upgrade, users will automatically start seeing the new version.
 
-{{% alert title="Note" %}} Feature flags are used primarily as a way to phase in updates. The old version should be considered deprecated and will be completely removed in a future release. {{% /alert %}}
+> [!NOTE] 
+> Feature flags are used primarily as a way to phase in updates. The old version should be considered deprecated and will be completely removed in a future release.
 
 ## Configuration
 

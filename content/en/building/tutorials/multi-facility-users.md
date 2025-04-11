@@ -12,17 +12,16 @@ aliases:
    - /apps/tutorials/multi-facility-users
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through how to create and assign users to multiple places in the CHT UI. Assigning users to multiple places is only available from **CHT 4.9.0**.
 
-This tutorial covers;
-
+This tutorial covers:
 - Creating contacts and their associated users
 - Creating places and assign contacts to those places
 - Assigning users to multiple places
 
 The [CHT application settings]({{< relref "building/tutorials/application-settings" >}}) allows you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
-{{% /pageinfo %}}
+  
 
 ## Brief Overview of Key Concepts
 
@@ -182,21 +181,22 @@ Once that is done, under the **Associate Contact** field select the name of the 
 Once this is done, you have created a supervisor who is assigned to multiple Health Facilities. You can logout and log into the app using the `username` and `password` that you just created.
 
 
-{{% alert title="Note" %}} - The new multi-facility feature be applied to any `role` in a hierarchy. It can also be applied to multiple roles in a hierarchy. You need to add the role to the array with the key `"can_have_multiple_places"`.
-
-```json
-  "permissions": {
-    ...
-
-    "can_have_multiple_places": [
-      "program_officer",
-      "chw_supervisor",
-    ],
-
-    ...
-  }
-```
-- The multi-facility feature supports a Contact belonging to Multiple Places. For instance, it is meant to support a CHW Supervisor belonging to multiple facilities. It is not meant to support One Facility having multiple CHW Supervisors. {{% /alert %}}
+> [!NOTE]
+> - The new multi-facility feature be applied to any `role` in a hierarchy. It can also be applied to multiple roles in a hierarchy. You need to add the role to the array with the key `"can_have_multiple_places"`.
+> 
+> ```json
+>  "permissions": {
+>     ...
+> 
+>     "can_have_multiple_places": [
+>       "program_officer",
+>       "chw_supervisor",
+>     ],
+> 
+>     ...
+>   }
+> ```
+> - The multi-facility feature supports a Contact belonging to Multiple Places. For instance, it is meant to support a CHW Supervisor belonging to multiple facilities. It is not meant to support One Facility having multiple CHW Supervisors.
 
 ## Frequently Asked Questions
 

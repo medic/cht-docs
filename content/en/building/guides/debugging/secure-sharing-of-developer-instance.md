@@ -8,13 +8,12 @@ aliases:
    - /apps/guides/debugging/secure-sharing-of-developer-instance
 ---
 
-{{% alert title="Warning" %}} 
-Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.
-
-Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
-
-Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "contribute/code/core/dev-environment#nginx-local-ip" >}})
-{{% /alert %}}
+> [!CAUTION]
+> Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.
+> 
+> Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
+> 
+> Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "contribute/code/core/dev-environment#nginx-local-ip" >}})
 
 ## Overview
 When using a local [development environment]({{< relref "contribute/code/core/dev-environment" >}}), you may want to share your work with other collaborators. By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:

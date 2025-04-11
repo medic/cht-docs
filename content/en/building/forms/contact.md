@@ -39,9 +39,8 @@ To collect information about the contact, use a top-level group with the [id of 
 
 The `parent`, `type`, and `name` fields are mandatory on forms that are adding contacts. `parent` will be automatically populated with the id of the parent contact. `type` will be automatically set to the contact_type id when saving the new contact. 
 
-{{% alert title="Edit forms" %}}
-For edit forms, the name of the top-level group should still match the contact_type id of the contact, but only the relevant fields for editing need to be specified in the form.
-{{% /alert %}}
+> [!NOTE]
+> For edit forms, the name of the top-level group should still match the contact_type id of the contact, but only the relevant fields for editing need to be specified in the form.
 
 #### Input data
 
@@ -55,9 +54,8 @@ The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where C
 
 Starting in cht-core release 3.10, we can now configure property files in contact create forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "building/forms/app#formsappform_namepropertiesjson" >}}). Note: this applies only to the create form, not the contacts themselves.
 
-{{% alert title="Note" %}}
-The form expression for contact forms will only have access to `user` data. The `contact` and `summary` data are [not currently available](https://github.com/medic/cht-core/issues/6612). 
-{{% /alert %}}
+> [!NOTE]
+> The form expression for contact forms will only have access to `user` data. The `contact` and `summary` data are [not currently available](https://github.com/medic/cht-core/issues/6612). 
 
 ## Generic contact forms
 

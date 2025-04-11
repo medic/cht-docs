@@ -12,9 +12,8 @@ aliases:
 
 In a production environment, the CHT costs USD$0.10 per active user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
 
-{{% pageinfo %}}
-Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
-{{% /pageinfo %}}
+> [!IMPORTANT]
+> Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
 
 Note: This page applies to deployments that wish to self host their instance of the CHT.  It does apply when contracting with Medic to host your CHT instance.
 

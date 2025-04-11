@@ -110,9 +110,8 @@ Move <mainNode-Path>/shards/20000000-3fffffff to <couchdb@couchdb-2.local-path>/
 ...
 ```
 
-{{% alert title="Note" %}}
-The actual shard ranges in your output may differ. Adjust the following rsync commands to match your specific shard distribution instructions.
-{{% /alert %}}
+> [!NOTE] 
+> The actual shard ranges in your output may differ. Adjust the following rsync commands to match your specific shard distribution instructions.
 
 ## Distribute Shards
 
