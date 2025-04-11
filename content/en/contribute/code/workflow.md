@@ -200,9 +200,9 @@ From time to time QA Engineers will perform smoke tests, scalability tests, perf
 
 Use the following template for QA feedback throughout the development.
 
-{{< tabpane persist=false lang="markdown">}}
-{{< tab header="Test passed" >}}
+{{< tabs items="Test passed,Test failed" >}}
 
+  {{< tab >}}
 ### Test details
 
 **Config:** <Default/standard>
@@ -235,8 +235,8 @@ Test passed successfully. :white_check_mark:
 The ticket is ready to merge.
 @<developer's name>
 
-{{< /tab >}}
-{{< tab header="Test failed" >}}
+  {{< /tab >}}
+  {{< tab >}}
 ### Test details
 
 **Config:** <Default/standard>
@@ -269,8 +269,9 @@ Test failed :x:
 The ticket needs further development.
 @<developer's name>
 
-{{< /tab >}}
-{{< /tabpane >}}
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 ### Migrating
 

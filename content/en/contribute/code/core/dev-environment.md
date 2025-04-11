@@ -27,36 +27,44 @@ First, update your current packages and install some supporting tools:
 
 _(Node {{< param nodeVersion >}} is the environment used to run the CHT server in production, so this is the recommended version of Node to use for development.)_
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq python3 git make g++
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< tab header="macOS" >}}
-# Uses Homebrew: https://brew.sh/
-brew update
-brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
-# Python no longer included by default in macOS >12.3 
-pyenv install 2.7.18
-pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq python2 git make g++
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Linux (Ubuntu),macOS,Windows (WSL2)" >}}
+
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install xsltproc curl uidmap jq python3 git make g++
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  # Uses Homebrew: https://brew.sh/
+  brew update
+  brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
+  # Python no longer included by default in macOS >12.3 
+  pyenv install 2.7.18
+  pyenv global 2.7.18
+  echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
+  . ~/.$(basename $SHELL)rc
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install xsltproc curl uidmap jq python2 git make g++
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >}} were installed. This should output version {{< param nodeVersion >}}.x.x for NodeJS and {{< param npmVersion >}}.x.x for `npm`:
 

@@ -64,36 +64,44 @@ cd ~/cht-project
 
 To build CHT apps on your local system, you need to have some additional tools:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< tab header="macOS" >}}
-# Uses Homebrew: https://brew.sh/
-brew update
-brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc openssl readline sqlite3 xz zlib tcl-tk
-# Python no longer included by default in macOS >12.3
-pyenv install 3
-pyenv global 3
-echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Linux (Ubuntu),macOS,Windows (WSL2)" >}}
+
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  # Uses Homebrew: https://brew.sh/
+  brew update
+  brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc openssl readline sqlite3 xz zlib tcl-tk
+  # Python no longer included by default in macOS >12.3
+  pyenv install 3
+  pyenv global 3
+  echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
+  . ~/.$(basename $SHELL)rc
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 #### `pyxform`
 
@@ -235,16 +243,22 @@ You can also upload the blank project you created above (via the `cht initialise
 
 Deploy the blank project onto your local test environment with the following command:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Local" >}}
-# accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
-cht --url=https://medic:password@localhost --accept-self-signed-certs
-{{< /tab >}}
-{{< tab header="Dev Container" >}}
-# Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
-cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Local,Dev Container" >}}
+
+  {{< tab >}}
+```shell
+  # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
+  cht --url=https://medic:password@localhost --accept-self-signed-certs
+```
+  {{< /tab >}}
+```shell
+  # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
+  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
+```
+  {{< tab >}}
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 {{< figure src="all-actions-completed.png" link="all-actions-completed.png" class="right col-6 col-lg-8" >}}
 
