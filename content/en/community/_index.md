@@ -13,21 +13,31 @@ There are many ways to get involved! Do you want to...
 * **Contribute code?**
 
    Start with our [first time contributors guide]({{% ref "community/code/first-time-contributors" %}})
+
 * **Contribute documentation?**
 
-   Read up on our docs site and style guide
+   Read up on our [docs site]({{% ref "community/docs" %}}) and [style guide]({{% ref "community/docs/style-guide" %}})
 
 * **Build an app on top of the CHT?**
 
-   Learn to [build and host apps]({{% ref "building" %}}), and share your experiences.
+  Learn to [build and host apps]({{% ref "building" %}}), and share your experiences
+
+* **Host the CHT?**
+
+  Checkout the [hosting section]({{% ref "hosting" %}})
 
 * **Get involved in an initiative?**
 
-   squads, check the CHT Roadmap
+   See the current 
+   [CHT related meetings](https://forum.communityhealthtoolkit.org/t/community-events/4641) and check the
+   [CHT Roadmap to view squad activity](https://github.com/orgs/medic/projects/112/views/24) 
 
 * **Contribute with translations?**
 
-   tk translations link
+  See our [translating guide]({{% ref "building/translations/managing" %}}).
+  Translators without developer backgrounds, please open a 
+  [GitHub isssue](https://github.com/medic/cht-core/issues/new/choose) or post to the 
+  [forum](https://forum.communityhealthtoolkit.org) if you need help!
 
 * **Share your research, designs, or health practices?**
 

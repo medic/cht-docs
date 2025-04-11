@@ -42,9 +42,7 @@ Be sure to read the [first time contributors guide]({{% ref "community/code/firs
 Is our documentation up to date? Have we covered everything we should? Could our wording be improved? Read our [Documentation Style Guide]({{% ref "community/docs/style-guide" %}}) then open a pull request with your suggested changes or additions.
 Want to talk about Documentation generally? Join our [Community Forum](https://forum.communityhealthtoolkit.org)!
 
-### Translations
 
-If you are a translator but not a developer, we understand that you may need extra help to follow the [process of translating]({{% ref "building/translations/managing" %}}) software for the first time. If that is the case, please open an issue on the GitHub repo or start a topic on the community forum.
 
 ### Disclosing vulnerabilities
 
