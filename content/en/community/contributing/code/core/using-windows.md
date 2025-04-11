@@ -91,7 +91,7 @@ $: npm ci
 $: npm run build-dev-watch
 ```
 
-From this point, follow the `harden couch` section in [Core Developer Setup]({{< relref "community/code/core/dev-environment#cht-core-cloning-and-setup" >}}).
+From this point, follow the `harden couch` section in [Core Developer Setup]({{< relref "community/contributing/code/core/dev-environment#cht-core-cloning-and-setup" >}}).
 
 
 To get multiple linux terminals (so you can run `npm run`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.

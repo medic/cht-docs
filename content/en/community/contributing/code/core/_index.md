@@ -1,5 +1,5 @@
 ---
-title: "Contributing CHT Core Code"
+title: "contributing CHT Core Code"
 linkTitle: "CHT Core"
 weight: 3
 description: >

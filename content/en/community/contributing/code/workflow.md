@@ -8,15 +8,15 @@ description: >
 
 ## Writing code
 
-Where possible, follow the [coding style guide]({{< ref "community/code/style-guide" >}}).
+Where possible, follow the [coding style guide]({{< ref "community/contributing/code/style-guide" >}}).
 
 Aim for self-documenting code. Where code cannot be made self-documenting add commenting. Usually comments are useful when they explain why some code exists, and should not be explaining what some code is doing. 
 
 ### Code Quality
 
-Several [static analysis tools]({{< ref "community/code/static-analysis" >}}) are used to support code quality. These tools are run automatically on every pull request and will fail the build if they find any issues.
+Several [static analysis tools]({{< ref "community/contributing/code/static-analysis" >}}) are used to support code quality. These tools are run automatically on every pull request and will fail the build if they find any issues.
 
-For a more efficient feedback loop, developers should run linting scripts locally before pushing code to the repository. Additionally, both [ESLint]({{< ref "community/code/static-analysis#eslint" >}}) and [Sonar]({{< ref "community/code/static-analysis#during-development" >}}) have IDE plugins that show code issues in real-time. 
+For a more efficient feedback loop, developers should run linting scripts locally before pushing code to the repository. Additionally, both [ESLint]({{< ref "community/contributing/code/static-analysis#eslint" >}}) and [Sonar]({{< ref "community/contributing/code/static-analysis#during-development" >}}) have IDE plugins that show code issues in real-time. 
 
 ## Issues
 
@@ -188,7 +188,7 @@ Code reviews should be completed within 24 hours of assignment (excluding weeken
 
 ### Testing
 
-Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "community/code/quality-assistance" >}}) dedicated page).
+Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "community/contributing/code/quality-assistance" >}}) dedicated page).
 
 Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or adding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
 

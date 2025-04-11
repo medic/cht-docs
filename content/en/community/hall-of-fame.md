@@ -1,7 +1,7 @@
 ---
 title: "Contributor Hall of Fame"
 linkTitle: "Hall of Fame"
-weight: 40
+weight: 300
 description: >
   Tributes to those who have contributed to the codebase
 aliases:

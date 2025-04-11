@@ -21,8 +21,8 @@ The high-level steps for a release are as follows:
 * Tickets are added to GitHub for what's being built.
 * A [release manager](#release-manager) is assigned from the team.
 * The release manager [creates an issue](https://github.com/medic/cht-core/issues/new/choose) for either a [Major/Minor or Patch](#majorminorpatch-release) release and follows the process outlined in the issue template.
-* Code is built by a developer together with [quality assistance]({{% ref "community/code/quality-assistance" %}}).
-* [Code is reviewed]({{% ref "community/code/workflow#code-reviews" %}}).
+* Code is built by a developer together with [quality assistance]({{% ref "community/contributing/code/quality-assistance" %}}).
+* [Code is reviewed]({{% ref "community/contributing/code/workflow#code-reviews" %}}).
 * Code is merged.
 * Code is released.
 
@@ -63,4 +63,4 @@ Follow the [instructions in the readme](https://github.com/medic/cht-conf/#user-
 
 ## Android apps
 
-Follow the instructions in the [Android > Releasing]({{< ref "community/code/android/releasing" >}}) section.
+Follow the instructions in the [Android > Releasing]({{< ref "community/contributing/code/android/releasing" >}}) section.

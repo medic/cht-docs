@@ -1,7 +1,7 @@
 ---
 title: "CHT Technology Radars"
 linkTitle: "Tech radar"
-weight: 6
+weight: 100
 description: >
   CHT Technology Radars for contributors and implementers
 ---

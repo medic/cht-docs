@@ -1,5 +1,5 @@
 ---
-title: "Community"
+title: "Welcome to the community"
 linkTitle: "Community"
 weight: 8
 description: >
@@ -12,11 +12,11 @@ There are many ways to get involved! Do you want to...
 
 * **Contribute code?**
 
-   Start with our [first time contributors guide]({{% ref "community/code/first-time-contributors" %}})
+   Start with our [first time contributors guide]({{% ref "community/contributing/code" %}})
 
 * **Contribute documentation?**
 
-   Read up on our [docs site]({{% ref "community/docs" %}}) and [style guide]({{% ref "community/docs/style-guide" %}})
+   Read up on our [docs site]({{% ref "community/contributing/docs/workflow" %}}) and [style guide]({{% ref "community/contributing/docs/style-guide" %}})
 
 * **Build an app on top of the CHT?**
 
