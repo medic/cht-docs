@@ -1,3 +1,4 @@
+# Configuration
 baseURL = "https://docs.communityhealthtoolkit.org/"
 title = "Community Health Toolkit"
 
@@ -7,6 +8,9 @@ enableRobotsTXT = false
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
+
+enableEmoji = true
+hasCJKLanguage = true
 
 # Language settings
 contentDir = "content/en"

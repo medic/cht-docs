@@ -9,7 +9,6 @@ description: >
   Overview and reference for building CHT Applications
 ---
 
-
 This section provides an introduction to CHT Applications, provides some sample CHT Applications, and provides guides and reference materials for those wanting to build a CHT Application or deploy an existing one.
   
 

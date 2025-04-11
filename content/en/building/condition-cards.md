@@ -150,4 +150,4 @@ cht --url=https://<username>:<password>@localhost --accept-self-signed-certs com
 ```
 
 > [!NOTE] 
-> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
