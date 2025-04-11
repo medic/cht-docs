@@ -31,7 +31,7 @@ If you have never used `git` or GitHub, checkout the [Get started using GitHub i
 
 ## Development environment
 
-Now that you have an idea of what the CHT is and how code gets written, go set up your development environment.  Move carefully, being sure to follow the steps carefully.  If you get stuck here - or anywhere - [reach out on the forums](https://forum.communityhealthtoolkit.org/)!
+Now that you have an idea of what the CHT is and how code gets written, go set up [your development environment]({{% ref "community/code/core/dev-environment" %}}).  Move intentionally, being sure to follow each step carefully.  If you get stuck here - or anywhere - [reach out on the forums](https://forum.communityhealthtoolkit.org/)!
 
 Spend some time understanding how to start up and stop the development environment.  
 
@@ -43,5 +43,4 @@ Find an issue marked [Good first issue](https://github.com/medic/cht-core/issues
 
 ### Fork the CHT
 
-tk 
-
+tk For contributors that are no
