@@ -60,7 +60,7 @@ These apps store a user’s data locally on their device so that workflows can b
 
 ## Build once, deploy for everyone
 
-By design, CHT applications do not rely on proprietary hardware or operating systems. They can run on any device that health workers have -- whether it is basic phones (via SMS), smartphones, tablets, or computers. The same source code powers the experience, meaning that the app you see on your desktop is the same app you see on your mobile device. Having common code for all devices reduces the barriers for users, and makes the digital health toolks easier to maintain. 
+By design, CHT applications do not rely on proprietary hardware or operating systems. They can run on any device that health workers have -- whether it is basic phones (via SMS), smartphones, tablets, or computers. The same source code powers the experience, meaning that the app you see on your desktop is the same app you see on your mobile device. Having common code for all devices reduces the barriers for users, and makes the digital health toolks easier to maintain.
 
 Apps built with the Core Framework are fully responsive Progressive Web Applications (PWA). The app content will use the available screen space, showing a single-panel mobile layout for small screens on phones, and show a two-panel layout for larger devices like tablets, laptops, and desktop computers. As a PWA, CHT apps get the best of open web standards while also getting native-like capabilities to reach anyone, anywhere, on any device -- all with a single codebase. For more about how CHT Apps and other PWAs integrate the best of native apps and the open web, see the post [What are Progressive Web Apps?](https://web.dev/what-are-pwas/) on web.dev.
 
@@ -77,4 +77,4 @@ Users can currently interact with the app in English, French, Hindi, Nepali, Spa
 
 ## Example and reference apps
 
-The Community Health Toolkit’s [Example and Reference Apps]({{< ref "exploring" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.
+The Community Health Toolkit’s [Example and Reference Apps]({{< ref "reference-apps" >}}) provide organizations with a template for structuring and organizing a community health workflow, its configuration code, and testing framework. They include a foundation for forms, data fields, and even analytics, and can be deployed as-is or easily customized by a developer for your unique context.

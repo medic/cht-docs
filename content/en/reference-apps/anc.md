@@ -11,6 +11,7 @@ relatedContent: >
 aliases:
    - /apps/examples/anc
    - /building/examples/anc
+   - /exploring/anc
 ---
 
 {{% pageinfo %}}
@@ -19,7 +20,7 @@ This "reference application" for maternal and newborn health provides a template
 
 ## Problem Being Addressed
 
-Access to quality maternal and newborn care is the cornerstone of many community health programs. For many women living in communities at the last mile, pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health). There is a need for community health programs to support early pregnancy registration, consistent antenatal care (ANC) visits, and in-facility deliveries. In addition, the short time window following delivery for postnatal care (PNC) is a critical time for catching life-threatening danger signs for the new mother and baby. 
+Access to quality maternal and newborn care is the cornerstone of many community health programs. For many women living in communities at the last mile, pregnancy can be a [vulnerable time](https://www.who.int/health-topics/maternal-health). There is a need for community health programs to support early pregnancy registration, consistent antenatal care (ANC) visits, and in-facility deliveries. In addition, the short time window following delivery for postnatal care (PNC) is a critical time for catching life-threatening danger signs for the new mother and baby.
 
 ## Solution Overview
 
@@ -29,12 +30,12 @@ The maternal and newborn health workflow ensures that women receive the care tha
 - Provide a schedule for on-time ANC visits
 - Offer education for the mother at each stage of pregnancy
 - Screen for and report danger signs in the pregnant woman and newborn
-- Refer and encourage pregnant women to deliver at a facility 
+- Refer and encourage pregnant women to deliver at a facility
 - Ensure on-time PNC visits for mother and newborn
 
 ## Forms Hierarchy
 
-Once a [hierarchy]({{< relref "building/workflows/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either. 
+Once a [hierarchy]({{< relref "building/workflows/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either.
 
 {{< figure src="forms-hierarchy.png" link="forms-hierarchy.png" class="right col-12 col-lg-12" >}}
 
@@ -72,7 +73,7 @@ Both maternal and newborn care workflows are defined to connect form actions and
         resolution="CHW submits a *Danger Sign Follow-Up Form*, verifying that she called or visited the woman to confirm that she attended the facility. If this is not received, another *Danger Sign Follow-Up Task* is triggered."
   %}}
 {{< /workflow-table >}}
- 
+
 ### Delivery Workflow
 
 {{< workflow-table
@@ -103,5 +104,5 @@ Here are a few additional resources to help get you started with the maternal an
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-core/tree/master/config/default/)
 - Install the reference app following these [easy installation instructions]({{< ref "building/local-setup" >}})
-- Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}}) 
+- Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}})
 - Understand the basis for measuring the impact of maternal and newborn workflows by reviewing the World Health Organization's [Core Health Indicators](https://www.who.int/data/gho/data/indicators/indicators-index)

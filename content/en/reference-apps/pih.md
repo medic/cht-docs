@@ -4,10 +4,11 @@ linkTitle: "PIH Malawi"
 weight:
 description: >
   The YendaNafe app co-designed by PIH Malawi and Medic
-keywords:  
+keywords:
 aliases:
    - /apps/examples/pih
    - /building/examples/pih
+   - /exploring/pih
 ---
 
 {{% pageinfo %}}

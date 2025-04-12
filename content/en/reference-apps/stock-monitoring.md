@@ -1,13 +1,14 @@
 ---
 title: "Stock Monitoring"
 linkTitle: "Stock Monitoring"
-weight: 
+weight:
 description: >
   Guidance on design and development of stock monitoring workflows
 keywords: stock monitoring
 aliases:
    - /apps/examples/stock-monitoring
    - /building/examples/stock-monitoring
+   - /exploring/stock-monitoring
 ---
 
 ## Problem Being Addressed
@@ -16,7 +17,7 @@ Paper based commodity management systems are prone to errors due to reliance on 
 
 ## Solution Overview
 
-CHT stock monitoring apps can be configured to support community drug and commodity management among CHWs and their supervisors. The workflow can be designed to: 
+CHT stock monitoring apps can be configured to support community drug and commodity management among CHWs and their supervisors. The workflow can be designed to:
 * **Capture** stocks received from and returned to the health facility
 * **Provide** stock status of every commodity
 * **Automatically deduct** stocks when a CHW provides  treatment to the community members

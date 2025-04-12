@@ -6,7 +6,7 @@ description: >
    Best practices when using a Training App to keep training and production data apart
 relatedContent: >
   building/branding/android/
-  exploring/training/
+  reference-apps/training/
 aliases:
    - /building/guides/training/onboarding/
    - /apps/guides/training/onboarding/
@@ -23,12 +23,12 @@ A separate Android App can be created for training, which would point to a CHT i
 - **CHT Instance**: In your flavor's `res/values/strings.xml` file set the `app_host` string to be the URL of your training instance, as seen in the [Gamma Training app](https://github.com/medic/cht-android/blob/8d077ed08dc3889ef1f4e3bad7231931bca55d87/src/medicmobilegamma_training/res/values/strings.xml#L3). If left the same as the production app both training and production data will end up in your production instance.
 - **Launcher icons**: Consider using completely different icons, or at least change the color of the launcher icons.
 - **App name**: Provide a noticeably different name to the training app. Since app names are often cut short on Android devices, make the change at beginning of the text. For example, `CHW App [TRAINING VERSION]` may display as `CHW App...` so it would be better to use `[TRAINING] CHW App`. The app name is set in the flavor's `res/values/strings.xml` file, as seen in [the Gamma training app](https://github.com/medic/cht-android/blob/8d077ed08dc3889ef1f4e3bad7231931bca55d87/src/medicmobilegamma_training/res/values/strings.xml#L4).
-- **App ID**: If you want to allow both apps to be on a device at once you will need to make sure your training app has a different `applicationId`, as seen [in `build.gradle` for the Gamma training app](https://github.com/medic/cht-android/blob/8d077ed08dc3889ef1f4e3bad7231931bca55d87/build.gradle#L214). 
+- **App ID**: If you want to allow both apps to be on a device at once you will need to make sure your training app has a different `applicationId`, as seen [in `build.gradle` for the Gamma training app](https://github.com/medic/cht-android/blob/8d077ed08dc3889ef1f4e3bad7231931bca55d87/build.gradle#L214).
    {{% alert title="Note" %}}Keeping the `applicationId` values the same will make it impossible to have both the training and production apps installed at the same time on a device. If you have a way to install the production app after the training is complete then you may choose to do this to prevent users from using the wrong app.{{% /alert %}}
 
 ## Switching from training to production app
 
-To avoid having production data in the training app, it is encouraged to **remove** the training app from the device once training is complete. 
+To avoid having production data in the training app, it is encouraged to **remove** the training app from the device once training is complete.
 
 If the production app can always be installed after the use of the training is complete, then using the same `applicationId` guarantees that only one of the apps is installed at any given time.
 
