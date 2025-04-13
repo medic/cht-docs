@@ -8,6 +8,7 @@ description: >
 
 
 
+
 ## Quick Start
 
 ### Code
@@ -47,7 +48,88 @@ Over the years the process for writing the CHT has been codified in our [workflo
 
 A good rule of thumb is mimic the processes you see and the styles already present in the source code.
 
-If you have never used `git` or GitHub, checkout the [Get started using GitHub in less than an hour](https://github.com/skills/introduction-to-github) guide. This will help you set up a GitHub account which you'll need as well. If you haven't worked on a pull request before, check out [How to Contribute to an Open Source Project](https://egghead.io/lessons/javascript-introduction-to-github).
+If you have never used `git` or GitHub, checkout the [Get started using GitHub in less than an hour](https://github.com/skills/introduction-to-github) guide. This will help you set up a GitHub account which you'll need as well. If you haven't worked on a pull request before, check out [How to Contribute to an Open Source Project](https://egghead.io/lessons/javascript-introduction-to-github) and [How to Contribute to Open Source](https://firstcontributions.github.io/contribute-to-opensource/).
+
+### Your first issue
+
+Find an issue marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22). Feel free to pick an issue that looks easy for you! An easy looking issue will better set you up for successfully merging the code. Easy merges is our goal here!  
+
+Make a comment on the issue asking for the issue to be assigned to you.
+
+**Note** -  [Help Wanted](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Help%20Wanted%22) issues do not have the extra introduction that Good first issues have.  While you're welcome to work on them, they'll be more of a challenge for first time contributors that likely will want some guidance found in the Good first issues.
+
+### Fork the CHT
+
+Good work! if you've gotten this far you understand what the CHT is and you know how code is written for the CHT. Now it's time to set up your very own copy of the CHT, called a fork.  
+
+Follow these steps to set up a copy of the code ("fork") which you have on your computer ("git clone"). _If you're not comfortable with command line, [see tutorials using GUI tools.](#tutorials-using-other-tools)_
+
+
+If you do not have a Github account, [please create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
+
+
+1. Create a Fork
+
+    Fork this repository by clicking on the fork button on the top of this page.
+    This will create a copy of this repository in your account.
+
+2. Clone the repository
+
+    <img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/clone.png" alt="clone this repository" />
+    
+    Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button, then on SSH tab and then click the _copy to clipboard_ icon.
+    
+    Open a terminal and run the following git command:
+    
+    ```bash
+    git clone "url you just copied"
+    ```
+    <img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/copy-to-clipboard.png" alt="copy URL to clipboard" />
+
+    where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
+
+    &nbsp; &nbsp;  <!-- avoid having clone line obscured by screenshot -->
+
+    For example:
+    
+    ```bash
+    git clone git@github.com:this-is-you/cht-core.git
+    ```
+    
+    where `this-is-you` is your GitHub username. Here you're copying the contents of the first-contributions repository on GitHub to your computer.
+
+3.  Create a branch
+
+    Change to the repository directory on your computer (if you are not already there):
+    
+    ```bash
+    cd cht-core
+    ```
+    
+    Now create a branch using the `git switch` command:
+    
+    ```bash
+    git switch -c TICKET-NUMBER-your-new-branch-name
+    ```
+    
+    For example:
+    
+    ```bash
+    git switch -c 1234-add-alonzo-church
+    ```
+    
+    <details>
+    <summary> <strong>If you get any errors using git switch, click here:</strong> </summary>
+    
+    If the error message "Git: `switch` is not a git command. See `git –help`" appears, it's likely because you're using an older version of git.
+    
+    In this case, try to use `git checkout` instead:
+    
+    ```bash
+    git checkout -b your-new-branch-name
+    ```
+    
+    </details>
 
 ### Development environment
 
@@ -55,12 +137,75 @@ Now that you have an idea of what the CHT is and how code gets written, go set u
 
 Spend some time understanding how to start up and stop the development environment.
 
-### Your first issue
 
-Find an issue marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22). Feel free to pick an issue that looks easy!  Make a comment on the issue asking for the issue to be assigned to you.
+### Make necessary changes and commit those changes
 
-**Note** -  [Help Wanted](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Help%20Wanted%22) issues do not have the extra introduction that Good first issues have.  While you're welcome to work on them, they'll be more of a challenge for first time contributors that likely will want some guidance found in the Good first issues.
+Following the suggestions on the Good first issue, make the changes to the code.  Be sure the app still works and compiles with out errors.  
 
-#### Fork the CHT
+<img align="right" width="450" src="https://firstcontributions.github.io/assets/Readme/git-status.png" alt="git status" />
 
-tk, but likely copy over the content from this repo! https://github.com/firstcontributions/first-contributions - OH! Or just link to it? 🤔
+If you go to the project directory and execute the command `git status`, you'll see there are changes. In this example, the `Contributors.md` file has been modified
+
+Add any changes to the branch you just created using the `git add` command. In this example we're adding just one file, but you add multiple seperated by spaces:
+
+```bash
+git add Contributors.md
+```
+
+Now commit those changes using the `git commit` command. On your first commit, be sure reference the original ticket as shown with the `#1234` at the end:
+
+```bash
+git commit -m "Updating Contributors list per #1234"
+```
+
+### Push changes to GitHub
+
+Push your changes using the command `git push`:
+
+```bash
+git push -u origin your-branch-name
+```
+
+replacing `your-branch-name` with the name of the branch you created earlier.
+
+<details>
+<summary> <strong>If you get a `Authentication failed` error while pushing, click here:</strong> </summary>
+
+- ### Authentication Error
+     <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+  remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+  fatal: Authentication failed for 'https://github.com/<your-username>/first-contributions.git/'</pre>
+  Go to [GitHub's tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on generating and configuring an SSH key to your account.
+
+  Also, you might want to run 'git remote -v' to check your remote address.
+
+  If it looks anything like this:
+  <pre>origin	https://github.com/your-username/your_repo.git (fetch)
+  origin	https://github.com/your-username/your_repo.git (push)</pre>
+
+  change it using this command:
+  ```bash
+  git remote set-url origin git@github.com:your-username/your_repo.git
+  ```
+  Otherwise you'll still get prompted for username and password and get authentication error.
+</details>
+
+#### Submit your changes for review
+
+If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/compare-and-pull.png" alt="create a pull request" />
+
+Now submit the pull request.
+
+<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/submit-pull-request.png" alt="submit pull request" />
+
+Soon I'll be merging all your changes into the main branch of this project. You will get a notification email once the changes have been merged.
+
+Content from this section is taken from the [first-contributions](https://github.com/firstcontributions/first-contributions) which is under the [MIT License]({{% ref "./mit" %}}).
+
+#### Tutorials Using Other Tools
+
+| <a href="docs/gui-tool-tutorials/github-desktop-tutorial.md"><img alt="GitHub Desktop" src="https://desktop.github.com/images/desktop-icon.svg" width="100"></a> | <a href="docs/gui-tool-tutorials/github-windows-vs2017-tutorial.md"><img alt="Visual Studio 2017" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Visual_Studio_2017_Logo.svg" width="100"></a> | <a href="docs/gui-tool-tutorials/gitkraken-tutorial.md"><img alt="GitKraken" src="https://firstcontributions.github.io/assets/gui-tool-tutorials/gitkraken-tutorial/gk-icon.png" width="100"></a> | <a href="docs/gui-tool-tutorials/github-windows-vs-code-tutorial.md"><img alt="VS Code" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Visual_Studio_Code_1.35_icon.png" width=100></a> | <a href="docs/gui-tool-tutorials/sourcetree-macos-tutorial.md"><img alt="Sourcetree App" src="https://wac-cdn.atlassian.com/dam/jcr:81b15cde-be2e-4f4a-8af7-9436f4a1b431/Sourcetree-icon-blue.svg" width=100></a> | <a href="docs/gui-tool-tutorials/github-windows-intellij-tutorial.md"><img alt="IntelliJ IDEA" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/512px-IntelliJ_IDEA_Icon.svg.png" width=100></a> |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GitHub Desktop](docs/gui-tool-tutorials/github-desktop-tutorial.md)                                                                                             | [Visual Studio 2017](docs/gui-tool-tutorials/github-windows-vs2017-tutorial.md)                                                                                                                          | [GitKraken](docs/gui-tool-tutorials/gitkraken-tutorial.md)                                                                                                                                        | [Visual Studio Code](docs/gui-tool-tutorials/github-windows-vs-code-tutorial.md)                                                                                                                  | [Atlassian Sourcetree](docs/gui-tool-tutorials/sourcetree-macos-tutorial.md)                                                                                                                                      | [IntelliJ IDEA](docs/gui-tool-tutorials/github-windows-intellij-tutorial.md)                                                                                                                                                          |
