@@ -12,6 +12,7 @@ relatedContent: >
 aliases:
    - /apps/examples/supervisor-reference-app
    - /building/examples/supervisor-reference-app
+   - /exploring/supervisor-reference-app
 ---
 
 {{% pageinfo %}}

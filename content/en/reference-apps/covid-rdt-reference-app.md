@@ -1,7 +1,7 @@
 ---
 title: "COVID-19 Testing with Rapid Diagnostic Tests"
 linkTitle: "COVID-19 Testing"
-weight: 
+weight:
 description: >
  CHT example application that uses a third party app to capture the result of a Rapid Diagnostic Test
 relatedContent: >
@@ -11,6 +11,7 @@ relatedContent: >
 aliases:
    - /apps/examples/covid-rdt-reference-app
    - /building/examples/covid-rdt-reference-app
+   - /exploring/covid-rdt-reference-app
 ---
 
 Medic has worked with [FIND](https://www.finddx.org) to build a CHT reference application for COVID-19 point-of-care testing with Rapid Diagnostic Tests (RDT). Using the reference app as an example, CHT app developers can easily include the provisioning and capture of RDT in workflows. These workflows can include third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), that guide health workers through the use of the RDT.
@@ -19,7 +20,7 @@ You can find the code for this application in the [CHT Core repository on GitHub
 
 ## Problem Being Addressed
 
-The original call for proposals best describes why Medic created this app: 
+The original call for proposals best describes why Medic created this app:
 
 > FIND is working towards supporting countries in implementing an effective test-trace-isolate response using digital tools. To this end, FIND is looking to partner with leading digital solution providers to accelerate the development and deployment of a set of minimum functionalities for the collection of COVID RDT data and supporting incorporation of these functionalities into existing digital tools for use in low- and middle-income country settings.
 
@@ -27,50 +28,50 @@ The original call for proposals best describes why Medic created this app:
 
 This reference app provides a base layer of functionality that you can easily customize to meet the needs of your health program.  Specifically, this application has examples of:
 
- * Provisioning COVID-19 RDT tests 
+ * Provisioning COVID-19 RDT tests
  * Capturing COVID-19 RDT results
  * Storing all RDT data, including pictures, in the CHT
  * Best practices for RDT workflows in the CHT
- 
+
 Your instance of CHT needs to be on v3.13+ which has features developed to support this reference application, including:
- 
+
   * **Display Base64 Image** - show ASCII encoded images inline
   * **Android App Launcher** - integrate with third party apps like the RD-Toolkit
   * **Parse Timestamp to Date** -  convert epoch time stamps (`1628945040308`) to your desired format (`Sun Mar 19 13:25:08`).
-  
+
 For more information on these features, see the ["Related Content"](#related-content).
 
-Additional requirements for this application beyond CHT 3.13, include [CHT Android 0.10.0](https://github.com/medic/cht-android) or later and Dimagi's [RD-Toolkit 0.9.8](https://github.com/dimagi/rd-toolkit/) or later. 
+Additional requirements for this application beyond CHT 3.13, include [CHT Android 0.10.0](https://github.com/medic/cht-android) or later and Dimagi's [RD-Toolkit 0.9.8](https://github.com/dimagi/rd-toolkit/) or later.
 
-While this application calls the RD-Toolkit, the integration features in the CHT Core and CHT Android are generic.  This means you could use a different RDT Android application if you prefer. Beyond the scope of RDTs, you could use this integration feature to launch any other Android app to perform an action and save the result in the CHT. To read more about this feature, see the [Android App Launcher section in the Forms reference documentation]({{< ref "building/forms/app#android-app-launcher" >}}). 
+While this application calls the RD-Toolkit, the integration features in the CHT Core and CHT Android are generic.  This means you could use a different RDT Android application if you prefer. Beyond the scope of RDTs, you could use this integration feature to launch any other Android app to perform an action and save the result in the CHT. To read more about this feature, see the [Android App Launcher section in the Forms reference documentation]({{< ref "building/forms/app#android-app-launcher" >}}).
 
 ## Workflow
 
 There are three main components to this application:
  * The CHT forms to provision and capture RDTs (Green)
  * Using a third-party app to use an RDT (Yellow)
- * Tasks to remind CHWs to complete an RDT that has been started (Blue) 
+ * Tasks to remind CHWs to complete an RDT that has been started (Blue)
 
 {{< figure src="flow.png" link="flow.png" class="right col-12 col-lg-12" >}}
 
 ## Training Materials
 
-Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "exploring/covid-education" >}}) if needed. As well, the RD-Toolkit has in app instructions for how to use specific RDTs.  
+Medic is providing images and videos for use in training CHWs on how to use the CHT with the RD-Toolkit. These could be combined with existing in [app training]({{< ref "reference-apps/covid-education" >}}) if needed. As well, the RD-Toolkit has in app instructions for how to use specific RDTs.
 
 ### Images
 
-27 high resolutions images taken from a demonstration CHW device are [available for download](CHT.COVID-19.RDT.Images.zip). These cover the entire usage of the reference app.  
+27 high resolutions images taken from a demonstration CHW device are [available for download](CHT.COVID-19.RDT.Images.zip). These cover the entire usage of the reference app.
 
 ### Videos
 
 Provided here are two videos of the Provision and Capture forms in the COVID-19 application.
 
-#### Provision 
+#### Provision
 
 This first video shows the left side of the workflow above to provision an RDT for a patient.  The CHW is shown finding Jessica Whitehouse's contact and choosing a new action of "RDT Covid-19 - Provision".  The CHW then does pre-test set up, checking Jessica's symptoms and location and confirming the test method and lot information. You can see the CHW launching the RD-Toolkit, reading the instructions and then, starting the session and timer.  With the RD-Toolkit sending back all the information to the CHT, a task "Capture Covid-19 RDT" can be seen in the CHT for the CHW to follow up on when the RD-Timer has completed. The last part of the video shows the completed provision report in the CHT:
 
-<!-- 
-  use raw HTML for now as hugo youtube short codes show 16:9 ration 
+<!--
+  use raw HTML for now as hugo youtube short codes show 16:9 ration
   box instead of mobile portrait ~9:16
 -->
 <iframe id="ytplayer" type="text/html" width="342" height="610" src="https://www.youtube.com/embed/3o5d7p9O9OE" frameborder="0"></iframe>
@@ -79,8 +80,8 @@ This first video shows the left side of the workflow above to provision an RDT f
 
 This second video shows the right side of the workflow above to capture RDT results for a patient.  The CHW is shown viewing the "Capture Covid-19 RDT" task after the 15 minute timer from the RD-Toolkit app has completed. After selecting the task, the CHW is brought to the CHT form which has the session information for the RD-Toolkit already loaded.  The test results are recorded and then returned to the CHT from the RD-Toolkit. The last part of the video shows the completed capture report in the CHT, including the result and image of the RDT:
 
-<!-- 
-  use raw HTML for now as hugo youtube short codes show 16:9 ration 
+<!--
+  use raw HTML for now as hugo youtube short codes show 16:9 ration
   box instead of mobile portrait ~9:16
 -->
 <iframe id="ytplayer" type="text/html" width="342" height="610" src="https://www.youtube.com/embed/gpExUOJ6eQ0" frameborder="0"></iframe>
@@ -90,10 +91,10 @@ This second video shows the right side of the workflow above to capture RDT resu
 Like all applications written for the CHT, there are built-in mechanisms to retrieve raw and aggregate data to generate reports and dashboards. Here are some ways that the data can be accessed:
 
  * **[In app targets]({{< ref "building/targets/targets-overview" >}}):** Gives the CHW or their supervisor an aggregate view of any of the form fields. Since targets rely on the data on the device, if targets include data from other users then permissions must be set on the relevant forms so that the data can be replicated and synchronized accordingly.
- * **API Calls:** Given that all form submissions are captured in JSON and that we know the data model well, you can easily do API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports]({{< ref "building/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "building/reference/api#get-apiv2monitoring" >}}). 
- * **[PostgreSQL queries](https://github.com/medic/cht-sync):** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched near real time from the CHT. 
+ * **API Calls:** Given that all form submissions are captured in JSON and that we know the data model well, you can easily do API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports]({{< ref "building/reference/api#get-apiv2exportreports" >}}) as well as [monitoring metadata]({{< ref "building/reference/api#get-apiv2monitoring" >}}).
+ * **[PostgreSQL queries](https://github.com/medic/cht-sync):** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched near real time from the CHT.
  * **Dashboards:** Medic has used both [Klipfolio](https://www.klipfolio.com/) and, more recently, [Superset](https://superset.incubator.apache.org/) to create more complex yet still user-friendly dashboards. This is particular useful for those who need to view the data but wouldn't otherwise be logging in to CHT apps. These dashboards generally access the relational data in the Postgres database as the back end.
-  * **Third-Party Applications:** Connecting to third-party applications can be done using built-in [integrations]({{< ref "building/integrations" >}}), or building a workflow with [custom integrations]({{< ref "building/integrations/custom" >}}). 
+  * **Third-Party Applications:** Connecting to third-party applications can be done using built-in [integrations]({{< ref "building/integrations" >}}), or building a workflow with [custom integrations]({{< ref "building/integrations/custom" >}}).
 
 
 ### Sample API call
@@ -131,7 +132,7 @@ curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filt
 
 ### Base64 image extraction
 
-To extract the binary image from the ASCII value in a report, you can view it in the CHT or you can use a script to do so.  Here's an example of using Bash utilities (`sed`, `cut`, `tr` and `base64`) in Linux to loop over each line of the `output.csv` file from [the above call](#sample-api-call) to reports API. This results in numbered binary image files called `imageNUMBER.jpg` for each line in the export: 
+To extract the binary image from the ASCII value in a report, you can view it in the CHT or you can use a script to do so.  Here's an example of using Bash utilities (`sed`, `cut`, `tr` and `base64`) in Linux to loop over each line of the `output.csv` file from [the above call](#sample-api-call) to reports API. This results in numbered binary image files called `imageNUMBER.jpg` for each line in the export:
 
 ```shell
 i=1 n=0
@@ -164,7 +165,7 @@ These are the files in the COVID-19 app where you'll want to focus your customiz
 ├── tasks.js
 ```
 
-The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms (`xlsx`, `xml` and `properties.json`) represent the provision and capture portions of the forms.  The tasks that get created are defined in `tasks.js`.  Not shown are standard contact definitions in `forms/contact/*` as well as supporting configurations for icons and other CHT application settings.  
+The `forms/app/covid19_rdt_provision` and `forms/app/covid19_rdt_capture` forms (`xlsx`, `xml` and `properties.json`) represent the provision and capture portions of the forms.  The tasks that get created are defined in `tasks.js`.  Not shown are standard contact definitions in `forms/contact/*` as well as supporting configurations for icons and other CHT application settings.
 
 To read more about how these files all work together, see [app forms]({{< ref "building/forms/app" >}}), [contact forms]({{< ref "building/forms/contact" >}}), and [task]({{< ref "building/tasks/tasks-js" >}}) reference documentation
 
@@ -172,7 +173,7 @@ To read more about how these files all work together, see [app forms]({{< ref "b
 
 While likely too verbose for humans to read, these unredacted sample JSON documents from the COVID-19 application can be used for reference to know where to find fields when querying the CHT API or Postgres.
 
-### Provision 
+### Provision
 
 ```json
 {
@@ -344,10 +345,10 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 }
 ```
 
-### Capture 
+### Capture
 
 {{% alert title="Note" %}}The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).{{% /alert %}}
- 
+
 
 ```json
 {

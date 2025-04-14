@@ -4,7 +4,7 @@ linkTitle: "Access"
 weight: 1
 description: >
   Starting up a digital health app
-  
+
 aliases:
    - /apps/concepts/access
 ---
@@ -28,7 +28,7 @@ The app also runs with an app on Android phones and tablets. It works best on de
 
 ### Downloading and Launching
 
-To download your app on a mobile device, first navigate to the Google Play Store. From there, click on the search icon in the upper right, and type in the custom name of your health app or project. Make sure the app shown is the correct one and then select it. Then, click on the “Install” button to begin the download. 
+To download your app on a mobile device, first navigate to the Google Play Store. From there, click on the search icon in the upper right, and type in the custom name of your health app or project. Make sure the app shown is the correct one and then select it. Then, click on the “Install” button to begin the download.
 
 Once the download is complete, you can access your app via an app icon in your applications menu. Note that the icon, as well as the app name displayed, is customizable by the organization or project.
 
@@ -45,7 +45,7 @@ Once the download is complete, you can access your app via an app icon in your a
 
 When accessing your app for the very first time, a login page is displayed. Users enter a username and password that grant access to their customized app experience.
 
-On mobile devices, the app generally stays logged in after initial setup so that CHW users don’t have to type in their credentials each day. 
+On mobile devices, the app generally stays logged in after initial setup so that CHW users don’t have to type in their credentials each day.
 
 On desktop devices, the user must login again if they close the app tab or browser window.
 
@@ -65,7 +65,7 @@ To enhance the security of CHT applications, users logging in for the first time
 
 {{< figure src="password-change.png" link="password-change.png" class="col-12 col-lg-12" >}}
 
-This feature is enabled by default because it encourages best practices. However, only new users will be prompted to go through this flow or those users whose passwords have been reset by the system administration. 
+This feature is enabled by default because it encourages best practices. However, only new users will be prompted to go through this flow or those users whose passwords have been reset by the system administration.
 Projects can disable this feature by enabling the `can_skip_password_change` [permission]( {{< ref "building/reference/app-settings/user-permissions#system-defined-permissions" >}}). This permission is a [feature flag]({{< relref "building/guides/updates/feature-flags" >}}) and will be removed in a later CHT release.
 
 Subsequent logins won’t require a password change – if the app closes before changing the password, the user will be prompted again when they reopen it. If a user is unable to update their password, they won’t be able to access the app.
@@ -75,11 +75,11 @@ Subsequent logins won’t require a password change – if the app closes before
 
 {{< figure src="enable.token.login.gif" alt="Animated image showing the 'Enable login via SMS link' check box being clicked and 'password' and 'confirm password' fields being hidden" class="right col-6 col-lg-9" >}}
 
-When creating users, the admin has the option to enable a user to login in by simply clicking a link sent via SMS. When the token login link is clicked and the app is not installed on the user's phone, it will open in their default browser. If no gateway is set up on the CHT server, the message may be sent via another messaging app. The link is only valid for 24 hours and can only be used once to log in. This ensures the link is used only by the intended recipient. By clicking the magic link, the user is logged into their project's instance directly, bypassing the need to manually enter a username and password.  
+When creating users, the admin has the option to enable a user to login in by simply clicking a link sent via SMS. When the token login link is clicked and the app is not installed on the user's phone, it will open in their default browser. If no gateway is set up on the CHT server, the message may be sent via another messaging app. The link is only valid for 24 hours and can only be used once to log in. This ensures the link is used only by the intended recipient. By clicking the magic link, the user is logged into their project's instance directly, bypassing the need to manually enter a username and password.
 
 With token login, the password is never known by the admin or the user because the password is changed to a random string after every successful token login. If the user needs to login again, they need to contact the admin so that the admin can either send a new magic link or switch their account back to using a manual login and password.
 
-{{< see-also page="exploring/training" >}}
+{{< see-also page="reference-apps/training" >}}
 {{< see-also page="building/reference/app-settings/token_login" >}}
 
 

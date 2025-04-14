@@ -1,16 +1,17 @@
 ---
 title: "Event Based Surveillance"
 linkTitle: "Event Based Surveillance"
-weight: 
+weight:
 description: >
   Capturing information about community events that are a risk to public health
-keywords: EBS 
+keywords: EBS
 aliases:
    - /apps/examples/ebs
    - /building/examples/ebs
+   - /exploring/ebs
 ---
 
-The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture of information about community events that are a potential risk to public health. Deployed at the community level, this functionality is designed to: 
+The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture of information about community events that are a potential risk to public health. Deployed at the community level, this functionality is designed to:
 
 * Achieve earliest possible detection of COVID-19 cases in communities
 * Provide visibility into signals, reports, and investigations centrally for follow-up
@@ -18,7 +19,7 @@ The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture o
 
 ## Problem Being Addressed
 
-Patient reporting through traditional primary health care channels is not well suited for detecting rapidly spreading outbreaks at a community scale. Timely detection of outbreaks and important public health events can be delayed or missed when relying on individual patient data and traditional health management information systems. 
+Patient reporting through traditional primary health care channels is not well suited for detecting rapidly spreading outbreaks at a community scale. Timely detection of outbreaks and important public health events can be delayed or missed when relying on individual patient data and traditional health management information systems.
 
 ## Solution Overview
 

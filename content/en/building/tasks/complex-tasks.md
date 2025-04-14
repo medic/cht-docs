@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/tasks/simple-tasks
   building/tasks/tasks-js
-  exploring/anc
+  reference-apps/anc
 aliases:
    - /building/tutorials/tasks-2
    - /apps/tutorials/tasks-2
@@ -25,11 +25,11 @@ Tasks prompt users to complete activities on a programmatic schedule. This tutor
 ## Prerequisites
 
 * [Building a simple task]({{< ref "building/tasks/simple-tasks" >}})
-* [Maternal and Newborn Health Reference App]({{< ref "exploring/anc" >}})
+* [Maternal and Newborn Health Reference App]({{< ref "reference-apps/anc" >}})
 
 ## Scenario
 
-This scenario is loosely based on the _Pregnancy Visit Task_ from the [Maternal and Newborn Health Reference App]({{< ref "exploring/anc" >}}). 
+This scenario is loosely based on the _Pregnancy Visit Task_ from the [Maternal and Newborn Health Reference App]({{< ref "reference-apps/anc" >}}).
 
 We expectations for the task are:
 
@@ -67,7 +67,7 @@ module.exports = {
       const mostRecentPregnancy = Utils.getMostRecentReport(contact.reports, 'pregnancy');
       const calculatedLmp = mostRecentPregnancy && Utils.getField(mostRecentPregnancy, 'g_details.estimated_lmp');
       this.lmp = calculatedLmp && DateTime.fromFormat(calculatedLmp, 'yyyy-MM-dd');
-      
+
       return this.lmp && this.lmp.isValid;
     }
   },
@@ -124,7 +124,7 @@ We're using the `this.lmp` value which was calculated and saved in the `appliesI
 4. A pregnancy visit should be skipped if an _assessment followup_ is completed within the scheduled window for the pregancy visit.
 ```
 
-`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "building/tasks/tasks-js#default-resolvedif-method" >}}). 
+`resolvedIf` captures the conditions when the task event should disappear because it has been _completed_. Since we want the task schedule to appear if the user completes an _assessment followup_ or the _pnc followup_, we can't use the [default resolvedIf definition]({{< ref "building/tasks/tasks-js#default-resolvedif-method" >}}).
 
 This function calculates timestamps for the start and end of each event. Then, it uses the [Utils helper library]({{< ref "building/reference/_partial_utils" >}}) to see if _either_ a _pnc_ or an _assessment_ followup is present within those timestamps.
 
