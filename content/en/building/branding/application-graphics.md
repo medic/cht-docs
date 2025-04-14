@@ -12,12 +12,9 @@ aliases:
    - /building/tutorials/application-graphics
 ---
 
- 
 This tutorial will take you through customising some graphical elements of CHT core.
 
 You will cover site branding, partner logos, header tab icons, and app icons (used in tasks, targets, and contacts).
-
-  
 
 ## Required Resources
 

@@ -12,14 +12,11 @@ aliases:
    - /apps/tutorials/contact-summary
 ---
 
- 
 This tutorial will take you through building a contact summary for CHT applications.
 
 Contact summaries display basic information about the contact.
 
 You will be adding a contact summary that displays information about a person's *patient id*, *age*, *sex*, *phone number*, and information about the place they belong to ie. *parent*.
-
-  
 
 ## Brief Overview of Key Concepts
 

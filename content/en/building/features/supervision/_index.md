@@ -89,10 +89,8 @@ Filtering the Aggregate Targets by **Reporting Period** adds the name of the pre
 
 The CHT can be configured to create [Tasks]({{< relref "building/tasks" >}}) for Supervisors to help plan their performance management reviews. Tasks can be generated based on routine CHW supervision interactions, or data-driven based on specific events (e.g. to follow up with health workers whom haven’t submitted any forms in x period of time). Using Supervisor tasks to ensure that the right actions are taken for the right CHWs at the right time strengthens supervisory program design through routine assessments and timely feedback.
 
- 
 ### Deployment Case Study
 [Muso](https://www.musohealth.org), a leading community health organization and major contributor to the CHT, has implemented ”360º supervision”, achieving some of the lowest child mortality rates in sub-Saharan Africa. This model provides dedicated mentorship and supportive supervision to CHWs tailored to each CHW's particular strengths and challenges. A key theme of our human-centered approach was the idea of using data to improve one-to-one supervision, rather than using analytics to replace Supervisors. Read more about findings from a recent [randomized controlled trial](https://medic.org/stories/new-study-precision-supervision-and-personalized-feedback-dashboards-improve-chw-performance-in-mali/).
-  
 
 ## User Management
 Supervisors are able to set up users in the CHT without contacting a system administrator. They can **create** new CHW user accounts or **replace** CHWs on an existing device.

@@ -12,7 +12,7 @@ aliases:
    - /building/guides/android/branding/
 ---
 
- 
+
 This tutorial will take you through building a CHT Android Application off the existing wrapper.
 
 The CHT Android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
