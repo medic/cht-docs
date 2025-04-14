@@ -73,8 +73,7 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 ![](menu.png)
 ![](images.png)
 
-> [!NOTE]
-> [!NOTE]If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
+> [!NOTE] If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
 
 ### 2. Partner logos
 
