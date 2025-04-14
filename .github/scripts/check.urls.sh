@@ -17,8 +17,8 @@ check_meta_refresh() {
         local redirect_response_code
         redirect_url=$(echo "$html_content" | sed -n 's/.*url=\([^"]*\).*/\1/p')
         redirect_response_code=$(get_response_code "$redirect_url")
-        echo "${url} Is redirected! Result is:" >&2
-        echo "    -> $redirect_url $redirect_response_code " >&2
+        echo "${url} Is redirected! Result is:"
+        echo "    -> $redirect_url $redirect_response_code "
     fi
 }
 
@@ -42,12 +42,6 @@ run_checks(){
             check_meta_refresh "$html_content" "$url"
         fi
     done <<< "$prod_urls"
-}
-
-check_urls() {
-    local urls=$1
-    echo "Checking URLs, be patient. Any non-200 URLs or redirects will be listed here:"
-    run_checks "$urls"
 }
 
 get_urls_from_prod_site_map(){
