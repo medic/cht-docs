@@ -84,6 +84,10 @@ levenshteinEq(current.name, existing.name, 3) && ageInYears(current) === ageInYe
 
 This expression will consider contacts to be duplicate if the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between the two names is less than or equal to 3 (meaning the names are very similar or exactly the same) and (for persons) if the contacts have the same age (in years). 
 
+When designing custom duplicate check expressions, consider how the contact data collected might evolve over time. If properties are added/removed/renamed on the contact doc, your duplicate expression logic will need to account for this if it references these properties (e.g. support for falling-back to older properties to ensure broader compatibility).
+
+Always consider the nature and quality of your data. As data quality improves (e.g., consistent naming conventions), duplicate check expressions for some contact types can be refined to reduce both false positives and false negatives.
+
 ##### Customizing the duplicate contact error message
 
 The default message shown to the user when a duplicate contact is found [can be modified]({{< ref "building/translations/overview" >}}) by adding a custom translation for the `duplicate_check.contact.duplication_message` key.
