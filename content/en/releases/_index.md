@@ -1,6 +1,6 @@
 ---
 title: "Releases"
-linkTitle: "Core Framework"
+linkTitle: "Releases"
 weight: 11
 description: >
   Versions currently supported, dependencies, and release notes for the CHT Core Framework
