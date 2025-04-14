@@ -66,7 +66,7 @@ then
     echo;echo "Fetching URLs from production."
     prod_urls=$(get_urls_from_prod_site_map)
     url_count=$(echo "$prod_urls" | tr -cd '\n' | wc -l | tr -d ' ')
-    echo "Found ${url_count} URLs to check."
+    echo "Found ${url_count} URLs to check, be patient. Any non 200 URLs will be listed here:"
     run_checks "$prod_urls"
     echo "Successfully checked ${url_count} URLs!"
 fi
