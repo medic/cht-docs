@@ -50,12 +50,70 @@ The `parent`, `type`, and `name` fields are mandatory on forms that are adding c
 
 The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where CONTACT_TYPE_ID is the contact_type id for the contact and ACTION is `create` or `edit`. (e.g. `contact:clinic:create`)
 
-### Properties
+## Properties
 
-Starting in cht-core release 3.10, we can now configure property files in contact create forms to show or hide them based on an expression or permission as specified in the [app form schema]({{< ref "building/forms/app#formsappform_namepropertiesjson" >}}). Note: this applies only to the create form, not the contacts themselves.
+The meta information in the `{contact_type_id}-{create|edit}.properties.json` file defines additional configuration controlling when the form is available and checks that will be performed when submitting the form.
 
-> [!NOTE]
-> The form expression for contact forms will only have access to `user` data. The `contact` and `summary` data are [not currently available](https://github.com/medic/cht-core/issues/6612). 
+### `forms/contact/{contact_type_id}-{create|edit}.properties.json`
+
+| Property                     | Description                                                                                                                                                                                                                                           | required |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `context`                    | _Added in `3.10`._ The contact form context defines when the form should be available in the app. Note: this applies only to the contact form, not the contacts themselves.                                                                           | no       |
+| `context.expression`         | A JavaScript expression evaluated when a contact profile is viewed. This can limit which users have access to the contact form. [See below]({{< relref "#context-expression" >}}) for more details.                                                   | no       |
+| `context.permission`         | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access.                                                                                                                        | no       |
+| `duplicate_check`            | _Added in `4.19`._ Allows for configuring or disabling the [duplicate detection logic]({{< ref "building/contact-management/contacts#duplicate-contact-detection" >}}) for a particular contact type.                                                 | no       |
+| `duplicate_check.expression` | A JavaScript expression evaluated when submitting the contact form. The expression defines the logic used for determining when a contact is considered to be a duplicate. [See below]({{< relref "#duplicate-check-expression" >}}) for more details. | no       |
+| `duplicate_check.disabled`   | Boolean determining if the duplicate check should be run when submitting this contact form. Default is `false`.                                                                                                                                       | no       |
+
+#### Context Expression
+
+The contact form context expression can be used to limit which users have access to the contact form. If the expression evaluates to `true`, the form will be listed as an available action on the proper contact profiles. 
+
+In the expression, the `user` input is available. (Note that unlike in the [app form expressions]({{< ref "building/forms/app#formsappform_namepropertiesjson" >}}), the `contact` and `summary` inputs are [not currently available](https://github.com/medic/cht-core/issues/6612) for contact form expressions.)
+
+#### Duplicate Check Expression
+
+The duplicate check expression is a boolean check executed against each of the _sibling contacts_ of the contact being created/modified. "Sibling contacts" are contacts of the same type that share the same parent contact. When the expression evaluates to `true`, the contact being created/edited will be considered a duplicate of the existing sibling.
+
+In the expression, both the `current` contact doc (the contact currently being created/edited) and the `existing` sibling contact doc are available. The default duplicate expression is:
+
+```js
+levenshteinEq(current.name, existing.name, 3) && ageInYears(current) === ageInYears(existing)
+```
+
+This expression will consider contacts to be duplicate if the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between the two names is less than or equal to 3 (meaning the names are very similar or exactly the same) and (for persons) if the contacts have the same age (in years). 
+
+When designing custom duplicate check expressions, consider how the contact data collected might evolve over time. If properties are added/removed/renamed on the contact doc, your duplicate expression logic will need to account for this if it references these properties (e.g. support for falling-back to older properties to ensure broader compatibility).
+
+Always consider the nature and quality of your data. As data quality improves (e.g., consistent naming conventions), duplicate check expressions for some contact types can be refined to reduce both false positives and false negatives.
+
+##### Customizing the duplicate contact error message
+
+The default message shown to the user when a duplicate contact is found [can be modified]({{< ref "building/translations/overview" >}}) by adding a custom translation for the `duplicate_check.contact.duplication_message` key.
+
+Additionally, different messages can be shown for different contact types by setting `duplicate_check.contact.${contact_type_id}.duplication_message` keys. This can be useful if you want to prompt the user with the likely reason the duplicate contacts matched based on your custom duplicate check expression logic.
+
+#### Expression functions
+
+{{< read-content file="_partial_expression_functions.md" >}}
+
+### Code sample
+
+In this sample properties file, the person create form would only be accessible for CHW Supervisors with the `can_export_contacts` permission. Additionally, a new person should not have the exact same name as an existing sibling contact.
+
+#### `forms/contact/person-create.properties.json`
+
+```json
+{
+  "context": {
+    "expression": "user.role === 'chw_supervisor'",
+    "permission": "can_export_contacts"
+  },
+  "duplicate_check": {
+    "expression": "current.name === existing.name"
+  }
+}
+```
 
 ## Generic contact forms
 
