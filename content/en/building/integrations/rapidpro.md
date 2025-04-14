@@ -4,38 +4,38 @@ linkTitle: "RapidPro"
 weight: 6
 description: >
   Integrate interactive messaging conversations into CHT workflows
-keywords: rapidpro 
+keywords: rapidpro
 aliases:
   - /apps/guides/integrations/best-practices/rapidpro
-  - /apps/guides/integrations/rapidpro/ 
-  - /building/guides/integrations/rapidpro/ 
+  - /apps/guides/integrations/rapidpro/
+  - /building/guides/integrations/rapidpro/
   - /apps/features/integrations/rapidpro/
   - /building/features/integrations/rapidpro/
 ---
 
 [RapidPro](https://app.rapidpro.io/) is the open-source platform that powers [TextIt](https://textit.com/), developed by UNICEF and Nyaruka. RapidPro allows you to visually build messaging workflows for mobile-based services. The flows support a variety of technologies such as: SMS, USSD, IVR, Telegram, Facebook Messenger, and WhatsApp. Review RapidPro’s documentation to familiarize yourself with various components that include the [API](https://rapidpro.io/api/v2/). Before you embark on designing an integrated RapidPro/CHT workflow, you should start by understanding the needs of your users, identifying a problem to solve, and establishing goals. While an integrated RapidPro/CHT workflow can open up many powerful and personalized messaging capabilities, introducing an additional technology solution does come with complexities and cost. A good way to mitigate some of the complexities of setting up and [hosting](https://rapidpro.github.io/rapidpro/docs/hosting/) RapidPro yourself is to utilize a SaaS solution such as [TextIt](https://textit.in/). TextIt offers transparent per message [pricing](https://textit.com/pricing) and free credits to start off.
 
-To learn more about the platform, check out RapidPro on [GitHub](https://rapidpro.github.io/rapidpro/) or join their Google [Group](https://groups.google.com/g/rapidpro). 
+To learn more about the platform, check out RapidPro on [GitHub](https://rapidpro.github.io/rapidpro/) or join their Google [Group](https://groups.google.com/g/rapidpro).
 
 Coming up with a design to accommodate user needs requires a detailed understanding of the capabilities of both systems and conceptually where it makes sense to introduce interactions between them. Below we introduce some of the key concepts in RapidPro, but to learn more you can have a look at their [documentation](https://rapidpro.github.io/rapidpro/docs/).
 
 ## Overview
-CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/messaging" >}}) from the Messages tab. 
+CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/messaging" >}}) from the Messages tab.
 
 For more complex messaging workflows or to utilize other messaging platforms, you can design workflows that leverage the functionality of RapidPro and the CHT together. This enables semi-automated, direct to patient approaches to health assessments and care coordination at the community level.
 
 ## Workflows
 Integrated RapidPro/CHT workflows are very flexible and leverage the full functionality of each application; You configure RapidPro directly in RapidPro, and configure the CHT in the CHT and the two systems communicate with each other through APIs and [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}). With this architecture, you are not limited to a subset of functionality within either application.
 
-A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task]({{< ref "building/tasks" >}}) for a health worker in the CHT based on the patient responses from the RapidPro flow. 
+A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task]({{< ref "building/tasks" >}}) for a health worker in the CHT based on the patient responses from the RapidPro flow.
 
 App builders have built and deployed a number of interactive messaging workflows that integrate RapidPro and the CHT already, see below for a few examples.
 
 ### Contact Tracing
-The [COVID-19 Contact Tracing app]({{< ref "exploring/contact-tracing#workflow-example" >}}) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
+The [COVID-19 Contact Tracing app]({{< ref "reference-apps/contact-tracing#workflow-example" >}}) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
 
 ### Remote Training
-The [Remote Training by SMS app]({{< ref "exploring/training#remote-training-by-sms" >}}) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
+The [Remote Training by SMS app]({{< ref "reference-apps/training#remote-training-by-sms" >}}) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
 
 ### CHW Symptom and Mental Health Checks
 The [CHW Symptom and Mental Health Checks app](https://docs.google.com/document/d/19F6vOCNFKQnSyREiaBnryUmre20s5QZzYe0hWuWn-0k/edit) is used to proactively check in with health workers to screen for COVID-19 symptoms and/or the need for psychosocial counseling.
@@ -85,18 +85,18 @@ Designing an integrated workflow between multiple systems is more of an art than
 
 
 ### Sequence Diagrams
-A *sequence diagram* will help you identify the various actors in a given workflow and what the flow of data will look like. Below is an overview and example diagram for a patient initiated triage and feedback workflow. 
+A *sequence diagram* will help you identify the various actors in a given workflow and what the flow of data will look like. Below is an overview and example diagram for a patient initiated triage and feedback workflow.
 
 1. Patient triggers a RapidPro flow by sending a message to a short code
 2. Using the phone number of the patient, RapidPro requests information from the CHT
 3. The CHT responds with the patient's name and other details
-4. RapidPro sends personalized messages to conduct triage for the patient 
+4. RapidPro sends personalized messages to conduct triage for the patient
 5. RapidPro determines the outcome
 6. RapidPro sends the outcome to the patient via SMS and posts the results to the CHT
 7. If the patient needs to be followed-up with, the CHT creates a task for the appropriate CHW
 8. Once the CHW completes that task, the CHT initiates the Feedback Flow in RapidPro
 9. RapidPro logic records feedback via SMS from the patient
-10. The results of the feedback flow are saved in the CHT 
+10. The results of the feedback flow are saved in the CHT
 
 ![Sequence](sequence-diagram.png)
 
@@ -121,7 +121,7 @@ Once you have configured a Global value, you can easily use it in your flows lik
 
 ### Start RapidPro Flow from CHT
 
-One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "building/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro. 
+One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "building/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro.
 
 Below is an example `outbound` config in the CHT called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where `symptom = no`. It will also pass an extra date value for `self_quarantine_enrollment`.
 
@@ -166,7 +166,7 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 |1|CHT| Configure a [JSON Form]({{< ref "building/reference/app-settings/forms" >}}) that includes the fields from RapidPro you want to send to the CHT.|
 |2|RapidPro|Add a *Call a Webhook* node.|
 |3|RapidPro|`POST` to the [records endpoint]({{< ref "building/reference/api#post-apiv2records" >}}) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
-|4|RapidPro|Set a `Result Name`| 
+|4|RapidPro|Set a `Result Name`|
 |5|RapidPro|Configure HTTP Headers to be `Content-Type` -> `application/json`|
 |6|RapidPro|Configure the `POST Body` (see example below)|
 
@@ -186,7 +186,7 @@ Another common action you will likely need to perform in RapidPro is getting inf
 1. If language options are included allow users to select their preference before beginning the flow
 2. Make sure the language and terminology of your messages are appropriate for the audience
 2. Use a personalized welcome message before asking users to take actions
-3. Keep content brief and relevant to the topic as to not overload the user 
+3. Keep content brief and relevant to the topic as to not overload the user
 4. Make your response requests and calls-to-action clear
 4. Be cognizant of form collisions during assessments (ex. “0=no, 1=yes” if those numbers may also reference workflow codes, or “N=no” if “N” is the code to create a new person)
 5. Use standards in logic where possible (ex. The non-zero value is true; 0=false, 1=true, 0=no, 1=yes)
@@ -216,7 +216,7 @@ Ensure that you install the maximum number of SMS packs (available in the  Rapid
    2. Automatically wake up the phone.
       - The RapidPro system uses Google Cloud Messaging which wakes up the phone whenever a message is sent. Install an APK that makes the channel relay messages as soon as RapidPro emits.
 
-   3. Alerts for when things go wrong. 
+   3. Alerts for when things go wrong.
       - Send monitoring emails and alert various parties when the Android Channel goes to sleep or becomes unavailable. This can be done from the channel's management page under `Alert Email`
 
 Android channels can be [used with a bulk sender](http://web.archive.org/web/20220126134411/https://help.nyaruka.com/en/article/using-a-bulk-sender-sk27hz/) to get past the 330 outgoing messages per hour.
@@ -229,7 +229,7 @@ Medic recommends that SMS costs be zero-rated so that respondents do not incur c
 
 Tips and best practices are listed below:
 - If possible, have less than 10 questions. Long surveys may either lead to low completion rates or rushed responses that affects the data quality.
-- Close ended questions are better and easier to respond and handle in RapidPro since respondents only have to send a number or letter such as 1 for “Yes”, 2 for “No”. 
+- Close ended questions are better and easier to respond and handle in RapidPro since respondents only have to send a number or letter such as 1 for “Yes”, 2 for “No”.
 - Avoid sensitive questions since privacy cannot be guaranteed over SMS and where it is common to share phones.
 - Include intro and outro messages. Intro messages serve the purpose of giving the survey details such as the background of the survey, the number of questions, data protection, whether there shall be follow up, SMS billing, etc. Outro messages are helpful to notify respondents that they survey is over and commonly include thank you notes.
 - Include questions that give the respondent an opportunity to opt-in or out of the survey. If they opt out, do not send a follow-up text.
@@ -252,7 +252,7 @@ Tips and best practices are listed below:
 - Use consistent language and message design patterns to maintain a consistent experience and conversation. For example, if including a contact name at the beginning of a message, keep it that way for all messages including the localized messages.
 - Be mindful of when you save data back to the CHT. This should happen at major milestones in a flow, for example, end of a flow or before sending a payload to an API endpoint.
 - Use `globals`, shared values that can be referenced inflows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. This prevents re-entry of values in various components and allows flows to be shared easily in staging and production environments.
-- Beware of concurrency that is not supported in RapidPro. Concurrency refers to a situation whereby one contact participates in more than one flow at the same time. Whenever this happens, the former flow shall be interrupted in favor of the latter. This can result in respondents exiting flows before completion, which is a confusing user experience and results in poor survey data. A main flow that spins up individual flows may be useful to consider. 
+- Beware of concurrency that is not supported in RapidPro. Concurrency refers to a situation whereby one contact participates in more than one flow at the same time. Whenever this happens, the former flow shall be interrupted in favor of the latter. This can result in respondents exiting flows before completion, which is a confusing user experience and results in poor survey data. A main flow that spins up individual flows may be useful to consider.
 
 ### Testing
 
@@ -286,6 +286,6 @@ These tests cover the parts that are inaccessible via manual tests. They include
 ### Monitoring
 
 - Make sure you are monitoring workflows. Are they finishing as expected? Are some workflows not being used? A useful feature is the “send email” action whenever an unexpected event occurs while the flow is in progress, for example, failure calling an API endpoint.
-   - Include relevant parties in the monitoring notifications. For starters, a mailing group that includes all parties will do it without re-entry of each address of relevant recipients. 
-   - Include notifications to respondents too, appropriate to the messaging method. 
+   - Include relevant parties in the monitoring notifications. For starters, a mailing group that includes all parties will do it without re-entry of each address of relevant recipients.
+   - Include notifications to respondents too, appropriate to the messaging method.
 - Check that your workspace has enough credits and ensure RapidPro email credit alerts are configured so that credits top ups are done promptly.

@@ -11,6 +11,7 @@ relatedContent: >
 aliases:
    - /apps/examples/direct-to-client
    - /building/examples/direct-to-client
+   - /exploring/direct-to-client
 ---
 
 <!-- Force tables on this page to have columns same width -->
@@ -85,7 +86,7 @@ Current workflow for voluntary medical male circumcision client enrollment, scre
 | {{< figure src="Figure3_1.png" >}} | {{< figure src="Figure3_2.png" >}} | {{< figure src="Figure3_3.png">}} | {{< figure src="Figure3_1.png" >}}  | {{< figure src="Figure3_4.png" >}} |
 |--|--|--|--|--|
 | **1.** Enrolment - Static/Outreach Site visit | **2.** HIV Testing, screening & counseling | **3.** Procedure | **4.** Static/Outreach Site visit | **5.** Follow up visit  |
-| Nurse enrols clients | Client tested for HIV, screened for wounds, any form of bleeding, and any other medical issues. Counselling  provided as needed.| If client's HIV status doesn't pose risks, procedure is done. Post-operative counseling  offered | Register after surgery | On Day 2 and Day 7 after surgery | 
+| Nurse enrols clients | Client tested for HIV, screened for wounds, any form of bleeding, and any other medical issues. Counselling  provided as needed.| If client's HIV status doesn't pose risks, procedure is done. Post-operative counseling  offered | Register after surgery | On Day 2 and Day 7 after surgery |
 
 #### 1. Automated check-in workflow to support client care
 
@@ -93,7 +94,7 @@ Eligible male clients with access to mobile phones are registered on the VMMC ap
 
 After the registration, the VMMC clients registered on the VMMC app receive preconfigured, bidirectional daily follow up texts to check on their healing. These are in the form of automated daily SMS text messages on days 1 to 13 in the predominant languages of the area. The clients respond to the daily SMS text message with a single numeric (0=no problem or 1=I need help) response. They could respond to any daily SMS text message at any time. They could also initiate an unrestricted, freely-worded text response at any time, and in any language -  instead of or in addition to the daily numeric response.
 
-An adverse event (AE) is any complication or problem that may happen during or after a surgery, including a VMMC surgery. AEs may be mild, moderate or severe. All moderate and severe AEs should be reviewed by a clinician. Moderate and severe AEs after VMMC are rare, but occur about 2% of the time. . Identifying AEs swiftly and managing them properly is a sign of a quality surgical program, including VMMC programs.  
+An adverse event (AE) is any complication or problem that may happen during or after a surgery, including a VMMC surgery. AEs may be mild, moderate or severe. All moderate and severe AEs should be reviewed by a clinician. Moderate and severe AEs after VMMC are rare, but occur about 2% of the time. . Identifying AEs swiftly and managing them properly is a sign of a quality surgical program, including VMMC programs.
 
 Direct to client messaging for voluntary male circumcision clients without AE:
 
@@ -101,7 +102,7 @@ Direct to client messaging for voluntary male circumcision clients without AE:
 |--|--|--|
 | **Enrolment** | **Automated, daily check-in SMS** | **{{No Action}}** |
 | **1a** Static/Outreach Site visit  Data Clerk/Site Nurse enrolls eligible clients into the D2C program using the enrollment form|**2** System sends automated daily SMS to client to see how they are doing. |**3** SMS response AE absent |
-|**1b** Registration and SMS confirmation  Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present | Continue automated daily check-in SMS until day 13 | 
+|**1b** Registration and SMS confirmation  Client gets a confirmation of enrollment Via SMS|**2a** Client SMS response with potential AE present | Continue automated daily check-in SMS until day 13 |
 ||**2b** Client SMS response AE absent |  |
 
 
@@ -144,10 +145,10 @@ In collaboration with researchers at the University of Washington, we  assessed 
 
 #### For Clients
 
-* Reduced cost of follow-up 
+* Reduced cost of follow-up
 * Comfort and ease of usability of 2WT
 * Real-time clinical support in your pocket
-* Rapid support in case of suspected AE 
+* Rapid support in case of suspected AE
 
 #### Of Participation
 

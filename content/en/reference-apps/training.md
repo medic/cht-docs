@@ -1,7 +1,7 @@
 ---
 title: "Remote Onboarding and Training"
 linkTitle: "Remote Training"
-weight: 
+weight:
 description: >
   App and care workflow training using remote capabilities
 keywords: training onboarding
@@ -12,6 +12,7 @@ relatedContent: >
 aliases:
    - /apps/examples/training
    - /building/examples/training
+   - /exploring/training
 ---
 
 The CHT’s Remote Onboarding and Training functionality enables Supervisors and Administrators to train CHWs on care workflows and related app use without being physically present. It is designed for:
@@ -52,7 +53,7 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 Users may log into their app with a link sent to them via SMS. The link allows the user to directly enter their app, bypassing the need to enter their username and password.
 
 {{< see-also page="building/concepts/access" anchor="remote-login" >}}
- 
+
 ### Remote Training Overview
 
 These SMS and App based workflow examples illustrate how the CHT enables remote training, tasking and communication at scale. Training can be done using simple guides, audio/videos suitable for low bandwidth, or interactive experiences on personal devices. Training programs can be easily configured to suit specific health program needs.

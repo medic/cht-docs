@@ -6,8 +6,8 @@ description: >
 keyword: training
 relatedContent: >
   building/training/training-cards-resources
-  exploring/training
-  exploring/learning-care/
+  reference-apps/training
+  reference-apps/learning-care/
 aliases:
    - /building/features/training/
    - /apps/features/training/
@@ -20,7 +20,7 @@ _Introduced in 4.2.0_
 [Template training content]({{< relref "building/training/training-cards-resources" >}}) for new CHT features is made available from time to time. These templates can be customized to the local context.
 
 {{< figure src="training-deck.png" link="training-deck.png" class="col-12 col-lg-10" >}}
- 
+
 
 ## Accessing
 

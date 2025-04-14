@@ -9,12 +9,12 @@ relatedContent: >
   design/best-practices/#targets
   building/integrations/dhis2
   building/reference/app-settings/transitions#create_user_for_contacts
-  exploring/supervisor-reference-app
+  reference-apps/supervisor-reference-app
 aliases:
    - /apps/features/supervision/
 ---
 
-Supervision and workforce management are important aspects to building and maintaining high-performing community health systems. Supervisors help Community Health Workers deliver quality healthcare services to their patients through building CHW care delivery knowledge and skills, fostering a supportive work environment, and supporting continuity of care between home-based care and community health centers or facilities. 
+Supervision and workforce management are important aspects to building and maintaining high-performing community health systems. Supervisors help Community Health Workers deliver quality healthcare services to their patients through building CHW care delivery knowledge and skills, fostering a supportive work environment, and supporting continuity of care between home-based care and community health centers or facilities.
 
 The importance of regular and systematic CHW supervision is emphasized by the WHO’s [guidelines](https://www.who.int/publications/i/item/9789241550369) on health policy and system support, which is formulated to optimize community-based health worker programs. Following these guidelines, the CHT is designed to enable Supervisors to provide personalized performance feedback during CHW supervision as well as track aggregate statistics. Data collected from completed [Care Guides]({{< relref "building/concepts/care-guides" >}}) produce granular information which can be used to provide coaching that promotes compliance with health program standards of practice and closer monitoring of outcomes.
 
@@ -39,7 +39,7 @@ The following images show the various screens CHW supervisors see in Aggregate T
 
 {{< figure src="multi-facility-aggregate-supervisor-landing" link="multi-facility-aggregate-supervisor-landing.png" class="right col-6 col-lg-8" >}}
 
-This is the landing page for the Aggregate Targets for a user who manages multiple areas / facilities. 
+This is the landing page for the Aggregate Targets for a user who manages multiple areas / facilities.
 
 The name of the facility appears in the breadcrumbs of the aggregate widgets on the Left Hand Side list and underneath the Target Title.
 
@@ -95,11 +95,11 @@ The CHT can be configured to create [Tasks]({{< relref "building/tasks" >}}) for
   
 
 ## User Management
-Supervisors are able to set up users in the CHT without contacting a system administrator. They can **create** new CHW user accounts or **replace** CHWs on an existing device. 
+Supervisors are able to set up users in the CHT without contacting a system administrator. They can **create** new CHW user accounts or **replace** CHWs on an existing device.
 
 When _creating_ a new user account, Supervisors fill out the necessary details, including the CHW's phone number, from their own device. They can do this while offline, but must sync before the actual user account is created. Once the Supervisor syncs, the CHT will send an SMS to the new CHW with a [magic link]({{< relref "building/concepts/access#magic-links-for-logging-in-token-login" >}}) that enables them to login and start using the app.
 
-When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.  
+When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.
 
 This can be used to manage both CHW and CHW supervisor roles.
 
@@ -116,9 +116,9 @@ CHT hierarchies tend to mimic geographical areas but Supervisors often manage CH
 
 {{< figure src="supervisor-dashboards.png" link="supervisor-dashboards.png" class="right col-7 col-lg-6" >}}
 
-Program dashboards track, visualize, and share health progress with stakeholders more broadly. Supervisors can use program dashboards to help articulate their CHW cohorts activities and how they align with program impact standards and indicators. Summary statistics of CHW service area performance (e.g. number of home visits, number of protocol errors, etc) help to identify areas for continued improvement and deeper audits of care data. 
+Program dashboards track, visualize, and share health progress with stakeholders more broadly. Supervisors can use program dashboards to help articulate their CHW cohorts activities and how they align with program impact standards and indicators. Summary statistics of CHW service area performance (e.g. number of home visits, number of protocol errors, etc) help to identify areas for continued improvement and deeper audits of care data.
 
-The data that can be visualized is highly configurable, and depends on what data fields are configured in a particular CHT app’s forms. Dashboards can be built using any software that supports visualizing data with the widely used PostgreSQL database. Examples include the open source tool [Superset](https://superset.incubator.apache.org), as well as proprietary technologies like [Klipfolio](https://www.klipfolio.com) and [Tableau](https://www.tableau.com). 
+The data that can be visualized is highly configurable, and depends on what data fields are configured in a particular CHT app’s forms. Dashboards can be built using any software that supports visualizing data with the widely used PostgreSQL database. Examples include the open source tool [Superset](https://superset.incubator.apache.org), as well as proprietary technologies like [Klipfolio](https://www.klipfolio.com) and [Tableau](https://www.tableau.com).
 
 ## DHIS2 Data Verification
 

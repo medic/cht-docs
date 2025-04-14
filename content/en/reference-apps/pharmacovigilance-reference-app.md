@@ -7,6 +7,7 @@ description: >
 aliases:
    - /apps/examples/pharmacovigilance-reference-app
    - /building/examples/pharmacovigilance-reference-app
+   - /exploring/pharmacovigilance-reference-app
 ---
 
 ## Problem Being Addressed

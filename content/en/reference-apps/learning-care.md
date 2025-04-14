@@ -1,18 +1,19 @@
 ---
 title: "Learning and Care"
 linkTitle: "Learning & Care"
-weight: 
+weight:
 description: >
-  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19 
+  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19
 keywords: oppia
 relatedContent: >
   building/integrations/oppia
 aliases:
    - /apps/examples/learning-care
    - /building/examples/learning-care
+   - /exploring/learning-care
 ---
 
-The Learning & Care Apps in the Community Health Toolkit are designed to onboard community health workers remotely to new digital training tools, and help them learn new information and care delivery responsibilities through customized educational modules. 
+The Learning & Care Apps in the Community Health Toolkit are designed to onboard community health workers remotely to new digital training tools, and help them learn new information and care delivery responsibilities through customized educational modules.
 
 The modules can be deployed both (i) via the Android integration with the Academy App (powered by OppiaMobile) described in this documentation, and (ii) within the CHT core alone, to provide a seamless online & offline experience for CHWs, supervisors, and government partners.
 
@@ -29,7 +30,7 @@ With the spread of COVID-19, it is imperative that access to learning, integrate
 
 The Community Health Academy and Medic set out to deliver a fully-integrated Learning and Care solution, with targeted COVID-19 learning experiences as a global public good.
 
-This integrated Learning & Care App leverages the **[remote onboarding]({{< ref "exploring/training" >}}), [task & scheduling]({{< ref "building/tasks" >}}), and [target]({{< ref "building/targets/targets-overview" >}}) features** of the CHT core framework with the **curated, multimedia educational content** from the Academy’s COVID-19 library.
+This integrated Learning & Care App leverages the **[remote onboarding]({{< ref "reference-apps/training" >}}), [task & scheduling]({{< ref "building/tasks" >}}), and [target]({{< ref "building/targets/targets-overview" >}}) features** of the CHT core framework with the **curated, multimedia educational content** from the Academy’s COVID-19 library.
 
 ## Users and Hierarchy Example
 
@@ -41,7 +42,7 @@ This integrated Learning & Care App leverages the **[remote onboarding]({{< ref 
 
 
 
-## Workflow Examples 
+## Workflow Examples
 
 ### COVID-19 Learning and Care Supported by the CHT
 

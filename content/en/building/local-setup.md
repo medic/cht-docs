@@ -192,7 +192,7 @@ Note that the first time you run your CHT instance it may take a while. In case 
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once your instance has started, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. 
+Once your instance has started, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`.
 
 You might get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
 
@@ -210,7 +210,7 @@ This CHT instance is empty and has no data in it. While you're free to explore a
 
 ### Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "exploring/anc" >}}) installed. To upload demo data you can use `cht-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/anc" >}}) installed. To upload demo data you can use `cht-conf`:
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
@@ -282,7 +282,7 @@ To install a valid certificate, open a terminal in the `cht-core` directory. Ens
 ./scripts/add-local-ip-certs-to-docker-4.x.sh cht_nginx_1
 ```
 
-If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/master/scripts/add-local-ip-certs-to-docker-4.x.sh). 
+If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/master/scripts/add-local-ip-certs-to-docker-4.x.sh).
 
 To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.
 
