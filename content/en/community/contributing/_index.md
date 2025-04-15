@@ -15,7 +15,7 @@ description: >
 
 Before you start coding a new change you suggest to the CHT, [raise an issue](https://github.com/medic/cht-core/issues/new/choose) or [start a conversation](https://forum.communityhealthtoolkit.org) about the change you want to make. Then:
 
-1. Read our [Development Workflow]({{% ref "community/contributing/code/workflow" %}}) and [Code Style Guide]({{% ref "community/contributing/code/style-guide" %}}) 
+1. Read the CHT [Development Workflow]({{% ref "community/contributing/code/workflow" %}}) and [Code Style Guide]({{% ref "community/contributing/code/style-guide" %}}) 
 2. [Setup]({{% ref "community/contributing/code/core/dev-environment" %}}) your development environment
 3. Make sure your pull request's (PR) tests all pass. Failures need to be addressed before we can merge your code.
 4. Provide detail about the issue you are solving on the PR. Please reference any existing issues using medic/<repo>#<issue number>
