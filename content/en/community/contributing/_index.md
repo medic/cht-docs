@@ -62,7 +62,7 @@ Make a comment on the issue asking for the issue to be assigned to you.
 
 Good work! if you've gotten this far you understand what the CHT is and you know how code is written for the CHT. Now it's time to set up your very own copy of the CHT, called a fork.  
 
-Follow these steps to set up a copy of the code ("fork") which you have on your computer ("git clone"). _If you're not comfortable with command line, [see tutorials using GUI tools.](#tutorials-using-other-tools)_
+Follow these steps to set up a copy of the code ("fork") which you have on your computer ("git clone"). _If you're not comfortable with the command line, [see tutorials using GUI tools.](#tutorials-using-other-tools)_
 
 
 If you do not have a GitHub account, [please create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
