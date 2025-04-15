@@ -44,7 +44,7 @@ The CHT is [open source](https://en.wikipedia.org/wiki/Open_source). Any code yo
 
 ### How code gets written
 
-Over the years the process for writing the CHT has been codified in our [workflow]({{% ref "community/contributing/code/workflow" %}}).  Skim this so you're aware of the basics. Check out our code  [style guide]({{% ref "community/contributing/code/style-guide" %}}) as well. You don't have to memorize everything here, but it's important to know about and refer back to when it the time comes to actually writing code.
+Over the years the process for writing the CHT has been codified in the [development workflow]({{% ref "community/contributing/code/workflow" %}}).  Skim this so you're aware of the basics. Check out the CHT code  [style guide]({{% ref "community/contributing/code/style-guide" %}}) as well. You don't have to memorize everything here, but it's important to know about and refer back to when the time comes to actually write code.
 
 A good rule of thumb is mimic the processes you see and the styles already present in the source code.
 
