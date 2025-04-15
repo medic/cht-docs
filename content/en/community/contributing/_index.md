@@ -65,7 +65,7 @@ Good work! if you've gotten this far you understand what the CHT is and you know
 Follow these steps to set up a copy of the code ("fork") which you have on your computer ("git clone"). _If you're not comfortable with command line, [see tutorials using GUI tools.](#tutorials-using-other-tools)_
 
 
-If you do not have a Github account, [please create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
+If you do not have a GitHub account, [please create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
 
 
 1. Create a Fork
