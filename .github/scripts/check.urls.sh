@@ -62,5 +62,5 @@ then
     url_count=$(echo "$prod_urls" | tr -cd '\n' | wc -l | tr -d ' ')
     echo "Found ${url_count} URLs to check, be patient. Any non 200 URLs will be listed here:"
     run_checks "$prod_urls"
-    echo "Successfully checked ${url_count} URLs!"
+    echo;echo "Successfully checked ${url_count} URLs!";echo;
 fi
