@@ -48,7 +48,7 @@ Over the years the process for writing the CHT has been codified in the [develop
 
 A good rule of thumb is to mimic the processes you see and the styles already present in the source code.
 
-If you have never used `git` or GitHub, checkout the [Get started using GitHub in less than an hour](https://github.com/skills/introduction-to-github) guide. This will help you set up a GitHub account which you'll need as well. If you haven't worked on a pull request before, check out [How to Contribute to an Open Source Project](https://egghead.io/lessons/javascript-introduction-to-github) and [How to Contribute to Open Source](https://firstcontributions.github.io/contribute-to-opensource/).
+If you have never used `git` or GitHub, check out the [Get started using GitHub in less than an hour](https://github.com/skills/introduction-to-github) guide. This will help you set up a GitHub account, which you'll also need. If you haven't worked on a pull request before, check out [How to Contribute to an Open Source Project](https://egghead.io/lessons/javascript-introduction-to-github) and [How to Contribute to Open Source](https://firstcontributions.github.io/contribute-to-opensource/).
 
 ### Your first issue
 
