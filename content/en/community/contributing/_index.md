@@ -13,7 +13,7 @@ description: >
 
 ### Code
 
-Before you start to coding, [raise an issue](https://github.com/medic/cht-core/issues/new/choose) or [start a conversation](https://forum.communityhealthtoolkit.org) about the change you want to make. Then:
+Before you start coding a new change you suggest to the CHT, [raise an issue](https://github.com/medic/cht-core/issues/new/choose) or [start a conversation](https://forum.communityhealthtoolkit.org) about the change you want to make. Then:
 
 1. Read our [Development Workflow]({{% ref "community/contributing/code/workflow" %}}) and [Code Style Guide]({{% ref "community/contributing/code/style-guide" %}}) 
 2. [Setup]({{% ref "community/contributing/code/core/dev-environment" %}}) your development environment
