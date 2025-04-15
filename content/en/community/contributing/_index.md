@@ -52,7 +52,7 @@ If you have never used `git` or GitHub, checkout the [Get started using GitHub i
 
 ### Your first issue
 
-Find an issue marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22). Feel free to pick an issue that looks easy for you! An easy looking issue will better set you up for successfully merging the code. Easy merges is our goal here!  
+Issue marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22) could be a great start if you are new to the CHT. Feel free to pick an issue that looks easy for you! An easy-looking issue will better set you up for successfully merging the code. Easy merges are our goal here!  
 
 Make a comment on the issue asking for the issue to be assigned to you.
 
