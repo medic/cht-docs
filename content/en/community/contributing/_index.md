@@ -24,7 +24,7 @@ Before you start coding a new change you suggest to the CHT, [raise an issue](ht
 
 ### Docs
 
-Help us maintain the quality of our documentation by [submitting a PR](https://github.com/medic/cht-docs) with any suggested changes. See the [Documentation Style Guide]({{% ref "community/contributing/docs/style-guide" %}}) then open a pull request with your suggested changes or additions. For simple changes, use the "Edit this page" link shown in the upper right of every page
+Help us maintain the quality of the CHT documentation by [submitting a PR](https://github.com/medic/cht-docs) with any suggested changes. See the [Documentation Style Guide]({{% ref "community/contributing/docs/style-guide" %}}), then open a pull request with your suggested changes or additions. For simple changes, use the "Edit this page" link shown in the upper right of every page.
 
 ## First time Contributors Guide
 
