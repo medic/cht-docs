@@ -56,7 +56,7 @@ Issue marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3A
 
 Make a comment on the issue asking for the issue to be assigned to you.
 
-**Note** -  [Help Wanted](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Help%20Wanted%22) issues do not have the extra introduction that Good first issues have.  While you're welcome to work on them, they'll be more of a challenge for first time contributors that likely will want some guidance found in the Good first issues.
+**Note** -  [Help Wanted](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Help%20Wanted%22) issues do not have the extra introduction that `Good first issues` have. While you're welcome to work on them, they'll be more of a challenge for first-time contributors that likely will want some guidance found in the `Good first issues`.
 
 ### Fork the CHT
 
