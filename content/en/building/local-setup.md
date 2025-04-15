@@ -41,6 +41,18 @@ The *CHT Core Framework* makes it faster to build full-featured, scalable digita
 
 CHT app development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)).
 
+> **Recommended WSL2 configuration**:  
+> To ensure smooth performance when running CHT locally on Windows, it's recommended to configure your WSL2 environment with enough resources.  
+> Add the following to your `.wslconfig` file (typically located at `C:\Users\<YourUser>\.wslconfig`):
+>
+> ```
+> [wsl2]
+> memory=8GB
+> processors=10
+> swap=512MB
+> localhostForwarding=true
+> ```
+
 CHT apps can be built on your local system (with the necessary libraries installed and configured) or they can be built from within VS Code Dev Containers.
 
 Before you begin, ensure you have the following tools:
