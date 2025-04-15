@@ -7,7 +7,7 @@ description: >
 ---
 
 
-We take the security of our systems seriously, and we value the security community. The disclosure of security vulnerabilities helps us ensure the security and privacy of our users.
+In the CHT Community, we take the security of our systems seriously and value the security community. Disclosure of security vulnerabilities helps us ensure the security and privacy of the CHT users.
 
 ## Guidelines
 
