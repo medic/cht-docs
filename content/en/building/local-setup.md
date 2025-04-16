@@ -5,7 +5,7 @@ weight: 2
 description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
-  contribute/code/core/using-windows
+  community/contributing/code/core/using-windows
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
 aliases:
@@ -111,7 +111,7 @@ Using python on your terminal, install `pyxform` globally using the command belo
 sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "contribute/code/core/dev-environment#macos--123" >}}).
+If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "community/contributing/code/core/dev-environment#macos--123" >}}).
 
 #### `cht-conf`
 
