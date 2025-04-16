@@ -27,7 +27,7 @@ In this tutorial you will learn how to create and edit contacts and their associ
 
 *CHT App Hierarchy* is often modeled after the health system, health program or community structure.  All people who are registered in the app must be associated with a Place. These Places are located in a hierarchy with other Places. For instance, a Family Member is part of a Household. A Household and CHWs are part of a CHW Area. A CHW Area and nurses are part of a Health Facility. Additional levels may be added as needed. The Admin level operates outside of the hierarchy and gives access to all levels and people.
 
-![app hierarchy](app-hierarchy.jpg "Default app hierarchy")
+{{< figure src="app-hierarchy.jpg" link="app-hierarchy.jpg" caption="Default app hierarchy" >}}
 
 *Users* represent credentials and roles / permissions for accessing the application. This can either be:
 

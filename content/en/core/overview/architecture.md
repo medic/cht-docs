@@ -14,7 +14,8 @@ relatedContent: >
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-[![Data Flows](architecture.png)](architecture.png)
+
+{{< figure src="architecture.png" link="architecture.png" caption="Data Flows" >}}
 
 ## Server
 

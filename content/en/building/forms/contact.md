@@ -135,7 +135,7 @@ Contact forms for creating a place can also optionally create one or more person
 
 Below is a simple structure of a place form showing all the necessary components.
 
-![Place forms survey sheet](place-contact-form-survey.png)
+{{< figure src="place-contact-form-survey.png" link="place-contact-form-survey.png" >}}
 
 Section 1 is similar to what has been described earlier for person forms.
 

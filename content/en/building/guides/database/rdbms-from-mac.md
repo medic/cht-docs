@@ -21,17 +21,35 @@ Terminal (Terminal.app) is the terminal emulator included in the macOS operating
 3. Navigate to the **Utilities** folder
 4. Open the **Terminal** app
 
-![Terminal](terminal.png)
+{{< figure src="terminal.png" link="terminal.png" caption="Terminal" >}}
 
 ## Generate Key
 
 From Terminal, follow these instructions (see screenshot below):
 
-1. Type: `ssh-keygen -t rsa`
-2. Hit return to use the default file / location
-3. Enter a *passphrase*
-4. Enter your *passphrase* again
-5. Type: `cat ~/.ssh/id_rsa.pub`
+{{% steps %}}
+
+### Step 1
+
+Type: `ssh-keygen -t rsa`
+
+### Step 2
+
+Hit return to use the default file / location
+
+### Step 3
+
+Enter a *passphrase*
+
+### Step 4
+
+Enter your *passphrase* again
+
+### Step 5
+
+Type: `cat ~/.ssh/id_rsa.pub`
+
+{{% /steps %}}
 
 In the screenshot below:
 
@@ -42,8 +60,7 @@ In the screenshot below:
 > [!NOTE]
 > You will need to provide the contents of `(c)` to your Medic contact or RDBMS administrator.  It should start with `ssh-rsa` and end with something that looks like an email address.
 
-![SSH Commands](ssh-commands.png)
-
+{{< figure src="ssh-commands.png" link="ssh-commands.png" caption="SSH Commands" >}}
 
 ## Connect to PostgreSQL
 
@@ -70,5 +87,4 @@ From your SQL client, use the settings mentioned below to connect. Be sure to se
 |SSH Password|N/A - Use Private Key|
 |Private Key|Choose the location of the private key generated above|
 
-![PG Connection Settings](connection-settings.png)
-
+{{< figure src="connection-settings.png" link="connection-settings.png" caption="PG Connection Settings" >}}

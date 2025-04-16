@@ -67,10 +67,12 @@ Finally run the command: `cht --url=<instance-url> upload-branding`
 
 Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 
-![](menu.png)
-![](images.png)
+{{< figure src="menu.png" link="menu.png" >}}
 
-> [!NOTE] If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
+{{< figure src="images.png" link="images.png" >}}
+
+> [!NOTE] 
+> If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
 
 ### 2. Partner logos
 
@@ -109,8 +111,9 @@ Finally run the command: `cht --url=<instance-url> upload-partners`
 
 Log in to your instance and navigate to `Menu > App Settings > Images > Partners`
 
-![](menu.png)
-![](partners.png)
+{{< figure src="menu.png" link="menu.png" >}}
+
+{{< figure src="partners.png" link="partners.png" >}}
 
 ### 3. Header tab icons
 
@@ -158,8 +161,8 @@ Finally run the command: `cht --url=<instance-url> upload-app-settings`
 
 Log in to your instance and navigate to `Menu > App Settings > Images > Header Icons`
 
-![](menu.png)
-![](header_icons.png)
+{{< figure src="menu.png" link="menu.png" >}}
+{{< figure src="header_icons.png" link="header_icons.png" >}}
 
 ### 4. App Icons
 

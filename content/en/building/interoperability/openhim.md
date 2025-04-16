@@ -148,7 +148,7 @@ when running `./startup.sh init` need to update ports to available values in the
 #### Error when running mediator `curl` request
 If the mediator `curl` request fails, visit [http://localhost:9000/#!/clients](http://localhost:9000/#!/clients) and click on the icon the red arrow points to in the image below.
 
-![](bad-client-screen.png)
+{{< figure src="bad-client-screen.png" link="bad-client-screen.png" >}}
 
 #### Error "Preset ts-jest is invalid:" when running `npm test`
 Users encountering the error below when running `npm test`: 

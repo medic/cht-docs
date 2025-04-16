@@ -220,4 +220,4 @@ This is a service that would help shift information in the CHT [hierarchy]({{< r
 
 Once you have configured the above for data exchange, the data flow will be like this:
 
-![CHT - OpenMRS Data Flow](cht-openmrs.jpeg)
+{{< figure src="cht-openmrs.jpeg" link="cht-openmrs.jpeg" caption="CHT - OpenMRS Data Flow" >}}
