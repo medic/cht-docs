@@ -7,7 +7,7 @@ description: >
 aliases:
   -    /community/contributing/core/releases/feature_releases/
 relatedContent: >
-       releases/
+    releases/
 
 ---
 
