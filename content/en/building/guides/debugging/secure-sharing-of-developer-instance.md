@@ -13,11 +13,11 @@ Be extra careful with this process! The end result will be that your development
 
 Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
 
-Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "contribute/code/core/dev-environment#nginx-local-ip" >}})
+Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "community/contributing/code/core/dev-environment#nginx-local-ip" >}})
 {{% /alert %}}
 
 ## Overview
-When using a local [development environment]({{< relref "contribute/code/core/dev-environment" >}}), you may want to share your work with other collaborators. By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
+When using a local [development environment]({{< relref "community/contributing/code/core/dev-environment" >}}), you may want to share your work with other collaborators. By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
 
 [<img src="/building/guides/debugging/images/SSH.tunnel.diagram.svg" width=100% height=100%>](/building/guides/debugging/images/SSH.tunnel.diagram.svg)
 
@@ -26,7 +26,7 @@ Once you have this web server set up, you may continue to use it whenever you wa
 ## Prerequisites 
 
 This guide assumes:
-* You have a local [dev instance]({{< relref "contribute/code/core/dev-environment" >}}) set up of cht-core 
+* You have a local [dev instance]({{< relref "community/contributing/code/core/dev-environment" >}}) set up of cht-core 
 * You  have the [generic Medic app](https://play.google.com/store/apps/details?id=org.medicmobile.webapp.mobile&hl=en_US) installed on your Android device. This version allows you to enter a custom CHT URL on first run.
 * You have an Ubuntu >18.04 server with a public IP and a DNS entry that you can SSH into and have sudo on
 * You have Apache >2.4.29 installed on the Ubuntu server and can add a new vhost to it, including an SSL cert. (nginx could be used instead as well, but not covered here)
