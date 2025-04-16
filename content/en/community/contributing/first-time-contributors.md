@@ -11,7 +11,7 @@ description: >
 
 Documentation exists for everything from how to [compile]({{% ref "community/contributing/code/core/dev-environment" %}}) the CHT from source to how to [build](https://github.com/medic/cht-docs/blob/main/README.md) the docs site locally.  However, where do you start?  What if you've never contributed to an open source project before? This guide helps the newcomer make their first contribution.
 
-If this isn't you, head over to our [Community section]({{% ref "community" %}}) where list out other actions for new community members who are not developers.
+If this isn't you, head over to our [Community section]({{% ref "community" %}}) where it list out other actions for new community members who are not developers.
 
 ## What is the CHT
 
