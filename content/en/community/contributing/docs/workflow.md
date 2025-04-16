@@ -4,6 +4,8 @@ linkTitle: "Workflow"
 weight: 1
 description: >
   How to contribute to the CHT tools and documentation
+aliases:
+  -    /contribute/docs/workflow
 ---
 
 ## Getting Started

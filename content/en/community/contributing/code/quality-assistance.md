@@ -4,8 +4,9 @@ linkTitle: "Quality Assistance"
 weight: 15
 description: >
   How the Quality Assistance process works
-aliases:
-   - /contribute/medic/product-development-process/quality-assistance
+aliases: >
+  /contribute/medic/product-development-process/quality-assistance
+  /contribute/code/quality-assistance
 ---
 
 ## Goals

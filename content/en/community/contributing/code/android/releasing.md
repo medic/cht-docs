@@ -9,6 +9,7 @@ relatedContent: >
   building/branding/android
 aliases: >
   /core/guides/android/releasing
+  /contribute/code/android/releasing
 ---
 
 All Medic's Android projects automatically build, sign, and release builds via GitHub Actions. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):

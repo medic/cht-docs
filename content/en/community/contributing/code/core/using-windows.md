@@ -6,6 +6,7 @@ description: >
   Notes for developing on Windows
 aliases: >
   /core/guides/using-windows
+  /contribute/code/core/using-windows
 ---
 
 We don't actively support development on Windows, instead preferring MacOS or Linux.

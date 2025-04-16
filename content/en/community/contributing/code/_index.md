@@ -4,6 +4,8 @@ linkTitle: "Code"
 weight: 100
 description: >
   How to contribute to code to the CHT
+aliases:
+  -    /contribute/code/
 ---
 
 {{% alert title="Setup development environment" %}}

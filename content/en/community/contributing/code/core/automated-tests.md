@@ -7,6 +7,7 @@ description: >
 aliases: >
   /core/guides/fixing-e2e-tests
   /contribute/code/core/fixing-e2e-tests
+  /contribute/code/core/automated-tests
 ---
 
 ## The goal of automated testing

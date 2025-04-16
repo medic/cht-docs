@@ -6,6 +6,7 @@ description: >
   Resources to get started as a contributor to the CHT
 aliases:
    - /contribute/medic/onboarding/technical-resources
+   - /contribute/technical-resources
 ---
 
 This page contains materials that will help a CHT Contributor to learn the technical details they need to be successful when building tools related to the CHT. 

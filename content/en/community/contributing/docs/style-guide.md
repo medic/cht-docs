@@ -5,6 +5,8 @@ weight: 10
 description: >
   Editorial guidelines for writing documentation
 show_toc: true
+aliases:
+  -    /contribute/docs/style-guide
 ---
 
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 

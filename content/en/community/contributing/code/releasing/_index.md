@@ -6,6 +6,7 @@ description: >
   Instructions for releasing CHT tools
 aliases: >
   /core/guides/releasing
+  /contribute/code/releasing/
 ---
 
 ## CHT Core

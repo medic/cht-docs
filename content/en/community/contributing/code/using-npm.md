@@ -6,6 +6,7 @@ description: >
   Quick guide to using NPM
 aliases: >
   /core/guides/using-npm
+  /contribute/code/using-npm
 ---
 
 ## npm Orgs

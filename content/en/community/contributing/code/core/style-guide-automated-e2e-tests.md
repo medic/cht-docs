@@ -5,6 +5,7 @@ weight: 12
 description: >
   This style guide provides editorial guidelines for anyone creating new automated test cases for the CHT-Core.
 aliases: >
+  /contribute/code/core/style-guide-automated-e2e-tests
 ---
 
 There are three files that are the base of every new automated test case, the most important one is the `spec` file, which contains the actual test that will be executed.

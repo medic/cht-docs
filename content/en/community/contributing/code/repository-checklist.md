@@ -4,6 +4,8 @@ linkTitle: "Repository Checklist"
 weight: 8
 description: >
   Checklist to consider when creating CHT Product repositories
+aliases: >
+  /contribute/code/repository-checklist
 ---
 
 ## Repository Creation Checklist

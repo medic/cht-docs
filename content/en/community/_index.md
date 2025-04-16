@@ -4,6 +4,8 @@ linkTitle: "Community"
 weight: 8
 description: >
   Get involved with the CHT community
+aliases:
+  -    /contribute
 ---
 
 ## Getting involved

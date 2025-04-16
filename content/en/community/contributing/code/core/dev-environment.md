@@ -7,6 +7,7 @@ description: >
 aliases: >
   /apps/guides/hosting/core-developer
   /apps/guides/hosting/hosting/4.x/app-developer
+  /contribute/code/core/dev-environment
 ---
 
 {{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).

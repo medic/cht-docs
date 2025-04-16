@@ -4,6 +4,8 @@ linkTitle: "CHT Conf"
 weight: 4
 description: >
   Instructions for setting up and contributing to CHT Conf
+aliases: >
+   /contribute/code/cht-conf
 ---
 
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).

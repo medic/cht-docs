@@ -4,6 +4,8 @@ linkTitle: "Workflow"
 weight: 1
 description: >
   Overview of the development workflow
+aliases:
+   -    /contribute/code/workflow
 ---
 
 ## Writing code

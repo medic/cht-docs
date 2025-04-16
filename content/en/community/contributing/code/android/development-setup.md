@@ -8,6 +8,7 @@ relatedContent: >
   community/contributing/code/android/releasing
 aliases: >
   /core/guides/android/development-setup
+  /contribute/code/android/development-setup
 ---
 
 {{% pageinfo %}}

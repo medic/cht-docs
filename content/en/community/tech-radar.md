@@ -4,6 +4,8 @@ linkTitle: "Tech radar"
 weight: 100
 description: >
   CHT Technology Radars for contributors and implementers
+aliases:
+  -    /contribute/tech-radar
 ---
 
 It is essential for a development toolkit such as the Community Health Toolkit to constantly improve and keep track with the latest useful innovations. It is important to openly look for innovations and new technologies and to question established technologies and methods every now and then.
