@@ -10,7 +10,6 @@ relatedContent: >
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
 ---
-
 {{% pageinfo %}}
 For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
 {{% /pageinfo %}}
@@ -55,4 +54,5 @@ Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/
 _\* During some upgrades, up to 3x current space used by CouchDB can be needed_
 
 ## Required skills
+
 In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
