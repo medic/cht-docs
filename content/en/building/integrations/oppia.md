@@ -6,7 +6,7 @@ description: >
    Integrate CHT with OppiaMobile’s learning management platform
 keywords: oppia
 relatedContent: >
-  exploring /learning-care
+  reference-apps/learning-care
 aliases:
    - /apps/guides/integrations/oppia
    - /building/guides/integrations/oppia
@@ -22,11 +22,11 @@ This documentation describes how the CHT and OppiaMobile can integrate to provid
 We provide a detailed example of the CHT<>OppiaMobile integration, including how to access the learning material, an overview of the functionalities within educational modules, and post-course assessment and supervisor support.
 
 ## Features
-This integration leverages the **remote onboarding, task & scheduling, and target features** of the CHT core framework with the **curated, multimedia educational content** available via OppiaMobile’s learning platform. 
+This integration leverages the **remote onboarding, task & scheduling, and target features** of the CHT core framework with the **curated, multimedia educational content** available via OppiaMobile’s learning platform.
 
 The CHT Core Framework & OppiaMobile integration currently supports the following capabilities and features:
 - [Task management]({{< ref "building/tasks" >}}) for notifications on new educational modules and software updates
-- [Remote onboarding]({{< ref "exploring/training" >}}) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
+- [Remote onboarding]({{< ref "reference-apps/training" >}}) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
 - Optimized multimedia content with links to educational modules powered by OppiaMobile
 - Message and feedback options, to contact supervisors with questions and seek support
 - [Supervisor visibility]({{< ref "building/targets/targets-overview#supervisor-view" >}}) into CHW progress for onboarding, learning, and care
@@ -59,7 +59,7 @@ The image below shows an example of an XLSForm configured for the Educational Mo
 
 ### Integration with OppiaMobile using weblinks
 
-The CHT application makes use of weblinks to direct the user to the OppiaMobile application. Each task in the CHT has a weblink configured to point to a specific course in OppiaMobile. The weblinks are configured in the forms as a button, which, when clicked or tapped, redirects the user accordingly, depending on the installation status of the OppiaMobile application and the respective course. The weblinks are configured in each of the XLSForms that are triggered by a selected task as illustrated in the image below: 
+The CHT application makes use of weblinks to direct the user to the OppiaMobile application. Each task in the CHT has a weblink configured to point to a specific course in OppiaMobile. The weblinks are configured in the forms as a button, which, when clicked or tapped, redirects the user accordingly, depending on the installation status of the OppiaMobile application and the respective course. The weblinks are configured in each of the XLSForms that are triggered by a selected task as illustrated in the image below:
 
 {{< figure src="weblink.png" link="weblink.png" class="left col-12 col-lg-9" >}}
 
@@ -157,7 +157,7 @@ Below is a code snippet for a target configured for the educational modules:
   date: 'now',
   emitCustom: (emit, original, contact) => {
     const assessmentModules = ['cha_module_one','cha_module_two','cha_module_three'];
-    
+
     for(let eligibleModule of assessmentModules){
         emit(Object.assign({}, original, {
           _id: `${eligibleModule}`,
@@ -234,7 +234,7 @@ This image shows the training card configured to show completion status of the e
 
 <br clear="all">
 
-Context provides information to App Forms, which are initiated from the contact's profile page. To show an App Form on a contact’s profile, the form’s expression field in its properties file must evaluate to true for the contact. The context information from the profile is accessible as the variable `summary`. 
+Context provides information to App Forms, which are initiated from the contact's profile page. To show an App Form on a contact’s profile, the form’s expression field in its properties file must evaluate to true for the contact. The context information from the profile is accessible as the variable `summary`.
 
 The code snippet below shows the context variables that can be accessed in the app forms:
 

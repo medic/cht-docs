@@ -5,7 +5,7 @@ weight: 4
 description: >
     Using GitHub Actions to publish Docker images
 relatedContent: >
-    core/releases
+    releases/
 ---
 
 Docker images for CHT projects can be published to the [medicmobile](https://hub.docker.com/u/medicmobile) Docker Hub organization, so they are easily accessible to the community. This process can be automated using GitHub actions.

@@ -1,7 +1,7 @@
 ---
 title: "Including Multimedia in Forms"
 linkTitle: "Multimedia in Forms"
-weight: 
+weight:
 description: >
   How to include multimedia files in forms
 relatedContent: >
@@ -15,7 +15,7 @@ aliases:
 
 ## Multimedia Formats
 
-There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "core/releases#dependencies" >}}).
+There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "releases/#dependencies" >}}).
 
  **List of Supported formats** [video/audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
  [images](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
@@ -116,12 +116,12 @@ To use fauxton.
 
  ### Uploading with CHT-conf
 
- Multimedia files can be uploaded when running CHT-conf to upload your forms. 
- 
+ Multimedia files can be uploaded when running CHT-conf to upload your forms.
+
  To include the files:
-  
-  1. Create a directory `{form_name}-media`. EX: `config/default/forms/app/delivery-media` 
-  1. Add multimedia files to  `{form_name}-media\image.png`.  EX: `config/default/forms/app/delivery-media/health_baby.png` 
+
+  1. Create a directory `{form_name}-media`. EX: `config/default/forms/app/delivery-media`
+  1. Add multimedia files to  `{form_name}-media\image.png`.  EX: `config/default/forms/app/delivery-media/health_baby.png`
   1. Run `cht-conf upload-app-forms`
   1. Confirm image is uploaded in CHT app.
 
