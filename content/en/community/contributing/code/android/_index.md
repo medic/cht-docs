@@ -1,5 +1,5 @@
 ---
-title: "contributing Android Code"
+title: "Contributing Android Code"
 linkTitle: "CHT Android"
 weight: 5
 description: >
