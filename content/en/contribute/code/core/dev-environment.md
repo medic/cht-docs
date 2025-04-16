@@ -104,8 +104,6 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 
 ### CouchDB
 
-#### CouchDB Setup in CHT 4.x
-
 Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-docker` folder with this code:
 
 ```
