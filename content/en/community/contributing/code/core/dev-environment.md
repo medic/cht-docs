@@ -105,24 +105,6 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 
 ### CouchDB
 
-CouchDB execution differs depending on whether you're running CHT 3.x or 4.x. Follow the instructions in one of the sections below.
-
-#### CouchDB Setup in CHT 3.x
-
-Note this will run in the background and store its data in `/home/YOUR-USER/cht-docker`. The login for your CHT instance will be `medic` and the password will be `password`:
-
-```shell
-docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v ~/cht-docker/local.d:/opt/couchdb/data -v ~/cht-docker/local.d:/opt/couchdb/etc/local.d apache/couchdb:2
-```
-
-Let's ensure CouchDB is set up with a test `curl` call. This should show "nonode@nohost" in JSON:
-
-```shell
-curl -X GET "http://medic:password@localhost:5984/_membership" | jq
-```
-
-#### CouchDB Setup in CHT 4.x
-
 Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-docker` folder with this code:
 
 ```
