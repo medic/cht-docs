@@ -21,24 +21,7 @@ The CHT is 100% open source--it always has been and always will be freely availa
 
 The CHT community's longterm focus on community-driven health systems, integrated care, and universal health coverage has surfaced innumerable insights that make the CHT unique. We're also deeply committed to [human-centered and participatory design](https://doi.org/10.1080/02681102.2019.1667289), as an approach to building technology with and for hard-to-reach communities. These principles have helped us to foster a remarkably dynamic and innovative community; learning and building with this community is one of the key reasons people decide to work with the CHT.
 
-<div class="partner-logos">
-  <img src="partners/brac.jpg">
-  <img src="partners/cornell-tech.png">
-  <img src="partners/dgh-uw.png">
-  <img src="partners/dtree.png">
-  <img src="partners/harvard-medical.png">
-  <img src="partners/i-tech.png">
-  <img src="partners/last-mile-health-new.png">
-  <img src="partners/living-goods.png">
-  <img src="partners/medic.png">
-  <img src="partners/muso.png">
-  <img src="partners/oppia-mobile.png">
-  <img src="partners/paul-allen-comp-sci.png">
-  <img src="partners/pivot.png">
-  <img src="partners/possible.png">
-  <img src="partners/samanvay-found.png">
-  <img src="partners/UCSF.png">
-</div>
+{{< gallery src="partners" >}}
 
 If you’re contributing to the CHT and would like to see your organization’s logo featured here, please send an email to hello@medic.org.
 
