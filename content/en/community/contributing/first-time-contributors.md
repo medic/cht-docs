@@ -49,8 +49,7 @@ If you do not have a GitHub account, [please create one now](https://github.com/
 
 1. Create a Fork
 
-   Fork this repository by clicking on the fork button on the top of this page.
-   This will create a copy of this repository in your account.
+   Create your own fork the CHT Core repository by going to the CHT's [fork page on GitHub](https://github.com/medic/cht-core/fork). When you click "Create Fork" on that page, you will  create a copy of this repository in your GitHub account.
 
 2. Clone the repository
 
