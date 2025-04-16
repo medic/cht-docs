@@ -165,7 +165,7 @@ Refer to the [CHT Core Developer Guide]({{< relref "contribute/code/core/dev-env
 
 _Only CHT Android_
 
-Later versions of the CHT, only support [running on Chrome/Webview 90+]({{< relref "core/releases#dependencies" >}}). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
+Later versions of the CHT, only support [running on Chrome/Webview 90+]({{< relref "releases/#dependencies" >}}). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
 
 To upgrade the necessary apk on an emulated Android device:
 
@@ -178,7 +178,7 @@ To upgrade the necessary apk on an emulated Android device:
 > [!NOTE]
 > Testing using an Android 5-6 device can be more challenging. The `com.android.webview` package seems to be baked into the system partition regardless of the image variant. It is possible use a custom ROM (e.g. CyanogenMod) with an upgraded WebView version on a physical device. Another approach to testing with older versions of Android is to simply test against an older version of the CHT (e.g. CHT `3.x.` only requires Chrome/Webview 53). The functionality of cht-android can still be validated by interacting with this old CHT version.
 >
-> If using the docker-helper to deploy CHT instances for testing with old Android versions, be aware that the `local-ip.medicmobile.org` SSL certificates may not work with the device (because the root certificate is not recognized). On Android 5-6 you can manually install the root certificate via Settings > Security > Install from SD Card. 
+> If using the docker-helper to deploy CHT instances for testing with old Android versions, be aware that the `local-ip.medicmobile.org` SSL certificates may not work with the device (because the root certificate is not recognized). On Android 5-6 you can manually install the root certificate via Settings > Security > Install from SD Card.
 
 ### Android Studio
 

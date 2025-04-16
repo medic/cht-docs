@@ -43,11 +43,11 @@ Given a version number `MAJOR.MINOR.PATCH`, increment the:
 `MAJOR` releases represent the biggest scale of code change and their roll out effort is high, as they likely require time and effort to set up or configure. As a consequence, they are the least frequent of the three release types.
 
 > [!IMPORTANT]  
-> You can find the versions currently supported, dependencies, and release notes for the CHT Core [on the Releases page]({{% ref "core/releases" %}}). 
+> You can find the versions currently supported, dependencies, and release notes for the CHT Core [on the Releases page]({{% ref "releases/" %}}). 
 
 ### When to wait to release
 
-In general, release managers should not feel they have to wait to do a release. The moment the release manager feels the release is ready, they should release it. This may even be with just one ticket! 
+In general, release managers should not feel they have to wait to do a release. The moment the release manager feels the release is ready, they should release it. This may even be with just one ticket!
 
 There are two scenarios where a release manager should wait before doing the release:
 
