@@ -8,9 +8,8 @@ aliases:
   -    /contribute/code/
 ---
 
-{{% alert title="Setup development environment" %}}
-See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
-{{% /alert %}}
+> [!TIP] 
+> See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
 
 The Core Framework of the Community Health Toolkit is powered by people like you. Your contributions help us create open source technology for a new model of healthcare that reaches everyone.
 
