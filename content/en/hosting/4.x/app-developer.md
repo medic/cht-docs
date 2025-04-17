@@ -9,25 +9,26 @@ description: >
   Hosting the CHT when developing apps
 ---
 
+{{< callout >}}
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
 To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}). To deploy 4.x in production see the [4.x documentation]({{< relref "hosting/4.x/production" >}}).
-  
-
+{{< /callout >}}
 
 ## Getting started
 
 First, decide which way to run the CHT: Docker Helper or manually it via `docker compose`. Since they both achieve the same result, **it is recommended to use Docker Helper** as shown in the next section as it's very easy to run.  Alternately, the manual process is covered at the [bottom of the page](#manual-docker-compose-method).  
 
-
 ## CHT Docker Helper for 4.x
 
 > [!IMPORTANT] 
-> This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}})
+> This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}).
 
 The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS (both x86 and Apple Silicon) and Linux.
 
-![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
+{{< figure src="cht-docker-helper.png" link="cht-docker-helper.png" >}}
+
+The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".
 
 This script brings a lot of benefits with it:
 * You only have to download one bash script
@@ -61,7 +62,7 @@ Always run the script from the directory where it lives.  If you launch it from 
 
 Run the script with:
 
-```
+```shell
 ./cht-docker-compose.sh
 ```
 
@@ -167,7 +168,7 @@ To solve this issue, follow the steps below:
 
 These three steps look like as following assuming that `CONTAINER_NAME` is equal to `4_3_0_nginx_1`. Note that `CONTAINER_NAME` will be different for each instance of CHT you run with Docker Helper:
 
-```
+```shell
 $ docker ps --filter "name=nginx"  --format '{{ .Names }}'
 4_3_0_nginx_1
 

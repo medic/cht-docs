@@ -8,8 +8,9 @@ description: >
    Production considerations for CHT Watchdog
 ---
 
-> [!NOTE]
-> These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 ## What it means to run in production
 

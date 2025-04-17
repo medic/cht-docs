@@ -38,16 +38,16 @@ Then visit the RapidPro workspace settings page (`/org/home/`) and check your Ra
 
 In your RapidPro dashboard, visit the flows page (`/flow/`) and create a new flow. It only needs to contain a webhook, to relay the message to your CHT Core instance and handle possible errors.
 
-![flow_overview](flow_overview.png)
+{{< figure src="flow_overview.png" link="flow_overview.png" caption="flow_overview" >}}
 
 Configure the new webhook:
 - to `POST` to the `cht_url` you configured earlier:
 
-![flow_webhook_host](flow_webhook_host.png)
+{{< figure src="flow_webhook_host.png" link="flow_webhook_host.png" caption="flow_webhook_host" >}}
 
 - set the authorization and content-type headers
 
-![flow_webhook_headers](flow_webhook_headers.png)
+{{< figure src="flow_webhook_headers.png" link="flow_webhook_headers.png" caption="flow_webhook_headers" >}}
 
 - set the body to relay the message to CHT in the expected format:
 ```json
@@ -58,13 +58,12 @@ Configure the new webhook:
 )))
 ```
 
-![flow_webhook_body](flow_webhook_body.png)
-
+{{< figure src="flow_webhook_body.png" link="flow_webhook_hflow_webhook_bodyeaders.png" caption="flow_webhook_body" >}}
 
 ### Create a new trigger
 Create a trigger (`/trigger/`) to start the new flow when a message is not handled elsewhere.
 
-![trigger_select](trigger_select.png)
+{{< figure src="trigger_select.png" link="trigger_select.png" caption="trigger_select" >}}
 
 For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "building/integrations/rapidpro" %}}).
 

@@ -83,7 +83,8 @@ To run projects concurrently, instead of cancelling the first one, open a second
 
 The `cht-docker-compose.sh` scripts builds on the `docker-compose-developer-3.x-only.yml` and `.env` files used above by helping start CHT instances with a simple text based GUI:
 
-![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
+{{< figure src="cht-docker-helper.png" link="cht-docker-helper.png" >}}
+The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".
 
 
 ### Prerequisites
@@ -235,7 +236,9 @@ To account for this, the wait time is multiplied times the boot iteration for ea
 
 If you're on a resource constrained computer, like a very old or very slow laptop, be sure to watch the total number of containers you're running.  More than one or two projects (2 or 4 containers) and you may notice a slow-down. You can use the `./docker-status.sh` script if you forgot which projects you have running:
 
-![The docker-status.sh script showing 4 sections. The top section lists the running CHT containers, their IP, their mapped ports and the state (running time). The second section found on the left is a list of docker networks. The third section is on the top right and lists downloaded docker images. The furth section on the bottom right, shows docker volumes](docker-status.png)
+{{< figure src="docker-status.png" link="docker-status.png" >}}
+
+The docker-status.sh script showing 4 sections. The top section lists the running CHT containers, their IP, their mapped ports and the state (running time). The second section found on the left is a list of docker networks. The third section is on the top right and lists downloaded docker images. The furth section on the bottom right, shows docker volumes
 
 A word of caution though - for now this script doesn't scale well if you have 10s of containers and volumes.  Content [can scroll off the screen](https://user-images.githubusercontent.com/1608415/137566806-e13b765e-4f95-48be-82e7-c8e6351e14b7.mp4) and seem confusing!
 

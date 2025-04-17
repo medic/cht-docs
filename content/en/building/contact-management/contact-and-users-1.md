@@ -45,7 +45,6 @@ In this tutorial, you will work with the default contact forms and the default h
 While logged in as an admin user, you will first create the Health Facility, CHW Supervisor, CHW Area, and CHW. You will then create the users for the CHW so that they can log in and create households and household members.
 
 
-
 ### 1. Create New Health Facility
 
 <br clear="all">

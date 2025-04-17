@@ -8,9 +8,9 @@ description: >
     Scraping and alerting external sources with CHT Watchdog
 ---
 
-> [!IMPORTANT]
-> These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 ## Going beyond basic setup
 
@@ -76,7 +76,7 @@ While this is a specific example for cAdvisor, these same steps will be taken to
 
 After completing these steps, we now have Docker metrics we can alert on:
 
-[![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)](cadvisor.screenshot.png)
+{{< figure src="cadvisor.screenshot.png" link="cadvisor.screenshot.png" caption="Screenshot of Grafana Dashboard showing data from Prometheus" >}}
 
 Read on below on how to set this up!
 

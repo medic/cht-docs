@@ -45,14 +45,14 @@ See the [OpenHIM guide]({{< ref "building/interoperability/openhim" >}}) for ins
     1. **CHT** - Navigate to the `People` tab in the CHT dashboard. From there, select a Facility where you want to create a new `Person`. Click on the `New Person` button and fill in the required details for the Person. Make sure to select `Patient` as the `Person`'s role for this flow.
     1. **CHT** - Once you have created the new `Person`, you need to retrieve their unique identifier from the browser's URL. You can do this by copying the alphanumeric string that appears after `person/` in the URL. Keep this identifier safe as you will need it for the next steps.
     1. **OpenHIM Admin Console** - To verify that the `Patient` creation was successful, navigate to the `Transaction Log` in the OpenHIM Admin Console. You should see two successful API calls recorded in the log, one to `/mediator/patient/` and one to `/fhir/Patient/`.
-       ![](instance-patient.png)
+    {{< figure src="instance-patient.png" link="instance-patient.png" >}}
 
 3.  Request the LTFU for the Patient
 
     1. **HTTP Request** - To trigger the LTFU process for the newly created patient, you need to create a `ServiceRequest`. You can refer to the API documentation available [here](#servicerequest-resource) to learn how to create a `ServiceRequest`. Replace the `requester.reference` and the `subject.reference` with the `Organization` and `Patient` identifiers respectively. Once the `ServiceRequest` is received by the mediator, it will initiate the LTFU workflow for the patient, which includes reminders for follow-up appointments and check-ins. 
 
     1. **HTTP Request** - Verify that the `ServiceRequest` was successful in both OpenHIM Mediator & FHIR Resource. Navigate to the `Transaction Log` in the Admin Console. You should see three successful API calls, as in the image below:
-       ![](./instance-service-request.png)
+    {{< figure src="./instance-service-request.png" link="./instance-service-request.png" >}}
 
 4.  Handle LTFU Task
 
@@ -62,7 +62,8 @@ See the [OpenHIM guide]({{< ref "building/interoperability/openhim" >}}) for ins
 
     1. **CHT** - Select an option (Yes or No) and submit the `Tasks`.
     1. **OpenHIM Admin Console** - Verify that the Encounter creation was successful in both OpenHIM Mediator & FHIR Resource. Navigate to the `Transaction Log` in the Admin Console. You should see two successful API calls, one to `/mediator/encounter/` and one to `/fhir/Encounter/`, as in the image below.
-       ![](instance-encounter.png)
+    {{< figure src="instance-encounter.png" link="instance-encounter.png" >}}
+
     1. If your callback URL test service was set up correctly, you should receive a notification from the mediator.
 
 

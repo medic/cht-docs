@@ -57,7 +57,7 @@ CouchDB
 2. Restart all services, **retry** upgrade from Admin GUI, do not cancel and upgrade. Here's a screenshot showing the retry button:  
 
 
-![Admin web GUI showing "Retry upgrade" button in the lower right ](retry.upgrade.png)
+{{< figure src="retry.upgrade.png" link="retry.upgrade.png" caption="Admin web GUI showing Retry upgrade button in the lower right" >}}
 
 ## CHT 4.0.0 - 4.2.2: view indexing can become stuck after indexing is finished
 
@@ -65,7 +65,7 @@ CouchDB
 
 Upgrade process stalls while trying to index staged views:
 
-![CHT Core admin UI showing upgrade progress bar stalled at 4% ](stalled-upgrade.png)
+{{< figure src="stalled-upgrade.png" link="stalled-upgrade.png" caption="CHT Core admin UI showing upgrade progress bar stalled at 4%" >}}
 
 **Fix:**
 
@@ -141,7 +141,7 @@ API Logs:
 
 Running `kubectl get po` shows 3 pods with status of `ContainerStatusUnknown`:
 
-![CLI screenshot showing 3 pods with STATUS of "ContainerStatusUnknown" ](container-status-unknown.png)
+{{< figure src="container-status-unknown.png" link="container-status-unknown.png" caption="CLI screenshot showing 3 pods with STATUS of ContainerStatusUnknown" >}}
 
 **Fix:** delete pods so they get recreated and start cleanly 
 

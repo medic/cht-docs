@@ -19,7 +19,7 @@ Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix sy
 
 3. Create a new key pair for your computer. 
 
-![Putty-gen-key-pair](puttygen-run-key-generate.png)
+{{< figure src="puttygen-run-key-generate.png" link="puttygen-run-key-generate.png" caption="Putty-gen-key-pair" >}}
 
 4. Convert the key generated from ssh2 format to openssh. Puttygen [supports this](https://stackoverflow.com/questions/2224066/how-to-convert-ssh-keypairs-generated-using-puttygen-windows-into-key-pairs-us/2224204#2224204).
 
@@ -39,24 +39,24 @@ Connecting to RDBMS, the PostgreSQL server, is pretty stratightforward in nix sy
 
 5. Import the file using PuTTYgen:
 
-![puttty-import-key](putty-gen-import.png)
+{{< figure src="putty-gen-import.png" link="putty-gen-import.png" caption="puttty-import-key" >}}
 
 6. Save it as PuTTY Private Key File .ppk:
 
-![puttty-save-key](putty-save-key.png)
+{{< figure src="putty-save-key.png" link="putty-save-key.png" caption="putty-save-keys" >}}
 
 7. Add the key (.ppk) to Pageant (PuTTY authentication agent):
 
-![puttty-add-key](putty-add-key.png)
+{{< figure src="putty-add-key.png" link="putty-add-key.png" caption="putty-add-key.png" >}}
 
 8. Now you can connect to RDBMS using PuTTY:
 
-![puttty-connect](puttty-connect.png)
+{{< figure src="putty-connect.png" link="putty-connect.png" caption="putty-connect.png" >}}
 
-![puttty-connect](putty-connect-final.png)
+{{< figure src="putty-connect-final.png" link="putty-connect-final.png" caption="putty-connect.png" >}}
 
 If you are connecting to rdbms in order to use a PostgreSQL client. You may not need to tunnel the connection. The client can do it for you. 
 
-![rdbms_1](rdbms_connect_1.png)
+{{< figure src="rdbms_connect_1.png" link="rdbms_connect_1.png" caption="rdbms_1" >}}
 
-![rdbms_2](rdbms_connect_2.png)
+{{< figure src="rdbms_connect_2.png" link="rdbms_connect_2.png" caption="rdbms_2" >}}

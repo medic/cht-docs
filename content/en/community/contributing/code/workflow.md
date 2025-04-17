@@ -159,9 +159,9 @@ The following labels taken from [conventional: comments](https://conventionalcom
 
 Sample comments:
 
-![Issue comment](issue-comment.png)
+{{< figure src="issue-comment.png" link="issue-comment.png" caption="Issue comment" >}}
 
-![Suggestion comment](suggestion-comment.png)
+{{< figure src="suggestion-comment.png" link="suggestion-comment.png" caption="Suggestion comment" >}}
 
 #### Suggestions
 
@@ -180,7 +180,7 @@ That means leaving a comment, having the author read and understand it, and then
 
 To be clear and save all that back-and-forth though, you can make a code suggestion directly in your review, which will let the author simply click a button to accept the change (and have it automatically applied as a commit by GitHub).
 
-![GitHub review suggest change](gh-review-suggestion.png)
+{{< figure src="gh-review-suggestion.png" link="gh-review-suggestion.png" caption="GitHub review suggest change" >}}
 
 #### Timeliness
 
