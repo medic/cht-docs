@@ -40,7 +40,7 @@ Android, this can be found under `Settings` `>` `Personal` `>` `Security`.
 On some devices, the exact menu layout may have been modified by the hardware
 manufacturer. Choose `Encrypt Phone` or `Encrypt Tablet`.
 
-{{< figure src="encrypt-44.jp" link="encrypt-44.jp" caption="Screenshot for Android 4.4" >}}
+{{< figure src="encrypt-44.jpg" link="encrypt-44.jpg" caption="Screenshot for Android 4.4" >}}
 
 ### Android Versions before 3.0
 
