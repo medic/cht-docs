@@ -54,6 +54,14 @@ url = "https://github.com/medic"
   [menu.main.params]
   icon = "github"
 
+[[menu.main]]
+name = "Website"
+weight = 6
+url = "https://communityhealthtoolkit.org/"
+
+  [menu.main.params]
+  icon = "globe-alt"
+
 [[menu.sidebar]]
 identifier = "more"
 name = "More"
