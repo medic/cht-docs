@@ -1,7 +1,6 @@
 ---
 title: "0.4.15 and earlier"
 linkTitle: "0.x" 
-toc: false
 aliases:
   -  /core/releases/0.4.15-and-earlier
 ---
