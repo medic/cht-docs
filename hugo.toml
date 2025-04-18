@@ -1,4 +1,3 @@
-# Configuration
 baseURL = "https://docs.communityhealthtoolkit.org/"
 title = "Community Health Toolkit"
 
@@ -30,21 +29,15 @@ enableMissingTranslationPlaceholders = true
     path = "github.com/imfing/hextra"
     disable = false
 
+[privacy.youtube]
+privacyEnhanced = true
+
 [markup]
-  [markup.tableOfContents]
-    endLevel = 4
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
       noClasses = false
-
-  [markup.goldmark.extensions.passthrough]
-  enable = true
-
-  [markup.goldmark.extensions.passthrough.delimiters]
-  block = [ [ "\\[", "\\]" ], [ "$$", "$$" ] ]
-  inline = [ [ "\\(", "\\)" ] ]
 
 [[menu.main]]
 name = "Search"
@@ -86,19 +79,6 @@ identifier = "privacyPolicy"
 name = "Privacy Policy ↗"
 url = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
 weight = 4
-
-# Highlighting config
-pygmentsCodeFences = true
-pygmentsUseClasses = false
-# Use the new Chroma Go highlighter in Hugo.
-pygmentsUseClassic = false
-#pygmentsOptions = "linenos=table"
-# See https://help.farbox.com/pygments.html
-pygmentsStyle = "tango"
-
-# Configure how URLs look like per section.
-[permalinks]
-blog = "/:section/:year/:month/:day/:slug/"
 
 ## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
 [blackfriday]
@@ -193,13 +173,14 @@ RelPermalink= "communityhealthtoolkit.org"
 osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$']
 
   [params.navbar]
-  displayTitle = true
+  displayTitle = false
   displayLogo = true
   width = "wide"
 
     [params.navbar.logo]
     path = "icons/logo.svg"
     dark = "icons/logo-dark.svg"
+    width = 300
 
   [params.page]
   width = "normal"
@@ -225,14 +206,6 @@ osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$'
   [params.editURL]
   enable = true
   base = "https://github.com/medic/cht-docs/edit/main/content"
-
-[params.blog.list]
-displayTags = true
-sortBy = "date"
-sortOrder = "desc"
-
-[params.blog.article]
-displayPagination = true
 
 [params.highlight.copy]
 enable = true

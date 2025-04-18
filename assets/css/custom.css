@@ -1,0 +1,117 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/static/fonts/NotoSans-Regular.ttf') format('truetype'); 
+  }
+
+/* -----------------------------------------------
+         This code is overriding default theme
+            configuration and classes 
+--------------------------------------------------*/
+
+/* Colors */
+:root {
+  --primary-hue: 14deg;
+}
+
+/* Colors for dark theme */
+.dark {
+  --primary-hue: 30deg;
+}
+
+/* Fonts */
+h1, .content h1,
+.content h2,
+.content h3,
+.content h3 {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/*----------------------------------------------------------------
+Table Styling 
+Based on https://github.com/CleverCloud/documentation/tree/main)
+-----------------------------------------------------------------*/ 
+
+/* Table headers formatting */
+.content table:not(.code-block table) th {
+  border-right-width: 0px;
+  border-left-width: 0px; 
+  border-top: none;
+  text-transform: uppercase;
+  color: rgba(119, 119, 119);
+}
+
+/* Table headers formatting for dark mode */
+html[class~="dark"] .content table:not(.code-block table) th {
+  color: rgb(193, 193, 196);
+}
+
+/* Remove internal borders */
+.content table:not(.code-block table) td {
+  margin: 0px;
+  border-width: 0px;
+  --tw-border-opacity: 0;
+}
+
+/* Text in cells */
+.content table:not(.code-block table) tr {
+  font-size: 0.8rem;
+  text-align: left;
+  border-width: 0px;
+  color: rgba(51, 51, 51);
+}
+/* Text in cells for dark mode */
+.content :where(table):not(:where(.hextra-code-block table, [class~=not-prose],[class~=not-prose] *)) td:is(html[class~="dark"] *) {
+    color: #ececfe;
+  }
+
+/* Animation for 404 pages */
+.animate__headShake {
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-name: headShake;
+  animation-name:headShake
+}
+.animate__animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes headShake {
+    0% {
+        -webkit-transform: translateX(0);
+        transform:translateX(0)
+    }
+
+    6.5% {
+        -webkit-transform: translateX(-6px) rotateY(-9deg);
+        transform:translateX(-6px) rotateY(-9deg)
+    }
+
+    18.5% {
+        -webkit-transform: translateX(5px) rotateY(7deg);
+        transform:translateX(5px) rotateY(7deg)
+    }
+
+    31.5% {
+        -webkit-transform: translateX(-3px) rotateY(-5deg);
+        transform:translateX(-3px) rotateY(-5deg)
+    }
+
+    43.5% {
+        -webkit-transform: translateX(2px) rotateY(3deg);
+        transform:translateX(2px) rotateY(3deg)
+    }
+
+    50% {
+        -webkit-transform: translateX(0);
+        transform:translateX(0)
+    }
+}
+
