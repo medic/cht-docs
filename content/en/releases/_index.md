@@ -2,16 +2,16 @@
 title: "Releases"
 linkTitle: "Releases"
 weight: 11
-description: >
+description:
   Versions currently supported, dependencies, and release notes for the CHT Core Framework
-no_list: true
 aliases:
-  -    /core/releases
-  -    /core/overview/supported-software
-relatedContent:
-  hosting/
-  hosting/requirements/
+  - /core/releases
+  - /core/overview/supported-software
 ---
+
+{{< hextra/hero-subtitle >}}
+  Versions currently supported, dependencies, and release notes for the CHT Core Framework
+{{< /hextra/hero-subtitle >}}
 
 ## Supported Versions
 
@@ -98,7 +98,6 @@ If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assis
 - QZSS
 
 Devices with more navigation systems are more likely to get a more accurate location fix in varied locations. For example, Huawei Y5 has GPS specs listed on gsmarena.com as **_GPS: Yes, with A-GPS, GLONASS, BDS_** which makes it a good choice for GPS data collection.
-
 
 ## Release Notes
 
