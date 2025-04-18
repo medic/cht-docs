@@ -28,7 +28,7 @@ The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks tha
 
 <br>
 
-![Anatomy of a Task](anatomy-task.png)
+{{< figure src="anatomy-task.png" link="anatomy-task.png" caption="Anatomy of a Task" >}}
 
 <br>
 
@@ -45,7 +45,7 @@ If a Task is overdue, the due date will be red. Tasks are listed in order of due
 
 <br>
 
-![Anatomy of a Report](anatomy-report.png)
+{{< figure src="anatomy-report.png" link="anatomy-report.png" caption="Anatomy of a Report" >}}
 
 <br>
 
@@ -97,7 +97,7 @@ The screenshots here represent some of the smallest phones our users have. As yo
 
 <br>
 
-![Anatomy of a Report](history.png)
+{{< figure src="history.png" link="history.png" caption="History" >}}
 
 <br>
 
@@ -194,13 +194,12 @@ Ex. Is your patient still pregnant? → Did she attend the ANC visit? → Does s
 **Reflect Input Length in Field** <br>
 Employ this for fields that have a defined character count like phone numbers, zip codes, etc.
 
-![Input Length](input-length.png) <br>
-
+{{< figure src="input-length.png" link="input-length.png" caption="Input Length" >}} <br>
 
 **Don’t Put Placeholder Or Helper Text Inside The Form Fields** <br>
 People go through forms quickly and if a field looks like it already has an answer they may accidentally miss it. Research shows that empty fields draw more attention than those with placeholder text.
 
-![Placeholder Text](no-placeholder-text.png) <br>
+{{< figure src="no-placeholder-text.png" link="no-placeholder-text.png" caption="Placeholder Text" >}} <br>
 
 **Distinguish Optional And Required Fields** <br>
 Users don’t always know what is implied by the required field marker ( * ). Instead, denoting what is optional is a preferred method, especially for forms with many required fields. If you do use asterisks, make the meaning of the symbol clear by stating “Fields with an asterisk ( * ) are mandatory.” <br>
@@ -208,17 +207,17 @@ Users don’t always know what is implied by the required field marker ( * ). In
 **Always Stack Radio Buttons And Checkboxes In A Single Vertical Column** <br>
 Placing the options underneath each other allows for easy scanning and makes it less likely that a user will completely overlook one of the options.
 
-![Radio Buttons](radio-buttons-stacked.png) <br>
+{{< figure src="radio-buttons-stacked.png" link="radio-buttons-stacked.png" caption="Radio Buttons" >}} <br>
 
 **Don’t Use Dropdowns If There Are Less Than Seven Options** <br>
 For smaller lists, use radio buttons instead of drop-down menus. Radio buttons have lower cognitive load because they make all options visible for easy comparison.
 
-![Radio vs Dropdown](radio-dropdown.png) <br>
+{{< figure src="radio-dropdown.png" link="radio-dropdown.png" caption="Radio vs Dropdown" >}} <br>
 
 **Make Use Of Images** <br>
 Where it makes sense, use images to aid in the understanding of a question
 
-![Form Images](form-images.png) <br>
+{{< figure src="form-images.png" link="form-images.png" caption="Form Images" >}} <br>
 
 
 ### Summary Page
@@ -315,7 +314,7 @@ H2: text with a colored line under it, centered <br>
 H3: left aligned text, simple grey line under it <br>
 H4: normal body text
 
-![Summary](summary.png)
+{{< figure src="summary.png" link="summary.png" caption="Summary" >}}
 
 **Other body text styling**
 
@@ -347,7 +346,7 @@ This information can be organized into cards specific to a condition (e.g. pregn
 
 <br>
 
-![Condition Card](condition-cards.png)
+{{< figure src="condition-cards.png" link="condition-cards.png" caption="Condition Card" >}}
 
 <br>
 
@@ -435,7 +434,7 @@ Ex.  Summary of past pregnancies rather than card for each past pregnancy
 
 <br>
 
-![Past Pregnancies](past-pregnancies.png)
+{{< figure src="past-pregnancies.png" link="past-pregnancies.png" caption="Past Pregnancies" >}}
 
 <br>
 
@@ -454,7 +453,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 <br>
 
-![Targets](counts.png)
+{{< figure src="counts.png" link="counts.png" caption="Targets" >}}
 
 <br>
 
@@ -467,7 +466,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 <br>
 
-![Percentages](percentages.png)
+{{< figure src="percentages.png" link="percentages.png" caption="Percentages" >}}
 
 <br>
 
