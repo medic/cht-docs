@@ -94,6 +94,15 @@ Doesn't work with mobile too well :/
 .workflow + h2, .workflow + h3 , .workflow + h4 { clear: both; }
 
 /*----------------------------------------------------------------
+OMG - why!? hide all release items in the TOC
+-----------------------------------------------------------------*/
+
+a[href^="/releases/"] + div {
+    display: none;
+}
+
+
+/*----------------------------------------------------------------
 Table Styling
 Based on https://github.com/CleverCloud/documentation/tree/main)
 -----------------------------------------------------------------*/
