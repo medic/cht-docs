@@ -7,7 +7,16 @@ description: >
 ---
 
 
-In the CHT Community, we take the security of our systems seriously and value the security community. Disclosure of security vulnerabilities helps us ensure the security and privacy of the CHT users.
+
+In the CHT Community, we take the security of our systems seriously and value the security community. Disclosure of security vulnerabilities helps us ensure the security and privacy of the CHT users
+
+## Disclosure 
+
+If you believe you've found a security vulnerability in one of our products or platforms please send it to us by emailing dev@medic.org. Please include the following details with your report:
+
+- Description of the location and potential impact of the vulnerability;
+- A detailed description of the steps required to reproduce the vulnerability (proof of concept source code, screenshots, and compressed screen captures are all helpful to us); and
+- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "community/hall-of-fame" %}}).
 
 ## Guidelines
 

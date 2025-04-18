@@ -20,15 +20,11 @@ The CHT community welcomes first-time contributors and experts alike. All commen
 
 ### First time contributor?
 
-Be sure to read the [first time contributors guide]({{% ref "community/contributing#first-time-contributors" %}})!
+Be sure to read the [first time contributors guide]({{% ref "community/contributing/first-time-contributors" %}})!
 
-## How to report a security vulnerability?
+## Reporting a vulnerability?
 
-If you believe you've found a security vulnerability in one of our products or platforms please send it to us by emailing dev@medic.org. Please include the following details with your report:
-
-- Description of the location and potential impact of the vulnerability;
-- A detailed description of the steps required to reproduce the vulnerability (proof of concept source code, screenshots, and compressed screen captures are all helpful to us); and
-- Your name/handle and a link for recognition in our [Hall of Fame]({{% ref "community/hall-of-fame" %}}).
+Please see the [vulnerability disclosure guide]({{% ref "community/contributing/disclosing-vulnerabilities" %}})!
 
 ## Code of Conduct
 
