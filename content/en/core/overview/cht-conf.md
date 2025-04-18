@@ -67,11 +67,11 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
    | documentID3 | true             |
 
 2. Use the following command to download and edit the documents:
-   ```
+   ```shell
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder*
    ```
    or this one to update already downloaded docs
-   ```
+   ```shell
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder* --updateOfflineDocs
    ```
 
@@ -122,7 +122,7 @@ example-project/
 ```
 
 If you are starting from scratch you can initialise the file layout using the initialise-project-layout action:
-```
+```shell
 cht initialise-project-layout
 ```
 
@@ -131,7 +131,7 @@ cht initialise-project-layout
 Configuration can be inherited from another project, and then modified.  This allows the `app_settings.json` and contained files (`task-schedules.json`, `targets.json` etc.) to be imported, and then modified.
 
 To achieve this, create a file called `settings.inherit.json` in your project's root directory with the following format:
-```
+```json
 {
 	"inherit": "../path/to/other/project",
 	"replace": {

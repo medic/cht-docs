@@ -158,7 +158,7 @@ Follow these steps to create your first developer instance. You can create as ma
    ```
 2. Change into the `docker-help` directory: `cd ./cht-core/scripts/docker-helper/`
 3. Run the helper script and specify your `.env_docker` file:
-   ```
+   ```shell
    ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker
    ```
 4. Your CHT instance will be started when you see the text:
@@ -170,7 +170,7 @@ Follow these steps to create your first developer instance. You can create as ma
 
 When you're done with an instance, be sure to shut it down:
 
-```
+```shell
 ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker -d down
 ```
 
@@ -178,7 +178,7 @@ All information will be saved, and it should be quick to start for the Nth time.
 
 To start an existing instance again, just run the command from the "First Run" section:
 
-```
+```shell
 ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker 
 ```
 
@@ -188,7 +188,7 @@ This command is safe to run as many times as you'd like if  you forget the state
 
 When you're done with a project and want to completely destroy it, run `destroy`:
 
-```
+```shell
 ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker -d destroy
 ```
 
@@ -255,7 +255,7 @@ If you see either of these errors, you're very likely off-line such that you eff
 
 If you REALLY get stuck and want to destroy _**ALL**_ docker containers/volumes/networks, even those not started by this script, run this (but be  _**extra**_ sure that's what you want to do):
 
-```
+```shell
 docker stop $(docker ps -q)&&docker system prune&&docker volume prune
 ```
 

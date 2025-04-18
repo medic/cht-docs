@@ -20,7 +20,7 @@ cascade:
 
 {{< cards >}}
   {{< card link="core" title="CHT Core Framework" icon="template" subtitle="Overview and reference for development of the Core Framework" >}}
-  {{< card link="reference-apps" title="References" subtitle="Explore et get inspired by CHT examples of reference applications" icon="collection" >}}
+  {{< card link="reference-apps" title="Reference Apps" subtitle="Explore et get inspired by CHT examples of reference applications" icon="collection" >}}
   {{< card link="community" title="Get involved" subtitle="Do you want to get involved in the CHT Community? Here's how..." icon="arrow-circle-right" >}}
   {{< card link="community/contributing" title="Contribute" subtitle="See how to contribute code and documentation" icon="pencil-alt" >}}
   {{< card link="design" title="Design" icon="sparkles" subtitle="Design guidelines for developers and designers of digital health applications" >}}
