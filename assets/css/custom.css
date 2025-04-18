@@ -7,8 +7,7 @@
   }
 
 /* -----------------------------------------------
-         This code is overriding default theme
-            configuration and classes 
+Overriding default theme configuration and classes 
 --------------------------------------------------*/
 
 /* Colors */
@@ -168,5 +167,16 @@ html[class~="dark"] .content table:not(.code-block table) th {
         -webkit-transform: translateX(0);
         transform:translateX(0)
     }
+}
+
+/* Cards */
+.hextra-feature-card h3 {
+  font-family: inherit; /* Ensures font family is inherited */
+  font-size: 1.5rem; /* Example size */
+  color: inherit; /* Ensures color is inherited */
+}
+
+html[class~="dark"] .hextra-feature-card {
+  color: inherit;
 }
 

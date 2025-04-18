@@ -2,7 +2,6 @@ baseURL = "https://docs.communityhealthtoolkit.org/"
 title = "Community Health Toolkit"
 
 refLinksErrorLevel = "ERROR"
-disableKinds = ["taxonomy"]
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
@@ -78,7 +77,7 @@ weight = 2
 
 [[menu.sidebar]]
 identifier = "docs"
-name = "Create documentation issue ↗"
+name = "Create docs issue ↗"
 url = "https://github.com/medic/cht-docs/issues/new"
 weight = 3
 
@@ -188,7 +187,7 @@ osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$'
     [params.navbar.logo]
     path = "icons/logo.svg"
     dark = "icons/logo-dark.svg"
-    width = 300
+    width = 275
 
   [params.page]
   width = "normal"

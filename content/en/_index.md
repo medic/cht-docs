@@ -38,19 +38,19 @@ cascade:
     title="Build and test the CHT"
     subtitle="Set up up a local environment to build and test CHT applications"
     link="../building/local-setup"
-    style="background: rgb(253, 241, 239);"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Set up a dev environment"
     subtitle="Run the CHT Core from source code locally for development purposes"
     link="../community/contributing/code/core/dev-environment"
-    style="background: rgb(238, 245, 249);"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(194, 135, 72, 0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Host the CHT"
     subtitle="Learn how to host the CHT locally or in production"
     link="../hosting/4.x/app-developer"
-    style="background: rgb(253, 241, 239);"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
   >}}
 
 {{< /hextra/feature-grid >}}
