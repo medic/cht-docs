@@ -144,6 +144,12 @@ Example of purge configured in your app_settings:
   }
 ```
 
+**Important:** Simply removing the `purge` key from `app_settings.json` will not disable purging. To properly disable purging, you must explicitly set the purge key to an empty object, as shown below:
+
+```json
+"purge": {}
+```
+
 ## Considerations
 
 ### Purged documents server-side
