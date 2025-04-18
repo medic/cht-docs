@@ -11,7 +11,9 @@ description: >
 
 Documentation exists for everything from how to [compile]({{% ref "community/contributing/code/core/dev-environment" %}}) the CHT from source to how to [build](https://github.com/medic/cht-docs/blob/main/README.md) the docs site locally.  However, where do you start?  What if you've never contributed to an open source project before? This guide helps the newcomer make their first contribution.
 
-If this isn't you, head over to our [Community section]({{% ref "community" %}}) where it list out other actions for new community members who are not developers.
+If you want the more brief steps, check out the contributors' [quick start]({{% ref "community/contributing#quick-start" %}}).
+
+If this isn't you all together, head over to our [Community section]({{% ref "community" %}}) where it list out other actions for new community members who are not developers.
 
 ## What is the CHT
 
@@ -31,7 +33,9 @@ If you have never used `git` or GitHub, check out the [Get started using GitHub 
 
 ## Your first issue
 
-Issue marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22) could be a great start if you are new to the CHT. Feel free to pick an issue that looks easy for you! An easy-looking issue will better set you up for successfully merging the code. Easy merges are our goal here!
+Issues marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22) could be a great start if you are new to the CHT. Feel free to pick an issue that looks easy for you! An easy-looking issue will better set you up for successfully merging the code. Easy merges are our goal here!
+
+Feel free to look beyond just the CHT Core as well - we have other repositories that [also have the Good first issue label](https://github.com/search?q=org%3Amedic+label%3A%22Good+first+issue%22++&type=issues&state=open).
 
 Make a comment on the issue asking for the issue to be assigned to you.
 
@@ -51,30 +55,18 @@ If you do not have a GitHub account, [please create one now](https://github.com/
 
    Create your own fork the CHT Core repository by going to the CHT's [fork page on GitHub](https://github.com/medic/cht-core/fork). When you click "Create Fork" on that page, you will  create a copy of this repository in your GitHub account.
 
+   {{< figure src="clone.png" link="clone.png" class="right col-5 col-lg-5" >}}
+
 2. Clone the repository 
 
-    <img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/clone.png" alt="clone CHT Core repository on Github" />
+    To clone the forked repository locally, in a browser, open the forked repository. Then click on the "<> Code" button and then on the "SSH" tab. Finally, click the double square icon  to copy the URL to your clipboard.
 
-   Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button, then on SSH tab and then click the _copy to clipboard_ icon.
-
-   Open a terminal and run the following git command:
+   Open a terminal and run this command, being sure to replace `GITHUB-USER` with your GitHub user:
 
     ```bash
-    git clone "url you just copied"
-    ```
-    <img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/copy-to-clipboard.png" alt="copy URL to clipboard" />
-
-   where "url you just copied" (without the quotation marks) is the url to the repository (your fork of the CHT Core). See the previous steps to obtain the url.
-
-   &nbsp; &nbsp;  <!-- avoid having clone line obscured by screenshot -->
-
-   For example:
-
-    ```bash
-    git clone git@github.com:this-is-you/cht-core.git
+    git clone https://github.com/GITHUB-USER/cht-core.git
     ```
 
-   where `this-is-you` is your GitHub username. Here you're copying the contents of the first-contributions repository on GitHub to your computer.
 
 3.  Create a branch
 
@@ -120,7 +112,8 @@ Spend some time understanding how to start up and stop the development environme
 
 Following the suggestions on the Good first issue, make the changes to the code.  Be sure the app still works and compiles with out errors.
 
-<img align="right" width="450" src="https://firstcontributions.github.io/assets/Readme/git-status.png" alt="git status" />
+{{< figure src="git-status.png" link="git-status.png" class="right col-5 col-lg-5" >}}
+
 
 If you go to the project directory and execute the command `git status`, you'll see there are changes. In this example, the `Contributors.md` file has been modified
 
@@ -172,11 +165,11 @@ replacing `your-branch-name` with the name of the branch you created earlier.
 
 If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
 
-<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/compare-and-pull.png" alt="create a pull request" />
+{{< figure src="compare-and-pull.png" link="compare-and-pull.png" class="center col-10 col-lg-10" alt="create a pull request"  >}}
 
 Now submit the pull request.
 
-<img style="float: right;" src="open.pr.png" alt="submit pull request" />
+{{< figure src="open.pr.png" link="open.pr.png" class="center col-10 col-lg-10" alt="create a pull request"  >}}
 
 You will get a notification email once the changes have been merged or when changes are requested.
 

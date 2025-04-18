@@ -14,7 +14,7 @@ There are many ways to get involved! Do you want to...
 
 * **Contribute code?**
 
-   Start with our [first time contributors guide]({{% ref "community/contributing/code" %}})
+   Start with our [first time contributors guide]({{% ref "community/contributing/first-time-contributors" %}})
 
 * **Contribute documentation?**
 

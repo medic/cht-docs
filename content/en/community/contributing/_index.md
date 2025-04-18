@@ -20,11 +20,12 @@ If you've never contributed to the CHT before, please see our [First time Contri
 Before you start coding a new change you suggest to the CHT, [raise an issue](https://github.com/medic/cht-core/issues/new/choose) or [start a conversation](https://forum.communityhealthtoolkit.org) about the change you want to make. Then:
 
 1. Read the CHT [Development Workflow]({{% ref "community/contributing/code/workflow" %}}) and [Code Style Guide]({{% ref "community/contributing/code/style-guide" %}}) 
-2. [Setup]({{% ref "community/contributing/code/core/dev-environment" %}}) your development environment
-3. Make sure your pull request's (PR) tests all pass. Failures need to be addressed before we can merge your code.
-4. Provide detail about the issue you are solving on the PR. Please reference any existing issues using medic/<repo>#<issue number>
-5. Our CI will automatically schedule a build; monitor the build to ensure it passes.
-6. Your PR will be reviewed by a maintainer. Expect at least one change requested - don't be offended if your change doesn't get accepted on the first try!
+2. Find a good ticket and request it be assigned to you via a comment.
+3. [Setup]({{% ref "community/contributing/code/core/dev-environment" %}}) your development environment
+4. Make sure your pull request's (PR) tests all pass. Failures need to be addressed before we can merge your code.
+5. Provide detail about the issue you are solving on the PR. Please reference any existing issues using medic/<repo>#<issue number>
+6. Our CI will automatically schedule a build; monitor the build to ensure it passes.
+7. Your PR will be reviewed by a maintainer. Expect at least one change requested - don't be offended if your change doesn't get accepted on the first try!
 
 ### Docs
 
