@@ -14,13 +14,11 @@ aliases:
    - /apps/guides/tasks/task-schema-parameters
 ---
 
-{{% pageinfo %}}
 This guide explains the parameters available in the Task Schema and important constraints governing the design of tasks.
 
 - Useful knowledge if you are stuck writing your first `appliesIf` predicate
 - Understanding the data which is available in the task system and important constraints
 - Understand the special significance of the appliesTo attribute
-{{% /pageinfo %}}
 
 Let's synthesize some knowledge about CHT applications to help clarify what is happening within the task system:
 
@@ -32,9 +30,8 @@ Let's synthesize some knowledge about CHT applications to help clarify what is h
 
 4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]({{< ref "building/guides/performance/replication#depth" >}}) or [purging]({{< ref "building/guides/performance/purging" >}})) since both tasks can only process docs which are present on the device.
 
-{{% alert title="Key Point" %}}
-The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
-{{% /alert %}}
+> [!IMPORTANT]
+> The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
 
 ## An important constraint of the tasks system
 Every contact and every report on the user's device is processed by tasks.  That said, it is important to remember that this processing is scoped to happen **one contact at a time**. The code in `tasks.js` knows about one contact, but it is not possible to simultaneously know about that contact's siblings, descendents, ancestors, etc. 
@@ -49,9 +46,8 @@ With this constraint in mind, we can infer that tasks cannot know the answer to 
 
 The [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}}) includes the noteworthy attribute `appliesTo` which has two options: `contacts` and `reports`. This attribute is important! It changes the algorithm used to process the task, and the meaning of other attributes in the schema.
 
-{{% alert title="Hint" %}}
-`appliesTo` is important. When you're ready to write a task, one of the first thing you must decide is the `appliesTo` value.
-{{% /alert %}}
+> [!TIP]
+> `appliesTo` is important. When you're ready to write a task, one of the first thing you must decide is the `appliesTo` value.
 
 The below algorithmic pseudocode explains the relationship between `appliesTo` and the attributes `appliesIf` and `appliesToType`:
 

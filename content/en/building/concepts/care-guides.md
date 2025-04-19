@@ -40,9 +40,8 @@ After all of the required questions have been answered, a summary page can be di
 
 Here, health workers can review the information they entered, receive instructions for treatment, care, and referrals, and relay detailed education to the patient.
 
-{{% alert title="Note" %}}
-The form is not submitted until the user scrolls to the very end of the summary and clicks the `Submit` button.
-{{% /alert %}}
+> [!NOTE]
+> The form is not submitted until the user scrolls to the very end of the summary and clicks the `Submit` button.
 
 ### Examples
 

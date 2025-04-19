@@ -295,6 +295,5 @@ Removed
 Removed
 DBT tests passed
 ```
-{{% alert title="Note" %}}
-This snippet shows the key steps of the process. The full output will contain more details, but the above highlights the main actions performed by the script.
-{{% /alert %}}
+> [!NOTE]
+> This snippet shows the key steps of the process. The full output will contain more details, but the above highlights the main actions performed by the script.

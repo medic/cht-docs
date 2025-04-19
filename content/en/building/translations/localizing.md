@@ -13,14 +13,12 @@ aliases:
    - /building/translations/configuring-translations
 ---
 
-{{% pageinfo %}}
 This section will take you through localizing the CHT to a custom language (in this guide, Swahili). This will include setting up the user interface labels as well as outgoing text messages.
 
 By the end of the section you should be able to:
 
 - Change the CHT user interface labels to a custom language.
 - Change outgoing text messages to a custom language (Swahili).
-{{% /pageinfo %}}
 
 ## Prerequisites
 
@@ -294,9 +292,8 @@ To localize a CHT app form to Swahili, open the appropriate xlsx of the form and
 
 The _App Management - Admin Area_ section will still remain in English even after changing the default language to Swahili.
 
-{{% alert title="Note" %}}
-The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language.
-{{% /alert %}} 
+> [!NOTE]
+> The CHV can also choose the language of their choice when they login for the first time. A popup appears where they can choose their preferred language.
 
 ### 4. Outgoing Texts
 

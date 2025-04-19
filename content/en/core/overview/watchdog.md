@@ -15,7 +15,8 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-[![Data Flows](CHT.Watchdog.Architecture.png)](CHT.Watchdog.Architecture.png)
+
+{{< figure src="CHT.Watchdog.Architecture.png" link="CHT.Watchdog.Architecture.png" caption="Data Flows" >}}
 
 ### Grafana
 

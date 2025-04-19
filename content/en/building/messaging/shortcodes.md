@@ -36,9 +36,8 @@ If you wish to change the minimum length of the generated identifiers, create or
 
 If this file already exists be sure to include the existing `_rev` property.
 
-{{% alert title="Note" %}}
-If you are changing this document and want to make it relevant straight away, **you must restart Sentinel.** Otherwise there may be a collection of cached already accepted IDs of the previous length that Sentinel will work through first. 
-{{% /alert %}}
+> [!NOTE]
+> If you are changing this document and want to make it relevant straight away, **you must restart Sentinel.** Otherwise there may be a collection of cached already accepted IDs of the previous length that Sentinel will work through first. 
 
 
 ## Configuring a maximum length, locking down an exact length etc

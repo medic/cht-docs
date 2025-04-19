@@ -13,7 +13,7 @@ aliases:
 
 You may encounter a dreaded case when reports coming in to a Medic Webapp instance have a red indicator instead of the green indicator.
 
-![Invalid Reports](invalid_report.png)
+{{< figure src="invalid_report.png" link="invalid_report.png" caption="Invalid reports" >}}
 
 This may be caused by:
 - Missing forms in the `app_settings` config.

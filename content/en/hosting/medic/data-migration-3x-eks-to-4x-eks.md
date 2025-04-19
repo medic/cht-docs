@@ -14,9 +14,8 @@ Like the [Deploy to EKS guide]({{< relref "hosting/medic/deploy-on-eks" >}}), th
 
 CHT Core hosting architecture differs entirely between 3.x and 4.x. When both versions are running in Kubernetes, migrating data requires specific steps using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
 
-{{% alert title="Note" %}}
-If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
-{{% /alert %}}
+> [!IMPORTANT]
+> If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
 
 
 ## Initial Setup
@@ -75,9 +74,8 @@ Pre-index views to minimize downtime:
 pre-index-views <desired CHT version>
 ```
 
-{{% alert title="Note" %}} 
-If pre-indexing is omitted, 4.x API will fail to respond to requests until all views are indexed. For large databases, this could take many hours or days.
-{{% /alert %}}
+> [!WARNING]
+> If pre-indexing is omitted, 4.x API will fail to respond to requests until all views are indexed. For large databases, this could take many hours or days.
 
 Save CouchDB configuration:
 ```shell
@@ -379,9 +377,8 @@ verify
 
 For clustered deployment:
 
-{{% alert title="Note" %}}
-For clustered setups, shards must be moved both in software (using the migration commands) and physically (the actual data must be moved between EBS volumes). Follow the instructions from shard-move-instructions carefully.
-{{% /alert %}}
+> [!CAUTION]
+> For clustered setups, shards must be moved both in software (using the migration commands) and physically (the actual data must be moved between EBS volumes). Follow the instructions from shard-move-instructions carefully.
 
 
 ```shell

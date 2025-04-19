@@ -98,7 +98,7 @@ A *sequence diagram* will help you identify the various actors in a given workfl
 9. RapidPro logic records feedback via SMS from the patient
 10. The results of the feedback flow are saved in the CHT
 
-![Sequence](sequence-diagram.png)
+{{< figure src="sequence-diagram.png" link="sequence-diagram.png" caption="Sequence" >}}
 
 ## Configuration
 
@@ -112,12 +112,11 @@ For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "b
 
 [Globals](https://help.nyaruka.com/en/article/global-variables-km8la6/) are shared values that can be referenced in flows, as well as broadcasts and campaigns, within your account referenced by `@globals.value_name`. They allow you to create a value once and use it repeatedly without having to reenter the value. Likewise, globals make updating a shared value much easier. Rather than manually changing a value everywhere it's used in your account, simply update the value found in your `Globals` page.
 
-![Globals](globals.png)
+{{< figure src="globals.png" link="globals.png" caption="Globals" >}}
 
 Once you have configured a Global value, you can easily use it in your flows like this:
 
-![Globals-Usage](globals-usage.png)
-
+{{< figure src="globals-usage.png" link="globals-usage.png" caption="Globals-Usage" >}}
 
 ### Start RapidPro Flow from CHT
 
@@ -201,7 +200,8 @@ A workspace contains models for a set of RapidPro users, and it also identifies 
 
 RapidPro supports both Android channels and SMS aggregators.
 
-{{% alert title="Note" %}} Android channels have a messaging limit of 330 outgoing messages per hour. {{% /alert %}}
+> [!NOTE]
+> Android channels have a messaging limit of 330 outgoing messages per hour.
 
 Ensure that you install the maximum number of SMS packs (available in the  RapidPro SMS Channel Android app) and follow these best practices when using Android channels:
 

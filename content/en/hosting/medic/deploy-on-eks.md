@@ -90,19 +90,21 @@ After you have created a ticket per "Request permission" above, you should get a
    If get an error `no context exists with the name`, change `use-context` to `set-context` in the  command.  This will create the entry the first time.  Subsequent calls should use `use-context`.
 3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
 
-   {{< tabpane text=true >}}
-   {{% tab header="Single node CouchDB" %}}
+{{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
+
+  {{< tab >}}
    * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
    * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
    * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
-   {{% /tab %}}
-   {{% tab header="Multi node CouchDB" %}}
+  {{< /tab >}}
+  {{< tab >}}
    * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
    * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
    * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
    * `clusteredCouch_enabled` - set to `true`
    {{% /tab %}}
-   {{< /tabpane >}}
+
+{{< /tabs >}}
 
    _\* Please note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
 5. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):

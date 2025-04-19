@@ -82,7 +82,8 @@ In the case that production data has been entered into a training instance, care
     }
    ```
 
-    ![Creating a view in Fauxton](create.view.png)
+{{< figure src="create.view.png" link="create.view.png" caption="Creating a view in Fauxton" >}}
+
 5. Download the UUIDs of the documents in the view, and convert it to raw format (uuids-2.txt):
 
     ```

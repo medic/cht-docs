@@ -13,10 +13,7 @@ aliases:
    - /apps/tutorials/contact-and-users-1
 ---
 
-{{% pageinfo %}}
 In this tutorial you will learn how to create and edit contacts and their associated users in and application built with the CHT using the default contact creation forms. This will help you get familiar with the UI of the webapp as well as some features and functionality. If you are already comfortable with this, you can skip to [part 2, which covers manipulating contacts and their associated documents using cht-conf]({{% ref "building/contact-management/contact-and-users-2" %}}).
-{{% /pageinfo %}}
-
 
 ## Brief Overview of Key Concepts
 
@@ -30,7 +27,7 @@ In this tutorial you will learn how to create and edit contacts and their associ
 
 *CHT App Hierarchy* is often modeled after the health system, health program or community structure.  All people who are registered in the app must be associated with a Place. These Places are located in a hierarchy with other Places. For instance, a Family Member is part of a Household. A Household and CHWs are part of a CHW Area. A CHW Area and nurses are part of a Health Facility. Additional levels may be added as needed. The Admin level operates outside of the hierarchy and gives access to all levels and people.
 
-![app hierarchy](app-hierarchy.jpg "Default app hierarchy")
+{{< figure src="app-hierarchy.jpg" link="app-hierarchy.jpg" caption="Default app hierarchy" >}}
 
 *Users* represent credentials and roles / permissions for accessing the application. This can either be:
 
@@ -46,7 +43,6 @@ You should have a functioning CHT instance with contact forms configured. Read [
 In this tutorial, you will work with the default contact forms and the default hierarchy, which is illustrated above in the overview of key concepts.
 
 While logged in as an admin user, you will first create the Health Facility, CHW Supervisor, CHW Area, and CHW. You will then create the users for the CHW so that they can log in and create households and household members.
-
 
 
 ### 1. Create New Health Facility

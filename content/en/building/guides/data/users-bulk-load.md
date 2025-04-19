@@ -14,9 +14,10 @@ relatedContent: >
 
 ---
 
-{{% pageinfo %}} The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API]({{< relref "building/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "building/guides/data/csv-to-docs" >}}).
-
-This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.{{% /pageinfo %}}
+{{< callout >}}
+ The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API]({{< relref "building/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "building/guides/data/csv-to-docs" >}}).
+ This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.
+{{< /callout >}} 
 
 Steps to bulk load users:
 
@@ -41,13 +42,13 @@ We will use the second use case to create user accounts and their contacts in th
 ## Contact Spreadsheet Instructions
 
 The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "building/reference/api#get-apiv1users" >}}) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
-Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{<relref "building/reference/api#post-apiv1users" >}}).
+Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{< relref "building/reference/api#post-apiv1users" >}}).
 
 Contact spreadsheets are named according to the user role, for example when creating users who are chws and others who are chw_supervisors, the following contact spreadsheets are populated respectively: "contact.chw" and "contact.chw_supervisor".
 
 There are three sections to the contact spreadsheet:
 
-![bulk user import spreadsheet with areas labeled](users-spreadsheet.png)
+{{< figure src="users-spreadsheet.png" link="users-spreadsheet.png" caption="Bulk user import spreadsheet with areas labeled" >}}
 
 #### **Spreadsheet Area 1**
 
@@ -81,7 +82,7 @@ This is where you enter your user data and contains the following columns:
 Columns in this area are automatically populated by the spreadsheet logic.
 While this is needed to create a user, it is intentionally not editable and you will see this error when you try to edit data:
 
-![bulk user import spreadsheet warning](users-spreadsheet-warning.png)
+{{< figure src="users-spreadsheet-warning.png" link="users-spreadsheet-warning.png" caption="Bulk user import spreadsheet warning" >}}
 
 However, for the mapping to occur as expected, you may edit the fields `contact.role`, `contact.contact_type`, `place.contact_type` and `type` to match your deployment's configuration.
 
@@ -104,35 +105,34 @@ If your hierarchy was "Central -> Supervisor -> CHW", you would have 3 pairs (6 
 
 3. Open the spreadsheet and populate your list of parent places that you'd like to use for your users.
 In this example the "Penda Ouedraogo" place has gotten an updated UUID starting with "bcc"
-![populate your list of parent places](importing-users-populate-parents-places.png)
+{{< figure src="importing-users-populate-parents-places.png" link="importing-users-populate-parents-places.png" caption="populate your list of parent places" >}}
 
 4. Add the users you would like to create
-![entering data into the spreadsheet](importing-users-entering-data.png)
+{{< figure src="importing-users-entering-data.png" link="importing-users-entering-data.png" caption="entering data into the spreadsheet" >}}
 
 5. Export spreadsheet into CSV
-![export spreadsheet into CSV](importing-users-export-csv.png)
+{{< figure src="importing-users-export-csv.png" link="importing-users-export-csv.png" caption="export spreadsheet into CSV" >}}
 
 6. Access the [Admin Console]({{< ref "building/features/admin/" >}}) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
-![import CSV into CHT](importing-users-import-csv.png)
+{{< figure src="importing-users-import-csv.png" link="importing-users-import-csv.png" caption="import CSV into CHT" >}}
 
 7. Be patient during import (testing showed ~0.4 seconds per record up to 500 records)
-![progress feedback during CSV import](importing-users-import-progress.png)
+{{< figure src="importing-users-import-progress.png" link="importing-users-import-progress.png" caption="progress feedback during CSV import" >}}
 
 8. Download the status file
-![download the status file](importing-users-download-status-file.png)
+{{< figure src="importing-users-download-status-file.png" link="importing-users-download-status-file.png" caption="download the status file" >}}
 
 9. Transfer errors back into spreadsheet. Make sure you copy all three columns A, B and C.
 The usernames in column C must match those in column D of the original spreadsheet.
-![transfers errors back into spreadsheet](importing-users-transfer-errors.png)
+{{< figure src="importing-users-transfer-errors.png" link="importing-users-transfer-errors.png" caption="transfers errors back into spreadsheet" >}}
 
 10. Fix the errors and export to CSV
-![fix errors and export to CSV](importing-users-fix-errors.png)
-<br />
-<br />
-![export spreadsheet into CSV](importing-users-export-csv.png)
+{{< figure src="importing-users-fix-errors.png" link="importing-users-fix-errors.png" caption="fix errors and export to CSV" >}}
+
+{{< figure src="importing-users-export-csv.png" link="importing-users-export-csv.png" caption="export spreadsheet into CSV" >}}
 
 11. Import the fixed CSV, noting already import rows are skipped
-![import the fixed CSV](importing-users-import-fixed-csv.png)
+{{< figure src="importing-users-import-fixed-csv.png" link="importing-users-import-fixed-csv.png" caption="import the fixed CSV" >}}
 
 12. Deliver credentials to phone or to CHW, using care to not overshare the login and password
 
@@ -142,12 +142,14 @@ Over time, new places will be added to different levels of the hierarchy.
 You will need to manually add these new places to the spreadsheet so that you can add users to the new places.
 
 1. Navigate in the CHT to the new site. In this case, it is "Site Dieco" that has been added (item 1). Copy the 36 character UUID from the URL (item 2).
-![navigate in the CHT to the new site](adding-places-cht-new-site.png)
+
+{{< figure src="adding-places-cht-new-site.png" link="adding-places-cht-new-site.png" caption="navigate in the CHT to the new site" >}}
 
 2. Open your existing Google Spreadsheet with your users. Find the hierarchy level you added your new site.
 In this case "Site Dieco" is a CHW place, so we'll go to the "contact.c62_chw_VLOOKUP" spreadsheet.
 Add some new rows at the bottom (item 1), enter the new place name in column A (item 2) and paste the UUID in column B (item 3)
-![open your existing spreadsheet](adding-places-existing-spreadsheet.png)
+
+{{< figure src="adding-places-existing-spreadsheet.png" link="adding-places-existing-spreadsheet.png" caption="open your existing spreadsheet" >}}
 
 ## Configuring custom places types
 
@@ -162,7 +164,6 @@ The `place.type_VLOOKUP` spreadsheet has two columns that contain the name of th
 If you have miss-matched contact types, you will get an error upon import:
 
 > **Wrong type, this is not a person.**
-
 
 As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
 
@@ -214,12 +215,12 @@ Be sure you copy this updated formula for all rows in the `contact.contact_type`
 
 If a user you successfully created can not log in because they see an error:
 
-![Access denied - You have insufficient privileges to view this page. Talk to an administrator to increase your privileges](access.denied.png)
+{{< figure src="access.denied.png" link="access.denied.png" caption="Access denied - You have insufficient privileges to view this page. Talk to an administrator to increase your privileges" >}}
 
 A possible cause of this is you have a bad role defined in your spreadsheet that doesn't match your configuration. For example, the the default role should be `chw_supervisor`, but here we see garbage characters were accidentally added.  While the user was created without errors, they'll see the above error when they try to log in:
 
-![Bad type declared in spreadsheet causes the user to have no role](bad.type.png)
+{{< figure src="bad.type.png" link="bad.type.png" caption="Bad type declared in spreadsheet causes the user to have no role" >}}
 
 You may manually fix any users you imported to have the correct role.  To ensure future users have valid roles to log in with, check the `/admin/#/authorization/roles` area on your CHT instance for valid roles:
 
-![CHT admin showing a list of valid roles in the "Role" column on the left](valid.roles.png)
+{{< figure src="valid.roles.png" link="valid.roles.png" caption="CHT admin showing a list of valid roles in the Role column on the left" >}}

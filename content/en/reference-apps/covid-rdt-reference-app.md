@@ -128,7 +128,7 @@ The last two forms can be used to query [the reports API ]({{< ref "building/ref
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
 ```
 
-{{% alert title="Note" %}}As all API calls need to be authenticated, be sure to use a login with admin permissions with this structure: `http://LOGIN:PASSWORD@HOSTNAME`.{{% /alert %}}
+> [!NOTE] As all API calls need to be authenticated, be sure to use a login with admin permissions with this structure: `http://LOGIN:PASSWORD@HOSTNAME`.
 
 ### Base64 image extraction
 
@@ -146,7 +146,7 @@ This code snippet is good just to validate data ad hoc, but more likely you'll b
 
 When retrieving [JSON](#capture-1), this value is found in `capture.android-app-outputs.rdt_session_bundle.rdt_session_result_bundle.rdt_session_result_extra_images.cropped` field.
 
-{{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed. {{% /alert %}}
+> [!NOTE] The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed.
 
 
 ## Customizing the application
@@ -155,13 +155,13 @@ These are the files in the COVID-19 app where you'll want to focus your customiz
 
 ```
 ├── forms
-│   ├── app
-│   │   ├── covid19_rdt_capture.properties.json
-│   │   ├── covid19_rdt_capture.xlsx
-│   │   ├── covid19_rdt_capture.xml
-│   │   ├── covid19_rdt_provision.properties.json
-│   │   ├── covid19_rdt_provision.xlsx
-│   │   └── covid19_rdt_provision.xml
+│   ├── app
+│   │   ├── covid19_rdt_capture.properties.json
+│   │   ├── covid19_rdt_capture.xlsx
+│   │   ├── covid19_rdt_capture.xml
+│   │   ├── covid19_rdt_provision.properties.json
+│   │   ├── covid19_rdt_provision.xlsx
+│   │   └── covid19_rdt_provision.xml
 ├── tasks.js
 ```
 
@@ -347,7 +347,7 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 
 ### Capture
 
-{{% alert title="Note" %}}The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).{{% /alert %}}
+> [!NOTE] The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).
 
 
 ```json

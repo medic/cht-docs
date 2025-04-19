@@ -12,7 +12,7 @@ aliases:
    - /apps/tutorials/application-settings
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through how to manage the CHT application settings, including;
 
 - Setting user roles and permissions
@@ -20,7 +20,7 @@ This tutorial will take you through how to manage the CHT application settings, 
 - Configuring contact hierarchy and configuring replication.
 
 App settings allow you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
-{{% /pageinfo %}}
+  
 
 ## Brief Overview of Key Concepts
 
@@ -201,7 +201,8 @@ To upload app settings to your local instance, run the following command:
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT]
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 ## Frequently Asked Questions
 

@@ -138,7 +138,8 @@ Remember to convert and upload your forms
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
-{{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}
+> [!IMPORTANT]
+> Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. 
 
 
 #### Handling the data
@@ -219,4 +220,4 @@ This is a service that would help shift information in the CHT [hierarchy]({{< r
 
 Once you have configured the above for data exchange, the data flow will be like this:
 
-![CHT - OpenMRS Data Flow](cht-openmrs.jpeg)
+{{< figure src="cht-openmrs.jpeg" link="cht-openmrs.jpeg" caption="CHT - OpenMRS Data Flow" >}}

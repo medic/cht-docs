@@ -11,9 +11,8 @@ aliases:
 
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 
-{{% alert title="Note" %}}
-This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submitting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
-{{% /alert %}}
+> [!NOTE] 
+> This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submitting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
 
 
 ## Language
@@ -201,9 +200,8 @@ To achieve this use a markdown table with the letter X (`X`) to mark events, lea
 {{%/* /schedule */%}}
 ```
 
-{{% alert title="Note" %}}
-The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table
-{{% /alert %}}
+> [!NOTE] 
+> The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table
 
 ### Grammar and punctuation in headers
 
@@ -261,13 +259,8 @@ There's a shortcode `format-number` which will replace `_` with _Thin Space_ to 
 
 Make notes and tips stand out by using blockquote styling.
 
-{{% alert title="Note" %}}
-This is a sample note.
-{{% /alert %}}
-
-`{{%/* alert title="Note" %}} 
-This is a sample note.
-{{% /alert */%}}`
+> [!NOTE] 
+> This is a sample note.
 
 ### Page descriptions
 

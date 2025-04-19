@@ -12,13 +12,11 @@ aliases:
    - /apps/tutorials/form-properties
 ---
 
-{{% pageinfo %}}
 This tutorial will take you through how to write the `<form_name>.properties.json` file.
 
 The `<form_name>.properties.json` file allows you to add logic that ensures that the right action appears for the right contacts (people and places). For instance, an assessment form for children under-5 will only appear for person contacts on the CHT whose age is less than 5.
 
 You will be adding meta-data and context to an assessment workflow that allows Community Health Workers to conduct a health assessment for children under the age of 5.
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
@@ -95,7 +93,8 @@ Run the following command from the root folder to upload the `assessment.propert
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-forms -- assessment
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!NOTE] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 Once you successfully upload the `assessment.properties.json` file, 'Assessment' will appear as an action _only_ for person contacts who are less that 5 years old. Additionally, the `icon-healthcare-assessment` icon will now show alongside the action name.
 

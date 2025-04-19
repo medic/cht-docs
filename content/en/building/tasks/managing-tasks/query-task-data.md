@@ -11,13 +11,11 @@ aliases:
    - /apps/guides/tasks/query-task-data
 ---
 
-{{% pageinfo %}}
 This guide explains the data which results from tasks and how to query it.
 
 - Write a PostgreSQL query to examine task data
 - Build deeper understanding of task data
 - Present some data considerations of which task authors should remain mindful
-{{% /pageinfo %}}
 
 ## Prerequisites
 

@@ -11,12 +11,10 @@ aliases:
    - /apps/guides/privacy/policy
 ---
 
-{{% alert title="Note" %}}
-This policy is reviewed and updated periodically by our Responsible Data Working Group and is intended as a resource for the CHT community. 
-{{% /alert %}}
+> [!NOTE]
+> This policy is reviewed and updated periodically by our Responsible Data Working Group and is intended as a resource for the CHT community. 
 
 If you have any questions, please reach out to our Data Protection Officer at support@medic.org. 
-
 
 ## Our responsible data promise
 
