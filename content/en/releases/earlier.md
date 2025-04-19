@@ -1,6 +1,8 @@
 ---
 title: "0.4.15 and earlier"
 linkTitle: "0.x" 
+sidebar:
+  exclude: true
 aliases:
   -  /core/releases/0.4.15-and-earlier
 ---

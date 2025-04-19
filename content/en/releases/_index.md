@@ -9,28 +9,6 @@ aliases:
   - /core/overview/supported-software
 ---
 
-
-<!--
-
-------------------------------------------------
-        NOTE ABOUT NO VERSIONS IN TOC
-------------------------------------------------
-
-Versions are hidden from showing in the table
-of contents by using a CSS trick in the custom.css
-file located:
-
-  /assets/css/custom.css
-
-look for this line:
-
-  a[href^="/releases/"] + div {
-      display: none;
-  }
-
-------------------------------------------------
---> 
-
 {{< hextra/hero-subtitle >}}
   Versions currently supported, dependencies, and release notes for the CHT Core Framework
 {{< /hextra/hero-subtitle >}}
