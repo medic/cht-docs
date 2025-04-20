@@ -63,4 +63,4 @@ cascade:
 {{< /callout >}}
 
 > [!NOTE]
-> Feedback appreciated! This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Docs Issue** link in the upper right corner of your window.
+> Feedback appreciated! This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Docs Issue** link in the left sidebar of your window.
