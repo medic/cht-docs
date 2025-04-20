@@ -29,6 +29,8 @@
     float: left;
     margin-top: 0.4em;
   }
+
+  
 </style>
 
 <div class="gallery">
@@ -38,13 +40,28 @@
  -->
   {{ $path := printf "%s/%s/%s%s" "content" .Site.Language.Lang .Page.File.Dir (.Get "src") }}
   {{ $url  := print .Page.RelPermalink (.Get "src") }}
+  {{ $showFileName := eq (.Get "showFileName") "true" }}
+  {{ $noBorder := eq (.Get "noBorder") "true" }}
 
   {{ range (readDir $path) }}
-
   {{ $src := printf "%s/%s" $url .Name }}
   <a href="{{ $src }}">
     <img src="{{ $src }}">
-    <span>{{ (.Name) }}</span>
+    {{ if $showFileName }}
+      <span>{{ .Name }}</span>
+    {{ end }}
+    {{ if $noBorder }}
+    <style>
+      div.gallery a span {
+        display:none;
+      }
+      div.gallery a img, div.gallery a {
+        width: 150px;
+        margin:4px;
+        border: none;
+      }
+      </style>
+    {{ end }}
   </a>
   {{ end }}
 </div>
