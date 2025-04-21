@@ -1,0 +1,13 @@
+{{ $currentSection := .Page.CurrentSection }}
+
+<div class="section-pages-list">
+  <!-- <h3>Content in {{ $currentSection.Title }}</h3> -->
+  <h3>Content in this section </h3>
+  <ul>
+    {{ range where $currentSection.Pages "Kind" "page" }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+</div>
