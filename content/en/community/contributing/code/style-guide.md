@@ -604,7 +604,7 @@ Secrets are encrypted for use for things like passwords or API keys and can be a
 
 To access a secret you can use this format in your yml. 
 
-```
+```yaml
 steps:
   - name: My first action
     env:

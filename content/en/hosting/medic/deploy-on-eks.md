@@ -64,7 +64,7 @@ After you have created a ticket per "Request permission" above, you should get a
 4. Create Access Keys for Command Line Interface: In AWS web GUI, click your name in upper right -> Security Credentials -> scroll down to "Access keys" -> click "Create access key" -> for use case choose "Command Line Interface" -> click "Next" -> enter description and click "Create access key"
 5. Run `aws configure` and place appropriate access keys during prompts. Use `eu-west-2` region. It should look like this:
 
-   ```
+   ```shell
    $ aws configure
 
    AWS Access Key ID [None]: <ACCESS-KEY-HERE>
@@ -185,7 +185,7 @@ And then follow these steps:
    ```
    
 2. Now that you found your snapshot ID, create a volume from it. Being sure to replace `snap-432490821280432092` with your ID, call:
-   ```
+   ```shell
    aws ec2 create-volume --region eu-west-2 --availability-zone eu-west-2b --snapshot-id snap-432490821280432092
    ```
    Be sure to grab the `VolumeId` from the resulting JSON, `vol-f9dsa0f9sad09f0dsa` in this case:

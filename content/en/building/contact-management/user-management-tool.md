@@ -122,13 +122,13 @@ Create an environment file by `cp env.example .env`. Change `INTERFACE` to `127.
 
 Then run:
 
-```
+```shell
 npm run dev
 ```
 
 or
 
-```
+```shell
 npm run build
 npm start
 ```

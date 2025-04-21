@@ -114,40 +114,40 @@ When running the commands below, be sure to replace the placeholders with your o
 And any others as well!
 
 * Get an authentication-token:
-    ```
+    ```shell
     curl -k -X POST https://<vCenter_IP>/rest/com/vmware/cis/session -u '<USERNAME>:<PASSWORD>'
     ID=<UUID_FROM_vCENTER>
     ```
 
 * List all your VMs and identify the VM-number that was provisioned earlier:
-    ```
+    ```shell
     curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/api/vcenter/vm
     ```
 * Retrieve your instance_uuid by first making a `curl` call:
-    ```
+    ```shell
     curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/api/vcenter/vm/vm-<number>
     ```      
       
 * Inside the JSON response of the `curl` call get the,  `instance_uuid`, in this case it's `215cc603-e8da-5iua-3333-a2402c05121`, but yours will be different:
-    ```
-    "identity":{"name":"k3s_worker_node_4","instance_uuid":"215cc603-e8da-5iua-3333-a2402c05121"
+    ```json
+    "identity":{"name":"k3s_worker_node_4","instance_uuid":"215cc603-e8da-5iua-3333-a2402c05121"}
     ```
 
 * Retrieve your datacenter name, to be used in configuration files for VMware CSI and CPI
-    ```
+    ```shell
     curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter_IP>/rest/vcenter/datacenter
     ```
 
 You will want to save the "name" of your datacenter.
 
 * Retrieve your cluster-id, to be used in config file for VMware CSI
-    ```
+    ```shell
     curl -k -X GET -H "vmware-api-session-id: $ID" https://<vCenter IP>/api/vcenter/cluster
     ```
 
 You can also use the [govc cli tool](https://github.com/vmware/govmomi/blob/main/govc/README.md#binaries) to retrieve this information:
    
-```
+```shell
 export GOVC_INSECURE=1
 export GOVC_URL='https://<USERNAME>:<PASSWORD>@<vCenter_IP>
 
@@ -177,7 +177,7 @@ For k3s version compatibility with vCenter and vMware CPI/CSI, we will need to u
 Run the following CLI command inside the control-plane VM, filling out these two specific values:
   - `<TOKEN>`: Please generate a token ID, and save it. This will be required for the entirety of the k3s cluster existence and required to add additional servers to the k3s cluster
   - `<VM_UUID>`: This was the UUID for this specific VM that we identified earlier
-```
+```shell
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
     INSTALL_K3S_EXEC="server" INSTALL_K3S_VERSION="v1.25.14+k3s1" sh -s - \
    --docker --token <TOKEN> \
@@ -195,7 +195,7 @@ Please fill out these values below and run the cli command:
   - `<CONTROL_PLANE_1_IP>`: This is the IP of the first control-plane server you setup, and allows this second server to discover the initial one.
   - `<VM_UUID>`: This is the UUID for this second VM that we identified earlier. This will be different than the one you used for control plane 1.
 
-```
+```shell
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
     INSTALL_K3S_EXEC="server" INSTALL_K3S_VERSION="v1.25.14+k3s1" sh -s  \
     --docker --token <TOKEN> \
@@ -206,7 +206,7 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
 ```
 
 You can verify your cluster is working by running this command from inside your control plane VM:
-```
+```shell
 /usr/local/bin/k3s kubectl get nodes -o wide
 ```
 
@@ -221,7 +221,7 @@ Please fill out these values before running the command:
   - `<CONTROL_PLANE_IP>`: The IP of one of the control plane servers you set up above
   - `<VM_UUID>`: This is the UUID of this VM that we are adding as an agent/worker server in our k3s cluster
 
-```
+```shell
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
     INSTALL_K3S_EXEC="agent" INSTALL_K3S_VERSION="v1.25.14+k3s1" sh -s - \
     --docker --token <TOKEN> \
@@ -234,7 +234,7 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
 
 SSH into one of your control plane servers. 
 Download the template for CPI, ensure you are aware of your current working directory. This will be the location where the CPI template is saved.
-```
+```shell 
 pwd
 wget https://raw.githubusercontent.com/kubernetes/cloud-provider-vsphere/release-1.25/releases/v1.25/vsphere-cloud-controller-manager.yaml
 ```
@@ -242,7 +242,7 @@ wget https://raw.githubusercontent.com/kubernetes/cloud-provider-vsphere/release
 Modify the vsphere-cloud-controller-manager.yaml file downloaded above and update vCenter Server information. 
 
 1) Add your `<vCenter_IP>` and `<USERNAME>`, `<PASSWORD>` to the section below inside that yaml:
-    ```
+    ```yaml
     apiVersion: v1
     kind: Secret
     metadata:
@@ -260,7 +260,7 @@ Modify the vsphere-cloud-controller-manager.yaml file downloaded above and updat
 
    **Note:** If your vCenter actively uses https with valid certificates, then inside the `global:` stanza,  you will want to set `insecureFlag: false`. Most set-ups will want this to remain true with`insecureFlag: true` .
 
-    ```
+    ```yaml
     apiVersion: v1
     kind: ConfigMap
     metadata:
@@ -292,12 +292,12 @@ Modify the vsphere-cloud-controller-manager.yaml file downloaded above and updat
     ```
 
 3) Deploy the template!
-    ```
+    ```shell
     /usr/local/bin/k3s kubectl -n kube-system apply -f vsphere-cloud-controller-manager.yaml
     ```
 
 4) Verify CPI containers are running:
-    ```
+    ```shell
     /usr/local/bin/k3s kubectl -n kube-system get pods -o wide
     /usr/local/bin/k3s kubectl -n kube-system logs vsphere-cloud-controller-manager-<id>
     ```
@@ -312,19 +312,19 @@ Take a peak at all 3 vsphere-controller-manager pods logs to ensure nothing is i
 Follow the [VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-A1982536-F741-4614-A6F2-ADEE21AA4588.html) with these steps:
 
 1) Run the following command from inside a control-plane server:
-    ```
+    ```shell
     /usr/local/bin/k3s kubectl create namespace vmware-system-csi
     ```
 
 2) Taint your control-lane node servers by running the following command. This taint may already exist, if so, that's okay. Please replace `<CONTROL_PLANE_SERVER>` with each of your control plane servers. 
-    ```
+    ```shell
     You can retrieve the names by running `/usr/local/bin/k3s kubectl get nodes -o wide`
     /usr/local/bin/k3s kubectl taint node <CONTROL_PLANE_SERVER> node-role.kubernetes.io/control-plane=:NoSchedule
     ```
 
 3) Create kubernetes secret, which will map authentication credentials and datacenter name to CSI containers. First, create a file  `/etc/kubernetes/csi-vsphere.conf`. Be sure to replace  `<vCenter_IP>`, `<USERNAME>`, `<PASSWORD>` ,  `<true_or_false>`,  `<PORT>` ,  `<datacenter1-path>` and  `<datacenter1-path>`  with your values:
 
-   ```
+   ```conf
    [Global]
    cluster-id = "<cluster-id>"
    
@@ -337,7 +337,7 @@ Follow the [VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSph
    ```
 
 4) Create the secret resource in the namespace we created in step 1 by running the following command in the same directory you created the csi-vsphere.conf file:
-    ```
+    ``` shell
     /usr/local/bin/k3s kubectl create secret generic vsphere-config-secret --from-file=csi-vsphere.conf --namespace=vmware-system-csi
     ```
 
@@ -346,19 +346,19 @@ Follow the [VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSph
 There is one minor edit, typically found on line 217-218, under the deployment specification for vsphere-csi-controller. 
 
 Before edit (original value)
-```
+```yaml
       nodeSelector:
         node-role.kubernetes.io/control-plane: ""
 ```
 
 Please add `true` as the value for this key, seen below:
-```
+```yaml
       nodeSelector:
         node-role.kubernetes.io/control-plane: "true"
 ```
 
 Now, let's deploy VMware CSI by running the following command:
-```
+```shell
 /usr/local/bin/k3s kubectl -n vmware-system-csi apply -f vsphere-csi-driver.yaml
 ```
 
@@ -370,7 +370,7 @@ Follow the [verification steps seen here in Step 2 of Procedure](https://docs.vm
 We'll need to create a global [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource in our k3s cluster, so CHT Core deployments will be able to ask for persistent storage volumes from the k3s cluster.
 
 Inside one of the control-plane servers, please create a file `vmware-storageclass.yaml` with the following contents:
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -383,7 +383,7 @@ parameters:
 ```
 
 Deploy this template to the k3s cluster via:
-```
+```shell
 /usr/local/bin/k3s kubectl apply -f vmware-storageclass.yaml
 ```
 
@@ -392,7 +392,7 @@ Deploy this template to the k3s cluster via:
 This step will neatly fit into helm chart configurations, but here are the manual steps for time being.
 
 Your persistent volume (PVC) template for all CouchDB's should be as shown below. Note the `storageClassName` parameter should be identical to the `storageClass` we deployed earlier:
-```
+```yaml
 # Source: cht-chart/templates/couchdb-n-claim0-persistentvolumeclaim.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim

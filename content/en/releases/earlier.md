@@ -456,7 +456,7 @@ _March 3, 2014 _
   validation configs/separate rules in your settings. Example validation
   settings:
 
-  ```
+  ```javascript
   [
     {
       property: "patient_id",
@@ -550,7 +550,7 @@ _January 21, 2014_
 
   **Warning**: the following URLs are no longer supported:
 
-  ```
+  ```shell
   /{form}/data_records.csv
   /{form}/data_records.xml
   /form_data_records.xml

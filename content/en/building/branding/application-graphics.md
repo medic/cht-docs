@@ -52,7 +52,7 @@ Edit the file with the following content:
 
 The folder and files structure would look like this:
 
-```
+```shell
 ./
     branding.json
     /branding
@@ -97,7 +97,7 @@ Edit the file with the following content:
 
  The folder and files structure would look like this:
 
-```
+```shell
 ./
     partners.json
     /partners
@@ -185,7 +185,7 @@ Add icons to the `resources` folder, and include them by name in the `resources.
 
 The folder and files structure would look like this:
 
-```
+```shell
 ./
     resources.json
     /resources

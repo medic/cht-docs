@@ -43,7 +43,7 @@ It is important that the database is clean and settings are restored once the te
 Observe how the following example defines a `describe` using the feature name `Immunization Visit`. It contains constant definitions, helper functions, the `before` and `after` hooks to prepare the environment, and two test cases that detail the expected results `should add a new child under 2 years old` and `should submit an immunization visit`.
 
 Ex:
-```
+```js
   describe('Immunization Visit', () => {
     const firstConstant = 'SampleName';
     const secondConstant = 'SampleValue';

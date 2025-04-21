@@ -103,7 +103,7 @@ shard-move-instructions $shard_matrix
 ```
 
 Example output:
-```
+```shell
 Move <mainNode-Path>/shards/00000000-1fffffff to <couchdb@couchdb-1.local-path>/shards/00000000-1fffffff
 Move <mainNode-Path>/.shards/00000000-1fffffff to <couchdb@couchdb-1.local-path>/.shards/00000000-1fffffff
 Move <mainNode-Path>/shards/20000000-3fffffff to <couchdb@couchdb-2.local-path>/shards/20000000-3fffffff

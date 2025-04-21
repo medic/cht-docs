@@ -25,19 +25,19 @@ Before continuing with the steps below, ensure:
 
 1. Finally, ensure you have done the following installations on your machine:
   - Install [NodeJS](https://nodejs.org/en/download) and [Java JDK](https://www.oracle.com/java/technologies/downloads/) then ensure JAVA_HOME path is correctly set up.
-    ```
+    ```shell
     export JAVA_HOME=$(/usr/libexec/java_home)
     ```
   - Install and Set-up [Android studio](https://developer.android.com/studio/install) and the `adb tool` to enable you run adb commands.
     - Add the Android SDK directory to your system’s ANDROID_HOME environment variable.
-     ```
+     ```shell
       export ANDROID_HOME="/Users/yourpath/Library/Android/sdk/"
       export PATH=$ANDROID_HOME/platform-tools:$PATH
       export PATH=$ANDROID_HOME/tools:$PATH
      ```
     - To set up an Android Virtual Device (AVD), open Android Studio, click on _More Actions_ > _Virtual Device Manager_, and then proceed with the virtual device creation by selecting the hardware and system image.
   - Install appium and appium doctor.
-   ```
+   ```shell
    npm install -g appium@next
    npm install -g appium-doctor
    ```
@@ -53,7 +53,7 @@ Before continuing with the steps below, ensure:
     
       <details> <summary>Expand to see settings file structure </summary>
 
-       ```
+       ```js
        {
          "iterations": 1,
          "instanceURL": "<instance url>",
@@ -262,7 +262,7 @@ Before continuing with the steps below, ensure:
 
 4. Set the environment variable `APDEX_TEST_SETTINGS` with the path of your settings file (apdex-settings.json).
    For example, you can use the following command but make sure to replace the path with your actual settings file location:
-    ```
+    ```shell
     export APDEX_TEST_SETTINGS=/Users/pepe/Documents/apdex-settings.json
     ```
    - Ensure the `apdex-settings.json` file has been updated with the correct instance url, login credentials and assertion texts (which correspond to the data in your cht instance) for page navigation, forms and other app interactions.
@@ -395,7 +395,7 @@ Elements to assert that are displayed in the screen.
   - For example, if you need to run the scroll down command 3 times, then you add 3 as the value for scrollDown like this: `"scrollDown": 3,`
 - In some cases, it's necessary to unfocus a selected element, trigger a click in a label. For example:
 
-```
+```json
 {
   "id": "age_field_label",
   "selector": "//*[contains(@text, \"What is your age\")]"

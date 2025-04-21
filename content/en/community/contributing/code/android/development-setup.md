@@ -74,7 +74,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 Old SDK distributions used to have it pre-packaged, now you have to install it separately. Once installed SDK following the steps above, you can install the latest version of `adb` with:
 
-```
+```shell
 sdkmanager --install platform-tools
 ```
 

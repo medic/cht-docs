@@ -241,7 +241,7 @@ To run the upgrade e2e tests in your local environment, follow these steps:
 
 If you experience errors such as:
 
-```
+```shell
 Error in hook: StatusCodeError: 404 - "{\"error\":\"not_found\",\"reason\":\"Document is missing attachment\"}\n"
 ```
 
@@ -250,7 +250,7 @@ Try the following:
 
 If you experience errors such as:
 
-```
+```shell
 If you are seeing this locally, it can mean that your internet is too slow to download all images in the allotted time.
 Either run the test multiple times until you load all images, download images manually or increase this timeout.
 ```
@@ -262,7 +262,7 @@ Try the following:
 
 If you experience errors such as:
 
-```
+```shell
 A user session timing out while running the test.
 ```
 This could be because there are some issues with data or there could be a large number of images and volumes that caused docker to crash.

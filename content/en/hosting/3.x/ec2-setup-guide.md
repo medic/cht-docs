@@ -22,7 +22,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
     Review the [CHT hardware requirements]({{< relref "hosting/requirements#hardware-requirements" >}}) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
     
-    ```
+    ```shell
     sudo chmod 0600 ~/Downloads/name_of_file.pem
     ```
     

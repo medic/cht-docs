@@ -141,7 +141,7 @@ DEBUG=true ./cht-docker-compose.sh
 
 This shows load average, CHT container count, global container count, and a table of services with their status like this:
 
-```
+```shell
 ---DEBUG INFO---
 Load: 3.75 2.92 2.93    
 CHT Containers: 7                                                                                

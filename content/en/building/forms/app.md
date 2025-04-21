@@ -65,7 +65,7 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | end group   |
 
 **Note:** If the form uses a file picker to upload any type of file, and it is accessed by using CHT Android, then include the `READ_EXTERNAL_STORAGE` permission in order to access the files in the device. To enable this permission add the following line in the branded app's `AndroidManifest.xml`.
-```
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
@@ -123,7 +123,7 @@ _Available in +3.13.0 and in Android device only._
 A widget to launch an Android app that receives and sends data back to an app form in CHT-Core.
 
 This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. This widget requires the `READ_EXTERNAL_STORAGE` permission in CHT Android to work properly, to enable this permission add the following line in the branded app's `AndroidManifest.xml`.
-```
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 

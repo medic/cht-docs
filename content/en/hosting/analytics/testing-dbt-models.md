@@ -58,7 +58,7 @@ Unit tests are not strictly required but are highly recommended, especially for 
 
 cht-pipeline contains a `/models` directory containing SQL files and YAML files for generic tests and a `/test` directory with folders for fixtures and singular tests.
 
-```
+```shell
 ./
     /models
         /contacts
@@ -197,7 +197,7 @@ unit_tests:
 
 The following code block shows the content of the input fixtures.
 
-```
+```cs
 uuid,saved_timestamp,doc_type,_deleted
 c1,2024-08-01 00:00:00,contact,false
 c2,2024-08-01 00:00:00,clinic,false
@@ -205,7 +205,7 @@ c3,2024-08-02 00:00:00,person,false
 c4,2024-08-02 00:00:00,district_hospital,false
 ```
 
-```
+```cs
 _id,saved_timestamp,_deleted,doc
 c1,2024-08-01 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"": {""_id"": ""p1""}, ""name"": ""John Doe"", ""contact_type"": ""person"", ""phone"": ""12345"", ""alternative_phone"": ""54321"", ""is_active"": ""true"", ""notes"": ""Note 1"", ""contact_id"": ""C-123"", ""muted"": ""false""}"
 c2,2024-08-01 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"": {""_id"": ""p2""}, ""name"": ""Jane Doe"", ""contact_type"": ""clinic"", ""phone"": ""67890"", ""alternative_phone"": ""09876"", ""is_active"": ""true"", ""notes"": ""Note 2"", ""contact_id"": ""C-456"", ""muted"": ""true""}"
@@ -216,7 +216,7 @@ c4,2024-08-02 00:00:00,false,"{""reported_date"": ""1722412800000"", ""parent"":
 
 The fixture below represents the expected data:
 
-```
+```cs
 uuid,saved_timestamp,reported,parent_uuid,name,contact_type,phone,phone2,active,notes,contact_id,muted
 c1,2024-08-01 00:00:00,2024-07-31 08:00:00+00,p1,John Doe,person,12345,54321,true,Note 1,C-123,false
 c2,2024-08-01 00:00:00,2024-07-31 08:00:00+00,p2,Jane Doe,clinic,67890,09876,true,Note 2,C-456,true

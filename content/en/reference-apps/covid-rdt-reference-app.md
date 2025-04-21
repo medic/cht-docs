@@ -153,7 +153,7 @@ When retrieving [JSON](#capture-1), this value is found in `capture.android-app-
 
 These are the files in the COVID-19 app where you'll want to focus your customization efforts:
 
-```
+```shell
 ├── forms
 │   ├── app
 │   │   ├── covid19_rdt_capture.properties.json

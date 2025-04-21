@@ -38,7 +38,7 @@ By default, the `docker-compose.yml` has the service bind to `127.0.0.1`.  This 
 
 Assuming you have the DNS entry of `monitor.example.com` pointing to your server, you would create the `Caddyfile` file with this code. 
 
-```
+```shell
 cat > /root/Caddyfile << EOF
 monitor.example.com {
     reverse_proxy grafana:3000
@@ -53,7 +53,7 @@ Using the awesome secure defaults of Caddy, this file will tell Caddy to:
 
 The reverse proxy will only work if the Caddy container is on the same docker network as Grafana.  That's where the  `caddy-compose.yml` file comes in, specifically using the `cht-watchdog-net` network.  Create the file with this code
 
-```
+```shell
 cat > /root/caddy-compose.yml << EOF
 version: "3.9"
 services:
@@ -74,7 +74,7 @@ EOF
 
 To start the reverse proxy, us the following command.  Note that on first run it will provision your certificates:
 
-```
+```shell
 cd ~/cht-watchdog
 docker compose -f docker-compose.yml -f ../caddy-compose.yml up -d
 ```
@@ -106,7 +106,7 @@ These are the only directories you need to back up.  Whether you use something a
 
 The default URL that Grafana uses is `http://localhost:3000`.  In a production environment, specifically when alerts are being sent, you need to tell Grafana what its URL is.  Do this by editing the `./grafana/grafana.ini` you created at install and set the `root_url` value.  In this example, we'll set it to `monitor.example.com`:
 
-```
+```conf
 #################################### Server ##############################
 [server]
 root_url = https://monitor.example.com/

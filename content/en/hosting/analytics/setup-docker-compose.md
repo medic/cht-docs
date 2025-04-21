@@ -54,7 +54,7 @@ docker compose --profile local up -d
 
 You can verify this command worked by running `docker compose --profile local ps --format "{{.Names}}\t{{.Status}}"`. It should show four containers running including couch2pg, dbt, PostgreSQL, and pgAdmin:
 
-```
+```shell
 cht-sync-couch2pg-1     Up About a minute
 cht-sync-dbt-local-1    Up About a minute
 cht-sync-pgadmin-1      Up About a minute
@@ -82,7 +82,7 @@ You can verify this command worked by running `docker ps`. It should show three 
 In production setups with large tables, it can be helpful to [tune how dbt runs]({{< relref "hosting/analytics/tuning-dbt" >}}).
 
 To use threads or batching, set the corresponding environment variables in `.env`.
-```
+```conf
 DBT_THREADS=3
 DBT_BATCH_SIZE=100000
 ```

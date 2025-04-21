@@ -297,7 +297,7 @@ Options for doing this:
 
 An example of a good thorough comment/template is as follows:
 
-```
+```markdown
 ### Testing
 
 1. Install branch `81-do-great-things`

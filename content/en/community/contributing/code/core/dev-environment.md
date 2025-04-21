@@ -116,7 +116,7 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 
 Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-docker` folder with this code:
 
-```
+```shell
 mkdir -p ~/cht-docker
 curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
 cat > ~/cht-docker/couchdb-override.yml << EOF
@@ -183,19 +183,19 @@ If you had issues with following the above steps, check out these links for how 
 
 Ubuntu 18.04's default `apt` repositories do not know about `python2`. This means when you go to install run the first `apt install` command above, you see an error:
 
-```
+```shell
 E: Unable to locate package python2
 ```
 
 To fix this, change the `apt install` call to this:
 
-```
+```shell
 sudo apt -y install xsltproc curl uidmap jq python git make g++
 ```
 
 As well, after you install docker, and go to run the rootless script `dockerd-rootless-setuptool.sh`, you might see this error:
 
-```
+```shell
 [ERROR] Failed to start docker.service. Run `journalctl -n 20 --no-pager --user --unit docker.service` to show the error log.
 ```
 

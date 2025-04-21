@@ -151,7 +151,7 @@ These steps assume:
 Follow these steps to create your first developer instance. You can create as many as you'd like:
 
 1. create `./my_first_project/.env_docker` with the contents:
-   ```
+   ```conf
    COMPOSE_PROJECT_NAME=my_first_project
    CHT_HTTP=8080
    CHT_HTTPS=8443   

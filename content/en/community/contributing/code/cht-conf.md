@@ -121,7 +121,7 @@ The `my_token` can be obtained by doing a POST request to `/_session` [endpoint]
 
 For example, if your CHT instance is `my.cht.com`, you could use this `curl` call to specify your user `medic` and your password `secret123` to retrieve the header with the `AuthSession` value which is the token:
 
-```
+```shell
 curl -v  -H 'Content-Type: application/json' -d '{"name":"medic","password":"secret123"}'  https://my.cht.com/_session 2>&1 | grep AuthSession 
 < set-cookie: AuthSession=bWVkaWM6NjdBRTM4MkE6EguRnzpSiK0t8wFaOQ_jgkZE8UWcgNWgpyStzbbHreI; Version=1; Expires=Fri, 13-Feb-2026 18:21:30 GMT; Max-Age=31536000; Path=/; HttpOnly
 ```

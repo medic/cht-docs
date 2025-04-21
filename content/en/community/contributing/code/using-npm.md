@@ -36,13 +36,13 @@ Or command line:
 
   - Change your directory to where the package's `package.json` lives, then run:
 
-  ```
+  ```shell
   npm access grant read-write medic:developers
   ```
 
   - Then `npm access` should show the updated permissions for the team members.
 
-  ```
+  ```shell
   npm access ls-collaborators
   {
     "mandric": "read-write",

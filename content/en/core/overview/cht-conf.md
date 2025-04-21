@@ -76,14 +76,14 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
    ```
 
 3. Then upload the edited documents using the _**upload-docs**_ command.
-   ```
+   ```shell
    cht --instance=*instance* --upload-docs
    ```
 
 ## Project layout
 
 This tool expects a project to be structured as follows:
-```
+```shell
 example-project/
 	.eslintrc
 	app_settings.json
