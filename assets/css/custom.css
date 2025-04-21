@@ -3,7 +3,8 @@
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 700;
-    src: url('/fonts/NotoSans-Regular.ttf') format('truetype'); 
+    src: url('/fonts/NotoSans-Regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('/fonts/NotoSans-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
   }
 
 /* -----------------------------------------------
@@ -20,19 +21,17 @@ Overriding default theme configuration and classes
   --primary-hue: 30deg;
 }
 
-/* Fonts */
+/* Fonts - Headers */
 h1, .content h1,
 .content h2,
 .content h3,
 .content h3 {
   font-family: 'Noto Sans', sans-serif;
+  font-weight: bold !important;
 }
 
-/* Fonts */
+/* Fonts - Body text and other elements */
 body, p, a, li, div,
-h1, .content h1,
-h2, .content h2,
-h3, .content h3,
 h4, .content h4 {
   font-family: 'Noto Sans', sans-serif;
 }
