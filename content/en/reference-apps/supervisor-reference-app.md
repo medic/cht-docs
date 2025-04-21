@@ -1,5 +1,5 @@
 ---
-title: "CHW Supervision and Performance Management Reference App "
+title: "CHW Supervision and Performance Management"
 linkTitle: "Supervision & Performance Management"
 weight:
 description: >

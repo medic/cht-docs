@@ -1,5 +1,5 @@
 ---
-title: "Pharmacovigilance Reference app"
+title: "Pharmacovigilance"
 linkTitle: "Pharmacovigilance"
 weight:
 description: >

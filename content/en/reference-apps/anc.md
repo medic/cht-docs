@@ -1,5 +1,5 @@
 ---
-title: "Maternal and Newborn Health Reference App"
+title: "Maternal and Newborn Health"
 linkTitle: "Maternal & Newborn Health"
 weight: 1
 description: >

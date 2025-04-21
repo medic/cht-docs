@@ -1,6 +1,6 @@
 ---
 title: "Remote Onboarding and Training"
-linkTitle: "Remote Training"
+linkTitle: "Remote Onboarding & Training"
 weight:
 description: >
   App and care workflow training using remote capabilities
