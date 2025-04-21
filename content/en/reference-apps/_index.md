@@ -1,7 +1,7 @@
 ---
 title: "Reference Apps"
 linkTitle: "Reference Apps"
-weight: 4
+weight: 2
 description: >
   Templates for structuring and organizing a community health workflow, configuration code, and testing framework
 aliases:

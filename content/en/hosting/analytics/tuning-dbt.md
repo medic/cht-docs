@@ -5,7 +5,7 @@ linkTitle: "dbt Tuning"
 description: >
   Tuning DBT variables for performance
 relatedContent: >
-  core/overview/cht-sync
+  technical-overview/cht-sync
   hosting/analytics/environment-variables
   hosting/analytics/setup-docker-compose
   hosting/analytics/setup-kubernetes

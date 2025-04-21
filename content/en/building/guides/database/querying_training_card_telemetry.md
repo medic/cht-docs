@@ -6,7 +6,7 @@ description: >
   How to use SQL queries to view metrics about Training Cards usage
 relatedContent: >
   building/guides/performance/telemetry/
-  core/overview/data-flows-for-analytics
+  technical-overview/data-flows-for-analytics
 aliases:
    - /apps/guides/database/querying_training_card_telemetry
 ---
@@ -15,7 +15,7 @@ Introduced in `4.2.0`, CHT has supported deployment of in-app training cards to 
 
 Since interaction with training cards logs [telemetry data]({{< ref "building/guides/performance/telemetry" >}}), it is possible to view the data directly from CouchDB. However, it is more useful when you can run queries that provide useful metrics about the usage of training cards aggregated across many users, and interactions. 
 
-With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "core/overview/data-flows-for-analytics" >}}). The couchDB data can be replicated using [CHT Sync]({{< ref "hosting/analytics" >}}) to a postgresql instance where you can then run the SQL queries.
+With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "technical-overview/data-flows-for-analytics" >}}). The couchDB data can be replicated using [CHT Sync]({{< ref "hosting/analytics" >}}) to a postgresql instance where you can then run the SQL queries.
 
 This guide includes several SQL queries that can act as a starting point for identifying useful metrics. 
 

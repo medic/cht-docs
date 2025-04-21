@@ -1,9 +1,11 @@
 ---
 title: "Offline-First in the CHT"
 linkTitle: "Offline-First"
-weight: 2
+weight: 6
 description: >
   Overview of Offline-First in the context of the CHT
+aliases:
+   - /core/overview/offline-first/
 ---
 
 ## Introduction

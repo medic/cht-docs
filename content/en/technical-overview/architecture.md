@@ -1,13 +1,15 @@
 ---
 title: "Architecture of CHT Instances"
-linkTitle: "CHT Core"
+linkTitle: "Architecture"
 weight: 1
 description: >
-  Overview of CHT projects components and interactions
+  Overview of CHT components and interactions
 relatedContent: >  
-  core/overview/watchdog
-  core/overview/cht-sync
+  technical-overview/cht-watchdog
+  technical-overview/cht-sync
   hosting/vertical-vs-horizontal
+aliases:
+   - /core/overview/architecture
 ---
 
 ## Overview
@@ -48,11 +50,11 @@ The CHT Upgrade Service is used within the CHT to update individual Docker conta
 
 ### CHT Sync
 
-A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "core/overview/cht-sync" >}}) and the [cht-sync GitHub repository](https://github.com/medic/cht-sync).
+A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment. Read more detail on the [CHT Sync overview page]({{< relref "technical-overview/cht-sync" >}}) and the [cht-sync GitHub repository](https://github.com/medic/cht-sync).
 
 ### CHT Watchdog
 
-Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption caused by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "core/overview/watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
+Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption caused by server downtime.  Read more detail on the [CHT Watchdog overview page]({{< relref "technical-overview/cht-watchdog" >}}) and the [CHT Watchdog GitHub repository](https://github.com/medic/cht-watchdog).
 
 ## Client
 
@@ -70,7 +72,7 @@ The CHT Web Application is [reactive](https://angular.io/guide/rx-library), resp
 
 | Technology                                                       | Usage                                                                                                                                                                                  |
 |------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [PouchDB](https://pouchdb.com)                                   | To implement an [Offline-First]({{< ref "core/overview/offline-first" >}}) strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
+| [PouchDB](https://pouchdb.com)                                   | To implement an [Offline-First]({{< ref "technical-overview/offline-first" >}}) strategy which means the data is stored on the client and all pages can load immediately regardless of whether the user has a fast connection, slow connection, or no connection at all. The data is stored in PouchDB which replicates changes back and forth in the background with the server CouchDB. |
 | [Enketo](https://enketo.org)                                     | To render configured xforms and help with styling and dynamic elements such as show/hide and validation rules.                                                                         |
 | [Nools](https://github.com/C2FO/nools)                           | A rules engine to compute the upcoming tasks and monthly targets of the users.                                                                                                         |
 | [Ngx-Bootstrap](https://github.com/valor-software/ngx-bootstrap) | To integrate Bootstrap components in the Angular application.                                                                                                                          |

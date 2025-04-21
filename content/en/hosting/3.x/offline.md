@@ -22,7 +22,7 @@ This guide only applies to CHT 3.x.
 
 ## Introduction
 
-The CHT is built as an [Offline-First]({{< ref "core/overview/offline-first" >}}) application. This applies to clients, either  browsers or Android applications, connecting to the CHT server.  The server itself assumes it has Internet connectivity to provide services such as DNS, software updates and general use connectivity.  This document explores what it looks like when the CHT server is offline without these services available.
+The CHT is built as an [Offline-First]({{< ref "technical-overview/offline-first" >}}) application. This applies to clients, either  browsers or Android applications, connecting to the CHT server.  The server itself assumes it has Internet connectivity to provide services such as DNS, software updates and general use connectivity.  This document explores what it looks like when the CHT server is offline without these services available.
 
 Running a CHT server offline requires no modifications to the CHT itself.  Instead, supporting services normally found online are replicated locally.
 

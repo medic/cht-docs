@@ -53,7 +53,7 @@ The Core Framework can be used to support the unique needs of a given health sys
 
 ## Offline-first technology
 
-Digital health apps need to support health systems in a wide range of low infrastructure environments. Apps built with the Core Framework are designed to be [Offline-First]({{< ref "core/overview/offline-first" >}}) and work with only an occasional internet connection.
+Digital health apps need to support health systems in a wide range of low infrastructure environments. Apps built with the Core Framework are designed to be [Offline-First]({{< ref "technical-overview/offline-first" >}}) and work with only an occasional internet connection.
 
 These apps store a user’s data locally on their device so that workflows can be completed without syncing to the server. When a connection becomes available, data will automatically sync to and from the server. Offline-first technology enables health workers to carry out important duties even when opportunities to sync may be weeks apart. As with any app, there is a limit to how much data can be stored locally, particularly on a mobile device. For users needing access to large amounts of data, online user roles are available.
 

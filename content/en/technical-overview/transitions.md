@@ -1,11 +1,13 @@
 ---
 title: "Sentinel Transitions"
 linkTitle: "Sentinel Transitions"
-weight: 4
+weight: 10
 description: >
   Overview of transitions and database documents change
 relatedContent: >  
   building/reference/app-settings/transitions
+aliases:
+   - /core/overview/transitions/
 ---
 
 A transition is a Javascript code that runs when a document is changed.  A
