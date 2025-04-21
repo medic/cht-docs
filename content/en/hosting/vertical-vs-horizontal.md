@@ -8,14 +8,14 @@ description: >
     The power of clustered CouchDB to horizontally scale the CHT  
 relatedContent: >  
     hosting/4.x/migration/migration-to-4x-docker.md
-    core/overview/architecture/
+    technical-overview/architecture/
 ---
 
 ## Introduction
 
 Horizontally scaling is the ability to add more servers to an application to make it more performant.  This often yields better performance than vertical scaling, which is adding more resources like RAM or CPU to a single server.
 
-CHT Core 4.0.0 introduces [a new architecture]({{< relref "core/overview/architecture" >}}) for hosting which gives it the ability to easily scale horizontally.  This enables large deployments to support more concurrent users and better utilize the underlying server hardware.
+CHT Core 4.0.0 introduces [a new architecture]({{< relref "technical-overview/architecture" >}}) for hosting which gives it the ability to easily scale horizontally.  This enables large deployments to support more concurrent users and better utilize the underlying server hardware.
 
 ## Vertical scaling in 3.x and 4.x
 

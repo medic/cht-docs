@@ -1,14 +1,15 @@
 ---
 title: "CHT Sync"
 linkTitle: "CHT Sync"
-weight: 2
+weight: 5
 description: >
   Data synchronization tools to enable analytics
 aliases:
     - /core/overview/data-flows-for-analytics/cht-sync/
+    - /core/overview/cht-sync/
 relatedContent: >  
-  core/overview/architecture
-  core/overview/data-flows-for-analytics/
+  technical-overview/architecture
+  technical-overview/data-flows-for-analytics/
   hosting/analytics/
 ---
 
@@ -44,5 +45,5 @@ We recommend [Apache Superset](https://superset.apache.org/) as the Data Visuali
 
 ### CHT Core Framework & CouchDB
 
-For more information on these technologies, see [CHT Core overview]({{< relref "core/overview/architecture" >}}).
+For more information on these technologies, see [CHT Core overview]({{< relref "technical-overview/architecture" >}}).
 

@@ -8,8 +8,8 @@ aliases:
 description: >
     Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
-   core/overview/architecture
-   core/overview/watchdog
+   technical-overview/architecture
+   technical-overview/cht-watchdog
 ---
 
 > [!NOTE]

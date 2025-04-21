@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/reference/app-settings
   building/guides/performance/replication
-  core/overview/transitions 
+  technical-overview/transitions 
 aliases:
    - /apps/tutorials/application-settings
 ---
@@ -32,7 +32,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 *[Replication]({{< relref "building/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
-*[Transitions]({{< relref "core/overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
+*[Transitions]({{< relref "technical-overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
 ## Required Resources
 

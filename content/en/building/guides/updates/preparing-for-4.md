@@ -50,7 +50,7 @@ ORDER BY
 Note that each user can submit many telemetry docs (`count_telemetry`), so the query breaks out users (`count_distinct_users`) and devices (`count_distinct_devices`) for the given month. This means that telemetry counts will be higher than the number of active users. As well, early in the current  month, many users may not have had a chance to synchronize their telemetry data yet. For example, this report was run on the 5th of October, so the counts for all three tables are low. Refer to prior months in this case.
 
 > [!NOTE] 
-> In some cases users are accessing the system via the [progressive web app (PWA)]({{< relref "core/overview/pwa" >}}) or are online users.  We see the `cht_android_version` field is empty in this case. 
+> In some cases users are accessing the system via the [progressive web app (PWA)]({{< relref "technical-overview/pwa" >}}) or are online users.  We see the `cht_android_version` field is empty in this case. 
 
 |telemetry_month|cht_android_version|count_distinct_users|count_distinct_devices|count_telemetry|
 |---------------|-------------------|--------------------|----------------------|---------------|
@@ -171,7 +171,7 @@ CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/
 
 You can also manually test your forms on a non-prod CHT instance. It is possible to test your forms against the new Enekto changes without having to uplift your non-prod CHT instance to the new 4.0 architecture.
 
-An easy way of doing this is to use the [CHT Docker Helper]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "community/contributing/code/releasing/feature_releases" >}}):
+An easy way of doing this is to use the [CHT Docker Helper]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "contribute/code/releasing/feature_releases" >}}):
 
 ```shell
 COUCH_URL=https://medic:password@*your-my.local.ip.co-address*:8443/medic horti --local --install=3.17.0-FR-enketo-upgrade-beta.1

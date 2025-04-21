@@ -104,7 +104,7 @@ The following fields will also be available in the `inputs` group:
 
 ## `user` data
 
-Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "core/overview/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
+Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "technical-overview/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
 
 > [!NOTE]
 > The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.

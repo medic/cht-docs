@@ -1,12 +1,14 @@
 ---
 title: "CHT Watchdog"
 linkTitle: "CHT Watchdog"
-weight: 1
+weight: 4
 description: >
     An open source monitoring system using Grafana and Prometheus
 relatedContent: >  
-    core/overview/architecture
-    core/overview/cht-sync
+    technical-overview/architecture
+    technical-overview/cht-sync
+aliases:
+   - /core/overview/watchdog/
 ---
 
 ## Overview
@@ -16,7 +18,7 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
 
-{{< figure src="CHT.Watchdog.Architecture.png" link="CHT.Watchdog.Architecture.png" caption="Data Flows" >}}
+{{< figure src="cht-watchdog.png" link="cht-watchdog.png" caption="Data Flows" >}}
 
 ### Grafana
 
@@ -36,4 +38,4 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 ### CHT Core Framework & RDBMS
 
-For more information on these technologies, see [CHT Core overview]({{< relref "core/overview/architecture" >}}).
+For more information on these technologies, see [CHT Core overview]({{< relref "technical-overview/architecture" >}}).

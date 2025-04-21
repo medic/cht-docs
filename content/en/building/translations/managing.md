@@ -7,7 +7,7 @@ description: >
 relatedContent: >  
   building/translations/localizing
 aliases:
-   - /core/overview/translations
+   - /technical-overview/translations
    - /building/translations/managing-translations
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Getting started building a CHT app"
-linkTitle: Getting started
+linkTitle: Getting Started
 weight: 2
 description: >
   Setting up a local environment to build and test CHT 4.x applications
@@ -26,7 +26,7 @@ By the end of the tutorial you should be able to:
 
 ## Brief Overview of Key Concepts
 
-The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
+The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is a command-line interface tool to manage and configure CHT apps.
 

@@ -14,7 +14,7 @@ aliases:
 }
 </style>
 
- 
+
 This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{% ref "core/overview/data-flows-for-analytics" %}}) may also prove useful for data analysis. If additional endpoints would be helpful, please make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
 
 {{< toc >}}

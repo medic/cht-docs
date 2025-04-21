@@ -7,6 +7,10 @@ description:
 aliases:
   - /core/releases
   - /core/overview/supported-software
+  - /technical-overview/supported-software
+relatedContent:
+  hosting/
+  hosting/requirements/
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -5,8 +5,8 @@ linkTitle: "Kubernetes"
 description: >
   Setting up CHT Sync with Kubernetes and the CHT
 relatedContent: >
-  core/overview/architecture
-  core/overview/cht-sync
+  technical-overview/architecture
+  technical-overview/cht-sync
 aliases:
     - /apps/guides/data/analytics/production
     - /building/guides/data/analytics/production
