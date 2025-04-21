@@ -1,5 +1,5 @@
 ---
-title: Hosting
+title: Host
 weight: 7
 aliases:
     - /apps/guides/hosting/

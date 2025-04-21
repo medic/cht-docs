@@ -1,6 +1,6 @@
 ---
-title: "Contributing code and documentation"
-linkTitle: "Contributing"
+title: "Contribute code and documentation"
+linkTitle: "Contribute"
 weight: 8
 description: >
 

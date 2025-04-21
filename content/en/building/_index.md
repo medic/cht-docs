@@ -1,7 +1,6 @@
 ---
 title: "Building CHT Applications"
-linkTitle: "Building"
-identifier: "Building"
+linkTitle: "Build"
 aliases:
     - /apps/
 weight: 6

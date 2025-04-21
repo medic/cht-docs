@@ -1,6 +1,6 @@
 ---
-title: "Designing"
-linkTitle: "Designing"
+title: "Design"
+linkTitle: "Design"
 weight: 5
 description: >
   Design guidelines for developers and designers of digital health applications
