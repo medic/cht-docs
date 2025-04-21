@@ -6,8 +6,8 @@ description: >
 relatedContent: >
   building/tasks/tasks-js
   building/guides/data/hydration
-  core/overview/db-schema#contacts-persons-and-places
-  core/overview/db-schema#reports
+  technical-overview/db-schema#contacts-persons-and-places
+  technical-overview/db-schema#reports
   building/tasks/simple-tasks
 
 aliases:
@@ -24,9 +24,9 @@ This guide explains the parameters available in the Task Schema and important co
 
 Let's synthesize some knowledge about CHT applications to help clarify what is happening within the task system:
 
-1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}) or [schema for contact documents]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
+1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}) or [schema for contact documents]({{< ref "technical-overview/db-schema#contacts-persons-and-places" >}}).
 
-2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) or the [schema for report documents]({{< ref "core/overview/db-schema#reports" >}}).
+2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) or the [schema for report documents]({{< ref "technical-overview/db-schema#reports" >}}).
 
 3. Documents are stored [minified]({{< ref "building/guides/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
 

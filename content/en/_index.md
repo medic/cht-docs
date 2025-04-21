@@ -19,7 +19,7 @@ The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collecti
 {{% /pageinfo %}}
 
 ## CHT Core Framework
-An overview and reference for development of the Core Framework of the Community Health Toolkit. Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "core/overview" >}}).
+An overview and reference for development of the Core Framework of the Community Health Toolkit. Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "technical-overview" >}}).
 
 {{< see-also page="core" prefix="Read More" >}}
 

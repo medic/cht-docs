@@ -7,7 +7,7 @@ description: >
 no_list: true
 aliases:
   -    /core/releases
-  -    /core/overview/supported-software
+  -    /technical-overview/supported-software
 relatedContent:
   hosting/
   hosting/requirements/
