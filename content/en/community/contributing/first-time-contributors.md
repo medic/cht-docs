@@ -1,11 +1,9 @@
 ---
-title: "First time Contributors Guide"
-linkTitle: "First time Contributors"
+title: "First Time Contributors Guide"
+linkTitle: "First Time Contributors"
 weight: 1
 description: >
-  
 ---
-
 
 ## Who this is for
 

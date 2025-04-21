@@ -1,6 +1,6 @@
 ---
-title: "Disclosing vulnerabilities"
-linkTitle: "Disclosing vulnerabilities"
+title: "Disclosing Vulnerabilities"
+linkTitle: "Disclosing Vulnerabilities"
 weight: 300
 description: >
   How to help the CHT stay secure

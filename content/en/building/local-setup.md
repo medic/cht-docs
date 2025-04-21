@@ -1,6 +1,6 @@
 ---
 title: "Getting started building a CHT app"
-linkTitle: Getting started
+linkTitle: Getting Started
 weight: 2
 description: >
   Setting up a local environment to build and test CHT 4.x applications
