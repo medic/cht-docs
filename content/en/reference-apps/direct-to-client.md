@@ -1,6 +1,6 @@
 ---
-title: "Direct-to-client, two-way texting workflows on CHT"
-linkTitle: "Direct-to-client, two-way texting workflows on CHT"
+title: "Direct-to-client, Two-way Texting Workflows on CHT"
+linkTitle: "Direct-to-client, Two-way Texting Workflows on CHT"
 weight:
 description: >
   Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
