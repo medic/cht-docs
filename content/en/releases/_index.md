@@ -5,9 +5,14 @@ weight: 11
 description:
   Versions currently supported, dependencies, and release notes for the CHT Core Framework
 aliases:
+<<<<<<< Updated upstream
   - /core/releases
   - /core/overview/supported-software
   - /technical-overview/supported-software
+=======
+  -    /core/releases
+  -    /technical-overview/supported-software
+>>>>>>> Stashed changes
 relatedContent:
   hosting/
   hosting/requirements/
