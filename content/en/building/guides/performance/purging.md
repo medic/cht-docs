@@ -22,12 +22,6 @@ As users continually generate new reports their performance may naturally degrad
 
 Purging is disabled by default, and is enabled if a purge function is specified in `app_settings.json`, along with a run schedule.
 
-**Important:** Simply removing the `purge` key from `app_settings.json` will not disable purging. To properly disable purging, you must explicitly set the purge key to an empty object, as shown below:
-
-```json
-"purge": {}
-```
-
 The following example would purge all reports that were created more than a year ago:
 
 ```json
@@ -102,6 +96,12 @@ module.exports = {
     return [...reportsToPurge, ...messagesToPurge];
   }
 };
+```
+
+To disable purging, you need to explicitly configure the purge key with an empty object value, as in this example:
+
+```json
+"purge": {}
 ```
 
 ### Purge configuration
