@@ -1,5 +1,5 @@
 ---
-title: "Building CHT Applications"
+title: "Build CHT Applications"
 linkTitle: "Build"
 aliases:
     - /apps/

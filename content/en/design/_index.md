@@ -1,5 +1,5 @@
 ---
-title: "Design"
+title: "Design CHT Applications"
 linkTitle: "Design"
 weight: 5
 description: >

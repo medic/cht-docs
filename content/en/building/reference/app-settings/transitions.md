@@ -446,7 +446,7 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
 > [!IMPORTANT]
-> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "core/overview/db-schema#reports" >}})) can.
+> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "technical-overview/db-schema#reports" >}})) can.
 
 
 Supported `events_types` are:

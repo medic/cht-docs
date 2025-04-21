@@ -1,5 +1,6 @@
 ---
-title: Host
+title: Host CHT Applications
+linkTitle: Host
 weight: 7
 aliases:
     - /apps/guides/hosting/
