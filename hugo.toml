@@ -87,13 +87,6 @@ name = "Privacy Policy ↗"
 url = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
 weight = 4
 
-## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-plainIDAnchors = true
-hrefTargetBlank = true
-angledQuotes = false
-latexDashes = true
-
 # Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
@@ -141,29 +134,6 @@ github_repo = "https://github.com/medic/cht-docs"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 gcs_engine_id = "004290134484316368579:gvcrxmetz4s"
-
-# Enable Algolia DocSearch
-algolia = false
-
-# Enable Lunr.js offline search
-offlineSearch = false
-
-# User interface configuration
-[params.ui]
-# Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = true
-# Enable folding sections of the sidebar
-sidebar_menu_foldable = true
-#  Set to true to disable breadcrumb navigation.
-breadcrumb_disable = false
-#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = false
-#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
-navbar_logo = true
-# Set to true to enable the About link in the site footer
-footer_about_enable = false
-# Set to true to enable the display of a light/dark mode menu in the navbar
-showLightDarkModeMenu = true
 
 [Home]
 RelPermalink= "communityhealthtoolkit.org"
