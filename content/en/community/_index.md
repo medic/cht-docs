@@ -2,8 +2,6 @@
 title: "Welcome to the CHT Community!"
 linkTitle: "Community"
 weight: 8
-description: >
-  Get involved with the CHT community
 aliases:
   -    /contribute
 ---

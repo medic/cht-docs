@@ -1,7 +1,6 @@
 ---
 title: "Why the Community Health Toolkit?"
 linkTitle: "Why the CHT?"
-menu :
 weight : 1
 ---
 
