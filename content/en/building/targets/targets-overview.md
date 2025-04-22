@@ -19,9 +19,10 @@ aliases:
 
 For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community unit is performing.
 
-{{< figure src="targets-mobile.png" link="targets-mobile.png" class="left col-3 col-lg-3" >}}
-
-{{< figure src="targets-desktop.png" link="targets-desktop.png" class="left col-9 col-lg-9" >}}
+{{< cards rows="2" >}}
+{{< card link="targets-mobile.png" image="targets-mobile.png"  method="resize">}}
+{{< card link="targets-desktop.png" image="targets-desktop.png"  method="resize">}}
+{{< /cards >}}
 
 > [!NOTE] 
 > Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data.
@@ -33,8 +34,6 @@ There are two basic types of widgets: count and percent. *Count widgets* display
 The text, icon, goal, and time frame of each widget is easily configured. The time frame is set per widget, and set to show values for "this month" (resets back to zero at the beginning of each month) or "all time" (a cumulative total).
 
 
-
-<br clear="all">
 
 ### Count Widgets
 
