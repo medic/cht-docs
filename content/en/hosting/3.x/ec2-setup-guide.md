@@ -110,15 +110,36 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
     - [Amazon user guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
 
-## Backups 
+## Backups
 
-1. Configure backups
-    - [EBS Snapshot Lifecycle Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+**Implementing a robust backup strategy for your CHT deployment on AWS EC2 is absolutely critical and non-negotiable for data safety and disaster recovery.** Failure to implement and regularly test backups can lead to permanent data loss and service disruption.
 
-1. Restoring from backup
-    - Create volume from snapshot
-    - Tag appropriately for backups
-    - Mount volume to docker server
+### 1. Configuring Automated Backups (Highly Recommended)
+
+The **EBS Snapshot Lifecycle Manager** ([https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)) is the **recommended and mandatory** method for automating regular backups of your CHT data volumes.
+
+**You MUST configure the EBS Snapshot Lifecycle Manager with the following best practices:**
+
+* **Target all EBS volumes** associated with your CHT EC2 instance(s). Ensure you are tagging your volumes appropriately (as mentioned in the "Restoring from backup" section below) so they can be correctly identified by the Lifecycle Manager.
+* **Establish a clear backup schedule** that aligns with your Recovery Point Objective (RPO). Consider taking snapshots daily at a minimum for production environments.
+* **Implement a robust retention policy** that meets your compliance and recovery needs. Define how long snapshots should be retained (e.g., weekly, monthly, yearly).
+* **Regularly review and verify** that the Lifecycle Manager is functioning as expected and that snapshots are being created successfully according to your schedule.
+
+### 2. Restoring from Backup
+
+In the event of data loss or system failure, you will need to restore from an EBS snapshot. **Familiarize yourself with this process and test it regularly.**
+
+The general steps for restoring from a backup are:
+
+* **Identify the appropriate EBS snapshot** to restore from. Use the tags you applied to your volumes and the timestamp of the snapshots to select the correct one.
+* **Create a new EBS volume** from the selected snapshot. Ensure the new volume is created in the same Availability Zone as your EC2 instance.
+* **Attach the newly created volume** to your EC2 instance. You may need to detach the existing (damaged) volume first. **Be extremely careful when detaching and attaching volumes to avoid data loss.**
+* **Mount the restored volume** to the same mount point where your CHT data resides (typically `/srv`).
+* **Verify the integrity of the restored data** and ensure your CHT application comes back online as expected.
+
+**It is strongly recommended to practice the restore process in a non-production environment to ensure you are comfortable with the steps and can recover your data effectively.**
+
+By implementing these mandatory backup procedures, you will significantly reduce the risk of data loss and ensure the resilience of your CHT deployment on AWS EC2.
 
 ## Process supervision
 - `supvisorctl`
