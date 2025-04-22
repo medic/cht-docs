@@ -2,16 +2,13 @@
 title: "Contribute code and documentation"
 linkTitle: "Contribute"
 weight: 8
-description: >
-
 aliases:
   -    /contribute/
 ---
 
 If you're ready to start contributing and have experience, please jump in!  We have a quick start guide below.
 
-If you've never contributed to the CHT before, please see our [First time Contributors Guide]({{% ref "community/contributing/first-time-contributors" %}})
-
+If you've never contributed to the CHT before, please see our [First time Contributors Guide]({{% ref "community/contributing/first-time-contributors" %}}).
 
 ## Quick Start
 

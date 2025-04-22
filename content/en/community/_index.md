@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the community"
+title: "Welcome to the CHT Community!"
 linkTitle: "Community"
 weight: 8
 description: >
@@ -8,7 +8,9 @@ aliases:
   -    /contribute
 ---
 
-## Getting involved
+{{< hextra/hero-subtitle >}}
+  Get involved with the CHT community
+{{< /hextra/hero-subtitle >}}
 
 There are many ways to get involved! Do you want to...
 
