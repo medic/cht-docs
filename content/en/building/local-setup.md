@@ -20,9 +20,9 @@ By the end of the tutorial you should be able to:
 - View the login page to CHT webapp on localhost
 - Upload default settings to localhost
 
-> [!NOTE]
-> This guide will only work with CHT 4.x instances.  See the 
-[3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
+{{< callout type="info" >}}
+  This guide will only work with CHT 4.x instances. See the [3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
+{{< /callout >}}
 
 ## Brief Overview of Key Concepts
 
@@ -134,8 +134,6 @@ cd ~/cht-project
 cht initialise-project-layout
 ```
 
-<br clear="all">
-
 ---
 
 ### Developing with VS Code Dev Container
@@ -204,10 +202,6 @@ If you encounter an error `bind: address already in use`, see the [Port Conflict
 
 This CHT instance is empty and has no data in it. While you're free to explore and add your own data, in step 3 below we will upload sample data. Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 
-<br clear="all">
-
- *****
-
 ### Upload Test Data
 
 By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/anc" >}}) installed. To upload demo data you can use `cht-conf`:
@@ -230,14 +224,11 @@ cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-doc
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
 
-<br clear="all">
-
-*****
-
 ### Upload a Blank Project
 
-> [!NOTE]
-> This step will erase the default Maternal & Newborn Health Reference Application. 
+{{< callout type="info" >}}
+  This step will erase the default Maternal & Newborn Health Reference Application. 
+{{< /callout >}}
 
 You can also upload the blank project you created above (via the `cht initialise-project-layout` command).
 
@@ -246,16 +237,20 @@ Deploy the blank project onto your local test environment with the following com
 {{< tabs items="Local,Dev Container" >}}
 
   {{< tab >}}
+
 ```shell
   # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
   cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
+  
   {{< /tab >}}
+
+  {{< tab >}}
+
 ```shell
   # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
   cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
 ```
-  {{< tab >}}
   {{< /tab >}}
 
 {{< /tabs >}}
@@ -265,10 +260,6 @@ Deploy the blank project onto your local test environment with the following com
 If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs (by running `npm ci`) before trying to upload the configuration again with the `cht ...` command.
 
 Once you have run the above command it should complete with the message: `INFO All actions completed.`.
-
-<br clear="all">
-
-*****
 
 ### Optional: Install Valid TLS Certificate
 

@@ -8,8 +8,9 @@ aliases:
    - /core/overview/test-data-generator/
 ---
 
-> [!CAUTION] 
-> It is not recommended to use this tool to push data into production instances.
+{{< callout type="error" >}}
+  It is not recommended to use this tool to push data into production instances.
+{{< /callout >}}
 
 Design the test data that fits your project hierarchy and reports. The tool will generate CouchDB docs and push them into your CHT test instance.
 
