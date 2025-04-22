@@ -38,6 +38,11 @@ Detailed instructions on how to host the CHT starting with the most basic Applic
 
 {{< see-also page="hosting" prefix="Read More" >}}
 
+## Auditing User Accounts
+Learn how to track logins, syncs, password changes, and other user events in the CHT for better monitoring and security auditing.
+
+{{< see-also page="auditing-user-accounts" prefix="Read More" >}}
+
 ## Have Questions?
 Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to star [the CHT Core GitHub repo](https://github.com/medic/cht-core).
 
