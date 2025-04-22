@@ -1,11 +1,11 @@
 ---
 title: "Getting started building a CHT app"
-linkTitle: Getting started
+linkTitle: Getting Started
 weight: 2
 description: >
   Setting up a local environment to build and test CHT 4.x applications
 relatedContent: >
-  contribute/code/core/using-windows
+  community/contributing/code/core/using-windows
   hosting/3.x/self-hosting
   hosting/3.x/ec2-setup-guide
 aliases:
@@ -29,7 +29,7 @@ This guide will only work with CHT 4.x instances.  See the
 
 ## Brief Overview of Key Concepts
 
-The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
+The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is a command-line interface tool to manage and configure CHT apps.
 
@@ -115,7 +115,7 @@ Using python on your terminal, install `pyxform` globally using the command belo
 sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "contribute/code/core/dev-environment#macos--123" >}}).
+If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "community/contributing/code/core/dev-environment#macos--123" >}}).
 
 #### `cht-conf`
 

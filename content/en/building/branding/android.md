@@ -51,7 +51,7 @@ To proceed you need to have ready the following:
 - The app logo and title.
 - Translations for your supported languages (most flavors don't need to customize translations though).
 
-Also be sure to have a working **[Development Environment]({{< ref "contribute/code/android/development-setup" >}})**.
+Also be sure to have a working **[Development Environment]({{< ref "community/contributing/code/android/development-setup" >}})**.
 
 While you should use your own branding, the [CHT logo](./CHT.logo.512.png) is available to use if so desired.
 
@@ -235,7 +235,7 @@ Releasing a new flavor requires the following steps:
 1. Make a pull request to the release branch in the CHT Android repository.
 2. Once approved it's recommended to create an alpha version to do final tests.
 3. Merge the pull request.
-4. [Release the flavor]({{< ref "contribute/code/android/releasing" >}}).
+4. [Release the flavor]({{< ref "community/contributing/code/android/releasing" >}}).
 
 ### 6. Publish the app
 
@@ -279,7 +279,7 @@ There are different ways to verify your setup works and we'll go through a few o
 
 #### Using Android Debug Bridge `adb`
 
-1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "contribute/code/android/development-setup#debug-tool-adb" >}}) section.
+1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "community/contributing/code/android/development-setup#debug-tool-adb" >}}) section.
 2. With the phone connected to your computer, open a command line session and write the following command: `adb shell pm get-app-links <package_name>` where `<package_name>` is your application ID.
 
 The output of this command should look like this:

@@ -79,8 +79,8 @@ An outgoing SMS message configuration has the following fields:
 |`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage | 
 |`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage | 
 |`district`| primary contact of the `district_hospital` in the subject's/submitter's lineage |
-|`ancestor:<contact_type>`| primary contact of the place of the requested type in the subject's/submitter's lineage |
-|`link:<tag>`| Linked doc that has requested `tag` in the subject's / submitter's lineage (direct mapping, not to primary contact). *As of 3.10.x*| 
+|`ancestor:<contact_type>`| Walks up the subject's/submitter's hierarchy to find the **primary contact** of a place with the given contact type. |
+|`link:<tag>`| Tries to find a **directly linked document** with the given tag; if not found, walks up the lineage (but not limited to primary contact). *Available since v3.10.x* |
 |`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* | 
 | *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` | 
 | *valid phone number* | requested phone number |

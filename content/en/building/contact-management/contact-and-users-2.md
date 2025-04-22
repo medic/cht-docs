@@ -6,7 +6,7 @@ description: >
   Creating and editing contacts and users with cht-conf
 relatedContent: >
   building/contact-management/contact-and-users-1
-  core/overview/db-schema
+  technical-overview/db-schema
   building/guides/data/users-bulk-load
   building/concepts/users
 aliases:

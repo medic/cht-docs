@@ -5,8 +5,8 @@ linkTitle: "Dashboards"
 description: >
   Data visualization tools for CHT Sync
 relatedContent: >
-  core/overview/architecture
-  core/overview/cht-sync
+  technical-overview/architecture
+  technical-overview/cht-sync
 ---
 
 These instructions assume you are running CHT Sync, CHT Core and PostgreSQL either with [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}}) or [Docker]({{< relref "hosting/analytics/setup-docker-compose" >}}).
