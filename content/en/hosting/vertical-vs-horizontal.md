@@ -28,7 +28,8 @@ Here we see a normal deployment following the bare minimum [hosting requirements
 ```mermaid
 flowchart TD
 
-subgraph couch1[" CouchDB - 1 x ''short'' Node "]
+subgraph couch1[" CouchDB - 1 x short Node "]
+
     couchInner1["4 CPU/8 GB RAM"]
 end
 
@@ -40,7 +41,7 @@ After looking at the logs, and seeing error messages about API timeouts to Couch
 ```mermaid
 flowchart TD
 
-subgraph couch2[" CouchDB - 1 x ''tall'' Node "]
+subgraph couch2[" CouchDB - 1 x tall Node "]
     couchInner2["16 CPU/64 GB RAM"]
 end
 
