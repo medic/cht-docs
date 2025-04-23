@@ -2,12 +2,14 @@
 title: "Releasing"
 linkTitle: "Releasing"
 weight: 7
-description: >
-  Instructions for releasing CHT tools
 aliases: >
   /core/guides/releasing
   /contribute/code/releasing/
 ---
+
+{{< hextra/hero-subtitle >}}
+  Instructions for releasing CHT tools
+{{< /hextra/hero-subtitle >}}
 
 ## CHT Core
 
@@ -33,8 +35,7 @@ The overall coordination and operation of the release process are the responsibi
 The release manager must perform several tasks for a new release, such as coordinating with team members and following all the steps in the [release issue process](https://github.com/medic/cht-core/issues/new/choose), some of them being manual. The release manager must have adequate permissions to the repositories where the release is made.
 
 ### Major/Minor/Patch Release
-> [!NOTE]  
-> The following classification is defined by the [Semantic Versioning 2.0.0](https://semver.org).
+> [!NOTE] The following classification is defined by the [Semantic Versioning 2.0.0](https://semver.org).
 
 Given a version number `MAJOR.MINOR.PATCH`, increment the:
 * `MAJOR` version when the release adds incompatible changes, e.g. when the apps built on top of the CHT require manual intervention to work as expected.

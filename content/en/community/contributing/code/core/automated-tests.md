@@ -2,13 +2,15 @@
 title: "Automated Tests"
 linkTitle: "Automated Tests"
 weight: 12
-description: >
-  Automated testing for cht-core
 aliases: >
   /core/guides/fixing-e2e-tests
   /contribute/code/core/fixing-e2e-tests
   /contribute/code/core/automated-tests
 ---
+
+{{< hextra/hero-subtitle >}}
+  Automated testing for cht-core
+{{< /hextra/hero-subtitle >}}
 
 ## The goal of automated testing
 Contributors from all backgrounds are welcome to make changes in the codebase. The CHT testing framework is designed to help you contribute with confidence, regardless of your experience level. This guide will help you understand the CHT testing approach and how you can contribute effectively.

@@ -2,11 +2,13 @@
 title: "Design Documents Guide"
 linkTitle: "Design Docs"
 weight: 12
-description: >
-  Guidelines for writing technical design documents
 aliases: >
   /contribute/code/design-docs
 ---
+
+{{< hextra/hero-subtitle >}}
+  Guidelines for writing technical design documents
+{{< /hextra/hero-subtitle >}}
 
 ## What are design docs?
 Software development is not just about writing code, but rather about solving problems and building the right solutions. Before diving into an initiative or feature and starting coding, it’s essential that the developers (and other team members) have a high-level understanding of what a solution might look like. 
@@ -52,7 +54,7 @@ Any open issues that you aren’t sure about, or suggested future work.
 
 [This example](https://docs.google.com/document/d/1bR3jygKQvfIK1CkRaplxz4LyXQqgO21MTjy8Jsd6s6c/edit?usp=sharing) shows how a design doc could look like.
 
-> [!IMPORTANT]
+> [!TIP]
 > * Keep it simple and concise, write just enough documentation. Design docs should be sufficiently detailed but succinct enough to actually be read by busy people.
 > * Be clear: Don't use unnecessarily complicated language and simplify whenever you can.
 > * Make important points stand out (for example, in bold letters).
@@ -76,6 +78,6 @@ When added as a design doc reviewer, there are some details about the problem to
 * What external systems does this initiative interact with?
 * Does it follow current good practices and patterns? Does it fit into the long-term direction? Does it create tech debt? 
 
-## More info
-
-This policy was inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) and [How to write a good software design doc](https://medium.com/free-code-camp/how-to-write-a-good-software-design-document-66fcf019569c).
+{{< callout >}}
+  This policy was inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) and [How to write a good software design doc](https://medium.com/free-code-camp/how-to-write-a-good-software-design-document-66fcf019569c).
+{{< /callout >}}

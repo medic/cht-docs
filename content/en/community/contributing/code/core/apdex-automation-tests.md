@@ -2,18 +2,20 @@
 title: "Apdex Automation Tests"
 linkTitle: "Apdex Automation Tests"
 weight: 13
-description: >
-  Automated test execution for creating telemetry data and calculating the Apdex scores
 aliases: >
   /core/guides/fixing-e2e-tests
   /contribute/code/core/fixing-e2e-tests
   /contribute/code/core/apdex-automation-tests
 ---
 
-## Configuration
+{{< hextra/hero-subtitle >}}
+  Automated test execution for creating telemetry data and calculating the Apdex scores
+{{< /hextra/hero-subtitle >}}
+
 This documentation will guide you on how to setup and configure automation to run performance tests for your CHT Applications.
 
-#### Prerequisites
+## Prerequisites
+
 Before continuing with the steps below, ensure:
 1. You have a [cht instance deployed]({{< ref "hosting/4.x/app-developer" >}}) and running either locally or globally.
 
@@ -44,7 +46,7 @@ Before continuing with the steps below, ensure:
   - Install appium driver - `appium driver install uiautomator2`
 
 
-#### Steps (running the tests)
+## Steps (running the tests)
 1. Enable the developer mode in your phone and enable the USB Debugger mode.
    - Ensure your device does not have a lock screen PIN/Passcode.
 2. Connect your phone to the computer using the appropriate device cable or you can follow [these steps](https://developer.android.com/studio/run/device#wireless) to connect your device using Wi-Fi.
@@ -384,6 +386,7 @@ Elements to assert that are displayed in the screen.
 | scrollUp | Number | Times to scroll up to reach to the element specified in the "selector". | No |
 
 ## Tips
+
 - Take time to understand the forms you are testing:
   - Are fields appearing dynamically?
   - Are there field's labels being updated automatically and removing the previous selection?

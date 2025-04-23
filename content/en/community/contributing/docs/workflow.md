@@ -2,11 +2,13 @@
 title: "Documentation Workflow"
 linkTitle: "Workflow"
 weight: 1
-description: >
-  How to contribute to the CHT tools and documentation
 aliases:
   -    /contribute/docs/workflow
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to contribute to the CHT tools and documentation
+{{< /hextra/hero-subtitle >}}
 
 ## Getting Started
 
@@ -31,7 +33,7 @@ Format your commit messages according to the Git convention where the first line
 
 > [!IMPORTANT] 
 > Every commit message should be able to complete the following sentence:
-> When applied, this commit will: {YOUR COMMIT MESSAGE}
+> When applied, this commit will be: {YOUR COMMIT MESSAGE}
 
 ## Creating a Pull Request
 
@@ -52,8 +54,7 @@ In general, reviewers should:
 6. When finished, click **Review changes** at the top of the page. Here, you can add a summary of your review, approve the PR, comment or request changes as needed.
 7. Once all comments have been resolved, or changes are satisfactory, **Merge pull request** to complete the updates, and delete the branch.
 
-> [!TIP]  
-> Additional Tips for Reviewers:
+> [!TIP] Additional Tips for Reviewers:
 > * Use the [Style Guide]({{< ref "community/contributing/docs/style-guide" >}}) to maintain documentation quality
 > * Compare content to pages within the same section and encourage consistency
 > * Be empathetic to the author, commenting on positive aspects of PRs as well as changes

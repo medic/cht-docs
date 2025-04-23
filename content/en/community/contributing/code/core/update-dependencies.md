@@ -2,19 +2,26 @@
 title: "Updating Dependencies"
 linkTitle: "Updating Dependencies"
 weight: 8
-description: >
-  Process for updating dependencies
 aliases: >
   /core/guides/update-dependencies
   /contribute/code/core/update-dependencies
 ---
 
-Every minor release we update dependencies to get the latest fixes and improvements. We do this early in the release cycle so that we have some more time to find regressions and issues. This is done on all folders with a package-lock.json, including:
+{{< hextra/hero-subtitle >}}
+  Process for updating dependencies
+{{< /hextra/hero-subtitle >}}
 
-- cht-core
-  - / (root)
-  - /admin
-  - /webapp
+Every minor release we update dependencies to get the latest fixes and improvements. We do this early in the release cycle so that we have some more time to find regressions and issues. This is done on all folders with a `package-lock.json`, including:
+
+{{< filetree/container >}}
+  {{< filetree/folder name="cht-core" >}}
+    {{< filetree/file name="/(root)" >}}
+    {{< filetree/folder name="admin" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="webapp" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
 
 ## Steps
 
@@ -43,7 +50,7 @@ Then for each folder go through these steps.
 
 ## Troubleshooting
 
-### Angular exception
+{{% details title="Angular exception"  closed="true" %}}
 
 When upgrading Webapp's Angular, you might get the following exception:
 ```
@@ -62,12 +69,18 @@ To fix it, uninstall these 3 dependencies and then install them again in this or
 
 If the error is still happening, try reinstalling `@angular/cli`.
 
-### npm errno -17
+{{% /details %}}
+
+{{% details title="npm errno -17" closed="true" %}}
 
 If `npm ci` errors with "errno -17" in shared-libs you may need to manually remove the nested dependencies from the package-lock.json. This needs move investigation to work out why this is happening.
 
-### select2 is not a function
+{{% /details %}}
+
+{{% details title="select2 is not a function"  closed="true" %}}
 
 If you get `TypeError: "$(...).select2 is not a function"` then either:
 1. You bumped select2. For some reason this breaks it.
 2. You have multiple jquery libraries and select2 is getting attached to one but not the other. Make sure the jquery versions in enketo-core and webapp match and you've `run dedupe` to remove the enketo-core copy.
+
+{{% /details %}}

@@ -2,11 +2,13 @@
 title: "Style guide for automated tests"
 linkTitle: "Style guide for automated tests"
 weight: 12
-description: >
-  This style guide provides editorial guidelines for anyone creating new automated test cases for the CHT-Core.
 aliases: >
   /contribute/code/core/style-guide-automated-e2e-tests
 ---
+
+{{< hextra/hero-subtitle >}}
+  Editorial guidelines for anyone creating new automated test cases for the cht-core
+{{< /hextra/hero-subtitle >}}
 
 There are three files that are the base of every new automated test case, the most important one is the `spec` file, which contains the actual test that will be executed.
 
@@ -96,8 +98,6 @@ Existent tags:
 #### @docker
 Tests that should run exclusively when running the suite over docker infrastructure. These tests will fail if run over k3d.
 
-### Notes:
-
-* We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then please isolate the code in a separate file, so it can be reused in future tests.
-
-* If the new test is not associated to a specific configuration, please locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 
+> [!NOTE] 
+> * We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then please isolate the code in a separate file, so it can be reused in future tests.
+> * If the new test is not associated to a specific configuration, please locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 

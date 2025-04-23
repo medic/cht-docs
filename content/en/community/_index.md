@@ -3,7 +3,7 @@ title: "Welcome to the CHT Community!"
 linkTitle: "Community"
 weight: 8
 aliases:
-  -    /contribute
+  - /contribute
 ---
 
 {{< hextra/hero-subtitle >}}

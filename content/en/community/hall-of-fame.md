@@ -1,7 +1,7 @@
 ---
 title: "Contributor Hall of Fame"
 linkTitle: "Hall of Fame"
-weight: 300
+weight: 3
 aliases:
   - /contribute/code/hall-of-fame
 ---

@@ -52,7 +52,6 @@ cascade:
     link="../hosting/4.x/app-developer"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
   >}}
-
 {{< /hextra/feature-grid >}}
 
 

@@ -5,6 +5,10 @@ weight: 1
 description: >
 ---
 
+{{< hextra/hero-subtitle >}}
+  Starting guide for first time contributors
+{{< /hextra/hero-subtitle >}}
+
 ## Who this is for
 
 Documentation exists for everything from how to [compile]({{% ref "community/contributing/code/core/dev-environment" %}}) the CHT from source to how to [build](https://github.com/medic/cht-docs/blob/main/README.md) the docs site locally.  However, where do you start?  What if you've never contributed to an open source project before? This guide helps the newcomer make their first contribution.
@@ -48,67 +52,67 @@ Follow these steps to set up a copy of the code ("fork") which you have on your 
 
 If you do not have a GitHub account, [please create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
 
+{{% steps %}}
 
-1. Create a Fork
+### Create a Fork
 
-   Create your own fork the CHT Core repository by going to the CHT's [fork page on GitHub](https://github.com/medic/cht-core/fork). When you click "Create Fork" on that page, you will  create a copy of this repository in your GitHub account.
+Create your own fork the CHT Core repository by going to the CHT's [fork page on GitHub](https://github.com/medic/cht-core/fork). When you click "Create Fork" on that page, you will  create a copy of this repository in your GitHub account.
 
    {{< figure src="clone.png" link="clone.png" class="right col-5 col-lg-5" >}}
 
-2. Clone the repository 
+### Clone the repository 
 
-    To clone the forked repository locally, in a browser, open the forked repository. Then click on the "<> Code" button and then on the "SSH" tab. Finally, click the double square icon  to copy the URL to your clipboard.
+ To clone the forked repository locally, in a browser, open the forked repository. Then click on the "<> Code" button and then on the "SSH" tab. Finally, click the double square icon  to copy the URL to your clipboard.
 
-   Open a terminal and run this command, being sure to replace `GITHUB-USER` with your GitHub user:
+ Open a terminal and run this command, being sure to replace `GITHUB-USER` with your GitHub user:
 
-    ```bash
-    git clone https://github.com/GITHUB-USER/cht-core.git
-    ```
+```bash
+git clone https://github.com/GITHUB-USER/cht-core.git
+```
 
+### Create a branch
 
-3.  Create a branch
+Change to the repository directory on your computer (if you are not already there):
 
-    Change to the repository directory on your computer (if you are not already there):
+```bash
+cd cht-core
+```
 
-    ```bash
-    cd cht-core
-    ```
+ Now create a branch using the `git switch` command:
 
-    Now create a branch using the `git switch` command:
+```bash
+git switch -c TICKET-NUMBER-your-new-branch-name
+```
 
-    ```bash
-    git switch -c TICKET-NUMBER-your-new-branch-name
-    ```
+ For example:
 
-    For example:
+```bash
+git switch -c 1234-add-alonzo-church
+```
+{{% details title="If you get any errors using git switch, click here:" closed="true" %}}
 
-    ```bash
-    git switch -c 1234-add-alonzo-church
-    ```
+If the error message "Git: `switch` is not a git command. See `git –help`" appears, it's likely because you're using an older version of git.
 
-    <details>
-    <summary> <strong>If you get any errors using git switch, click here:</strong> </summary>
+In this case, try to use `git checkout` instead:
 
-    If the error message "Git: `switch` is not a git command. See `git –help`" appears, it's likely because you're using an older version of git.
+```bash
+git checkout -b your-new-branch-name
+```
 
-    In this case, try to use `git checkout` instead:
+{{% /details %}}
 
-    ```bash
-    git checkout -b your-new-branch-name
-    ```
-
-    </details>
+{{% /steps %}}
 
 ## Development environment
 
-Now that you have an idea of what the CHT is and how code gets written, go set up [your development environment]({{% ref "community/contributing/code/core/dev-environment" %}}).  Move intentionally, being sure to follow each step carefully.  If you get stuck here - or anywhere - [reach out on the forums](https://forum.communityhealthtoolkit.org/)!
+Now that you have an idea of what the CHT is and how code gets written, go set up [your development environment]({{% ref "community/contributing/code/core/dev-environment" %}}).  Move intentionally, being sure to follow each step carefully.  If you get stuck here - or anywhere - [reach out on the forum](https://forum.communityhealthtoolkit.org/)!
 
 Spend some time understanding how to start up and stop the development environment.
 
 
 ## Make necessary changes and commit those changes
 
-Following the suggestions on the Good first issue, make the changes to the code.  Be sure the app still works and compiles with out errors.
+Following the suggestions on the Good First Issue, make the changes to the code.  Be sure the app still works and compiles with out errors.
 
 {{< figure src="git-status.png" link="git-status.png" class="right col-5 col-lg-5" >}}
 
@@ -137,11 +141,9 @@ git push -u origin your-branch-name
 
 replacing `your-branch-name` with the name of the branch you created earlier.
 
-<details>
-<summary> <strong>If you get a `Authentication failed` error while pushing, click here:</strong> </summary>
+{{% details title="If you get a `Authentication failed` error while pushing, click here:" closed="true" %}}
 
-- ## Authentication Error
-     <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+  <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
   remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
   fatal: Authentication failed for 'https://github.com/<your-username>/first-contributions.git/'</pre>
   Go to [GitHub's tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on generating and configuring an SSH key to your account.
@@ -157,7 +159,8 @@ replacing `your-branch-name` with the name of the branch you created earlier.
   git remote set-url origin git@github.com:your-username/your_repo.git
   ```
   Otherwise you'll still get prompted for username and password and get authentication error.
-</details>
+
+{{% /details %}}
 
 ### Submit your changes for review
 

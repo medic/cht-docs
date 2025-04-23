@@ -2,11 +2,13 @@
 title: "Static Analysis"
 linkTitle: "Static Analysis"
 weight: 11
-description: >
-  Guidelines for static analysis of CHT code
 aliases: >
   /contribute/code/static-analysis
 ---
+
+{{< hextra/hero-subtitle >}}
+  Guidelines for static analysis of CHT code
+{{< /hextra/hero-subtitle >}}
 
 ## eslint
 
@@ -91,8 +93,6 @@ Additionally, the `.sonarcloud.properties` file can contain configuration regard
 ##### Ignoring all rules for a block of code
 
 You can ignore all the rules for a block of code by telling Sonar to [ignore the block](https://docs.sonarsource.com/sonarqube-cloud/managing-your-projects/project-analysis/setting-analysis-scope/advanced-exclusions/). First, make sure your `.sonarcloud.properties` file has the following configuration:
-
-```properties
 
 ```properties
 sonar.issue.ignore.block=e1

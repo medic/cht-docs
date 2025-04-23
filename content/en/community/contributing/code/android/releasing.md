@@ -1,16 +1,15 @@
 ---
 title: "Releasing"
 linkTitle: "Releasing"
-weight: 3
-description: >
-  Instructions for releasing Android Apps
-relatedContent: >
-  building/guides/android/publishing
-  building/branding/android
+weight: 2
 aliases: >
   /core/guides/android/releasing
   /contribute/code/android/releasing
 ---
+
+{{< hextra/hero-subtitle >}}
+  Instructions for releasing Android Apps
+{{< /hextra/hero-subtitle >}}
 
 All Medic's Android projects automatically build, sign, and release builds via GitHub Actions. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
 
@@ -18,7 +17,6 @@ All Medic's Android projects automatically build, sign, and release builds via G
    * [cht-gateway](https://github.com/medic/cht-gateway/releases)
    * [medic-collect](https://github.com/medic/medic-collect/releases)
    * [rdt-capture](https://github.com/medic/rdt-capture/releases)
-
 
 ## Alpha for release testing
 

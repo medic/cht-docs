@@ -2,11 +2,13 @@
 title: "Development Workflow"
 linkTitle: "Workflow"
 weight: 1
-description: >
-  Overview of the development workflow
 aliases:
    -    /contribute/code/workflow
 ---
+
+{{< hextra/hero-subtitle >}}
+  Overview of the development workflow
+{{< /hextra/hero-subtitle >}}
 
 ## Writing code
 

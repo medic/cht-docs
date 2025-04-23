@@ -2,11 +2,15 @@
 title: "Coding Style Guide"
 linkTitle: "Style Guide"
 weight: 2
-description: >
-  Guidelines for writing code
 aliases: >
-  /contribute/code/style-guide
+  - /contribute/code/style-guide
 ---
+
+{{< hextra/hero-subtitle >}}
+  Guidelines for writing code
+{{< /hextra/hero-subtitle >}}
+
+{{< toc >}}
 
 ## Language
 
