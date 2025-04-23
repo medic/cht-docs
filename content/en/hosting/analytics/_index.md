@@ -1,6 +1,6 @@
 ---
 title: Data Synchronization and Analytics
-weight: 8
+weight: 9
 description: >
     Using CHT Sync for data synchronization and analytics
 relatedContent: >

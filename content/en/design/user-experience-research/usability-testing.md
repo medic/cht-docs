@@ -44,7 +44,7 @@ Test with 6-8 users based on the relevant persona the prototype is designed for,
 6. Begin the session and run through the scenarios and tasks until all are completed
 7. Thank the user for their participation, ask them if they have any questions and let them know their feedback is important in improving the CHT 
 
-> [!TIP]
+> [!TIP] Tips
 > * Watch for verbal cues and body language. Some users won’t explicitly say they are confused but could sigh in frustration
 > * Don’t speak too much to avoid interfering with the users’ thought – ask them to say what they are thinking out loud as they are performing each task
 > * Keep an even tone, don’t agree or disagree with the user to avoid influencing their answers

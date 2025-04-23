@@ -1,6 +1,6 @@
 ---
 title: 3.x
-weight: 6
+weight: 7
 aliases:
     - /apps/guides/hosting/3.x
 description: >

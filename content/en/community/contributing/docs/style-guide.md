@@ -3,7 +3,7 @@ title: "Documentation Style Guide"
 linkTitle: "Style Guide"
 weight: 2
 aliases:
-  -    /contribute/docs/style-guide
+  -  /contribute/docs/style-guide
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -36,7 +36,7 @@ Here is a [sample technical working session document](https://docs.google.com/do
 8. Agree on potential next steps from the call
 9. Thank them for their time and let them know to encourage a continual discussion after the call; on the forum or via email
 
-> [!TIP]
+> [!TIP] Tips
 > * Be warm and professional
 > * Make it an open back and forth discussion between both teams
 > * Focus on one issue at a time

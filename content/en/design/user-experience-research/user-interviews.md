@@ -54,7 +54,7 @@ Agree on a mutually convenient time and date – if doing remote research, make 
 
 #### Tips:
 
-> [!TIP]
+> [!TIP] Tips
 > * Be warm and professional
 > * Listen lots, speak little
 > * Focus on one question at a time

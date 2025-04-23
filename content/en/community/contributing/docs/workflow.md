@@ -7,7 +7,7 @@ aliases:
 ---
 
 {{< hextra/hero-subtitle >}}
-  How to contribute to the CHT tools and documentation
+  How to contribute to the CHT documentation
 {{< /hextra/hero-subtitle >}}
 
 ## Getting Started

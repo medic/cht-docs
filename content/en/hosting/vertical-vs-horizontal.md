@@ -1,15 +1,14 @@
 ---
 title: "Vertical vs Horizontal scaling"
 linkTitle: "Vertical vs Horizontal Scaling"
-weight: 3
+weight: 4
 aliases:  
   - /apps/guides/hosting/vertical-vs-horizontal
-description: >
-    The power of clustered CouchDB to horizontally scale the CHT  
-relatedContent: >  
-    hosting/4.x/migration/migration-to-4x-docker.md
-    technical-overview/architecture/
 ---
+
+{{< hextra/hero-subtitle >}}
+  The power of clustered CouchDB to horizontally scale the CHT  
+{{< /hextra/hero-subtitle >}}
 
 ## Introduction
 

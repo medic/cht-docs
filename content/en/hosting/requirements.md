@@ -1,17 +1,16 @@
 ---
 title: "CHT hosting requirements"
 linkTitle: "Requirements"
-weight: 1
+weight: 2
 aliases:
   - /apps/guides/hosting/requirements
-description: >
-  Requirements for hosting CHT applications
-relatedContent: >
-  hosting/3.x/self-hosting
-  hosting/3.x/ec2-setup-guide
 ---
 
-> [!NOTE]
+{{< hextra/hero-subtitle >}}
+  Requirements for hosting CHT applications
+{{< /hextra/hero-subtitle >}}
+
+> [!IMPORTANT]
 > For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
 
 Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.

@@ -1,9 +1,12 @@
 ---
 title: Kubernetes vs Docker
-weight: 4
-description: >
- Options for installing CHT applications
+linkTitle: Kubernetes vs Docker
+weight: 5
 ---
+
+{{< hextra/hero-subtitle >}}
+  Options for installing CHT applications
+{{< /hextra/hero-subtitle >}}
 
 Since the release of CHT Core 4.0.0 in late 2022, Medic has been perfecting the hosting for the toolkit to balance the need for high uptimes so CHWs can always deliver care while having an easy and approachable technical back end hosting solution.  While initially [Docker Compose](https://docs.docker.com/compose/) with an [overlay network](https://docs.docker.com/compose/networking/#multi-host-networking) was thought to be our goto solution, field testing this overlay networks in production has shown them to unreliable.  As such, on this site you will find documentation for both Docker Compose for smaller deployments (with no overlay network) and Kubernetes for larger deployments.
 

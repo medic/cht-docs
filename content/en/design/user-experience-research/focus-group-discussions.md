@@ -44,7 +44,7 @@ Here is a [focused group discussion template]({{< ref "template" >}}).
 5. The moderator goes through the discussion guide and steers the conversation until all topics are covered
 6. Thank the users for their participation, ask them if they have any questions and let them know their feedback is important in improving the CHT
 
-> [!TIP]
+> [!TIP] Tips
 > * Ask open ended questions
 > * Make sure everyone gets to speak
 > * Focus on one question at a time

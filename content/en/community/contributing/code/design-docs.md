@@ -54,7 +54,7 @@ Any open issues that you aren’t sure about, or suggested future work.
 
 [This example](https://docs.google.com/document/d/1bR3jygKQvfIK1CkRaplxz4LyXQqgO21MTjy8Jsd6s6c/edit?usp=sharing) shows how a design doc could look like.
 
-> [!TIP]
+> [!TIP] Tips
 > * Keep it simple and concise, write just enough documentation. Design docs should be sufficiently detailed but succinct enough to actually be read by busy people.
 > * Be clear: Don't use unnecessarily complicated language and simplify whenever you can.
 > * Make important points stand out (for example, in bold letters).
