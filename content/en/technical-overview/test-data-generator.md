@@ -2,11 +2,13 @@
 title: "Test Data Generator for CHT Test Instances"
 linkTitle: "Test Data Generator"
 weight: 11
-description: >
-  A tool for CHT developers to design, generate, and push CouchDB docs tailored to project hierarchies and reports
 aliases:
    - /core/overview/test-data-generator/
 ---
+
+{{< hextra/hero-subtitle >}}
+  A tool for CHT developers to design, generate, and push CouchDB docs tailored to project hierarchies and reports
+{{< /hextra/hero-subtitle >}}
 
 {{< callout type="error" >}}
   It is not recommended to use this tool to push data into production instances.

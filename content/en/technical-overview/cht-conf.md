@@ -2,11 +2,13 @@
 title: "CHT App Configurer"
 linkTitle: "CHT Conf"
 weight: 3
-description: >
-  Manage and configure apps built using the CHT Core Framework
 aliases:
    - /core/overview/cht-conf/
 ---
+
+{{< hextra/hero-subtitle >}}
+  Manage and configure apps built using the CHT Core Framework
+{{< /hextra/hero-subtitle >}}
 
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 
@@ -72,7 +74,7 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
    ```shell
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder*
    ```
-   or this one to update already downloaded docs
+   or this one to update already downloaded docs:
    ```shell
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder* --updateOfflineDocs
    ```
@@ -85,7 +87,7 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
 ## Project layout
 
 This tool expects a project to be structured as follows:
-```shell
+```cli
 example-project/
 	.eslintrc
 	app_settings.json
