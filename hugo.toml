@@ -70,22 +70,28 @@ weight = 1
   type = "separator"
 
 [[menu.sidebar]]
-identifier = "forum"
-name = "CHT Forum"
-url = "https://forum.communityhealthtoolkit.org/"
-weight = 2
-
-[[menu.sidebar]]
 identifier = "docs"
 name = "Create docs issue ↗"
 url = "https://github.com/medic/cht-docs/issues/new"
+weight = 2
+
+[[menu.sidebar]]
+identifier = "forum"
+name = "CHT Forum"
+url = "https://forum.communityhealthtoolkit.org/"
 weight = 3
+
+[[menu.sidebar]]
+identifier = "academy"
+name = "CHT Academy"
+url = "https://academy.communityhealthtoolkit.org/"
+weight = 4
 
 [[menu.sidebar]]
 identifier = "privacyPolicy"
 name = "Privacy Policy ↗"
 url = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
-weight = 4
+weight = 5
 
 # Image processing configuration.
 [imaging]

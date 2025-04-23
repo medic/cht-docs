@@ -2,9 +2,11 @@
 title: "Usability Testing"
 linkTitle: "Usability Testing"
 weight: 3
-description: >
-  How to conduct Usability Testing 
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to conduct usability testing 
+{{< /hextra/hero-subtitle >}}
 
 Usability testing is the practice of testing how easy or difficult a design solution is to use by observing how users interact with it. These are one on one sessions that can be done in person where the facilitator observes the user directly, or remotely where the facilitator shares their screen and asks the user what they would do next and acts as their proxy.
 
@@ -42,13 +44,12 @@ Test with 6-8 users based on the relevant persona the prototype is designed for,
 6. Begin the session and run through the scenarios and tasks until all are completed
 7. Thank the user for their participation, ask them if they have any questions and let them know their feedback is important in improving the CHT 
 
-### Tips:
-
-* Watch for verbal cues and body language. Some users won’t explicitly say they are confused but could sigh in frustration
-* Don’t speak too much to avoid interfering with the users’ thought – ask them to say what they are thinking out loud as they are performing each task
-* Keep an even tone, don’t agree or disagree with the user to avoid influencing their answers
-* If a user is confused, probe to find out why instead of guiding them to the correct answer
-* Whether the user passes or fails the task, do not give an indication of either and simply thank them for completing the task
+> [!TIP]
+> * Watch for verbal cues and body language. Some users won’t explicitly say they are confused but could sigh in frustration
+> * Don’t speak too much to avoid interfering with the users’ thought – ask them to say what they are thinking out loud as they are performing each task
+> * Keep an even tone, don’t agree or disagree with the user to avoid influencing their answers
+> * If a user is confused, probe to find out why instead of guiding them to the correct answer
+> * Whether the user passes or fails the task, do not give an indication of either and simply thank them for completing the task
 
 ## Synthesizing
 

@@ -2,9 +2,11 @@
 title: "Focus Group Discussions"
 linkTitle: "Focus Group Discussions"
 weight: 2
-description: >
-  How to collect data from several users simultaneously
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to collect data from several users simultaneously
+{{< /hextra/hero-subtitle >}}
 
 Focus group discussions are a quick and convenient way to collect data from several users simultaneously. Use focus group discussions to gain insight into what users think about a topic or shared experience in a group setting and to learn about opinions, attitudes and preferences. 
 
@@ -19,7 +21,7 @@ Focus group discussions are a quick and convenient way to collect data from seve
     4. Location
     5. Mobile devices
 
-Here is a [focused group discussion template]({{< ref "template" >}})
+Here is a [focused group discussion template]({{< ref "template" >}}).
 
 ## Recruiting
 
@@ -42,14 +44,13 @@ Here is a [focused group discussion template]({{< ref "template" >}})
 5. The moderator goes through the discussion guide and steers the conversation until all topics are covered
 6. Thank the users for their participation, ask them if they have any questions and let them know their feedback is important in improving the CHT
 
-#### Tips:
-
-* Ask open ended questions
-* Make sure everyone gets to speak
-* Focus on one question at a time
-* Don’t share your assumptions or hypotheses
-* Do not influence the user by asking leading questions
-* Record your session or have someone take notes so you can focus on being present
+> [!TIP]
+> * Ask open ended questions
+> * Make sure everyone gets to speak
+> * Focus on one question at a time
+> * Don’t share your assumptions or hypotheses
+> * Do not influence the user by asking leading questions
+> * Record your session or have someone take notes so you can focus on being present
 
 ## Synthesizing
 

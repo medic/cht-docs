@@ -2,9 +2,11 @@
 title: "Nurse, Mary"
 linkTitle: "Nurse"
 weight: 4
-description: >
-  Training and managing CHWs
 ---
+
+{{< hextra/hero-subtitle >}}
+  Training and managing CHWs
+{{< /hextra/hero-subtitle >}}
 
 Nurses are stationed at the health facility and spend their days seeing patients. They are typically very busy and may see 50 or more patients a day. At the clinic, they sometimes deal with staff shortages, stock-outs, and poor internet connectivity. They help train and manage CHWs, particularly during monthly meetings at the facility. They are interested in seeing improvements in health metrics for the areas their facility serves. 
 
