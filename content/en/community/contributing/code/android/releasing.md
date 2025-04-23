@@ -24,7 +24,6 @@ All Medic's Android projects automatically build, sign, and release builds via G
 2. Create a git tag starting with `v` and ending with the alpha version, e.g. `git tag v1.2.3-alpha.1`, and push the tag to GitHub (`git push --tags`). For features branches, you can add the name of the branch or whatever keyword helps to identify the release, e.g. `v1.2.3-alpha.dark-theme.4`.
 3. Creating the tag will trigger the building and signing of the app in CI. The release-ready APKs are available for side-loading from the Releases section in the project (e.g. [CHT-Android Releases](https://github.com/medic/cht-android/releases)), along with the AABs that the Google Play Store may require. Note that the created release on GitHub with the generated artifacts will not be explicitly linked to the tag because the release is in a draft state.
 4. **Side-Load**: for testing internally, or apps that are not published in the Play Store like Collect and Gateway: Navigate to the GitHub Releases page (linked above) and download the relevant APKs for distribution.
-5. Announce the release in _#quality-assurance_.
 
 
 ## Production release
