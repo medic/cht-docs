@@ -17,8 +17,6 @@ With thousands of health workers using these tools to support a million home vis
 
 {{< youtube Q93_tSyTp_k >}}
 
-<br />
-
 ## The CHT Community
 
 The CHT is 100% open source--it always has been and always will be freely available as a [digital public good](https://www.digitalpublicgoods.net/r/community-health-toolkit). This is possible thanks to a diverse and active community of practice that includes contributors from global health NGOs, technical organizations, governments, and research institutions, with the non-profit organization [Medic](https://medic.org) serving as a technical steward.
@@ -28,6 +26,8 @@ The CHT community's longterm focus on community-driven health systems, integrate
 {{< gallery src="partners" noBorder="true" >}}
 
 If you’re contributing to the CHT and would like to see your organization’s logo featured here, please send an email to hello@medic.org.
+
+{{< see-also page="community" title="Get involved" >}}
 
 ## Speeding up app development
 
