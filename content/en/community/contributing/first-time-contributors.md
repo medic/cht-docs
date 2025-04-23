@@ -86,8 +86,6 @@ If you do not have a GitHub account, [please create one now](https://github.com/
     git switch -c 1234-add-alonzo-church
     ```
 
-    _NOTE: Ensure your branch name contains the ticket number, as GitHub will automatically link it (and the eventual PR) to the ticket. This helps community members see that the issue is already being addressed._
-
     <details>
     <summary> <strong>If you get any errors using git switch, click here:</strong> </summary>
 
