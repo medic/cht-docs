@@ -115,7 +115,7 @@ Following the suggestions on the Good first issue, make the changes to the code.
 
 If you go to the project directory and execute the command `git status`, you'll see there are changes. In this example, the `Contributors.md` file has been modified
 
-Add any changes to the branch you just created using the `git add` command. In this example we're adding just one file, but you add multiple seperated by spaces:
+Add any changes to the branch you just created using the `git add` command. In this example we're adding just one file, but you add multiple separated by spaces:
 
 ```bash
 git add Contributors.md
@@ -169,7 +169,7 @@ Now submit the pull request.
 
 {{< figure src="open.pr.png" link="open.pr.png" class="center col-10 col-lg-10" alt="create a pull request"  >}}
 
-You will get a notification email once the changes have been merged or when changes are requested.
+You will get a notification email once the changes have been merged or when changes are requested. Maintainers are usually working on several initiatives at once, so please expect that it might take some time before they can look at your PR.
 
 Content from this section is taken from the [first-contributions](https://github.com/firstcontributions/first-contributions) which is under the [MIT License]({{% ref "./mit" %}}).
 
