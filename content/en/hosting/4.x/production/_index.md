@@ -12,7 +12,7 @@ aliases:
 
 {{< cards >}}
   {{< card link="considerations" title="Considerations" subtitle="Recommendations and considerations" icon="warning" >}}
-  {{< card link="migration/" title="Kubernetes" icon="kubernetes" subtitle="Production hosting the CHT with Kubernetes" >}}
-  {{< card link="production/" title="Docker" subtitle="Production hosting the CHT with Docker" icon="docker" >}}
+  {{< card link="kubernetes/" title="Kubernetes" icon="kubernetes" subtitle="Production hosting the CHT with Kubernetes" >}}
+  {{< card link="docker/" title="Docker" subtitle="Production hosting the CHT with Docker" icon="docker" >}}
 {{< /cards >}}
 

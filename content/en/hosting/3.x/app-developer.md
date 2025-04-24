@@ -1,17 +1,21 @@
 ---
 title: "App Developer Hosting in CHT 3.x"
 linkTitle: "App Developer Hosting"
-weight: 40
+weight: 3
 aliases:
    - /apps/guides/hosting/3.x/app-developer
    - /apps/guides/hosting/app-developer 
-description: >
-  Hosting the CHT when developing apps
 ---
+
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT when developing apps
+{{< /hextra/hero-subtitle >}}
 
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}})
+{{< callout >}}
+  To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}).
+{{< /callout >}}
 
 ## Getting started
 
@@ -19,13 +23,13 @@ Be sure to meet the [CHT hosting requirements]({{< relref "hosting/requirements"
 
 After meeting these requirements, download the developer YAML file in the directory you want to store them:
 
-```shell script
+```shell
 curl -o docker-compose-developer-3.x-only.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
 ```
 
 To start the first developer CHT instance, run `docker compose` and specify the file that was just download:
 
-```shell script
+```shell
 docker compose -f docker-compose-developer-3.x-only.yml up
 ```
 

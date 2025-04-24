@@ -1,21 +1,22 @@
 ---
 title: "Production Hosting in CHT 3.x"
 linkTitle: "Production Hosting - Docker"
-weight: 20
-description: >
-  Hosting the CHT on self run infrastructure
+weight: 2
 aliases:
   - /apps/guides/hosting/3.x/self-hosting
   - /apps/guides/hosting/self-hosting
   - /technical-overview/docker-setup
-relatedContent: >
-  hosting/3.x/ec2-setup-guide
 ---
+
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT on self run infrastructure
+{{< /hextra/hero-subtitle >}}
 
 Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (CHT) core framework has been packaged into a docker container to make it portable and easy to install. It is available from [dockerhub](https://hub.docker.com/r/medicmobile/medic-os). To learn more how to work with docker you could follow the tutorial [here](https://docker-curriculum.com/#getting-started) and the cheat sheet [here](https://docs.docker.com/get-started/docker_cheatsheet.pdf).  
 
-> [!WARNING] 
-> Before continuing, ensure all [requirements]({{< relref "hosting/requirements" >}}) are met.
+{{< callout type="warning" >}}
+  Before continuing, ensure all [requirements]({{< relref "hosting/requirements" >}}) are met.
+{{< /callout >}}
 
 ## Installing with a compose file
 
@@ -121,8 +122,9 @@ Note: You can  substitute 8080, 444 with whichever ports are free on your host. 
 
 ## Data storage & persistence
 
-> [!NOTE] 
-> Containers that are already set up will lose all data when following the steps below to remap the `/srv` directory.
+{{< callout type="warning" >}}
+  Containers that are already set up will lose all data when following the steps below to remap the `/srv` directory.
+{{< /callout >}}
 
 Docker containers are [stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) by design.  In order to persist your data when a container restarts you need to specify the volumes that the container can use to store data. The CHT app stores all its data in the `/srv` folder.  This is the folder that you need to map to your volume before you spin up your containers. 
 
@@ -163,10 +165,18 @@ Be sure to check the available storage space regularly and expand your volume wh
 
 Regular backups should be made of the `/srv` directory to have holistic and easy to restore copies of all important data and the current CHT version installed.  To backup just the data and not the CHT, make copies of `/srv/storage/medic-core/`.  This directory includes 4 key sub-directies:
 
-* ./couchdb
-* ./openssh
-* ./nginx
-* ./passwd
+{{< filetree/container >}}
+  {{< filetree/folder name="srv" >}}
+    {{< filetree/folder name="couchdb" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="openssh" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="nginx" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="passwd" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
 
 To make backups of just CouchDB data outside of the CHT docker infrastructure, please see [CouchDB's Backup docs for 2.3.1](https://web.archive.org/web/20220527070753/https://docs.couchdb.org/en/2.3.1/maintenance/backups.html). Please note:
 * CouchDB data files are in `/srv/storage/medic-core/couchdb/data` in the `medic-os` container.

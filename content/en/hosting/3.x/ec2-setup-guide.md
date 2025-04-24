@@ -1,16 +1,15 @@
 ---
 title: "AWS Hosting in CHT 3.x"
 linkTitle: "Production Hosting - AWS"
-weight: 10
-description: >
-  Hosting the CHT on Amazon EC2
+weight: 1
 aliases:
    - /apps/guides/hosting/3.x/ec2-setup-guide
    - /apps/guides/hosting/ec2-setup-guide 
-relatedContent: >
-  hosting/3.x/self-hosting
 ---
 
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT on Amazon EC2
+{{< /hextra/hero-subtitle >}}
 
 Most production CHT instances are deployed on AWS EC2.  Leveraging Elastic Compute Cloud (EC2) and Elastic Block Store (EBS), CHT instances can easily be scaled up with larger EC2 instances and have easy increased disk space, backup and restores with EBS.
 
