@@ -2,17 +2,18 @@
 title: "Local couch2pg Setup"
 linkTitle: Local Setup
 weight: 3
-description: >
-  Setting up a Couch2pg service to download data from CouchDB to Postgres database
-relatedContent: >
-  building/local-setup
 aliases:
    - /apps/tutorials/couch2pg-setup
    - /building/tutorials/couch2pg-setup
 ---
 
-> [!WARNING]
-> CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< hextra/hero-subtitle >}}
+   Setting up a Couch2pg service to download data from CouchDB to Postgres database
+{{< /hextra/hero-subtitle >}}
+
+{{< callout type="warning" >}}
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< /callout >}}
 
 This tutorial will take you through setting up a couch2pg service.
 
@@ -86,17 +87,15 @@ If you want to set and save all possible variables:
 
 6. Edit `couch2pg.env` to have all the variables you need.
 
-> [!WARNING] 
-> `POSTGRESQL_URL` shouldn't be edited as it is defined by the variables above it.
+{{< callout type="warning" >}}
+  `POSTGRESQL_URL` shouldn't be edited as it is defined by the variables above it.
+{{< /callout >}}
 
 7. Run: `. ./couch2pg.env && node .`
 
-> [!NOTE]
-> To run cht-couch2pg in interactive mode, use `node . -i`. You will be prompted to answer questions to capture the same the environmental variables. For each question, you will be given suggestions for an answer. 
-
-<br clear="all">
-
- *****
+{{< callout type="info" >}}
+  To run cht-couch2pg in interactive mode, use `node . -i`. You will be prompted to answer questions to capture the same the environmental variables. For each question, you will be given suggestions for an answer. 
+{{< /callout >}}
 
 ## Using docker compose
 
@@ -119,10 +118,6 @@ export COUCHDB_URL=https://medic:password@192-168-68-26.local-ip.medicmobile.org
 > [!NOTE]
 > To set all possible variables or store the variables in configuration file, follow steps 5 and 6 above. To connect to the PostgreSQL instance, use the server from `POSTGRES_SERVER_NAME`, use login from `COUCH2PG_USER`, password from `COUCH2PG_USER_PASSWORD` and the database from `POSTGRES_DB_NAME`.
 
-<br clear="all">
-
- *****
-
 ## Known issues
 
 1. Node version compatibility
@@ -134,7 +129,4 @@ export COUCHDB_URL=https://medic:password@192-168-68-26.local-ip.medicmobile.org
   - The setting can be updated in the Postgres configuration file which is in `/etc/postgresql/14/main/postgres.conf` in Ubuntu 20.04. The key `password_encryption` should be set to md5. After updating the setting, restart the Postgres service.
 
   - To confirm that the role used with couch2pg has an md5 encrypted password use the query `SELECT rolname, rolpassword FROM pg_authid`. The role password should start with md5.
-
-<br clear="all">
-
- *****
+  

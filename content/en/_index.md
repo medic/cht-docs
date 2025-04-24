@@ -51,7 +51,7 @@ cascade:
   {{< hextra/feature-card
     title="Host the CHT"
     subtitle="Learn how to host the CHT locally or in production"
-    link="../hosting/4.x/app-developer"
+    link="../hosting/4.x/production"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}

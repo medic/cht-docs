@@ -1,12 +1,14 @@
 ---
 title: "Production CHT Watchdog"
 linkTitle: "Production"
-weight: 200
+weight: 3
 aliases:  
   - /apps/guides/hosting/monitoring/production
-description: >
-   Production considerations for CHT Watchdog
 ---
+
+{{< hextra/hero-subtitle >}}
+  Production considerations for CHT Watchdog
+{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
@@ -23,8 +25,7 @@ When you run CHT Watchdog in production, and it is publicly accessible on the In
 
 This guide assumes you have already [set up TLS]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "hosting/monitoring/setup" >}}) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
 
-
-> [!NOTE]
+> [!WARNING]
 > Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
 
 ## Monitoring over TLS

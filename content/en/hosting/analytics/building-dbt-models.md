@@ -1,18 +1,15 @@
 ---
 title: "dbt Models for CHT Applications"
 linkTitle: "dbt Models"
-weight: 5
-description: >
-  Guide for building dbt models for CHT applications
-relatedContent: >
-  technical-overview/db-schema
-  building/reference/app-settings/hierarchy
+weight: 4
 aliases:
    - /apps/guides/data/analytics/building-dbt-models
    - /building/guides/data/analytics/building-dbt-models
 ---
 
-## Overview
+{{< hextra/hero-subtitle >}}
+  Guide for building dbt models for CHT applications
+{{< /hextra/hero-subtitle >}}
 
 [CHT Sync]({{< relref "technical-overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 

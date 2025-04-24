@@ -1,16 +1,15 @@
 ---
 title: "CHT Sync Setup with Docker"
-weight: 3
+weight: 2
 linkTitle: "Docker"
-description: >
-  Setting up CHT Sync with Docker and the CHT
-relatedContent: >
-  technical-overview/architecture
-  technical-overview/cht-sync
 aliases:
    - /apps/guides/data/analytics/setup
    - /building/guides/data/analytics/setup
 ---
+
+{{< hextra/hero-subtitle >}}
+  Setting up CHT Sync with Docker and the CHT
+{{< /hextra/hero-subtitle >}}
 
 This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker. This path is recommended if you host the [CHT with Docker]({{< relref "hosting/4.x/production/docker" >}}).
 
@@ -27,7 +26,7 @@ In the `cht-sync` folder, copy the values from the `env.template` file to a `.en
 
 Configure the `COUCHDB_*` environment variables to connect to your CouchDB instance. For production CHT Core deployments, the port will most likely need to be set to `443` like this: `COUCHDB_PORT=443`. This is because CHT Core uses an `nginx` [reverse proxy]({{< relref "technical-overview/architecture#overview" >}}) on port `443`, instead of the default `5984` port used in a stand-alone CouchDB instance which the `env.template` [has]({{< relref "hosting/analytics/environment-variables" >}}).
 
-> [!NOTE]
+> [!IMPORTANT]
 > The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
 
 ### Profiles

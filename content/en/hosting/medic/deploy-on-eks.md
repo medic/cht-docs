@@ -2,13 +2,15 @@
 title: "Deploy CHT Core on Medic hosted EKS"
 weight: 2
 linkTitle: "Deploy to EKS"
-description: >
-    Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
 aliases:
    - /contribute/code/core/deploy-on-eks
    - /contribute/medic/product-development-process/deploy-on-eks
    - /contribute/medic/deploy-on-eks
 ---
+
+{{< hextra/hero-subtitle >}}
+  Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
+{{< /hextra/hero-subtitle >}}
 
 While not directly available to the public who might be doing CHT Core development, having Medic's process for using our [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (AWS EKS) publicly documented will help Medic employees new to EKS.  As well, hopefully  external developers looking to re-use Medic tools and process to use EKS will find it helpful.
 

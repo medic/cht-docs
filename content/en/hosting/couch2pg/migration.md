@@ -1,12 +1,16 @@
 ---
 title: Migration
+linkTitle: Migration
 weight: 2
-description: >
-     Migrating from one couch2pg instance to another, including Postgres data
 ---
 
-> [!WARNING]
-> couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< hextra/hero-subtitle >}}
+   Migrating from one couch2pg instance to another, including Postgres data
+{{< /hextra/hero-subtitle >}}
+
+{{< callout type="warning" >}}
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< /callout >}}
 
 ## Assumptions & Prerequisites
 

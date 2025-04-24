@@ -1,13 +1,16 @@
 ---
 title: Setup and Development
+linkTitle: Setup & Development
 weight: 1
-description: >
-     How to run and do development of CHT couch2pg
 ---
 
-> [!WARNING]
-> CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< hextra/hero-subtitle >}}
+  How to run and do development of CHT couch2pg
+{{< /hextra/hero-subtitle >}}
 
+{{< callout type="warning" >}}
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< /callout >}}
 
 Create read-only replicas of CouchDB data inside PostgresSQL.
 
