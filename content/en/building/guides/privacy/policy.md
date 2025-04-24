@@ -14,7 +14,7 @@ aliases:
 > [!NOTE]
 > This policy is reviewed and updated periodically by our Responsible Data Working Group and is intended as a resource for the CHT community. 
 
-If you have any questions, please reach out to our Data Protection Officer at support@medic.org. 
+If you have any questions, reach out to our Data Protection Officer at support@medic.org. 
 
 ## Our responsible data promise
 
@@ -91,7 +91,7 @@ Medic is committed to data security. In addition to adhering to data security st
 
 **Web app:** Medic uses secure transfers over HTTPS for all communication between the browser and our web application, with perfect forward secrecy (PFS) and 4096-bit SHA-2 certificates by default. We use a non-standard port for SSH access to reduce our exposure to automated brute-force attacks and can configure the web app to accept only public key authentication for SSH connections. Access to the web application requires a password, and user access can be established to varying degrees using a role-based access control facility (e.g. full access, restricted access, data entry only, and data export only).
 
-**Data storage:** Medic uses Amazon Web Services (AWS) with enforced two-factor authentication, HTTPS, and Identity and Access Management (IAM) for all hosted instances. We use IAM policies on AWS to restrict what any one individual Medic developer/administrator can do. Please see below for more information on AWS data security.
+**Data storage:** Medic uses Amazon Web Services (AWS) with enforced two-factor authentication, HTTPS, and Identity and Access Management (IAM) for all hosted instances. We use IAM policies on AWS to restrict what any one individual Medic developer/administrator can do. See below for more information on AWS data security.
 
 **SMS:** We train users to input data using simple SMS codes or freeform SMS. We use "plain text encoding" which means viewers can see the value but not know the context of the data. As an example: when health workers text P 3 Jane ("P" for pregnancy, "3" for number of weeks pregnant, name), Medic registers the pregnancy, creates a patient ID, calculates the expected delivery date, and schedules automated reminder messages. SMS is inherently insecure but we work with every partner on safety practices to reduce and minimize mishandling of data and transmission of protected health information.
  
@@ -103,4 +103,4 @@ We work with every partner to make sure they are trained and equipped to handle 
 
 ## Inquiries with Medic’s Data Protection Officer
 
-For any inquiries, please reach out to Medic’s Data Protection Officer, by emailing support@medic.org with the words “Data Protection” in the subject line. 
+For any inquiries, reach out to Medic’s Data Protection Officer, by emailing support@medic.org with the words “Data Protection” in the subject line. 

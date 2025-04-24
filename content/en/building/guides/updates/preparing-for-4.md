@@ -21,7 +21,7 @@ Upgrading to CHT 4.0  can be quite time consuming, especially for large deployme
 
 ## CHT Android v1.0.0+ 
 
-This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`.  Please see the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
+This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`. See the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
 
 ### Versions in use
 

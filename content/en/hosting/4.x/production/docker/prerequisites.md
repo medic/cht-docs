@@ -84,7 +84,7 @@ Note that secure passwords and UUIDs were generated on the first four calls and 
 ## Launch containers
 
 > [!IMPORTANT]
-> This section has the first use of `docker compose`.  If you get an error calling this, please double check [hosting requirements]({{< relref "hosting/requirements" >}}). 
+> This section has the first use of `docker compose`.  If you get an error calling this, double check [hosting requirements]({{< relref "hosting/requirements" >}}). 
 
 To start your CHT instance, run the following
 

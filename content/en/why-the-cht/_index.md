@@ -25,7 +25,7 @@ The CHT community's longterm focus on community-driven health systems, integrate
 
 {{< gallery src="partners" noBorder="true" >}}
 
-If you’re contributing to the CHT and would like to see your organization’s logo featured here, please send an email to hello@medic.org.
+If you’re contributing to the CHT and would like to see your organization’s logo featured here, send an email to hello@medic.org.
 
 {{< see-also page="community" title="Get involved" >}}
 

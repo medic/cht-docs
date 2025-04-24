@@ -13,7 +13,7 @@ aliases:
 The hosting architecture differs entirely between CHT Core 3.x and CHT Core 4.x. When migrating from Docker Compose to K3s, specific steps are required using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
 
 > [!TIP] 
-> If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
+> If after upgrading you get an error, `Cannot convert undefined or null to object` - see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
 
 ## Install Migration Tool
 ```shell
@@ -51,7 +51,7 @@ Save the output containing:
 - CouchDB server UUID (used for replication checkpointing)
 - CouchDB admin credentials
 
-The next part of  the guide assumes your K3s cluster is already prepared. If not, please run the set of commands [here](https://docs.k3s.io/quick-start).
+The next part of  the guide assumes your K3s cluster is already prepared. If not, run the set of commands [here](https://docs.k3s.io/quick-start).
 
 We are also going to utilize the `cht-deploy` script from the [cht-core](https://github.com/medic/cht-core) repo. If you don't already have that, clone it.
 

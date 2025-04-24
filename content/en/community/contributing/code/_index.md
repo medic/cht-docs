@@ -25,7 +25,7 @@ Be sure to read the [first time contributors guide]({{% ref "community/contribut
 
 ## Reporting a vulnerability?
 
-Please see the [vulnerability disclosure guide]({{% ref "community/contributing/disclosing-vulnerabilities" %}})!
+See the [vulnerability disclosure guide]({{% ref "community/contributing/disclosing-vulnerabilities" %}})!
 
 ## Code of Conduct
 

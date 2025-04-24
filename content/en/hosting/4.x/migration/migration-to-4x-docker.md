@@ -29,8 +29,8 @@ docker compose up
 ```
 
 For the following steps, the tool needs access to your CouchDb installation. To allow this access, you will need to provide a URL to your CouchDB installation that includes authentication.
-If your installation exposes a different port for CouchDb cluster API endpoints, please export that port.
-If running against an installation of `MedicOS`, please make sure that the protocol of the URL is `https`.
+If your installation exposes a different port for CouchDb cluster API endpoints, export that port.
+If running against an installation of `MedicOS`, make sure that the protocol of the URL is `https`.
 
 ```shell
 export COUCH_URL=http(s)://<authentication>@<host-ip>:<port>
@@ -85,7 +85,7 @@ b) If running a custom installation of CouchDb, data would be typically stored a
 ### 5. Stop your 3.x CouchDb / CHT-Core installation and launch 4.x CouchDb installation
 
 Depending on your project scalability needs and technical possibilities, you must decide whether you will deploy CouchDb in a single node or in a cluster with multiple nodes.
-Please consult this guide about clustering and horizontal scalability to make an informed decision. <insert link>
+Consult this guide about clustering and horizontal scalability to make an informed decision. <insert link>
 
 > [!NOTE] 
 > You can start with single node and then change to a cluster. This involves running the migration tool again to distribute shards from the existent node to the new nodes.

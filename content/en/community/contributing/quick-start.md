@@ -8,7 +8,7 @@ weight: 1
   Starting guide for contributors
 {{< /hextra/hero-subtitle >}}
 
-If you're ready to start contributing and have experience, please jump in!  We have a quick start guide below.
+If you're ready to start contributing and have experience, jump in!  We have a quick start guide below.
 
 ## Code
 
@@ -18,7 +18,7 @@ Before you start coding a new change you suggest to the CHT, [raise an issue](ht
 2. Find a good ticket and request it be assigned to you via a comment.
 3. [Setup]({{% ref "community/contributing/code/core/dev-environment" %}}) your development environment.
 4. Make sure your pull request's (PR) tests all pass. Failures need to be addressed before we can merge your code.
-5. Provide detail about the issue you are solving on the PR. Please reference any existing issues using `medic/<repo> # <issue number>`.
+5. Provide detail about the issue you are solving on the PR. Reference any existing issues using `medic/<repo> # <issue number>`.
 6. Our CI will automatically schedule a build; monitor the build to ensure it passes.
 7. Your PR will be reviewed by a maintainer. Expect at least one change requested - don't be offended if your change doesn't get accepted on the first try!
 

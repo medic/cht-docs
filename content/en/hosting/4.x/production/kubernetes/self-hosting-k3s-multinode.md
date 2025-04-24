@@ -178,7 +178,7 @@ SSH into your first control-plane VM that was provisioned and configured above a
 For k3s version compatibility with vCenter and vMware CPI/CSI, we will need to use k3s v1.25, cpi v1.25, and csi v2.7.2 per the `curl` call below.
 
 Run the following CLI command inside the control-plane VM, filling out these two specific values:
-  - `<TOKEN>`: Please generate a token ID, and save it. This will be required for the entirety of the k3s cluster existence and required to add additional servers to the k3s cluster
+  - `<TOKEN>`: Generate a token ID, and save it. This will be required for the entirety of the k3s cluster existence and required to add additional servers to the k3s cluster
   - `<VM_UUID>`: This was the UUID for this specific VM that we identified earlier
 ```shell
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
@@ -193,7 +193,7 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" \
 
 SSH into your second/third control-plane VM.
 
-Please fill out these values below and run the cli command:
+Fill out these values below and run the cli command:
   - `<TOKEN>`: Required to be the same token you used in the first control-plane setup
   - `<CONTROL_PLANE_1_IP>`: This is the IP of the first control-plane server you setup, and allows this second server to discover the initial one.
   - `<VM_UUID>`: This is the UUID for this second VM that we identified earlier. This will be different than the one you used for control plane 1.
@@ -219,7 +219,7 @@ Now we will add our k3s agent/worker servers that will handle cht-core projects,
 
 Ensure that the appropriate roles, and extra configuration parameters are set correctly.
 
-Please fill out these values before running the command:
+Fill out these values before running the command:
   - `<TOKEN>`: Required to be the same token you used above
   - `<CONTROL_PLANE_IP>`: The IP of one of the control plane servers you set up above
   - `<VM_UUID>`: This is the UUID of this VM that we are adding as an agent/worker server in our k3s cluster
@@ -259,7 +259,7 @@ Modify the vsphere-cloud-controller-manager.yaml file downloaded above and updat
       <vCenter_IP>.username: "<USERNAME>"
       <vCenter_IP>.password: "<PASSWORD>"
     ```
-2) Please add your `<vCenter_IP>` and `<USERNAME>`, `<PASSWORD>`  and `<Datacenter_name_retrieved_earlier>` to the ConfigMap section inside that yaml.
+2) Add your `<vCenter_IP>` and `<USERNAME>`, `<PASSWORD>`  and `<Datacenter_name_retrieved_earlier>` to the ConfigMap section inside that yaml.
 
    **Note:** If your vCenter actively uses https with valid certificates, then inside the `global:` stanza,  you will want to set `insecureFlag: false`. Most set-ups will want this to remain true with`insecureFlag: true` .
 
@@ -319,7 +319,7 @@ Follow the [VMware documentation for CSI](https://docs.vmware.com/en/VMware-vSph
     /usr/local/bin/k3s kubectl create namespace vmware-system-csi
     ```
 
-2) Taint your control-lane node servers by running the following command. This taint may already exist, if so, that's okay. Please replace `<CONTROL_PLANE_SERVER>` with each of your control plane servers. 
+2) Taint your control-lane node servers by running the following command. This taint may already exist, if so, that's okay. Replace `<CONTROL_PLANE_SERVER>` with each of your control plane servers. 
     ```shell
     You can retrieve the names by running `/usr/local/bin/k3s kubectl get nodes -o wide`
     /usr/local/bin/k3s kubectl taint node <CONTROL_PLANE_SERVER> node-role.kubernetes.io/control-plane=:NoSchedule
@@ -354,7 +354,7 @@ Before edit (original value)
         node-role.kubernetes.io/control-plane: ""
 ```
 
-Please add `true` as the value for this key, seen below:
+Add `true` as the value for this key, seen below:
 ```yaml
       nodeSelector:
         node-role.kubernetes.io/control-plane: "true"
@@ -372,7 +372,7 @@ Follow the [verification steps seen here in Step 2 of Procedure](https://docs.vm
 
 We'll need to create a global [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) resource in our k3s cluster, so CHT Core deployments will be able to ask for persistent storage volumes from the k3s cluster.
 
-Inside one of the control-plane servers, please create a file `vmware-storageclass.yaml` with the following contents:
+Inside one of the control-plane servers, create a file `vmware-storageclass.yaml` with the following contents:
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1

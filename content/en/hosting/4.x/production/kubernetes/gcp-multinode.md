@@ -12,7 +12,7 @@ aliases:
 
 ## Audience
 
-This page is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, please see our guide [here for setting up a simpler installation](../../docker).
+This page is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, see our guide [here for setting up a simpler installation](../../docker).
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ At the welcome screen after creating a GCP project, we want to note the * Projec
 
 {{< figure src="welcome_project_id_dashboard.png" link="welcome_project_id_dashboard.png" caption="Welcome to dashboard" >}}
 
-At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see [related image](add_people_to_project.png)) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
+At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see [related image](add_people_to_project.png)) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, update these docs - we would greatly appreciate it!
 
 {{< figure src="add_user_details.png" link="add_user_details.png" caption="Add User Details" >}}
 

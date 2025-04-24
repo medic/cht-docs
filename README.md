@@ -12,7 +12,7 @@ The documentation is built using Markdown pages, which can be converted into a n
 
 The documentation site uses [Hugo](https://gohugo.io/) including the extended version of Hugo (see `.tool-versions` [file](https://github.com/medic/cht-docs/blob/main/.tool-versions) for specific version).
 
-To proceed, please choose one of the three options below of Docker, native packages or using `asdf` then proceed to ["Run Hugo" below](#run-hugo) to start your local instance.
+To proceed, choose one of the three options below of Docker, native packages or using `asdf` then proceed to ["Run Hugo" below](#run-hugo) to start your local instance.
 
 For folks using `asdf` and native packages, be sure the correct `hugo` version is installed per `.tool-versions` [file](https://github.com/medic/cht-docs/blob/main/.tool-versions).
 

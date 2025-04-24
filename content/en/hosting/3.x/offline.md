@@ -12,7 +12,7 @@ aliases:
 {{< /hextra/hero-subtitle >}}
 
 {{< callout type="error" >}}
-  This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below.
+  This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  See the "Considerations" section below.
   Proceed only if you have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general. This is a complex deployment where mistakes are easy to make unless proper training is in place. 
 {{< /callout >}}
 

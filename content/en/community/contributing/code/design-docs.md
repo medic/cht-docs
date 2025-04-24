@@ -35,7 +35,7 @@ The list below contains a non-exhaustive list of items a design doc could cover.
 An overview of the context in which the piece of software is being built and what is actually being built. It's important to keep this section succinct as it's only meant to bring the readers up to speed with the background facts.
 
 #### Goals and scope
-A short list of what the goals of the piece of software are, and, very importantly, what is out of scope. The out of scope items are explicitly chosen not to be goals, as for example "FHIR compliance of the API". Please note that a solution could cover out of scope items, as long as it doesn’t introduce trade-offs that prevent achieving the goals.
+A short list of what the goals of the piece of software are, and, very importantly, what is out of scope. The out of scope items are explicitly chosen not to be goals, as for example "FHIR compliance of the API". Note that a solution could cover out of scope items, as long as it doesn’t introduce trade-offs that prevent achieving the goals.
 
 #### Proposed solution
 The details of the solution that was chosen for implementation. This flexible-format section can contain how the developer envisions to code the solution, diagrams, sample code, pseudo-code, security considerations, and references to similar solutions or frameworks to be used. It's important that this section explains why this particular solution best satisfies the goals.

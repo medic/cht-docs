@@ -108,7 +108,7 @@ After you have created a ticket per "Request permission" above, you should get a
 
 {{< /tabs >}}
 
-   _\* Please note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
+   _\* Note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
 5. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin

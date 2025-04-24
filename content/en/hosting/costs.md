@@ -72,7 +72,7 @@ Running an easy to set up Docker based development environment (instead of Kuber
 
 ## Small deployment example costs
 
-In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Please note different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
 
 ### Monthly costs 
 

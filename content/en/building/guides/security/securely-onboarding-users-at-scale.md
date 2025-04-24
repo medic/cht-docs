@@ -26,7 +26,7 @@ When a CHT deployment will support hundreds of users or more, secure credential 
 
 ### Secure devices
 
-Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. Please see our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/guides/android/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
+Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/guides/android/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
 
 ### Secure administrative users
 
@@ -37,7 +37,7 @@ By following these steps, unauthorized people are less likely to be able to acce
 
 When generating passwords for CHWs, do not use a formula which repeats itself (eg `password123` for user A, `password234` for user B etc.).  Do not use the CHW information such as username, email or phone number in the password. Train CHWs to not re-use passwords. 
 
-For a reference application showing secure password generation, please see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  
+For a reference application showing secure password generation, see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  
 
 To generate a password that is easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words easier to spell and more likely to be remembered, but still secure.
 ## Spreadsheet use

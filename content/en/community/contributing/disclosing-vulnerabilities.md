@@ -12,7 +12,7 @@ In the CHT Community, we take the security of our systems seriously and value th
 
 ## Disclosure 
 
-If you believe you've found a security vulnerability in one of our products or platforms please send it to us by emailing dev@medic.org. Please include the following details with your report:
+If you believe you've found a security vulnerability in one of our products or platforms send it to us by emailing dev@medic.org. Include the following details with your report:
 
 - Description of the location and potential impact of the vulnerability;
 - A detailed description of the steps required to reproduce the vulnerability (proof of concept source code, screenshots, and compressed screen captures are all helpful to us); and

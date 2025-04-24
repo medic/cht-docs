@@ -76,7 +76,7 @@ Keep form titles short and concise. Long titles will sometimes be truncated (cut
 ✅ Do this instead: "Title Is Less Than Forty Characters"
 ```
 
-To help estimate how much text can be displayed before truncation, you can use the [low-fi mockups here](https://drive.google.com/open?id=1Lcjqs7OIxs5wKLrxGjg1JwvEf6a3UQ90M-X3Go0iptY). If you type your form name into the mockup you can get a rough idea of how much text will fit before truncation occurs. Please note that the mockups have been made with our smallest screen sizes in mind. Some users’ screens will be larger and will be able to display more text.
+To help estimate how much text can be displayed before truncation, you can use the [low-fi mockups here](https://drive.google.com/open?id=1Lcjqs7OIxs5wKLrxGjg1JwvEf6a3UQ90M-X3Go0iptY). If you type your form name into the mockup you can get a rough idea of how much text will fit before truncation occurs. Note that the mockups have been made with our smallest screen sizes in mind. Some users’ screens will be larger and will be able to display more text.
 
 The screenshots here represent some of the smallest phones our users have. As you can see, on both the Tasks and Reports pages, titles less than about forty characters will fit in the space. Titles longer than about forty characters might be cut off with an ellipsis (...).
 
@@ -85,7 +85,7 @@ The screenshots here represent some of the smallest phones our users have. As yo
 
 ### Icons
 
-The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "/design/interface/icons" >}}) that represent key elements of different community health workflows and protocols. Please review the recommended usages that follow.
+The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "/design/interface/icons" >}}) that represent key elements of different community health workflows and protocols. Review the recommended usages that follow.
 
 
 |Icon | People and Places Hierarchies |

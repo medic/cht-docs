@@ -110,7 +110,7 @@ However, when running against a local CouchDB instance and inserting data into a
 
 ### Generate then replicate
 
-When generating a massive dataset (100,000+ documents) for an existing database with views (e.g. the `medic` database), it is advisable to generate the data into a temporary database (on the same CouchDB instance) and then replicate the data into the target database (e.g. using the Fauxton form at `_utils/#/replication/_create`). The document creation rate for this process (including generating into the temp DB, replicating to `medic` DB, and indexing views) has been measured at `~11,000 docs/min`.
+When generating a massive dataset (100,000+ documents) for an existing database with views (e.g. the `medic` database), it is advisable to generate the data into a temporary database (on the same CouchDB instance) and then replicate the data into the target database (for example, using the Fauxton form at `_utils/#/replication/_create`). The document creation rate for this process (including generating into the temp DB, replicating to `medic` DB, and indexing views) has been measured at `~11,000 docs/min`.
 
 While the speed gains of this approach are somewhat modest, it has a couple additional benefits:
 

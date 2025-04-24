@@ -137,5 +137,5 @@ Monitor disk usage so alerts are sent before all disk spaces is used up.  If fre
 * AWS CloudWatch and monitoring tab. Enable detailed monitoring (This costs more money)
 * Set up [Lifecycle Management for EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html#snapshot-lifecycle-console)
 * Steps to mounting a backup snapshot to the instance and restarting the application
-* Please see the second-half of "Increasing disk size" reference above
+* See the second-half of "Increasing disk size" reference above
 * Setup a TLS cert & DNS registration

@@ -41,7 +41,7 @@ There are many ways to get involved! Do you want to...
 * **Contribute with translations?**
 
   See our [translating guide]({{% ref "building/translations/managing" %}}).
-  Translators without developer backgrounds, please open a 
+  Translators without developer backgrounds, open a 
   [GitHub isssue](https://github.com/medic/cht-core/issues/new/choose) or post to the 
   [forum](https://forum.communityhealthtoolkit.org) if you need help!
 

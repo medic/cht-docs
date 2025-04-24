@@ -116,7 +116,7 @@ E2e tests give the most confidence to decide if the feature is working, but must
 
 | Execution Speed     | Complexity | Fragility |
 |------------|---------|---------|
-| Slow. So please make sure to check existent tests and maybe just add extra assertions or minor changes instead of directly adding a specific e2e test for your new change. Also, make sure your code is performant. | Low for the test itself (click tab, enter text into form, click submit, check text on screen. Extremely high for the setup.  | Painful fragility with high risk of race conditions and high maintenance burden. Please ensure your code is clean, organized, and utilizes effective selectors.  |
+| Slow. So make sure to check existent tests and maybe just add extra assertions or minor changes instead of directly adding a specific e2e test for your new change. Also, make sure your code is performant. | Low for the test itself (click tab, enter text into form, click submit, check text on screen. Extremely high for the setup.  | Painful fragility with high risk of race conditions and high maintenance burden. Ensure your code is clean, organized, and utilizes effective selectors.  |
 
 ### Implementation
 Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.

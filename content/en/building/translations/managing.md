@@ -13,8 +13,8 @@ aliases:
 
 Apps built with CHT Core are localized so that users can use them in the language of their choice. The goal of this section is to help the community manage existing and new translations.
 
-> [!NOTE]
-> Please open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
+> [!TIP]
+> Open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
 
 ## Overview
 

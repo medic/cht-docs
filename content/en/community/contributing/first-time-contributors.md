@@ -50,7 +50,7 @@ Good work! if you've gotten this far you understand what the CHT is and you know
 Follow these steps to set up a copy of the code ("fork") which you have on your computer ("git clone"). _If you're not comfortable with the command line, [see tutorials using GUI tools.](#tutorials-using-other-tools)_
 
 
-If you do not have a GitHub account, [please create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
+If you do not have a GitHub account, [create one now](https://github.com/signup) as it's a requirement to fork and contribute code.
 
 {{% steps %}}
 
@@ -143,8 +143,8 @@ replacing `your-branch-name` with the name of the branch you created earlier.
 
 {{% details title="If you get a `Authentication failed` error while pushing, click here:" closed="true" %}}
 
-  <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
-  remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+  <pre>remote: Support for password authentication was removed on August 13, 2021. Use a personal access token instead.
+  remote: See https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
   fatal: Authentication failed for 'https://github.com/<your-username>/first-contributions.git/'</pre>
   Go to [GitHub's tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on generating and configuring an SSH key to your account.
 
@@ -172,7 +172,7 @@ Now submit the pull request.
 
 {{< figure src="open.pr.png" link="open.pr.png" class="center col-10 col-lg-10" alt="create a pull request"  >}}
 
-You will get a notification email once the changes have been merged or when changes are requested. Maintainers are usually working on several initiatives at once, so please expect that it might take some time before they can look at your PR.
+You will get a notification email once the changes have been merged or when changes are requested. Maintainers are usually working on several initiatives at once, so expect that it might take some time before they can look at your PR.
 
 Content from this section is taken from the [first-contributions](https://github.com/firstcontributions/first-contributions) which is under the [MIT License]({{% ref "./mit" %}}).
 

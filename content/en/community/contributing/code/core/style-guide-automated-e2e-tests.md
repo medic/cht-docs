@@ -66,15 +66,15 @@ Ex:
 
 ### Name convention and file location
 
-- Since every test is created by _"selectors"_, it makes sense to locate them into a folder that represents the page being tested and not the feature. Please try to locate every test file in the correct folder.
-- Every file name should use `dash-case` (`-`). Do not use `snake-case` (`_`) nor `camelCase`. Please consider the following examples:
+- Since every test is created by _"selectors"_, it makes sense to locate them into a folder that represents the page being tested and not the feature. Try to locate every test file in the correct folder.
+- Every file name should use `dash-case` (`-`). Do not use `snake-case` (`_`) nor `camelCase`. Consider the following examples:
     - Correct:
         - `pregnancy-visit.wdio-spec.js`
     - Incorrect:
         - `pregnancy_visit.wdio-spec.js`
         - `pregnancyVisit.wdio-spec.js`
         - `PregnancyVisit.wdio-spec.js`
-- Whenever possible avoid repeating the folder name in the file name. Please consider the following examples where the file is located in the path `e2e/default/enketo`:
+- Whenever possible avoid repeating the folder name in the file name. Consider the following examples where the file is located in the path `e2e/default/enketo`:
     - Correct:
         - `pregnancy-visit.wdio-spec.js`
     - Incorrect:
@@ -99,5 +99,5 @@ Existent tags:
 Tests that should run exclusively when running the suite over docker infrastructure. These tests will fail if run over k3d.
 
 > [!NOTE] 
-> * We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then please isolate the code in a separate file, so it can be reused in future tests.
-> * If the new test is not associated to a specific configuration, please locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 
+> * We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then isolate the code in a separate file, so it can be reused in future tests.
+> * If the new test is not associated to a specific configuration, locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 

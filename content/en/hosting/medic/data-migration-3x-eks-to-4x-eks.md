@@ -16,7 +16,7 @@ Like the [Deploy to EKS guide]({{< relref "hosting/medic/deploy-on-eks" >}}), th
 CHT Core hosting architecture differs entirely between 3.x and 4.x. When both versions are running in Kubernetes, migrating data requires specific steps using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
 
 > [!TIP]
-> If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
+> If after upgrading you get an error, `Cannot convert undefined or null to object` - see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
 
 ## Initial Setup
 
