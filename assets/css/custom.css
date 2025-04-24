@@ -7,7 +7,14 @@
   }
 
 /* -----------------------------------------------
-Overriding default theme configuration and classes 
+Fix nested left hand nav wrapping mid word
+--------------------------------------------------*/
+.hextra-scrollbar, .hextra-scrollbar * {
+    scrollbar-gutter: auto;
+}
+
+/* -----------------------------------------------
+Overriding default theme configuration and classes
 --------------------------------------------------*/
 
 /* Colors */
