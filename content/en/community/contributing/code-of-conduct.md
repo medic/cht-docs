@@ -1,7 +1,7 @@
 ---
 title: "Code of Conduct"
 linkTitle: "Code of Conduct"
-weight: 2
+weight: 3
 aliases:
  -    /contribute/code-of-conduct
 ---
