@@ -20,6 +20,10 @@ There are many ways to get involved! Do you want to...
 
    Read up on our [docs site]({{% ref "community/contributing/docs/workflow" %}}) and [style guide]({{% ref "community/contributing/docs/style-guide" %}})
 
+* **Take courses on the CHT?**
+
+  Head over to the [CHT Academy](https://academy.communityhealthtoolkit.org/)
+
 * **Build an app on top of the CHT?**
 
   Learn to [build and host apps]({{% ref "building" %}}), and share your experiences
