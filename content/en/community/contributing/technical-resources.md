@@ -1,14 +1,14 @@
 ---
 title: "Technical Resources"
 linkTitle: "Technical Resources"
-weight: 3
+weight: 5
 aliases:
    - /contribute/medic/onboarding/technical-resources
    - /contribute/technical-resources
 ---
 
 {{< hextra/hero-subtitle >}}
-  Resources to get started as a contributor to the CHT
+  Learning resources to get started as a contributor to the CHT
 {{< /hextra/hero-subtitle >}}
 
 This page contains materials that will help a CHT Contributor to learn the technical details they need to be successful when building tools related to the CHT. 

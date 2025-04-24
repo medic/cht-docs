@@ -1,7 +1,7 @@
 ---
 title: "Contributing to the CHT Documentation"
 linkTitle: "Documentation"
-weight: 5
+weight: 4
 aliases:
   -    /contribute/docs/
 ---
@@ -22,6 +22,8 @@ Documentation is a collaborative effort among all community members. Contributor
 * Reporting and correcting mistakes
 * Updating text and examples for clarity
 * Authoring guides and tutorials
+
+Help us maintain the quality of the CHT documentation by [submitting a PR](https://github.com/medic/cht-docs) with any suggested changes. See the [Documentation Style Guide]({{% ref "community/contributing/docs/style-guide" %}}), then open a pull request with your suggested changes or additions. For simple changes, use the "Edit this page" link shown in the upper right of every page.
 
 {{< cards >}}
   {{< card link="workflow" title="Workflow" icon="code" subtitle="How to contribute to the CHT documentation" >}}

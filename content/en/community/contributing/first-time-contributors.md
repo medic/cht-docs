@@ -1,7 +1,7 @@
 ---
 title: "First Time Contributors Guide"
 linkTitle: "First Time Contributors"
-weight: 2
+weight: 1
 description: >
 ---
 
