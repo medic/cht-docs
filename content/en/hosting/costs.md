@@ -11,14 +11,15 @@ aliases:
 {{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
-This page applies to deployments that wish to self host their instance of the CHT.  It does apply to contracts with Medic to host CHT instances.{{< /callout >}}
+This page applies to deployments that wish to self host their instance of the CHT. {{< /callout >}}
 
 ## Cost per CHT per Month
 
 In a production environment, the CHT costs USD$0.10 per active user per month to run.  What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
 
-> [!IMPORTANT]
-> Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
+{{< callout type="warning" >}}
+  Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
+{{< /callout >}}
 
 ## How the number was calculated
 

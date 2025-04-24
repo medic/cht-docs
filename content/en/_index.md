@@ -3,6 +3,8 @@ title: "Welcome to the CHT Documentation!"
 linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
+aliases:
+    - /search
 cascade:
 - _target:
     path: "/**"

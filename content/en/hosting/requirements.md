@@ -10,12 +10,15 @@ aliases:
   Requirements for hosting CHT applications
 {{< /hextra/hero-subtitle >}}
 
-> [!IMPORTANT]
-> For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
+{{< callout  >}}
+  For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
+{{< /callout >}}
 
 Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
 
-CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
+{{< callout type="warning" >}}
+  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
+{{< /callout >}}
 
 ## App Developer Hosting
 
