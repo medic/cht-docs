@@ -5,9 +5,11 @@ weight: 10
 aliases:
   - /apps/guides/hosting/4.x/app-developer
   - /apps/guides/hosting/app-developer
-description: >
-  Hosting the CHT when developing apps
 ---
+
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT when developing apps
+{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
@@ -22,7 +24,7 @@ First, decide which way to run the CHT: Docker Helper or manually it via `docker
 ## CHT Docker Helper for 4.x
 
 > [!IMPORTANT] 
-> This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}).
+> This section is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}).
 
 The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS (both x86 and Apple Silicon) and Linux.
 

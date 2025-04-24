@@ -1,20 +1,21 @@
 ---
 title: "Migration from CHT 3.x to CHT 4.x"
 linkTitle: "To Docker Single-Node"
-weight: 30
+weight: 3
 aliases:
   - /apps/guides/hosting/4.x/data-migration
-description: >
-  Guide to migrate existent data from CHT 3.x to CHT 4.x
-relatedContent: >
 ---
+
+{{< hextra/hero-subtitle >}}
+  Guide to migrate existent data from CHT 3.x to CHT 4.x
+{{< /hextra/hero-subtitle >}}
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps.
 This guide will present the required steps while using a migration helping tool, called `couchdb-migration`. This tool interfaces with CouchDb, to update shard maps and database metadata.
 By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.
 Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#moving-a-shard).
 
-> [!IMPORTANT] 
+> [!TIP] 
 > If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around.  This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1.  It was fixed in CHT 4.2.0.
 
 ### 1. Install CHT data migration tool

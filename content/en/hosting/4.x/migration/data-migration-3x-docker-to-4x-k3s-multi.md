@@ -1,21 +1,99 @@
 ---
 title: "Migration from Docker Compose CHT 3.x to 3-Node Clustered CHT 4.x on K3s"
 linkTitle: "To K3s Multi-node"
-weight: 10
-description: >
-  Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes
+weight: 1
+aliases:
+  - /hosting/4.x/migration/_partial_migration_3x_docker_to_4x_k3s
 ---
-{{< read-content file="hosting/4.x/migration/_partial_migration_3x_docker_to_4x_k3s.md"  >}}
 
-# Create directories on secondary nodes
+{{< hextra/hero-subtitle >}}
+  Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes
+{{< /hextra/hero-subtitle >}}
+
+The hosting architecture differs entirely between CHT Core 3.x and CHT Core 4.x. When migrating from Docker Compose to K3s, specific steps are required using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
+
+> [!TIP] 
+> If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around. This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1. It was fixed in CHT 4.2.0.
+
+
+## Install Migration Tool
+```shell
+mkdir -p ~/couchdb-migration/
+cd ~/couchdb-migration/
+curl -s -o ./docker-compose.yml https://raw.githubusercontent.com/medic/couchdb-migration/main/docker-compose.yml
+docker compose up
+```
+
+## Set Up Environment Variables
+
+Be sure to replace both `<admin-user>` and `<password>` with your actual username and password.  As well, update `<couchdb-host>` to the CouchDB URL from the Docker Compose setup:
+
+```shell
+export COUCH_URL=http://<admin-user>:<password>@<couchdb-host>:5984
+```
+
+## Run Pre-Migration Commands
+```shell
+cd ~/couchdb-migration/
+docker compose run couch-migration pre-index-views <put-your-intended-cht-version>
+```
+
+> [!IMPORTANT] 
+> If pre-indexing is omitted, 4.x API will fail to respond to requests until all views are indexed. For large databases, this could take many hours or days.
+
+## Save CouchDB Configuration
+```shell
+cd ~/couchdb-migration/
+docker compose run couch-migration get-env
+```
+
+Save the output containing:
+- CouchDB secret (used for encrypting passwords and session tokens)
+- CouchDB server UUID (used for replication checkpointing)
+- CouchDB admin credentials
+
+The next part of  the guide assumes your K3s cluster is already prepared. If not, please run the set of commands [here](https://docs.k3s.io/quick-start).
+
+We are also going to utilize the `cht-deploy` script from the [cht-core](https://github.com/medic/cht-core) repo. If you don't already have that, clone it.
+
+## Prepare Node Storage
+
+```shell
+# Create directory on the node
+sudo mkdir -p /srv/couchdb1/data
+
+# Copy data from Docker Compose installation to the k3s node
+sudo rsync -avz --progress --partial --partial-dir=/tmp/rsync-partial \
+    /srv/storage/medic-core/couchdb/data/ \
+    <user>@<node1-hostname>:/srv/couchdb1/data/
+```
+
+## Create directories on secondary nodes
 
 ```shell
 ssh <user>@<node2-hostname> "sudo mkdir -p /srv/couchdb2/data/shards /srv/couchdb2/data/.shards"
 ssh <user>@<node3-hostname> "sudo mkdir -p /srv/couchdb3/data/shards /srv/couchdb3/data/.shards"
 ```
 
-## Create values.yaml for K3s Deployment
-{{< read-content file="hosting/4.x/migration/_partial_values_explanation.md"  >}}
+### Create values.yaml for K3s Deployment
+Be sure to update the following values in your YAML file:
+
+* `<your-namespace>` (_two occurrences_)
+* `<version>` - 4.x version you're upgrading to
+* `<password>` - retrieved from `get-env` call above
+* `<secret>` - retrieved from `get-env` call above
+* `<admin-user>` - needs to be the same as used in 3.x - likely `medic`
+* `<uuid>` - retrieved from `get-env` call above
+* `<url>` - the URL of your production instance goes here (eg `example.org`)
+* `<path-to-tls>` - path to TLS files on disk
+
+Storage Configuration Notes:
+
+The storage related values don't need to be changed but here's an explanation:
+
+* `preExistingDataAvailable: "true"` - If this is false, the CHT gets launched with empty data.
+* `dataPathOnDiskForCouchDB: "data"` - Leave as `data` because that's the directory we created above when moving the existing data.
+* `partition: "0"` - Leave as `0` to use the whole disk. If you have moved data to a separate partition in a partitioned hard disk, then you'd put the partition number here.
 
 ```yaml
 project_name: "<your-namespace>"
@@ -64,7 +142,7 @@ local_storage:
   preExistingDiskPath-3: "/srv/couchdb3"
 ```
 
-## Deploy to K3s
+### Deploy to K3s
 
 We are going to use cht-deploy from the [cht-core](https://github.com/medic/cht-core) repo.
 
@@ -73,7 +151,7 @@ cd cht-core/scripts/deploy
 ./cht-deploy -f /path/to/your/values.yaml
 ```
 
-## Get Shard Distribution Instructions
+### Get Shard Distribution Instructions
 
 Access the primary CouchDB pod, being sure to replace `<your-namespace>` with the name of your actual namespace: 
 
@@ -113,7 +191,7 @@ Move <mainNode-Path>/shards/20000000-3fffffff to <couchdb@couchdb-2.local-path>/
 > [!NOTE] 
 > The actual shard ranges in your output may differ. Adjust the following rsync commands to match your specific shard distribution instructions.
 
-## Distribute Shards
+### Distribute Shards
 
 Move shards to Node 2:
 ```shell
@@ -153,7 +231,7 @@ sudo rsync -avz --progress --partial --partial-dir=/tmp/rsync-partial \
 ssh user@node3-hostname "sudo find /srv/couchdb3/data/.shards -type f -exec touch {} +"
 ```
 
-## Update Cluster Configuration
+### Update Cluster Configuration
 
 In the primary CouchDB pod:
 ```shell

@@ -4,14 +4,15 @@ linkTitle: "GCP + GKS Multi Node"
 weight: 10
 aliases:
    - /hosting/4.x/production/docker/google-cloud/
-description: >
-   Production Hosting CHT 4.x - Google Cloud Platform
 ---
-How to deploy the CHT 4.x on Google Cloud Platform
+
+{{< hextra/hero-subtitle >}}
+  How to deploy the CHT 4.x on Google Cloud Platform
+{{< /hextra/hero-subtitle >}}
 
 ## Audience
 
-This document is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, please see our guide [here for setting up a simpler installation](../../docker).
+This page is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, please see our guide [here for setting up a simpler installation](../../docker).
 
 ## Prerequisites
 
