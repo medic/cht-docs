@@ -4,9 +4,9 @@
 
 ## About
 
-This repo contains documentation for the Community Health Toolkit (CHT), and how to build digital health applications with [CHT Core](https://github.com/medic/cht-core). This repository powers the CHT documentation site at [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org).
+This repo contains documentation for the Community Health Toolkit (CHT), including how to build digital health applications with [CHT Core](https://github.com/medic/cht-core). This repository powers the CHT documentation site at [docs.communityhealthtoolkit.org](https://docs.communityhealthtoolkit.org).
 
-The documentation is built using Markdown pages, which can be converted into a navigable website using a static-site-generator. The Hugo static-site-generator is being used with the [Docsy theme](https://themes.gohugo.io/docsy/). To maintain portability, content should be written in plain Markdown with limited use of HTML, custom shortcodes, and modifications to the theme. Contributions should align with the [documentation style guide](https://docs.communityhealthtoolkit.org/contribute/docs/style-guide/).
+The documentation is built using Markdown pages, which can be converted into a navigable website using a static-site-generator. The Hugo static-site-generator is being used with the [Hextra theme](https://themes.gohugo.io/themes/hextra/). To maintain portability, content should be written in plain Markdown with limited use of HTML, custom shortcodes, and modifications to the theme. Contributions should align with the [documentation style guide](https://docs.communityhealthtoolkit.org/contribute/docs/style-guide/).
 
 ## Build dependencies
 
@@ -68,7 +68,8 @@ We validate that all links on the docs site work (do not 404) using a tool calle
   
 It can take many minutes depending on your Internet connection. If Muffet returns no output, you have no broken links, congrats! 
 
-_Note_: The `muffet.sh` script here is the identical script we run on GitHub. If you simply run `muffet http://localhost:1313` you will hit GitHub's rate limiting and get lots of [429's](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429). Our script intentionally reduces concurrency and excludes some repetitive GitHub URLs.
+> [!NOTE] 
+> The `muffet.sh` script here is the identical script we run on GitHub. If you simply run `muffet http://localhost:1313` you will hit GitHub's rate limiting and get lots of [429's](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429). Our script intentionally reduces concurrency and excludes some repetitive GitHub URLs.
 
 #### Example
 
@@ -125,12 +126,11 @@ All changes to `main` branch run a [GitHub action](.github/workflows/ci.yml) to 
 
 The version of Hugo used to deploy the site is specified in `.tool-versions`. 
 
-_(Note there is also a minimum version of Hugo required to deploy the site specified via `module.hugoVersion` in the [`hugo.toml`](./hugo.toml) file.)_
+> [!NOTE] 
+> Note there is also a minimum version of Hugo required to deploy the site specified via `module.hugoVersion` in the [`hugo.toml`](./hugo.toml) file.
 
 See the [Hugo Release Notes](https://github.com/gohugoio/hugo/releases) for documentation regarding what has changed in the new versions.
 
-### Docsy
+### Hextra
 
-The current version of Docsy is pinned in the [`go.mod`](./go.mod) file. To upgrade to a new version of Docsy, use the `hugo mod get` command as described [in the Docsy documentation](https://www.docsy.dev/docs/updating/updating-hugo-module/).
-
-See the [Docsy CHANGELOG](https://github.com/google/docsy/blob/main/CHANGELOG.md) for documentation regarding what has changed in the new versions.
+The current version of Hextra is pinned in the [`go.mod`](./go.mod) file. See the [Hextra Releases](https://github.com/imfing/hextra/releases) for documentation regarding what has changed in the new versions.
