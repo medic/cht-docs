@@ -14,6 +14,13 @@ Fix nested left hand nav wrapping mid word
 }
 
 /* -----------------------------------------------
+Fix background color on some code snippets
+https://github.com/medic/cht-docs/pull/1830#issuecomment-2831252508
+--------------------------------------------------*/
+.highlight .chroma .err {
+    background-color: unset;
+}
+/* -----------------------------------------------
 Overriding default theme configuration and classes
 --------------------------------------------------*/
 
