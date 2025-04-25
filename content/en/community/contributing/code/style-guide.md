@@ -10,8 +10,6 @@ aliases: >
   Guidelines for writing code
 {{< /hextra/hero-subtitle >}}
 
-{{< toc >}}
-
 ## Language
 
 Prefer **TypeScript** and **JavaScript** when writing CHT code.
