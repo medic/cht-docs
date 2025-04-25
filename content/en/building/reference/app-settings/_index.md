@@ -222,3 +222,5 @@ For case-insensitive comparison, use `iEquals` function, and you can use `||` fo
 #### Combining rules
 
 Prior to 4.15.0 you could not combine certain rules. Check this [bug report](https://github.com/medic/cht-core/issues/8806#issuecomment-2451994409) for more information.
+
+{{< subpages >}}
