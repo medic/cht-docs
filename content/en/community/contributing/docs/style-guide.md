@@ -10,8 +10,6 @@ aliases:
   Editorial guidelines for writing documentation
 {{< /hextra/hero-subtitle >}}
 
-{{< toc >}}
-
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 
 > [!IMPORTANT]
