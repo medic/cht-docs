@@ -8,7 +8,7 @@ description: >
 ---
 
 
-The goal of these tickets is to make it really easy for a first time contributor!  Yes, it might mean that the time  spent writing out the good first issue  could have been put toward already completing the issue. If true,  this is a sign you're doing the right work ;)
+The goal of the GitHub tickets labelled with "Good First Issue" is to make it easy for a first time contributor to get started with contributing to the CHT.
 
 1. Find an issue you know a lot about.  Ideally one where you know exactly what the steps are
 2. Edit the body of the issue and add a `## Good first issue` section
