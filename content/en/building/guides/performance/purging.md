@@ -98,6 +98,12 @@ module.exports = {
 };
 ```
 
+To disable purging, you need to explicitly configure the purge key with an empty object value in the `app_settings.json` file, as in this example:
+
+```json
+"purge": {}
+```
+
 ### Purge configuration
 
 As shown above, you should be exporting a property `fn` defining a self contained function: it should have no outside dependencies - like used variables, required modules or call outside functions.
