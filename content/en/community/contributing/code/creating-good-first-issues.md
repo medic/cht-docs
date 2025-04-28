@@ -9,7 +9,7 @@ description: >
 
 
 The goal of the GitHub tickets labelled with "Good First Issue" is to make it easy for a first time contributor to get started with contributing to the CHT.
-
+Follow the next steps to create a "Good First Issue":
 1. Find an issue you know a lot about.  Ideally one where you know exactly what the steps are
 2. Edit the body of the issue and add a `## Good first issue` section
 3. List out the steps you would take to solve the issue. be sure to list out out any gotchas or possible errors that might come up
