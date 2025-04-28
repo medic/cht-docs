@@ -15,6 +15,9 @@ Follow the next steps to create a "Good First Issue":
 3. List out the steps you would take to solve the issue. Be sure to list out any edge cases or possible errors that might come up
 4. Where possible, add code snippets or links to existing code that the contributor can reference or mimic.
 5. Link to any guiding, relevant docs (for example, [first time contributors docs]({{% ref "community/contributing/first-time-contributors" %}}).
+6. Add the `Good first issue` label to the ticket
+
+Note - these are not the same as `Help wanted` tickets - be sure you [know the difference](/community/contributing/first-time-contributors/#your-first-issue)!
 
 ## Example ticket
 
