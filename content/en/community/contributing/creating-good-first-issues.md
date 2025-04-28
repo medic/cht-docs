@@ -1,7 +1,7 @@
 ---
 title: "Creating good first issues"
 linkTitle: "Good First Issues"
-weight: 400
+weight: 20
 description: >
   How to set new community members up for success with good first issue tickets
 
