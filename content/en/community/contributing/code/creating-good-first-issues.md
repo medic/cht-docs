@@ -12,7 +12,7 @@ The goal of the GitHub tickets labelled with "Good First Issue" is to make it ea
 Follow the next steps to create a "Good First Issue":
 1. Find an issue you know a lot about.  Ideally one where you know exactly what the steps are
 2. Edit the body of the issue and add a `## Good first issue` section
-3. List out the steps you would take to solve the issue. be sure to list out out any gotchas or possible errors that might come up
+3. List out the steps you would take to solve the issue. Be sure to list out any edge cases or possible errors that might come up
 4. Where possible, add code snippets or links to existing code that contributor can reference or mimic.
 5. Link to any relevant docs (like first [time contributors docs]({{% ref "community/contributing/first-time-contributors" %}}) etc) that will guide them
 
