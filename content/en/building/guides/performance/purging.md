@@ -98,7 +98,7 @@ module.exports = {
 };
 ```
 
-To disable purging, you need to explicitly configure the purge key with an empty object value, as in this example:
+To disable purging, you need to explicitly configure the purge key with an empty object value in the `app_settings.json` file, as in this example:
 
 ```json
 "purge": {}
