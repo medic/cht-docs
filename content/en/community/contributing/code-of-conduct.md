@@ -1,7 +1,7 @@
 ---
 title: "Code of Conduct"
 linkTitle: "Code of Conduct"
-weight: 3
+weight: 30
 description: >
   The Code of Conduct for the CHT community
 aliases:
