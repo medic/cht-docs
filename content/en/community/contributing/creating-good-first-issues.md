@@ -17,7 +17,8 @@ Follow the next steps to create a "Good First Issue":
 5. Link to any guiding, relevant docs (for example, [first time contributors docs]({{% ref "community/contributing/first-time-contributors" %}})
 6. Add the `Good first issue` label to the ticket.
 
-Note - these are not the same as `Help wanted` tickets - be sure you [know the difference](/community/contributing/first-time-contributors/#your-first-issue)!
+> [!NOTE] 
+> These are not the same as `Help wanted` tickets - be sure you [know the difference](/community/contributing/first-time-contributors/#your-first-issue)!
 
 ## Example ticket
 
