@@ -105,6 +105,11 @@ After you have created a ticket per "Request permission" above, you should get a
    * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
    * `clusteredCouch_enabled` - set to `true`
    {{% /tab %}}
+<<<<<<< HEAD
+=======
+
+{{< /tabs >}}
+>>>>>>> 2c2a695f (fix tabpane)
 
 {{< /tabs >}}
 
