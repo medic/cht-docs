@@ -237,31 +237,19 @@ Deploy the blank project onto your local test environment with the following com
 {{< tabs items="Local,Dev Container" >}}
 
   {{< tab >}}
-<<<<<<< HEAD
-
-=======
->>>>>>> 2c2a695f (fix tabpane)
 ```shell
   # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
   cht --url=https://medic:password@localhost --accept-self-signed-certs
 ```
-<<<<<<< HEAD
   
   {{< /tab >}}
 
   {{< tab >}}
 
-=======
-  {{< /tab >}}
->>>>>>> 2c2a695f (fix tabpane)
 ```shell
   # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
   cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
 ```
-<<<<<<< HEAD
-=======
-  {{< tab >}}
->>>>>>> 2c2a695f (fix tabpane)
   {{< /tab >}}
 
 {{< /tabs >}}
