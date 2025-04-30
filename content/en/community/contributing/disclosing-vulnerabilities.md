@@ -1,6 +1,6 @@
 ---
-title: "Disclosing Vulnerabilities"
-linkTitle: "Disclosing Vulnerabilities"
+title: "Disclose Vulnerabilities"
+linkTitle: "Disclose Vulnerabilities"
 weight: 6
 ---
 

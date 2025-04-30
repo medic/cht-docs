@@ -1,7 +1,7 @@
 ---
 title: "Contributing Code"
 linkTitle: "Code"
-weight: 3
+weight: 4
 aliases:
   -    /contribute/code/
 ---
