@@ -33,11 +33,9 @@ Selecting an aggregate widget opens the detailed view with the data for each ind
 
 The ability for one user to manage multiple areas / facilities was introduced in v4.9.0. With that change it was important for users who manage multiple areas to filter aggregate targets by the respective facilities. The ability for users to filter Aggregate Targets was introduced in v4.10.0.
 
-The following images show the various screens CHW supervisors see in Aggregate Targets. The example user in this illustration manages two facilities: **First Health Facility** and **Second Health Facility**
+The following images show the various screens CHW supervisors see in Aggregate Targets. The example user in this illustration manages two facilities: **First Health Facility** and **Second Health Facility**.
 
-<br clear="all">
-
-{{< figure src="multi-facility-aggregate-supervisor-landing" link="multi-facility-aggregate-supervisor-landing.png" class="right col-6 col-lg-8" >}}
+{{< figure src="multi-facility-aggregate-supervisor-landing.png" link="multi-facility-aggregate-supervisor-landing.png" class="right col-6 col-lg-8" >}}
 
 This is the landing page for the Aggregate Targets for a user who manages multiple areas / facilities.
 
@@ -50,7 +48,7 @@ On the Top Right the user can click the **Filter** button to open the sidebar an
 
 <br clear="all">
 
-{{< figure src="multi-facility-aggregate-supervisor-filter" link="multi-facility-aggregate-supervisor-filter.png" class="right col-6 col-lg-8" >}}
+{{< figure src="multi-facility-aggregate-supervisor-filter.png" link="multi-facility-aggregate-supervisor-filter.png" class="right col-6 col-lg-8" >}}
 
 Clicking the **Filter** button opens the sidebar, which allows the user to filter the Aggregate Targets by **Facility** or **Reporting Period**
 
@@ -60,7 +58,7 @@ Selecting the Second Health Facility in the filter updates the Facility name in 
 
 <br clear="all">
 
-{{< figure src="multi-facility-aggregate-supervisor-period" link="multi-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
+{{< figure src="multi-facility-aggregate-supervisor-period.png" link="multi-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
 
 Filtering the Aggregate Targets by **Reporting Period** adds the name of the previous month to the breadcrumbs of the aggregate widgets on the Left Hand Side list and in the Target details.
 
@@ -68,7 +66,7 @@ Filtering the Aggregate Targets by **Reporting Period** adds the name of the pre
 
 <br clear="all">
 
-{{< figure src="one-facility-aggregate-supervisor-period" link="one-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
+{{< figure src="one-facility-aggregate-supervisor-period.png" link="one-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
 
 Users who manage one area / facility can only filter their Aggregate Targets by **Reporting Period**.
 
@@ -122,6 +120,6 @@ The data that can be visualized is highly configurable, and depends on what data
 
 Supervisors often provide a critical bridge between CHWs and broader health system reporting. Using the CHT’s [DHIS2 integration]({{< relref "building/integrations/dhis2" >}}), Supervisors can see the aggregate of each DHIS2 Data Value across all CHWs in their area. By tapping on a target, they can also see each CHW’s contribution towards that total. Once the Supervisor has verified data accuracy with CHWs, they can communicate with Health Records Information Officers to feed data into the national health information system.
 
-> [!NOTE] 
-> DHIS2 integration was introduced in v3.9.
-
+{{< callout type="info" >}}
+  DHIS2 integration was introduced in v3.9.
+{{< /callout >}}
