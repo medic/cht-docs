@@ -1,6 +1,6 @@
 ---
 title: "Running multiple Chrome versions"
-linkTitle: "Multiple Chrome versions"
+linkTitle: "Multiple Chrome Versions"
 weight: 16
 aliases: >
   /core/guides/multiple-chrome-versions

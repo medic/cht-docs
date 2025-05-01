@@ -1,6 +1,6 @@
 ---
 title: "Style guide for automated tests"
-linkTitle: "Style guide for automated tests"
+linkTitle: "Style Guide for Automated Tests"
 weight: 12
 aliases: >
   /contribute/code/core/style-guide-automated-e2e-tests

@@ -1,6 +1,6 @@
 ---
-title: "Apdex Automation Tests"
-linkTitle: "Apdex Automation Tests"
+title: "Apdex Automated Tests"
+linkTitle: "Apdex Automated Tests"
 weight: 13
 aliases: >
   /core/guides/fixing-e2e-tests

@@ -1,6 +1,6 @@
 ---
 title: "Build commands"
-linkTitle: "Build commands"
+linkTitle: "Build Commands"
 weight: 2
 aliases: >
   /contribute/code/core/build-commands

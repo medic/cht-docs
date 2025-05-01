@@ -1,6 +1,6 @@
 ---
 title: "CHT Core dev environment setup"
-linkTitle: "CHT Core dev environment setup"
+linkTitle: "Dev Environment Setup"
 weight: 1
 aliases:
   - /apps/guides/hosting/core-developer

@@ -1,6 +1,6 @@
 ---
-title: "Updating Dependencies"
-linkTitle: "Updating Dependencies"
+title: "Update Dependencies"
+linkTitle: "Update Dependencies"
 weight: 8
 aliases: >
   /core/guides/update-dependencies
