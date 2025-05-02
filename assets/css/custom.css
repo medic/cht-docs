@@ -202,3 +202,16 @@ html[class~="dark"] .hextra-feature-card {
   color: inherit;
 }
 
+/* Schedule table styling */
+.schedule + table th  {
+  width: 3em ;
+}
+.schedule + table td:not(:first-child):not(:empty)  {
+  vertical-align: middle;
+  background-image: url("/circle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  color: #78b159;
+  font-size: 1pt;
+}

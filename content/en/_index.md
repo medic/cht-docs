@@ -60,7 +60,7 @@ cascade:
 ## Have Questions?
 
 {{< callout emoji="❓" >}}
-  Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to star [the CHT Core GitHub repo](https://github.com/medic/cht-core).
+  Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to ⭐ [the CHT Core GitHub repo](https://github.com/medic/cht-core).
 {{< /callout >}}
 
 {{< callout emoji="👥" type="info" >}}
