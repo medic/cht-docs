@@ -92,7 +92,7 @@ cd ~/cht-core
 Install dependencies and perform other setup tasks via an `npm` command. Note this command may take many minutes. Be patient!
 
 ```shell
-npm ci --legacy-peer-deps
+npm ci
 ```
 
 To finalise setting up any remaining dependencies build the project by running: 
