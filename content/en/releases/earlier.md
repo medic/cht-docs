@@ -5,6 +5,7 @@ sidebar:
   exclude: true
 aliases:
   -  /core/releases/0.4.15-and-earlier
+  -  /releases/0.4.15-and-earlier
 ---
 
 ## 0.4.15
