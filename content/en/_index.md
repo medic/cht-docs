@@ -1,8 +1,10 @@
 ---
 title: "Welcome to the CHT Documentation!"
-linkTitle: "Community Health Toolkit (CHT)"
+linkTitle: "Documentation"
 identifier: "docs"
 weight: 1
+aliases:
+    - /search
 cascade:
 - _target:
     path: "/**"
@@ -14,33 +16,53 @@ cascade:
   type: "docs"
 ---
 
-{{% pageinfo %}}
-The [Community Health Toolkit](https://communityhealthtoolkit.org) is a collection of open-source technologies and open-access resources developed by a community focused on global health equity. We envision a world where primary health care is equitable, accessible, and delivered by people who are trusted in their communities. Start with the [CHT overview]({{< ref why-the-cht >}}), and join our [community forum](https://forum.communityhealthtoolkit.org/)!
-{{% /pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  Everything you need to know to contribute, implement and be successful with the CHT
+{{< /hextra/hero-subtitle >}}
 
-## CHT Core Framework
-An overview and reference for development of the Core Framework of the Community Health Toolkit. Most CHT App developers are able to build great experiences for their users without extending CHT Core, but you might still find this section useful for its [overview of CHT components]({{< ref "technical-overview" >}}).
+{{< cards >}}
+  {{< card link="reference-apps" title="Reference Apps" subtitle="Explore et get inspired by examples of CHT reference applications" icon="collection" >}}
+  {{< card link="technical-overview" title="Technical Overview" icon="template" subtitle="Overview and architecture of CHT components" >}}
+  {{< card link="community" title="Get involved" subtitle="Do you want to get involved in the CHT Community? Here's how..." icon="arrow-circle-right" >}}
+  {{< card link="community/contributing" title="Contribute" subtitle="See how to contribute code and documentation" icon="pencil-alt" >}}
+  {{< card link="design" title="Design" icon="sparkles" subtitle="Design guidelines for developers and designers of digital health applications" >}}
+  {{< card link="building" title="Build" icon="template" subtitle="Overview of features and reference guides for building CHT Applications" >}}
+  {{< card link="hosting" title="Host" icon="server" subtitle="Guides for hosting, maintaining, and monitoring CHT applications" >}}
+  {{< card link="releases" title="Releases" subtitle="See what's new in CHT Core" icon="rocket-launch" >}}
+{{< /cards >}}
 
-{{< see-also page="core" prefix="Read More" >}}
+{{< hextra/hero-subtitle style="margin:20px 0">}}
+  Step by step tutorials
+{{< /hextra/hero-subtitle >}}
 
-## Designing
-An overview of key end user personas, notes on the CHT icon library, and configuration best practices for forms, tasks, targets, and contact profiles. These materials include more detail than you will need when you're just beginning to explore the CHT, but they become increasingly helpful when designing your own community health app for a live deployment.
+{{< hextra/feature-grid >}}
+  {{< hextra/feature-card
+    title="Build and test the CHT"
+    subtitle="Set up up a local environment to build and test CHT applications"
+    link="../building/local-setup"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="Set up a dev environment"
+    subtitle="Run the CHT Core from source code locally for development purposes"
+    link="../community/contributing/code/core/dev-environment"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(194, 135, 72, 0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="Host the CHT"
+    subtitle="Learn how to host the CHT locally or in production"
+    link="../hosting/4.x/production"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
+  >}}
+{{< /hextra/feature-grid >}}
 
-{{< see-also page="design"  prefix="Read More" >}}
-
-## Building
-Comprehensive reference material on CHT concepts and features, useful for anyone interested in understanding what features and configuration options are available for CHT Apps. This section also includes guides on focused app development topics, and a growing collection of thorough step-by-step tutorials for developing and deploying digital health apps with the Community Health Toolkit. If you're a developer and want to dive right into developing your own app, this is the place to start.
-
-{{< see-also page="building" prefix="Read More" >}}
-
-## Hosting
-Detailed instructions on how to host the CHT starting with the most basic Application Development setup on your laptop for just one developer all the way up to large deployments hosted in a Cloud based deployment.
-
-{{< see-also page="hosting" prefix="Read More" >}}
 
 ## Have Questions?
-Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to star [the CHT Core GitHub repo](https://github.com/medic/cht-core).
 
-{{% alert title="Feedback appreciated!" %}}
-This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, please feel free to use the **Create Documentation Issue** link in the upper right corner of your window.
-{{% /alert %}}
+{{< callout emoji="❓" >}}
+  Want to learn alongside a community of practice? Join the [CHT community forum](https://forum.communityhealthtoolkit.org/) and let us know how we can help! And if you like what you see, don’t forget to ⭐ [the CHT Core GitHub repo](https://github.com/medic/cht-core).
+{{< /callout >}}
+
+{{< callout emoji="👥" type="info" >}}
+  Feedback appreciated! This docs site is continually changing in response to great community feedback. If you notice a need for any corrections, or would like to see additional content on a particular topic, feel free to use the **Create Docs Issue** link in the left sidebar of your window.
+{{< /callout >}}

@@ -18,9 +18,8 @@ The aggregate doc for the previous day is created when the first telemetry item 
 
 The aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<day>-<username>-<uuid>`.
 
-{{% alert title="Note" %}}
-Versions prior to v3.12.0 do aggregate in a monthly basis instead of daily, and the aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<username>-<uuid>`.
-{{% /alert %}}
+> [!NOTE]
+> Versions prior to v3.12.0 do aggregate in a monthly basis instead of daily, and the aggregate docs' IDs follow the pattern `telemetry-<year>-<month>-<username>-<uuid>`.
 
 ## Performance data
 
@@ -183,9 +182,8 @@ To get summary data with one item per user, see the `/api/v2/export/user-devices
 
 ### Summary data via Node script
 
-{{% alert title="Note" %}}
-Telemetry data can be viewed directly in your browser with [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/) at `https://{{CHT_INSTANCE_URL}}/_utils`, and navigating the `medic-users-meta` database.
-{{% /alert %}}
+> [!NOTE]
+> Telemetry data can be viewed directly in your browser with [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/) at `https://{{CHT_INSTANCE_URL}}/_utils`, and navigating the `medic-users-meta` database.
 
 To bulk export all telemetry in JSON for further analysis or visualization, first meet these prerequisites:
 

@@ -12,13 +12,17 @@ The main list is a combination of both outgoing and incoming messages. Messages 
 
 The features on the Messages tab are best supported on desktop and most often used by someone in a supervisor role.
 
-{{< figure src="messages-mobile.png" link="messages-mobile.png" class="left col-3 col-lg-3" >}}
-
-{{< figure src="messages-desktop.png" link="messages-desktop.png" class="left col-9 col-lg-9" >}}
+{{< cards rows="4" >}}
+{{< card link="messages-mobile.png" image="messages-mobile.png"  method="resize">}}
+{{< card link="messages-desktop.png" image="messages-desktop.png"  method="resize">}}
+{{< /cards >}}
 
 ## Main List
 
-{{< figure src="messages-mobile.png" link="messages-mobile.png" class="right col-6 col-lg-3" >}}
+
+{{< cards rows="4" >}}
+{{< card link="messages-mobile.png" image="messages-mobile.png"  method="resize">}}
+{{< /cards >}}
 
 On the main list of messages, the first line of bold text is the name and / or phone number of the sender. The second line is an excerpt from the most recent message, and the third line, if applicable, is the place(s) that the sender belongs to. 
 
@@ -29,7 +33,9 @@ To send a new message that starts a brand new conversation thread, select the â€
 
 ## Detail Page
 
-{{< figure src="messages-detail.png" link="messages-detail.png" class="right col-6 col-lg-3" >}}
+{{< cards rows="4" >}}
+{{< card link="messages-detail.png" image="messages-detail.png"  method="resize">}}
+{{< /cards >}}
 
 
 Clicking on a message in the main list will take you to a detail tab where you can see the full text of the conversation. Underneath each individual message in the conversation, you will see the message status which tells you whether or not the message was successfully delivered or received and at what time.

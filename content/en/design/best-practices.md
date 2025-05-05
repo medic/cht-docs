@@ -8,6 +8,10 @@ aliases:
    - /design/best-practices/
 ---
 
+{{< hextra/hero-subtitle >}}
+  Best practices for configuring CHT Applications
+{{< /hextra/hero-subtitle >}}
+
 This section covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
 
 ## Forms
@@ -20,34 +24,22 @@ While both Tasks and Reports are built with forms, there are key differences. Ta
 
 *Note: The icons and titles that we choose for Tasks remain the same when they become Reports.*
 
-<br>
-
 ### Anatomy of a Task
 
 The **Task** tab shows a list of upcoming visits, follow-ups, or other tasks that need to be completed. When a task is finished, it will automatically clear from the **Tasks** list and move to **Reports**.
 
-<br>
-
-![Anatomy of a Task](anatomy-task.png)
-
-<br>
+{{< figure src="anatomy-task.png" link="anatomy-task.png" caption="Anatomy of a Task" >}}
 
 Each Task has an icon on the left side which indicates what type of Task it is. <br>
 The first bold line of text is the name of the person or family that the Task is about. <br>
 The second line of text is the title of the Task. <br>
 The days left for the Task to be done is located in the upper right-hand corner. <br>
-If a Task is overdue, the due date will be red. Tasks are listed in order of due date. <br>
-
-<br>
+If a Task is overdue, the due date will be red. Tasks are listed in order of due date. <br><br>
 
 
 ### Anatomy of a Report
 
-<br>
-
-![Anatomy of a Report](anatomy-report.png)
-
-<br>
+{{< figure src="anatomy-report.png" link="anatomy-report.png" caption="Anatomy of a Report" >}}
 
 The first line of bold text is the name of the person whom the Report is about. <br>
 The second line of text is the title of the Report.<br>
@@ -57,8 +49,6 @@ In the upper right corner, a timestamp displays when the Report was submitted.
 Reports are sorted by submission date, with the most recently submitted Reports at the top. If a Report is unread, the timestamp will be bold blue and there will be a horizontal blue line above it.
 
 
-<br>
-
 ### Titles
 
 The patient’s name should not be included in the form title.
@@ -66,22 +56,18 @@ The patient’s name should not be included in the form title.
 ❌ Don't do this: "Beatrice Bass Delivery Follow-Up"
 ✅ Do this instead: "Delivery Follow-Up"
 ```
-<br>
 
 Avoid generic words like “Visit” or “Report”. Every form can be a Report and often involves a visit, so including these words in the title doesn’t help differentiate it from other forms.
 ```
 ❌ Don't do this: "Delivery Follow-up Visit"
 ✅ Do this instead: "Delivery Follow-Up"
 ```
-<br>
 
 Each word in a title should be capitalized (Title Case).
 ```
 ❌ Don't do this: "Delivery follow-up"
 ✅ Do this instead: "Delivery Follow-Up"
 ```
-<br>
-
 
 Keep form titles short and concise. Long titles will sometimes be truncated (cut off with an ellipsis) and the text at the end of the title might be lost. As a rough estimate, strive to keep titles **no longer than 40 characters** in length.
 
@@ -89,22 +75,17 @@ Keep form titles short and concise. Long titles will sometimes be truncated (cut
 ❌ Don't do this: "This Title Has Way More Than Forty Characters And Is Too Long"
 ✅ Do this instead: "Title Is Less Than Forty Characters"
 ```
-<br>
 
-To help estimate how much text can be displayed before truncation, you can use the [low-fi mockups here](https://drive.google.com/open?id=1Lcjqs7OIxs5wKLrxGjg1JwvEf6a3UQ90M-X3Go0iptY). If you type your form name into the mockup you can get a rough idea of how much text will fit before truncation occurs. Please note that the mockups have been made with our smallest screen sizes in mind. Some users’ screens will be larger and will be able to display more text.
+To help estimate how much text can be displayed before truncation, you can use the [low-fi mockups here](https://drive.google.com/open?id=1Lcjqs7OIxs5wKLrxGjg1JwvEf6a3UQ90M-X3Go0iptY). If you type your form name into the mockup you can get a rough idea of how much text will fit before truncation occurs. Note that the mockups have been made with our smallest screen sizes in mind. Some users’ screens will be larger and will be able to display more text.
 
 The screenshots here represent some of the smallest phones our users have. As you can see, on both the Tasks and Reports pages, titles less than about forty characters will fit in the space. Titles longer than about forty characters might be cut off with an ellipsis (...).
 
-<br>
-
-![Anatomy of a Report](history.png)
-
-<br>
+{{< figure src="history.png" link="history.png" caption="History" >}}
 
 
 ### Icons
 
-The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "/design/interface/icons" >}}) that represent key elements of different community health workflows and protocols. Please review the recommended usages that follow.
+The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "/design/interface/icons" >}}) that represent key elements of different community health workflows and protocols. Review the recommended usages that follow.
 
 
 |Icon | People and Places Hierarchies |
@@ -126,7 +107,6 @@ The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "
 |------	|:-----------------------------------------------	|
 | ![ANC](../interface/icons/forms_tasks_targets/SVGs/icon-people-woman-pregnant.svg) | - ANC Registration<br>- ANC Visit or Missed Visit<br>- ANC Follow-Up 	|
 | ![ANC Danger](../interface/icons/forms_tasks_targets/SVGs/icon-ANC-danger-sign.svg) | - ANC Danger Sign<br>- ANC Danger Sign Follow-Up|
-
 
 
 | Icon  	| PNC                                         	|
@@ -177,49 +157,46 @@ The Community Health Toolkit includes a collection of [60+ free icons]({{< ref "
 
 ### Content and Layout
 
-**Group Related Information** <br>
+#### Group Related Information
 Users think in batches, and long forms can feel overwhelming. By creating logical groups the user will make sense of the form much faster.
 
 ```
 Ex. Visit Details, Danger Signs
 ```
 
-**Order the Form Logically and Only Ask What's Required**<br>
+#### Order the Form Logically and Only Ask What's Required
 Keep questions concise and in an intuitive sequence — they should be asked logically from a user’s perspective. This makes the flow from one set of questions to the next better resemble a conversation.
 
 ```
 Ex. Is your patient still pregnant? → Did she attend the ANC visit? → Does she have danger signs?
 ```
-
-**Reflect Input Length in Field** <br>
+#### Reflect Input Length in Field
 Employ this for fields that have a defined character count like phone numbers, zip codes, etc.
 
-![Input Length](input-length.png) <br>
+{{< figure src="input-length.png" link="input-length.png" caption="Input Length" >}} <br>
 
-
-**Don’t Put Placeholder Or Helper Text Inside The Form Fields** <br>
+#### Don’t Put Placeholder Or Helper Text Inside The Form Fields
 People go through forms quickly and if a field looks like it already has an answer they may accidentally miss it. Research shows that empty fields draw more attention than those with placeholder text.
 
-![Placeholder Text](no-placeholder-text.png) <br>
+{{< figure src="no-placeholder-text.png" link="no-placeholder-text.png" caption="Placeholder Text" >}} <br>
 
-**Distinguish Optional And Required Fields** <br>
+#### Distinguish Optional And Required Fields
 Users don’t always know what is implied by the required field marker ( * ). Instead, denoting what is optional is a preferred method, especially for forms with many required fields. If you do use asterisks, make the meaning of the symbol clear by stating “Fields with an asterisk ( * ) are mandatory.” <br>
 
-**Always Stack Radio Buttons And Checkboxes In A Single Vertical Column** <br>
+#### Always Stack Radio Buttons And Checkboxes In A Single Vertical Column
 Placing the options underneath each other allows for easy scanning and makes it less likely that a user will completely overlook one of the options.
 
-![Radio Buttons](radio-buttons-stacked.png) <br>
+{{< figure src="radio-buttons-stacked.png" link="radio-buttons-stacked.png" caption="Radio Buttons" >}} <br>
 
-**Don’t Use Dropdowns If There Are Less Than Seven Options** <br>
+#### Don’t Use Dropdowns If There Are Less Than Seven Options
 For smaller lists, use radio buttons instead of drop-down menus. Radio buttons have lower cognitive load because they make all options visible for easy comparison.
 
-![Radio vs Dropdown](radio-dropdown.png) <br>
+{{< figure src="radio-dropdown.png" link="radio-dropdown.png" caption="Radio vs Dropdown" >}} <br>
 
-**Make Use Of Images** <br>
+#### Make Use Of Images
 Where it makes sense, use images to aid in the understanding of a question
 
-![Form Images](form-images.png) <br>
-
+{{< figure src="form-images.png" link="form-images.png" caption="Form Images" >}} <br>
 
 ### Summary Page
 
@@ -229,10 +206,9 @@ After all of the required questions in a form are answered, a summary page is di
 
 All care guides are defined using [ODK XForms](https://opendatakit.github.io/xforms-spec/), an XML definition of the structure and format for a set of questions. Since writing raw XML can be tedious, we suggest creating the forms using the [XLSForm standard](http://xlsform.org/), and using the [cht-conf](https://github.com/medic/cht-conf) command line configurer tool to convert them to XForm format. Because the XLSForms are converted directly to XForms, they essentially are the form, and so it’s important that the XLS be set up properly and consistently. Read more about configuring forms [here]({{< ref "building/forms/app">}}).
 
-
 #### Page Sections
 
-**General Section Order**
+##### General Section Order
 
 Not all forms will have all summary sections, but the sections that appear should be in this order:
 
@@ -247,8 +223,7 @@ Not all forms will have all summary sections, but the sections that appear shoul
 - Submit button
 
 
-
-**Section Headers**
+##### Section Headers
 
 Section headers are used to separate content sections of the summary page. They make the page easier to scan and they make it easier to find a specific section.
 
@@ -257,16 +232,18 @@ There are suggested orders, colors and icons for section headers. A section shou
 To ensure that headers only show when they have content the relevant condition for the section
 header should join the conditions of all the subfields.
 
-``` Ex. {condition_a} OR {condition_b} OR {condition_c}```
+``` 
+  Ex. {condition_a} OR {condition_b} OR {condition_c}
+```
 
 
-**Header Text**
+##### Header Text
 
 - The text inside of the section headers should be “H1”: Noto Sans 18px bold
 - The text should be centered vertically & horizontally in the bar
 - Each section header title should be Title Case, meaning each word is capitalized e.g. “Patient Details”
 
-**Header Color**
+##### Header Color
 
 Though it may be tempting to give each section has a unique color (e.g. “Patient Details” is yellow,
 “Healthy Tips” is blue etc), sometimes there are too many sections for each one to have its own color,
@@ -274,7 +251,9 @@ other times the various colors just look jarring and confusing. In general, you 
 color in a way that adds meaning and improves understanding, and avoid using color in a purely
 decorative manner.
 
-*Note: Only use the bright red color to call out important things like warnings and danger signs*
+{{< callout type="info" >}}
+  Only use the bright red color to call out important things like warnings and danger signs
+{{< /callout >}}
 
 - If you choose to use multiple header colors, ensure that every header is a unique color. For example:
     - yellow: #e2b100 - patient details
@@ -286,7 +265,7 @@ decorative manner.
 single color (with the exception of warnings or referral messages, which should remain red). In this
 case, blue is a good default color to fall back on.
 
-**Header Icons**
+##### Header Icons
 
 Each section header should have an icon on the far left side.
 The icons should all be colored white, and should all be the same size.
@@ -306,18 +285,16 @@ Suggested icons for each section:
 | ![Follow Ups](../interface/icons/forms_tasks_targets/SVGs/icon-followup-general.svg) | Follow-Ups	|
 | ![General/Misc](../interface/icons/forms_tasks_targets/SVGs/icon-healthcare-generic.svg) | Misc/General|
 
-<br>
-
-**Text styling**
+##### Text styling
 
 H1: colored horizontal bars for section headers <br>
 H2: text with a colored line under it, centered <br>
 H3: left aligned text, simple grey line under it <br>
 H4: normal body text
 
-![Summary](summary.png)
+{{< figure src="summary.png" link="summary.png" caption="Summary" >}}
 
-**Other body text styling**
+##### Other body text styling
 
 - Bold text is indicated by ** or “bold” or `<strong>`
 - Italic text is indicated by * or “italic” or _
@@ -329,15 +306,14 @@ H4: normal body text
 `<ol><li>Blah</li></ol> (ordered list)`
 `<ul><li>Blah</li></u> (unordered list)`
 
-*Note:  You’ll need to compensate for the extra padding left margin by moving the list to the
-left generally by `<ol style=”margin-left:1em”></ol>`. You can also customise the bullet style and position using what’s specified in the [HTML spec](https://www.w3schools.com/CSS/css_list.asp)*
+{{< callout type="info" >}}
+  You’ll need to compensate for the extra padding left margin by moving the list to the
+left generally by `<ol style=”margin-left:1em”></ol>`. You can also customise the bullet style and position using what’s specified in the [HTML spec](https://www.w3schools.com/CSS/css_list.asp).
+{{< /callout >}}
 
 ```
 Ex. <ol style="list-style: decimal inside;"></ol>
 ```
-
-
-------------
 
 ## Condition Cards
 
@@ -345,11 +321,7 @@ A condition card is a configurable card that can be displayed on a profile that 
 
 This information can be organized into cards specific to a condition (e.g. pregnancy, malnutrition) as well as past conditions, and set to display for any length of the time.
 
-<br>
-
-![Condition Card](condition-cards.png)
-
-<br>
+{{< figure src="condition-cards.png" link="condition-cards.png" caption="Condition Card" >}}
 
 
 ### Configurable Elements
@@ -362,17 +334,17 @@ This information can be organized into cards specific to a condition (e.g. pregn
 
 ### Guidelines
 
-**Card Title**
+#### Card Title
 
 - Name of the condition, e.g. Pregnancy, Malnutrition, Malaria
 - Define if condition is past, e.g. Past Pregnancies
 
-**Field Label**
+#### Field Label
 
 - Label each data point displayed
 - One line
 
-**Field Content**
+#### Field Content
 
 - Can include any information that was collected in a form or multiple forms about the person
 
@@ -433,46 +405,30 @@ Ex.  Pregnancy Card, Immunization Card
 Ex.  Summary of past pregnancies rather than card for each past pregnancy
 ```
 
-<br>
+{{< figure src="past-pregnancies.png" link="past-pregnancies.png" caption="Past Pregnancies" >}}
 
-![Past Pregnancies](past-pregnancies.png)
-
-<br>
-
-------------
 
 ## Targets
 
 The Targets tab shows key performance indicators. Progress numbers are calculated automatically by the app, and goals are set by the organization. We currently support two types of widgets: Counts and Percentage-based bars.
 
-
-**Counts**
+### Counts
 
 - Counts show current totals and will update as reports are created
 - If there is a goal, it will be displayed to the right of the count. If the count is green, the goal has been met. If the count is black, the goal has not yet been met
-- Goals can only be met by exceeding them, you cannot set a goal which is met by being under the goal
+- Goals can only be met by exceeding them, you cannot set a goal which is met by being under the goal.
 
-<br>
+{{< figure src="counts.png" link="counts.png" caption="Targets" >}}
 
-![Targets](counts.png)
-
-<br>
-
-
-**Percentages**
+### Percentages
 
 - Percentage bars show progress towards completing certain reports. The colored part of the bar will update as reports are created.
 - If there is a goal, a line will be on the bar to mark the goal. If the bar is green, the goal has been met. If the bar is black, the goal has not yet been met.
 - The text below the bar shows how the percentage is calculated, displaying the number of Reports that met the requirement out of the total number of Reports.
 
-<br>
+{{< figure src="percentages.png" link="percentages.png" caption="Percentages" >}}
 
-![Percentages](percentages.png)
-
-<br>
-
-
-**Configurable elements**
+### Configurable elements
 
 - Title text (free text)
 - Subtitle text (two options: all-time or this month)
@@ -483,7 +439,7 @@ The Targets tab shows key performance indicators. Progress numbers are calculate
 
 ### Guidelines
 
-**Title**
+#### Title
 
 - The data point being measured. No need to include “%”, the word “percent”, or the word “count” (these are stated elsewhere) or any information on timeframe.
 - Titles should be 40-50 characters max.
@@ -500,11 +456,11 @@ Ex.
     - Deliveries at Facility All Time → Deliveries at facility
 ```
 
-**Subtitle**
+#### Subtitle
 
 - The subtitle is where timeframe information lives, expressed as either “This month” or “All-time”. For now, these are the only two options. All text should be set in sentence case.
 
-**Bars**
+#### Bars
 
 - Has to have a numerator and a denominator -- comparing two things, and not more than two at this time (can’t do: % of deliveries at (1) home unskilled vs. (2) home skilled vs. (3) facility. Any two of these would work though, including (1) all home deliveries vs. (2) facility deliveries).
 - It is possible to account for things that haven’t happened. For example, if you are measuring PNC visits that happened within 1 week of delivery, you can determine whether a particular woman should have had a PNC visit based on her EDD.
@@ -527,7 +483,7 @@ Ex. Configurations for visit attendance:
 - Denominator must be the same for both sides (e.g. kids in our immunization program). Can’t split it into kids <2 yrs on one side and kids <5 years on the other side.
 Bars must progress positively (ex. Visits completed, not visits missed)
 
-**Unique Considerations for Personas**
+#### Unique Considerations for Personas
 
 CHWs:
 
@@ -543,5 +499,3 @@ Managers:
 - Can only see widgets for which they have Report access
 - Understand, and need, percentage information in order to evaluate performance
 - Important to know how up-to-date the data is (will be addressed in a different feature for CHW last sync date)
-
-

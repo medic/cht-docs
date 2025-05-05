@@ -1,8 +1,8 @@
 ---
 title: "MIT License"
-toc_hide: true
+sidebar:
+  exclude: true
 ---
-
 
 This license is required to be included with the [first-contributions](https://github.com/firstcontributions/first-contributions) content the CHT docs uses  in the [first time contributors guide]({{% ref "community/contributing#first-time-contributors-guide" %}}):
 

@@ -2,11 +2,14 @@
 title: "Mapping Users on the CHT Hierarchy"
 linkTitle: Mapping Hierarchy
 weight: 4
-description: >
-  Mapping users on the CHT hierarchy
 aliases:
    - /design/guides/mapping-hierarchy
 ---
+
+{{< hextra/hero-subtitle >}}
+  Mapping users on the CHT hierarchy
+{{< /hextra/hero-subtitle >}}
+
 
 This section will take you through mapping of users on CHT hierarchy, including:
 
@@ -36,27 +39,15 @@ Identify the reporting structure of the user personas in order to have a flawles
 
 For instance, family members belong to a household. Households and CHWs belong to a CHW area. CHW areas and nurses belong a health facility. Additional levels may be added as needed. The administrator level operates outside of the hierarchy and gives access to all levels and people.
 
-<br clear="all">
-
-<br clear="all">
-
 {{< figure src="user-hierarchy.png" link="user-hierarchy.png" class="right col-6 col-lg-8" >}}
 
 The app hierarchy is often modeled after the health system, health program or community structure. All people who are registered in the app must be associated with a place. These places are located in a hierarchy to other places.
-
-<br clear="all">
-
- *****
 
 ### 2. Define the User Roles
 
 Determine all the actors within the system in terms of who will be doing what.
 
 {{< figure src="user-roles.png" link="user-roles.png" >}}
-
-<br clear="all">
-
- *****
 
 ### 3. Map User Personas to the Hierarchy
 

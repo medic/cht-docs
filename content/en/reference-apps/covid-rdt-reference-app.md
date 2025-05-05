@@ -2,17 +2,15 @@
 title: "COVID-19 Testing with Rapid Diagnostic Tests"
 linkTitle: "COVID-19 Testing"
 weight:
-description: >
- CHT example application that uses a third party app to capture the result of a Rapid Diagnostic Test
-relatedContent: >
-  building/forms/app/#android-app-launcher
-  building/forms/app/#cht-xform-widgets
-  building/forms/app/#parse-timestamp-to-date
 aliases:
    - /apps/examples/covid-rdt-reference-app
    - /building/examples/covid-rdt-reference-app
    - /exploring/covid-rdt-reference-app
 ---
+
+{{< hextra/hero-subtitle >}}
+  Reference application that uses a third party app to capture the result of a Rapid Diagnostic Test
+{{< /hextra/hero-subtitle >}}
 
 Medic has worked with [FIND](https://www.finddx.org) to build a CHT reference application for COVID-19 point-of-care testing with Rapid Diagnostic Tests (RDT). Using the reference app as an example, CHT app developers can easily include the provisioning and capture of RDT in workflows. These workflows can include third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), that guide health workers through the use of the RDT.
 
@@ -128,7 +126,9 @@ The last two forms can be used to query [the reports API ]({{< ref "building/ref
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
 ```
 
-{{% alert title="Note" %}}As all API calls need to be authenticated, be sure to use a login with admin permissions with this structure: `http://LOGIN:PASSWORD@HOSTNAME`.{{% /alert %}}
+{{< callout type="info" >}}
+  As all API calls need to be authenticated, be sure to use a login with admin permissions with this structure: `http://LOGIN:PASSWORD@HOSTNAME`.
+{{< /callout >}}
 
 ### Base64 image extraction
 
@@ -146,22 +146,24 @@ This code snippet is good just to validate data ad hoc, but more likely you'll b
 
 When retrieving [JSON](#capture-1), this value is found in `capture.android-app-outputs.rdt_session_bundle.rdt_session_result_bundle.rdt_session_result_extra_images.cropped` field.
 
-{{% alert title="Note" %}}The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed. {{% /alert %}}
+{{< callout type="info" >}}
+  The reports API always outputs in CSV, but the COVID-19 application uses [Base64 encoding](https://en.wikipedia.org/wiki/Base64) to store the images as text as noted above.  These may misbehave when opened them in a spreadsheet application like LibreOffice ("maximum number of characters per cell exceeded") or Excel (silently clipped to 32k chars) as they're thousands, if not hundreds of thousands, of characters long.  Be sure to programmatically process these into image files as needed.
+{{< /callout >}}
 
 
 ## Customizing the application
 
 These are the files in the COVID-19 app where you'll want to focus your customization efforts:
 
-```
+```shell
 ├── forms
-│   ├── app
-│   │   ├── covid19_rdt_capture.properties.json
-│   │   ├── covid19_rdt_capture.xlsx
-│   │   ├── covid19_rdt_capture.xml
-│   │   ├── covid19_rdt_provision.properties.json
-│   │   ├── covid19_rdt_provision.xlsx
-│   │   └── covid19_rdt_provision.xml
+│   ├── app
+│   │   ├── covid19_rdt_capture.properties.json
+│   │   ├── covid19_rdt_capture.xlsx
+│   │   ├── covid19_rdt_capture.xml
+│   │   ├── covid19_rdt_provision.properties.json
+│   │   ├── covid19_rdt_provision.xlsx
+│   │   └── covid19_rdt_provision.xml
 ├── tasks.js
 ```
 
@@ -347,7 +349,9 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 
 ### Capture
 
-{{% alert title="Note" %}}The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).{{% /alert %}}
+{{< callout type="info" >}}
+  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).
+{{< /callout >}}
 
 
 ```json

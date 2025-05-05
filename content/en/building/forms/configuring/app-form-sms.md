@@ -27,7 +27,7 @@ The phone number and message can be generated from fields within the XForm. For 
 `[Send SMS to <output value=" /data/patient_name "/>](sms://<output value=" /data/patient_phone "/>?body=<output value=" /data/message "/>)`
 
 If you want to use a button to make the action more obvious, this can be done using HTML and CSS within the note:
-```
+```html
 [<span style='background-color: #CC0000; color:white; padding: 1em; text-decoration: none; '>Call the patient</span>](tel:${patient_phone})
 ```
 

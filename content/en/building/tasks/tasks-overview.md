@@ -13,14 +13,17 @@ aliases:
 
 Tasks help CHWs plan their day by prompting them to complete follow-up visits and other activities. The list might include upcoming scheduled ANC or Immunization visits, treatment or referral follow-ups, or other required activities such as a household survey.
 
-{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="left col-3 col-lg-3" >}}
-
-{{< figure src="tasks-desktop.png" link="tasks-desktop.png" class="left col-9 col-lg-9" >}}
+{{< cards rows="4" >}}
+{{< card link="tasks-mobile.png" image="tasks-mobile.png"  method="resize">}}
+{{< card link="tasks-desktop.png" image="tasks-desktop.png"  method="resize">}}
+{{< /cards >}}
 
 
 ## Main List
 
-{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="right col-6 col-lg-3" >}}
+{{< cards rows="4" >}}
+{{< card link="tasks-mobile.png" image="tasks-mobile.png"  method="resize">}}
+{{< /cards >}}
 
 On the Tasks tab is a consolidated list of tasks for all people and families that the user looks after. The task definition determines how long the task will show on this list before and after it is due.
 
@@ -35,30 +38,32 @@ Tasks are listed in order of due date. Tasks that are past due will appear at th
 
 When a CHW clicks on a task, the care guide configured for that task displays. CHWs are then guided through questions for that specific workflow.
 
-<div class="container">
-  <div class="row">
-{{< figure src="tasks-care1.png" link="tasks-care1.png" class="col-6 col-lg-3" >}}
-{{< figure src="tasks-care2.png" link="tasks-care2.png" class="col-6 col-lg-3" >}}
-{{< figure src="tasks-care3.png" link="tasks-care3.png" class="col-6 col-lg-3" >}}
-{{< figure src="tasks-care4.png" link="tasks-care4.png" class="col-6 col-lg-3" >}}
-  </div>
-</div>
+{{< cards rows="4" >}}
+{{< card link="tasks-care1.png" image="tasks-care1.png"  method="resize">}}
+{{< card link="tasks-care2.png" image="tasks-care2.png"  method="resize">}}
+{{< card link="tasks-care3.png" image="tasks-care3.png"  method="resize">}}
+{{< card link="tasks-care4.png" image="tasks-care4.png"  method="resize">}}
+{{< /cards >}}
 
 Find more information on how [care guides]({{< relref "building/concepts/care-guides" >}}) provide decision support for healthcare workers.
 
 When the user completes the care guide, the task will be cleared from the Tasks tab, and the report will be accessible from the Reports page or on the profile of the person or place whom the report is about.
 
 ## Household Tasks
-    
-{{< figure src="tasks-household.png" class="right col-6 col-lg-3" >}}
-    
+
+{{< cards rows="4" >}}
+{{< card link="tasks-household.png" image="tasks-household.png"  method="resize">}}
+{{< /cards >}}
+
 Alternatively, there is an option to configure Household Tasks. When this [permission]({{< relref "building/reference/app-settings/user-permissions" >}}) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
 
 CHWs are able to complete tasks directly from this page, or exit by tapping on the “X”. If the household has no additional tasks, they will return directly to the main task list.
     
 ## Profile Page
 
-{{< figure src="tasks-profile.png" class="right col-6 col-lg-3" >}}
+{{< cards rows="4" >}}
+{{< card link="tasks-profile.png" image="tasks-profile.png"  method="resize">}}
+{{< /cards >}}
 
 Tasks are also accessed from the People tab in the app.
 

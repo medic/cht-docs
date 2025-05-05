@@ -8,3 +8,5 @@ aliases:
    - /building/guides/training/
    - /apps/guides/training/
 ---
+
+{{< subpages >}}

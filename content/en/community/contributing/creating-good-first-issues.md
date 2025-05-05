@@ -1,14 +1,16 @@
 ---
 title: "Creating good first issues"
 linkTitle: "Good First Issues"
-weight: 20
-description: >
-  How to set new community members up for success with good first issue tickets
-
+weight: 2
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to set new community members up for success with good first issue tickets
+{{< /hextra/hero-subtitle >}}
 
 
 The goal of the GitHub tickets labelled with "Good First Issue" is to make it easy for a first time contributor to get started with contributing to the CHT.
+
 Follow the next steps to create a "Good First Issue":
 1. Find an issue you know a lot about.  Ideally one where you know exactly what the steps are
 2. Edit the body of the issue and add a `## Good first issue` section
@@ -17,8 +19,9 @@ Follow the next steps to create a "Good First Issue":
 5. Link to any guiding, relevant docs (for example, [first time contributors docs]({{% ref "community/contributing/first-time-contributors" %}})
 6. Add the `Good first issue` label to the ticket.
 
-> [!NOTE] 
-> These are not the same as `Help wanted` tickets - be sure you [know the difference](/community/contributing/first-time-contributors/#your-first-issue)!
+{{< callout type="info" >}}
+  These are not the same as `Help wanted` tickets - be sure you [know the difference](/community/contributing/first-time-contributors/#your-first-issue).
+{{< /callout >}}
 
 ## Example ticket
 

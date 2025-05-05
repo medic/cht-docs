@@ -5,29 +5,32 @@ weight: 10
 aliases:
   - /apps/guides/hosting/4.x/app-developer
   - /apps/guides/hosting/app-developer
-description: >
-  Hosting the CHT when developing apps
 ---
 
-{{% pageinfo %}} 
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT when developing apps
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
 To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}). To deploy 4.x in production see the [4.x documentation]({{< relref "hosting/4.x/production" >}}).
-{{% /pageinfo %}}
-
+{{< /callout >}}
 
 ## Getting started
 
 First, decide which way to run the CHT: Docker Helper or manually it via `docker compose`. Since they both achieve the same result, **it is recommended to use Docker Helper** as shown in the next section as it's very easy to run.  Alternately, the manual process is covered at the [bottom of the page](#manual-docker-compose-method).  
 
-
 ## CHT Docker Helper for 4.x
 
-{{% alert title="Note" %}} This is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}){{% /alert %}}
+> [!IMPORTANT] 
+> This section is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}).
 
 The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS (both x86 and Apple Silicon) and Linux.
 
-![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
+{{< figure src="cht-docker-helper.png" link="cht-docker-helper.png" >}}
+
+The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".
 
 This script brings a lot of benefits with it:
 * You only have to download one bash script
@@ -61,7 +64,7 @@ Always run the script from the directory where it lives.  If you launch it from 
 
 Run the script with:
 
-```
+```shell
 ./cht-docker-compose.sh
 ```
 
@@ -140,7 +143,7 @@ DEBUG=true ./cht-docker-compose.sh
 
 This shows load average, CHT container count, global container count, and a table of services with their status like this:
 
-```
+```shell
 ---DEBUG INFO---
 Load: 3.75 2.92 2.93    
 CHT Containers: 7                                                                                
@@ -167,7 +170,7 @@ To solve this issue, follow the steps below:
 
 These three steps look like as following assuming that `CONTAINER_NAME` is equal to `4_3_0_nginx_1`. Note that `CONTAINER_NAME` will be different for each instance of CHT you run with Docker Helper:
 
-```
+```shell
 $ docker ps --filter "name=nginx"  --format '{{ .Names }}'
 4_3_0_nginx_1
 
@@ -206,22 +209,28 @@ docker kill $(docker ps -q)
 
 After meeting these requirements, create a directory and download the developer YAML files in the directory you want to store them. This example uses `~/cht-4-app-developer` as the directory. If you don't know which to use, use Single Node CouchDB:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Single Node CouchDB" >}}
-mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb}
-cd ~/cht_4_app_developer-dir
-curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
-curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
-{{< /tab >}}
-{{< tab header="Multi-Node CouchDB" >}}
-mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && mkdir -p ~/cht_4_app_developer-dir/couchdb/{srv1,srv2,srv3}
-cd ~/cht_4_app_developer-dir
-curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
-curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb-clustered.yml
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Single Node CouchDB,Multi-Node CouchDB" >}}
+
+  {{< tab >}}
+```shell
+  mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb}
+  cd ~/cht_4_app_developer-dir
+  curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+  curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
+  curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb.yml
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  mkdir -p ~/cht_4_app_developer-dir/{compose,couchdb} && mkdir -p ~/cht_4_app_developer-dir/couchdb/{srv1,srv2,srv3}
+  cd ~/cht_4_app_developer-dir
+  curl -s -o ./compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
+  curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-core.yml
+  curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic%3Amedic%3Amaster/docker-compose/cht-couchdb-clustered.yml
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 You should now have 3 compose files and 2 directories which we can check with `ls -R`:
 
@@ -236,42 +245,47 @@ cht-core.yml  cht-couchdb.yml
 
 To prepare for the first developer CHT instance, write all environment variables to the `.env` file with this code. Be sure to use the same single or multi-node as above. If you don’t know which to use, use Single Node CouchDB:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Single Node CouchDB" >}}
-cat > ~/cht_4_app_developer-dir/.env << EOF
-NGINX_HTTP_PORT=8080
-NGINX_HTTPS_PORT=8443
-COUCHDB_USER=medic
-COUCHDB_PASSWORD=password
-CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
-DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
-COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
-COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
-COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couchdb
-CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
-CHT_NETWORK=cht_4_app_developer
-EOF
-{{< /tab >}}
-{{< tab header="Multi-Node CouchDB" >}}
-cat > ~/cht_4_app_developer-dir/.env << EOF
-NGINX_HTTP_PORT=8080
-NGINX_HTTPS_PORT=8443
-COUCHDB_USER=medic
-COUCHDB_PASSWORD=password
-CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
-DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
-COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
-COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
-CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
-CHT_NETWORK=cht_4_app_developer
-DB1_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv1
-DB2_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv2
-DB3_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv3
-COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
-EOF
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Single Node CouchDB,Multi-Node CouchDB" >}}
 
+  {{< tab >}}
+```shell
+  cat > ~/cht_4_app_developer-dir/.env << EOF
+  NGINX_HTTP_PORT=8080
+  NGINX_HTTPS_PORT=8443
+  COUCHDB_USER=medic
+  COUCHDB_PASSWORD=password
+  CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
+  DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
+  COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
+  COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
+  COUCHDB_DATA=${HOME}/cht_4_app_developer-dir/couchdb
+  CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
+  CHT_NETWORK=cht_4_app_developer
+  EOF
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  cat > ~/cht_4_app_developer-dir/.env << EOF
+  NGINX_HTTP_PORT=8080
+  NGINX_HTTPS_PORT=8443
+  COUCHDB_USER=medic
+  COUCHDB_PASSWORD=password
+  CHT_COMPOSE_PROJECT_NAME=cht_4_app_developer
+  DOCKER_CONFIG_PATH=${HOME}/cht_4_app_developer-dir
+  COUCHDB_SECRET=19f3b9fb1d7aba1ef4d1c5ed709512ee
+  COUCHDB_UUID=e7122b1e463de4449fb05b0c494b0224
+  CHT_COMPOSE_PATH=${HOME}/cht_4_app_developer-dir/compose
+  CHT_NETWORK=cht_4_app_developer
+  DB1_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv1
+  DB2_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv2
+  DB3_DATA=${HOME}/cht_4_app_developer-dir/couchdb/srv3
+  COUCHDB_SERVERS=couchdb-1.local,couchdb-2.local,couchdb-3.local
+  EOF
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 Start the first CHT instance by calling `docker`:
 
@@ -287,28 +301,34 @@ docker ps --filter "name=cht_4_app_developer" --format "{{.Status}} {{.Names}}"
 
 Which should look like this:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Single Node CouchDB" >}}
-Up 47 seconds cht_4_app_developer-nginx-1
-Up 48 seconds cht_4_app_developer-sentinel-1
-Up 48 seconds cht_4_app_developer-api-1
-Up 48 seconds cht_4_app_developer-haproxy-1
-Up 48 seconds cht_4_app_developer-healthcheck-1
-Up 48 seconds cht_4_app_developer-couchdb-1
-Up 49 seconds cht_4_app_developer-dir-cht-upgrade-service-1
-{{< /tab >}}
-{{< tab header="Multi-Node CouchDB" >}}
-Up 2 seconds cht_4_app_developer-nginx-1
-Up 3 seconds cht_4_app_developer-api-1
-Up 3 seconds cht_4_app_developer-sentinel-1
-Up 4 seconds cht_4_app_developer-couchdb-1.local-1
-Up 4 seconds cht_4_app_developer-couchdb-2.local-1
-Up 4 seconds cht_4_app_developer-haproxy-1
-Up 4 seconds cht_4_app_developer-couchdb-3.local-1
-Up 4 seconds cht_4_app_developer-healthcheck-1
-Up 4 seconds cht_4_app_developer-dir-cht-upgrade-service-1
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Single Node CouchDB,Multi-Node CouchDB" >}}
+
+  {{< tab >}}
+```shell
+  Up 47 seconds cht_4_app_developer-nginx-1
+  Up 48 seconds cht_4_app_developer-sentinel-1
+  Up 48 seconds cht_4_app_developer-api-1
+  Up 48 seconds cht_4_app_developer-haproxy-1
+  Up 48 seconds cht_4_app_developer-healthcheck-1
+  Up 48 seconds cht_4_app_developer-couchdb-1
+  Up 49 seconds cht_4_app_developer-dir-cht-upgrade-service-1
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  Up 2 seconds cht_4_app_developer-nginx-1
+  Up 3 seconds cht_4_app_developer-api-1
+  Up 3 seconds cht_4_app_developer-sentinel-1
+  Up 4 seconds cht_4_app_developer-couchdb-1.local-1
+  Up 4 seconds cht_4_app_developer-couchdb-2.local-1
+  Up 4 seconds cht_4_app_developer-haproxy-1
+  Up 4 seconds cht_4_app_developer-couchdb-3.local-1
+  Up 4 seconds cht_4_app_developer-healthcheck-1
+  Up 4 seconds cht_4_app_developer-dir-cht-upgrade-service-1
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 After running the above `docker ps` command and you see your containers running, the CHT is accessible on [https://localhost:8443](https://localhost:8443). The username is `medic` and password is `password`.
 

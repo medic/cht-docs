@@ -2,15 +2,17 @@
 title: "Static Analysis"
 linkTitle: "Static Analysis"
 weight: 11
-description: >
-  Guidelines for static analysis of CHT code
 aliases: >
   /contribute/code/static-analysis
 ---
 
+{{< hextra/hero-subtitle >}}
+  Guidelines for static analysis of CHT code
+{{< /hextra/hero-subtitle >}}
+
 ## ESLint
 
-All code must pass an eslint check which runs early in the CI cycle and uses the [standard medic ESLint configuration](https://github.com/medic/eslint-config).
+All code must pass an eslint check which runs early in the CI cycle and uses the [standard Medic ESLint configuration](https://github.com/medic/eslint-config).
 
 ### Linting
 
@@ -98,8 +100,6 @@ Additionally, the `.sonarcloud.properties` file can contain configuration regard
 You can ignore all the rules for a block of code by telling Sonar to [ignore the block](https://docs.sonarsource.com/sonarqube-cloud/managing-your-projects/project-analysis/setting-analysis-scope/advanced-exclusions/). First, make sure your `.sonarcloud.properties` file has the following configuration:
 
 ```properties
-
-```properties
 sonar.issue.ignore.block=e1
 sonar.issue.ignore.block.e1.beginBlockRegexp=NOSONAR_BEGIN
 sonar.issue.ignore.block.e1.endBlockRegexp=NOSONAR_END
@@ -133,7 +133,7 @@ Organization-level configuration must be made by an authorized user in the [Sona
 
 ##### Quality Gates
 
-Quality gates are used to define the criteria that must be met for a Sonar analysis to be considered "passing". The [`Sonar way` quality gate](https://docs.sonarcloud.io/improving/quality-gates/#how-quality-gates-are-defined) provides an example of a useful configuration. However, this gate config is not ideal for CHT code. Instead, the default quality gate for the `Medic` organization is the `CHT Way`.  It has the following [metrics](https://docs.sonarsource.com/sonarqube-server/latest/user-guide/code-metrics/metrics-definition/):
+Quality gates are used to define the criteria that must be met for a Sonar analysis to be considered "passing". The [`Sonar way` quality gate](https://docs.sonarcloud.io/improving/quality-gates/#how-quality-gates-are-defined) provides an example of a useful configuration. However, this gate config is not ideal for CHT code. Instead, the default quality gate for the `Medic` organization is the `CHT Way`.  It has the following [metrics](https://docs.sonarsource.com/sonarqube/latest/user-guide/metric-definitions/):
 
 
 | Metric                     | Operator        | Value |

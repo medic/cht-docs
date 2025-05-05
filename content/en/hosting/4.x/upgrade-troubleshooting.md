@@ -2,23 +2,21 @@
 title: "Troubleshooting 4.x upgrades"
 linkTitle: "Troubleshooting upgrades"
 weight: 50
-aliases:
-  - 
-description: >
-  What to do when CHT 4.x upgrades don't work as planned
-relatedContent: >
-  hosting/4.x/migration/migration-to-4x-docker
 ---
 
-4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed 4.x upgrades.  Below are some specific tips as well as general practices on upgrading 4.x.
+{{< hextra/hero-subtitle >}}
+  What to do when CHT 4.x upgrades don't work as planned
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
+  4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed 4.x upgrades.  Below are some specific tips as well as general practices on upgrading 4.x.
+{{< /callout >}}
 
 There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage. An alternate possibility is that the progress bars disappear altogether. 
 
-{{% pageinfo %}}
-All tips apply to both [Docker]({{< relref "hosting/4.x/production/docker" >}}) and [Kubernetes]({{< relref "hosting/4.x/production/kubernetes" >}}) based deployments unless otherwise specified.
-
-All upgrades are expected to succeed without issue.  Do not attempt any fixes unless you actively have a problem upgrading.
-{{% /pageinfo %}}
+> [!WARNING]
+> All tips apply to both [Docker]({{< relref "hosting/4.x/production/docker" >}}) and [Kubernetes]({{< relref "hosting/4.x/production/kubernetes" >}}) based deployments unless otherwise specified.
+> All upgrades are expected to succeed without issue.  Do not attempt any fixes unless you actively have a problem upgrading.
 
 ## Considerations
 
@@ -59,7 +57,7 @@ CouchDB
 2. Restart all services, **retry** upgrade from Admin GUI, do not cancel and upgrade. Here's a screenshot showing the retry button:  
 
 
-![Admin web GUI showing "Retry upgrade" button in the lower right ](retry.upgrade.png)
+{{< figure src="retry.upgrade.png" link="retry.upgrade.png" caption="Admin web GUI showing Retry upgrade button in the lower right" >}}
 
 ## CHT 4.0.0 - 4.2.2: view indexing can become stuck after indexing is finished
 
@@ -67,7 +65,7 @@ CouchDB
 
 Upgrade process stalls while trying to index staged views:
 
-![CHT Core admin UI showing upgrade progress bar stalled at 4% ](stalled-upgrade.png)
+{{< figure src="stalled-upgrade.png" link="stalled-upgrade.png" caption="CHT Core admin UI showing upgrade progress bar stalled at 4%" >}}
 
 **Fix:**
 
@@ -143,7 +141,7 @@ API Logs:
 
 Running `kubectl get po` shows 3 pods with status of `ContainerStatusUnknown`:
 
-![CLI screenshot showing 3 pods with STATUS of "ContainerStatusUnknown" ](container-status-unknown.png)
+{{< figure src="container-status-unknown.png" link="container-status-unknown.png" caption="CLI screenshot showing 3 pods with STATUS of ContainerStatusUnknown" >}}
 
 **Fix:** delete pods so they get recreated and start cleanly 
 

@@ -12,13 +12,11 @@ aliases:
    - /building/guides/android/branding/
 ---
 
-{{% pageinfo %}}
 This tutorial will take you through building a CHT Android Application off the existing wrapper.
 
 The CHT Android application is a thin wrapper to load the CHT Core Framework web application in a WebView.
 
 You will be adding a new android flavor based off the [CHT Android](https://github.com/medic/cht-android).
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
@@ -82,8 +80,8 @@ Each branded app has an identifier (_id_) that is used to identify and configure
 
 1. Check out the tag from the [last stable release](https://github.com/medic/cht-android/releases) in CHT Android repository and create a branch, for example, if the latest stable release is `v0.11.0` and the branch name is `v0.11.0-new-brand`, then the command is:
 
-   ```
-   git checkout v0.11.0 -b v0.11.0-new-brand
+   ```shell
+    git checkout v0.11.0 -b v0.11.0-new-brand
    ```
 
 2. Add `productFlavors { <new_brand> { ... } }` in [build.gradle](https://github.com/medic/cht-android/blob/master/build.gradle), e.g.:
@@ -153,7 +151,7 @@ Don't worry to follow all the name conventions and how to generate these files, 
 
 Executing the command will check that you have the necessary tooling installed, and ask you the information about the certificate like the organization name, organization unit, etc. The command also takes care of picking random passwords that meet the security requirements, and then compresses the key files and finally encrypt the `.tar.gz` file into the `.enc` file. At the end of the execution, the script will also show the list of environment variables that you have to setup in CI (Github Actions) and locally in order to sign the apps with the new keystore. Below is an example of executing it to create the keystore for our "new_brand":
 
-```
+```shell
 make org=new_brand keygen
 Verifying the following executables are in the $PATH: java keytool openssl ...
 keytool -genkey -storepass dd8668... -v -keystore new_brand.keystore -alias medicmobile -keyalg RSA -keysize 2048 -validity 9125
@@ -213,7 +211,7 @@ If you encounter issues with the `make org=new_brand keygen` command repeatedly 
 
 3. Sign your app! You can try locally to build the app with the certificate. To create the .apk files run: `make org=new_brand flavor=New_brand assemble`. The "release" files signed should be placed in `build/outputs/apk/new_brand/release/`. To ensure the files were signed with the right signature execute `make keyprint-apk`, it will check the certificate of the first apk file under the `build/` folder:
 
-   ```
+   ```shell
    make keyprint-apk
    apksigner verify -v --print-certs build/outputs/apk/new_brand/release/cht-android-SNAPSHOT-new_brand-arm64-v8a-release.apk
    ... ...
@@ -252,7 +250,7 @@ Since CHT Core version 4.7.0, the CHT supports serving `assetlinks.json` by addi
 All you have to do to make the CHT serve your assetlinks at `/.well-known/assetlinks.json` is to:
 1. Ensure your flavor of cht-android [has a valid keystore]({{< ref "#3-generate-a-new-keystore" >}}).
 2. Use the `keytool` utility (included with your Java SDK) to get your app's cert fingerprint:
-   ```
+   ```shell
    keytool -list -v -keystore ./path/to/release-key.keystore
    # or alternatively:
    keytool -printcert -jarfile ./path/to/project.apk
@@ -283,7 +281,7 @@ There are different ways to verify your setup works and we'll go through a few o
 2. With the phone connected to your computer, open a command line session and write the following command: `adb shell pm get-app-links <package_name>` where `<package_name>` is your application ID.
 
 The output of this command should look like this:
-```
+```shell
 <package_name>:
     ID: 01234567-89ab-cdef-0123-456789abcdef
     Signatures: ["62:BF:C1:78:24:D8:4D:5C:B4:E1:8B:66:98:EA:14:16:57:6F:A4:E5:96:CD:93:81:B2:65:19:71:A7:80:EA:4D"]

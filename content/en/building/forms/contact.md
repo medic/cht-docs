@@ -39,9 +39,8 @@ To collect information about the contact, use a top-level group with the [id of 
 
 The `parent`, `type`, and `name` fields are mandatory on forms that are adding contacts. `parent` will be automatically populated with the id of the parent contact. `type` will be automatically set to the contact_type id when saving the new contact. 
 
-{{% alert title="Edit forms" %}}
-For edit forms, the name of the top-level group should still match the contact_type id of the contact, but only the relevant fields for editing need to be specified in the form.
-{{% /alert %}}
+> [!NOTE]
+> For edit forms, the name of the top-level group should still match the contact_type id of the contact, but only the relevant fields for editing need to be specified in the form.
 
 #### Input data
 
@@ -136,7 +135,7 @@ Contact forms for creating a place can also optionally create one or more person
 
 Below is a simple structure of a place form showing all the necessary components.
 
-![Place forms survey sheet](place-contact-form-survey.png)
+{{< figure src="place-contact-form-survey.png" link="place-contact-form-survey.png" >}}
 
 Section 1 is similar to what has been described earlier for person forms.
 

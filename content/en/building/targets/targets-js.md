@@ -13,9 +13,9 @@ aliases:
    - /apps/reference/targets
 ---
 
-![Percentages](counts.png)
+{{< figure src="counts.png" link="counts.png" caption="Percentages" >}}
 
-![Percentages](percentages.png)
+{{< figure src="percentages.png" link="percentages.pngg" caption="Percentages" >}}
 
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 

@@ -2,11 +2,13 @@
 title: "Coding Style Guide"
 linkTitle: "Style Guide"
 weight: 2
-description: >
-  Guidelines for writing code
 aliases: >
-  /contribute/code/style-guide
+  - /contribute/code/style-guide
 ---
+
+{{< hextra/hero-subtitle >}}
+  Guidelines for writing code
+{{< /hextra/hero-subtitle >}}
 
 ## Language
 
@@ -604,7 +606,7 @@ Secrets are encrypted for use for things like passwords or API keys and can be a
 
 To access a secret you can use this format in your yml. 
 
-```
+```yaml
 steps:
   - name: My first action
     env:

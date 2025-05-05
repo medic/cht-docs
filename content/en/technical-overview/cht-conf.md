@@ -2,11 +2,13 @@
 title: "CHT App Configurer"
 linkTitle: "CHT Conf"
 weight: 3
-description: >
-  Manage and configure apps built using the CHT Core Framework
 aliases:
    - /core/overview/cht-conf/
 ---
+
+{{< hextra/hero-subtitle >}}
+  Manage and configure apps built using the CHT Core Framework
+{{< /hextra/hero-subtitle >}}
 
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 
@@ -69,23 +71,23 @@ To edit existing couchdb documents, create a CSV file that contains the ids of t
    | documentID3 | true             |
 
 2. Use the following command to download and edit the documents:
-   ```
+   ```shell
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder*
    ```
-   or this one to update already downloaded docs
-   ```
+   or this one to update already downloaded docs:
+   ```shell
    cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectoryPath=*my_folder* --updateOfflineDocs
    ```
 
 3. Then upload the edited documents using the _**upload-docs**_ command.
-   ```
+   ```shell
    cht --instance=*instance* --upload-docs
    ```
 
 ## Project layout
 
 This tool expects a project to be structured as follows:
-```
+```cli
 example-project/
 	.eslintrc
 	app_settings.json
@@ -124,7 +126,7 @@ example-project/
 ```
 
 If you are starting from scratch you can initialise the file layout using the initialise-project-layout action:
-```
+```shell
 cht initialise-project-layout
 ```
 
@@ -133,7 +135,7 @@ cht initialise-project-layout
 Configuration can be inherited from another project, and then modified.  This allows the `app_settings.json` and contained files (`task-schedules.json`, `targets.json` etc.) to be imported, and then modified.
 
 To achieve this, create a file called `settings.inherit.json` in your project's root directory with the following format:
-```
+```json
 {
 	"inherit": "../path/to/other/project",
 	"replace": {

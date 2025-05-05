@@ -1,32 +1,21 @@
 ---
-title: "Contributing code and documentation"
-linkTitle: "Contributing"
-weight: 8
-description: >
-
+title: "Contribute code and documentation"
+linkTitle: "Contribute"
+weight: 1
 aliases:
-  -    /contribute/
+  -  /contribute/
 ---
 
-If you're ready to start contributing and have experience, please jump in!  We have a quick start guide below.
+{{< hextra/hero-subtitle >}}
+  Starting guides for contributors
+{{< /hextra/hero-subtitle >}}
 
-If you've never contributed to the CHT before, please see our [First time Contributors Guide]({{% ref "community/contributing/first-time-contributors" %}})
-
-
-## Quick Start
-
-### Code
-
-Before you start coding a new change you suggest to the CHT, [raise an issue](https://github.com/medic/cht-core/issues/new/choose) or [start a conversation](https://forum.communityhealthtoolkit.org) about the change you want to make. Then:
-
-1. Read the CHT [Development Workflow]({{% ref "community/contributing/code/workflow" %}}) and [Code Style Guide]({{% ref "community/contributing/code/style-guide" %}}) 
-2. Find a good ticket and request it be assigned to you via a comment.
-3. [Setup]({{% ref "community/contributing/code/core/dev-environment" %}}) your development environment
-4. Make sure your pull request's (PR) tests all pass. Failures need to be addressed before we can merge your code.
-5. Provide detail about the issue you are solving on the PR. Please reference any existing issues using medic/<repo>#<issue number>
-6. Our CI will automatically schedule a build; monitor the build to ensure it passes.
-7. Your PR will be reviewed by a maintainer. Expect at least one change requested - don't be offended if your change doesn't get accepted on the first try!
-
-### Docs
-
-Help us maintain the quality of the CHT documentation by [submitting a PR](https://github.com/medic/cht-docs) with any suggested changes. See the [Documentation Style Guide]({{% ref "community/contributing/docs/style-guide" %}}), then open a pull request with your suggested changes or additions. For simple changes, use the "Edit this page" link shown in the upper right of every page.
+{{< cards >}}
+  {{< card link="first-time-contributors" title="First Time Contributors Guide" icon="heart" subtitle=" Starting guide for first time contributors" >}}
+  {{< card link="code-of-conduct" title="Code of Conduct" subtitle="The code of conduct for the CHT community" icon="shield-exclamation" >}}
+  {{< card link="code/" title="Contribute Code" subtitle="How to contribute to code to the CHT" icon="code" >}}
+  {{< card link="docs/" title="Contribute Documentation" subtitle="How to contribute to documentation to the CHT" icon="document-text" >}}
+  {{< card link="creating-good-first-issues" title="Create Good First Issues" icon="lightning-bolt" subtitle=" Set new community members up for success" >}}
+  {{< card link="technical-resources" title="Technical Resources" subtitle="Learning resources to get started as a contributor to the CHT" icon="academic-cap" >}}
+  {{< card link="disclosing-vulnerabilities" title="Disclose Vulnerabilities" subtitle="How to help the CHT stay secure" icon="lock-closed" >}}
+{{< /cards >}}
