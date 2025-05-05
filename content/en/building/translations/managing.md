@@ -58,3 +58,6 @@ Much of the app is configurable (eg: forms and schedules). Because the specifics
 ## Removing translation keys
 
 Carefully verify that the translation key isn't used. This can be challenging if keys have been concatenated or generated because then you won't be able to find the complete string in the source code. Once this has been confirmed, then simply remove the key and value from all translation files.
+
+> [!TIP]
+> Translators without developer background, open a [GitHub isssue](https://github.com/medic/cht-core/issues/new/choose) or post on the [CHT Forum](https://forum.communityhealthtoolkit.org) if you need help!
