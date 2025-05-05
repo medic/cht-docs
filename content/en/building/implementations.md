@@ -1,12 +1,15 @@
 ---
-title: "Running CHT implementations"
+title: "Running CHT Implementations"
 linkTitle: "CHT Implementations"
 weight : 1
 aliases:
    - /running-programs
 ---
 
-## Considerations for digital health implementations
+{{< hextra/hero-subtitle >}}
+  Considerations for digital health implementations
+{{< /hextra/hero-subtitle >}}
+
 To run a successful digital health implementation, the following considerations are made:
 - **Scope**. Clear definition of the challenge, duration of implementation, implementation deliverables, and the change expected as a result of implementation.
 - **Technical requirements**. Infrastructure (servers - physical/ cloud) and hardware (devices such as smartphones/tablets, laptops/computers) requirements.

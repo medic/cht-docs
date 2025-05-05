@@ -1,13 +1,14 @@
 ---
 title: Overview
 weight: 5
-description: >
-  Building connections between people, actions, and data systems
-keywords: workflows
 aliases:
    - /building/concepts/workflows
    - /apps/concepts/workflows
 ---
+
+{{< hextra/hero-subtitle >}}
+  Build connections between people, actions, and data systems
+{{< /hextra/hero-subtitle >}}
 
 Workflows can be defined within apps built with the Core Framework to connect actions and data with people. Forms are the main building block of tasks and messaging workflows, and are useful in creating reminders for follow-up visits or referrals.
 
@@ -39,4 +40,4 @@ Workflows can include notifications and interactions with CHWs, nurses, supervis
 ## Interoperability 
 
 Workflows can incorporate other digital tools, such as a facility-based electronic medical record system for referral workflows. New contacts or reports can trigger an interoperabilty workflow using the [outbound push]() feature. Data can be received as reports using the [CHT API](https://github.com/medic/cht-core/tree/master/api)
-{{< see-also page="building/reference/app-settings/outbound" title="Outbound Push" >}}
+{{< see-also page="building/reference/app-settings/outbound" title="Outbound Push" >}}.

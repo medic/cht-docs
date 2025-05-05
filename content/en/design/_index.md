@@ -4,7 +4,6 @@ linkTitle: "Design"
 weight: 5
 ---
 
-
 {{< hextra/hero-subtitle >}}
   Design guidelines for developers and designers of digital health applications
 {{< /hextra/hero-subtitle >}}

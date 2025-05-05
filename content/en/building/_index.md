@@ -4,9 +4,11 @@ linkTitle: "Build"
 aliases:
     - /apps/
 weight: 6
-description: >
-  Overview and reference for building CHT Applications
 ---
+
+{{< hextra/hero-subtitle >}}
+  Overview and reference for building CHT Applications
+{{< /hextra/hero-subtitle >}}
 
 This section provides an introduction to CHT Applications, provides some sample CHT Applications, and provides guides and reference materials for those wanting to build a CHT Application or deploy an existing one.
   
