@@ -2,13 +2,14 @@
 title: "collect"
 linkTitle: "collect"
 weight: 3
-description: >
-  **Collect Forms**: Served to the Medic Collect application
-keywords: collect-forms collect
 aliases:
    - /building/reference/forms/collect
    - /apps/reference/forms/collect
 ---
+
+{{< hextra/hero-subtitle >}}
+  **Collect Forms**: Served to the Medic Collect application
+{{< /hextra/hero-subtitle >}}
 
 ODK XForms are used to render forms in the Medic Collect Android app. These forms cannot use any CHT-specific XForm notations. All Medic Collect forms are processed as SMS (even when submitted over a wifi) therefore a corresponding JSON form with matching fields is used to interpret the incoming report.
 
