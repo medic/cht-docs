@@ -2,15 +2,14 @@
 title: Building Contact Summary
 linkTitle: Building
 weight: 1
-description: >
-  Building CHT Application contact summary
-relatedContent: >
-  building/contact-management#contact-summary
-  building/contact-summary/contact-summary-templated#contact-summary
 aliases:
    - /building/tutorials/contact-summary
    - /apps/tutorials/contact-summary
 ---
+
+{{< hextra/hero-subtitle >}}
+  Build CHT Application contact summary
+{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through building a contact summary for CHT applications.
 
@@ -41,12 +40,9 @@ const thisContact = contact;
 const thisLineage = lineage;
 ```
 
-> [!NOTE] 
-> contact, reports, lineage are globally available for contact-summary.
-
-<br clear="all">
-
- *****
+{{< callout type="info" >}}
+  contact, reports, lineage are globally available for contact-summary.
+{{< /callout >}}
 
 ### 2. Define Contact Summary Fields
 
@@ -65,12 +61,9 @@ const fields = [
 ];
 ```
 
-> [!NOTE] 
-> The contact field e.g. `patient_id` and `date_of_birth`, should exist in the contact's document for it to return a value.
-
-<br clear="all">
-
- *****
+{{< callout type="info" >}}
+  The contact field e.g. `patient_id` and `date_of_birth`, should exist in the contact's document for it to return a value.
+{{< /callout >}}
 
 ### 3. Export `fields`
 
@@ -93,10 +86,6 @@ module.exports = {
 };
 ```
 
-<br clear="all">
-
- *****
-
 ### 4. Compile and Upload App Settings
 
 To compile and upload app settings to your local instance, run the following command:
@@ -105,5 +94,6 @@ To compile and upload app settings to your local instance, run the following com
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
-> [!NOTE] 
-> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+{{< callout type="warning" >}}
+  Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+{{< /callout >}}

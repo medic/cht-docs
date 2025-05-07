@@ -2,16 +2,14 @@
 title: Condition Cards
 linkTitle: Condition Cards
 weight: 6
-description: >
-  Building CHT condition cards
-relatedContent: >
-  building/contact-management
-  building/contact-summary/contact-summary-templated#condition-cards
 aliases:
    - /building/tutorials/condition-cards
    - /apps/tutorials/condition-cards
 ---
 
+{{< hextra/hero-subtitle >}}
+  Build CHT condition cards
+{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through building a condition card for CHT applications.
 
@@ -49,11 +47,9 @@ const thisLineage = lineage;
 const allReports = reports;
 ```
 
-> [!NOTE] contact, reports, lineage are globally available for contact-summary. 
-
-<br clear="all">
-
- *****
+{{< callout type="info" >}}
+  contact, reports, lineage are globally available for contact-summary. 
+{{< /callout >}}
 
 ### 2. Define `cards` and Add a Condition Card Object
 
@@ -90,10 +86,6 @@ const cards = [
   }
 ];
 ```
-
-<br clear="all">
-
- *****
 
 ### 3. Export `cards`
 
@@ -137,10 +129,6 @@ module.exports = {
 };
 ```
 
-<br clear="all">
-
- *****
-
 ### 4. Compile and Upload App Settings
 
 To compile and upload app settings to your local instance, run the following command:
@@ -149,5 +137,6 @@ To compile and upload app settings to your local instance, run the following com
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
-> [!NOTE] 
-Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+{{< callout type="warning" >}}
+  Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+{{< /callout >}}

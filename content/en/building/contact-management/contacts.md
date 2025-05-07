@@ -2,21 +2,16 @@
 title: "Contacts and Users"
 linkTitle: "Contacts"
 weight: 1
-description: >
-  Contacts and users overview
-keywords: hierarchy contacts care-guides
-relatedContent: >
-  building/forms/contact
-  building/contact-summary/contact-summary-templated
-  building/contact-management/moving-contacts
-  building/contact-management/contact-and-users-1
-  reference-apps/contact-tracing
 aliases:
    - /building/features/contacts/
    - /apps/features/contacts/
 ---
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
+
+{{< hextra/hero-subtitle >}}
+  Overview of contacts and users
+{{< /hextra/hero-subtitle >}}
 
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
@@ -46,8 +41,6 @@ Because this list defaults to show the “places” below the user in the hierar
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage.
 
 With the [_UHC Mode_]({{< relref "building/features/uhc-mode" >}}) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
-
-<br clear="all">
 
 ## Searching
 

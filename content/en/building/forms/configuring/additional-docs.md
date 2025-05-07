@@ -1,16 +1,12 @@
 ---
 title: "Creating Additional Docs from App Forms"
 linkTitle: "Additional Docs"
-weight: 
-
-relatedContent: >
-  building/forms/configuring/app-form-sms
-  building/forms/configuring/multimedia
-  building/forms/contact
+weight: 2
 aliases:
    - /building/guides/forms/additional-docs
    - /apps/guides/forms/additional-docs
 ---
+
 In version 2.13.0 and higher, you can configure app forms to generate additional docs upon submission. You can create one or more docs using variations on the configuration described below. One case where this can be used is to register a newborn from a delivery report, as shown below. First, here is an overview of what you can do and how the configuration should look in XML:
 
 ## Extra Docs
@@ -40,14 +36,14 @@ db-doc="true"
 
 Report (as before):
 
-```
+```js
 {
   _id: '...',
   _rev: '...',
   type: 'report',
   _attachments: { xml: ... ],
   fields: {
-    root_prop_1: 'val A',
+    root_prop_1: 'val A'
   }
 }
 ```
@@ -65,7 +61,7 @@ Other doc:
 
 ## Linked Docs
 
-- Linked docs can be referred to using the doc-ref attribute, with an xpath. This can be done at any point in the model, e.g.:
+Linked docs can be referred to using the doc-ref attribute, with an xpath. This can be done at any point in the model, e.g.:
 
 ### Example Form Model
 
@@ -97,7 +93,7 @@ Report:
 
 Other doc:
 
-```
+```json
 {
   "_id": "def-456",
   "_rev": "...",

@@ -2,18 +2,14 @@
 title: contact-summary.templated.js
 linkTitle: contact-summary.templated.js
 weight: 2
-description: >
-  Customizing the fields, cards, and actions on profile pages
-relatedContent: >
-  building/forms/configuring/form-inputs
-relevantLinks: >
-  docs/building/features/contacts
-  docs/building/concepts/hierarchies
-keywords: hierarchy contacts care-guides
 aliases:
    - /building/reference/contact-page
    - /apps/reference/contact-page
 ---
+
+{{< hextra/hero-subtitle >}}
+  Customize fields, cards, and actions on profile pages
+{{< /hextra/hero-subtitle >}}
 
 Contact profile pages display basic information about the contact along with their history and upcoming tasks.
 A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.
@@ -177,4 +173,7 @@ module.exports = {
 
 To update the Contact profiles for an app, changes must be compiled into `app-settings`, then uploaded.
 
-`cht --local compile-app-settings backup-app-settings upload-app-settings`
+
+```shell
+  cht --local compile-app-settings backup-app-settings upload-app-settings
+```

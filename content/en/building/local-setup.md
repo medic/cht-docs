@@ -1,17 +1,15 @@
 ---
-title: "Getting started building a CHT app"
+title: "Getting Started Building a CHT App"
 linkTitle: Getting Started
 weight: 2
-description: >
-  Setting up a local environment to build and test CHT 4.x applications
-relatedContent: >
-  community/contributing/code/core/using-windows
-  hosting/3.x/self-hosting
-  hosting/3.x/ec2-setup-guide
 aliases:
    - /building/tutorials/local-setup
    - /apps/tutorials/local-setup
 ---
+
+{{< hextra/hero-subtitle >}}
+  Set up a local environment to build and test CHT 4.x applications
+{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
@@ -226,7 +224,7 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 ### Upload a Blank Project
 
-{{< callout type="info" >}}
+{{< callout type="warning" >}}
   This step will erase the default Maternal & Newborn Health Reference Application. 
 {{< /callout >}}
 

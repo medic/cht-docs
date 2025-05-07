@@ -2,21 +2,14 @@
 title: "contact"
 linkTitle: "contact"
 weight: 2
-description: >
-  **Contact Forms**: Used for creating and editing people and places
-relevantLinks: >
-  docs/building/features/contacts
-  docs/building/concepts/hierarchies
-relatedContent: >
-  building/forms/configuring/form-inputs
-  building/forms/configuring/additional-docs
-  building/forms/configuring/multimedia
-  building/forms/configuring/app-form-sms
-keywords: hierarchy contacts contact-forms
 aliases:
    - /building/reference/forms/contact
    - /apps/reference/forms/contact
 ---
+
+{{< hextra/hero-subtitle >}}
+  **Contact Forms**: Used to create and edit people and places
+{{< /hextra/hero-subtitle >}}
 
 Contact forms are used to create and edit contacts (persons and places). Each contact-type should ideally have two forms; one for creation, and another for editing.
 
@@ -39,7 +32,7 @@ To collect information about the contact, use a top-level group with the [id of 
 
 The `parent`, `type`, and `name` fields are mandatory on forms that are adding contacts. `parent` will be automatically populated with the id of the parent contact. `type` will be automatically set to the contact_type id when saving the new contact. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > For edit forms, the name of the top-level group should still match the contact_type id of the contact, but only the relevant fields for editing need to be specified in the form.
 
 #### Input data
@@ -125,7 +118,9 @@ Both `PLACE_TYPE-create.xlsx` and `PLACE_TYPE-edit.xlsx` will contain two placeh
 
 Convert and build the contact forms into your application using the `convert-contact-forms` and `upload-contact-forms` actions in `cht-conf`.
 
-> `cht --local convert-contact-forms upload-contact-forms`
+```shell
+cht --local convert-contact-forms upload-contact-forms`
+```
 
 For examples on how to structure the above files you can have a look at the [default](https://github.com/medic/cht-core/tree/master/config/default/forms/contact) configuration in CHT-core.
 
