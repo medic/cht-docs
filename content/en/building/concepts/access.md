@@ -72,7 +72,6 @@ Subsequent logins won’t require a password change – if the app closes before
 
 
 ## Magic Links for Logging In (Token Login)
-
  ❗ **Note:** Magic Links do not currently work on Android 12 and above.
 
 {{< figure src="enable.token.login.gif" alt="Animated image showing the 'Enable login via SMS link' check box being clicked and 'password' and 'confirm password' fields being hidden" class="right col-6 col-lg-9" >}}
