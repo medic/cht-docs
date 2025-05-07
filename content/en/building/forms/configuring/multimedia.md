@@ -1,25 +1,23 @@
 ---
-title: "Including Multimedia in Forms"
+title: "Include Multimedia in Forms"
 linkTitle: "Multimedia in Forms"
-weight:
-description: >
-  How to include multimedia files in forms
-relatedContent: >
-  building/forms/configuring/additional-docs
-  building/forms/configuring/app-form-sms
-  building/forms/contact
+weight: 6
 aliases:
    - /building/guides/forms/multimedia
    - /apps/guides/forms/multimedia
 ---
 
+{{< hextra/hero-subtitle >}}
+  How to include multimedia files in forms
+{{< /hextra/hero-subtitle >}}
+
 ## Multimedia Formats
 
 There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "releases/#dependencies" >}}).
 
- **List of Supported formats** [video/audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
- [images](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
-
+List of Supported formats:
+- [video/audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
+- [images](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
 
 ## Configuration
 
@@ -99,7 +97,7 @@ To play multimedia from forms you need to add elements to your xml and upload th
 The file needs to be added as an attachment with a name that matches what is defined in the form. This can be added by using curl or fauxton. Here is the structure of the curl command.
 
 ```shell 
-`curl -vX PUT https://user:pass@server_name/medic/<form_doc_id>/<attachment_name.suffix>?rev=<latest_form_revision> --data-binary @<local_file_name> -H "Content-Type: <expected_mime_type>"`
+curl -vX PUT https://user:pass@server_name/medic/<form_doc_id>/<attachment_name.suffix>?rev=<latest_form_revision> --data-binary @<local_file_name> -H "Content-Type: <expected_mime_type>"
 ```
 
 Here is an example of how it would look uploading a sample video for the form above.

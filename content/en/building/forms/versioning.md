@@ -2,16 +2,18 @@
 title: Versioning forms
 linkTitle: Versioning
 weight: 6
-description: >
-  Record the version of the form when creating reports
-relatedContent: >
-  building/features/reports
 aliases:
    - /building/guides/forms/versioning
    - /apps/guides/forms/versioning
 ---
 
-_Added in cht-core 3.15.0 and cht-conf 3.10.0_
+{{< hextra/hero-subtitle >}}
+  Record the version of the form when creating reports
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
+  Added in cht-core 3.15.0 and cht-conf 3.10.0
+{{< /callout >}}
 
 When uploading app or contact xforms, cht-conf 3.10.0+ will automatically generate a version and include it in the form doc's
 `xmlVersion` property. The version has two properties.

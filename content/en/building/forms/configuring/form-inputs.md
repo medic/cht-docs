@@ -1,17 +1,15 @@
 ---
 title: "Input data available in forms"
 linkTitle: "Form Inputs"
-weight: 
-description: >
-  Data accessible from within CHT forms
-relatedContent: >
-  building/forms
-  building/contact-summary/contact-summary-templated
-  building/tasks/managing-tasks/pass-data-to-form  
+weight: 5
 aliases:
    - /building/guides/forms/form-inputs
    - /apps/guides/forms/form-inputs
 ---
+
+{{< hextra/hero-subtitle >}}
+  Data accessible from within CHT forms
+{{< /hextra/hero-subtitle >}}
 
 CHT forms have access to varying amounts of input data depending on the type of form and its source.
 
@@ -67,27 +65,31 @@ Available data:
 
 If a form is created from the "People" tab, `inputs/source` will be set to "contact". If a form is created from a task, `inputs/source` will be set to "task".
 
-> [!NOTE]
-> The `source` field is also available at the top level (not nested in the `inputs` group).
+{{< callout type="info" >}}
+  The `source` field is also available at the top level (not nested in the `inputs` group).
+{{< /callout >}}
 
 ### `inputs` data for contact in `app` forms
 
 `app` forms with a contact in context have access to that contact's data in the `inputs/contact` group.
 
-> [!NOTE]
-> The `contact` group is also available at the top level (not nested in the `inputs` group).
+{{< callout type="info" >}}
+  The `contact` group is also available at the top level (not nested in the `inputs` group).
+{{< /callout >}}
 
 The `contact` group contains all the fields from the doc of the contact in context. If a _place_ is in context, the primary person for that place will be hydrated in the `inputs/contact/contact` group. Alternatively, when a _person_ is in context, the parent place for the person will be hydrated in `inputs/contact/parent`.
 
-> [!NOTE]
-> Contact data is not available in forms created from the "Reports" tab.
+{{< callout type="info" >}}
+  Contact data is not available in forms created from the "Reports" tab.
+{{< /callout >}}
 
 ### `contact-summary` data
 
 `app` forms with a contact in context can access the contact-summary data associated with the contact. This is done by referencing an instance named `contact-summary`. E.g. `instance('contact-summary')/context/${variable}`.  See [the reference documentation]({{< ref "building/contact-summary/contact-summary-templated#care-guides" >}}) for more information.
 
-> [!NOTE]
-> Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
+{{< callout type="info" >}}
+  Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
+{{< /callout >}}
 
 ### `inputs` data from task
 
@@ -106,8 +108,9 @@ The following fields will also be available in the `inputs` group:
 
 Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "technical-overview/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
 
-> [!NOTE]
-> The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
+{{< callout type="info" >}}
+  The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
+{{< /callout >}}
 
 ### Example of saving `user` data as metadata on a report
 
@@ -134,8 +137,11 @@ Using a contact selector allows you to load data from the selected contact (pers
 
 To select a contact in a form, create a field with the type `string` and set the appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. Setting multiple contact_type ids allows the user to search among multiple types of contacts. If no contact type appearance is specified then all contact types will be queried when searching.
 
-> [!NOTE]
-> For CHT version `v3.9.x` and below, contacts must be selected by setting the field type to `db:{{contact_type}}` and the appearance to `db-object` (instead of using `string` and `select-contact`).
+{{< callout type="info" >}}
+  For CHT version `v3.9.x` and below, contacts must be selected by setting the field type to `db:{{contact_type}}` and the appearance to `db-object` (instead of using `string` and `select-contact`).
+{{< /callout >}}
+
+The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
 
 ### Searching for a contact
 

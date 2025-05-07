@@ -2,15 +2,14 @@
 title: "Setting Form Properties"
 linkTitle: Properties
 weight: 5
-description: >
- How to set form properties that contain meta information related to App forms
-relatedContent: >
-  building/forms/app/#formsappform_namepropertiesjson
-  design/best-practices
 aliases:
    - /building/tutorials/form-properties
    - /apps/tutorials/form-properties
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to set form properties that contain meta information related to App forms
+{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through how to write the `<form_name>.properties.json` file.
 
@@ -93,7 +92,7 @@ Run the following command from the root folder to upload the `assessment.propert
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-forms -- assessment
 ```
 
-> [!NOTE] 
+> [!IMPORTANT] 
 > Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 Once you successfully upload the `assessment.properties.json` file, 'Assessment' will appear as an action _only_ for person contacts who are less that 5 years old. Additionally, the `icon-healthcare-assessment` icon will now show alongside the action name.
