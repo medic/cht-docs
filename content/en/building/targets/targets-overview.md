@@ -1,19 +1,13 @@
 ---
 title: Overview
 weight: 1
-description: >
-  Dashboards to track metrics for an individual CHW or for an entire health facility
-keyword: targets
-relatedContent: >
-  building/targets/targets-js
-  technical-overview/db-schema#targets
-  building/integrations/dhis2
-  building/features/supervision/#chw-aggregate-targets
 aliases:
    - /building/features/targets/
    - /apps/features/targets/
 ---
-<!-- ## Targets: Performance Dashboards -->
+{{< hextra/hero-subtitle >}}
+  Dashboards to track metrics for an individual CHW or for an entire health facility
+{{< /hextra/hero-subtitle >}}
 
 *Targets* is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. These widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility.
 
@@ -24,7 +18,7 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 {{< card link="targets-desktop.png" image="targets-desktop.png"  method="resize">}}
 {{< /cards >}}
 
-> [!NOTE] 
+> [!IMPORTANT] 
 > Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data.
 
 ## Types of Widgets
@@ -34,10 +28,11 @@ There are two basic types of widgets: count and percent. *Count widgets* display
 The text, icon, goal, and time frame of each widget is easily configured. The time frame is set per widget, and set to show values for "this month" (resets back to zero at the beginning of each month) or "all time" (a cumulative total).
 
 
-
 ### Count Widgets
 
-{{< figure src="targets-count.png" link="targets-count.png" class="right col-7 col-lg-4" >}}
+{{< cards >}}
+  {{< figure src="targets-count.png" link="targets-count.png" class="right col-7 col-lg-4" >}}
+{{< /cards >}}
 
 Count widgets show a tally of a particular report that has been submitted or data within a report that matches a set of criteria. For example, a count can be done for the number of new pregnancies, the number of facility-based deliveries, or the number of households registered that month.
 
@@ -45,7 +40,9 @@ A count without a goal displays a simple green number count. A count with a goal
 
 ### Percent Widgets
 
-{{< figure src="targets-percentage.png" link="targets-percentage.png" class="right col-7 col-lg-4" >}}
+{{< cards >}}
+  {{< figure src="targets-percentage.png" link="targets-percentage.png" class="right col-7 col-lg-4" >}}
+{{< /cards >}}
 
 Percent widgets display a ratio, which helps to provide insight into the proportion that matches a defined criteria. For example, the proportion of newborns delivered in a facility can be presented as a percent with respect to all registered deliveries.
 

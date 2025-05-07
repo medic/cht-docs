@@ -13,6 +13,10 @@ aliases:
    - /apps/reference/targets
 ---
 
+{{< hextra/hero-subtitle >}}
+  How to build CHT monthly and all time target widgets
+{{< /hextra/hero-subtitle >}}
+
 {{< figure src="counts.png" link="counts.png" caption="Percentages" >}}
 
 {{< figure src="percentages.png" link="percentages.pngg" caption="Percentages" >}}
@@ -147,4 +151,6 @@ module.exports = {
 
 To build your targets into your app, you must compile them into app-settings, then upload them to your instance. 
 
-`cht --local compile-app-settings backup-app-settings upload-app-settings`
+```shell
+cht --local compile-app-settings backup-app-settings upload-app-settings
+```
