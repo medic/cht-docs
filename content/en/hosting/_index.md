@@ -24,7 +24,7 @@ Before beginning any of these guides, be sure to meet all of the [CHT hosting re
 
 {{< cards >}}
   {{< card link="considerations" title="Considerations" subtitle="Considerations when hosting the CHT" icon="book-open" >}}
-  {{< card link="requirements" title="Requirements" icon="shield-exclamation" subtitle="Requirements for hosting CHT applicationss" >}}
+  {{< card link="requirements" title="Requirements" icon="shield-exclamation" subtitle="Requirements for hosting CHT applications" >}}
   {{< card link="costs" title="Costs" subtitle="A guide for calculating CHT hosting costs" icon="banknotes" >}}
   {{< card link="vertical-vs-horizontal" title="Vertical vs Horizontal Scaling" subtitle="The power of clustered CouchDB to horizontally scale the CHT" icon="server" >}}
   {{< card link="kubernetes-vs-docker" title="Kubernetes vs Docker" icon="kubernetes" subtitle="Options for installing CHT applications" >}}
