@@ -1,14 +1,11 @@
 ---
-title: "Prerequisites for hosting CHT with Docker"
-linkTitle: "Prerequisites"
+title: "Host CHT with Docker"
+linkTitle: "Installation"
 weight: 1
 aliases:
   - /apps/guides/hosting/4.x/production/
+  - /hosting/4.x/production/docker/prerequisites/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Prerequisites for hosting CHT with Docker
-{{< /hextra/hero-subtitle >}}
 
 ## Prerequisites
 
