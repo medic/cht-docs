@@ -1,26 +1,18 @@
 ---
-title: "Migration from Docker to Kubernetes for v4.x"
-linkTitle: "Migration from Docker to Kubernetes"
-weight: 1
+title: "Migration from Docker Compose CHT 4.x to Single-Node CHT 4.x on Kubernetes"
+linkTitle: "To  Single-Node Kubernetes"
+weight: 100
 aliases:
   - /apps/guides/hosting/4.x/docker-kubernetes-migration
-description: >
-  Guide to migrate CHT 4.x instances from Docker to Kubernetes
-relatedContent: >
+
 ---
 
-## Migrating from docker to kubernetes
+{{< hextra/hero-subtitle >}}
+Guide on how to migrate existing data from CHT 4.x Docker Compose deployment to CHT 4.x single-node Kubernetes deployment
+{{< /hextra/hero-subtitle >}}
 
-### Using kubectl
 
 This guide is oriented towards migrating a docker compose CHT instance hosted on a single machine into a kubernetes cluster. The machine will be enjoined as a node to the cluster.
-
-Optional:
-
-When using K3S to run your kubernetes cluster, install it on the node using this command:
-```shell
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="agent" INSTALL_K3S_VERSION="v1.30.2+k3s1" sh -s - --docker --token {{cluster_token}} --server https://<control plane>:6443
-```
 
 1. Create a namespace for your project
 
