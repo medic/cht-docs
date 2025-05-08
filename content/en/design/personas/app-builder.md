@@ -2,14 +2,17 @@
 title: "App Builders"
 linkTitle: "App Builders"
 weight: 6
-description: >
-  App builders and technical organizations develop and deliver world-class software contextualized to meet their clients’ needs and deliver value to their stakeholders. 
 ---
+
+{{< hextra/hero-subtitle >}}
+  Developing and delivering world-class software
+{{< /hextra/hero-subtitle >}}
+
+App builders and technical organizations develop and deliver world-class software contextualized to meet their clients’ needs and deliver value to their stakeholders. 
 
 ## About
 
 App builders and technical organizations have in-house or contracted software developers. They deploy health technology solutions for implementing partners such an iNGOs, Governments, UN agencies etc in the community health space. They have limited familiarity with end-users such as CHWs and HCD.
-
 
 ## Values
 

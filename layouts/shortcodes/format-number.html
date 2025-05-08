@@ -1,0 +1,2 @@
+{{/* Replace _ with unicode character Thin Space (U+2009) for international number formatting */}}
+{{ with .Get 0 }}{{ replace . "_" " " }}{{ end }}

@@ -1,0 +1,56 @@
+# Notes:
+#  - All software installed below is pinned so they don't get upgraded and break w/o us knowing why.
+#  - If you bump one version up to latest, please bump them all so we stay current!
+#  - Hugo builds the site twice: once for link checking and once minified for pushing live
+#  - Bash script for muffet is intentionally stand alone so devs/content editors can easily run it locally
+# 
+# this line to hopefully fix medic/cht-docs/issues/1552
+
+
+# Scheduled workflows run on the latest commit on
+#    the default or base branch
+on:
+  schedule:
+    # runs at 3:15am every Sunday
+    - cron:  '15 3 * * 0'
+
+name: Test site for broken links
+jobs:
+  BuildLinkCheckPushLive:
+    name:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+
+      - name: Git checkout cht-docs repos
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Install asdf & tools in .tool-versions
+        uses: asdf-vm/actions/install@v2
+
+      # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
+      - name: Serve Hugo site
+        run: |
+          hugo server&
+          sleep 30
+
+      - name: Run Muffet link checker
+        shell: bash
+        run:  |
+          chmod +x ./.github/scripts/*muffet*
+          cd .github/scripts
+          ./muffet.sh
+
+      - name: Report errors to Slack, if any
+        if: ${{ github.ref == 'refs/heads/main' && failure() }}
+        uses: rtCamp/action-slack-notify@v2.0.2
+        env:
+          SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
+          SLACK_CHANNEL: '#cht-doc-site'
+          SLACK_COLOR: '#3278BD'
+          SLACK_ICON: ":flappingphone:"
+          SLACK_MESSAGE: 'Broken Links Found'
+          SLACK_TITLE: CHT DOCS BAD LINKS
+          SLACK_USERNAME: Medic-Bot

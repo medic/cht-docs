@@ -22,19 +22,8 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: All Branches - Install hugo extended v0.101.0
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.101.0"
-          extended: true
-
-      - name: All Branches - Install Node 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: All Branches - Install npm modules for Hugo
-        run: npm install
+      - name: All Branches - Install asdf & tools in .tool-versions
+        uses: asdf-vm/actions/install@v2
 
       # Run "build" to catch errors as early as possible in CI
       - name: All Branches - Test For Broken Builds in Hugo

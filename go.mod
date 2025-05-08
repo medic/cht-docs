@@ -2,4 +2,6 @@ module github.com/medic/cht-docs
 
 go 1.13
 
-require github.com/google/docsy v0.6.0 // indirect
+require (
+	github.com/imfing/hextra v0.9.7 // indirect
+)

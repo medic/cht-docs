@@ -2,10 +2,9 @@
 title: "Local and Sub-National Governments"
 linkTitle: "Local Gov"
 weight: 2
-description: >
-  Local government partners aim to increase access to quality, affordable care and maximize impact from resource investments in health.
 ---
 
+Local government partners aim to increase access to quality, affordable care and maximize impact from resource investments in health.
 
 ## Characteristics and Strengths
 

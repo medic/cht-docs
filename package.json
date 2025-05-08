@@ -1,8 +1,0 @@
-{
-  "name": "cht-docs",
-  "version": "1.0.0",
-  "dependencies": {
-    "postcss-cli": "7.1.2",
-    "autoprefixer": "9.8.6"
-  }
-}

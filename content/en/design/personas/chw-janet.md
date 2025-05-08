@@ -1,14 +1,17 @@
 ---
-title: "The Professionalized Community Health Worker (CHW), Janet"
+title: "Professionalized Community Health Worker (CHW), Janet"
 linkTitle: "CHW"
 weight: 1
-description: >
-  CHWs are the central users of apps built with the Core Framework. CHWs conduct household visits and are responsible for the health of their community. CHWs are known and trusted locally and typically live in and are chosen by their community. Their degree of health training, responsibilities, and support depends upon their country and program. The majority of CHWs are women, ranging from 25-60 years old. 
 ---
 
-![CHW](chw.png)
+{{< hextra/hero-subtitle >}}
+  The central users of apps built with the CHT
+{{< /hextra/hero-subtitle >}}
 
-<br>
+
+CHWs are the central users of apps built with the Core Framework. CHWs conduct household visits and are responsible for the health of their community. CHWs are known and trusted locally and typically live in and are chosen by their community. Their degree of health training, responsibilities, and support depends upon their country and program. The majority of CHWs are women, ranging from 25-60 years old. 
+
+{{< figure src="chw.png" link="chw.png" caption="CHW" >}}
 
 > "It took a while to be trusted. We had to prove our worth, but now we are well appreciated."
 
@@ -41,7 +44,7 @@ Janet has a trusted boda driver who she uses to help her deliver drugs.
 - Accurate information about the health status of her patients
 - Close monitoring of the pregnant women to ensure that all deliveries take place at the health facilities
 - All children to be immunized according to the expanded immunization program 
-- Childrens growth to be monitored
+- Children's growth to be monitored
 - Fast transfer of community members who need emergency health care to the health facilities- ambulance transfer
 
 ## Motivations
