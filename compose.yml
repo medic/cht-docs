@@ -1,9 +1,12 @@
 services:
   hugo:
     container_name: cht-hugo
-    image: docker.io/hugomods/hugo:0.122.0 # Should match the version in .tool-versions
+    image: docker.io/hugomods/hugo:0.146.0 # Should match the version in .tool-versions
     ports:
       - 1313:1313
     volumes:
       - ./:/src
-    command: hugo server --buildDrafts --buildFuture --bind 0.0.0.0
+    command: >
+      sh -c "apk add bash curl grep &&
+      hugo server --buildDrafts --buildFuture --bind 0.0.0.0"
+      

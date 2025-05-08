@@ -5,8 +5,8 @@ weight: 7
 description: >
   Building CHT app forms
 relatedContent: >
-  building/reference/forms/contact
-  building/reference/forms/app
+  building/forms/contact
+  building/forms/app
   design/best-practices/#forms
   design/best-practices/#content-and-layout
   design/best-practices/#summary-page
@@ -15,9 +15,8 @@ aliases:
    - /apps/tutorials/app-forms
 ---
 
-App forms allow users to submit reports from Android devices
+App forms allow users to submit reports from Android devices.
 
-{{% pageinfo %}}
 This tutorial will take you through how to build App forms for CHT applications, including:
 
 - Authoring forms in Excel, Google sheets or other spreadsheet applications.
@@ -25,15 +24,14 @@ This tutorial will take you through how to build App forms for CHT applications,
 - Uploading XForms to CHT
 
 You will be building assessment workflow that allows Community Health Workers to conduct a health assessment for children under the age of 5.
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
-*[App forms]({{< ref "building/reference/forms/app" >}})* serve as actions within the app.
+*[App forms]({{< ref "building/forms/app" >}})* serve as actions within the app.
 
-*[XLSForm]({{< ref "building/reference/forms/app#xlsform" >}})* is a form [standard](http://xlsform.org/en/) created to help simplify the authoring of forms in Excel.
+*[XLSForm]({{< ref "building/forms/app#xlsform" >}})* is a form [standard](http://xlsform.org/en/) created to help simplify the authoring of forms in Excel.
 
-*[XForm]({{< ref "building/reference/forms/app#xform" >}})* is a CHT-enhanced version of the [ODK XForm](https://getodk.github.io/xforms-spec/) standard.
+*[XForm]({{< ref "building/forms/app#xform" >}})* is a CHT-enhanced version of the [ODK XForm](https://getodk.github.io/xforms-spec/) standard.
 
 ## Required Resources
 
@@ -123,7 +121,8 @@ To convert and upload the form to your local instance, run the following command
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 ## Next steps
 

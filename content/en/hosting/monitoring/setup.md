@@ -1,25 +1,25 @@
 ---
 title: "CHT Watchdog Setup"
 linkTitle: "Setup"
-weight: 100
+weight: 2
 aliases:  
   - /building/guides/hosting/monitoring/setup
-description: >
-    Setting up Grafana and Prometheus with the CHT
-relatedContent: >  
-   core/overview/architecture
-   core/overview/watchdog
+  - /apps/guides/hosting/monitoring/setup
 ---
 
-{{% pageinfo %}} 
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  Setting up Grafana and Prometheus with the CHT
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
-![Screenshot of Grafana Dashboard showing data from Prometheus](monitoring.and.alerting.screenshot.png)
+{{< figure src="monitoring.and.alerting.screenshot.png" link="monitoring.and.alerting.screenshot.png" caption="Screenshot of Grafana Dashboard showing data from Prometheus" >}}
 
 [Prometheus supports](https://prometheus.io/docs/concepts/metric_types/) four metric types: Counter, Gauge, Histogram, and Summary.  Currently, the CHT only provides Counter and Gauge type metrics. When building panels for Grafana dashboards, [Prometheus Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be used to manipulate the metric data. Refer to the [Grafana Documentation](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/) for best practices on building dashboards.
 
@@ -31,9 +31,8 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - URL(s) of the CHT instance(s)
 
-{{% alert title="Note" %}}
-Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
-{{% /alert %}}
+> [!WARNING]
+> Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
 
 ### Setup
 
@@ -119,7 +118,7 @@ docker compose up -d
 
 #### CHT Sync Data (Local)
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "building/guides/data/analytics/introduction" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "hosting/analytics" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
 1. Copy the example config file, so you can add the correct contents in them:
    ```shell
@@ -131,7 +130,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    - targets:
       "db-example-com": 'postgres://db_user:db_password@db.example.com:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
    ```
-   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to give each entry a unique name based of the Postgres server (eg `db-example-com` as shown).
+   You may add as many targets as you would like here - one for each CHT Core instance in your `cht-instances.yml` file. Be sure to match the key (`db-example-com` in this example) to the exact value defined in your `cht-instances.yml` file while ensuring the entry is unique.
 4. Start your instance up, being sure to include both the existing `docker-compose.yml` and the `docker-compose.postgres-exporter.yml` file:
 
    ```shell
@@ -139,9 +138,8 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    docker compose -f docker-compose.yml -f exporters/postgres/compose.yml up -d
    ```
 
-{{% alert title="Note" %}}
-Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
-{{% /alert %}}
+> [!WARNING]
+> Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
 
 #### CHT Sync Data (Remote)
 

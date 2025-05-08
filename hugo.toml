@@ -3,10 +3,13 @@ title = "Community Health Toolkit"
 
 refLinksErrorLevel = "ERROR"
 
-enableRobotsTXT = false
-
 # Will give values to .Lastmod etc.
 enableGitInfo = true
+
+enableEmoji = true
+hasCJKLanguage = true
+enableRobotsTXT = false
+enableInlineShortcodes = true
 
 # Language settings
 contentDir = "content/en"
@@ -15,27 +18,80 @@ defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
-disableKinds = ["taxonomy"]
+[module]
+  proxy = "direct"
+  # uncomment line below for temporary local development of module
+  # replacements = "github.com/imfing/hextra -> ../../hextra"
+  [module.hugoVersion]
+    extended = true
+  [[module.imports]]
+    path = "github.com/imfing/hextra"
+    disable = false
 
-# Highlighting config
-pygmentsCodeFences = true
-pygmentsUseClasses = false
-# Use the new Chroma Go highlighter in Hugo.
-pygmentsUseClassic = false
-#pygmentsOptions = "linenos=table"
-# See https://help.farbox.com/pygments.html
-pygmentsStyle = "tango"
+[privacy.youtube]
+privacyEnhanced = true
 
-# Configure how URLs look like per section.
-[permalinks]
-blog = "/:section/:year/:month/:day/:slug/"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+      noClasses = false
 
-## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-plainIDAnchors = true
-hrefTargetBlank = true
-angledQuotes = false
-latexDashes = true
+[[menu.main]]
+name = "Search"
+weight = 4
+
+  [menu.main.params]
+  type = "search"
+
+[[menu.main]]
+name = "GitHub"
+weight = 5
+url = "https://github.com/medic"
+
+  [menu.main.params]
+  icon = "github"
+
+[[menu.main]]
+name = "Website"
+weight = 6
+url = "https://communityhealthtoolkit.org/"
+
+  [menu.main.params]
+  icon = "globe-alt"
+
+[[menu.sidebar]]
+identifier = "more"
+name = "More"
+weight = 1
+
+  [menu.sidebar.params]
+  type = "separator"
+
+[[menu.sidebar]]
+identifier = "docs"
+name = "Create Docs Issue ↗"
+url = "https://github.com/medic/cht-docs/issues/new"
+weight = 2
+
+[[menu.sidebar]]
+identifier = "forum"
+name = "CHT Forum"
+url = "https://forum.communityhealthtoolkit.org/"
+weight = 3
+
+[[menu.sidebar]]
+identifier = "academy"
+name = "CHT Academy"
+url = "https://academy.communityhealthtoolkit.org/"
+weight = 4
+
+[[menu.sidebar]]
+identifier = "privacyPolicy"
+name = "Privacy Policy ↗"
+url = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
+weight = 5
 
 # Image processing configuration.
 [imaging]
@@ -65,34 +121,13 @@ weight = 1
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 
-[module]
-  proxy = "direct"
-  # uncomment line below for temporary local development of module
-  # replacements = "github.com/google/docsy -> ../../docsy"
-  [module.hugoVersion]
-    extended = true
-  [[module.imports]]
-    path = "github.com/google/docsy"
-    disable = false
-  [[module.imports]]
-    path = "github.com/google/docsy/dependencies"
-    disable = false
-
-[markup]
-  [markup.tableOfContents]
-    endLevel = 4
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-  [markup.highlight]
-      noClasses = false
-
 # Everything below this are Site Params
 
 [params]
+displayUpdatedDate = true
 copyright = "CHT"
 privacy_policy = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?usp=sharing"
-nodeVersion = "20"
+nodeVersion = "22"
 npmVersion = "10"
 
 # Custom shortcodes and partial will error on broken references unless set to "WARNING"  
@@ -101,106 +136,10 @@ linkErrorLevel = "ERROR"
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
 
-# Menu title if your navbar has a versions selector to access old versions of your site.
-# This menu appears only if you have at least one [params.versions] set.
-version_menu = "Versions"
-
-# Flag used in the "version-banner" partial to decide whether to display a 
-# banner on every page indicating that this is an archived version of the docs.
-# Set this flag to "true" if you want to display the banner.
-archived_version = false
-
-# The version number for the version of the docs represented in this doc set.
-# Used in the "version-banner" partial to display a version number for the 
-# current doc set.
-version = "v3.x"
-
-# A link to latest version of the docs. Used in the "version-banner" partial to
-# point people to the main doc site.
-url_latest_version = "http://localhost:1313"
-
 github_repo = "https://github.com/medic/cht-docs"
-# An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/medic/cht-core"
-
-# Specify a value here if your content directory is not in your repo's root directory
-# github_subdir = ""
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 gcs_engine_id = "004290134484316368579:gvcrxmetz4s"
-
-# Enable Algolia DocSearch
-algolia = false
-
-# Enable Lunr.js offline search
-offlineSearch = false
-
-# User interface configuration
-[params.ui]
-# Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = true
-# Enable folding sections of the sidebar
-sidebar_menu_foldable = true
-#  Set to true to disable breadcrumb navigation.
-breadcrumb_disable = false
-#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = false
-#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
-navbar_logo = true
-# Set to true to enable the About link in the site footer
-footer_about_enable = false
-# Set to true to enable the display of a light/dark mode menu in the navbar
-showLightDarkModeMenu = true
-
-# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
-# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
-# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
-# add "hide_feedback: true" to the page's front matter.
-[params.ui.feedback]
-enable = true
-# The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/medic/cht-docs/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/medic/cht-docs/issues/new">tell us how we can improve</a>.'
-
-# Adds a reading time to the top of each doc.
-# If you want this feature, but occasionally need to remove the Reading time from a single page, 
-# add "hide_readingtime: true" to the page's front matter
-[params.ui.readingtime]
-enable = false
-
-# [params.links]
-# # End user relevant links. These will show up on left side of footer and in the community page if you have one.
-# [[params.links.user]]
-# 	name = "User mailing list"
-# 	url = "https://example.org/mail"
-# 	icon = "fa fa-envelope"
-#         desc = "Discussion and help from your fellow users"
-# [[params.links.user]]
-# 	name ="Twitter"
-# 	url = "https://example.org/twitter"
-# 	icon = "fab fa-twitter"
-#         desc = "Follow us on Twitter to get the latest news!"
-# [[params.links.user]]
-# 	name = "Stack Overflow"
-# 	url = "https://example.org/stack"
-# 	icon = "fab fa-stack-overflow"
-#         desc = "Practical questions and curated answers"
-# # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
-# [[params.links.developer]]
-# 	name = "GitHub"
-# 	url = "https://github.com/google/docsy"
-# 	icon = "fab fa-github"
-#         desc = "Development takes place here!"
-# [[params.links.developer]]
-# 	name = "Slack"
-# 	url = "https://example.org/slack"
-# 	icon = "fab fa-slack"
-#         desc = "Chat with other project developers"
-# [[params.links.developer]]
-# 	name = "Developer mailing list"
-# 	url = "https://example.org/mail"
-# 	icon = "fa fa-envelope"
-#         desc = "Discuss development issues around the project"
 
 [Home]
 RelPermalink= "communityhealthtoolkit.org"
@@ -216,3 +155,45 @@ RelPermalink= "communityhealthtoolkit.org"
 # To work with asdf, ref https://github.com/gohugoio/hugo/issues/9811
 osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$']
 
+  [params.navbar]
+  displayTitle = false
+  displayLogo = true
+  width = "wide"
+
+    [params.navbar.logo]
+    path = "icons/logo.svg"
+    dark = "icons/logo-dark.svg"
+    width = 275
+
+  [params.page]
+  width = "normal"
+
+  [params.theme]
+  default = "system"
+  displayToggle = true
+
+  [params.footer]
+  enable = true
+  displayCopyright = true
+  displayPoweredBy = false
+  width = "normal"
+
+  [params.search]
+  enable = true
+  type = "flexsearch"
+
+    [params.search.flexsearch]
+    index = "content"
+    tokenize = "forward"
+
+  [params.editURL]
+  enable = true
+  base = "https://github.com/medic/cht-docs/edit/main/content"
+
+[params.highlight.copy]
+enable = true
+display = "hover"
+
+  [params.comments]
+  enable = false
+  type = "giscus"

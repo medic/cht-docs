@@ -84,8 +84,16 @@ This will create or update a document to CouchDB with an ID of `extension-libs` 
 
 #### CHT API
 
-The function will now be available via the CHT API for [tasks]({{< ref "tasks" >}}), [targets]({{< ref "targets" >}}), and [contact summary]({{< ref "contact-page" >}}) configurations.
+The function will now be available via the CHT API for [tasks]({{< ref "building/tasks/tasks-js" >}}), [targets]({{< ref "building/targets/targets-js" >}}), and [contact summary]({{< ref "building/contact-summary/contact-summary-templated" >}}) configurations.
 
 #### CHT xPath functions
 
-To execute the function from within an xform use the [`cht:extension-lib` xpath function]({{< ref "forms/app#chtextension-lib" >}}).
+To execute the function from within an xform use the [`cht:extension-lib` xpath function]({{< ref "building/forms/app#chtextension-lib" >}}).
+
+## Advanced usage
+
+Extension libraries are simply JavaScript functions executed in the context of the CHT web application. This means technically they can be used to do things like manipulating the DOM for fine-grained control of how elements are displayed in a form.
+
+Advanced integrations like this are not explicitly supported (they may break in future versions of the CHT). However, they can be a powerful tool for developers looking to extend the CHT without having to fork the entire project.
+
+See [this blog post](https://ruky.me/hacking-cht-user-interface-with-javascript-to-format-content/) from a community member for more information and inspiration on the kinds of things that can be achieved with extension libs!

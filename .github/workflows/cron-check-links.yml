@@ -30,27 +30,18 @@ jobs:
       - name: Install asdf & tools in .tool-versions
         uses: asdf-vm/actions/install@v2
 
-      - name: Install npm modules for Hugo
-        run: npm install
-
-      - name: Install Muffet
-        run: |
-          GO111MODULE=on go install github.com/raviqqe/muffet/v2@latest
-          asdf reshim golang
-
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
       - name: Serve Hugo site
         run: |
           hugo server&
           sleep 30
 
-      - name: Set DNS to 9.9.9.9
-        shell: bash
-        run: ./.github/scripts/set_dns.sh
-
       - name: Run Muffet link checker
         shell: bash
-        run: ./.github/scripts/muffet.sh
+        run:  |
+          chmod +x ./.github/scripts/*muffet*
+          cd .github/scripts
+          ./muffet.sh
 
       - name: Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}

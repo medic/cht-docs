@@ -11,17 +11,17 @@ description: >
   
 ---
 
-{{% alert title="Note" %}} This guide applies to both self-hosted and Medic hosted deployments. {{% /alert %}}
+> [!NOTE] 
+> This guide applies to both self-hosted and Medic hosted deployments.
 
 ## Introduction
 
 Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 3.x version to the 4.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes. Aside from the Docker hosting infrastructure (out of scope for this prep document), the two breaking changes are around CHT Android and Enketo.
-
-While CHT 4.0 has not been released yet, the effort to be prepared can be quite time consuming, especially for large deployments that may need to do handset upgrades in a worst case.  The sooner deployments start preparing for the upgrade, the easier it will be when it comes to the upgrade itself.  Conveniently, all device and Android app changes to prepare for 4.x are backwards compatible with 3.x. Prepare now, so you will be ready to upgrade sooner than later!
+Upgrading to CHT 4.0  can be quite time consuming, especially for large deployments that may need to do handset upgrades in a worst case.  The sooner deployments start preparing for the upgrade, the easier it will be when it comes to the upgrade itself.  Conveniently, all device and Android app changes to prepare for 4.x are backwards compatible with 3.x. Prepare now, so you will be ready to upgrade sooner than later!
 
 ## CHT Android v1.0.0+ 
 
-This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`.  Please see the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
+This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`. See the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
 
 ### Versions in use
 
@@ -39,6 +39,7 @@ FROM
 WHERE
 	doc#>>'{type}' = 'telemetry'  
 	AND doc#>>'{metadata,year}' = to_char(current_date, 'yyyy')
+	AND doc#>>'{device,deviceInfo,app,version}' is not null
 GROUP BY 
 	telemetry_month, cht_android_version	
 ORDER BY 
@@ -48,7 +49,8 @@ ORDER BY
 
 Note that each user can submit many telemetry docs (`count_telemetry`), so the query breaks out users (`count_distinct_users`) and devices (`count_distinct_devices`) for the given month. This means that telemetry counts will be higher than the number of active users. As well, early in the current  month, many users may not have had a chance to synchronize their telemetry data yet. For example, this report was run on the 5th of October, so the counts for all three tables are low. Refer to prior months in this case.
 
-{{% alert title="Note" %}} In some cases users are accessing the system via the [progressive web app (PWA)]({{< relref "core/overview/pwa" >}}) or are online users.  We see the `cht_android_version` field is empty in this case. {{% /alert %}} 
+> [!NOTE] 
+> In some cases users are accessing the system via the [progressive web app (PWA)]({{< relref "technical-overview/pwa" >}}) or are online users.  We see the `cht_android_version` field is empty in this case. 
 
 |telemetry_month|cht_android_version|count_distinct_users|count_distinct_devices|count_telemetry|
 |---------------|-------------------|--------------------|----------------------|---------------|
@@ -169,7 +171,7 @@ CHT 4.0 [upgrades the version of Enketo](https://github.com/medic/cht-core/pull/
 
 You can also manually test your forms on a non-prod CHT instance. It is possible to test your forms against the new Enekto changes without having to uplift your non-prod CHT instance to the new 4.0 architecture.
 
-An easy way of doing this is to use the [CHT Docker Helper]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "contribute/code/releasing/feature_releases" >}}):
+An easy way of doing this is to use the [CHT Docker Helper]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}) to deploy a 3.x CHT instance. After you have your dev instance up and running, use [Horticulturalist](https://github.com/medic/horticulturalist) to upgrade to the `3.17.0-FR-enketo-upgrade` [feature release]({{< relref "community/contributing/code/releasing/feature_releases" >}}):
 
 ```shell
 COUCH_URL=https://medic:password@*your-my.local.ip.co-address*:8443/medic horti --local --install=3.17.0-FR-enketo-upgrade-beta.1
@@ -206,7 +208,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 #### New XPath functions
 
 * Custom CHT functions:
-    * [`add-date`]({{< relref "building/reference/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
+    * [`add-date`]({{< relref "building/forms/app#add-date" >}}) - Adds the provided number of years/months/days/hours/minutes to a date value.
 * ODK Functions:
     * Repeats and other node sets:
         * [`position`](https://docs.getodk.org/form-operators-functions/#position) - Returns the current iteration index within a repeat group.

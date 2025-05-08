@@ -1,16 +1,18 @@
 ---
 title: "Integrating CHT Watchdog"
 linkTitle: "Integrating"
-weight: 400
+weight: 5
 aliases:
   - /apps/guides/hosting/monitoring/integration
-description: >
-    Scraping and alerting external sources with CHT Watchdog
 ---
 
-{{% pageinfo %}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  Scraping and alerting external sources with CHT Watchdog
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 ## Going beyond basic setup
 
@@ -76,7 +78,7 @@ While this is a specific example for cAdvisor, these same steps will be taken to
 
 After completing these steps, we now have Docker metrics we can alert on:
 
-[![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)](cadvisor.screenshot.png)
+{{< figure src="cadvisor.screenshot.png" link="cadvisor.screenshot.png" caption="Screenshot of Grafana Dashboard showing data from Prometheus" >}}
 
 Read on below on how to set this up!
 

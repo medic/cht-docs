@@ -1,16 +1,18 @@
 ---
 title: "Production CHT Watchdog"
 linkTitle: "Production"
-weight: 200
+weight: 3
 aliases:  
   - /apps/guides/hosting/monitoring/production
-description: >
-   Production considerations for CHT Watchdog
 ---
 
-{{% pageinfo %}} 
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  Production considerations for CHT Watchdog
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 ## What it means to run in production
 
@@ -23,10 +25,8 @@ When you run CHT Watchdog in production, and it is publicly accessible on the In
 
 This guide assumes you have already [set up TLS]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "hosting/monitoring/setup" >}}) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
 
-
-{{% alert title="Note" %}}
-Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
-{{% /alert %}}
+> [!WARNING]
+> Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
 
 ## Monitoring over TLS
 All monitoring should happen over TLS.  This means the `cht-instances.yml` file should have all the URLs in it start with ` - https`.  
@@ -39,7 +39,7 @@ By default, the `docker-compose.yml` has the service bind to `127.0.0.1`.  This 
 
 Assuming you have the DNS entry of `monitor.example.com` pointing to your server, you would create the `Caddyfile` file with this code. 
 
-```
+```shell
 cat > /root/Caddyfile << EOF
 monitor.example.com {
     reverse_proxy grafana:3000
@@ -54,7 +54,7 @@ Using the awesome secure defaults of Caddy, this file will tell Caddy to:
 
 The reverse proxy will only work if the Caddy container is on the same docker network as Grafana.  That's where the  `caddy-compose.yml` file comes in, specifically using the `cht-watchdog-net` network.  Create the file with this code
 
-```
+```shell
 cat > /root/caddy-compose.yml << EOF
 version: "3.9"
 services:
@@ -75,7 +75,7 @@ EOF
 
 To start the reverse proxy, us the following command.  Note that on first run it will provision your certificates:
 
-```
+```shell
 cd ~/cht-watchdog
 docker compose -f docker-compose.yml -f ../caddy-compose.yml up -d
 ```
@@ -107,7 +107,7 @@ These are the only directories you need to back up.  Whether you use something a
 
 The default URL that Grafana uses is `http://localhost:3000`.  In a production environment, specifically when alerts are being sent, you need to tell Grafana what its URL is.  Do this by editing the `./grafana/grafana.ini` you created at install and set the `root_url` value.  In this example, we'll set it to `monitor.example.com`:
 
-```
+```conf
 #################################### Server ##############################
 [server]
 root_url = https://monitor.example.com/

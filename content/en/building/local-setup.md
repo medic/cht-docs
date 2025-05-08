@@ -1,35 +1,30 @@
 ---
-title: "Getting started building a CHT app"
-linkTitle: Getting started
+title: "Getting Started Building a CHT App"
+linkTitle: Getting Started
 weight: 2
-description: >
-  Setting up a local environment to build and test CHT 4.x applications
-relatedContent: >
-  contribute/code/core/using-windows
-  hosting/3.x/self-hosting
-  hosting/3.x/ec2-setup-guide
 aliases:
    - /building/tutorials/local-setup
    - /apps/tutorials/local-setup
 ---
 
-{{% pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  Set up a local environment to build and test CHT 4.x applications
+{{< /hextra/hero-subtitle >}}
+
 This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
 - View the login page to CHT webapp on localhost
 - Upload default settings to localhost
-{{% /pageinfo %}}
 
-{{% alert title="Note" %}} 
-This guide will only work with CHT 4.x instances.  See the 
-[3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
-{{% /alert %}}
+{{< callout type="info" >}}
+  This guide will only work with CHT 4.x instances. See the [3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
+{{< /callout >}}
 
 ## Brief Overview of Key Concepts
 
-The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "core/overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
+The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is a command-line interface tool to manage and configure CHT apps.
 
@@ -46,7 +41,7 @@ CHT apps can be built on your local system (with the necessary libraries install
 Before you begin, ensure you have the following tools:
 
 - [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
-- [docker and docker-compose]({{< relref "hosting/requirements#docker" >}}).
+- [docker and docker compose]({{< relref "hosting/requirements#docker" >}}).
 
 ### Installing Docker
 
@@ -67,36 +62,44 @@ cd ~/cht-project
 
 To build CHT apps on your local system, you need to have some additional tools:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< tab header="macOS" >}}
-# Uses Homebrew: https://brew.sh/
-brew update
-brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
-# Python no longer included by default in macOS >12.3
-pyenv install 2.7.18
-pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Linux (Ubuntu),macOS,Windows (WSL2)" >}}
+
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  # Uses Homebrew: https://brew.sh/
+  brew update
+  brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc openssl readline sqlite3 xz zlib tcl-tk
+  # Python no longer included by default in macOS >12.3
+  pyenv install 3
+  pyenv global 3
+  echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
+  . ~/.$(basename $SHELL)rc
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 #### `pyxform`
 
@@ -106,7 +109,7 @@ Using python on your terminal, install `pyxform` globally using the command belo
 sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "contribute/code/core/dev-environment#macos--123" >}}).
+If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "community/contributing/code/core/dev-environment#macos--123" >}}).
 
 #### `cht-conf`
 
@@ -128,8 +131,6 @@ Using the terminal (or the WSL shell on Windows: _Start > wsl_), run the followi
 cd ~/cht-project
 cht initialise-project-layout
 ```
-
-<br clear="all">
 
 ---
 
@@ -187,7 +188,7 @@ Note that the first time you run your CHT instance it may take a while. In case 
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once your instance has started, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`. 
+Once your instance has started, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`.
 
 You might get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
 
@@ -199,13 +200,9 @@ If you encounter an error `bind: address already in use`, see the [Port Conflict
 
 This CHT instance is empty and has no data in it. While you're free to explore and add your own data, in step 3 below we will upload sample data. Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 
-<br clear="all">
-
- *****
-
 ### Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "building/examples/anc" >}}) installed. To upload demo data you can use `cht-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/anc" >}}) installed. To upload demo data you can use `cht-conf`:
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
@@ -219,45 +216,47 @@ git clone https://github.com/medic/cht-core.git
 - Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
 ```shell
+cht --url=https://medic:password@localhost --accept-self-signed-certs
 cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
 ```
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
 
-<br clear="all">
-
-*****
-
 ### Upload a Blank Project
 
-{{% alert title="Note" %}} 
-This step will erase the default Maternal & Newborn Health Reference Application. 
-{{% /alert %}}
+{{< callout type="warning" >}}
+  This step will erase the default Maternal & Newborn Health Reference Application. 
+{{< /callout >}}
 
 You can also upload the blank project you created above (via the `cht initialise-project-layout` command).
 
 Deploy the blank project onto your local test environment with the following command:
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Local" >}}
-# accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
-cht --url=https://medic:password@localhost --accept-self-signed-certs
-{{< /tab >}}
-{{< tab header="Dev Container" >}}
-# Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
-cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Local,Dev Container" >}}
+
+  {{< tab >}}
+```shell
+  # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
+  cht --url=https://medic:password@localhost --accept-self-signed-certs
+```
+  
+  {{< /tab >}}
+
+  {{< tab >}}
+
+```shell
+  # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
+  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 {{< figure src="all-actions-completed.png" link="all-actions-completed.png" class="right col-6 col-lg-8" >}}
 
 If the above command shows an error similar to this one `ERROR Error: Webpack warnings when building contact-summary` you will need to install all the dependencies and libraries it needs (by running `npm ci`) before trying to upload the configuration again with the `cht ...` command.
 
 Once you have run the above command it should complete with the message: `INFO All actions completed.`.
-
-<br clear="all">
-
-*****
 
 ### Optional: Install Valid TLS Certificate
 
@@ -271,7 +270,7 @@ To install a valid certificate, open a terminal in the `cht-core` directory. Ens
 ./scripts/add-local-ip-certs-to-docker-4.x.sh cht_nginx_1
 ```
 
-If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/master/scripts/add-local-ip-certs-to-docker-4.x.sh). 
+If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/master/scripts/add-local-ip-certs-to-docker-4.x.sh).
 
 To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.
 

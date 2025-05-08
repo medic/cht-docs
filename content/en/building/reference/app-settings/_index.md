@@ -43,9 +43,9 @@ The following settings do not need to be specified. They should only be defined 
 | uhc.visit_count.month_start_date | The date of each month when the visit count is reset to 0.                                                                                                                                                                                                                                                                                                                                                                                                                            | 1       | 2.18.0  |
 | uhc.visit_count.visit_count_goal | The monthly visit count goal.                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 0       | 2.18.0  |
 | outgoing_deny_list               | All outgoing messages will be denied (unsent) if the recipient phone number starts with an entry in this list. A comma delimited list. (eg. `outgoing_deny_list="253,ORANGE"` will deny all messages sent to `253 543 4448` and `ORANGE NET`)                                                                                                                                                                                                                                         | ""      |         |
-| outgoing_deny_shorter_than       | Deny all messages to recipient phone numbers which are shorter than this value. Intended to avoid [message loops]({{% ref "building/guides/messaging/message-loops" %}}) with short codes used by gateways (eg. `60396`). An integer.                                                                                                                                                                                                                                                     | 6       | 3.3.0   |
-| outgoing_deny_with_alphas        | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "building/guides/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean.                                                                                                                                                                                                                                            | true    | 3.3.0   |
-| outgoing_deny_with_alphas        | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "building/guides/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean.                                                                                                                                                                                                                                            | true    | 3.3.0   |
+| outgoing_deny_shorter_than       | Deny all messages to recipient phone numbers which are shorter than this value. Intended to avoid [message loops]({{% ref "building/messaging/message-loops" %}}) with short codes used by gateways (eg. `60396`). An integer.                                                                                                                                                                                                                                                     | 6       | 3.3.0   |
+| outgoing_deny_with_alphas        | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "building/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean.                                                                                                                                                                                                                                            | true    | 3.3.0   |
+| outgoing_deny_with_alphas        | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "building/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean.                                                                                                                                                                                                                                            | true    | 3.3.0   |
 | task_day_limit                   | The number of days before a task is due to show the due date.                                                                                                                                                                                                                                                                                                                                                                                                                         | 4       | 3.9.0   |
 | app_url                          | The URL of the app, eg: "https://demo.app.medicmobile.org"                                                                                                                                                                                                                                                                                                                                                                                                                            |         | 3.10.0  |
 | task_days_overdue                | Display number of overdue days in tasks list                                                                                                                                                                                                                                                                                                                                                                                                                                          | false   | 3.13.0  |
@@ -79,18 +79,17 @@ An outgoing SMS message configuration has the following fields:
 |`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage | 
 |`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage | 
 |`district`| primary contact of the `district_hospital` in the subject's/submitter's lineage |
-|`ancestor:<contact_type>`| primary contact of the place of the requested type in the subject's/submitter's lineage |
-|`link:<tag>`| Linked doc that has requested `tag` in the subject's / submitter's lineage (direct mapping, not to primary contact). *As of 3.10.x*| 
+|`ancestor:<contact_type>`| Walks up the subject's/submitter's hierarchy to find the **primary contact** of a place with the given contact type. |
+|`link:<tag>`| Tries to find a **directly linked document** with the given tag; if not found, walks up the lineage (but not limited to primary contact). *Available since v3.10.x* |
 |`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* | 
 | *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` | 
 | *valid phone number* | requested phone number |
 
-{{% alert title="Note" %}} 
-- if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
-- if there is no submitter phone number available, the actual `recipient` property value will be used
-- when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
-- except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
-{{% /alert %}}
+> [!NOTE]
+> - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
+> - if there is no submitter phone number available, the actual `recipient` property value will be used
+> - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
+> - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
 
 
 ### Message context
@@ -136,9 +135,29 @@ The following filter functions are available for formatting dates.
 
 
 ## Validations
+
 Validation rules are code fragments used to determine if some input is valid. For example, to say a field is only valid if the value has at least five characters, you would use the lenMin(5). They are used in `registrations[].validations.list[].rule` and `patient_reports[].validations.list[].rule` to determine if an incoming report is accepted. A report is accepted as valid only if all rules return `true`. If any validation rule returns `false` then the report is marked as invalid, and a message is automatically sent to the submitter. The content for the message is set in the `translation_key` associated to each rule. If a report fails multiple validations then each message will be sent. These can be combined into a single SMS by specifying `"*.validations.join_responses" : true`.
 
+The syntax aims to mimic C-like languages. You can use logical operators, ternaries, nested "blocks" (`rule && (some || nested || rules)`) and validation functions (`validationFunction("arg1", "arg2")`).
+
+**String parameters for validation functions, such as the regex in the "regex" function, should be quoted.**
+
+Non-quoted parameters will be cast to floats (numbers with decimals).
+
+For each validation function, there is also a matching function prepended by `other` that allows you to run functions on other values than the one the rule string is for. This can be useful for fields that have differing requirements depending on another field. For example:
+
+```json
+{
+  "state": "otherEquals('country', 'US') ? lenMin(2) : lenMin(0)"
+}
+```
+
+This rule validates the length `state` property if the `country` is set to "US", but skips validation otherwise.
+
+Validation function arguments can be either strings or numerical values. Numerical arguments should not be wrapped in quotation marks or apostrophes: `lenMin(5)`.
+
 ### Operators
+
 The available operators are:
 
 | Operator | Description |
@@ -147,52 +166,9 @@ The available operators are:
 | \|\| |or |
 | ! |not |
 | a ? b : c | ternary, ie: if 'a' is true, then check 'b', otherwise check 'c' |
-| () | nested blocks, eg: 'a && (b || c)' |
+| () | nested blocks, eg: `a && (b \|\| c)` |
 
 ### Rules
-Validation settings may consist of Pupil.js rules and rules specific to the CHT.
-These two types of rules cannot be combined as part of the same rule.
-
-Not OK:
-`rule: "regex(\d{5}) && unique('patient_id')"`
-
-OK:
-`rule: "regex(\d{5}) && max(11111)"`
-     
-If for example you want to validate that patient_id is 5 numbers and it
-is unique (or some other custom validation) you need to define two
-validation configs/separate rules in your settings. Example validation
-settings:
-
-```
-[
-	{
-		property: "patient_id",
-		rule: "regex(\d{5})",
-		message: [{
-		    content: "Patient ID must be 5 numbers.",
-		    locale: "en"
-	}]
-	},
-	{
-		property: "patient_id",
-		rule: "unique('patient_id')",
-		message: [{
-		    content: "Patient ID must be unique.",
-		    locale: "en"
-		}]
-	}
-]
-```
-
-`validate()` modifies the property value of the second item to
-`patient_id_unique` so that pupil.validate() still returns a valid
-result.  Then we process the result once more to extract the custom
-validation results and error messages.
-
-#### Pupil.js validation functions
-
-Available validation functions are available in the [Pupil documentation](https://github.com/medic/cht-core/tree/master/shared-libs/validation/src/pupil#validation-functions).
 
 The following functions are available by default:
 
@@ -218,19 +194,6 @@ The following functions are available by default:
 | `email` |  Email address format |
 | `regex` |  A custom regular expression |
 | `equalsTo` | Compare to another field by its key |
-
-##### Sample usage
-
-For case-insensitive comparison `iEquals` function in Pupil, 
-And you can use `||` for logical OR. Find documentation on these rules in the [Pupil documentation](https://github.com/medic/cht-core/tree/master/shared-libs/validation/src/pupil#rule-strings).
-
-So you can do this : 
-`rule: 'iEquals("mary") || iEquals("john")'`
-matches "mary", "Mary", "john", "John", "JOhN", etc. Not "maryjohn"
-
-#### CHT validation functions
-| Function | Description |
-|----|----|
 | `unique(*fields)` | Returns `true` if no existing valid report has the same value for all of the listed fields. Fields are compared to those at the top level and within `fields` for every report doc. To include the form type use `'form'` as one of the fields. Eg `unique('form', 'patient_id')` checks that this form was never submitted for this patient. |
 | `uniquePhone(field)` | Returns `true` if contact with the phone number already exists. _Added in 4.3.0_ |
 | `validPhone(field)` | Returns `true` if the field is a valid phone number else returns false. _Added in 4.3.1_ |
@@ -239,3 +202,25 @@ matches "mary", "Mary", "john", "John", "JOhN", etc. Not "maryjohn"
 | `isISOWeek(weekFieldName[, yearFieldName])` | Returns `true` if the current report has a week value that is less or equal to the number of ISO weeks of the current year or the year value of the same report. The first parameter is the field name for the week and the second parameter is the field name for the year: `isISOWeek('week', 'year')`. If the second parameter is not specified, then the current year is used: `isISOWeek('week')`. |
 | `isAfter(duration)` | Returns `true` if the date property comes after today plus the duration. For this to work, the property should be a date type. e.g. `isAfter('2 weeks')` checks that the date property is at least two weeks in the future from today. Negative values are also supported. |
 | `isBefore(duration)` | Returns `true` if the date property comes before today minus the duration. For this to work, the property should be a date type. e.g. `isBefore('2 weeks')` checks that the date property is at least two weeks in the past from today. Negative values are also supported. |
+
+#### Sample usage
+
+To ensure the `patient_id` is 5 digits and not already registered.
+
+```json
+[
+  {
+    "property": "patient_id",
+    "rule": "regex(\d{5}) && unique('patient_id')",
+    "translation_key": "patient_id_invalid"
+  }
+]
+```
+
+For case-insensitive comparison, use `iEquals` function, and you can use `||` for logical OR. So the rule `iEquals("mary") || iEquals("john")` matches "mary", "Mary", "john", "John", and "JOhN", but not "maryjohn"
+
+#### Combining rules
+
+Prior to 4.15.0 you could not combine certain rules. Check this [bug report](https://github.com/medic/cht-core/issues/8806#issuecomment-2451994409) for more information.
+
+{{< subpages >}}

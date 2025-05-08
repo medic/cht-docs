@@ -5,7 +5,7 @@ weight:
 description: >
     How to securely create users, handle password changes and password breaches
 relatedContent: >
-    building/guides/training/onboarding
+    building/training/onboarding
     building/guides/database/couchdb-authentication
     building/contact-management/contact-and-users-1
     building/guides/data/users-bulk-load
@@ -16,11 +16,9 @@ aliases:
    - /apps/guides/security/securely-onboarding-users-at-scale
 ---
 
-{{% pageinfo %}}
 This document shows how to achieve a high level of credential management security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
 
 No system is perfectly secure - be prepared to remediate a security breach!
-{{% /pageinfo %}}
 
 When a CHT deployment will support hundreds of users or more, secure credential management becomes critical. Patient data is sensitive and should never be accessed in any way by unauthorized parties. By following best practices and preparing for the worst case scenario of a password breach, patient data can be kept safe and CHWs can be kept online and able to deliver care.
 
@@ -28,7 +26,7 @@ When a CHT deployment will support hundreds of users or more, secure credential 
 
 ### Secure devices
 
-Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. Please see our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/guides/android/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
+Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/guides/android/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
 
 ### Secure administrative users
 
@@ -39,7 +37,7 @@ By following these steps, unauthorized people are less likely to be able to acce
 
 When generating passwords for CHWs, do not use a formula which repeats itself (eg `password123` for user A, `password234` for user B etc.).  Do not use the CHW information such as username, email or phone number in the password. Train CHWs to not re-use passwords. 
 
-For a reference application showing secure password generation, please see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  
+For a reference application showing secure password generation, see `generatePassword()` in the [CHT Core scripts directory](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js). This will generate a truly random 14 character password with uppercase (`A-Z`), lowercase (`a-z`), numerical (`0-9`) and one special character (`-`).  
 
 To generate a password that is easier to remember, type and speak over a phone, consider using [Diceware passphrases](https://en.wikipedia.org/wiki/Diceware). For added accessibility, use a word list from the CHWs native language if it is not English.  This will make the words easier to spell and more likely to be remembered, but still secure.
 ## Spreadsheet use
@@ -90,10 +88,9 @@ There's many failures here:
 
 By knowing what the security threats are you can know the most helpful steps to remediate them to limit the damage done to the CHT deployment, the privacy of the patients and the security of CHWs.
 
-{{% alert title="Note" %}}
-Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change, when a CHW attempts to sync, they will be prompted to log in. At that point, they will not be able to continue using the CHT until they log in.
+> [!NOTE]
+> Users who have their password changed can continue to use the CHT to deliver care.  They need to _keep their device offline_ though. After a password change, when a CHW attempts to sync, they will be prompted to log in. At that point, they will not be able to continue using the CHT until they log in.
 No data will be lost if they log in as the _same user_.
-{{% /alert %}}
 
 ### Credential list shared on internet
 

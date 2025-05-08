@@ -6,25 +6,23 @@ description: >
   Building CHT application SMS schedules
 relatedContent: >
   building/reference/app-settings/schedules
-  building/concepts/forms
-  building/features/messaging
-  building/guides/messaging
-
+  building/forms
+  building/messaging
 aliases:
    - /apps/tutorials/sms-schedules
 ---
 
 SMS schedules allow you to send reminder messages at predetermined times. These reminders serve as useful prompts for end-users to take specific actions.
 
-{{% pageinfo %}}
+ 
 This tutorial takes you through how to set up SMS schedules for CHT applications. It uses a pregnancy registration workflow and follow-up reminders for a Community Health Worker as an example. The same methodology can be applied to other workflows and reminders as needed.
-{{% /pageinfo %}}
+  
 
 ## Brief Overview of Key Concepts
 
 *[SMS schedules]({{< ref "building/reference/app-settings/schedules" >}})* are a series of SMS messages that are to be sent to specific contacts at future dates and times. They are defined in either the `base_settings.json` or the `app_settings/schedules.json` file and compiled into the *[app_settings.json]({{< ref "building/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool.
 
-SMS schedules can be triggered by *[SMS forms]({{< ref "building/tutorials/sms-forms" >}})* or *[App forms]({{< ref "building/reference/forms/app" >}})*.
+SMS schedules can be triggered by *[SMS forms]({{< ref "building/tutorials/sms-forms" >}})* or *[App forms]({{< ref "building/forms/app" >}})*.
 
 ## Required Resources
 
@@ -177,7 +175,8 @@ To upload app settings to your local instance, run the following command:
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!NOTE] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 ## Frequenty Asked Questions
 

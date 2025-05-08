@@ -7,12 +7,12 @@ description: >
 relatedContent: >
   building/reference/app-settings
   building/guides/performance/replication
-  core/overview/transitions 
+  technical-overview/transitions 
 aliases:
    - /apps/tutorials/application-settings
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through how to manage the CHT application settings, including;
 
 - Setting user roles and permissions
@@ -20,7 +20,7 @@ This tutorial will take you through how to manage the CHT application settings, 
 - Configuring contact hierarchy and configuring replication.
 
 App settings allow you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
-{{% /pageinfo %}}
+  
 
 ## Brief Overview of Key Concepts
 
@@ -32,7 +32,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 *[Replication]({{< relref "building/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
-*[Transitions]({{< relref "core/overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
+*[Transitions]({{< relref "technical-overview/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
 ## Required Resources
 
@@ -107,8 +107,8 @@ When configuring a new deployment, it's important to plan your hierarchy well.  
 * While it is possible to [update the hierarchy configuration]({{< relref "building/contact-management/moving-contacts" >}}) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
 * If your hierarchy is too shallow, users will download more docs than are necessary for their work which will impact the performance of the app. Taking the time to get the hierarchy configuration right makes it easy to give users access to only the docs they need.
 
-**Important Note on Creating and Editing Contacts:** The ability to create and edit contacts in the CHT, including person entities, is dependent on the presence of corresponding forms in the `forms/contact` directory. Each contact type, such as "person", "clinic", "health_center", etc., must have associated `create` and `edit` forms defined. Without these forms, the functionality to add or modify these contact types in the CHT application will not be available. Ensure that the necessary forms are created and correctly referenced in the `app_settings.json` file under their respective contact type definitions. For guidance on creating these contact forms, please refer to the [CHT documentation on contact forms](https://docs.communityhealthtoolkit.org/building/reference/forms/contact/).
-For an example of where all the forms are represented in the default configuration, please see the [default config directory](https://github.com/medic/cht-core/tree/master/config/default/).
+**Important Note on Creating and Editing Contacts:** The ability to create and edit contacts in the CHT, including person entities, is dependent on the presence of corresponding forms in the `forms/contact` directory. Each contact type, such as "person", "clinic", "health_center", etc., must have associated `create` and `edit` forms defined. Without these forms, the functionality to add or modify these contact types in the CHT application will not be available. Ensure that the necessary forms are created and correctly referenced in the `app_settings.json` file under their respective contact type definitions. For guidance on creating these contact forms, refer to the [CHT documentation on contact forms](https://docs.communityhealthtoolkit.org/building/reference/forms/contact/).
+For an example of where all the forms are represented in the default configuration, see the [default config directory](https://github.com/medic/cht-core/tree/master/config/default/).
 
 
 {{< see-also page="building/reference/app-settings/hierarchy" title="Hierarchy" >}}
@@ -201,7 +201,8 @@ To upload app settings to your local instance, run the following command:
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT]
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 ## Frequently Asked Questions
 

@@ -3,7 +3,7 @@ title: "Purging"
 linkTitle: "Purging"
 weight:
 description: >
-  Remove unneeded documents from offline users devices.
+  Remove unneeded documents from offline users devices
 keywords:
 relatedContent: >
   design/personas/chw-janet
@@ -42,7 +42,7 @@ Purging runs on the server on a configurable schedule.
 
 It will iterate over all users to generate a list of unique roles groups that represent every user. Each group will have their purged docs saved in an individual database.
 
-Then, it will iterate over all existent contacts, collecting all reports about that contact along with all sms messages that the contact has sent or received. This is similar to the scoping you may have encountered when configuring [tasks]({{<ref "building/reference/tasks" >}}) and [targets]({{<ref "building/reference/targets" >}}).
+Then, it will iterate over all existent contacts, collecting all reports about that contact along with all sms messages that the contact has sent or received. This is similar to the scoping you may have encountered when configuring [tasks]({{<ref "building/tasks/tasks-js" >}}) and [targets]({{<ref "building/targets/targets-js" >}}).
 
 The configured purge function runs over all combinations of purge scope (contact + reports + messages) and user context (unique list of roles) to determine which docs should be purged.
 
@@ -96,6 +96,12 @@ module.exports = {
     return [...reportsToPurge, ...messagesToPurge];
   }
 };
+```
+
+To disable purging, you need to explicitly configure the purge key with an empty object value in the `app_settings.json` file, as in this example:
+
+```json
+"purge": {}
 ```
 
 ### Purge configuration
