@@ -10,7 +10,9 @@ weight: 200
 * test flow to ensure they're accurate
 * taken from [GH ticket](https://github.com/medic/cht-core/issues/9827#issuecomment-2845779609)
 
-## Microsoft Entra (Azure AD)
+## Microsoft Entra (for testing with local development environment)
+
+Microsoft Entra was formerly known as Azure AD.
 
 - Login to the Microsoft Entra console at `https://entra.microsoft.com`
     - You will need a Microsoft Azure account. (I was able to create one for free, but it did require me to enter my credit card info.)

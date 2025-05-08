@@ -9,6 +9,37 @@ weight: 100
 * test flow to ensure they're accurate
 * taken from [GH ticket](https://github.com/medic/cht-core/issues/9827#issuecomment-2845544795)
 
+hopefully we can have one page for both dev and prd , but use tabs to call out sections that are different. Here's an example of tabbed content for command line calls:
+
+{{< tabs items="Production,Development" >}}
+
+{{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+{{< /tab >}}
+{{< tab >}}
+```shell
+  # Uses Homebrew: https://brew.sh/
+  brew update
+  brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc openssl readline sqlite3 xz zlib tcl-tk
+  # Python no longer included by default in macOS >12.3
+  pyenv install 3
+  pyenv global 3
+  echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
+  . ~/.$(basename $SHELL)rc
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+
 ## Local Keycloak Instance (for testing with local development environment)
 
 - Run your local development CHT instance via `npm run dev-api`
