@@ -8,9 +8,7 @@ weight: 2
   Production hosting the CHT with Kubernetes
 {{< /hextra/hero-subtitle >}}
 
-{{< callout type="warning" >}}
-Only use Kubernetes under [very specific conditions](/hosting/kubernetes-vs-docker/). It is a more complex set up of CHT hosting as compared to [Docker]({{< relref "hosting/4.x/production/docker" >}}).  Medic recommends [Docker hosting](/hosting/4.x/production/docker/) for most deployments.
-{{< /callout >}}
+Kubernetes is more complex set up of CHT hosting over [Docker]({{< relref "hosting/4.x/production/docker" >}}). It enables maximum scalability for multi-node CouchDB and multi-tenant deployments.
 
 {{< subpages >}}
 

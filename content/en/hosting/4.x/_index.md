@@ -12,7 +12,7 @@ aliases:
 > [!TIP] 
 > To get an overview on how these hosting solutions use `docker` and other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "building/local-setup" >}}).
 
-Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first. For example, [backups](/hosting/4.x/production/docker/backups) are required for any successful CHT deployment!
+Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first.
 
 To host a production instance of CHT, use the [Production Hosting in CHT 4.x]({{< relref "hosting/4.x/production" >}}) guide. To do app development, see our [App Developer]({{< relref "hosting/4.x/app-developer" >}}) hosting guide.
 
