@@ -11,7 +11,7 @@ aliases:
   Setting up CHT Sync with Kubernetes and the CHT
 {{< /hextra/hero-subtitle >}}
 
-This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT]({{< relref "hosting/4.x/production/kubernetes" >}}).
+This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT]({{< relref "hosting/4.x/kubernetes" >}}).
 
 ## Prerequisites
 

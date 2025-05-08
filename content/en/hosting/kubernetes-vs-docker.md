@@ -2,13 +2,15 @@
 title: Kubernetes vs Docker
 linkTitle: Kubernetes vs Docker
 weight: 5
+aliases:
+  -  /hosting/vertical-vs-horizontal
 ---
 
 {{< hextra/hero-subtitle >}}
   Options for installing CHT applications
 {{< /hextra/hero-subtitle >}}
 
-Medic recommends [Docker](/hosting/4.x/production/docker/) for most deployments. Only use [Kubernetes](/hosting/4.x/production/kubernetes/) for large, multi-tenant or specific hardware constrained deployments.
+Medic recommends [Docker](/hosting/4.x/docker/) for most deployments. Only use [Kubernetes](/hosting/4.x/kubernetes/) for large, multi-tenant or specific hardware constrained deployments.
 
 Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker as well.
 

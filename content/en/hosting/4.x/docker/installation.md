@@ -3,8 +3,8 @@ title: "Host CHT with Docker"
 linkTitle: "Installation"
 weight: 1
 aliases:
-  - /apps/guides/hosting/4.x/production/
-  - /hosting/4.x/production/docker/prerequisites/
+  - /apps/guides/hosting/4.x/docker/
+  - /hosting/4.x/docker/prerequisites/
 ---
 
 ## Prerequisites
@@ -130,7 +130,7 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 
 ## TLS Certificates
 
-See the [TLS Certificates page]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) for how to import your certificates.
+See the [TLS Certificates page]({{< relref "hosting/4.x/docker/adding-tls-certificates" >}}) for how to import your certificates.
 
 ## Upgrades
 
