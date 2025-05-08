@@ -1,20 +1,21 @@
 ---
 title: "App Developer Hosting in CHT 3.x"
 linkTitle: "App Developer Hosting"
-weight: 40
+weight: 3
 aliases:
    - /apps/guides/hosting/3.x/app-developer
    - /apps/guides/hosting/app-developer 
-description: >
-  Hosting the CHT when developing apps
 ---
 
-{{% pageinfo %}} 
-This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "contribute/code/core/dev-environment" >}}). 
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT when developing apps
+{{< /hextra/hero-subtitle >}}
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}})
-{{% /pageinfo %}}
+This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
+{{< callout >}}
+  To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}).
+{{< /callout >}}
 
 ## Getting started
 
@@ -22,13 +23,13 @@ Be sure to meet the [CHT hosting requirements]({{< relref "hosting/requirements"
 
 After meeting these requirements, download the developer YAML file in the directory you want to store them:
 
-```shell script
+```shell
 curl -o docker-compose-developer-3.x-only.yml https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml
 ```
 
 To start the first developer CHT instance, run `docker compose` and specify the file that was just download:
 
-```shell script
+```shell
 docker compose -f docker-compose-developer-3.x-only.yml up
 ```
 
@@ -86,7 +87,8 @@ To run projects concurrently, instead of cancelling the first one, open a second
 
 The `cht-docker-compose.sh` scripts builds on the `docker-compose-developer-3.x-only.yml` and `.env` files used above by helping start CHT instances with a simple text based GUI:
 
-![The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".](cht-docker-helper.png)
+{{< figure src="cht-docker-helper.png" link="cht-docker-helper.png" >}}
+The cht-docker-compose.sh script showing the URL and version of the CHT instance as well as number of containers launched, global container count, medic images downloaded count and OS load average. Finally a "Successfully started my_first_project" message is shown and denotes the login is "medic" and the password is "password".
 
 
 ### Prerequisites
@@ -153,14 +155,14 @@ These steps assume:
 Follow these steps to create your first developer instance. You can create as many as you'd like:
 
 1. create `./my_first_project/.env_docker` with the contents:
-   ```
+   ```conf
    COMPOSE_PROJECT_NAME=my_first_project
    CHT_HTTP=8080
    CHT_HTTPS=8443   
    ```
 2. Change into the `docker-help` directory: `cd ./cht-core/scripts/docker-helper/`
 3. Run the helper script and specify your `.env_docker` file:
-   ```
+   ```shell
    ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker
    ```
 4. Your CHT instance will be started when you see the text:
@@ -172,7 +174,7 @@ Follow these steps to create your first developer instance. You can create as ma
 
 When you're done with an instance, be sure to shut it down:
 
-```
+```shell
 ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker -d down
 ```
 
@@ -180,7 +182,7 @@ All information will be saved, and it should be quick to start for the Nth time.
 
 To start an existing instance again, just run the command from the "First Run" section:
 
-```
+```shell
 ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker 
 ```
 
@@ -190,7 +192,7 @@ This command is safe to run as many times as you'd like if  you forget the state
 
 When you're done with a project and want to completely destroy it, run `destroy`:
 
-```
+```shell
 ./cht-docker-compose.sh -e ../../../my_first_project/.env_docker -d destroy
 ```
 
@@ -238,7 +240,9 @@ To account for this, the wait time is multiplied times the boot iteration for ea
 
 If you're on a resource constrained computer, like a very old or very slow laptop, be sure to watch the total number of containers you're running.  More than one or two projects (2 or 4 containers) and you may notice a slow-down. You can use the `./docker-status.sh` script if you forgot which projects you have running:
 
-![The docker-status.sh script showing 4 sections. The top section lists the running CHT containers, their IP, their mapped ports and the state (running time). The second section found on the left is a list of docker networks. The third section is on the top right and lists downloaded docker images. The furth section on the bottom right, shows docker volumes](docker-status.png)
+{{< figure src="docker-status.png" link="docker-status.png" >}}
+
+The docker-status.sh script showing 4 sections. The top section lists the running CHT containers, their IP, their mapped ports and the state (running time). The second section found on the left is a list of docker networks. The third section is on the top right and lists downloaded docker images. The furth section on the bottom right, shows docker volumes
 
 A word of caution though - for now this script doesn't scale well if you have 10s of containers and volumes.  Content [can scroll off the screen](https://user-images.githubusercontent.com/1608415/137566806-e13b765e-4f95-48be-82e7-c8e6351e14b7.mp4) and seem confusing!
 
@@ -255,7 +259,7 @@ If you see either of these errors, you're very likely off-line such that you eff
 
 If you REALLY get stuck and want to destroy _**ALL**_ docker containers/volumes/networks, even those not started by this script, run this (but be  _**extra**_ sure that's what you want to do):
 
-```
+```shell
 docker stop $(docker ps -q)&&docker system prune&&docker volume prune
 ```
 

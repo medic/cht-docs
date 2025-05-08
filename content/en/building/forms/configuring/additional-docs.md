@@ -1,17 +1,12 @@
 ---
 title: "Creating Additional Docs from App Forms"
 linkTitle: "Additional Docs"
-weight: 
-description: >
-  Integration for sending and receiving SMS
-relatedContent: >
-  building/forms/configuring/app-form-sms
-  building/forms/configuring/multimedia
-  building/forms/contact
+weight: 2
 aliases:
    - /building/guides/forms/additional-docs
    - /apps/guides/forms/additional-docs
 ---
+
 In version 2.13.0 and higher, you can configure app forms to generate additional docs upon submission. You can create one or more docs using variations on the configuration described below. One case where this can be used is to register a newborn from a delivery report, as shown below. First, here is an overview of what you can do and how the configuration should look in XML:
 
 ## Extra Docs
@@ -22,10 +17,8 @@ Extra docs can be added by defining structures in the model with the attribute
 db-doc="true"
 ```
 
-{{% alert title="Note" %}}
-You must have lower-case `true` in your XLSform, even though Excel will default to `TRUE`.
-{{% /alert %}}
-
+> [!IMPORTANT]
+> You must have lower-case `true` in your XLSform, even though Excel will default to `TRUE`.
 
 ### Example Form Model
 
@@ -43,14 +36,14 @@ You must have lower-case `true` in your XLSform, even though Excel will default 
 
 Report (as before):
 
-```
+```js
 {
   _id: '...',
   _rev: '...',
   type: 'report',
   _attachments: { xml: ... ],
   fields: {
-    root_prop_1: 'val A',
+    root_prop_1: 'val A'
   }
 }
 ```
@@ -68,7 +61,7 @@ Other doc:
 
 ## Linked Docs
 
-- Linked docs can be referred to using the doc-ref attribute, with an xpath. This can be done at any point in the model, e.g.:
+Linked docs can be referred to using the doc-ref attribute, with an xpath. This can be done at any point in the model, e.g.:
 
 ### Example Form Model
 
@@ -100,7 +93,7 @@ Report:
 
 Other doc:
 
-```
+```json
 {
   "_id": "def-456",
   "_rev": "...",
@@ -174,7 +167,8 @@ Other docs:
 This example shows how you would register a single newborn from a delivery report.
 
 First, the relevant section of the delivery report XLSForm file:
-![Delivery report](linked_docs_xlsform.png)
+
+{{< figure src="linked_docs_xlsform.png" link="linked_docs_xlsform.png" caption="Delivery report" >}}
 
 Here is the corresponding portion of XML generated after converting the form:
 
@@ -208,7 +202,8 @@ If you've done your configuration correctly, all you should see when you click o
 This example extends the above example to show how you would register one or multiple newborns from a delivery report. This allows you to handle multiple births.
 
 First, the relevant section of the delivery report XLSForm file:
-![Delivery report](repeated_docs_xlsform.png)
+
+{{< figure src="repeated_docs_xlsform.png" link="repeated_docs_xlsform.png" caption="Delivery report" >}}
 
 Here is the corresponding portion of XML generated after converting the form:
 

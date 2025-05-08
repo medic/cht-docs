@@ -14,7 +14,7 @@ aliases:
    - /apps/reference/tasks
 ---
 
-![task](task-with-description.png)
+{{< figure src="task-with-description.png" link="task-with-description.png" caption="task" >}}
 
 Task generation is configured in the `tasks.js` file. This file is a JavaScript module which defines an array of objects conforming to the Task schema detailed below. When defining tasks, all the data about contacts on the device (both people and places) along with all their reports are available. Tasks are available only for users of type "restricted to their place". Tasks can pull in fields from reports and pass data as inputs to the form that opens when the task is selected, enabling richer user experiences.
 
@@ -31,7 +31,7 @@ Task generation occurs on the client periodically and creates documents which tr
 | `title` | `translation key` | The title of the task (labeled above). | yes |
 | `appliesTo` | `'contacts'` or `'reports'` | Do you want to emit one task per report, or one task per contact? See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | yes |
 | `appliesIf` | `function(contact, report)` | If `appliesTo: 'contacts'`, this function is invoked once per contact and `report` is undefined. If `appliesTo: 'reports'`, this function is invoked once per report. Return true if the task should appear for the given documents. See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | no |
-| `appliesToType` | `string[]` | Filters the contacts or reports for which `appliesIf` will be evaluated. If `appliesTo: 'reports'`, this is an array of form codes. If `appliesTo: 'contacts'`, this is an array of contact types. For example, `['person']` or `['clinic', 'health_center']`. For example, `['pregnancy']` or `['P', 'pregnancy']`. See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | no |
+| `appliesToType` | `string[]` | Filters the contacts or reports for which `appliesIf` will be evaluated. If `appliesTo: 'reports'`, this is an array of form codes. For example, `['pregnancy']` or `['P', 'pregnancy']`. If `appliesTo: 'contacts'`, this is an array of contact types. For example, `['person']` or `['clinic', 'health_center']`. See [Understanding the Parameters in the Task Schema]({{< ref "building/tasks/managing-tasks/task-schema-parameters.md" >}}). | no |
 | `contactLabel` | `string` or `function(contact, report)` | Controls the label describing the subject of the task. Defaults to the name of the contact (`contact.contact.name`). | no |
 | `resolvedIf` | `function(contact, report, event, dueDate)` | Return true to mark the task as "resolved". A resolved task uses memory on the phone, but is not displayed. | no, if any `actions[n].type` is `'report'` |
 | `events` | `object[]` | An event is used to specify the timing of the task. | yes |

@@ -1,16 +1,15 @@
 ---
 title: "AWS Hosting in CHT 3.x"
 linkTitle: "Production Hosting - AWS"
-weight: 10
-description: >
-  Hosting the CHT on Amazon EC2
+weight: 1
 aliases:
    - /apps/guides/hosting/3.x/ec2-setup-guide
    - /apps/guides/hosting/ec2-setup-guide 
-relatedContent: >
-  hosting/3.x/self-hosting
 ---
 
+{{< hextra/hero-subtitle >}}
+  Hosting the CHT on Amazon EC2
+{{< /hextra/hero-subtitle >}}
 
 Most production CHT instances are deployed on AWS EC2.  Leveraging Elastic Compute Cloud (EC2) and Elastic Block Store (EBS), CHT instances can easily be scaled up with larger EC2 instances and have easy increased disk space, backup and restores with EBS.
 
@@ -22,7 +21,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
     Review the [CHT hardware requirements]({{< relref "hosting/requirements#hardware-requirements" >}}) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
     
-    ```
+    ```shell
     sudo chmod 0600 ~/Downloads/name_of_file.pem
     ```
     
@@ -138,5 +137,5 @@ Monitor disk usage so alerts are sent before all disk spaces is used up.  If fre
 * AWS CloudWatch and monitoring tab. Enable detailed monitoring (This costs more money)
 * Set up [Lifecycle Management for EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html#snapshot-lifecycle-console)
 * Steps to mounting a backup snapshot to the instance and restarting the application
-* Please see the second-half of "Increasing disk size" reference above
+* See the second-half of "Increasing disk size" reference above
 * Setup a TLS cert & DNS registration

@@ -3,13 +3,13 @@ title: "Training Cards Configuration"
 linkTitle: "Configuring"
 weight: 15
 description: >
-  Deploy in-app training cards for remote training.
+  Deploying in-app training cards for remote training
 keyword: training
 relatedContent: >
   building/training/training-cards
   building/training/training-cards-resources/
-  building/examples/training
-  building/examples/learning-care/
+  reference-apps/training
+  reference-apps/learning-care/
 aliases:
    - /building/guides/training/training-cards/
    - /apps/guides/training/training-cards/
@@ -17,7 +17,8 @@ aliases:
 
 [Training Cards]({{< relref "building/training/training-cards" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/concepts/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
 
-{{% alert title="Note" %}} Example training forms are available [here]({{< relref "building/training/training-cards-resources" >}}) and provide a good starting point. {{% /alert %}}
+> [!NOTE] 
+> Example training forms are available [here]({{< relref "building/training/training-cards-resources" >}}) and provide a good starting point. 
 
 # Step 1: Create the training form
 
@@ -37,7 +38,7 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 # Step 3: Configure the training form
 
-Create a [properties file]({{< relref "building/forms/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties: 
+Create a [properties file]({{< relref "building/forms/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties:
 
 ```
 {
@@ -50,7 +51,7 @@ Create a [properties file]({{< relref "building/forms/form-properties#3-define-t
 }
 ```
 
-In the example above, the training cards could be shown to any user with the "nurse" role between July 13, 2023 and September 11, 2023 (inclusive). See more information about these configuration settings below: 
+In the example above, the training cards could be shown to any user with the "nurse" role between July 13, 2023 and September 11, 2023 (inclusive). See more information about these configuration settings below:
 | Property | Description |
 |---|----|
 | "title" | Enketo’s form title that is displayed in the modal’s header section. |
@@ -58,7 +59,8 @@ In the example above, the training cards could be shown to any user with the "nu
 | "duration" | Optional. Number of days this training should be active. If not defined then the training will never expire. |
 | "user_roles" | Optional. List of user roles that can access this training. If not defined then all users can access the training. |
 
-{{% alert title="Note" %}} Users with an admin role can access training cards but they need to have a contact associated in the `org.couchdb.user:[user-name]` document from CouchDB. {{% /alert %}}
+> [!NOTE] 
+> Users with an admin role can access training cards but they need to have a contact associated in the `org.couchdb.user:[user-name]` document from CouchDB.
 
 # Step 4: Add multimedia to the training form
 
@@ -118,18 +120,18 @@ _* Training Cards are designed to only be viewed once so this should normally on
 Example SQL:
 
 ```
-SELECT 
+SELECT
 	doc#>>'{metadata,user}' AS cht_user,
 	doc#>>'{metadata,deviceId}' AS device_id,
 	concat(doc#>>'{metadata,year}', '-', doc#>>'{metadata,month}', '-',doc#>>'{metadata,day}')::date AS telemetry_date,
 	COALESCE(doc#>>'{metrics,enketo:training:<my_new_feature>:add:render,count}','0')::int AS count_render_training,
 	COALESCE(doc#>>'{metrics,enketo:training:<my_new_feature>:add:user_edit_time,count}','0')::int AS count_submit_training,
-	COALESCE(doc#>>'{metrics,enketo:training:<my_new_feature>:add:user_edit_time,max}','0')::int/1000 AS max_seconds_on_form,		
+	COALESCE(doc#>>'{metrics,enketo:training:<my_new_feature>:add:user_edit_time,max}','0')::int/1000 AS max_seconds_on_form,
 	COALESCE(doc#>>'{metrics,enketo:training:<my_new_feature>:add:user_edit_time,min}','0')::int/1000 AS min_seconds_on_form
-	
-FROM 
+
+FROM
     couchdb_users_meta
-    
+
 WHERE
 	doc->>'type'='telemetry'
 	AND doc#>'{metadata}' ? 'day'

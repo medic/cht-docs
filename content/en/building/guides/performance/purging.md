@@ -3,7 +3,7 @@ title: "Purging"
 linkTitle: "Purging"
 weight:
 description: >
-  Remove unneeded documents from offline users devices.
+  Remove unneeded documents from offline users devices
 keywords:
 relatedContent: >
   design/personas/chw-janet
@@ -96,6 +96,12 @@ module.exports = {
     return [...reportsToPurge, ...messagesToPurge];
   }
 };
+```
+
+To disable purging, you need to explicitly configure the purge key with an empty object value in the `app_settings.json` file, as in this example:
+
+```json
+"purge": {}
 ```
 
 ### Purge configuration

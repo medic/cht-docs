@@ -5,7 +5,7 @@ weight: 5
 description: >
   Configuring app header tab icons
 relevantContent: >
-  building/reference/resources
+  building/branding/resources
 keywords: icons
 aliases:
    - /apps/reference/app-settings/header_tabs
@@ -46,16 +46,12 @@ These values can also be changed from the Admin console, on the Images page unde
 | property | type | required | description |
 | -------- | ---- | -------- | ----------- |
 | `icon` | string | no | [FontAwesome](https://fontawesome.com/v4.7.0/) icon name |
-| `resource_icon` | string | no | [Resource icon]({{<  relref "building/reference/resources" >}}) name.
+| `resource_icon` | string | no | [Resource icon]({{<  relref "building/branding/resources" >}}) name.
 
-{{% alert title="Note" %}}  
-Selected Resource icons take precedence over selected FontAwesome icons.  
-If the selected Resource icon does not exist, the default icon will be displayed.   
-If the selected FontAwesome icon does not exist, the default icon will be displayed.    
-If the selected Resource icon is not an `svg` that supports css color filling, the icon will have a static color for every state (inactive, active and hovered). Colors will change only for FontAwesome icons and css fillable `svg` icons.     
-The Admin console Resource icon dropdowns only supports selecting `svg` icons. If mismatched Resource Icons are selected, they will be deselected upon saving.     
-Resource icons images will be sized to `24 x 24px` when displayed. 
-{{% /alert %}}
-
-
-
+> [!NOTE]
+> Selected Resource icons take precedence over selected FontAwesome icons.  
+> If the selected Resource icon does not exist, the default icon will be displayed.   
+> If the selected FontAwesome icon does not exist, the default icon will be displayed.    
+> If the selected Resource icon is not an `svg` that supports css color filling, the icon will have a static color for every state (inactive, active and hovered). Colors will change only for > FontAwesome icons and css fillable `svg` icons.     
+> The Admin console Resource icon dropdowns only supports selecting `svg` icons. If mismatched Resource Icons are selected, they will be deselected upon saving.     
+> Resource icons images will be sized to `24 x 24px` when displayed. 

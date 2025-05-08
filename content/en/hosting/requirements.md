@@ -1,23 +1,24 @@
 ---
 title: "CHT hosting requirements"
 linkTitle: "Requirements"
-weight: 1
-aliases:  
+weight: 2
+aliases:
   - /apps/guides/hosting/requirements
-description: >
-  Requirements for hosting CHT applications
-relatedContent: >
-  hosting/3.x/self-hosting
-  hosting/3.x/ec2-setup-guide
 ---
 
-{{% pageinfo %}}
-For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
-{{% /pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  Requirements for hosting CHT applications
+{{< /hextra/hero-subtitle >}}
+
+{{< callout  >}}
+  For production CHT deployments, Linux is recommended, with [Ubuntu](https://ubuntu.com/server) the most commonly used. For App Developer Hosting, Linux or macOS may be used. Windows can be used for either, but without recommendation.
+{{< /callout >}}
 
 Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
 
-CHT 3.x is [End-of-Life]({{< relref "core/releases#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
+{{< callout type="warning" >}}
+  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
+{{< /callout >}}
 
 ## App Developer Hosting
 
@@ -39,7 +40,7 @@ This leverages Docker and requires:
 
 ### Kubernetes
 
-This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/production/kubernetes/self-hosting-k3s-multinode" >}}). 
+This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/production/kubernetes/self-hosting-k3s-multinode" >}}).
 
 Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
 

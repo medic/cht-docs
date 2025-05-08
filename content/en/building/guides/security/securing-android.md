@@ -3,7 +3,7 @@ title: "Securing Android Devices"
 linkTitle: "Securing Android"
 weight: 
 description: >
-  How to secure android devices used in deployments
+  How to secure Android devices used in deployments
 relatedContent: >
   building/guides/debugging/replicating-production-data-locally
   hosting/3.x/ssl-cert-install
@@ -27,7 +27,7 @@ Phone`, `Encrypt Tablet`, or `Encrypt Device`. If you haven't already set a PIN
 or passcode for the lock screen, you will be prompted to do so. Remember this
 PIN and do not write it down.
 
-![Screenshot for Android 5.0](encrypt-50.jpg)
+{{< figure src="encrypt-50.jpg" link="encrypt-50.jpg" caption="Screenshot for Android 5.0" >}}
 
 ### Android 4.4 or earlier
 
@@ -40,7 +40,7 @@ Android, this can be found under `Settings` `>` `Personal` `>` `Security`.
 On some devices, the exact menu layout may have been modified by the hardware
 manufacturer. Choose `Encrypt Phone` or `Encrypt Tablet`.
 
-![Screenshot for Android 4.4](encrypt-44.jpg)
+{{< figure src="encrypt-44.jpg" link="encrypt-44.jpg" caption="Screenshot for Android 4.4" >}}
 
 ### Android Versions before 3.0
 

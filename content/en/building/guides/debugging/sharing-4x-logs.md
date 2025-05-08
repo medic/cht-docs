@@ -26,11 +26,10 @@ chmod +x compress_and_archive_docker_logs.sh
 
 ## Calling the script
 
-{{% alert title="Note" %}} 
-Be aware of two important features of this script:
-* It will get logs for ALL docker containers running, even if they're not part of the CHT
-* Logs on production CHT instances will contain PII/PHI and should be handled with care
-{{% /alert %}}
+> [!IMPORTANT]
+> Be aware of two important features of this script:
+> * It will get logs for ALL docker containers running, even if they're not part of the CHT
+> * Logs on production CHT instances will contain PII/PHI and should be handled with care
 
 
 The script defaults to getting the past 24 hours of logs and can be called from anywhere on your system as long as you specify the full path to the script.  Here it's being called from with in the `cht-core/scripts` directory:

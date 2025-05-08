@@ -14,12 +14,10 @@ aliases:
    - /apps/tutorials/tasks-1
 ---
 
-{{% pageinfo %}}
 Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]({{< ref "building/tutorials/app-forms" >}}) for new patients within 7 days of registration.
 
 - Creating a straight-forward task
 - Running and testing that task
-{{% /pageinfo %}}
 
 ## Prerequisites
 
@@ -58,7 +56,7 @@ The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an ar
 
 * `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule.
 * `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
-* `icon` - This references a [resource]({{< ref "building/reference/resources" >}}) to be used as the task's icon. Refer to [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
+* `icon` - This references a [resource]({{< ref "building/branding/resources" >}}) to be used as the task's icon. Refer to [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
 * `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}}).
 * `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`. This `appliesToType` is a _short-hand_ equivalent to `appliesIf: c => c.contact.contact_type === 'patient'`.
 * `appliesIf` - A predicate which gates the creation of the task's event schedule. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}}).
@@ -103,7 +101,8 @@ Next, test a few of the expected behaviours for the task:
 * The task should not appear only for patients - not for places or CHWs.
 * If you mute a contact or [report the contact dead]({{< ref "building/workflows/death-reporting" >}}), the task should disappear.
 
-{{% alert title="Note" %}} Remember to reset your system clock to be accurate when you are done testing. {{% /alert %}}
+> [!IMPORTANT] 
+> Remember to reset your system clock to be accurate when you are done testing.
 
 ## Frequently Asked Questions
 

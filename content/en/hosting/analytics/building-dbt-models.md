@@ -1,22 +1,19 @@
 ---
 title: "dbt Models for CHT Applications"
 linkTitle: "dbt Models"
-weight: 5
-description: >
-  Guide for building dbt models for CHT applications
-relatedContent: >
-  core/overview/db-schema
-  building/reference/app-settings/hierarchy
+weight: 4
 aliases:
    - /apps/guides/data/analytics/building-dbt-models
    - /building/guides/data/analytics/building-dbt-models
 ---
 
-## Overview
+{{< hextra/hero-subtitle >}}
+  Guide for building dbt models for CHT applications
+{{< /hextra/hero-subtitle >}}
 
-[CHT Sync]({{< relref "core/overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
+[CHT Sync]({{< relref "technical-overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
-The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions]({{< ref "core/overview/db-schema" >}}).
+The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions]({{< ref "technical-overview/db-schema" >}}).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
 If using the [configurable contact hierarchy]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
@@ -37,11 +34,14 @@ packages:
 ```
 To avoid breaking changes in downstream models, include `revision` in the dependency, which should be a version tag for `cht-pipeline`.
 
-In the CHT Sync config, set the URL of dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}), either in `.env` if using Docker compose, or in `values.yaml` if using Kubernetes.
+In the CHT Sync config, set the URL of the dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}), either in `.env` if using Docker compose, or in `values.yaml` if using Kubernetes.
 
-{{% alert title="Note" %}}
-If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll need an access token in the URL. Assuming your repository is `medic/cht-pipeline`, you would replace  `<PAT>`  with an access token: `https://<PAT>@github.com/medic/cht-pipeline.git#main`. Please see [GitHub's instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) on how to generate a token. If you create a fine-grained access token you need to provide read and write access to the [contents](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28#repository-permissions-for-contents) of the repository.
-{{% /alert %}}
+> [!IMPORTANT]
+> If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll need an access token in the URL. Assuming your repository is `medic/cht-pipeline`, you would replace  `<PAT>`  with an access token: `https://<PAT>@github.com/medic/cht-pipeline.git#main`. See [GitHub's instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) on how to generate a token. If you create a fine-grained access token you need to provide read and write access to the [contents](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28#repository-permissions-for-contents) of the repository.
+
+### Local development
+
+When creating/modifying models, you can use the Docker [local profile]({{< relref "hosting/analytics/setup-docker-compose#local" >}}) to run a local test instance of CHT Sync that can reference your model configuration directly on your local machine (without needing to commit/push the changes remotely).
 
 ### Deploying models
 
@@ -78,6 +78,7 @@ The name is configurable using the `POSTGRES_TABLE` environment variable.
 |`_id`|CouchDB's unique identifier of the record|
 |`saved_timestamp`| timestamp when this row was inserted|
 |`_deleted`| `true` if the document was deleted, `false` otherwise. |
+|`source`| The instance and database that this document was synced from. The format is `host/db`. |
 |`doc`| JSON of the source document|
 
 ### `document_metadata`
@@ -91,9 +92,11 @@ The document itself is not copied to this table; to use it requires joining to t
 |`saved_timestamp`|timestamp when this row was inserted|
 |`doc_type`|The general type of the document, see below|
 |`_deleted`| in this table, always `false`; rows which are copied with `_deleted = true` are immediately deleted  |
+|`instance`| The hostname of the CHT instance the document was synced from. |
+|`dbname`| The name of the CouchDB database the document was synced from. |
 
 ### `data_record`
-All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "core/overview/db-schema#reports" >}}).
+All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "technical-overview/db-schema#reports" >}}).
 This table contains columns for the contact who made the report, the parent of that contact, and the date it was reported.
 
 |Field|Description|
@@ -110,7 +113,7 @@ This table contains columns for the contact who made the report, the parent of t
 |`grandparent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 
 ### `contact`
-See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "core/overview/db-schema#contacts-persons-and-places" >}}).
+See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "technical-overview/db-schema#contacts-persons-and-places" >}}).
 Every person and place is stored in the `contact` table. Persons and places are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
 The contact hierarchy defines "is a" relationships between contact types; e.g., a patient is a person is a contact. This is modeled as one table per type, where the `uuid` is both the primary key for the child table and a foreign key to the parent table.
 
@@ -186,7 +189,7 @@ This example extracts `Last Menstrual Period`, `Expected Delivery Date` and `ANC
 -- add any indexes specific to this form
 {%- set form_indexes = [
   {'columns': ['edd']},
-  {'columns': ['danger_signs']}]
+  {'columns': ['danger_signs']},
   {'columns': ['risk_factors']}]
 -%}
 -- add columns specific to this form
@@ -402,10 +405,12 @@ To get the percentage of documents that have synced you can run the following qu
 SELECT (COUNT(*) * 100 / (COUNT(*) + (SELECT SUM(pending) FROM v1.couchdb_progress))) AS sync_percentage FROM v1.couchdb;
 ```
 
-This query selects the total number of documents that have been synced to the `v1.couchdb` table and divides it by the total number of documents that have been synced and the number of documents that are pending to be synced. This will give you the percentage of documents that have been synced. Please note that the schema and table name could differ according to the [environment variables]({{< relref "hosting/analytics/environment-variables" >}}) you set so update them accordingly. Run this query periodically to monitor the progress of the sync and stop the sync process once you get to the desired percentage. It's okay if it is not exactly 10% as long as it is close enough to give you an idea of the disk space required.
+This query selects the total number of documents that have been synced to the `v1.couchdb` table and divides it by the total number of documents that have been synced and the number of documents that are pending to be synced. This will give you the percentage of documents that have been synced. Note that the schema and table name could differ according to the [environment variables]({{< relref "hosting/analytics/environment-variables" >}}) you set so update them accordingly. Run this query periodically to monitor the progress of the sync and stop the sync process once you get to the desired percentage. It's okay if it is not exactly 10% as long as it is close enough to give you an idea of the disk space required.
 
 You can then multiply this figure by 10 to get an estimate of the disk space required for the full dataset and then add some extra space for indexes and other overhead as well as future growth.
 
 For example if the size of the database is 1GB, you can expect the full dataset to be around 10GB. If the CouchDB docs grow by 20% every year then you can compound this growth over 5 years to get an estimate of the disk space required: `10GB * 1.2^5 = 18.5GB`. You can add an extra 20% for indexes and overhead to get an estimate of 22.2GB.
 
-Please note that this is just an estimate and the actual disk space required may vary so actively monitoring the disk space usage and making necessary adjustments is recommended.
+{{< callout >}}
+  This is just an estimate and the actual disk space required may vary so actively monitoring the disk space usage and making necessary adjustments is recommended.
+{{< /callout >}}

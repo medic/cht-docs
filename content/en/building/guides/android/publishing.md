@@ -3,10 +3,10 @@ title: "Publishing"
 linkTitle: "Publishing"
 weight: 4
 description: >
-  Instructions for Publishing Android Apps
+  Instructions for publishing Android Apps
 relatedContent: >
-  contribute/code/android/releasing
-  building/guides/android/branding
+  community/contributing/code/android/releasing
+  building/branding/android
   building/guides/security/securing-android
 aliases: >
   /apps/guides/hosting/android-app/
@@ -15,7 +15,7 @@ aliases: >
   /apps/guides/android/publishing/
 ---
 
-Once the flavor is [built]({{< ref "building/guides/android/branding" >}}) there are many different ways to publish the binaries for installation.
+Once the flavor is [built]({{< ref "building/branding/android" >}}) there are many different ways to publish the binaries for installation.
 
 ### Google Play Store
 
@@ -33,24 +33,22 @@ In the [Google Play Console](https://play.google.com/console), for each flavor t
 
 For a more detailed explanation, follow this [doc](https://support.google.com/googleplay/android-developer/answer/9859751?hl=en).
 
-{{% alert title="Note" %}}
-Published apps are not immediately available to users on the Play Store. Confirm, via the Google Play Console, that the release is available before officially announcing it (this could take hours or days).
-{{% /alert %}}
+> [!NOTE]
+> Published apps are not immediately available to users on the Play Store. Confirm, via the Google Play Console, that the release is available before officially announcing it (this could take hours or days).
 
 #### New App in the Play Store
 
-Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is `<brand>_private_key.pepk` generated when following the instructions of [New brand]({{< ref "building/guides/android/branding" >}}) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
+Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is `<brand>_private_key.pepk` generated when following the instructions of [New brand]({{< ref "building/branding/android" >}}) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
 
-{{% alert title="Note" %}}
-New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "contribute/code/android/development-setup#artifact-formats" >}}) section.
-{{% /alert %}}
+> [!NOTE]
+> New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "community/contributing/code/android/development-setup#artifact-formats" >}}) section.
 
 ### Side loading
 
 This method gives an app developer full control over installation. It is also possible to do the installation without an internet connection which makes it ideal for remote installation, or to save bandwidth when performing multiple installs.
 
 1. In the phone settings [select the option](https://developer.android.com/distribute/marketing-tools/alternative-distribution#unknown-sources) to "opt in for installing unknown apps".
-2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "contribute/code/android/development-setup#apks" >}}).  This is likely easiest done by using the phone's browser to navigate to the download page.
+2. Download the correct APK on to the phone. It's important to select the right APK for the instruction set and Android version, as documented [in this table]({{< ref "community/contributing/code/android/development-setup#apks" >}}).  This is likely easiest done by using the phone's browser to navigate to the download page.
 3. After downloading, you should be prompted to install the APK.
 
 ### F-Droid
@@ -69,4 +67,4 @@ Other MDM providers include [Headwind MDM](https://h-mdm.com/) and [Microsoft In
 
 ### Progressive Web App
 
-Another alternative is to install the CHT Core webapp as a Progressive Web App. This avoids building an Android application altogether. Read more on the [PWA page]({{< relref "core/overview/pwa" >}}).
+Another alternative is to install the CHT Core webapp as a Progressive Web App. This avoids building an Android application altogether. Read more on the [PWA page]({{< relref "technical-overview/pwa" >}}).

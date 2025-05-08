@@ -6,8 +6,8 @@ description: >
 keyword: training
 relatedContent: >
   building/training/training-cards-resources
-  building/examples/training
-  building/examples/learning-care/
+  reference-apps/training
+  reference-apps/learning-care/
 aliases:
    - /building/features/training/
    - /apps/features/training/
@@ -20,13 +20,14 @@ _Introduced in 4.2.0_
 [Template training content]({{< relref "building/training/training-cards-resources" >}}) for new CHT features is made available from time to time. These templates can be customized to the local context.
 
 {{< figure src="training-deck.png" link="training-deck.png" class="col-12 col-lg-10" >}}
- 
+
 
 ## Accessing
 
 When health workers open or reload their app, configured training cards will automatically show on top of all other content in the app. If it is not a convenient time to complete the training, they can cancel out at any time and will be prompted again the next day they open their app (training will start from the beginning).
 
-{{% alert title="Note" %}} If there are multiple training sets configured to start on the same day, the CHT will determine the order alphabetically based on the form ID. Subsequent training sets will only be displayed once the previous ones are either completed or no longer valid the next day the app is opened. {{% /alert %}}
+> [!NOTE] 
+> If there are multiple training sets configured to start on the same day, the CHT will determine the order alphabetically based on the form ID. Subsequent training sets will only be displayed once the previous ones are either completed or no longer valid the next day the app is opened.
 
 Training materials can also be accessed in the training page found in the auxiliary menu for users to revisit as needed. Completed training is displayed with a green checkmark. _Added in 4.15.0_.
 

@@ -1,11 +1,7 @@
 <div class="row">
-  <div class="col-12 col-sm-3 text"><h4 class="d-sm-none">Condition</h4>{{ .Get "condition" | markdownify }}</div>
-
-  <div class="col-1 d-none d-sm-flex align-self-center"><i class="fas fa-arrow-alt-circle-right"></i></div>
-  <div class="col-1 d-sm-none"><i class="fas fa-long-arrow-alt-right fa-rotate-45"></i></div>
-  <div class="col-11 col-sm-3 text"><h4 class="d-sm-none">Task</h4>{{ .Get "task" | markdownify }}</div>
-
-  <div class="col-1 d-none d-sm-flex align-self-center"><i class="fas fa-arrow-alt-circle-right"></i></div>
-  <div class="col-1 d-sm-none"><i class="fas fa-long-arrow-alt-right fa-rotate-45"></i></div>
-  <div class="col-11 col-sm-4 text"><h4 class="d-sm-none">Resolution</h4>{{ .Get "resolution" | markdownify }}</div>
+  <div class="w-content"><h4 class="d-sm-none">Condition</h4>{{ .Get "condition" | markdownify }}</div>
+  <div class="w-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+  <div class="w-content"><h4 class="d-sm-none">Task</h4>{{ .Get "task" | markdownify }}</div>
+  <div class="w-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+  <div class="w-content"><h4 class="d-sm-none">Resolution</h4>{{ .Get "resolution" | markdownify }}</div>
 </div>

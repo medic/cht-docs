@@ -13,9 +13,13 @@ aliases:
    - /apps/reference/targets
 ---
 
-![Percentages](counts.png)
+{{< hextra/hero-subtitle >}}
+  How to build CHT monthly and all time target widgets
+{{< /hextra/hero-subtitle >}}
 
-![Percentages](percentages.png)
+{{< figure src="counts.png" link="counts.png" caption="Percentages" >}}
+
+{{< figure src="percentages.png" link="percentages.pngg" caption="Percentages" >}}
 
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 
@@ -42,7 +46,7 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 | `groupBy` | `function(contact, report)` returning string | Allows for target ids to be aggregated and scored in groups. Not required for most targets. Use with passesIfGroupCount. | no |
 | `passesIfGroupCount` | `object` | The criteria to determine if the target ids within a group should be counted as passing | yes when `groupBy` is defined |
 | `passesIfGroupCount.gte` | `number` | The group should be counted as passing if the number of target ids in the group is greater-than-or-equal-to this value | yes when `groupBy` is defined |
-| `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration]({{< ref "building/guides/integrations/dhis2-aggregate#configuration" >}}) | no
+| `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration]({{< ref "building/integrations/dhis2-aggregate#configuration" >}}) | no
 | `dhis[n].dataElement` | `string` | The hash id of a data element configured in the DHIS2 data set you're integrating with | yes
 | `dhis[n].dataSet` | `string` | The hash id of the data set that contains the data element you're integrating with. If this is left undefined, the data element will appear in all data sets. | no
 | `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
@@ -147,4 +151,6 @@ module.exports = {
 
 To build your targets into your app, you must compile them into app-settings, then upload them to your instance. 
 
-`cht --local compile-app-settings backup-app-settings upload-app-settings`
+```shell
+cht --local compile-app-settings backup-app-settings upload-app-settings
+```

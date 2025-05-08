@@ -2,24 +2,20 @@
 title: "Target Widgets"
 linkTitle: Target Widgets
 weight: 2
-description: >
- How to build CHT monthly and all time target widgets
-relatedContent: >
-  building/targets/targets-overview
-  building/targets/targets-js
-  design/best-practices/#anatomy-of-a-task
 aliases:
    - /apps/tutorials/targets
    - /building/tutorials/targets
 ---
 
-{{% pageinfo %}}
+{{< hextra/hero-subtitle >}}
+  How to build CHT monthly and all time target widgets
+{{< /hextra/hero-subtitle >}}
+
 This tutorial will take you through how to build target widgets.
 
 Target widgets provide a summary or analysis of the data in submitted reports.
 
 You will be adding target widgets that will allow Community Health Workers (CHWs) to track various metrics based on assessment reports submitted.
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
@@ -91,7 +87,8 @@ Edit the `targets.js` file and add another target widget definition object to de
   }
 ```
 
-{{% alert title="Note" %}} All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`. {{% /alert %}}
+> [!NOTE]
+> All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`. 
 
 {{< figure src="assessments_all_time_no_translation.png" link="assessments_all_time_no_translation.png" class="right col-6 col-lg-4" >}}
 {{< figure src="assessments_this_month_no_translation.png" link="assessments_this_month_no_translation.png" class="right col-6 col-lg-4" >}}
@@ -358,7 +355,8 @@ To compile and upload app settings to your local instance, run the following com
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 {{< figure src="targets_no_translations.png" link="targets_no_translations.png" class="right col-6 col-lg-8" >}}
 
@@ -375,7 +373,7 @@ targets.assessments.percentage.cough.title = % Population with cough
 targets.households.with.assessments.title = Total households with assessments
 targets.households.with.gt2.assessments.title = % Household with >=2 assessments
 ```
-To upload *[translations]({{< ref "building/translations/localizing-translations#translations" >}})* to your local instance, run the following command:
+To upload *[translations]({{< ref "building/translations/localizing" >}})* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
@@ -385,10 +383,11 @@ cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upl
 
 The image on the right-hand side shows the updated target titles. Your image may be different depending on your wording.
 
-{{% alert title="Note" %}} Be sure to have the correct translation key in your target widget's `translation_key` property.  {{% /alert %}}
+> [!IMPORTANT] 
+> Be sure to have the correct translation key in your target widget's `translation_key` property.
 
 ### 10. Target icons
-You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library]({{< ref "design/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
+You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library]({{< ref "design/interface/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
 
 ```json
 {
@@ -397,11 +396,12 @@ You may add `icons` to your target widgets to enhance their appearance and to he
   "icon-cough": "icon-condition-cough.svg"
 }
 ```
-{{% alert title="Note" %}} The `key` in the `resources.json` file is the value of the `icon` property in the target widget configuration. {{% /alert %}}
+> [!NOTE] 
+> The `key` in the `resources.json` file is the value of the `icon` property in the target widget configuration.
 
-{{< see-also page="design/icons" title="Icon Library" >}}
+{{< see-also page="design/interface/icons" title="Icon Library" >}}
 
-To upload *[resources]({{< ref "building/reference/resources#icons" >}})* to your local instance, run the following command:
+To upload *[resources]({{< ref "building/branding/resources#icons" >}})* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
