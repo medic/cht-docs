@@ -11,4 +11,5 @@ weight: 50
 {{< cards >}}
   {{< card link="keycloak" title="KeyCloak" subtitle="Using CHT with KeyCloak" icon="key" >}}
   {{< card link="entra" title="Microsoft Entra" subtitle="Using CHT with Entra" icon="lock-open" >}}
+  {{< card link="technical" title="Technical Reference" subtitle="Sequence diagrams and more" icon="terminal" >}}
 {{< /cards >}}
