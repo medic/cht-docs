@@ -2,6 +2,8 @@
 title: "CHW Supervisor, Ann"
 linkTitle: "CHW Supervisor"
 weight: 2
+description: >
+  People training and supporting CHWs 
 ---
 
 {{< hextra/hero-subtitle >}}

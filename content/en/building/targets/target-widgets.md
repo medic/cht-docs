@@ -2,6 +2,12 @@
 title: "Target Widgets"
 linkTitle: Target Widgets
 weight: 2
+description: >
+ How to build CHT monthly and all time target widgets
+relatedContent: >
+  building/targets/targets-overview
+  building/targets/targets-js
+  design/best-practices/#anatomy-of-a-task
 aliases:
    - /apps/tutorials/targets
    - /building/tutorials/targets

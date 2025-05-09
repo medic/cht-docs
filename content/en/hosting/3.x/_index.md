@@ -1,6 +1,8 @@
 ---
 title: 3.x
 weight: 7
+description: >
+ Guides for hosting CHT 3.x applications
 aliases:
     - /apps/guides/hosting/3.x
 ---

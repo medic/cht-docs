@@ -2,6 +2,8 @@
 title: "Coding Style Guide"
 linkTitle: "Style Guide"
 weight: 2
+description: >
+  Guidelines for writing code
 aliases: >
   - /contribute/code/style-guide
 ---

@@ -2,6 +2,8 @@
 title: "Technical Resources"
 linkTitle: "Technical Resources"
 weight: 5
+description: >
+  Resources to get started as a contributor to the CHT
 aliases:
    - /contribute/medic/onboarding/technical-resources
    - /contribute/technical-resources

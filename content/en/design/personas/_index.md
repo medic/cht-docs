@@ -2,6 +2,8 @@
 title: "User Personas"
 linkTitle: "Personas"
 weight: 1
+description: >
+  The "typical" users of CHT Applications across diverse contexts
 ---
 
 {{< hextra/hero-subtitle >}}

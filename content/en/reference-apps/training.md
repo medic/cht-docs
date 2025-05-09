@@ -2,6 +2,12 @@
 title: "Remote Onboarding and Training"
 linkTitle: "Remote Onboarding & Training"
 weight:
+description: >
+  App and care workflow training using remote capabilities
+relatedContent: >
+  building/reference/app-settings/token_login/
+  building/concepts/access/
+  building/training/onboarding
 aliases:
    - /apps/examples/training
    - /building/examples/training

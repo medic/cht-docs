@@ -4,6 +4,8 @@ linkTitle: "Build"
 aliases:
     - /apps/
 weight: 6
+description: >
+  Overview and reference for building CHT Applications
 ---
 
 {{< hextra/hero-subtitle >}}

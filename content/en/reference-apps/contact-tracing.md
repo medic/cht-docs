@@ -2,7 +2,8 @@
 title: "Contact Tracing"
 linkTitle: "Contact Tracing"
 weight:
-keywords:
+description: >
+  A community surveillance tool to help control infectious disease outbreaks and mitigate secondary disease transmission
 aliases:
    - /apps/examples/contact-tracing
    - /building/examples/contact-tracing

@@ -2,6 +2,10 @@
 title: "Creating Additional Docs from App Forms"
 linkTitle: "Additional Docs"
 weight: 2
+relatedContent: >
+  building/forms/configuring/app-form-sms
+  building/forms/configuring/multimedia
+  building/forms/contact
 aliases:
    - /building/guides/forms/additional-docs
    - /apps/guides/forms/additional-docs

@@ -2,6 +2,8 @@
 title: "CHT Core Framework"
 linkTitle: "CHT Core"
 weight: 2
+description: >
+  Technical overview of the CHT Core Framework
 ---
 
 {{< hextra/hero-subtitle >}}

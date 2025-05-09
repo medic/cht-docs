@@ -2,6 +2,8 @@
 title: "CHT Core dev environment setup"
 linkTitle: "Dev Environment Setup"
 weight: 1
+description: >
+  Get your local machine ready to do development work on CHT Core
 aliases:
   - /apps/guides/hosting/core-developer
   - /apps/guides/hosting/hosting/4.x/app-developer
@@ -9,7 +11,7 @@ aliases:
 ---
 
 {{< hextra/hero-subtitle >}}
-  Getting your local machine ready to do development work on CHT Core
+  Get your local machine ready to do development work on CHT Core
 {{< /hextra/hero-subtitle >}}
 
 {{< callout >}}

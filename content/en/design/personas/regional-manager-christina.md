@@ -2,6 +2,8 @@
 title: "Regional Manager, Christina"
 linkTitle: "Regional Manager"
 weight: 3
+description: >
+  Overseeing regional activities
 ---
 
 {{< hextra/hero-subtitle >}}

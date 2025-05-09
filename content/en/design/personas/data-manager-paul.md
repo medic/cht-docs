@@ -2,6 +2,8 @@
 title: "Data Manager, Paul"
 linkTitle: "Data Manager"
 weight: 5
+description: >
+  Collating and reporting on community and health system data
 ---
 
 {{< hextra/hero-subtitle >}}

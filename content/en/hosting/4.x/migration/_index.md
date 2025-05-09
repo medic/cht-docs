@@ -2,6 +2,8 @@
 title: Migration Guides
 linkTitle: Migration Guides
 weight: 20
+description: >
+ Guides for migrating CHT applications
 ---
 
 {{< hextra/hero-subtitle >}}

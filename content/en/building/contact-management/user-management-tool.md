@@ -2,6 +2,11 @@
 title: "CHT User Management tool"
 linkTitle: User management tool
 weight: 5
+description: >
+  How to use and configure a user management tool for a CHT project
+relatedContent: >
+  building/contact-management/contact-and-users-1
+  building/guides/data/users-bulk-load
 aliases:
    - /building/tutorials/user-management-tool/
    - /apps/tutorials/user-management-tool

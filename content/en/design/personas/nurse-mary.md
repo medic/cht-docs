@@ -2,6 +2,8 @@
 title: "Nurse, Mary"
 linkTitle: "Nurse"
 weight: 4
+description: >
+  Training and managing CHWs
 ---
 
 {{< hextra/hero-subtitle >}}

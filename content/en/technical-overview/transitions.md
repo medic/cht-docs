@@ -2,6 +2,10 @@
 title: "Sentinel Transitions"
 linkTitle: "Sentinel Transitions"
 weight: 10
+description: >
+  Overview of transitions and database documents change
+relatedContent: >  
+  building/reference/app-settings/transitions
 aliases:
    - /core/overview/transitions/
 ---

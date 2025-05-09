@@ -2,6 +2,8 @@
 title: "App Builders"
 linkTitle: "App Builders"
 weight: 6
+description: >
+  Developing and delivering world-class software
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -2,6 +2,14 @@
 title: "Contacts and Users"
 linkTitle: "Contacts"
 weight: 1
+description: >
+  Overview of contacts and users
+relatedContent: >
+  building/forms/contact
+  building/contact-summary/contact-summary-templated
+  building/contact-management/moving-contacts
+  building/contact-management/contact-and-users-1
+  reference-apps/contact-tracing
 aliases:
    - /building/features/contacts/
    - /apps/features/contacts/

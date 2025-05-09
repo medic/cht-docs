@@ -2,6 +2,8 @@
 title: "YendaNafe CHT app by PIH in Malawi"
 linkTitle: "PIH Malawi"
 weight:
+description: >
+  Reference app co-designed by PIH Malawi and Medic
 aliases:
    - /apps/examples/pih
    - /building/examples/pih

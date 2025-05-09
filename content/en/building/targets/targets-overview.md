@@ -1,6 +1,13 @@
 ---
 title: Overview
 weight: 1
+description: >
+  Dashboards to track metrics for an individual CHW or for an entire health facility
+relatedContent: >
+  building/targets/targets-js
+  technical-overview/db-schema#targets
+  building/integrations/dhis2
+  building/features/supervision/#chw-aggregate-targets
 aliases:
    - /building/features/targets/
    - /apps/features/targets/

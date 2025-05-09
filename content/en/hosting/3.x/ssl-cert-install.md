@@ -2,6 +2,10 @@
 title: "SSL Cert Install in CHT 3.x"
 linkTitle: "SSL Cert Install"
 weight: 4
+description: >
+  SSL Cert Installation for Self-Hosting Setups using Medic OS/3.x
+relatedContent: >
+  hosting/3.x/self-hosting
 aliases:
   - /apps/guides/hosting/3.x/ssl-cert-install
   - /apps/guides/hosting/ssl-cert-install

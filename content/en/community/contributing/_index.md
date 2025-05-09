@@ -2,6 +2,8 @@
 title: "Contribute code and documentation"
 linkTitle: "Contribute"
 weight: 1
+description: >
+  Starting guides for contributors
 aliases:
   -  /contribute/
 ---

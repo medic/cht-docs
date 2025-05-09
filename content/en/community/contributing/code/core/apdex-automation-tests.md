@@ -2,6 +2,8 @@
 title: "Apdex Automated Tests"
 linkTitle: "Apdex Automated Tests"
 weight: 13
+description: >
+  Automated test execution for creating telemetry data and calculating the Apdex scores
 aliases: >
   /core/guides/fixing-e2e-tests
   /contribute/code/core/fixing-e2e-tests

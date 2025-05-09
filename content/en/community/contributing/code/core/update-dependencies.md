@@ -2,6 +2,8 @@
 title: "Update Dependencies"
 linkTitle: "Update Dependencies"
 weight: 8
+description: >
+  Process for updating dependencies
 aliases: >
   /core/guides/update-dependencies
   /contribute/code/core/update-dependencies

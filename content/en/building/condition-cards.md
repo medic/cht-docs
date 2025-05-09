@@ -2,6 +2,11 @@
 title: Condition Cards
 linkTitle: Condition Cards
 weight: 6
+description: >
+  Build CHT condition cards
+relatedContent: >
+  building/contact-management
+  building/contact-summary/contact-summary-templated#condition-cards
 aliases:
    - /building/tutorials/condition-cards
    - /apps/tutorials/condition-cards

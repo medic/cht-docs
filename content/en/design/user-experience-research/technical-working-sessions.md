@@ -2,6 +2,8 @@
 title: "Technical Working Sessions"
 linkTitle: "Technical Working Sessions"
 weight: 5
+description: >
+  How to conduct a Technical Working Session 
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -2,6 +2,8 @@
 title: "Typography"
 linkTitle: "Typography"
 weight: 3
+description: >
+  Typography is the design of type in ways that provides innate hierarchy to UI
 ---
 
 {{< hextra/hero-subtitle >}}

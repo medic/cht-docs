@@ -2,6 +2,8 @@
 title: "Contributing Code"
 linkTitle: "Code"
 weight: 4
+description: >
+  How to contribute to code to the CHT
 aliases:
   -    /contribute/code/
 ---

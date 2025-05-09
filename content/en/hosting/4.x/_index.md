@@ -1,6 +1,10 @@
 ---
 title: 4.x
 weight: 6
+description: >
+    Guides for hosting CHT 4.x applications
+relatedContent: >
+    building/guides/updates/preparing-for-4/
 aliases:
   - /apps/guides/hosting/4.x
 ---

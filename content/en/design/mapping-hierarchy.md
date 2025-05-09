@@ -2,6 +2,8 @@
 title: "Mapping Users on the CHT Hierarchy"
 linkTitle: Mapping Hierarchy
 weight: 4
+description: >
+  Mapping users on the CHT hierarchy
 aliases:
    - /design/guides/mapping-hierarchy
 ---

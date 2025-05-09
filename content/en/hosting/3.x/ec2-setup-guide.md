@@ -2,6 +2,10 @@
 title: "AWS Hosting in CHT 3.x"
 linkTitle: "Production Hosting - AWS"
 weight: 1
+description: >
+  Hosting the CHT on Amazon EC2
+relatedContent: >
+  hosting/3.x/self-hosting
 aliases:
    - /apps/guides/hosting/3.x/ec2-setup-guide
    - /apps/guides/hosting/ec2-setup-guide 

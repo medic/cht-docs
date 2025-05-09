@@ -2,6 +2,8 @@
 title: "CHT App Configurer"
 linkTitle: "CHT Conf"
 weight: 3
+description: >
+  Manage and configure apps built using the CHT Core Framework
 aliases:
    - /core/overview/cht-conf/
 ---

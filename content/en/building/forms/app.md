@@ -2,6 +2,10 @@
 title: "app"
 linkTitle: "app"
 weight: 1
+description: >
+  **App Forms**: Used to complete reports, tasks, and actions in the app
+relatedContent: >
+  building/forms/configuring/form-inputs
 aliases:
    - /building/reference/forms/app
    - /apps/reference/forms/app

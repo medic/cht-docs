@@ -2,6 +2,10 @@
 title: "Learning and Care"
 linkTitle: "Learning & Care"
 weight:
+description: >
+  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19
+relatedContent: >
+  building/integrations/oppia
 aliases:
    - /apps/examples/learning-care
    - /building/examples/learning-care

@@ -2,13 +2,15 @@
 title: "App Developer Hosting in CHT 4.x"
 linkTitle: "App Developer Hosting"
 weight: 10
+description: >
+  Host the CHT when developing apps
 aliases:
   - /apps/guides/hosting/4.x/app-developer
   - /apps/guides/hosting/app-developer
 ---
 
 {{< hextra/hero-subtitle >}}
-  Hosting the CHT when developing apps
+  Host the CHT when developing apps
 {{< /hextra/hero-subtitle >}}
 
 {{< callout >}}

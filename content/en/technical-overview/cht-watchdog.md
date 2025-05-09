@@ -2,6 +2,11 @@
 title: "CHT Watchdog"
 linkTitle: "CHT Watchdog"
 weight: 4
+description: >
+    Monitoring and alerting system using Grafana and Prometheus
+relatedContent: >  
+    technical-overview/architecture
+    hosting/monitoring/
 aliases:
    - /core/overview/watchdog/
 ---

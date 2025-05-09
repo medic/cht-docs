@@ -2,6 +2,10 @@
 title: "Configurable Hierarchies"
 linkTitle: "Hierarchies"
 weight: 6
+description: >
+  Organize people and places, and their relationship to one another
+relatedContent: >
+  building/reference/app-settings/hierarchy
 aliases:
    - /building/concepts/hierarchy
    - /apps/concepts/hierarchy

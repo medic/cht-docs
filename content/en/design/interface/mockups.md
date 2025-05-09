@@ -2,6 +2,8 @@
 title: "Editable Mockups"
 linkTitle: "Mockups"
 weight: 6
+description: >
+  Slide decks with components for testing and validating concepts
 aliases:
    - /design/mockups/
 ---

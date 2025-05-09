@@ -2,6 +2,8 @@
 title: "Event Based Surveillance"
 linkTitle: "Event Based Surveillance"
 weight:
+description: >
+  Capturing information about community events that are a risk to public health
 aliases:
    - /apps/examples/ebs
    - /building/examples/ebs
