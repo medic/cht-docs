@@ -2,6 +2,8 @@
 title: "Style guide for automated tests"
 linkTitle: "Style Guide for Automated Tests"
 weight: 12
+description: >
+  Editorial guidelines for anyone creating new automated test cases for the cht-core
 aliases: >
   /contribute/code/core/style-guide-automated-e2e-tests
 ---

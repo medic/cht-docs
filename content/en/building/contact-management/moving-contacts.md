@@ -2,6 +2,13 @@
 title: "Moving Contacts within the Hierarchy"
 linkTitle: "Moving Contacts"
 weight: 4
+description: >
+  How to safely move contacts
+relatedContent: >
+  building/contact-management
+  building/reference/app-settings/hierarchy
+  building/contact-management/contact-and-users-2
+  building/workflows/hierarchy
 aliases:
    - /building/guides/updates/moving-contacts/
    - /apps/guides/updates/moving-contacts

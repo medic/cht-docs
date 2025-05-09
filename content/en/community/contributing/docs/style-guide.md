@@ -2,6 +2,8 @@
 title: "Documentation Style Guide"
 linkTitle: "Style Guide"
 weight: 2
+description: >
+  Editorial guidelines for writing documentation
 aliases:
   -  /contribute/docs/style-guide
 ---

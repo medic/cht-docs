@@ -2,6 +2,11 @@
 title: "Customizing Titles in the Reports List"
 linkTitle: "Report Titles"
 weight: 8
+description: >
+  Customize the title shown in the Reports list
+relatedContent: >
+  building/features/reports
+  building/reference/app-settings/patient_reports
 aliases:
    - /building/guides/forms/report-titles
    - /apps/guides/forms/report-titles

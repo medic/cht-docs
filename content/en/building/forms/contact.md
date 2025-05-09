@@ -2,6 +2,13 @@
 title: "contact"
 linkTitle: "contact"
 weight: 2
+description: >
+  **Contact Forms**: Used to create and edit people and places
+relatedContent: >
+  building/forms/configuring/form-inputs
+  building/forms/configuring/additional-docs
+  building/forms/configuring/multimedia
+  building/forms/configuring/app-form-sms
 aliases:
    - /building/reference/forms/contact
    - /apps/reference/forms/contact

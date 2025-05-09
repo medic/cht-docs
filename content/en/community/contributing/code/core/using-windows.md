@@ -2,6 +2,8 @@
 title: "Developing on Windows"
 linkTitle: "Windows Development"
 weight: 15
+description: >
+  Notes for developing on Windows
 aliases: >
   /core/guides/using-windows
   /contribute/code/core/using-windows

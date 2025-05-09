@@ -2,8 +2,12 @@
 title: "Feature Releases"
 linkTitle: "Feature Releases"
 weight: 1
+description: >
+    Feature Releases for the CHT Core Framework
 aliases:
   - /community/contributing/core/releases/feature_releases/
+relatedContent: >
+    releases/
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -2,6 +2,10 @@
 title: contact-summary.templated.js
 linkTitle: contact-summary.templated.js
 weight: 2
+description: >
+  Customize fields, cards, and actions on profile pages
+relatedContent: >
+  building/forms/configuring/form-inputs
 aliases:
    - /building/reference/contact-page
    - /apps/reference/contact-page

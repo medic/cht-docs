@@ -2,6 +2,12 @@
 title: "Configuring UHC Mode"
 linkTitle: UHC Mode
 weight: 1
+description: >
+  How to enable Universal Health Coverage monitoring with UHC Mode
+relatedContent: >
+  building/features/uhc-mode
+  building/reference/app-settings/user-roles
+  building/reference/app-settings/user-permissions
 aliases:
    - /building/guides/forms/uhc-mode
    - /apps/guides/forms/uhc-mode

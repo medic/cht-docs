@@ -2,6 +2,8 @@
 title: "Running multiple Chrome versions"
 linkTitle: "Multiple Chrome Versions"
 weight: 16
+description: >
+  How to run multiple Chrome versions on your local machine
 aliases: >
   /core/guides/multiple-chrome-versions
   /contribute/code/core/run-multiple-chrome-versions

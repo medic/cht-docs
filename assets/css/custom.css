@@ -215,3 +215,9 @@ html[class~="dark"] .hextra-feature-card {
   color: #78b159;
   font-size: 1pt;
 }
+
+.one-liner {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

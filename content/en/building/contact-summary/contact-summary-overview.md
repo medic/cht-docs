@@ -2,6 +2,11 @@
 title: Building Contact Summary
 linkTitle: Building
 weight: 1
+description: >
+  Build CHT Application contact summary
+relatedContent: >
+  building/contact-management#contact-summary
+  building/contact-summary/contact-summary-templated#contact-summary
 aliases:
    - /building/tutorials/contact-summary
    - /apps/tutorials/contact-summary

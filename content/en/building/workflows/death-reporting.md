@@ -2,6 +2,10 @@
 title: Death Reporting
 linkTitle: Death Reporting
 weight: 11
+description: >
+  Build death report workflows
+relatedContent: >
+  building/reference/app-settings/transitions#death_reporting
 aliases:
    - /buidling/tutorials/death-reporting
    - /apps/tutorials/death-reporting

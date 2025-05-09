@@ -2,6 +2,10 @@
 title: "Publishing Docker Images"
 linkTitle: "Publishing Docker Images"
 weight: 4
+description: >
+    Using GitHub Actions to publish Docker images
+relatedContent: >
+    releases/
 aliases: >
   /contribute/code/releasing/publish-docker-image
 ---

@@ -2,6 +2,10 @@
 title: "Android Dev Environment"
 linkTitle: "Android Dev Environment"
 weight: 1
+description: >
+  Instructions for setting up the development environment
+relatedContent: >
+  community/contributing/code/android/releasing
 aliases: >
   /core/guides/android/development-setup
   /contribute/code/android/development-setup

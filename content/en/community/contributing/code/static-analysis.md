@@ -2,6 +2,8 @@
 title: "Static Analysis"
 linkTitle: "Static Analysis"
 weight: 11
+description: >
+  Guidelines for static analysis of CHT code
 aliases: >
   /contribute/code/static-analysis
 ---

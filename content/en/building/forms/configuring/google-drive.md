@@ -2,6 +2,10 @@
 title: "Fetch forms from Google Drive"
 linkTitle: "Forms in Google Drive"
 weight: 4
+description: >
+  Use cht-conf to obtain form files stored in Google Drive
+relatedContent: >
+  building/forms/configuring/
 aliases:
    - /building/guides/forms/google-drive
    - /apps/guides/forms/google-drive

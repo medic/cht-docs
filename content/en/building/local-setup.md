@@ -2,6 +2,11 @@
 title: "Getting Started Building a CHT App"
 linkTitle: Getting Started
 weight: 2
+description: >
+  Set up a local environment to build and test CHT 4.x applications
+relatedContent: >
+  community/contributing/code/core/using-windows
+  hosting/
 aliases:
    - /building/tutorials/local-setup
    - /apps/tutorials/local-setup

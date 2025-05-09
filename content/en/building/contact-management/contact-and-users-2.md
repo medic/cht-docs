@@ -2,6 +2,13 @@
 title: "Contact and User Management - Part 2"
 linkTitle: Contacts + Users 2
 weight: 3
+description: >
+  Create and edit contacts and users with cht-conf
+relatedContent: >
+  building/contact-management/contact-and-users-1
+  technical-overview/db-schema
+  building/guides/data/users-bulk-load
+  building/concepts/users
 aliases:
    - /building/tutorials/contact-and-users-2/
    - /apps/tutorials/contact-and-users-2

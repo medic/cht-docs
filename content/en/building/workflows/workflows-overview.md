@@ -1,6 +1,8 @@
 ---
 title: Overview
 weight: 5
+description: >
+  Build connections between people, actions, and data systems
 aliases:
    - /building/concepts/workflows
    - /apps/concepts/workflows

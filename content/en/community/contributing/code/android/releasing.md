@@ -2,6 +2,11 @@
 title: "Releasing"
 linkTitle: "Releasing"
 weight: 2
+description: >
+  Instructions for releasing Android Apps
+relatedContent: >
+  building/guides/android/publishing
+  building/branding/android
 aliases: >
   /core/guides/android/releasing
   /contribute/code/android/releasing

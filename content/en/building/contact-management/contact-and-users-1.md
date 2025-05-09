@@ -2,6 +2,12 @@
 title: "Contact and User Management - Part 1"
 linkTitle: Contacts + Users 1
 weight: 2
+description: >
+  Create and edit contacts and users in the CHT UI
+relatedContent: >
+  building/concepts/users
+  technical-overview/db-schema
+  building/guides/data/users-bulk-load
 aliases:
    - /building/tutorials/contact-and-users-1/
    - /apps/tutorials/contact-and-users-1

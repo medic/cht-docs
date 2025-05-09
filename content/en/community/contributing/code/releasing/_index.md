@@ -2,6 +2,8 @@
 title: "Releasing"
 linkTitle: "Releasing"
 weight: 7
+description: >
+  Instructions for releasing CHT tools
 aliases: >
   /core/guides/releasing
   /contribute/code/releasing/

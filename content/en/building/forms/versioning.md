@@ -2,6 +2,10 @@
 title: Versioning forms
 linkTitle: Versioning
 weight: 6
+description: >
+  Record the version of the form when creating reports
+relatedContent: >
+  building/features/reports
 aliases:
    - /building/guides/forms/versioning
    - /apps/guides/forms/versioning

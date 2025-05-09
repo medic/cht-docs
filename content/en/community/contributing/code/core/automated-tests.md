@@ -2,6 +2,8 @@
 title: "Automated Tests"
 linkTitle: "Automated Tests"
 weight: 12
+description: >
+  Automated testing for cht-core
 aliases: >
   /core/guides/fixing-e2e-tests
   /contribute/code/core/fixing-e2e-tests
