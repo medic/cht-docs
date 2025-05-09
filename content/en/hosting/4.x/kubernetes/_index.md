@@ -9,7 +9,7 @@ weight: 20
 {{< /hextra/hero-subtitle >}}
 
 {{< callout type="warning" >}}
-Only use Kubernetes under [very specific](/hosting/kubernetes-vs-docker/) conditions. [Docker](/hosting/4.x/docker/) is recommended for most deployments.
+Use Kubernetes under [very specific](/hosting/kubernetes-vs-docker/) conditions. [Docker](/hosting/4.x/docker/) is recommended for most deployments.
 {{< /callout >}}
 
 {{< subpages >}}
