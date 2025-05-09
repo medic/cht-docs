@@ -3,7 +3,7 @@ title: "Production Hosting CHT 4.x - Google Cloud Platform"
 linkTitle: "GCP + GKS Multi Node"
 weight: 10
 aliases:
-   - /hosting/4.x/production/docker/google-cloud/
+   - /hosting/4.x/docker/google-cloud/
 ---
 
 {{< hextra/hero-subtitle >}}
