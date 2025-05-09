@@ -42,7 +42,7 @@ Docker Compose deployment has the following services when running the CHT:
 Medic recommends Kubernetes for bare-metal servers with a low core count or for multi-tenant deployments.
 {{< /callout >}}
 
-Given the additional knowledge needed to run and complexities to deploy, CHT on k8s has been shown to result in confusion and outages. Docker is the preferred solution for most production deployments.
+Running CHT on k8s requires additional knowledge and can be more complex to deploy. Docker is the preferred solution for most production deployments.
 
 K8s deployments can not safely use the one click upgrade button in the admin GUI.
 
