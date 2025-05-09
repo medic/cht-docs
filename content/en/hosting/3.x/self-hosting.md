@@ -2,6 +2,10 @@
 title: "Production Hosting in CHT 3.x"
 linkTitle: "Production Hosting - Docker"
 weight: 2
+description: >
+  Hosting the CHT on self run infrastructure
+relatedContent: >
+  hosting/3.x/ec2-setup-guide
 aliases:
   - /apps/guides/hosting/3.x/self-hosting
   - /apps/guides/hosting/self-hosting
