@@ -9,7 +9,6 @@ weight: 3
 {{< /hextra/hero-subtitle >}}
 In this repository, you can find the [Community Health Toolkit roadmap](https://github.com/orgs/medic/projects/112). This roadmap serves as a high-level plan for how the CHT will grow to realize the shared community vision; it is where you can learn about what initiatives the community is working on and what stage they are in. 
 
-## Guide to the Roadmap
 
 ### What is a Community Initiative?
 Community initiatives are specific areas to amplify the CHT functionalities that align with the vision set out by the community. Initiatives are often worked on over multiple releases and by several organizations and individuals. When an initiative gathers interest within the community, contributing organizations and community members can form a squad and start working on the feature to be built. There are various stages within the implementation phase, including design, building, testing, and release, among others. Community members and organizations are encouraged to periodically review the [squad dashboard](https://github.com/orgs/medic/projects/112/views/24) to have an overview of the functionalities that are being worked on and are welcome to join squads at any stage.
