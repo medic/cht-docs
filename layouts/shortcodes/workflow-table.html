@@ -5,17 +5,17 @@
     - task-image
     - resolution-image
 */}}
-<div class="container workflow align-items-center">
-  <div class="row d-none d-sm-flex text-center">
-    <div class="col-3 align-self-end">
+<div class="workflow">
+  <div class="row">
+    <div class="w-header">
       {{ template "col-header" ( dict "context" . "title" "Condition" "file" (.Get "condition-image" ) ) }}
     </div>
-    <div class="col-1"></div>
-    <div class="col-3 align-self-end">
+    <div class="w-arrow"></div>
+    <div class="w-header">
       {{ template "col-header" ( dict "context" . "title" "Task" "file" (.Get "task-image" ) ) }}
     </div>
-    <div class="col-1"></div>
-    <div class="col-3 align-self-end">
+    <div class="w-arrow"></div>
+    <div class="w-header">
       {{ template "col-header" ( dict "context" . "title" "Resolution" "file" (.Get "resolution-image" ) ) }}
     </div>
   </div>

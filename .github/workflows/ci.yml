@@ -25,9 +25,6 @@ jobs:
       - name: All Branches - Install asdf & tools in .tool-versions
         uses: asdf-vm/actions/install@v2
 
-      - name: All Branches - Install npm modules for Hugo
-        run: npm install
-
       # Run "build" to catch errors as early as possible in CI
       - name: All Branches - Test For Broken Builds in Hugo
         run: hugo

@@ -1,22 +1,25 @@
 ---
 title: "CHT Core dev environment setup"
-linkTitle: "CHT Core dev environment setup"
+linkTitle: "Dev Environment Setup"
 weight: 1
-description: >
-  Getting your local machine ready to do development work on CHT Core.
-aliases: >
-  /apps/guides/hosting/core-developer
-  /apps/guides/hosting/hosting/4.x/app-developer
-  /contribute/code/core/dev-environment
+aliases:
+  - /apps/guides/hosting/core-developer
+  - /apps/guides/hosting/hosting/4.x/app-developer
+  - /contribute/code/core/dev-environment
 ---
 
-{{% alert title="Note" %}} This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
+{{< hextra/hero-subtitle >}}
+  Getting your local machine ready to do development work on CHT Core
+{{< /hextra/hero-subtitle >}}
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}){{% /alert %}}
+{{< callout >}}
+This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
 
-{{% alert title="Note" %}}
-These steps apply to both 3.x and 4.x CHT core development, unless stated otherwise.
-{{% /alert %}}
+To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}).
+{{< /callout >}}
+
+> [!IMPORTANT]
+> These steps apply to both 3.x and 4.x CHT core development, unless stated otherwise.
 
 ## The Happy Path Installation
 
@@ -28,36 +31,44 @@ First, update your current packages and install some supporting tools:
 
 _(Node {{< param nodeVersion >}} is the environment used to run the CHT server in production, so this is the recommended version of Node to use for development.)_
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq python3 git make g++
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< tab header="macOS" >}}
-# Uses Homebrew: https://brew.sh/
-brew update
-brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
-# Python no longer included by default in macOS >12.3 
-pyenv install 2.7.18
-pyenv global 2.7.18
-echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
-. ~/.$(basename $SHELL)rc
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-sudo apt update && sudo apt -y dist-upgrade
-sudo apt -y install xsltproc curl uidmap jq python2 git make g++
-# Use NVM to install NodeJS:
-export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
-. ~/.$(basename $SHELL)rc
-nvm install {{< param nodeVersion >}}
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Linux (Ubuntu),macOS,Windows (WSL2)" >}}
+
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install xsltproc curl uidmap jq python3 git make g++
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  # Uses Homebrew: https://brew.sh/
+  brew update
+  brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
+  # Python no longer included by default in macOS >12.3 
+  pyenv install 2.7.18
+  pyenv global 2.7.18
+  echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
+  . ~/.$(basename $SHELL)rc
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  sudo apt update && sudo apt -y dist-upgrade
+  sudo apt -y install xsltproc curl uidmap jq python2 git make g++
+  # Use NVM to install NodeJS:
+  export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
+  . ~/.$(basename $SHELL)rc
+  nvm install {{< param nodeVersion >}}
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >}} were installed. This should output version {{< param nodeVersion >}}.x.x for NodeJS and {{< param npmVersion >}}.x.x for `npm`:
 
@@ -81,7 +92,7 @@ cd ~/cht-core
 Install dependencies and perform other setup tasks via an `npm` command. Note this command may take many minutes. Be patient!
 
 ```shell
-npm ci --legacy-peer-deps
+npm ci
 ```
 
 To finalise setting up any remaining dependencies build the project by running: 
@@ -107,7 +118,7 @@ echo $COUCH_NODE_NAME && echo $COUCH_URL
 
 Create a `docker-compose.yml` and `couchdb-override.yml` files under the `~/cht-docker` folder with this code:
 
-```
+```shell
 mkdir -p ~/cht-docker
 curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
 cat > ~/cht-docker/couchdb-override.yml << EOF
@@ -169,24 +180,25 @@ If you had issues with following the above steps, check out these links for how 
 * [python 2.7](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
+* [bzip2])(https://sourceware.org/bzip2/downloads.html) - if you're on Ubuntu call: `sudo apt install bzip2`
 
 ### Ubuntu 18.04
 
 Ubuntu 18.04's default `apt` repositories do not know about `python2`. This means when you go to install run the first `apt install` command above, you see an error:
 
-```
+```shell
 E: Unable to locate package python2
 ```
 
 To fix this, change the `apt install` call to this:
 
-```
+```shell
 sudo apt -y install xsltproc curl uidmap jq python git make g++
 ```
 
 As well, after you install docker, and go to run the rootless script `dockerd-rootless-setuptool.sh`, you might see this error:
 
-```
+```shell
 [ERROR] Failed to start docker.service. Run `journalctl -n 20 --no-pager --user --unit docker.service` to show the error log.
 ```
 

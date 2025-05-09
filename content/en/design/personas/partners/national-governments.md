@@ -2,10 +2,9 @@
 title: "Ministry of Health and National Governments"
 linkTitle: "National Gov"
 weight: 3
-description: >
-  MoH and national government partners set forward-looking national health policies, strengthen health systems, roll-out national public health programs, and deliver on international health commitments. They aim to increase access to quality, affordable care and achieve Universal Health Coverage
 ---
 
+MoH and national government partners set forward-looking national health policies, strengthen health systems, roll-out national public health programs, and deliver on international health commitments. They aim to increase access to quality, affordable care and achieve Universal Health Coverage.
 
 ## Characteristics and Strengths
 

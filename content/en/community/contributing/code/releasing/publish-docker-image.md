@@ -2,13 +2,13 @@
 title: "Publishing Docker Images"
 linkTitle: "Publishing Docker Images"
 weight: 4
-description: >
-    Using GitHub Actions to publish Docker images
-relatedContent: >
-    releases/
 aliases: >
   /contribute/code/releasing/publish-docker-image
 ---
+
+{{< hextra/hero-subtitle >}}
+  Using GitHub Actions to publish Docker images
+{{< /hextra/hero-subtitle >}}
 
 Docker images for CHT projects can be published to the [medicmobile](https://hub.docker.com/u/medicmobile) Docker Hub organization, so they are easily accessible to the community. This process can be automated using GitHub actions.
 

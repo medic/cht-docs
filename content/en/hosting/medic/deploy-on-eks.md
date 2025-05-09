@@ -2,13 +2,15 @@
 title: "Deploy CHT Core on Medic hosted EKS"
 weight: 2
 linkTitle: "Deploy to EKS"
-description: >
-    Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
 aliases:
    - /contribute/code/core/deploy-on-eks
    - /contribute/medic/product-development-process/deploy-on-eks
    - /contribute/medic/deploy-on-eks
 ---
+
+{{< hextra/hero-subtitle >}}
+  Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
+{{< /hextra/hero-subtitle >}}
 
 While not directly available to the public who might be doing CHT Core development, having Medic's process for using our [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (AWS EKS) publicly documented will help Medic employees new to EKS.  As well, hopefully  external developers looking to re-use Medic tools and process to use EKS will find it helpful.
 
@@ -64,7 +66,7 @@ After you have created a ticket per "Request permission" above, you should get a
 4. Create Access Keys for Command Line Interface: In AWS web GUI, click your name in upper right -> Security Credentials -> scroll down to "Access keys" -> click "Create access key" -> for use case choose "Command Line Interface" -> click "Next" -> enter description and click "Create access key"
 5. Run `aws configure` and place appropriate access keys during prompts. Use `eu-west-2` region. It should look like this:
 
-   ```
+   ```shell
    $ aws configure
 
    AWS Access Key ID [None]: <ACCESS-KEY-HERE>
@@ -90,21 +92,23 @@ After you have created a ticket per "Request permission" above, you should get a
    If get an error `no context exists with the name`, change `use-context` to `set-context` in the  command.  This will create the entry the first time.  Subsequent calls should use `use-context`.
 3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
 
-   {{< tabpane text=true >}}
-   {{% tab header="Single node CouchDB" %}}
+{{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
+
+  {{< tab >}}
    * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
    * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
    * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
-   {{% /tab %}}
-   {{% tab header="Multi node CouchDB" %}}
+  {{< /tab >}}
+  {{< tab >}}
    * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
    * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
    * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
    * `clusteredCouch_enabled` - set to `true`
    {{% /tab %}}
-   {{< /tabpane >}}
 
-   _\* Please note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
+{{< /tabs >}}
+
+   _\* Note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
 5. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin
@@ -183,7 +187,7 @@ And then follow these steps:
    ```
    
 2. Now that you found your snapshot ID, create a volume from it. Being sure to replace `snap-432490821280432092` with your ID, call:
-   ```
+   ```shell
    aws ec2 create-volume --region eu-west-2 --availability-zone eu-west-2b --snapshot-id snap-432490821280432092
    ```
    Be sure to grab the `VolumeId` from the resulting JSON, `vol-f9dsa0f9sad09f0dsa` in this case:

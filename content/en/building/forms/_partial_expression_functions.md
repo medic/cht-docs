@@ -1,6 +1,7 @@
 ---
 title: "Expression Functions"
-toc_hide: true
+sidebar:
+  exclude: true
 hide_summary: true
 ---
 

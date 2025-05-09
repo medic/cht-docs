@@ -1,13 +1,15 @@
 ---
 title: "Adding TLS certificates in CHT 4.x"
 linkTitle: "TLS Certificates"
-weight: 40
+weight: 2
 aliases:
   - /apps/guides/hosting/4.x/adding-tls-certificates
   - /hosting/4.x/adding-tls-certificates
-description: >
-    How to add TLS certificates to your docker hosted CHT 4.x instance
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to add TLS certificates to your docker hosted CHT 4.x instance
+{{< /hextra/hero-subtitle >}}
 
 By default, CHT 4.x will create a self-signed certificate for every deployment.  These instructions are for changing to either a pre-existing certificate or automatically creating and renewing a [Certbot](https://certbot.eff.org/) based certificate using [ACME](https://acmeclients.com/), like [Let's Encrypt](https://letsencrypt.org/).
 
@@ -28,9 +30,8 @@ Also, be sure you have started your CHT instance once and all your volumes are c
 
 ### Loading the certificate
 
-{{% alert title="Note" %}}
-`docker compose` should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command`.
-{{% /alert %}}
+> [!TIP]
+> `docker compose` should work, but you may need to use the older style `docker-compose` if you get an error `docker: 'compose' is not a docker command`.
 
 1. Find the name of your `cht-ssl` volume with this call:
 
@@ -129,7 +130,7 @@ Assuming your CHT instance is **already running with the default self-signed cer
 
 ### Proxying
 
-#### ERR_TLS_CERT_ALTNAME_INVALID
+{{% details title="ERR_TLS_CERT_ALTNAME_INVALID" %}}
 
 When proxying to HTTPS from HTTP (for example where an ingress does TLS termination in an SNI environment and then the traffic is proxied to an HTTPS service (eg, haproxy)), not including a `servername` for a request to the HTTPS server (eg, def.org) produces the following error:
 
@@ -144,3 +145,5 @@ The addition of `servername` resolves this error by providing routing informatio
 A `servername` parameter may be added to all requests to the haproxy/couchdb by setting the environment variable `ADD_SERVERNAME_TO_HTTP_AGENT` to `true`.
 
 A similar change can be made for the http clients used in the application by setting `PROXY_CHANGE_ORIGIN` to `true`. This sets the `changeOrigin` parameter of all the `http-proxy` clients to `true`, which "changes the origin of the host header to the target URL". See [http-proxy: options](https://www.npmjs.com/package/http-proxy#options).
+
+{{% /details %}}

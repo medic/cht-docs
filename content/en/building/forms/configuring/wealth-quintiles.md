@@ -1,15 +1,15 @@
 ---
-title: "Tracking Wealth Quintiles"
+title: "Track Wealth Quintiles"
 linkTitle: "Quintiles"
-weight: 
-description: >
-  How to track wealth quintiles on the profile of each family member in the household
+weight: 7
 aliases:
    - /building/guides/forms/wealth-quintiles
    - /apps/guides/forms/wealth-quintiles
 ---
 
-_Introduced in v2.16.0_
+{{< hextra/hero-subtitle >}}
+  How to track wealth quintiles on the profile of each family member in the household
+{{< /hextra/hero-subtitle >}}
 
 Household surveys with questions about the home, possessions, and access to safe drinking water have been used to create equity score and improve the targeting of health services. This guide will cover how quintile information from a household survey can be used in customizing care for individual household members. For example, the equity quintile can be used to increase the number of pregnancy follow-ups for women in specific households, or to display specific notes or questions within patient forms.
 

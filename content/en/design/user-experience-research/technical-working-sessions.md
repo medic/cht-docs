@@ -2,9 +2,11 @@
 title: "Technical Working Sessions"
 linkTitle: "Technical Working Sessions"
 weight: 5
-description: >
-  How to conduct a Technical Working Session 
 ---
+
+{{< hextra/hero-subtitle >}}
+  How to conduct a technical working session 
+{{< /hextra/hero-subtitle >}}
 
 A Technical Working Session is a collaborative meeting where backend users of the CHT (such as app developers and data scientists) and CHT Community product managers, software engineers, and UX researchers come together to dive deeper into technical issues and develop potential solutions in real time. These sessions provide valuable insights into the experiences of users developing and configuring the CHT.
 
@@ -34,17 +36,16 @@ Here is a [sample technical working session document](https://docs.google.com/do
 8. Agree on potential next steps from the call
 9. Thank them for their time and let them know to encourage a continual discussion after the call; on the forum or via email
 
-### Tips:
-
-* Be warm and professional
-* Make it an open back and forth discussion between both teams
-* Focus on one issue at a time
-* Aim to understand the root cause of the problem before offering a solution
-* Ensure you understand the “why” and the “how” behind the issue
-* Give users the chance to ask questions themselves
-* Where possible, share screen and replicate the issues to see the issue in real time
-* Record your session and have someone take notes so you can focus on being present
-* Ensure all shared resources are kept in the meeting document for reference
+> [!TIP] Tips
+> * Be warm and professional
+> * Make it an open back and forth discussion between both teams
+> * Focus on one issue at a time
+> * Aim to understand the root cause of the problem before offering a solution
+> * Ensure you understand the “why” and the “how” behind the issue
+> * Give users the chance to ask questions themselves
+> * Where possible, share screen and replicate the issues to see the issue in real time
+> * Record your session and have someone take notes so you can focus on being present
+> * Ensure all shared resources are kept in the meeting document for reference
 
 ## Synthesizing
 

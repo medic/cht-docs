@@ -1,14 +1,16 @@
 ---
 title: "Contributor Hall of Fame"
 linkTitle: "Hall of Fame"
-weight: 300
-description: >
-  Tributes to those who have contributed to the codebase
+weight: 3
 aliases:
   - /contribute/code/hall-of-fame
 ---
 
-#### Code
+{{< hextra/hero-subtitle >}}
+  Tributes to those who have contributed to the codebase
+{{< /hextra/hero-subtitle >}}
+
+#### Code & Documentation
 
 Thank you to everyone who has contributed to the CHT codebase over the years! To see the full list, visit each repo on GitHub.
 

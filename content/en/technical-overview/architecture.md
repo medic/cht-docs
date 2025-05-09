@@ -2,21 +2,20 @@
 title: "Architecture of CHT Instances"
 linkTitle: "Architecture"
 weight: 1
-description: >
-  Overview of CHT components and interactions
-relatedContent: >  
-  technical-overview/cht-watchdog
-  technical-overview/cht-sync
-  hosting/vertical-vs-horizontal
 aliases:
    - /core/overview/architecture
 ---
+
+{{< hextra/hero-subtitle >}}
+  Overview of CHT components and their interactions
+{{< /hextra/hero-subtitle >}}
 
 ## Overview
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-[![Data Flows](architecture.png)](architecture.png)
+
+{{< figure src="architecture.png" link="architecture.png" caption="Data Flows" >}}
 
 ## Server
 

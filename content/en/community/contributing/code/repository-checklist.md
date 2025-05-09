@@ -2,11 +2,13 @@
 title: "CHT Product Repository Checklist"
 linkTitle: "Repository Checklist"
 weight: 8
-description: >
-  Checklist to consider when creating CHT Product repositories
 aliases: >
   /contribute/code/repository-checklist
 ---
+
+{{< hextra/hero-subtitle >}}
+  Checklist to consider when creating CHT Product repositories
+{{< /hextra/hero-subtitle >}}
 
 ## Repository Creation Checklist
 When creating a new CHT Product repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should use the [cht-repo-template](https://github.com/medic/cht-repo-template) repository containing the following configurations:
@@ -53,18 +55,30 @@ To ensure quality, the CHT Products should also follow the guidelines below:
 
 ## Medic GitHub repository FAQ
 
-### Q: Who can create a repository?
+{{% details title="Q: Who can create a repository?" %}}
+
 A: Anyone under Medic GitHub organization.
 
-### Q: Is it OK to create a CHT/Medic-related work repository under a personal GitHub account?
+{{% /details %}}
+
+{{% details title="Q: Is it OK to create a CHT/Medic-related work repository under a personal GitHub account?" %}}
+
 A: If what you are working on is temporary and just for you then it is fine to create a repository under your personal account (it is the equivalent of having a script on your local machine), as long as it contains an Open-Source Software License. However, default to the Medic account so the other team members can collaborate on it.
 
-### Q: When to make a repo public vs private?
+{{% /details %}}
+
+{{% details title="Q: When to make a repo public vs private?" %}}
+
 A: Repositories should be public unless there is very good reason to make it private (e.g. the repository contains partner details that cannot be disclosed to public). Always keep in mind that it is much easier to start public than change to public later.
 
-### Q: When to create a new repository vs adding a directory in existing (monolithic)?
+{{% /details %}}
+
+{{% details title="Q: When to create a new repository vs adding a directory in existing (monolithic)?" %}}
+
 A: It depends on the nature of the code. Some things to consider are: is the new code and the old code dependent, don't make sense on their own, must be versioned together, etc. If not, default to a new repo to reduce complexity.
 
-## More info
+{{% /details %}}
 
-This policy was inspired by [Microsoft's Engineering Fundamentals Checklist](https://microsoft.github.io/code-with-engineering-playbook/engineering-fundamentals-checklist/).
+{{< callout >}}
+  This policy was inspired by [Microsoft's Engineering Fundamentals Checklist](https://microsoft.github.io/code-with-engineering-playbook/engineering-fundamentals-checklist/).
+{{< /callout >}}

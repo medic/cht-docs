@@ -2,11 +2,13 @@
 title: "Installation as a Progressive Web App"
 linkTitle: "Progressive Web App"
 weight: 7
-description: >
-  What it means that the CHT Core web application is a Progressive Web App
 aliases:
    - /core/overview//pwa/
 ---
+
+{{< hextra/hero-subtitle >}}
+  What it means that the CHT Core web application is a Progressive Web App
+{{< /hextra/hero-subtitle >}}
 
 ## What is a Progressive Web App (PWA)?
 

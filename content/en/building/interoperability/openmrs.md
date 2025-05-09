@@ -52,7 +52,8 @@ These identifier types are created automatically when the OpenMRS Channel is reg
 After setting up the outbound push config, test that it works in the test environment by creating a patient in the CHT application.
 Log in to OpenHIM and view the transaction log. You should see:
 1. A request from the CHT application to the CHT Mediator, containing the patient document.
-    ![](cht-post-patient.png)
+    {{< figure src="cht-post-patient.png" link="cht-post-patient.png" >}}
+
     ```json
     {
       "doc": {
@@ -66,7 +67,8 @@ Log in to OpenHIM and view the transaction log. You should see:
     }
     ```
 1. A request from the CHT mediator to the FHIR Server, using a PUT request to upsert a FHIR patient created from the CHT patient document.
-    ![](fhir-put-patient.png)
+    {{< figure src="fhir-put-patient.png" link="fhir-put-patient.png" >}}
+
     ```json
     {
       "resourceType": "Patient",
@@ -113,9 +115,10 @@ Log in to OpenHIM and view the transaction log. You should see:
     }
     ```
 1. A POST request to OpenMRS containing the newly created patient.
-    ![](openmrs-post-patient.png)
+    {{< figure src="openmrs-post-patient.png" link="openmrs-post-patient.png" >}}
+
 1. A PUT request to the FHIR server updating the patient with the corresponding id from OpenMRS.
-    ![](fhir-put-patient.png)
+    {{< figure src="fhir-put-patient.png" link="fhir-put-patient.png" >}}
 
 If all the above look OK, you should now be able to search in OpenMRS for the patient by name, phone number, or patient id.
 
@@ -135,7 +138,8 @@ Any fields in the outbound push config are converted to FHIR observations, which
 After setting up the outbound push, test that it works in the test environment by submitting a report to the form in the CHT application.
 Log in to OpenHIM and view the transaction log. You should see: 
 1. A request from the CHT application to the CHT Mediator, containing all the fields from the form that were mapped to concepts.
-    ![](cht-post-encounter.png)
+    {{< figure src="cht-post-encounter.png" link="cht-post-encounter.png" >}}
+
     ```json
     {
       "id": "442b0937-a32f-443e-8d28-7d9a7552fda2",
@@ -162,9 +166,9 @@ Log in to OpenHIM and view the transaction log. You should see:
     }
     ```
 1. A PUT request to the FHIR server to create an encounter, and one request for each observation contained in that encounter.
-    ![](openhim-put-encounter.png)
+    {{< figure src="openhim-put-encounter.png" link="openhim-put-encounter.png" >}}
 1. Requests to OpenMRS to create a `Home Visit` encounter, a `Visit Note` encounter, and one request for each observation.
-    ![](openmrs-post-observation.png)
+    {{< figure src="openmrs-post-observation.png" link="openmrs-post-observation.png" >}}
 1. A request to the FHIR server updating the encounter with the corresponding id from OpenMRS.
 
 If all the above look OK, you should now be able to see the encounter in OpenMRS.
@@ -191,13 +195,13 @@ The interoperability project will automatically create the following resources
 * The CHT Mediator is used to convert CHT documents to FHIR resources and store them on the FHIR Server.
 * The OpenMRS mediator is used to send FHIR Resources from the FHIR Server to OpenMRS. It contains only one endpoint, `sync`.
 
-![](mediators.png)
+{{< figure src="mediators.png" link="mediators.png" >}}
 
 * The CHT Mediator Channel contains routes to the CHT Mediator.
 * The FHIR Channel contains routes to the FHIR Server. Although it is not used by this integration, it can be used to expose any CHT documents sent to it as a FHIR API.
 * The OpenMRS Channel contains routes to the FHIR API of an external deployment of OpenMRS.
 
-![](channels.png)
+{{< figure src="channels.png" link="channels.png" >}}
 
 When running `./startup.sh up-openmrs`, a cht instances with a sample configuration is created for testing.
 This includes:
@@ -207,12 +211,12 @@ This includes:
 
 ### Troubleshooting
 
-In case of errors when setting up the OpenHIM project please see the [Troubleshooting guide]({{< ref "building/interoperability/openhim#troubleshooting" >}}).
+In case of errors when setting up the OpenHIM project see the [Troubleshooting guide]({{< ref "building/interoperability/openhim#troubleshooting" >}}).
 
 If the openhim project starts up correctly but something else does not work as expected, it can be helpful to first check the transaction log page of OpenHIM to see which requests were sent, and the request and response bodies.
 See the sequence diagrams above for the expected requests/responses.
 
-![](transaction_log.png)
+{{< figure src="transaction_log.png.png" link="transaction_log.png.png" >}}
 
 ### CHT->OpenMRS
 * No outbound push sent: check outbound push config, and logs for sentinel

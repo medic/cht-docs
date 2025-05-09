@@ -1,20 +1,20 @@
 ---
 title: "Introduction to monitoring and alerting"
-weight: 100
+weight: 1
 linkTitle: "Introduction"
 aliases:
     - /apps/guides/hosting/monitoring/introduction
     - /apps/guides/hosting/monitoring
-description: >
-    High level approach to monitoring and alerting with CHT applications
 ---
 
-{{% pageinfo %}} 
+{{< hextra/hero-subtitle >}}
+  High level approach to monitoring and alerting with CHT applications
+{{< /hextra/hero-subtitle >}}
+
+{{< callout >}}
 This guide applies to all production instances of the CHT for both 3.x (beyond 3.9) and 4.x.
-
 Be sure to see how to deploy a solution to [monitor and alert on production CHT instances]({{< relref "hosting/monitoring/setup.md" >}}).
-{{% /pageinfo %}}
-
+{{< /callout >}}
 
 Each deployment will experience different stresses on its resources.  Be sure to tune any alerting levels in the case of a false positive so that you may avoid them in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a guarantee of uptime.
 

@@ -19,11 +19,10 @@ With this in mind, it is typically easier to query the data using SQL from an [a
 
 This guide includes several SQL queries that can act as a starting point for identifying useful metrics. 
 
-{{% alert title="Note" %}} 
-Creating the following index can improve the performance of running these queries 
-
-`CREATE INDEX idx_couchdb_users_meta_type ON couchdb_users_meta((doc->>'type'));`
-{{% /alert %}}
+> [!TIP]
+> Creating the following index can improve the performance of running these queries 
+> 
+> `CREATE INDEX idx_couchdb_users_meta_type ON couchdb_users_meta((doc->>'type'));`
 
 In these examples the training cards set has an ID of `chp_self_assessment` which you can replace to get the metrics for any training card set.
 

@@ -1,15 +1,14 @@
 ---
 title: "Vertical vs Horizontal scaling"
 linkTitle: "Vertical vs Horizontal Scaling"
-weight: 3
+weight: 4
 aliases:  
   - /apps/guides/hosting/vertical-vs-horizontal
-description: >
-    The power of clustered CouchDB to horizontally scale the CHT  
-relatedContent: >  
-    hosting/4.x/migration/migration-to-4x-docker.md
-    technical-overview/architecture/
 ---
+
+{{< hextra/hero-subtitle >}}
+  The power of clustered CouchDB to horizontally scale the CHT  
+{{< /hextra/hero-subtitle >}}
 
 ## Introduction
 
@@ -28,7 +27,8 @@ Here we see a normal deployment following the bare minimum [hosting requirements
 ```mermaid
 flowchart TD
 
-subgraph couch1[" CouchDB - 1 x ''short'' Node "]
+subgraph couch1[" CouchDB - 1 x short Node "]
+
     couchInner1["4 CPU/8 GB RAM"]
 end
 
@@ -40,7 +40,7 @@ After looking at the logs, and seeing error messages about API timeouts to Couch
 ```mermaid
 flowchart TD
 
-subgraph couch2[" CouchDB - 1 x ''tall'' Node "]
+subgraph couch2[" CouchDB - 1 x tall Node "]
     couchInner2["16 CPU/64 GB RAM"]
 end
 
@@ -75,7 +75,7 @@ end
 API["API"] --> HAProxy -->  couch4
 ```
 
-To read up on how to migrate your data from a single to multi-node, please see the  [data migration guide]({{< relref "hosting/4.x/migration/migration-to-4x-docker" >}}).
+To read up on how to migrate your data from a single to multi-node, see the  [data migration guide]({{< relref "hosting/4.x/migration/migration-to-4x-docker" >}}).
 
 It should be noted that, unlike vertical scaling, horizontal scaling of a large, existing dataset can take a while to prepare the transfer (hours to days) and may involve a brief service outage. This should be taken into consideration when planning a move of a CHT instance with a lot of data.
 
