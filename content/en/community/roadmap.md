@@ -13,7 +13,7 @@ The [CHT roadmap](https://github.com/orgs/medic/projects/112) serves as a high-l
 ### What is a Community Initiative?
 Community initiatives are specific areas to amplify the CHT functionalities that align with the vision set out by the community. Initiatives are often worked on over multiple releases and by several organizations and individuals. When an initiative gathers interest within the community, contributing organizations and community members can form a squad and start working on the feature to be built. There are various stages within the implementation phase, including design, building, testing, and release, among others. Community members and organizations are encouraged to periodically review the [squad dashboard](https://github.com/orgs/medic/projects/112/views/24) to have an overview of the functionalities that are being worked on and are welcome to join squads at any stage.
 
-### Roadmap Stages
+## Initiative stages
 Initiatives are outlined on the [project board](https://github.com/orgs/medic/projects/112) with the following stages to give a sense of how far out each item is on the horizon:
 
 | Stage | Description | Activities |
