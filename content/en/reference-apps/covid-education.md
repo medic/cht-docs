@@ -2,6 +2,12 @@
 title: "COVID-19 Education and Training for CHWs"
 linkTitle: "COVID-19 Education"
 weight:
+description: >
+  Education and training for CHWs to address COVID-19
+relatedContent: >
+  reference-apps/training
+  reference-apps/phc-covid
+  building/concepts/access/#magic-links-for-logging-in
 aliases:
    - /apps/examples/covid-education
    - /building/examples/covid-education

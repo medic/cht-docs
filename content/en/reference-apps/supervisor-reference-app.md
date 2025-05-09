@@ -2,6 +2,13 @@
 title: "CHW Supervision and Performance Management"
 linkTitle: "Supervision & Performance Management"
 weight:
+description: >
+  Reference app for CHW supervisors to support performance management of CHWs
+relatedContent: >
+  building/concepts
+  building/features/supervision
+  building/forms/app
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/supervisor-reference-app
    - /building/examples/supervisor-reference-app

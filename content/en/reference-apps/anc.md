@@ -2,6 +2,12 @@
 title: "Maternal and Newborn Health"
 linkTitle: "Maternal & Newborn Health"
 weight: 1
+description: >
+  Reference application for maternal and newborn care for CHWs
+relatedContent: >
+  building/concepts
+  building/forms/app
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/anc
    - /building/examples/anc

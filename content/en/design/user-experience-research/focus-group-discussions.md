@@ -2,6 +2,8 @@
 title: "Focus Group Discussions"
 linkTitle: "Focus Group Discussions"
 weight: 2
+description: >
+  How to collect data from several users simultaneously
 ---
 
 {{< hextra/hero-subtitle >}}

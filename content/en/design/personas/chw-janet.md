@@ -2,6 +2,8 @@
 title: "Professionalized Community Health Worker (CHW), Janet"
 linkTitle: "CHW"
 weight: 1
+description: >
+  The central users of apps built with the CHT
 ---
 
 {{< hextra/hero-subtitle >}}

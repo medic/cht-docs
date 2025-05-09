@@ -2,6 +2,12 @@
 title: "CHT Sync"
 linkTitle: "CHT Sync"
 weight: 5
+description: >
+  Data synchronization tools to enable analytics
+relatedContent: >  
+  technical-overview/architecture
+  technical-overview/data-flows-for-analytics/
+  hosting/analytics/
 aliases:
     - /core/overview/data-flows-for-analytics/cht-sync/
     - /core/overview/cht-sync/

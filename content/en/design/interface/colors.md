@@ -2,6 +2,8 @@
 title: "Colors"
 linkTitle: "Colors"
 weight: 1
+description: >
+  Colors for use in CHT applications
 aliases:
    - /design/components/
 ---

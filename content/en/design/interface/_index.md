@@ -2,6 +2,8 @@
 title: "Interface"
 linkTitle: "Interface"
 weight: 2
+description: >
+  Principles to design the CHT interface and support effective implementations
 ---
 
 {{< hextra/hero-subtitle >}}

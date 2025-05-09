@@ -2,6 +2,8 @@
 title: "CES Surveys"
 linkTitle: "CES Surveys"
 weight: 4
+description: >
+  How to conduct Customer Effort Score surveys
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -2,6 +2,12 @@
 title: "COVID-19 Testing with Rapid Diagnostic Tests"
 linkTitle: "COVID-19 Testing"
 weight:
+description: >
+ Reference application that uses a third party app to capture the result of a Rapid Diagnostic Test
+relatedContent: >
+  building/forms/app/#android-app-launcher
+  building/forms/app/#cht-xform-widgets
+  building/forms/app/#parse-timestamp-to-date
 aliases:
    - /apps/examples/covid-rdt-reference-app
    - /building/examples/covid-rdt-reference-app

@@ -2,6 +2,11 @@
 title: "Data Flows for Analytics"
 linkTitle: "Data Flows"
 weight: 9
+description: >
+  Overview of data flows in the CHT for analytics, impact monitoring, and data science
+relatedContent: >
+  building/guides/data
+  building/guides/database
 aliases:
    - /core/data-flows-for-analytics
    - /core/overview/data-flows-for-analytics

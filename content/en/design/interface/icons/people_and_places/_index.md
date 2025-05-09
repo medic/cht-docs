@@ -2,6 +2,8 @@
 title: "Icons for People and Places"
 linkTitle: "People and Places"
 weight: 2
+description: >
+  Recommended icons for people and places within the hierarchy of CHT apps
 aliases: 
   - /design/icons/people_and_places/
 ---

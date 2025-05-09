@@ -2,6 +2,8 @@
 title: "Icon Library"
 linkTitle: "Icon Library"
 weight: 2
+description: >
+  Icons for use in CHT application based on human centered design principles
 aliases: 
   - /design/icons/
 ---

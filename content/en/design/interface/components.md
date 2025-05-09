@@ -2,6 +2,8 @@
 title: "Components"
 linkTitle: "Components"
 weight: 4
+description: >
+   Standard aspects of the core framework for reuse to encourage consistency when building new pages or components 
 ---
 
 {{< hextra/hero-subtitle >}}

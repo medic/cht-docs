@@ -2,6 +2,8 @@
 title: "UI Kit"
 linkTitle: "UI Kit"
 weight: 5
+description: >
+  Sample CHT screens and components for testing and validating new designs or workflows
 aliases:
   - /design/external-resources
 ---
