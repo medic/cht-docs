@@ -11,7 +11,7 @@ aliases:
 ---
 
 {{< hextra/hero-subtitle >}}
-  Production Hosting CHT 4.x in Docker on a Single CouchDB Node
+  Production hosting CHT 4.x in Docker on a single CouchDB node
 {{< /hextra/hero-subtitle >}}
 
 {{< subpages >}}
