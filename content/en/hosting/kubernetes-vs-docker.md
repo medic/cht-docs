@@ -46,7 +46,7 @@ Given the additional knowledge needed to run and complexities to deploy, CHT on 
 
 K8s deployments can not safely use the one click upgrade button in the admin GUI.
 
-Otherwise, k8s offers:
+k8s offers:
 
 * Resilient network across either physical or VM nodes in the cluster. This allows strong distribution of the heavy CPU and RAM loads that CouchDB can incur under heavy use.
 * Orchestration of multiple deployments ensuring to allow easy hosting of multi-tenants. For example you may opt to have a user acceptance testing (UAT), staging and production instances all in one cluster.
