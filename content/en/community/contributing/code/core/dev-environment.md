@@ -25,7 +25,8 @@ To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.
 
 CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, and CouchDB (via Docker) on your local workstation.
 
-Ensure you have at least 8GB RAM, 50GB Free disk and 4 cores.  However, more is for sure better here - you'll see real speed improvements with more RAM and more cores.
+> [!TIP]
+> Ensure you have at least 8GB RAM, 50GB Free disk and 4 cores.  However, more is for sure better here - you'll see real speed improvements with more RAM and more cores.
 
 ### Install NodeJS, npm, and Docker
 
