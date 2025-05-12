@@ -104,15 +104,15 @@ https://docs.google.com/spreadsheets/d/1m0TERssHNlJZ-tLdeDUkEKPP_9wr3_uPMlgcjoVb
 Uganda hosts 1 of production instance in a Uganda data center running [K3s](https://k3s.io/).
 
 
-|                   |                       |
-|------------------:|:----------------------|
-|    CHT Instances: | 1                     |
-|          Hosting: | K3s on VMware)        |
-|            Cores: | 32 (4 VMs x 8 cores)  |
-|              RAM: | 64GB (4 VMs x 16GB)   |
-|             Disk: | 600GB (4 VMs x 150GB) |
-| Multi-Node Couch: | Yes                   |
-|            Users: | 12k                   |
+|                   |                          |
+|------------------:|:-------------------------|
+|    CHT Instances: | 1                        |
+|          Hosting: | K3s on VMware)           |
+|            Cores: | 32 (4 VMs x 8 cores/ea)  |
+|              RAM: | 64GB (4 VMs x 16GB/ea)   |
+|             Disk: | 600GB (4 VMs x 150GB/ea) |
+| Multi-Node Couch: | Yes                      |
+|            Users: | 12k                      |
 
 <!-- 
 sources:
@@ -127,15 +127,15 @@ https://medic.slack.com/archives/C06TP97HRMZ/p1714639214379159
 
 Medic hosts 46 production instances on Amazon [Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (EKS).
 
-|                   |                                                       |
-|------------------:|:------------------------------------------------------|
-|    CHT Instances: | 46                                                    |
-|          Hosting: | k8s on EKS                                            |
-|            Cores: | 64 (8 VMs x 8 Cores/ea)                               |
-|              RAM: | 256GB (8 VMs x 32GB/ea)                               |
-|             Disk: | 8.7TB (8 VMS x 500GB/ea + 47 deployments x ~100GB/ea) |
-| Multi-Node Couch: | 44 No, 2 Yes                                          |
-|            Users: | 25.7k                                                 |
+|                   |                                                |
+|------------------:|:-----------------------------------------------|
+|    CHT Instances: | 46                                             |
+|          Hosting: | k8s on EKS                                     |
+|            Cores: | 64 (8 VMs x 8 Cores/ea)                        |
+|              RAM: | 256GB (8 VMs x 32GB/ea)                        |
+|             Disk: | 8.6TB (8 VMS x 500GB/ea + 46 CHTs x ~100GB/ea) |
+| Multi-Node Couch: | 44 No, 2 Yes                                   |
+|            Users: | 25.7k                                          |
 
 
 <!-- 
