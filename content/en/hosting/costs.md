@@ -66,11 +66,13 @@ A production deployment means the CHT is hosted either at a cloud provider or in
 
 When analyzing the hosting total cost of ownership (TCO), only production instances were looked at.
 
-It should be noted that a [development environment]({{< relref "hosting/4.x/app-developer" >}})  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
+It should be noted that a [development environment](/hosting/4.x/app-developer)  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
 
 ## Small deployment example costs
 
-In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs](/hosting/requirements}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+
+For more examples of deployments, but without costs, see [Kubernetes vs Docker](/hosting/kubernetes-vs-docker/#example-deployments).
 
 ### Monthly costs 
 
