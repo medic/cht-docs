@@ -127,15 +127,15 @@ https://medic.slack.com/archives/C06TP97HRMZ/p1714639214379159
 
 Medic hosts 46 production instances on Amazon [Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (EKS).
 
-|                       |                                                      |
-|----------------------:|:-----------------------------------------------------|
-|    CHT Instances: | 46                                                   |
-|          Hosting: | k8s on EKS                                           |
-|            Cores: | 64 (8 VMs x 8GB/ea)                                  |
-|              RAM: | 256GB (8 VMs x 32GB/ea)                              |
-|             Disk: | 8.7TB (8 VMS x 500GB/ea + 47 deployments x 100GB/ea) |
-| Multi-Node Couch: | 44 No, 2 Yes                                         |
-|             Users | 25.7k                                                |
+|                   |                                                       |
+|------------------:|:------------------------------------------------------|
+|    CHT Instances: | 46                                                    |
+|          Hosting: | k8s on EKS                                            |
+|            Cores: | 64 (8 VMs x 8 Cores/ea)                               |
+|              RAM: | 256GB (8 VMs x 32GB/ea)                               |
+|             Disk: | 8.7TB (8 VMS x 500GB/ea + 47 deployments x ~100GB/ea) |
+| Multi-Node Couch: | 44 No, 2 Yes                                          |
+|            Users: | 25.7k                                                 |
 
 
 <!-- 
