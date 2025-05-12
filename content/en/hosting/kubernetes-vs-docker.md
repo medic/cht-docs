@@ -11,10 +11,10 @@ aliases:
 {{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
-Medic previously suggest Kubernetes for all production deployments - this is no longer the case. 
+Medic previously suggest Kubernetes for all production deployments - this is no longer the case.  Further, Medic no longer suggests multi-node CouchDB.
 {{< /callout >}}
 
-Medic now recommends [Docker](/hosting/4.x/docker/) for most deployments. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments. For more details on the research behind suggesting Docker, please see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
+Medic now recommends [Docker](/hosting/4.x/docker/) for most deployments. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments. For more details on the research behind suggesting Docker and single-node CouchDB, please see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
 
 That said, deployments should use the technology they know best. If they plan for 20 instances but really doen't want to use Kubernetes, that's fine.  Conversely, if an NGO only uses Kubernetes and wants to deploy a single instance of the CHT - that's also fine.
 
@@ -70,21 +70,21 @@ The main components of a Kubernetes CHT deployment include one less service than
 
 ## Example deployments
 
-Below are examples from 2 Ministries of Health (MoH) and Medic hosted instances.
+Below are examples from 2 Ministries of Health (MoH) and Medic hosted instances.  Users are total provisioned users, fewer users may be active in a given month.
 
 ### MoH Kenya
 
 Kenya hosts 47 production instances in a Kenyan data center running [K3s](https://k3s.io/). They run a simplified k3s set up with 47 isolated installations of k3s to easy management complexity.  Thus each CHT instance is bound to the VM's local storage.  If a VM fails, there is no automatic fail-over and a restore from backup is needed.
 
-|                   |         |
-|------------------:|:--------|
-|    CHT Instances: | 47      |
-|          Hosting: | k3s     |
-|            Cores: | tk      |
-|              RAM: | tk      |
-|             Disk: | 4,700GB |
-| Multi-Node Couch: | No      |
-|            Users: | 123.3k  |
+|                   |                             |
+|------------------:|:----------------------------|
+|    CHT Instances: | 47                          |
+|          Hosting: | k3s                         |
+|            Cores: | tk                          |
+|              RAM: | tk                          |
+|             Disk: | 4,700 GB  (Max 700, Min 21) |
+| Multi-Node Couch: | No                          |
+|            Users: | 123.3k                      |
 
 
 <!-- 
@@ -103,16 +103,15 @@ https://docs.google.com/spreadsheets/d/1m0TERssHNlJZ-tLdeDUkEKPP_9wr3_uPMlgcjoVb
 
 Uganda hosts 1 of production instance in a Uganda data center running [K3s](https://k3s.io/).
 
-
-|                   |                          |
-|------------------:|:-------------------------|
-|    CHT Instances: | 1                        |
-|          Hosting: | K3s on VMware)           |
-|            Cores: | 32 (4 VMs x 8 cores/ea)  |
-|              RAM: | 64GB (4 VMs x 16GB/ea)   |
-|             Disk: | 600GB (4 VMs x 150GB/ea) |
-| Multi-Node Couch: | Yes                      |
-|            Users: | 12k                      |
+|                   |                           |
+|------------------:|:--------------------------|
+|    CHT Instances: | 1                         |
+|          Hosting: | K3s on VMware)            |
+|            Cores: | 32 (4 VMs x 8 cores/ea)   |
+|              RAM: | 64 GB (4 VMs x 16GB/ea)   |
+|             Disk: | 600 GB (4 VMs x 150GB/ea) |
+| Multi-Node Couch: | Yes                       |
+|            Users: | 12k                       |
 
 <!-- 
 sources:
@@ -127,15 +126,15 @@ https://medic.slack.com/archives/C06TP97HRMZ/p1714639214379159
 
 Medic hosts 46 production instances on Amazon [Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (EKS).
 
-|                   |                                                |
-|------------------:|:-----------------------------------------------|
-|    CHT Instances: | 46                                             |
-|          Hosting: | k8s on EKS                                     |
-|            Cores: | 64 (8 VMs x 8 Cores/ea)                        |
-|              RAM: | 256GB (8 VMs x 32GB/ea)                        |
-|             Disk: | 8.6TB (8 VMS x 500GB/ea + 46 CHTs x ~100GB/ea) |
-| Multi-Node Couch: | 44 No, 2 Yes                                   |
-|            Users: | 25.7k                                          |
+|                   |                                                 |
+|------------------:|:------------------------------------------------|
+|    CHT Instances: | 46                                              |
+|          Hosting: | k8s on EKS                                      |
+|            Cores: | 64 (8 VMs x 8 Cores/ea)                         |
+|              RAM: | 256 GB (8 VMs x 32GB/ea)                        |
+|             Disk: | 8.6 TB (8 VMS x 500GB/ea + 46 CHTs x ~100GB/ea) |
+| Multi-Node Couch: | 44 No, 2 Yes                                    |
+|            Users: | 25.7k                                           |
 
 
 <!-- 
