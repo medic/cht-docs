@@ -22,5 +22,5 @@ Initiatives are outlined on the [project board](https://github.com/orgs/medic/pr
 | **Active** | Community members are actively working on the defined initiative, for example, in a squad | Squad formation, building & testing| 
 | **Winding Down** | The initiative is ready for release or closure | Releasing new CHT functionalities and/or adoption to production environments. Adoption of new processes. | 
 
-### Roadmap Communication
+## Roadmap communication
 Updated initiatives are communicated on the [CHT Forum](https://forum.communityhealthtoolkit.org) and discussed at the CHT Community events, such as the CHT Round-up call. Where possible, they link to specific issues and/or documentation to elaborate on what was completed to move an initiative forward. 
