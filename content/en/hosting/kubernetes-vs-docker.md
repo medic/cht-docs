@@ -11,7 +11,7 @@ aliases:
 {{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
-Medic previously suggest Kubernetes for all production deployments - this is no longer the case.  Further, Medic no longer suggests multi-node CouchDB.
+For older versions of the CHT, Medic recommended Kubernetes for all production deployments. This is no longer the recommendation for newer versions of the CHT. Further, multi-node CouchDB is no longer recommended.
 {{< /callout >}}
 
 Medic now recommends [Docker](/hosting/4.x/docker/) for most deployments. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments. For more details on the research behind suggesting Docker and single-node CouchDB, please see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
