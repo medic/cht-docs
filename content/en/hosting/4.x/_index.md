@@ -21,6 +21,7 @@ To view 3.x hosting options, see the  [3.x hosting section]({{< relref "hosting/
 {{< cards >}}
   {{< card link="app-developer" title="App Developer Hosting" subtitle="Learn how to host the CHT when developing apps" icon="server" >}}
   {{< card link="migration/" title="Migration Guides" icon="arrow-circle-right" subtitle="Guides for migrating CHT applications" >}}
-  {{< card link="production/" title="Production Hosting" subtitle="Details for hosting the CHT on self run infrastructure" icon="template" >}}
+  {{< card link="/hosting/4.x/docker/" title="Production Docker" subtitle="Details for hosting the CHT on Docker" icon="docker" >}}
+  {{< card link="/hosting/4.x/kubernetes/" title="Production Kubernetes" subtitle="Details for hosting the CHT on Kubernetes" icon="kubernetes" >}}
   {{< card link="upgrade-troubleshooting" title="Troubleshooting upgrades" subtitle="What to do when CHT 4.x upgrades don't work as planned" icon="search-circle" >}}
 {{< /cards >}}
