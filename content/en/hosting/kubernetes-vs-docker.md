@@ -16,7 +16,7 @@ For older versions of the CHT, Medic recommended Kubernetes for all production d
 
 Medic now recommends [Docker](/hosting/4.x/docker/) for most deployments. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments. For more details on the research behind suggesting Docker and single-node CouchDB, please see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
 
-That said, deployments should use the technology they know best. If they plan for 20 instances but really doen't want to use Kubernetes, that's fine.  Conversely, if an NGO only uses Kubernetes and wants to deploy a single instance of the CHT - that's also fine.
+However, deployments should use the technology they are most familiar and comfortable with. If they plan for 20 CHT instances but don't want to use Kubernetes, that's fine. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.
 
 Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker.
 
