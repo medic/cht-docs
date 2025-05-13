@@ -16,11 +16,10 @@
 # use extremely granular URLs so as not to exclude more than we need to.
 
 # when upgrading muffet, upload new binary here and rename so version is explicit in filename
-./2.10.6.muffet http://localhost:1313 \
-  --dns-resolver 9.9.9.9:9953 \
+./2.10.9.muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 255 \
-  --rate-limit 8 \
+  --rate-limit 4 \
   --max-connections-per-host 8 \
   --ignore-fragments \
   --header="User-Agent: Muffet (github.com/raviqqe/muffet) on behalf of CHT Docs (docs.communityhealthtoolkit.org)" \
