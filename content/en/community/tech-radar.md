@@ -1,7 +1,7 @@
 ---
 title: "CHT Technology Radars"
 linkTitle: "Tech Radar"
-weight: 2
+weight: 3
 aliases:
   -    /contribute/tech-radar
 ---
