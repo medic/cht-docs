@@ -20,7 +20,7 @@
   --dns-resolver 9.9.9.9:9953 \
   --buffer-size 50000 \
   --timeout 255 \
-  --rate-limit 8 \
+  --rate-limit 4 \
   --max-connections-per-host 8 \
   --ignore-fragments \
   --header="User-Agent: Muffet (github.com/raviqqe/muffet) on behalf of CHT Docs (docs.communityhealthtoolkit.org)" \
