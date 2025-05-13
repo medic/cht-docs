@@ -1,5 +1,5 @@
 ---
-title: "Contribute code and documentation"
+title: "Contribute Code and Documentation"
 linkTitle: "Contribute"
 weight: 1
 aliases:
