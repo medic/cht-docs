@@ -94,15 +94,15 @@ This deployment hosts 47 production instances in a data center running [K3s](htt
 
 This deployment hosts 1 CHT production instance in a data center running [K3s](https://k3s.io/).
 
-|                   |                           |
-|------------------:|:--------------------------|
-|    CHT Instances: | 1                         |
-|          Hosting: | K3s on VMware)            |
-|            Cores: | 32 (4 VMs x 8 cores/ea)   |
-|              RAM: | 64 GB (4 VMs x 16GB/ea)   |
-|             Disk: | 600 GB (4 VMs x 150GB/ea) |
-| Multi-Node Couch: | Yes                       |
-|            Users: | 9.5k                      |
+|                   |                             |
+|------------------:|:----------------------------|
+|    CHT Instances: | 1                           |
+|          Hosting: | K3s on VMware)              |
+|            Cores: | 32 (4 VMs x 8 cores/ea)     |
+|              RAM: | 64 GB (4 VMs x 16GB/ea)     |
+|             Disk: | 2,400 GB (4 VMs x 600GB/ea) |
+| Multi-Node Couch: | Yes                         |
+|            Users: | 9.5k                        |
 
 
 ### CHT Deployment Example 3
