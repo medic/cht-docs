@@ -66,7 +66,8 @@ A production deployment means the CHT is hosted either at a cloud provider or in
 
 When analyzing the hosting total cost of ownership (TCO), only production instances were looked at.
 
-It should be noted that a [development environment](/hosting/4.x/app-developer)  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
+> [!NOTE]
+> A [development environment](/hosting/4.x/app-developer)  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
 
 ## Small deployment example costs
 
