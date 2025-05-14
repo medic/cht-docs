@@ -105,7 +105,7 @@ This deployment hosts 1 CHT production instance in a data center running [K3s](h
 |            Users: | 18k                       |
 
 
-### Medic
+### CHT Deployment Example 3
 
 Medic hosts 46 production instances on Amazon [Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (EKS).
 
