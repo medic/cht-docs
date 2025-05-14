@@ -72,7 +72,7 @@ The main components of a Kubernetes CHT deployment include one less service than
 
 ## Example deployments
 
-Below are examples from real world large-scale CHT deployments which have been anonymised.  Users are active users for the past 30 days.
+Below are examples from real world large-scale CHT deployments which have been anonymized. User counts represent the number of active users within a 30 days interval. 
 
 ### CHT Deployment Example 1
 
