@@ -1,7 +1,7 @@
 ---
 title: Translations
 linkTitle: Translations
-weight: 17
+weight: 4
 description: >
   Internationalizing CHT Core.
 relatedContent: >
@@ -74,7 +74,7 @@ Use the translation functions in the config module in [API](https://github.com/m
 
 ### Translating configurations
 
-Much of the app is configurable (eg: forms and schedules). Because the specifics of the configuration aren't known during development time, these can't be provided via messages. Instead configurers can provide a map of locale to value for each translated property. Then use the `translateFrom` filter to translate from the configured map using the user's language.
+Much of the app is configurable (eg: forms and schedules). Because the specifics of the configuration aren't known during development time, these can't be provided via messages. Instead, configurers can provide a map of locale to value for each translated property. Then use the `translateFrom` filter to translate from the configured map using the user's language.
 
 ## Modifying any existing translation values
 
