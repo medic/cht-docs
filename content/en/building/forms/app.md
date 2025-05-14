@@ -2,18 +2,14 @@
 title: "app"
 linkTitle: "app"
 weight: 1
-description: >
-  **App Forms**: Used to complete reports, tasks, and actions in the app
-relevantLinks: >
-  docs/building/concepts/workflows
-  docs/design/best-practices
-relatedContent: >
-  building/forms/configuring/form-inputs
-keywords: workflows app-forms
 aliases:
    - /building/reference/forms/app
    - /apps/reference/forms/app
 ---
+
+{{< hextra/hero-subtitle >}}
+  **App Forms**: Used to complete reports, tasks, and actions in the app
+{{< /hextra/hero-subtitle >}}
 
 App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/features/reports" >}} ).
 
@@ -65,7 +61,7 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | end group   |
 
 **Note:** If the form uses a file picker to upload any type of file, and it is accessed by using CHT Android, then include the `READ_EXTERNAL_STORAGE` permission in order to access the files in the device. To enable this permission add the following line in the branded app's `AndroidManifest.xml`.
-```
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
@@ -81,9 +77,9 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 ## XPath
 Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`openrosa-xpath-evaluator`](https://github.com/enketo/enketo/tree/main/packages/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
 
-{{% alert title="Note" %}} 
-The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
-{{% /alert %}}
+{{< callout type="warning" >}}
+  The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
+{{< /callout >}}
 
 ## CHT XForm Widgets
 
@@ -104,10 +100,10 @@ A visual timer widget that starts when tapped/clicked, and has an audible alert 
 
 If you want to make the timer mandatory so users must wait for the timer to complete before continuing to the next page or submitting the form, you can populate the _required_ column with an XPath expression as you would do for any other required question. A value of `"OK"` will be set for the `trigger` field when the timer completes.
 
-{{% alert title="Note" %}}
-The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
-{{% /alert %}}
 
+{{< callout type="info" >}}
+  The `trigger` implementation of the countdown timer is only supported for CHT versions `4.7.0+`.  For older CHT versions, the deprecated `note` implementation of the countdown timer can be used. However, it does not support setting a value in the _required_ column. To use the deprecated countdown timer, create a `note` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in the `default` column. If this value is not set, the timer will be set to 60 seconds.
+{{< /callout >}}
 
 ### Contact Selector
 A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "building/forms/configuring/form-inputs#contact-selector" >}}) for an example.
@@ -126,7 +122,7 @@ _Available in +3.13.0 and in Android device only._
 A widget to launch an Android app that receives and sends data back to an app form in CHT-Core.
 
 This widget requires the `cht-android` app in order to work, and will be disabled for users running the CHT in a browser. This widget requires the `READ_EXTERNAL_STORAGE` permission in CHT Android to work properly, to enable this permission add the following line in the branded app's `AndroidManifest.xml`.
-```
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
@@ -148,7 +144,8 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 
 To define the widget's input fields and send data as Android Intent's `extras`, create a group inside the widget with the appearance `android-app-inputs`. In order to assign the app's response to the widget's output fields, create a group with the appearance `android-app-outputs`.
 
-**Important to remember:** The fields inside the input and the output groups should to match in name and location to what the Android app receives and returns, otherwise the communication between the widget and the Android app won't work properly.
+> [!IMPORTANT]
+> The fields inside the input and the output groups should to match in name and location to what the Android app receives and returns, otherwise the communication between the widget and the Android app won't work properly.
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
@@ -167,7 +164,8 @@ To define the widget's input fields and send data as Android Intent's `extras`, 
 
 To instruct the widget to process nested data objects, create a new group inside the input or the output group with the appearance `android-app-object`. Objects cannot be assigned to a field, it should be a group with fields to map the properties to fields that share the same name.
 
-**Important to remember:** The nested group's name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the nested object.
+> [!IMPORTANT]
+> The nested group's name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the nested object.
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
@@ -189,7 +187,8 @@ To instruct the widget to process nested data objects, create a new group inside
 
 To instruct the widget to process an array of strings or numbers, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. To process an array of objects, use the appearance `android-app-object-list` instead.
 
-**Important to remember:** The `repeat`'s name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the array.
+> [!IMPORTANT]
+> The `repeat`'s name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the array.
 
 | type | name | label | appearance | repeat_count | default | ... |
 |---|---|---|---|---|---|---|
@@ -232,9 +231,9 @@ A validation failure, either for an invalid or duplicate phone number will preve
 | string | numbers tel | true                     | true       | Please enter a valid phone number. |
 
 
-{{% alert title="Note" %}}
+{{< callout type="info" >}}
 Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact. 
-{{% /alert %}}
+{{< /callout >}}
 
 ## CHT XPath Functions
 
@@ -268,9 +267,9 @@ Calculates the number of whole calendar weeks between two dates.
 
 Calculates the number of whole calendar months between two dates. This is often used when determining a child's age for immunizations or assessments.
 
-{{% alert title="Note" %}}
-For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` function (without the `cht` namespace) should be used.
-{{% /alert %}}
+{{< callout type="info" >}}
+  For CHT versions lower than `4.7.0`, the deprecated `difference-in-months` function (without the `cht` namespace) should be used.
+{{< /callout >}}
 
 ### `cht:difference-in-years`
 
@@ -422,4 +421,6 @@ In this sample properties file, the associated form would only show on a person'
     
 Convert and build the app forms into your application using the `convert-app-forms` and `upload-app-forms` actions in `cht-conf`.
 
-    cht --local convert-app-forms upload-app-forms
+```shell
+  cht --local convert-app-forms upload-app-forms
+```

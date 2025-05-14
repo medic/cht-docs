@@ -14,12 +14,10 @@ aliases:
    - /apps/tutorials/tasks-1
 ---
 
-{{% pageinfo %}}
 Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]({{< ref "building/tutorials/app-forms" >}}) for new patients within 7 days of registration.
 
 - Creating a straight-forward task
 - Running and testing that task
-{{% /pageinfo %}}
 
 ## Prerequisites
 
@@ -103,7 +101,8 @@ Next, test a few of the expected behaviours for the task:
 * The task should not appear only for patients - not for places or CHWs.
 * If you mute a contact or [report the contact dead]({{< ref "building/workflows/death-reporting" >}}), the task should disappear.
 
-{{% alert title="Note" %}} Remember to reset your system clock to be accurate when you are done testing. {{% /alert %}}
+> [!IMPORTANT] 
+> Remember to reset your system clock to be accurate when you are done testing.
 
 ## Frequently Asked Questions
 

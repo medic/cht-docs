@@ -2,11 +2,13 @@
 title: "CHT App Configurer"
 linkTitle: "CHT Conf"
 weight: 4
-description: >
-  Instructions for setting up and contributing to CHT Conf
 aliases: >
    /contribute/code/cht-conf
 ---
+
+{{< hextra/hero-subtitle >}}
+  Instructions for setting up and contributing to CHT Conf
+{{< /hextra/hero-subtitle >}}
 
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 
@@ -19,21 +21,29 @@ aliases: >
 
 ### Operating System Specific
 
-{{< tabpane persist=false lang=shell >}}
-{{< tab header="Linux (Ubuntu)" >}}
-npm install -g cht-conf
-sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-{{< /tab >}}
-{{< tab header="macOS" >}}
-npm install -g cht-conf
-pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-{{< /tab >}}
-{{< tab header="Windows (WSL2)" >}}
-# As Administrator:
-npm install -g cht-conf
-python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic --upgrade
-{{< /tab >}}
-{{< /tabpane >}}
+{{< tabs items="Linux (Ubuntu),macOS,Windows (WSL2)" >}}
+
+  {{< tab >}}
+```shell
+  npm install -g cht-conf
+  sudo python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  npm install -g cht-conf
+  pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
+```
+  {{< /tab >}}
+  {{< tab >}}
+```shell
+  # As Administrator:
+  npm install -g cht-conf
+  python -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic --upgrade
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 ### Using Docker
 CHT Conf can also be run from within a Docker container. This is useful if you are already familiar with Docker and do not wish to configure the various dependencies required for developing CHT apps on your local machine. The necessary dependencies are pre-packaged in the Docker image.
@@ -113,7 +123,7 @@ The `my_token` can be obtained by doing a POST request to `/_session` [endpoint]
 
 For example, if your CHT instance is `my.cht.com`, you could use this `curl` call to specify your user `medic` and your password `secret123` to retrieve the header with the `AuthSession` value which is the token:
 
-```
+```shell
 curl -v  -H 'Content-Type: application/json' -d '{"name":"medic","password":"secret123"}'  https://my.cht.com/_session 2>&1 | grep AuthSession 
 < set-cookie: AuthSession=bWVkaWM6NjdBRTM4MkE6EguRnzpSiK0t8wFaOQ_jgkZE8UWcgNWgpyStzbbHreI; Version=1; Expires=Fri, 13-Feb-2026 18:21:30 GMT; Max-Age=31536000; Path=/; HttpOnly
 ```

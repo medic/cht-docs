@@ -2,13 +2,15 @@
 title: "Regional Manager, Christina"
 linkTitle: "Regional Manager"
 weight: 3
-description: >
-  Overseeing regional activities
 ---
+
+{{< hextra/hero-subtitle >}}
+  Overseeing regional activities
+{{< /hextra/hero-subtitle >}}
 
 Regional managers provide overall oversight of activities in the region they are assigned. They are employed by technical and implementing partners to oversee and provide general guidance for two or more branches in a region. They troubleshoot and provide support to branch managers to optimise operations. They have limited interactions with end users but provide the link between field operations and the head office.
 
-![Regional Manager](regional-manager.png)
+{{< figure src="regional-manager.png" link="regional-manager.png" caption="Regional Manager" >}}
 
 > “I heard that some branches have already had challenges with mobile phones.”
 

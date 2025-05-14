@@ -1,16 +1,15 @@
 ---
 title: "CHT Sync Setup with Kubernetes"
-weight: 2
+weight: 1
 linkTitle: "Kubernetes"
-description: >
-  Setting up CHT Sync with Kubernetes and the CHT
-relatedContent: >
-  core/overview/architecture
-  core/overview/cht-sync
 aliases:
     - /apps/guides/data/analytics/production
     - /building/guides/data/analytics/production
 ---
+
+{{< hextra/hero-subtitle >}}
+  Setting up CHT Sync with Kubernetes and the CHT
+{{< /hextra/hero-subtitle >}}
 
 This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT]({{< relref "hosting/4.x/production/kubernetes" >}}).
 

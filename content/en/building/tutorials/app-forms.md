@@ -15,9 +15,8 @@ aliases:
    - /apps/tutorials/app-forms
 ---
 
-App forms allow users to submit reports from Android devices
+App forms allow users to submit reports from Android devices.
 
-{{% pageinfo %}}
 This tutorial will take you through how to build App forms for CHT applications, including:
 
 - Authoring forms in Excel, Google sheets or other spreadsheet applications.
@@ -25,7 +24,6 @@ This tutorial will take you through how to build App forms for CHT applications,
 - Uploading XForms to CHT
 
 You will be building assessment workflow that allows Community Health Workers to conduct a health assessment for children under the age of 5.
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
@@ -123,7 +121,8 @@ To convert and upload the form to your local instance, run the following command
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-app-forms upload-app-forms -- assessment
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 ## Next steps
 

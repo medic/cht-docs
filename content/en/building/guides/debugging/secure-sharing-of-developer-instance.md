@@ -8,13 +8,12 @@ aliases:
    - /apps/guides/debugging/secure-sharing-of-developer-instance
 ---
 
-{{% alert title="Warning" %}} 
-Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.
-
-Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
-
-Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "community/contributing/code/core/dev-environment#nginx-local-ip" >}})
-{{% /alert %}}
+> [!CAUTION]
+> Be extra careful with this process! The end result will be that your development instance will be accessible to the internet. If you have simple logins and passwords like "admin/test.223" because you thought it was just your local dev instance and it doesn't matter, now it matters! Whenever you're not using the SSH tunnel for testing, shut it down so there's no more remote access.
+> 
+> Never expose a development instance to the internet where you've replicated production data locally. Well, maybe not never, but with extreme care and intention.
+> 
+> Also not - if you only want to test with mobile devices that require a valid TLS certificate, do not use method.  Instead, use [nginx-local-ip]({{< relref "community/contributing/code/core/dev-environment#nginx-local-ip" >}})
 
 ## Overview
 When using a local [development environment]({{< relref "community/contributing/code/core/dev-environment" >}}), you may want to share your work with other collaborators. By using a publicly accessible web server, you can receive the secure https requests and forward them back to your CHT instance which doesn't have https set up:
@@ -81,7 +80,8 @@ The steps in this guide can be done on any of the cheap server providers out the
 
 From the SSH command in step 10 above:
 
-[<img src="/building/guides/debugging/images/ssh.ports.svg" width=100% height=100%>](/building/guides/debugging/images/ssh.ports.svg)
+{{< figure src="../images/ssh.ports.svg" link="../images/ssh.ports.svg" caption="Explanation of ports and IPs from SSH" >}}
+
 
 1. `8081` -  Remote port on cht.domain.com to listen to. This is the same port that apache redirects to in step 2 above.
 1. `127.0.0.1` - Host to send forwarded traffic to. In this case, your local machine.

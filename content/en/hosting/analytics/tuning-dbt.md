@@ -2,14 +2,16 @@
 title: "Tuning dbt runs for performance"
 weight: 6
 linkTitle: "dbt Tuning"
-description: >
-  Tuning DBT variables for performance
 relatedContent: >
-  core/overview/cht-sync
+  technical-overview/cht-sync
   hosting/analytics/environment-variables
   hosting/analytics/setup-docker-compose
   hosting/analytics/setup-kubernetes
 ---
+
+{{< hextra/hero-subtitle >}}
+  Tuning DBT variables for performance
+{{< /hextra/hero-subtitle >}}
 
 In production setups with large tables, it can be helpful to control how DBT runs.
 

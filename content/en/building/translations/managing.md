@@ -7,7 +7,7 @@ description: >
 relatedContent: >  
   building/translations/localizing
 aliases:
-   - /core/overview/translations
+   - /technical-overview/translations
    - /building/translations/managing-translations
 ---
 
@@ -15,9 +15,8 @@ TODO This is not really the right content here. Seems like this really needs to 
 
 Apps built with CHT Core are localized so that users can use them in the language of their choice. The goal of this section is to help the community manage existing and new translations.
 
-{{% alert title="Note" color="info" %}}
-Please open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
-{{% /alert %}}
+> [!TIP]
+> Open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
 
 ## Overview
 
@@ -61,3 +60,6 @@ Much of the app is configurable (eg: forms and schedules). Because the specifics
 ## Removing translation keys
 
 Carefully verify that the translation key isn't used. This can be challenging if keys have been concatenated or generated because then you won't be able to find the complete string in the source code. Once this has been confirmed, then simply remove the key and value from all translation files.
+
+> [!TIP]
+> Translators without developer background, open a [GitHub isssue](https://github.com/medic/cht-core/issues/new/choose) or post on the [CHT Forum](https://forum.communityhealthtoolkit.org) if you need help!

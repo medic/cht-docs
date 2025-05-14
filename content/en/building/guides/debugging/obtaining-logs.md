@@ -21,11 +21,23 @@ To check if there are relevant logs open up the developer console in your browse
 
 There are two types of logs updated by Android devices depending on what information is needed. If you trying to get either of the logs from a device for the first time you need to set it up for USB debugging.
 
-1. Enable USB debugging on the phone. This varies from phone to phone, but here is the [official Android documentation](https://developer.android.com/studio/debug/dev-options#enable).
-2. Connect your phone by USB to the computer.
-3. On your phone, you will see a popup _"Allow USB debugging. The computer's RSA fingerprint..."_, click _"OK"_.
+{{% steps %}}
 
-   ![Allow USB debugging](/building/guides/debugging/images/allow_usb_debugging.png)
+### Step 1
+
+Enable USB debugging on the phone. This varies from phone to phone, but here is the [official Android documentation](https://developer.android.com/studio/debug/dev-options#enable).
+
+### Step 2
+
+Connect your phone by USB to the computer.
+
+### Step 3
+
+On your phone, you will see a popup _"Allow USB debugging. The computer's RSA fingerprint..."_, click _"OK"_.
+
+{{% /steps %}}
+
+{{< figure src="/building/guides/debugging/images/allow_usb_debugging.png" link="/building/guides/debugging/images/allow_usb_debugging.png" caption="Allow USB debugging" >}}
 
 ### Browser logs
 
@@ -35,13 +47,25 @@ Now that you've enabled USB debugging on the phone you can access the dev consol
 
 The Android log is written to from the cht-android wrapper which captures errors like application crashes or failing integrations between Android apps.
 
-1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "community/contributing/code/android/development-setup#debug-tool-adb" >}}) section.
-2. Within a command line session, write the following command: `adb start-server`.
-3. To check if your phone is properly connected, write the command `adb devices`. This will list the devices connected.
+{{% steps %}}
 
-   ![ADB Devices](/building/guides/debugging/images/adb_devices.png)
+### Step 1
 
-4. Type the command `adb logcat > phone.log` to get the android logs in the file `phone.log`. The log will be written to the `phone.log` file as long as this command is running. You can stop the recording at any time pressing _Ctrl+C_. Now if you reproduce the error on the phone you can look for any useful information being written to the `phone.log`.
+To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "community/contributing/code/android/development-setup#debug-tool-adb" >}}) section.
+
+### Step 2
+
+Within a command line session, write the following command: `adb start-server`.
+
+### Step 3
+
+To check if your phone is properly connected, write the command `adb devices`. This will list the devices connected.
+
+{{< figure src="/building/guides/debugging/images/adb_devices.png" link="/building/guides/debugging/images/adb_devices.png" caption="ADB Devices" >}}
+
+### Step 4
+
+Type the command `adb logcat > phone.log` to get the android logs in the file `phone.log`. The log will be written to the `phone.log` file as long as this command is running. You can stop the recording at any time pressing _Ctrl+C_. Now if you reproduce the error on the phone you can look for any useful information being written to the `phone.log`.
 
 This will get all the logs from the device, not just logs for the app you want to debug. You can pass arguments to `adb` to only get the logs you want.
 
@@ -54,6 +78,8 @@ Alternatively you can use `grep` to filter the logs down to only those from the 
 ```sh
 adb logcat | grep MedicMobile > phone.log
 ```
+
+{{% /steps %}}
 
 ## On the server
 

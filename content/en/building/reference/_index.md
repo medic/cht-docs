@@ -7,3 +7,5 @@ description: >
 aliases:
    - /apps/reference/
 ---
+
+{{< subpages >}}

@@ -1,29 +1,29 @@
 ---
 title: "Configuring UHC Mode"
 linkTitle: UHC Mode
-weight: 5
-description: >
-  How to enable Universal Health Coverage monitoring with UHC Mode
-relatedContent: >
-  building/features/uhc-mode
-  building/reference/app-settings/user-roles
-  building/reference/app-settings/user-permissions
+weight: 1
 aliases:
    - /building/guides/forms/uhc-mode
    - /apps/guides/forms/uhc-mode
 ---
 
-_Introduced in v2.18.0_
-
-{{< figure src="UHC.gif" link="UHC.gif" alt="UHC Mode screenshot" class="right col-6 col-lg-3" >}}
+{{< hextra/hero-subtitle >}}
+  How to enable Universal Health Coverage monitoring with UHC Mode
+{{< /hextra/hero-subtitle >}}
 
 The CHT's [UHC Mode]({{< relref "building/features/uhc-mode" >}}) empowers CHWs to provide equitable and timely care to families in their catchment area. The Community Health Toolkit supports this use-case by displaying the number of visits made to a household and highlighting households which haven't met their visit goal in red at the top of the contact list.
+
+{{< cards >}}
+  {{< figure src="UHC.gif" link="UHC.gif" alt="UHC Mode screenshot" class="right col-6 col-lg-3" >}}
+{{< /cards >}}
 
 The date last visited is colored red whenever the date is 30 days or more in the past. The date last visited is displayed as a relative date. This period is described in terms of "days" up until two months, so "Visited 3 days ago" or "Visited 36 days ago". After two months, we simply say "2 months" or "3 months".
 
 ## Household Visits
 
-{{< figure src="sort-dropdown.png" link="sort-dropdown.png" alt="Contact sorting screenshot" class="right col-6 col-lg-3" >}}
+{{< cards >}}
+  {{< figure src="sort-dropdown.png" link="sort-dropdown.png" alt="Contact sorting screenshot" class="right col-6 col-lg-3" >}}
+{{< /cards >}}
 
 The date of the last visit is displayed and contacts can be sorted by last visit date to allow the CHW plan their work.
 

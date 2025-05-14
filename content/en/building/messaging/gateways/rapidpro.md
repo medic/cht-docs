@@ -38,16 +38,16 @@ Then visit the RapidPro workspace settings page (`/org/home/`) and check your Ra
 
 In your RapidPro dashboard, visit the flows page (`/flow/`) and create a new flow. It only needs to contain a webhook, to relay the message to your CHT Core instance and handle possible errors.
 
-![flow_overview](flow_overview.png)
+{{< figure src="flow_overview.png" link="flow_overview.png" caption="flow_overview" >}}
 
 Configure the new webhook:
 - to `POST` to the `cht_url` you configured earlier:
 
-![flow_webhook_host](flow_webhook_host.png)
+{{< figure src="flow_webhook_host.png" link="flow_webhook_host.png" caption="flow_webhook_host" >}}
 
 - set the authorization and content-type headers
 
-![flow_webhook_headers](flow_webhook_headers.png)
+{{< figure src="flow_webhook_headers.png" link="flow_webhook_headers.png" caption="flow_webhook_headers" >}}
 
 - set the body to relay the message to CHT in the expected format:
 ```json
@@ -58,15 +58,14 @@ Configure the new webhook:
 )))
 ```
 
-![flow_webhook_body](flow_webhook_body.png)
-
+{{< figure src="flow_webhook_body.png" link="flow_webhook_body.png" caption="flow_webhook_body" >}}
 
 ### Create a new trigger
 Create a trigger (`/trigger/`) to start the new flow when a message is not handled elsewhere.
 
-![trigger_select](trigger_select.png)
+{{< figure src="trigger_select.png" link="trigger_select.png" caption="trigger_select" >}}
 
-For more details about RapidPro configuration, please consult the [RapidPro integration documentation]({{% ref "building/integrations/rapidpro" %}}).
+For more details about RapidPro configuration, consult the [RapidPro integration documentation]({{% ref "building/integrations/rapidpro" %}}).
 
 ## CHT Core configuration
 
@@ -91,8 +90,8 @@ Update your app settings as follows.
 }
 ```
 
-{{% alert title="Rate limiting" %}}
-The RapidPro API endpoints are rate-limited, meaning that requests to send or check the status of messages beyond a certain number per hour will be blocked. The limit is currently 2500 actions per hour, and may change without notice. Check out the [RapidPro API reference](https://rapidpro.io/api/v2/#rate-limiting) for more details. If sending a message or retrieving a status update fails, it will be retried automatically again later.
+> [!IMPORTANT]
+> The RapidPro API endpoints are rate-limited, meaning that requests to send or check the status of messages beyond a certain number per hour will be blocked. The limit is currently 2500 actions per hour, and may change without notice. Check out the [RapidPro API reference](https://rapidpro.io/api/v2/#rate-limiting) for more details. If sending a message or retrieving a status update fails, it will be retried automatically again later.
+> 
+> When the outgoing message service is set to RapidPro or the host/account are changed, CHT Core will request state updates for all messages that aren't in one of the final states: `delivered`, `failed`, `denied`, or `cleared`. Each of these request counts towards your quota. Since the messages are unlikely to exist on the new RapidPro service, these requests will fail on every retry and consume your request quota. It is therefore important that all outgoing messages have a final state before switching RapidPro accounts or hosts. The status can be set to `failed` for messages that should not be resent without user intervention, or to `scheduled` for those that should be automatically sent with the new RapidPro account.
 
-When the outgoing message service is set to RapidPro or the host/account are changed, CHT Core will request state updates for all messages that aren't in one of the final states: `delivered`, `failed`, `denied`, or `cleared`. Each of these request counts towards your quota. Since the messages are unlikely to exist on the new RapidPro service, these requests will fail on every retry and consume your request quota. It is therefore important that all outgoing messages have a final state before switching RapidPro accounts or hosts. The status can be set to `failed` for messages that should not be resent without user intervention, or to `scheduled` for those that should be automatically sent with the new RapidPro account.
-{{% /alert %}}

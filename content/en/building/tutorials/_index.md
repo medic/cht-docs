@@ -8,3 +8,4 @@ aliases:
    - /apps/tutorials/
 ---
 
+{{< subpages >}}

@@ -2,18 +2,14 @@
 title: contact-summary.templated.js
 linkTitle: contact-summary.templated.js
 weight: 2
-description: >
-  Customizing the fields, cards, and actions on profile pages
-relatedContent: >
-  building/forms/configuring/form-inputs
-relevantLinks: >
-  docs/building/features/contacts
-  docs/building/concepts/hierarchies
-keywords: hierarchy contacts care-guides
 aliases:
    - /building/reference/contact-page
    - /apps/reference/contact-page
 ---
+
+{{< hextra/hero-subtitle >}}
+  Customize fields, cards, and actions on profile pages
+{{< /hextra/hero-subtitle >}}
 
 Contact profile pages display basic information about the contact along with their history and upcoming tasks.
 A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.
@@ -25,7 +21,7 @@ Helper variables and functions for the contact summary can be defined in `contac
 | `contact` | The currently selected contact. This has minimal stubs for the `contact.parent`, so if you want to refer to a property on the parent use `lineage` below.| 
 | `reports` | An array of reports for the contact or for any of the contact's `person` children. Note that if the contact has more than 500 reports, only the 500 with the latest `reported_date` values will be provided. Prior to version `4.7.0`, only 50 reports were provided. |
 | `lineage` | An array of the contact's parents (2.13+), eg `lineage[0]` is the parent, `lineage[1]` is the grandparent, etc. Each lineage entry has full information for the contact, so you can use `lineage[1].contact.phone`. `lineage` will include only those contacts which are visible to the logged in profile | 
-| `targetDoc` | Doc with [`target`]({{< ref "core/overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
+| `targetDoc` | Doc with [`target`]({{< ref "technical-overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
 | `uhcStats` | Object containing UHC stats information. Added in `v3.12.0` |
 | `uhcStats.uhcInterval` | Object containing the start and end date of UHC reporting period, it is calculated from the `uhc.visit_count.month_start_date` defined in the [app settings]({{< ref "/building/reference/app-settings/#app_settingsjson" >}}). |
 | `uhcStats.uhcInterval.start` | Timestamp, start date of the UHC reporting period. |
@@ -70,7 +66,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 | property | type | description | required |
 |---|---|---|--|
 | `label` | `translation key` | Label on top of card. | yes |
-| `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Please, note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. It defaults to all types if it is not defined. | no |
+| `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. It defaults to all types if it is not defined. | no |
 | `appliesIf` | `function(report)` or `boolean` | Return true if the field should be shown. | no |
 | `modifyContext` | `function(context, report)` | Used to modify or add data which is passed as input to forms filled from the contact page. | no |
 | `fields` | `Array[]` of fields | The content of the card. | yes |
@@ -177,4 +173,7 @@ module.exports = {
 
 To update the Contact profiles for an app, changes must be compiled into `app-settings`, then uploaded.
 
-`cht --local compile-app-settings backup-app-settings upload-app-settings`
+
+```shell
+  cht --local compile-app-settings backup-app-settings upload-app-settings
+```

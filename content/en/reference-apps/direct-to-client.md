@@ -1,18 +1,16 @@
 ---
-title: "Direct-to-client, two-way texting workflows on CHT"
-linkTitle: "Direct-to-client, two-way texting workflows on CHT"
+title: "Direct-to-client, Two-way Texting Workflows with CHT and RapidPro"
+linkTitle: "Direct-to-client, Two-way Texting Workflows"
 weight:
-description: >
-  Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
-relatedContent: >
-  building/concepts
-  building/forms/app
-  building/tasks/tasks-js
 aliases:
    - /apps/examples/direct-to-client
    - /building/examples/direct-to-client
    - /exploring/direct-to-client
 ---
+
+{{< hextra/hero-subtitle >}}
+  Reference app for Direct-to-client, two-way texting workflows with CHT and RapidPro
+{{< /hextra/hero-subtitle >}}
 
 <!-- Force tables on this page to have columns same width -->
 <!-- somewhat brittle b/c it's tied to the header ID , but allows us to hit one table only -->
@@ -23,13 +21,11 @@ aliases:
   }
 </style>
 
-{{% pageinfo %}}
 
 This documentation provides a guide for designing and deploying direct-to-client (D2C), two-way texting (2wT) workflows to support client follow-up care using the community health toolkit (CHT). 2wT is a mobile text messaging system built on open-source, CHT tools to engage clients in their health care; to facilitate  prompt client - healthcare provider interactions; to provide low-cost telehealth; and, to improve health care outcomes through the early identification of, and referral for,  potential complications.
 
 The hybrid 2wT system is used for relaying automated health education and check in messages to clients, generating tasks to improve client follow-up and health provider reporting, while also allowing for free text interaction between clients and healthcare providers. This document describes the hybrid 2wT system features and its functionalities. It also provides an opportunity for digital health implementers to explore and learn how direct-to-client communication can be achieved through integrating app features within the CHT, with messaging technologies such as  [RapidPro](https://docs.communityhealthtoolkit.org/building/integrations/rapidpro/) and SMS aggregators.
 
-{{% /pageinfo %}}
 
 
 ## Problem being addressed
@@ -171,21 +167,33 @@ Appointment reminders can be configured on CHT so that household members and cli
 Active case finding by messaging households with survey questions about the health of family members.
 
 ## Frequently Asked Questions
-##### 1. Is the client charged for receiving or sending the SMS?
+
+{{% details title="1. Is the client charged for receiving or sending the SMS?" %}}
+
 It is possible for health programs to acquire a zero rated short code service which is free for clients and household members to send and receive texts from the short code.
 
-##### 2. What are ways to handle exceptions?
+{{% /details %}}
+
+{{% details title="2. What are ways to handle exceptions?" %}}
+
 Exceptions can occur when programs and flows do not work as expected. This may occur due to various technical issues and may be unavoidable. One possible way to handle these unwanted issues and errors is to set up the mail group such that a notification email is sent whenever there is any exception. Another method is to keep track of whether the flow was completed i.e., all the responses from start to finish nodes were received. For the participants whose flow may have been interrupted or incomplete, one may run the workflow again.
 
-##### 3. Ways to improve response rate from clients?
+{{% /details %}}
+
+{{% details title="3. Ways to improve response rate from clients?" %}}
+
 The workflows in RapidPro can be set up in such a way that they expire after a certain time period. Workflows can expire when there is no response from a client within a time period. You can handle such situations by repeating the workflow i.e., sending them again to the client after a certain time interval. Alternatively, it can be beneficial to do some research on which time to send the message. For example, a person may be busy at work and/or away from the phone during working hours. It may be easier for them to respond during early morning or later in the evening than in the afternoon.
+
+{{% /details %}}
 
 ## Resources
 
-VMMC code can be accessed using the following link [D2C messaging app for post-op care](https://github.com/medic/cht-post-ops-app)
+VMMC code can be accessed using the following link [D2C messaging app for post-op care](https://github.com/medic/cht-post-ops-app).
+
 ##### Training materials
 - [User guide including tools for the nurses and clients](https://drive.google.com/file/d/13fz8vDYSFNHLc2a-afsAEjM2nrmca6os/view?ts=65e996b1)
 - Illustrative [Videos](https://www.youtube.com/watch?v=HNC5T7QuK2M&list=PLutu6_ZOg77dAgJhDCRKdEIUnThUsqjEh)
+
 ##### Publications
 
   - 2wT is safe and improves efficiency over routine visits: Evidence from [South Africa](https://www.jmir.org/2023/1/e42111/) and from [Zimbabwe](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6903365/)
@@ -195,8 +203,10 @@ VMMC code can be accessed using the following link [D2C messaging app for post-o
   - 2wT is scale up, reaching over 45,000 in [Zimbabwe](https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000066)
 
 
-**Related pages** - [UW website](https://sites.uw.edu/twowaytexting/), [I-tech/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients)
+**Related pages** - [UW website](https://sites.uw.edu/twowaytexting/), [I-TECH/Aurum page](https://globalhealth.washington.edu/news/2020/07/02/expanding-two-way-texting-reduce-follow-appointments-male-circumcision-patients).
 
 {{< figure src="Figure8Collab.png"  link="Figure8Collab.png" alt="" title="" class="col-9">}}
 
+{{< callout >}}
 **Funding:** 2wT Zimbabwe was supported by the Fogarty International Center of the National Institutes of Health under Award Number R21TW010583, PI Feldacker. 2wT South Africa is supported by National Institute of Nursing Research of the National Institutes of Health (NIH) under award number 5R01NR019229, PIs Feldacker and Setswe. The content is solely the responsibility of the collaborators and authors and does not necessarily represent the official views of the National Institutes of Health.
+{{< /callout >}}

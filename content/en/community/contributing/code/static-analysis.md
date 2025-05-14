@@ -2,17 +2,24 @@
 title: "Static Analysis"
 linkTitle: "Static Analysis"
 weight: 11
-description: >
-  Guidelines for static analysis of CHT code
 aliases: >
   /contribute/code/static-analysis
 ---
 
-## eslint
+{{< hextra/hero-subtitle >}}
+  Guidelines for static analysis of CHT code
+{{< /hextra/hero-subtitle >}}
 
-All code must pass an eslint check which runs early in the CI cycle and uses the [standard medic eslint configuration](https://github.com/medic/eslint-config).
+## ESLint
 
-ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
+All code must pass an eslint check which runs early in the CI cycle and uses the [standard Medic ESLint configuration](https://github.com/medic/eslint-config).
+
+### Linting
+
+You should always lint your code locally before pushign it up the GitHub. Choose one of:
+
+* ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
+* CHT Core has a script to run at the command line, by calling `npm run lint` while in the `cht-core` repository.  Be sure you've run the [Core dev setup first](/community/contributing/code/core/dev-environment)! Note that the first time you run this it might be slow, as it needs to download and cache some files.  Subsequent runs should be quite fast.
 
 ## Sonar
 
@@ -91,8 +98,6 @@ Additionally, the `.sonarcloud.properties` file can contain configuration regard
 ##### Ignoring all rules for a block of code
 
 You can ignore all the rules for a block of code by telling Sonar to [ignore the block](https://docs.sonarsource.com/sonarqube-cloud/managing-your-projects/project-analysis/setting-analysis-scope/advanced-exclusions/). First, make sure your `.sonarcloud.properties` file has the following configuration:
-
-```properties
 
 ```properties
 sonar.issue.ignore.block=e1

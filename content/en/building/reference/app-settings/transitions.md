@@ -168,15 +168,14 @@ If you are providing the patient ID instead of having Sentinel generate you one,
 
 In this example the provided ID would be in `fields.external_id` on the registration document. This field **must not** be called `patient_id`.
 
-{{% alert title="Note" %}}
-The JSON passed in `"params"` should be a string. Support for raw JSON as shown below exists, but is in beta and may not always work correctly in all situations, because kanso.json does not support it:
-
-```json
-{
-    "params": {"patient_id_field": "external_id"},
-}
-```
-{{% /alert %}}
+> [!NOTE]
+> The JSON passed in `"params"` should be a string. Support for raw JSON as shown below exists, but is in beta and may not always work correctly in all situations, because kanso.json does not support it:
+> 
+> ```json
+> {
+>     "params": {"patient_id_field": "external_id"},
+> }
+> ```
 
 ###### Alternative Name Location
 
@@ -446,9 +445,8 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `validations` | List of form fields validations. All mute & unmute forms will be subjected to these validation rules. Invalid forms will not trigger muting/unmuting actions. Optional. |
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
-{{% alert title="Note" %}}
-Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "core/overview/db-schema#reports" >}})) can.
-{{% /alert %}}
+> [!IMPORTANT]
+> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "technical-overview/db-schema#reports" >}})) can.
 
 
 Supported `events_types` are:
@@ -462,15 +460,14 @@ Supported `events_types` are:
 | `contact_not_found` | Either mute or unmute actions when target contact is not found |
 
 
-{{% alert title="Note" %}}
-When muting events are processed both client-side and server-side, there is no guarantee that the state of the database will be the same between the two processing events. Some possible cases where the data is changed in significant ways, that will affect the final muting state are:  
-- updated muting settings between client and server processing of the same report / contact
-- editing the muting/unmuting reports before they are synced, but after the transition ran locally, that either change the target contact or change the validity of the report
-- deleting muting/unmuting reports before they are synced   
-- validation rules that depend on database data (for example using the "exists" rule, which will run over different data sets, a report could be valid for the client but invalid for the server and the other way around).
-- conflicts that overwrite `muting_history` for contacts
-- delayed sync for some docs (either contacts or reports) could exacerbate the above because of the "replay" behavior.
-{{% /alert %}}
+> [!NOTE]
+> When muting events are processed both client-side and server-side, there is no guarantee that the state of the database will be the same between the two processing events. Some possible cases where the data is changed in significant ways, that will affect the final muting state are:  
+> - updated muting settings between client and server processing of the same report / contact
+> - editing the muting/unmuting reports before they are synced, but after the transition ran locally, that either change the target contact or change the validity of the report
+> - deleting muting/unmuting reports before they are synced   
+> - validation rules that depend on database data (for example using the "exists" rule, which will run over different data sets, a report could be valid for the client but invalid for the server and the other way around).
+> - conflicts that overwrite `muting_history` for contacts
+> - delayed sync for some docs (either contacts or reports) could exacerbate the above because of the "replay" behavior.
 
 ##### Example
 

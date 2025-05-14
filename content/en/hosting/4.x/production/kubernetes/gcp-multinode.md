@@ -4,14 +4,15 @@ linkTitle: "GCP + GKS Multi Node"
 weight: 10
 aliases:
    - /hosting/4.x/production/docker/google-cloud/
-description: >
-   Production Hosting CHT 4.x - Google Cloud Platform
 ---
-How to deploy the CHT 4.x on Google Cloud Platform
+
+{{< hextra/hero-subtitle >}}
+  How to deploy the CHT 4.x on Google Cloud Platform
+{{< /hextra/hero-subtitle >}}
 
 ## Audience
 
-This document is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, please see our guide [here for setting up a simpler installation](../../docker).
+This page is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, see our guide [here for setting up a simpler installation](../../docker).
 
 ## Prerequisites
 
@@ -37,11 +38,11 @@ Once we have a GCP project, let's make sure everyone else on our team can help o
 
 At the welcome screen after creating a GCP project, we want to note the * Project ID:, marked by a * in the screenshot below. Clicking on `Dashboard` we arrive at a detailed screen of our GCP project.
 
-![Welcome to dashboard](welcome_project_id_dashboard.png)
+{{< figure src="welcome_project_id_dashboard.png" link="welcome_project_id_dashboard.png" caption="Welcome to dashboard" >}}
 
-At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see [related image](add_people_to_project.png)) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, please update these docs - we would greatly appreciate it!
+At the Dashboard page, looking at the "Project Info" section, clicking on "ADD PEOPLE TO THIS PROJECT" (see [related image](add_people_to_project.png)) opens up a dialog where we can add users by their Gmail address. To simplify this process until further specific permissions are determined,  use basic Owner and Editor roles for users we create. If you have a Google Kubernetes Engine ([GKE](https://cloud.google.com/kubernetes-engine?hl=en)) setup with narrow permissions for users and systems, update these docs - we would greatly appreciate it!
 
-![Add User Details](add_user_details.png)
+{{< figure src="add_user_details.png" link="add_user_details.png" caption="Add User Details" >}}
 
 ## GKE (Google Kubernetes Engine) Cluster creation
 
@@ -75,7 +76,7 @@ When creating the cluster, make sure the 3 option boxes are checked:
 * Access using the control plane's external IP address
 * Access using the control plane's internal IP address from any region
 
-![Cluster Networking Options](cluster_networking_options.png)
+{{< figure src="cluster_networking_options.png" link="cluster_networking_options.png" caption="Cluster Networking Options" >}}
 
 ### NodePool Configuration
 
@@ -88,22 +89,22 @@ In the case of a cht-core project with millions of docs in CouchDB, we have ran 
 Cloud-vendor optimized container images such as Google-optimized container images **and** Amazon-optimized container images do not allow custom bootstrap scripts that modify parameters to the necessary levels to run CouchDB with large document numbers.
 
 Creating a 3 nodepool configuration for CouchDB:
-![CouchDB nodepool](nodepool_couchdb_3_nodes.png)
+{{< figure src="nodepool_couchdb_3_nodes.png" link="nodepool_couchdb_3_nodes.png" caption="CouchDB nodepool" >}}
 
 As noted in the previous paragraph, be sure to select Nodes under your new CouchDB nodepool in the left-side navigation bar. In the node details menu, select `Ubuntu with containerd` for image type, and `n2-standard-8`for machine type.
 
-![CouchDB base image and machine types](nodepool_base_image_machine_size.png)
+{{< figure src="nodepool_base_image_machine_size.png" link="nodepool_base_image_machine_size.png" caption="CouchDB base image and machine types" >}}
 
 In order for our CouchDB containers to be placed onto these specific virtual machines we designated for this nodepool, we need to add kubernetes labels to the nodepool, which we will correspond with nodeSelector parameters in our CouchDB deployment templates.
 
 Clicking on `Metadata` on the left-side navigation bar underneath the nodepool name, we can add Kubernetes Labels.
 
-![CouchDB nodepool kubernetes labels](nodepool_labels.png)
+{{< figure src="nodepool_labels.png" link="nodepool_labels.png" caption="CouchDB nodepool kubernetes labels" >}}
 
 A separate nodepool configuration created for cht-core services.
 For the cht-core nodepool, select a 4 core, 16gb RAM machine, 20gb persistent disk, and there is no need to create specific kubernetes labels.
 
-![CHT-Core nodepool](nodepool_chtcore_add.png)
+{{< figure src="nodepool_chtcore_add.png" link="nodepool_chtcore_add.png" caption="CHT-Core nodepool" >}}
 
 Click on Create Cluster and wait a few minutes for everything to come up!
 
@@ -139,8 +140,7 @@ kubectl get namespaces
 You can connect to your cluster via command-line or using a dashboard.
 
 * Commandline
-
-  ![Connect to cluster](gke_connect_command.png)
+  {{< figure src="gke_connect_command.png" link="gke_connect_command.png" caption="Connect to cluster" >}}
 
   In above UI select your cluster and in click on connect, then copy the command and run it in your terminal and you can access any ressource in the cluster.
 
@@ -148,8 +148,7 @@ You can connect to your cluster via command-line or using a dashboard.
   gcloud container clusters get-credentials [cluster-name] --zone [Zone where the cluster is hosted] --project [Project ID]
   ```
 * Dashboard
-
-  ![GKE cluster dashbaord](gke_dashboard.png)
+  {{< figure src="gke_dashboard.png" link="gke_dashboard.png" caption="GKE cluster dashboard" >}}
 
 ## Create a Storage Disk for CouchDB
 

@@ -2,14 +2,15 @@
 title: "Event Based Surveillance"
 linkTitle: "Event Based Surveillance"
 weight:
-description: >
-  Capturing information about community events that are a risk to public health
-keywords: EBS
 aliases:
    - /apps/examples/ebs
    - /building/examples/ebs
    - /exploring/ebs
 ---
+
+{{< hextra/hero-subtitle >}}
+  Capturing information about community events that are a risk to public health
+{{< /hextra/hero-subtitle >}}
 
 The CHT’s Event Based Surveillance (EBS) functionality enables rapid capture of information about community events that are a potential risk to public health. Deployed at the community level, this functionality is designed to:
 

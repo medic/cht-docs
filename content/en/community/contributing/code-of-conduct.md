@@ -2,17 +2,19 @@
 title: "Code of Conduct"
 linkTitle: "Code of Conduct"
 weight: 3
-description: >
-  The Code of Conduct for the CHT community
 aliases:
  -    /contribute/code-of-conduct
 ---
 
+{{< hextra/hero-subtitle >}}
+  The code of conduct for the CHT community
+{{< /hextra/hero-subtitle >}}
+
 All maintainers and contributors in this community are required to act according to the following Code of Conduct. These guidelines help steer our interactions and help us provide and ensure a safe environment for everyone.
 
-## Our Standards
+## Our Community's Standards
 
-Examples of behavior that contributes to creating a positive environment
+Examples of behavior that contributes to creating a positive environment:
 include:
 
 * Using welcoming and inclusive language
@@ -59,4 +61,4 @@ members of the project's leadership.
 
 ## Attribution
 
-This Code of Conduct is adapted from the Contributor Covenant, [version 1.4](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html). For answers to common questions about this code of conduct, see https://www.contributor-covenant.org/faq
+This Code of Conduct is adapted from the Contributor Covenant, [version 1.4](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html). For answers to common questions about this code of conduct, see https://www.contributor-covenant.org/faq.
