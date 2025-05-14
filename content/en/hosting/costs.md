@@ -25,8 +25,6 @@ In a production environment, the CHT costs USD$0.10 per active user per month to
 
 Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). By using [OpenCost](https://www.opencost.io/), Medic can closely monitor real world costs with actual end users. OpenCost was used to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
 
-By looking at dozens of instances and focusing on the highest usage ones, hosting partners can know our numbers are applicable.  
-
 Here's costs for two week period for an actual production instance which informs our USD$0.10 per active user per month cost, including a bit of over-provisioning to give a deployment some headroom:
 
 | Total Monthly Cost     | $68    | 
