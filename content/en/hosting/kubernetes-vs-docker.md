@@ -72,7 +72,7 @@ The main components of a Kubernetes CHT deployment include one less service than
 
 ## Example deployments
 
-Below are examples from real world large-scale CHT deployments which have been anonymised.  Users are total provisioned users, fewer users may be active in a given month.
+Below are examples from real world large-scale CHT deployments which have been anonymised.  Users are active users for the past 30 days.
 
 ### CHT Deployment Example 1
 
@@ -86,7 +86,7 @@ This deployment hosts 47 production instances in a data center running [K3s](htt
 |              RAM: | 752 GB (47VMx 16 GB/ea)     |
 |             Disk: | 4,700 GB  (Max 700, Min 21) |
 | Multi-Node Couch: | No                          |
-|            Users: | 123.3k                      |
+|            Users: | 50.6k                       |
 
 
 
@@ -102,7 +102,7 @@ This deployment hosts 1 CHT production instance in a data center running [K3s](h
 |              RAM: | 64 GB (4 VMs x 16GB/ea)   |
 |             Disk: | 600 GB (4 VMs x 150GB/ea) |
 | Multi-Node Couch: | Yes                       |
-|            Users: | 18k                       |
+|            Users: | 9.5k                      |
 
 
 ### CHT Deployment Example 3
@@ -118,4 +118,6 @@ This deployment hosts 46 production instances on Amazon [Elastic Kubernetes Serv
 |             Disk: | 8.6 TB (8 VMS x 500GB/ea + 46 CHTs x ~100GB/ea) |
 | Multi-Node Couch: | 44 No, 2 Yes                                    |
 |            Users: | 25.7k                                           |
+
+
 
