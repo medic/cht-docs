@@ -11,6 +11,8 @@ aliases:
    - /building/translations/managing-translations
 ---
 
+TODO This is not really the right content here. Seems like this really needs to be about _overriding_ the existing built-in translations, not about adding new ones.
+
 Apps built with CHT Core are localized so that users can use them in the language of their choice. The goal of this section is to help the community manage existing and new translations.
 
 {{% alert title="Note" color="info" %}}

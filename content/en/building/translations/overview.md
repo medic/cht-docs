@@ -4,6 +4,8 @@ linkTitle: Overview
 weight: 1
 description: >
   Supporting localization and adding translations in the CHT
+relatedContent: >
+  community/contributing/code/core/translations
 aliases:
    - /building/translations/translations-overview
    - /building/reference/translations
@@ -16,7 +18,7 @@ Given that CHT applications are used around the world, the Core Framework was de
 
 *Localization* refers to setting up the desired language in CHT for the end user. See an outline of how to change language settings for CHT users [in the dedicated section]({{< ref "building/translations/localizing" >}}).
 
-*Translations* refers to manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to do add new translations to the CHT [in the dedicated section]({{< ref "building/translations/managing" >}}).
+*Translations* refers to manually setting up extra translations of instance tabs texts or outgoing SMS text. See an outline of how to add new translations to the CHT [in the dedicated section]({{< ref "building/translations/managing" >}}).
 
 ## Localization
 In the `app_settings.json` file the default language for the application is set by the `locale` property, along with a separate default language for outgoing messages that are sent via SMS with the `locale_outgoing` property.  
