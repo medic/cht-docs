@@ -72,7 +72,7 @@ The main components of a Kubernetes CHT deployment include one less service than
 
 ## Example deployments
 
-Below are examples from 2 real world Ministries of Health (MoH) which have been anonymized and Medic hosted instances.  Users are total provisioned users, fewer users may be active in a given month.
+Below are examples from real world large-scale CHT deployments which have been anonymised.  Users are total provisioned users, fewer users may be active in a given month.
 
 ### MoH Example 1
 
