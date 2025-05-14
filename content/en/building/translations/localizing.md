@@ -1,16 +1,16 @@
 ---
-title: Localizing the CHT
-linkTitle: Localizing
+title: Configuring custom translations
+linkTitle: Configuring
 weight: 2
 description: >
-  Using the CHT in the desired language
+  Configuring custom translations for the CHT
 relatedContent: >
   building/translations/managing
 aliases:
    - /building/tutorials/localizing-cht
    - /apps/tutorials/localizing-cht
    - /building/translations/localizing-translations
-   - /building/translations/localizing
+   - /building/translations/configuring-translations
 ---
 
 This section will take you through translating the CHT to a custom language (in this guide, Swahili). This will include setting up the user interface labels as well as outgoing text messages.
