@@ -25,10 +25,11 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 4.18.x  | Supported | 20-Mar-2025  | TBA         |
+| 4.19.x  | Supported | 13-May-2025  | TBA         |
+| 4.18.x  | Supported | 20-Mar-2025  | 13-Aug-2025 |
 | 4.17.x  | Supported | 05-Feb-2025  | 20-Jun-2025 |
-| 4.16.x  | Supported | 16-Jan-2025  | 05-May-2025 |
-| 4.15.x  | Supported | 20-Nov-2024  | 16-Apr-2025 |
+| 4.16.x  | EOL       | 16-Jan-2025  | 05-May-2025 |
+| 4.15.x  | EOL       | 20-Nov-2024  | 16-Apr-2025 |
 | 4.14.x  | EOL       | 31-Oct-2024  | 20-Feb-2025 |
 | 4.13.x  | EOL       | 22-Oct-2024  | 31-Jan-2025 |
 | 4.12.x  | EOL       | 02-Oct-2024  | 22-Jan-2025 |
@@ -71,13 +72,14 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 The following table shows the dependencies for deploying the CHT.
 
-| cht-core | NodeJS | CouchDB | Supported browsers | SMS bridge | Android OS | cht-android | cht-sync |
-|----|----|----|----|----|----|----|---|
-| **4.4.x+** | N/A | 3.3.2+ | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
-| **4.0.x-4.3.x** | N/A | 2.x | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
-| **3.x** | 8.11+ | 2.x | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 1.1.0+ |
-| **2.x** | 6+ | 1.6+ | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
-| **0.4** | 0.12+ | 1.6+ | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
+| cht-core         | NodeJS | CouchDB | Supported browsers | SMS bridge | Android OS | cht-android | cht-sync |
+|------------------|--------|---------|----|----|----|----|---|
+| **4.16.x+**      | 22     | 3.4.2+  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
+| **4.4.x-4.15.x** | N/A    | 3.3.2+  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
+| **4.0.x-4.3.x**  | N/A    | 2.x     | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
+| **3.x**          | 8.11+  | 2.x     | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 1.1.0+ |
+| **2.x**          | 6+     | 1.6+    | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
+| **0.4**          | 0.12+  | 1.6+    | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 
 {{< see-also page="hosting/requirements" title="Hosting Requirements" >}}
 
@@ -104,6 +106,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 4.x
+- [4.19.0]({{% relref "releases/4_19_0.md" %}}) - 2025-05-13
 - [4.18.0]({{% relref "releases/4_18_0.md" %}}) - 2025-03-21
 - [4.17.0]({{% relref "releases/4_17_0.md" %}}) - 2025-02-05
 - [4.16.0]({{% relref "releases/4_16_0.md" %}}) - 2025-01-16

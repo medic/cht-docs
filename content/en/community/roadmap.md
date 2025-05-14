@@ -1,14 +1,14 @@
 ---
 title: "CHT Roadmap"
 linkTitle: "Roadmap"
-weight: 3
+weight: 2
 ---
 
 {{< hextra/hero-subtitle >}}
-  Overview of current CHT Initiatives
+  Overview of current CHT initiatives
 {{< /hextra/hero-subtitle >}}
-The [CHT roadmap](https://github.com/orgs/medic/projects/112) serves as a high-level plan for how the CHT will grow to realize the shared community vision; it is where you can learn about what initiatives the community is working on and what stage they are in. 
 
+The [CHT roadmap](https://github.com/orgs/medic/projects/112) serves as a high-level plan for how the CHT will grow to realize the shared community vision; it is where you can learn about what initiatives the community is working on and what stage they are in. 
 
 ## What is a community initiative?
 Community initiatives are specific areas to amplify the CHT functionalities that align with the vision set out by the community. Initiatives are often worked on over multiple releases and by several organizations and individuals. When an initiative gathers interest within the community, contributing organizations and community members can form a squad and start working on the feature to be built. There are various stages within the implementation phase, including design, building, testing, and release, among others. Community members and organizations are encouraged to periodically review the [squad dashboard](https://github.com/orgs/medic/projects/112/views/24) to have an overview of the functionalities that are being worked on and are welcome to join squads at any stage.

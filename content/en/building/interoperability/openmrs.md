@@ -216,7 +216,7 @@ In case of errors when setting up the OpenHIM project see the [Troubleshooting g
 If the openhim project starts up correctly but something else does not work as expected, it can be helpful to first check the transaction log page of OpenHIM to see which requests were sent, and the request and response bodies.
 See the sequence diagrams above for the expected requests/responses.
 
-{{< figure src="transaction_log.png.png" link="transaction_log.png.png" >}}
+{{< figure src="transaction_log.png" link="transaction_log.png" >}}
 
 ### CHT->OpenMRS
 * No outbound push sent: check outbound push config, and logs for sentinel

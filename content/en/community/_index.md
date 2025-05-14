@@ -25,7 +25,7 @@ aliases:
   {{< card link="../design" title="Explore CHT Design and UX?" subtitle="Explore design resources and contribute to UX improvements" icon="sparkles" >}}
   {{< card link="../building/translations" title="Help Translating the CHT?" subtitle="Help make the CHT available in your language" icon="translate" >}}
   {{< card link="https://forum.communityhealthtoolkit.org" title="Join the Forum Discussions?" subtitle="Participate in discussions, share research, suggest new functionalities and help answer questions about the CHT" icon="chat-alt-2" >}}
-  {{< card link="https://github.com/orgs/medic/projects/112/views/24" title="Get Involved in an Initiative?" subtitle="See the CHT Roadmap to view current squad activities" icon="user-group" >}}
+  {{< card link="roadmap" title="Get Involved in an Initiative?" subtitle="See the CHT Roadmap to view current squad activities" icon="user-group" >}}
   {{< card link="https://forum.communityhealthtoolkit.org/c/community/community-calls/33" title="Participate in a CHT Event?" subtitle="Subscribe to the CHT Calendar and never miss a community call" icon="calendar" >}}
   {{< card link="https://communityhealthtoolkit.org/contact" title="Never Miss a Community Update?" subtitle="Sign up for the newsletter to get the latest CHT Community updates" icon="inbox-in" >}}
 {{< /cards >}}

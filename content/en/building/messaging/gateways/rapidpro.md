@@ -58,7 +58,7 @@ Configure the new webhook:
 )))
 ```
 
-{{< figure src="flow_webhook_body.png" link="flow_webhook_hflow_webhook_bodyeaders.png" caption="flow_webhook_body" >}}
+{{< figure src="flow_webhook_body.png" link="flow_webhook_body.png" caption="flow_webhook_body" >}}
 
 ### Create a new trigger
 Create a trigger (`/trigger/`) to start the new flow when a message is not handled elsewhere.
