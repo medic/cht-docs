@@ -2,6 +2,10 @@
 title: "Fixing couch2pg Memory Errors"
 linkTitle: "Memory Errors"
 weight: 4
+description: >
+  Dealing with out-of-memory errors in couch2pg
+relatedContent: >
+  hosting/3.x/ec2-setup-guide
 aliases:
    - /apps/guides/database/couch2pg-oom-errors
    - /building/guides/database/couch2pg-oom-errors

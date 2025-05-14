@@ -2,13 +2,15 @@
 title: "Adding TLS certificates in CHT 4.x"
 linkTitle: "TLS Certificates"
 weight: 2
+description: >
+    How to add TLS certificates to a Docker hosted CHT 4.x instance
 aliases:
   - /apps/guides/hosting/4.x/adding-tls-certificates
   - /hosting/4.x/adding-tls-certificates
 ---
 
 {{< hextra/hero-subtitle >}}
-  How to add TLS certificates to your docker hosted CHT 4.x instance
+  How to add TLS certificates to a Docker hosted CHT 4.x instance
 {{< /hextra/hero-subtitle >}}
 
 By default, CHT 4.x will create a self-signed certificate for every deployment.  These instructions are for changing to either a pre-existing certificate or automatically creating and renewing a [Certbot](https://certbot.eff.org/) based certificate using [ACME](https://acmeclients.com/), like [Let's Encrypt](https://letsencrypt.org/).

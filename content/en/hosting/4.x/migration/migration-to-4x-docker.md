@@ -2,6 +2,8 @@
 title: "Migration from CHT 3.x to CHT 4.x"
 linkTitle: "To Docker Single-Node"
 weight: 3
+description: >
+  Guide to migrate existent data from CHT 3.x to CHT 4.x
 aliases:
   - /apps/guides/hosting/4.x/data-migration
 ---

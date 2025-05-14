@@ -2,6 +2,10 @@
 title: "Local couch2pg Setup"
 linkTitle: Local Setup
 weight: 3
+description: >
+  Setting up a Couch2pg service to download data from CouchDB to Postgres database
+relatedContent: >
+  building/local-setup
 aliases:
    - /apps/tutorials/couch2pg-setup
    - /building/tutorials/couch2pg-setup

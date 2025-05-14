@@ -2,6 +2,8 @@
 title: "Prerequisites for hosting CHT with Docker"
 linkTitle: "Prerequisites"
 weight: 1
+description: >
+  Prerequisites for hosting CHT with Docker
 aliases:
   - /apps/guides/hosting/4.x/production/
 ---

@@ -2,6 +2,12 @@
 title: "CHT hosting requirements"
 linkTitle: "Requirements"
 weight: 2
+description: >
+  Requirements for hosting CHT applications
+relatedContent: >
+  hosting/4.x
+  hosting/3.x/self-hosting
+  hosting/3.x/ec2-setup-guide
 aliases:
   - /apps/guides/hosting/requirements
 ---

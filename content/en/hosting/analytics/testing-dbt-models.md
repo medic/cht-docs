@@ -2,6 +2,8 @@
 title: "Testing dbt Models"
 linkTitle: "dbt Testing"
 weight: 5
+description: >
+  Guide for testing dbt models
 aliases:
    - /apps/guides/data/analytics/testing-dbt-models
    - /building/guides/data/analytics/testing-dbt-models

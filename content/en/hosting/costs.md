@@ -2,6 +2,8 @@
 title: "Hosting Costs"
 linkTitle: "Hosting Costs"
 weight: 3
+description: >
+  A guide for calculating CHT hosting costs
 aliases:
   - hosting/costs/
 ---

@@ -2,6 +2,10 @@
 title: "Troubleshooting 4.x upgrades"
 linkTitle: "Troubleshooting upgrades"
 weight: 50
+description: >
+  What to do when CHT 4.x upgrades don't work as planned
+relatedContent: >
+  hosting/4.x/migration/migration-to-4x-docker
 ---
 
 {{< hextra/hero-subtitle >}}

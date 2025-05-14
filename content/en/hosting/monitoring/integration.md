@@ -2,6 +2,8 @@
 title: "Integrating CHT Watchdog"
 linkTitle: "Integrating"
 weight: 5
+description: >
+  Scraping and alerting external sources with CHT Watchdog
 aliases:
   - /apps/guides/hosting/monitoring/integration
 ---

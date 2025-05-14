@@ -2,6 +2,8 @@
 title: "Environment Variables"
 weight: 8
 linkTitle: "Environment Variables"
+description: >
+  Environment variables for running CHT Sync 
 aliases:
    - /apps/guides/data/analytics/environment-variables
    - /building/guides/data/analytics/environment-variables

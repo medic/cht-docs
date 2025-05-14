@@ -2,6 +2,8 @@
 title: couch2pg
 linkTitle: couch2pg
 weight: 10
+description: >
+  Guides for using couch2pg
 ---
 
 {{< hextra/hero-subtitle >}}

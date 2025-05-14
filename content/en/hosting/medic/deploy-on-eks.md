@@ -2,6 +2,8 @@
 title: "Deploy CHT Core on Medic hosted EKS"
 weight: 2
 linkTitle: "Deploy to EKS"
+description: >
+   Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
 aliases:
    - /contribute/code/core/deploy-on-eks
    - /contribute/medic/product-development-process/deploy-on-eks

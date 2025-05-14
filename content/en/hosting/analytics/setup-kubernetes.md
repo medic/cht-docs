@@ -2,6 +2,11 @@
 title: "CHT Sync Setup with Kubernetes"
 weight: 1
 linkTitle: "Kubernetes"
+description: >
+  Setting up CHT Sync with Kubernetes and the CHT
+relatedContent: >
+  technical-overview/architecture
+  technical-overview/cht-sync
 aliases:
     - /apps/guides/data/analytics/production
     - /building/guides/data/analytics/production

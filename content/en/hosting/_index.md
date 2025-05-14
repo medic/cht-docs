@@ -2,6 +2,8 @@
 title: Host CHT Applications
 linkTitle: Host
 weight: 7
+description: >
+  Guides for hosting, maintaining, and monitoring CHT applications
 aliases:
     - /apps/guides/hosting/
 ---

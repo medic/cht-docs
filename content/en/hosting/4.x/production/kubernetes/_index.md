@@ -2,6 +2,11 @@
 title: "Kubernetes Production Hosting in CHT 4.x"
 linkTitle: "Kubernetes"
 weight: 2
+description: >
+    Production hosting the CHT with Kubernetes
+relatedContent: >
+    hosting/requirements
+    hosting/kubernetes-vs-docker
 ---
 
 {{< hextra/hero-subtitle >}}

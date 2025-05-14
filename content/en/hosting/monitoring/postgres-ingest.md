@@ -2,6 +2,8 @@
 title: "Custom Postgres metrics in CHT Watchdog"
 linkTitle: "Custom Postgres Metrics"
 weight: 4
+description: >
+  Adding Custom Postgres metrics into CHT Watchdog
 aliases:  
   - /apps/guides/hosting/monitoring/postgres-ingest
 ---

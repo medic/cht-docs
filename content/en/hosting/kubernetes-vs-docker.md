@@ -2,6 +2,8 @@
 title: Kubernetes vs Docker
 linkTitle: Kubernetes vs Docker
 weight: 5
+description: >
+  Options for installing CHT applications
 ---
 
 {{< hextra/hero-subtitle >}}

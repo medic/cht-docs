@@ -2,6 +2,11 @@
 title: "Viewing server logs in CHT 4.x"
 linkTitle: "Logs"
 weight: 3
+description: >
+    What to do when you need to find server side errors in CHT 4.x
+relatedContent: >
+   building/guides/debugging/sharing-4x-logs
+   building/guides/debugging/obtaining-logs
 aliases:
   - /apps/guides/hosting/4.x/logs
   - /hosting/4.x/logs

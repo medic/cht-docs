@@ -2,6 +2,8 @@
 title: "Tuning dbt runs for performance"
 weight: 6
 linkTitle: "dbt Tuning"
+description: >
+  Tuning DBT variables for performance
 relatedContent: >
   technical-overview/cht-sync
   hosting/analytics/environment-variables

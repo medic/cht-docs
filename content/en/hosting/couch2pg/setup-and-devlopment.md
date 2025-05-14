@@ -2,6 +2,8 @@
 title: Setup and Development
 linkTitle: Setup & Development
 weight: 1
+description: >
+     How to run and do development of CHT couch2pg
 ---
 
 {{< hextra/hero-subtitle >}}

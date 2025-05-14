@@ -2,6 +2,8 @@
 title: "CHT Roadmap"
 linkTitle: "Roadmap"
 weight: 2
+description: >
+  Overview of current CHT initiatives
 ---
 
 {{< hextra/hero-subtitle >}}

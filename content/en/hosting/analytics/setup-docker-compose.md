@@ -2,6 +2,11 @@
 title: "CHT Sync Setup with Docker"
 weight: 2
 linkTitle: "Docker"
+description: >
+  Setting up CHT Sync with Docker and the CHT
+relatedContent: >
+  technical-overview/architecture
+  technical-overview/cht-sync
 aliases:
    - /apps/guides/data/analytics/setup
    - /building/guides/data/analytics/setup

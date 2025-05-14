@@ -2,6 +2,8 @@
 title: Migration
 linkTitle: Migration
 weight: 2
+description: >
+     Migrating from one couch2pg instance to another, including Postgres data
 ---
 
 {{< hextra/hero-subtitle >}}

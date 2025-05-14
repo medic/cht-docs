@@ -2,6 +2,8 @@
 title: "Production Hosting in CHT 4.x"
 linkTitle: "Production Hosting"
 weight: 40
+description: >
+  Details for hosting the CHT on self run infrastructure
 aliases:
   - /apps/guides/hosting/4.x/production/
 ---

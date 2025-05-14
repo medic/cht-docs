@@ -2,6 +2,8 @@
 title: "Data visualization"
 weight: 7
 linkTitle: "Dashboards"
+description: >
+  Data visualization tools for CHT Sync
 relatedContent: >
   technical-overview/architecture
   technical-overview/cht-sync

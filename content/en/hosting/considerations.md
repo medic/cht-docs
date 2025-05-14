@@ -2,6 +2,8 @@
 title: Considerations when hosting
 linkTitle: Considerations
 weight: 1
+dscription: >
+  Considerations when hosting the CHT
 aliases:
     - /apps/guides/hosting/
 ---
