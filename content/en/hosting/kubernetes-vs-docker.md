@@ -74,7 +74,7 @@ The main components of a Kubernetes CHT deployment include one less service than
 
 Below are examples from real world large-scale CHT deployments which have been anonymised.  Users are total provisioned users, fewer users may be active in a given month.
 
-### MoH Example 1
+### CHT Deployment Example 1
 
 This deployment hosts 47 production instances in a data center running [K3s](https://k3s.io/). It runs a simplified k3s set up with 47 isolated installations of k3s to manage complexity easily.  Thus each CHT instance is bound to the VM's local storage.  If a VM fails, there is no automatic failover, and a restore from backup is needed.
 
