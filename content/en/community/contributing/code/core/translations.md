@@ -1,6 +1,6 @@
 ---
-title: "Translations"
-linkTitle: "Translations"
+title: Translations
+linkTitle: Translations
 weight: 17
 description: >
   Internationalizing CHT Core.
@@ -12,9 +12,8 @@ aliases:
   - /building/translations/managing
 ---
 
-{{% alert title="Note" color="info" %}}
-Please open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language.
-{{% /alert %}}
+> [!TIP]
+> Open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
 
 CHT Core currently has built-in support for the following languages:
 
