@@ -76,7 +76,7 @@ Below are examples from real world large-scale CHT deployments which have been a
 
 ### MoH Example 1
 
-This MoH hosts 47 production instances in a national data center running [K3s](https://k3s.io/). They run a simplified k3s set up with 47 isolated installations of k3s to easy management complexity.  Thus each CHT instance is bound to the VM's local storage.  If a VM fails, there is no automatic fail-over and a restore from backup is needed.
+This deployment hosts 47 production instances in a data center running [K3s](https://k3s.io/). It runs a simplified k3s set up with 47 isolated installations of k3s to manage complexity easily.  Thus each CHT instance is bound to the VM's local storage.  If a VM fails, there is no automatic failover, and a restore from backup is needed.
 
 |                   |                             |
 |------------------:|:----------------------------|
