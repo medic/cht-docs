@@ -10,7 +10,7 @@ aliases:
 
 {{< hextra/hero-subtitle >}}
   Tributes to those who have contributed to the codebase
----
+{{< /hextra/hero-subtitle >}}
 
 #### Code
 
