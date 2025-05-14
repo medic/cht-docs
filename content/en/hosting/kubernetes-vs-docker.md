@@ -90,7 +90,7 @@ This deployment hosts 47 production instances in a data center running [K3s](htt
 
 
 
-### MoH Example 2
+### CHT Deployment Example 2
 
 This MoH hosts 1 of production instance in a national data center running [K3s](https://k3s.io/).
 
