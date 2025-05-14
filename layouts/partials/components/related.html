@@ -30,9 +30,9 @@
 	{{ end }}
 	{{ with $page }}
 	<div class="entry">
-		<h5>
+		<h6>
 			<a href="{{ .RelPermalink }}{{ if $anchor }}{{ printf "#%s" $anchor }}{{ end }}">{{ template "relatedcontenttitle" (dict "p1" $page "p2" $page) }}{{ if $anchor }}{{ printf ": %s" ( $anchor | humanize | title )}}{{ end }}</a>
-		</h5>
+		</h6>
 		<p class="one-liner">{{ $page.Description | markdownify | plainify | safeHTML }}</p>{{/* removes markdown and html codes: test scenario: **bold & html char** */}}
 	</div>
 	{{ end }}

@@ -220,4 +220,5 @@ html[class~="dark"] .hextra-feature-card {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 4px;
 }
