@@ -120,4 +120,6 @@ This deployment hosts 46 production instances on Amazon [Elastic Kubernetes Serv
 |            Users: | 25.7k                                           |
 
 
-
+To give more specific examples of what's running in the 46 instances, here's details on two including their [Apdex](https://docs.communityhealthtoolkit.org/building/guides/database/querying_apdex_telemetry/):
+* One large has 2.4k active users, 8.9M documents in the Medic database in CouchDB and a mean replication Apdex of 80.0.
+* Another medium instance has 232 active users, 279k documents in the Medic database in CouchDB and a mean replication Apdex of 56.4.
