@@ -16,7 +16,7 @@ The CHT has a range of CouchDB databases for storing different types of data. By
 
 The main database, used to store all contact and report data. Data access is protected by API to provide protection on a per document basis.
 
-{{< see-also page="technical-overview/db-schema" >}}
+{{< see-also page="technical-overview/concepts/db-schema" >}}
 
 ### medic-sentinel
 
@@ -69,7 +69,7 @@ Stores meta data about the user including when they last connected to the server
 
 ## PouchDB
 
-Used to store documents on the client device to allow for [Offline-First]({{< ref "technical-overview/offline-first" >}}) access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
+Used to store documents on the client device to allow for [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}) access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
 
 {{< see-also page="building/guides/performance/replication" >}}
 

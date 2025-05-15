@@ -4,7 +4,7 @@ weight: 7
 linkTitle: "Dashboards"
 relatedContent: >
   technical-overview/architecture
-  technical-overview/cht-sync
+  technical-overview/architecture/cht-sync
 ---
 
 {{< hextra/hero-subtitle >}}

@@ -3,7 +3,7 @@ title: "Tuning dbt runs for performance"
 weight: 6
 linkTitle: "dbt Tuning"
 relatedContent: >
-  technical-overview/cht-sync
+  technical-overview/architecture/cht-sync
   hosting/analytics/environment-variables
   hosting/analytics/setup-docker-compose
   hosting/analytics/setup-kubernetes

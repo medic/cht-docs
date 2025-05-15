@@ -2959,7 +2959,7 @@ _Requires CHT Core `4.11.0` or later._
 
 *Added in 4.3.0*
 
-Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/technical-overview/cht-watchdog" >}}).
+Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/technical-overview/architecture/cht-watchdog" >}}).
 
 The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
 
