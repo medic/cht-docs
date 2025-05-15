@@ -150,7 +150,7 @@ services:
 
 Now that we have all the config files in place, you need to have Docker start everything together. This is so that the containers can see each other on the same `CHT Net` Docker network.  You will need to specify each of the compose files every time you start, stop or restart CHT instance so all the services stay running and connected.
 
-Assuming you followed the [production steps]({{< relref "hosting/4.x/production" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
+Assuming you followed the [production steps]({{< relref "hosting/4.x/docker" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service
