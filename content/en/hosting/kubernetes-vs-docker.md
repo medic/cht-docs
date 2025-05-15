@@ -2,43 +2,38 @@
 title: Kubernetes vs Docker
 linkTitle: Kubernetes vs Docker
 weight: 5
+aliases:
+  -  /hosting/vertical-vs-horizontal
 ---
 
 {{< hextra/hero-subtitle >}}
   Options for installing CHT applications
 {{< /hextra/hero-subtitle >}}
 
-Since the release of CHT Core 4.0.0 in late 2022, Medic has been perfecting the hosting for the toolkit to balance the need for high uptimes so CHWs can always deliver care while having an easy and approachable technical back end hosting solution.  While initially [Docker Compose](https://docs.docker.com/compose/) with an [overlay network](https://docs.docker.com/compose/networking/#multi-host-networking) was thought to be our goto solution, field testing this overlay networks in production has shown them to unreliable.  As such, on this site you will find documentation for both Docker Compose for smaller deployments (with no overlay network) and Kubernetes for larger deployments.
+{{< callout >}}
+For older versions of the CHT, Medic recommended Kubernetes for all production deployments. This is no longer the recommendation for newer versions of the CHT. Further, multi-node CouchDB is no longer recommended.
+{{< /callout >}}
 
-Given all this, we recommend:
-* New, smaller production 4.x CHT deployments can use either [Docker]({{< relref "hosting/4.x/production/docker/" >}}) or [Kubernetes]({{< relref "hosting/4.x/production/kubernetes/" >}}) depending on their expected use and growth.
-* Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker Compose.
-* Production 3.x CHT deployments should use [Docker Compose]({{< relref "hosting/3.x" >}})  - Note that 3.x is [end of life]({{< relref "releases/#supported-versions" >}})  and should only be used to support existing 3.x deployments.
+Medic recommends [Docker](/hosting/4.x/docker/) for most deployments. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments. For more details on the research behind suggesting Docker and single-node CouchDB, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
 
-## Kubernetes
+However, deployments should use the technology they are most familiar and comfortable with. If they plan for 20 CHT instances but don't want to use Kubernetes, that's fine. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.
 
-Kubernetes provides advantages in managing CHT Deployments:
+{{< callout >}}
+ Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker.
+{{< /callout >}}
 
-* Resilient network across either physical or VM nodes in the cluster. This allows strong distribution of the heavy CPU and RAM loads that CouchDB can incur under heave use.
-* Orchestration of multiple deployments ensuring to allow easy hosting of multi-tenants. For example you may opt to have a user acceptance testing (UAT), staging and production instances all in one cluster.
-* Service discovery which  enables to route public requests to deployments within the cluster
-* Integration with hypervisors such as VMWare and ESX. This is possible due to CRD support in Kubernetes that allows 3rd parties to create integrations
-* Helm support and integration that makes it easy to easily deploy applications on to the cluster
-* Highly efficient snapshot backups when used with a storage area network [SAN](https://en.wikipedia.org/wiki/Storage_area_network) or Amazon's [Elastic Block Storage](https://aws.amazon.com/ebs/) (EBS).
+## Docker 
 
-The main components of a Kubernetes deployment include:
+Docker's has stood the test of time and has many benefits:
 
-* A pod for each CouchDB instance.
-* A CHT API pod.
-* A CHT HAProxy Healthcheck pod.
-* A CHT HAProxy pod.
-* Upgrade Service pod.
-* CHT-Sentinel pod.
-## Docker Compose
+* Easy to deploy by just downloading a compose file.
+* Trivially scales down to a 4 core laptop and [way up to a 48 core server](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831). 
+* Easily integrates with existing Docker based solutions like [Watchdog](/hosting/monitoring/) or other services running in Docker.
+* Backup and restore can be achieved via simple file management via [bind mounted volumes](https://docs.docker.com/engine/storage/bind-mounts/).
+* Just enough complexity to securely and soundly run the CHT with out extra complexities of Kubernetes 
+* Natively supports one click CHT upgrades in the admin GUI
 
-The Docker Compose based CHT Core deployment  was Medic's first attempt to make CHT 4.x cloud native.  The Compose files work quite well for application developer setups on laptops and the like (check out the [Docker Helper]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}})!). Additionally, we have existing published guides on how to deploy single and multi-node Compose based solutions.  For small, low use instances, likely the single node Compose deployments will be fine.  We do not recommend setting up a multi-node deployment on Compose with an overlay network. Use Kubernetes instead for a more stable and [horizontally scalable]({{< relref "hosting/vertical-vs-horizontal" >}}) solution.
-
-Like Kubernetes above, Docker Compose deploys the same services but adds an additional 7th to allow for ingress/egress via a reverse proxy:
+Docker Compose deployment has the following services when running the CHT:
 
 * A service for each CouchDB instance.
 * A CHT API service.
@@ -47,3 +42,84 @@ Like Kubernetes above, Docker Compose deploys the same services but adds an addi
 * Upgrade Service service.
 * A CHT Sentinel service.
 * An nginx service to act as a reverse proxy and terminate TLS connections
+
+
+## Kubernetes (k8s)
+
+{{< callout type="warning" >}}
+Medic recommends Kubernetes for bare-metal servers with a low core count or for multi-tenant deployments.
+{{< /callout >}}
+
+Running CHT on k8s requires additional knowledge and can be more complex to deploy. Docker is the preferred solution for most production deployments.
+
+k8s offers:
+
+* Resilient network across either physical or VM nodes in the cluster. This allows strong distribution of the heavy CPU and RAM loads that CouchDB can incur under heavy use.
+* Orchestration of multiple deployments ensuring to allow easy hosting of multi-tenants. For example you may opt to have a user acceptance testing (UAT), staging and production instances all in one cluster.
+* Service discovery which  enables to route public requests to deployments within the cluster
+* Integration with hypervisors such as VMWare and ESX. This is possible due to CRD support in Kubernetes that allows 3rd parties to create integrations
+* Helm support and integration that makes it easy to easily deploy applications on to the cluster
+* Highly efficient snapshot backups when used with a storage area network [SAN](https://en.wikipedia.org/wiki/Storage_area_network) or Amazon's [Elastic Block Storage](https://aws.amazon.com/ebs/) (EBS).
+
+The main components of a Kubernetes CHT deployment include one less service than a Compose based deployment as ingress via `nginx` isn't needed as it's handled externally:
+
+* A pod for each CouchDB instance.
+* A CHT API pod.
+* A CHT HAProxy Healthcheck pod.
+* A CHT HAProxy pod.
+* Upgrade Service pod.
+* CHT-Sentinel pod.
+
+## Example deployments
+
+Below are examples from real world large-scale CHT deployments which have been anonymized. User counts represent the number of active users within a 30 days interval. 
+
+### CHT Deployment Example 1
+
+This deployment hosts 47 production instances in a data center running [K3s](https://k3s.io/). It runs a simplified k3s set up with 47 isolated installations of k3s to manage complexity easily.  Thus each CHT instance is bound to the VM's local storage.  If a VM fails, there is no automatic failover, and a restore from backup is needed.
+
+|                   |                             |
+|------------------:|:----------------------------|
+|    CHT Instances: | 47                          |
+|          Hosting: | k3s                         |
+|            Cores: | 376 (47VMs x 8 Cores/ea)    |
+|              RAM: | 752 GB (47VMx 16 GB/ea)     |
+|             Disk: | 4,700 GB  (Max 700, Min 21) |
+| Multi-Node Couch: | No                          |
+|            Users: | 50.6k                       |
+
+
+
+### CHT Deployment Example 2
+
+This deployment hosts 1 CHT production instance in a data center running [K3s](https://k3s.io/).
+
+|                   |                             |
+|------------------:|:----------------------------|
+|    CHT Instances: | 1                           |
+|          Hosting: | K3s on VMware)              |
+|            Cores: | 32 (4 VMs x 8 cores/ea)     |
+|              RAM: | 64 GB (4 VMs x 16GB/ea)     |
+|             Disk: | 2,400 GB (4 VMs x 600GB/ea) |
+| Multi-Node Couch: | Yes                         |
+|            Users: | 9.5k                        |
+
+
+### CHT Deployment Example 3
+
+This deployment hosts 46 production instances on Amazon [Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (EKS).
+
+|                   |                                                 |
+|------------------:|:------------------------------------------------|
+|    CHT Instances: | 46                                              |
+|          Hosting: | k8s on EKS                                      |
+|            Cores: | 64 (8 VMs x 8 Cores/ea)                         |
+|              RAM: | 256 GB (8 VMs x 32GB/ea)                        |
+|             Disk: | 8.6 TB (8 VMS x 500GB/ea + 46 CHTs x ~100GB/ea) |
+| Multi-Node Couch: | 44 No, 2 Yes                                    |
+|            Users: | 25.7k                                           |
+
+
+To give more specific examples of what's running in the 46 instances, here's details on two including their [Apdex](https://docs.communityhealthtoolkit.org/building/guides/database/querying_apdex_telemetry/):
+* One large has 2.4k active users, 8.9M documents in the Medic database in CouchDB and a mean replication Apdex of 80.0.
+* Another medium instance has 232 active users, 279k documents in the Medic database in CouchDB and a mean replication Apdex of 56.4.
