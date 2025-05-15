@@ -3,11 +3,6 @@ title: "Docker Production Hosting CHT 4.x"
 linkTitle: "Production Docker"
 weight: 15
 aliases:
-   - /apps/guides/hosting/4.x/self-hosting/single-node/
-   - /hosting/4.x/self-hosting/single-node/
-   - ../self-hosting-single-node
-   - /hosting/4.x/docker/single-node/
-   - /hosting/4.x/production/docker/
 ---
 
 {{< hextra/hero-subtitle >}}
