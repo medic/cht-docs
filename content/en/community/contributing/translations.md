@@ -3,7 +3,7 @@ title: Translations
 linkTitle: Translations
 weight: 4
 description: >
-  Internationalizing CHT Core.
+  Internationalizing CHT Core
 relatedContent: >
   building/translations/overview
 aliases:
