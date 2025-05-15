@@ -11,7 +11,9 @@ aliases:
   - /building/translations/managing-translations
   - /building/translations/managing
 ---
-
+{{< hextra/hero-subtitle >}}
+  Internationalizing CHT Core
+{{< /hextra/hero-subtitle >}}
 > [!TIP]
 > Open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
 
