@@ -1,7 +1,7 @@
 ---
 title: Migration Guides
 linkTitle: Migration Guides
-weight: 20
+weight: 30
 description: >
  Guides for migrating CHT applications
 ---
