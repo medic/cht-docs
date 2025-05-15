@@ -5,7 +5,7 @@ weight:
 description: >
   Performance data of certain user actions
 relatedContent: >
-  technical-overview/data-flows-for-analytics
+  technical-overview/concepts/data-flows-for-analytics
 aliases:
    - /apps/guides/performance/telemetry
 ---
