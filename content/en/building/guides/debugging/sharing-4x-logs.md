@@ -5,7 +5,7 @@ weight:
 description: >
   How to easily share logs from your CHT 4.x instance to get support
 relatedContent: >
-  hosting/4.x/docker/logs
+  hosting/4.x/production/docker/logs
   building/guides/debugging/obtaining-logs
 aliases:
    - /apps/guides/debugging/sharing-4x-logs

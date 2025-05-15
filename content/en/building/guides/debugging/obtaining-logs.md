@@ -6,7 +6,7 @@ description: >
   How to obtain Android and browser client logs
 relatedContent: >
   building/guides/debugging/sharing-4x-logs.md
-  hosting/4.x/docker/logs
+  hosting/4.x/production/docker/logs
 aliases:
    - /apps/guides/debugging/obtaining-logs
 ---
