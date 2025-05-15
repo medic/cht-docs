@@ -5,6 +5,7 @@ weight: 2
 aliases:
   - /apps/guides/hosting/4.x/adding-tls-certificates
   - /hosting/4.x/adding-tls-certificates
+  - /hosting/4.x/production/docker/adding-tls-certificates/
 ---
 
 {{< hextra/hero-subtitle >}}
