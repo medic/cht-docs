@@ -7,7 +7,6 @@ description: >
 relatedContent: >  
   technical-overview/cht-watchdog
   technical-overview/cht-sync
-  hosting/vertical-vs-horizontal
 aliases:
    - /core/overview/architecture
 ---
