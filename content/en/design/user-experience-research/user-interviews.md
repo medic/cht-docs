@@ -2,13 +2,11 @@
 title: "User Interviews"
 linkTitle: "User Interviews"
 weight: 1
+description: >
+  How to conduct User Interviews
 aliases:
    - /design/guides/designing-interviews
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to conduct user interviews
-{{< /hextra/hero-subtitle >}}
 
 User interviews serve the purpose of uncovering opportunities for innovation and for illuminating solutions to problems.
 

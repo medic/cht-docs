@@ -2,13 +2,11 @@
 title: "CHT App Configurer"
 linkTitle: "CHT Conf"
 weight: 4
+description: >
+  Instructions for setting up and contributing to CHT Conf
 aliases: >
    /contribute/code/cht-conf
 ---
-
-{{< hextra/hero-subtitle >}}
-  Instructions for setting up and contributing to CHT Conf
-{{< /hextra/hero-subtitle >}}
 
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 

@@ -2,13 +2,11 @@
 title: Considerations when hosting
 linkTitle: Considerations
 weight: 1
+dscription: >
+  Considerations when hosting the CHT
 aliases:
     - /apps/guides/hosting/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Considerations when hosting the CHT
-{{< /hextra/hero-subtitle >}}
 
 Some important questions to consider when setting up hosting for the CHT: 
 * **Alerting** - How will alerts be sent in the case of downtime or degraded service?  While [Watchdog]({{< relref "hosting/monitoring/introduction" >}}) can be set up to monitor CHT Core instances - which monitoring system will be used to alert on OS level warnings?

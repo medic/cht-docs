@@ -2,16 +2,14 @@
 title: "Production Hosting in CHT 4.x - Multiple CouchDB Nodes on k3s on VMWare"
 linkTitle: "VMWare + k3s Multiple Node"
 weight: 20
+description: >
+  Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
 aliases:
   - /apps/guides/hosting/4.x/self-hosting/self-hosting-k3s-multinode
   - /hosting/4.x/self-hosting/self-hosting-k3s-multinode
   - ../self-hosting-k3s-multinode
   - /hosting/4.x/production/kubernetes/self-hosting-k3s-multinode/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   This page covers an example k3s cluster setup on a VMware datacenter with vSphere 7+ for a national deployment across 50 counties capable of supporting 20,000+ CHWs concurrently. After setup, administrators should only add VMs to the cluster or deploy CHT Core projects to be orchestrated.

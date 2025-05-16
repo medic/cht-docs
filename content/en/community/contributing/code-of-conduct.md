@@ -2,13 +2,11 @@
 title: "Code of Conduct"
 linkTitle: "Code of Conduct"
 weight: 3
+description: >
+  The Code of Conduct for the CHT community
 aliases:
  -    /contribute/code-of-conduct
 ---
-
-{{< hextra/hero-subtitle >}}
-  The code of conduct for the CHT community
-{{< /hextra/hero-subtitle >}}
 
 All maintainers and contributors in this community are required to act according to the following Code of Conduct. These guidelines help steer our interactions and help us provide and ensure a safe environment for everyone.
 

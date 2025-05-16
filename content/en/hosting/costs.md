@@ -2,13 +2,11 @@
 title: "Hosting Costs"
 linkTitle: "Hosting Costs"
 weight: 3
+description: >
+  A guide for calculating CHT hosting costs
 aliases:
   - hosting/costs/
 ---
-
-{{< hextra/hero-subtitle >}}
-  A guide for calculating CHT hosting costs
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
 This page applies to deployments that wish to self host their instance of the CHT. {{< /callout >}}

@@ -2,14 +2,16 @@
 title: "Include Multimedia in Forms"
 linkTitle: "Multimedia in Forms"
 weight: 6
+description: >
+  How to include multimedia files in forms
+relatedContent: >
+  building/forms/configuring/additional-docs
+  building/forms/configuring/app-form-sms
+  building/forms/contact
 aliases:
    - /building/guides/forms/multimedia
    - /apps/guides/forms/multimedia
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to include multimedia files in forms
-{{< /hextra/hero-subtitle >}}
 
 ## Multimedia Formats
 

@@ -1,14 +1,12 @@
 ---
 title: Overview
 weight: 5
+description: >
+  Build connections between people, actions, and data systems
 aliases:
    - /building/concepts/workflows
    - /apps/concepts/workflows
 ---
-
-{{< hextra/hero-subtitle >}}
-  Build connections between people, actions, and data systems
-{{< /hextra/hero-subtitle >}}
 
 Workflows can be defined within apps built with the Core Framework to connect actions and data with people. Forms are the main building block of tasks and messaging workflows, and are useful in creating reminders for follow-up visits or referrals.
 

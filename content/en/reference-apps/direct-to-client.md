@@ -2,15 +2,17 @@
 title: "Direct-to-client, Two-way Texting Workflows with CHT and RapidPro"
 linkTitle: "Direct-to-client, Two-way Texting Workflows"
 weight:
+description: >
+  Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
+relatedContent: >
+  building/concepts
+  building/forms/app
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/direct-to-client
    - /building/examples/direct-to-client
    - /exploring/direct-to-client
 ---
-
-{{< hextra/hero-subtitle >}}
-  Reference app for Direct-to-client, two-way texting workflows with CHT and RapidPro
-{{< /hextra/hero-subtitle >}}
 
 <!-- Force tables on this page to have columns same width -->
 <!-- somewhat brittle b/c it's tied to the header ID , but allows us to hit one table only -->

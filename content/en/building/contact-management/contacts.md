@@ -2,16 +2,20 @@
 title: "Contacts and Users"
 linkTitle: "Contacts"
 weight: 1
+description: >
+  Overview of contacts and users
+relatedContent: >
+  building/forms/contact
+  building/contact-summary/contact-summary-templated
+  building/contact-management/moving-contacts
+  building/contact-management/contact-and-users-1
+  reference-apps/contact-tracing
 aliases:
    - /building/features/contacts/
    - /apps/features/contacts/
 ---
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
-
-{{< hextra/hero-subtitle >}}
-  Overview of contacts and users
-{{< /hextra/hero-subtitle >}}
 
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 

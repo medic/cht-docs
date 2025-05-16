@@ -2,13 +2,13 @@
 title: "Sentinel Transitions"
 linkTitle: "Sentinel Transitions"
 weight: 10
+description: >
+  Overview of transitions and database documents change
+relatedContent: >  
+  building/reference/app-settings/transitions
 aliases:
    - /core/overview/transitions/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Overview of transitions and database documents change
-{{< /hextra/hero-subtitle >}}
 
 A transition is a Javascript code that runs when a document is changed.  A
 transition can edit the changed doc or do anything server-side code can do for

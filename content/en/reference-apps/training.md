@@ -2,15 +2,17 @@
 title: "Remote Onboarding and Training"
 linkTitle: "Remote Onboarding & Training"
 weight:
+description: >
+  App and care workflow training using remote capabilities
+relatedContent: >
+  building/reference/app-settings/token_login/
+  building/concepts/access/
+  building/training/onboarding
 aliases:
    - /apps/examples/training
    - /building/examples/training
    - /exploring/training
 ---
-
-{{< hextra/hero-subtitle >}}
-  App and care workflow training using remote capabilities
-{{< /hextra/hero-subtitle >}}
 
 The CHT’s Remote Onboarding and Training functionality enables Supervisors and Administrators to train CHWs on care workflows and related app use without being physically present. It is designed for:
 

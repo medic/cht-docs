@@ -2,15 +2,13 @@
 title: "Backups in CHT 4.x"
 linkTitle: "Backups"
 weight: 4
+description: >
+    Which data to backup when hosting the CHT 4.x
 aliases:
   - /apps/guides/hosting/4.x/backups
   - /hosting/4.x/backups
   - /hosting/4.x/production/docker/backups/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Which data to backup when hosting the CHT 4.x
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x]({{< relref "hosting/3.x/self-hosting#backup" >}}) which includes backups for 3.x.

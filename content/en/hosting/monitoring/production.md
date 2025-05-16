@@ -2,17 +2,11 @@
 title: "Production CHT Watchdog"
 linkTitle: "Production"
 weight: 3
+description: >
+  Production considerations for CHT Watchdog
 aliases:  
   - /apps/guides/hosting/monitoring/production
 ---
-
-{{< hextra/hero-subtitle >}}
-  Production considerations for CHT Watchdog
-{{< /hextra/hero-subtitle >}}
-
-{{< callout >}}
-  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
 
 ## What it means to run in production
 

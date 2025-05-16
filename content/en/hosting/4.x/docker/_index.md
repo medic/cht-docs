@@ -2,12 +2,9 @@
 title: "Docker Production Hosting CHT 4.x"
 linkTitle: "Production Docker"
 weight: 15
+description: "Production hosting CHT 4.x in Docker on a single CouchDB node"
 aliases:
 ---
-
-{{< hextra/hero-subtitle >}}
-  Production hosting CHT 4.x in Docker on a single CouchDB node
-{{< /hextra/hero-subtitle >}}
 
 {{< cards >}}
 {{< card link="/hosting/4.x/docker/installation" title="Installation" subtitle="Installing the CHT on Docker" icon="docker" >}}

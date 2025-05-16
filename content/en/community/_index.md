@@ -2,13 +2,11 @@
 title: "Welcome to the CHT Community!"
 linkTitle: "Community"
 weight: 8
+description: >
+  Get involved with the CHT community
 aliases:
   - /contribute
 ---
-
-{{< hextra/hero-subtitle >}}
-  Get involved with the CHT community
-{{< /hextra/hero-subtitle >}}
 
 {{< callout emoji="👋" >}}
   There are many ways to get involved! Do you want to...

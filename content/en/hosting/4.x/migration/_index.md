@@ -2,11 +2,9 @@
 title: Migration Guides
 linkTitle: Migration Guides
 weight: 30
+description: >
+ Guides for migrating CHT applications
 ---
-
-{{< hextra/hero-subtitle >}}
-  Guides for migrating CHT applications
-{{< /hextra/hero-subtitle >}}
 
 {{< cards >}}
   {{< card link="data-migration-3x-docker-to-4x-k3s-multi" title="To K3s Multi-node" subtitle="Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes" icon="kubernetes" >}}

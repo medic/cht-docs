@@ -2,13 +2,14 @@
 title: "Architecture of CHT Instances"
 linkTitle: "Architecture"
 weight: 1
+description: >
+  Overview of CHT components and interactions
+relatedContent: >  
+  technical-overview/cht-watchdog
+  technical-overview/cht-sync
 aliases:
    - /core/overview/architecture
 ---
-
-{{< hextra/hero-subtitle >}}
-  Overview of CHT components and their interactions
-{{< /hextra/hero-subtitle >}}
 
 ## Overview
 

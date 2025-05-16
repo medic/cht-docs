@@ -2,13 +2,11 @@
 title: "Configuration Best Practices"
 linkTitle: "Best Practices"
 weight: 5
+description: >
+  Best practices for configuring CHT Applications
 aliases:
    - /design/best-practices/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Best practices for configuring CHT Applications
-{{< /hextra/hero-subtitle >}}
 
 This section covers the configuration best practices of forms, tasks, targets, and contact profiles when building your own community health app.
 
