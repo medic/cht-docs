@@ -2,6 +2,7 @@
 title: "Running CHT Implementations"
 linkTitle: "CHT Implementations"
 weight : 1
+description: "Considerations for digital health implementations"
 aliases:
    - /running-programs
 ---
