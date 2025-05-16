@@ -8,7 +8,7 @@ aliases:
   - /contribute/code/hall-of-fame
 ---
 
-#### Code
+#### Code & Documentation
 
 Thank you to everyone who has contributed to the CHT codebase over the years! To see the full list, visit each repo on GitHub.
 
