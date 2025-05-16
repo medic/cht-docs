@@ -2,6 +2,7 @@
 title: "Docker Production Hosting CHT 4.x"
 linkTitle: "Production Docker"
 weight: 15
+description: "Production hosting CHT 4.x in Docker on a single CouchDB node"
 aliases:
 ---
 

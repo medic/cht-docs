@@ -1,6 +1,7 @@
 ---
 title: "Kubernetes Production Hosting in CHT 4.x"
 linkTitle: "Production Kubernetes"
+description: "Production hosting the CHT with Kubernetes"
 weight: 20
 ---
 
