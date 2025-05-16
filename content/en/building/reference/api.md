@@ -1942,18 +1942,21 @@ Use JSON in the request body to specify user details. Any properties submitted
 that are not on the list below will be ignored. Any properties not included
 will be undefined.
 
-| Name | Required | Type | Description | Version |
-| ---- | -------- | ---- | ----------- | ------ |
-| username | yes | String | identifier used for authentication |
-| roles  | yes | Array | |
-| place | yes, if the roles contain an offline role | string or object | Place identifier string (UUID) or object this user resides in. |
-| contact | yes, if the roles contain an offline role | string or object | A person identifier string (UUID) or object based on the form configured in the app. |
-| password | yes, if `token_login` is not enabled for the user | String | Password string used for authentication. Only allowed to be set, not retrieved. |
-| phone |  yes, if `token_login` is enabled for the user | String | Valid phone number |
-| token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 |
-| fullname | no | String | Full name  |
-| email | no | String | Email address  |
-| known | no | Boolean | Boolean to define if the user has logged in before. |
+| Name                     | Required                                                         | Type             | Description                                                                                                                                                              | Version |
+|--------------------------|------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| username                 | yes                                                              | String           | identifier used for authentication                                                                                                                                       |         |
+| roles                    | yes                                                              | Array            |                                                                                                                                                                          |         | 
+| place                    | yes, if the roles contain an offline role                        | string or object | Place identifier string (UUID) or object this user resides in.                                                                                                           |         | 
+| contact                  | yes, if the roles contain an offline role                        | string or object | A person identifier string (UUID) or object based on the form configured in the app.                                                                                     |         |
+| password                 | yes, if `token_login` or `oidc_username` is not set for the user | String           | Password string used for authentication. Only allowed to be set, not retrieved.                                                                                          |         |
+| phone                    | yes, if `token_login` is enabled for the user                    | String           | Valid phone number                                                                                                                                                       |         |
+| token_login              | no                                                               | Boolean          | A boolean representing whether or not the Login by SMS should be enabled for this user.                                                                                  | 3.10.0  |
+| fullname                 | no                                                               | String           | Full name                                                                                                                                                                |         |
+| email                    | no                                                               | String           | Email address                                                                                                                                                            |         |
+| known                    | no                                                               | Boolean          | Boolean to define if the user has logged in before.                                                                                                                      |         |
+| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password]({{< ref "building/concepts/access/#password-reset-on-first-login" >}}) the next time they log in. | 4.17.0  |
+| oidc_username            | no                                                               | String           | A unique username for [authenticating via OIDC]({{< ref "hosting/sso" >}}). This value must match the `email` claim returned for the user by the OIDC provider.          | 4.20.0  |
+
 
 #### Login by SMS
 
