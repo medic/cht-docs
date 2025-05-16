@@ -12,10 +12,6 @@ aliases:
   - /apps/guides/hosting/monitoring/setup
 ---
 
-{{< hextra/hero-subtitle >}}
-  Setting up Grafana and Prometheus with the CHT
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
   These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 {{< /callout >}}

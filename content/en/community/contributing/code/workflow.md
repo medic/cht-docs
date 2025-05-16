@@ -8,10 +8,6 @@ aliases:
    - /contribute/code/workflow
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview of the development workflow
-{{< /hextra/hero-subtitle >}}
-
 ## Writing code
 
 Where possible, follow the [coding style guide]({{< ref "community/contributing/code/style-guide" >}}).

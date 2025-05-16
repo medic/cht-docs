@@ -14,10 +14,6 @@ aliases:
    - /exploring/training
 ---
 
-{{< hextra/hero-subtitle >}}
-  App and care workflow training using remote capabilities
-{{< /hextra/hero-subtitle >}}
-
 The CHT’s Remote Onboarding and Training functionality enables Supervisors and Administrators to train CHWs on care workflows and related app use without being physically present. It is designed for:
 
 * Safety: maintaining distance due to infectious disease

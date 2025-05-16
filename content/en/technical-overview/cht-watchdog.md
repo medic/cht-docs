@@ -11,10 +11,6 @@ aliases:
    - /core/overview/watchdog/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Monitoring and alerting system using Grafana and Prometheus
-{{< /hextra/hero-subtitle >}}
-
 CHT Watchdog is deployed on a separate server so that you can watch for, and alert on, any critical issues with the CHT Core. Read more about [setting up CHT Watchdog]({{< relref "hosting/monitoring/setup" >}}).
 
 <!-- make updates to this diagram on the google slides:            -->

@@ -11,10 +11,6 @@ aliases:
    - /apps/concepts/prerequisites
 ---
 
-{{< hextra/hero-subtitle >}}
-  Tools and skills needed for developing CHT Applications
-{{< /hextra/hero-subtitle >}}
-
 There are no set prerequisites for users of CHT apps, yet the following are helpful for developing CHT applications.
 
 ## Test Instance

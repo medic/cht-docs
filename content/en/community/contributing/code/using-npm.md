@@ -9,10 +9,6 @@ aliases: >
   /contribute/code/using-npm
 ---
 
-{{< hextra/hero-subtitle >}}
-  Quick guide to using NPM
-{{< /hextra/hero-subtitle >}}
-
 ## npm Orgs
 
 We use npm Orgs to organize our npm packages.  It provides a centralized way

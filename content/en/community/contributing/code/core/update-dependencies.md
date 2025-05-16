@@ -9,10 +9,6 @@ aliases: >
   /contribute/code/core/update-dependencies
 ---
 
-{{< hextra/hero-subtitle >}}
-  Process for updating dependencies
-{{< /hextra/hero-subtitle >}}
-
 Every minor release we update dependencies to get the latest fixes and improvements. We do this early in the release cycle so that we have some more time to find regressions and issues. This is done on all folders with a `package-lock.json`, including:
 
 {{< filetree/container >}}

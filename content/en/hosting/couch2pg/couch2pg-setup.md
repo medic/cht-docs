@@ -11,10 +11,6 @@ aliases:
    - /building/tutorials/couch2pg-setup
 ---
 
-{{< hextra/hero-subtitle >}}
-   Setting up a Couch2pg service to download data from CouchDB to Postgres database
-{{< /hextra/hero-subtitle >}}
-
 {{< callout type="warning" >}}
   CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 {{< /callout >}}

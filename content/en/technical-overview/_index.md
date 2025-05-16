@@ -9,8 +9,4 @@ aliases:
    - /core/overview/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview and architecture of CHT components
-{{< /hextra/hero-subtitle >}}
-
 {{< subpages >}}

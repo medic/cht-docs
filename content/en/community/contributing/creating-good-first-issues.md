@@ -6,11 +6,6 @@ description: >
   How to set new community members up for success with good first issue tickets
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to set new community members up for success with good first issue tickets
-{{< /hextra/hero-subtitle >}}
-
-
 The goal of the GitHub tickets labelled with "Good First Issue" is to make it easy for a first time contributor to get started with contributing to the CHT.
 
 Follow the next steps to create a "Good First Issue":

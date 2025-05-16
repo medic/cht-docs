@@ -9,10 +9,6 @@ aliases: >
   /contribute/code/core/run-multiple-chrome-versions
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to run multiple Chrome versions on your local machine
-{{< /hextra/hero-subtitle >}}
-
 {{< callout  >}}
   These steps are suitable for Mac. They were tested in a Mac Intel. They can be adapted to any Chrome version.
 {{< /callout >}}

@@ -13,10 +13,6 @@ aliases:
     - /core/overview/cht-sync/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Data synchronization tools to enable analytics
-{{< /hextra/hero-subtitle >}}
-
 CHT Sync is an integrated solution designed to enable data synchronization between CouchDB and PostgreSQL for the purpose of analytics. It combines several technologies to achieve this synchronization and provides an efficient workflow for data processing and visualization. The synchronization occurs in near real-time, ensuring that the data displayed on dashboards is up-to-date.
 
 Read more about setting up [CHT Sync]({{< relref "hosting/analytics" >}}).

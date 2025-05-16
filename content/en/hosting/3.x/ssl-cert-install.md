@@ -11,10 +11,6 @@ aliases:
   - /apps/guides/hosting/ssl-cert-install
 ---
 
-{{< hextra/hero-subtitle >}}
-  SSL Cert Installation for Self-Hosting Setups using Medic OS/3.x
-{{< /hextra/hero-subtitle >}}
-
 ## Requirements
 - Installed CHT-Core 3.x via either [Self Hosted]({{< relref "hosting/3.x/self-hosting" >}}), [EC2]({{< relref "hosting/3.x/ec2-setup-guide" >}}) or [Local Setup]({{< relref "building/local-setup" >}}), but must use `docker compose`.
 - Your own SSL certifications like Let's Encrypt.

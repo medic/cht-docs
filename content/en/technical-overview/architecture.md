@@ -11,10 +11,6 @@ aliases:
    - /core/overview/architecture
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview of CHT components and their interactions
-{{< /hextra/hero-subtitle >}}
-
 ## Overview
 
 <!-- make updates to this diagram on the google slides:            -->

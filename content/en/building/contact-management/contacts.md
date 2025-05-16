@@ -17,10 +17,6 @@ aliases:
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
 
-{{< hextra/hero-subtitle >}}
-  Overview of contacts and users
-{{< /hextra/hero-subtitle >}}
-
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
 “Places” is the generic name that represents a level in the [hierarchy]({{< ref "building/workflows/hierarchy" >}}). “People” belong to “places”, and “places” belong to other higher level “places” in the hierarchy. A “place” could be a geographic area, like a district with the "people" associated to it being health officers. A "place" could also be a structure in the health system, such as a health facility, and the "people" associated to it being nurses. In deployments with CHWs, the lowest "place" in the hierarchy often represents individual households or families, and the individual members of that household are the "people" associated to it.

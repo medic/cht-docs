@@ -6,10 +6,6 @@ description: >
   Starting guide for first time contributors
 ---
 
-{{< hextra/hero-subtitle >}}
-  Starting guide for first time contributors
-{{< /hextra/hero-subtitle >}}
-
 ## Who this is for
 
 Documentation exists for everything from how to [compile]({{% ref "community/contributing/code/core/dev-environment" %}}) the CHT from source to how to [build](https://github.com/medic/cht-docs/blob/main/README.md) the docs site locally.  However, where do you start?  What if you've never contributed to an open source project before? This guide helps the newcomer make their first contribution.

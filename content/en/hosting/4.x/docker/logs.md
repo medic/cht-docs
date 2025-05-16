@@ -13,10 +13,6 @@ aliases:
   - /hosting/4.x/production/docker/logs/
 ---
 
-{{< hextra/hero-subtitle >}}
-  What to do when you need to find server side errors in CHT 4.x
-{{< /hextra/hero-subtitle >}}
-
 CHT 4.x has the following services running via Docker and each can have its logs queried:
 
 * nginx

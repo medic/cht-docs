@@ -13,10 +13,6 @@ aliases:
    - /apps/tutorials/contact-and-users-1
 ---
 
-{{< hextra/hero-subtitle >}}
-  Create and edit contacts and users in the CHT UI
-{{< /hextra/hero-subtitle >}}
-
 In this tutorial you will learn how to create and edit contacts and their associated users in and application built with the CHT using the default contact creation forms. This will help you get familiar with the UI of the webapp as well as some features and functionality. If you are already comfortable with this, you can skip to [part 2, which covers manipulating contacts and their associated documents using cht-conf]({{% ref "building/contact-management/contact-and-users-2" %}}).
 
 ## Brief Overview of Key Concepts

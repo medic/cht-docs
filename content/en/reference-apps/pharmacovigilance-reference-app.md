@@ -10,10 +10,6 @@ aliases:
    - /exploring/pharmacovigilance-reference-app
 ---
 
-{{< hextra/hero-subtitle >}}
-  CHT example application that supports pharmacovigilance in a community setting
-{{< /hextra/hero-subtitle >}}
-
 ## Problem Being Addressed
 Self-medication, unregulated medical products, and counterfeit drugs have led to a significant increase in the prevalence of adverse drug reactions (ADRs), adverse effects following Immunization (AEFI), and the proliferation of poor-quality health products and technologies. ADRs are a common cause of hospital admissions and contribute to patient mortality, placing a substantial economic burden on resource-limited healthcare systems, especially in African countries.
 

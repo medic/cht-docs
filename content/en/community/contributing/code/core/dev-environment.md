@@ -10,10 +10,6 @@ aliases:
   - /contribute/code/core/dev-environment
 ---
 
-{{< hextra/hero-subtitle >}}
-  Get your local machine ready to do development work on CHT Core
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
 This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
 

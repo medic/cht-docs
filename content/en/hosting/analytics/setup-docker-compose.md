@@ -12,10 +12,6 @@ aliases:
    - /building/guides/data/analytics/setup
 ---
 
-{{< hextra/hero-subtitle >}}
-  Setting up CHT Sync with Docker and the CHT
-{{< /hextra/hero-subtitle >}}
-
 This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker. This path is recommended if you host the [CHT with Docker]({{< relref "hosting/4.x/docker" >}}).
 
 ## Prerequisites

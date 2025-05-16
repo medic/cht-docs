@@ -13,10 +13,6 @@ aliases:
    - /building/tutorials/targets
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to build CHT monthly and all time target widgets
-{{< /hextra/hero-subtitle >}}
-
 This tutorial will take you through how to build target widgets.
 
 Target widgets provide a summary or analysis of the data in submitted reports.

@@ -6,10 +6,6 @@ description: >
   Overview of current CHT initiatives
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview of current CHT initiatives
-{{< /hextra/hero-subtitle >}}
-
 The [CHT roadmap](https://github.com/orgs/medic/projects/112) serves as a high-level plan for how the CHT will grow to realize the shared community vision; it is where you can learn about what initiatives the community is working on and what stage they are in. 
 
 ## What is a community initiative?

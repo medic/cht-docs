@@ -10,10 +10,6 @@ aliases:
    - /exploring/stock-monitoring
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guidance on design and development of stock monitoring workflows
-{{< /hextra/hero-subtitle >}}
-
 ## Problem Being Addressed
 
 Paper based commodity management systems are prone to errors due to reliance on manually updated registers, this greatly affects data quality. Further, it is time consuming for CHWs to reference stock balances and at the same time update stocks on the commodity management sheet while providing treatment to household members. In terms of supervision, CHW’s supervisors do not know when CHWs have stock outs in time for replenishing and ordering  purposes.  A stock monitoring application can help CHWs update their stocks seamlessly while strengthening data integrity.

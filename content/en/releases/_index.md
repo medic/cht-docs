@@ -11,10 +11,6 @@ relatedContent:
   hosting/requirements/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Versions currently supported, dependencies, and release notes for the CHT Core Framework
-{{< /hextra/hero-subtitle >}}
-
 ## Supported Versions
 
 Medic supports minor versions of the CHT Core Framework for three months after the next minor version is made available, and the latest minor of a major version for twelve months after the next major version is made available.

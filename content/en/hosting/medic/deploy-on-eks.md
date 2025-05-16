@@ -10,10 +10,6 @@ aliases:
    - /contribute/medic/deploy-on-eks
 ---
 
-{{< hextra/hero-subtitle >}}
-  Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
-{{< /hextra/hero-subtitle >}}
-
 While not directly available to the public who might be doing CHT Core development, having Medic's process for using our [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (AWS EKS) publicly documented will help Medic employees new to EKS.  As well, hopefully  external developers looking to re-use Medic tools and process to use EKS will find it helpful.
 
 While these instructions assume you work at Medic and have access to private GitHub repositories, many of the tools are fully open source.

@@ -8,10 +8,6 @@ aliases:
     - /apps/guides/hosting/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guides for hosting, maintaining, and monitoring CHT applications
-{{< /hextra/hero-subtitle >}}
-
 This section has instructions on how to host the CHT Core starting with the most basic Application Development setup on your laptop for just one developer all the way up to large deployments which include multi-node CouchDB cluster hosted in a Cloud based deployment.
 
 {{< callout type="warning" >}}

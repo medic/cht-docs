@@ -13,10 +13,6 @@ aliases:
    - /core/overview/db-schema/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Schema for CHT database objects
-{{< /hextra/hero-subtitle >}}
-
 CouchDB (and PouchDB in the browser) is a JSON-based NoSQL datastore that we use to store our data. While unlike SQL databases there is no enforced schema, code still follows conventions, and this document aims to describe the schema as defined by how our code operates.
 
 In this document "record" means a JSON object that resides in CouchDB or PouchDB.

@@ -6,10 +6,6 @@ description: >
   How to help the CHT stay secure
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to help the CHT stay secure
-{{< /hextra/hero-subtitle >}}
-
 In the CHT Community, we take the security of our systems seriously and value the security community. Disclosure of security vulnerabilities helps us ensure the security and privacy of the CHT users
 
 ## Disclosure 

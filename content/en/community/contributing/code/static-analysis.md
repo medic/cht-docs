@@ -8,10 +8,6 @@ aliases: >
   /contribute/code/static-analysis
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guidelines for static analysis of CHT code
-{{< /hextra/hero-subtitle >}}
-
 ## ESLint
 
 All code must pass an eslint check which runs early in the CI cycle and uses the [standard Medic ESLint configuration](https://github.com/medic/eslint-config).

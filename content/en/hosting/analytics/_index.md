@@ -14,10 +14,6 @@ aliases:
     - /building/guides/data/analytics/introduction
 ---
 
-{{< hextra/hero-subtitle >}}
-  Using CHT Sync for data synchronization and analytics
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
   The pages in this section apply to both CHT 3.x (beyond 3.12) and CHT 4.x. 
 {{< /callout >}}

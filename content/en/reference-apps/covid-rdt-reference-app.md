@@ -14,10 +14,6 @@ aliases:
    - /exploring/covid-rdt-reference-app
 ---
 
-{{< hextra/hero-subtitle >}}
-  Reference application that uses a third party app to capture the result of a Rapid Diagnostic Test
-{{< /hextra/hero-subtitle >}}
-
 Medic has worked with [FIND](https://www.finddx.org) to build a CHT reference application for COVID-19 point-of-care testing with Rapid Diagnostic Tests (RDT). Using the reference app as an example, CHT app developers can easily include the provisioning and capture of RDT in workflows. These workflows can include third-party applications, like [Dimagi's RD-Toolkit](https://github.com/dimagi/rd-toolkit/), that guide health workers through the use of the RDT.
 
 You can find the code for this application in the [CHT Core repository on GitHub](https://github.com/medic/cht-core/tree/master/config/covid-19).

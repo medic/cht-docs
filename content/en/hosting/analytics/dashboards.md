@@ -9,10 +9,6 @@ relatedContent: >
   technical-overview/cht-sync
 ---
 
-{{< hextra/hero-subtitle >}}
-  Data visualization tools for CHT Sync
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
   These instructions assume you are running CHT Sync, CHT Core and PostgreSQL either with [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}}) or [Docker]({{< relref "hosting/analytics/setup-docker-compose" >}}).
 {{< /callout >}}

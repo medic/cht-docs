@@ -8,10 +8,6 @@ aliases:
   - /apps/guides/hosting/4.x/data-migration
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guide to migrate existent data from CHT 3.x to CHT 4.x
-{{< /hextra/hero-subtitle >}}
-
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps.
 This guide will present the required steps while using a migration helping tool, called `couchdb-migration`. This tool interfaces with CouchDb, to update shard maps and database metadata.
 By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.

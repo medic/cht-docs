@@ -6,10 +6,6 @@ description: >
   Design guidelines for developers and designers of digital health applications
 ---
 
-{{< hextra/hero-subtitle >}}
-  Design guidelines for developers and designers of digital health applications
-{{< /hextra/hero-subtitle >}}
-
 {{< cards >}}
   {{< card link="personas" title="Personas" icon="user-circle" subtitle="Learn who the CHT can be built for" >}}
   {{< card link="interface" title="Interface" subtitle="User interface and branding guide" icon="cursor-arrow-ripple" >}}

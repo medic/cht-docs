@@ -9,10 +9,6 @@ aliases: >
   /contribute/code/releasing/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Instructions for releasing CHT tools
-{{< /hextra/hero-subtitle >}}
-
 ## CHT Core
 
 A release is a set of code changes bundled together, ideally with at least one deployment of CHT apps ready to make use of it.

@@ -8,10 +8,6 @@ aliases:
   - /design/external-resources
 ---
 
-{{< hextra/hero-subtitle >}}
-  Sample CHT screens and components for testing and validating new designs or workflows
-{{< /hextra/hero-subtitle >}}
-
 ## Components
 Find reusable components of the CHT in this [Figma file](https://www.figma.com/design/L2QNLhx4ijc8cje0avzbQc/CHT-UI-Kit-%7C-September-2024?node-id=2-3&p=f&t=4SVeBCULkoFmpgko-0). Mockups can easily be created using these components.
 

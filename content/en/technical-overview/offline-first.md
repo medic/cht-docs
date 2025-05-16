@@ -8,10 +8,6 @@ aliases:
    - /core/overview/offline-first/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview of Offline-First in the context of the CHT
-{{< /hextra/hero-subtitle >}}
-
 CHT applications are designed to be used equally well in areas with no internet connectivity, slow or unreliable internet connectivity, and good internet connectivity. Achieving reliable performance and powerful features requires diligence and strict adherence to the principles of Offline-First development.
 
 In this page we'll cover why and how we achieve this in the CHT.

@@ -8,10 +8,6 @@ aliases:
   -  /contribute/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Starting guides for contributors
-{{< /hextra/hero-subtitle >}}
-
 {{< cards >}}
   {{< card link="first-time-contributors" title="First Time Contributors Guide" icon="heart" subtitle=" Starting guide for first time contributors" >}}
   {{< card link="code-of-conduct" title="Code of Conduct" subtitle="The code of conduct for the CHT community" icon="shield-exclamation" >}}

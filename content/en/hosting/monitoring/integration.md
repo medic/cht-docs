@@ -8,10 +8,6 @@ aliases:
   - /apps/guides/hosting/monitoring/integration
 ---
 
-{{< hextra/hero-subtitle >}}
-  Scraping and alerting external sources with CHT Watchdog
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
   These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
 {{< /callout >}}

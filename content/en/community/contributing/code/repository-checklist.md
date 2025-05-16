@@ -8,10 +8,6 @@ aliases: >
   /contribute/code/repository-checklist
 ---
 
-{{< hextra/hero-subtitle >}}
-  Checklist to consider when creating CHT Product repositories
-{{< /hextra/hero-subtitle >}}
-
 ## Repository Creation Checklist
 When creating a new CHT Product repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should use the [cht-repo-template](https://github.com/medic/cht-repo-template) repository containing the following configurations:
 

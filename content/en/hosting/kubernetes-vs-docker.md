@@ -8,10 +8,6 @@ aliases:
   -  /hosting/vertical-vs-horizontal
 ---
 
-{{< hextra/hero-subtitle >}}
-  Options for installing CHT applications
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
 For older versions of the CHT, Medic recommended Kubernetes for all production deployments. This is no longer the recommendation for newer versions of the CHT. Further, multi-node CouchDB is no longer recommended.
 {{< /callout >}}

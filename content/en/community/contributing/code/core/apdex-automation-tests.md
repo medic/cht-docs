@@ -10,10 +10,6 @@ aliases: >
   /contribute/code/core/apdex-automation-tests
 ---
 
-{{< hextra/hero-subtitle >}}
-  Automated test execution for creating telemetry data and calculating the Apdex scores
-{{< /hextra/hero-subtitle >}}
-
 This documentation will guide you on how to setup and configure automation to run performance tests for your CHT Applications.
 
 ## Prerequisites

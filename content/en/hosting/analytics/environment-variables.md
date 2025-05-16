@@ -9,10 +9,6 @@ aliases:
    - /building/guides/data/analytics/environment-variables
 ---
 
-{{< hextra/hero-subtitle >}}
-  Environment variables for running CHT Sync 
-{{< /hextra/hero-subtitle >}}
-
 There are three groups of environment variables. One for Postgres, one for CouchDB and one for DBT. These are found in the `.env` [file](https://github.com/medic/cht-sync/blob/main/env.template) and the `values.yaml` [file](https://github.com/medic/cht-sync/blob/main/deploy/cht_sync/values.yaml.template) for docker and Kubernetes respectively.
 1. `POSTGRES_`: Used by PostgreSQL to establish the PostgreSQL database to synchronize CouchDB data to. They define the schema and table names to store the CouchDB data, as well as where the tables and views for the models defined in `CHT_PIPELINE_BRANCH_URL` will be created. 
 2. `COUCHDB_`: Used by CouchDB to define the CouchDB instance to sync with. With `COUCHDB_DBS`, we can specify a list of databases to sync.

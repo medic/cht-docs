@@ -8,14 +8,6 @@ aliases:
   - /apps/guides/hosting/monitoring/production
 ---
 
-{{< hextra/hero-subtitle >}}
-  Production considerations for CHT Watchdog
-{{< /hextra/hero-subtitle >}}
-
-{{< callout >}}
-  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
-
 ## What it means to run in production
 
 When you run CHT Watchdog in production, and it is publicly accessible on the Internet, and has mission-critical data on it, you should take extra precautions around security and backup.  This mainly consists of:

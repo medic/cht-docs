@@ -6,8 +6,4 @@ description: >
   Overview and configuration of workflows in CHT Applications
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview and configuration of workflows in CHT Applications
-{{< /hextra/hero-subtitle >}}
-
 {{< subpages >}}

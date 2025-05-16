@@ -12,10 +12,6 @@ aliases: >
   /contribute/code/android/releasing
 ---
 
-{{< hextra/hero-subtitle >}}
-  Instructions for releasing Android Apps
-{{< /hextra/hero-subtitle >}}
-
 All Medic's Android projects automatically build, sign, and release builds via GitHub Actions. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
 
    * [cht-android](https://github.com/medic/cht-android/releases)

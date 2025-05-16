@@ -5,10 +5,6 @@ weight: 15
 aliases:
 ---
 
-{{< hextra/hero-subtitle >}}
-  Production hosting CHT 4.x in Docker on a single CouchDB node
-{{< /hextra/hero-subtitle >}}
-
 {{< cards >}}
 {{< card link="/hosting/4.x/docker/installation" title="Installation" subtitle="Installing the CHT on Docker" icon="docker" >}}
 {{< card link="/hosting/4.x/docker/adding-tls-certificates" title="Adding TLS Certificates" subtitle="Ensuring all traffic is encrypted" icon="key" >}}

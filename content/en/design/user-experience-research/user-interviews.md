@@ -8,10 +8,6 @@ aliases:
    - /design/guides/designing-interviews
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to conduct user interviews
-{{< /hextra/hero-subtitle >}}
-
 User interviews serve the purpose of uncovering opportunities for innovation and for illuminating solutions to problems.
 
 Generative interviews are used in the discovery phase of the development process when you’re looking for opportunities to solve for. Scoped interviews are used when a topic of interest has been identified and you’d like to gain a deeper understanding.

@@ -11,10 +11,6 @@ relatedContent: >
   hosting/analytics/setup-kubernetes
 ---
 
-{{< hextra/hero-subtitle >}}
-  Tuning DBT variables for performance
-{{< /hextra/hero-subtitle >}}
-
 In production setups with large tables, it can be helpful to control how DBT runs.
 
 ## Threads

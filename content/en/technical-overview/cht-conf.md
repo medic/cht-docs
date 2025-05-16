@@ -8,10 +8,6 @@ aliases:
    - /core/overview/cht-conf/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Manage and configure apps built using the CHT Core Framework
-{{< /hextra/hero-subtitle >}}
-
 [CHT Conf](https://github.com/medic/cht-conf) is a command-line interface tool to manage and configure apps built using the [CHT Core Framework](https://github.com/medic/cht-core).
 
 ## Installation

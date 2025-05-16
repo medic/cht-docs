@@ -14,10 +14,6 @@ aliases:
    - /apps/reference/forms/contact
 ---
 
-{{< hextra/hero-subtitle >}}
-  **Contact Forms**: Used to create and edit people and places
-{{< /hextra/hero-subtitle >}}
-
 Contact forms are used to create and edit contacts (persons and places). Each contact-type should ideally have two forms; one for creation, and another for editing.
 
 These forms are stored in the `forms/contact` sub-folder of the project config directory. The naming convention used should be `<contact_type_id-{create|edit}>.xlsx`.

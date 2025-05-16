@@ -12,10 +12,6 @@ aliases:
    - /apps/tutorials/contact-summary
 ---
 
-{{< hextra/hero-subtitle >}}
-  Build CHT Application contact summary
-{{< /hextra/hero-subtitle >}}
-
 This tutorial will take you through building a contact summary for CHT applications.
 
 Contact summaries display basic information about the contact.

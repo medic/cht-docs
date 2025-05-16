@@ -12,10 +12,6 @@ aliases:
    - /apps/tutorials/form-properties
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to set form properties that contain meta information related to App forms
-{{< /hextra/hero-subtitle >}}
-
 This tutorial will take you through how to write the `<form_name>.properties.json` file.
 
 The `<form_name>.properties.json` file allows you to add logic that ensures that the right action appears for the right contacts (people and places). For instance, an assessment form for children under-5 will only appear for person contacts on the CHT whose age is less than 5.

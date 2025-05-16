@@ -8,10 +8,6 @@ aliases:
   -    /contribute/tech-radar
 ---
 
-{{< hextra/hero-subtitle >}}
-  Technology Radars for contributors and implementers
-{{< /hextra/hero-subtitle >}}
-
 It is essential for a development toolkit such as the Community Health Toolkit to constantly improve and keep track with the latest useful innovations. It is important to openly look for innovations and new technologies and to question established technologies and methods every now and then.
 
 To enhance visibility and clarity on the technology choices, the technological strategy, and the available CHT features and tools, we leverage a framework called **Technology Radar**.

@@ -9,10 +9,6 @@ aliases:
   - /apps/guides/hosting/4.x
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guides for hosting CHT 4.x applications
-{{< /hextra/hero-subtitle >}}
-
 > [!TIP] 
 > To get an overview on how these hosting solutions use `docker` and other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "building/local-setup" >}}).
 

@@ -8,10 +8,6 @@ aliases:
   - /contribute
 ---
 
-{{< hextra/hero-subtitle >}}
-  Get involved with the CHT community
-{{< /hextra/hero-subtitle >}}
-
 {{< callout emoji="👋" >}}
   There are many ways to get involved! Do you want to...
 {{< /callout >}}

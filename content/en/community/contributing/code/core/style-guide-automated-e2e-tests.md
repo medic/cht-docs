@@ -8,10 +8,6 @@ aliases: >
   /contribute/code/core/style-guide-automated-e2e-tests
 ---
 
-{{< hextra/hero-subtitle >}}
-  Editorial guidelines for anyone creating new automated test cases for the cht-core
-{{< /hextra/hero-subtitle >}}
-
 There are three files that are the base of every new automated test case, the most important one is the `spec` file, which contains the actual test that will be executed.
 
 Automated tests cover different [CHT Configs](https://github.com/medic/cht-core/tree/master/config), consider the following setups when writing a new test:

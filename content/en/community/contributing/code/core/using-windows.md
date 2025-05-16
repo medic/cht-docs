@@ -9,10 +9,6 @@ aliases: >
   /contribute/code/core/using-windows
 ---
 
-{{< hextra/hero-subtitle >}}
-  Notes for developing on Windows
-{{< /hextra/hero-subtitle >}}
-
 We don't actively support development on Windows, instead preferring MacOS or Linux.
 
 However, Microsoft has recently been stabilizing their [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about), which appears to work reasonably well for development.

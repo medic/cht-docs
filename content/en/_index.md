@@ -16,10 +16,6 @@ cascade:
   type: "docs"
 ---
 
-{{< hextra/hero-subtitle >}}
-  Everything you need to know to contribute, implement and be successful with the CHT
-{{< /hextra/hero-subtitle >}}
-
 {{< cards >}}
   {{< card link="reference-apps" title="Reference Apps" subtitle="Explore et get inspired by examples of CHT reference applications" icon="collection" >}}
   {{< card link="technical-overview" title="Technical Overview" icon="template" subtitle="Overview and architecture of CHT components" >}}

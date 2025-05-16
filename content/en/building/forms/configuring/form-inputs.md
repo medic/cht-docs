@@ -13,10 +13,6 @@ aliases:
    - /apps/guides/forms/form-inputs
 ---
 
-{{< hextra/hero-subtitle >}}
-  Data accessible from within CHT forms
-{{< /hextra/hero-subtitle >}}
-
 CHT forms have access to varying amounts of input data depending on the type of form and its source.
 
 ## `contact` forms

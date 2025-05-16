@@ -8,10 +8,6 @@ aliases:
    - /core/overview//pwa/
 ---
 
-{{< hextra/hero-subtitle >}}
-  What it means that the CHT Core web application is a Progressive Web App
-{{< /hextra/hero-subtitle >}}
-
 ## What is a Progressive Web App (PWA)?
 
 A PWA is a web application that can be used like a website in the browser, but the user can choose to "install" it. This means a shortcut is added to the home screen of the device, and when the application is run it doesn't have the usual browser address bar and tabs so it looks like a regular application.

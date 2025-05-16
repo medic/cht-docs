@@ -13,10 +13,6 @@ aliases:
    - /apps/guides/forms/multimedia
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to include multimedia files in forms
-{{< /hextra/hero-subtitle >}}
-
 ## Multimedia Formats
 
 There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "releases/#dependencies" >}}).

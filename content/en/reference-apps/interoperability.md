@@ -12,10 +12,6 @@ aliases:
    - /exploring/interoperability
 ---
 
-{{< hextra/hero-subtitle >}}
-  Handling patients with missed follow-up appointments between the CHT and other health systems
-{{< /hextra/hero-subtitle >}}
-
 ## Loss to Follow Up Workflow (LTFU)
 
 This workflow describes a use case where a health facility or a requesting system generates a list of patients who have missed follow-up appointments that were made through the CHT. A CHW would then follow up with the listed patients through SMS, a physical visit or a phone call.

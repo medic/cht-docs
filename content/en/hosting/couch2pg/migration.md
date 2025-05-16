@@ -6,10 +6,6 @@ description: >
      Migrating from one couch2pg instance to another, including Postgres data
 ---
 
-{{< hextra/hero-subtitle >}}
-   Migrating from one couch2pg instance to another, including Postgres data
-{{< /hextra/hero-subtitle >}}
-
 {{< callout type="warning" >}}
   CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
 {{< /callout >}}

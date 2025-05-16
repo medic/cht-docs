@@ -9,10 +9,6 @@ aliases: >
   /contribute/code/quality-assistance
 ---
 
-{{< hextra/hero-subtitle >}}
-  How the Quality Assistance process works
-{{< /hextra/hero-subtitle >}}
-
 ## Goals
 1. Software developers should have full ownership of what they are building, including quality.
 1. The team still benefits from having the QA engineering mindset of QA engineers.

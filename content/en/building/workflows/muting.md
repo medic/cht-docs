@@ -10,10 +10,6 @@ aliases:
    - /apps/features/muting/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Temporarily silence tasks and SMS schedules
-{{< /hextra/hero-subtitle >}}
-
 Muting is a way for CHWs to temporarily silence notifications about Contacts (people and places) and is commonly used when a person or family has temporarily relocated or refused services. When a Contact is muted, they will appear differently on the People tab and CHWs will no longer receive tasks or SMS about them.  
 
 To start receiving notifications about a Contact again, CHWs can _unmute_ them. When a Contact is unmuted, tasks and SMS schedules will resume, but notifications that would have been sent while they were muted will not.

@@ -9,10 +9,6 @@ aliases:
    - /building/guides/data/analytics/testing-dbt-models
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guide for testing dbt models
-{{< /hextra/hero-subtitle >}}
-
 To ensure code accuracy and data integrity, and also to prevent data quality regressions on dbt models, it is recommended to write dbt tests. dbt tests help validate the accuracy and reliability of data and data models and identify issues before they cause downstream impacts on analytics and decision-making. Additionally, they increase developer confidence in making changes to the data models.
 
 ## Types of dbt tests

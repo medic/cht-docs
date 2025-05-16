@@ -11,10 +11,6 @@ aliases:
    - /apps/guides/forms/google-drive
 ---
 
-{{< hextra/hero-subtitle >}}
-  Use cht-conf to obtain form files stored in Google Drive
-{{< /hextra/hero-subtitle >}}
-
 To work collaboratively on form design it can be helpful to keep XLSForms in Google Drive. The `fetch-forms-from-google-drive` action downloads these XLSForms so that they can be converted to XForms and uploaded to your CHT app. 
 
 This action requires the following files in the top-level folder of your CHT app config: `forms-on-google-drive.json` and  `.gdrive.secrets.json`. 

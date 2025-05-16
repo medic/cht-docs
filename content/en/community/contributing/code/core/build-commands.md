@@ -8,10 +8,6 @@ aliases: >
   /contribute/code/core/build-commands
 ---
 
-{{< hextra/hero-subtitle >}}
-  All commands available for executing to build, test, and deploy CHT Core Framework
-{{< /hextra/hero-subtitle >}}
-
 ## CHT Core build commands
 
 These commands are defined in the `package.json` and can be executed with `npm run <command>` from the cht-core repository directory.

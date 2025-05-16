@@ -6,10 +6,6 @@ description: >
   How to conduct Customer Effort Score surveys
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to conduct Customer Effort Score surveys
-{{< /hextra/hero-subtitle >}}
-
 Customer Effort Score surveys are used to quantitatively assess the ease of use of your CHT app.
 
 ## Planning

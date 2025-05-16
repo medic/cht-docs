@@ -10,9 +10,7 @@ aliases:
    - /building/translations/localizing-translations
    - /building/translations/configuring-translations
 ---
-{{< hextra/hero-subtitle >}}
-  Configuring custom translations for the CHT
-{{< /hextra/hero-subtitle >}}
+
 This section will take you through translating the CHT to a custom language (in this guide, Swahili). This will include setting up the user interface labels as well as outgoing text messages.
 
 > [!TIP]

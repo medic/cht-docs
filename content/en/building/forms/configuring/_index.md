@@ -9,8 +9,4 @@ aliases:
    - /apps/guides/forms/
 ---
 
-{{< hextra/hero-subtitle >}}
-  Configure and use forms in the CHT
-{{< /hextra/hero-subtitle >}}
-
 {{< subpages >}}

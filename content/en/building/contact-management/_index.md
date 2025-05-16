@@ -6,8 +6,4 @@ description: >
   Manage contacts and users in a CHT Application
 ---
 
-{{< hextra/hero-subtitle >}}
-  Manage contacts and users in a CHT Application
-{{< /hextra/hero-subtitle >}}
-
 {{< subpages >}}

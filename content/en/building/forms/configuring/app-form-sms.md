@@ -13,10 +13,6 @@ aliases:
    - /apps/guides/forms/app-form-sms
 ---
 
-{{< hextra/hero-subtitle >}}
-  Trigger calls and SMS from within the form, or send an SMS once submitted
-{{< /hextra/hero-subtitle >}}
-
 ## Triggering Calls and SMS
 
 When an XForm is loaded on a phone you can start a phone call or trigger the sending of an SMS within the form itself. This can be useful if within a task or assessment, you want to tell the user to contact a patient, or perhaps a health worker at a facility.

@@ -8,10 +8,6 @@ aliases: >
   - /contribute/code/style-guide
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guidelines for writing code
-{{< /hextra/hero-subtitle >}}
-
 ## Language
 
 Prefer **TypeScript** and **JavaScript** when writing CHT code.

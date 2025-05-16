@@ -12,10 +12,6 @@ aliases:
    - /building/guides/data/analytics/building-dbt-models
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guide for building dbt models for CHT applications
-{{< /hextra/hero-subtitle >}}
-
 [CHT Sync]({{< relref "technical-overview/cht-sync" >}}) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
 The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions]({{< ref "technical-overview/db-schema" >}}).

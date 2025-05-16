@@ -6,10 +6,6 @@ description: >
   Typography is the design of type in ways that provides innate hierarchy to UI
 ---
 
-{{< hextra/hero-subtitle >}}
-  Design of type in ways that provides innate hierarchy to UI
-{{< /hextra/hero-subtitle >}}
-
 The default CHT app font is [Noto Sans](https://www.google.com/get/noto/). It is free, codepen source, supports 800 languages and was specifically designed for good web legibility. It is bundled with the app so that all users see the same font regardless of their particular device, language, browser, etc. This ensures a consistent experience for all users.
 
 * Most text in the app should be the `@text-normal-color: @gray-ultra-dark color`.

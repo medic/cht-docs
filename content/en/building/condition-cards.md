@@ -12,10 +12,6 @@ aliases:
    - /apps/tutorials/condition-cards
 ---
 
-{{< hextra/hero-subtitle >}}
-  Build CHT condition cards
-{{< /hextra/hero-subtitle >}}
-
 This tutorial will take you through building a condition card for CHT applications.
 
 Condition cards, like contact summaries display information about the contact. The data displayed in condition cards can be pulled from submitted reports.

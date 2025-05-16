@@ -12,10 +12,6 @@ aliases:
    - /apps/guides/forms/report-titles
 ---
 
-{{< hextra/hero-subtitle >}}
-  Customize the title shown in the Reports list
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
   Added in 3.9.0
 {{< /callout >}}

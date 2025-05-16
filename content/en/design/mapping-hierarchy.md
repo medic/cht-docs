@@ -8,11 +8,6 @@ aliases:
    - /design/guides/mapping-hierarchy
 ---
 
-{{< hextra/hero-subtitle >}}
-  Mapping users on the CHT hierarchy
-{{< /hextra/hero-subtitle >}}
-
-
 This section will take you through mapping of users on CHT hierarchy, including:
 
 - defining the hierarchy (reporting structure)

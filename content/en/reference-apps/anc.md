@@ -14,10 +14,6 @@ aliases:
    - /exploring/anc
 ---
 
-{{< hextra/hero-subtitle >}}
-  Reference application for maternal and newborn care for CHWs
-{{< /hextra/hero-subtitle >}}
-
 This "reference application" for maternal and newborn health provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration, and test code. It can be used as is, or serve as a great way to learn about the CHT's foundation for forms, data fields, and analytics that can be easily customized to fit your context.
 
 ## Problem Being Addressed

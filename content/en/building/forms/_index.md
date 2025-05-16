@@ -10,10 +10,6 @@ aliases:
    - /apps/concepts/forms
 ---
 
-{{< hextra/hero-subtitle >}}
-  Building block for all CHT apps
-{{< /hextra/hero-subtitle >}}
-
 Forms are a building block of all CHT apps. They are used when creating or editing contacts, and when completing a care guide or survey within the app. Forms are also used to interpret SMS interactions with the CHT. 
 
 When a completed form is submitted, it is treated as a Report in the app. All reports can be viewed in the [Reports tab]({{< ref "building/features/reports" >}}) by those with the proper access within the [hierarchy]({{< ref "building/workflows/hierarchy" >}}).

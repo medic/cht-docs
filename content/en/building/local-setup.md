@@ -12,10 +12,6 @@ aliases:
    - /apps/tutorials/local-setup
 ---
 
-{{< hextra/hero-subtitle >}}
-  Set up a local environment to build and test CHT 4.x applications
-{{< /hextra/hero-subtitle >}}
-
 This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:

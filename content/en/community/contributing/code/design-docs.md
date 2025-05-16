@@ -8,10 +8,6 @@ aliases: >
   /contribute/code/design-docs
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guidelines for writing technical design documents
-{{< /hextra/hero-subtitle >}}
-
 ## What are design docs?
 Software development is not just about writing code, but rather about solving problems and building the right solutions. Before diving into an initiative or feature and starting coding, it’s essential that the developers (and other team members) have a high-level understanding of what a solution might look like. 
 

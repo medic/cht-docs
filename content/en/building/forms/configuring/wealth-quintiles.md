@@ -9,10 +9,6 @@ aliases:
    - /apps/guides/forms/wealth-quintiles
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to track wealth quintiles on the profile of each family member in the household
-{{< /hextra/hero-subtitle >}}
-
 Household surveys with questions about the home, possessions, and access to safe drinking water have been used to create equity score and improve the targeting of health services. This guide will cover how quintile information from a household survey can be used in customizing care for individual household members. For example, the equity quintile can be used to increase the number of pregnancy follow-ups for women in specific households, or to display specific notes or questions within patient forms.
 
 For quintile information from a household survey to be used for people in that household, a form about a place must contain `NationalQuintile` and/or `UrbanQuintile` fields at the top level. When that form is submitted all the people belonging to that place will get the corresponding `wealth_quintile_national` and `wealth_quintile_urban` fields. Those fields can then be used by forms, tasks, and contact profiles accordingly.

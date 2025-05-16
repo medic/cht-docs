@@ -6,10 +6,6 @@ description: >
   People training and supporting CHWs 
 ---
 
-{{< hextra/hero-subtitle >}}
-  People training and supporting CHWs 
-{{< /hextra/hero-subtitle >}}
-
 The CHW supervisor is the person who trains and supports CHWs and helps them meet their monthly goals. Supervisors usually split their time between administrative duties at the local health facility and accompanying CHWs on their community visits. 
 
 {{< figure src="supervisor.png" link="supervisor.png" caption="CHW Supervisor" >}}

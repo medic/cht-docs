@@ -13,10 +13,6 @@ aliases:
    - /apps/reference/targets
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to build CHT monthly and all time target widgets
-{{< /hextra/hero-subtitle >}}
-
 {{< figure src="counts.png" link="counts.png" caption="Percentages" >}}
 
 {{< figure src="percentages.png" link="percentages.png" caption="Percentages" >}}

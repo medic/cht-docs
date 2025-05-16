@@ -8,10 +8,6 @@ relatedContent: >
   hosting/4.x/migration/migration-to-4x-docker
 ---
 
-{{< hextra/hero-subtitle >}}
-  What to do when CHT 4.x upgrades don't work as planned
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
   4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed 4.x upgrades.  Below are some specific tips as well as general practices on upgrading 4.x.
 {{< /callout >}}

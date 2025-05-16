@@ -9,10 +9,6 @@ aliases:
    - /contribute/medic/data-migration-3x-eks-to-4x-eks
 ---
 
-{{< hextra/hero-subtitle >}}
-  Guide to migrate existing data from CHT 3.x on EKS to CHT 4.x on EKS (Kubernetes Environments)
-{{< /hextra/hero-subtitle >}}
-
 Like the [Deploy to EKS guide]({{< relref "hosting/medic/deploy-on-eks" >}}), this guide is meant for Medic Teammates migrating Medic hosted CHT Core deployments.  However, given there may be other users who will benefit from understanding the process, this document is published for all to read.
 
 CHT Core hosting architecture differs entirely between 3.x and 4.x. When both versions are running in Kubernetes, migrating data requires specific steps using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.

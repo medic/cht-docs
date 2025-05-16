@@ -10,10 +10,6 @@ aliases: >
   /core/guides/android/development-setup
   /contribute/code/android/development-setup
 ---
-
-{{< hextra/hero-subtitle >}}
-  Instructions for setting up the development environment
-{{< /hextra/hero-subtitle >}}
  
 The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, and the **[CHT Gateway](https://github.com/medic/cht-gateway)** app as well.
 

@@ -14,10 +14,6 @@ aliases:
    - /exploring/direct-to-client
 ---
 
-{{< hextra/hero-subtitle >}}
-  Reference app for Direct-to-client, two-way texting workflows with CHT and RapidPro
-{{< /hextra/hero-subtitle >}}
-
 <!-- Force tables on this page to have columns same width -->
 <!-- somewhat brittle b/c it's tied to the header ID , but allows us to hit one table only -->
 <style>

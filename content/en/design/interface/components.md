@@ -6,10 +6,6 @@ description: >
    Standard aspects of the core framework for reuse to encourage consistency when building new pages or components 
 ---
 
-{{< hextra/hero-subtitle >}}
-  Standard aspects of the core framework for reuse to encourage consistency when building new pages or components 
-{{< /hextra/hero-subtitle >}}
-
 ### Buttons
 Primary buttons are used for actions, such as “Next” and “Submit”. Secondary buttons are the alternative to the primary action, such as "Previous". Text links are used for less important or less commonly used actions, such as “Cancel”.
 {{< codepen WNrZKoz >}}
