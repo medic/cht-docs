@@ -5,6 +5,7 @@ weight: 3
 aliases:
   - /apps/guides/hosting/4.x/logs
   - /hosting/4.x/logs
+  - /hosting/4.x/production/docker/logs/
 ---
 
 {{< hextra/hero-subtitle >}}

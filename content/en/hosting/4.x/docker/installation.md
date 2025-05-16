@@ -5,6 +5,11 @@ weight: 1
 aliases:
   - /apps/guides/hosting/4.x/docker/
   - /hosting/4.x/docker/prerequisites/
+  - /apps/guides/hosting/4.x/self-hosting/single-node/
+  - /hosting/4.x/self-hosting/single-node/
+  - ../self-hosting-single-node
+  - /hosting/4.x/docker/single-node/
+  - /hosting/4.x/production/docker/
 ---
 
 {{< hextra/hero-subtitle >}}

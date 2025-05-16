@@ -4,6 +4,7 @@ linkTitle: "GCP + GKS Multi Node"
 weight: 10
 aliases:
    - /hosting/4.x/docker/google-cloud/
+   - /hosting/4.x/production/kubernetes/gcp-multinode/
 ---
 
 {{< hextra/hero-subtitle >}}
