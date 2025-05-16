@@ -4,8 +4,6 @@ linkTitle: Configuring
 weight: 2
 description: >
   Configuring custom translations for the CHT
-relatedContent: >
-  building/translations/managing
 aliases:
    - /building/tutorials/localizing-cht
    - /apps/tutorials/localizing-cht
