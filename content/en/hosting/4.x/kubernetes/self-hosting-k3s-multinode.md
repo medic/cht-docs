@@ -8,6 +8,7 @@ aliases:
   - /apps/guides/hosting/4.x/self-hosting/self-hosting-k3s-multinode
   - /hosting/4.x/self-hosting/self-hosting-k3s-multinode
   - ../self-hosting-k3s-multinode
+  - /hosting/4.x/production/kubernetes/self-hosting-k3s-multinode/
 ---
 
 {{< hextra/hero-subtitle >}}

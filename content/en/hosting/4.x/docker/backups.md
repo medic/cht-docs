@@ -7,6 +7,7 @@ description: >
 aliases:
   - /apps/guides/hosting/4.x/backups
   - /hosting/4.x/backups
+  - /hosting/4.x/production/docker/backups/
 ---
 
 {{< hextra/hero-subtitle >}}
