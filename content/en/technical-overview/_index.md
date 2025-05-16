@@ -11,4 +11,7 @@ aliases:
   Overview and architecture of CHT components
 {{< /hextra/hero-subtitle >}}
 
-{{< subpages >}}
+{{< cards >}}
+{{< card link="architecture" title="Architecture" icon="library" subtitle="Explore the different components of the CHT" >}}
+{{< card link="concepts" title="Concepts and paradigms" subtitle="Discover the rules and guidelines of the CHT" icon="document-text" >}}
+{{< /cards >}}
