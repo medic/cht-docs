@@ -2,6 +2,7 @@
 title: "Welcome to the CHT Documentation!"
 linkTitle: "Documentation"
 identifier: "docs"
+description: "Everything you need to know to contribute, implement and be successful with the CHT"
 weight: 1
 aliases:
     - /search
