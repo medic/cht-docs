@@ -4,6 +4,8 @@ linkTitle: Technical
 weight: 400
 ---
 
+_Introduced in 4.2.0_
+
 pull in key elements from [design doc](https://docs.google.com/document/d/1LUn1ZRetAmYE04CtdcTmp-bEBvl37AZ0CvFXZChXqfU/edit?tab=t.0)
 
 ```mermaid
