@@ -84,7 +84,7 @@ Be sure to replace `CHT_URL` with the production URL of your CHT instance
  - Client ID: `CHT`
  - Client authentication: `On`
  - Authentication Flow: `Standard flow`
- - Valid redirect URIs: `https://<CHT_URL>/medic/login/oidc/get_token`
+ - Valid redirect URIs: `https://<CHT_URL>/medic/login/oidc`
 
 {{< /tab >}}
 {{< tab >}}
@@ -93,7 +93,7 @@ Be sure to replace `CHT_URL` with the docker helper URL of your CHT instance. Be
 - Client ID: `CHT`
 - Client authentication: `On`
 - Authentication Flow: `Standard flow`
-- Valid redirect URIs: `https://<CHT_URL![img.png](img.png)>/medic/login/oidc/get_token`
+- Valid redirect URIs: `https://<CHT_URL![img.png](img.png)>/medic/login/oidc`
 
 {{< /tab >}}
 {{< /tabs >}}
