@@ -1,14 +1,12 @@
 ---
-title: "Contribute code and documentation"
+title: "Contribute Code and Documentation"
 linkTitle: "Contribute"
 weight: 1
+description: >
+  Starting guides for contributors
 aliases:
   -  /contribute/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Starting guides for contributors
-{{< /hextra/hero-subtitle >}}
 
 {{< cards >}}
   {{< card link="first-time-contributors" title="First Time Contributors Guide" icon="heart" subtitle=" Starting guide for first time contributors" >}}

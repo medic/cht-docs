@@ -2,15 +2,15 @@
 title: "Loss to Follow Up"
 linkTitle: "Loss to Follow Up"
 weight:
+description: >
+  Handling patients with missed follow-up appointments between the CHT and other health systems
+relatedContent: >
+  building/interoperability
 aliases:
    - /apps/examples/interoperability
    - /building/examples/interoperability
    - /exploring/interoperability
 ---
-
-{{< hextra/hero-subtitle >}}
-  Handling patients with missed follow-up appointments between the CHT and other health systems
-{{< /hextra/hero-subtitle >}}
 
 ## Loss to Follow Up Workflow (LTFU)
 

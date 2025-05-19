@@ -2,13 +2,11 @@
 title: "Documentation Style Guide"
 linkTitle: "Style Guide"
 weight: 2
+description: >
+  Editorial guidelines for writing documentation
 aliases:
   -  /contribute/docs/style-guide
 ---
-
-{{< hextra/hero-subtitle >}}
-  Editorial guidelines for writing documentation
-{{< /hextra/hero-subtitle >}}
 
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 

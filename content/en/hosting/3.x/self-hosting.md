@@ -2,15 +2,15 @@
 title: "Production Hosting in CHT 3.x"
 linkTitle: "Production Hosting - Docker"
 weight: 2
+description: >
+  Hosting the CHT on self run infrastructure
+relatedContent: >
+  hosting/3.x/ec2-setup-guide
 aliases:
   - /apps/guides/hosting/3.x/self-hosting
   - /apps/guides/hosting/self-hosting
   - /technical-overview/docker-setup
 ---
-
-{{< hextra/hero-subtitle >}}
-  Hosting the CHT on self run infrastructure
-{{< /hextra/hero-subtitle >}}
 
 Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (CHT) core framework has been packaged into a docker container to make it portable and easy to install. It is available from [dockerhub](https://hub.docker.com/r/medicmobile/medic-os). To learn more how to work with docker you could follow the tutorial [here](https://docker-curriculum.com/#getting-started) and the cheat sheet [here](https://docs.docker.com/get-started/docker_cheatsheet.pdf).  
 

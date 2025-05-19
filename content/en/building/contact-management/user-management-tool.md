@@ -2,14 +2,15 @@
 title: "CHT User Management tool"
 linkTitle: User management tool
 weight: 5
+description: >
+  How to use and configure a user management tool for a CHT project
+relatedContent: >
+  building/contact-management/contact-and-users-1
+  building/guides/data/users-bulk-load
 aliases:
    - /building/tutorials/user-management-tool/
    - /apps/tutorials/user-management-tool
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to use and configure a user management tool for a CHT project
-{{< /hextra/hero-subtitle >}}
 
 The Community Health Toolkit (CHT) is highly configurable and can be customized to support multiple hierarchies and users in the health care system. The CHT user management tool is a user friendly web application that works with the CHT to decentralize the user management process to the subnational levels, increasing efficiency and accuracy. This guide highlights steps for setting up and configuring the user management tool. 
 The guide has been tailored for specific CHT-supported national community health information systems. Partners and ministries of health are advised to customize the tool to fit their specific needs.

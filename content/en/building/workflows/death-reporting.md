@@ -2,14 +2,14 @@
 title: Death Reporting
 linkTitle: Death Reporting
 weight: 11
+description: >
+  Build death report workflows
+relatedContent: >
+  building/reference/app-settings/transitions#death_reporting
 aliases:
    - /buidling/tutorials/death-reporting
    - /apps/tutorials/death-reporting
 ---
-
-{{< hextra/hero-subtitle >}}
-  Build death report workflows
-{{< /hextra/hero-subtitle >}}
 
 In this section you will learn how to set up a death report workflow. This includes laying out a death report form as well as handling all the configurations needed for wiring it up in the CHT.
 By the end of the tutorial you should be able to:

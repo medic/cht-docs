@@ -80,7 +80,8 @@ The steps in this guide can be done on any of the cheap server providers out the
 
 From the SSH command in step 10 above:
 
-[<img src="/building/guides/debugging/images/ssh.ports.svg" width=100% height=100%>](/building/guides/debugging/images/ssh.ports.svg)
+{{< figure src="../images/ssh.ports.svg" link="../images/ssh.ports.svg" caption="Explanation of ports and IPs from SSH" >}}
+
 
 1. `8081` -  Remote port on cht.domain.com to listen to. This is the same port that apache redirects to in step 2 above.
 1. `127.0.0.1` - Host to send forwarded traffic to. In this case, your local machine.

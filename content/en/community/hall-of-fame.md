@@ -1,14 +1,12 @@
 ---
 title: "Contributor Hall of Fame"
 linkTitle: "Hall of Fame"
-weight: 3
+weight: 4
+description: >
+  Tributes to those who have contributed to the codebase
 aliases:
   - /contribute/code/hall-of-fame
 ---
-
-{{< hextra/hero-subtitle >}}
-  Tributes to those who have contributed to the codebase
-{{< /hextra/hero-subtitle >}}
 
 #### Code & Documentation
 

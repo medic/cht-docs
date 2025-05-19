@@ -2,11 +2,9 @@
 title: "Technical Working Sessions"
 linkTitle: "Technical Working Sessions"
 weight: 5
+description: >
+  How to conduct a Technical Working Session 
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to conduct a technical working session 
-{{< /hextra/hero-subtitle >}}
 
 A Technical Working Session is a collaborative meeting where backend users of the CHT (such as app developers and data scientists) and CHT Community product managers, software engineers, and UX researchers come together to dive deeper into technical issues and develop potential solutions in real time. These sessions provide valuable insights into the experiences of users developing and configuring the CHT.
 

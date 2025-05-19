@@ -2,14 +2,17 @@
 title: "Moving Contacts within the Hierarchy"
 linkTitle: "Moving Contacts"
 weight: 4
+description: >
+  How to safely move contacts
+relatedContent: >
+  building/contact-management
+  building/reference/app-settings/hierarchy
+  building/contact-management/contact-and-users-2
+  building/workflows/hierarchy
 aliases:
    - /building/guides/updates/moving-contacts/
    - /apps/guides/updates/moving-contacts
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to safely move contacts
-{{< /hextra/hero-subtitle >}}
 
 Contacts are organized into a hierarchy. It is not straight-forward to move contacts from one position in the hierarchy to another because many copies of this hierarchy exist. Use the `move-contacts` action in [`cht-conf`](https://github.com/medic/cht-conf) to assign a new parent to contacts. This command will move the specified contact, all the contacts under that contact, and all reports created by any of those contacts. This action will download all documents that need to be updated, update the lineages within those documents, and then save the updated documents on your local disk. To commit those changes to the database, run the `upload-docs` action.
 

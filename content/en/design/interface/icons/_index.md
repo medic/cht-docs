@@ -2,13 +2,11 @@
 title: "Icon Library"
 linkTitle: "Icon Library"
 weight: 2
+description: >
+  Icons for use in CHT application based on human centered design principles
 aliases: 
   - /design/icons/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Icons for use in CHT applications based on human centered design principles
-{{< /hextra/hero-subtitle >}}
 
 We believe in making our simple but strong visual iconography open and accessible to all. We have assembled and designed these icons for use with the Community Health Toolkit based on human centered design principles.
 

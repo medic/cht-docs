@@ -2,14 +2,15 @@
 title: "Getting Started Building a CHT App"
 linkTitle: Getting Started
 weight: 2
+description: >
+  Set up a local environment to build and test CHT 4.x applications
+relatedContent: >
+  community/contributing/code/core/using-windows
+  hosting/
 aliases:
    - /building/tutorials/local-setup
    - /apps/tutorials/local-setup
 ---
-
-{{< hextra/hero-subtitle >}}
-  Set up a local environment to build and test CHT 4.x applications
-{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 

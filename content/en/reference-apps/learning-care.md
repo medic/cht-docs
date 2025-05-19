@@ -2,15 +2,15 @@
 title: "Learning and Care"
 linkTitle: "Learning & Care"
 weight:
+description: >
+  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19
+relatedContent: >
+  building/integrations/oppia
 aliases:
    - /apps/examples/learning-care
    - /building/examples/learning-care
    - /exploring/learning-care
 ---
-
-{{< hextra/hero-subtitle >}}
-  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19
-{{< /hextra/hero-subtitle >}}
 
 The Learning & Care Apps in the Community Health Toolkit are designed to onboard community health workers remotely to new digital training tools, and help them learn new information and care delivery responsibilities through customized educational modules.
 

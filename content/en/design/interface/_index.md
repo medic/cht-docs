@@ -2,11 +2,9 @@
 title: "Interface"
 linkTitle: "Interface"
 weight: 2
----
-
-{{< hextra/hero-subtitle >}}
+description: >
   Principles to design the CHT interface and support effective implementations
-{{< /hextra/hero-subtitle >}}
+---
 
 The purpose of this guide is to document the standard aspects of the core framework and allow designers and developers to focus on solving challenges, rather than reinventing interface elements that are already in use.
 

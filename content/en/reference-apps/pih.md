@@ -2,15 +2,13 @@
 title: "YendaNafe CHT app by PIH in Malawi"
 linkTitle: "PIH Malawi"
 weight:
+description: >
+  Reference app co-designed by PIH Malawi and Medic
 aliases:
    - /apps/examples/pih
    - /building/examples/pih
    - /exploring/pih
 ---
-
-{{< hextra/hero-subtitle >}}
-  Reference app co-designed by PIH Malawi and Medic
-{{< /hextra/hero-subtitle >}}
 
 Since 2017, [Partners in Health (PIH) Malawi](https://www.pih.org/country/malawi) and [Medic](https://medic.org/) have collaboratively co-designed and developed YendaNafe, a digital health app for community based service provision. In the spirit of openness, Medic and PIH have coordinated the release of the full application source code of Yendanafe app as first of kind ‘‘Integrated CHT Reference app’’. This Reference app provides an example that CHT Implementers can learn how they can design and configure integrated workflows.
 

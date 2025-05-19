@@ -2,14 +2,11 @@
 title: "Mapping Users on the CHT Hierarchy"
 linkTitle: Mapping Hierarchy
 weight: 4
+description: >
+  Mapping users on the CHT hierarchy
 aliases:
    - /design/guides/mapping-hierarchy
 ---
-
-{{< hextra/hero-subtitle >}}
-  Mapping users on the CHT hierarchy
-{{< /hextra/hero-subtitle >}}
-
 
 This section will take you through mapping of users on CHT hierarchy, including:
 

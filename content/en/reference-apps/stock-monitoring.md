@@ -2,15 +2,13 @@
 title: "Stock Monitoring"
 linkTitle: "Stock Monitoring"
 weight:
+description: >
+  Guidance on design and development of stock monitoring workflows
 aliases:
    - /apps/examples/stock-monitoring
    - /building/examples/stock-monitoring
    - /exploring/stock-monitoring
 ---
-
-{{< hextra/hero-subtitle >}}
-  Guidance on design and development of stock monitoring workflows
-{{< /hextra/hero-subtitle >}}
 
 ## Problem Being Addressed
 
