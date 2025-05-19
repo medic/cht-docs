@@ -1,11 +1,9 @@
 ---
-title: Localizing the CHT
-linkTitle: Localizing
+title: Configuring custom translations
+linkTitle: Configuring
 weight: 2
 description: >
-  Using the CHT in the desired language
-relatedContent: >
-  building/translations/managing
+  Configuring custom translations for the CHT
 aliases:
    - /building/tutorials/localizing-cht
    - /apps/tutorials/localizing-cht
@@ -13,7 +11,10 @@ aliases:
    - /building/translations/configuring-translations
 ---
 
-This section will take you through localizing the CHT to a custom language (in this guide, Swahili). This will include setting up the user interface labels as well as outgoing text messages.
+This section will take you through translating the CHT to a custom language (in this guide, Swahili). This will include setting up the user interface labels as well as outgoing text messages.
+
+> [!TIP]
+> If you need to translate the whole app into an entirely new language, please consider [contributing those translations]({{< ref "community/contributing/translations" >}}) to the core project so they are available to the community.
 
 By the end of the section you should be able to:
 
@@ -28,7 +29,7 @@ By the end of the section you should be able to:
 
 ## Localization Steps
 
-Create a `messages-sw.properties` file by using [these instructions]({{< ref "building/translations/managing" >}}).
+Create a `translations/messages-sw.properties` file in your project folder.
 
 Populate the `messages-sw.properties` file with the appropriate translation and upload it onto your local CHT environment using the command below.
 

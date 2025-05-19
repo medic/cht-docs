@@ -2,13 +2,11 @@
 title: "Colors"
 linkTitle: "Colors"
 weight: 1
+description: >
+  Colors for use in CHT applications
 aliases:
    - /design/components/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Colors for use in CHT applications
-{{< /hextra/hero-subtitle >}}
 
 Color helps users interpret and interact with app content by establishing a hierarchy of information, highlighting actions, indicating states, and conveying meaning.
 

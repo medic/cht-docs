@@ -2,11 +2,9 @@
 title: "App Builders"
 linkTitle: "App Builders"
 weight: 6
----
-
-{{< hextra/hero-subtitle >}}
+description: >
   Developing and delivering world-class software
-{{< /hextra/hero-subtitle >}}
+---
 
 App builders and technical organizations develop and deliver world-class software contextualized to meet their clients’ needs and deliver value to their stakeholders. 
 

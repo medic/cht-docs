@@ -2,15 +2,13 @@
 title: "CHT Core dev environment setup"
 linkTitle: "Dev Environment Setup"
 weight: 1
+description: >
+  Get your local machine ready to do development work on CHT Core
 aliases:
   - /apps/guides/hosting/core-developer
   - /apps/guides/hosting/hosting/4.x/app-developer
   - /contribute/code/core/dev-environment
 ---
-
-{{< hextra/hero-subtitle >}}
-  Getting your local machine ready to do development work on CHT Core
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
 This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
@@ -24,6 +22,9 @@ To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.
 ## The Happy Path Installation
 
 CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, and CouchDB (via Docker) on your local workstation.
+
+> [!TIP]
+> Ensure you have at least 8GB RAM, 50GB Free disk and 4 cores.  However, more is for sure better here - you'll see real speed improvements with more RAM and more cores.
 
 ### Install NodeJS, npm, and Docker
 

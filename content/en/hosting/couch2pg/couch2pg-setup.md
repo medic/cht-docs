@@ -2,14 +2,14 @@
 title: "Local couch2pg Setup"
 linkTitle: Local Setup
 weight: 3
+description: >
+  Setting up a Couch2pg service to download data from CouchDB to Postgres database
+relatedContent: >
+  building/local-setup
 aliases:
    - /apps/tutorials/couch2pg-setup
    - /building/tutorials/couch2pg-setup
 ---
-
-{{< hextra/hero-subtitle >}}
-   Setting up a Couch2pg service to download data from CouchDB to Postgres database
-{{< /hextra/hero-subtitle >}}
 
 {{< callout type="warning" >}}
   CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).

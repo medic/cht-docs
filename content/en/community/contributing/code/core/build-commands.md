@@ -2,13 +2,11 @@
 title: "Build commands"
 linkTitle: "Build Commands"
 weight: 2
+description: >
+  All commands available for executing to build, test, and deploy CHT Core Framework
 aliases: >
   /contribute/code/core/build-commands
 ---
-
-{{< hextra/hero-subtitle >}}
-  All commands available for executing to build, test, and deploy CHT Core Framework
-{{< /hextra/hero-subtitle >}}
 
 ## CHT Core build commands
 

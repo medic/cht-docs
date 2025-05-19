@@ -2,13 +2,11 @@
 title: "Contributing Code"
 linkTitle: "Code"
 weight: 4
+description: >
+  How to contribute to code to the CHT
 aliases:
   -    /contribute/code/
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to contribute to code to the CHT
-{{< /hextra/hero-subtitle >}}
 
 > [!TIP] 
 > See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 

@@ -2,14 +2,15 @@
 title: "Setting Form Properties"
 linkTitle: Properties
 weight: 5
+description: >
+ How to set form properties that contain meta information related to App forms
+relatedContent: >
+  building/forms/app/#formsappform_namepropertiesjson
+  design/best-practices
 aliases:
    - /building/tutorials/form-properties
    - /apps/tutorials/form-properties
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to set form properties that contain meta information related to App forms
-{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through how to write the `<form_name>.properties.json` file.
 

@@ -2,13 +2,11 @@
 title: Host CHT Applications
 linkTitle: Host
 weight: 7
+description: >
+  Guides for hosting, maintaining, and monitoring CHT applications
 aliases:
     - /apps/guides/hosting/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Guides for hosting, maintaining, and monitoring CHT applications
-{{< /hextra/hero-subtitle >}}
 
 This section has instructions on how to host the CHT Core starting with the most basic Application Development setup on your laptop for just one developer all the way up to large deployments which include multi-node CouchDB cluster hosted in a Cloud based deployment.
 
@@ -18,13 +16,13 @@ This section has instructions on how to host the CHT Core starting with the most
 
 New developers to the CHT should start on CHT 4.x with our [Application Developer Hosting]({{< relref "hosting/4.x/app-developer" >}}).
 
-System administrators looking to deploy CHT into production should understand when to use [single vs multi-node CouchDB]({{< relref "hosting/4.x/production" >}}) first, then read the [4.x production hosting section]({{< relref "hosting/4.x/production" >}}) to select a style of hosting that best fits them.
+System administrators looking to deploy CHT into production should understand when to use [single vs multi-node CouchDB]({{< relref "hosting/4.x/docker" >}}) first, then read the [4.x production hosting section]({{< relref "hosting/4.x/docker" >}}) to select a style of hosting that best fits them.
 
 Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first.
 
 {{< cards >}}
   {{< card link="considerations" title="Considerations" subtitle="Considerations when hosting the CHT" icon="book-open" >}}
-  {{< card link="requirements" title="Requirements" icon="shield-exclamation" subtitle="Requirements for hosting CHT applicationss" >}}
+  {{< card link="requirements" title="Requirements" icon="shield-exclamation" subtitle="Requirements for hosting CHT applications" >}}
   {{< card link="costs" title="Costs" subtitle="A guide for calculating CHT hosting costs" icon="banknotes" >}}
   {{< card link="vertical-vs-horizontal" title="Vertical vs Horizontal Scaling" subtitle="The power of clustered CouchDB to horizontally scale the CHT" icon="server" >}}
   {{< card link="kubernetes-vs-docker" title="Kubernetes vs Docker" icon="kubernetes" subtitle="Options for installing CHT applications" >}}
@@ -35,5 +33,4 @@ Before beginning any of these guides, be sure to meet all of the [CHT hosting re
   {{< card link="sso" title="SSO" subtitle="Setting up Single Sign On" icon="key"  >}}  
   {{< card link="couch2pg/" title="couch2pg" subtitle="Guides for using couch2pg" icon="presentation-chart-line" tag="deprecated" tagType="warning" >}}
   {{< card link="medic" title="At Medic" subtitle="Guidelines internal to Medic-hosted CHT instances " icon="briefcase" tag="medic-internal" >}}
-  
 {{< /cards >}}

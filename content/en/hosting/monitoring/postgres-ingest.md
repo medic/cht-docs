@@ -2,13 +2,11 @@
 title: "Custom Postgres metrics in CHT Watchdog"
 linkTitle: "Custom Postgres Metrics"
 weight: 4
+description: >
+  Adding Custom Postgres metrics into CHT Watchdog
 aliases:  
   - /apps/guides/hosting/monitoring/postgres-ingest
 ---
-
-{{< hextra/hero-subtitle >}}
-  Adding Custom Postgres metrics into CHT Watchdog
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  

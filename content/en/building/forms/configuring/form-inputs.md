@@ -2,14 +2,16 @@
 title: "Input data available in forms"
 linkTitle: "Form Inputs"
 weight: 5
+description: >
+  Data accessible from within CHT forms
+relatedContent: >
+  building/forms
+  building/contact-summary/contact-summary-templated
+  building/tasks/managing-tasks/pass-data-to-form  
 aliases:
    - /building/guides/forms/form-inputs
    - /apps/guides/forms/form-inputs
 ---
-
-{{< hextra/hero-subtitle >}}
-  Data accessible from within CHT forms
-{{< /hextra/hero-subtitle >}}
 
 CHT forms have access to varying amounts of input data depending on the type of form and its source.
 

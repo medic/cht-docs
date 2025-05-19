@@ -2,13 +2,11 @@
 title: "Hosting Costs"
 linkTitle: "Hosting Costs"
 weight: 3
+description: >
+  A guide for calculating CHT hosting costs
 aliases:
   - hosting/costs/
 ---
-
-{{< hextra/hero-subtitle >}}
-  A guide for calculating CHT hosting costs
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
 This page applies to deployments that wish to self host their instance of the CHT. {{< /callout >}}
@@ -25,9 +23,7 @@ In a production environment, the CHT costs USD$0.10 per active user per month to
 
 Medic hosts a number of production CHT instances in Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). By using [OpenCost](https://www.opencost.io/), Medic can closely monitor real world costs with actual end users. OpenCost was used to separate one deployment's CPU, RAM and disk use from another's despite them all running in a multi-tenant EKS cluster.
 
-By looking at dozens of instances and focusing on the highest usage ones, an accurate representation can be derived of a higher cost a self hosting partner.  
-
-Here's real costs for two week period for an actual production instance which informs our USD$0.10 per active user per month cost, including a bit of over-provisioning to give a deployment some headroom:
+Here's costs for two week period for an actual production instance which informs our USD$0.10 per active user per month cost, including a bit of over-provisioning to give a deployment some headroom:
 
 | Total Monthly Cost     | $68    | 
 |------------------------|--------| 
@@ -40,7 +36,7 @@ Here's real costs for two week period for an actual production instance which in
 
 We derive the $/User/Month cost by taking $68/mo and dividing it by 661 active users to arrive at $0.10.  The bottom 4 lines  are the sub-items that make the total $68/mo amount. Note that if a deployment has a lot of active users, but a slower database growth than shown above, it can cause changes in costs mentioned in [the next section](#accuracy).
 
-By using OpenCost, we not only know costs as shown above, but we also know actual resources used with in the cluster.  This allows us to be able to know CPU, storage and RAM usage.  At a higher level, we can also know how many documents were stored and document growth.  Documents are created, for example, when a CHW follows a health workflow on their device and syncronizes to the CHT:
+By using OpenCost, we not only know costs as shown above, but we also know actual resources used with in the cluster.  This allows us to be able to know CPU, storage and RAM usage.  At a higher level, we can also know how many documents were stored and document growth.  Documents are created, for example, when a CHW follows a health workflow on their device and synchronizes to the CHT:
 
 | Monthly Resources |        | 
 |-------------------|--------| 
@@ -66,13 +62,16 @@ A production deployment means the CHT is hosted either at a cloud provider or in
 
 When analyzing the hosting total cost of ownership (TCO), only production instances were looked at.
 
-It should be noted that a [development environment]({{< relref "hosting/4.x/app-developer" >}})  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
-
-Running an easy to set up Docker based development environment (instead of Kubernetes) on a laptop is an acceptable practice: there is no expectation of high uptime for development instances.
+> [!NOTE]
+> A [development environment](/hosting/4.x/app-developer)  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
 
 ## Small deployment example costs
 
-In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs]({{< relref "hosting/requirements" >}}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs](/hosting/requirements}).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+
+{{< callout >}}
+For more examples of deployments, but without costs, see [Kubernetes vs Docker](/hosting/kubernetes-vs-docker/#example-deployments).
+{{< /callout >}}
 
 ### Monthly costs 
 
@@ -115,7 +114,7 @@ Items that are included in the basic costs of hosting the CHT:
 
 There are many assumptions about what else is needed to run the CHT. While important, they are excluded:
 
-* Kubernetes cluster - Current CHT production best practices include a Kubernetes cluster that will have a fixed monthly cost to operate, including the worker nodes which may be large in size (RAM & CPU).
+* Kubernetes cluster - Large, multi-tenant deployments in a Kubernetes cluster will have a fixed monthly cost to operate, including the worker nodes which may be large in size (RAM & CPU).
 * Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware.  This takes up a disk space which should be accounted for when budgeting to host the CHT.
 * Building a Datacenter (DC) - While some well funded MoH's may have the budget and time to build a complete data center, this is out of the scope for this calculation.  Therefore it is assumed an existing DC will be used or cloud hosting will be used.  In the case where a MoH wants to build a DC, a competent 3rd party should be selected
 * Training of Systems Administrators/IT - System administrator IT systems that have not used Kubernetes or have not hosted the CHT, will need to be trained on how to do both.

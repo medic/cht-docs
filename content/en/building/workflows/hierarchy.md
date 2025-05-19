@@ -2,14 +2,14 @@
 title: "Configurable Hierarchies"
 linkTitle: "Hierarchies"
 weight: 6
+description: >
+  Organize people and places, and their relationship to one another
+relatedContent: >
+  building/reference/app-settings/hierarchy
 aliases:
    - /building/concepts/hierarchy
    - /apps/concepts/hierarchy
 ---
-
-{{< hextra/hero-subtitle >}}
-  Organize people and places, and their relationship to one another
-{{< /hextra/hero-subtitle >}}
 
 The Core Framework requires a hierarchy to organize the information in the app. It is often based on the hierarchy of a health system within a particular geographic region. 
 

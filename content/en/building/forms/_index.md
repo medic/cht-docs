@@ -2,15 +2,13 @@
 title: Forms
 linkTitle: Forms
 weight: 7
+description: >
+  Building block for all CHT apps
 aliases:
    - /building/reference/forms
    - /building/concepts/forms
    - /apps/concepts/forms
 ---
-
-{{< hextra/hero-subtitle >}}
-  Building block for all CHT apps
-{{< /hextra/hero-subtitle >}}
 
 Forms are a building block of all CHT apps. They are used when creating or editing contacts, and when completing a care guide or survey within the app. Forms are also used to interpret SMS interactions with the CHT. 
 

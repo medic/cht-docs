@@ -2,11 +2,9 @@
 title: "Design CHT Applications"
 linkTitle: "Design"
 weight: 5
----
-
-{{< hextra/hero-subtitle >}}
+description: >
   Design guidelines for developers and designers of digital health applications
-{{< /hextra/hero-subtitle >}}
+---
 
 {{< cards >}}
   {{< card link="personas" title="Personas" icon="user-circle" subtitle="Learn who the CHT can be built for" >}}

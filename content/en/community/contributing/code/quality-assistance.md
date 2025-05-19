@@ -2,14 +2,12 @@
 title: "Quality Assistance"
 linkTitle: "Quality Assistance"
 weight: 15
+description: >
+  How the Quality Assistance process works
 aliases: >
   /contribute/medic/product-development-process/quality-assistance
   /contribute/code/quality-assistance
 ---
-
-{{< hextra/hero-subtitle >}}
-  How the Quality Assistance process works
-{{< /hextra/hero-subtitle >}}
 
 ## Goals
 1. Software developers should have full ownership of what they are building, including quality.

@@ -2,14 +2,12 @@
 title: "Developing on Windows"
 linkTitle: "Windows Development"
 weight: 15
+description: >
+  Notes for developing on Windows
 aliases: >
   /core/guides/using-windows
   /contribute/code/core/using-windows
 ---
-
-{{< hextra/hero-subtitle >}}
-  Notes for developing on Windows
-{{< /hextra/hero-subtitle >}}
 
 We don't actively support development on Windows, instead preferring MacOS or Linux.
 
