@@ -6,6 +6,10 @@ description: "Production hosting CHT 4.x in Docker on a single CouchDB node"
 aliases:
 ---
 
+{{< callout >}}
+Read the [Docker vs Kubernetes]({{< relref "/hosting/kubernetes-vs-docker/" >}}) documentation to select a style of hosting that best fits your CHT deployment.
+{{< /callout >}}
+
 {{< cards >}}
 {{< card link="/hosting/4.x/docker/installation" title="Installation" subtitle="Installing the CHT on Docker" icon="docker" >}}
 {{< card link="/hosting/4.x/docker/adding-tls-certificates" title="Adding TLS Certificates" subtitle="Ensuring all traffic is encrypted" icon="key" >}}

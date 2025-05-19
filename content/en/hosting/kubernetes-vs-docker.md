@@ -8,17 +8,10 @@ aliases:
   -  /hosting/vertical-vs-horizontal
 ---
 
-{{< callout >}}
-For older versions of the CHT, Medic recommended Kubernetes for all production deployments. This is no longer the recommendation for newer versions of the CHT. Further, multi-node CouchDB is no longer recommended.
-{{< /callout >}}
+To deploy the CHT, you should use the technology you are most familiar and comfortable with. It is possible to deploy 20 CHT instances without using Kubernetes. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.
 
-Medic recommends [Docker](/hosting/4.x/docker/) for most deployments. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments. For more details on the research behind suggesting Docker and single-node CouchDB, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
-
-However, deployments should use the technology they are most familiar and comfortable with. If they plan for 20 CHT instances but don't want to use Kubernetes, that's fine. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.
-
-{{< callout >}}
- Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) should use Docker.
-{{< /callout >}}
+> [!TIP]
+> Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) is more straightforward to setup with Docker.
 
 ## Docker 
 
@@ -41,14 +34,9 @@ Docker Compose deployment has the following services when running the CHT:
 * A CHT Sentinel service.
 * An nginx service to act as a reverse proxy and terminate TLS connections
 
-
 ## Kubernetes (k8s)
 
-{{< callout type="warning" >}}
-Medic recommends Kubernetes for bare-metal servers with a low core-count or for multi-tenant deployments.
-{{< /callout >}}
-
-Running CHT on k8s requires additional knowledge and can be more complex to deploy. Docker is the preferred solution for most production deployments.
+Running CHT on k8s requires additional knowledge and can be more complex to deploy.
 
 k8s offers:
 
@@ -121,3 +109,9 @@ This deployment hosts 46 production instances on Amazon [Elastic Kubernetes Serv
 To give more specific examples of what's running in the 46 instances, here's details on two including their [Apdex](https://docs.communityhealthtoolkit.org/building/guides/database/querying_apdex_telemetry/):
 * One large instance has 2.4k active users, 8.9M documents in the Medic database in CouchDB and a mean replication Apdex of 80.0.
 * Another medium instance has 232 active users, 279k documents in the Medic database in CouchDB and a mean replication Apdex of 56.4.
+
+## Which one to choose?
+
+[Docker](/hosting/4.x/docker/) is suited for most CHT deployments use cases. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments, such as bare-metal servers with a low core-count.
+
+For more details on the research behind why Docker and single-node CouchDB are preferrable for CHT deployment, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).

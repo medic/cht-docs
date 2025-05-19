@@ -19,7 +19,7 @@ aliases:
 Per the [Kubernetes vs Docker]({{< relref "hosting/kubernetes-vs-docker" >}}) page, CHT Core can be deployed with either Docker or Kubernetes.
 
 {{< callout type="warning" >}}
-  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and us no longer supported. All requirements below apply to CHT 4.x.
+  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. All requirements below apply to CHT 4.x.
 {{< /callout >}}
 
 ## App Developer Hosting
@@ -42,7 +42,7 @@ This leverages Docker and requires:
 
 ### Kubernetes
 
-This guide refers to "Kubernetes", but Medic recommends a lightweight orchestrator called [K3s](https://docs.k3s.io/) for bare-metal hosts.  The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting.  For example, for cloud hosting, we recommend Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS) and we've also assisted in a [large K3s deployment based on VMWare]({{< relref "4.x/kubernetes/self-hosting-k3s-multinode" >}}).
+This guide refers to "Kubernetes", and a lightweight orchestrator called [K3s](https://docs.k3s.io/) can be used for bare-metal hosts. The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting. For example, for cloud hosting, CHT is widely deployed with Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). Additionally, the CHT is succesfully deployed in a [large K3s deployment based on VMWare]({{< relref "4.x/kubernetes/self-hosting-k3s-multinode" >}}).
 
 Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
 
@@ -55,7 +55,10 @@ Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/
 * [K3s](https://docs.k3s.io/)
 * [Current version](https://docs.docker.com/engine/install/) of `docker` (used to bootstrap K3s)
 
-_\* During some upgrades, up to 3x current space used by CouchDB can be needed_
+{{< callout type="warning" >}}
+  During some upgrades, up to 3x current space used by CouchDB can be needed.
+{{< /callout >}}
+
 
 ## Required skills
-In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
+In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, Docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
