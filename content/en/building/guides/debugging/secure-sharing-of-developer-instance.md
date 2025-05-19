@@ -80,7 +80,7 @@ The steps in this guide can be done on any of the cheap server providers out the
 
 From the SSH command in step 10 above:
 
-{{< figure src="../images/ssh.ports.svg" link="../images/ssh.ports.svg" caption="Explanation of ports and IPs from SSH" >}}
+![SSH.tunnel.diagram2.svg.png](images/SSH.tunnel.diagram2.svg.png)
 
 
 1. `8081` -  Remote port on cht.domain.com to listen to. This is the same port that apache redirects to in step 2 above.
