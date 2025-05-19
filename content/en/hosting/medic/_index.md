@@ -1,7 +1,7 @@
 ---
 title: "At Medic"
 linkTitle: "At Medic"
-weight: 11
+weight: 300
 ---
 
 {{< hextra/hero-subtitle >}}
