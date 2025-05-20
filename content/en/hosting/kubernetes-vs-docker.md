@@ -19,7 +19,7 @@ There is no one-size-fits-all solution for all deployments, and every solution c
 
 [Docker](/hosting/4.x/docker/) is suited for most CHT deployments use cases. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments, such as bare-metal servers with a low core-count.
 
-For more details on the research behind why Docker and single-node CouchDB are preferrable for CHT deployment, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones). Results from this experiment show no clear advantage for clustering, as the performance for view indexing and replication is the same when using a cluster vs using a single machine with the same number of cores.
+For more details on the research behind why Docker and single-node CouchDB are preferable for CHT deployments, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones). Results from this experiment show no clear advantage for CouchDb clustering, as the performance for view indexing and replication is the same when using a CouchDb cluster vs using a single machine with the same number of cores.
 
 ## Docker 
 
