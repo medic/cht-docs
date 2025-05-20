@@ -223,7 +223,8 @@ Once this downloads and starts, you will need to [initialise CouchDB](http://loc
 
 You can use `docker stop medic-couchdb` to stop it and `docker start medic-couchdb` to start it again. Remember that you'll need to start it whenever you restart your OS, which might not be the case if you use a normal OS package. `docker rm medic-couchdb` will totally remove the container.
 
-Medic recommends you familiarise yourself with other Docker commands to make docker image and container management clearer.
+> [!TIP]
+> Familiarise yourself with other Docker commands to make docker image and container management clearer.
 
 ### Required environment variables
 
