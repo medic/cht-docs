@@ -8,17 +8,22 @@ weight: 2
   Technical overview of the CHT Core Framework
 {{< /hextra/hero-subtitle >}}
 
-The cht-core product is the primary component of the CHT. The server comes with authentication, role based authorization, data security, and a range of protected data access endpoints. Read more detail in [cht-core GitHub repository](https://github.com/medic/cht-core).
+The CHT Core Framework is the primary component of the CHT. The server comes with authentication, role based authorization, data security, and a range of protected data access endpoints. Read more detail in [cht-core GitHub repository](https://github.com/medic/cht-core).
 
 ## Server
 
+<!-- make updates to this diagram on the google slides:            -->
+<!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
+
+{{< figure src="architecture.png" link="architecture.png" caption="Data Flows" >}}
+
 #### API
 
-A NodeJS service which runs on the server and provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [CHT Core API repo](https://github.com/medic/cht-core/tree/master/api) on Github.
+A NodeJS service that runs on the server and provides security and APIs for browsers and integrations. It also includes a custom implementation of filtered replication to allow it to support more concurrent users. See more at the [CHT Core API repo](https://github.com/medic/cht-core/tree/master/api) on GitHub.
 
 #### Sentinel
 
-Another NodeJS service running on the server, sentinel performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [CHT Core Sentinel repo](https://github.com/medic/cht-core/tree/master/sentinel) on Github.
+Another NodeJS service running on the server, `sentinel` performs actions called transitions every time a document in CouchDB is added or modified. Some examples are validations, generating scheduled messages, automatic responses, creating patients, and sending alerts. See more at the [CHT Core Sentinel repo](https://github.com/medic/cht-core/tree/master/sentinel) on GitHub.
 
 #### CouchDB
 
@@ -32,7 +37,7 @@ A free and open source NoSQL database used as the primary store for all app data
 
 [HAProxy](https://www.haproxy.com/) provides logging and reverse proxying for any request that makes it to CouchDB.
 
-### CHT Upgrade Service
+#### CHT Upgrade Service
 
 The CHT Upgrade Service is used within the CHT to update individual Docker containers when an upgrade is requested. Read more detail in the [cht-upgrade-service GitHub repository](https://github.com/medic/cht-upgrade-service/).
 
