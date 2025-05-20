@@ -11,8 +11,7 @@ _Introduced in 4.2.0_
 
 These steps document how to configure a single user on a new install of KeyCloak.  
 
-## Prerequisites 
-
+## Prerequisites
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
@@ -47,9 +46,7 @@ KeyCloak is now accessible on [http://localhost:8080](http://localhost:8080![img
 {{< /tab >}}
 {{< /tabs >}}
 
-
 ## KeyCloak Setup
-
 
 {{% steps %}}
 
@@ -58,19 +55,6 @@ KeyCloak is now accessible on [http://localhost:8080](http://localhost:8080![img
 Be sure you're logged in
 
 ![welcome.png](keycloak/welcome.png)
-
-### Add new user (optional)
-
-Optionally create a new user by going to  "Users" > "Add user".  Specify username of `test` and and email of `test@test.com`
-
-![new.user.png](keycloak/new.user.png)
-
-### Credentials
-Go to the user's "Credentials" tab and select "Set password"
-
-![set.password.png](keycloak/set.password.png)
-
-![password.png](keycloak/password.png)
 
 ### Add new Client
 
@@ -93,20 +77,19 @@ Be sure to replace `CHT_URL` with the docker helper URL of your CHT instance. Be
 - Client ID: `CHT`
 - Client authentication: `On`
 - Authentication Flow: `Standard flow`
-- Valid redirect URIs: `https://<CHT_URL![img.png](img.png)>/medic/login/oidc`
+- Valid redirect URIs: `https://<CHT_URL>/medic/login/oidc`
 
 {{< /tab >}}
 {{< /tabs >}}
-
-
  
-![new.client.png](keycloak/new.client.png)
+![Create new Client](keycloak/newclient-new.png)
 
-![new.client.2.png](keycloak/new.client.2.png)
+![Client ID](keycloak/newclient-new2.png)
 
-![new.client.3.png](keycloak/new.client.3.png)
+![Client authentication](keycloak/newclient-new3.png)
 
-![new.client.4.png](keycloak/new.client.4.png)
+![Valid redirect URIs](keycloak/newclient-new4.png)
+
 
 ### Copy Secret
 
@@ -116,7 +99,6 @@ On the new `CHT` client go to "Credentials" and copy the "Client Secret" value. 
 {{% /steps %}}
 
 ## CHT Setup
-
 
 {{% steps %}}
 
@@ -138,12 +120,12 @@ Be sure to replace `KEYCLOAK_URL` with the production URL of your KeyCloak insta
 {{< /tab >}}
 {{< tab >}}
 
-Note that the `discovery_url` is only accessible from docker containers on the `cht-network`, like the CHT API container.  As well,  `allow_insecure_requests` is required when connecting to the OIDC server via `HTTP` instead of `HTTPS`. These settings should not be used in production.
+Update `KEYCLOAK_URL` to be the same as your Docker Helper URL, but with `8080` port and `http` instead of `https`. As well,  `allow_insecure_requests` is required when connecting to the OIDC server via `HTTP` instead of `HTTPS`. These settings should not be used in production.
 
 ```json
     "oidc_provider": {
       "client_id": "CHT",
-      "discovery_url": "http://keycloak:8080/realms/master/.well-known/openid-configuration",
+      "discovery_url": "http://<KEYCLOAK_URL>:8080/realms/master/.well-known/openid-configuration",
       "allow_insecure_requests": true
     },
 ```
@@ -200,6 +182,26 @@ curl -X PUT http://medic:password@<CHT_URL>/api/v1/credentials/oidc:client-secre
     - Enter the username/password for your Keycloak user
     - You will be redirected back to the CHT app and logged in as your CHT user
 - TODO Currently CHT login not working in branch code due to user mapping.
+
+{{% /steps %}}
+
+
+## Add a test user (optional)
+
+{{% steps %}}
+
+### Add new user 
+
+In KeyCloa,  create a new user by going to  "Users" > "Add user".  Specify username of `test` and and email of `test@test.com`
+
+![new.user.png](keycloak/new.user.png)
+
+### Credentials
+Go to the user's "Credentials" tab and select "Set password"
+
+![set.password.png](keycloak/set.password.png)
+
+![password.png](keycloak/password.png)
 
 {{% /steps %}}
 
