@@ -13,6 +13,14 @@ To deploy the CHT, you should use the technology you are most familiar and comfo
 > [!TIP]
 > Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) is more straightforward to setup with Docker.
 
+## Which one to choose?
+
+There is no one-size-fits-all solution for all deployments, and every solution comes with its advantages and disadvantages.
+
+[Docker](/hosting/4.x/docker/) is suited for most CHT deployments use cases. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments, such as bare-metal servers with a low core-count.
+
+For more details on the research behind why Docker and single-node CouchDB are preferrable for CHT deployment, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones). Results from this experiment show no clear advantage for clustering, as the performance for view indexing and replication is the same when using a cluster vs using a single machine with the same number of cores.
+
 ## Docker 
 
 Docker has stood the test of time and has many benefits:
@@ -83,7 +91,7 @@ This deployment hosts 1 CHT production instance in a data center running [K3s](h
 |                   |                             |
 |------------------:|:----------------------------|
 |    CHT Instances: | 1                           |
-|          Hosting: | K3s on VMware)              |
+|          Hosting: | k3s (on VMware)              |
 |            Cores: | 32 (4 VMs x 8 cores/ea)     |
 |              RAM: | 64 GB (4 VMs x 16 GB/ea)     |
 |             Disk: | 2,400 GB (4 VMs x 600 GB/ea) |
@@ -109,9 +117,3 @@ This deployment hosts 46 production instances on Amazon [Elastic Kubernetes Serv
 To give more specific examples of what's running in the 46 instances, here's details on two including their [Apdex](https://docs.communityhealthtoolkit.org/building/guides/database/querying_apdex_telemetry/):
 * One large instance has 2.4k active users, 8.9M documents in the Medic database in CouchDB and a mean replication Apdex of 80.0.
 * Another medium instance has 232 active users, 279k documents in the Medic database in CouchDB and a mean replication Apdex of 56.4.
-
-## Which one to choose?
-
-[Docker](/hosting/4.x/docker/) is suited for most CHT deployments use cases. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments, such as bare-metal servers with a low core-count.
-
-For more details on the research behind why Docker and single-node CouchDB are preferrable for CHT deployment, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones).
