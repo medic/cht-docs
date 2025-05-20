@@ -44,7 +44,7 @@ Docker Compose deployment has the following services when running the CHT:
 
 ## Kubernetes (k8s)
 
-Running CHT on k8s requires additional knowledge and can be more complex to deploy.
+Running CHT on k8s requires familiarity with the k8s platform and can be more complex to deploy.
 
 k8s offers:
 
