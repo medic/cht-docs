@@ -17,7 +17,7 @@ aliases:
 
 ### About container orchestration
 
-A container orchestrator helps easily allocate hardware resources spread across a datacenter. For national scale projects, or a deployments with a  large number of CHT Core instances, Medic recommends a lightweight Kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will:
+A container orchestrator helps easily allocate hardware resources spread across a datacenter. For national scale projects, or a deployments with a large number of CHT Core instances, you can use a lightweight Kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will:
 
 * monitor resources across a group of virtual machines (aka "nodes")
 * place CHT Core projects where there is available resource 

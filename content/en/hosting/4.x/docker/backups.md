@@ -77,7 +77,7 @@ Duplicity has the handy benefit of offering built in encryption using [GPG](http
 
 Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use these steps to back it up:
 
-1. While you don't need to stop CouchDB to back it up, ensure you follow best practices to back it up. See the [CouchDB site](https://docs.couchdb.org/en/stable/maintenance/backups.html) for more info. Note that Medic recommends NOT using replication for backup.
+1. While you don't need to stop CouchDB to back it up, ensure you follow best practices to back it up. See the [CouchDB site](https://docs.couchdb.org/en/stable/maintenance/backups.html) for more info. Note it is NOT recommended to use replication for backup.
 2. It is strongly recommended you encrypt your backups given the sensitivity of the contents. Do this now before copying the backup files to their long term location.
 3. Backup the CouchDB files using the [software specified above]({{< relref "#backup-software" >}})
 

@@ -27,7 +27,7 @@ All monitoring should happen over TLS.  This means the `cht-instances.yml` file 
 
 ## Accessing Grafana over TLS
 
-By default, the `docker-compose.yml` has the service bind to `127.0.0.1`.  This means if you deploy it on a remote server you can not access Grafana's web UI because you are not on the localhost.  The best solution to expose it to the Internet is to use a reverse proxy.  Medic recommends using [Caddy](https://caddyserver.com/) for this, but any reverse proxy will suffice. A big benefit with Caddy is that with just two files you ensure all traffic, and critically, all login credentials, are always encrypted when being sent and it handles all TLS certificate management tasks for you.
+By default, the `docker-compose.yml` has the service bind to `127.0.0.1`.  This means if you deploy it on a remote server you can not access Grafana's web UI because you are not on the localhost.  The best solution to expose it to the Internet is to use a reverse proxy.  You can use [Caddy](https://caddyserver.com/) for this, but any reverse proxy will suffice. A big benefit with Caddy is that with just two files you ensure all traffic, and critically, all login credentials, are always encrypted when being sent and it handles all TLS certificate management tasks for you.
 
 ### Reverse Proxy and Docker files
 
