@@ -226,7 +226,8 @@ _**NOTE**_ - You need connectivity on the initial boot of the VM to connect to `
 
 If you have two `.env_docker` files that have the same ports or re-use the same project name, bad things will happen.  Don't do this.
 
-Medic recommends setting up unique project names and unique ports for each project.  Commit these `.env_docker` files to your app config's revision control so all app developers use the same `.env_docker` files.
+> [!TIP]
+> Set up unique project names and unique ports for each project.  Commit these `.env_docker` files to your app config's revision control so all app developers use the same `.env_docker` files.
 
 #### Slow downloads and wait periods
 
