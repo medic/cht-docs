@@ -73,10 +73,13 @@ You should see the newly created Health Facility appear on the left-hand side an
 We will now create a Place and the primary contact for it within one form. We want to create a CHW Area within the Health Facility that we previously created.
 
 
+{{< figure src="new-chw-area/new-chw-area-fab.png" link="new-chw-area/new-chw-area-fab.png" class="right col-6 col-lg-8" >}}
+
+Select the **Health Facility** on the left-hand side. You will then select the Floating Action Button (FAB) that opens a menu with all actions.
+
 {{< figure src="new-chw-area/new-chw-area.png" link="new-chw-area/new-chw-area.png" class="right col-6 col-lg-8" >}}
 
-Select the **Health Facility** on the left-hand side. You will then select **New Area** on the right-hand side.
-
+In the FAB menu select **New Area**.
 
 {{< figure src="new-chw-area/create-new-person.png" link="new-chw-area/create-new-person.png" class="right col-6 col-lg-8" >}}
 
@@ -102,8 +105,7 @@ Once you submit, a new CHW Area will be created. On the right-hand you should se
 
 {{< figure src="new-chw-supervisor/new-person.png" link="new-chw-supervisor/new-person.png" class="right col-6 col-lg-8" >}}
 
-To create a primary contact for an existing Place (in this case, for the Health Facility that we created without a primary contact); select the Place and then select the **New Person** action.
-
+To create a primary contact for an existing Place (in this case, for the Health Facility that we created without a primary contact); select the Place and then select the Floating Action Button (FAB) that opens a menu with all actions, in the menu select the **New Person** action.
 
 {{< figure src="new-chw-supervisor/belongs-to.png" link="new-chw-supervisor/belongs-to.png" class="right col-6 col-lg-8" >}}
 
@@ -112,7 +114,7 @@ A *new person form* will appear with an option to change the Place the new perso
 
 {{< figure src="new-chw-supervisor/edit-facility.png" link="new-chw-supervisor/edit-facility.png" class="right col-6 col-lg-8" >}}
 
-Finally, we will set the newly created person as a primary contact for the Health Facility they belong to. To do this, select the Health Facility and then select the **Edit** action.
+Finally, we will set the newly created person as a primary contact for the Health Facility they belong to. To do this, select the Health Facility and then in the More Options (⋮) menu select the **Edit** action.
 
 
 {{< figure src="new-chw-supervisor/set-primary-contact.png" link="new-chw-supervisor/set-primary-contact.png" class="right col-6 col-lg-8" >}}

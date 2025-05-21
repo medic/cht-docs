@@ -23,16 +23,14 @@ aliases:
 
 Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data]({{< ref "building/guides/performance/replication#contact-depth" >}}) is downloaded and stored on their device.
 
-{{< cards rows="2" >}}
-{{< card link="people-mobile.png" image="people-mobile.png"  method="resize">}}
-{{< card link="people-desktop.png" image="people-desktop.png"  method="resize">}}
-{{< /cards >}}
+
+{{< figure src="people-desktop.png" link="people-desktop.png" class="right col-6 col-lg-8" >}}
 
 ## Main List
 
-{{< cards rows="2" >}}
-{{< card link="sort-dropdown.png" image="sort-dropdown.png"  method="resize">}}
+{{< cards >}}
 {{< card link="people-mobile.png" image="people-mobile.png"  method="resize">}}
+{{< card link="sort-dropdown.png" image="sort-dropdown.png"  method="resize">}}
 {{< /cards >}}
 
 
