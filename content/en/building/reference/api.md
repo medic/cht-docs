@@ -2089,6 +2089,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2127,6 +2128,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2165,6 +2167,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2214,6 +2217,7 @@ Content-Type: application/json; charset=utf-8
   "type": "district-manager",
   "fullname": "Example User",
   "username": "demo",
+  "oidc_username": "demo@email.com",
   "place": {
     "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
     "type": "district_hospital",

@@ -5,7 +5,7 @@ weight: 100
 ---
 
 
-_Introduced in 4.2.0_
+_Introduced in 4.20.0_
 
 ## Introduction
 
@@ -16,7 +16,7 @@ These steps document how to configure a single user on a new install of KeyCloak
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
 * Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) KeyCloak - 26.x as of CHT 4.20
-* CHT 4.2.0 or later
+* CHT 4.20.0 or later
 * DNS Entries for CHT and KeyCloak
 * TLS enabled on CHT and KeyCloak
 {{< /tab >}}
