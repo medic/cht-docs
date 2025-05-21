@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   building/reference/app-settings/transitions#death_reporting
 aliases:
-   - /buidling/tutorials/death-reporting
+   - /building/tutorials/death-reporting
    - /apps/tutorials/death-reporting
 ---
 
