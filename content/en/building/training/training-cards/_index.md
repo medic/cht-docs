@@ -39,7 +39,7 @@ Health workers read through each card one by one in a predefined sequence, tappi
 
 ## Monitoring
 
-As mentioned above, completed training sets will show up on the [main list]({{< relref "building/reports/#main-list" >}}) of the Reports tab. These reports are available in [analytics]({{< relref "building/features/supervision/#supervisor-dashboards" >}}), [aggregate targets]({{< relref "building/features/supervision/#chw-aggregate-targets" >}}) , and can trigger supervision workflows and [tasks]({{< relref "building/features/supervision/#supervisor-tasks" >}}).
+As mentioned above, completed training sets will show up on the [main list]({{< relref "building/reports/#main-list" >}}) of the Reports tab. These reports are available in [analytics]({{< relref "building/supervision/#supervisor-dashboards" >}}), [aggregate targets]({{< relref "building/supervision/#chw-aggregate-targets" >}}) , and can trigger supervision workflows and [tasks]({{< relref "building/supervision/#supervisor-tasks" >}}).
 
 ## Configurability
 Training cards can be shown to any user associated to a contact. A “set” of training cards represents a collection of individual training cards, generally covering a single training topic. The list below highlights some of the key areas of customization:

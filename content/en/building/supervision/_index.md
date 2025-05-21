@@ -12,6 +12,7 @@ relatedContent: >
   reference-apps/supervisor-reference-app
 aliases:
    - /apps/features/supervision/
+   - /building/features/supervision
 ---
 
 Supervision and workforce management are important aspects to building and maintaining high-performing community health systems. Supervisors help Community Health Workers deliver quality healthcare services to their patients through building CHW care delivery knowledge and skills, fostering a supportive work environment, and supporting continuity of care between home-based care and community health centers or facilities.
@@ -26,7 +27,7 @@ For CHW Supervisors, the [Targets]({{< relref "building/targets/targets-overview
 
 Selecting an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up for coaching and performance management.
 
-> [!NOTE] 
+> [!NOTE]
 > Aggregate targets were introduced in v3.9, and can be configured for both online and offline users. Aggregate targets are based on the widgets seen by CHWs, and dependent on the data that has been synced. If a CHW or the supervisor has not synced, then the aggregate target will not be up to date.
 
 ### Filtering Aggregate Targets
@@ -103,7 +104,7 @@ This can be used to manage both CHW and CHW supervisor roles.
 
 CHT hierarchies tend to mimic geographical areas but Supervisors often manage CHWs across multiple geographical areas. (Offline) Supervisors who manage multiple areas can see data for all the different areas they manage from one app.
 
- > [!NOTE] 
+ > [!NOTE]
  > The ability for one user to replicate data from multiple areas was introduced in v4.9.0. A video demonstration of setting up a multi-facility user and what this looks like from a user's perspective can be found [on the forum](https://forum.communityhealthtoolkit.org/t/support-for-supervisors-who-need-to-manage-multiple-areas/3497/2?u=michael) and in the [June 2024 CHT Round-up](https://youtu.be/hrhdrzP41gE?si=_7wglk7Nm7CCSFbY&t=606).
 
 
