@@ -5,8 +5,8 @@ description: "Production hosting the CHT with Kubernetes"
 weight: 20
 ---
 
-{{< callout type="warning" >}}
-Use Kubernetes under [very specific](/hosting/kubernetes-vs-docker/) conditions. [Docker](/hosting/4.x/docker/) is recommended for most deployments.
+{{< callout >}}
+Read the [Docker vs Kubernetes]({{< relref "/hosting/kubernetes-vs-docker/" >}}) documentation to select a style of hosting that best fits your CHT deployment.
 {{< /callout >}}
 
 {{< subpages >}}
