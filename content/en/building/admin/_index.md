@@ -1,12 +1,14 @@
 ---
-title: App Management
-weight: 12
+title: "App Management"
+linkTitle: "App Management"
+weight: 18
 description: >
-  An interface for non-technical administrative users to manage users and settings
-relatedContent: >
-  building/prerequisites
+  Overview of admin functionality in CHT Applications
 aliases:
-   - /apps/features/admin/
+  - /apps/features/admin
+  - /building/features/admin
+  - building/features/admin
+  - building/features/admin/
 ---
 
 *App Management* is an interface for non-technical administrative users. With it you can manage users and make minor changes to the app, such as setting the SMS gateway phone number, and changing the default language for the app.
@@ -33,7 +35,7 @@ These sections of the App can be configured from within the Admin Console:
 
 ## App Management vs cht-conf
 
-In general, everything that can be done in the **Admin Console** can also be done in command line tools, but not everything in the command line tools can be done in the **Admin Console**. 
+In general, everything that can be done in the **Admin Console** can also be done in command line tools, but not everything in the command line tools can be done in the **Admin Console**.
 
 The **Admin Console** does not track changes. For most app development, using command line tools such as cht-conf and tracking files using a version control system is recommended
 
