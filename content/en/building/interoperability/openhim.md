@@ -69,7 +69,7 @@ In the cht-interoperability folder, run `./startup.sh init` to start up the dock
 1. You can test the CHT mediator by running:
 
 ```bash
-curl -X GET http://localhost:5001/mediator -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
+curl -X GET http://localhost:5001/mediator/ -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
 ```
 
 You should get as a response similar to this:
