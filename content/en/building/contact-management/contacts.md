@@ -44,7 +44,7 @@ Because this list defaults to show the “places” below the user in the hierar
 
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage.
 
-With the [_UHC Mode_]({{< relref "building/features/uhc-mode" >}}) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
+With the [_UHC Mode_]({{< relref "building/uhc-mode" >}}) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
 
 ## Searching
 
