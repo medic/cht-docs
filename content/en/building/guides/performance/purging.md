@@ -7,7 +7,7 @@ description: >
 keywords:
 relatedContent: >
   design/personas/chw-janet
-  building/features/reports
+  building/reports
   building/guides/data/invalid-reports
   building/reference/app-settings/patient_reports
 aliases:
