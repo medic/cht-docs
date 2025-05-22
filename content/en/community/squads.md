@@ -33,7 +33,7 @@ An idea sparks! The community identifies a feature or improvement with broad pot
       - ✅ Partners and contributors aligned
       - ✅ The [Code of Conduct](https://docs.communityhealthtoolkit.org/community/contributing/code-of-conduct/) is shared with all squad members
 
-2. **🧑🏼‍🎨** Early Design
+2. **🧑🏼‍🎨** Early Design Discussion
 Feasibility meets vision. Teams explore technical requirements, timelines, and design approaches.
 
       **Outputs**:
@@ -48,7 +48,7 @@ Turning ideas into action. Clear specs and mockups are finalized for development
       - ✅ Documented requirements
       - ✅ Approved design doc
 
-4. **🛠️** Development:
+4. **🛠️** Development/Building:
 building the solution. 
 Developers implement features based on agreed designs.
 
