@@ -1,6 +1,6 @@
 ---
 title: "Functionality"
-linkTitle: "Funcionality"
+linkTitle: "Functionality"
 identifier: "UHC Mode funcionality"
 weight: 2
 description: >
