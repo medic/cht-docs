@@ -30,6 +30,7 @@ Start by create an extra compose file and two cert files by running this code:
 
 ```yaml
 mkdir -p $HOME/.medic/cht-docker/cht_test-dir/compose/
+mkdir -p $HOME/.medic/cht-docker/cht_test-dir/keycloak/
 curl -so $HOME/.medic/cht-docker/cht_test-dir/server.crt https://local-ip.medicmobile.org/fullchain
 curl -so $HOME/.medic/cht-docker/cht_test-dir/server.key https://local-ip.medicmobile.org/key
 cat > $HOME/.medic/cht-docker/cht_test-dir/compose/cht-sso.yaml << EOF
@@ -47,6 +48,7 @@ services:
     volumes:
       - $HOME/.medic/cht-docker/cht_test-dir/server.crt:/opt/keycloak/conf/server.crt
       - $HOME/.medic/cht-docker/cht_test-dir/server.key:/opt/keycloak/conf/server.key
+      - $HOME/.medic/cht-docker/cht_test-dir/keycloak:/opt/keycloak/data
 EOF
 ```
 
