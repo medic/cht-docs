@@ -1,6 +1,6 @@
 ---
-title: Using CHT with KeyCloak
-linkTitle: KeyCloak
+title: Using CHT with Keycloak
+linkTitle: Keycloak
 weight: 100
 ---
 
@@ -11,19 +11,19 @@ Introduced in 4.20.0
 
 ## Introduction
 
-These steps document how to configure KeyCloak as the Single Sign On (SSO) identity provider for the CHT. As well, it walks through provisioning a single user for SSO.
+These steps document how to configure Keycloak as the Single Sign On (SSO) identity provider for the CHT. As well, it walks through provisioning a single user for SSO.
 
 ## Prerequisites
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
-* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) KeyCloak - 26.x as of CHT 4.20
+* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) Keycloak - 26.x as of CHT 4.20
 * CHT 4.20.0 or later
-* DNS Entries for CHT and KeyCloak
-* TLS enabled on CHT and KeyCloak
+* DNS Entries for CHT and Keycloak
+* TLS enabled on CHT and Keycloak
 {{< /tab >}}
 {{< tab >}}
-* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) KeyCloak - 26.x as of CHT 4.20 (see below)
+* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) Keycloak - 26.x as of CHT 4.20 (see below)
 * CHT Docker Helper instance on 4.20.0 or later
 
 Start by create an extra compose file and two cert files by running this code:
@@ -57,7 +57,7 @@ Now create an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker
 {{< /tab >}}
 {{< /tabs >}}
 
-## KeyCloak Setup
+## Keycloak Setup
 
 {{% steps %}}
 
@@ -117,7 +117,7 @@ On the new `CHT` client go to "Credentials" and copy the "Client Secret" value. 
 
 In the config directory for your app, update your `app_settings.json` file to contain this additional JSON at the end, before the very last `}`
 
-Be sure to replace `KEYCLOAK_URL` with the production URL of your KeyCloak instance.
+Be sure to replace `KEYCLOAK_URL` with the production URL of your Keycloak instance.
 
 ```json
     "oidc_provider": {
@@ -185,13 +185,13 @@ Further, going to the CHT login screen should now show an extra login button "Lo
 
 {{% steps %}}
 
-### Add KeyCloak user 
+### Add Keycloak user 
 
-In KeyCloak,  create a new user by going to  "Users" > "Add user".  Specify username of `test` and and email of `test@test.com`
+In Keycloak,  create a new user by going to  "Users" > "Add user".  Specify username of `test` and and email of `test@test.com`
 
 ![new.user.png](keycloak/new.user.png)
 
-### Set KeyCloak users's password
+### Set Keycloak users's password
 
 Go to the user's "Credentials" tab and select "Set password"
 
