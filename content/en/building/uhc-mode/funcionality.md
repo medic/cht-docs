@@ -1,7 +1,7 @@
 ---
 title: "Functionality"
 linkTitle: "Functionality"
-identifier: "UHC Mode funcionality"
+identifier: "UHC Mode functionality"
 weight: 2
 description: >
   How the UHC Mode works
