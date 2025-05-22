@@ -7,3 +7,5 @@ description: >
 aliases:
    /contribute/code/core
 ---
+
+{{< subpages >}}

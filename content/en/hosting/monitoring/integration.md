@@ -1,16 +1,16 @@
 ---
 title: "Integrating CHT Watchdog"
 linkTitle: "Integrating"
-weight: 400
+weight: 5
+description: >
+  Scraping and alerting external sources with CHT Watchdog
 aliases:
   - /apps/guides/hosting/monitoring/integration
-description: >
-    Scraping and alerting external sources with CHT Watchdog
 ---
 
-{{% pageinfo %}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 ## Going beyond basic setup
 
@@ -76,7 +76,7 @@ While this is a specific example for cAdvisor, these same steps will be taken to
 
 After completing these steps, we now have Docker metrics we can alert on:
 
-[![Screenshot of Grafana Dashboard showing data from Prometheus](cadvisor.screenshot.png)](cadvisor.screenshot.png)
+{{< figure src="cadvisor.screenshot.png" link="cadvisor.screenshot.png" caption="Screenshot of Grafana Dashboard showing data from Prometheus" >}}
 
 Read on below on how to set this up!
 
@@ -146,7 +146,7 @@ services:
 
 Now that we have all the config files in place, you need to have Docker start everything together. This is so that the containers can see each other on the same `CHT Net` Docker network.  You will need to specify each of the compose files every time you start, stop or restart CHT instance so all the services stay running and connected.
 
-Assuming you followed the [production steps]({{< relref "hosting/4.x/production" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
+Assuming you followed the [production steps]({{< relref "hosting/4.x/docker" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service

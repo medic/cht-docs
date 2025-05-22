@@ -2,8 +2,7 @@
 title: Overview
 weight: 5
 description: >
-  Building connections between people, actions, and data systems
-keywords: workflows
+  Build connections between people, actions, and data systems
 aliases:
    - /building/concepts/workflows
    - /apps/concepts/workflows
@@ -18,20 +17,25 @@ Tasks within the app can drive a workflow, ensuring that the right actions are t
 Tasks can be triggered by a set of conditions, such as contact details or submitted reports. Tasks are accessible in the Tasks tab and the profile in the Contact tab, and initiate a follow up action to complete a form. More information on building app workflows is available in the [Tasks section]({{< ref "building/tasks" >}}).
 
 Data submitted in one form can generate several tasks at once, for example, multiple ANC visits following one pregnancy registration. Some workflows involve a series of sequential forms and tasks, such as a child health assessment form, a follow up task scheduled 48 hours later, a referral form (only if the child’s condition hasn’t improved), and then a referral follow up task. Tasks are accessible on the Tasks tab, as well as the Tasks section of profiles. 
+
 {{< see-also page="building/tasks/tasks-js" title="Defining Tasks" >}}
 
-{{< figure src="tasks-mobile.png" link="tasks-mobile.png" class="left col-3 col-lg-3" >}}
-{{< figure src="tasks-desktop.png" link="tasks-desktop.png" class="left col-9 col-lg-9" >}}
+{{< cards rows="4" >}}
+{{< card link="tasks-mobile.png" image="tasks-mobile.png"  method="resize">}}
+{{< card link="tasks-desktop.png" image="tasks-desktop.png"  method="resize">}}
+{{< /cards >}}
 
 ## SMS Messaging
 
 Workflows can include notifications and interactions with CHWs, nurses, supervisors, and patients via SMS. A report can trigger SMS messages to be sent immediately or upon a set schedule. Responses via SMS or the app can update the workflows.
 {{< see-also page="building/reference/app-settings" anchor="sms-workflows" title="Defining SMS Workflows" >}}
 
-{{< figure src="messages-mobile.png" link="messages-mobile.png" class="left col-3 col-lg-3" >}}
-{{< figure src="messages-desktop.png" link="messages-desktop.png" class="left col-9 col-lg-9" >}}
+{{< cards rows="4" >}}
+{{< card link="messages-mobile.png" image="messages-mobile.png"  method="resize">}}
+{{< card link="messages-desktop.png" image="messages-desktop.png"  method="resize">}}
+{{< /cards >}}
 
 ## Interoperability 
 
 Workflows can incorporate other digital tools, such as a facility-based electronic medical record system for referral workflows. New contacts or reports can trigger an interoperabilty workflow using the [outbound push]() feature. Data can be received as reports using the [CHT API](https://github.com/medic/cht-core/tree/master/api)
-{{< see-also page="building/reference/app-settings/outbound" title="Outbound Push" >}}
+{{< see-also page="building/reference/app-settings/outbound" title="Outbound Push" >}}.

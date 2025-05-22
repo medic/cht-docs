@@ -14,7 +14,7 @@ aliases:
 
 SMS forms allow users to submit reports from any device including [feature phones](https://en.wikipedia.org/wiki/Feature_phone) without internet access. SMS forms are ideal in scenarios where targeted users have no way of accessing internet or where they are restricted to using feature phones.
 
-{{% pageinfo %}}
+ 
 This tutorial will take you through how to build SMS forms for CHT applications, including:
 
 - Defining SMS forms
@@ -22,7 +22,7 @@ This tutorial will take you through how to build SMS forms for CHT applications,
 - Setting automatic responses to SMS reports
 
 You will be building a pregnancy registration workflow that allows Community Health Workers to register households, register household members, and register new pregnancies for the household members.
-{{% /pageinfo %}}
+  
 
 
 ## Brief Overview of Key Concepts
@@ -102,7 +102,8 @@ Add a household registration form by adding a key and object pair to the `forms`
 }
 ```
 
-{{% alert title="Note" %}} Users will register new households by sending a text message in the format `HR <household name>`. For example, `HR Mary` will register `Mary's Household`. {{% /alert %}}
+> [!NOTE] 
+> Users will register new households by sending a text message in the format `HR <household name>`. For example, `HR Mary` will register `Mary's Household`.
 
 To set the validation rules and autoresponses, edit the array corresponding to the `registration` key in `app_settings.json`. Add an object within the array as shown below.
 
@@ -146,7 +147,8 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 
 You can also define your own [validation rules]({{< ref "building/reference/app-settings#validations" >}}).
 
-{{% alert title="Note" %}} `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "building/translations/managing" >}}) file. {{% /alert %}}
+> [!NOTE] 
+> `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "building/translations/localizing" >}}) file.
 
 ### 3. Define a Person Registration Form
 
@@ -247,7 +249,8 @@ Add a person registration form by adding a key and object pair to the `forms` ob
 }
 ```
 
-{{% alert title="Note" %}} Users will register a new person by sending a text message in the format `N <household id> <gender> <age> <name>`. For example, `N 12345 F 20 Jane Cho` will register `Jane Cho` who belongs to the household with household ID `12345`. {{% /alert %}}
+> [!NOTE]
+> Users will register a new person by sending a text message in the format `N <household id> <gender> <age> <name>`. For example, `N 12345 F 20 Jane Cho` will register `Jane Cho` who belongs to the household with household ID `12345`.
 
 To set the validation rules and autoresponses, edit the array corresponding to the `registration` key in `app_settings.json`. Add an object within the array as shown below.
 
@@ -353,7 +356,8 @@ Add a report submission form by adding a key and object pair to the `forms` obje
 }
 ```
 
-{{% alert title="Note" %}} Users will pregnancy registration report by sending a text message in the format `P <patient id> <last menstrual period>`. For example, `P 23456 21` will register a pregnancy report for a person whose unique ID is `23456` and the last menstrual period was `21 weeks ago`. {{% /alert %}}
+> [!NOTE] 
+> Users will pregnancy registration report by sending a text message in the format `P <patient id> <last menstrual period>`. For example, `P 23456 21` will register a pregnancy report for a person whose unique ID is `23456` and the last menstrual period was `21 weeks ago`.
 
 To set the validation rules and autoresponses, edit the array corresponding to the `registration` key in `app_settings.json`. Add an object within the array as shown below.
 
@@ -408,7 +412,8 @@ To upload app settings to your local instance, run the following command:
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT] 
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
 ## Next steps
 

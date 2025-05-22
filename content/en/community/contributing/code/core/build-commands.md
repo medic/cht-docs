@@ -1,6 +1,6 @@
 ---
 title: "Build commands"
-linkTitle: "Build commands"
+linkTitle: "Build Commands"
 weight: 2
 description: >
   All commands available for executing to build, test, and deploy CHT Core Framework
@@ -8,11 +8,11 @@ aliases: >
   /contribute/code/core/build-commands
 ---
 
-# CHT Core build commands
+## CHT Core build commands
 
 These commands are defined in the `package.json` and can be executed with `npm run <command>` from the cht-core repository directory.
 
-## Development build commands
+### Development build commands
 
 For developers (humans) to execute to build `cht-core`.
 
@@ -30,7 +30,7 @@ For developers (humans) to execute to build `cht-core`.
 | `local-images`          | Builds the docker images and updates the docker compose files.                                    |
 | `update-service-worker` | Updates the service worker file for deployment.                                                   |
 
-## Development test commands
+### Development test commands
 
 For developers to execute to test `cht-core`.
 
@@ -53,7 +53,7 @@ For developers to execute to test `cht-core`.
 | `wdio-standard-local`         | Compiles the app and executes the standard e2e test suite.                              |
 | `wdio-cht-form`               | Executes the default e2e test suite on code change.                                     |
 
-## CI commands
+### CI commands
 
 For Continuous Integration (robots) to run to build and test `cht-core`.
 

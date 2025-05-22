@@ -61,17 +61,20 @@ To send data to other systems from the CHT, you will need to do the following:
 ### When data is sent
 Whenever a document is changed (such as submitting a form, creating a new contact, or editing an existing one) you can configure outbound to send data to another system. The `relevant_to` [property]({{< ref "building/reference/app-settings/outbound#relevant_to" >}}) in the outbound configuration is used to identify which activities will trigger the sending of data.
 
-{{% alert title="Example" %}} Send data to the EMR whenever a CHW submits an `assessment` form where `referral = true`. {{% /alert %}}
+> [!TIP] 
+> Send data to the EMR whenever a CHW submits an `assessment` form where `referral = true`.
 
 ### Where data is sent
 The `destination` [property]({{< ref "building/reference/app-settings/outbound#destination" >}}) in the outbound configuration is used to specify *where* to send data. This will normally be the API endpoint of the destination system or interoperabiliy layer. 
 
-{{% alert title="Example" %}} Send data to the `/api/v1/referral` endpoint in the destination system. {{% /alert %}}
+> [!TIP]
+> Send data to the `/api/v1/referral` endpoint in the destination system.
 
 ### What data is sent
 You configure *what* data is sent using the `mapping` [property]({{< ref "building/reference/app-settings/outbound#mapping" >}}). You will map data from the CHT to the format required by the destination API endpoint.
 
-{{% alert title="Example" %}} Map the `contact.name` field in the CHT to the `patient.name` field in the EMR. {{% /alert %}}
+> [!TIP] 
+> Map the `contact.name` field in the CHT to the `patient.name` field in the EMR. 
 
 ### Authentication
 Credentials for the destination system are [stored in CouchdDB]({{< ref "building/reference/app-settings/outbound#credentials" >}}). You will need to set this up before you can test your configuration.
@@ -86,21 +89,25 @@ The most common uses are:
 ### Look up data in the CHT
 The CHT has a number of different API endpoints that can be used to look up data. 
 
-{{% alert title="Example 1" %}} You have a patient's phone number and you want to look up more information about that patient, such as who their CHW is or what Catchment Area they live in. {{% /alert %}}
+> [!IMPORTANT] 
+> Example 1: You have a patient's phone number and you want to look up more information about that patient, such as who their CHW is or what Catchment Area they live in.
 
 You can use the `contacts_by_phone` [endpoint]({{< ref "building/reference/api#get-apiv1contacts-by-phone" >}}) will return the fully hydrated contact information for those patients.
 
-{{% alert title="Example 2" %}} You just have the internal UUID of a particular contact but want to get the complete information available for that contact. {{% /alert %}}
+> [!IMPORTANT]  
+> Example 2: You just have the internal UUID of a particular contact but want to get the complete information available for that contact.
 
 You can use the `hydrate` [endpoint]({{< ref "building/reference/api#get-apiv1hydrate" >}}) to obtain this information. to look up the complete information for that contact.
 
 ### POST data to the CHT
 The CHT API also allows you to POST data. Using these endpoints, you can create new records in your CHT API. You can store activities that took place in another system on that contact's profile in the CHT, and even create tasks for CHWs in the CHT based on activities that took place in the other system.
 
-{{% alert title="Example 1" %}} You use RapidPro to send daily quarantine follow-up messages to a patient. You want to store the patient's responses to those messages on their profile in the CHT. {{% /alert %}}
+> [!IMPORTANT]  
+> Example 1: You use RapidPro to send daily quarantine follow-up messages to a patient. You want to store the patient's responses to those messages on their profile in the CHT. 
 
 You can do this by submitting a JSON Form to the records [endpoint]({{< ref "building/reference/api#post-apiv2records" >}}).
 
-{{% alert title="Example 2" %}} Continuing from Example 1, create a task for a CHW in the CHT whenever a patient responds that they have developed symptoms. {{% /alert %}}
+> [!IMPORTANT] 
+> Example 2: Continuing from Example 1, create a task for a CHW in the CHT whenever a patient responds that they have developed symptoms.
 
 You would do this by simply configuring a [task]({{< ref "building/tasks" >}}) to be generated based on criteria available in the report that was created in Example 1.

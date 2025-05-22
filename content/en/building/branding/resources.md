@@ -15,7 +15,7 @@ Apps can be customized by defining the icons to use for tasks, targets, and cont
 
 Add icons to the `resources` folder, and include them by name in the `resources.json` file as the following example:
     
-```
+```json
  {
     "icon-risk": "icon-healthcare-warning@2x.png",
     "icon-treatment": "icon-healthcare-medicine@2x.png",
@@ -30,7 +30,7 @@ Add icons to the `resources` folder, and include them by name in the `resources.
 
 The folder and files structure would look like this:
 
-```
+```shell
 ./
     resources.json
     /resources
@@ -49,7 +49,7 @@ Finally run the command: `cht --local upload-resources`
 The site title, favicon, and header logo are configurable. The location to change these are in the Admin console on the images page under the branding tab.
 
 Another way to configure these options is by using the `cht-conf`, add the favicon and the header logo in the `branding` folder, then include the options in the `branding.json` as the following example:
-```
+```json
  {
    "title": "My Clinic",
    "resources": {
@@ -60,7 +60,7 @@ Another way to configure these options is by using the `cht-conf`, add the favic
 ```
 The folder and files structure would look like this:
 
-```
+```shell
 ./
     branding.json
     /branding
@@ -74,7 +74,7 @@ Finally run the command: `cht --local upload-branding`
 Adding your partner logos can be done in the Admin console on the images page under the Partners tab. This will add partner logos on the about page. 
 
 Another way is by using the `cht-conf`, add the partners logo in the `partners` folder, then include them in the `partners.json` as the following example:
-```
+```json
  {
    "resources": {
      "partnerA": "parnerA.png",
@@ -84,7 +84,7 @@ Another way is by using the `cht-conf`, add the partners logo in the `partners` 
 ```
 The folder and files structure would look like this:
 
-```
+```shell
 ./
     partners.json
     /partners

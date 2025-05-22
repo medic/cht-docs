@@ -1,16 +1,16 @@
 ---
-title: "Running CHT implementations"
+title: "Running CHT Implementations"
 linkTitle: "CHT Implementations"
 weight : 1
+description: "Considerations for digital health implementations"
 aliases:
    - /running-programs
 ---
 
-## Considerations for digital health implementations
 To run a successful digital health implementation, the following considerations are made:
 - **Scope**. Clear definition of the challenge, duration of implementation, implementation deliverables, and the change expected as a result of implementation.
 - **Technical requirements**. Infrastructure (servers - physical/ cloud) and hardware (devices such as smartphones/tablets, laptops/computers) requirements.
-- **Context**. General understanding of the geography (country/region) in the following domains; legal and policy landscape, infrastructure penetration e.g. mobile and electricity connectivity, community health setup and maturity e.g cadres of community health workers, coverage and functionality.
+- **Context**. General understanding of the geography (country/region) in the following domains; legal and policy landscape, infrastructure penetration, for example, mobile and electricity connectivity, community health setup and maturity e.g cadres of community health workers, coverage and functionality.
 - **Human resource requirements**. Skills to build, implement and sustain the implementation.
 
 ## CHT Lifecycle

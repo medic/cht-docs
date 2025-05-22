@@ -16,7 +16,7 @@ In this section, we focus on how data flows through the various components of th
 
 ## Overview
 
-![Data Flows](data-flows.png)
+{{< figure src="data-flows.png" link="data-flows.png" caption="Data Flows" >}}
 
 At a high level:
 

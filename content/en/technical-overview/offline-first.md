@@ -8,8 +8,6 @@ aliases:
    - /core/overview/offline-first/
 ---
 
-## Introduction
-
 CHT applications are designed to be used equally well in areas with no internet connectivity, slow or unreliable internet connectivity, and good internet connectivity. Achieving reliable performance and powerful features requires diligence and strict adherence to the principles of Offline-First development.
 
 In this page we'll cover why and how we achieve this in the CHT.
@@ -48,29 +46,41 @@ If the user creates new patient data by registering a family or completing a tas
 
 ## FAQs from CHT contributors
 
-### Q: Should I rely on request failure handling?
+{{% details title="Q: Should I rely on request failure handling?" %}}
 
 A: No. This only works well when the user has a strong connection, or if the user is completely offline and the request fails immediately. It's impossible to know for sure how long the request will take, so users with poor connectivity may end up waiting forever. If this request is essential to doing their job they will be unable to move on. It is important to handle request failures gracefully, but it doesn't make a request offline first.
 
-### Q: Should I rely on a request timeout?
+{{% /details %}}
+
+{{% details title="Q: Should I rely on a request timeout?" %}}
 
 A: No. This attempts to mitigate the problem by unblocking the user eventually. The problem is setting the timeout length correctly - if it's too short then the request won't succeed, but if it's too long the user will be required to wait. Experience suggests the timeout for a simple request would have to be around a minute to allow the request to succeed for most users, but a minute is far too long to expect a user to wait. Almost all requests should have a timeout, but that is not sufficient to make a request offline first.
 
-### Q: Should I rely on a spinner or loading bar?
+{{% /details %}}
+
+{{% details title="Q: Should I rely on a spinner or loading bar?" %}}
 
 A: No. Much like the timeout solution, this is an attempt to mitigate the problem in this case by giving the user more information about the request. Regardless of the UX, blocking user interaction while waiting for a response is not offline first and therefore not appropriate for the CHT. Showing UX elements when loading is still recommended for local requests, user initiated server requests, and other potentially slow operations.
 
-### Q: How can I check if the user is authenticated?
+{{% /details %}}
+
+{{% details title="Q: How can I check if the user is authenticated?" %}}
 
 A: It is not possible to know for certain if a user has an active session without getting a response from the server. The CHT caches some data to hint at whether the session is still active, for example the session expiry date. However, the only way to be certain is to connect to the server, which is not offline first. This has been implemented in the CHT by checking the status code on background requests such as replication, and instructing the user to login when necessary.
 
-### Q: Should I rely on APIs which report device connection status?
+{{% /details %}}
+
+{{% details title="Q: Should I rely on APIs which report device connection status?" %}}
 
 A: No. There are [APIs available](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) which report whether the device is online with reasonable reliability. Unfortunately these APIs don't reliably report whether the connection is slow, whether the connection will be held until the request completes, or whether the CHT server is available. This means that even if the browser API reports that the device is online the code will still make a request that may fail or wait indefinitely for a response. These APIs can be useful but must be used in conjunction with Offline-First principles, for example, the CHT uses the "online" event listener as a prompt to attempt replication in the background.
 
-### Q: Should I add a feature that requires a connection?
+{{% /details %}}
+
+{{% details title="Q: Should I add a feature that requires a connection?" %}}
 
 A: Maybe. There are some things that cannot be done offline first because they either require server interaction (eg: authentication during login) or they need to access data that cannot be cached locally (eg: deployment-wide analytics). Every effort should be made to find a way to implement the feature using Offline-First principles, and trade-offs discussed with senior CHT contributors. If the feature truly needs to be online first then the UX needs to be designed so that the user understands the feature requires an internet connection.
+
+{{% /details %}}
 
 ## Further reading
 

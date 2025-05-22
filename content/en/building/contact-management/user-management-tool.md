@@ -3,7 +3,7 @@ title: "CHT User Management tool"
 linkTitle: User management tool
 weight: 5
 description: >
- How to use and configure a user management tool for a CHT project
+  How to use and configure a user management tool for a CHT project
 relatedContent: >
   building/contact-management/contact-and-users-1
   building/guides/data/users-bulk-load
@@ -122,13 +122,13 @@ Create an environment file by `cp env.example .env`. Change `INTERFACE` to `127.
 
 Then run:
 
-```
+```shell
 npm run dev
 ```
 
 or
 
-```
+```shell
 npm run build
 npm start
 ```

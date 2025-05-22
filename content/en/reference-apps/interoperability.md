@@ -4,7 +4,6 @@ linkTitle: "Loss to Follow Up"
 weight:
 description: >
   Handling patients with missed follow-up appointments between the CHT and other health systems
-keywords: Loss to Follow Up
 relatedContent: >
   building/interoperability
 aliases:

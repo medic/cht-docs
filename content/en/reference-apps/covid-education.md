@@ -3,8 +3,7 @@ title: "COVID-19 Education and Training for CHWs"
 linkTitle: "COVID-19 Education"
 weight:
 description: >
- Education and training for Community Health Workers to address COVID-19
-keywords: training onboarding
+  Education and training for CHWs to address COVID-19
 relatedContent: >
   reference-apps/training
   reference-apps/phc-covid

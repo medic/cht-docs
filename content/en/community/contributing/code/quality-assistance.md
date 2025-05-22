@@ -52,7 +52,23 @@ At this point the ideal action to take would be that the developer merges the fi
 
 The last part here is to merge it. That extra poking around should be quick, so the developer should be ready to click the green button soon!
 
-## But, but, but!!! (some questions you might have)
-- Who checks if the right thing got built? – The community/squad members should be aware of what’s being built, why, and if it’s coming together as expected. That’s not to be solely delegated to a QA engineer to do. Developers should be working with the community and showing their work (demos, screenshots, etc). This should feel like a team collaborating to build useful working software, not an assembly line of disassociated parts.
-- What if a developer is bad at testing? – That’s something to improve, not outsource to someone else. Even still, the QA engineer isn’t disappearing and they will still offer deeper advice on what tests the developer should perform.
-- What will QA engineers do if not doing manual acceptance testing? – Automating more. That can be in more end-to-end tests for better regression testing, automating mobile device testing, adding better structures to enable the whole team to automate better, improving CI pipeline, etc.
+## FAQ
+
+{{% details title="Who checks if the right thing got built?" %}}
+
+The community/squad members should be aware of what’s being built, why, and if it’s coming together as expected. That’s not to be solely delegated to a QA engineer to do. Developers should be working with the community and showing their work (demos, screenshots, etc). This should feel like a team collaborating to build useful working software, not an assembly line of disassociated parts.
+
+{{% /details %}}
+
+{{% details title="What if a developer is bad at testing?" %}}
+
+That’s something to improve, not outsource to someone else. Even still, the QA engineer isn’t disappearing and they will still offer deeper advice on what tests the developer should perform.
+
+{{% /details %}}
+
+{{% details title="What will QA engineers do if not doing manual acceptance testing?" %}}
+
+Automating more. That can be in more end-to-end tests for better regression testing, automating mobile device testing, adding better structures to enable the whole team to automate better, improving CI pipeline, etc.
+
+{{% /details %}}
+

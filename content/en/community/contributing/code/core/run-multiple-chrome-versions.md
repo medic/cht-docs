@@ -1,6 +1,6 @@
 ---
 title: "Running multiple Chrome versions"
-linkTitle: "Multiple Chrome versions"
+linkTitle: "Multiple Chrome Versions"
 weight: 16
 description: >
   How to run multiple Chrome versions on your local machine
@@ -9,9 +9,9 @@ aliases: >
   /contribute/code/core/run-multiple-chrome-versions
 ---
 
-{{% alert title="Note" %}}
-These steps are suitable for Mac. It was tested in a Mac Intel.  It can be adapted to any Chrome version.
-{{% /alert %}}
+{{< callout  >}}
+  These steps are suitable for Mac. They were tested in a Mac Intel. They can be adapted to any Chrome version.
+{{< /callout >}}
 
 Follow these steps on a Mac to run Chrome version 90 while having another Chrome app on a different version. 
 - Download Chrome `90.0.4430.72` from [slimjet](https://www.slimjet.com/chrome/google-chrome-old-version.php?cmtx_sort=)

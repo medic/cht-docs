@@ -33,17 +33,15 @@ In the [Google Play Console](https://play.google.com/console), for each flavor t
 
 For a more detailed explanation, follow this [doc](https://support.google.com/googleplay/android-developer/answer/9859751?hl=en).
 
-{{% alert title="Note" %}}
-Published apps are not immediately available to users on the Play Store. Confirm, via the Google Play Console, that the release is available before officially announcing it (this could take hours or days).
-{{% /alert %}}
+> [!NOTE]
+> Published apps are not immediately available to users on the Play Store. Confirm, via the Google Play Console, that the release is available before officially announcing it (this could take hours or days).
 
 #### New App in the Play Store
 
 Remember that when the app is created in the Play Store, it's required to choose the way the app will be signed by Google: we upload the signed AAB files, but then Google creates optimized versions of the app in .apk format. The app has to be configured to use the same signing and upload signatures by Google. Choose to upload a "Java keystore", the Play Console will require a file encrypted with a tool named PEPK, that file is `<brand>_private_key.pepk` generated when following the instructions of [New brand]({{< ref "building/branding/android" >}}) (the button to upload the `.pepk` in the Play Console may say "Upload generated ZIP" although the PEPK file doesn't look like a .zip file).
 
-{{% alert title="Note" %}}
-New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "community/contributing/code/android/development-setup#artifact-formats" >}}) section.
-{{% /alert %}}
+> [!NOTE]
+> New apps cannot longer be uploaded with the APK format in the Play Store. Apps created before Aug 1, 2021 can still be updated with `.apk` files, but new ones needs to be uploaded with the Android App Bundle format (`.aab`). Checkout the [Artifact formats]({{< ref "community/contributing/code/android/development-setup#artifact-formats" >}}) section.
 
 ### Side loading
 

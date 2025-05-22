@@ -1,24 +1,22 @@
 ---
 title: "Offline Hosting of CHT 3.x Server"
 linkTitle: "Offline Hosting"
-weight: 100
+weight: 5
+description: >
+ Deploy and host CHT Core server instances without Internet connectivity
 aliases:
   - /apps/guides/hosting/3.x/offline
   - /apps/guides/hosting/offline
-
-description: >
- Deploying and hosting CHT Core server instances without Internet connectivity
 ---
 
-{{% pageinfo %}} 
-This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  Please see the "Considerations" section below.
+{{< callout type="error" >}}
+  This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  See the "Considerations" section below.
+  Proceed only if you have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general. This is a complex deployment where mistakes are easy to make unless proper training is in place. 
+{{< /callout >}}
 
-Proceed only if you have staff familiar with DNS, TLS Certs, DHCP, LAN topology and Linux in general. This is a complex deployment where mistakes are easy to make unless proper training is in place. 
-{{% /pageinfo %}}
-
-{{% alert title="Note" %}}
-This guide only applies to CHT 3.x.
-{{% /alert %}}
+{{< callout >}}
+  This guide only applies to CHT 3.x.
+{{< /callout >}}
 
 ## Introduction
 
@@ -35,7 +33,7 @@ Additionally, if users are going to migrate between offline locations with the s
 
 ## Requirements
 
- A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name. On top of the [existing requirements]({{< relref "requirements" >}}), the following aspects must also be considered.
+A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name. On top of the [existing requirements]({{< relref "requirements" >}}), the following aspects must also be considered.
 
 ### Static IP
 

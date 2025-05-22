@@ -51,9 +51,8 @@ See more information on the [CHT interoperability page]({{< ref "building/intero
 - [cht-interoperability](https://github.com/medic/cht-interoperability) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-interoperability`).
 
 
-{{% alert title="Note" %}} 
-Users getting errors when running the following installation steps, please see the [Troubleshooting guide]({{< ref "#troubleshooting" >}}).
-{{% /alert %}}
+> [!NOTE]
+> Users getting errors when running the following installation steps, see the [Troubleshooting guide]({{< ref "#troubleshooting" >}}).
 
 ### Install & First Time Run
 
@@ -70,7 +69,7 @@ In the cht-interoperability folder, run `./startup.sh init` to start up the dock
 1. You can test the CHT mediator by running:
 
 ```bash
-curl -X GET http://localhost:5001/mediator -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
+curl -X GET http://localhost:5001/mediator/ -H "Authorization: Basic $(echo -n interop-client:interop-password | base64)"
 ```
 
 You should get as a response similar to this:
@@ -99,7 +98,7 @@ curl -X GET localhost:5001/mediator/openmrs/sync -H "Authorization: Basic $(echo
 The following steps apply when running CHT via the Docker setup provided in the cht-interoperability repository:
 
 1. CHT can be accessed via [http://localhost:5988](http://localhost:5988), and the credentials are `admin`/`password`.
-2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Please note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
+2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
 3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curl request is below:
 
 ```bash
@@ -113,7 +112,7 @@ The following steps apply when running CHT locally in development mode and when 
 #### CHT Development Environment
 
 1. Set up a local CHT instance using [these instructions]({{< ref "building/local-setup" >}}).
-2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Please note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
+2. Create a new user in the CHT instance with the username `interop-client` using these [instructions]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}). For the role you can select `Data entry` and `Analytics` roles. Note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
 3. Securely save the `interop-client` user's password to the database using the instructions [here]({{< ref "building/reference/api#credentials" >}}). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curls request is below:
 
 ```bash
@@ -149,7 +148,7 @@ when running `./startup.sh init` need to update ports to available values in the
 #### Error when running mediator `curl` request
 If the mediator `curl` request fails, visit [http://localhost:9000/#!/clients](http://localhost:9000/#!/clients) and click on the icon the red arrow points to in the image below.
 
-![](bad-client-screen.png)
+{{< figure src="bad-client-screen.png" link="bad-client-screen.png" >}}
 
 #### Error "Preset ts-jest is invalid:" when running `npm test`
 Users encountering the error below when running `npm test`: 

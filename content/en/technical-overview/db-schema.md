@@ -3,7 +3,7 @@ title: "Database schema conventions"
 linkTitle: "Database Schema"
 weight: 8
 description: >
-  Schema for database objects
+  Schema for CHT database objects
 relatedContent: >
   building/guides/database
   building/contact-summary/contact-summary-templated
@@ -26,7 +26,9 @@ In this document "record" means a JSON object that resides in CouchDB or PouchDB
 |`type`|The general type of the document, see below|all user-created* documents|
 |`reported_date`|Numerical timestamp of when the document is first created|all user-created documents|
 
-* User-created documents here generally means contacts and reports, but may extend further.
+{{< callout type="info" >}}
+  *User-created documents here generally means contacts and reports, but may extend further.
+{{< /callout >}}
 
 ## Contacts (Persons and Places)
 

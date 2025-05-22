@@ -4,7 +4,6 @@ linkTitle: "Contact Tracing"
 weight:
 description: >
   A community surveillance tool to help control infectious disease outbreaks and mitigate secondary disease transmission
-keywords:
 aliases:
    - /apps/examples/contact-tracing
    - /building/examples/contact-tracing
@@ -46,4 +45,4 @@ This demo illustrates how a CHT workflow for tracing of contacts of suspected or
 
 {{< youtube I8bBeh80j-0 >}} <br>
 
-More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1gG2CqndW5pWp6Lx_3t6haiqqO-wFY7_JJ4r246YbVEw)
+More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1gG2CqndW5pWp6Lx_3t6haiqqO-wFY7_JJ4r246YbVEw).

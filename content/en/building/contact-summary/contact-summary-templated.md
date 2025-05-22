@@ -3,13 +3,9 @@ title: contact-summary.templated.js
 linkTitle: contact-summary.templated.js
 weight: 2
 description: >
-  Customizing the fields, cards, and actions on profile pages
+  Customize fields, cards, and actions on profile pages
 relatedContent: >
   building/forms/configuring/form-inputs
-relevantLinks: >
-  docs/building/features/contacts
-  docs/building/concepts/hierarchies
-keywords: hierarchy contacts care-guides
 aliases:
    - /building/reference/contact-page
    - /apps/reference/contact-page
@@ -70,7 +66,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 | property | type | description | required |
 |---|---|---|--|
 | `label` | `translation key` | Label on top of card. | yes |
-| `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Please, note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. It defaults to all types if it is not defined. | no |
+| `appliesToType` | `string[]` | A filter, so `appliesIf` is called only if the contact's type matches one or more of the elements. For example, `['person']`. Note that `['report']` is also allowed to create a report card. But, you cannot use it in conjunction with a contact's type. It defaults to all types if it is not defined. | no |
 | `appliesIf` | `function(report)` or `boolean` | Return true if the field should be shown. | no |
 | `modifyContext` | `function(context, report)` | Used to modify or add data which is passed as input to forms filled from the contact page. | no |
 | `fields` | `Array[]` of fields | The content of the card. | yes |
@@ -177,4 +173,7 @@ module.exports = {
 
 To update the Contact profiles for an app, changes must be compiled into `app-settings`, then uploaded.
 
-`cht --local compile-app-settings backup-app-settings upload-app-settings`
+
+```shell
+  cht --local compile-app-settings backup-app-settings upload-app-settings
+```

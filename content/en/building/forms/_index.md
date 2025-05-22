@@ -20,3 +20,5 @@ There are four different types of forms:
 - [**Collect Forms**]({{< ref "building/forms/collect" >}}): used to render forms in Medic Collect. Defined as ODK XForms and need a corresponding JSON form to receive data in CHT.
 
 Forms that can be completed in the app are built using a CHT-enhanced version of [ODK XForms](https://opendatakit.github.io/xforms-spec/) notation -- a XML definition of the structure and format for a set of questions. Since writing raw XML can be tedious, the [XLSForm standard](http://xlsform.org/) is commonly used to define forms. The [cht-conf](https://github.com/medic/cht-conf) command line tool can be used to convert to the XForm format and include the form in a CHT application. The instructions on this site assume some knowledge of XLSForm.
+
+{{< subpages >}}

@@ -11,7 +11,8 @@ description: >
   
 ---
 
-{{% alert title="Note" %}} This guide applies to both self-hosted and Medic hosted deployments. {{% /alert %}}
+> [!NOTE] 
+> This guide applies to both self-hosted and Medic hosted deployments.
 
 ## Introduction
 
@@ -20,7 +21,7 @@ Upgrading to CHT 4.0  can be quite time consuming, especially for large deployme
 
 ## CHT Android v1.0.0+ 
 
-This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`.  Please see the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
+This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`. See the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
 
 ### Versions in use
 
@@ -48,7 +49,8 @@ ORDER BY
 
 Note that each user can submit many telemetry docs (`count_telemetry`), so the query breaks out users (`count_distinct_users`) and devices (`count_distinct_devices`) for the given month. This means that telemetry counts will be higher than the number of active users. As well, early in the current  month, many users may not have had a chance to synchronize their telemetry data yet. For example, this report was run on the 5th of October, so the counts for all three tables are low. Refer to prior months in this case.
 
-{{% alert title="Note" %}} In some cases users are accessing the system via the [progressive web app (PWA)]({{< relref "technical-overview/pwa" >}}) or are online users.  We see the `cht_android_version` field is empty in this case. {{% /alert %}} 
+> [!NOTE] 
+> In some cases users are accessing the system via the [progressive web app (PWA)]({{< relref "technical-overview/pwa" >}}) or are online users.  We see the `cht_android_version` field is empty in this case. 
 
 |telemetry_month|cht_android_version|count_distinct_users|count_distinct_devices|count_telemetry|
 |---------------|-------------------|--------------------|----------------------|---------------|

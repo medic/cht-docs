@@ -1,26 +1,26 @@
 ---
 title: "CHT Watchdog Setup"
 linkTitle: "Setup"
-weight: 100
-aliases:  
-  - /building/guides/hosting/monitoring/setup
-  - /apps/guides/hosting/monitoring/setup
+weight: 2
 description: >
-    Setting up Grafana and Prometheus with the CHT
+   Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
    technical-overview/architecture
    technical-overview/cht-watchdog
+aliases:  
+  - /building/guides/hosting/monitoring/setup
+  - /apps/guides/hosting/monitoring/setup
 ---
 
-{{% pageinfo %}} 
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
-![Screenshot of Grafana Dashboard showing data from Prometheus](monitoring.and.alerting.screenshot.png)
+{{< figure src="monitoring.and.alerting.screenshot.png" link="monitoring.and.alerting.screenshot.png" caption="Screenshot of Grafana Dashboard showing data from Prometheus" >}}
 
 [Prometheus supports](https://prometheus.io/docs/concepts/metric_types/) four metric types: Counter, Gauge, Histogram, and Summary.  Currently, the CHT only provides Counter and Gauge type metrics. When building panels for Grafana dashboards, [Prometheus Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be used to manipulate the metric data. Refer to the [Grafana Documentation](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/) for best practices on building dashboards.
 
@@ -32,9 +32,8 @@ The solution provides both an overview dashboard as well as a detail dashboard. 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - URL(s) of the CHT instance(s)
 
-{{% alert title="Note" %}}
-Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
-{{% /alert %}}
+> [!WARNING]
+> Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
 
 ### Setup
 
@@ -140,9 +139,8 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
    docker compose -f docker-compose.yml -f exporters/postgres/compose.yml up -d
    ```
 
-{{% alert title="Note" %}}
-Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
-{{% /alert %}}
+> [!WARNING]
+> Always run this longer version of the `docker compose` command which specifies both compose files for all future [upgrades](#upgrading).
 
 #### CHT Sync Data (Remote)
 

@@ -1,9 +1,9 @@
 ---
-title: "Maternal and Newborn Health Reference App"
+title: "Maternal and Newborn Health"
 linkTitle: "Maternal & Newborn Health"
 weight: 1
 description: >
-  Reference application for maternal and newborn care for CHW's using a mobile app
+  Reference application for maternal and newborn care for CHWs
 relatedContent: >
   building/concepts
   building/forms/app
@@ -14,9 +14,7 @@ aliases:
    - /exploring/anc
 ---
 
-{{% pageinfo %}}
 This "reference application" for maternal and newborn health provides a template for structuring and organizing your Community Health Toolkit digital health app, its configuration, and test code. It can be used as is, or serve as a great way to learn about the CHT's foundation for forms, data fields, and analytics that can be easily customized to fit your context.
-{{% /pageinfo %}}
 
 ## Problem Being Addressed
 

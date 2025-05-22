@@ -1,16 +1,16 @@
 ---
 title: "Custom Postgres metrics in CHT Watchdog"
 linkTitle: "Custom Postgres Metrics"
-weight: 400
+weight: 4
+description: >
+  Adding Custom Postgres metrics into CHT Watchdog
 aliases:  
   - /apps/guides/hosting/monitoring/postgres-ingest
-description: >
-    Adding Custom Postgres metrics into CHT Watchdog
 ---
 
-{{% pageinfo %}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{% /pageinfo %}}
+{{< callout >}}
+  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
+{{< /callout >}}
 
 ## Introduction
 
@@ -172,7 +172,7 @@ Now that the new Postgres Exporter is running on your Watchdog instance and CHT 
 3. We'll make this a table, but you can configure the dashboard as desired. 
 4. Click "Add to dashboard"
 
-![Grafana showing data data explorer](explore.png)
+{{< figure src="explore.png" link="explore.png" caption="Grafana showing data data explorer" >}}
 
 ### Optional: Add Dashboard to CHT Dropdown in Grafana
 
@@ -198,7 +198,8 @@ An additional optional step is to make your dashboard a peer of the existing "Ad
 This will make your new dashboard show up natively with the two existing CHT dashboards:
 
 
-![Grafana with a third "Admin Extra SQL" option showing in the existing CHT navigation menu](menu.png)
+{{< figure src="menu.png" link="menu.png" caption="Grafana with a third Admin Extra SQL option showing in the existing CHT navigation menu" >}}
+
 
 #### Full Dashboard JSON
 

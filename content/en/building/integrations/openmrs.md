@@ -94,7 +94,7 @@ Such convention makes it easier to process the payload for queueing handling.
 
 2. **Defining app forms**
 
-An encounter form consists of input and observation groups in the XForm. `form_uuid` and `encounter_type_uuid` define the uuids for the encounter form and encounter type respectively. Please note that these are defined within the general `input` group provided by CHT.
+An encounter form consists of input and observation groups in the XForm. `form_uuid` and `encounter_type_uuid` define the uuids for the encounter form and encounter type respectively. Note that these are defined within the general `input` group provided by CHT.
 
 The `observation` group is used to define the clinical observation variables to be collected by the form. This group is equivalent to the group of `<obs>` in OpenMRS html form entry module. In OpenMRS, an observation construct has concept ID (with inherent concept type), label, and answer options if it requires. In Xforms, one needs to define the following:
 
@@ -138,7 +138,8 @@ Remember to convert and upload your forms
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs convert-contact-forms upload-contact-forms convert-app-forms upload-app-forms
 ```
 
-{{% alert title="Note" %}}Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. {{% /alert %}}
+> [!IMPORTANT]
+> Remember to setup the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) modules to send data to OpenMRS. 
 
 
 #### Handling the data
@@ -219,4 +220,4 @@ This is a service that would help shift information in the CHT [hierarchy]({{< r
 
 Once you have configured the above for data exchange, the data flow will be like this:
 
-![CHT - OpenMRS Data Flow](cht-openmrs.jpeg)
+{{< figure src="cht-openmrs.jpeg" link="cht-openmrs.jpeg" caption="CHT - OpenMRS Data Flow" >}}

@@ -1,7 +1,7 @@
 ---
 title: "Input data available in forms"
 linkTitle: "Form Inputs"
-weight: 
+weight: 5
 description: >
   Data accessible from within CHT forms
 relatedContent: >
@@ -67,31 +67,31 @@ Available data:
 
 If a form is created from the "People" tab, `inputs/source` will be set to "contact". If a form is created from a task, `inputs/source` will be set to "task".
 
-{{% alert title="Note" %}}
-The `source` field is also available at the top level (not nested in the `inputs` group).
-{{% /alert %}}
+{{< callout type="info" >}}
+  The `source` field is also available at the top level (not nested in the `inputs` group).
+{{< /callout >}}
 
 ### `inputs` data for contact in `app` forms
 
 `app` forms with a contact in context have access to that contact's data in the `inputs/contact` group.
 
-{{% alert title="Note" %}}
-The `contact` group is also available at the top level (not nested in the `inputs` group).
-{{% /alert %}}
+{{< callout type="info" >}}
+  The `contact` group is also available at the top level (not nested in the `inputs` group).
+{{< /callout >}}
 
 The `contact` group contains all the fields from the doc of the contact in context. If a _place_ is in context, the primary person for that place will be hydrated in the `inputs/contact/contact` group. Alternatively, when a _person_ is in context, the parent place for the person will be hydrated in `inputs/contact/parent`.
 
-{{% alert title="Note" %}}
-Contact data is not available in forms created from the "Reports" tab.
-{{% /alert %}}
+{{< callout type="info" >}}
+  Contact data is not available in forms created from the "Reports" tab.
+{{< /callout >}}
 
 ### `contact-summary` data
 
 `app` forms with a contact in context can access the contact-summary data associated with the contact. This is done by referencing an instance named `contact-summary`. E.g. `instance('contact-summary')/context/${variable}`.  See [the reference documentation]({{< ref "building/contact-summary/contact-summary-templated#care-guides" >}}) for more information.
 
-{{% alert title="Note" %}}
-Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
-{{% /alert %}}
+{{< callout type="info" >}}
+  Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
+{{< /callout >}}
 
 ### `inputs` data from task
 
@@ -110,9 +110,9 @@ The following fields will also be available in the `inputs` group:
 
 Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "technical-overview/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
 
-{{% alert title="Note" %}}
-The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
-{{% /alert %}}
+{{< callout type="info" >}}
+  The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
+{{< /callout >}}
 
 ### Example of saving `user` data as metadata on a report
 
@@ -139,9 +139,11 @@ Using a contact selector allows you to load data from the selected contact (pers
 
 To select a contact in a form, create a field with the type `string` and set the appearance to `select-contact type-{{contact_type_1}} type-{{contact_type_2}} ...`. Setting multiple contact_type ids allows the user to search among multiple types of contacts. If no contact type appearance is specified then all contact types will be queried when searching.
 
-{{% alert title="Note" %}}
-For CHT version `v3.9.x` and below, contacts must be selected by setting the field type to `db:{{contact_type}}` and the appearance to `db-object` (instead of using `string` and `select-contact`).
-{{% /alert %}}
+{{< callout type="info" >}}
+  For CHT version `v3.9.x` and below, contacts must be selected by setting the field type to `db:{{contact_type}}` and the appearance to `db-object` (instead of using `string` and `select-contact`).
+{{< /callout >}}
+
+The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
 
 ### Searching for a contact
 
@@ -166,9 +168,9 @@ Use the appearance `descendant-of-current-contact` to load the current contact's
 
 Additional data about the contact can be loaded by adding fields to the same group as the contact selector. The field name must match the name of a field on the contact doc. The data will be loaded when the contact is selected and will overwrite any existing data in the field.
 
-{{% alert title="Warning" %}}
-The data loaded by the contact selector will overwrite any existing data in fields that are in the same group as the contact selector and share the same name as a field on the selected contact. Data will not be written into matching fields if `bind-id-only` is included in the appearance.
-{{% /alert %}}
+> [!WARNING]
+> The data loaded by the contact selector will overwrite any existing data in fields that are in the same group as the contact selector and share the same name as a field on the selected contact. Data will not be written into matching fields if `bind-id-only` is included in the appearance.
+
 
 | type        | name            | label                   | appearance                 |
 |-------------|-----------------|-------------------------|----------------------------|
@@ -199,9 +201,8 @@ In the following example, we are loading the name of the current user from the a
 | note        | welcome      | Welcome ${user_name}! |                                   |                      |
 | end group   | intro        |                       |                                   |                      |
 
-{{% alert title="Note" %}}
-When loading "hidden" contact data, it is recommended to nest the group inside an existing page (created by a group with the `field-list` appearance). This is because there is [a known issue](https://github.com/medic/cht-core/issues/8226) that results in an empty page being added to the form when a top-level group had no visible questions.
-{{% /alert %}}
+> [!NOTE]
+> When loading "hidden" contact data, it is recommended to nest the group inside an existing page (created by a group with the `field-list` appearance). This is because there is [a known issue](https://github.com/medic/cht-core/issues/8226) that results in an empty page being added to the form when a top-level group had no visible questions.
 
 ### Conditionally selecting/loading contact data for the current contact
 

@@ -4,7 +4,6 @@ linkTitle: "COVID-19 Adaptations"
 weight:
 description: >
   Primary health care workflow and training adaptations for COVID-19
-keywords:
 relatedContent: >
   reference-apps/training
   building/workflows/workflows-overview

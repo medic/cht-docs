@@ -61,6 +61,7 @@ The image below shows an example of an XLSForm configured for the Educational Mo
 
 The CHT application makes use of weblinks to direct the user to the OppiaMobile application. Each task in the CHT has a weblink configured to point to a specific course in OppiaMobile. The weblinks are configured in the forms as a button, which, when clicked or tapped, redirects the user accordingly, depending on the installation status of the OppiaMobile application and the respective course. The weblinks are configured in each of the XLSForms that are triggered by a selected task as illustrated in the image below:
 
+
 {{< figure src="weblink.png" link="weblink.png" class="left col-12 col-lg-9" >}}
 
 <br clear="all">
@@ -71,7 +72,9 @@ The CHT application makes use of weblinks to direct the user to the OppiaMobile 
 
 This image shows the outcome of the button configuration:
 
-{{< figure src="weblink-config-outcome.png" link="weblink-config-outcome.png" class="left col-7 col-lg-4" >}}
+{{< cards rows="4" >}}
+{{< card link="weblink-config-outcome.png" image="weblink-config-outcome.png"  method="resize">}}
+{{< /cards >}}
 
 
 ### Tasks
@@ -230,7 +233,9 @@ const cards = [
 
 This image shows the training card configured to show completion status of the educational modules:
 
-{{< figure src="status.png" link="status.png" class="left col-7 col-lg-4" >}}
+{{< cards rows="4" >}}
+{{< card link="status.png" image="status.png"  method="resize">}}
+{{< /cards >}}
 
 <br clear="all">
 

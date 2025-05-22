@@ -3,23 +3,23 @@ title: "CHW Supervisor, Ann"
 linkTitle: "CHW Supervisor"
 weight: 2
 description: >
-  Training and supporting CHWs 
+  People training and supporting CHWs 
 ---
 
 The CHW supervisor is the person who trains and supports CHWs and helps them meet their monthly goals. Supervisors usually split their time between administrative duties at the local health facility and accompanying CHWs on their community visits. 
 
-![CHW Supervisor](supervisor.png)
+{{< figure src="supervisor.png" link="supervisor.png" caption="CHW Supervisor" >}}
 
 > “During refresher trainings, when I go there, it takes me 3 hours because I copy from one book to another.”
 
 ## About
 
-Married with two school-aged children
-Has one year of training in a health-related field
-Not originally from the community, but communicates effectively with the CHWs
-Salaried MOH employee
-Has a personal mobile phone that ranges from a feature phone to a smart phone, used for communication
-Has an email account primarily accessed via mobile phone
+- Married with two school-aged children
+- Has one year of training in a health-related field
+- Not originally from the community, but communicates effectively with the CHWs
+- Salaried MOH employee
+- Has a personal mobile phone that ranges from a feature phone to a smart phone, used for communication
+- Has an email account primarily accessed via mobile phone
 
 
 ## Responsibilities

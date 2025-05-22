@@ -5,7 +5,7 @@ weight: 2
 description: >
   Guidelines for writing code
 aliases: >
-  /contribute/code/style-guide
+  - /contribute/code/style-guide
 ---
 
 ## Language
@@ -604,7 +604,7 @@ Secrets are encrypted for use for things like passwords or API keys and can be a
 
 To access a secret you can use this format in your yml. 
 
-```
+```yaml
 steps:
   - name: My first action
     env:

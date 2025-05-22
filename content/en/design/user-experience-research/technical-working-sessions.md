@@ -34,17 +34,16 @@ Here is a [sample technical working session document](https://docs.google.com/do
 8. Agree on potential next steps from the call
 9. Thank them for their time and let them know to encourage a continual discussion after the call; on the forum or via email
 
-### Tips:
-
-* Be warm and professional
-* Make it an open back and forth discussion between both teams
-* Focus on one issue at a time
-* Aim to understand the root cause of the problem before offering a solution
-* Ensure you understand the “why” and the “how” behind the issue
-* Give users the chance to ask questions themselves
-* Where possible, share screen and replicate the issues to see the issue in real time
-* Record your session and have someone take notes so you can focus on being present
-* Ensure all shared resources are kept in the meeting document for reference
+> [!TIP] Tips
+> * Be warm and professional
+> * Make it an open back and forth discussion between both teams
+> * Focus on one issue at a time
+> * Aim to understand the root cause of the problem before offering a solution
+> * Ensure you understand the “why” and the “how” behind the issue
+> * Give users the chance to ask questions themselves
+> * Where possible, share screen and replicate the issues to see the issue in real time
+> * Record your session and have someone take notes so you can focus on being present
+> * Ensure all shared resources are kept in the meeting document for reference
 
 ## Synthesizing
 

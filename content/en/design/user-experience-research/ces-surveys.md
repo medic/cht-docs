@@ -14,11 +14,10 @@ Customer Effort Score surveys are used to quantitatively assess the ease of use 
 2. Create your survey to assess the difficulty of each of the above
 3. Establish the cadence in which to send the survey to users 
 
-### Tips:
-
-* Use simple language in your survey questions 
-* Aim to keep the survey quick to complete, asking between 8-15 questions 
-* Use the 5-point likert scale
+> [!TIP] Tips
+> * Use simple language in your survey questions 
+> * Aim to keep the survey quick to complete, asking between 8-15 questions 
+> * Use the 5-point likert scale
 
 Here is a [sample CES survey](https://docs.google.com/forms/d/1TuD9G4Gjod07jtw4INOWEkoBzuu9pEooSz-UfASjlyc/edit).
 

@@ -1,20 +1,17 @@
 ---
 title: "Documentation Style Guide"
 linkTitle: "Style Guide"
-weight: 10
+weight: 2
 description: >
   Editorial guidelines for writing documentation
-show_toc: true
 aliases:
-  -    /contribute/docs/style-guide
+  -  /contribute/docs/style-guide
 ---
 
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 
-{{% alert title="Note" %}}
-This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submitting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
-{{% /alert %}}
-
+> [!IMPORTANT]
+> This documentation site does not involve release management and acceptance testing. Help us maintain the quality of our documentation by submitting a pull request (PR) with any suggested changes. One of the repository's maintainers will review the PR, request additional changes as needed, and merge the PR when it is ready.
 
 ## Language
 
@@ -138,17 +135,7 @@ Connecting readers to related content in different pages is an important aspect 
    
    A custom title and anchor can be provided as well. For example, `{{</* see-also page="design/interface/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" */>}}`, will show as: {{< see-also page="design/interface/icons" title="Learn about the Icon Library" anchor="about-the-icon-library" >}}
    
-   Please use `see-also` when referencing _related topics_ , as seen in [Workflows]({{< ref "building/workflows/workflows-overview" >}}), and use `read-more` when referencing the _same topic_ in more depth, as in the [Home Page]({{< ref "/" >}}).  
-
-1. **Related Content**: Pages within the documentation site are often closely related, but are separated by the type of content. For instance, a topic may be described in the features, have an implementation guide, and have best practices in the design system. To make this linkage easier for documentation writers and readers, a "Related Content" section can be shown at the bottom of the page. Each page defines it's own related content as `relatedContent` in its front matter. For example, a page with the following front matter would have two pages shown as *Related Content*.
-   ```
-   ---
-   title: Messaging
-   relatedContent: >
-    building/messaging/
-    design/building/
-    ---
-   ``` 
+   Use `see-also` when referencing _related topics_  and use `read-more` when referencing the _same topic_ in more depth.
 
 ### Avoid broken links
 To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/shortcodes/#article) for more details.
@@ -201,14 +188,12 @@ To achieve this use a markdown table with the letter X (`X`) to mark events, lea
 {{%/* /schedule */%}}
 ```
 
-{{% alert title="Note" %}}
-The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table
-{{% /alert %}}
+> [!TIP] 
+> The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table.
 
 ### Grammar and punctuation in headers
 
 Use title case for page `title`, and sentence case for `linkTitle` description. Do not end titles with periods.
-
 
 ### Angle brackets for placeholders
 
@@ -261,13 +246,20 @@ There's a shortcode `format-number` which will replace `_` with _Thin Space_ to 
 
 Make notes and tips stand out by using blockquote styling.
 
-{{% alert title="Note" %}}
-This is a sample note.
-{{% /alert %}}
+> [!NOTE] 
+> This is a sample note.
 
-`{{%/* alert title="Note" %}} 
-This is a sample note.
-{{% /alert */%}}`
+> [!TIP] 
+> This is a sample tip.
+
+> [!IMPORTANT] 
+> This is a sample important note.
+
+> [!WARNING] 
+> This is a sample warning.
+
+> [!CAUTION] 
+> This is a sample caution.
 
 ### Page descriptions
 
@@ -311,7 +303,7 @@ It is good practice for the image to link to the image file so that a larger ver
 
 ### Where to place your images
 
-To ensure your images are loaded on the docsite in the right format,place them in a folder that is named similar to your .md file. For example in the scenario below, the image is linked in the style-guide.md file, thus it is placed in the style-guide folder.
+To ensure your images are loaded on the docsite in the right format, place them in a folder that is named similar to your .md file. For example in the scenario below, the image is linked in the style-guide.md file, thus it is placed in the style-guide folder.
 {{< figure src="where-to-place-images.png" link="where-to-place-images.png" >}}
 
 ### Videos
@@ -352,15 +344,18 @@ document, use the backtick (`).
 
 Verify the security settings on CouchDB:
 
-```
+```shell
 curl http://localhost:5984
 ```
 
 The output is similar to this:
 
-```
+```shell
 {"error":"unauthorized","reason":"Authentication required."}
 ```
+## Hextra shortcodes
+
+[Hextra](https://imfing.github.io/hextra/docs/guide/shortcodes/) provides a collection of shortcodes and [built-in icons](https://v1.heroicons.com/) to enhance the content. 
 
 ## Community Health Toolkit word list
 

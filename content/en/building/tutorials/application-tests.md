@@ -11,10 +11,10 @@ aliases:
    - /apps/tutorials/application-tests
 ---
 
-{{% pageinfo %}}
+ 
 This tutorial takes you through testing the various configurable components of CHT applications using [`cht-conf-test-harness`](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/).
 
-{{% /pageinfo %}}
+  
 
 ## Prerequisites
 
@@ -183,7 +183,7 @@ const result = await harness.fillForm('assessment', ...assessments.cough('3'));
 
 The test files are usually grouped in folders to read and run them easily. One way of grouping them is by creating folders for each of the components that can be tested: forms, contact summary, tasks, and targets.
 
-![alt_text](tests-dir.png "Test directory structure")
+{{< figure src="tests-dir.png" link="tests-dir.png" caption="Test directory structure" >}}
 
 ### Testing Forms
 | What do you test?  |

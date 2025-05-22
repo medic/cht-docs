@@ -1,27 +1,22 @@
-{{/* Modified from docsy theme to show related content */}}
-{{/* https://github.com/google/docsy/blob/c65715725ee992cd4e59aeefe0f66df80b2eb4ea/layouts/docs/list.html */}}
 {{ define "main" }}
-<div class="td-content">
-	<h1>{{ .Title }}</h1>
-	{{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
-	<header class="article-meta">
-		{{ partial "taxonomy_terms_article_wrapper.html" . }}
-		{{ if (and (not .Params.hide_readingtime) (.Site.Params.ui.readingtime.enable)) }}
-		{{ partial "reading-time.html" . }}
-		{{ end }}
-	</header>
-	{{ .Content }}
-	{{ partial "section-index.html" . }}
-<!-- Show related content - https://github.com/medic/cht-docs/commit/7daf27fe8e58c225759276a0284043dfcafde550 -->
-	{{ partial "related.html" . }}
-	{{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.Config.Services.GoogleAnalytics.ID)) }}
-	{{ partial "feedback.html" . }}
-	<br />
-	{{ end }}
-	{{ if (.Site.Config.Services.Disqus.Shortname) }}
-	<br />
-	{{ partial "disqus-comment.html" . }}
-	{{ end }}
-	{{ partial "page-meta-lastmod.html" . }}
+<div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }}'>
+  {{ partial "sidebar.html" (dict "context" .) }}
+  {{ partial "toc.html" . }}
+  <article
+    class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+      {{ partial "breadcrumb.html" . }}
+      <div class="content">
+        <h1>{{ .Title }}</h1>
+        <p class="not-prose hx-text-xl hx-text-gray-600 dark:hx-text-gray-400 sm:hx-text-xl">
+          {{ .Page.Description }}
+        </p>
+        {{ .Content }}
+      </div>
+      {{ partial "components/last-updated.html" . }}
+      {{ partial "components/pager.html" . }}
+      {{ partial "components/comments.html" . }}
+    </main>
+  </article>
 </div>
 {{ end }}

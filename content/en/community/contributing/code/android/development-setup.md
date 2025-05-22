@@ -1,7 +1,7 @@
 ---
 title: "Android Dev Environment"
 linkTitle: "Android Dev Environment"
-weight: 2
+weight: 1
 description: >
   Instructions for setting up the development environment
 relatedContent: >
@@ -10,13 +10,10 @@ aliases: >
   /core/guides/android/development-setup
   /contribute/code/android/development-setup
 ---
-
-{{% pageinfo %}}
+ 
 The following instructions allows you to setup a development environment for the **[CHT Android](https://github.com/medic/cht-android)** apps, and the **[CHT Gateway](https://github.com/medic/cht-gateway)** app as well.
 
 Finally, you will learn how to assemble the app, run the tests, and how to choose the right artifacts when installing or publishing the apps.
-{{% /pageinfo %}}
-
 
 ## Requirements
 
@@ -74,7 +71,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 Old SDK distributions used to have it pre-packaged, now you have to install it separately. Once installed SDK following the steps above, you can install the latest version of `adb` with:
 
-```
+```shell
 sdkmanager --install platform-tools
 ```
 
@@ -176,11 +173,10 @@ To upgrade the necessary apk on an emulated Android device:
     - For Android 10+, you should download a new version of `com.google.android.webview` (e.g. from [apkMirror](https://www.apkmirror.com/apk/google-inc/android-system-webview/)).
 - Then, you can use adb to install the apk into the device: `adb install -r *your_apk*.apk`
 
-{{% alert title="Note" %}}
-Testing using an Android 5-6 device can be more challenging. The `com.android.webview` package seems to be baked into the system partition regardless of the image variant. It is possible use a custom ROM (e.g. CyanogenMod) with an upgraded WebView version on a physical device. Another approach to testing with older versions of Android is to simply test against an older version of the CHT (e.g. CHT `3.x.` only requires Chrome/Webview 53). The functionality of cht-android can still be validated by interacting with this old CHT version.
-
-If using the docker-helper to deploy CHT instances for testing with old Android versions, be aware that the `local-ip.medicmobile.org` SSL certificates may not work with the device (because the root certificate is not recognized). On Android 5-6 you can manually install the root certificate via Settings > Security > Install from SD Card.
-{{% /alert %}}
+> [!NOTE]
+> Testing using an Android 5-6 device can be more challenging. The `com.android.webview` package seems to be baked into the system partition regardless of the image variant. It is possible use a custom ROM (e.g. CyanogenMod) with an upgraded WebView version on a physical device. Another approach to testing with older versions of Android is to simply test against an older version of the CHT (e.g. CHT `3.x.` only requires Chrome/Webview 53). The functionality of cht-android can still be validated by interacting with this old CHT version.
+>
+> If using the docker-helper to deploy CHT instances for testing with old Android versions, be aware that the `local-ip.medicmobile.org` SSL certificates may not work with the device (because the root certificate is not recognized). On Android 5-6 you can manually install the root certificate via Settings > Security > Install from SD Card.
 
 ### Android Studio
 

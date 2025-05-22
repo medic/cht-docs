@@ -1,14 +1,14 @@
 ---
 title: Setup and Development
+linkTitle: Setup & Development
 weight: 1
 description: >
      How to run and do development of CHT couch2pg
 ---
 
-{{% pageinfo %}}
-CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
-{{% /pageinfo %}}
-
+{{< callout type="warning" >}}
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+{{< /callout >}}
 
 Create read-only replicas of CouchDB data inside PostgresSQL.
 
@@ -22,7 +22,7 @@ This version is built for medic/cht-core#3.0.0 and above. For replicating data f
 
 All steps below require you to have a local clone of the repo.
 
-```
+```shell
 git clone https://github.com/medic/cht-couch2pg.git
 ```
 
@@ -46,11 +46,11 @@ You will need to install the following to run locally, but not for docker:
 
 1. `cd` into it this repo's directory where you cloned it.
 2. Install dependencies:
-   ```
+   ```shell
    npm ci
    ```
 6. Export these four variables with the values you need.:
-   ```
+   ```shell
    export POSTGRESQL_URL=postgres://postgres:postgres@localhost:15432/postgres
    export COUCHDB_URL=https://admin:pass@localhost:5984/medic
    export COUCH2PG_DOC_LIMIT=1000
@@ -159,7 +159,7 @@ See more details about the error in [#78](https://github.com/medic/cht-couch2pg/
 
 When installing Node.js dependencies locally or building the docker image, you might get an error like:
 
-```
+```shell
 ...
 npm ERR! code ELIFECYCLE
 npm ERR! errno 1

@@ -4,7 +4,6 @@ linkTitle: "Access"
 weight: 1
 description: >
   Starting up a digital health app
-
 aliases:
    - /apps/concepts/access
 ---
@@ -89,6 +88,6 @@ With token login, the password is never known by the admin or the user because t
 
 {{< figure src="log-in.png" link="log-in.png" class="left col-3 col-lg-3" >}}
 
-{{% alert title="Note" %}}
-The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
-{{% /alert %}}
+> [!NOTE]
+> The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
+

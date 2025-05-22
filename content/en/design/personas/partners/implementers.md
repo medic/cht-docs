@@ -2,10 +2,9 @@
 title: "Implementing Partners"
 linkTitle: "Implementers"
 weight: 1
-description: >
-  Implementing partners aim to build a new model of care with demonstrated evidence for impact and scalability. They are interested in pioneering data-driven approaches to achieve the desired community health outcomes.
 ---
 
+Implementing partners aim to build a new model of care with demonstrated evidence for impact and scalability. They are interested in pioneering data-driven approaches to achieve the desired community health outcomes.
 
 ## Characteristics and Strengths
 

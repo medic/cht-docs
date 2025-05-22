@@ -1,9 +1,9 @@
 ---
 title: "Style guide for automated tests"
-linkTitle: "Style guide for automated tests"
+linkTitle: "Style Guide for Automated Tests"
 weight: 12
 description: >
-  This style guide provides editorial guidelines for anyone creating new automated test cases for the CHT-Core.
+  Editorial guidelines for anyone creating new automated test cases for the cht-core
 aliases: >
   /contribute/code/core/style-guide-automated-e2e-tests
 ---
@@ -43,7 +43,7 @@ It is important that the database is clean and settings are restored once the te
 Observe how the following example defines a `describe` using the feature name `Immunization Visit`. It contains constant definitions, helper functions, the `before` and `after` hooks to prepare the environment, and two test cases that detail the expected results `should add a new child under 2 years old` and `should submit an immunization visit`.
 
 Ex:
-```
+```js
   describe('Immunization Visit', () => {
     const firstConstant = 'SampleName';
     const secondConstant = 'SampleValue';
@@ -64,15 +64,15 @@ Ex:
 
 ### Name convention and file location
 
-- Since every test is created by _"selectors"_, it makes sense to locate them into a folder that represents the page being tested and not the feature. Please try to locate every test file in the correct folder.
-- Every file name should use `dash-case` (`-`). Do not use `snake-case` (`_`) nor `camelCase`. Please consider the following examples:
+- Since every test is created by _"selectors"_, it makes sense to locate them into a folder that represents the page being tested and not the feature. Try to locate every test file in the correct folder.
+- Every file name should use `dash-case` (`-`). Do not use `snake-case` (`_`) nor `camelCase`. Consider the following examples:
     - Correct:
         - `pregnancy-visit.wdio-spec.js`
     - Incorrect:
         - `pregnancy_visit.wdio-spec.js`
         - `pregnancyVisit.wdio-spec.js`
         - `PregnancyVisit.wdio-spec.js`
-- Whenever possible avoid repeating the folder name in the file name. Please consider the following examples where the file is located in the path `e2e/default/enketo`:
+- Whenever possible avoid repeating the folder name in the file name. Consider the following examples where the file is located in the path `e2e/default/enketo`:
     - Correct:
         - `pregnancy-visit.wdio-spec.js`
     - Incorrect:
@@ -96,8 +96,6 @@ Existent tags:
 #### @docker
 Tests that should run exclusively when running the suite over docker infrastructure. These tests will fail if run over k3d.
 
-### Notes:
-
-* We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then please isolate the code in a separate file, so it can be reused in future tests.
-
-* If the new test is not associated to a specific configuration, please locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 
+> [!NOTE] 
+> * We decided to separate every functionality in files/folders because we want to make sure that we can reuse as much code as possible. If something new is implemented and might be used for another test, then isolate the code in a separate file, so it can be reused in future tests.
+> * If the new test is not associated to a specific configuration, locate the test inside the correct folder of the default config [`e2e/default/*`](https://github.com/medic/cht-core/tree/master/tests/e2e/default). 

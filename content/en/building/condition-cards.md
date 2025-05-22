@@ -3,7 +3,7 @@ title: Condition Cards
 linkTitle: Condition Cards
 weight: 6
 description: >
-  Building CHT condition cards
+  Build CHT condition cards
 relatedContent: >
   building/contact-management
   building/contact-summary/contact-summary-templated#condition-cards
@@ -12,14 +12,11 @@ aliases:
    - /apps/tutorials/condition-cards
 ---
 
-{{% pageinfo %}}
 This tutorial will take you through building a condition card for CHT applications.
 
 Condition cards, like contact summaries display information about the contact. The data displayed in condition cards can be pulled from submitted reports.
 
 In this tutorial,you will be adding a condition card that displays information about a person's most recent assessment, including: *the date of the most recent assessment*, and *whether or not they had a cough*.
-
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
@@ -51,11 +48,9 @@ const thisLineage = lineage;
 const allReports = reports;
 ```
 
-{{% alert title="Note" %}} contact, reports, lineage are globally available for contact-summary. {{% /alert %}}
-
-<br clear="all">
-
- *****
+{{< callout type="info" >}}
+  contact, reports, lineage are globally available for contact-summary. 
+{{< /callout >}}
 
 ### 2. Define `cards` and Add a Condition Card Object
 
@@ -92,10 +87,6 @@ const cards = [
   }
 ];
 ```
-
-<br clear="all">
-
- *****
 
 ### 3. Export `cards`
 
@@ -139,10 +130,6 @@ module.exports = {
 };
 ```
 
-<br clear="all">
-
- *****
-
 ### 4. Compile and Upload App Settings
 
 To compile and upload app settings to your local instance, run the following command:
@@ -151,4 +138,6 @@ To compile and upload app settings to your local instance, run the following com
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+{{< callout type="warning" >}}
+  Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
+{{< /callout >}}

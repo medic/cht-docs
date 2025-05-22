@@ -10,6 +10,7 @@ aliases:
    - /building/concepts/prerequisites
    - /apps/concepts/prerequisites
 ---
+
 There are no set prerequisites for users of CHT apps, yet the following are helpful for developing CHT applications.
 
 ## Test Instance

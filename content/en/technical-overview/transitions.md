@@ -58,7 +58,7 @@ Callback arguments:
 
 * callback(err, needsSaving)
 
-   `needsSaving` is true if the `change.doc` needs to be saved to the DB by the transition runner. For instance, if the transition has edited the `change.doc` in memory.
+   - `needsSaving` is true if the `change.doc` needs to be saved to the DB by the transition runner. For instance, if the transition has edited the `change.doc` in memory.
    `err` if truthy, the error will be added to the `changes.doc` in memory. (Note that if `needsSaving` is falsy, the doc will not be saved, so that error will not be persisted).
 
 Regardless of whether the doc is saved or not, the transitions will all be run (unless one crashes).

@@ -1,0 +1,56 @@
+{{ $parent := .Page }}
+{{ with .Params.relatedContent }}
+{{ $pages := split . " " }}
+{{ $relatedTitle := "Related Content" }}
+<h2 id="{{ $relatedTitle | anchorize }}">{{ $relatedTitle }}</h2>
+<div class="section-index">
+	{{ if $parent.Params.simple_list }}
+	{{/* If simple_list is true we show a bulleted list of subpages */}}
+	<ul>
+		{{ range $pages }}
+		{{ with $.Site.GetPage . }}
+		<li><a href="{{ .RelPermalink }}">{{- .Title -}}</a></li>
+		{{ end }}
+		{{ end }}
+	</ul>
+	{{ else }}
+	{{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
+	<hr class="panel-line">
+	{{ range $pages }}
+	{{ $path := trim . " \n" }}
+	{{ $anchor := index ( split $path "#" ) 1 }}
+	{{ $path := strings.TrimRight "/" ( index ( split $path "#" ) 0 ) }}
+	{{ $page := $.Site.GetPage $path }}
+	{{ if not $page }}
+	{{ if (eq $.Site.Params.linkErrorLevel "WARNING") }}
+	{{ warnf "[relatedContent] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $path $parent.File.Path }}
+	{{ else }}
+	{{ errorf "[relatedContent] REF_NOT_FOUND: Ref \"%s\": \"%s\": page not found" $path $parent.File.Path }}
+	{{ end }}
+	{{ end }}
+	{{ with $page }}
+	<div class="entry">
+		<h6>
+			<a href="{{ .RelPermalink }}{{ if $anchor }}{{ printf "#%s" $anchor }}{{ end }}">{{ template "relatedcontenttitle" (dict "p1" $page "p2" $page) }}{{ if $anchor }}{{ printf ": %s" ( $anchor | humanize | title )}}{{ end }}</a>
+		</h6>
+		<p class="one-liner">{{ $page.Description | markdownify | plainify | safeHTML }}</p>{{/* removes markdown and html codes: test scenario: **bold & html char** */}}
+	</div>
+	{{ end }}
+	{{ end }}
+	{{ end }}
+</div>
+{{ end }}
+{{ define "relatedcontenttitle" }}
+	{{ if .p1.Parent }}
+		{{ if not .p1.Parent.IsHome }}
+		{{ template "relatedcontenttitle" (dict "p1" .p1.Parent "p2" .p2 )  }}
+		{{ end }}
+	{{ else if not .p1.IsHome }}
+		{{ template "relatedcontenttitle" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+	{{ end }}
+		{{ if not (eq .p1 .p2) }}
+		{{ .p1.LinkTitle }} >
+		{{ else }}
+		{{ .p1.LinkTitle }}
+		{{ end }}
+{{ end }}
