@@ -13,7 +13,7 @@ A CHT Squad is a small, action-oriented team that works together to solve high-p
 ## How squads work
 
 - Collaborative by design: Anyone can join - whether you are an experienced community contributor or just getting started with the CHT
-- Transparent process: Regular meetings, shared notes, and public GitHub repositories keep everyone informed
+- Transparent process: Regular meetings and shared public notes and documentation to keep everyone informed
 - Flexible contributions: Help in whatever way works for you - coding, design, testing, or documentation
 
 **Why Join a Squad?**
