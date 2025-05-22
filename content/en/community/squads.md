@@ -3,7 +3,7 @@ title: "CHT Squads"
 linkTitle: "Squads"
 weight: 2 
 description: > 
-  CHT Initiatives 
+  How community squads work
 ---
 
   **What is a Squad?**
