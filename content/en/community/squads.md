@@ -16,7 +16,7 @@ A CHT Squad is a small, action-oriented team that works together to solve high-p
 - Transparent process: Regular meetings and shared public notes and documentation to keep everyone informed
 - Flexible contributions: Help in whatever way works for you - coding, design, testing, or documentation
 
-**Why Join a Squad?**
+## Why join a squad?
 - Work on meaningful projects that make a real difference
 - Learn from and collaborate with other community members
 - Help shape the future of the CHT
