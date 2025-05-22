@@ -5,7 +5,9 @@ weight: 100
 ---
 
 
-_Introduced in 4.20.0_
+{{< callout >}}
+Introduced in 4.20.0
+{{< /callout >}}
 
 ## Introduction
 
