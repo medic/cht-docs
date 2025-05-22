@@ -4,7 +4,7 @@ linkTitle: "Dashboards and Reporting"
 identifier: "Dashboards and Reporting"
 weight: 4
 description: >
-  Dashboards and Reporting
+  Data visualization and reporting tools for supervision
 ---
 
 ## Supervisor Dashboards

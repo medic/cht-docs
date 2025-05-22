@@ -4,7 +4,7 @@ linkTitle: "User and Area Management"
 identifier: "User and Area Management"
 weight: 3
 description: >
-  User and Area Management
+  User account management and multi-area supervision capabilities
 ---
 
 ## User Management

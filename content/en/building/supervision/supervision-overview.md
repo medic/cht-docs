@@ -1,6 +1,6 @@
 ---
-title: "Supervision"
-linkTitle: "Supervision"
+title: "Overview"
+linkTitle: "Overview"
 identifier: "Supervision overview"
 weight: 1
 description: >

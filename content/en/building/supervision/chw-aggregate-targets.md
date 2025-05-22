@@ -4,7 +4,7 @@ linkTitle: "CHW Aggregate Targets"
 identifier: "CHW Aggregate Targets"
 weight: 2
 description: >
-  CHW Aggregate Targets
+  Aggregate targets for CHW supervision
 ---
 
 {{< figure src="aggregate-supervisor.png" link="aggregate-supervisor.png" class="right col-7 col-lg-6" >}}
