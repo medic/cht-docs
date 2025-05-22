@@ -2,7 +2,7 @@
 title: Reports
 weight: 6
 description: >
-  Reports for data & report management
+  Data & report management in the CHT
 relatedContent: >
   building/reference/app-settings/patient_reports
   building/guides/data/invalid-reports
