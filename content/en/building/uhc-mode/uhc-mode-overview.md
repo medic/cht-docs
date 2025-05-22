@@ -12,4 +12,6 @@ description: >
 
 
 ## UHC with the CHT
-Apps built using the Community Health Toolkit can be used in support of community-based services, and increase Universal Health Coverage (UHC) by helping health workers regularly reach all the families that they care for. A Muso study in collaboration with Medic, [showed an increase in household coverage](https://drive.google.com/file/d/1fXruezV7sCo-CtJfi8WDivzgMcKZNdXM/view): _UHC Mode should be considered an effective tool that can improve minimum expected home visit coverage and promote progress towards UHC when implemented in the proactive community case management context._
+Apps built using the Community Health Toolkit can be used in support of community-based services, and increase Universal Health Coverage (UHC) by helping health workers regularly reach all the families that they care for. A Muso study in collaboration with Medic, [showed an increase in household coverage](https://drive.google.com/file/d/1fXruezV7sCo-CtJfi8WDivzgMcKZNdXM/view): 
+
+> UHC Mode should be considered an effective tool that can improve minimum expected home visit coverage and promote progress towards UHC when implemented in the proactive community case management context.
