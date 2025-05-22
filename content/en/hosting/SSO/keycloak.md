@@ -21,13 +21,16 @@ These steps document how to configure KeyCloak as the Single Sign On (SSO) ident
 * TLS enabled on CHT and KeyCloak
 {{< /tab >}}
 {{< tab >}}
-Start an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht-test`. Create an extra compose file and two cert files by running this code. Note this is dependant on your Docker Helper instance being called `cht-test` :
+* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) KeyCloak - 26.x as of CHT 4.20 (see below)
+* CHT Docker Helper instance on 4.20.0 or later
+
+Start by create an extra compose file and two cert files by running this code:
 
 ```yaml
-mkdir -p $HOME/.medic/cht-docker/cht-test-dir
-curl -o $HOME/.medic/cht-docker/cht-test-dir/server.crt https://local-ip.medicmobile.org/fullchain
-curl -o $HOME/.medic/cht-docker/cht-test-dir/server.key ://local-ip.medicmobile.org/key
-cat > $HOME/.medic/cht-docker/cht-test-dir/compose/cht-sso.yaml << EOF
+mkdir -p $HOME/.medic/cht-docker/cht_test-dir/compose/
+curl -so $HOME/.medic/cht-docker/cht_test-dir/server.crt https://local-ip.medicmobile.org/fullchain
+curl -so $HOME/.medic/cht-docker/cht_test-dir/server.key https://local-ip.medicmobile.org/key
+cat > $HOME/.medic/cht-docker/cht_test-dir/compose/cht-sso.yaml << EOF
 services:
   keycloak:
     image: quay.io/keycloak/keycloak
@@ -40,12 +43,12 @@ services:
       - "8443:8443"
     command: start-dev
     volumes:
-      - $HOME/.medic/cht-docker/cht-test-dir/server.crt:/opt/keycloak/conf/server.crt
-      - $HOME/.medic/cht-docker/cht-test-dir/server.key:/opt/keycloak/conf/server.key
+      - $HOME/.medic/cht-docker/cht_test-dir/server.crt:/opt/keycloak/conf/server.crt
+      - $HOME/.medic/cht-docker/cht_test-dir/server.key:/opt/keycloak/conf/server.key
 EOF
 ```
 
-KeyCloak is now accessible on [http://localhost:8080](http://localhost:8080![img.png](img.png)/). The username is `medic` and the password is `password`.
+Now create an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht_test`. The extra compose file will start the Keycloak instance which is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -108,11 +111,9 @@ On the new `CHT` client go to "Credentials" and copy the "Client Secret" value. 
 
 ### CHT App Settings
 
-In the config directory for your app, update your `base_settings.json` file to contain this additional JSON
+In the config directory for your app, update your `app_settings.json` file to contain this additional JSON at the end, before the very last `}`
 
-{{< tabs items="Production,Development" >}}
-{{< tab >}}
-Be sure to replace `KEYCLOAK_URL` with the production URL of your KeyCloak instance
+Be sure to replace `KEYCLOAK_URL` with the production URL of your KeyCloak instance.
 
 ```json
     "oidc_provider": {
@@ -121,26 +122,12 @@ Be sure to replace `KEYCLOAK_URL` with the production URL of your KeyCloak insta
     },
 ```
 
-{{< /tab >}}
-{{< tab >}}
-
-Update `KEYCLOAK_URL` to be the same as your Docker Helper URL, but with `8080` port and `http` instead of `https`. As well,  `allow_insecure_requests` is required when connecting to the OIDC server via `HTTP` instead of `HTTPS`. These settings should not be used in production.
-
-```json
-    "oidc_provider": {
-      "client_id": "CHT",
-      "discovery_url": "https://<KEYCLOAK_URL>:8080/realms/master/.well-known/openid-configuration"
-    },
-```
-{{< /tab >}}
-{{< /tabs >}}
-
 
 ### Upload CHT config
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
-Upload the config using CHT Conf.  Replace `CHT_URL` with the docker helper URL, including port:
+Upload the config using CHT Conf. Replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
 
 ```
 cht --url=https://<USER>:<PASSWORD>@<CHT_URL> compile-app-settings upload-app-settings
@@ -149,7 +136,7 @@ cht --url=https://<USER>:<PASSWORD>@<CHT_URL> compile-app-settings upload-app-se
 {{< /tab >}}
 {{< tab >}}
 
-Upload the config using CHT Conf. Replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
+Upload the config using CHT Conf.  Replace `CHT_URL` with the docker helper URL, including port:
 
 ```
 cht --url=https://medic:password@<CHT_URL> compile-app-settings upload-app-settings
@@ -180,6 +167,12 @@ curl -X PUT https://medic:password@<CHT_URL>/api/v1/credentials/oidc:client-secr
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+Upon success, `curl` should show the JSON `{"ok":true}` .  
+
+Further, going to the CHT login screen should now show an extra login button "Login with SSO"
+
+![login-with-sso-button.png](keycloak/login-with-sso-button.png)
 
 {{% /steps %}}
 
