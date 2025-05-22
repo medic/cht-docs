@@ -3,7 +3,7 @@ title: "App Management Details"
 linkTitle: "Details"
 weight: 19
 description: >
-  Detailed about App Management features and configuration
+  App Management features and configuration
 ---
 
 ### Available Features
