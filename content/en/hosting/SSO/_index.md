@@ -1,5 +1,5 @@
 ---
-title: Single Sign On
+title: Single Sign-On
 linkTitle: SSO
 weight: 200
 ---
