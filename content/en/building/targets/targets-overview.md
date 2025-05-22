@@ -7,7 +7,7 @@ relatedContent: >
   building/targets/targets-js
   technical-overview/db-schema#targets
   building/integrations/dhis2
-  building/features/supervision/#chw-aggregate-targets
+  building/supervision/#chw-aggregate-targets
 aliases:
    - /building/features/targets/
    - /apps/features/targets/
@@ -22,7 +22,7 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 {{< card link="targets-desktop.png" image="targets-desktop.png"  method="resize">}}
 {{< /cards >}}
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data.
 
 ## Types of Widgets

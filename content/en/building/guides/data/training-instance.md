@@ -3,8 +3,8 @@ title: "Detecting and fixing production data on training instances"
 linkTitle: "Training Instance"
 weight: 15
 description: >
-    How to monitor for production data on a training instance, and remediation techniques 
-    
+    How to monitor for production data on a training instance, and remediation techniques
+
 aliases:
    - /apps/guides/data/training-instance
 ---
@@ -33,20 +33,20 @@ with forms as (
   where to_timestamp((doc ->> 'reported_date' )::bigint / 1000) > '2020-09-14 00:00:00'
   group by 1
 ), chw_names as (
-  select 
-  doc ->> '_id' as chw_id, 
+  select
+  doc ->> '_id' as chw_id,
   doc ->> 'name' as chw_name
-  from couchdb 
+  from couchdb
   where doc ->> 'role' = 'chw'
   and doc ->> 'name' not like 'ASC%'
 )
-select 
+select
   n.chw_name,
   f.n_forms
-from 
-forms f 
-left join 
-chw_names n 
+from
+forms f
+left join
+chw_names n
 using(chw_id)
 order by n_forms desc;
 ```
@@ -55,7 +55,7 @@ A limitation of this technique is that CHWs who have not synchronized their devi
 
 ### CHT based supervisor tasks
 
-[Tasks for supervisors]({{< relref "building/features/supervision#supervisor-tasks" >}}) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
+[Tasks for supervisors]({{< relref "building/supervision#supervisor-tasks" >}}) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
 
 ## Remediation
 

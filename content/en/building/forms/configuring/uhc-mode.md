@@ -5,7 +5,7 @@ weight: 1
 description: >
   How to enable Universal Health Coverage monitoring with UHC Mode
 relatedContent: >
-  building/features/uhc-mode
+  building/uhc-mode
   building/reference/app-settings/user-roles
   building/reference/app-settings/user-permissions
 aliases:
@@ -13,7 +13,7 @@ aliases:
    - /apps/guides/forms/uhc-mode
 ---
 
-The CHT's [UHC Mode]({{< relref "building/features/uhc-mode" >}}) empowers CHWs to provide equitable and timely care to families in their catchment area. The Community Health Toolkit supports this use-case by displaying the number of visits made to a household and highlighting households which haven't met their visit goal in red at the top of the contact list.
+The CHT's [UHC Mode]({{< relref "building/uhc-mode" >}}) empowers CHWs to provide equitable and timely care to families in their catchment area. The Community Health Toolkit supports this use-case by displaying the number of visits made to a household and highlighting households which haven't met their visit goal in red at the top of the contact list.
 
 {{< cards >}}
   {{< figure src="UHC.gif" link="UHC.gif" alt="UHC Mode screenshot" class="right col-6 col-lg-3" >}}
