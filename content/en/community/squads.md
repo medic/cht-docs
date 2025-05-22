@@ -72,5 +72,5 @@ Impact in the real world. Features are deployed to real-world users and later me
 Mission accomplished. The project meets all goals and is marked complete.
 
 ## When can you join a squad?
-See the active squads on our [roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to see all the CHT events including the squads.
+See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
 
