@@ -2,6 +2,7 @@
 title: "Welcome to the CHT Documentation!"
 linkTitle: "Documentation"
 identifier: "docs"
+description: "Everything you need to know to contribute, implement and be successful with the CHT"
 weight: 1
 aliases:
     - /search
@@ -16,12 +17,8 @@ cascade:
   type: "docs"
 ---
 
-{{< hextra/hero-subtitle >}}
-  Everything you need to know to contribute, implement and be successful with the CHT
-{{< /hextra/hero-subtitle >}}
-
 {{< cards >}}
-  {{< card link="reference-apps" title="Reference Apps" subtitle="Explore et get inspired by examples of CHT reference applications" icon="collection" >}}
+  {{< card link="reference-apps" title="Reference Apps" subtitle="Explore and get inspired by examples of CHT reference applications" icon="collection" >}}
   {{< card link="technical-overview" title="Technical Overview" icon="template" subtitle="Overview and architecture of CHT components" >}}
   {{< card link="community" title="Get Involved" subtitle="Do you want to get involved in the CHT Community? Here's how..." icon="arrow-circle-right" >}}
   {{< card link="community/contributing" title="Contribute" subtitle="See how to contribute code and documentation" icon="pencil-alt" >}}
@@ -51,7 +48,7 @@ cascade:
   {{< hextra/feature-card
     title="Host the CHT"
     subtitle="Learn how to host the CHT locally or in production"
-    link="../hosting/4.x/production"
+    link="../hosting/4.x/docker"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(85, 210, 205, 0.15),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}

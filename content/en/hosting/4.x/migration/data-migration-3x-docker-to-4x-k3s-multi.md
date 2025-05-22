@@ -2,13 +2,11 @@
 title: "Migration from Docker Compose CHT 3.x to 3-Node Clustered CHT 4.x on K3s"
 linkTitle: "To K3s Multi-node"
 weight: 1
+description: >
+  Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes
 aliases:
   - /hosting/4.x/migration/_partial_migration_3x_docker_to_4x_k3s
 ---
-
-{{< hextra/hero-subtitle >}}
-  Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes
-{{< /hextra/hero-subtitle >}}
 
 The hosting architecture differs entirely between CHT Core 3.x and CHT Core 4.x. When migrating from Docker Compose to K3s, specific steps are required using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
 

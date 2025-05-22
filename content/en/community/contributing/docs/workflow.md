@@ -2,13 +2,11 @@
 title: "Documentation Workflow"
 linkTitle: "Workflow"
 weight: 1
+description: >
+  How to contribute to the CHT tools and documentation
 aliases:
   -    /contribute/docs/workflow
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to contribute to the CHT documentation
-{{< /hextra/hero-subtitle >}}
 
 ## Getting Started
 

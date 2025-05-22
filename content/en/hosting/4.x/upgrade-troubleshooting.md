@@ -2,11 +2,11 @@
 title: "Troubleshooting 4.x upgrades"
 linkTitle: "Troubleshooting upgrades"
 weight: 50
----
-
-{{< hextra/hero-subtitle >}}
+description: >
   What to do when CHT 4.x upgrades don't work as planned
-{{< /hextra/hero-subtitle >}}
+relatedContent: >
+  hosting/4.x/migration/migration-to-4x-docker
+---
 
 {{< callout >}}
   4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed 4.x upgrades.  Below are some specific tips as well as general practices on upgrading 4.x.
@@ -15,7 +15,7 @@ weight: 50
 There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage. An alternate possibility is that the progress bars disappear altogether. 
 
 > [!WARNING]
-> All tips apply to both [Docker]({{< relref "hosting/4.x/production/docker" >}}) and [Kubernetes]({{< relref "hosting/4.x/production/kubernetes" >}}) based deployments unless otherwise specified.
+> All tips apply to both [Docker]({{< relref "hosting/4.x/docker" >}}) and [Kubernetes]({{< relref "hosting/4.x/kubernetes" >}}) based deployments unless otherwise specified.
 > All upgrades are expected to succeed without issue.  Do not attempt any fixes unless you actively have a problem upgrading.
 
 ## Considerations

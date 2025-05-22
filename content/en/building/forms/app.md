@@ -2,14 +2,14 @@
 title: "app"
 linkTitle: "app"
 weight: 1
+description: >
+  **App Forms**: Used to complete reports, tasks, and actions in the app
+relatedContent: >
+  building/forms/configuring/form-inputs
 aliases:
    - /building/reference/forms/app
    - /apps/reference/forms/app
 ---
-
-{{< hextra/hero-subtitle >}}
-  **App Forms**: Used to complete reports, tasks, and actions in the app
-{{< /hextra/hero-subtitle >}}
 
 App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/features/reports" >}} ).
 

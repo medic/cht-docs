@@ -2,15 +2,14 @@
 title: "Production Hosting in CHT 4.x - Multiple CouchDB Nodes on k3s on VMWare"
 linkTitle: "VMWare + k3s Multiple Node"
 weight: 20
+description: >
+  Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
 aliases:
   - /apps/guides/hosting/4.x/self-hosting/self-hosting-k3s-multinode
   - /hosting/4.x/self-hosting/self-hosting-k3s-multinode
   - ../self-hosting-k3s-multinode
+  - /hosting/4.x/production/kubernetes/self-hosting-k3s-multinode/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   This page covers an example k3s cluster setup on a VMware datacenter with vSphere 7+ for a national deployment across 50 counties capable of supporting 20,000+ CHWs concurrently. After setup, administrators should only add VMs to the cluster or deploy CHT Core projects to be orchestrated.
@@ -18,7 +17,7 @@ aliases:
 
 ### About container orchestration
 
-A container orchestrator helps easily allocate hardware resources spread across a datacenter. For national scale projects, or a deployments with a  large number of CHT Core instances, Medic recommends a lightweight Kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will:
+A container orchestrator helps easily allocate hardware resources spread across a datacenter. For national scale projects, or a deployments with a large number of CHT Core instances, you can use a lightweight Kubernetes orchestrator called [k3s](https://docs.k3s.io/). The orchestrator will:
 
 * monitor resources across a group of virtual machines (aka "nodes")
 * place CHT Core projects where there is available resource 

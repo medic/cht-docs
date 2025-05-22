@@ -1,7 +1,14 @@
 ---
-title: "CHT Core Framework"
-linkTitle: "CHT Core"
-weight: 2
+title: "Architecture of CHT Instances"
+linkTitle: "Architecture"
+weight: 1
+description: >
+  Overview of CHT components and interactions
+relatedContent: >  
+  technical-overview/cht-watchdog
+  technical-overview/cht-sync
+aliases:
+   - /core/overview/architecture
 ---
 
 {{< hextra/hero-subtitle >}}

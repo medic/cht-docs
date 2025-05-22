@@ -2,14 +2,12 @@
 title: "App Developer Hosting in CHT 3.x"
 linkTitle: "App Developer Hosting"
 weight: 3
+description: >
+  Hosting the CHT when developing apps
 aliases:
    - /apps/guides/hosting/3.x/app-developer
    - /apps/guides/hosting/app-developer 
 ---
-
-{{< hextra/hero-subtitle >}}
-  Hosting the CHT when developing apps
-{{< /hextra/hero-subtitle >}}
 
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
@@ -228,7 +226,8 @@ _**NOTE**_ - You need connectivity on the initial boot of the VM to connect to `
 
 If you have two `.env_docker` files that have the same ports or re-use the same project name, bad things will happen.  Don't do this.
 
-Medic recommends setting up unique project names and unique ports for each project.  Commit these `.env_docker` files to your app config's revision control so all app developers use the same `.env_docker` files.
+> [!TIP]
+> Set up unique project names and unique ports for each project.  Commit these `.env_docker` files to your app config's revision control so all app developers use the same `.env_docker` files.
 
 #### Slow downloads and wait periods
 

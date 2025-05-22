@@ -2,14 +2,16 @@
 title: "Make Calls and Sending SMS from App Forms"
 linkTitle: "App Form SMS"
 weight: 3
+description: >
+  Trigger calls and SMS from within the form, or send an SMS once submitted
+relatedContent: >
+  building/forms/configuring/additional-docs
+  building/forms/configuring/multimedia
+  building/forms/contact
 aliases:
    - /building/guides/forms/app-form-sms
    - /apps/guides/forms/app-form-sms
 ---
-
-{{< hextra/hero-subtitle >}}
-  Trigger calls and SMS from within the form, or send an SMS once submitted
-{{< /hextra/hero-subtitle >}}
 
 ## Triggering Calls and SMS
 

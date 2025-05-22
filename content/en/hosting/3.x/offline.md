@@ -2,14 +2,12 @@
 title: "Offline Hosting of CHT 3.x Server"
 linkTitle: "Offline Hosting"
 weight: 5
+description: >
+ Deploy and host CHT Core server instances without Internet connectivity
 aliases:
   - /apps/guides/hosting/3.x/offline
   - /apps/guides/hosting/offline
 ---
-
-{{< hextra/hero-subtitle >}}
- Deploying and hosting CHT Core server instances without Internet connectivity
-{{< /hextra/hero-subtitle >}}
 
 {{< callout type="error" >}}
   This guide is not meant for a production CHT instance.  Support may be added in the future an offline CHT server in a production environment.  See the "Considerations" section below.

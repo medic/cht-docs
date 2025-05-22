@@ -2,14 +2,12 @@
 title: "Introduction to monitoring and alerting"
 weight: 1
 linkTitle: "Introduction"
+description: >
+  High level approach to monitoring and alerting with CHT applications
 aliases:
     - /apps/guides/hosting/monitoring/introduction
     - /apps/guides/hosting/monitoring
 ---
-
-{{< hextra/hero-subtitle >}}
-  High level approach to monitoring and alerting with CHT applications
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
 This guide applies to all production instances of the CHT for both 3.x (beyond 3.9) and 4.x.

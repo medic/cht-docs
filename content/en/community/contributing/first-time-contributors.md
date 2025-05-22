@@ -3,11 +3,8 @@ title: "First Time Contributors Guide"
 linkTitle: "First Time Contributors"
 weight: 1
 description: >
----
-
-{{< hextra/hero-subtitle >}}
   Starting guide for first time contributors
-{{< /hextra/hero-subtitle >}}
+---
 
 ## Who this is for
 

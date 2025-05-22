@@ -2,15 +2,13 @@
 title: "CHT Core dev environment setup"
 linkTitle: "Dev Environment Setup"
 weight: 1
+description: >
+  Get your local machine ready to do development work on CHT Core
 aliases:
   - /apps/guides/hosting/core-developer
   - /apps/guides/hosting/hosting/4.x/app-developer
   - /contribute/code/core/dev-environment
 ---
-
-{{< hextra/hero-subtitle >}}
-  Getting your local machine ready to do development work on CHT Core
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
 This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
@@ -225,7 +223,8 @@ Once this downloads and starts, you will need to [initialise CouchDB](http://loc
 
 You can use `docker stop medic-couchdb` to stop it and `docker start medic-couchdb` to start it again. Remember that you'll need to start it whenever you restart your OS, which might not be the case if you use a normal OS package. `docker rm medic-couchdb` will totally remove the container.
 
-Medic recommends you familiarise yourself with other Docker commands to make docker image and container management clearer.
+> [!TIP]
+> Familiarise yourself with other Docker commands to make docker image and container management clearer.
 
 ### Required environment variables
 

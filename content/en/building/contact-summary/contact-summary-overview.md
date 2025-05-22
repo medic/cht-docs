@@ -2,14 +2,15 @@
 title: Building Contact Summary
 linkTitle: Building
 weight: 1
+description: >
+  Build CHT Application contact summary
+relatedContent: >
+  building/contact-management#contact-summary
+  building/contact-summary/contact-summary-templated#contact-summary
 aliases:
    - /building/tutorials/contact-summary
    - /apps/tutorials/contact-summary
 ---
-
-{{< hextra/hero-subtitle >}}
-  Build CHT Application contact summary
-{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through building a contact summary for CHT applications.
 

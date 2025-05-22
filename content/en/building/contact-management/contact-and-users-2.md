@@ -2,14 +2,17 @@
 title: "Contact and User Management - Part 2"
 linkTitle: Contacts + Users 2
 weight: 3
+description: >
+  Create and edit contacts and users with cht-conf
+relatedContent: >
+  building/contact-management/contact-and-users-1
+  technical-overview/db-schema
+  building/guides/data/users-bulk-load
+  building/concepts/users
 aliases:
    - /building/tutorials/contact-and-users-2/
    - /apps/tutorials/contact-and-users-2
 ---
-
-{{< hextra/hero-subtitle >}}
-  Create and edit contacts and users with cht-conf
-{{< /hextra/hero-subtitle >}}
 
 In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using cht-conf. If you haven't already, have a look at [part 1]({{% ref "building/contact-management/contact-and-users-1" %}}) of this tutorial for a useful overview of key concepts.
 

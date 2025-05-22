@@ -2,14 +2,14 @@
 title: contact-summary.templated.js
 linkTitle: contact-summary.templated.js
 weight: 2
+description: >
+  Customize fields, cards, and actions on profile pages
+relatedContent: >
+  building/forms/configuring/form-inputs
 aliases:
    - /building/reference/contact-page
    - /apps/reference/contact-page
 ---
-
-{{< hextra/hero-subtitle >}}
-  Customize fields, cards, and actions on profile pages
-{{< /hextra/hero-subtitle >}}
 
 Contact profile pages display basic information about the contact along with their history and upcoming tasks.
 A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.

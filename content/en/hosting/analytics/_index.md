@@ -2,16 +2,17 @@
 title: Data Synchronization and Analytics
 linkTitle: Data Synchronization & Analytics
 weight: 9
+description: >
+  Using CHT Sync for data synchronization and analytics
+relatedContent: >
+  technical-overview/cht-sync
+  technical-overview/data-flows-for-analytics/
 aliases:
     - /apps/guides/data/analytics/
     - /apps/guides/data/analytics/introduction
     - /building/guides/data/analytics/
     - /building/guides/data/analytics/introduction
 ---
-
-{{< hextra/hero-subtitle >}}
-  Using CHT Sync for data synchronization and analytics
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   The pages in this section apply to both CHT 3.x (beyond 3.12) and CHT 4.x. 
