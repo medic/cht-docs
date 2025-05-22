@@ -6,7 +6,7 @@ description: >
   How community squads work
 ---
 
-  **What is a Squad?**
+## What is a squad?
 
 A CHT Squad is a small, action-oriented team that works together to solve high-priority challenges for the community. These teams bring together developers, designers, partners, and other contributors to build and implement important new features for the CHT ecosystem.
 
