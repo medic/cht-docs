@@ -6,7 +6,7 @@ description: >
   Data synchronization tools to enable analytics
 relatedContent: >  
   technical-overview/architecture
-  technical-overview/data-flows-for-analytics/
+  technical-overview/concepts/data-flows-for-analytics/
   hosting/analytics/
 aliases:
     - /core/overview/data-flows-for-analytics/cht-sync/

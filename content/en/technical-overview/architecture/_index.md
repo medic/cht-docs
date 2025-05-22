@@ -47,3 +47,6 @@ CHT Web Application works in the browser or wrapped in the [CHT Android](https:/
 
 [CHT Gateway](https://github.com/medic/cht-gateway) is an android app for sending and receiving SMS messages. Each SMS enabled project has one gateway running. It polls an api endpoint to write incoming SMS into the CouchDB and retrieve outgoing SMS to send.
 
+### cht-interoperability
+
+[CHT Interoperability]{{< relref "building/interoperability/" >}} implements interoperability between the CHT and other health information systems based on OpenHIE architecture and HL7 FHIR messaging format.

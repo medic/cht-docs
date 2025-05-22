@@ -5,8 +5,8 @@ weight: 9
 description: >
   Using CHT Sync for data synchronization and analytics
 relatedContent: >
-  technical-overview/cht-sync
-  technical-overview/data-flows-for-analytics/
+  technical-overview/architecture/cht-sync
+  technical-overview/concepts/data-flows-for-analytics/
 aliases:
     - /apps/guides/data/analytics/
     - /apps/guides/data/analytics/introduction

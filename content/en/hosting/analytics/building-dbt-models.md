@@ -5,7 +5,7 @@ weight: 4
 description: >
   Guide for building dbt models for CHT applications
 relatedContent: >
-  technical-overview/db-schema
+  technical-overview/concepts/db-schema
   building/reference/app-settings/hierarchy
 aliases:
    - /apps/guides/data/analytics/building-dbt-models

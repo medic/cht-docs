@@ -1,5 +1,5 @@
 ---
-title: "CHT App Configurer"
+title: "CHT Conf"
 linkTitle: "CHT Conf"
 weight: 3
 description: >
