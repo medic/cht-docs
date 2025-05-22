@@ -1,6 +1,6 @@
 --- 
 title: "CHT Squads" 
-linkTitle: "Community"
+linkTitle: "Squads"
 weight: 2 
 description: > 
   CHT Initiatives 
