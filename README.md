@@ -81,7 +81,7 @@ $ docker exec  cht-hugo sh -c "cd .github/scripts/; ./muffet.sh"
 
 http://localhost:1313/hosting/4.x/production/docker/adding-tls-certificates/
         lookup letsencrypt.org: i/o timeout     https://letsencrypt.org/
-http://localhost:1313/technical-overview/offline-first/
+http://localhost:1313/technical-overview/concepts/offline-first/
         lookup blog.couchdb.org: i/o timeout    https://blog.couchdb.org/2017/09/19/couchdb-takes-medic-mobile-to-the-front-lines-of-healthcare-work/
 http://localhost:1313/hosting/monitoring/production/
         lookup letsencrypt.org: i/o timeout     https://letsencrypt.org/

@@ -5,8 +5,8 @@ linkTitle: "couch2pg to CHT Sync"
 description: >
   Instructions on migrating from couch2pg to CHT Sync for data synchronization and analytics
 relatedContent: >
-  technical-overview/cht-sync
-  technical-overview/data-flows-for-analytics/
+  technical-overview/architecture/cht-sync
+  technical-overview/concepts/data-flows-for-analytics/
 aliases:
    - /apps/guides/data/analytics/couch2pg-to-cht-sync-migration
    - /building/guides/data/analytics/couch2pg-to-cht-sync-migration

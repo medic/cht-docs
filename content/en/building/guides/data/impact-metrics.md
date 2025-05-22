@@ -6,7 +6,7 @@ description: >
   A set of impact metrics for monitoring priority use cases across the Community Health Toolkit
 keywords: impact monitoring 
 relatedContent: >
-  technical-overview/data-flows-for-analytics
+  technical-overview/concepts/data-flows-for-analytics
   building/guides/performance/telemetry
 aliases:
    - /apps/guides/data/impact-metrics

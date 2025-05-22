@@ -6,7 +6,7 @@ description: >
    Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
    technical-overview/architecture
-   technical-overview/cht-watchdog
+   technical-overview/architecture/cht-watchdog
 aliases:  
   - /building/guides/hosting/monitoring/setup
   - /apps/guides/hosting/monitoring/setup
