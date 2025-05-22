@@ -4,7 +4,7 @@ linkTitle: "Overview"
 identifier: "Reports overview"
 weight: 1
 description: >
-  Overview of CHT Reports
+  Functionalities of CHT Reports 
 ---
 
 The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferable for CHW users).
