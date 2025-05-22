@@ -21,24 +21,28 @@ These steps document how to configure KeyCloak as the Single Sign On (SSO) ident
 * TLS enabled on CHT and KeyCloak
 {{< /tab >}}
 {{< tab >}}
-Start an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht-test`. Add compose file in `~/.medic/cht-docker/cht-test/compose/cht-sso.yml` with this contents:
+Start an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht-test`. Create an extra compose file and two cert files by running this code. Note this is dependant on your Docker Helper instance being called `cht-test` :
 
 ```yaml
+mkdir -p $HOME/.medic/cht-docker/cht-test-dir
+curl -o $HOME/.medic/cht-docker/cht-test-dir/server.crt https://local-ip.medicmobile.org/fullchain
+curl -o $HOME/.medic/cht-docker/cht-test-dir/server.key ://local-ip.medicmobile.org/key
+cat > $HOME/.medic/cht-docker/cht-test-dir/compose/cht-sso.yaml << EOF
 services:
-    keycloak:
-        image: quay.io/keycloak/keycloak
-        environment:
-            KEYCLOAK_ADMIN: medic
-            KEYCLOAK_ADMIN_PASSWORD: password
-        ports: 
-          - "8080:8080"
-        networks:
-          - cht-net
-        command: start-dev
-
-networks:
-    cht-net:
-      name: ${CHT_NETWORK:-cht-net}
+  keycloak:
+    image: quay.io/keycloak/keycloak
+    environment:
+      KEYCLOAK_ADMIN: medic
+      KEYCLOAK_ADMIN_PASSWORD: password
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/server.crt
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/server.key
+    ports:
+      - "8443:8443"
+    command: start-dev
+    volumes:
+      - $HOME/.medic/cht-docker/cht-test-dir/server.crt:/opt/keycloak/conf/server.crt
+      - $HOME/.medic/cht-docker/cht-test-dir/server.key:/opt/keycloak/conf/server.key
+EOF
 ```
 
 KeyCloak is now accessible on [http://localhost:8080](http://localhost:8080![img.png](img.png)/). The username is `medic` and the password is `password`.
@@ -125,8 +129,7 @@ Update `KEYCLOAK_URL` to be the same as your Docker Helper URL, but with `8080` 
 ```json
     "oidc_provider": {
       "client_id": "CHT",
-      "discovery_url": "http://<KEYCLOAK_URL>:8080/realms/master/.well-known/openid-configuration",
-      "allow_insecure_requests": true
+      "discovery_url": "https://<KEYCLOAK_URL>:8080/realms/master/.well-known/openid-configuration"
     },
 ```
 {{< /tab >}}
@@ -204,23 +207,18 @@ Go to the user's "Credentials" tab and select "Set password"
 From the "App Management" console in the CHT, go to "Users" > "Add user"
   - User name: `test` 
   - SSO Email Address: `test@test.com` (must match email [from step #1](#add-keycloak-user))
-  - Enable login Via SSO: Checked
+  - **Note** - the `E-mail address` field is not used for SSO.
 
 ![cht.new.user.png](keycloak/cht.new.user.png)
 
-- TODO Currently UI for adding SSO user is only in `benkags:9761-sso-user-management-frontend`
-  - The workaround is to just add a normal user with the proper `email` value and then update the `_users` doc for that user to include `"oidc": true` via Fauxton
-- Navigate to the CHT instance in your browser: `http://localhost:5988/` and login as the admin user
 
+###  Test login 
 
-###  Test login (optional)
-
-- Logout as the Admin user.
-- From the CHT login screen, select "Login with SSO"
+Logout as the Admin user and then on the CHT login screen, select "Login with SSO"
   - Your browser will be redirected to the Keycloak login screen
   - Enter the username/password for your Keycloak user
   - You will be redirected back to the CHT app and logged in as your CHT user
-- TODO Currently CHT login not working in branch code due to user mapping.
+
 
 {{% /steps %}}
 
