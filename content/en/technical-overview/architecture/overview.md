@@ -10,8 +10,6 @@ aliases:
   Overview of CHT components and their interactions
 {{< /hextra/hero-subtitle >}}
 
-
-
 ## CHT Core Framework
 
 The CHT Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
