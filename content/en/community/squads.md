@@ -25,7 +25,7 @@ A CHT Squad is a small, action-oriented team that works together to solve high-p
 ## What are the different stages in a squad?
 Squads evolve through stages, and anyone can start contributing at any stage - no matter their experience level. Here are the various stages:
 
-1. Emerging
+### 1. Emerging
 An idea sparks! The community identifies a feature or improvement with broad potential.
 
       **Outputs**:
