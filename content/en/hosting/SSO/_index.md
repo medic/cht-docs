@@ -2,11 +2,8 @@
 title: Single Sign-On
 linkTitle: SSO
 weight: 200
+description: Setting up an single sign on with the CHT
 ---
-
-{{< hextra/hero-subtitle >}}
-  Setting up an single sign on with the CHT
-{{< /hextra/hero-subtitle >}}
 
 CHT version 4.20.0 introduces support for Single Sign-On (SSO).  This enables deployments to authenticate users outside of the CHT.  While the feature was extensively tested with the free and open source [KeyCloak](https://www.keycloak.org/) and the commercial [Microsoft Entra](https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra) providers, it should work with any [OpenID Connect](https://openid.net/) (OIDC) compliant identity provider.
 
