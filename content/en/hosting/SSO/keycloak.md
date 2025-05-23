@@ -52,10 +52,6 @@ EOF
 
 Now create an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht_test`. The extra compose file will start the Keycloak instance which is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
 
-{{< callout >}}
-Currently [there is an issue](https://github.com/medic/cht-core/issues/9981) that prevents the CHT docker helper from being on a random `104xx`  port.  Please edit the `cht_test.env` file and change the port to be: `NGINX_HTTPS_PORT=443` and restart your docker helper.
-{{< /callout >}}
-
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -71,11 +67,7 @@ Be sure you're logged in
 
 ### Add new Client
 
-Add new Client in Keycloak by going to "Clients" > "Create Client" 
-
-{{< tabs items="Production,Development" >}}
-{{< tab >}}
-Be sure to replace `CHT_URL` with the production URL of your CHT instance
+Add new Client in Keycloak by going to "Clients" > "Create Client". Be sure to replace `CHT_URL` with the production URL of your CHT instance. If you're on a development instance be sure to include the port:
 
  - Client Type: `OpenID Connect`
  - Client ID: `CHT`
@@ -83,17 +75,6 @@ Be sure to replace `CHT_URL` with the production URL of your CHT instance
  - Authentication Flow: `Standard flow`
  - Valid redirect URIs: `https://<CHT_URL>/medic/login/oidc`
 
-{{< /tab >}}
-{{< tab >}}
-Be sure to replace `CHT_URL` with the docker helper URL of your CHT instance. Be sure to include the port at the end of the URL: 
-- Client Type: `OpenID Connect`
-- Client ID: `CHT`
-- Client authentication: `On`
-- Authentication Flow: `Standard flow`
-- Valid redirect URIs: `https://<CHT_URL>/medic/login/oidc`
-
-{{< /tab >}}
-{{< /tabs >}}
  
 ![Create new Client](keycloak/newclient-new.png)
 
@@ -119,13 +100,14 @@ On the new `CHT` client go to "Credentials" and copy the "Client Secret" value. 
 
 In the config directory for your app, update your `app_settings.json` file to contain this additional JSON at the end, before the very last `}`
 
-Be sure to replace `KEYCLOAK_URL` with the production URL of your Keycloak instance.
+Be sure to replace `KEYCLOAK_URL` with the production URL of your Keycloak instance and `CHT_URL` with the production URL of your CHT instance. If you're using a development instance, be sure the `CHT_URL` includes your port.
 
 ```json
     "oidc_provider": {
       "client_id": "CHT",
       "discovery_url": "https://<KEYCLOAK_URL>/realms/master/.well-known/openid-configuration"
     },
+    "app_url": "https://<CHT_URL>/"
 ```
 
 
@@ -176,7 +158,7 @@ curl -X PUT https://medic:password@<CHT_URL>/api/v1/credentials/oidc:client-secr
 
 Upon success, `curl` should show the JSON `{"ok":true}` .  
 
-Further, going to the CHT login screen should now show an extra login button "Login with SSO"
+Further, going to the CHT login screen should now show an extra login button "Login with SSO". You may need to hold down the "shift" key and click reload to clear the browser cache:
 
 ![login-with-sso-button.png](keycloak/login-with-sso-button.png)
 
