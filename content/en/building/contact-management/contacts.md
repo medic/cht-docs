@@ -23,18 +23,15 @@ aliases:
 
 Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data]({{< ref "building/guides/performance/replication#contact-depth" >}}) is downloaded and stored on their device.
 
-{{< cards rows="2" >}}
-{{< card link="people-mobile.png" image="people-mobile.png"  method="resize">}}
-{{< card link="people-desktop.png" image="people-desktop.png"  method="resize">}}
-{{< /cards >}}
+
+{{< figure src="people-desktop.png" link="people-desktop.png" class="right col-6 col-lg-8 bordered-figure" >}}
 
 ## Main List
 
-{{< cards rows="2" >}}
-{{< card link="sort-dropdown.png" image="sort-dropdown.png"  method="resize">}}
-{{< card link="people-mobile.png" image="people-mobile.png"  method="resize">}}
+{{< cards >}}
+  {{< figure src="people-mobile.png" link="people-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
+  {{< figure src="sort-dropdown.png" link="sort-dropdown.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
-
 
 The list view on the leftmost screenshot is what a logged-in CHW would see when they access the “People” tab on a small screen.
 
@@ -48,8 +45,8 @@ With the [_UHC Mode_]({{< relref "building/uhc-mode" >}}) configured, the main l
 
 ## Searching
 
-{{< cards rows="1" >}}
-{{< card link="search-mobile.png" image="search-mobile.png"  method="resize">}}
+{{< cards >}}
+{{< figure src="search-mobile.png" link="search-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
 Click on the search icon at the top of the screen to search for a “person” or “place”. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
@@ -67,10 +64,10 @@ If you’re viewing a place profile, you’ll see a list of people or places tha
 Beneath that, you will find tasks for this person or place. At the very bottom is a history of submitted reports for this person or place.
 
 {{< cards rows="4" >}}
-{{< card link="profile1.png" image="profile1.png"  method="resize">}}
-{{< card link="profile2.png" image="profile2.png"  method="resize">}}
-{{< card link="profile3.png" image="profile3.png"  method="resize">}}
-{{< card link="profile4.png" image="profile4.png"  method="resize">}}
+{{< figure src="profile1.png" link="profile1.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< figure src="profile2.png" link="profile2.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< figure src="profile3.png" link="profile3.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< figure src="profile4.png" link="profile4.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
@@ -81,9 +78,9 @@ From profiles, users can edit contact information, take actions, and, if viewing
 
 The top card on all profiles contains general information for the contact. All the fields shown in this summary card are configurable.
 
-{{< cards rows="4" >}}
-{{< card link="bio1.png" image="bio1.png"  method="resize">}}
-{{< card link="bio2.png" image="bio2.png"  method="resize">}}
+{{< cards rows="2" >}}
+{{< figure link="bio1.png" src="bio1.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< figure link="bio2.png" src="bio2.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
 
@@ -103,8 +100,8 @@ Configurable elements include:
 - Conditions under which to display
 
 {{< cards rows="4" >}}
-{{< card link="condition-card1.png" image="condition-card1.png"  method="resize">}}
-{{< card link="condition-card2.png" image="condition-card2.png"  method="resize">}}
+{{< figure link="condition-card1.png" src="condition-card1.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< figure link="condition-card2.png" src="condition-card2.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
 {{< see-also page="contact-summary-templated" anchor="condition-cards" title="Defining Condition Cards" >}}
@@ -113,8 +110,8 @@ Configurable elements include:
 ## Care Guides
 <!-- todo: Resolve Care Guides vs Actions -->
 
-{{< cards rows="4" >}}
-{{< card link="care-guides.png" image="care-guides.png"  method="resize">}}
+{{< cards rows="1" >}}
+{{< figure link="care-guides.png" src="care-guides.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
 
@@ -136,7 +133,7 @@ Contacts are created/modified via [contact forms]({{< relref "building/forms/con
 _(Added in CHT `4.19.0`)_
 
 {{< cards rows="4" >}}
-{{< card link="duplicate-contact-screenshot.png" image="duplicate-contact-screenshot.png"  method="resize">}}
+{{< figure link="duplicate-contact-screenshot.png" src="duplicate-contact-screenshot.png" class="right col-6 col-lg-8 bordered-figure">}}
 {{< /cards >}}
 
 One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching]({{< ref "#searching" >}}) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
