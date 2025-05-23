@@ -68,7 +68,7 @@ The functionality is released and ready to create an impact in the real world. F
       **Output**:
       - ✅ Live deployment!
 
-7. Done
+### 7.  Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
 ## When can you join a squad?
