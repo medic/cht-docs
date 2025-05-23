@@ -5,7 +5,16 @@ weight: 200
 description: Setting up an single sign on with the CHT
 ---
 
-CHT version 4.20.0 introduces support for Single Sign-On (SSO).  This enables deployments to authenticate users outside of the CHT.  While the feature was extensively tested with the free and open source [KeyCloak](https://www.keycloak.org/) and the commercial [Microsoft Entra](https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra) providers, it should work with any [OpenID Connect](https://openid.net/) (OIDC) compliant identity provider.
+{{< callout >}}
+Introduced in 4.20.0
+{{< /callout >}}
+ 
+The CHT supports Single Sign-On (SSO) via integration with an external authentication server. Users connecting to a CHT instance authenticate with their SSO credentials instead of needing a CHT-specifc username and password.
+ 
+SSO authentication is implemented with the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol. Any OIDC-compliant authentication server can be integrated the the CHT. For example:
+
+- [Keycloak](https://www.keycloak.org/) - Free and open-source, self-hostable identity and access managment server
+- [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra) - Paid, cloud-based identity and access management service.
 
 ![sso-login-flow.svg](sso-login-flow.svg)
 
