@@ -1,7 +1,7 @@
 ---
-title: "Architecture of CHT Instances"
+title: "CHT-Core"
 linkTitle: "CHT-Core"
-weight: 1
+weight: 2
 description: >
   Overview of CHT components and interactions
 relatedContent: >  
@@ -17,12 +17,42 @@ aliases:
 
 The CHT Core Framework is the primary component of the CHT. The server comes with authentication, role based authorization, data security, and a range of protected data access endpoints. Read more detail in [cht-core GitHub repository](https://github.com/medic/cht-core).
 
+```mermaid
+flowchart TB
+  subgraph CHT_Core_Framework["<div style="width: 23em; height:2em; display:flex; justify-content: flex-start; align-items:flex-end;">Server</div>"]
+    direction TB
+    NGINX(NGINX):::container
+    API(API):::container
+    Sentinel(Sentinel):::container
+    HAProxy(Haproxy):::container
+    CouchDB[(CouchDB)]:::container
+    classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
+  end
+
+  Upgrade["Upgrade Service"]:::container
+
+  subgraph Client["<div style="width: 28em; height:2em; display:flex; justify-content: flex-start; align-items:flex-end;">Client</div>"]
+    subgraph Webapp["Webapp"]
+      PouchDB[(PouchDB)]:::container
+    end
+
+    Admin["App Management"]:::container
+end
+  
+  Webapp <--> NGINX
+  Admin <--> NGINX
+  NGINX <--> API
+  API --> Upgrade
+  Sentinel <--> HAProxy
+  API <--> HAProxy
+  HAProxy <--> CouchDB
+
+  style CHT_Core_Framework fill: transparent
+  style Client fill: transparent
+  style Webapp fill: transparent
+```
+
 ## Server
-
-<!-- make updates to this diagram on the google slides:            -->
-<!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
-
-{{< figure src="architecture.png" link="architecture.png" caption="Data Flows" >}}
 
 #### API
 

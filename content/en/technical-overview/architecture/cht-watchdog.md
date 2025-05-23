@@ -18,6 +18,8 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 {{< figure src="cht-watchdog.png" link="cht-watchdog.png" caption="Data Flows" >}}
 
+
+
 ### Grafana
 
 [Grafana](https://grafana.com/) is a dashboard visualization and alerting software.  It is open source and an industry standard for this task.  There is an [free repository of pre-existing dashboards](https://grafana.com/grafana/dashboards/) which greatly reduce the time to create new dashboards and alerts.  It can send alerts via email, Slack, SMS and many more.
