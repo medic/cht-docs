@@ -69,7 +69,7 @@ The functionality is released and ready to create an impact in the real world. F
       - ✅ Live deployment!
 
 7. Done
-Mission accomplished. The project meets all goals and is marked complete.
+Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
 ## When can you join a squad?
 See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
