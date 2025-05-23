@@ -62,7 +62,7 @@ Ensuring quality. Rigorous manual/automated testing verifies functionality.
       - ✅ Test reports
       - ✅ Verified software
 
-6. Release
+### 6. Release
 The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
       **Output**:
