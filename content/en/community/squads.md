@@ -50,7 +50,7 @@ Turning ideas into action. Clear specs and mockups are finalized for development
 
 4. Development/Building:
 building the solution. 
-Developers implement features based on agreed designs.
+Feature implementation based on agreed-upon designs.
 
       **Output**:
       - ✅ Working software (GitHub pull requests)
