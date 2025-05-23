@@ -63,7 +63,7 @@ Ensuring quality. Rigorous manual/automated testing verifies functionality.
       - ✅ Verified software
 
 6. Release
-Impact in the real world. Features are deployed to real-world users and later merged into core CHT releases.
+The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
       **Output**:
       - ✅ Live deployment!
