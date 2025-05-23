@@ -18,7 +18,7 @@ cascade:
 ---
 
 {{< cards >}}
-  {{< card link="reference-apps" title="Reference Apps" subtitle="Explore et get inspired by examples of CHT reference applications" icon="collection" >}}
+  {{< card link="reference-apps" title="Reference Apps" subtitle="Explore and get inspired by examples of CHT reference applications" icon="collection" >}}
   {{< card link="technical-overview" title="Technical Overview" icon="template" subtitle="Overview and architecture of CHT components" >}}
   {{< card link="community" title="Get Involved" subtitle="Do you want to get involved in the CHT Community? Here's how..." icon="arrow-circle-right" >}}
   {{< card link="community/contributing" title="Contribute" subtitle="See how to contribute code and documentation" icon="pencil-alt" >}}

@@ -54,6 +54,10 @@ EOF
 
 Now create an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht_test`. The extra compose file will start the Keycloak instance which is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
 
+{{< callout >}}
+Currently [there is an issue](https://github.com/medic/cht-core/issues/9981) that prevents the CHT docker helper from being on a random `104xx`  port.  Please edit the `cht_test.env` file and change the port to be: `NGINX_HTTPS_PORT=443` and restart your docker helper.
+{{< /callout >}}
+
 {{< /tab >}}
 {{< /tabs >}}
 
