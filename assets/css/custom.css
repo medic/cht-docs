@@ -50,7 +50,7 @@ h4, .content h4 {
 }
 
 /* Exception for code blocks */
-pre code, 
+pre code,
 .markdown-body pre code,
 .markdown code,
 code[class*="language-"],
@@ -113,7 +113,7 @@ Based on https://github.com/CleverCloud/documentation/tree/main)
 /* Table headers formatting */
 .content table:not(.code-block table) th {
   border-right-width: 0px;
-  border-left-width: 0px; 
+  border-left-width: 0px;
   border-top: none;
   text-transform: uppercase;
   color: rgba(119, 119, 119);
@@ -221,4 +221,9 @@ html[class~="dark"] .hextra-feature-card {
   white-space: nowrap;
   overflow: hidden;
   margin-top: 4px;
+}
+
+.bordered-figure img {
+  border: 1px solid #3333339d;         /* Thicker and dark gray */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Optional: subtle shadow for depth */
 }
