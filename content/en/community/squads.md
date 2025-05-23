@@ -48,7 +48,7 @@ Turning ideas into action. Clear specs and mockups are finalized for development
       - ✅ Documented requirements
       - ✅ Approved design doc
 
-4. Development/Building:
+### 4. Development/Building
 building the solution. 
 Feature implementation based on agreed-upon designs.
 
