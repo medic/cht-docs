@@ -55,7 +55,7 @@ Feature implementation based on agreed-upon designs.
       **Output**:
       - ✅ Working software (GitHub pull requests)
 
-5. Testing
+### 5. Testing
 Ensuring quality. Rigorous manual/automated testing verifies functionality.
 
       **Outputs**:
