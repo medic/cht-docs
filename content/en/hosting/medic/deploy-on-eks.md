@@ -44,6 +44,7 @@ By default, Medic teammates do not have EKS access and must file a ticket to req
 
 1. [Create a ticket](https://github.com/medic/medic-infrastructure/issues/new) to get your DNS and Namespace created for EKS, which should match each other. As an example, a `mrjones-dev` name space would match `mrjones.dev.medicmobile.org` DNS. The ticket should include requesting EKS access to be granted.
 2. Once the ticket in step one is complete, follow the [CLI setup guide](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/eks/access/README.md).
+3. AWS Admin will create your IAM user, and a role prefixed with eks-<username> that contain the same policies as similar usernames. Admins can take a look at IAM user: `fredmuiru` and IAM role: `eks-fredmuiru` for examples.
 
 **NB** - Security key (e.g. Yubikey) users need to add a TOTP MFA (Time-based, One-Time Password Multi-Factor Authentication) too! CLI requires the TOTP values (6-digit number) and security keys are not supported. Security keys can only be used on web logins.
 
@@ -72,9 +73,6 @@ After you have created a ticket per "Request permission" above, you should get a
    Default region name [None]: eu-west-2
    Default output format [None]:
    ```
-6. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours: `aws eks update-kubeconfig --name dev-cht-eks --profile mrjones --region eu-west-2`
-
-
 
 ## Starting and stopping (aka deleting)
 
@@ -82,13 +80,20 @@ After you have created a ticket per "Request permission" above, you should get a
    ```shell
    ./eks-aws-mfa-login USERNAME  TOTP_HERE
    ```
-2. Ensure you're using dev EKS cluster:
+2. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours and add the eks prefix to your username: `aws eks update-kubeconfig --name dev-cht-eks --profile eks-mrjones --region eu-west-2`
+
+3. Ensure you're using dev EKS cluster:
    ```shell
    kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
    ```
 
    If get an error `no context exists with the name`, change `use-context` to `set-context` in the  command.  This will create the entry the first time.  Subsequent calls should use `use-context`.
-3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
+
+4a. Notify your Kubernetes Admin to create your namespace, and add your role and rolebindings that tie into the aws-auth configmap in the kube-system namespace. 
+
+4b. Now is a good time to test all your access works correctly: `kubectl -n <username>-dev get pods`
+
+5. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
 
 {{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
 
@@ -107,19 +112,19 @@ After you have created a ticket per "Request permission" above, you should get a
 {{< /tabs >}}
 
    _\* Note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
-5. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
+6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin
    ```
-6. Ensure you have `node` dependencies installed for `cht-deploy` script:
+7. Ensure you have `node` dependencies installed for `cht-deploy` script:
    ```shell
    cd scripts/deploy;npm install
    ```
-7. Run deploy, being sure to update `PATH_TO` to be where you saved it in the prior step:
+8. Run deploy, being sure to update `PATH_TO` to be where you saved it in the prior step:
    ```shell
    ./cht-deploy -f PATH_TO/values.yaml
    ```
-8. Delete it when you're done:
+9. Delete it when you're done:
    ```shell
    helm delete USERNAME-dev --namespace USERNAME-dev
    ```
