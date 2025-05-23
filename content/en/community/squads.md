@@ -33,7 +33,7 @@ An idea sparks! The community identifies a feature or improvement with broad pot
       - ✅ Partners and contributors aligned
       - ✅ The [Code of Conduct](https://docs.communityhealthtoolkit.org/community/contributing/code-of-conduct/) is shared with all squad members
 
-2. Early Design Discussion
+### 2. Early Design Discussion
 Feasibility meets vision. Teams explore technical requirements, timelines, and design approaches.
 
       **Outputs**:
