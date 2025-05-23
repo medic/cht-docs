@@ -23,8 +23,6 @@ These steps document how to configure Keycloak as the Single Sign On (SSO) ident
 * TLS enabled on CHT and Keycloak
 {{< /tab >}}
 {{< tab >}}
-* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) Keycloak - 26.x as of CHT 4.20 (see below)
-* CHT Docker Helper instance on 4.20.0 or later
 
 Start by create an extra compose file and two cert files by running this code:
 
