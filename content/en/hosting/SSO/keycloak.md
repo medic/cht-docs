@@ -24,7 +24,7 @@ These steps document how to configure Keycloak as the Single Sign On (SSO) ident
 {{< /tab >}}
 {{< tab >}}
 
-Start by create an extra compose file and two cert files by running this code:
+Start with creating a compose file and two cert files by running this code:
 
 ```yaml
 mkdir -p $HOME/.medic/cht-docker/cht_test-dir/compose/
