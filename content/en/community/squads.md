@@ -16,7 +16,7 @@ When a community-proposed improvement shows potential for broad impact, we invit
 - Transparent process: Regular meetings and shared public notes and documentation to keep everyone informed
 - Flexible contributions: Help in whatever way works for you - coding, design, testing, or documentation
 
-## Starting a Squad: Key Requirements
+## Starting a squad: key requirements
 For a squad to succeed, **dedicated development capacity should be secured upfront**. This means:
 - **Resource Commitment**: Interested members can pledge either:
    - Engineering time: Developers with relevant skills committing hours/week, or
