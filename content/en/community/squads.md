@@ -73,7 +73,7 @@ Ensuring quality. Rigorous manual/automated testing verifies functionality.
 The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
   **Output**:
-  - Live deployment!
+  - Software release
 
 ### 7. ✅ Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
