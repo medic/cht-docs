@@ -16,5 +16,6 @@ aliases:
 {{< card link="cht-conf" title="CHT Watchdog" subtitle="Dashboard visualization and alerting software" >}}
 {{< card link="cht-sync" title="CHT Sync" subtitle="Enables data synchronization between CouchDB and PostgreSQL for the purpose of analytics" >}}
 {{< card link="cht-android" title="CHT Android" subtitle="Android wrapper for the CHT-Core Webapp" >}}
+{{< card link="cht-interoperability" title="CHT Interoperability" subtitle="Exchanging data between the CHT and other health systems" >}}
 {{< /cards >}}
 
