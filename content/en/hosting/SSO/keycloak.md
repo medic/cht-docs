@@ -17,7 +17,7 @@ These steps document how to configure Keycloak as the Single Sign On (SSO) ident
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
-* Current major [version](https://github.com/keycloak/keycloak/security/policy#supported-versions) Keycloak - 26.x as of CHT 4.20
+* Keycloak server - ensure you are running a [supported version](https://github.com/keycloak/keycloak/security/policy#supported-versions)
 * CHT 4.20.0 or later
 * DNS Entries for CHT and Keycloak
 * TLS enabled on CHT and Keycloak
