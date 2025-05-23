@@ -41,7 +41,7 @@ Feasibility meets vision. Teams explore technical requirements, timelines, and d
       - ✅ Resource commitments
       - ✅ Preliminary scope and timeline
 
-3. Requirements & Design
+### 3. Requirements & Design
 Turning ideas into action. Clear specs and mockups are finalized for development, as well as technical design.
 
       **Outputs**:
