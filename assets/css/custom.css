@@ -224,6 +224,6 @@ html[class~="dark"] .hextra-feature-card {
 }
 
 .bordered-figure img {
-  border: 1px solid #3333339d;         /* Thicker and dark gray */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Optional: subtle shadow for depth */
+  border: 1px solid #3333339d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
