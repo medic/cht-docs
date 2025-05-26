@@ -17,6 +17,5 @@ aliases:
 {{< card link="cht-sync" title="CHT Sync" subtitle="Data synchronization for the purpose of analytics" >}}
 {{< card link="cht-android" title="CHT Android" subtitle="Android wrapper for the CHT Core Webapp" >}}
 {{< card link="cht-interoperability" title="CHT Interoperability" subtitle="Standardized data exchange between the CHT and other health systems" >}}
-{{< card link="cht-user-management" title="CHT User Management" subtitle="User management tool for the CHT" >}}
 {{< /cards >}}
 
