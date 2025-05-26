@@ -1,15 +1,12 @@
 ---
 title: "Overview"
 linkTitle: "Overview"
+description: >
+  Overview of CHT components and their interactions
 weight: 1
 aliases:
    - /core/overview/architecture
 ---
-
-{{< hextra/hero-subtitle >}}
-  Overview of CHT components and their interactions
-{{< /hextra/hero-subtitle >}}
-
 
 ```mermaid
 %%{init:{'flowchart':{'nodeSpacing': 10}}}%%

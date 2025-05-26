@@ -11,8 +11,6 @@ aliases:
    - /core/overview/architecture
 ---
 
-Technical overview of the CHT Core Framework
-
 The CHT Core Framework is the primary component of the CHT. The server comes with authentication, role based authorization, data security, and a range of protected data access endpoints. Read more detail in [cht-core GitHub repository](https://github.com/medic/cht-core).
 
 ```mermaid

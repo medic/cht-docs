@@ -1,15 +1,13 @@
 ---
 title: "Technical Overview of the CHT"
 linkTitle: "Technical Overview"
+description: >
+  Overview and architecture of CHT components
 weight: 3
 aliases:
    - /core
    - /core/overview/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Overview and architecture of CHT components
-{{< /hextra/hero-subtitle >}}
 
 {{< cards >}}
 {{< card link="architecture" title="Architecture" icon="library" subtitle="Explore the different components of the CHT" >}}
