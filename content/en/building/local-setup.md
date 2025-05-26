@@ -203,7 +203,7 @@ This CHT instance is empty and has no data in it. While you're free to explore a
 
 ### Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/anc" >}}) installed. To upload demo data you can use `cht-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/maternal-newborn" >}}) installed. To upload demo data you can use `cht-conf`:
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 

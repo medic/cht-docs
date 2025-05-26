@@ -5,7 +5,7 @@ weight: 1
 description: >
   Branding and configuring CHT Application graphics
 relatedContent: >
-  building/features/admin
+  building/admin
   design/interface/icons
 aliases:
    - /apps/tutorials/application-graphics
@@ -71,7 +71,7 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 
 {{< figure src="images.png" link="images.png" >}}
 
-> [!NOTE] 
+> [!NOTE]
 > If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
 
 ### 2. Partner logos
