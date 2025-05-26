@@ -1,9 +1,9 @@
 ---
-title: "CHT-Core"
-linkTitle: "CHT-Core"
+title: "CHT Core"
+linkTitle: "CHT Core"
 weight: 2
 description: >
-  Overview of CHT components and interactions
+  Technical overview of the CHT Core Framework
 relatedContent: >  
   technical-overview/architecture/cht-watchdog
   technical-overview/architecture/cht-sync
@@ -11,27 +11,28 @@ aliases:
    - /core/overview/architecture
 ---
 
-{{< hextra/hero-subtitle >}}
-  Technical overview of the CHT Core Framework
-{{< /hextra/hero-subtitle >}}
+Technical overview of the CHT Core Framework
 
 The CHT Core Framework is the primary component of the CHT. The server comes with authentication, role based authorization, data security, and a range of protected data access endpoints. Read more detail in [cht-core GitHub repository](https://github.com/medic/cht-core).
 
 ```mermaid
-flowchart TB
+graph TB
+  classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
+  
   subgraph CHT_Core_Framework["<div style="width: 23em; height:2em; display:flex; justify-content: flex-start; align-items:flex-end;">Server</div>"]
     direction TB
     NGINX(NGINX):::container
     API(API):::container
     Sentinel(Sentinel):::container
     HAProxy(Haproxy):::container
+    HealthCheck(HealthCheck):::container
     CouchDB[(CouchDB)]:::container
-    classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
+    Nouveau[(Nouveau)]:::container
   end
 
   Upgrade["Upgrade Service"]:::container
 
-  subgraph Client["<div style="width: 28em; height:2em; display:flex; justify-content: flex-start; align-items:flex-end;">Client</div>"]
+  subgraph Client["<div style="width: 28em; height:2em; display:flex; justify-content: flex-start; align-items:flex-end;">Client (Android & Browser)</div>"]
     subgraph Webapp["Webapp"]
       PouchDB[(PouchDB)]:::container
     end
@@ -39,18 +40,26 @@ flowchart TB
     Admin["App Management"]:::container
 end
   
-  Webapp <--> NGINX
-  Admin <--> NGINX
-  NGINX <--> API
-  API --> Upgrade
-  Sentinel <--> HAProxy
-  API <--> HAProxy
-  HAProxy <--> CouchDB
+  Webapp --> NGINX
+  Admin --> NGINX
+  NGINX --> API
+  API <--> Upgrade
+  Sentinel --> HAProxy
+  API --> HAProxy
+  HAProxy --> CouchDB
+  HealthCheck --> CouchDB
+  HAProxy --> HealthCheck
+  CouchDB --> Nouveau
 
   style CHT_Core_Framework fill: transparent
   style Client fill: transparent
   style Webapp fill: transparent
 ```
+
+{
+htmlLabels: false,
+flowchart: { htmlLabels: false, subGraphTitleMargin: { top: 10, bottom: 5 } },
+}
 
 ## Server
 
@@ -73,6 +82,10 @@ A free and open source NoSQL database used as the primary store for all app data
 #### HAProxy
 
 [HAProxy](https://www.haproxy.com/) provides logging and reverse proxying for any request that makes it to CouchDB.
+
+#### HealthCheck
+
+A service that periodically verifies the health status of the CouchDb cluster. HAProxy uses this service for checking server status. 
 
 #### CHT Upgrade Service
 

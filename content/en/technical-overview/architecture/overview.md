@@ -10,9 +10,63 @@ aliases:
   Overview of CHT components and their interactions
 {{< /hextra/hero-subtitle >}}
 
+
+```mermaid
+%%{init:{'flowchart':{'nodeSpacing': 10}}}%%
+flowchart LR
+  classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
+
+  STC[Smartphones, tablets,<br>and computers]:::container
+  
+subgraph Top[ ]
+    Browser[Android App<br/>Browser]:::container
+    Android[Android App]:::container
+    Integrations[Integrations<br>with other systems]:::container
+    Watchdog[CHT Watchdog]:::container
+    Sync[CHT Sync]:::container
+    Conf[CHT Conf]:::container
+    UMT[CHT User Management]:::container
+end
+
+CHT@{ shape: procs, label: "CHT Core Server"}
+
+FP[Feature phones]:::container
+CMD[Command line interface]:::container
+
+subgraph BOT[ ]
+SMSG[SMS<br/>gateway]:::container
+SMSA[SMS<br/>aggregator]:::container
+end
+
+STC --> Browser
+STC --> Integrations
+STC --> Watchdog
+STC --> Sync
+STC --> UMT
+
+Browser --> CHT
+Android --> CHT
+Integrations <--> CHT
+Watchdog --> CHT
+Sync --> CHT
+Conf --> CHT
+UMT --> CHT
+
+CMD --> Conf
+
+FP --> SMSG
+FP --> SMSA
+
+SMSG --> CHT
+SMSA --> CHT
+
+style Top fill: transparent, stroke: transparent
+style BOT fill: transparent
+```
+
 ## CHT Core Framework
 
-The CHT Core Framework makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
+The [CHT Core Framework]({{< ref "technical-overview/architecture/cht-core" >}}) makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 App developers are able to define health system roles, permissions and reporting hierarchies, and make use of five highly configurable areas of functionality: messaging, task and schedule management, decision support workflows, longitudinal person profiles, and analytics.
 
@@ -31,20 +85,24 @@ A command-line interface tool to manage and configure CHT application. The
 
 A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment.
 
-Read more detail on the CHT Sync [overview page](/technical-overview/architecture/cht-sync),  the [GitHub repository](https://github.com/medic/cht-sync), or the [technical overview](/technical-overview/architecture/cht-sync).
+Read more detail on the CHT Sync [overview page]({{< relref "/technical-overview/architecture/cht-sync" >}}),  the [GitHub repository](https://github.com/medic/cht-sync), or the [technical overview](/technical-overview/architecture/cht-sync).
 
 ## CHT Watchdog
 
 Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to deliver care without interruption caused by server downtime.  Read more detail on the CHT Watchdog [technical overview page](/technical-overview/architecture/cht-watchdog) or the [GitHub repository](https://github.com/medic/cht-watchdog).
 
-### cht-android
+## CHT Android
 
-CHT Web Application works in the browser or wrapped in the [CHT Android](https://github.com/medic/cht-android) app which allows for project branding, sets the project URL, and hides browser elements like the URL bar. The app also provides some deeper integration with other android apps and native phone functions that are otherwise unavailable to webapps.
+CHT Web Application works in the browser or wrapped in the [CHT Android]({{< relref "/technical-overview/architecture/cht-android" >}}) app which allows for project branding, sets the project URL, and hides browser elements like the URL bar. The app also provides some deeper integration with other android apps and native phone functions that are otherwise unavailable to webapps.
 
-### cht-gateway
+## CHT Gateway
 
 [CHT Gateway](https://github.com/medic/cht-gateway) is an android app for sending and receiving SMS messages. Each SMS enabled project has one gateway running. It polls an api endpoint to write incoming SMS into the CouchDB and retrieve outgoing SMS to send.
 
-### cht-interoperability
+## CHT Interoperability
 
-[CHT Interoperability]{{< relref "building/interoperability/" >}} implements interoperability between the CHT and other health information systems based on OpenHIE architecture and HL7 FHIR messaging format.
+[CHT Interoperability]({{< relref "technical-overview/architecture/cht-interoperability" >}}) implements interoperability between the CHT and other health information systems based on OpenHIE architecture and HL7 FHIR messaging format.
+
+## CHT User Management Tool
+
+[CHT User Management Tool]({{< relref "building/contact-management/user-management-tool" >}}) is a web application that works with the CHT to decentralize the user management. 
