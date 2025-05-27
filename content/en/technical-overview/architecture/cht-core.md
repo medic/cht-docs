@@ -54,11 +54,6 @@ end
   style Webapp fill: transparent
 ```
 
-{
-htmlLabels: false,
-flowchart: { htmlLabels: false, subGraphTitleMargin: { top: 10, bottom: 5 } },
-}
-
 ## Server
 
 #### API
