@@ -23,6 +23,27 @@ For a squad to succeed, **dedicated development capacity should be secured upfro
    - Funding: Budget to pay community developers (prioritizing CHT contributors).
 - **Clear Ownership:** Squads will be launched when specific developers are identified and onboarded.
 
+If you are interested in forming or starting a squad, here are the steps to follow:
+- Post on the [forum](https://forum.communityhealthtoolkit.org/) to identify other interested community members.
+- Reach out to specific members that have brought it up before or think that they may be interested.
+- Reach out to the CHT Community Team to allocate dedicated time during Roundup calls for discussing this initiatives with the broader community.
+
+## Kick off
+- Plan for the kick off meeting
+ - Schedule a meeting with all stakeholders once the squad’s start date is confirmed.
+ - The agenda for this meeting should include:
+   - Introductions and role clarity.
+   - Overview of squad objectives and desired outcomes.
+   - Initial task assignments and ownership.
+   - Agreement on a recurring meeting cadence (e.g., weekly/biweekly calls).
+- Establish a communication channel
+  - Create a dedicated Slack channel (or alternative platform, if preferred) for squad discussions.
+  - Invite all core members and ensure access is granted promptly.
+- Engage Advisory Roles
+  - Extend invitations to domain experts, UX specialists, or other advisors as needed.
+  - Clarify their involvement (e.g., periodic reviews, feedback sessions) even if they are not full-time contributors.
+
+
 ## Why join a squad?
 - Work on meaningful projects that make a real difference
 - Learn from and collaborate with other community members
@@ -48,16 +69,37 @@ Feasibility meets vision. Teams explore technical requirements, timelines, and d
   - Resource commitments
   - Preliminary scope and timeline
 
-### 3.  Requirements & Design
-Turning ideas into action. Clear specs and mockups are finalized for development, as well as technical design.
+### 3. 💡 Requirements & Design
+Turning ideas into action. 
+- Initial Deliverable: Produce a comprehensive design document as the group's first output.
+- Review Phase: Upon completing the initial draft, pause development to incorporate feedback—share the document on the forum to gather broad community input/feedback.
 
   **Outputs**:
   - Documented requirements
+  - Clear specs and mockups are finalized for development
   - Approved design doc
+  - Technical design doc
+
+Once the first iteration is complete, pause to incorporate feedback by announcing it on the forum for broad community review before proceeding.
 
 ### 4. 🧑🏽‍💻 Development/Building
-building the solution. 
-Feature implementation based on agreed-upon designs.
+- Development Kickoff
+  - Begin feature implementation once the design document receives final approval
+  - For collaborations:
+    - Establish a single, authoritative development branch/workspace
+    - Maintain transparency through frequent pushes to the public repository on GitHub
+
+- Quality Assurance
+  - Adhere to coding best practices including:
+    - Comprehensive automated testing
+    - Strict code quality standards
+    - Detailed documentation
+  - Conduct ongoing manual testing to identify and resolve issues early
+
+- Collaborative Standards
+  - Implement regular code reviews
+  - Maintain clear contribution guidelines
+  - Schedule periodic sync meetings for coordinating teams
 
   **Output**:
   - Working software (GitHub pull requests)
@@ -69,7 +111,13 @@ Ensuring quality. Rigorous manual/automated testing verifies functionality.
   - Test reports
   - Verified software
 
-### 6. 💪🏼 Release
+### 6. 🛋️ Review
+When the squad confirms the solution meets requirements, submit a PR for review and nominate an experienced CHT engineer to lead the technical assessment. After passing both technical review and allowing a few days for community feedback, merge the approved code.
+**Outputs**: 
+- PR posted with testing instructions in the forum for community validation.
+- Merged contribution with documented community input.
+
+### 7. 💪🏼 Release
 The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
   **Output**:
