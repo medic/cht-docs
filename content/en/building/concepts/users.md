@@ -47,4 +47,4 @@ Viewing permissions determine which page tabs a user sees in the app and which t
 
 {{< see-also page="building/reference/app-settings/user-permissions" title="Defining User Permissions" >}}
 
-{{< figure src="/building/features/admin/admin-roles.png" link="/building/features/admin/admin-roles.png" class="left col-12 col-lg-10" >}}
+{{< figure src="/building/admin/admin-overview/admin-roles.png" link="/building/admin/admin-overview/admin-roles.png" class="left col-12 col-lg-10" >}}

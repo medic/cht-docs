@@ -90,7 +90,7 @@ The CHT Core Framework provides two web applications: the [CHT Web App]({{% ref 
 
 #### CHT Web Application
 
-The CHT Web Application is used by Community Health Workers and provides a large variety of [features](https://docs.communityhealthtoolkit.org/apps/features/). View the source code in [our GitHub repository](https://github.com/medic/cht-core/tree/master/webapp).
+The CHT Web Application is used by Community Health Workers and provides a large variety of [features]({{< relref "building" >}}). View the source code in [our GitHub repository](https://github.com/medic/cht-core/tree/master/webapp).
 
 ##### Technology
 
