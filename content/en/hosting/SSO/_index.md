@@ -15,7 +15,7 @@ The CHT supports Single Sign-On (SSO) via integration with an external authentic
  
 SSO authentication is implemented with the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol. Any OIDC-compliant authentication server can be integrated the the CHT. For example:
 
-- [Keycloak](https://www.keycloak.org/) - Free and open-source, self-hostable identity and access managment server
+- [Keycloak](https://www.keycloak.org/) - Free and open-source, self-hostable identity and access management server
 - [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra) - Paid, cloud-based identity and access management service.
 
 ![sso-login-flow.svg](sso-login-flow.svg)
