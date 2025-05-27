@@ -2,12 +2,12 @@
 title: "CHT Architecture"
 linkTitle: "Architecture"
 weight: 1
+description: Components of the CHT Ecosystem
 aliases:
    - /core
    - /core/overview/
 ---
 
-### Components of the CHT Ecosystem
 
 {{< cards >}}
 {{< card link="overview" title="Overview" subtitle="Overview of CHT components and their interactions" >}}
