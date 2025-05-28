@@ -14,7 +14,7 @@ flowchart LR
   classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
   
 subgraph APPS[<div style="width: 300px; ">Smartphones, tablets and computers</div>]
-    Browser[Android App<br/>Browser]:::container
+    Browser[Browser]:::container
     Android[Android App]:::container
     Integrations[Integrations<br>with other systems]:::container
     Watchdog[CHT Watchdog]:::container

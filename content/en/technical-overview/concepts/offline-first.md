@@ -6,6 +6,7 @@ description: >
   Overview of Offline-First in the context of the CHT
 aliases:
    - /core/overview/offline-first/
+   - /technical-overview/offline-first/
 ---
 
 CHT applications are designed to be used equally well in areas with no internet connectivity, slow or unreliable internet connectivity, and good internet connectivity. Achieving reliable performance and powerful features requires diligence and strict adherence to the principles of Offline-First development.

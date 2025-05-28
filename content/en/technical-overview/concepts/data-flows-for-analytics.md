@@ -10,6 +10,7 @@ relatedContent: >
 aliases:
    - /core/data-flows-for-analytics
    - /core/overview/data-flows-for-analytics
+   - /technical-overview/data-flows-for-analytics/
 ---
 
 In this section, we focus on how data flows through the various components of the Community Health Toolkit. The CHT is built to support the delivery of quality community health care at the last mile. The CHT is designed to work in areas with low connectivity, which means it is an [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}) toolkit for care provision. The architectural and technology choices in the stack are mostly guided by this principle, which will be evident in the discussion of the data management pipeline.
