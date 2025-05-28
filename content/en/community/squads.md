@@ -24,7 +24,7 @@ For a squad to succeed, **dedicated development capacity should be secured upfro
 - **Clear Ownership:** Squads will be launched when specific developers are identified and onboarded.
 
 If you are interested in forming or starting a squad, here are the steps to follow:
-- Post on the [forum](https://forum.communityhealthtoolkit.org/) to identify other interested community members.
+- Share details about the topic/feature to be explored in the squad on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34) to invite other interested community members to join the conversation.
 - Reach out to specific members that have brought it up before or think that they may be interested.
 - Reach out to the CHT Community Team to allocate dedicated time during Roundup calls for discussing this initiatives with the broader community.
 
