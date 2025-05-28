@@ -13,24 +13,28 @@ aliases:
 flowchart LR
   classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
 
-  STC[Smartphones, tablets,<br>and computers]:::container
+subgraph CLIENT[ ]
+    STC[Smartphones, tablets,<br>and computers]:::container
+    FP[Feature phones]:::container
+    CMD[Command line interface]:::container
+end
   
-subgraph Top[ ]
+subgraph APPS[ ]
     Browser[Android App<br/>Browser]:::container
     Android[Android App]:::container
     Integrations[Integrations<br>with other systems]:::container
     Watchdog[CHT Watchdog]:::container
     Sync[CHT Sync]:::container
-    Conf[CHT Conf]:::container
     UMT[CHT User Management]:::container
+end
+
+subgraph CMDL[ ]
+    Conf[CHT Conf]:::container
 end
 
 CHT@{ shape: procs, label: "CHT Core Server"}
 
-FP[Feature phones]:::container
-CMD[Command line interface]:::container
-
-subgraph BOT[ ]
+subgraph SMS[ ]
 SMSG[SMS<br/>gateway]:::container
 SMSA[SMS<br/>aggregator]:::container
 end
@@ -57,8 +61,10 @@ FP --> SMSA
 SMSG --> CHT
 SMSA --> CHT
 
-style Top fill: transparent, stroke: transparent
-style BOT fill: transparent
+style CLIENT fill: transparent 
+style APPS fill: transparent
+style CMDL fill: transparent
+style SMS fill: transparent
 ```
 
 ## CHT Core Framework
