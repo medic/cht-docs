@@ -26,7 +26,7 @@ For a squad to succeed, **dedicated development capacity should be secured upfro
 If you are interested in forming or starting a squad, here are the steps to follow:
 - Share details about the topic/feature to be explored in the squad on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34) to invite other interested community members to join the conversation.
 - Reach out to specific community members who have previously discussed the topic or who you think may be interested.
-- Reach out to the CHT Community Team to allocate dedicated time during Roundup calls for discussing this initiatives with the broader community.
+- Reach out to the CHT Stewardship Team to allocate dedicated time during Round-up calls for sharing the initiative with the broader community.
 
 ## Kick off
 - Plan for the kick off meeting
