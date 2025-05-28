@@ -4,9 +4,9 @@ linkTitle: "Invalid Reports"
 weight: 16
 description: >
   How to revalidate an invalid report
-keywords: 
+keywords:
 relatedContent: >
-  building/features/reports
+  building/reports
 aliases:
    - /apps/guides/data/invalid-reports
 ---
@@ -17,7 +17,7 @@ You may encounter a dreaded case when reports coming in to a Medic Webapp instan
 
 This may be caused by:
 - Missing forms in the `app_settings` config.
-- Missing or incorrect fields in the input form. e.g Missing patient ID, or Patient ID with letters 
+- Missing or incorrect fields in the input form. e.g Missing patient ID, or Patient ID with letters
 - Extra fields in the input form. This happens when you don't configure for some fields in the app_settings.json of the webapp
 - Configuring some forms in the wrong section of the app_settings i.e `registrations` and `patient_reports`. Forms that don't have a patient_id field because it is generated afterwards, e.g ANCR, IMMR, go to the `registrations` section, while form that have a patient_id field e.g ANCP, ANCV, IMMV; go to the `patient_reports` section
 

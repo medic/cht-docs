@@ -6,6 +6,7 @@ description: >
   A tool for CHT developers to design, generate, and push CouchDB docs tailored to project hierarchies and reports
 aliases:
    - /core/overview/test-data-generator/
+   - /technical-overview/test-data-generator/
 ---
 
 {{< callout type="error" >}}

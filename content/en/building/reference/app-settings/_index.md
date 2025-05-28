@@ -9,7 +9,7 @@ aliases:
    - /apps/reference/app-settings/
 ---
 
-The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{% ref "building/features/admin" %}}) app, which updates the same settings file in the database. 
+The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{% ref "building/admin" %}}) app, which updates the same settings file in the database.
 
 The settings get compiled into the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool.
 Manually configurable settings are added to the `app_settings` folder at the root of the config folder.
@@ -73,23 +73,23 @@ An outgoing SMS message configuration has the following fields:
 |value|resolves to|
 |-----|-----------|
 |*empty*| submitter |
-|`reporting_unit`| submitter | 
-|`parent`| primary contact of the subject's/submitter's place's parent (`patient.parent.parent.contact`) | 
+|`reporting_unit`| submitter |
+|`parent`| primary contact of the subject's/submitter's place's parent (`patient.parent.parent.contact`) |
 |`grandparent`| primary contact of the subject's/submitter's place's grandparent (`patient.parent.parent.parent.contact`) |
-|`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage | 
-|`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage | 
+|`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage |
+|`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage |
 |`district`| primary contact of the `district_hospital` in the subject's/submitter's lineage |
 |`ancestor:<contact_type>`| Walks up the subject's/submitter's hierarchy to find the **primary contact** of a place with the given contact type. |
 |`link:<tag>`| Tries to find a **directly linked document** with the given tag; if not found, walks up the lineage (but not limited to primary contact). *Available since v3.10.x* |
-|`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* | 
-| *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` | 
+|`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* |
+| *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` |
 | *valid phone number* | requested phone number |
 
 > [!NOTE]
 > - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
 > - if there is no submitter phone number available, the actual `recipient` property value will be used
-> - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
-> - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
+> - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`.
+> - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available.
 
 
 ### Message context
@@ -100,9 +100,9 @@ The message context object consists of:
 |*every property from the original report* | unchanged unless specified below |
 |*every `fields` property from the original report* | eg: if the report has `fields.test = 'test'` then `context.test = 'test'` |
 | patient | deeply hydrated patient contact (resolved from `patient_id`, `fields.patient_id` or `fields.patient_uuid`) |
-| patient_name | patient's name |  
+| patient_name | patient's name |
 | place | deeply hydrated place document (resolved from `place_id` or `fields.place_id`) |
-| contact | deeply hydrated submitter contact | 
+| contact | deeply hydrated submitter contact |
 | parent | deeply hydrated `health_center` type document from the subject's or submitter's lineage |
 | grandparent | deeply hydrated `district_hospital` type document from the subject's or submitter's lineage |
 | clinic | deeply hydrated `clinic` type document from the subject's or submitter's lineage |

@@ -6,11 +6,12 @@ description: >
   Data synchronization tools to enable analytics
 relatedContent: >  
   technical-overview/architecture
-  technical-overview/data-flows-for-analytics/
+  technical-overview/concepts/data-flows-for-analytics/
   hosting/analytics/
 aliases:
     - /core/overview/data-flows-for-analytics/cht-sync/
     - /core/overview/cht-sync/
+    - /technical-overview/cht-sync/
 ---
 
 CHT Sync is an integrated solution designed to enable data synchronization between CouchDB and PostgreSQL for the purpose of analytics. It combines several technologies to achieve this synchronization and provides an efficient workflow for data processing and visualization. The synchronization occurs in near real-time, ensuring that the data displayed on dashboards is up-to-date.

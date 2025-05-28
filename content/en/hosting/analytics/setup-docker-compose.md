@@ -6,7 +6,7 @@ description: >
   Setting up CHT Sync with Docker and the CHT
 relatedContent: >
   technical-overview/architecture
-  technical-overview/cht-sync
+  technical-overview/architecture/cht-sync
 aliases:
    - /apps/guides/data/analytics/setup
    - /building/guides/data/analytics/setup

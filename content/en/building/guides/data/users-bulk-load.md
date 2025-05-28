@@ -10,14 +10,14 @@ aliases:
 relatedContent: >
   building/guides/data/csv-to-docs
   building/reference/api/#post-apiv2users
-  building/features/admin
+  building/admin
 
 ---
 
 {{< callout >}}
  The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API]({{< relref "building/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "building/guides/data/csv-to-docs" >}}).
  This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.
-{{< /callout >}} 
+{{< /callout >}}
 
 Steps to bulk load users:
 
@@ -113,7 +113,7 @@ In this example the "Penda Ouedraogo" place has gotten an updated UUID starting 
 5. Export spreadsheet into CSV
 {{< figure src="importing-users-export-csv.png" link="importing-users-export-csv.png" caption="export spreadsheet into CSV" >}}
 
-6. Access the [Admin Console]({{< ref "building/features/admin/" >}}) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
+6. Access the [Admin Console]({{< ref "building/admin/" >}}) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
 {{< figure src="importing-users-import-csv.png" link="importing-users-import-csv.png" caption="import CSV into CHT" >}}
 
 7. Be patient during import (testing showed ~0.4 seconds per record up to 500 records)
@@ -168,7 +168,7 @@ If you have miss-matched contact types, you will get an error upon import:
 As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
 
 ```shell
-=if(NOT(ISBLANK(D2)),"person","") 
+=if(NOT(ISBLANK(D2)),"person","")
 ```
 
 Often times numbers are used in `app_settings.json` to declare `contact_types` matching numerical names from `place_hierarchy_types`. It might look like this:
@@ -206,7 +206,7 @@ Often times numbers are used in `app_settings.json` to declare `contact_types` m
 In this case, you would need to change the value of the `contact.contact_type` column to match your new types. Based on the `contact.types` above, a CHW would be declared like this now:
 
 ```shell
-=if(NOT(ISBLANK(D2)),"c62_chw","") 
+=if(NOT(ISBLANK(D2)),"c62_chw","")
 ```
 
 Be sure you copy this updated formula for all rows in the `contact.contact_type` column.
