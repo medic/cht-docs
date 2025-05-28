@@ -85,7 +85,7 @@ Once the first iteration is complete, pause to incorporate feedback by announcin
 - Development Kickoff
   - Begin feature implementation once the squad agrees on the design
     - Establish a single, authoritative development branch/workspace
-    - Maintain transparency through frequent pushes to the public repository on GitHub
+    - Maintain transparency through frequent code pushes to the public repository on GitHub
 
 - Quality Assurance
   - Adhere to coding best practices including:
