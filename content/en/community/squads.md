@@ -110,7 +110,7 @@ Ensuring quality. Rigorous manual/automated testing verifies functionality.
   - Verified software
 
 ### 6. 🛋️ Review
-When the squad confirms the solution meets requirements, submit a PR for review and nominate an experienced CHT engineer to lead the technical assessment. After passing both technical review and allowing a few days for community feedback, merge the approved code.
+When the squad confirms that the solution meets the requirements, submit a pull request for review and nominate a CHT maintainer to lead the technical assessment. After passing both technical review and allowing a few days for community feedback, merge the approved code.
 **Outputs**: 
 - PR posted with testing instructions in the forum for community validation.
 - Merged contribution with documented community input.
