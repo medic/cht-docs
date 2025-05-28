@@ -9,17 +9,11 @@ aliases:
 ---
 
 ```mermaid
-%%{init:{'flowchart':{'nodeSpacing': 10}}}%%
+%%{init:{'flowchart':{'nodeSpacing': 15, 'rankSpacing': 40, 'diagramPadding': 10, 'subGraphTitleMargin': { 'bottom': 10 }}}}%%
 flowchart LR
   classDef container stroke:#63a2c6, fill:#eef5f9, color:#000
-
-subgraph CLIENT[ ]
-    STC[Smartphones, tablets,<br>and computers]:::container
-    FP[Feature phones]:::container
-    CMD[Command line interface]:::container
-end
   
-subgraph APPS[ ]
+subgraph APPS[<div style="width: 300px; ">Smartphones, tablets and computers</div>]
     Browser[Android App<br/>Browser]:::container
     Android[Android App]:::container
     Integrations[Integrations<br>with other systems]:::container
@@ -28,22 +22,16 @@ subgraph APPS[ ]
     UMT[CHT User Management]:::container
 end
 
-subgraph CMDL[ ]
+subgraph CMDL[Command line interface]
     Conf[CHT Conf]:::container
 end
 
 CHT@{ shape: procs, label: "CHT Core Server"}
 
-subgraph SMS[ ]
+subgraph SMS[Feature phones]
 SMSG[SMS<br/>gateway]:::container
 SMSA[SMS<br/>aggregator]:::container
 end
-
-STC --> Browser
-STC --> Integrations
-STC --> Watchdog
-STC --> Sync
-STC --> UMT
 
 Browser --> CHT
 Android --> CHT
@@ -52,16 +40,9 @@ Watchdog --> CHT
 Sync --> CHT
 Conf --> CHT
 UMT --> CHT
-
-CMD --> Conf
-
-FP --> SMSG
-FP --> SMSA
-
 SMSG --> CHT
 SMSA --> CHT
 
-style CLIENT fill: transparent 
 style APPS fill: transparent
 style CMDL fill: transparent
 style SMS fill: transparent
