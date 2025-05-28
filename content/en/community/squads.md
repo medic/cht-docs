@@ -37,7 +37,7 @@ If you are interested in forming or starting a squad, here are the steps to foll
    - Agreement on a recurring meeting cadence (for example, weekly/biweekly calls).
 - Establish a communication channel
   - Reach out to the CHT Stewardship Team to create a dedicated Slack channel for squad discussions.
-  - Invite all core members and ensure access is granted promptly.
+  - Invite all community members who are part of the squad and ensure access is granted promptly.
 - Engage Advisory Roles
   - Extend invitations to domain experts, UX specialists, or other advisors as needed.
   - Clarify their involvement (e.g., periodic reviews, feedback sessions) even if they are not full-time contributors.
