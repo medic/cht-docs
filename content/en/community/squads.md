@@ -83,7 +83,7 @@ Once the first iteration is complete, pause to incorporate feedback by announcin
 
 ### 4. 🧑🏽‍💻 Development/Building
 - Development Kickoff
-  - Begin feature implementation once the design document receives final approval
+  - Begin feature implementation once the squad agrees on the design
   - For collaborations:
     - Establish a single, authoritative development branch/workspace
     - Maintain transparency through frequent pushes to the public repository on GitHub
