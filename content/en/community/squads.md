@@ -29,7 +29,7 @@ If you are interested in forming or starting a squad, here are the steps to foll
 - Reach out to the CHT Stewardship Team to allocate dedicated time during Round-up calls for sharing the initiative with the broader community.
 
 ### Kick off
- - Schedule a meeting with all stakeholders once the squad’s start date is confirmed.
+ - Schedule a public, open meeting with all community members interested in contributing to the initiative.
  - The agenda for this meeting should include:
    - Introductions and role clarity.
    - Overview of squad objectives and desired outcomes.
