@@ -122,7 +122,7 @@ The functionality is released and ready to create an impact in the real world. F
   **Output**:
   - Software release
 
-### 7. ✅ Done
+### 8. ✅ Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
 ## When can you join a squad?
