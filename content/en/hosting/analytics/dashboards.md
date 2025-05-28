@@ -6,7 +6,7 @@ description: >
   Data visualization tools for CHT Sync
 relatedContent: >
   technical-overview/architecture
-  technical-overview/cht-sync
+  technical-overview/architecture/cht-sync
 ---
 
 {{< callout >}}

@@ -6,6 +6,7 @@ description: >
   What it means that the CHT Core web application is a Progressive Web App
 aliases:
    - /core/overview//pwa/
+   - /technical-overview/pwa/
 ---
 
 ## What is a Progressive Web App (PWA)?
