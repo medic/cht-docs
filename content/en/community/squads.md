@@ -70,7 +70,7 @@ Feasibility meets vision. Teams explore technical requirements, timelines, and d
 
 ### 3. 💡 Requirements & Design
 Turning ideas into action. 
-- Initial Deliverable: Produce a comprehensive design document as the group's first output.
+- Initial Deliverable: The squad should collaboratively work on a design document based on the requirements.
 - Review Phase: Upon completing the initial draft, pause development to incorporate feedback—share the document on the forum to gather broad community input/feedback.
 
   **Outputs**:
@@ -84,8 +84,8 @@ Once the first iteration is complete, pause to incorporate feedback by announcin
 ### 4. 🧑🏽‍💻 Development/Building
 - Development Kickoff
   - Begin feature implementation once the squad agrees on the design
-    - Establish a single, authoritative development branch/workspace
-    - Maintain transparency through frequent code pushes to the public repository on GitHub
+  - Establish a single, authoritative development branch/workspace
+  - Maintain transparency through frequent code pushes to the public repository on GitHub
 
 - Quality Assurance
   - Adhere to coding best practices including:
