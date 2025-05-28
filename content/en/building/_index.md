@@ -3,6 +3,7 @@ title: "Build CHT Applications"
 linkTitle: "Build"
 aliases:
     - /apps/
+    - /building/features
 weight: 6
 description: >
   Overview and reference for building CHT Applications
