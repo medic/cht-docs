@@ -24,14 +24,13 @@ These steps document how to configure Keycloak as the Single Sign On (SSO) ident
 {{< /tab >}}
 {{< tab >}}
 
-Start with creating a compose file and two cert files by running this code:
+Start with creating a Keycloak compose file and two cert files in a new `~/cht-keycloak` directory by running this code:
 
 ```yaml
-mkdir -p $HOME/.medic/cht-docker/cht_test-dir/compose/
-mkdir -p $HOME/.medic/cht-docker/cht_test-dir/keycloak/
-curl -so $HOME/.medic/cht-docker/cht_test-dir/server.crt https://local-ip.medicmobile.org/fullchain
-curl -so $HOME/.medic/cht-docker/cht_test-dir/server.key https://local-ip.medicmobile.org/key
-cat > $HOME/.medic/cht-docker/cht_test-dir/compose/cht-sso.yaml << EOF
+mkdir -p $HOME/cht-keycloak/data
+curl -so $HOME/cht-keycloak/server.crt https://local-ip.medicmobile.org/fullchain
+curl -so $HOME/cht-keycloak/server.key https://local-ip.medicmobile.org/key
+cat > $HOME/cht-keycloak/compose.yaml << EOF
 services:
   keycloak:
     image: quay.io/keycloak/keycloak
@@ -44,13 +43,17 @@ services:
       - "8443:8443"
     command: start-dev
     volumes:
-      - $HOME/.medic/cht-docker/cht_test-dir/server.crt:/opt/keycloak/conf/server.crt
-      - $HOME/.medic/cht-docker/cht_test-dir/server.key:/opt/keycloak/conf/server.key
-      - $HOME/.medic/cht-docker/cht_test-dir/keycloak:/opt/keycloak/data
+      - $HOME/cht-keycloak/server.crt:/opt/keycloak/conf/server.crt
+      - $HOME/cht-keycloak/server.key:/opt/keycloak/conf/server.key
+      - $HOME/cht-keycloak/data:/opt/keycloak/data
 EOF
+cd $HOME/cht-keycloak
+docker compose up -d
 ```
 
-Now create an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) and name it `cht_test`. The extra compose file will start the Keycloak instance which is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
+The Keycloak instance is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
+
+Now create an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x).
 
 {{< /tab >}}
 {{< /tabs >}}
