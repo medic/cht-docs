@@ -34,7 +34,7 @@ If you are interested in forming or starting a squad, here are the steps to foll
    - Introductions and role clarity.
    - Overview of squad objectives and desired outcomes.
    - Initial task assignments and ownership.
-   - Agreement on a recurring meeting cadence (e.g., weekly/biweekly calls).
+   - Agreement on a recurring meeting cadence (for example, weekly/biweekly calls).
 - Establish a communication channel
   - Create a dedicated Slack channel (or alternative platform, if preferred) for squad discussions.
   - Invite all core members and ensure access is granted promptly.
