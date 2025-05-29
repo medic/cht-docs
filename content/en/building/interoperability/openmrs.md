@@ -12,9 +12,9 @@ aliases:
   - /building/guides/interoperability/openmrs
 ---
 
-[OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Integrating CHT apps with OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
+[OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Data exchange between CHT apps and OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
 
-Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
+CHT apps can connect with OpenMRS using the the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
 
 ## Overview
 
@@ -185,7 +185,7 @@ Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the n
 | `OPENMRS_HOST`            | hostname of OpenMRS instance                                                                    |
 | `OPENMRS_PORT`            | port where OpenMRS FHIR API is listening                                                        |
 | `OPENMRS_PASSWORD`        | OpenMRS password to use for basic authentication                                                |
-| `OPENMRS_USERNAME`        | OpenMRS password to use for basic authentication. Should be a special system or integration user |
+| `OPENMRS_USERNAME`        | OpenMRS password to use for basic authentication. Should be a user  created specifically for this connection. |
 
 When these variables are set, a channel for OpenMRS will automatically be created on startup.
 
@@ -198,7 +198,7 @@ The interoperability project will automatically create the following resources
 {{< figure src="mediators.png" link="mediators.png" >}}
 
 * The CHT Mediator Channel contains routes to the CHT Mediator.
-* The FHIR Channel contains routes to the FHIR Server. Although it is not used by this integration, it can be used to expose any CHT documents sent to it as a FHIR API.
+* The FHIR Channel contains routes to the FHIR Server. While this implementation does not utilize it, the channel can still expose any CHT documents sent to it as a FHIR API.
 * The OpenMRS Channel contains routes to the FHIR API of an external deployment of OpenMRS.
 
 {{< figure src="channels.png" link="channels.png" >}}
