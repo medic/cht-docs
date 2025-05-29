@@ -23,6 +23,26 @@ For a squad to succeed, **dedicated development capacity should be secured upfro
    - Funding: Budget to pay community developers (prioritizing CHT contributors).
 - **Clear Ownership:** Squads will be launched when specific developers are identified and onboarded.
 
+If you are interested in forming or starting a squad, here are the steps to follow:
+- Share details about the topic/feature to be explored in the squad on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34) to invite other interested community members to join the conversation.
+- Reach out to specific community members who have previously discussed the topic or who you think may be interested.
+- Reach out to the CHT Stewardship Team to allocate dedicated time during Round-up calls for sharing the initiative with the broader community.
+
+### Kick off
+ - Schedule a public, open meeting with all community members interested in contributing to the initiative.
+ - The agenda for this meeting should include:
+   - Introductions and role clarity.
+   - Overview of squad objectives and desired outcomes.
+   - Initial task assignments and ownership.
+   - Agreement on a recurring meeting cadence (for example, weekly/biweekly calls).
+- Establish a communication channel
+  - Reach out to the CHT Stewardship Team to create a dedicated Slack channel for squad discussions.
+  - Invite all community members who are part of the squad and ensure access is granted promptly.
+- Engage advisory roles
+  - Extend invitations to domain experts, UX specialists, or other advisors as needed.
+  - Clarify their involvement (for example, periodic reviews, feedback sessions) even if they are not full-time contributors.
+
+
 ## Why join a squad?
 - Work on meaningful projects that make a real difference
 - Learn from and collaborate with other community members
@@ -48,16 +68,36 @@ Feasibility meets vision. Teams explore technical requirements, timelines, and d
   - Resource commitments
   - Preliminary scope and timeline
 
-### 3.  Requirements & Design
-Turning ideas into action. Clear specs and mockups are finalized for development, as well as technical design.
+### 3. 💡 Requirements & Design
+Turning ideas into action. 
+- Initial Deliverable: The squad should collaboratively work on a design document based on the requirements.
+- Review Phase: Upon completing the initial draft, pause development to incorporate feedback—share the document on the forum to gather broad community input/feedback.
 
   **Outputs**:
   - Documented requirements
+  - Clear specs and mockups are finalized for development
   - Approved design doc
+  - Technical design doc
+
+Once the first iteration is complete, pause to incorporate feedback by announcing it on the forum for broad community review before proceeding.
 
 ### 4. 🧑🏽‍💻 Development/Building
-building the solution. 
-Feature implementation based on agreed-upon designs.
+- Development Kickoff
+  - Begin feature implementation once the squad agrees on the design
+  - Establish a single, authoritative development branch/workspace
+  - Maintain transparency through frequent code pushes to the public repository on GitHub
+
+- Quality Assurance
+  - Adhere to coding best practices including:
+    - Comprehensive automated testing
+    - Strict code quality standards
+    - Detailed documentation
+  - Conduct ongoing manual testing to identify and resolve issues early
+
+- Collaborative Standards
+  - Implement regular code reviews
+  - Maintain clear contribution guidelines
+  - Schedule periodic sync meetings for coordinating teams
 
   **Output**:
   - Working software (GitHub pull requests)
@@ -69,13 +109,20 @@ Ensuring quality. Rigorous manual/automated testing verifies functionality.
   - Test reports
   - Verified software
 
-### 6. 💪🏼 Release
+### 6. 🛋️ Review
+When the squad confirms that the solution meets the requirements, submit a pull request for review and nominate a CHT maintainer to lead the technical assessment. After passing both technical review and allowing a few days for community feedback, merge the approved code.
+
+**Outputs**: 
+- PR posted with testing instructions in the forum for community validation.
+- Merged contribution with documented community input.
+
+### 7. 💪🏼 Release
 The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
   **Output**:
   - Software release
 
-### 7. ✅ Done
+### 8. ✅ Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
 ## When can you join a squad?
