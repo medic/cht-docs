@@ -15,7 +15,7 @@ These steps document how to configure Microsoft Entra as the Single Sign On (SSO
 
 ## Prerequisites
 
-* [Microsoft Entra](https://entra.microsoft.com) account
+* [Microsoft Entra](https://entra.microsoft.com) business account with credit card added. Free trial accounts work, but require a credit card.
 * CHT server - ensure you are running version `4.20.0` or later
 * DNS Entries and TLS enabled on CHT
 
@@ -23,31 +23,39 @@ These steps document how to configure Microsoft Entra as the Single Sign On (SSO
 
 {{% steps %}}
 
-### Login to the Microsoft Entra
+### Login 
+Login to [Entra](https://entra.microsoft.com)
 
-- https://entra.microsoft.com
-- You will need a Microsoft Entra account. (I was able to create one for free, but it did require me to enter my credit card info.)
-
-### Add new user in Entra:
-
--  Navigate to "Users" > "All users" > "New user" > "Create new user"
-- Enter details for your test user. Specifically note the "Mail nickname" value as this will need to match the `email` value for your CHT user.
-- Be sure to copy the generated password or replace it with one that you know.
-
-### Add new Client in Entra:
+### Add new Client
 
 - Navigate to "Applications" > "App registrations" > "New registration"
-- Add a display name to identify the client. E.g. `CHT Test Instance`
-- Under "Redirect URI (optional)" select `web`
-    - Enter `http://localhost:5988/medic/login/oidc/get_token` as the redirect URI
-    - TODO This path might change based on review comments...
-- After registering the client, navigate to "Certificates & secrets" > "Client secrets" > "New client secret"
+- Add a "user-facing display name"  of `CHT`
+- Under "Redirect URI (optional)" select `Seb`
+- Enter `https://<CHT_URL>/medic/login/oidc/get_token` as the redirect URI, being sure to replace `CHT_URL` with your production CHT URL
+
+![new-registration.png](entra/new-registration.png)
+![new-registration2.png](entra/new-registration2.png)
+
+### Copy Secret
+
+Navigate to "Certificates & secrets" > "Client secrets" > "New client secret"
     - Add a new secret and copy the `Value` string
 - On the client app's "Overview" page, note the value displayed for "Application (client) ID". This is the `client_id` value.
-- From the "Overview" page, open the "Endpoints" modal and make a note of the "OpenID Connect metadata document" link value. This is the `discovery_url`.
-- Be sure you're logged in
+
+
+![new-secret.png](entra/new-secret.png)
+![copy-secret.png](entra/copy-secret.png)
+
+
+### Copy Discovery URL
+
+From the "Overview" page, open the "Endpoints" modal and make a note of the "OpenID Connect metadata document" link value. This is the `discovery_url`.
+
+![endpoints.png](entra/endpoints.png)
+![endpoint-url.png](entra/endpoint-url.png)
 
 {{% /steps %}}
+
 
 ## CHT Setup
 
@@ -57,12 +65,12 @@ These steps document how to configure Microsoft Entra as the Single Sign On (SSO
 
 In the config directory for your app, update your `app_settings.json` file to contain this additional JSON at the end, before the very last `}`
 
-Be sure to replace `ENTRA_URL` with the production URL of your Keycloak instance and `CHT_URL` with the production URL of your CHT instance. If you're using a development instance, be sure the `CHT_URL` includes your port.
+Be sure to replace `ENTRA_URL` with the Directory (tenant) ID of your Entra client from step 4 above and `CHT_URL` with the production URL of your CHT instance. If you're using a development instance, be sure the `CHT_URL` includes your port.
 
 ```json
     "oidc_provider": {
       "client_id": "CHT",
-      "discovery_url": "https://<ENTRA_URL>/realms/master/.well-known/openid-configuration"
+      "discovery_url": "https://login.microsoftonline.com/<ENTRA_ID>/v2.0/.well-known/openid-configuration"
     },
     "app_url": "https://<CHT_URL>/"
 ```
@@ -128,7 +136,12 @@ Further, going to the CHT login screen should now show an extra login button "Lo
 
 ### Add Entra user
 
-In Entra,  create a new user by going to  tk.  Specify username of `test` and and email of `test@test.com`
+- Navigate to "Users" > "All users" > "New user" > "Create new user"
+- Enter details for your test user. Specifically note the "Mail nickname" value as this will need to match the `email` value for your CHT user.
+- Specify "User proncipal name" of `test` which will translate to `test@<DOMAIN>.com` where `DOMAIN` is the domain you have configured for Entra.
+- Be sure to copy the generated password
+  ![create-new-user.png](entra/create-new-user.png)
+  ![create-new-user2.png](entra/create-new-user2.png)
 
 
 ### Set Entra users's password
