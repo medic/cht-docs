@@ -30,6 +30,9 @@ A user may be removed from using SSO by deleting the email address from "SSO Ema
 
 ## Sequence diagram
 
+When doing development and testing: Note that the CHT instance can be a private CHT instance,  (eg a [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) instance) that is not public accessible. This is because, for example,  step 9 is initiated from the CHT, thus it can be onle on the LAN and reach out to a public OIDC Provider like Entra.  As well, the OIDC provider (eg the case of a dev instance of Keycloak) can be only on the LAN.  
+
+Otherwise, for production, both the CHT and the OIDC Provider should should have public URLs with TLS enabled.
 
 ```mermaid
 sequenceDiagram
