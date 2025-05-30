@@ -23,12 +23,12 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
 ## Quick Start
 
 1. Create an OIDC Provider client with the redirect URL of `https://<CHT_URL>/medic/login/oidc`. Grab the secret for step 3 below. Be sure to replace `CHT_URL` with your real URL.
-2. Add the OIDC URL and CHT App URL to the app settings and upload it with CHT Conf to your CHT instance. Be sure to replace `KEYCLOAK_URL` and `CHT_URL` with your real URLs:
+2. Add the Client App ID (`APP_ID`), OIDC URL (`WELL_KNOWN_OIDC_URL`) and CHT URL (`CHT_URL`) to the app settings and upload it with CHT Conf to your CHT instance. Be sure to replace `APP_ID` and `WELL_KNOWN_OIDC_URL` and `CHT_URL` with your real URLs:
 
     ```yaml
     "oidc_provider": {
-      "client_id": "CHT",
-      "discovery_url": "https://<KEYCLOAK_URL>/realms/master/.well-known/openid-configuration"
+      "client_id": "<APP_ID>",
+      "discovery_url": "https://<WELL_KNOWN_OIDC_URL>"
     },
     "app_url": "https://<CHT_URL>/"
     ```
