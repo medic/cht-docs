@@ -6,6 +6,7 @@ description: >
   **Token login**: Instructions and schema for Login by SMS
 relatedContent: >
   building/reference/api#login-by-sms
+  building/reference/app-settings/oidc_provider
 aliases:
    - /apps/reference/app-settings/token_login
 ---
