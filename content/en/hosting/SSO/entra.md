@@ -31,7 +31,7 @@ Login to [Entra](https://entra.microsoft.com)
 
 - Navigate to "Applications" > "App registrations" > "New registration"
 - Add a "user-facing display name"  of `CHT`
-- Under "Redirect URI (optional)" select `Seb`
+- Under "Redirect URI (optional)" select `Web`
 - Enter `https://<CHT_URL>/medic/login/oidc` as the redirect URI, being sure to replace `CHT_URL` with your production CHT URL
 
 ![new-registration.png](entra/new-registration.png)
