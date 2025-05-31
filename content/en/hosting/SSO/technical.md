@@ -8,31 +8,33 @@ weight: 400
 Introduced in 4.20.0
 {{< /callout >}}
 
-CHT 4.20 introduced the single sign on (SSO) feature allowing deployments to use the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol to authenticate users.  See the entire [technical design document](https://docs.google.com/document/d/1LUn1ZRetAmYE04CtdcTmp-bEBvl37AZ0CvFXZChXqfU/edit?tab=t.0) for all the details, otherwise read on below for key points on how SSO in the CHT works.
+CHT `4.20.0` introduced the single sign on (SSO) feature allowing deployments to use the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol to authenticate users.  Below are some key points on the SSO functionality in the CHT. See the [technical design document](https://docs.google.com/document/d/1LUn1ZRetAmYE04CtdcTmp-bEBvl37AZ0CvFXZChXqfU/edit?tab=t.0) for all the details.
 
 ## Setup 
 
-CHT 4.20 and later has all the code to support SSO.  The "Login with SSO" button is not visible until `oidc_provider` JSON stanze is added to the app config and uploaded to the CHT instance.  See [step 1 in Keycloak Setup](/hosting/sso/keycloak/#cht-app-settings) for example.
+Follow the [setup steps]({{< ref "hosting/sso" >}}) to [configure your CHT instance]({{< ref "building/reference/app-settings/oidc_provider" >}}) for SSO Login. Once the server has been properly configured, the "Login with SSO" button will be visible on the CHT Login page. CHT users with the [`oidc_username` property]({{< ref "building/reference/api/#login-by-oidc" >}}) will be able to log in with their SSO credentials. The "SSO Email Address" field will be also be visible in the create/update users modal in the [App Management interface]({{< ref "building/admin/admin-overview" >}}). 
 
-After the config is uploaded, not only will the login screen be updated for all users, an additional "SSO Email Address" field will be shown when editing a user in the admin area of the CHT.  Internally this is called `oidc_username` and it separate from the `email` field.  See [the API on users](/building/reference/api/#supported-properties-2) for more information. 
+## User Mapping
 
-## CHT accounts and session 
+Note that the "SSO Email Address" field is used to populate the user's `oidc_username` property. The `oidc_username` is stored separately from the user's normal `email` property (populated from the "Email Address" field in the App Management interface) and different values can be provided for each. Only the `oidc_username` will be considered when logging in an SSO user. Users with the `can_edit_profile` permission are able to edit their `email` value, but only administrators can edit a user's `oidc_username`.
 
-To prevent username collisions, a user that has been provisioned for SSO, may not use the native "Login" button in in CHT. They will see "Incorrect user name or password. Please try again."
+If someone selects the "Login with SSO" button and successfully authenticates with the OIDC provider, but their OIDC user account does not have a corresponding CHT user (the `email` claim from the OIDC user does not match any CHT user `oidc_username`), they will not be logged into the CHT. Instead they will be redirected back to the login page with an error message indicating that they are not allowed to log in with SSO.
 
-As well, if a user has a correctly provisioned SSO login, but their CHT user isn't provisioned, or is incorrectly provisioned, they will see an error "You are not allowed to log in with SSO. Please contact your administrator or supervisor.".  This may be especially confusing for a first time users.  They will click "Login with SSO", they will then successfully login in the SSO system, and then the CHT will show the error.  Subsequent attempts of clicking "Login with SSO" will immediately show the error, bypassing the SSO system as they're already logged in there.  
+Users with a currently active OIDC session may not be required to re-authenticate. Instead, when logging into the CHT for the first time they will be prompted by their OIDC Provider to allow the CHT to access their user information.
 
-Two CHT users can not share the same SSO login.  If you enter the same value in the "SSO Email Address", an error will be shown, "A different user already exists with the same SSO Email Address."
+A user with the `oidc_username` property is only allowed to log in with SSO. Any other authentication method (e.g. username/password or token login) will fail.
 
-Users who successfully authenticates on the SSO system, will be sent to the CHT which verifies the user is historized to login.  Upon getting a confirmation, a cookie is given to the user with their session information.  At this point, the CHT can not distinguish the user from a non-SSO user. Only an admin looking at the user account could tell how the user logged in. 
+To convert an SSO user in the CHT back to a normal CHT user (with username/password authentication), simply remove the user's `oidc_username` (by deleting the value from the "SSO Email Address" field). A new password must then be set for the user. All the user's existing sessions will be invalidated and the user must log in again (this time by using their CHT username/password).
 
-A user may be removed from using SSO by deleting the email address from "SSO Email Address" on their CHT account. The user can then login using the password on their CHT user.
+## CHT User session 
 
-## Sequence diagram
+Once an SSO user has successfully authenticated with the CHT (by completing the OIDC flow), their browser receives a valid Couch session cookie (equivalent to the session cookies provided to normal CHT users). For all subsequent operations, the CHT does not distinguish between SSO and non-SSO users since both types of users are authenticating with the same type of session cookie.
 
-When doing development and testing: Note that the CHT instance can be a private CHT instance,  (eg a [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x) instance) that is not public accessible. This is because, for example,  step 9 is initiated from the CHT, thus it can be onle on the LAN and reach out to a public OIDC Provider like Entra.  As well, the OIDC provider (eg the case of a dev instance of Keycloak) can be only on the LAN.  
+It is very important to note that once an SSO user has successfully authenticated with the CHT, the CHT does not contact the OIDC Provider for subsequent requests from that user. If the user is removed from the OIDC Provider (or their OIDC session is otherwise invalidated), they will still be able to access the CHT. This is because their CHT session cookie is still valid. You can prevent the user from accessing the CHT by disabling their CHT user account, updating their "SSO Email Address" or removing it and setting a new password for the user.
 
-Otherwise, for production, both the CHT and the OIDC Provider should should have public URLs with TLS enabled.
+## OIDC Login Sequence
+
+The following diagram demonstrates the sequence of events when a user logs in to the CHT using SSO:
 
 ```mermaid
 sequenceDiagram
@@ -57,9 +59,10 @@ sequenceDiagram
     Note over cht,user_agent: Subsequent requests are made with the <br/>session cookie and do not require contacting<br/>the OIDC provider
 ```
 
-## Caveats
+## Limitations
 
-While completely compliant with the OIDC specification, SSO was implemented using a "minimum viable product" (MVP) approach.  This means more robust features were not implemented in certain areas:
+While completely compliant with the OIDC specification, the SSO functionality in the CHT currently has several notable limitations (any of which may be addressed in future releases):
 
-* Creating a user in your SSO system does not automatically create a corresponding user in the CHT.  Users need to be provisioned by hand in the CHT admin app or via bulk import into the CHT
-* Users who logged in to the CHT via SSO and have their SSO account deactivated, are not automatically logged out of the CHT.  To log the user out, their password must be changed in the CHT.  
+* User auto-provisioning is not supported. Users must be created in the CHT before they can log in with SSO.  The CHT does not automatically create users when they log in with SSO for the first time.
+* Back-channel logout is not supported. As noted above, when a user's OIDC session is ended, it does not automatically end their CHT session.
+* User mapping between OIDC and CHT users only supports matching on the `email` claim from the OIDC user. The CHT does not support mapping on other claims (e.g. `sub` or `preferred_username`).
