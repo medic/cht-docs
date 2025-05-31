@@ -2,7 +2,11 @@
 title: Single Sign-On
 linkTitle: SSO
 weight: 200
-description: Setting up an single sign on with the CHT
+description: Setting up Single Sign On with the CHT
+relatedContent: >
+  building/concepts/access/#single-sign-on-oidc-login
+  building/reference/api/#login-by-oidc
+  building/reference/app-settings/oidc_provider
 ---
 
 {{< callout >}}
