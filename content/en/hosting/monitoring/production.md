@@ -1,7 +1,7 @@
 ---
 title: "Production CHT Watchdog"
 linkTitle: "Production"
-weight: 3
+weight: 110
 description: >
   Production considerations for CHT Watchdog
 aliases:  

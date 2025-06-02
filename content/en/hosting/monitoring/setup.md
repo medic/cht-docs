@@ -1,7 +1,7 @@
 ---
 title: "CHT Watchdog Setup"
 linkTitle: "Setup"
-weight: 2
+weight: 100
 description: >
    Setting up Grafana and Prometheus with the CHT
 relatedContent: >  
