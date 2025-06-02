@@ -6,6 +6,9 @@ description: >
   Starting up a digital health app
 aliases:
    - /apps/concepts/access
+relatedContent: >
+  hosting/sso
+  building/reference/app-settings/oidc_provider
 ---
 
 Apps built with the Core Framework run on most modern computers with the newest versions of Google Chrome or Mozilla Firefox.
@@ -91,3 +94,8 @@ With token login, the password is never known by the admin or the user because t
 > [!NOTE]
 > The magic link workflow will not work for users who want to use multiple devices or for multiple users on one device.
 
+## Single Sign-On (OIDC Login)
+
+The CHT supports Single Sign-On (SSO) via integration with an external authentication server. When [configured]({{< ref "building/reference/app-settings/oidc_provider" >}}), users can authenticate with their SSO credentials instead of needing a CHT-specific username and password.
+
+{{< see-also page="hosting/sso" >}}

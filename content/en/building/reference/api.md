@@ -1942,18 +1942,20 @@ Use JSON in the request body to specify user details. Any properties submitted
 that are not on the list below will be ignored. Any properties not included
 will be undefined.
 
-| Name | Required | Type | Description | Version |
-| ---- | -------- | ---- | ----------- | ------ |
-| username | yes | String | identifier used for authentication |
-| roles  | yes | Array | |
-| place | yes, if the roles contain an offline role | string or object | Place identifier string (UUID) or object this user resides in. |
-| contact | yes, if the roles contain an offline role | string or object | A person identifier string (UUID) or object based on the form configured in the app. |
-| password | yes, if `token_login` is not enabled for the user | String | Password string used for authentication. Only allowed to be set, not retrieved. |
-| phone |  yes, if `token_login` is enabled for the user | String | Valid phone number |
-| token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 |
-| fullname | no | String | Full name  |
-| email | no | String | Email address  |
-| known | no | Boolean | Boolean to define if the user has logged in before. |
+| Name                     | Required                                                         | Type             | Description                                                                                                                                                              | Version |
+|--------------------------|------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| username                 | yes                                                              | String           | identifier used for authentication                                                                                                                                       |         |
+| roles                    | yes                                                              | Array            |                                                                                                                                                                          |         | 
+| place                    | yes, if the roles contain an offline role                        | string or object | Place identifier string (UUID) or object this user resides in.                                                                                                           |         | 
+| contact                  | yes, if the roles contain an offline role                        | string or object | A person identifier string (UUID) or object based on the form configured in the app.                                                                                     |         |
+| password                 | yes, if `token_login` or `oidc_username` is not set for the user | String           | Password string used for authentication. Only allowed to be set, not retrieved.                                                                                          |         |
+| phone                    | yes, if `token_login` is enabled for the user                    | String           | Valid phone number                                                                                                                                                       |         |
+| token_login              | no                                                               | Boolean          | A boolean representing whether or not the Login by SMS should be enabled for this user.                                                                                  | 3.10.0  |
+| fullname                 | no                                                               | String           | Full name                                                                                                                                                                |         |
+| email                    | no                                                               | String           | Email address                                                                                                                                                            |         |
+| known                    | no                                                               | Boolean          | Boolean to define if the user has logged in before.                                                                                                                      |         |
+| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password]({{< ref "building/concepts/access/#password-reset-on-first-login" >}}) the next time they log in. | 4.17.0  |
+| oidc_username            | no                                                               | String           | A unique username for [authenticating via OIDC](#login-by-oidc). This value must match the `email` claim returned for the user by the OIDC provider.                     | 4.20.0  |
 
 #### Login by SMS
 
@@ -1987,6 +1989,22 @@ This feature uses [`app_settings.app_url`]({{< relref "building/reference/app-se
 If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct.
 
 {{< see-also page="building/concepts/access" anchor="remote-login" >}}
+
+#### Login by OIDC
+
+When [SSO Login]({{< ref "hosting/sso" >}}) is enabled (by configuring the [`oidc_provider` settings]({{< ref "building/reference/app-settings/oidc_provider" >}})), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
+
+Two CHT users cannot share the same `oidc_username` value. Setting the `oidc_username` property for a user will cause the user's password (in the CHT) to be set to a random value, preventing them from logging in with other authentication methods. Instead, the user must log in using the "Login with SSO" button.
+
+When creating/editing users via the [App Management interface]({{< ref "building/admin/admin-overview" >}}), the "SSO Email Address" field is used to set the `oidc_username` property.
+
+(Note: it is possible to have a mixed environment where some users log in with SSO and others log in with other authentication methods. In this case, the `oidc_username` property is only set for those users who log in with SSO.)
+
+##### Locale for SSO users
+
+When a user logs in via SSO, the CHT app will attempt to localize the interface based on the `locale` claim returned by the OIDC Provider (otherwise it will fall back to the default locale configured as the first `languages` entry in the [`app_settings.json`]({{< relref "building/reference/app-settings/#app_settingsjson" >}})).
+
+{{< see-also page="hosting/sso" anchor="remote-login" >}}
 
 ### GET /api/v1/users
 
@@ -2086,6 +2104,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2124,6 +2143,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2162,6 +2182,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2211,6 +2232,7 @@ Content-Type: application/json; charset=utf-8
   "type": "district-manager",
   "fullname": "Example User",
   "username": "demo",
+  "oidc_username": "demo@email.com",
   "place": {
     "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
     "type": "district_hospital",
