@@ -198,7 +198,7 @@ The interoperability project will automatically create the following resources
 {{< figure src="mediators.png" link="mediators.png" >}}
 
 * The CHT Mediator Channel contains routes to the CHT Mediator.
-* The FHIR Channel contains routes to the FHIR Server. While this implementation does not utilize it, the channel can still expose any CHT documents sent to it as a FHIR API.
+* The FHIR Channel contains routes to the FHIR Server. While this implementation does not utilize it, the channel can expose any CHT documents sent to it as a FHIR API.
 * The OpenMRS Channel contains routes to the FHIR API of an external deployment of OpenMRS.
 
 {{< figure src="channels.png" link="channels.png" >}}
