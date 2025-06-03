@@ -25,7 +25,6 @@ Be sure you have these tools installed and repos cloned:
 * [helm](https://helm.sh/docs/intro/install/)
 * [jq](https://jqlang.github.io/jq/download/)
 * [node](https://nodejs.org/en/download) version `22` or later. Be sure that `npm` was installed as well with `node` (it normally is)
-* [Medic Infra](https://github.com/medic/medic-infrastructure/) repo cloned
 
 #### Optional:  Autocomplete
 
