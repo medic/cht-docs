@@ -185,7 +185,7 @@ Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the n
 | `OPENMRS_HOST`            | hostname of OpenMRS instance                                                                    |
 | `OPENMRS_PORT`            | port where OpenMRS FHIR API is listening                                                        |
 | `OPENMRS_PASSWORD`        | OpenMRS password to use for basic authentication                                                |
-| `OPENMRS_USERNAME`        | OpenMRS password to use for basic authentication. Should be a user  created specifically for this connection. |
+| `OPENMRS_USERNAME`        | OpenMRS password to use for basic authentication. Should be a user created specifically for this connection |
 
 When these variables are set, a channel for OpenMRS will automatically be created on startup.
 
