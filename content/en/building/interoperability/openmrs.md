@@ -14,7 +14,7 @@ aliases:
 
 [OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Data exchange between CHT apps and OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
 
-CHT apps can connect with OpenMRS using the the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
+CHT apps can exchange data with OpenMRS using the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
 
 ## Overview
 
