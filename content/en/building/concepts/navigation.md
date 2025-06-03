@@ -82,3 +82,13 @@ The synchronization process can be in one of the following states:
 - **InProgress**: Synchronization is currently ongoing.
 - **Success**: The last sync operation was successful.
 - **Required**: There is data pending synchronization.
+
+### Storage Pressure Indicator
+
+{{< callout >}}
+Introduced in 4.20.0
+{{< /callout >}}
+
+{{< figure src="storage_pressure_screenshot.svg" link="storage_pressure_screenshot.svg" >}}
+
+Another important factor for [offline users]({{< relref "building/concepts/users" >}}) is the amount of storage available on their device. The CHT app will not continue to function if a user runs out of storage space. The storage pressure indicator in the menu drawer shows users, at a glance, how much free disk space they have left.
