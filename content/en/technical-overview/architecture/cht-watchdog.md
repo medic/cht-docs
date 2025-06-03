@@ -27,7 +27,7 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 ### Prometheus 
 
-[Prometheus](https://prometheus.io/docs/prometheus/latest/) is an open source Time Series Database (TSDB) that was developed explicitly to do detailed longitudinal monitoring.  It also aggregates metrics and can automatically cull older data to save on CPU and disk space.
+[Prometheus](https://prometheus.io/docs/introduction/overview/) is an open source Time Series Database (TSDB) that was developed explicitly to do detailed longitudinal monitoring.  It also aggregates metrics and can automatically cull older data to save on CPU and disk space.
 
 ### JSON Exporter
 
