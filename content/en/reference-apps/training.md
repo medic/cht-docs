@@ -6,7 +6,7 @@ description: >
   App and care workflow training using remote capabilities
 relatedContent: >
   building/reference/app-settings/token_login/
-  building/concepts/access/
+  building/login/
   building/training/onboarding
 aliases:
    - /apps/examples/training
@@ -51,7 +51,7 @@ The CHT’s onboarding and training capabilities offer a remote way to provide e
 
 Users may log into their app with a link sent to them via SMS. The link allows the user to directly enter their app, bypassing the need to enter their username and password.
 
-{{< see-also page="building/concepts/access" anchor="remote-login" >}}
+{{< see-also page="building/login" anchor="remote-login" >}}
 
 ### Remote Training Overview
 

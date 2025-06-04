@@ -6,7 +6,7 @@ description: >
   Instructions and schema for SSO Login by OIDC
 relatedContent: >
   hosting/sso
-  building/concepts/access/#single-sign-on-oidc-login
+  building/login/#single-sign-on-oidc-login
   building/reference/api/#login-by-oidc
   building/reference/app-settings/#app_settingsjson
   building/reference/app-settings/token_login

@@ -5,7 +5,7 @@ weight:
 description: >
   How to roll out features to select users
 relatedContent: >
-  building/concepts/users
+  building/users
   building/reference/app-settings/user-permissions
   building/reference/app-settings/user-roles
 

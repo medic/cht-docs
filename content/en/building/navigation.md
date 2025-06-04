@@ -1,11 +1,12 @@
 ---
 title: "Navigating CHT Apps"
 linkTitle: "Navigation"
-weight: 2
+weight: 100
 description: >
   Browsing a digital health app
 aliases:
    - /apps/concepts/navigation
+   - /building/concepts/navigation
 ---
 
 ## Summary of Page Tabs
@@ -38,7 +39,7 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-4" >}}
 
-Data synchronization is important for [offline users]({{< relref "building/concepts/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronization) is when data on the device is made to match the data on the server and requires an internet connection. The CHT app monitors the online status and attempts sync accordingly.
+Data synchronization is important for [offline users]({{< relref "building/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronization) is when data on the device is made to match the data on the server and requires an internet connection. The CHT app monitors the online status and attempts sync accordingly.
 
 #### Replication Types
 
@@ -91,4 +92,4 @@ Introduced in 4.20.0
 
 {{< figure src="storage_pressure_screenshot.svg" link="storage_pressure_screenshot.svg" >}}
 
-Another important factor for [offline users]({{< relref "building/concepts/users" >}}) is the amount of storage available on their device. The CHT app will not continue to function if a user runs out of storage space. The storage pressure indicator in the menu drawer shows users, at a glance, how much free disk space they have left.
+Another important factor for [offline users]({{< relref "building/users" >}}) is the amount of storage available on their device. The CHT app will not continue to function if a user runs out of storage space. The storage pressure indicator in the menu drawer shows users, at a glance, how much free disk space they have left.

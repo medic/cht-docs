@@ -121,7 +121,7 @@ module.export = [
 
 For the HRIO role, create a new user role and a new user with that role; or update an existing user role. To export DHIS2 metrics, users need to have the following permissions: `can_configure`, `can_export_all`, and `can_export_dhis`.
 
-{{< see-also page="building/concepts/users" title="Users" >}}
+{{< see-also page="building/users" title="Users" >}}
 
 ## User experience
 
