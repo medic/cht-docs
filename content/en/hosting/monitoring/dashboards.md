@@ -40,7 +40,7 @@ These 8 graphs show growth overtime of the respective sources.  This is really g
 
 ![details1.png](dashboards/details1.png)
 
-If CHWs are complaining that they're not seeing the data they're expecting, or if syncing is taking a long time, the "Sentinel Backlog" graph is great first place to check. In this case, there's small healthy spikes of backlog that resolved over a short amount of time.  If there were gaps in data that would represent an outage. If there were an ever increasing backlog, that would suggest resource contention (CPU).
+If CHWs are reporting that they're not seeing the data they're expecting, or if syncing is taking a long time, the "Sentinel Backlog" graph is great first place to check. In this case, there's small healthy spikes of backlog that resolved over a short amount of time.  If there were gaps in data that would represent an outage. If there were an ever increasing backlog, that would suggest resource contention (CPU).
 
 ![details2.png](dashboards/details2.png)
 
