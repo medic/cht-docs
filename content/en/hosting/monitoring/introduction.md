@@ -1,6 +1,6 @@
 ---
 title: "Introduction to monitoring and alerting"
-weight: 1
+weight: 50
 linkTitle: "Introduction"
 description: >
   High level approach to monitoring and alerting with CHT applications

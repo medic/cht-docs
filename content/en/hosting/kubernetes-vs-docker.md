@@ -70,17 +70,17 @@ Below are examples from real world large-scale CHT deployments which have been a
 
 ### CHT Deployment Example 1
 
-This deployment hosts 47 production instances in a data center running [K3s](https://k3s.io/). It runs a simplified k3s setup with 47 isolated installations of k3s to manage complexity easily.  Thus each CHT instance is bound to the VM's local storage.  If a VM fails, there is no automatic failover, and a restore from backup is needed.
+This deployment hosts 47 production instances in a data center running [Docker](/hosting/4.x/docker/). It trades ease and  simplicity of Docker Compose deployment for a bit of fragility: if a VM fails, there is no automatic failover, and a restore from backup is needed.
 
-|                   |                             |
-|------------------:|:----------------------------|
-|    CHT Instances: | 47                          |
-|          Hosting: | k3s                         |
-|            Cores: | 376 (47 VMs x 8 Cores/ea)    |
-|              RAM: | 752 GB (47 VMs x 16 GB/ea)     |
+|                   |                            |
+|------------------:|:---------------------------|
+|    CHT Instances: | 47                         |
+|          Hosting: | Docker                     |
+|            Cores: | 376 (47 VMs x 8 Cores/ea)  |
+|              RAM: | 752 GB (47 VMs x 16 GB/ea) |
 |             Disk: | 4,700 GB (Max 700, Min 21) |
-| Multi-Node Couch: | No                          |
-|            Users: | 50.6k                       |
+| Multi-Node Couch: | No                         |
+|            Users: | 50.6k                      |
 
 
 
@@ -114,6 +114,6 @@ This deployment hosts 46 production instances on Amazon [Elastic Kubernetes Serv
 |            Users: | 25.7k                                           |
 
 
-To give more specific examples of what's running in the 46 instances, here's details on two including their [Apdex](https://docs.communityhealthtoolkit.org/building/guides/database/querying_apdex_telemetry/):
-* One large instance has 2.4k active users, 8.9M documents in the Medic database in CouchDB and a mean replication Apdex of 80.0.
-* Another medium instance has 232 active users, 279k documents in the Medic database in CouchDB and a mean replication Apdex of 56.4.
+To give more specific examples of what's running in the 46 instances, here's details on two including their [Apdex](/hosting/monitoring/dashboards/#replication):
+* One large instance has 2.4k active users, 8.9M documents in the Medic database in CouchDB and a mean replication Apdex of 100.0.
+* Another medium instance has 232 active users, 279k documents in the Medic database in CouchDB and a mean replication Apdex of 100.

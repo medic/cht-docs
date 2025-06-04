@@ -1,7 +1,7 @@
 ---
 title: "Custom Postgres metrics in CHT Watchdog"
 linkTitle: "Custom Postgres Metrics"
-weight: 4
+weight: 300
 description: >
   Adding Custom Postgres metrics into CHT Watchdog
 aliases:  

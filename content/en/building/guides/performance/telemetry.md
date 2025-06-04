@@ -37,6 +37,8 @@ The CHT records the Apdex (Application Performance Index) that is an open standa
 
 The Apdex level is `satisfied` when the duration is less than or equal to 3s; `tolerable` when the duration is more than 3s but less than or equal to 12s; `frustrated` when duration is more than 12s. The Apdex is recorded as a telemetry entry using the format: `<telemetry_field>:apdex:<satisfied/tolerable/frustrated>`, for example, if the telemetry is about boot time and it had a tolerable performance, the Apdex is recorded as `boot_time:apdex:tolerable`. 
 
+Note that this is not the same as [synchronizing to the server apdex](/hosting/monitoring/dashboards/#replication).
+
 Find below the list of telemetry data recorded by CHT:
 
 | Field                                                              | Description                                                                                                                                                                                                                                                                                                                                                            | Apdex |

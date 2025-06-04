@@ -1,7 +1,7 @@
 ---
 title: "Integrating CHT Watchdog"
 linkTitle: "Integrating"
-weight: 5
+weight: 300
 description: >
   Scraping and alerting external sources with CHT Watchdog
 aliases:
