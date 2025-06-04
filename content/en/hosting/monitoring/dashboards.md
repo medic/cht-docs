@@ -27,7 +27,7 @@ This is the main dashboard for Watchdog.  It gives you high level details on you
 10. Outbound push backlog: Number of changes yet to be processed by Outbound Push. If this is persistently above 0 you likely have a configuration error in your outbound push
 11. Sentinel backlog: Number of changes yet to be processed by Sentinel. If this is persistently above 0 you may have resource contention
 12. CHT Sync Backlog: Number of CouchDB changes that have not yet been processed by CHT Sync. Requires setup of [SQL integration](/hosting/monitoring/setup/#additional-configuration).
-13. Client Feedback/Error Rate: CHT Sync Backlog: Number of feedback docs created usually indicative of client side errors.
+13. Client Feedback/Error Rate: Number of feedback docs created usually indicative of client side errors.
 14. Alerts: Alerts that need attention.  In this screenshot, you can see that the Client Feedback/Error Rate is too high and should be investigated.  See [alerts](/hosting/monitoring/setup/#alerts) for more information.
 
 
