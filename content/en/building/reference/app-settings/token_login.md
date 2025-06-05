@@ -12,6 +12,11 @@ aliases:
 ---
 
 Login via SMS settings are defined under the `token_login` key, as an object supporting the following properties:
+
+{{< callout >}}
+As of CHT `5.0.0`, the [`app_url` config]({{< ref "/building/reference/app-settings/#app_settingsjson" >}}) is **required** when enabling token login. If `token_login.enabled` is `true` and `app_url` is not set, token login will not work and errors will be thrown.
+{{< /callout >}}
+
 ## `app_settings.json .token_login`
 | property         | type | required       | description                                                                                                                                                                              |
 |------------------|------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -23,6 +28,7 @@ Login via SMS settings are defined under the `token_login` key, as an object sup
 The definition takes the typical form below:
 
 ```json
+"app_url": "https://example.org",
 "token_login": {
   "enabled": true,
   "translation_key": "sms.token.login.help"
