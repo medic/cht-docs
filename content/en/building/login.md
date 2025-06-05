@@ -24,8 +24,8 @@ Users may log out by going to the options menu available in the top right corner
 {{< see-also page="/building/navigation" >}}
 
 {{< cards >}}
-    {{< figure src="login-mobile.png" link="login-mobile.png" >}}
-    {{< figure src="login-desktop.png" link="login-desktop.png" >}}
+    {{< card image="login-mobile.png" link="login-mobile.png"  subtitle="Mobile login - click to zoom" >}}
+    {{< card image="login-desktop.png" link="login-desktop.png"  subtitle="Desktop login - click to zoom" >}}
 {{< /cards >}}
 
 
