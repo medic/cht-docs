@@ -21,8 +21,6 @@ As of CHT `5.0.0`, the [`app_url` config]({{< ref "/building/reference/app-setti
 |------------------|------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | enabled | Boolean | yes | Enables or disables token_login deployment-wide. When this is false, users can't be updated to use token_login and any requests to login with a token link will fail.  |
 | translation_key | String | yes | Translation key for the information (helper) sms message that the user receives, along with their token-login link |
-| app_url | String | yes | **Required as of 5.0.0 when token_login.enabled is true** The base URL of your CHT instance, used to generate login links. Example: "https://example.org" |
-* Only required if token_login.enabled is true.
 
 ## Code sample
 
