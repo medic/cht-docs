@@ -1954,7 +1954,7 @@ will be undefined.
 | fullname                 | no                                                               | String           | Full name                                                                                                                                                                |         |
 | email                    | no                                                               | String           | Email address                                                                                                                                                            |         |
 | known                    | no                                                               | Boolean          | Boolean to define if the user has logged in before.                                                                                                                      |         |
-| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password]({{< ref "building/concepts/access/#password-reset-on-first-login" >}}) the next time they log in. | 4.17.0  |
+| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password]({{< ref "building/login/#password-reset-on-first-login" >}}) the next time they log in. | 4.17.0  |
 | oidc_username            | no                                                               | String           | A unique username for [authenticating via OIDC](#login-by-oidc). This value must match the `email` claim returned for the user by the OIDC provider.                     | 4.20.0  |
 
 #### Login by SMS
@@ -1988,7 +1988,7 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 This feature uses [`app_settings.app_url`]({{< relref "building/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "building/reference/app-settings/token_login.md" >}}) to be defined and enabled.
 If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct.
 
-{{< see-also page="building/concepts/access" anchor="remote-login" >}}
+{{< see-also page="building/login" anchor="remote-login" >}}
 
 #### Login by OIDC
 

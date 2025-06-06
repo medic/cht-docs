@@ -45,7 +45,7 @@ When a CHW clicks on a task, the care guide configured for that task displays. C
 {{< card link="tasks-care4.png" image="tasks-care4.png"  method="resize">}}
 {{< /cards >}}
 
-Find more information on how [care guides]({{< relref "building/concepts/care-guides" >}}) provide decision support for healthcare workers.
+Find more information on how [care guides]({{< relref "building/care-guides" >}}) provide decision support for healthcare workers.
 
 When the user completes the care guide, the task will be cleared from the Tasks tab, and the report will be accessible from the Reports page or on the profile of the person or place whom the report is about.
 

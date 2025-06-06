@@ -9,8 +9,8 @@ relatedContent: >
     building/guides/database/couchdb-authentication
     building/contact-management/contact-and-users-1
     building/guides/data/users-bulk-load
-    building/concepts/users
-    building/concepts/access/#magic-links-for-logging-in-token-login
+    building/users
+    building/login/#magic-links-for-logging-in-token-login
 
 aliases:
    - /apps/guides/security/securely-onboarding-users-at-scale
@@ -58,14 +58,14 @@ Of paramount importance:
 When it comes time get a username and password onto a device or to a remote user, be sure to use mediums that are secure. One of the main concerns is credentials being found long after they were sent.
 * A best practice is for the sender to add a credential to a shared password manager.  The person receiving the credentials can then securely open the password manager. 
 * If no password manager is available, consider sending the password via [One Time Secret](https://onetimesecret.com/)
-* To send credentials in to many CHWs, consider using [token login]({{% ref "building/concepts/access#magic-links-for-logging-in-token-login" %}}).
+* To send credentials in to many CHWs, consider using [token login]({{% ref "building/login#magic-links-for-logging-in-token-login" %}}).
 * For sending large lists of credentials, as mentioned above, using a cloud provider like Google Sheets, is a good way to have an audit trail and still provide easy, remote access.
 
 ## Example scenarios
 
 ### Ideal practice 1: Only Magic Links
 
-Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via [the command line]({{% ref "building/guides/data/csv-to-docs#creating-csv-files-for-users" %}}) or [bulk user upload]({{% ref "building/guides/data/users-bulk-load" %}}), have a [token login]({{% ref "building/concepts/access#magic-links-for-logging-in-token-login" %}}) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours.
+Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via [the command line]({{% ref "building/guides/data/csv-to-docs#creating-csv-files-for-users" %}}) or [bulk user upload]({{% ref "building/guides/data/users-bulk-load" %}}), have a [token login]({{% ref "building/login#magic-links-for-logging-in-token-login" %}}) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours.
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 
@@ -99,7 +99,7 @@ If an online list of credentials is leaked to unauthorized parties, or worse, th
 
 Medic [has published a script](https://github.com/medic/cht-core/blob/master/scripts/bulk-password-update-export.js) to easily change all passwords for a list of users.  Administrators will then be responsible to log CHWs back in by [securely sending](#transmitting-credentials) them their password. 
 
-Additionally, this script could be updated to immediately send a [token login]({{% ref "building/concepts/access#magic-links-for-logging-in-token-login" %}}) link to the user.  There would be no need to change the password as this is done automatically for you.  Note that users would need their phone numbers recorded in the CHT to receive a token login link. Here's an example `curl` command to send a token login link for the `mary` user:
+Additionally, this script could be updated to immediately send a [token login]({{% ref "building/login#magic-links-for-logging-in-token-login" %}}) link to the user.  There would be no need to change the password as this is done automatically for you.  Note that users would need their phone numbers recorded in the CHT to receive a token login link. Here's an example `curl` command to send a token login link for the `mary` user:
 ```shell
 curl https://medic:password@cht.example.com/api/v1/users/mary \
     -X POST -H "Content-Type: application/json" \

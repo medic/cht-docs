@@ -5,7 +5,7 @@ weight: 6
 description: >
   Creating and assigning users to multiple places in the CHT UI
 relatedContent: >
-  building/concepts/users
+  building/users
   building/reference/app-settings
   building/contact-management/contact-and-users-1
 aliases:
@@ -25,9 +25,9 @@ The [CHT application settings]({{< relref "building/tutorials/application-settin
 
 ## Brief Overview of Key Concepts
 
-*[Permissions]({{< relref "building/concepts/users#permissions" >}})* are settings that control access to specific app features and functionality.
+*[Permissions]({{< relref "building/users#permissions" >}})* are settings that control access to specific app features and functionality.
 
-*[Roles]({{< relref "building/concepts/users#roles" >}})* define permissions for users to access a group of app features and functionality.
+*[Roles]({{< relref "building/users#roles" >}})* define permissions for users to access a group of app features and functionality.
 
 *[Contacts]({{< relref "building/contact-management" >}})*  are people or places that are created in the CHT application.
 

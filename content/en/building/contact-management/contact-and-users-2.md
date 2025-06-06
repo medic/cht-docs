@@ -8,7 +8,7 @@ relatedContent: >
   building/contact-management/contact-and-users-1
   technical-overview/concepts/db-schema
   building/guides/data/users-bulk-load
-  building/concepts/users
+  building/users
 aliases:
    - /building/tutorials/contact-and-users-2/
    - /apps/tutorials/contact-and-users-2

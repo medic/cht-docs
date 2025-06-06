@@ -106,7 +106,7 @@ The information below focuses on specific interactions between RapidPro and the 
 
 ### Create RapidPro user in CHT
 
-For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "building/concepts/users" >}}) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management]({{< ref "building/admin/" >}}) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role]({{< ref "building/concepts/users#roles" >}}).
+For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "building/users" >}}) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management]({{< ref "building/admin/" >}}) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role]({{< ref "building/users#roles" >}}).
 
 ### Globals
 

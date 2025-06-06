@@ -6,7 +6,7 @@ weight: 150
 description: >
   Guides for developing a CHT Android application
 relatedContent: >
-  building/concepts/access/#accessing-on-mobile
+  building/login/#accessing-on-mobile
 aliases: >
   /core/guides/android/
 aliases:
