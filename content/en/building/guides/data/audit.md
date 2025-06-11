@@ -112,4 +112,183 @@ To avoid audit documents from getting too large, they are rotated at a maximum o
 1. There is no automated cleanup mechanism for audit history. 
 2. When offline edits sync to the server, they appear as a single audit entry. This is because only the last version of the document is replicated to the server. 
 3. Because the audit system was added in 4.20.0, older document edits will not be audited. 
+4. Due to space considerations, audit data is not indexed. A deployment with plenty of disk space can choose to index audit data for quick queries. 
 
+## Examples
+
+All the following examples involve querying the audit database using CouchDB Mango queries.
+Please consult the [full documentation for Mango queries](https://docs.couchdb.org/en/stable/ddocs/mango.html) from the CouchDB documentation. 
+
+You can run Mango queries against the `medic-audit` databse in Fauxton. This is accessible at `/_utils/#database/medic-audit/_find`.  So if your CHT instance was `https://cht.exmple.com`, you could access it at `https://cht.exmple.com/_utils/#database/medic-audit/_find`.  
+
+#### Retrieving all document edits made through a specific request id
+
+Each request that API receives has an assigned unique id. 
+This request id is propagated to HAProxy through the `X-Request-Id` header,
+so that the resulting CouchDB queries can be traced.  
+
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "request_id": "<request_id>"
+         }
+      }
+   }
+}
+```
+
+**Example tracing the request with id `d7b2b47958ae`:** 
+
+* CHT API logs:
+```
+2025-06-02T12:04:00.798 REQ: d7b2b47958ae 172.18.0.1 - POST /medic-test/_bulk_docs HTTP/1.0
+2025-06-02T12:04:00.806 RES: d7b2b47958ae 172.18.0.1 - POST /medic-test/_bulk_docs HTTP/1.0 201 2 7.563 ms
+```
+
+* HAProxy logs: 
+```
+172.18.0.8,couchdb-3.local,200,0,0,0,GET,/_session,-,0,d7b2b47958ae,322,0,147,'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)'
+172.18.0.8,couchdb-2.local,200,0,0,0,GET,/_session,-,admin,d7b2b47958ae,322,0,147,'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)'
+172.18.0.8,couchdb-3.local,201,0,0,0,POST,/medic-test/_bulk_docs,-,admin,d7b2b47958ae,229,0,3,'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)'
+```
+
+- retrieve all docs that were edited by this request:
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "request_id": "d7b2b47958ae"
+         }
+      }
+   }
+}
+```
+
+#### Retrieving all changes a user made in a specific period of time
+
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "user": "<user_name>",
+            "date": {
+               "$and": [
+                  {
+                     "$gt": "<start_date>"
+                  },
+                  {
+                     "$lt": "<end_date>"
+                  }
+               ]
+            }
+         }
+      }
+   }
+}
+```
+
+- retrieve all document changes made by user `joan` between May 25th and May27th 2025 (inclusive): 
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "user": "joan",
+            "date": {
+               "$and": [
+                  {
+                     "$gt": "2025-05-25T00:00:00"
+                  },
+                  {
+                     "$lt": "2025-05-27T23:59:59"
+                  }
+               ]
+            }
+         }
+      }
+   }
+}
+```
+
+- retrieve all document changes made by user `jesse` after June 3rd at noon:
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "user": "jesse",
+            "date": {
+              "$gt": "2025-06-03T12:00:00"
+            }
+         }
+      }
+   }
+}
+```
+
+- retrieve all document changes made by user `mark_twain` before Feb 26th:
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "user": "mark_twain",
+            "date": {
+              "$lt": "2025-02-26"
+            }
+         }
+      }
+   }
+}
+```
+
+#### Retrieving all changes a service made in a specific period of time
+
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+           "service": "<service>",
+           "date": {
+             "$and": [
+               {
+                 "$gt": "<start date>"
+               },
+               {
+                 "$lt": "<end date>"
+               }
+             ]
+           }
+         }
+      }
+   }
+}
+```
+
+- retrieve all changes made by Sentinel in a specific period:
+```json
+{
+   "selector": {
+      "history": {
+         "$elemMatch": {
+            "service": "sentinel",
+           "date": {
+             "$and": [
+               {
+                 "$gt": "2025-05-30"
+               },
+               {
+                 "$lt": "2025-06-20"
+               }
+             ]
+           }
+         }
+      }
+   }
+}
+```
