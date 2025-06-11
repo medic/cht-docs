@@ -34,6 +34,19 @@ Tasks are listed in order of due date. Tasks that are past due will appear at th
 
 <br clear="all">
 
+## Task prioritization
+Within the community-based health workflow, where volumes are large, Community Health Volunteers (CHVs) are commonly faced with dozens of active tasks. Tasks are sorted by due date by default, which can make it hard to prioritise the most important or urgent action, particularly when tasks have similar due dates or where task urgency is led by clinical factors, rather than scheduling considerations alone.
+
+To assist with task management and decision-making in the field, the CHT supports custom task prioritization logic. Task prioritization seeks to:
+- Assist CHVs in prioritizing activities that have the greatest impacts without having to review them manually.
+- Factor in signs of clinical or operational urgency, such as danger signs.
+- Facilitate predictive and algorithm-based sorting guided by future risk or predicted behavior.
+- Enhance filtering to see the most important or urgent tasks only.
+
+Find more information on how [priority scoring]({{< relref "building/tasks/tasks-js" >}}) marks tasks with a numerical priority to manage the task sorting.
+
+<br clear="all">
+
 ## Care Guides
 
 When a CHW clicks on a task, the care guide configured for that task displays. CHWs are then guided through questions for that specific workflow.

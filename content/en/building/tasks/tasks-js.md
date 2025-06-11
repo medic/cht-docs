@@ -46,7 +46,7 @@ Task generation occurs on the client periodically and creates documents which tr
 | `actions[n].label`| `translation key` | The label that should appear on the task summary screen if multiple actions are present. | no |
 | `actions[n].modifyContent`| `function (content, contact, report, event)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. See [Passing data from a task into the app form]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}). | no |
 | `priority` | `object` or `function(contact, report)` returning object of same schema | Controls the "high risk" line seen above. | no |
-| `priority.level` | `high` or `medium` | Tasks that are `high` will display a high risk icon with the task. Default: `medium`. | no |
+| `priority.level` | `integer` | A positive number representing a task’s urgency. Tasks with a higher level will appear at the top of the list. | no |
 | `priority.label` | `translation key` | Text shown with the task associated to the risk level. | no | 
 
 ## Utils

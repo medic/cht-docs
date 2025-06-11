@@ -8,6 +8,7 @@ relatedContent: >
   building/tasks/simple-tasks
   building/tasks/tasks-js
   reference-apps/maternal-newborn
+  building/tasks/simple-priority-score
 aliases:
    - /building/tutorials/tasks-2
    - /apps/tutorials/tasks-2
