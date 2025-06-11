@@ -9,6 +9,7 @@ relatedContent: >
   building/tasks/tasks-js
   building/workflows/workflows-overview
   design/best-practices#anatomy-of-a-task
+  building/tasks/simple-priority-score
 aliases:
    - /building/tutorials/tasks-1
    - /apps/tutorials/tasks-1
