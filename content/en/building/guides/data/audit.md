@@ -116,14 +116,16 @@ To avoid audit documents from getting too large, they are rotated at a maximum o
 
 ## Examples
 
-All the following examples involve querying the audit database using CouchDb Mango queries.
-Please consult the [full documentation for Mango queries](https://docs.couchdb.org/en/stable/ddocs/mango.html) from the CouchDb documentation.
+All the following examples involve querying the audit database using CouchDB Mango queries.
+Please consult the [full documentation for Mango queries](https://docs.couchdb.org/en/stable/ddocs/mango.html) from the CouchDB documentation. 
+
+You can run Mango queries against the `medic-audit` databse in Fauxton. This is accessible at `/_utils/#database/medic-audit/_find`.  So if your CHT instance was `https://cht.exmple.com`, you could access it at `https://cht.exmple.com/_utils/#database/medic-audit/_find`.  
 
 #### Retrieving all document edits made through a specific request id
 
 Each request that API receives has an assigned unique id. 
 This request id is propagated to HAProxy through the `X-Request-Id` header,
-so that the resulting CouchDb queries can be traced.  
+so that the resulting CouchDB queries can be traced.  
 
 ```json
 {
