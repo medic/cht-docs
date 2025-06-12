@@ -59,6 +59,7 @@ Available data:
 - [`inputs` data for source]({{< ref "#form-source" >}})
 - [`inputs` data for contact]({{< ref "#inputs-data-for-contact-in-app-forms" >}})
 - [`contact-summary` data]({{< ref "#contact-summary-data" >}})
+- [`user-contact-summary` data]({{< ref "#user-contact-summary-data" >}})
 - [`inputs` data from task]({{< ref "#inputs-data-from-task" >}})
 - [`inputs` data for user]({{< ref "#user-data" >}})
 - [Contact data via contact selector]({{< ref "#contact-selector" >}})
@@ -92,6 +93,17 @@ The `contact` group contains all the fields from the doc of the contact in conte
 {{< callout type="info" >}}
   Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
 {{< /callout >}}
+
+### `user-contact-summary` data
+
+{{< callout >}}
+Available since 4.21.0
+{{< /callout >}}
+
+
+When the logged in user has an associated contact, `app` forms can access the contact-summary data associated with the user's contact. 
+This is done by referencing an instance named `user-contact-summary`. E.g. `instance('user-contact-summary')/context/${variable}`.  See [the reference documentation]({{< ref "building/contact-summary/contact-summary-templated#care-guides" >}}) for more information.
+
 
 ### `inputs` data from task
 
