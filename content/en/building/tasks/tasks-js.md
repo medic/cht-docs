@@ -41,7 +41,7 @@ Task generation occurs on the client periodically and creates documents which tr
 | `events[n].start` | `integer` | Number of days to show the task before it is due. | yes |
 | `events[n].end` | `integer` | Number of days to show the task after it is due. | yes |
 | `actions` | `object[]` | The actions (forms) that a user can access after clicking on a task. If you put multiple forms here, the user will see a task summary screen where they can select which action they would like to complete. | yes |
-| `actions[n].type` | `'report'` or `'contact'` | When `'report'`, the action opens the given form. When `'contact'`, the action redirects to a contact's profile page. Defaults to 'report'. | no |
+| `actions[n].type` | `'report'` or `'contact'` | When `'report'`, the action opens the given form. When `'contact'`, the action redirects to a contact's profile page or opens a `contact` form. See [Launching a contact form from a task]({{< ref "building/tasks/managing-tasks/launch-contact-form" >}}). Defaults to 'report'. | no |
 | `actions[n].form` | `string` | The code of the form that should open when you select the action. | yes, if `actions[n].type` is `'report'` |
 | `actions[n].label`| `translation key` | The label that should appear on the task summary screen if multiple actions are present. | no |
 | `actions[n].modifyContent`| `function (content, contact, report, event)` | Set the values on the content object to control the data which will be passed as `inputs` to the form which opens when the action is selected. See [Passing data from a task into the app form]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}). | no |
