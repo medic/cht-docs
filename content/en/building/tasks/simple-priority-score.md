@@ -32,7 +32,9 @@ You will define:
 
 ## Implementation Steps
 
-### 1. Create a scoring module
+{{% steps %}}
+
+### Create a scoring module
 
 Create a `priority-score.js` file, preferrably in the same location as `tasks.js` and add the following code:
 
@@ -88,7 +90,7 @@ module.exports = {
 };
 ```
 
-### 2. Use the priority score function in your task definition
+### Use the priority score function in your task definition
 
 Use the `priority.level` attribute to return the corresponding score.
 
@@ -104,9 +106,10 @@ module.exports = {
 };
 ```
 
-### 3. Test and iterate
+### Test and iterate
 
 - Compile and deploy your application.
 - Inspect the task list to ensure that tasks having higher weights and risk score appear at the top.
 - Adjust your weights and thresholds accordingly, to suit your use cases.
 
+{{% /steps %}}
