@@ -45,7 +45,7 @@ Prioritization enhances task sorting to help CHWs focus on urgent tasks first. P
 Tasks are now sorted using the following logic:
 - Tasks with higher priority scores appear first.
 - When scores tie, tasks are sorted by due date.
-- Tasks without or invalid priority scores appear last.
+- Tasks without or invalid priority scores appear last, sorted by due date. 
 
 {{< cards rows="4" >}}
 {{< card link="tasks-prioritization.png" image="tasks-prioritization.png"  method="resize">}}
