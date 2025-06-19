@@ -1,7 +1,7 @@
 ---
 title: "Building A Simple Priority Score Function"
 linkTitle: Simple Priority Score Functions
-weight: 2
+weight: 3
 description: >
   Implementing a simple priority score function
 relatedContent: >
