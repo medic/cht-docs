@@ -41,12 +41,14 @@ Available from 4.21.0.
 {{< /callout >}}
 
 Prioritization enhances task sorting to help CHWs focus on urgent tasks first. Previously, tasks were sorted only by due date, requiring users to manually scan for urgent cases. This feature introduces a priority score that is based on clinical or operational urgency such as danger signs, referral follow-ups, or high-risk conditions.
-
+The priority score should be a positive integer, any other value, including the legacy "high" or "medium" levels will be considered invalid. 
 Tasks are now sorted using the following logic:
 - Tasks with higher priority scores appear first.
 - When scores tie, tasks are sorted by due date.
 - Tasks without or invalid priority scores appear last, sorted by due date. 
-
+{{< callout >}}
+Older configurations that do not implement the new priority score will continue sorting tasks by due date. 
+{{< /callout >}}
 {{< cards rows="4" >}}
 {{< card link="tasks-prioritization.png" image="tasks-prioritization.png"  method="resize">}}
 {{< /cards >}}
