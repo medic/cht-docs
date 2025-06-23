@@ -10,7 +10,7 @@ relatedContent: >
 ---
 
 {{< callout >}}
-Introduced in 4.20.0
+Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
 {{< /callout >}}
 
 ## Overview

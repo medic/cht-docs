@@ -5,7 +5,7 @@ weight: 400
 ---
 
 {{< callout >}}
-Introduced in 4.20.0
+Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
 {{< /callout >}}
 
 CHT `4.20.0` introduced the single sign on (SSO) feature allowing deployments to use the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol to authenticate users.  Below are some key points on the SSO functionality in the CHT. See the [technical design document](https://docs.google.com/document/d/1LUn1ZRetAmYE04CtdcTmp-bEBvl37AZ0CvFXZChXqfU/edit?tab=t.0) for all the details.

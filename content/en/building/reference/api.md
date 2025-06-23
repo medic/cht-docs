@@ -1992,6 +1992,10 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 
 #### Login by OIDC
 
+{{< callout >}}
+Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
+{{< /callout >}}
+
 When [SSO Login]({{< ref "hosting/sso" >}}) is enabled (by configuring the [`oidc_provider` settings]({{< ref "building/reference/app-settings/oidc_provider" >}})), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
 
 Two CHT users cannot share the same `oidc_username` value. Setting the `oidc_username` property for a user will cause the user's password (in the CHT) to be set to a random value, preventing them from logging in with other authentication methods. Instead, the user must log in using the "Login with SSO" button.
