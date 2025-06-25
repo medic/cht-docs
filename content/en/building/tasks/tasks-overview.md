@@ -46,6 +46,7 @@ Tasks are now sorted using the following logic:
 - Tasks with higher priority scores appear first.
 - When scores tie, tasks are sorted by due date.
 - Tasks without or invalid priority scores appear last, sorted by due date. 
+- 
 {{< callout >}}
 Older configurations that do not implement the new priority score will continue sorting tasks by due date. 
 {{< /callout >}}
