@@ -7,6 +7,10 @@ aliases:
     - /apps/guides/hosting/3.x
 ---
 
+{{< callout type="warning" >}}
+  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+{{< /callout >}}
+
 > [!TIP]
 > To get an overview on how these hosting solutions use `docker` and other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "building/local-setup" >}}). Note that while this is for CHT 4.x, the concepts apply to 3.x.
 

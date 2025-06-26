@@ -9,6 +9,10 @@ aliases:
    - /apps/guides/hosting/app-developer 
 ---
 
+{{< callout type="warning" >}}
+  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+{{< /callout >}}
+
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
 {{< callout >}}

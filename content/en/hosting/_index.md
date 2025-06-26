@@ -24,7 +24,7 @@ System administrators looking to deploy CHT into production should understand [t
   {{< card link="costs" title="Costs" subtitle="A guide for calculating CHT hosting costs" icon="banknotes" >}}
   {{< card link="kubernetes-vs-docker" title="Kubernetes vs Docker" icon="kubernetes" subtitle="Options for installing CHT applications" >}}
   {{< card link="4.x/" title="4.x" icon="template" subtitle="Guides for hosting CHT 4.x applications" >}}
-  {{< card link="3.x/" title="3.x" icon="archive" subtitle="Guides for hosting CHT 3.x applications" >}}
+  {{< card link="3.x/" title="3.x" icon="archive" subtitle="Guides for hosting CHT 3.x applications" tag="archive" tagType="error">}}
   {{< card link="monitoring/" title="Monitoring & Alerting" subtitle="Using CHT Watchdog to Monitor and Alert on  CHT 3.x and 4.x Applications" icon="bell" >}}
   {{< card link="analytics/" title="Data Synchronization & Analytics" subtitle="Using CHT Sync for data synchronization and analytics" icon="chart-pie" >}}
   {{< card link="sso" title="SSO" subtitle="Setting up Single Sign On" icon="key"  >}}  

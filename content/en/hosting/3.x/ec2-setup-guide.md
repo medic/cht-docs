@@ -11,6 +11,10 @@ aliases:
    - /apps/guides/hosting/ec2-setup-guide 
 ---
 
+{{< callout type="warning" >}}
+  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+{{< /callout >}}
+
 Most production CHT instances are deployed on AWS EC2.  Leveraging Elastic Compute Cloud (EC2) and Elastic Block Store (EBS), CHT instances can easily be scaled up with larger EC2 instances and have easy increased disk space, backup and restores with EBS.
 
 This guide will walk you through the process of creating an EC2 instance, mounting an EBS volume and provisioning Docker containers.
