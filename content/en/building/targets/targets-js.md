@@ -13,9 +13,15 @@ aliases:
    - /apps/reference/targets
 ---
 
-{{< figure src="counts.png" link="counts.png" caption="Percentages" >}}
+{{< cards >}}
+  {{< figure src="count_1.png" link="count_1.png" class="right col-6 col-lg-8 bordered-figure" >}}
+  {{< figure src="count_2.png" link="count_2.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< /cards >}}
 
-{{< figure src="percentages.png" link="percentages.png" caption="Percentages" >}}
+{{< cards >}}
+  {{< figure src="percentage_1.png" link="percentage_1.png" class="right col-6 col-lg-8 bordered-figure" >}}
+  {{< figure src="percentage_2.png" link="percentage_2.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< /cards >}}
 
 All targets are defined in the `targets.js` file as an array of objects according to the Targets schema defined below. Each object corresponds to a target widget that shows in the app. The order of objects in the array defines the display order of widgets on the Targets tab. The properties of the object are used to define when the target should appear, what it should look like, and the values it will display.
 
@@ -45,7 +51,7 @@ All targets are defined in the `targets.js` file as an array of objects accordin
 | `dhis` | `object` or `object[]` | Settings relevant to the [DHIS2 Integration]({{< ref "building/integrations/dhis2-aggregate#configuration" >}}) | no
 | `dhis[n].dataElement` | `string` | The hash id of a data element configured in the DHIS2 data set you're integrating with | yes
 | `dhis[n].dataSet` | `string` | The hash id of the data set that contains the data element you're integrating with. If this is left undefined, the data element will appear in all data sets. | no
-| `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no | 
+| `visible` | `boolean` | Whether the target is visible in the targets page. **Default: true** | no |
 | `aggregate` | `boolean` | As of 3.9, defines whether the target will be displayed on the TargetAggregates page | no |
 
 ## Utils
@@ -145,7 +151,7 @@ module.exports = {
 
 ## Build
 
-To build your targets into your app, you must compile them into app-settings, then upload them to your instance. 
+To build your targets into your app, you must compile them into app-settings, then upload them to your instance.
 
 ```shell
 cht --local compile-app-settings backup-app-settings upload-app-settings
