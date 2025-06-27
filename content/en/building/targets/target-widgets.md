@@ -96,7 +96,7 @@ Edit the `targets.js` file and add another target widget definition object to de
 {{< figure src="assessments_all_time_this_month.png" link="assessments_all_time_this_month.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
-The image show the `monthly` and `all-time` target widgets respectively, with the resulting figures varying depending on the number of assessment reports submitted within the respective durations.
+The image shows the `monthly` and `all-time` target widgets, respectively, with the resulting figures varying depending on the number of assessment reports submitted within the respective durations.
 
 
 ### 3. Define the Cough Count Widget
