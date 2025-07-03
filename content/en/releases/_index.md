@@ -45,9 +45,7 @@ It is recommended that all projects update regularly multiple times a year to ge
 | 4.1.x   | EOL       | 12-Dec-2022  | 25-Aug-2023 |
 | 4.0.x   | EOL       | 03-Nov-2022  | 12-Mar-2023 |
 | 3.17.x  | EOL       | 11-Oct-2022  | 03-Nov-2023 |
-| earlier | EOL       | ...          | 11-Jan-2023 |
 | 2.18.x  | EOL       | 30-Aug-2018  | 15-Nov-2019 |
-| earlier | EOL       | ...          | 30-Nov-2018 |
 
 ## Requirements
 
