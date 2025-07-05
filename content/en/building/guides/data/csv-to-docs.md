@@ -347,7 +347,7 @@ To fetch the files from Google Drive run the `fetch-csvs-from-google-drive` acti
 
 #### Linking to Google Drive
 
-The file `csvs-on-google-drive.json` in your project's home directory will consist of a key value pair for each CSV file. The keys must be the filename where the CSV will be stored locally — see the CSV [file documentation above]({{< relref "#creating-csv-files-for-contacts-reports" >}}) for the notation. The value of each key must be the ID of the corresponding file in Google Drive — the ID can be obtained from the URL eg `https://docs.google.com/spreadsheets/d/{FILE_ID}/edit`. 
+The file `csvs-on-google-drive.json` in your project's home directory will consist of a key value pair for each CSV file. The keys must be the filename where the CSV will be stored locally — see the CSV [file documentation above](/#creating-csv-files-for-contacts-reports) for the notation. The value of each key must be the ID of the corresponding file in Google Drive — the ID can be obtained from the URL eg `https://docs.google.com/spreadsheets/d/{FILE_ID}/edit`. 
 
 ```json
 {

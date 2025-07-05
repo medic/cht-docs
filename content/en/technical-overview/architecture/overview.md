@@ -69,7 +69,7 @@ A command-line interface tool to manage and configure CHT application. The
 
 A suite of tools for extracting and normalizing data from the Core Framework's CouchDB, and rendering the data in analytics dashboards to visualize key data for a CHT deployment.
 
-Read more detail on the CHT Sync [overview page]({{< relref "/technical-overview/architecture/cht-sync" >}}),  the [GitHub repository](https://github.com/medic/cht-sync), or the [technical overview](/technical-overview/architecture/cht-sync).
+Read more detail on the CHT Sync [overview page](//technical-overview/architecture/cht-sync),  the [GitHub repository](https://github.com/medic/cht-sync), or the [technical overview](/technical-overview/architecture/cht-sync).
 
 ## CHT Watchdog
 
@@ -77,7 +77,7 @@ Monitoring and alerting for the CHT Core Framework to ensure CHWs are able to de
 
 ## CHT Android
 
-CHT Web Application works in the browser or wrapped in the [CHT Android]({{< relref "/technical-overview/architecture/cht-android" >}}) app which allows for project branding, sets the project URL, and hides browser elements like the URL bar. The app also provides some deeper integration with other android apps and native phone functions that are otherwise unavailable to webapps.
+CHT Web Application works in the browser or wrapped in the [CHT Android](//technical-overview/architecture/cht-android) app which allows for project branding, sets the project URL, and hides browser elements like the URL bar. The app also provides some deeper integration with other android apps and native phone functions that are otherwise unavailable to webapps.
 
 ## CHT Gateway
 
@@ -85,8 +85,8 @@ CHT Web Application works in the browser or wrapped in the [CHT Android]({{< rel
 
 ## CHT Interoperability
 
-[CHT Interoperability]({{< relref "technical-overview/architecture/cht-interoperability" >}}) implements interoperability between the CHT and other health information systems based on OpenHIE architecture and HL7 FHIR messaging format.
+[CHT Interoperability](/technical-overview/architecture/cht-interoperability) implements interoperability between the CHT and other health information systems based on OpenHIE architecture and HL7 FHIR messaging format.
 
 ## CHT User Management Tool
 
-[CHT User Management Tool]({{< relref "building/contact-management/user-management-tool" >}}) is a web application that works with the CHT to decentralize the user management. 
+[CHT User Management Tool](/building/contact-management/user-management-tool) is a web application that works with the CHT to decentralize the user management. 

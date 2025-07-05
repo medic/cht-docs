@@ -11,7 +11,7 @@ aliases:
 ---
 
 {{< callout >}}
-  This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x]({{< relref "hosting/3.x/self-hosting#backup" >}}) which includes backups for 3.x.
+  This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x](/hosting/3.x/self-hosting#backup) which includes backups for 3.x.
 {{< /callout >}}
 
 ## Introduction 
@@ -38,7 +38,7 @@ Therefore, you do **not** need to back up the docker images for:
 
 ## Assumptions
 
-This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node]({{< relref "hosting/4.x/docker" >}}) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
+This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node](/hosting/4.x/docker) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
 
 ```
 cht_nginx_1
@@ -79,7 +79,7 @@ Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use th
 
 1. While you don't need to stop CouchDB to back it up, ensure you follow best practices to back it up. See the [CouchDB site](https://docs.couchdb.org/en/stable/maintenance/backups.html) for more info. Note it is NOT recommended to use replication for backup.
 2. It is strongly recommended you encrypt your backups given the sensitivity of the contents. Do this now before copying the backup files to their long term location.
-3. Backup the CouchDB files using the [software specified above]({{< relref "#backup-software" >}})
+3. Backup the CouchDB files using the [software specified above](/#backup-software)
 
 
 ## Docker Compose files
@@ -95,7 +95,7 @@ All compose files, and the corresponding `.env` file, are in these three locatio
 
 While all three of these are trivial to recreate by downloading them again, they may change over time so should be archived with your CouchDB data.  Further, when there's been a critical failure of a production CHT instance, you want to be sure to make the restore process as speedy as possible.
 
-As all of these files are only read when Docker first loads a service, you can simply copy them whenever you want without stopping any of the CHT services.  They should be copied with the same frequency and put in the same location as the CouchDB data using the [backup software specified above]({{< relref "#backup-software" >}}).
+As all of these files are only read when Docker first loads a service, you can simply copy them whenever you want without stopping any of the CHT services.  They should be copied with the same frequency and put in the same location as the CouchDB data using the [backup software specified above](/#backup-software).
 
 
 ## TLS certificates
@@ -111,7 +111,7 @@ Like the compose files, the TLS certificate files can easily be regenerated or r
    docker cp cht_nginx_1:/etc/nginx/private/key.pem .
    docker cp cht_nginx_1:/etc/nginx/private/cert.pem .
    ```
-2. Back the up to the same location and frequency as the CouchDB data using the [backup software specified above]({{< relref "#backup-software" >}}).
+2. Back the up to the same location and frequency as the CouchDB data using the [backup software specified above](/#backup-software).
 
 
 ## Testing backups

@@ -169,7 +169,7 @@ You can contribute to the CHT testing in various ways:
 
 ### How to write automated e2e tests
 
-Read the [style guide for automated tests]({{< relref "community/contributing/code/core/style-guide-automated-e2e-tests.md" >}}) for guidelines on how to create new automated test cases for CHT-Core.
+Read the [style guide for automated tests](/community/contributing/code/core/style-guide-automated-e2e-tests.md) for guidelines on how to create new automated test cases for CHT-Core.
 
 ### Debugging E2E tests
 

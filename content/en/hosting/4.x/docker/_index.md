@@ -7,7 +7,7 @@ aliases:
 ---
 
 {{< callout >}}
-Read the [Docker vs Kubernetes]({{< relref "/hosting/kubernetes-vs-docker/" >}}) documentation to select a style of hosting that best fits your CHT deployment.
+Read the [Docker vs Kubernetes](//hosting/kubernetes-vs-docker/) documentation to select a style of hosting that best fits your CHT deployment.
 {{< /callout >}}
 
 {{< cards >}}

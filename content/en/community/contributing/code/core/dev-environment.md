@@ -11,9 +11,9 @@ aliases:
 ---
 
 {{< callout >}}
-This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
+This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide](/hosting/3.x/app-developer.md).
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}).
+To deploy the CHT in production, see either [AWS hosting](/hosting/3.x/ec2-setup-guide.md) or [Self hosting](/hosting/3.x/self-hosting.md).
 {{< /callout >}}
 
 > [!IMPORTANT]
@@ -207,7 +207,7 @@ The workaround, unfortunately, is to just start your CouchDB Docker container wi
 
 ### CouchDB on Docker Details
 
-Breaking down the command from [the above section]({{< relref "#couchdb" >}}), here's a generic version that doesn't include hard coded paths:
+Breaking down the command from [the above section](/#couchdb), here's a generic version that doesn't include hard coded paths:
 
 ```shell
 docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v <data path>:/opt/couchdb/data -v <config path>:/opt/couchdb/etc/local.d apache/couchdb:2

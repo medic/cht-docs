@@ -12,7 +12,7 @@ aliases:
 ---
 
 {{< callout type="warning" >}}
-  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+  CHT 3.x is [End-of-Life](/releases/#supported-versions) and no longer supported. 
 {{< /callout >}}
 
 Most production CHT instances are deployed on AWS EC2.  Leveraging Elastic Compute Cloud (EC2) and Elastic Block Store (EBS), CHT instances can easily be scaled up with larger EC2 instances and have easy increased disk space, backup and restores with EBS.
@@ -23,7 +23,7 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 
 1. Create EC2 (use security best practices)
 
-    Review the [CHT hardware requirements]({{< relref "hosting/requirements#hardware-requirements" >}}) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
+    Review the [CHT hardware requirements](/hosting/requirements#hardware-requirements) and start with an appropriately sized instance. After creating the instance and downloading the `.pem` file, change permissions to `0600` for it:
     
     ```shell
     sudo chmod 0600 ~/Downloads/name_of_file.pem
@@ -61,10 +61,10 @@ This guide will walk you through the process of creating an EC2 instance, mounti
 1. Review SSL certificates
     - Location of certs is `/srv/settings/medic-core/nginx/private/`
     - Name the key file is `default.key` and the certificate file is `default.crt`
-    - See [SSL Certificates]({{< relref "hosting/3.x/ssl-cert-install">}}) to install new certificates
+    - See [SSL Certificates](/hosting/3.x/ssl-cert-install) to install new certificates
 
 1. Configure CHT Sync
-    See the [CHT Sync configuration]({{< relref "hosting/analytics">}}).
+    See the [CHT Sync configuration](/hosting/analytics).
 
 1. Setup postgres to work with CHT Sync
     - Creating the database, setting up permissions, exploring the tables and what they store
