@@ -9,7 +9,7 @@ description: >
 
 {{< figure src="aggregate-supervisor.png" link="aggregate-supervisor.png" class="right col-7 col-lg-6" >}}
 
-For CHW Supervisors, the [Targets]({{< relref "building/targets/targets-overview" >}}) tab provides important insights into their community unit. It presents Supervisors with actionable information about their CHWs, by aggregating data for each of the CHWs that a Supervisor manages and presenting it in an easily digestible format. This enables Supervisors to gain insight into how well their team of CHWs is working together to meet common goals.
+For CHW Supervisors, the [Targets](/building/targets/targets-overview) tab provides important insights into their community unit. It presents Supervisors with actionable information about their CHWs, by aggregating data for each of the CHWs that a Supervisor manages and presenting it in an easily digestible format. This enables Supervisors to gain insight into how well their team of CHWs is working together to meet common goals.
 
 Selecting an aggregate widget opens the detailed view with the data for each individual CHW. If a CHW is performing below the target goal, their value will be highlighted in red, making it easier for Supervisors to know with which CHWs to follow up for coaching and performance management.
 
@@ -67,5 +67,5 @@ Filtering the Aggregate Targets by **Reporting Period** adds the name of the pre
 > - The list of facilities in the sidebar are sorted in alphabetic order.
 > - The default filter option for the facilities filter is the first facility in the sorted `array` of user Facilities.
 > - The default filter option for the reporting period is `This month`.
-> - The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings]({{< relref "building/reference/app-settings/hierarchy" >}})
+> - The facility filter label in this example (Health Facility) is the `name_key` of the facility `contact_type` configured in the the [app-settings](/building/reference/app-settings/hierarchy)
 > - The reporting period label in this example (Reporting Period) is added as a translation key `analytics.target.aggregates.reporting_period`.

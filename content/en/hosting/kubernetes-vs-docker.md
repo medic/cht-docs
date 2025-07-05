@@ -11,7 +11,7 @@ aliases:
 To deploy the CHT, you should use the technology you are most familiar and comfortable with. It is possible to deploy 20 CHT instances without using Kubernetes. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.
 
 > [!TIP]
-> Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) is more straightforward to setup with Docker.
+> Application development for both [CHT 3.x](/hosting/3.x/app-developer) and [CHT 4.x](/hosting/4.x/app-developer) is more straightforward to setup with Docker.
 
 ## Which one to choose?
 
