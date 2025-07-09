@@ -53,6 +53,8 @@
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
   --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://docs.dhis2.org.*" \
+  --exclude "http[s]*://stackoverflow.com/questions.*" \
   --exclude "http[s]*://.*udacity.com.*" \
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \
