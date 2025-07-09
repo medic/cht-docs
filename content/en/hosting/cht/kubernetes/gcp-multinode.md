@@ -5,8 +5,8 @@ weight: 10
 description: >
    How to deploy the CHT 4.x on Google Cloud Platform
 aliases:
-   - /hosting/4.x/docker/google-cloud/
-   - /hosting/4.x/production/kubernetes/gcp-multinode/
+   - /hosting/cht/docker/google-cloud/
+   - /hosting/cht/production/kubernetes/gcp-multinode/
 ---
 
 ## Audience

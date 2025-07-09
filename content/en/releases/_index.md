@@ -80,7 +80,7 @@ The following table shows the dependencies for deploying the CHT.
 | **2.x**          | 6+     | 1.6+    | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
 | **0.4**          | 0.12+  | 1.6+    | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 
-{{< see-also page="hosting/requirements" title="Hosting Requirements" >}}
+{{< see-also page="/hosting/cht/requirements" title="/hosting Requirements" >}}
 
 ### Client Devices
 

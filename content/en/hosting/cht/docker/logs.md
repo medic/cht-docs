@@ -8,9 +8,9 @@ relatedContent: >
    building/guides/debugging/sharing-4x-logs
    building/guides/debugging/obtaining-logs
 aliases:
-  - /apps/guides/hosting/4.x/logs
-  - /hosting/4.x/logs
-  - /hosting/4.x/production/docker/logs/
+  - /apps/guides/hosting/cht/logs
+  - /hosting/cht/logs
+  - /hosting/cht/production/docker/logs/
 ---
 
 CHT 4.x has the following services running via Docker and each can have its logs queried:
