@@ -5,10 +5,10 @@ weight: 20
 description: >
   Hosting the CHT on self run VMware infrastructure for multiple CHT-Core projects that utilize horizontally scaled CouchDB nodes
 aliases:
-  - /apps/guides/hosting/4.x/self-hosting/self-hosting-k3s-multinode
-  - /hosting/4.x/self-hosting/self-hosting-k3s-multinode
+  - /apps/guides/hosting/cht/self-hosting/self-hosting-k3s-multinode
+  - /hosting/cht/self-hosting/self-hosting-k3s-multinode
   - ../self-hosting-k3s-multinode
-  - /hosting/4.x/production/kubernetes/self-hosting-k3s-multinode/
+  - /hosting/cht/production/kubernetes/self-hosting-k3s-multinode/
 ---
 
 {{< callout >}}

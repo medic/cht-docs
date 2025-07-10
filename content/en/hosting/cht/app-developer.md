@@ -1,28 +1,25 @@
 ---
-title: "App Developer Hosting in CHT 4.x"
-linkTitle: "App Developer Hosting"
+title: "App Developer"
+linkTitle: "App Developer"
 weight: 10
 description: >
   Host the CHT when developing apps
 aliases:
-  - /apps/guides/hosting/4.x/app-developer
+  - /apps/guides/hosting/cht/app-developer
   - /apps/guides/hosting/app-developer
 ---
 
 {{< callout >}}
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
 
-To deploy the CHT 3.x in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}). To deploy 4.x in production see the [4.x documentation]({{< relref "hosting/4.x/docker" >}}).
+To deploy the CHT in production, see see the [production]({{< relref "/hosting/cht/docker" >}}) documentation.
 {{< /callout >}}
 
 ## Getting started
 
 First, decide which way to run the CHT: Docker Helper or manually it via `docker compose`. Since they both achieve the same result, **it is recommended to use Docker Helper** as shown in the next section as it's very easy to run.  Alternately, the manual process is covered at the [bottom of the page](#manual-docker-compose-method).  
 
-## CHT Docker Helper for 4.x
-
-> [!IMPORTANT] 
-> This section is for CHT 4.x.  To use a CHT 3.x version, see the earlier [CHT Docker Helper page]({{< relref "hosting/3.x/app-developer#cht-docker-helper" >}}).
+## CHT Docker Helper
 
 The `cht-docker-compose.sh` scripts downloads 3 compose files and builds an `.env` file. This greatly eases starting your first CHT instance with a simple text based GUI which works on Windows (WSL2), macOS (both x86 and Apple Silicon) and Linux.
 
@@ -40,7 +37,7 @@ This script brings a lot of benefits with it:
 ### Installing
 
 To get started using it:
-1. Meet all [CHT hosting requirements]({{< relref "hosting/requirements" >}})
+1. Meet all [CHT hosting requirements]({{< relref "/hosting/cht/requirements" >}})
 2. Clone the [CHT Core](https://github.com/medic/cht-core/) repo
 3. When you want to check for updates, just run `git pull origin` in the `cht-core` directory.
 
@@ -99,7 +96,7 @@ Stop and keep project:
 Stop and destroy all project data:
     ./cht-docker-compose.sh ENV-FILE.env destroy
 
-https://docs.communityhealthtoolkit.org/apps/guides/hosting/4.x/app-developer/
+https://docs.communityhealthtoolkit.org/apps/guides/hosting/cht/app-developer/
 
 
  Have a great day! 
@@ -197,7 +194,7 @@ Here is a video of the helper being run on 1 Dec 2022. The video references `laz
 
 ## Manual `docker compose` method
 
-This process achieves the same result as Docker Helper, but is a more manual process. Be sure the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) are all met first.
+This process achieves the same result as Docker Helper, but is a more manual process. Be sure the [CHT hosting requirements]({{< relref "/hosting/cht/requirements" >}}) are all met first.
 
 To avoid conflicts, ensure that all other CHT 4.x instances are stopped. To stop ALL containers, you can use
 

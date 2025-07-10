@@ -8,13 +8,9 @@ aliases:
   - /apps/guides/hosting/monitoring/integration
 ---
 
-{{< callout >}}
-  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
-
 ## Going beyond basic setup
 
-After you have done the [setup of CHT Watchdog]({{< relref "hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
+After you have done the [setup of CHT Watchdog]({{< relref "/hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "/hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
 
 This guide uses example instances of CHT Core (`cht.example.com`) and CHT Watchdog (`watchdog.example.com`). When deploying, be sure to replace with your own hostnames.
 
@@ -116,7 +112,7 @@ services:
 
 #### Caddy Config and Compose files
 
-Like we did in the [TLS section]({{< relref "hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.
+Like we did in the [TLS section]({{< relref "/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.
 
 Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8443` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port `8080` where cAdvisor is running:
 
@@ -146,7 +142,7 @@ services:
 
 Now that we have all the config files in place, you need to have Docker start everything together. This is so that the containers can see each other on the same `CHT Net` Docker network.  You will need to specify each of the compose files every time you start, stop or restart CHT instance so all the services stay running and connected.
 
-Assuming you followed the [production steps]({{< relref "hosting/4.x/docker" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
+Assuming you followed the [production steps]({{< relref "/hosting/cht/docker" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service
@@ -183,7 +179,7 @@ services:
 
 #### Load new Compose files with existing ones
 
-Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "hosting/monitoring/setup" >}}), this would be:
+Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "/hosting/monitoring/setup" >}}), this would be:
 
 ```shell
 cd ~/cht-monitoring
