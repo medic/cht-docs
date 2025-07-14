@@ -1799,6 +1799,12 @@ Returns a report's data in JSON format.
 
 `can_view_reports`
 
+#### Query parameters
+
+| Name         | Required | Description                                                                                                               |
+|--------------|----------|---------------------------------------------------------------------------------------------------------------------------|
+| with_lineage | false    | If "true", the report's contact, patient, and/or place lineage will be included in the returned data. Default is "false". |
+
 #### Examples
 
 Get a report by uuid:
@@ -1855,6 +1861,119 @@ Content-Type: application/json; charset=utf-8
             }
         }
     }
+}
+```
+
+Get a report by uuid with lineage:
+
+```
+GET /api/v1/report/232a3938-9b1c-4d88-bbd8-8ebd6a688b2d?with_lineage=true
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "_id": "232a3938-9b1c-4d88-bbd8-8ebd6a688b2d",
+    "_rev": "1-68ec4e77bbba238ef09dab5e8c8131e7",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "content_type": "xml",
+    "reported_date": 1742380956176,
+    "fields": {
+        "patient_id": "74615",
+        "place_id": "54380",
+        "patient_age_in_years": 34,
+        "t_danger_signs_referral_follow_up_date": "2025-03-18T13:14:08.030Z",
+        "t_danger_signs_referral_follow_up": "yes",
+        "danger_signs": {
+            "danger_signs_note": "",
+            "danger_signs_question_note": "",
+            "vaginal_bleeding": "yes",
+            "fits": "no",
+            "severe_abdominal_pain": "yes",
+            "severe_headache": "no",
+            "very_pale": "yes",
+            "fever": "yes",
+            "reduced_or_no_fetal_movements": "yes",
+            "breaking_water": "yes",
+            "easily_tired": "no",
+            "face_hand_swelling": "yes",
+            "breathlessness": "no",
+            "r_danger_sign_present": "yes",
+            "refer_patient_note_1": "",
+            "refer_patient_note_2": ""
+        }
+    },
+	"contact": {
+		"_id": "f512e1d8-841b-4bc1-8154-b6794755f45b",
+		"_rev": "3-9dbc362b262f88d63f270fe06a94dfe8",
+		"type": "person",
+		"name": "Example CHW",
+		"date_of_birth": "2002-02-20",
+		"phone": "+254712345679",
+		"sex": "female",
+		"role": "chw",
+		"reported_date": 1708453778059,
+		"parent": {
+			"_id": "d9153705-4574-43c3-b945-71aa2164d1d6",
+			"parent": {
+				"_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+			}
+		}
+	},
+    "patient": {
+        "_id": "0c9cc77d-7858-44dd-bf44-a25b14334801",
+        "_rev": "1-5fd1e08353c3d102e9b6710eed98dd65",
+        "type": "person",
+        "name": "A",
+        "date_of_birth": "1961-09-15",
+        "sex": "male",
+        "reported_date": 1722840232495,
+		"patient_id": "74615",
+        "parent": {
+            "_id": "d828971b-d796-45b5-ab1a-943622d906a1",
+            "_rev": "1-1c8e9ae54655e1892686e854e7d404ea",
+            "type": "health_center",
+            "name": "Health Center",
+            "external_id": "GlghB",
+            "notes": "Turbo amor utilis surgo vomica cedo.\nAlveus tabella tondeo itaque.",
+            "reported_date": 1742160968002,
+            "parent": {
+                "_id": "3bb8af4d-ee91-4889-9e11-5ba09a833b2e",
+                "_rev": "1-6b109ceccdfcd13f9f78968262d8c82a",
+                "type": "district_hospital",
+                "name": "Hospital",
+                "external_id": "Xge4N",
+                "notes": "Attonbitus sperno cernuus.\nVarius temeritas suadeo cimentarius tum.",
+                "reported_date": 1741973509708
+            }
+        }
+    },
+    "place": {
+        "_id": "b935ef10-0339-4263-99fc-34d4f8d72891",
+        "_rev": "2-bdea703bfec184085c31a6bab022764f",
+        "parent": "",
+        "type": "district_hospital",
+        "name": "Example Health Facility",
+        "contact": {
+            "_id": "e5237f20-2d28-4272-8006-c4903e032ab4",
+            "_rev": "3-5a0a8e95cef8bafc186a9494c75afb3c",
+            "type": "person",
+            "name": "Example Supervisor",
+            "date_of_birth": "2002-02-20",
+            "phone": "+254712345678",
+            "sex": "female",
+            "role": "chw_supervisor",
+            "reported_date": 1708453756441,
+            "parent": {
+                "_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+            }
+        },
+        "reported_date": 1708453756440,
+        "place_id": "54380"
+	},
 }
 ```
 
