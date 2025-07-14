@@ -1801,9 +1801,9 @@ Returns a report's data in JSON format.
 
 #### Query parameters
 
-| Name         | Required | Description                                                                                                               |
-|--------------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| with_lineage | false    | If "true", the report's contact, patient, and/or place lineage will be included in the returned data. Default is "false". |
+| Name         | Required | Description                                                                                                                                  |
+|--------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| with_lineage | false    | Added in `4.22.0`. If "true", the report's contact, patient, and/or place lineage will be included in the returned data. Default is "false". |
 
 #### Examples
 
