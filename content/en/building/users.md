@@ -8,7 +8,7 @@ relatedContent: >
   design/personas
   building/contact-management/contact-and-users-1
   building/contact-management/contact-and-users-2
-  building/guides/data/users-bulk-load
+  building/training/users-bulk-load
 aliases:
    - /apps/concepts/users
    - /building/concepts/users
@@ -38,7 +38,7 @@ Online roles are for users who need access to a lot of data and need to maintain
 Offline roles are for users who need to be able to access data on-the-go in the field and don’t have a reliable internet connection. All the data they have access to will be synced to their device. System administrators cannot be offline users as they won't have access to the app management tools offline.
 
 > [!NOTE]
-> Advanced configuration options are available for a specific offline user role to manage what [level of data]({{< ref "building/guides/performance/replication" >}}) is synced to their device. 
+> Advanced configuration options are available for a specific offline user role to manage what [level of data]({{< ref "technical-overview/data/performance/replication" >}}) is synced to their device. 
 
 ## Permissions
 

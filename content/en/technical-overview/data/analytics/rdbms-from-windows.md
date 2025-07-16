@@ -1,11 +1,11 @@
 ---
 title: "Connecting to RDBMS from Windows"
 linkTitle: "RDBMS from Windows"
-weight: 
+weight: 3
 description: >
   How to connect to the PostgreSQL RDBMS server from Windows   
 relatedContent: >
-  building/guides/database/rdbms-from-mac
+  technical-overview/data/analytics/rdbms-from-mac
 aliases:
    - /apps/guides/database/rdbms-from-windows
 ---
