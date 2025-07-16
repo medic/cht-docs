@@ -31,7 +31,7 @@ Certain features are only available with an Android application, including integ
 
 ## How to distribute a CHT app as a PWA
 
-1. Ensure branding configuration is complete. Without this the browser won't recognize the CHT as a PWA and installation will not be possible. Specifically the app will need a `title` and `icon` as these are used for the icon on the home screen. To set this up, follow the instructions on the [branding page]({{< relref "building/branding/application-graphics#1-site-branding" >}}).
+1. Ensure branding configuration is complete. Without this the browser won't recognize the CHT as a PWA and installation will not be possible. Specifically the app will need a `title` and `icon` as these are used for the icon on the home screen. To set this up, follow the instructions on the [branding page](/building/branding/application-graphics#1-site-branding).
 2. In Chrome or Firefox go to the application URL, log in, and wait for the webapp to finish loading completely.
 3. Follow these [instructions for PWA installation](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen).
 
