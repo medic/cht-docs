@@ -1,17 +1,22 @@
 ---
 title: "Database schema conventions"
 linkTitle: "Database Schema"
-weight: 8
+weight: 1
 description: >
   Schema for CHT database objects
 relatedContent: >
-  building/guides/database
+  technical-overview/data
+  technical-overview/data/analytics
   building/contact-summary/contact-summary-templated
   building/targets/targets-js
   building/tasks/tasks-js
 aliases:
    - /core/overview/db-schema/
    - /technical-overview/db-schema/
+   - /technical-overview/data/db-schema/
+   - /technical-overview/data/db-schema/#tasks
+   - /technical-overview/data/db-schema/#targets
+   - /technical-overview/data/db-schema/#contacts-persons-and-places
 ---
 
 CouchDB (and PouchDB in the browser) is a JSON-based NoSQL datastore that we use to store our data. While unlike SQL databases there is no enforced schema, code still follows conventions, and this document aims to describe the schema as defined by how our code operates.
@@ -100,7 +105,7 @@ Generally when contacts are **used** in the app they are first "hydrated", with 
 }
 ```
 
-{{< see-also page="building/guides/data/hydration" title="Document hydration" >}}
+{{< see-also page="technical-overview/data/hydration" title="Document hydration" >}}
 
 As of version **3.10**, you can connect contacts with other documents via the `linked_docs` property. This allows the app to have access to these linked documents when the contact is used.
 

@@ -1,13 +1,14 @@
 ---
 title: "CouchDB Authentication"
 linkTitle: "CouchDB Authentication"
-weight: 
+weight: 5
 description: >
   Invalidating Sessions
 relatedContent: >
   
 aliases:
    - /apps/guides/database/couchdb-authentication
+   - /building/guides/database/couchdb-authentication
 ---
 
 ### To invalidate a session in couchdb, there are two options:

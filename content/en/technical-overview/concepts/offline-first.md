@@ -43,7 +43,7 @@ Once the application has started up it needs data to be useful. This data falls 
 
 Both of these types of data are cached on the device because they are required for the user to do their job. The CHT Core Framework uses [PouchDB](https://pouchdb.com/) to store the data on the device's disk. Once cached, when the application starts up the code is executed, which reads the data, allowing the user to do their job regardless of the quality of their internet connection.
 
-If the user creates new patient data by registering a family or completing a task the application stores this in the phone's cache and attempts to submit this to the server. Periodically the application checks to see if there is new data on the server that is relevant to the user and if so, it updates the cache. This process of sending and receiving data updates is called [replication]({{< relref "building/guides/performance/replication" >}}), and is performed without interrupting the user from their work.
+If the user creates new patient data by registering a family or completing a task the application stores this in the phone's cache and attempts to submit this to the server. Periodically the application checks to see if there is new data on the server that is relevant to the user and if so, it updates the cache. This process of sending and receiving data updates is called [replication]({{< relref "technical-overview/data/performance/replication" >}}), and is performed without interrupting the user from their work.
 
 ## FAQs from CHT contributors
 

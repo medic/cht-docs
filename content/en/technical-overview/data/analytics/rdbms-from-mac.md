@@ -1,11 +1,11 @@
 ---
 title: "Connecting to RDBMS from MacOS"
 linkTitle: "RDBMS from MacOS"
-weight: 
+weight: 2
 description: >
   How to connect to the PostgreSQL RDBMS server from MacOS    
 relatedContent: >
-  building/guides/database/rdbms-from-windows
+  technical-overview/data/analytics/rdbms-from-windows
 aliases:
    - /apps/guides/database/rdbms-from-mac
 ---

@@ -1,12 +1,13 @@
 ---
 title: "Database Conflicts"
 linkTitle: "Database Conflicts"
-weight: 
+weight: 4
 description: >
   How to handle conflicts with CouchDB documents
 relevantLinks: >
 aliases:
    - /apps/guides/database/database-conflicts
+   - /building/guides/database/database-conflicts
 ---
 
 Conflicts are a natural and unavoidable part of working in a distributed system.

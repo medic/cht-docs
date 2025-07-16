@@ -14,7 +14,7 @@ aliases:
 }
 </style>
 
-This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{< ref "technical-overview/concepts/data-flows-for-analytics" >}}) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
+This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{< ref "technical-overview/data/analytics/data-flows-for-analytics" >}}) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
 
 {{< toc >}}
 
@@ -236,7 +236,7 @@ Returns a JSON array of CHT-related software versions for each user device. This
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | user            | The user's name.                                                                                                                         |
 | deviceId        | The unique key for the user's device.                                                                                                    |
-| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "building/guides/performance/telemetry" >}}).           |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           |
 | browser.name    | The name of the browser used.                                                                                                            |
 | browser.version | The version of the browser used.                                                                                                         |
 | apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. |
@@ -2494,14 +2494,14 @@ autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
 [Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
-[A guide]({{< ref "building/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
+[A guide]({{< ref "building/training/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
 #### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
 that gets updated throughout the import and finalized upon completion.
-These entries are saved in the [`medic-logs`]({{< ref "building/guides/database#medic-logs" >}}) database and you can access them
+These entries are saved in the [`medic-logs`]({{< ref "technical-overview/data#medic-logs" >}}) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
 #### Headers

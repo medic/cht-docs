@@ -6,7 +6,7 @@ description: >
   Managing CHT application settings
 relatedContent: >
   building/reference/app-settings
-  building/guides/performance/replication
+  technical-overview/data/performance/replication
   building/reference/app-settings/transitions 
 aliases:
    - /apps/tutorials/application-settings
@@ -30,7 +30,7 @@ The settings which control CHT apps are defined in the *[app_settings.json]({{< 
 
 *[Roles]({{< relref "building/users#roles" >}})* define permissions for users to access a group of app features and functionality.
 
-*[Replication]({{< relref "building/guides/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
+*[Replication]({{< relref "technical-overview/data/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
 *[Transitions]({{< relref "building/reference/app-settings/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
@@ -191,7 +191,7 @@ Configure the CHW role's depth to 2 by adding the following key/value pairs to t
 { "role": "chw", "depth": 2 }
 ```
 
-{{< see-also page="building/guides/performance/replication" title="Replication Depth" >}}
+{{< see-also page="technical-overview/data/performance/replication" title="Replication Depth" >}}
 
 ### 5. Upload App Settings
 
