@@ -21,11 +21,11 @@ Upgrading to CHT 4.0  can be quite time consuming, especially for large deployme
 
 ## CHT Android v1.0.0+ 
 
-This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`. See the [Android docs]({{< relref "building/guides/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
+This change is straightforward in that CHT 4.x no longer supports versions _before_ `1.0.0`, so deployments need to update their Play Store app. As of this writing, [CHT Android](https://github.com/medic/cht-android/) is at `1.0.4`. See the [Android docs]({{< relref "building/branding/android" >}}) on how to update your app and release it.  Note that Google's Play Store can often have delays which deployments have no control over. Again, the sooner you start, the better.
 
 ### Versions in use
 
-After you have published your app, you need to instruct your users to check the Play Store for upgrades. You can then check [CHT Telemetry]({{< relref "building/guides/performance/telemetry" >}})  to see what CHT Android versions are in use. Assuming you have [CHT Sync set up](https://github.com/medic/cht-sync) to pull in your CouchDB data to a PostgreSQL database, this query will list Android versions `count`s for the current year, broken out by `month`, `year` and `version`:
+After you have published your app, you need to instruct your users to check the Play Store for upgrades. You can then check [CHT Telemetry]({{< relref "technical-overview/data/performance/telemetry" >}})  to see what CHT Android versions are in use. Assuming you have [CHT Sync set up](https://github.com/medic/cht-sync) to pull in your CouchDB data to a PostgreSQL database, this query will list Android versions `count`s for the current year, broken out by `month`, `year` and `version`:
 
 ```sql
 SELECT

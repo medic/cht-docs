@@ -1,21 +1,23 @@
 ---
 title: "Publishing"
 linkTitle: "Publishing"
-weight: 4
+weight: 2
 description: >
-  Instructions for publishing Android Apps
+  Instructions for releasing Android Apps
 relatedContent: >
-  community/contributing/code/android/releasing
+  building/branding/publishing
   building/branding/android
-  building/guides/security/securing-android
 aliases: >
   /apps/guides/hosting/android-app/
   /core/guides/android/publishing
   /core/guides/android/
   /apps/guides/android/publishing/
+  /building/guides/android/publishing/
 ---
 
-Once the flavor is [built]({{< ref "building/branding/android" >}}) there are many different ways to publish the binaries for installation.
+## Publishing
+
+Once the flavor is [bui````lt]({{< ref "building/branding/android" >}}) there are many different ways to publish the binaries for installation.
 
 ### Google Play Store
 
@@ -26,10 +28,10 @@ One of the downsides is it can be more difficult to get your app published and i
 For this method you will need access to the organization's play store console with permission to publish the app.
 
 In the [Google Play Console](https://play.google.com/console), for each flavor to publish:
-  - Create a new `Production` release
-  - Upload the `arm64` app bundles (from the GitHub Release) for the flavor. If you plan on uploading multiple APKs, the APKs should have different version codes. Read more: [here](https://developer.android.com/google/play/publishing/multiple-apks#Rules).
-  - Use the new cht-android version as the Release name
-  - Add a one sentence summary of the CHANGELOG entry as the Release notes.
+- Create a new `Production` release
+- Upload the `arm64` app bundles (from the GitHub Release) for the flavor. If you plan on uploading multiple APKs, the APKs should have different version codes. Read more: [here](https://developer.android.com/google/play/publishing/multiple-apks#Rules).
+- Use the new cht-android version as the Release name
+- Add a one sentence summary of the CHANGELOG entry as the Release notes.
 
 For a more detailed explanation, follow this [doc](https://support.google.com/googleplay/android-developer/answer/9859751?hl=en).
 
