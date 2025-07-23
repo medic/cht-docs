@@ -15,14 +15,14 @@ aliases:
    - /apps/guides/training/training-cards/
 ---
 
-[Training Cards]({{< relref "building/training/training-cards" >}}) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide]({{< relref "building/care-guides" >}}), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles]({{< relref "building/reference/app-settings/user-roles" >}}) the cards should be shown. Like [app forms]({{< relref "building/forms/app" >}}), forms used by training cards will automatically be downloaded to the user’s devices.
+[Training Cards](/building/training/training-cards) enable remote training from within the CHT by showing a sequence of "cards" containing content provided by App Developers. The content might include information about a newly deployed feature, changes to a [care guide](/building/care-guides), or simply a reminder about an underused feature or workflow. Enketo forms are used to display the content, and App Developers can specify a start date, duration, and to which [user roles](/building/reference/app-settings/user-roles) the cards should be shown. Like [app forms](/building/forms/app), forms used by training cards will automatically be downloaded to the user’s devices.
 
 > [!NOTE] 
-> Example training forms are available [here]({{< relref "building/training/training-cards-resources" >}}) and provide a good starting point. 
+> Example training forms are available [here](/building/training/training-cards-resources) and provide a good starting point. 
 
 # Step 1: Create the training form
 
-Create an [XLS Form]({{< relref "building/forms/app#xlsform" >}}). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
+Create an [XLS Form](/building/forms/app#xlsform). In the following example, the training form is called `my_new_feature`, it has some text in the `label::en` column, and some images in the column `media::images` to illustrate the feature.
 
 {{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="left col-10" >}}
 
@@ -38,7 +38,7 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 # Step 3: Configure the training form
 
-Create a [properties file]({{< relref "building/forms/form-properties#3-define-the-forms-context" >}}) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties:
+Create a [properties file](/building/forms/form-properties#3-define-the-forms-context) to define the starting date of the training, the number of days it will be active, and the user roles that can access the training. In our example, the file name is `my_new_feature.properties.json` and contains the following properties:
 
 ```
 {
@@ -66,7 +66,7 @@ In the example above, the training cards could be shown to any user with the "nu
 
 If your training form has images, create a folder with the same name as the form and add `-media` suffix. In our example, the form name is `my_new_feature`, then the folder name should be `my_new_feature-media`.
 
-Inside that new folder, make another one called images and put inside all the `images` that your form needs. See more about [multimedia in forms]({{< relref "building/forms/configuring/multimedia" >}}).
+Inside that new folder, make another one called images and put inside all the `images` that your form needs. See more about [multimedia in forms](/building/forms/configuring/multimedia).
 
 # Step 5: Put everything in the right place
 
@@ -107,7 +107,7 @@ cht --url=http://admin-user:secretpass@my-xyz-project.org upload-training-forms 
 
 At this point the training cards are ready to use. You can verify by logging in with a user that has a valid role assigned for the training card, on the day that the training starts. Remember, to sync the app to see the results (the uncompleted training will display once a day).
 
-Using [telemetry]({{< relref "building/guides/performance/telemetry" >}}) you can monitor user interaction with each training card "set". Some key metrics you can view include:
+Using [telemetry](/building/guides/performance/telemetry) you can monitor user interaction with each training card "set". Some key metrics you can view include:
 
 1. Number of times each user was presented with training cards
 2. The date(s) each user was presented with training cards

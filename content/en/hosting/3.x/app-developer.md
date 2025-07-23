@@ -10,18 +10,18 @@ aliases:
 ---
 
 {{< callout type="warning" >}}
-  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+  CHT 3.x is [End-of-Life](/releases/#supported-versions) and no longer supported. 
 {{< /callout >}}
 
-This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide]({{< relref "community/contributing/code/core/dev-environment" >}}).
+This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without loosing any data while doing so. To do development on the CHT core itself, see the [development guide](/community/contributing/code/core/dev-environment).
 
 {{< callout >}}
-  To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/self-hosting.md" >}}) or [Self hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}).
+  To deploy the CHT in production, see either [AWS hosting](/hosting/3.x/self-hosting.md) or [Self hosting](/hosting/3.x/ec2-setup-guide.md).
 {{< /callout >}}
 
 ## Getting started
 
-Be sure to meet the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first. As well, if any other `medic-os` instances using [the main `docker-compose-developer-3.x-only.yml` file](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml) are running locally, stop them otherwise port, storage volume and container name conflicts may occur.
+Be sure to meet the [CHT hosting requirements](/hosting/requirements) first. As well, if any other `medic-os` instances using [the main `docker-compose-developer-3.x-only.yml` file](https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/docker-compose-developer-3.x-only.yml) are running locally, stop them otherwise port, storage volume and container name conflicts may occur.
 
 After meeting these requirements, download the developer YAML file in the directory you want to store them:
 

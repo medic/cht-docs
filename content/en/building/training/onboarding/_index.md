@@ -15,11 +15,11 @@ aliases:
 When onboarding new users, having a dedicated CHT app and instance for training can be helpful; it allows new users to do training exercises with mock data to get familiar with the app, while not having the data from their training interfering with the future use of their CHT app. Different approaches are possible, such as only entering real patient data during training, or manually deleting all the training data, but these methods are less practical for large deployments.
 
 > [!NOTE]
-> The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide]({{< relref "building/guides/data/training-instance" >}}) can help to monitor and remediate training data being in the production instance, or the opposite.
+> The suggestions in this guide should be assessed and adapted as needed to benefit a deployment. It is important that users don't accidentally use the wrong app. The [troubleshooting guide](/building/guides/data/training-instance) can help to monitor and remediate training data being in the production instance, or the opposite.
 
 ## Setting up a training app
 
-A separate Android App can be created for training, which would point to a CHT instance dedicated to training. The training instance should have the same configuration as the production instance, and have users created for training. To differentiate the Android app used for training from the production one, create a duplicate of [your flavor]({{< relref "building/branding/android" >}}) and modify the following aspects
+A separate Android App can be created for training, which would point to a CHT instance dedicated to training. The training instance should have the same configuration as the production instance, and have users created for training. To differentiate the Android app used for training from the production one, create a duplicate of [your flavor](/building/branding/android) and modify the following aspects
 - **Border & Message**: Consider adding a distinctive border and message when using the training app. This can be done by setting the build config field `IS_TRAINING_APP` to `true`, as seen in [`build.gradle`](https://github.com/medic/cht-android/blob/8d077ed08dc3889ef1f4e3bad7231931bca55d87/build.gradle#L212-L216) for the training version of the Gamma app.
 - **CHT Instance**: In your flavor's `res/values/strings.xml` file set the `app_host` string to be the URL of your training instance, as seen in the [Gamma Training app](https://github.com/medic/cht-android/blob/8d077ed08dc3889ef1f4e3bad7231931bca55d87/src/medicmobilegamma_training/res/values/strings.xml#L3). If left the same as the production app both training and production data will end up in your production instance.
 - **Launcher icons**: Consider using completely different icons, or at least change the color of the launcher icons.
@@ -41,4 +41,4 @@ If the production app can always be installed after the use of the training is c
 
 Changing passwords for the training users in an attempt to lock them out is not recommended. In some circumstances a user would be able to continue to use the training app for production use and not have the data sync back to the server.
 
-It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity]({{< relref "building/guides/data/training-instance" >}}) that can be brought over to the production instance if needed.
+It is preferable to remove the training app from devices, and [monitor the training instance for unexpected activity](/building/guides/data/training-instance) that can be brought over to the production instance if needed.

@@ -10,13 +10,13 @@ aliases:
 ---
 
 > [!TIP] 
-> To get an overview on how these hosting solutions use `docker` and other key CHT concepts, be sure to read the [guide on a Local Setup]({{< relref "building/local-setup" >}}).
+> To get an overview on how these hosting solutions use `docker` and other key CHT concepts, be sure to read the [guide on a Local Setup](/building/local-setup).
 
-Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "hosting/requirements" >}}) first. For example, [backups](/hosting/4.x/docker/backups) are required for any successful CHT deployment.
+Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements](/hosting/requirements) first. For example, [backups](/hosting/4.x/docker/backups) are required for any successful CHT deployment.
 
-To host a production instance of CHT, use the [Production Hosting in CHT 4.x]({{< relref "hosting/4.x/docker" >}}) guide. To do app development, see our [App Developer]({{< relref "hosting/4.x/app-developer" >}}) hosting guide.
+To host a production instance of CHT, use the [Production Hosting in CHT 4.x](/hosting/4.x/docker) guide. To do app development, see our [App Developer](/hosting/4.x/app-developer) hosting guide.
 
-To view 3.x hosting options, see the  [3.x hosting section]({{< relref "hosting/3.x" >}}).
+To view 3.x hosting options, see the  [3.x hosting section](/hosting/3.x).
 
 {{< cards >}}
   {{< card link="app-developer" title="App Developer Hosting" subtitle="Learn how to host the CHT when developing apps" icon="server" >}}

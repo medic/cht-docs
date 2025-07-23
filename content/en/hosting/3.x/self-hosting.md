@@ -13,14 +13,14 @@ aliases:
 ---
 
 {{< callout type="warning" >}}
-  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+  CHT 3.x is [End-of-Life](/releases/#supported-versions) and no longer supported. 
 {{< /callout >}}
 
 
 Whether run on bare-metal or in a cloud provider, the Community Health Toolkit (CHT) core framework has been packaged into a docker container to make it portable and easy to install. It is available from [dockerhub](https://hub.docker.com/r/medicmobile/medic-os). To learn more how to work with docker you could follow the tutorial [here](https://docker-curriculum.com/#getting-started) and the cheat sheet [here](https://docs.docker.com/get-started/docker_cheatsheet.pdf).  
 
 {{< callout type="warning" >}}
-  Before continuing, ensure all [requirements]({{< relref "hosting/requirements" >}}) are met.
+  Before continuing, ensure all [requirements](/hosting/requirements) are met.
 {{< /callout >}}
 
 ## Installing with a compose file
