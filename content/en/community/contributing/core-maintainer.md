@@ -14,7 +14,7 @@ To become a maintainer, a community member needs to do the following:
   3 features merged to CHT Core outside of a squad<br/>
   **OR**<br/>
   5 bug fixes merged to CHT Core outside of a squad
-* Have a forum account and have achieved the "Member" badge. 
+* Have a forum account and have achieved the "[Member](https://forum.communityhealthtoolkit.org/badges/2/member)" badge. 
 * Attend 3 out of 12 round up calls a year 
 * Have 2 existing core maintainers sign off on your nomination 
 
