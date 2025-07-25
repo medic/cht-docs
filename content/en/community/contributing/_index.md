@@ -12,6 +12,7 @@ aliases:
   {{< card link="first-time-contributors" title="First Time Contributors Guide" icon="heart" subtitle=" Starting guide for first time contributors" >}}
   {{< card link="code-of-conduct" title="Code of Conduct" subtitle="The code of conduct for the CHT community" icon="shield-exclamation" >}}
   {{< card link="code/" title="Contribute Code" subtitle="How to contribute to code to the CHT" icon="code" >}}
+  {{< card link="core-maintainer/" title="Core contributor" subtitle="What it takes to go from community member to be able to directly commit to CHT Core" icon="user-add" >}}
   {{< card link="docs/" title="Contribute Documentation" subtitle="How to contribute to documentation to the CHT" icon="document-text" >}}
   {{< card link="creating-good-first-issues" title="Create Good First Issues" icon="lightning-bolt" subtitle=" Set new community members up for success" >}}
   {{< card link="technical-resources" title="Technical Resources" subtitle="Learning resources to get started as a contributor to the CHT" icon="academic-cap" >}}
