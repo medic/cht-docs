@@ -3,11 +3,18 @@ title: "Core Maintainer"
 linkTitle: "Core Maintainer"
 weight: 10
 description: >
-  Who can commit directly to CHT reposistories in GitHub
+  Who can commit directly to CHT repositories in GitHub
 ---
 
+Historically only [Medic](https://medic.org/) teammates were given GitHub permissions to merge code into CHT repositories.  This is no longer the case!  Now, everyone is treated as an equal:  If you meet these requirements, you can commit code!  Medic teammates who already have maintainer status are not having any exceptions given to them though - they've just already meet the requirements.
+
+This is not just for the [CHT Core](https://github.com/medic/cht-core/) repository though!  We welcome maintainers for who just want to [update the  documentation](https://docs.communityhealthtoolkit.org/) as well.  There's actually dozens of repositories that you can contribute to - [check them out](https://github.com/orgs/medic/repositories)!
+
+Along with the process on how to become a maintainer, we're also including the process of removing a maintainer.
+
+If you have any questions about how this works in practice, please post a [question to the forum](https://forum.communityhealthtoolkit.org/c/community/10)!
+
 ## Requirements
-To become a maintainer, a community member needs to do the following:
 
 * Participate in a squad where you author, commit and revise code that gets merged to at least one CHT repo<br/>
   **OR**<br/>
@@ -26,6 +33,10 @@ To become a maintainer, a community member needs to do the following:
 * Ticket is assigned to GH owner who can grant permissions
 * TBD specific permissions are added in GitHub by a existing GitHub repo admin
 
+## Maintainer status on multiple repositories
+
+If a community member would like access to more than one repository, they can just get 2 of the same (or different) existing maintainers of that repository to sign off on their nomination.  You can be a committer on as many repositories as you're interested in.
+
 ## When to remove a core maintainer
 
 * 3 existing core maintainers agree you should no longer be a maintainer
@@ -33,6 +44,7 @@ To become a maintainer, a community member needs to do the following:
 This may because some or all of the following:
 * You no longer attend round up calls
 * You're no longer active on the forums
+* It's been over to 18 months since your last CHT related GitHub activity
 * You have violated the [Code of Conduct](/community/contributing/code-of-conduct) 
 
 
