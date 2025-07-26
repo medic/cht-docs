@@ -6,13 +6,11 @@ description: >
   Who can commit directly to CHT repositories in GitHub
 ---
 
-Historically only [Medic](https://medic.org/) teammates were given GitHub permissions to merge code into CHT repositories.  This is no longer the case!  Now, everyone is treated as an equal:  If you meet these requirements, you can commit code!  Medic teammates who already have maintainer status are not having any exceptions given to them though - they've just already meet the requirements.
+Historically only [Medic](https://medic.org/) teammates were given GitHub permissions to merge code into CHT repositories.  This is no longer the case!  Now, everyone is treated as an equal:  If you meet these requirements, you can commit code.  Medic teammates who already have maintainer status do not get exemptions - they've just already meet the requirements.
 
-This is not just for the [CHT Core](https://github.com/medic/cht-core/) repository though!  We welcome maintainers for who just want to [update the  documentation](https://docs.communityhealthtoolkit.org/) as well.  There's actually dozens of repositories that you can contribute to - [check them out](https://github.com/orgs/medic/repositories)!
+This is not just for the [CHT Core](https://github.com/medic/cht-core/) repository though!  We welcome maintainers want to [update the documentation](https://docs.communityhealthtoolkit.org/) as well.  There's actually dozens of repositories that you can contribute to - [check them out](https://github.com/orgs/medic/repositories)!
 
-Along with the process on how to become a maintainer, we're also including the process of removing a maintainer.
-
-If you have any questions about how this works in practice, please post a [question to the forum](https://forum.communityhealthtoolkit.org/c/community/10)!
+If you have any questions about how this works in practice, please post a [question to the forum](https://forum.communityhealthtoolkit.org/c/community/10).
 
 ## Requirements
 
