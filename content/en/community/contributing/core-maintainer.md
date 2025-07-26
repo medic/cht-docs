@@ -44,7 +44,7 @@ If a community member would like access to more than one repository, they can ju
 This may because some or all of the following:
 * You no longer attend round up calls
 * You're no longer active on the forums
-* It's been over to 18 months since your last CHT related GitHub activity
+* It has been over 18 months since your last CHT related GitHub activity
 * You have violated the [Code of Conduct](/community/contributing/code-of-conduct) 
 
 
