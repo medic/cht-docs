@@ -9,18 +9,17 @@ relatedContent: >
   building/integrations/dhis2
   building/supervision/#chw-aggregate-targets
 aliases:
-   - /building/features/targets/
-   - /apps/features/targets/
+  - /building/features/targets/
+  - /apps/features/targets/
 ---
 
-*Targets* is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. These widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility.
+_Targets_ is the user dashboard or analytics tab. The widgets on this tab provide a summary or analysis of the data in submitted reports. These widgets can be configured to track metrics for an individual CHW, for a Supervisor overseeing a group of CHWs, or for an entire health facility.
 
 For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community unit is performing.
 
-{{< figure src="targets-desktop.png" link="targets-desktop.png" class="right col-6 col-lg-8 bordered-figure" >}}
-
-{{< cards rows="1" >}}
-{{< figure src="targets-mobile.png" link="targets-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< cards cols="2" >}}
+{{< card image="targets-desktop.png" method="Resize" options="500x q80 webp" >}}
+{{< card image="targets-mobile.png" method="Resize" options="500x q80 webp" >}}
 {{< /cards >}}
 
 > [!IMPORTANT]
@@ -28,15 +27,14 @@ For CHWs, the **Targets** tab provides a quick summary of their progress towards
 
 ## Types of Widgets
 
-There are two basic types of widgets: count and percent. *Count widgets* display a numeric sum while *percent widgets* display progress towards achieving a target.
+There are two basic types of widgets: count and percent. _Count widgets_ display a numeric sum while _percent widgets_ display progress towards achieving a target.
 
 The text, icon, goal, and time frame of each widget is easily configured. The time frame is set per widget, and set to show values for "this month" (resets back to zero at the beginning of each month) or "all time" (a cumulative total).
-
 
 ### Count Widgets
 
 {{< cards >}}
-  {{< figure src="targets-count.png" link="targets-count.png" class="right col-7 col-lg-4" >}}
+{{< figure src="targets-count.png" link="targets-count.png" class="right col-7 col-lg-4" >}}
 {{< /cards >}}
 
 Count widgets show a tally of a particular report that has been submitted or data within a report that matches a set of criteria. For example, a count can be done for the number of new pregnancies, the number of facility-based deliveries, or the number of households registered that month.
@@ -46,7 +44,7 @@ A count without a goal displays a simple green number count. A count with a goal
 ### Percent Widgets
 
 {{< cards >}}
-  {{< figure src="targets-percentage.png" link="targets-percentage.png" class="right col-7 col-lg-4" >}}
+{{< figure src="targets-percentage.png" link="targets-percentage.png" class="right col-7 col-lg-4" >}}
 {{< /cards >}}
 
 Percent widgets display a ratio, which helps to provide insight into the proportion that matches a defined criteria. For example, the proportion of newborns delivered in a facility can be presented as a percent with respect to all registered deliveries.
