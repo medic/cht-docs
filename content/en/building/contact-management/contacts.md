@@ -11,8 +11,8 @@ relatedContent: >
   building/contact-management/contact-and-users-1
   reference-apps/contact-tracing
 aliases:
-  - /building/features/contacts/
-  - /apps/features/contacts/
+   - /building/features/contacts/
+   - /apps/features/contacts/
 ---
 
 <!-- ## Contacts: Person and Family Profiles -->
@@ -94,7 +94,6 @@ A “condition” card displays data on a profile that’s been submitted in a r
 Condition cards can be permanent or conditional; set to appear only when a specific type of report is submitted. They can also be set to disappear when a condition is resolved or a certain amount of time has passed. You can have as many condition cards as you like, though we recommend keeping the user’s experience in mind.
 
 Configurable elements include:
-
 - Title
 - Label for each data point displayed
 - Data point for the field
@@ -109,7 +108,6 @@ Configurable elements include:
 {{< see-also page="contact-summary-templated" anchor="condition-cards" title="Defining Condition Cards" >}}
 
 ## Care Guides
-
 <!-- todo: Resolve Care Guides vs Actions -->
 
 {{< cards rows="1" >}}
@@ -138,6 +136,7 @@ _(Added in CHT `4.19.0`)_
 
 One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching]({{< ref "#searching" >}}) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
 
-The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
+ The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
 
 The matching logic for duplicate detection is [configurable]({{< relref "building/forms/contact#properties" >}}) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
+
