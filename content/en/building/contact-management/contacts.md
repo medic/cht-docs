@@ -11,9 +11,10 @@ relatedContent: >
   building/contact-management/contact-and-users-1
   reference-apps/contact-tracing
 aliases:
-   - /building/features/contacts/
-   - /apps/features/contacts/
+  - /building/features/contacts/
+  - /apps/features/contacts/
 ---
+
 <!-- ## Contacts: Person and Family Profiles -->
 <!-- TODO Refine screenshots, and add desktop view. -->
 
@@ -23,14 +24,15 @@ aliases:
 
 Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data]({{< ref "building/guides/performance/replication#contact-depth" >}}) is downloaded and stored on their device.
 
-
-{{< figure src="people-desktop.png" link="people-desktop.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< cards cols="1" >}}
+{{< card image="people-desktop.png" method="Resize" options="600x q80 webp" >}}
+{{< /cards >}}
 
 ## Main List
 
-{{< cards >}}
-  {{< figure src="people-mobile.png" link="people-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
-  {{< figure src="sort-dropdown.png" link="sort-dropdown.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< cards cols="2" >}}
+{{< card image="people-mobile.png" method="Resize" options="400x q80 webp" >}}
+{{< card image="sort-dropdown.png" method="Resize" options="400x q80 webp" >}}
 {{< /cards >}}
 
 The list view on the leftmost screenshot is what a logged-in CHW would see when they access the “People” tab on a small screen.
@@ -45,8 +47,8 @@ With the [_UHC Mode_]({{< relref "building/uhc-mode" >}}) configured, the main l
 
 ## Searching
 
-{{< cards >}}
-{{< figure src="search-mobile.png" link="search-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< cards cols="1" >}}
+{{< card image="search-mobile.png" method="Resize" options="400x q80 webp" >}}
 {{< /cards >}}
 
 Click on the search icon at the top of the screen to search for a “person” or “place”. The freetext search works on all fields included in the “person” or “place” document such as patient name or patient ID. The exact fields depends on which information you’ve configured your app to collect.
@@ -63,11 +65,11 @@ If you’re viewing a place profile, you’ll see a list of people or places tha
 
 Beneath that, you will find tasks for this person or place. At the very bottom is a history of submitted reports for this person or place.
 
-{{< cards rows="4" >}}
-{{< figure src="profile1.png" link="profile1.png" class="right col-6 col-lg-8 bordered-figure" >}}
-{{< figure src="profile2.png" link="profile2.png" class="right col-6 col-lg-8 bordered-figure" >}}
-{{< figure src="profile3.png" link="profile3.png" class="right col-6 col-lg-8 bordered-figure" >}}
-{{< figure src="profile4.png" link="profile4.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< cards cols="2" >}}
+{{< card image="profile1.png" method="Resize" options="400x q80 webp" >}}
+{{< card image="profile2.png" method="Resize" options="400x q80 webp" >}}
+{{< card image="profile3.png" method="Resize" options="400x q80 webp" >}}
+{{< card image="profile4.png" method="Resize" options="400x q80 webp" >}}
 {{< /cards >}}
 
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
@@ -83,7 +85,6 @@ The top card on all profiles contains general information for the contact. All t
 {{< figure link="bio2.png" src="bio2.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
-
 {{< see-also page="contact-summary-templated" anchor="contact-summary" title="Defining Contact Summary" >}}
 
 ### Condition Cards
@@ -93,6 +94,7 @@ A “condition” card displays data on a profile that’s been submitted in a r
 Condition cards can be permanent or conditional; set to appear only when a specific type of report is submitted. They can also be set to disappear when a condition is resolved or a certain amount of time has passed. You can have as many condition cards as you like, though we recommend keeping the user’s experience in mind.
 
 Configurable elements include:
+
 - Title
 - Label for each data point displayed
 - Data point for the field
@@ -106,14 +108,13 @@ Configurable elements include:
 
 {{< see-also page="contact-summary-templated" anchor="condition-cards" title="Defining Condition Cards" >}}
 
-
 ## Care Guides
+
 <!-- todo: Resolve Care Guides vs Actions -->
 
 {{< cards rows="1" >}}
 {{< figure link="care-guides.png" src="care-guides.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
-
 
 “Care Guides” are dynamic forms that you can fill out for a person or place. You can access Care Guides by clicking on the + button at the bottom of a profile. For more info, see the [Care Guides overview page]({{% ref care-guides %}}).
 
@@ -122,7 +123,6 @@ You’ll see different forms here depending on which person or place you’re vi
 Health workers can use these Care Guides at any time. If the app has scheduled a care visit or follow up, it will be listed under “Tasks.”
 
 {{< see-also page="contact-summary-templated" anchor="care-guides" title="Defining Care Guides" >}}
-
 
 ## Creating and Editing Contacts
 
@@ -138,8 +138,6 @@ _(Added in CHT `4.19.0`)_
 
 One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching]({{< ref "#searching" >}}) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
 
- The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
+The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
 
 The matching logic for duplicate detection is [configurable]({{< relref "building/forms/contact#properties" >}}) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
-
-
