@@ -23,7 +23,7 @@ If you have any questions about how this works in practice, please post a [quest
 * Attend 3 out of 12 round up calls a year 
 * Have 2 existing core maintainers sign off on your nomination 
 
-_\*  Features and bug fixes are measured by a PR that was succfully merged to `main`_
+_\*  Features and bug fixes are measured by a PR that was successfully merged to `main`_
 
 ## How to add a core maintainer
 
