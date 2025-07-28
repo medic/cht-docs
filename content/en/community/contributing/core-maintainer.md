@@ -50,7 +50,7 @@ This may because some or all of the following:
 
 ## How to remove a core maintainer 
 
-* Open an issue on the repository - with TBD template for adding new maintainer
+* Open an issue on the repository - with TBD template for removing an existing maintainer
 * Ensure all steps are completed per requirements above
 * Ticket is assigned to GH owner who can grant permissions
 * Have 3 existing core maintainers add their approval to the ticket
