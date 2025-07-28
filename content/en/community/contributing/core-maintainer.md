@@ -14,14 +14,16 @@ If you have any questions about how this works in practice, please post a [quest
 
 ## Requirements
 
-* Participate in a squad where you author, commit and revise code that gets merged to at least one CHT repo<br/>
-  **OR**<br/>
-  3 features merged to CHT Core outside of a squad<br/>
-  **OR**<br/>
-  5 bug fixes merged to CHT Core outside of a squad
+* Participate in a squad where you author, commit and revise code that gets merged to at least one CHT repo *<br/>
+  **OR** <br/>
+  3 features merged to CHT Core outside of a squad *<br/>
+  **OR** <br/>
+  5 bug fixes merged to CHT Core outside of a squad *
 * Have a forum account and have achieved the "[Member](https://forum.communityhealthtoolkit.org/badges/2/member)" badge. 
 * Attend 3 out of 12 round up calls a year 
 * Have 2 existing core maintainers sign off on your nomination 
+
+_\*  Features and bug fixes are measured by a PR that was succfully merged to `main`_
 
 ## How to add a core maintainer
 
