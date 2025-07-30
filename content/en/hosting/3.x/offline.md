@@ -10,7 +10,7 @@ aliases:
 ---
 
 {{< callout type="warning" >}}
-  CHT 3.x is [End-of-Life]({{< relref "releases/#supported-versions" >}}) and no longer supported. 
+  CHT 3.x is [End-of-Life](/releases/#supported-versions) and no longer supported. 
 {{< /callout >}}
 
 {{< callout type="error" >}}
@@ -30,14 +30,14 @@ Running a CHT server offline requires no modifications to the CHT itself.  Inste
 
 ## Considerations
 
-An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline instance per our [existing requirements]({{< relref "requirements#considerations" >}}).
+An offline CHT server is most appropriate for a development environment.  There are serious implications to consider before deploying an offline instance per our [existing requirements](/requirements#considerations).
 
 Additionally, if users are going to migrate between offline locations with the same domain name, always ensure different login and passwords are used for all users across instances. This will prevent a client from another CHT instance trying to synchronize with a CHT instance it shouldn't synchronize with, possibly causing data corruption or privacy issues through unintended data access.
 
 
 ## Requirements
 
-A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name. On top of the [existing requirements]({{< relref "requirements" >}}), the following aspects must also be considered.
+A CHT instance is accessible offline when you can resolve the domain to an IP address, and a TLS certificate is on the CHT server with a common name (CN) that matches the domain name. On top of the [existing requirements](/requirements), the following aspects must also be considered.
 
 ### Static IP
 
@@ -49,7 +49,7 @@ Browsers might allow you to connect to a server with an invalid TLS certificate 
 
 It is common to use [Let's Encrypt](https://en.wikipedia.org/wiki/Let%27s_encrypt) to acquire certificates because they provide free certificates. Let's Encrypt certificates expire after 90 days, so the server will need to be constantly updated with a new certificate.  Other CAs provide certificates that expire after a year, so this concern will always apply.
 
-After acquiring the certificate, if you are running a Docker-based CHT deployment, see [TLS instructions for Docker]({{< relref "/hosting/3.x/ssl-cert-install" >}}) to install the certificate.
+After acquiring the certificate, if you are running a Docker-based CHT deployment, see [TLS instructions for Docker](//hosting/3.x/ssl-cert-install) to install the certificate.
 
 ### Domain Name Server
 
@@ -72,7 +72,7 @@ An offline deployment may consider substituting some requirements above with the
 
 ### ngrok
 
-When an offline solution is deployed, traffic stays 100% local, whereas when using either [your own reverse proxy]({{< relref "building/guides/debugging/secure-sharing-of-developer-instance" >}}) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away. This can help when Internet connectivity is very slow, very expensive per megabyte, or both.
+When an offline solution is deployed, traffic stays 100% local, whereas when using either [your own reverse proxy](/building/guides/debugging/secure-sharing-of-developer-instance) or a third party provider like [ngrok](https://ngrok.com/), traffic may traverse 100s or 1,000s of kilometers to ultimately reach the CHT server which is 10 meters away. This can help when Internet connectivity is very slow, very expensive per megabyte, or both.
 
 ### local-ip.co 
 

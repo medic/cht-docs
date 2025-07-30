@@ -11,12 +11,12 @@ aliases:
 This section has instructions on how to host the CHT Core starting with the most basic Application Development setup on your laptop for just one developer all the way up to large deployments which include multi-node CouchDB cluster hosted in a Cloud based deployment.
 
 {{< callout type="warning" >}}
-  All CHT 3.x deployments have been end of life since November 2023 and are not longer supported. They are [documented]({{< relref "hosting/3.x" >}}) to support deployments that are yet to upgrade to 4.x. 
+  All CHT 3.x deployments have been end of life since November 2023 and are not longer supported. They are [documented](/hosting/3.x) to support deployments that are yet to upgrade to 4.x. 
 {{< /callout >}}
 
-New developers to the CHT should start on CHT 4.x with the [Application Developer Hosting]({{< relref "hosting/4.x/app-developer" >}}).
+New developers to the CHT should start on CHT 4.x with the [Application Developer Hosting](/hosting/4.x/app-developer).
 
-System administrators looking to deploy CHT into production should understand [the requirements to host the CHT]({{< relref "/hosting/requirements/" >}}) first, then read the [Docker or Kubernetes]({{< relref "/hosting/kubernetes-vs-docker/" >}}) to select a style of hosting that best fits them.
+System administrators looking to deploy CHT into production should understand [the requirements to host the CHT](//hosting/requirements/) first, then read the [Docker or Kubernetes](//hosting/kubernetes-vs-docker/) to select a style of hosting that best fits them.
 
 {{< cards >}}
   {{< card link="considerations" title="Considerations" subtitle="Considerations when hosting the CHT" icon="book-open" >}}
