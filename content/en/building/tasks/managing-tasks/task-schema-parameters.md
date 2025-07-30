@@ -5,9 +5,9 @@ description: >
   Understanding the data which is passed into Task interfaces
 relatedContent: >
   building/tasks/tasks-js
-  building/guides/data/hydration
-  technical-overview/concepts/db-schema#contacts-persons-and-places
-  technical-overview/concepts/db-schema#reports
+  technical-overview/data/hydration
+  technical-overview/data/db-schema#contacts-persons-and-places
+  technical-overview/data/db-schema#reports
   building/tasks/simple-tasks
 
 aliases:
@@ -22,13 +22,13 @@ This guide explains the parameters available in the Task Schema and important co
 
 Let's synthesize some knowledge about CHT applications to help clarify what is happening within the task system:
 
-1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}) or [schema for contact documents]({{< ref "technical-overview/concepts/db-schema#contacts-persons-and-places" >}}).
+1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}) or [schema for contact documents]({{< ref "technical-overview/data/db-schema#contacts-persons-and-places" >}}).
 
-2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) or the [schema for report documents]({{< ref "technical-overview/concepts/db-schema#reports" >}}).
+2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) or the [schema for report documents]({{< ref "technical-overview/data/db-schema#reports" >}}).
 
-3. Documents are stored [minified]({{< ref "building/guides/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
+3. Documents are stored [minified]({{< ref "technical-overview/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
 
-4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]({{< ref "building/guides/performance/replication#depth" >}}) or [purging]({{< ref "building/guides/performance/purging" >}})) since both tasks can only process docs which are present on the device.
+4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]({{< ref "technical-overview/data/performance/replication#depth" >}}) or [purging]({{< ref "technical-overview/data/performance/purging" >}})) since both tasks can only process docs which are present on the device.
 
 > [!IMPORTANT]
 > The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.

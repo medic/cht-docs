@@ -310,7 +310,7 @@ Commonly used harness methods when testing tasks are:
 
 - [`harness.loadAction()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#loadAction): Simulates the user clicking on an action
 
-With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/technical-overview/concepts/db-schema/#tasks).
+With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/technical-overview/data/db-schema/#tasks).
 
 Let's look back at the simple task from this tutorial: [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}}).
 
@@ -446,7 +446,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 |Ideal:|One test for each user scenario<br/>Ensure proper deduplication (particularly for those with emitCustom)|
 
 
-Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/technical-overview/concepts/db-schema/#targets).
+Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/technical-overview/data/db-schema/#targets).
 
 To test the first two targets created in the [targets tutorial]({{< ref "building/targets/target-widgets" >}}), use this code:
 ```js highlight 

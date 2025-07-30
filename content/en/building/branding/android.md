@@ -237,7 +237,7 @@ Releasing a new flavor requires the following steps:
 
 ### 6. Publish the app
 
-The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing]({{< ref "building/guides/android/publishing" >}}) page to see all the options available and instructions.
+The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing]({{< ref "building/branding/publishing" >}}) page to see all the options available and instructions.
 
 ## Android App Links verification
 *Supported for CHT Core 4.7.0+ and CHT Android 1.3.0+*
