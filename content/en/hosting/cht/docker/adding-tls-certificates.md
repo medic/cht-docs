@@ -8,6 +8,7 @@ aliases:
   - /apps/guides/hosting/cht/adding-tls-certificates
   - /hosting/cht/adding-tls-certificates
   - /hosting/cht/production/docker/adding-tls-certificates/
+  - /hosting/4.x/docker/adding-tls-certificates/
 ---
 
 By default, CHT will create a self-signed certificate for every deployment.  These instructions are for changing to either a pre-existing certificate or automatically creating and renewing a [Certbot](https://certbot.eff.org/) based certificate using [ACME](https://acmeclients.com/), like [Let's Encrypt](https://letsencrypt.org/).

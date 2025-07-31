@@ -11,6 +11,7 @@ aliases:
   - /apps/guides/hosting/cht/logs
   - /hosting/cht/logs
   - /hosting/cht/production/docker/logs/
+  - /hosting/4.x/docker/logs/
 ---
 
 CHT has the following services running via Docker and each can have its logs queried:

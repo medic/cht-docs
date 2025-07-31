@@ -3,6 +3,8 @@ title: "Kubernetes Production Hosting in CHT"
 linkTitle: "Production Kubernetes"
 description: "Production hosting the CHT with Kubernetes"
 weight: 20
+aliases:
+  - /hosting/4.x/kubernetes/
 ---
 
 {{< callout >}}

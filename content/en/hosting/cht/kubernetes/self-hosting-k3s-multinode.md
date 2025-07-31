@@ -9,6 +9,7 @@ aliases:
   - /hosting/cht/self-hosting/self-hosting-k3s-multinode
   - ../self-hosting-k3s-multinode
   - /hosting/cht/production/kubernetes/self-hosting-k3s-multinode/
+  - /hosting/4.x/kubernetes/self-hosting-k3s-multinode/
 ---
 
 {{< callout >}}

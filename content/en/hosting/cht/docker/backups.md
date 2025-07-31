@@ -8,6 +8,7 @@ aliases:
   - /apps/guides/hosting/cht/backups
   - /hosting/cht/backups
   - /hosting/cht/production/docker/backups/
+  - /hosting/4.x/docker/backups/
 ---
 
 ## Introduction 

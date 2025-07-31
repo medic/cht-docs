@@ -6,6 +6,7 @@ description: >
   Guide to migrate existent data from CHT 3.x to CHT 4.x
 aliases:
   - /apps/guides/hosting/cht/data-migration
+  - /hosting/4.x/migration/migration-to-4x-docker/
 ---
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps.

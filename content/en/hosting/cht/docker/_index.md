@@ -4,6 +4,7 @@ linkTitle: "Production Docker"
 weight: 15
 description: "Production hosting CHT in Docker on a single CouchDB node"
 aliases:
+  - /hosting/4.x/docker/
 ---
 
 {{< callout >}}

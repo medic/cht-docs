@@ -6,6 +6,8 @@ description: >
   What to do when CHT upgrades don't work as planned
 relatedContent: >
   hosting/cht/migration/migration-to-4x-docker
+aliases:
+  - /hosting/4.x/upgrade-troubleshooting/
 ---
 
 {{< callout >}}

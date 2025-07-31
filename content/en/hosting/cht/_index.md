@@ -7,6 +7,7 @@ relatedContent: >
     building/guides/updates/preparing-for-4/
 aliases:
   - /apps/guides/hosting/4.x
+  - /hosting/4.x/
 ---
 
 > [!TIP] 
@@ -29,7 +30,9 @@ To host a production instance of CHT, use the [Production Hosting in CHT]({{< re
 {{< /cards >}}
 
 {{< callout emoji="🔍" >}}
-Looking for how to host CHT 3.x?  While that content has been removed from this site, it is still available on the [Old Docs site](https://old-docs.dev.medicmobile.org/hosting/3.x/).  
+All of the above documentation applies to CHT 4.x and CHT 5.x.
+
+Looking CHT 3.x hosting information?  This content [has been removed](https://forum.communityhealthtoolkit.org/t/proposal-remove-cht-3-x-hosting-documentation/5133), but is still available on the [Old Docs site](https://old-docs.dev.medicmobile.org/hosting/3.x/).  
 
 In the coming year (2026), this old docs site will be removed as well. 
 {{< /callout >}}

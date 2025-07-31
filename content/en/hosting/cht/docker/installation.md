@@ -12,6 +12,7 @@ aliases:
   - ../self-hosting-single-node
   - /hosting/cht/docker/single-node/
   - /hosting/cht/production/docker/
+  - /hosting/4.x/docker/installation/
 ---
 
 ## Prerequisites

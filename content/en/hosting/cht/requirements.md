@@ -8,6 +8,7 @@ relatedContent: >
   hosting/cht
 aliases:
   - /apps/guides/hosting/requirements
+  - /hosting/requirements/
 ---
 
 {{< callout  >}}
@@ -50,7 +51,7 @@ Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/
 * [Current version](https://docs.docker.com/engine/install/) of `docker` (used to bootstrap K3s)
 
 {{< callout type="warning" >}}
-  During some upgrades, up to 3x current space used by CouchDB can be needed.
+  During some upgrades, up to 5x current space used by CouchDB can be needed.
 {{< /callout >}}
 
 
