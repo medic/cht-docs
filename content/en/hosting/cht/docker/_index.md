@@ -1,8 +1,8 @@
 ---
-title: "Docker Production Hosting CHT 4.x"
+title: "Docker Production Hosting CHT"
 linkTitle: "Production Docker"
 weight: 15
-description: "Production hosting CHT 4.x in Docker on a single CouchDB node"
+description: "Production hosting CHT in Docker on a single CouchDB node"
 aliases:
 ---
 

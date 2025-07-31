@@ -1,5 +1,5 @@
 ---
-title: "Production Hosting in CHT 4.x - Multiple CouchDB Nodes on k3s on VMWare"
+title: "Production Hosting in CHT - Multiple CouchDB Nodes on k3s on VMWare"
 linkTitle: "VMWare + k3s Multiple Node"
 weight: 20
 description: >

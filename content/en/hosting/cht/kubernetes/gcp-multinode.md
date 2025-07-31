@@ -1,9 +1,9 @@
 ---
-title: "Production Hosting CHT 4.x - Google Cloud Platform"
+title: "Production Hosting CHT - Google Cloud Platform"
 linkTitle: "GCP + GKS Multi Node"
 weight: 10
 description: >
-   How to deploy the CHT 4.x on Google Cloud Platform
+   How to deploy the CHT on Google Cloud Platform
 aliases:
    - /hosting/cht/docker/google-cloud/
    - /hosting/cht/production/kubernetes/gcp-multinode/

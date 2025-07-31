@@ -2,7 +2,7 @@
 title: CHT Core
 weight: 6
 description: >
-    Guides for hosting CHT 4.x applications
+    Guides for hosting CHT applications
 relatedContent: >
     building/guides/updates/preparing-for-4/
 aliases:
@@ -14,7 +14,7 @@ aliases:
 
 Before beginning any of these guides, be sure to meet all of the [CHT hosting requirements]({{< relref "/hosting/cht/requirements" >}}) first. For example, [backups](/hosting/cht/docker/backups) are required for any successful CHT deployment.
 
-To host a production instance of CHT, use the [Production Hosting in CHT 4.x]({{< relref "/hosting/cht/docker" >}}) guide. To do app development, see our [App Developer]({{< relref "/hosting/cht/app-developer" >}}) hosting guide.
+To host a production instance of CHT, use the [Production Hosting in CHT]({{< relref "/hosting/cht/docker" >}}) guide. To do app development, see our [App Developer]({{< relref "/hosting/cht/app-developer" >}}) hosting guide.
 
 {{< cards >}}
   {{< card link="considerations" title="Considerations" subtitle="Considerations when hosting the CHT" icon="book-open" >}}
@@ -27,3 +27,9 @@ To host a production instance of CHT, use the [Production Hosting in CHT 4.x]({{
   {{< card link="/hosting/cht/kubernetes/" title="Production Kubernetes" subtitle="Details for hosting the CHT on Kubernetes" icon="kubernetes" >}}
   {{< card link="upgrade-troubleshooting" title="Troubleshooting upgrades" subtitle="What to do when CHT 4.x upgrades don't work as planned" icon="search-circle" >}}
 {{< /cards >}}
+
+{{< callout emoji="🔍" >}}
+Looking for how to host CHT 3.x?  While that content has been removed from this site, it is still available on the [Old Docs site](https://old-docs.dev.medicmobile.org/hosting/3.x/).  
+
+In the coming year (2026), this old docs site will be removed as well. 
+{{< /callout >}}

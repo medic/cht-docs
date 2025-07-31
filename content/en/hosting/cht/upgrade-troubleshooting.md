@@ -1,15 +1,15 @@
 ---
-title: "Troubleshooting 4.x upgrades"
+title: "Troubleshooting upgrades"
 linkTitle: "Troubleshooting upgrades"
 weight: 50
 description: >
-  What to do when CHT 4.x upgrades don't work as planned
+  What to do when CHT upgrades don't work as planned
 relatedContent: >
   hosting/cht/migration/migration-to-4x-docker
 ---
 
 {{< callout >}}
-  4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed 4.x upgrades.  Below are some specific tips as well as general practices on upgrading 4.x.
+  4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed upgrades.  Below are some specific tips as well as general practices on upgrading.
 {{< /callout >}}
 
 There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage. An alternate possibility is that the progress bars disappear altogether. 
