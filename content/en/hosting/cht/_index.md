@@ -17,6 +17,10 @@ Before beginning any of these guides, be sure to meet all of the [CHT hosting re
 To host a production instance of CHT, use the [Production Hosting in CHT 4.x]({{< relref "/hosting/cht/docker" >}}) guide. To do app development, see our [App Developer]({{< relref "/hosting/cht/app-developer" >}}) hosting guide.
 
 {{< cards >}}
+  {{< card link="considerations" title="Considerations" subtitle="Considerations when hosting the CHT" icon="book-open" >}}
+  {{< card link="requirements" title="Requirements" icon="shield-exclamation" subtitle="Requirements for hosting CHT applications" >}}
+  {{< card link="costs" title="Costs" subtitle="A guide for calculating CHT hosting costs" icon="banknotes" >}}
+  {{< card link="kubernetes-vs-docker" title="Kubernetes vs Docker" icon="kubernetes" subtitle="Options for installing CHT applications" >}}
   {{< card link="app-developer" title="App Developer Hosting" subtitle="Learn how to host the CHT when developing apps" icon="server" >}}
   {{< card link="migration/" title="Migration Guides" icon="arrow-circle-right" subtitle="Guides for migrating CHT applications" >}}
   {{< card link="/hosting/cht/docker/" title="Production Docker" subtitle="Details for hosting the CHT on Docker" icon="docker" >}}
