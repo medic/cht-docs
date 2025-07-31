@@ -6,6 +6,7 @@ dscription: >
   Considerations when hosting the CHT
 aliases:
     - /apps/guides/hosting/
+    - /hosting/considerations/
 ---
 
 Some important questions to consider when setting up hosting for the CHT: 

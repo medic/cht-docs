@@ -7,6 +7,7 @@ description: >
 aliases:
   - /apps/guides/hosting/cht/app-developer
   - /apps/guides/hosting/app-developer
+  - /hosting/4.x/app-developer/
 ---
 
 {{< callout >}}

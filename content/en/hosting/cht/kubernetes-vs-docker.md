@@ -6,6 +6,7 @@ description: >
   Options for installing CHT applications
 aliases:
   -  /hosting/vertical-vs-horizontal
+  -  /hosting/kubernetes-vs-docker
 ---
 
 To deploy the CHT, you should use the technology you are most familiar and comfortable with. It is possible to deploy 20 CHT instances without using Kubernetes. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.

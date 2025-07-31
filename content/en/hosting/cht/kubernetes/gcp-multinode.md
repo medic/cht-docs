@@ -7,6 +7,7 @@ description: >
 aliases:
    - /hosting/cht/docker/google-cloud/
    - /hosting/cht/production/kubernetes/gcp-multinode/
+   - /hosting/4.x/kubernetes/gcp-multinode/
 ---
 
 ## Audience
