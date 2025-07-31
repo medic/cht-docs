@@ -65,7 +65,7 @@ When Sonar flags an issue with the code in your pull request, use this decision 
 
 When setting up a new repository in SonarCloud, you will be asked to define what is considered to be "new code". This is used to determine which code in the default branch is considered "new" (affects reporting of issues, etc). The new code definition is not applied to Sonar analysis of a PR. In that case, only the changes in the PR are considered "new".
 
-Consult [the documentation](https://docs.sonarcloud.io/improving/new-code-definition/) for more details on the options available. For projects that do not use Gradle or Maven for version management, the `Number of days` option is recommended (since `Previous version` would require maintaining a version number in the `.sonarcloud.properties` file).
+Consult [the documentation](https://docs.sonarsource.com/sonarqube-cloud/standards/about-new-code/) for more details on the options available. For projects that do not use Gradle or Maven for version management, the `Number of days` option is recommended (since `Previous version` would require maintaining a version number in the `.sonarcloud.properties` file).
 
 If you are using the `CHT Way` quality gate (or a similar zero-tolerance quality gate) it is recommended to set `Number of days = 1`. With a zero-tolerance quality gate, only issue-free code can be merged to the default branch. So, there is no need to check for issues accumulated over time. Also, having a higher `Number of days` opens up a greater opportunity for Sonar to introduce a _new rule_ that will fail some code previously added to the default branch (code that is only included in the latest analysis because of the configured `Number of days`).
 
