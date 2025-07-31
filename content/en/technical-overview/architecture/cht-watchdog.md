@@ -12,7 +12,7 @@ aliases:
    - /technical-overview/cht-watchdog/
 ---
 
-CHT Watchdog is deployed on a separate server so that you can watch for, and alert on, any critical issues with the CHT Core. Read more about [setting up CHT Watchdog]({{< relref "hosting/monitoring/setup" >}}).
+CHT Watchdog is deployed on a separate server so that you can watch for, and alert on, any critical issues with the CHT Core. Read more about [setting up CHT Watchdog]({{< relref "/hosting/monitoring/setup" >}}).
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->

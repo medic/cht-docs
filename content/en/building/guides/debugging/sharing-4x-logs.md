@@ -5,7 +5,7 @@ weight:
 description: >
   How to easily share logs from your CHT 4.x instance to get support
 relatedContent: >
-  hosting/4.x/docker/logs
+  hosting/cht/docker/logs
   building/guides/debugging/obtaining-logs
 aliases:
    - /apps/guides/debugging/sharing-4x-logs
@@ -15,7 +15,7 @@ CHT 4.x moves from a monolithic container MedicOS to discrete containers, each s
 
 ## Prerequisites
 
-This assumes you're running CHT 4.x have access to the command line on the server where it's running locally or via SSH. While the script will work with CHT 3.x instances, the amount of logs that a `docker logs` call yields isn't very helpful. To see more about CHT 3.x logs, see ["Investigating logs inside Medic OS"]({{< ref "/hosting/3.x/ec2-setup-guide#troubleshooting" >}})
+This assumes you're running CHT 4.x have access to the command line on the server where it's running locally or via SSH. While the script will work with CHT 3.x instances, the amount of logs that a `docker logs` call yields isn't very helpful.
 
 This guide also assumes you have the [CHT Core repo checked out](https://github.com/medic/cht-core/) so that you have a copy of the `compress_and_archive_docker_logs.sh` script. If you do not have it checked out, you can manually create a local copy with this `curl` command:
 

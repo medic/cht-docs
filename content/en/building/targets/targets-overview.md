@@ -17,10 +17,9 @@ aliases:
 
 For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community unit is performing.
 
-{{< figure src="targets-desktop.png" link="targets-desktop.png" class="right col-6 col-lg-8 bordered-figure" >}}
-
-{{< cards rows="1" >}}
-{{< figure src="targets-mobile.png" link="targets-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< cards cols="2" >}}
+{{< card image="targets-desktop.png" method="Resize" options="500x q80 webp" >}}
+{{< card image="targets-mobile.png" method="Resize" options="500x q80 webp" >}}
 {{< /cards >}}
 
 > [!IMPORTANT]

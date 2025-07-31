@@ -6,18 +6,19 @@ description: >
   Options for installing CHT applications
 aliases:
   -  /hosting/vertical-vs-horizontal
+  -  /hosting/kubernetes-vs-docker
 ---
 
 To deploy the CHT, you should use the technology you are most familiar and comfortable with. It is possible to deploy 20 CHT instances without using Kubernetes. Conversely, if a hosting organisation uses Kubernetes and intends to deploy a single instance of the CHT, that's also fine.
 
 > [!TIP]
-> Application development for both [CHT 3.x]({{< relref "hosting/3.x/app-developer" >}}) and [CHT 4.x]({{< relref "hosting/4.x/app-developer" >}}) is more straightforward to setup with Docker.
+>  [Application development]({{< relref "/hosting/cht/app-developer" >}}) is more straightforward to setup with Docker.
 
 ## Which one to choose?
 
 There is no one-size-fits-all solution for all deployments, and every solution comes with its advantages and disadvantages.
 
-[Docker](/hosting/4.x/docker/) is suitable for most CHT deployments use cases. Use [Kubernetes](/hosting/4.x/kubernetes/) for multi-tenant or specific hardware constrained deployments, such as bare-metal servers with a low core-count.
+[Docker](/hosting/cht/docker/) is suitable for most CHT deployments use cases. Use [Kubernetes](/hosting/cht/kubernetes/) for multi-tenant or specific hardware constrained deployments, such as bare-metal servers with a low core-count.
 
 For more details on the research behind why Docker and single-node CouchDB are preferable for CHT deployments, see [this forum post](https://forum.communityhealthtoolkit.org/t/investigate-adding-more-shards-as-a-potential-avenue-for-improved-performance/4831?u=mrjones). Results from this experiment show no clear advantage for CouchDB clustering, as the performance for view indexing and replication is the same when using a CouchDB cluster vs using a single machine with the same number of cores.
 
@@ -70,7 +71,7 @@ Below are examples from real world large-scale CHT deployments which have been a
 
 ### CHT Deployment Example 1
 
-This deployment hosts 47 production instances in a data center running [Docker](/hosting/4.x/docker/). It trades ease and  simplicity of Docker Compose deployment for a bit of fragility: if a VM fails, there is no automatic failover, and a restore from backup is needed.
+This deployment hosts 47 production instances in a data center running [Docker](/hosting/cht/docker/). It trades ease and  simplicity of Docker Compose deployment for a bit of fragility: if a VM fails, there is no automatic failover, and a restore from backup is needed.
 
 |                   |                            |
 |------------------:|:---------------------------|

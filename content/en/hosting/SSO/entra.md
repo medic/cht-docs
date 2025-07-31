@@ -16,7 +16,7 @@ These steps document how to configure Microsoft Entra as the Single Sign On (SSO
 ## Prerequisites
 
 * [Microsoft Entra](https://entra.microsoft.com) business account with credit card added. Free trial accounts work, but require a credit card.
-* CHT server - ensure you are running version `4.20.0` or later. This can be an instance of [Docker Helper](/hosting/4.x/app-developer/#cht-docker-helper-for-4x).
+* CHT server - ensure you are running version `4.20.0` or later. This can be an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper-for-4x).
 * DNS Entries and TLS enabled on CHT
 
 

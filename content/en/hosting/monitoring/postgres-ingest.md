@@ -8,13 +8,9 @@ aliases:
   - /apps/guides/hosting/monitoring/postgres-ingest
 ---
 
-{{< callout >}}
-  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
-
 ## Introduction
 
-After [setting up]({{< relref "hosting/monitoring/setup.md" >}}) your Watchdog instance and [making it production ready]({{< relref "hosting/monitoring/production.md" >}}), you can include additional custom metrics from your deployment. These metrics should be ingested by Prometheus and then can be used to create new Grafana dashboards and alerts. Example use cases include monitoring and alerting on health metrics like CHW visits per county or household registration rates, etc.
+After [setting up]({{< relref "/hosting/monitoring/setup.md" >}}) your Watchdog instance and [making it production ready]({{< relref "/hosting/monitoring/production.md" >}}), you can include additional custom metrics from your deployment. These metrics should be ingested by Prometheus and then can be used to create new Grafana dashboards and alerts. Example use cases include monitoring and alerting on health metrics like CHW visits per county or household registration rates, etc.
 
 This guide will walk you through adding a custom metric from Postgres _data_. The following naming convention is used throughout to reference the relevant server instances: CHT Core (`cht.example.com`),  CHT Watchdog (`watchdog.example.com`) and a Postgres server (`db.example.com`).
 
@@ -156,7 +152,7 @@ services:
 
 Launch Watchdog with the new compose file
 
-Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "hosting/monitoring/setup" >}}), this would be:
+Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "/hosting/monitoring/setup" >}}), this would be:
 
 ```shell
 cd ~/cht-watchdog

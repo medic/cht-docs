@@ -67,7 +67,7 @@ docker run -it --rm -v "$PWD":/workdir medicmobile/cht-app-ide initialise-projec
 #### Note on connecting to a local CHT instance
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script](https://docs.communityhealthtoolkit.org/apps/guides/hosting/4.x/app-developer/). You can connect to the resulting `...my.local-ip.co` URL from the Docker container (or the VS Code terminal). Ensure the port your CHT instance is hosted on is not blocked by your firewall.
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](https://docs.communityhealthtoolkit.org/apps/guides/hosting/cht/app-developer/). You can connect to the resulting `...my.local-ip.co` URL from the Docker container (or the VS Code terminal). Ensure the port your CHT instance is hosted on is not blocked by your firewall.
 
 ### Bash completion
 To enable tab completion in bash, add the following to your `.bashrc`/`.bash_profile`:
@@ -157,7 +157,7 @@ To develop a new command that is part of cht-conf, or improve an existing one. F
 Execute `npm test` to run static analysis checks and the test suite. Requires Docker to run integration tests against a CouchDB instance.
 
 #### End-to-end tests
-Run `npm run test-e2e` to run the end-to-end test suite against an actual CHT instance locally. These tests rely on [CHT Docker Helper](https://docs.communityhealthtoolkit.org/hosting/4.x/app-developer/#cht-docker-helper-for-4x) to spin up and tear down an instance locally.
+Run `npm run test-e2e` to run the end-to-end test suite against an actual CHT instance locally. These tests rely on [CHT Docker Helper](https://docs.communityhealthtoolkit.org/hosting/cht/app-developer/#cht-docker-helper-for-4x) to spin up and tear down an instance locally.
 
 The code interfacing with CHT Docker Helper lives in [`test/e2e/cht-docker-utils.js`](https://github.com/medic/cht-conf/blob/main/test/e2e/cht-docker-utils.js). You should rely on the API exposed by this file to orchestrate CHT instances for testing purposes. It is preferable to keep the number of CHT instances orchestrated in E2E tests low as it takes a non-negligible amount of time to spin up an instance and can quickly lead to timeouts.
 
