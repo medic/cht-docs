@@ -5,7 +5,7 @@ weight: 3
 description: >
   A guide for calculating CHT hosting costs
 aliases:
-  - hosting/costs/
+  - /hosting/costs/
 ---
 
 ## Cost per CHT per Month
@@ -60,7 +60,7 @@ A production deployment means the CHT is hosted either at a cloud provider or in
 When analyzing the hosting total cost of ownership (TCO), only production instances were looked at.
 
 > [!NOTE]
-> A [development environment](/hosting/4.x/app-developer)  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
+> A [development environment](/hosting/cht/app-developer)  can be no cost (or very low cost).  Assuming a developer already has a laptop, this is all that is needed to host a development instance. 
 
 ## Small deployment example costs
 
