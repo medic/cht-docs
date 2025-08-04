@@ -125,6 +125,13 @@ The functionality is released and ready to create an impact in the real world. F
 ### 8. ✅ Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
+To close out the squad, undo all the set up that was done in [Kick Off](#kick-off):
+- Remove the meeting from the shared Google calendar so it does not show up on the [public Events Calendar](/community/events/)  
+- Archive the dedicated Slack channel - Stewardship team can help with this
+- Clean up GitHub tickets - make sure all releated tickets are closed and up to date
+- Hold a final meeting to thank everyone and have a retrospective to ask "What worked?" and "What didn't work?"  
+
+
 ## When can you join a squad?
 See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
 
