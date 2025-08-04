@@ -129,7 +129,7 @@ To close out the squad, undo all the set up that was done in [Kick Off](#kick-of
 - Remove the meeting from the shared Google calendar so it does not show up on the [public Events Calendar](/community/events/)  
 - Archive the dedicated Slack channel - Stewardship team can help with this
 - Clean up GitHub tickets - make sure all releated tickets are closed and up to date
-- Hold a final meeting to thank everyone and have a retrospective to ask "What worked?" and "What didn't work?"  
+- Hold a final meeting to thank everyone and have a retrospective to ask "What worked?", "What didn't work? and "What could be improved?" 
 
 
 ## When can you join a squad?
