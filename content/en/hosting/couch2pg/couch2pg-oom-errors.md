@@ -4,15 +4,13 @@ linkTitle: "Memory Errors"
 weight: 4
 description: >
   Dealing with out-of-memory errors in couch2pg
-relatedContent: >
-  hosting/3.x/ec2-setup-guide
 aliases:
    - /apps/guides/database/couch2pg-oom-errors
    - /building/guides/database/couch2pg-oom-errors
 ---
 
 {{< callout type="warning" >}}
-  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "/hosting/analytics" >}}).
 {{< /callout >}}
 
 Some times when couch2pg is replicating documents to postgres, it encounters very large info docs that are larger than the memory allocation of the document sync array and causes out-of-memory errors.

@@ -1,18 +1,15 @@
 ---
-title: "Backups in CHT 4.x"
+title: "Backups in CHT"
 linkTitle: "Backups"
 weight: 4
 description: >
-    Which data to backup when hosting the CHT 4.x
+    Which data to backup when hosting the CHT
 aliases:
-  - /apps/guides/hosting/4.x/backups
-  - /hosting/4.x/backups
-  - /hosting/4.x/production/docker/backups/
+  - /apps/guides/hosting/cht/backups
+  - /hosting/cht/backups
+  - /hosting/cht/production/docker/backups/
+  - /hosting/4.x/docker/backups/
 ---
-
-{{< callout >}}
-  This guide is about backups in CHT 4.x - there's the [self hosted guide for 3.x]({{< relref "hosting/3.x/self-hosting#backup" >}}) which includes backups for 3.x.
-{{< /callout >}}
 
 ## Introduction 
 
@@ -38,7 +35,7 @@ Therefore, you do **not** need to back up the docker images for:
 
 ## Assumptions
 
-This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node]({{< relref "hosting/4.x/docker" >}}) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
+This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node]({{< relref "/hosting/cht/docker" >}}) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
 
 ```
 cht_nginx_1
