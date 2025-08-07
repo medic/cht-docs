@@ -167,7 +167,7 @@ When you're done with development you can `ctrl + c` in the three terminals and 
 
 ### Adding and accessing data
 
-When you first start your CHT instance, it has no data in it.  If you would to populate it with some sample data you should check out the [Test Data Generator](https://github.com/medic/test-data-generator/) (TDG) which has a "[Quick Start](https://github.com/medic/test-data-generator/?tab=readme-ov-file#quick-start)" option to easily add data. After you have installed TDG, you can quickly add data with this call:
+When you first start your CHT instance, it has no data in it.  If you would like to populate it with some sample data, you can check out the [Test Data Generator](https://github.com/medic/test-data-generator/) (TDG) which has a "[Quick Start](https://github.com/medic/test-data-generator/?tab=readme-ov-file#quick-start)" option to easily add data. After you have installed TDG, you can quickly add data with this call:
 
 ```shell
 COUCH_URL=http://medic:password@localhost:5984 tdg ./sample-designs/easy-mode.js
