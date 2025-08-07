@@ -1,13 +1,17 @@
 ---
-title: "Adding Privacy Policies to Apps"
-linkTitle: "Adding Policies"
+title: "Privacy policies"
+linkTitle: "Privacy policies"
 weight: 100
-aliases:
-  -    /apps/guides/security/
-  - /apps/guides/privacy/privacy-policy/
 description: >
-  Guide for adding privacy policies that users must accept before being allowed to use the app
+  Policies and templates for privacy and responsible data use 
+aliases:
+   - /apps/guides/privacy/
+   - /apps/guides/security/
+   - /apps/guides/privacy/privacy-policy/
+   - /building/guides/privacy/privacy-policy/
+   - /building/guides/privacy/
 ---
+
 
 As of `3.10.0`, privacy policies can be customized for every language, by adding desired content into HTML files.
 

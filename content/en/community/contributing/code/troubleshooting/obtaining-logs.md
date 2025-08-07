@@ -9,6 +9,7 @@ relatedContent: >
   hosting/cht/docker/logs
 aliases:
    - /apps/guides/debugging/obtaining-logs
+   - /building/guides/debugging/obtaining-logs
 ---
 
 There are many places where useful logs reside. This details all those places, and the easiest way to get a hold of them.
@@ -37,7 +38,7 @@ On your phone, you will see a popup _"Allow USB debugging. The computer's RSA fi
 
 {{% /steps %}}
 
-{{< figure src="/building/guides/debugging/images/allow_usb_debugging.png" link="/building/guides/debugging/images/allow_usb_debugging.png" caption="Allow USB debugging" >}}
+{{< figure src="/images/allow_usb_debugging.png" link="/allow_usb_debugging.png" caption="Allow USB debugging" >}}
 
 ### Browser logs
 
@@ -61,7 +62,7 @@ Within a command line session, write the following command: `adb start-server`.
 
 To check if your phone is properly connected, write the command `adb devices`. This will list the devices connected.
 
-{{< figure src="/building/guides/debugging/images/adb_devices.png" link="/building/guides/debugging/images/adb_devices.png" caption="ADB Devices" >}}
+{{< figure src="/images/adb_devices.png" link="/images/adb_devices.png" caption="ADB Devices" >}}
 
 ### Step 4
 
