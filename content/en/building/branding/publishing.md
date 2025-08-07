@@ -13,6 +13,7 @@ aliases: >
   /core/guides/android/
   /apps/guides/android/publishing/
   /building/guides/android/publishing/
+  /building/guides/android/
 ---
 
 ## Publishing

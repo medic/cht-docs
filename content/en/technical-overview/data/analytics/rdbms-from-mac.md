@@ -8,6 +8,7 @@ relatedContent: >
   technical-overview/data/analytics/rdbms-from-windows
 aliases:
    - /apps/guides/database/rdbms-from-mac
+   - /building/guides/database/rdbms-from-mac
 ---
 
 Follow these steps on a Mac to generate your public/private keys and access the PostgreSQL server.

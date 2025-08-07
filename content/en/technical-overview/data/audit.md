@@ -7,6 +7,8 @@ description: >
 keywords: audit
 relatedContent: >
   technical-overview/data/db-schema
+aliases:
+  - /building/guides/data/audit/
 ---
 
 {{< callout >}}

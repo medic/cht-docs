@@ -9,7 +9,8 @@ relatedContent: >
   building/reports
 aliases:
    - /apps/guides/data/invalid-reports
-   - community/contributing/code/troubleshooting/invalid-reports
+   - /community/contributing/code/troubleshooting/invalid-reports
+   - /building/guides/data/invalid-reports/
 ---
 
 You may encounter a dreaded case when reports coming in to a Medic Webapp instance have a red indicator instead of the green indicator.

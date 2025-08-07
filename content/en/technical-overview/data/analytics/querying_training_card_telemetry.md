@@ -9,6 +9,7 @@ relatedContent: >
   technical-overview/data/analytics/data-flows-for-analytics
 aliases:
    - /apps/guides/database/querying_training_card_telemetry
+   - /building/guides/database/querying_training_card_telemetry/ 
 ---
 
 Introduced in `4.2.0`, CHT has supported deployment of in-app training cards to facilitate remote training.

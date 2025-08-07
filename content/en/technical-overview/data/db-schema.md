@@ -13,6 +13,7 @@ relatedContent: >
 aliases:
    - /core/overview/db-schema/
    - /technical-overview/db-schema/
+   - /technical-overview/concepts/db-schema/
    - /technical-overview/data/db-schema/
    - /technical-overview/data/db-schema/#tasks
    - /technical-overview/data/db-schema/#targets

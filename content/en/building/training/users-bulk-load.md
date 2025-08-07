@@ -7,7 +7,8 @@ description: >
 aliases:
   - /core/guides/users-bulk-load
   - /apps/guides/data/users-bulk-load/
-  - /`building/training/users-bulk-load`
+  - /building/training/users-bulk-load
+  - /building/guides/data/users-bulk-load/
 relatedContent: >
   /community/contributing/code/test-data/csv-to-docs
   building/reference/api/#post-apiv2users
