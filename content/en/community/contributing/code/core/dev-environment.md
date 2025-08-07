@@ -165,6 +165,18 @@ That's it!  Now when you edit code in your IDE, it will automatically reload.  Y
 
 When you're done with development you can `ctrl + c` in the three terminals and stop the CouchDB container with `docker stop medic-couchdb`.  When you want to resume development later, run `docker start medic-couchdb` and re-run the three terminal commands.
 
+### Adding and accessing data
+
+When you first start your CHT instance, it has no data in it.  If you would to populate it with some sample data you should check out the [Test Data Generator](https://github.com/medic/test-data-generator/) (TDG) which has a "[Quick Start](https://github.com/medic/test-data-generator/?tab=readme-ov-file#quick-start)" option to easily add data. After you have installed TDG, you can quickly add data with this call:
+
+```shell
+COUCH_URL=http://medic:password@localhost:5984 tdg ./sample-designs/easy-mode.js
+```
+
+When you log into the CHT web front end in a browser at [http://localhost:5988/](http://localhost:5988/), you should now see newly added contacts and reports.  
+
+If you would like to explore the raw data, be sure to check out [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/).  This is a pre-installed NoSQL web client that allows you to browse all raw documents and indexes in CouchDB.  It is accessed at `/_utils`, so if you've just followed this guide you can go to [http://localhost:5984/_utils](http://localhost:5984/_utils) to use Fauxton. If you are prompted to log in, it is Username `medic` and Password `password`.
+
 ## Other Path Troubleshooting
 
 If you weren't able to follow [the happy path above](#the-happy-path-installation), here are some details about the developer install that may help you troubleshoot what went wrong.
@@ -179,6 +191,10 @@ If you had issues with following the above steps, check out these links for how 
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
 * [bzip2])(https://sourceware.org/bzip2/downloads.html) - if you're on Ubuntu call: `sudo apt install bzip2`
+
+### Windows WSL2
+
+While this document covers the happy path to set up your environment, there's [a great forum post](https://forum.communityhealthtoolkit.org/t/help-needed-for-local-setup-of-the-project-using-docker/4900/18) which covers challenges developers running Windows with WSL2 may face.  Be sure to read up on it if you're having WSL2 issue like `bash: docker: command not found` and others. 
 
 ### Ubuntu 18.04
 
