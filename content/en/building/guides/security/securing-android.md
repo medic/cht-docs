@@ -6,7 +6,6 @@ description: >
   How to secure Android devices used in deployments
 relatedContent: >
   community/contributing/code/troubleshooting/replicating-production-data-locally
-  hosting/3.x/ssl-cert-install
   building/branding/publishing
 
 aliases:

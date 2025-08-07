@@ -4,6 +4,8 @@ linkTitle: Migration Guides
 weight: 30
 description: >
  Guides for migrating CHT applications
+aliases:
+  - /hosting/4.x/migration/
 ---
 
 {{< cards >}}

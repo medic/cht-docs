@@ -62,7 +62,7 @@ The following table shows the dependencies for deploying the CHT.
 | **2.x**          | 6+     | 1.6+    | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
 | **0.4**          | 0.12+  | 1.6+    | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 
-{{< see-also page="hosting/requirements" title="Hosting Requirements" >}}
+{{< see-also page="/hosting/cht/requirements" title="/hosting Requirements" >}}
 
 ### Client Devices
 
@@ -87,7 +87,9 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 4.x
+- [4.21.1]({{% relref "releases/4_21_1.md" %}}) - 2025-07-30
 - [4.21.0]({{% relref "releases/4_21_0.md" %}}) - 2025-06-25
+- [4.20.1]({{% relref "releases/4_20_1.md" %}}) - 2025-07-30
 - [4.20.0]({{% relref "releases/4_20_0.md" %}}) - 2025-06-04
 - [4.19.0]({{% relref "releases/4_19_0.md" %}}) - 2025-05-13
 - [4.18.0]({{% relref "releases/4_18_0.md" %}}) - 2025-03-21

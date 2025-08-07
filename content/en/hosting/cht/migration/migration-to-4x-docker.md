@@ -5,7 +5,8 @@ weight: 3
 description: >
   Guide to migrate existent data from CHT 3.x to CHT 4.x
 aliases:
-  - /apps/guides/hosting/4.x/data-migration
+  - /apps/guides/hosting/cht/data-migration
+  - /hosting/4.x/migration/migration-to-4x-docker/
 ---
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps.
@@ -44,7 +45,7 @@ EOF
 ### 2. Prepare CHT-Core 3.x installation for upgrading
 
 Backup your data! If you encounter any problems executing the instructions of this guide, you should be able to restore your CHT 3X instance using the backup data.
-[Consult information about backups for details]({{< relref "hosting/3.x/self-hosting#backup" >}}).
+Double check your backups are up to date.
 Ensure no changes happen to your CouchDB data in your CHT 3.x server after you have begun the migration process.
 
 To minimize downtime when upgrading, it's advised to prepare the 3.x installation for the 4.x upgrade, and pre-index all views that are required by 4.x.
@@ -76,7 +77,7 @@ Used in encrypting all CouchDb passwords and session tokens.
 Used in generating replication checkpointer documents, which track where replication progress between every client and the server, and ensure that clients don't re-download or re-upload documents.
 
 ### 4. Locate and make a copy of your CouchDb Data folder
-a) If running in MedicOS, [CouchDb data folder]({{< relref "hosting/3.x/self-hosting#backup" >}}) can be found at `/srv/storage/medic-core/couchdb/data`.
+a) If running in MedicOS, CouchDB data folder can be found at `/srv/storage/medic-core/couchdb/data`.
 
 b) If running a custom installation of CouchDb, data would be typically stored at `/opt/couchdb/data`.
 

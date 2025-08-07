@@ -7,10 +7,6 @@ description: >
 
 ---
 
-{{< callout >}}
-These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
-
 ## Overview
 
 This is the main dashboard for Watchdog.  It gives you high level details on your CHT instance.  Starting from the upper left and going from right to left you have:
@@ -29,8 +25,6 @@ This is the main dashboard for Watchdog.  It gives you high level details on you
 12. CHT Sync Backlog: Number of CouchDB changes that have not yet been processed by CHT Sync. Requires setup of [SQL integration](/hosting/monitoring/setup/#additional-configuration).
 13. Client Feedback/Error Rate: Number of feedback docs created usually indicative of client side errors.
 14. Alerts: Alerts that need attention.  In this screenshot, you can see that the Client Feedback/Error Rate is too high and should be investigated.  See [alerts](/hosting/monitoring/setup/#alerts) for more information.
-
-
 
 ![overview.png](dashboards/overview.png)
 

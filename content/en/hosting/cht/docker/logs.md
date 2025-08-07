@@ -1,19 +1,20 @@
 ---
-title: "Viewing server logs in CHT 4.x"
+title: "Viewing server logs in CHT"
 linkTitle: "Logs"
 weight: 3
 description: >
-    What to do when you need to find server side errors in CHT 4.x
+    What to do when you need to find server side errors in CHT
 relatedContent: >
    building/guides/debugging/sharing-4x-logs
    building/guides/debugging/obtaining-logs
 aliases:
-  - /apps/guides/hosting/4.x/logs
-  - /hosting/4.x/logs
-  - /hosting/4.x/production/docker/logs/
+  - /apps/guides/hosting/cht/logs
+  - /hosting/cht/logs
+  - /hosting/cht/production/docker/logs/
+  - /hosting/4.x/docker/logs/
 ---
 
-CHT 4.x has the following services running via Docker and each can have its logs queried:
+CHT has the following services running via Docker and each can have its logs queried:
 
 * nginx
 * sentinel
