@@ -1,11 +1,12 @@
 ---
 title: "Preparing to upgrade to CHT 4.0"
-linkTitle: "Preparing to upgrade to CHT 4.0"
+linkTitle: "Preparing for CHT 4.0"
 weight:
 aliases:
   - /apps/guides/hosting/3.x/preparing-for-4.0
   - /apps/guides/updates/preparing-for-4.md
   - /apps/guides/updates/preparing-for-4/
+  - /building/guides/updates/preparing-for-4/
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 4.0 and later
   
