@@ -6,9 +6,10 @@ description: >
     Overview of database document hydration
 keywords: hydration schema  
 relatedContent: >
-  technical-overview/concepts/db-schema
+  technical-overview/data/db-schema
 aliases:
    - /apps/guides/data/hydration
+   - /building/guides/data/hydration
 ---
 
 Documents are connected with each other via their document `_id`. 
@@ -16,7 +17,7 @@ For example:
 - a contact document is connected to its parent by storing their `_id` in the `parent` property 
 - a report document is connected to its submitter by storing their `_id` in the `contact` property
 
-{{% see-also page="technical-overview/concepts/db-schema" title="DB Schema" %}}
+{{% see-also page="technical-overview/data/db-schema" title="DB Schema" %}}
 
 To optimize database storage, documents are "minified" when stored and are "hydrated" when they are used by the app.
 

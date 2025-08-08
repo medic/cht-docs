@@ -7,6 +7,7 @@ description: >
 aliases:
    - /core/overview/test-data-generator/
    - /technical-overview/test-data-generator/
+   - /building/test-data-generator/
 ---
 
 {{< callout type="error" >}}

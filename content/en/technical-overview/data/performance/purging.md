@@ -8,10 +8,11 @@ keywords:
 relatedContent: >
   design/personas/chw-janet
   building/reports
-  building/guides/data/invalid-reports
+  community/contributing/code/troubleshooting/invalid-reports
   building/reference/app-settings/patient_reports
 aliases:
    - /apps/guides/performance/purging
+   - /building/guides/performance/purging
 ---
 
 *Only available in 3.7.0 and above*

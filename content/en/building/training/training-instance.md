@@ -7,14 +7,15 @@ description: >
 
 aliases:
    - /apps/guides/data/training-instance
+   - /building/guides/data/training-instance
 ---
 
 After [onboarding CHWs]({{< relref "building/training/onboarding" >}}), sometimes data ends up on the wrong CHT instance. There are some passive and active actions you can take to help deal with this situation.
 
-## Monitoring
+## Monitoring``
 
 Monitoring is a good way to see if CHWs are sending forms to the wrong CHT server. By catching such a problem early, it may be easy to fix manually which avoids more laborious fixes on the command line for admins.
-
+``
 ### Manual device checks
 
 Supervisors can actively monitor CHWs as they register their first household. If each CHW is given a deadline to do this, the Supervisor can follow up promptly with CHWs who have not met the deadline.
