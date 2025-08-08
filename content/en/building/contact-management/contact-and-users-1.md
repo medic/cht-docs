@@ -6,8 +6,8 @@ description: >
   Create and edit contacts and users in the CHT UI
 relatedContent: >
   building/users
-  technical-overview/concepts/db-schema
-  building/guides/data/users-bulk-load
+  technical-overview/data/db-schema
+  building/training/users-bulk-load
 aliases:
    - /building/tutorials/contact-and-users-1/
    - /apps/tutorials/contact-and-users-1

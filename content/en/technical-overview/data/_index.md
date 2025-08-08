@@ -6,6 +6,7 @@ description: >
   Managing databases used by CHT applications
 aliases:
    - /apps/guides/database/
+   - /building/guides/database/
 ---
 
 ## CouchDB
@@ -16,7 +17,7 @@ The CHT has a range of CouchDB databases for storing different types of data. By
 
 The main database, used to store all contact and report data. Data access is protected by API to provide protection on a per document basis.
 
-{{< see-also page="technical-overview/concepts/db-schema" >}}
+{{< see-also page="technical-overview/data/db-schema" >}}
 
 ### medic-sentinel
 
@@ -51,7 +52,7 @@ Used for documents which are only relevant to a single user, including:
 
 - "feedback". Errors and exceptions caught in the browser, and user initiated feedback. Support staff must monitor these docs to detect any errors that are occurring on the client device.
 - "read". Records that a document has been opened in the browser so it can be marked as read in the UI.
-- "telemetry". Aggregate telemetry information for performance and usage metrics analysis. {{< see-also page="building/guides/performance/telemetry" >}}
+- "telemetry". Aggregate telemetry information for performance and usage metrics analysis. {{< see-also page="technical-overview/data/performance/telemetry" >}}
 
 ### medic-users-meta
 
@@ -71,10 +72,10 @@ Stores meta data about the user including when they last connected to the server
 
 Used to store documents on the client device to allow for [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}) access. Bidirectional replication is done on the "medic" and "medic-user-{username}-meta" databases. The "medic" database is only partially replicated so the user stores only a subset of the entire CouchDB database for performance and security reasons.
 
-{{< see-also page="building/guides/performance/replication" >}}
+{{< see-also page="technical-overview/data/performance/replication" >}}
 
 ## PostgreSQL
 
-Used to store data for performant analytical queries such as impact and monitoring dashboards. The CHT uses [CHT Sync](https://github.com/medic/cht-sync) to handle replication of docs from "medic", "medic-sentinel", and "medic-users-meta" databases into Postgres.
+Used to store data for performant analytical queries such as impact and monitoring dashboards. 
 
-{{< see-also page="technical-overview/concepts/data-flows-for-analytics" >}}
+{{< see-also page="technical-overview/data/analytics" >}}

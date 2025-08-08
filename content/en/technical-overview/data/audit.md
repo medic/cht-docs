@@ -1,12 +1,14 @@
 ---
 title: "Database document auditing"
 linkTitle: "Document auditing"
-weight: 10
+weight: 3
 description: >
     Overview of document change auditing 
 keywords: audit
 relatedContent: >
-  technical-overview/concepts/db-schema
+  technical-overview/data/db-schema
+aliases:
+  - /building/guides/data/audit/
 ---
 
 {{< callout >}}
