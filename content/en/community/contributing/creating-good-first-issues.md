@@ -22,7 +22,7 @@ Follow the next steps to create a "Good First Issue":
 
 ## Markdown template
 
-Use this content to paste into a GitHub ticket.  The add the steps needed.  See [the ticket below](#example-ticket) for an example of what this would look like:
+Use this content to paste into a GitHub ticket.  Then add the steps needed to solve the ticket.  See [the ticket below](#example-ticket) for an example of what this would look like:
 
 ```markdown
 ## Good first issue
