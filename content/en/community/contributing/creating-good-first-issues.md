@@ -27,11 +27,7 @@ Use this content to paste into a GitHub ticket.  Then add the steps needed to so
 ```markdown
 ## Good first issue
 
-This ticket has the
-[Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)!
-This means it's been especially curated by other CHT contributors to be easy to work
-on for first time contributors
-[per the docs](https://docs.communityhealthtoolkit.org/community/contributing/creating-good-first-issues/).
+This ticket has the [Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)! This means it's been especially curated by other CHT contributors to be easy to work on for first time contributors [per the docs](https://docs.communityhealthtoolkit.org/community/contributing/creating-good-first-issues/).
 
 To succeed on this ticket, please:
 1. step one
