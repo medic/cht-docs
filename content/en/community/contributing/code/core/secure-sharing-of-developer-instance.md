@@ -6,6 +6,7 @@ description: >
   Use a publicly accessible Linux web server to forward https requests to your development environment
 aliases:
    - /apps/guides/debugging/secure-sharing-of-developer-instance
+   - /building/guides/debugging/secure-sharing-of-developer-instance
 ---
 
 > [!CAUTION]
