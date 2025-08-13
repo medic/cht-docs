@@ -12,7 +12,7 @@ aliases:
    - /technical-overview/data/performance/telemetry
 ---
 
-_Introduced in v3.4.0_
+_Introduced in v3.4.0_ 
 
 The app collects performance data on certain user actions which is then aggregated each day and replicated to the server. This can be used to evaluate the performance of the code and configuration and to evaluate where improvements can be made.
 
@@ -59,8 +59,20 @@ Find below the list of telemetry data recorded by CHT:
 | `boot_time:purging_meta_failed`                                    | The purging of the local meta database failed. Added in 3.14.                                                                                                                                                                                                                                                                                                          | |
 | `contact_list:load`                                                | The time taken to load the list of contacts on the left hand side of the Contacts tab. Added in 4.7.                                                                                                                                                                                                                                                                   | Yes. Added in 4.7|
 | `contact_list:query`                                               | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.                                                                                                                                                                                       | Yes. Added in 4.7|
+
 | `enketo:reports:<form>:<action>:<component>`                       | The time taken to fill in app forms that are opened from Reports Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it.               | Yes, added for `render` and `save` actions. Added in 4.7 |
+
 | `enketo:contacts:<form>:<action>:<component>`                      | The time taken to fill contact forms and app forms that are opened from People Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |  Yes, added for `render` and `save` actions. Added in 4.7 |
+
+
+| `enketo:contacts:<contact_type>:duplicate_check`           | The time taken to perform the duplicate contact check when a user adds or edits a contact.              | Added in 4.19.0 |
+
+| `enketo:contacts:<contact_type>:duplicates_found`          | A counter that increments when the system identifies one or more potential duplicate contacts.          | Added in 4.19.0 |
+
+| `enketo:contacts:<contact_type>:duplicates_acknowledged`   | A counter that increments when a user proceeds with saving a contact, despite being shown a duplicate warning. | Added in 4.19.0 |
+
+
+
 | `enketo:tasks:<form>:<action>:<component>`                         | As above but for forms on the Tasks tab.                                                                                                                                                                                                                                                                                                                               | Yes, added for `render` and `save` actions. Added in 4.7 |
 | `message_list:load`                                                | The time taken to load the list of messages on the left hand side of the Messages tab. Added in 4.7.                                                                                                                                                                                                                                                                   | Yes. Added in 4.7 |
 | `search:contacts`                                                  | The time taken to list all contacts.                                                                                                                                                                                                                                                                                                                                   | |
@@ -135,6 +147,15 @@ Unless otherwise specified, `database` and `direction` placeholders stand for an
 | --- | --- |
 | `medic` | `from` or `to`  |
 | `meta` | `sync` |
+
+
+ ### Search Telemetry
+
+| `search_match:contacts_by_freetext:<key>`          | A counter that tracks a successful match found by the freetext search feature when searching contacts. The `<key>` is the specific search term used. | Added in 4.25.0 |
+
+| `search_match:contacts_by_type_freetext:<key>`     | A counter that tracks a successful match found by the freetext search when searching contacts of a specific type. The `<key>` is the specific search term used. | Added in 4.25.0 |
+
+| `search_match:reports_by_freetext:<key>`           | A counter that tracks a successful match found by the freetext search feature when searching reports. The `<key>` is the specific search term used. | Added in 4.25.0 |
 
 ## Metadata
 
