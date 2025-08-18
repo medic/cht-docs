@@ -13,7 +13,7 @@ relatedContent: >
 ---
 
 
-From <CHT version>, SMS messages can be sentusing the [Nepal DoIT](https://sms.doit.gov.np) service.
+From <CHT version>, SMS messages can be sent using the [Nepal DoIT](https://sms.doit.gov.np) service.
 
 ## Nepal DoIT configuration
 
