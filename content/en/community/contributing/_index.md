@@ -1,5 +1,5 @@
 ---
-title: "Contribute Code and Documentation"
+title: "Contribution Guide"
 linkTitle: "Contribute"
 weight: 1
 description: >
@@ -7,6 +7,10 @@ description: >
 aliases:
   -  /contribute/
 ---
+
+**What is a contribution?**
+
+A contribution is any meaningful action: technical or non-technical—that advances the CHT’s mission of improving community health. Technical contributions include coding (bug fixes, feature development), design (wireframes, workflows), testing (bug reports, QA), and infrastructure (DevOps, security). Non-technical efforts encompass documentation, translations, user feedback, and community engagement. Examples range from submitting a pull request or creating localized guides to co-designing features or reporting vulnerabilities. All contributions must add measurable value, follow ethical guidelines, and align with the CHT’s goals. Below are starting guides for contributors.
 
 {{< cards >}}
   {{< card link="first-time-contributors" title="First Time Contributors Guide" icon="heart" subtitle=" Starting guide for first time contributors" >}}
