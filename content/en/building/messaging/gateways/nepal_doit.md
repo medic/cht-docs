@@ -4,9 +4,6 @@ linkTitle: "Nepal DoIT"
 weight: 20
 description: >
   Integration for sending SMS via Nepal DoIT Centralized SMS gateway
-aliases:
-  - /apps/guides/messaging/nepal-doit
-  - /apps/guides/messaging/gateways/nepal-doit
 relatedContent: >
   building/reference/app-settings/sms
   building/forms/configuring/app-form-sms
