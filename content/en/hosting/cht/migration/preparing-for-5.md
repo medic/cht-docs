@@ -9,67 +9,69 @@ description: >
 
 ## Introduction
 
-Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 4.x version to the 5.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes. The two breaking changes for 5.0 are:
+Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 4.x version to the 5.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes.
 
-* CouchDB Nouveau imposing changes to Kubernetes hosting infrastructure 
-* Removal of upgrade service from Kubernetes deployments
+While this releases breaking changes mainly apply to Kubernetes based deployments (e.g. Nouveau & Upgrade service), deployments using token login may be affected as well.
 
+As with all upgrades, major or minor, you should always:
+* Have [backups](/hosting/cht/docker/backups/) that have been tested to work
+* Ensure your [CHT Conf](/community/contributing/code/cht-conf/) version is up to date
+* Review the change log to understand how end users might be affected
 
-## Breaking Changes
+## CouchDB Nouveau
 
-### CouchDB Nouveau
+{{< callout type="info" >}} Applies to: [Kubernetes](http://localhost:1313/hosting/cht/kubernetes/) hosted CHT instances {{< /callout >}}
 
 A major feature of CHT 5.0 is replacing the old freetext search in 4.x with CouchDB Nouveau. The addition of Nouveau [decreases the amount of disk space](https://github.com/medic/cht-core/issues/9898#issuecomment-2864545914) used by the CHT.  Disk space has been shown to be a major contributor to hosting costs, hence Nouveau is the first feature to [reduce Hosting Total Cost of Ownership (TCO)](https://github.com/medic/cht-roadmap/issues/171).
-
-#### Kubernetes
 
 Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository.
 
 Please see the technical guide on how to migrate Kubernetes based deployments to 5.0.
 
-#### Docker Compose
-
-No action is needed for Docker Compose based deployments. To upgrade, click "Stage" and then "Upgrade" which is the existing process for all 4.x upgrades and continues to apply to 4.21 to 5.0 and beyond.
+Background information:
+* [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
 
 ## Upgrade service removed from Kubernetes
 
-In CHT 4.x there are two ways to upgrade a CHT instance:
+{{< callout type="info" >}} Applies to: [Kubernetes](http://localhost:1313/hosting/cht/kubernetes/) hosted CHT instances {{< /callout >}}
+
+In CHT 4.x there are two ways to upgrade a Kubernetes hosted CHT instance:
 
 1. Click "Stage" and then "Upgrade" in the CHT administration interface.  
 2. Push a new helm chart to Kubernetes that specified different versions.
 
-A recurring problem seen on production deployments was that over time CHT administrators would use the CHT administration interface to upgrade.  Then during a migration or a restore from backup, Kubernetes administrators would inadvertently downgrade a CHT instance by using an out of date Helm chart.
+A recurring problem seen on production deployments was that, over time, CHT administrators would use the CHT administration interface to upgrade.  Then, during a migration or a restore from backup, Kubernetes administrators would inadvertently downgrade a CHT instance by using an out of date Helm chart.
 
 To avoid this situation, the upgrade service has been removed from Kubernetes based deployments.
 
+Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository. Please see the TK technical guide on how to migrate Kubernetes based deployments to 5.0.
+
+Background information:
+* [Hide upgrade button in admin app for k8s deployments, while still allowing staging upgrades](https://github.com/medic/cht-core/issues/9954)
+* [Remove upgrade service from Helm charts](https://github.com/medic/cht-core/issues/10186)
+
+## Token login requires `app_url`
+
+{{< callout type="info" >}} Applies to: Instances that use [token login](/building/login/#magic-links-for-logging-in-token-login) {{< /callout >}}
+
+For instances that use token login,  be sure declare `app_url` in your [settings file](/building/reference/app-settings/token_login/#app_settingsjson-token_login). This is backwards compatible and safe to do while still on CHT 4.x.  
+
+Background information:
+* [Require `app_url` to be set when enabling `token_login`](https://github.com/medic/cht-core/issues/9983)
+
+## Enabling languages via generated docs
+
+{{< callout type="info" >}} Applies to: Instances that enable languages via web interface {{< /callout >}}
+
+As of CHT 4.20, deployment administrators can enable or disable supported languages [via the settings file](/building/reference/app-settings/#app_settingsjson). CHT 5.0 removes this web interface to enable or disable languages and requires this to be done via App Settings.
+
+Before upgrading, ensure [your app settings](/building/reference/app-settings/#app_settingsjson) has the correct languages enabled. This is backwards compatible and safe to do while still on CHT 4.x.
+
+Background information:
+* [Deprecate enabling languages through generated docs](https://github.com/medic/cht-core/issues/8157)
+* [Allow app builders to specify disabled languages in config](https://github.com/medic/cht-core/issues/6281)
+
 
 <!--
-todo: write real contente above and remove this HTML comment
-
-Taken from https://github.com/medic/cht-docs/issues/1949
-
-Outline:
-
-Intro - TCO + Nouveau
-----------
-All install methods need to:
-        include details about the app_url requirement for token_login documented here: 
-
-    chore(#9983): update token_login docs to clarify app_url requirement #1909 https://github.com/medic/cht-docs/pull/1909
-    Any changes to CHT Conf that folks should upgrade for? You should always upgrade CHT Conf 😹
-    Do we want to mention CHT Toolbox's sequential upgrade branch which eCHIS KE has been using to test upgrades?
-    As usual, you may need up to 5x disk space
-    backups
-
-Docker
-----------
-    no actions needed, you should just be able to click "upgrade"
-    show how to check compose files with two service
-
-Kubernetes
-----------
-    You need to do more - see
-        Add documentation for migrating from 4.x medic/helm-charts to the new production charts in 5.x cht-core #1943  
-        https://github.com/medic/cht-docs/issues/1943
-
+todo:  replace all "TK" with correct link/text
 -->
