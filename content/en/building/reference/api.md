@@ -1259,6 +1259,173 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /api/v1/person
+
+*Added in x.x.x*
+#### Description
+Used to create a person.
+
+#### Supported Properties
+
+Use JSON in the request body to specify a person’s details.
+
+#### Permissions
+Should have `can_edit` or both `can_view_contacts` and `can_create_people`.
+
+#### Required
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| name | Name of the person. | string |
+| type | ID of the `contact_type` for the new person. Pass in `person` for older versions. | string |
+| parent | ID of the parent document, which is a place, for the new person. The type of the parent must belong to one of the allowed `parents` for the `contact_type` id in the settings config. | UUID string |
+
+#### Optional
+
+| Field           | Description                                                            | Format |
+| ------------- | ---------------------------------------------------------------------- | ----------- |
+| reported_date | Timestamp of when the record was reported or created. Defaults to now. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
+| _id | ID of the new person document to be created. | UUID string |
+| short_name | String to denote short name of the person. | string |
+| phone | Phone number of the person in string format. | string |
+| role | Role of the person in string format. | string |
+
+
+#### Examples
+Create a person with a clinic as its parent place.
+
+```bash
+POST /api/v1/person
+Content-type: application/json
+
+{
+    "name": "dummyuser",
+    "type": "person",
+    "parent":"01992f01-f155-4386-8538-5080c3155585"
+}
+```
+
+Example response:
+```json
+{
+    "_id": "4dcd842e813fd1bcabec03f98f002a98",
+    "_rev": "1-bf4ecb779a3a369f6162a149853cbb02",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "reported_date": 1755519112122,
+    "contact_type": "person"
+}
+```
+
+### PUT /api/v1/person
+
+*Added in x.x.x*
+#### Description
+Used to update mutable fields of a person, or delete them if they are not part of update payload.
+
+#### Supported Properties
+
+Use JSON in the request body to specify a person’s details.
+
+#### Permissions
+Either of the two:
+1. `can_edit` 
+2. `can_view_contacts` and `can_update_people`
+
+#### Required immutable fields
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| _id | ID of the person doc to be updated. | UUID string |
+| _rev | Revision ID of the person doc to be updated. | string | 
+| reported_date | Timestamp of when the record was reported or created. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch |
+| contact_type| Required if the type of the person is `contact`. | string |
+| type | The type of the person. | string |
+| parent | The parent lineage of the person to be updated. | Minified or hydrated parent lineage |
+
+#### Required mutable fields
+| Field  | Description                       |
+| ---- | ----------------------------------- |
+| name | Name of the person. |
+
+#### Examples
+Updating `sex` from "male" to "female" and deleting the `short_name` field
+
+Original Doc: 
+```json
+{
+    "_id": "4dcd842e813fd1bcabec03f98f004c96",
+    "_rev": "1-1492a8ddf25a350cdd35c217a561f27a",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "sex": "male",
+    "short_name": "userX",
+    "reported_date": 1755519752958,
+    "contact_type": "person"
+}
+```
+
+Request Body:
+```bash
+PUT /api/v1/person
+{
+    "_id": "4dcd842e813fd1bcabec03f98f004c96",
+    "_rev": "1-1492a8ddf25a350cdd35c217a561f27a",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "sex": "female",
+    "reported_date": 1755519752958,
+    "contact_type": "person"
+}
+```
+
+Response:
+```json
+{
+    "_id": "4dcd842e813fd1bcabec03f98f004c96",
+    "_rev": "2-3100df4acfd79b641173ff7d0d53e871",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "sex": "female",
+    "reported_date": 1755519752958,
+    "contact_type": "person"
+}
+```
+
 ## People
 
 ### Supported Properties
