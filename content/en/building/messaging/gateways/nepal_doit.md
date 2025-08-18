@@ -27,7 +27,7 @@ Next, save the `nepal-doit-api-key` in your CHT Core configuration as covered be
 
 The integration uses the CHT Credentials service to retrieve the API key using the ID `nepal_doit_sms:outgoing`.
 
-Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials by running the commands below.
+Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials by running the commands below. Be sure to replace a valid `user`, `pass` and `hostname` in the command:
 
 ```sh
 curl -X PUT -H "Content-Type: text/plain" https://<user>:<pass>@<hostname>/api/v1/credentials/nepal_doit_sms:outgoing -d 'nepal-doit-api-key'`
