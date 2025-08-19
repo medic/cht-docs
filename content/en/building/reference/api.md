@@ -1789,6 +1789,81 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /api/v1/place
+
+*Added in x.x.x*
+#### Description
+Used to create a place.
+
+#### Supported Properties
+
+Use JSON in the request body to specify the details of a place.
+
+#### Permissions
+Should have `can_edit` or both `can_view_contacts` and `can_create_places`.
+
+#### Required
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| name | Name of the place. | string |
+| type | ID of the `contact_type` for the new place. Pass in `place` for older versions. | string |
+| parent | ID of the parent document. The type of the parent must belong to one of the allowed `parents` for the `contact_type` id in the settings config. | UUID string |
+
+Note: Places that are at the top of the hierarchy, should not have a `parent`.
+Doing so will result in an "Unexpected parent for {placePayload} error."
+
+#### Optional
+
+| Field           | Description                                                            | Format |
+| ------------- | ---------------------------------------------------------------------- | ----------- |
+| reported_date | Timestamp of when the record was reported or created. Defaults to now. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
+| _id | ID of the new place document to be created. | UUID string |
+| contact | ID of the primary person contact to be linked with the created place. | UUID string |
+
+#### Examples
+
+Request:
+```bash
+POST /api/v1/place
+Content-Type: application/json
+
+{
+    "name": "test place",
+    "type": "clinic",
+    "parent":"35a2f31e-705c-4833-b385-efd069b1ce3f",
+    "contact":"00058058-e637-4e65-b5db-cd4b2da4375e"
+}
+```
+
+Response:
+```json
+{
+    "_id": "36aed043a50315f00f625af18c0043af",
+    "_rev": "1-9ffb5015e3ec6a800e8f70d6c9ea12ee",
+    "name": "test place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "contact": {
+        "_id": "00058058-e637-4e65-b5db-cd4b2da4375e",
+        "parent": {
+            "_id": "0fc7c7c4-76c0-4c1b-8eac-43ee5b42f646",
+            "parent": {
+                "_id": "c79e489a-1ee0-4537-a618-bfab496a7e29",
+                "parent": {
+                    "_id": "a177578c-a2a2-4731-931c-2bbff842d0f4"
+                }
+            }
+        }
+    },
+    "reported_date": "2025-08-19T14:30:25.568Z",
+    "contact_type": "clinic"
+}
+```
 
 ## Places
 
