@@ -9,7 +9,7 @@ description: >
 
 ## Introduction
 
-Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 4.x version to the 5.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes.
+CHT releases use [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (also known as "SemVer"), which means that the CHT upgrade from the major 4.x version to the 5.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes.
 
 While this releases breaking changes mainly apply to Kubernetes based deployments (e.g. Nouveau & Upgrade service), deployments using token login may be affected as well.
 
