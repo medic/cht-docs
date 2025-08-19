@@ -1792,6 +1792,7 @@ Content-Type: application/json; charset=utf-8
 ### POST /api/v1/place
 
 *Added in x.x.x*
+
 #### Description
 Used to create a place.
 
@@ -1861,6 +1862,119 @@ Response:
         }
     },
     "reported_date": "2025-08-19T14:30:25.568Z",
+    "contact_type": "clinic"
+}
+```
+
+### PUT /api/v1/place
+
+#### Description
+Used to update mutable fields of a place, or delete them if they are not part of update payload.
+
+#### Supported Properties
+
+Use JSON in the request body to specify the details of a place.
+
+#### Permissions
+Should have `can_edit` or both `can_view_contacts` and `can_update_places`.
+
+#### Required immutable fields
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| _id | ID of the place doc to be updated. | UUID string |
+| _rev | Revision ID of the place doc to be updated. | string | 
+| reported_date | Timestamp of when the record was reported or created. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch |
+| contact_type| Required if the type of the place is `contact`. | string |
+| type | The type of the place. | string |
+| parent | The parent lineage of the place to be updated. Not required if the place is at the top of the hierarchy. | Minified or hydrated parent lineage |
+| contact | The contact lineage linked with the place. This can be inserted as a part of update if not already present. | Minified or hydrated  lineage |
+
+### Required mutable fields
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| name | The name of the place. | string |
+
+#### Examples
+
+**Adding `contact` field as a part of the update and changing `name` of the place.**
+
+Original place object:
+```json
+{
+    "_id": "36aed043a50315f00f625af18c004bcf",
+    "_rev": "1-d29dc4cf44845f0c1842bcd57390d1d3",
+    "name": "test place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "reported_date": "2025-08-19T14:48:16.436Z",
+    "contact_type": "clinic"
+}
+```
+
+Request:
+```bash
+PUT /api/v1/place
+Content-Type: application/json
+
+{
+    "_id": "36aed043a50315f00f625af18c004bcf",
+    "_rev": "1-d29dc4cf44845f0c1842bcd57390d1d3",
+    "name": "new place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "contact": {
+        "_id": "00058058-e637-4e65-b5db-cd4b2da4375e",
+        "parent": {
+            "_id": "0fc7c7c4-76c0-4c1b-8eac-43ee5b42f646",
+            "parent": {
+                "_id": "c79e489a-1ee0-4537-a618-bfab496a7e29",
+                "parent": {
+                    "_id": "a177578c-a2a2-4731-931c-2bbff842d0f4"
+                }
+            }
+        }
+    },
+    "reported_date": "2025-08-19T14:48:16.436Z",
+    "contact_type": "clinic"
+}
+```
+
+Response:
+```json
+{
+    "_id": "36aed043a50315f00f625af18c004bcf",
+    "_rev": "2-7d9114d21f80451b436d6d25d8ac5a75",
+    "name": "new place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "contact": {
+        "_id": "00058058-e637-4e65-b5db-cd4b2da4375e",
+        "parent": {
+            "_id": "0fc7c7c4-76c0-4c1b-8eac-43ee5b42f646",
+            "parent": {
+                "_id": "c79e489a-1ee0-4537-a618-bfab496a7e29",
+                "parent": {
+                    "_id": "a177578c-a2a2-4731-931c-2bbff842d0f4"
+                }
+            }
+        }
+    },
+    "reported_date": "2025-08-19T14:48:16.436Z",
     "contact_type": "clinic"
 }
 ```
