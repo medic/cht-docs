@@ -27,3 +27,6 @@ Kudos to everyone who has disclosed security vulnerabilities.
 
 1. [Alex Anderson](https://github.com/alxndrsn) with 4 disclosures<br>
 [#9122](https://github.com/medic/cht-core/issues/9122), [#9121](https://github.com/medic/cht-core/issues/9121), [#9120](https://github.com/medic/cht-core/issues/9120), [#9108](https://github.com/medic/cht-core/issues/9108)
+
+2. [Syafiq Al Atiiq](https://github.com/syafiq) with 1 disclosure<br>
+[#10209](https://github.com/medic/cht-core/issues/10209)
