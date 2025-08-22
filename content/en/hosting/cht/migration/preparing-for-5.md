@@ -31,6 +31,14 @@ Please see the technical guide on how to migrate Kubernetes based deployments to
 Background information:
 * [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
 
+### Related Updates
+
+While the 5.0 upgrade for Docker based deployments will be transparent, there's some more Nouveau related changes that deployments should know about which can affect both Docker and Kubernetes:
+
+* Offline users' devices will have their search indexes rebuilt after the upgrade. During the rebuild, search functionality will be initially unavailable. However, once the indexing is complete, the search behavior will be unchanged from before for all users:  the search experience is the same in both CHT 4.x and CHT 5.x.
+* The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
+* The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
+
 ## Upgrade service removed from Kubernetes
 
 {{< callout type="info" >}} Applies to: [Kubernetes]({{< relref "/hosting/cht/kubernetes/" >}}) hosted CHT instances {{< /callout >}}
