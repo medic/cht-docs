@@ -202,27 +202,6 @@ As well, after you install docker, and go to run the rootless script `dockerd-ro
 
 The workaround, unfortunately, is to just start your CouchDB Docker container with sudo: `sudo docker run...`.
 
-### CouchDB on Docker Details
-
-Breaking down the command from [the above section]({{< relref "#couchdb" >}}), here's a generic version that doesn't include hard coded paths:
-
-```shell
-docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v <data path>:/opt/couchdb/data -v <config path>:/opt/couchdb/etc/local.d apache/couchdb:2
-```
-
-Parts of the command:
-- `--name` creates a container called `medic-couchdb`. You can name it whatever you want, but this is how you refer to it later
-- `-e` sets an environment variable inside the container. Two are set here, for a user and password for the initial admin user.
-- `-v` maps where couchdb stores data to your local file system to ensure persistence without depending on the container, using the path *before* the `:` (the path after the colon is the internal path inside the docker image). This should be somewhere you have write access to, and want this data to be stored. The second mounted volume is for the couch configuration, which will retain settings if your container is removed. This is especially important after running the command to secure the instance (done in steps below).
-- `apache/couchdb:2` will install the latest package for CouchDB 2.x
-
-Once this downloads and starts, you will need to [initialise CouchDB](http://localhost:5984/_utils/#/setup) as noted in [their install instructions](https://docs.couchdb.org/en/stable/setup/index.html#setup).
-
-You can use `docker stop medic-couchdb` to stop it and `docker start medic-couchdb` to start it again. Remember that you'll need to start it whenever you restart your OS, which might not be the case if you use a normal OS package. `docker rm medic-couchdb` will totally remove the container.
-
-> [!TIP]
-> Familiarise yourself with other Docker commands to make docker image and container management clearer.
-
 ### Required environment variables
 
 Medic needs the following environment variables to be declared:
