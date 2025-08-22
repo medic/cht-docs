@@ -4,7 +4,7 @@ weight: 6
 description: >
     Guides for hosting CHT applications
 relatedContent: >
-    building/guides/updates/preparing-for-4/
+    hosting/cht/migration/preparing-for-4/
 aliases:
   - /apps/guides/hosting/4.x
   - /hosting/4.x/
