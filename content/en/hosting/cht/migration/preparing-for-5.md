@@ -14,13 +14,13 @@ CHT releases use [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Sema
 While this releases breaking changes mainly apply to Kubernetes based deployments (e.g. Nouveau & Upgrade service), deployments using token login may be affected as well.
 
 As with all upgrades, major or minor, you should always:
-* Have [backups](/hosting/cht/docker/backups/) that have been tested to work
-* Ensure your [CHT Conf](/community/contributing/code/cht-conf/) version is up to date
+* Have [backups]({{< relref "/hosting/cht/docker/backups/" >}}) that have been tested to work
+* Ensure your [CHT Conf]({{< relref "/community/contributing/code/cht-conf/" >}}) version is up to date
 * Review the change log to understand how end users might be affected
 
 ## CouchDB Nouveau
 
-{{< callout type="info" >}} Applies to: [Kubernetes](http://localhost:1313/hosting/cht/kubernetes/) hosted CHT instances {{< /callout >}}
+{{< callout type="info" >}} Applies to: [Kubernetes]({{< relref "/hosting/cht/kubernetes/" >}}) hosted CHT instances {{< /callout >}}
 
 A major feature of CHT 5.0 is replacing the old freetext search in 4.x with CouchDB Nouveau. The addition of Nouveau [decreases the amount of disk space](https://github.com/medic/cht-core/issues/9898#issuecomment-2864545914) used by the CHT.  Disk space has been shown to be a major contributor to hosting costs, hence Nouveau is the first feature to [reduce Hosting Total Cost of Ownership (TCO)](https://github.com/medic/cht-roadmap/issues/171).
 
@@ -33,7 +33,7 @@ Background information:
 
 ## Upgrade service removed from Kubernetes
 
-{{< callout type="info" >}} Applies to: [Kubernetes](http://localhost:1313/hosting/cht/kubernetes/) hosted CHT instances {{< /callout >}}
+{{< callout type="info" >}} Applies to: [Kubernetes]({{< relref "/hosting/cht/kubernetes/" >}}) hosted CHT instances {{< /callout >}}
 
 In CHT 4.x there are two ways to upgrade a Kubernetes hosted CHT instance:
 
@@ -52,9 +52,9 @@ Background information:
 
 ## Token login requires `app_url`
 
-{{< callout type="info" >}} Applies to: Instances that use [token login](/building/login/#magic-links-for-logging-in-token-login) {{< /callout >}}
+{{< callout type="info" >}} Applies to: Instances that use [token login]({{< relref "/building/login/#magic-links-for-logging-in-token-login" >}}) {{< /callout >}}
 
-For instances that use token login,  be sure declare `app_url` in your [settings file](/building/reference/app-settings/token_login/#app_settingsjson-token_login). This is backwards compatible and safe to do while still on CHT 4.x.  
+For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.  
 
 Background information:
 * [Require `app_url` to be set when enabling `token_login`](https://github.com/medic/cht-core/issues/9983)
@@ -63,9 +63,9 @@ Background information:
 
 {{< callout type="info" >}} Applies to: Instances that enable languages via web interface {{< /callout >}}
 
-As of CHT 4.20, deployment administrators can enable or disable supported languages [via the settings file](/building/reference/app-settings/#app_settingsjson). CHT 5.0 removes this web interface to enable or disable languages and requires this to be done via App Settings.
+As of CHT 4.20, deployment administrators can enable or disable supported languages [via the settings file]({{< relref "/building/reference/app-settings/#app_settingsjson" >}}). CHT 5.0 removes this web interface to enable or disable languages and requires this to be done via App Settings.
 
-Before upgrading, ensure [your app settings](/building/reference/app-settings/#app_settingsjson) has the correct languages enabled. This is backwards compatible and safe to do while still on CHT 4.x.
+Before upgrading, ensure [your app settings]({{< relref "/building/reference/app-settings/#app_settingsjson" >}}) has the correct languages enabled. This is backwards compatible and safe to do while still on CHT 4.x.
 
 Background information:
 * [Deprecate enabling languages through generated docs](https://github.com/medic/cht-core/issues/8157)
