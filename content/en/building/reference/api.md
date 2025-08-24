@@ -2407,6 +2407,162 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /api/v1/report
+
+*Added in x.x.x*
+#### Description
+Used to create a report.
+
+#### Supported Properties
+
+Use JSON in the request body to specify a report’s details.
+
+#### Permissions
+Should have `can_view_reports` and `can_create_records`.
+
+#### Required
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| form | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with key=["form"]).| string |
+| type | Type of the report. | string |
+| contact | ID of the contact document which can be either a person or place, for the new report | UUID string |
+
+Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.
+
+#### Optional
+
+| Field           | Description                                                            | Format |
+| ------------- | ---------------------------------------------------------------------- | ----------- |
+| reported_date | Timestamp of when the record was reported or created. Defaults to now. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
+| _id | ID of the new report document to be created. | UUID string |
+| fields | Fields containing the report data | Object |
+
+#### Examples
+Request:
+```bash
+POST /api/v1/report
+Content-type: application/json
+
+{
+    "form":"pregnancy_home_visit",
+    "type":"data_record",
+    "contact":"00ba941a-a052-4e45-ada7-c32f59542133"
+}
+```
+
+Response:
+```json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
+    "form": "pregnancy_home_visit",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": "2025-08-24T11:37:06.815Z"
+}
+```
+
+### PUT /api/v1/report
+
+#### Description
+Used to update a report.
+
+#### Supported Properties
+
+Use JSON in the request body to specify a report’s details.
+
+#### Permissions
+Should have `can_view_reports` and `can_update_records`.
+
+#### Required immutable fields
+| Field  | Description                         | Format |
+| ---- | ----------------------------------- | -------- |
+| type | Type of the report. | string |
+| contact | Contact document associated with the report | Minified or hydrated contact lineage  |
+| reported_date | Timestamp of when the record was reported or created. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
+| _id | ID of the report document to be updated. | UUID string |
+| _rev | Revision ID of the report doc to be updated. | string | 
+
+
+#### Required mutable fields
+| Field           | Description                                                            | Format |
+| ------------- | ---------------------------------------------------------------------- | ----------- |
+| form | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with key=["form"]). | string |
+
+#### Examples
+
+Changing form value from `pregnancy_home_visit` to `pregnancy_danger_sign`
+
+Original Document:
+```json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
+    "form": "pregnancy_home_visit",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": "2025-08-24T11:37:06.815Z"
+}
+```
+
+Request:
+```bash
+PUT /api/v1/report
+Content-type: application/json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": "2025-08-24T11:37:06.815Z"
+}
+
+```
+
+Response:
+```json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "2-82b274ab67cf5fbab0ea870cbb62ab48",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": "2025-08-24T11:37:06.815Z"
+}
+```
 ## Users
 
 All user related requests are limited to users with admin privileges by default.
