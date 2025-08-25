@@ -437,7 +437,7 @@ All property names will be lowercased.
 Creating new record using message field.
 
 ```
-POST /api/v1/records
+POST /api/v2/records
 Content-Type: application/x-www-form-urlencoded
 
 message=1!YYYZ!Sam#23#2015#ANC&from=+5511943348031&sent_timestamp=1352399720000
@@ -456,7 +456,7 @@ Content-Type: application/json; charset=utf-8
 Creating new record with JSON.
 
 ```
-POST /api/v1/records
+POST /api/v2/records
 Content-Type: application/json
 
 {
