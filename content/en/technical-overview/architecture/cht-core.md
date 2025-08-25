@@ -67,7 +67,11 @@ Another NodeJS service running on the server, `sentinel` performs actions called
 
 #### CouchDB
 
-A free and open source NoSQL database used as the primary store for all app data and configuration. This can be multiple instances clustered together for additional scalability. CouchDB is really good at replication which is the process of sending the data to another database and back again, which makes it ideal for replicating data to the phone for offline access. See more at the [CouchDB](http://couchdb.apache.org) site.
+A free and open source NoSQL database used as the primary store for all app data and configuration. This can be multiple instances clustered together for additional scalability. CouchDB is really good at replication which is the process of sending the data to another database and back again, which makes it ideal for replicating data to the phone for offline access. See more at the [CouchDB](https://couchdb.apache.org) site.
+
+#### Nouveau
+
+Nouveau is a CouchDB service, added to the CHT in version `5.0.0`, leverages the [Lucene search engine](https://en.wikipedia.org/wiki/Apache_Lucene) to modernize how freetext searches are done.  Nouveau is faster at running these queries and more efficient at storing and creating the indexes. Offline users do not use this.  
 
 #### NGINX
 
