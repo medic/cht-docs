@@ -71,7 +71,7 @@ A free and open source NoSQL database used as the primary store for all app data
 
 #### Nouveau
 
-A from-scratch reimplementation by CouchDB engineering of [Lucene](https://en.wikipedia.org/wiki/Apache_Lucene), Nouveau is compliment to CouchDB added in CHT 5.0 which modernizes how freetext searches are done.  Anytime CouchDB gets a request from an online user to run a freetext search, it's run through Nouveau.  Nouveau is faster at running these queries and more efficient at storing and creating the indexes. Offline users do not use this.  See more at the [Nouveau Docs](https://docs.couchdb.org/en/stable/ddocs/nouveau.html) site
+Nouveau is a CouchDB service, added to the CHT in version `5.0.0`, leverages the [Lucene search engine](https://en.wikipedia.org/wiki/Apache_Lucene) to modernize how freetext searches are done.  Nouveau is faster at running these queries and more efficient at storing and creating the indexes. Offline users do not use this.  
 
 #### NGINX
 
