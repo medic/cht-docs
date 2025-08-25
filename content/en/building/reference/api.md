@@ -1261,7 +1261,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/person
 
-*Added in x.x.x*
+*Added in 5.0.0*
 #### Description
 Used to create a person.
 
@@ -1273,21 +1273,22 @@ Use JSON in the request body to specify a person’s details.
 Should have `can_edit` or both `can_view_contacts` and `can_create_people`.
 
 #### Required
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| name | Name of the person. | string |
-| type | ID of the `contact_type` for the new person. Pass in `person` for older versions. | string |
-| parent | ID of the parent document, which is a place, for the new person. The type of the parent must belong to one of the allowed `parents` for the `contact_type` id in the settings config. | UUID string |
+| Field  | Description                                                                                                                       | Format     |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------|------------|
+| name   | Name of the person.                                                                                                               | string     |
+| type   | ID of the `contact_type` for the new person. Use `person` for older versions.                                                     | string     |
+| parent | ID of the parent document (a place) for the new person. The parent’s type must match one of the allowed `parents` in the settings. | UUID string |
 
 #### Optional
 
-| Field           | Description                                                            | Format |
-| ------------- | ---------------------------------------------------------------------- | ----------- |
-| reported_date | Timestamp of when the record was reported or created. Defaults to now. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
-| _id | ID of the new person document to be created. | UUID string |
-| short_name | String to denote short name of the person. | string |
-| phone | Phone number of the person in string format. | string |
-| role | Role of the person in string format. | string |
+| Field         | Description                                                                 | Format                                           |
+|---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| _id           | ID of the new person document to be created.                                | UUID string                                      |
+| short_name    | Short name of the person.                                                   | string                                           |
+| phone         | Phone number of the person (string format).                                 | string                                           |
+| role          | Role of the person (string format).                                         | string                                           |
+
 
 
 #### Examples
@@ -1327,7 +1328,7 @@ Example response:
 
 ### PUT /api/v1/person
 
-*Added in x.x.x*
+*Added in 5.0.0*
 #### Description
 Used to update mutable fields of a person, or delete them if they are not part of update payload.
 
@@ -1336,24 +1337,22 @@ Used to update mutable fields of a person, or delete them if they are not part o
 Use JSON in the request body to specify a person’s details.
 
 #### Permissions
-Either of the two:
-1. `can_edit` 
-2. `can_view_contacts` and `can_update_people`
+Should have `can_edit` or both `can_view_contacts` and `can_update_people`.
 
 #### Required immutable fields
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| _id | ID of the person doc to be updated. | UUID string |
-| _rev | Revision ID of the person doc to be updated. | string | 
-| reported_date | Timestamp of when the record was reported or created. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch |
-| contact_type| Required if the type of the person is `contact`. | string |
-| type | The type of the person. | string |
-| parent | The parent lineage of the person to be updated. | Minified or hydrated parent lineage |
+| Field         | Description                                                   | Format                                                   |
+|---------------|---------------------------------------------------------------|----------------------------------------------------------|
+| _id           | ID of the person document to be updated.                       | UUID string                                              |
+| _rev          | Revision ID of the person document to be updated.              | string                                                   |
+| reported_date | Timestamp of when the record was reported or created.          | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| contact_type  | Required if the type of the person is `contact`.               | string                                                   |
+| type          | The type of the person.                                       | string                                                   |
+| parent        | The parent lineage of the person to be updated.                | Minified or hydrated parent lineage                      |
 
 #### Required mutable fields
-| Field  | Description                       |
-| ---- | ----------------------------------- |
-| name | Name of the person. |
+| Field | Description            |
+|-------|------------------------|
+| name  | Name of the person.    |
 
 #### Examples
 Updating `sex` from "male" to "female" and deleting the `short_name` field
@@ -1791,7 +1790,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/place
 
-*Added in x.x.x*
+*Added in 5.0.0*
 
 #### Description
 Used to create a place.
@@ -1804,22 +1803,22 @@ Use JSON in the request body to specify the details of a place.
 Should have `can_edit` or both `can_view_contacts` and `can_create_places`.
 
 #### Required
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| name | Name of the place. | string |
-| type | ID of the `contact_type` for the new place. Pass in `place` for older versions. | string |
-| parent | ID of the parent document. The type of the parent must belong to one of the allowed `parents` for the `contact_type` id in the settings config. | UUID string |
+| Field  | Description                                                                                                          | Format     |
+|--------|----------------------------------------------------------------------------------------------------------------------|------------|
+| name   | Name of the place.                                                                                                   | string     |
+| type   | ID of the `contact_type` for the new place. Use `place` for older versions.                                          | string     |
+| parent | ID of the parent document. The parent’s type must match one of the allowed `parents` in the settings configuration.  | UUID string |
 
 Note: Places that are at the top of the hierarchy, should not have a `parent`.
 Doing so will result in an "Unexpected parent for {placePayload} error."
 
 #### Optional
 
-| Field           | Description                                                            | Format |
-| ------------- | ---------------------------------------------------------------------- | ----------- |
-| reported_date | Timestamp of when the record was reported or created. Defaults to now. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
-| _id | ID of the new place document to be created. | UUID string |
-| contact | ID of the primary person contact to be linked with the created place. | UUID string |
+| Field         | Description                                                                 | Format                                           |
+|---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| _id           | ID of the new place document to be created.                                 | UUID string                                      |
+| contact       | ID of the primary person contact to be linked with the created place.       | UUID string                                      |
 
 #### Examples
 
@@ -1879,20 +1878,21 @@ Use JSON in the request body to specify the details of a place.
 Should have `can_edit` or both `can_view_contacts` and `can_update_places`.
 
 #### Required immutable fields
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| _id | ID of the place doc to be updated. | UUID string |
-| _rev | Revision ID of the place doc to be updated. | string | 
-| reported_date | Timestamp of when the record was reported or created. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch |
-| contact_type| Required if the type of the place is `contact`. | string |
-| type | The type of the place. | string |
-| parent | The parent lineage of the place to be updated. Not required if the place is at the top of the hierarchy. | Minified or hydrated parent lineage |
-| contact | The contact lineage linked with the place. This can be inserted as a part of update if not already present. | Minified or hydrated  lineage |
+| Field         | Description                                                                                      | Format                              |
+|---------------|--------------------------------------------------------------------------------------------------|-------------------------------------|
+| _id           | ID of the place document to be updated.                                                           | UUID string                         |
+| _rev          | Revision ID of the place document to be updated.                                                  | string                              |
+| reported_date | Timestamp of when the record was reported or created.                                             | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| contact_type  | Required if the type of the place is `contact`.                                                   | string                              |
+| type          | The type of the place.                                                                            | string                              |
+| parent        | The parent lineage of the place to be updated. Not required if the place is at the top of the hierarchy. | Minified or hydrated parent lineage |
+| contact       | The contact lineage linked with the place. This can be added during update if not already present. | Minified or hydrated lineage        |
 
-### Required mutable fields
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| name | The name of the place. | string |
+#### Required mutable fields
+| Field | Description          | Format |
+|-------|----------------------|--------|
+| name  | The name of the place. | string |
+
 
 #### Examples
 
@@ -2409,7 +2409,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/report
 
-*Added in x.x.x*
+*Added in 5.0.0*
 #### Description
 Used to create a report.
 
@@ -2421,21 +2421,21 @@ Use JSON in the request body to specify a report’s details.
 Should have `can_view_reports` and `can_create_records`.
 
 #### Required
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| form | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with key=["form"]).| string |
-| type | Type of the report. | string |
-| contact | ID of the contact document which can be either a person or place, for the new report | UUID string |
+| Field   | Description                                                                                                      | Format     |
+|---------|------------------------------------------------------------------------------------------------------------------|------------|
+| form    | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with `key=["form"]`). | string     |
+| type    | Type of the report.                                                                                              | string     |
+| contact | ID of the contact document (can be either a person or a place) for the new report.                               | UUID string |
 
 Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.
 
 #### Optional
 
-| Field           | Description                                                            | Format |
-| ------------- | ---------------------------------------------------------------------- | ----------- |
-| reported_date | Timestamp of when the record was reported or created. Defaults to now. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
-| _id | ID of the new report document to be created. | UUID string |
-| fields | Fields containing the report data | Object |
+| Field         | Description                                                                 | Format                                           |
+|---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| _id           | ID of the new report document to be created.                                | UUID string                                      |
+| fields        | Fields containing the report data.                                          | Object                                           |
 
 #### Examples
 Request:
@@ -2483,19 +2483,20 @@ Use JSON in the request body to specify a report’s details.
 Should have `can_view_reports` and `can_update_records`.
 
 #### Required immutable fields
-| Field  | Description                         | Format |
-| ---- | ----------------------------------- | -------- |
-| type | Type of the report. | string |
-| contact | Contact document associated with the report | Minified or hydrated contact lineage  |
-| reported_date | Timestamp of when the record was reported or created. | 'YYYY-MM-DDTHH:mm:ssZ', 'YYYY-MM-DDTHH:mm:ss.SSSZ', or unix epoch. |
-| _id | ID of the report document to be updated. | UUID string |
-| _rev | Revision ID of the report doc to be updated. | string | 
+| Field         | Description                                                   | Format                                           |
+|---------------|---------------------------------------------------------------|--------------------------------------------------|
+| type          | Type of the report.                                           | string                                           |
+| contact       | Contact document associated with the report.                  | Minified or hydrated contact lineage             |
+| reported_date | Timestamp of when the record was reported or created.         | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| _id           | ID of the report document to be updated.                      | UUID string                                      |
+| _rev          | Revision ID of the report document to be updated.             | string                                           |
 
 
 #### Required mutable fields
-| Field           | Description                                                            | Format |
-| ------------- | ---------------------------------------------------------------------- | ----------- |
-| form | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with key=["form"]). | string |
+| Field | Description                                                                                                      | Format |
+|-------|------------------------------------------------------------------------------------------------------------------|--------|
+| form  | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with `key=["form"]`). | string |
+
 
 #### Examples
 
