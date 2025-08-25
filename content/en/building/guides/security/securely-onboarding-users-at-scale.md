@@ -6,9 +6,9 @@ description: >
     How to securely create users, handle password changes and password breaches
 relatedContent: >
     building/training/onboarding
-    building/guides/database/couchdb-authentication
+    technical-overview/data/couchdb-authentication
     building/contact-management/contact-and-users-1
-    building/guides/data/users-bulk-load
+    building/training/users-bulk-load
     building/users
     building/login/#magic-links-for-logging-in-token-login
 
@@ -26,7 +26,7 @@ When a CHT deployment will support hundreds of users or more, secure credential 
 
 ### Secure devices
 
-Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/guides/android/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
+Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/branding/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
 
 ### Secure administrative users
 
@@ -65,7 +65,7 @@ When it comes time get a username and password onto a device or to a remote user
 
 ### Ideal practice 1: Only Magic Links
 
-Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via [the command line]({{% ref "building/guides/data/csv-to-docs#creating-csv-files-for-users" %}}) or [bulk user upload]({{% ref "building/guides/data/users-bulk-load" %}}), have a [token login]({{% ref "building/login#magic-links-for-logging-in-token-login" %}}) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours.
+Create a spreadsheet with all your users' data. Included is a username but NOT a password. When users are created in bulk via [the command line]({{% ref "/community/contributing/code/test-data/csv-to-docs#creating-csv-files-for-users" %}}) or [bulk user upload]({{% ref "building/training/users-bulk-load" %}}), have a [token login]({{% ref "building/login#magic-links-for-logging-in-token-login" %}}) sent to the user via an SMS gateway. This avoids the problem of passwords being stored in clear text in the spreadsheet or on a printed version. The token login links can only be used once and are only valid for 24 hours.
 
 ### Ideal practice 2: Unknown passwords, reset during provision
 

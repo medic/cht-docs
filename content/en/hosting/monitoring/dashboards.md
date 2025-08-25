@@ -51,7 +51,7 @@ Replication Apdex: A score of 100 means all successful syncs proceeded by the se
 
 ![replication.png](dashboards/replication.png)
 
-Note that this is not the same as [client side form Apdex](/building/guides/performance/telemetry/#performance-data).
+Note that this is not the same as [client side form Apdex](/technical-overview/data/performance/telemetry/#performance-data).
 
 ## API Server
 

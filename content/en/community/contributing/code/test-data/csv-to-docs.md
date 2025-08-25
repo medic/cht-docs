@@ -9,6 +9,7 @@ relatedContent: >
   building/forms/contact
 aliases:
    - /apps/guides/data/csv-to-docs
+   - /building/guides/data/csv-to-docs
 ---
 
 

@@ -5,16 +5,17 @@ weight:
 description: >
   How to use SQL queries to view Apdex scores
 relatedContent: >
-  building/guides/performance/telemetry/
-  technical-overview/concepts/data-flows-for-analytics
-  building/guides/database/#postgresql
+  technical-overview/data/performance/telemetry
+  technical-overview/data/analytics/data-flows-for-analytics
+  technical-overview/data/analytics/#postgresql
 aliases:
    - /apps/guides/database/querying_apdex_telemetry
+   - /building/guides/database/querying_apdex_telemetry/
 ---
 
 Added in `4.7.0`, CHT now records the Apdex (Application Performance Index) that is an open standard for measuring performance of software applications.
 
-Since Apdex is part of the [telemetry]({{< ref "building/guides/performance/telemetry" >}}) system, it is possible to view Apdex data directly from CouchDB. However, it is more useful when aggregated across many users, interactions, and/or days. With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "technical-overview/concepts/data-flows-for-analytics" >}}).
+Since Apdex is part of the [telemetry]({{< ref "technical-overview/data/performance/telemetry" >}}) system, it is possible to view Apdex data directly from CouchDB. However, it is more useful when aggregated across many users, interactions, and/or days. With this in mind, it is typically easier to query the data using SQL from an [analytics database]({{< ref "technical-overview/data/analytics/data-flows-for-analytics" >}}).
 
 An example of an SQL to view the Apdex score:
 

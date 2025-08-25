@@ -6,7 +6,7 @@ description: >
   Dealing with out-of-memory errors in couch2pg
 aliases:
    - /apps/guides/database/couch2pg-oom-errors
-   - /building/guides/database/couch2pg-oom-errors
+   - /technical-overview/data/analytics/couch2pg-oom-errors
 ---
 
 {{< callout type="warning" >}}
