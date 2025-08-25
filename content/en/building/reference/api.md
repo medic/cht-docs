@@ -1896,7 +1896,7 @@ Should have `can_edit` or both `can_view_contacts` and `can_update_places`.
 
 #### Examples
 
-**Adding `contact` field as a part of the update and changing `name` of the place.**
+Adding `contact` field as a part of the update and changing `name` of the place.
 
 Original place object:
 ```json
