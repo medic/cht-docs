@@ -1329,6 +1329,7 @@ Example response:
 ### PUT /api/v1/person
 
 *Added in 5.0.0*
+
 #### Description
 Used to update mutable fields of a person, or delete them if they are not part of update payload.
 
