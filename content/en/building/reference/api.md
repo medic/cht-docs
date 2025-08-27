@@ -2414,6 +2414,7 @@ Content-Type: application/json; charset=utf-8
 ### POST /api/v1/report
 
 *Added in 5.0.0*
+
 #### Description
 Used to create a report.
 
