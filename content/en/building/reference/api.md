@@ -1262,6 +1262,7 @@ Content-Type: application/json; charset=utf-8
 ### POST /api/v1/person
 
 *Added in 5.0.0*
+
 #### Description
 Used to create a person.
 
