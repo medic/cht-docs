@@ -1811,8 +1811,7 @@ Should have `can_edit` or both `can_view_contacts` and `can_create_places`.
 | type   | ID of the `contact_type` for the new place. Use `place` for older versions.                                          | string     |
 | parent | ID of the parent document. The parent’s type must match one of the allowed `parents` in the settings configuration.  | UUID string |
 
-Note: Places that are at the top of the hierarchy, should not have a `parent`.
-Doing so will result in an "Unexpected parent for {placePayload} error."
+*Note: Places that are at the top of the hierarchy, should not have a `parent`. Doing so will result in an "Unexpected parent for {placePayload} error."*
 
 #### Optional
 
