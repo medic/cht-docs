@@ -85,7 +85,6 @@ Read on below on how to set this up!
 On your CHT instance, add a Docker composer file for the new cAdvisor service. Note this also includes a Redis caching layer. Also note that we're reducing cAdvisors CPU usage by adding 3 extra flags in the `command` stanza.  In our example, we've put this file in `/home/ubuntu/cht/compose/cadvisor_compose.yml` with these contents:
 
 ```yaml
-version: '3.9'
 services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
@@ -125,7 +124,6 @@ cht.example.com:8443 {
 Then we can add the compose file to run Caddy. Note that it's mounting the config file we just created:
 
 ```yaml
-version: "3.9"
 services:
   caddy:
     image: caddy:2-alpine
@@ -170,7 +168,6 @@ scrape_configs:
 CHT Watchdog allows you to use additional Docker Compose files to add as many additional Prometheus scrape configs as are needed.  Here, we'll create one in `~/cadvisor-compose.yml` pointing to our `cadvisor-prometheus-conf.yml` file from above. 
 
 ```yaml
-version: "3.9"
 services:
   prometheus:
     volumes:
