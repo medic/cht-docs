@@ -1831,8 +1831,8 @@ Content-Type: application/json
 {
     "name": "test place",
     "type": "clinic",
-    "parent":"35a2f31e-705c-4833-b385-efd069b1ce3f",
-    "contact":"00058058-e637-4e65-b5db-cd4b2da4375e"
+    "parent": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+    "contact": "00058058-e637-4e65-b5db-cd4b2da4375e"
 }
 ```
 
