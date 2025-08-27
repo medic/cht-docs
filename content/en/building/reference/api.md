@@ -2431,7 +2431,7 @@ Should have `can_view_reports` and `can_create_records`.
 | type    | Type of the report.                                                                                              | string     |
 | contact | ID of the contact document (can be either a person or a place) for the new report.                               | UUID string |
 
-Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.
+*Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.*
 
 #### Optional
 
