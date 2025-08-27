@@ -1869,6 +1869,8 @@ Response:
 
 ### PUT /api/v1/place
 
+*Added in 5.0.0*
+
 #### Description
 Used to update mutable fields of a place, or delete them if they are not part of update payload.
 
