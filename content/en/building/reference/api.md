@@ -2476,6 +2476,8 @@ Response:
 
 ### PUT /api/v1/report
 
+*Added in 5.0.0*
+
 #### Description
 Used to update a report.
 
