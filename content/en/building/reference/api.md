@@ -1861,7 +1861,7 @@ Response:
             }
         }
     },
-    "reported_date": "2025-08-19T14:30:25.568Z",
+    "reported_date": 1756120037741,
     "contact_type": "clinic"
 }
 ```
