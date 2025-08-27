@@ -1977,7 +1977,7 @@ Response:
             }
         }
     },
-    "reported_date": "2025-08-19T14:48:16.436Z",
+    "reported_date": 1756277807624,
     "contact_type": "clinic"
 }
 ```
