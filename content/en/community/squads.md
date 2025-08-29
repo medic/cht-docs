@@ -26,7 +26,6 @@ See the active squads on the [CHT roadmap](https://github.com/orgs/medic/project
 ## How do squads form?
 The journey to forming a squad begins with a community need and a conversation about it. Here’s how it typically works:
 1. **Topic is Posted** on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34): A community member or organization posts a topic on the CHT Forum. This could be either:
-   -  A formal proposal to form a squad around a specific goal or topic/feature.
 1. **Express Interest**: Other community members and organizations read the post and engage with it. If you are interested in the topic, you should reply to the forum post to express your interest, share your ideas, and indicate your potential availability.
 1. **Squad Formation:** If there is enough collective interest and commitment, the squad formation process begins. This involves defining the squad’s objective, goals, and timeline. The original proposer often becomes the initial facilitator. From there, interested parties officially become squad members and begin the collaborative work.
 1. The facilitator should reach out to the CHT Stewardship Team to allocate dedicated time during Round-up or Community Meetup calls for sharing the initiative with the broader community.
