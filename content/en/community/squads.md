@@ -23,7 +23,7 @@ When a community-proposed improvement shows potential for broad impact, we invit
 ## Where to find active squads?
 See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
 
-## How Do Squads Form and How Can I Join?
+## How do squads form?
 The journey to forming or joining a squad starts with an idea and a conversation on the same. Here’s how it typically works:
 1. **Topic is Posted** on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34): A community member or organization posts a topic on the CHT Forum. This could be either:
    -  A formal proposal to form a squad around a specific goal or topic/feature.
