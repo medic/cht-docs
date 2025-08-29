@@ -23,11 +23,14 @@ When a community-proposed improvement shows potential for broad impact, we invit
 ## Where to find active squads?
 See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
 
-## How to start a squad?
-If you are interested in forming a squad, here are the steps to follow:
-1. Post on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34) to identify other interested members. Share details about the topic/feature to be explored in the squad and connect with other interested community members.
-1. Reach out to specific community members who have previously discussed the topic or who you think may be interested.
-1. Reach out to the CHT Stewardship Team to allocate dedicated time during Round-up calls for sharing the initiative with the broader community.
+## How Do Squads Form and How Can I Join?
+The journey to forming or joining a squad starts with an idea and a conversation on the same. Here’s how it typically works:
+1. **Topic is Posted** on the [forum](https://forum.communityhealthtoolkit.org/c/product/squads/34): A community member or organization posts a topic on the CHT Forum. This could be either:
+   -  A formal proposal to form a squad around a specific goal or topic/feature.
+   -  Simply a topic of interest that sparks discussion.
+1. **Express Interest**: Other community members and organizations read the post and engage with it. If you are interested in the topic, you should reply to the forum post to express your interest, share your ideas, and indicate your potential availability.
+1. **Squad Formation:** If there is enough collective interest and commitment, the normal squad formation process begins. This involves defining the squad’s objective, goals, and timeline. The original proposer often becomes the initial facilitator. From there, interested parties officially become squad members and begin the collaborative work.
+1. Reach out to the CHT Stewardship Team to allocate dedicated time during Round-up or Community Meetup calls for sharing the initiative with the broader community.
 
 ### Kick off
 - Once the squad members have a start date, organise a public, open kick off meeting with all community members interested in contributing to the initiative. The agenda for this meeting should include:
