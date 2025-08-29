@@ -10,7 +10,7 @@ description: >
 
 A CHT Squad is a cross-functional, action-oriented team that works together to solve community needs. These teams bring together developers, designers, project managers, and other contributors to build and implement new features and improvements for the CHT.
 
-When a community-proposed improvement shows potential for broad impact, we invite the wider community to collaborate. Members can express interest in contributing to discussions, design, development, testing and/or funding. Below are the characteristics of how a squad works:
+When a community-proposed improvement shows potential for broad impact, we invite the wider community to collaborate. Members can express interest in contributing to discussions, design, development, testing, and/or funding. Below are the characteristics of how a squad works:
 - Collaborative by design: Anyone can join - whether you are an experienced community contributor or just getting started with the CHT
 - Transparent process: Regular meetings and shared public notes and documentation to keep everyone informed
 - Flexible contributions: Help in whatever way works for you - coding, design, testing, or documentation.
@@ -32,26 +32,26 @@ The journey to forming a squad begins with a community need and a conversation a
 1. Reach out to the CHT Stewardship Team to allocate dedicated time during Round-up or Community Meetup calls for sharing the initiative with the broader community.
 
 ### Kick off
-- Once the squad members have a start date, organise a public, open kick off meeting with all community members interested in contributing to the initiative. The agenda for this meeting should include:
+- Once the squad members have a start date, organise a public, open kick-off meeting with all community members interested in contributing to the initiative. The agenda for this meeting should include:
   - Introductions and role clarity.
   - Overview of squad objectives and desired outcomes.
   - Alignment on squad scope.
   - Initial task assignments.
   - Agreement on a recurring meeting cadence (for example, weekly/biweekly calls). 
 - Reach out to the CHT Stewardship Team to create a dedicated Slack channel for squad discussion. If Slack doesn't suit for whatever reason, any other shared comms channel would be fine.
-- Invite others in advisory roles, as for example domain experts, UX experts. Clarify their involvement (for example, periodic reviews, feedback sessions) even if they are not full-time contributors. Any expertise is invaluable for reviews, sharing advice, etc.
+- Invite others in advisory roles, such as domain or UX experts, and clarify their involvement—for example, through periodic reviews or feedback sessions—even without a full-time commitment. Any expertise is invaluable for reviews, sharing advice, etc.
 
 ## What are the different stages in a squad?
-Squads evolve through stages, and anyone can start contributing at any stage - no matter their experience level. Here are the various stages:
+Squads evolve through stages, and anyone can start contributing at any stage, regardless of their experience level. Here are the various stages:
 
 ### 1. ✨ Emerging
 A need sparks! The community identifies a feature or improvement with broad potential.
 
   **Outputs**:
-  - A squad kick off message is shared on the forum 
+  - A squad kick-off message is shared on the forum 
   - Community members volunteer to participate in the squad
   - The [Code of Conduct](https://docs.communityhealthtoolkit.org/community/contributing/code-of-conduct/) is shared with all squad members.
-  - A squad kick off call is scheduled with the interested contributors. 
+  - A squad kick-off call is scheduled with the interested contributors. 
 
 ### 2. 🧑🏼‍🎨 Early Design Discussion
 Teams explore technical requirements, timelines, and design approaches.
