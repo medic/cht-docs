@@ -6,7 +6,7 @@ description: >
   How to easily share logs from your CHT 4.x instance to get support
 relatedContent: >
   hosting/cht/docker/logs
-  building/guides/debugging/obtaining-logs
+  community/contributing/code/troubleshooting/obtaining-logs
 aliases:
    - /apps/guides/debugging/sharing-4x-logs
    - /building/guides/debugging/sharing-4x-logs

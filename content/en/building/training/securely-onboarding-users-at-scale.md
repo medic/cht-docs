@@ -27,7 +27,7 @@ When a CHT deployment will support hundreds of users or more, secure credential 
 
 ### Secure devices
 
-Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/branding/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
+Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "community/contributing/code/android/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/branding/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
 
 ### Secure administrative users
 
