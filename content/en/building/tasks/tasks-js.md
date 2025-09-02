@@ -132,7 +132,7 @@ module.exports = [
     } ],
     priority: {
       level: 'high',
-      label: [ { locale:'en', content:'Home Birth' } ],
+      label: 'task.priority.label.home_birth',
     },
     resolvedIf: function(c, r, event, dueDate) {
       // Resolved if there a visit report received in time window or a newer pregnancy
