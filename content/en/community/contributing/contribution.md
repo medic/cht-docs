@@ -1,7 +1,7 @@
 --- 
 title: "Contributing to the CHT" 
 linkTitle: "Contributions"
-weight: 2 
+weight: 3 
 description: > 
 
   What is a contribution?
