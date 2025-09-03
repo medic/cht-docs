@@ -6,4 +6,5 @@ description: >
   Focused CHT app development guides
 aliases:
    - /apps/guides/
+   - /building/guides/updates/
 ---
