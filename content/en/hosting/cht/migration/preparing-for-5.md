@@ -1,6 +1,6 @@
 ---
 title: "Preparing to upgrade to CHT 5.0"
-linkTitle: "Preparing for CHT 5.0"
+linkTitle: "Preparing for 5.0"
 weight: 
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 5.0 and later
@@ -64,6 +64,8 @@ Background information:
 
 For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.  
 
+Be sure to use [the new declarative config](#declarative-configuration) as well.
+
 Background information:
 * [Require `app_url` to be set when enabling `token_login`](https://github.com/medic/cht-core/issues/9983)
 
@@ -79,6 +81,26 @@ Background information:
 * [Deprecate enabling languages through generated docs](https://github.com/medic/cht-core/issues/8157)
 * [Allow app builders to specify disabled languages in config](https://github.com/medic/cht-core/issues/6281)
 
+
+## Declarative Configuration 
+
+{{< callout type="info" >}} Applies to: All Instances {{< /callout >}}
+
+tk - all the content ;)  - but upgrade your app settings to be declarative. 
+
+Be sure to [update](#token-login-requires-app_url) your `app_url` in settings if you're using token login..
+
+Background information:
+* [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
+
+## Increase ecmaVersion ES linting to version 6
+
+{{< callout type="info" >}} Applies to: CHT versions between 4.0 and 4.4  {{< /callout >}}
+
+Deployments running CHT Version 4.0 and 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x.
+
+Background information:
+* [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
 
 <!--
 todo:  replace all "TK" with correct link/text

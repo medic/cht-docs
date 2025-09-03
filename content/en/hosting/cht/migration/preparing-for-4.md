@@ -1,6 +1,6 @@
 ---
 title: "Preparing to upgrade to CHT 4.0"
-linkTitle: "Preparing for CHT 4.0"
+linkTitle: "Preparing for 4.0"
 weight:
 aliases:
   - /apps/guides/hosting/3.x/preparing-for-4.0
