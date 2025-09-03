@@ -23,7 +23,7 @@ The first line of bold text is the name of the person whom the report is about. 
 
 Apps built with the Core Framework have a “review” feature that allows managers to indicate whether a report has been reviewed and if it contains errors. If a manager has marked a report as “correct,” a green checkmark will show below the timestamp. If a report is marked as “has errors,” a red ‘X’ will show. This same icon is used for invalid SMS messages.
 
-<br clear="all">
+
 
 
 ## Filters & Search
@@ -43,12 +43,12 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 {{< figure src="reports-search-reset.png" link="reports-search-reset.png" class="left col-9 col-lg-9" >}}
 
-<br clear="all">
+
 
 > [!NOTE]
 > A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "building/reference/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "building/guides/feature-flags" >}}) documentation for more info
 
-<br clear="all">
+
 
 
 ## Action Buttons
@@ -59,7 +59,7 @@ Clicking on the “Export” button will download a CSV file with all the data f
 
 {{< figure src="reports-desktop.png" link="reports-desktop.png" class="left col-9 col-lg-9" >}}
 
-<br clear="all">
+
 
 ## Bulk Delete Reports
 
@@ -71,7 +71,7 @@ Allows the user to select multiple reports and delete them. **Please Note**: Thi
 
 {{< figure src="reports-bulk-desktop.png" link="reports-bulk-desktop.png" class="left col-9 col-lg-9" >}}
 
-<br clear="all">
+
 
 
 ## Detail Pages
@@ -89,4 +89,4 @@ The buttons at the bottom are configurable. The ones you see will depend on your
 - **Edit**: Opens the form to edit it
 - **Delete**: Deletes a report ( cannot be undone)
 
-<br clear="all">
+
