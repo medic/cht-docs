@@ -63,7 +63,7 @@ pre[class*="language-"] {
   color: rgb(42, 44, 46);
 }
 
-.dark\:hx-text-gray-400:is(html[class~="dark"] *) {
+.dark\:hx\:text-gray-400:is(html[class~="dark"] *) {
   --tw-text-opacity: 1;
   color: rgb(205, 215, 231);
 }

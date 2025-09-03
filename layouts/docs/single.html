@@ -8,7 +8,7 @@
       {{ partial "breadcrumb.html" . }}
       <div class="content">
         {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
-        <p class="not-prose hx-text-xl hx-text-gray-600 dark:hx-text-gray-400 sm:hx-text-xl">
+        <p class="not-prose hx:text-xl hx:text-gray-600 dark:hx:text-gray-400 sm:hx:text-xl">
           {{ .Page.Description }}
         </p>
         {{ .Content }}
