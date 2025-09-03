@@ -44,7 +44,7 @@ Get the training card files [here](https://github.com/medic/cht-docs/tree/main/c
 
 {{< figure src="images/floating-action-button.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 ### More Options Menu
 
@@ -56,7 +56,7 @@ Get the training card files [here](https://github.com/medic/cht-docs/tree/main/c
 
 {{< figure src="images/more-options.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 Once you have downloaded the training card files, follow the [step by step guide]({{< relref "building/training/training-cards" >}}) to learn how to edit the `properties file` to configure: 
 - The `roles` of users who can view the training cards 
