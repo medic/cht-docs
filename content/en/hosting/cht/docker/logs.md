@@ -5,8 +5,8 @@ weight: 3
 description: >
     What to do when you need to find server side errors in CHT
 relatedContent: >
-   building/guides/debugging/sharing-4x-logs
-   building/guides/debugging/obtaining-logs
+  community/contributing/code/troubleshooting/sharing-4x-logs
+   community/contributing/code/troubleshooting/obtaining-logs
 aliases:
   - /apps/guides/hosting/cht/logs
   - /hosting/cht/logs

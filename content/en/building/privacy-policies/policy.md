@@ -9,6 +9,7 @@ relatedContent: >
   building/reference/app-settings/patient_reports
 aliases:
    - /apps/guides/privacy/policy
+   - /building/guides/privacy/policy/
 ---
 
 > [!NOTE]
