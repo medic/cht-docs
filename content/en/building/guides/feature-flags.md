@@ -8,11 +8,13 @@ relatedContent: >
   building/users
   building/reference/app-settings/user-permissions
   building/reference/app-settings/user-roles
-
-
 aliases:
    - /apps/guides/updates/feature-flags
+<<<<<<<< HEAD:content/en/building/guides/feature-flags.md
    - /building/guides/updates/feature-flags/
+========
+   - /building/guides/updates/feature-flags
+>>>>>>>> d8dede56 (chore(#1936): shuffle build quick guides part 2 (#1957)):content/en/community/contributing/code/core/feature-flags.md
 ---
 
 Some CHT Core features can be enabled for specific users only. This can be particularly helpful for features that require training. The updated or "new" version will generally be the system default, but users can be configured to see the "old" version. If you do nothing when you upgrade, users will automatically start seeing the new version.
