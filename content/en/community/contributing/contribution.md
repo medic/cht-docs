@@ -3,7 +3,6 @@ title: "Contributing to the CHT"
 linkTitle: "About Contributions"
 weight: 1
 description: > 
-
   What is a contribution?
 ---
 
