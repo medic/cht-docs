@@ -5,7 +5,6 @@ weight: 1
 description: > 
 
   What is a contribution?
-  
 ---
 
 A contribution is any meaningful action: technical or non-technical—that advances the CHT’s mission of improving community health. All contributions must add measurable value, adhere to our [Code of Conduct](https://docs.communityhealthtoolkit.org/community/contributing/code-of-conduct/), and align with the CHT’s core goals.
