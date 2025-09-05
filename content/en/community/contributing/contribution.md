@@ -1,6 +1,6 @@
 --- 
 title: "Contributing to the CHT" 
-linkTitle: "Contributions"
+linkTitle: "About Contributions"
 weight: 1
 description: > 
 
