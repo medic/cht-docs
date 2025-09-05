@@ -11,7 +11,7 @@ A contribution is any meaningful action: technical or non-technical—that advan
 
 ### Ways to Contribute
 
-There are many paths to contribute to our community. Here are some of the key ways you can get involved:
+There are many paths to contribute to the CHT community. Here are some of the key ways you can get involved:
 - **Technical contributions** include:  
   - **Code:** Submit bug fixes, develop new features, or build example apps.  
   - **Design:** Create wireframes, user & system workflows, or solution documentation.  
