@@ -29,7 +29,7 @@ On the main list of messages, the first line of bold text is the name and / or p
 In the upper right corner, a timestamp displays when the most recent message was sent. An unread message is indicated by a blue line and bold blue timestamp. Messages are sorted by date with the most recent at the top of the list.
 
 To send a new message that starts a brand new conversation thread, select the “Send Message +” button at the bottom of the screen. On the new message screen, enter the phone number you would like to send the message to or select a person in the app from the drop-down list. Then, type out your message text.
-<br clear="all">
+
 
 ## Detail Page
 
@@ -43,4 +43,4 @@ Clicking on a message in the main list will take you to a detail tab where you c
 To reply to a message, tap or click in the box at the bottom of the conversation that says “Reply to…” and start typing. Each message is limited to 160 characters but you may send more than one message if necessary.
 
 It is also possible to configure auto-responses and for schedules of personalized, automated messages to be triggered upon submission of a form (e.g., a pregnancy registration triggers a schedule of personalized Antenatal care messages).
-<br clear="all">
+

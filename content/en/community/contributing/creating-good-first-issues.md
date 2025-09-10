@@ -20,6 +20,21 @@ Follow the next steps to create a "Good First Issue":
   These are not the same as `Help wanted` tickets - be sure you [know the difference](/community/contributing/first-time-contributors/#your-first-issue).
 {{< /callout >}}
 
+## Markdown template
+
+Use this content to paste into a GitHub ticket.  Then add the steps needed to solve the ticket.  See [the ticket below](#example-ticket) for an example of what this would look like:
+
+```markdown
+## Good first issue
+
+This ticket has the [Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)! This means it's been especially curated by other CHT contributors to be easy to work on for first time contributors [per the docs](https://docs.communityhealthtoolkit.org/community/contributing/creating-good-first-issues/).
+
+To succeed on this ticket, please:
+1. step one
+2. step two
+3. step three
+```
+
 ## Example ticket
 
 Taken from [#9869](https://github.com/medic/cht-core/issues/9869) opened Apr 2025:

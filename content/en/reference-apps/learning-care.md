@@ -52,7 +52,7 @@ This integrated Learning & Care App leverages the **[remote onboarding]({{< ref 
 
 {{< youtube WOE5QlPye0k >}}
 
-<br clear="all">
+
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1fsf0bpF6jdngwwj1VUqpR2QxONS7fEP88GQMWHr10Jc/edit#slide=id.g5fbe124551_2_36)
 

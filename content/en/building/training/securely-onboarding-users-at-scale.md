@@ -14,6 +14,7 @@ relatedContent: >
 
 aliases:
    - /apps/guides/security/securely-onboarding-users-at-scale
+   - /building/guides/security/securely-onboarding-users-at-scale
 ---
 
 This document shows how to achieve a high level of credential management security for a CHT deployment. Implementers need to know when ease of use is more important than a more secure system. By reading this document you should be able to know when to make the "more secure" vs "easier to use" trade off. 
@@ -26,7 +27,7 @@ When a CHT deployment will support hundreds of users or more, secure credential 
 
 ### Secure devices
 
-Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "building/guides/security/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/branding/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
+Firstly, ensure that the CHWs' devices are secure: they all employ disk encryption and require a password or PIN to unlock and use. See our [Securing Android Devices document]({{% ref "community/contributing/code/android/securing-android" %}}) for more information. As well, an [MDM]({{% ref "building/branding/publishing#mobile-device-management" %}}) may be used to enforce disk encryption and device unlock protocols.
 
 ### Secure administrative users
 
