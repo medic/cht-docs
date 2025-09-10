@@ -7,11 +7,7 @@ description: >
   
 aliases:
    - /apps/guides/updates/collect-forms-update
-<<<<<<<< HEAD:content/en/building/guides/collect-forms-update.md
    - /building/guides/updates/collect-forms-update/
-========
-   - /building/guides/updates/collect-forms-update
->>>>>>>> origin/main:content/en/community/contributing/code/core/collect-forms-update.md
 ---
 
 To do over the air Medic Collect form updates via HTTP rather than sending APKs which have a long manual install process, follow the steps below:
