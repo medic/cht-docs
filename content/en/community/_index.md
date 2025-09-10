@@ -13,7 +13,7 @@ aliases:
 {{< /callout >}}
 
 {{< cards >}}
-  {{< card link="contributing/contributing-to-the-cht" title="About Contributions" subtitle="Here is how you can contribute to the CHT" icon="heart" >}}
+  {{< card link="about-contributions" title="About Contributions" icon="users" subtitle="Here is a guide on how you can contribute" >}}
   {{< card link="contributing/first-time-contributors" title="Contribute for the First Time?" subtitle="Start with the first time contributors guide" icon="heart" >}}
   {{< card link="https://academy.communityhealthtoolkit.org/" title="Take Courses on the CHT?" icon="academic-cap" subtitle="Head over to the CHT Academy" >}}
   {{< card link="contributing/" title="Contribute Code or Docs?" subtitle="Develop and contribute to the CHT or help improve the documentation" icon="code" >}}
