@@ -33,6 +33,9 @@ A recurring problem seen on production deployments was that, over time, CHT admi
 
 To avoid this situation, the upgrade service has been removed from Kubernetes based deployments.
 
+<!-- 
+    todo: fix TK link to technical guide: 
+-->
 Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository. Please see the TK technical guide on how to migrate Kubernetes based deployments to 5.0.
 
 Background information:
@@ -70,6 +73,9 @@ Background information:
 
 {{< callout type="info" >}} Applies to: All Instances {{< /callout >}}
 
+<!-- 
+    todo: add missing TK content on how to make a declarative config
+-->
 tk - all the content ;)  - but upgrade your app settings to be declarative. 
 
 Be sure to [update](#token-login-requires-app_url) your `app_url` in settings if you're using token login..
@@ -102,8 +108,3 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 
 Background information:
 * [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
-
-
-<!--
-todo:  replace all "TK" with correct link/text
--->
