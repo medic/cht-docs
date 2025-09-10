@@ -11,34 +11,16 @@ description: >
 
 CHT releases use [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (also known as "SemVer"), which means that the CHT upgrade from the major 4.x version to the 5.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes.
 
-
 As with all upgrades, major or minor, you should always:
 * Have [backups]({{< relref "/hosting/cht/docker/backups/" >}}) that have been tested to work
 * Ensure your [CHT Conf]({{< relref "/community/contributing/code/cht-conf/" >}}) version is up to date
 * Review the change log to understand how end users might be affected
 
-## CouchDB Nouveau
+Read though this entire document before upgrading and pay special attention to the "Breaking Changes" section to know which of of the changes are applicable.
 
-{{< callout type="info" >}} Applies to: [Kubernetes]({{< relref "/hosting/cht/kubernetes/" >}}) hosted CHT instances {{< /callout >}}
+## Breaking Changes
 
-A major feature of CHT 5.0 is replacing the old freetext search in 4.x with CouchDB Nouveau. The addition of Nouveau [decreases the amount of disk space](https://github.com/medic/cht-core/issues/9898#issuecomment-2864545914) used by the CHT.  Disk space has been shown to be a major contributor to hosting costs, hence Nouveau is the first feature to [reduce Hosting Total Cost of Ownership (TCO)](https://github.com/medic/cht-roadmap/issues/171).
-
-Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository.
-
-Please see the technical guide on how to migrate Kubernetes based deployments to 5.0.
-
-Background information:
-* [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
-
-### Related Updates
-
-While the 5.0 upgrade for Docker based deployments will be transparent, there's some more Nouveau related changes that deployments should know about which can affect both Docker and Kubernetes:
-
-* Offline users' devices will have their search indexes rebuilt after the upgrade. During the rebuild, search functionality will be initially unavailable. However, once the indexing is complete, the search behavior will be unchanged from before for all users:  the search experience is the same in both CHT 4.x and CHT 5.x.
-* The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
-* The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
-
-## Upgrade service removed from Kubernetes
+### Upgrade service removed from Kubernetes
 
 {{< callout type="info" >}} Applies to: [Kubernetes]({{< relref "/hosting/cht/kubernetes/" >}}) hosted CHT instances {{< /callout >}}
 
@@ -57,10 +39,11 @@ Background information:
 * [Hide upgrade button in admin app for k8s deployments, while still allowing staging upgrades](https://github.com/medic/cht-core/issues/9954)
 * [Remove upgrade service from Helm charts](https://github.com/medic/cht-core/issues/10186)
 
-## Token login requires `app_url`
+### Token login requires `app_url`
 
 {{< callout type="info" >}} Applies to: Instances that use [token login]({{< relref "/building/login/#magic-links-for-logging-in-token-login" >}}) {{< /callout >}}
 
+For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.  
 For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.  
 
 Be sure to use [the new declarative config](#declarative-configuration) as well.
@@ -68,7 +51,7 @@ Be sure to use [the new declarative config](#declarative-configuration) as well.
 Background information:
 * [Require `app_url` to be set when enabling `token_login`](https://github.com/medic/cht-core/issues/9983)
 
-## Enabling languages via generated docs
+### Enabling languages via generated docs
 
 {{< callout type="info" >}} Applies to: Instances that enable languages via web interface {{< /callout >}}
 
@@ -81,7 +64,7 @@ Background information:
 * [Allow app builders to specify disabled languages in config](https://github.com/medic/cht-core/issues/6281)
 
 
-## Declarative Configuration 
+### Declarative Configuration 
 
 {{< callout type="info" >}} Applies to: All Instances {{< /callout >}}
 
@@ -92,7 +75,7 @@ Be sure to [update](#token-login-requires-app_url) your `app_url` in settings if
 Background information:
 * [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
 
-## Increase ecmaVersion ES linting to version 6
+### Increase ecmaVersion ES linting to version 6
 
 {{< callout type="info" >}} Applies to: CHT versions between 4.0 and 4.4  {{< /callout >}}
 
@@ -100,6 +83,24 @@ Deployments running CHT Version 4.0 and 4.4 must upgrade to version 4.5 or later
 
 Background information:
 * [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
+
+## Non-Breaking Changes
+
+These changes apply to all deployments.  No specific action needs to be taken, but administrators should be aware of the changes.
+
+### CouchDB Nouveau
+
+A major feature of CHT 5.0 is replacing the old freetext search in 4.x with CouchDB Nouveau. The addition of Nouveau [decreases the amount of disk space](https://github.com/medic/cht-core/issues/9898#issuecomment-2864545914) used by the CHT.  Disk space has been shown to be a major contributor to hosting costs, hence Nouveau is the first feature to [reduce Hosting Total Cost of Ownership (TCO)](https://github.com/medic/cht-roadmap/issues/171).
+
+Nouveau has the following impact on all CHT deployments upgrading to 5.0:
+
+* Offline users' devices will have their search indexes rebuilt after the upgrade. During the rebuild, search functionality will be initially unavailable. However, once the indexing is complete, the search behavior will be unchanged from before for all users:  the search experience is the same in both CHT 4.x and CHT 5.x.
+* The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
+* The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
+
+Background information:
+* [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
+
 
 <!--
 todo:  replace all "TK" with correct link/text
