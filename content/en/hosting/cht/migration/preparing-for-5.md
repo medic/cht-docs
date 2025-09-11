@@ -46,10 +46,7 @@ Background information:
 
 {{< callout type="info" >}} Applies to: Instances that use [token login]({{< relref "/building/login/#magic-links-for-logging-in-token-login" >}}) {{< /callout >}}
 
-For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.  
-For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.  
-
-Be sure to use [the new declarative config](#declarative-configuration) as well.
+For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.
 
 Background information:
 * [Require `app_url` to be set when enabling `token_login`](https://github.com/medic/cht-core/issues/9983)
@@ -76,9 +73,7 @@ Background information:
 <!-- 
     todo: add missing TK content on how to make a declarative config
 -->
-tk - all the content ;)  - but upgrade your app settings to be declarative. 
-
-Be sure to [update](#token-login-requires-app_url) your `app_url` in settings if you're using token login..
+tk - all the content ;)  - but upgrade your app settings to be declarative.
 
 Background information:
 * [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
