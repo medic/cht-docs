@@ -38,7 +38,7 @@ On your phone, you will see a popup _"Allow USB debugging. The computer's RSA fi
 
 {{% /steps %}}
 
-{{< figure src="/images/allow_usb_debugging.png" link="/allow_usb_debugging.png" caption="Allow USB debugging" >}}
+{{< figure src="allow_usb_debugging.png" caption="Allow USB debugging" >}}
 
 ### Browser logs
 
@@ -62,7 +62,7 @@ Within a command line session, write the following command: `adb start-server`.
 
 To check if your phone is properly connected, write the command `adb devices`. This will list the devices connected.
 
-{{< figure src="/images/adb_devices.png" link="/images/adb_devices.png" caption="ADB Devices" >}}
+{{< figure src="adb_devices.png" caption="ADB Devices" >}}
 
 ### Step 4
 
