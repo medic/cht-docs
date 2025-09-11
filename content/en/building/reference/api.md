@@ -243,8 +243,8 @@ Returns a JSON array of CHT-related software versions and device information for
 | android         | The version of Android OS.                                                                                                               |
 | cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            |
 | settings        | The revision of the App Settings document stored in CouchDB.                                                                             |
-| storageFree     | The amount of free storage space on the device in bytes. *Added in 5.0.0*                                                                |
-| storageTotal    | The total storage capacity of the device in bytes. *Added in 5.0.0*                                                                      |
+| storageFree     | The amount of free storage space on the device in bytes.                                                                |
+| storageTotal    | The total storage capacity of the device in bytes.                                                                      |
 
 #### Example response
 
