@@ -15,48 +15,6 @@ aliases:
    - /apps/tutorials/app-forms
 ---
 
-<style>
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  background: #f3f4f6;
-  color: #374151;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  padding: 0.35em 0.9em;
-  font-size: 0.95em;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-.copy-btn:hover {
-  background: #e5e7eb;
-  color: #111827;
-}
-.copy-btn:active {
-  background: #d1d5db;
-}
-#copied-msg {
-  display: none;
-  color: #388e3c;
-  font-weight: bold;
-  margin-left: 10px;
-  font-size: 1em;
-}
-.tsv-table {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  padding: 12px;
-  font-family: monospace;
-  font-size: 0.98em;
-  overflow-x: auto;
-  white-space: pre;
-  margin-top: 0.5em;
-}
-</style>
-
 App forms allow users to submit reports from Android devices.
 
 This tutorial will take you through how to build App forms for CHT applications, including:
