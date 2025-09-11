@@ -1,0 +1,69 @@
+<style>
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.35em 0.9em;
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 0.2em;
+}
+.copy-btn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+.copy-btn:active {
+  background: #d1d5db;
+}
+.copied-msg {
+  display: none;
+  color: #388e3c;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1em;
+}
+.tsv-table-visual {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5em;
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 1em;
+  background: transparent;
+}
+.tsv-table-visual th, .tsv-table-visual td {
+  border: 1px solid #e5e7eb;
+  padding: 6px 10px;
+  background: transparent;
+}
+.tsv-table-visual th {
+  background: #f3f4f6;
+  font-weight: bold;
+}
+</style>
+{{ $id := .Get "id" | default (now.UnixNano) }}
+{{ $tsv := .Inner | safeHTML }}
+<br>
+<button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('tsv-{{ $id }}').innerText);const msg=document.getElementById('copied-msg-{{ $id }}');msg.style.display='inline';setTimeout(function(){msg.style.display='none';},1500);">
+  📋 {{ .Get "label" | default "Copy table" }}
+</button>
+<span id="copied-msg-{{ $id }}" class="copied-msg">Copied!</span>
+{{/* Render visual table for user, but keep <pre> for copy-paste */}}
+{{ $lines := split $tsv "\n" }}
+<table class="tsv-table-visual">
+  {{ range $i, $line := $lines }}
+    {{ if ne (len (trim $line " ")) 0 }}
+    <tr>
+      {{ range (split $line "\t") }}
+        {{ if eq $i 0 }}<th>{{ . }}</th>{{ else }}<td>{{ . }}</td>{{ end }}
+      {{ end }}
+    </tr>
+    {{ end }}
+  {{ end }}
+</table>
+<pre id="tsv-{{ $id }}" style="display:none;">{{ $tsv }}</pre>
