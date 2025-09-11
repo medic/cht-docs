@@ -20,7 +20,7 @@ There are many paths to contribute to the CHT community. Here are some of the ke
 - **Technical contributions** include:  
   - **[Code](https://docs.communityhealthtoolkit.org/community/contributing/code/):** Submit bug fixes, develop new features, or build example apps.  
   - **[Design](https://docs.communityhealthtoolkit.org/design/):** Create wireframes, user & system workflows, or solution documentation.  
-  - **Infrastructure:** Improve the DevOps automation & [security enhancements](https://docs.communityhealthtoolkit.org/community/contributing/disclosing-vulnerabilities/).  
+  - **Security:** [Disclose vulnerabilities](https://docs.communityhealthtoolkit.org/community/contributing/disclosing-vulnerabilities/).  
   - **[Testing](https://docs.communityhealthtoolkit.org/community/contributing/code/core/automated-tests/#contributing-section):** Bug reports, test coverage, or user acceptance feedback.
 
 - **Non-technical contributions** include:  
