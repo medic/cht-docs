@@ -45,7 +45,9 @@ Create 2 additional sheets. Rename the sheets `survey`, `choices` and `settings`
 
 ### 1. Define XLS Survey/Form Fields
 
-Copy everything inside the code block below, then paste into cell A1 of a new sheet named `survey` in Excel or Google Sheets:
+This rows are populated automatically before the form is rendered to the user. These fields are usually hidden by default but can be accessed to display certain information about the person being assessed.
+
+Copy everything inside the table below, then paste into cell A1 of a new sheet named `survey` in Google Sheets or your prefered editor:
 
 {{< copytable id="survey" label="Copy survey sheet" >}}
 type	name	label	required	relevant	appearance	constraint	constraint_message	calculation	choice_filter	hint	default
@@ -83,7 +85,7 @@ end group
 
 ### 2. Define the Choices
 
-Copy everything inside the code block below, then paste into cell A1 of a new sheet named `choices`:
+Copy everything inside the table below, then paste into cell A1 of a new sheet named `choices`:
 
 {{< copytable id="choices" label="Copy choices sheet" >}}
 list_name	name	label
@@ -97,7 +99,7 @@ symptom_duration	14	14 days or more
 
 ### 3. Define the XLS Settings
 
-Copy everything inside the code block below, then paste into cell A1 of a new sheet named `settings`:
+Copy everything inside the table below, then paste into cell A1 of a new sheet named `settings`:
 
 {{< copytable id="settings" label="Copy settings sheet" >}}
 form_title	form_id	version	style	path	instance_name	default_language
