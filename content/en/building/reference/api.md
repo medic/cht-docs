@@ -232,19 +232,19 @@ Returns a JSON array of CHT-related software versions and device information for
 
 #### Output
 
-| Column          | Description                                                                                                                              |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| user            | The user's name.                                                                                                                         |
-| deviceId        | The unique key for the user's device.                                                                                                    |
-| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           |
-| browser.name    | The name of the browser used.                                                                                                            |
-| browser.version | The version of the browser used.                                                                                                         |
-| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. |
-| android         | The version of Android OS.                                                                                                               |
-| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            |
-| settings        | The revision of the App Settings document stored in CouchDB.                                                                             |
-| storageFree     | The amount of free storage space on the device in bytes.                                                                |
-| storageTotal    | The total storage capacity of the device in bytes.                                                                      |
+| Column          | Description                                                                                                                              | Added in    |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| user            | The user's name.                                                                                                                         | CHT 4.7.0   |
+| deviceId        | The unique key for the user's device.                                                                                                    | CHT 4.7.0   |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           | CHT 4.7.0   |
+| browser.name    | The name of the browser used.                                                                                                            | CHT 4.7.0   |
+| browser.version | The version of the browser used.                                                                                                         | CHT 4.7.0   |
+| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. | CHT 4.7.0   |
+| android         | The version of Android OS.                                                                                                               | CHT 4.7.0   |
+| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            | CHT 4.7.0   |
+| settings        | The revision of the App Settings document stored in CouchDB.                                                                             | CHT 4.7.0   |
+| storageFree     | The amount of free storage space on the device in bytes.                                                                | CHT 5.0.0   |
+| storageTotal    | The total storage capacity of the device in bytes.                                                                      | CHT 5.0.0   |
 
 #### Example response
 
