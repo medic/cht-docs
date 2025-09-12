@@ -228,21 +228,45 @@ GET /api/v2/export/contacts?filters[search]=jim
 
 *Added in 4.7.0*
 
-Returns a JSON array of CHT-related software versions for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
+Returns a JSON array of CHT-related software versions and device information for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
 
 #### Output
 
-| Column          | Description                                                                                                                              |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| user            | The user's name.                                                                                                                         |
-| deviceId        | The unique key for the user's device.                                                                                                    |
-| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           |
-| browser.name    | The name of the browser used.                                                                                                            |
-| browser.version | The version of the browser used.                                                                                                         |
-| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. |
-| android         | The version of Android OS.                                                                                                               |
-| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            |
-| settings        | The revision of the App Settings document stored in CouchDB.                                                                             |
+| Column          | Description                                                                                                                              | Added in    |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| user            | The user's name.                                                                                                                         | CHT 4.7.0   |
+| deviceId        | The unique key for the user's device.                                                                                                    | CHT 4.7.0   |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           | CHT 4.7.0   |
+| browser.name    | The name of the browser used.                                                                                                            | CHT 4.7.0   |
+| browser.version | The version of the browser used.                                                                                                         | CHT 4.7.0   |
+| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. | CHT 4.7.0   |
+| android         | The version of Android OS.                                                                                                               | CHT 4.7.0   |
+| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            | CHT 4.7.0   |
+| settings        | The revision of the App Settings document stored in CouchDB.                                                                             | CHT 4.7.0   |
+| storageFree     | The amount of free storage space on the device in bytes.                                                                | CHT 5.0.0   |
+| storageTotal    | The total storage capacity of the device in bytes.                                                                      | CHT 5.0.0   |
+
+#### Example response
+
+```json
+[
+  {
+    "user": "org.couchdb.user:demo",
+    "deviceId": "8d2acf57-202d-4359-9abe-9ff7b78ed328",
+    "date": "2025-09-11",
+    "browser": {
+      "name": "Chrome",
+      "version": "109.0.0.0"
+    },
+    "android": "11",
+    "apk": "v1.9.0-local",
+    "cht": "5.0.0",
+    "settings": "4-75d6279cd125fc47d86eb30c1fcc748f",
+    "storageFree": 16713310208,
+    "storageTotal": 26544680960
+  }
+]
+```
 
 ## Forms
 
