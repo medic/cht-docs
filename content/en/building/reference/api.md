@@ -14,7 +14,7 @@ aliases:
 }
 </style>
 
-This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{< ref "technical-overview/concepts/data-flows-for-analytics" >}}) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
+This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{< ref "technical-overview/data/analytics/data-flows-for-analytics" >}}) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
 
 {{< toc >}}
 
@@ -236,7 +236,7 @@ Returns a JSON array of CHT-related software versions for each user device. This
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | user            | The user's name.                                                                                                                         |
 | deviceId        | The unique key for the user's device.                                                                                                    |
-| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "building/guides/performance/telemetry" >}}).           |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           |
 | browser.name    | The name of the browser used.                                                                                                            |
 | browser.version | The version of the browser used.                                                                                                         |
 | apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. |
@@ -437,7 +437,7 @@ All property names will be lowercased.
 Creating new record using message field.
 
 ```
-POST /api/v1/records
+POST /api/v2/records
 Content-Type: application/x-www-form-urlencoded
 
 message=1!YYYZ!Sam#23#2015#ANC&from=+5511943348031&sent_timestamp=1352399720000
@@ -456,7 +456,7 @@ Content-Type: application/json; charset=utf-8
 Creating new record with JSON.
 
 ```
-POST /api/v1/records
+POST /api/v2/records
 Content-Type: application/json
 
 {
@@ -2115,7 +2115,7 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
 {{< /callout >}}
 
-When [SSO Login]({{< ref "hosting/sso" >}}) is enabled (by configuring the [`oidc_provider` settings]({{< ref "building/reference/app-settings/oidc_provider" >}})), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
+When [SSO Login]({{< ref "/hosting/sso" >}}) is enabled (by configuring the [`oidc_provider` settings]({{< ref "building/reference/app-settings/oidc_provider" >}})), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
 
 Two CHT users cannot share the same `oidc_username` value. Setting the `oidc_username` property for a user will cause the user's password (in the CHT) to be set to a random value, preventing them from logging in with other authentication methods. Instead, the user must log in using the "Login with SSO" button.
 
@@ -2127,7 +2127,7 @@ When creating/editing users via the [App Management interface]({{< ref "building
 
 When a user logs in via SSO, the CHT app will attempt to localize the interface based on the `locale` claim returned by the OIDC Provider (otherwise it will fall back to the default locale configured as the first `languages` entry in the [`app_settings.json`]({{< relref "building/reference/app-settings/#app_settingsjson" >}})).
 
-{{< see-also page="hosting/sso" anchor="remote-login" >}}
+{{< see-also page="/hosting/sso" anchor="remote-login" >}}
 
 ### GET /api/v1/users
 
@@ -2613,14 +2613,14 @@ autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
 [Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
-[A guide]({{< ref "building/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
+[A guide]({{< ref "building/training/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
 #### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
 that gets updated throughout the import and finalized upon completion.
-These entries are saved in the [`medic-logs`]({{< ref "building/guides/database#medic-logs" >}}) database and you can access them
+These entries are saved in the [`medic-logs`]({{< ref "technical-overview/data#medic-logs" >}}) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
 #### Headers
@@ -2949,7 +2949,7 @@ Content-Type: application/json
 
 ## Monitoring
 
-See the [Monitoring and alerting on the CHT]({{< relref "hosting/monitoring" >}}) page for how to use this API in production.
+See the [Monitoring and alerting on the CHT]({{< relref "/hosting/monitoring" >}}) page for how to use this API in production.
 
 ### GET /api/v1/monitoring
 

@@ -31,9 +31,9 @@ The name of the facility appears in the breadcrumbs of the aggregate widgets on 
 On the Top Right the user can click the **Filter** button to open the sidebar and change the Aggregate Targets of the other facilities.
 
 
-<br clear="all">
 
-<br clear="all">
+
+
 
 {{< figure src="multi-facility-aggregate-supervisor-filter.png" link="multi-facility-aggregate-supervisor-filter.png" class="right col-6 col-lg-8" >}}
 
@@ -41,17 +41,17 @@ Clicking the **Filter** button opens the sidebar, which allows the user to filte
 
 Selecting the Second Health Facility in the filter updates the Facility name in the breadcrumbs of the aggregate widgets on the Left Hand Side list and underneath the Target Title.
 
-<br clear="all">
 
-<br clear="all">
+
+
 
 {{< figure src="multi-facility-aggregate-supervisor-period.png" link="multi-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
 
 Filtering the Aggregate Targets by **Reporting Period** adds the name of the previous month to the breadcrumbs of the aggregate widgets on the Left Hand Side list and in the Target details.
 
-<br clear="all">
 
-<br clear="all">
+
+
 
 {{< figure src="one-facility-aggregate-supervisor-period.png" link="one-facility-aggregate-supervisor-period.png" class="right col-6 col-lg-8" >}}
 
@@ -61,7 +61,7 @@ The name of the facility **does not** appear in the breadcrumbs of the aggregate
 
 Filtering the Aggregate Targets by **Reporting Period** adds the name of the previous month to the breadcrumbs of the aggregate widgets on the Left Hand Side list and in the Target Details.
 
-<br clear="all">
+
 
 > [!NOTE]
 > - The list of facilities in the sidebar are sorted in alphabetic order.

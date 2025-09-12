@@ -131,12 +131,39 @@ For examples on how to structure the above files you can have a look at the [def
 
 Contact forms for creating a place can also optionally create one or more person-type documents. One of these person contacts can be linked to the created place as the primary contact.
 
-Below is a simple structure of a place form showing all the necessary components.
+### Creating primary contact for place
 
-{{< figure src="place-contact-form-survey.png" link="place-contact-form-survey.png" >}}
+When creating a place, it is often useful to create a primary contact person for that place at the same time. This is done by including a group with the name `contact` as a top-level group. Use `PARENT` as the default `parent` value so the person is automatically associated with the new place. Include any other fields you want to capture for the person inside the `contact` group.
 
-Section 1 is similar to what has been described earlier for person forms.
+| type        | name      | label::en             | appearance | default | calculation |
+|-------------|-----------|-----------------------|------------|---------|-------------|
+| begin_group | contact   | Head of the Household | field-list |         |             |
+| text        | parent    | NO_LABEL              | hidden     | PARENT  |             |
+| calculate   | type      |                       |            |         | “person”    |
+| text        | name      | Person name           |            |         |             |
+| end_group   | contact   |                       |            |         |             |
 
-Section 2 specifies the contact that will be linked to the place being created. `parent`, `type` and `contact_type` and `name` are mandatory. This also applies to the place-type definition in section 4. `contact` on the other hand is not mandatory for the successful creation of a place. It is usually more convenient to create a place and its primary contact at the same time.
+To mark the new person as the primary contact for the place, set the `contact` field in the place's top-level group to `"NEW"`. When the new place is written, its `contact._id` value will be set to the id for the newly created person.
 
-You can also create additional contacts linked to the place being created when you have a structure similar to that shown in section 3.
+| type        | name    | label::en      | appearance | default | calculation |
+|-------------|---------|----------------|------------|---------|-------------|
+| begin_group | clinic  | Household      | field-list |         |             |
+| text        | parent  | NO_LABEL       | hidden     | PARENT  |             |
+| calculate   | type    |                |            |         | “clinic”    |
+| text        | name    | Household name |            |         |             |
+| calculate   | contact |                |            |         | “NEW”       |
+| end_group   | clinic  |                |            |         |             |
+
+### Creating additional child contacts for place
+
+It is also possible to create additional contacts as children of the new place using a `repeat`. In a new top-level group named `repeat`, add a repeat named `child`.  Each entry in the `child` repeat will be considered a new contact to be added.  As with the `contact` group, use `PARENT` as the default `parent` value so the contacts are automatically associated with the new place. Include any other fields you want to capture for the new contacts inside the `child` repeat. 
+
+| type         | name   | label::en             | appearance | default | calculation |
+|--------------|--------|-----------------------|------------|---------|-------------|
+| begin_group  | repeat | Add household members |            |         |             |
+| begin_repeat | child  | Household member      | field-list |         |             |
+| text         | parent | NO_LABEL              | hidden     | PARENT  |             |
+| calculate    | type   |                       |            |         | “person”    |
+| text         | name   | Member Name           |            |         |             |
+| end_repeat   | child  |                       |            |         |             |
+| end_group    | repeat |                       |            |         |             |  

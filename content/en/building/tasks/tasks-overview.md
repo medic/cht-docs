@@ -32,7 +32,7 @@ Each task has an icon on the left side which indicates which type of task it is.
 Tasks are listed in order of due date. Tasks that are past due will appear at the top of the list. CHWs should strive to complete tasks before they are overdue. Many programs add targets to track task completion and timeliness.
 
 
-<br clear="all">
+
 
 ## Task prioritization
 
@@ -46,7 +46,7 @@ Tasks are now sorted using the following logic:
 - Tasks with higher priority scores appear first.
 - When scores tie, tasks are sorted by due date.
 - Tasks without or invalid priority scores appear last, sorted by due date. 
-- 
+
 {{< callout >}}
 Older configurations that do not implement the new priority score will continue sorting tasks by due date. 
 {{< /callout >}}
@@ -63,7 +63,7 @@ For more details and guides, see the following sections:
   {{< card link="/building/tasks/simple-priority-score" title="Sample Priority Score Function" subtitle="Priority Scoring using Weights" icon="terminal" >}}
 {{< /cards >}}
 
-<br clear="all">
+
 
 ## Care Guides
 
@@ -100,4 +100,4 @@ Tasks are also accessed from the People tab in the app.
 
 Tasks for a particular person or place can be viewed on the contact’s profile in the “Tasks” section. Filters allow you to choose how many tasks you’d like to view for each due date.
 
-<br clear="all">
+

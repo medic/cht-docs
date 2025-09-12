@@ -26,7 +26,7 @@ Create an [XLS Form]({{< relref "building/forms/app#xlsform" >}}). In the follow
 
 {{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 # Step 2: Add the form’s ID
 
@@ -34,7 +34,7 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 {{< figure src="step-2-xls-form-id.png" link="step-2-xls-form-id.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 # Step 3: Configure the training form
 
@@ -74,7 +74,7 @@ In your project configuration folder, place the XLS form, the properties file, a
 
 {{< figure src="step-5-file-structure.png" link="step-5-file-structure.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 # Step 6: Convert and upload the training form
 
@@ -107,7 +107,7 @@ cht --url=http://admin-user:secretpass@my-xyz-project.org upload-training-forms 
 
 At this point the training cards are ready to use. You can verify by logging in with a user that has a valid role assigned for the training card, on the day that the training starts. Remember, to sync the app to see the results (the uncompleted training will display once a day).
 
-Using [telemetry]({{< relref "building/guides/performance/telemetry" >}}) you can monitor user interaction with each training card "set". Some key metrics you can view include:
+Using [telemetry]({{< relref "technical-overview/data/performance/telemetry" >}}) you can monitor user interaction with each training card "set". Some key metrics you can view include:
 
 1. Number of times each user was presented with training cards
 2. The date(s) each user was presented with training cards
