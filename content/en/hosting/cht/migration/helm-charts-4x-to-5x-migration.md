@@ -2,18 +2,6 @@
 
 This guide covers the migration from CHT 4.x deployments using the legacy Helm charts in the [medic/helm-charts](https://github.com/medic/helm-charts) repository to the new production charts introduced in CHT 5.x within the [medic/cht-core](https://github.com/medic/cht-core) repository.
 
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Breaking Changes Summary](#breaking-changes-summary)
-3. [Migration Checklist](#migration-checklist)
-4. [Step-by-Step Migration Guide](#step-by-step-migration-guide)
-5. [Platform-Specific Configurations](#platform-specific-configurations)
-6. [Testing & Validation](#testing--validation)
-7. [Troubleshooting](#troubleshooting)
-8. [Rollback Procedures](#rollback-procedures)
-9. [Support Resources](#support-resources)
-
 ## Overview
 
 The Community Health Toolkit (CHT) has moved its Helm charts from a separate repository (`medic/helm-charts`) to the main CHT Core repository (`medic/cht-core`).
