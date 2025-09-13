@@ -824,3 +824,47 @@ Configuration is validated when Sentinel starts. Issues with the configuration w
 Errors occurring during the client-side transition will be recorded in the browser's console. This is where problems with processing reports from the replace forms will be logged. 
 
 Errors occurring during the server-side transition will be recorded in the Sentinel logs and on the contact doc for the original user. So, if the client-side transition marks the original user for replacement, but Sentinel fails to create the new user, the failure will be recorded on the original contact doc in the `errors` array.
+
+### Resetting the sentinel sequence ID to skip a large backlog
+
+In some cases, a CHT instance may develop a very large sentinel backlog that would take too long to process, preventing new transitions from being applied to incoming reports. In these situations, you can reset the sentinel sequence ID to skip processing the backlog.
+
+Follow these steps to reset the sentinel sequence ID:
+
+1. **Confirm you have a sentinel backlog** in watchdog. This will likely be in the thousands or millions. While it may be decreasing, you'll notice that it could take weeks or months to reach zero. During this backlog processing, no new sentinel transitions will be processed:
+
+   {{< figure src="sentinel-backlog.png" link="sentinel-backlog.png" alt="Screenshot showing a sentinel backlog in watchdog" >}}
+
+2. **Get the current sequence ID** for the medic database via:
+
+   ```
+   curl -qs https://medic:password@your-instance-url:port/medic/ | jq ".update_seq"
+   ```
+
+   This will show a long string (approximately 400 characters) starting with a number, for example:
+
+   ```
+   307933-g1AAAAO1eJyV0j1OwzAUB3CLIiEQUsXAJRiQP2I7ZoErQGsxMMV2oigqMDFzil4BUk-sTJyCKzAwMtOGZ8cLUlXJ9vCGJ__k97cXCKHjduLQiX18sq0zV4TKcwybLKC197CPXr3_hjLA6tqJQcgd3kProOSmFLzYdnQ3eKP1J5QXcBN4FEHJqeSK5oPrYfiAcg3uCNa3EaywZI0j-WDvvYfyC2664XsEi6bCWDX54Ezr5RilT-BFBJlzkjKWCZrnYdiMQS5Hzr5FjsqS1kzmcp33q2CuE_YVMaNajNtcTGs9D2Kfj5pzijMqcrFL-HRBnKV3vYuYsbUqRHZqZ5B-EDfpCabjmJRWxGWPeQq2CuPqXmSC8pCXPxCoUuHmSfqJkCVaF2Tpj9wfVKv_m
+   ```
+
+3. **In Fauxton**, go to the transitions-seq document by navigating to:
+
+   ```
+   https://your-instance-url:port/_utils/#database/medic-sentinel/_local/transitions-seq
+   ```
+
+   You'll notice that before editing, the leading integer in the "value" field is lower than what you found in step 2.
+
+4. **Stop the sentinel container**. This step is critical - if you don't stop sentinel, it may overwrite your changes to the sequence ID, and the backlog will not be cleared.
+
+5. **Edit the value field** to paste in the string you got from step 2 and click "Save Changes":
+
+   {{< figure src="sentinel-edit-sequence.png" link="sentinel-edit-sequence.png" alt="Screenshot showing the sequence ID edit in Fauxton" >}}
+
+6. **Restart the Sentinel container**.
+
+7. **Check watchdog** which should now show a sharp drop in the backlog to zero:
+
+   {{< figure src="sentinel-after-reset.png" link="sentinel-after-reset.png" alt="Screenshot showing watchdog after resetting sentinel sequence" >}}
+
+Note that this will skip processing all reports in the backlog. Only use this approach when you're confident that skipping the backlog processing is acceptable for your deployment.
