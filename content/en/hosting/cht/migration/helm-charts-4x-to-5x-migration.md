@@ -156,7 +156,6 @@ If you encounter issues during migration:
 
 ## Best Practices
 
-> **⚠️ WARNING**:
 1. **Test First**: Always test migrations in a non-production environment
 2. **Backup Data**: Ensure complete data backup before migration
 3. **Monitor Closely**: Watch deployment logs and metrics during migration
