@@ -30,4 +30,3 @@ There are many paths to contribute to the CHT community. Here are some of the ke
   - **Events**: Facilitate community [events](https://docs.communityhealthtoolkit.org/community/events/) like Community Meetup or Dev Hour. 
 
 
-
