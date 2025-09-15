@@ -10,7 +10,7 @@ This guide covers the migration from CHT 4.x deployments using the [legacy Helm 
 - **Old**: `medic/cht-chart-4x`
 - **New**: `cht-chart` (local chart from cht-core repository)
 
-## Breaking Changes Summary
+## Breaking Changes
 
 The following breaking changes require updates to your existing `values.yaml` files.
 
