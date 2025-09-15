@@ -12,7 +12,7 @@ This guide covers the migration from CHT 4.x deployments using the [legacy Helm 
 
 ## Breaking Changes Summary
 
-**IMPORTANT**: The following breaking changes require updates to your existing `values.yaml` files.
+The following breaking changes require updates to your existing `values.yaml` files.
 
 ### Critical Breaking Changes (Must Fix)
 
