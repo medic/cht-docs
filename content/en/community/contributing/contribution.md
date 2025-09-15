@@ -26,7 +26,7 @@ There are many paths to contribute to the CHT community. Here are some of the ke
 - **Non-technical contributions** include:  
   - **[Documentation](https://docs.communityhealthtoolkit.org/community/contributing/docs/):** Write guides, create tutorials, or translate the CHT to make it accessible to more users.
   - **Community Support**: Answer questions on the [CHT Forum](https://forum.communityhealthtoolkit.org/), provide user feedback, or advocate for the CHT.
-  - **Collaboration: Participate in a [Squad](https://docs.communityhealthtoolkit.org/community/squads/)** to help tackle specific user needs or projects.
+  - **Collaboration**: Participate in a [squad](https://docs.communityhealthtoolkit.org/community/squads/) to help tackle specific user needs or projects.
   - **Events: Facilitate community [events](https://docs.communityhealthtoolkit.org/community/events/)** like Community Meetup or Dev Hour. 
 
 This is just the beginning. To find the right opportunity for you and learn the next steps, explore the dedicated pages linked within our [Community](https://docs.communityhealthtoolkit.org/community/) page.
