@@ -2,13 +2,7 @@
 
 ## Overview
 
-This guide covers the migration from CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core) introduced in CHT 5.x. Helm charts were moved from the `helm-charts` [repository](https://github.com/medic/helm-charts/tree/main/charts/cht-chart-4x) to the main `cht-core` [repository](https://github.com/medic/cht-core/tree/master/scripts/build/helm).
-
-### Key Differences
-
-#### Chart Naming
-- **Old**: `medic/cht-chart-4x`
-- **New**: `cht-chart` (local chart from cht-core repository)
+This guide covers the migration from CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x.
 
 ## Breaking Changes
 
@@ -67,6 +61,8 @@ If you encounter issues during migration:
 3. Open an issue in the [CHT Core Repository](https://github.com/medic/cht-core/issues)
 
 ## Migration Steps
+
+{{% steps %}}
 
 ### Step 1: Prepare Migration Values File
 
@@ -153,6 +149,8 @@ If you encounter issues during migration:
 3. **Test data integrity**
 
 4. **Test application access**
+
+{{% /steps %}}
 
 ## Best Practices
 
