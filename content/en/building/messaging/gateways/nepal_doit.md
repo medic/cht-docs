@@ -41,7 +41,7 @@ Update your app settings as follows.
   "sms": {
     "outgoing_service": "nepal-doit-sms",
     "nepal_doit_sms": {
-    "url": "https://sms.doit.gov.np/api/sms"
+      "url": "https://sms.doit.gov.np/api/sms"
     }
   }
 }
