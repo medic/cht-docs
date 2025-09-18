@@ -54,6 +54,22 @@ Older configurations that do not implement the new priority score will continue 
 {{< card link="tasks-prioritization.png" image="tasks-prioritization.png"  method="resize">}}
 {{< /cards >}}
 
+
+
+## Android task alerts/notifications
+
+{{< callout >}}
+Available from CHT-core 4.22.0 and CHT android 1.5.x
+{{< /callout >}}
+
+Notifications on android can be configured to alert/remind users of their tasks. When this [permission]({{< relref "building/reference/app-settings/user-permissions" >}}) is enabled the user will receive notifications when a task is due and when a task is overdue once a day. The notification has the task title and content text. The content text can be [translated]({{< relref "building/translations/localizing" >}}) with key `android.notification.tasks.contentText` and translation parameters include:
+- `taskName` The task name.
+- `contact` The contact that the task is about.
+- `due` The date the task is due.
+
+Additional configuration can be done in the [app settings]({{< relref "building/reference/app-settings" >}}) to control the maximum number of notifications that can be shown at once.
+
+
 ### Quick guides 
 
 For more details and guides, see the following sections:
