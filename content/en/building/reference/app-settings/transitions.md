@@ -835,10 +835,10 @@ Follow these steps to reset the sentinel sequence ID:
 
    {{< figure src="sentinel-backlog.png" link="sentinel-backlog.png" alt="Screenshot showing a sentinel backlog in watchdog" >}}
 
-2. **Get the current sequence ID** for the medic database via:
+2. **Get the current sequence ID** for the medic database via a `curl` call. Be sure to replace `<password>` and `<cht-url>` with the correct values:
 
    ```
-   curl -qs https://medic:password@your-instance-url:port/medic/ | jq ".update_seq"
+   curl -qs https://medic:<password>@<cht-url>/medic/ | jq ".update_seq"
    ```
 
    This will show a long string (approximately 400 characters) starting with a number, for example:
