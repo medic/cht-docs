@@ -6,8 +6,6 @@ description: >
     Instructions for updating medic/pyxform to new XLSForm/pyxform releases
 relatedContent: >
     releases/
-aliases: >
-  /contribute/code/releasing/pyxform
 ---
 
 The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com/XLSForm/pyxform) with custom modifications for the CHT. This page documents the process for updating `medic/pyxform` to a new upstream release from XLSForm/pyxform, ensuring the custom changes are preserved and the process is replicable.
@@ -19,11 +17,6 @@ The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com
 - Open a PR from the rebase branch for review.
 - Once approved, force-push the rebase branch to `medic/master` (do not merge the PR).
 - Tag the new release.
-
-## Prerequisites
-
-- Ensure all custom features are finalized and working as expected.
-- Have access to push to your fork of `medic/pyxform` and (for maintainers) to `medic/pyxform`.
 
 ## Steps to Update to a New Release
 
@@ -58,7 +51,7 @@ The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com
    ```bash
    git log --oneline -7
    ```
-   The oldest commit should be "BEGIN DOWNSTREAM CHANGES FOR medic/pyxform". Newer commits are the custom changes.
+   The oldest commit listed should say "BEGIN DOWNSTREAM CHANGES FOR medic/pyxform". Newer commits are the custom changes. Make a note of all of these commits for future reference to ensure none are lost in the rebase.
 
 7. **Rebase on top of the target XLSForm tag:**
    ```bash
@@ -70,20 +63,29 @@ The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com
    git log --oneline -7
    ```
 
-9. **Push to your fork and open a PR for review:**
+9. **Maintainer creates target branch:** Before the PR can be opened, a maintainer should create the target branch:
    ```bash
-   git push origin HEAD
+   git checkout <target_tag>
+   git checkout -b <target_tag>-rebase
+   git push medic <target_tag>-rebase
    ```
-   Open a PR from `<github_user>/<target_tag>-rebase` to `medic/<target_tag>-rebase`.
 
-10. **Do not merge the PR.** Once approved, a maintainer should force-push the rebase branch to master:
+10. **Push to your fork and open a PR for review:**
     ```bash
-    git checkout <github_user>/<target_tag>-rebase
+    git push origin HEAD
+    ```
+    Open a PR from `<github_user>/<target_tag>-rebase` to `medic/<target_tag>-rebase`.
+
+11. **Merge the PR:** Once approved, the maintainer should merge the PR using the "Rebase Merge" button to keep all individual commits.
+
+12. **Force-push to master:** After merging, the maintainer should checkout the merged branch and force-push it to master:
+    ```bash
+    git checkout medic/<target_tag>-rebase
     git pull
     git push --force-with-lease medic <target_tag>-rebase:master
     ```
 
-11. **Tag the release:**
+13. **Tag the release:**
     ```bash
     git tag -a <target_tag>-medic -m "Release <target_tag>-medic of pyxform-medic"
     git push medic <target_tag>-medic
@@ -91,7 +93,7 @@ The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com
 
 ## Updating the Bundled Pyxform in CHT Conf
 
-After tagging the new release, update the executable shipped with [cht-conf](https://github.com/medic/cht-conf) to avoid version sync issues.
+After tagging the new release, update the executable shipped with [cht-conf](https://github.com/medic/cht-conf).
 
 1. **Install shiv for creating the zipapp:**
    ```bash
@@ -106,10 +108,6 @@ After tagging the new release, update the executable shipped with [cht-conf](htt
 3. **Copy the generated file to cht-conf:**
    Copy `xls2xform-medic` to `cht-conf/src/bin`.
 
-This ensures consumers of cht-conf do not need to manually install pyxform and prevents version mismatches.
+4. **Test the new version:** Test the new version of pyxform/cht-conf by building both [cht-core](https://github.com/medic/cht-core) and [cht-config-library](https://github.com/jkuester/cht-config-library) with the branch version of cht-conf and make sure everything builds successfully.
 
-## Notes
-
-- The current branch-based strategy for versioning is being reviewed; this process may evolve.
-- Always test the rebased code thoroughly before force-pushing to master.
-- If conflicts arise during rebase, resolve them carefully to preserve custom functionality.
+This packaged pyxform will be automatically distributed on new versions of cht-conf.
