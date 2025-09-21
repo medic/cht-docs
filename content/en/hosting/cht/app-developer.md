@@ -52,6 +52,10 @@ curl -s -o cht-docker-compose.sh https://raw.githubusercontent.com/medic/cht-cor
 
 Always run the script from the directory where it lives.  If you launch it from a different directory, relative paths will fail:
 
+{{< callout type="tip" >}}
+Use the exact URL shown after "Success!" (for example `https://127-0-0-1.local-ip.medicmobile.org:10444/`) in all `cht` commands. This URL has a valid TLS certificate; do not add `--accept-self-signed-certs`.
+{{< /callout >}}
+
 | Do | Don't |
 |---|---|
 | `./cht-docker-compose.sh`|`./docker-helper-4.x/cht-docker-compose.sh`|

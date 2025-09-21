@@ -185,7 +185,10 @@ Note that the first time you run your CHT instance it may take a while. In case 
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once your instance has started, navigate to [https://localhost](https://localhost) with the Google Chrome browser and login with the default username `medic` and default password `password`.
+Once your instance has started, open your CHT URL and log in with username `medic` and password `password`:
+
+- If you used CHT Docker Helper, use the exact URL printed by the script (for example: `https://127-0-0-1.local-ip.medicmobile.org:10444/`).
+- If you started CHT manually via `docker compose`, use [https://localhost](https://localhost) (or the port you configured, e.g. `https://localhost:8443`).
 
 You might get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
 
@@ -199,7 +202,11 @@ This CHT instance is empty and has no data in it. While you're free to explore a
 
 ### Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/maternal-newborn" >}}) installed. To upload demo data you can use `cht-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/maternal-newborn" >}}) installed. To upload demo data you can use `cht-conf`.
+
+{{< callout type="tip" >}}
+Docker Helper users: copy the exact `...local-ip.medicmobile.org:PORT` URL that the helper prints and use it in all `cht` commands. With this URL, you do not need `--accept-self-signed-certs` because the certificate is valid.
+{{< /callout >}}
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
@@ -212,10 +219,26 @@ git clone https://github.com/medic/cht-core.git
 - Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
 - Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
+{{< tabs items="Docker Helper,Manual localhost" >}}
+{{< tab >}}
+
+Use the Docker Helper URL (no self-signed flag needed):
+
 ```shell
-cht --url=https://medic:password@localhost --accept-self-signed-certs
+cht --url=https://medic:password@<your-local-ip.medicmobile.org:PORT> csv-to-docs upload-docs
+```
+
+{{< /tab >}}
+{{< tab >}}
+
+Use `localhost` (self-signed cert):
+
+```shell
 cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
 ```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
 
@@ -227,26 +250,27 @@ With the test data uploaded, log back into your CHT instance and note the "Test 
 
 You can also upload the blank project you created above (via the `cht initialise-project-layout` command).
 
-Deploy the blank project onto your local test environment with the following command:
+Deploy the blank project onto your local test environment with one of the following commands:
 
-{{< tabs items="Local,Dev Container" >}}
+{{< tabs items="Docker Helper,Manual localhost" >}}
+{{< tab >}}
 
-  {{< tab >}}
-```shell
-  # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
-  cht --url=https://medic:password@localhost --accept-self-signed-certs
-```
-  
-  {{< /tab >}}
-
-  {{< tab >}}
+Use the Docker Helper URL (no self-signed flag needed):
 
 ```shell
-  # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
-  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
+cht --url=https://medic:password@<your-local-ip.medicmobile.org:PORT> compile-app-settings upload-app-settings
 ```
-  {{< /tab >}}
 
+{{< /tab >}}
+{{< tab >}}
+
+Use `localhost` (self-signed cert):
+
+```shell
+cht --url=https://medic:password@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< figure src="all-actions-completed.png" link="all-actions-completed.png" class="right col-6 col-lg-8" >}}
