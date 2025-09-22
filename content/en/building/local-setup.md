@@ -185,16 +185,26 @@ Note that the first time you run your CHT instance it may take a while. In case 
 
 {{< figure src="medic-login.png" link="medic-login.png" class="right col-6 col-lg-8" >}}
 
-Once your instance has started, open your CHT URL and log in with username `medic` and password `password`:
+Once your instance has started, log in with username `medic` and password `password` using the appropriate URL below:
 
-- If you used CHT Docker Helper, use the exact URL printed by the script (for example: `https://127-0-0-1.local-ip.medicmobile.org:10444/`).
-- If you started CHT manually via `docker compose`, use [https://localhost](https://localhost) (or the port you configured, e.g. `https://localhost:8443`).
+{{< tabs items="Docker Helper,Manual localhost" >}}
+{{< tab >}}
 
-You might get an error "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
+Open the exact URL printed by the Docker Helper script (for example: `https://127-0-0-1.local-ip.medicmobile.org:10444/`).
 
-If you are using macOS you will not be able to find the "Proceed to localhost" link in Chrome, to bypass that error just click anywhere on the denial page and type "thisisunsafe".
+{{< /tab >}}
+{{< tab >}}
 
-This error can be fixed by [installing a TLS certificate](#optional-install-valid-tls-certificate) as described below.
+Open [https://localhost](https://localhost) (or the port you configured, e.g. `https://localhost:8443`).
+
+You might see a browser warning "Your connection is not private" (see [screenshot](./privacy.error.png)). Click "Advanced" and then click "Proceed to localhost".
+
+On macOS, Chrome may hide the link — click anywhere on the page and type `thisisunsafe` to proceed.
+
+You can permanently resolve this by [installing a valid TLS certificate](#optional-install-valid-tls-certificate).
+
+{{< /tab >}}
+{{< /tabs >}}
 
 If you encounter an error `bind: address already in use`, check for [port conflicts section](https://scientyficworld.org/how-to-avoid-local-port-conflicts-in-docker/) in the Docker Setup guide.
 
@@ -222,16 +232,12 @@ git clone https://github.com/medic/cht-core.git
 {{< tabs items="Docker Helper,Manual localhost" >}}
 {{< tab >}}
 
-Use the Docker Helper URL (no self-signed flag needed):
-
 ```shell
 cht --url=https://medic:password@<your-local-ip.medicmobile.org:PORT> csv-to-docs upload-docs
 ```
 
 {{< /tab >}}
 {{< tab >}}
-
-Use `localhost` (self-signed cert):
 
 ```shell
 cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
@@ -255,16 +261,12 @@ Deploy the blank project onto your local test environment with one of the follow
 {{< tabs items="Docker Helper,Manual localhost" >}}
 {{< tab >}}
 
-Use the Docker Helper URL (no self-signed flag needed):
-
 ```shell
 cht --url=https://medic:password@<your-local-ip.medicmobile.org:PORT> compile-app-settings upload-app-settings
 ```
 
 {{< /tab >}}
 {{< tab >}}
-
-Use `localhost` (self-signed cert):
 
 ```shell
 cht --url=https://medic:password@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
