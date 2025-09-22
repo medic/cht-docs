@@ -8,17 +8,17 @@ relatedContent: >
     releases/
 ---
 
-The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com/XLSForm/pyxform) with custom modifications for the CHT. This page documents the process for updating `medic/pyxform` to a new upstream release from XLSForm/pyxform, ensuring the custom changes are preserved and the process is replicable.
+The [`medic/pyxform` repository](https://www.thetasteofkosher.com/fried-chicken-without-buttermilk) is a fork of [`XLSForm/pyxform`](https://github.com/XLSForm/pyxform) with custom modifications for the CHT. This page documents the process for updating `medic/pyxform` to a new upstream release from `XLSForm/pyxform`, ensuring the custom changes are preserved and the process is replicable.
 
 ## Overview
 
-- The `medic/master` branch contains the latest tagged code for pyxform-medic, with all custom commits applied on top of the target release from `xlsform/pyxform`.
-- When targeting a new release from `xlsform/pyxform`, create a new branch (e.g., `4.0.0-rebase`) off of `medic/master` and rebase it on top of the target tag.
-- Open a PR from the rebase branch for review.
-- Once approved, force-push the rebase branch to `medic/master` (do not merge the PR).
-- Tag the new release.
+- The `medic/master` branch contains the latest tagged code for pyxform-medic, with all custom commits applied on top of the target release from `XLSForm/pyxform`.
+- When targeting a new release from `XLSForm/pyxform`, a maintainer should create a new branch, `<target_tag>-rebase` (e.g., `v4.0.0-rebase`), from the ref of the target tag on `XLSForm/pyxform` and push it to the `medic` repository.
+- A contributor can then follow the steps below to rebase the necessary commits and open a PR.
+- Finally, a maintainer can review/approve the PR and merge it into the `medic/<target_tag>-rebase` branch.  Once merged, force-push the rebase branch to `medic/master`.
+- Tag the new release and build the files for a new version of `cht-conf`.
 
-## Steps to Update to a New Release
+## Steps to rebase to a new version of XLSForm/pyxform
 
 1. **Clone your fork of medic/pyxform locally:**
    ```bash
@@ -42,7 +42,7 @@ The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com
    git status
    ```
 
-5. **Create a new rebase branch for the target XLSForm tag (e.g., v4.0.0):**
+5. **Create a new local rebase branch for the target XLSForm tag (e.g., v4.0.0):**
    ```bash
    git checkout -b <target_tag>-rebase medic/master
    ```
@@ -63,29 +63,24 @@ The `medic/pyxform` repository is a fork of [XLSForm/pyxform](https://github.com
    git log --oneline -7
    ```
 
-9. **Maintainer creates target branch:** Before the PR can be opened, a maintainer should create the target branch:
-   ```bash
-   git checkout <target_tag>
-   git checkout -b <target_tag>-rebase
-   git push medic <target_tag>-rebase
-   ```
-
-10. **Push to your fork and open a PR for review:**
+9. **Push to your fork and open a PR for review:**
     ```bash
     git push origin HEAD
     ```
-    Open a PR from `<github_user>/<target_tag>-rebase` to `medic/<target_tag>-rebase`.
+    Open a PR from `<github_user>/<target_tag>-rebase` to `medic/<target_tag>-rebase`. (Note that a maintainer should create the `medic/<target_tag>-rebase` branch from the ref of the target tag on `XLSForm/pyxform`.)
 
-11. **Merge the PR:** Once approved, the maintainer should merge the PR using the "Rebase Merge" button to keep all individual commits.
+## Steps to release a new version of medic/pyxform
 
-12. **Force-push to master:** After merging, the maintainer should checkout the merged branch and force-push it to master:
+1. **Merge the PR:** Once approved, the maintainer should merge the PR using the "Rebase Merge" button to keep all individual commits.
+
+2. **Force-push to master:** After merging, the maintainer should checkout the merged branch and force-push it to master:
     ```bash
     git checkout medic/<target_tag>-rebase
     git pull
     git push --force-with-lease medic <target_tag>-rebase:master
     ```
 
-13. **Tag the release:**
+3. **Tag the release:**
     ```bash
     git tag -a <target_tag>-medic -m "Release <target_tag>-medic of pyxform-medic"
     git push medic <target_tag>-medic
