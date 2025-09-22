@@ -11,7 +11,7 @@
 #    the default or base branch
 on:
   schedule:
-    # runs at 8:15am every Monday
+    # runs at 8:15am UTC every Monday
     - cron:  '15 8 * * 1'
 
 name: Test site for broken links
