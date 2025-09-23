@@ -42,24 +42,31 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 
    #### Platform-Specific Storage Configuration
    
-   **For GKE:**
-   ```yaml
-   couchdb:
-     persistent_disk:
-       size: "<size>"  # Set appropriate size for your needs
-   ```
-   
-   **For EKS:**
-   ```yaml
-   ebs:
-     preExistingEBSVolumeSize: "<size>"  # Set appropriate size for your needs
-   ```
-   
-   **For K3s-K3d:**
-   ```yaml
-   couchdb:
-     storage_class: "local-path"  # was: "local-storage"
-   ```
+{{< tabs items="GKE,EKS,K3s-K3d" >}}
+
+{{< tab >}}
+```yaml
+couchdb:
+  persistent_disk:
+    size: "<size>"  # Set appropriate size for your needs
+```
+{{< /tab >}}
+
+{{< tab >}}
+```yaml
+ebs:
+  preExistingEBSVolumeSize: "<size>"  # Set appropriate size for your needs
+```
+{{< /tab >}}
+
+{{< tab >}}
+```yaml
+couchdb:
+  storage_class: "local-path"  # was: "local-storage"
+```
+{{< /tab >}}
+
+{{< /tabs >}}
 
 ### Step 2: Perform the Migration
 
