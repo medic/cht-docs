@@ -63,19 +63,14 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 
 ### Step 2: Perform the Migration
 
-1. **Navigate to your 4.x helm chart directory**:
-   ```bash
-   cd /path/to/your/4x/helm/charts
-   ```
-
-2. **Run the migration upgrade**:
+1. **Run the migration upgrade** (from any directory where you have your `migration-5x-values.yaml` file):
    ```bash
    helm upgrade <your-release-name> /path/to/cht-core/scripts/build/helm \
      -f migration-5x-values.yaml \
      --namespace <your-namespace>
    ```
 
-3. **Monitor the upgrade**:
+2. **Monitor the upgrade**:
    ```bash
    helm status <your-release-name> --namespace <your-namespace>
    kubectl get pods -n <your-namespace>
