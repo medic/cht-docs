@@ -35,6 +35,8 @@ To avoid this situation, the upgrade service has been removed from Kubernetes ba
 
 <!-- 
     todo: fix TK link to technical guide: 
+    tracking in: https://github.com/medic/cht-docs/pull/1989
+    URL will be: hosting/cht/migration/helm-charts-4x-to-5x-migration
 -->
 Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository. Please see the TK technical guide on how to migrate Kubernetes based deployments to 5.0.
 
@@ -86,6 +88,18 @@ Deployments running CHT Version 4.0 and 4.4 must upgrade to version 4.5 or later
 
 Background information:
 * [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
+
+### Ensure booleans are used with signoff fields
+
+{{< callout type="info" >}} Applies to: Instances where `needs_signoff` triggers replication of reports  {{< /callout >}}
+
+In some scenarios where `needs_signoff` is set to string `"false"` instead of boolean `false`, replication will happen when it shouldn't.  This is because the string of `"false"` is a truthy value.  
+
+CHT 5.0 now correctly enforces this to be a boolean.  Deployments to make sure that workflows that use `needs_signoff` field have a boolean instead of a string.
+
+Background information:
+* [Replication fails to filter out reports with `needs_signoff` set to false](https://github.com/medic/cht-core/issues/10183)
+
 
 ## Non-Breaking Changes
 
