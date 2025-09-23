@@ -27,8 +27,10 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
    couchdb:
      clusteredCouchEnabled: false  # was: clusteredCouch_enabled: false
    
-   # Set pre-existing data flag in the case this is a migration
-   preExistingDataAvailable: "true"  
+   # Set pre-existing data flag - for most 4.x to 5.x migrations, keep this as false
+   # Only set to "true" if you have pre-created PersistentVolumes for static provisioning
+   couchdb_data:
+     preExistingDataAvailable: "false"  # Keep using dynamic storage provisioning  
    
    # Add required API service configuration
    api:
