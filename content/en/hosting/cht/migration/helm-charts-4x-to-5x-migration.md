@@ -4,61 +4,9 @@
 
 This guide covers the migration from CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x.
 
-## Breaking Changes
+## Overview of Changes
 
-The following breaking changes require updates to your existing `values.yaml` files.
-
-### Critical Breaking Changes (Must Fix)
-
-#### 1. Field Name Changes
-
-| Old (4.x) | New (5.x) | Impact |
-|-----------|-----------|---------|
-| `clusteredCouch_enabled` | `couchdb.clusteredCouchEnabled` | **CRITICAL** - Must be updated |
-| `local.diskPath` | `local_storage.preExistingDiskPath-1` | **CRITICAL** - Must be updated |
-
-#### 2. New Required Fields
-
-| Field | Value | Impact |
-|-------|-------|---------|
-| `api.service.type` | `ClusterIP` | **CRITICAL** - Must be added to values file |
-| `preExistingDataAvailable` | `"true"` | **CRITICAL** - Must be set for existing deployments |
-
-#### 3. Storage Configuration Changes
-
-| Change | Impact |
-|--------|---------|
-| **Removed default storage sizes** | **CRITICAL** - Must explicitly set `couchdb.couchdb_node_storage_size` |
-| **No default persistent volume sizes** | **CRITICAL** - Must set platform-specific storage sizes |
-
-#### 4. Values File Structure Changes
-
-| Change | Impact |
-|--------|---------|
-| **Hierarchical structure** | **MEDIUM** - May need to restructure flat values files |
-| **Nested couchdb configuration** | **MEDIUM** - CouchDB settings now under `couchdb:` section |
-
-### Platform-Specific Storage Changes
-
-#### GKE (Google Kubernetes Engine)
-- **Required**: `couchdb.persistent_disk.size` (no default)
-
-#### EKS (Amazon Elastic Kubernetes Service)
-- **Required**: `ebs.preExistingEBSVolumeSize` (no default)
-
-### Minor Changes
-
-#### Storage Class Changes
-- **K3s-K3d Storage Class**: `local-storage` (4.x) → `local-path` (5.x) - **MINOR CHANGE**
-  - **Action Required**: Update K3s-K3d storage class if using defaults
-
-### Getting Help
-
-If you encounter issues during migration:
-
-1. Check the [CHT Documentation](https://docs.communityhealthtoolkit.org/)
-2. Review the [CHT Forum](https://forum.communityhealthtoolkit.org/)
-3. Open an issue in the [CHT Core Repository](https://github.com/medic/cht-core/issues)
+CHT 5.x introduces significant changes to the Helm chart structure that require updates to your `values.yaml` files. The migration steps below will guide you through the necessary changes.
 
 ## Migration Steps
 
@@ -159,4 +107,25 @@ If you encounter issues during migration:
 3. **Monitor Closely**: Watch deployment logs and metrics during migration
 4. **Document Changes**: Keep track of any custom configurations
 5. **Plan Downtime**: Schedule migrations during maintenance windows
+
+## Breaking Changes Reference
+
+| Change Type | Old (4.x) | New (5.x) | Platform | Impact |
+|-------------|-----------|-----------|----------|---------|
+| Field Rename | `clusteredCouch_enabled` | `couchdb.clusteredCouchEnabled` | All | Critical |
+| Field Rename | `local.diskPath` | `local_storage.preExistingDiskPath-1` | All | Critical |
+| New Field | - | `api.service.type: ClusterIP` | All | Critical |
+| Storage Config | Default sizes | `couchdb.couchdb_node_storage_size` required | All | Critical |
+| Storage Config | Default sizes | `couchdb.persistent_disk.size` required | GKE | Critical |
+| Storage Config | Default sizes | `ebs.preExistingEBSVolumeSize` required | EKS | Critical |
+| Storage Class | `local-storage` | `local-path` | K3s-K3d | Minor |
+| Structure | Flat config | Nested couchdb configuration | All | Medium |
+
+## Getting Help
+
+If you encounter issues during migration:
+
+1. Check the [CHT Documentation](https://docs.communityhealthtoolkit.org/)
+2. Review the [CHT Forum](https://forum.communityhealthtoolkit.org/)
+3. Open an issue in the [CHT Core Repository](https://github.com/medic/cht-core/issues)
 
