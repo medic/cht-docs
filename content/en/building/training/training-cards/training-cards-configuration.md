@@ -26,7 +26,7 @@ Create an [XLS Form]({{< relref "building/forms/app#xlsform" >}}). In the follow
 
 {{< figure src="step-1-xls-form.png" link="step-1-xls-form.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 # Step 2: Add the form’s ID
 
@@ -34,7 +34,7 @@ Important, define the `form_id` located in the `settings` sheet with the prefix 
 
 {{< figure src="step-2-xls-form-id.png" link="step-2-xls-form-id.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 # Step 3: Configure the training form
 
@@ -74,7 +74,7 @@ In your project configuration folder, place the XLS form, the properties file, a
 
 {{< figure src="step-5-file-structure.png" link="step-5-file-structure.png" class="left col-10" >}}
 
-<br clear="all">
+
 
 # Step 6: Convert and upload the training form
 
