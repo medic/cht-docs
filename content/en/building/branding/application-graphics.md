@@ -8,8 +8,8 @@ relatedContent: >
   building/admin
   design/interface/icons
 aliases:
-   - /apps/tutorials/application-graphics
-   - /building/tutorials/application-graphics
+  - /apps/tutorials/application-graphics
+  - /building/tutorials/application-graphics
 ---
 
 This tutorial will take you through customising some graphical elements of CHT core.
@@ -26,13 +26,15 @@ You should have a functioning [CHT instance with `cht-conf` installed locally]({
 
 You have the ability to modify the app title, logo, and favicon. For Progressive Web App installations you can also configure the desktop icon.
 
-{{< figure src="branding_elements.png" link="branding_elements.png" class="center col-6 col-lg-8" >}}
+{{< cards cols="1" >}}
+{{< card image="branding_elements.png" method="Resize" options="600x q80 webp" >}}
+{{< /cards >}}
 
-| Variable | Description |
-|---|---|
-| **logo** | Should be less than 100KB, have a transparent background, have high contrast, and be horizontal in shape with a ratio of about 3.5:1. We recommend SVG or PNG image formats. |
-| **favicon** | Ideally 32x32 pixels, simple, and very small in size. We recommend SVG or PNG image formats. |
-| **icon** | Must be at least 192x192 pixels, square. We recommend SVG or PNG image formats. |
+| Variable    | Description                                                                                                                                                                  |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **logo**    | Should be less than 100KB, have a transparent background, have high contrast, and be horizontal in shape with a ratio of about 3.5:1. We recommend SVG or PNG image formats. |
+| **favicon** | Ideally 32x32 pixels, simple, and very small in size. We recommend SVG or PNG image formats.                                                                                 |
+| **icon**    | Must be at least 192x192 pixels, square. We recommend SVG or PNG image formats.                                                                                              |
 
 #### Using cht-conf
 
@@ -40,15 +42,15 @@ Create a `branding.json` file if it doesn't exist. (This may have already been c
 Edit the file with the following content:
 
 ```json
- {
-   "title": "My App Name",
-   "resources": {
-     "logo": "logo.png",
-     "favicon": "favicon.ico",
-     "icon": "pwa-icon.svg" // required for PWA installation only
-   }
- }
- ```
+{
+  "title": "My App Name",
+  "resources": {
+    "logo": "logo.png",
+    "favicon": "favicon.ico",
+    "icon": "pwa-icon.svg" // required for PWA installation only
+  }
+}
+```
 
 The folder and files structure would look like this:
 
@@ -78,24 +80,26 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 
 If you would like to display a collection of logos representing all of the organizations and funders involved in a project, there is a space for these at the bottom of the About page. This page can be accessed through; `Menu > About`
 
- {{< figure src="about_page.png" link="about_page.png" class="center col-6 col-lg-8" >}}
+{{< cards cols="1" >}}
+{{< card image="about_page.png" method="Resize" options="600x q80 webp" >}}
+{{< /cards >}}
 
- #### Using cht-conf
+#### Using cht-conf
 
 Create a `partners.json` file if it doesn't exist. (This may have already been created by the initialise-project-layout command).
 Edit the file with the following content:
 
 ```json
 {
-   "resources": {
-     "partnerA": "parnerA.png",
-     "partnerB": "parnerB.png",
-     "partnerC": "parnerC.png"
-   }
- }
- ```
+  "resources": {
+    "partnerA": "parnerA.png",
+    "partnerB": "parnerB.png",
+    "partnerC": "parnerC.png"
+  }
+}
+```
 
- The folder and files structure would look like this:
+The folder and files structure would look like this:
 
 ```shell
 ./
@@ -120,7 +124,6 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Partners
 As of cht-core 3.10, app header tabs icons are configurable. CHT currently has five tabs: messages, tasks, reports, contacts, analytics.
 
 {{< see-also page="building/reference/app-settings/header_tabs" title="Header tabs" >}}
-
 
 #### Using cht-conf
 
@@ -171,14 +174,14 @@ Apps can be customised by defining the icons to use for tasks, targets, contacts
 Add icons to the `resources` folder, and include them by name in the `resources.json` file as the following example:
 
 ```json
- {
-    "icon-risk": "icon-healthcare-warning@2x.png",
-    "icon-treatment": "icon-healthcare-medicine@2x.png",
-    "medic-clinic": "medic-family.svg",
-    "medic-district-hospital": "medic-family.svg",
-    "medic-health-center": "medic-chw-area.svg",
-    "medic-person": "medic-person.svg"
- }
+{
+  "icon-risk": "icon-healthcare-warning@2x.png",
+  "icon-treatment": "icon-healthcare-medicine@2x.png",
+  "medic-clinic": "medic-family.svg",
+  "medic-district-hospital": "medic-family.svg",
+  "medic-health-center": "medic-chw-area.svg",
+  "medic-person": "medic-person.svg"
+}
 ```
 
 {{< see-also page="design/interface/icons" title="Icon Library" >}}
@@ -197,6 +200,7 @@ The folder and files structure would look like this:
         medic-person.svg
 
 ```
+
 Finally run the command: `cht --url=<instance-url> upload-resources`
 
 To modify the icon used in contacts, you will need to edit the icon subkey in app_settings.json (under contact_types). You will modify app_settings.json with the following contents:
