@@ -244,4 +244,187 @@ The following screenshots show a sample workflow of the interoperability between
 
    {{< figure src="openimis_subcribe.png" link="openimis_subcribe.png" >}}
 
-2. 
+1. **Claim Request**
+    
+    When a `Claim` is created at OpenIMIS, a `POST` request is sent to CHT mediator's
+    callback endpoint with the `ClaimResponse` data.
+    
+    {{< figure src="openimis_claim_request.png" link="openimis_claim_request.png" >}}
+    
+    Sample Request Body:
+    ```json
+    {
+      "resourceType": "ClaimResponse",
+      "id": "d3256498-ad16-4482-a2d2-4a6d9c78ba81",
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/openimis-identifiers",
+                "code": "UUID"
+              }
+            ]
+          },
+          "value": "d3256498-ad16-4482-a2d2-4a6d9c78ba81"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/openimis-identifiers",
+                "code": "Code"
+              }
+            ]
+          },
+          "value": "CHT979"
+        }
+      ],
+      "status": "active",
+      "type": {
+        "coding": [
+          {
+            "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/claim-visit-type",
+            "code": "O",
+            "display": "Other"
+          }
+        ]
+      },
+      "use": "claim",
+      "patient": {
+        "reference": "Patient/7b00e6ec-e0f5-4d07-a8e0-ec00a4160e73",
+        "type": "Patient",
+        "identifier": {
+          "type": {
+            "coding": [
+              {
+                "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/openimis-identifiers",
+                "code": "UUID"
+              }
+            ]
+          },
+          "value": "7b00e6ec-e0f5-4d07-a8e0-ec00a4160e73"
+        }
+      },
+      "created": "2025-08-25",
+      "insurer": {
+        "reference": "openIMIS"
+      },
+      "requestor": {
+        "reference": "Practitioner/c60bacae-2aac-4bbf-bdad-7258ebb75f1f",
+        "type": "Practitioner",
+        "identifier": {
+          "type": {
+            "coding": [
+              {
+                "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/openimis-identifiers",
+                "code": "UUID"
+              }
+            ]
+          },
+          "value": "c60bacae-2aac-4bbf-bdad-7258ebb75f1f"
+        }
+      },
+      "request": {
+        "reference": "ClaimV2/d3256498-ad16-4482-a2d2-4a6d9c78ba80",
+        "type": "ClaimV2",
+        "identifier": {
+          "type": {
+            "coding": [
+              {
+                "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/openimis-identifiers",
+                "code": "UUID"
+              }
+            ]
+          },
+          "value": "d3256498-ad16-4482-a2d2-4a6d9c78ba80"
+        }
+      },
+      "outcome": "queued",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "https://openimis.github.io/openimis_fhir_r4_ig/StructureDefinition/claim-item-reference",
+              "valueReference": {
+                "reference": "ActivityDefinition/488d8bcb-5b88-438c-9077-f177f6f32626",
+                "type": "ActivityDefinition",
+                "identifier": {
+                  "type": {
+                    "coding": [
+                      {
+                        "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/openimis-identifiers",
+                        "code": "UUID"
+                      }
+                    ]
+                  },
+                  "value": "488d8bcb-5b88-438c-9077-f177f6f32626"
+                },
+                "display": "A1"
+              }
+            }
+          ],
+          "itemSequence": 1,
+          "adjudication": [
+            {
+              "category": {
+                "coding": [
+                  {
+                    "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/claim-status",
+                    "code": "1",
+                    "display": "rejected"
+                  }
+                ]
+              },
+              "reason": {
+                "coding": [
+                  {
+                    "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/claim-rejection-reasons",
+                    "code": "0",
+                    "display": "ACCEPTED"
+                  }
+                ]
+              },
+              "amount": {
+                "value": 999,
+                "currency": "$"
+              },
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "total": [
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "https://openimis.github.io/openimis_fhir_r4_ig/CodeSystem/claim-status",
+                "code": "2",
+                "display": "entered"
+              }
+            ]
+          },
+          "amount": {
+            "value": 0,
+            "currency": "$"
+          }
+        }
+      ]
+    } 
+    ```
+
+1. A person is created using the form created in the CHT config section above.
+
+   {{< figure src="openimis_claim_form.png" link="openimis_claim_form.png" >}}
+   {{< figure src="openimis_new_person_created.png" link="openimis_new_person_created.png" >}}
+
+1. A task is also created for the CHW to get feedback from the patient.
+
+   {{< figure src="openimis_task_created.png" link="openimis_task_created.png" >}}
+
+1. Once the feedback form is submitted, the data is sent to OpenIMIS through the CHT mediator.
+
+   {{< figure src="openimis_task_submitted.png" link="openimis_task_submitted.png" >}}
+
+This completes the interoperability process between CHT and OpenIMIS for managing claims.
