@@ -18,7 +18,7 @@ System administrators looking to deploy CHT into production should understand [t
   {{< card link="cht/" title="CHT Core" icon="template" subtitle="Guides for hosting CHT applications" >}}
   {{< card link="monitoring/" title="Monitoring & Alerting" subtitle="Using CHT Watchdog to Monitor and Alert on CHT Applications" icon="bell" >}}
   {{< card link="analytics/" title="Data Synchronization & Analytics" subtitle="Using CHT Sync for data synchronization and analytics" icon="chart-pie" >}} 
-  {{< card link="couch2pg/" title="couch2pg" subtitle="Guides for using couch2pg" icon="presentation-chart-line" tag="deprecated" tagType="warning" >}}
+  {{< card link="couch2pg/" title="couch2pg" subtitle="Guides for using couch2pg" icon="presentation-chart-line" tag="deprecated" tagIcon="warning" tagType="warning" >}}
   {{< card link="sso" title="SSO" subtitle="Setting up Single Sign On" icon="key"  >}}
-  {{< card link="medic" title="At Medic" subtitle="Guidelines internal to Medic-hosted CHT instances " icon="briefcase" tag="medic-internal" >}}
+  {{< card link="medic" title="At Medic" subtitle="Guidelines internal to Medic-hosted CHT instances" icon="briefcase" tag="medic internal" tagIcon="key" >}}
 {{< /cards >}}
