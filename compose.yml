@@ -1,7 +1,7 @@
 services:
   hugo:
     container_name: cht-hugo
-    image: docker.io/hugomods/hugo:0.149.0 # Should match the version in .tool-versions
+    image: docker.io/hugomods/hugo:0.150.1 # Should match the version in .tool-versions
     ports:
       - 1313:1313
     volumes:
