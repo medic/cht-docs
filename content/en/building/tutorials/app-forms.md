@@ -47,7 +47,7 @@ Create 2 additional sheets. Rename the sheets `survey`, `choices` and `settings`
 
 This rows are populated automatically before the form is rendered to the user. These fields are usually hidden by default but can be accessed to display certain information about the person being assessed.
 
-Copy everything inside the table below, then paste into cell A1 of a new sheet named `survey` in Google Sheets or your prefered editor:
+Copy everything inside the table below by clicking the "📋 Copy survey sheet" button, then paste into cell A1 of a new sheet named `survey` in Google Sheets or your prefered editor:
 
 {{< copytable id="survey" label="Copy survey sheet" >}}
 type	name	label	required	relevant	appearance	constraint	constraint_message	calculation	choice_filter	hint	default
@@ -85,7 +85,7 @@ end group
 
 ### 2. Define the Choices
 
-Copy everything inside the table below, then paste into cell A1 of a new sheet named `choices`:
+Copy everything inside the table below by clicking the "📋 Copy choices sheet" button, then paste into cell A1 of a new sheet named `choices` in Google Sheets or your prefered editor:
 
 {{< copytable id="choices" label="Copy choices sheet" >}}
 list_name	name	label
@@ -99,7 +99,7 @@ symptom_duration	14	14 days or more
 
 ### 3. Define the XLS Settings
 
-Copy everything inside the table below, then paste into cell A1 of a new sheet named `settings`:
+Copy everything inside the table below by clicking the "📋 Copy settings sheet" button, then paste into cell A1 of a new sheet named `settings` in Google Sheets or your prefered editor:
 
 {{< copytable id="settings" label="Copy settings sheet" >}}
 form_title	form_id	version	style	path	instance_name	default_language

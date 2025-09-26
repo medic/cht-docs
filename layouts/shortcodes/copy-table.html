@@ -1,29 +1,51 @@
 <style>
+:root {
+  --btn-bg: #f3f4f6;
+  --btn-text: #374151;
+  --btn-border: #d1d5db;
+  --btn-hover-bg: #e5e7eb;
+  --btn-hover-text: #111827;
+  --btn-active-bg: #d1d5db;
+}
+
+html.dark {
+  --btn-bg: #1f2937;
+  --btn-text: #e5e7eb;
+  --btn-border: #4b5563;
+  --btn-hover-bg: #374151;
+  --btn-hover-text: #f9fafb;
+  --btn-active-bg: #4b5563;
+}
+
 .copy-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  background: #f3f4f6;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
   border-radius: 6px;
   padding: 0.35em 0.9em;
   font-size: 0.95em;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, border 0.2s;
   margin-bottom: 0.2em;
+  text-decoration: none;
 }
+
 .copy-btn:hover {
-  background: #e5e7eb;
-  color: #111827;
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
 }
+
 .copy-btn:active {
-  background: #d1d5db;
+  background: var(--btn-active-bg);
 }
+
 .copied-msg {
   display: none;
-  color: #388e3c;
+  color: #22c55e;
   font-weight: bold;
   margin-left: 10px;
   font-size: 1em;
