@@ -50,6 +50,8 @@ CHT and OpenIMIS.
    form. When the form is submitted, CHT mediator sends the questionnaire data back
    to OpenIMIS.
 
+   {{< figure src="openimis_workflow.png" link="openimis_workflow.png" >}}
+
 #### Configuration
 
 ##### Environment variables
@@ -183,7 +185,7 @@ a successful communication with OpenIMIS.
 1. Outbound
    
     To have the CHT send data to mediator when the feedback form is submitted, the
-    following [outbound config](http://localhost:1313/building/reference/app-settings/outbound/) was added.
+    following [outbound config]({{< ref "building/reference/app-settings/outbound" >}}) was added.
     It filter out all the documents with the form type to be `claims_feedback` and extracts the answers from
     the form and sends it to OpenIMIS through the CHT mediator.
 
@@ -211,3 +213,35 @@ a successful communication with OpenIMIS.
         }
    } 
    ``` 
+
+#### Sample workflow
+
+The following screenshots show a sample workflow of the interoperability between CHT and OpenIMIS.
+
+1. **Subscribe to OpenIMIS for `Claim` Resource type:**
+
+    The first step is to subscribe to OpenIMIS for `Claim` Resource type using the `Subscription` endpoint.
+    This is done by sending a `POST` request to the `Subscription` endpoint.
+    ```bash
+   curl --location 'https://<openimis-server>/api/api_fhir_r4/Subscription/' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic QWRtaW46YWRtaW4xMjM=' \
+    --data '{
+    "resourceType": "Subscription",
+    "status": "active",
+    "end": "2029-12-31T23:59:59Z",
+    "reason": "Claim",
+    "criteria": "Claim",
+    "channel": {
+    "type": "rest-hook",
+    "endpoint": "https://localhost:9000/mediator/claim-response",
+    "header": [
+    "{\"Content-Type\": \"application/json\", \"Accept\": \"application/json\", \"Authorization\": \"Basic aW50ZXJvcC1jbGllbnQ6aW50ZXJvcC1wYXNzd29yZA==\"}"
+    ]
+    }
+    }'
+    ```
+
+   {{< figure src="openimis_subcribe.png" link="openimis_subcribe.png" >}}
+
+2. 
