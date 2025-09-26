@@ -191,7 +191,7 @@ To achieve this use a markdown table with the letter X (`X`) to mark events, lea
 > [!TIP] 
 > The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table.
 
-### 📋 Copy-paste-friendly Tables
+### Copy-paste-friendly Tables
 
 You can include a visual table in your documentation with a **"Copy table" button** that makes it easy for users to copy the table contents (as TSV – tab-separated values). This is useful for sharing structured data that users may want to paste into a spreadsheet like Google Sheets or another tool.
 
@@ -210,7 +210,7 @@ This will render:
 - When clicked, the button copies the table content (as plain text) to the clipboard.
 - A small “Copied!” message briefly appears to confirm the action.
 
-#### ✅ Example output
+#### Example output
 
 {{< copytable id="tsv" label="Copy TSV" >}}
 Name	Role	Region  
@@ -218,7 +218,7 @@ Fatou	CEO	Senegal
 Jose	Developer	Costa Rica  
 {{</ copytable >}}
 
-#### 💡 Notes
+#### Notes
 
 - The copied content uses **tab-separated values**, which work well in spreadsheets or plain text files.
 - The button adapts automatically to **light and dark themes**.
