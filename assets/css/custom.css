@@ -63,7 +63,7 @@ pre[class*="language-"] {
   color: rgb(42, 44, 46);
 }
 
-.dark\:hx-text-gray-400:is(html[class~="dark"] *) {
+.dark\:hx\:text-gray-400:is(html[class~="dark"] *) {
   --tw-text-opacity: 1;
   color: rgb(205, 215, 231);
 }
@@ -138,10 +138,29 @@ html[class~="dark"] .content table:not(.code-block table) th {
   border-width: 0px;
   color: rgba(51, 51, 51);
 }
+
 /* Text in cells for dark mode */
 .content :where(table):not(:where(.hextra-code-block table, [class~=not-prose],[class~=not-prose] *)) td:is(html[class~="dark"] *) {
     color: #ececfe;
-  }
+}
+
+/* Zebra striping for table rows */
+.content table:not(.hextra-code-block table) tbody tr:nth-child(even) {
+  background-color: rgb(243, 244, 246); /* Gray-100 */
+}
+
+.content table:not(.hextra-code-block table) tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
+
+/* Dark mode zebra striping */
+html[class~="dark"] .content table:not(.hextra-code-block table) tbody tr:nth-child(even) {
+  background-color: rgba(75, 85, 99, 0.2); /* Gray-600 with 20% opacity */
+}
+
+html[class~="dark"] .content table:not(.hextra-code-block table) tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
 
 /* Animation for 404 pages */
 .animate__headShake {
