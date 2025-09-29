@@ -89,36 +89,36 @@ After you have created a ticket per "Request permission" above, you should get a
    If get an error `no context exists with the name`, change `use-context` to `set-context` in the  command.  This will create the entry the first time.  Subsequent calls should use `use-context`.
 3. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
 
-{{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
+   {{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
+   
+     {{< tab >}}
+      * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
+        * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
+        * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
+     {{< /tab >}}
+     {{< tab >}}
+        * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
+        * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
+        * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
+        * `clusteredCouch_enabled` - set to `true`
+        {{% /tab %}}
+   
+   {{< /tabs >}}
 
-  {{< tab >}}
-   * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
-   * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
-   * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
-  {{< /tab >}}
-  {{< tab >}}
-   * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
-   * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
-   * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
-   * `clusteredCouch_enabled` - set to `true`
-   {{% /tab %}}
-
-{{< /tabs >}}
-
-   _\* Note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
-5. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
+   _\* **Note**: The `password` field doesn't accept `:`, `@`, `"`, `'`, etc. Enclose it in double quotes (`"`). Do not use spaces - it will launch but logins will fail._
+4. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):
    ```shell
    git checkout master;git pull origin
    ```
-6. Ensure you have `node` dependencies installed for `cht-deploy` script:
+5. Ensure you have `node` dependencies installed for `cht-deploy` script:
    ```shell
    cd scripts/deploy;npm install
    ```
-7. Run deploy, being sure to update `PATH_TO` to be where you saved it in the prior step:
+6. Run deploy, being sure to update `PATH_TO` to be where you saved it in the prior step:
    ```shell
    ./cht-deploy -f PATH_TO/values.yaml
    ```
-8. Delete it when you're done:
+7. Delete it when you're done:
    ```shell
    helm delete USERNAME-dev --namespace USERNAME-dev
    ```
