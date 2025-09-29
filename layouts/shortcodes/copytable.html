@@ -1,0 +1,91 @@
+<style>
+:root {
+  --btn-bg: #f3f4f6;
+  --btn-text: #374151;
+  --btn-border: #d1d5db;
+  --btn-hover-bg: #e5e7eb;
+  --btn-hover-text: #111827;
+  --btn-active-bg: #d1d5db;
+}
+
+html.dark {
+  --btn-bg: #1f2937;
+  --btn-text: #e5e7eb;
+  --btn-border: #4b5563;
+  --btn-hover-bg: #374151;
+  --btn-hover-text: #f9fafb;
+  --btn-active-bg: #4b5563;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+  border-radius: 6px;
+  padding: 0.35em 0.9em;
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin-bottom: 0.2em;
+  text-decoration: none;
+}
+
+.copy-btn:hover {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+.copy-btn:active {
+  background: var(--btn-active-bg);
+}
+
+.copied-msg {
+  display: none;
+  color: #22c55e;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 1em;
+}
+.tsv-table-visual {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5em;
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 1em;
+  background: transparent;
+}
+.tsv-table-visual th, .tsv-table-visual td {
+  border: 1px solid #e5e7eb;
+  padding: 6px 10px;
+  background: transparent;
+}
+.tsv-table-visual th {
+  background: #f3f4f6;
+  font-weight: bold;
+}
+</style>
+{{ $id := .Get "id" | default (now.UnixNano) }}
+{{ $tsv := .Inner | safeHTML }}
+<br>
+<button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('tsv-{{ $id }}').innerText);const msg=document.getElementById('copied-msg-{{ $id }}');msg.style.display='inline';setTimeout(function(){msg.style.display='none';},1500);">
+  📋 {{ .Get "label" | default "Copy table" }}
+</button>
+<span id="copied-msg-{{ $id }}" class="copied-msg">Copied!</span>
+{{/* Render visual table for user, but keep <pre> for copy-paste */}}
+{{ $lines := split $tsv "\n" }}
+<table class="tsv-table-visual">
+  {{ range $i, $line := $lines }}
+    {{ if ne (len (trim $line " ")) 0 }}
+    <tr>
+      {{ range (split $line "\t") }}
+        {{ if eq $i 0 }}<th>{{ . }}</th>{{ else }}<td>{{ . }}</td>{{ end }}
+      {{ end }}
+    </tr>
+    {{ end }}
+  {{ end }}
+</table>
+<pre id="tsv-{{ $id }}" style="display:none;">{{ $tsv }}</pre>
