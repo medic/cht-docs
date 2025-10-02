@@ -184,6 +184,9 @@ In order to avoid overwriting someone else's configuration cht-conf records the 
 - Delete specific form from server
 - Upload all app or contact forms to server
 - Upload specified app or contact forms to server
+- Upload training forms to server
+- Convert app, collect, training or contact forms
+- Validate app, collect, contact or training forms
 
 ### Managing data and images
 - Convert CSV files with contacts and reports to JSON docs
@@ -222,6 +225,31 @@ cht --instance=*instance* edit-contacts -- --column=*is_in_emnch* --docDirectory
 ```
 
 3. Then upload the edited documents using the [upload-docs](https://github.com/medic/cht-conf#examples) command.
+
+### Options
+
+- `--help` – Display usage message
+- `--version` – Display current version
+- `--changelog` – Display changelog
+- `--supported-actions` – Display supported actions
+- `--shell-completion` – Generate shell-completion script 
+- `--source=<path>` – Path to project folder (defaults to current working directory)
+- `--accept-self-signed-certs` – Allow self-signed certificates
+- `--skip-dependency-check` – Skip checking versions against `package.json`
+- `--skip-version-check` – Skip automatic check for new CHT Conf versions
+- `--skip-git-check` – Skip repository status check
+- `--skip-translation-check` – Skip checking message translations
+- `--skip-validate` – Skip form validation
+- `--force` – Automatically answer yes to all prompts; overwrite changes
+
+### Save Config To / Upload Destinations
+
+- `--local` – Upload to `http://admin:pass@localhost:5988`
+- `--instance=<instance-name>` – Upload to `https://admin:<password>@<instance-name>.medicmobile.org`
+- `--user=<user-name> --instance <instance-name>` – Upload using a specific user
+- `--url=<url>` – Upload to a custom URL
+- `--archive` – Save configuration content to local files; requires `--destination=<path>`
+
 
 ## Project Layout
 This tool expects a project to be structured as follows:
@@ -267,6 +295,9 @@ If you are starting from scratch you can initialise the file layout using the `i
 ```bash
 cht initialise-project-layout
 ```
+Other actions include: `create-users`, `check-for-updates`, `check-git` , `watch-project`
+The `fetch-csvs-from-google-drive` action fetch CSVs from Google Drive.
+
 ### Derived Configs
 Configuration can be inherited from another project, and then modified. This allows the `app_settings.json` and contained files (`task-schedules.json`, `targets.json` etc.) to be imported, and then modified.
 
