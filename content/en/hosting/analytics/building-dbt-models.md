@@ -18,10 +18,10 @@ aliases:
 
 [CHT Sync](/technical-overview/architecture/cht-sync) copies data from CouchDB to a relational database. It initially stores the document data from CouchDB in a `jsonb` column in a single PostgreSQL table. This is not possible to query for analytics, so it uses [dbt](https://www.getdbt.com/) to convert the document data to a relational database format.
 
-The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions]({{< ref "technical-overview/data/db-schema" >}}).
+The [cht-pipeline repository](https://github.com/medic/cht-pipeline) defines a dbt project, which contains model files for the data schema described in the [database schema conventions](/technical-overview/data/db-schema).
 Forms may be specific to each CHT application; additional models will need to be developed to analyze data from responses to these custom forms.
 One additional model will be needed for each form, and for any aggregations, dashboards, or reusable views that use those form responses as input.
-If using the [configurable contact hierarchy]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), it may also be useful to add models for other contact types.
+If using the [configurable contact hierarchy](/building/reference/app-settings/hierarchy#app_settingsjson-contact_types), it may also be useful to add models for other contact types.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ When it is necessary to update the base models, update the version tag in the de
 
 ### Testing models and dashboards
 
-It is highly encouraged to write [dbt tests]({{< ref "/hosting/analytics/testing-dbt-models" >}}) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
+It is highly encouraged to write [dbt tests](//hosting/analytics/testing-dbt-models) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
 
 
 ## Base Models
@@ -101,7 +101,7 @@ The document itself is not copied to this table; to use it requires joining to t
 |`dbname`| The name of the CouchDB database the document was synced from. |
 
 ### `data_record`
-All form responses are stored in the `data_record` table; see more details [in the database schema conventions]({{< ref "technical-overview/data/db-schema#reports" >}}).
+All form responses are stored in the `data_record` table; see more details [in the database schema conventions](/technical-overview/data/db-schema#reports).
 This table contains columns for the contact who made the report, the parent of that contact, and the date it was reported.
 
 |Field|Description|
@@ -118,7 +118,7 @@ This table contains columns for the contact who made the report, the parent of t
 |`grandparent_uuid`| uuid of the parent of `contact` who submitted the form (at the date `reported`; contacts parent may have changed since then, this column will not)|
 
 ### `contact`
-See a description of contact documents in CouchDB [in the database schema conventions]({{< ref "technical-overview/data/db-schema#contacts-persons-and-places" >}}).
+See a description of contact documents in CouchDB [in the database schema conventions](/technical-overview/data/db-schema#contacts-persons-and-places).
 Every person and place is stored in the `contact` table. Persons and places are stored in their own tables, but because contact types are configurable, other contact types do not have their own tables by default.
 The contact hierarchy defines "is a" relationships between contact types; e.g., a patient is a person is a contact. This is modeled as one table per type, where the `uuid` is both the primary key for the child table and a foreign key to the parent table.
 
@@ -135,7 +135,7 @@ The contact hierarchy defines "is a" relationships between contact types; e.g., 
 |`muted`| `true` if this contact has been muted|
 
 ### `contact_type`
-This table stores metadata about contact types. It uses the configurable contact types from [app settings]({{< ref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}), combined with all distinct values of `contact_type` from the `contact` table.
+This table stores metadata about contact types. It uses the configurable contact types from [app settings](/building/reference/app-settings/hierarchy#app_settingsjson-contact_types), combined with all distinct values of `contact_type` from the `contact` table.
 The `person` column defines which contact types are persons and which are places. It uses the `person` field from the settings, or if the contact type is not in settings, it is assumed to be a place unless `id` is `person`
 
 |Field|Description|

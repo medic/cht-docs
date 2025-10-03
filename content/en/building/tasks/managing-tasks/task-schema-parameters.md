@@ -22,13 +22,13 @@ This guide explains the parameters available in the Task Schema and important co
 
 Let's synthesize some knowledge about CHT applications to help clarify what is happening within the task system:
 
-1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}) or [schema for contact documents]({{< ref "technical-overview/data/db-schema#contacts-persons-and-places" >}}).
+1. All contacts in CHT applications are organised into hierarchies. For more information, read the [Contact and User Management Tutorial](/building/contact-management/contact-and-users-1) or [schema for contact documents](/technical-overview/data/db-schema#contacts-persons-and-places).
 
-2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) or the [schema for report documents]({{< ref "technical-overview/data/db-schema#reports" >}}).
+2. All reports in the system are linked to one (and only one) contact. For more information, read [App Forms Tutorial](/building/tutorials/app-forms) or the [schema for report documents](/technical-overview/data/db-schema#reports).
 
-3. Documents are stored [minified]({{< ref "technical-overview/data/hydration" >}}) (not hydrated). All data that is passed into the tasks system is minified.
+3. Documents are stored [minified](/technical-overview/data/hydration) (not hydrated). All data that is passed into the tasks system is minified.
 
-4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth]({{< ref "technical-overview/data/performance/replication#depth" >}}) or [purging]({{< ref "technical-overview/data/performance/purging" >}})) since both tasks can only process docs which are present on the device.
+4. Settings which control the documents which are available on the user's device are an important considerations to remember (eg [replication depth](/technical-overview/data/performance/replication#depth) or [purging](/technical-overview/data/performance/purging)) since both tasks can only process docs which are present on the device.
 
 > [!IMPORTANT]
 > The code in `tasks.js` runs on the user's devices, not in the cloud and not on a server.
@@ -44,7 +44,7 @@ With this constraint in mind, we can infer that tasks cannot know the answer to 
 
 ## The special significance of the appliesTo attribute
 
-The [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}}) includes the noteworthy attribute `appliesTo` which has two options: `contacts` and `reports`. This attribute is important! It changes the algorithm used to process the task, and the meaning of other attributes in the schema.
+The [task.js schema](/building/tasks/tasks-js#tasksjs) includes the noteworthy attribute `appliesTo` which has two options: `contacts` and `reports`. This attribute is important! It changes the algorithm used to process the task, and the meaning of other attributes in the schema.
 
 > [!TIP]
 > `appliesTo` is important. When you're ready to write a task, one of the first thing you must decide is the `appliesTo` value.

@@ -65,6 +65,6 @@ With token login, the password is never known by the admin or the user because t
 
 ## Single Sign-On (OIDC Login)
 
-The CHT supports Single Sign-On (SSO) via integration with an external authentication server. When [configured]({{< ref "building/reference/app-settings/oidc_provider" >}}), users can authenticate with their SSO credentials instead of needing a CHT-specific username and password.
+The CHT supports Single Sign-On (SSO) via integration with an external authentication server. When [configured](/building/reference/app-settings/oidc_provider), users can authenticate with their SSO credentials instead of needing a CHT-specific username and password.
 
 {{< see-also page="/hosting/sso" >}}

@@ -27,8 +27,8 @@ You will define:
 
 ## Prerequisites
 
-- You have already defined the relevant task types in `task.js`. If not, review the [Tasks tutorial]({{< ref "building/tasks/simple-tasks" >}}) to learn how to structure tasks.
-- Read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}})
+- You have already defined the relevant task types in `task.js`. If not, review the [Tasks tutorial](/building/tasks/simple-tasks) to learn how to structure tasks.
+- Read [Understanding the data available in tasks and targets](/building/tasks/managing-tasks/task-schema-parameters)
 
 ## Implementation Steps
 

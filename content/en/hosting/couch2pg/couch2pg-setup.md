@@ -12,7 +12,7 @@ aliases:
 ---
 
 {{< callout type="warning" >}}
-  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "/hosting/analytics" >}}).
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](//hosting/analytics).
 {{< /callout >}}
 
 This tutorial will take you through setting up a couch2pg service.
@@ -49,7 +49,7 @@ Before you begin, you need to have some useful software and tools that are requi
 * [PostgreSQL](https://www.postgresql.org/) 9.4 or later
 
 ## Prerequisites
-You should have a functioning [CHT instance installed locally]({{< ref "building/local-setup" >}})
+You should have a functioning [CHT instance installed locally](/building/local-setup)
 
 You should have a working database with a user that has full creation rights on the database. A database `POSTGRES_DB_NAME` and `couch2pg` user can be created and access granted using the following query:
 ```

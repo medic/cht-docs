@@ -21,7 +21,7 @@ By the end of the tutorial you should be able to:
 
 ## Brief Overview of Key Concepts
 
-The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
+The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First](/technical-overview/concepts/offline-first), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is a command-line interface tool to manage and configure CHT apps.
 
@@ -199,7 +199,7 @@ This CHT instance is empty and has no data in it. While you're free to explore a
 
 ### Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/maternal-newborn" >}}) installed. To upload demo data you can use `cht-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application](/reference-apps/maternal-newborn) installed. To upload demo data you can use `cht-conf`:
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 

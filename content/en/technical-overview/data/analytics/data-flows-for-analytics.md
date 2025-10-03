@@ -14,7 +14,7 @@ aliases:
    - /technical-overview/concepts/data-flows-for-analytics/
 ---
 
-In this section, we focus on how data flows through the various components of the Community Health Toolkit. The CHT is built to support the delivery of quality community health care at the last mile. The CHT is designed to work in areas with low connectivity, which means it is an [Offline-First]({{< ref "technical-overview/concepts/offline-first" >}}) toolkit for care provision. The architectural and technology choices in the stack are mostly guided by this principle, which will be evident in the discussion of the data management pipeline.
+In this section, we focus on how data flows through the various components of the Community Health Toolkit. The CHT is built to support the delivery of quality community health care at the last mile. The CHT is designed to work in areas with low connectivity, which means it is an [Offline-First](/technical-overview/concepts/offline-first) toolkit for care provision. The architectural and technology choices in the stack are mostly guided by this principle, which will be evident in the discussion of the data management pipeline.
 
 ## Overview
 
@@ -51,7 +51,7 @@ Ultimately all the data ends up in a CouchDB instance deployed in the cloud whet
 
 #### 2. Data Transformation
 
-[CHT Sync](/technical-overview/architecture/cht-sync) is used to move data from CouchDB to a relational database, PostgreSQL in this case. The choice of PostgreSQL for analytics dashboard data sources is to allow use of the more familiar SQL querying. It is an open source tool that can be [easily deployed]({{< ref "/hosting/analytics" >}}). When deployed the service uses [CouchDB's changes feed](https://docs.couchdb.org/en/stable/api/database/changes.html) which allows capturing of everything happening in CouchDB in incremental updates. It is run and monitored by the operating system where it is configured to fetch data at a configurable interval.
+[CHT Sync](/technical-overview/architecture/cht-sync) is used to move data from CouchDB to a relational database, PostgreSQL in this case. The choice of PostgreSQL for analytics dashboard data sources is to allow use of the more familiar SQL querying. It is an open source tool that can be [easily deployed](//hosting/analytics). When deployed the service uses [CouchDB's changes feed](https://docs.couchdb.org/en/stable/api/database/changes.html) which allows capturing of everything happening in CouchDB in incremental updates. It is run and monitored by the operating system where it is configured to fetch data at a configurable interval.
 
 Data copied over to PostgreSQL is first stored as raw json (document) making use of PostgreSQL's jsonb data type to create an exact replica of a CouchDB database. From this, default views are created at deployment of the service and refreshed during every subsequent run. Additional custom materialized views created later are also refreshed at this time.
 

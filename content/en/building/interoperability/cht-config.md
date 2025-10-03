@@ -23,7 +23,7 @@ You can see more details of the tool [in the cht-interoperability repository](ht
 4. Sending health information represented as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from interoperating systems to CHT applications.
 
 ## Sending Data
-When sending data to an interoperating system, [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) is used to configure which documents should be sent and at what point.
+When sending data to an interoperating system, [outbound push](/building/reference/app-settings/outbound) is used to configure which documents should be sent and at what point.
 A [mediator](http://openhim.org/docs/configuration/mediators/) then converts these documents to FHIR resources and orchestrates sending them to interoperating systems.
 The default mediator makes any resources sent to it queryable via a FHIR API using [HAPI](https://hapifhir.io/).
 

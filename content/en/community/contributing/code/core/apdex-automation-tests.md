@@ -15,7 +15,7 @@ This documentation will guide you on how to setup and configure automation to ru
 ## Prerequisites
 
 Before continuing with the steps below, ensure:
-1. You have a [cht instance deployed]({{< ref "/hosting/cht/app-developer" >}}) and running either locally or globally.
+1. You have a [cht instance deployed](//hosting/cht/app-developer) and running either locally or globally.
 
 1. You have some pre-existing users and data already loaded on the app. Use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
 

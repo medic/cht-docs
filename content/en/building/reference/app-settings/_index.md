@@ -19,7 +19,7 @@ and [`assetlinks`]({{% ref "building/reference/app-settings/assetlinks" %}}) sec
 `app_settings/forms.json`, `app_settings/schedules.json`, and `app_settings/assetlinks.json` respectively with the settings
 in the files overriding what might be already present in the `app_settings/base_settings.json` or `app_settings.json` files.
 
-Most sections are described on their own in the [Reference Documentation]({{< ref "building/reference" >}}).
+Most sections are described on their own in the [Reference Documentation](/building/reference).
 
 ## Build
 
@@ -55,7 +55,7 @@ The following settings do not need to be specified. They should only be defined 
 
 ## SMS Workflows
 
-Workflows involving SMS are configured by defining [schedules]({{% relref "schedules" %}}), [registrations]({{% relref "registrations" %}}), [patient reports]({{% relref "patient_reports" %}}), and [case reports]({{% relref "accept_case_reports" %}}). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
+Workflows involving SMS are configured by defining [schedules](/schedules), [registrations](/registrations), [patient reports](/patient_reports), and [case reports](/accept_case_reports). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
 As of `3.11.0`, places are valid subjects for any SMS workflows.
 
 ## SMS recipient resolution

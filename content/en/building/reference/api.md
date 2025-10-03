@@ -14,7 +14,7 @@ aliases:
 }
 </style>
 
-This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{< ref "technical-overview/data/analytics/data-flows-for-analytics" >}}) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
+This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database](/technical-overview/data/analytics/data-flows-for-analytics) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
 
 {{< toc >}}
 
@@ -2097,7 +2097,7 @@ will be undefined.
 | fullname                 | no                                                               | String           | Full name                                                                                                                                                                |         |
 | email                    | no                                                               | String           | Email address                                                                                                                                                            |         |
 | known                    | no                                                               | Boolean          | Boolean to define if the user has logged in before.                                                                                                                      |         |
-| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password]({{< ref "building/login/#password-reset-on-first-login" >}}) the next time they log in. | 4.17.0  |
+| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password](/building/login/#password-reset-on-first-login) the next time they log in. | 4.17.0  |
 | oidc_username            | no                                                               | String           | A unique username for [authenticating via OIDC](#login-by-oidc). This value must match the `email` claim returned for the user by the OIDC provider.                     | 4.20.0  |
 
 #### Login by SMS
@@ -2139,11 +2139,11 @@ If `app_settings.app_url` is not defined, the generated token-login URL will use
 Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
 {{< /callout >}}
 
-When [SSO Login]({{< ref "/hosting/sso" >}}) is enabled (by configuring the [`oidc_provider` settings]({{< ref "building/reference/app-settings/oidc_provider" >}})), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
+When [SSO Login](//hosting/sso) is enabled (by configuring the [`oidc_provider` settings](/building/reference/app-settings/oidc_provider)), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
 
 Two CHT users cannot share the same `oidc_username` value. Setting the `oidc_username` property for a user will cause the user's password (in the CHT) to be set to a random value, preventing them from logging in with other authentication methods. Instead, the user must log in using the "Login with SSO" button.
 
-When creating/editing users via the [App Management interface]({{< ref "building/admin/admin-overview" >}}), the "SSO Email Address" field is used to set the `oidc_username` property.
+When creating/editing users via the [App Management interface](/building/admin/admin-overview), the "SSO Email Address" field is used to set the `oidc_username` property.
 
 (Note: it is possible to have a mixed environment where some users log in with SSO and others log in with other authentication methods. In this case, the `oidc_username` property is only set for those users who log in with SSO.)
 
@@ -2408,7 +2408,7 @@ Create new users with a place and a contact.
 All users need to meet the following requirements before any of them are created:
 - All required fields are filled in
 - The password is at least 8 characters long and difficult to guess
-- The phone number is valid when [`token_login`]({{< ref "building/reference/app-settings/token_login" >}}) is enabled
+- The phone number is valid when [`token_login`](/building/reference/app-settings/token_login) is enabled
 
 Users are created in parallel and the creation is not aborted even if one of the users fails to be created.
 
@@ -2630,21 +2630,21 @@ Content-Type: application/json
 
 Create new users with a place and a contact from a CSV file.
 
-Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "building/reference/api#post-apiv1users" >}})
+Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`](/building/reference/api#post-apiv1users)
 where a row represents a user object and a column represents a user object property.
 Columns with a `:excluded` suffix will be ignored, this allows providing a more user-friendly experience with
 autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
 [Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
-[A guide]({{< ref "building/training/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
+[A guide](/building/training/users-bulk-load) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
 #### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
 that gets updated throughout the import and finalized upon completion.
-These entries are saved in the [`medic-logs`]({{< ref "technical-overview/data#medic-logs" >}}) database and you can access them
+These entries are saved in the [`medic-logs`](/technical-overview/data#medic-logs) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
 #### Headers
@@ -2770,7 +2770,7 @@ Content-Type: application/json
 
 ### POST /api/v1/users/{{username}}
 
-Allows you to change property values on a user account. [Properties listed above]({{< ref "#supported-properties" >}}) are supported except for `contact.parent`. Creating or modifying people through the user is not supported, see the [People section]({{< ref "#people" >}}).
+Allows you to change property values on a user account. [Properties listed above](/#supported-properties) are supported except for `contact.parent`. Creating or modifying people through the user is not supported, see the [People section](/#people).
 
 
 
@@ -3128,7 +3128,7 @@ _Requires CHT Core `4.11.0` or later._
 
 *Added in 4.3.0*
 
-Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/technical-overview/architecture/cht-watchdog" >}}).
+Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog](//technical-overview/architecture/cht-watchdog).
 
 The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
 

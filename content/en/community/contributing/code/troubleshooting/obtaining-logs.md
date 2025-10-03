@@ -52,7 +52,7 @@ The Android log is written to from the cht-android wrapper which captures errors
 
 ### Step 1
 
-To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "community/contributing/code/android/development-setup#debug-tool-adb" >}}) section.
+To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb](/community/contributing/code/android/development-setup#debug-tool-adb) section.
 
 ### Step 2
 
