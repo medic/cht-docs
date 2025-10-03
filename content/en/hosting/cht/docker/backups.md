@@ -76,7 +76,7 @@ Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use th
 
 1. While you don't need to stop CouchDB to back it up, ensure you follow best practices to back it up. See the [CouchDB site](https://docs.couchdb.org/en/stable/maintenance/backups.html) for more info. Note it is NOT recommended to use replication for backup.
 2. It is strongly recommended you encrypt your backups given the sensitivity of the contents. Do this now before copying the backup files to their long term location.
-3. Backup the CouchDB files using the [software specified above](/#backup-software)
+3. Backup the CouchDB files using the [software specified above](#backup-software)
 
 
 ## Docker Compose files
@@ -92,7 +92,7 @@ All compose files, and the corresponding `.env` file, are in these three locatio
 
 While all three of these are trivial to recreate by downloading them again, they may change over time so should be archived with your CouchDB data.  Further, when there's been a critical failure of a production CHT instance, you want to be sure to make the restore process as speedy as possible.
 
-As all of these files are only read when Docker first loads a service, you can simply copy them whenever you want without stopping any of the CHT services.  They should be copied with the same frequency and put in the same location as the CouchDB data using the [backup software specified above](/#backup-software).
+As all of these files are only read when Docker first loads a service, you can simply copy them whenever you want without stopping any of the CHT services.  They should be copied with the same frequency and put in the same location as the CouchDB data using the [backup software specified above](#backup-software).
 
 
 ## TLS certificates
@@ -108,7 +108,7 @@ Like the compose files, the TLS certificate files can easily be regenerated or r
    docker cp cht_nginx_1:/etc/nginx/private/key.pem .
    docker cp cht_nginx_1:/etc/nginx/private/cert.pem .
    ```
-2. Back the up to the same location and frequency as the CouchDB data using the [backup software specified above](/#backup-software).
+2. Back the up to the same location and frequency as the CouchDB data using the [backup software specified above](#backup-software).
 
 
 ## Testing backups

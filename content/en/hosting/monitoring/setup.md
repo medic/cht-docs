@@ -227,7 +227,7 @@ The provisioned alert rules cannot be modified directly. Instead, you can copy t
 
 1. Open the alert rule you would like to modify in the Grafana alert rules UI and select the "Copy" button.
 2. Update the copied alert rule with the desired changes and save it into a new Evaluation group.
-3. [Remove the provisioned alert](/#deleting-provisioned-alert-rules).
+3. [Remove the provisioned alert](#deleting-provisioned-alert-rules).
 
 ##### Configuring Contact Points
 

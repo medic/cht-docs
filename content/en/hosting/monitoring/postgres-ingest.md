@@ -63,11 +63,11 @@ Adding a custom Postgres metric
 
 The following steps are all performed on the CHT Watchdog instance and assume you installed Watchdog in `~/cht-watchdog`. Note that user credentials with READ access to your Postgres server are required.
 
-1. [Prepare query in config file](/#prepare-query-in-config-file)
-2. [Adding new scrape config](/#adding-new-scrape-config)
-3. [Add new Postgres Exporter](/#add-new-postgres-exporter)
-4. [Configure the dashboard](/#configure-the-dashboard)
-5. [Optional: Add Dashboard to CHT Dropdown in Grafana](/#optional-add-dashboard-to-cht-dropdown-in-grafana)
+1. [Prepare query in config file](#prepare-query-in-config-file)
+2. [Adding new scrape config](#adding-new-scrape-config)
+3. [Add new Postgres Exporter](#add-new-postgres-exporter)
+4. [Configure the dashboard](#configure-the-dashboard)
+5. [Optional: Add Dashboard to CHT Dropdown in Grafana](#optional-add-dashboard-to-cht-dropdown-in-grafana)
 
 ### Prepare query in config file
 
