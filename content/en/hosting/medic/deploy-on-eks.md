@@ -43,9 +43,11 @@ By default, Medic teammates do not have EKS access and must file a ticket to req
 
 1. [Create a ticket](https://github.com/medic/medic-infrastructure/issues/new) to get your DNS and Namespace created for EKS, which should match each other. As an example, a `mrjones-dev` name space would match `mrjones.dev.medicmobile.org` DNS. The ticket should include requesting EKS access to be granted.
 2. Once the ticket in step one is complete, follow the [CLI setup guide](https://github.com/medic/medic-infrastructure/blob/master/terraform/aws/dev/eks/access/README.md).
-3. AWS Admin will create your IAM user, and a role prefixed with eks-<username> that contain the same policies as similar usernames. Admins can take a look at IAM user: `fredmuiru` and IAM role: `eks-fredmuiru` for examples.
+3. AWS Admin will create your IAM user, and a role prefixed with eks-<username> that contain the same policies as similar usernames. Admins can take a look at IAM user: `mrjones` and IAM role: `eks-mrjones` for examples.
 
-**NB** - Security key (e.g. Yubikey) users need to add a TOTP MFA (Time-based, One-Time Password Multi-Factor Authentication) too! CLI requires the TOTP values (6-digit number) and security keys are not supported. Security keys can only be used on web logins.
+{{< callout >}}
+   Security key (e.g. Yubikey) users need to add a TOTP MFA (Time-based, One-Time Password Multi-Factor Authentication) too! CLI requires the TOTP values (6-digit number) and security keys are not supported. Security keys can only be used on web logins.
+{{< /callout >}}
 
 ### First time setup
 
@@ -77,7 +79,7 @@ After you have created a ticket per "Request permission" above, you should get a
 
 1. Login with `eks-aws-mfa-login` script in the [infra repo](https://github.com/medic/medic-infrastructure/tree/master/terraform/aws/dev/eks/access): 
    ```shell
-   ./eks-aws-mfa-login USERNAME  TOTP_HERE
+   ./eks-aws-mfa-login USERNAME TOTP_HERE
    ```
 2. Run the Update Kubeconfig command, assuming username is `mrjones` and namespace is `mrjones-dev` - be sure to place these with yours and add the eks prefix to your username: `aws eks update-kubeconfig --name dev-cht-eks --profile eks-mrjones --region eu-west-2`
 
@@ -148,9 +150,11 @@ Read on below for the exact steps on how to do this.
 
 ### Steps
 
-Note that a number of these steps can be done either on the command line or in the AWS web admin GUI.  Do it the way you feel most comfortable!
+{{< callout >}} 
+   A number of these steps can be done either on the command line or in the AWS web admin GUI.  Do it the way you feel most comfortable!
+{{< /callout >}}
 
-Always always be sure of which `context` you're working on! Start off by setting your `context` to `dev-cht-eks`:
+Always be sure of which `context` you're working on! Start off by setting your `context` to `dev-cht-eks`:
 
 ```bash
 kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks
