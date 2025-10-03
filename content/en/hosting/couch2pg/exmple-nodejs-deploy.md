@@ -40,7 +40,7 @@ All commands are run as `root` unless specified to run as `couch2pg`:
    ```shell
    psql -U cht_couch2pg -h 192.168.68.26 cht
    ```
-3. Test with `curl` client on couch2pg server that it can connect and successfully authenticate  to CHT server. Again be sure to use correct CHT Core URL with login and password:
+3. Test with `curl` client on couch2pg server that it can connect and successfully authenticate to CHT server. Again, be sure to use the correct CHT Core URL with login and password:
    ```shell
    curl -s https://medic:password@192-168-68-23.local-ip.medicmobile.org:10443/medic/ | jq      
    ```
