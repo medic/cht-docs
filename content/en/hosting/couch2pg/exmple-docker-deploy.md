@@ -13,7 +13,6 @@ This guide is for Docker Compose on Ubuntu.  See related [NodeJS on Ubuntu](/hos
 
 ## Assumptions
 
-Recently, a partner wanted some help setting couch2pg. While [CHT Sync](https://docs.communityhealthtoolkit.org/core/overview/cht-sync/) is the currently recommended set up, they wanted to maintain feature parity of for an existing CHT Core + Data Sync deployment, so chose to keep their older couch2pg setup.
 
 Since the detailed steps were written in a private ticket, we wanted to publish them in case other partners would benefit from the precise steps.  These instructions assume you're on Ubuntu server 22.04 and are running both CHT Core and Postgres on other servers.
 
