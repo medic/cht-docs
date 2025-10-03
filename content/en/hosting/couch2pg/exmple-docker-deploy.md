@@ -33,7 +33,7 @@ All commands are run as `root`:
    curl -fsSL https://get.docker.com -o get-docker.sh
    sh get-docker.sh
    ```
-2. Test with `curl` client on couch2pg server to ensure it can connect and successfully authenticate to CHT server. Again be sure to use correct CHT Core URL with login and password:
+2. Test with `curl` client on couch2pg server to ensure it can connect and successfully authenticate to CHT server. Again, be sure to use the correct CHT Core URL with login and password:
    ```shell
    curl -s https://medic:password@192-168-68-23.local-ip.medicmobile.org/medic/ | jq      
    ```
