@@ -39,10 +39,10 @@ Each dbt container is passed an environment variable `DBT_SELECTOR` that is used
 
 One dbt container should be set up to run the base models. This can be done by using the selector `package:cht_pipeline_base` or, to separate telemetry models from base models, use `tag:base` and `tag:users`.
 
-To run custom models in separate containers, either use a package select with your dbt package name (`package:[YOUR_PACKAGE_NAME]`), or for more fine-grained control, add [tags]({{< relref "/hosting/analytics/tuning-dbt#dbt-tags" >}}) to your models and use tag selectors (`tag:[YOUR_TAG]`).
+To run custom models in separate containers, either use a package select with your dbt package name (`package:[YOUR_PACKAGE_NAME]`), or for more fine-grained control, add [tags](//hosting/analytics/tuning-dbt#dbt-tags) to your models and use tag selectors (`tag:[YOUR_TAG]`).
 Although it is possible to use any condition, using tags is the simplest way to separate models.
 
-How to configure the different dbt containers to use these selectors depends on whether CHT Sync is running in [docker-compose]({{< relref "/hosting/analytics/setup-docker-compose#tuning-dbt" >}}) or [kubernetes]({{< relref "/hosting/analytics/setup-kubernetes#tuning-dbt" >}}).
+How to configure the different dbt containers to use these selectors depends on whether CHT Sync is running in [docker-compose](//hosting/analytics/setup-docker-compose#tuning-dbt) or [kubernetes](//hosting/analytics/setup-kubernetes#tuning-dbt).
 
 In Kubernetes, add the selectors to the `values.yaml` file as a list called `dbt_selectors`
 ```yaml

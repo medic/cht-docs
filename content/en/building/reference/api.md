@@ -236,7 +236,7 @@ Returns a JSON array of CHT-related software versions and device information for
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | user            | The user's name.                                                                                                                         | CHT 4.7.0   |
 | deviceId        | The unique key for the user's device.                                                                                                    | CHT 4.7.0   |
-| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "technical-overview/data/performance/telemetry" >}}).           | CHT 4.7.0   |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs](/technical-overview/data/performance/telemetry).           | CHT 4.7.0   |
 | browser.name    | The name of the browser used.                                                                                                            | CHT 4.7.0   |
 | browser.version | The version of the browser used.                                                                                                         | CHT 4.7.0   |
 | apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. | CHT 4.7.0   |
@@ -521,7 +521,7 @@ Endpoint used by cht-gateway to send sms messages. More documentation in the [ch
 
 ### POST /api/v1/sms/{aggregator}/{endpoint}
 
-Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{< relref "building/messaging/gateways/rapidpro" >}}) and [Africa's Talking]({{< relref "building/messaging/gateways/africas-talking" >}}) pages.
+Endpoint for integration with SMS aggregators. More details on the [RapidPro](/building/messaging/gateways/rapidpro) and [Africa's Talking](/building/messaging/gateways/africas-talking) pages.
 
 ## Contact
 
@@ -2128,7 +2128,7 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 | false | existent, no token | None. |
 | false | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. Existent sessions are invalidated. |
 
-This feature uses [`app_settings.app_url`]({{< relref "building/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "building/reference/app-settings/token_login.md" >}}) to be defined and enabled.
+This feature uses [`app_settings.app_url`](/building/reference/app-settings/#app_settingsjson) and [`app_settings.token_login`](/building/reference/app-settings/token_login.md) to be defined and enabled.
 If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct.
 
 {{< see-also page="building/login" anchor="remote-login" >}}
@@ -2149,7 +2149,7 @@ When creating/editing users via the [App Management interface]({{< ref "building
 
 ##### Locale for SSO users
 
-When a user logs in via SSO, the CHT app will attempt to localize the interface based on the `locale` claim returned by the OIDC Provider (otherwise it will fall back to the default locale configured as the first `languages` entry in the [`app_settings.json`]({{< relref "building/reference/app-settings/#app_settingsjson" >}})).
+When a user logs in via SSO, the CHT app will attempt to localize the interface based on the `locale` claim returned by the OIDC Provider (otherwise it will fall back to the default locale configured as the first `languages` entry in the [`app_settings.json`](/building/reference/app-settings/#app_settingsjson)).
 
 {{< see-also page="/hosting/sso" anchor="remote-login" >}}
 
@@ -2973,7 +2973,7 @@ Content-Type: application/json
 
 ## Monitoring
 
-See the [Monitoring and alerting on the CHT]({{< relref "/hosting/monitoring" >}}) page for how to use this API in production.
+See the [Monitoring and alerting on the CHT](//hosting/monitoring) page for how to use this API in production.
 
 ### GET /api/v1/monitoring
 

@@ -10,7 +10,7 @@ aliases:
 
 ## Introduction
 
-After [setting up]({{< relref "/hosting/monitoring/setup.md" >}}) your Watchdog instance and [making it production ready]({{< relref "/hosting/monitoring/production.md" >}}), you can include additional custom metrics from your deployment. These metrics should be ingested by Prometheus and then can be used to create new Grafana dashboards and alerts. Example use cases include monitoring and alerting on health metrics like CHW visits per county or household registration rates, etc.
+After [setting up](//hosting/monitoring/setup.md) your Watchdog instance and [making it production ready](//hosting/monitoring/production.md), you can include additional custom metrics from your deployment. These metrics should be ingested by Prometheus and then can be used to create new Grafana dashboards and alerts. Example use cases include monitoring and alerting on health metrics like CHW visits per county or household registration rates, etc.
 
 This guide will walk you through adding a custom metric from Postgres _data_. The following naming convention is used throughout to reference the relevant server instances: CHT Core (`cht.example.com`),  CHT Watchdog (`watchdog.example.com`) and a Postgres server (`db.example.com`).
 
@@ -63,11 +63,11 @@ Adding a custom Postgres metric
 
 The following steps are all performed on the CHT Watchdog instance and assume you installed Watchdog in `~/cht-watchdog`. Note that user credentials with READ access to your Postgres server are required.
 
-1. [Prepare query in config file]({{< relref "#prepare-query-in-config-file" >}})
-2. [Adding new scrape config]({{< relref "#adding-new-scrape-config" >}})
-3. [Add new Postgres Exporter]({{< relref "#add-new-postgres-exporter" >}})
-4. [Configure the dashboard]({{< relref "#configure-the-dashboard" >}})
-5. [Optional: Add Dashboard to CHT Dropdown in Grafana]({{< relref "#optional-add-dashboard-to-cht-dropdown-in-grafana" >}})
+1. [Prepare query in config file](/#prepare-query-in-config-file)
+2. [Adding new scrape config](/#adding-new-scrape-config)
+3. [Add new Postgres Exporter](/#add-new-postgres-exporter)
+4. [Configure the dashboard](/#configure-the-dashboard)
+5. [Optional: Add Dashboard to CHT Dropdown in Grafana](/#optional-add-dashboard-to-cht-dropdown-in-grafana)
 
 ### Prepare query in config file
 
@@ -152,7 +152,7 @@ services:
 
 Launch Watchdog with the new compose file
 
-Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "/hosting/monitoring/setup" >}}), this would be:
+Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup](//hosting/monitoring/setup), this would be:
 
 ```shell
 cd ~/cht-watchdog

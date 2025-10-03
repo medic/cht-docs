@@ -157,13 +157,13 @@ the submodules within the cht-android folder.
 
 _Only CHT Android_
 
-Refer to the [CHT Core Developer Guide]({{< relref "community/contributing/code/core/dev-environment#nginx-local-ip" >}}).
+Refer to the [CHT Core Developer Guide](/community/contributing/code/core/dev-environment#nginx-local-ip).
 
 #### Manually testing with older Android versions
 
 _Only CHT Android_
 
-Later versions of the CHT, only support [running on Chrome/Webview 90+]({{< relref "releases/#dependencies" >}}). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
+Later versions of the CHT, only support [running on Chrome/Webview 90+](/releases/#dependencies). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
 
 To upgrade the necessary apk on an emulated Android device:
 

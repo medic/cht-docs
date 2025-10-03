@@ -13,7 +13,7 @@ aliases:
 
 By default, CHT will create a self-signed certificate for every deployment.  These instructions are for changing to either a pre-existing certificate or automatically creating and renewing a [Certbot](https://certbot.eff.org/) based certificate using [ACME](https://acmeclients.com/), like [Let's Encrypt](https://letsencrypt.org/).
 
-This guide assumes you've already met the [hosting requirements]({{< relref "/hosting/cht/requirements" >}}), specifically around Docker being installed.
+This guide assumes you've already met the [hosting requirements](//hosting/cht/requirements), specifically around Docker being installed.
 
 ## Pre-existing certificate
 

@@ -10,7 +10,7 @@ description: >
 ## User Management
 Supervisors are able to set up users in the CHT without contacting a system administrator. They can **create** new CHW user accounts or **replace** CHWs on an existing device.
 
-When _creating_ a new user account, Supervisors fill out the necessary details, including the CHW's phone number, from their own device. They can do this while offline, but must sync before the actual user account is created. Once the Supervisor syncs, the CHT will send an SMS to the new CHW with a [magic link]({{< relref "building/login#magic-links-for-logging-in-token-login" >}}) that enables them to login and start using the app.
+When _creating_ a new user account, Supervisors fill out the necessary details, including the CHW's phone number, from their own device. They can do this while offline, but must sync before the actual user account is created. Once the Supervisor syncs, the CHT will send an SMS to the new CHW with a [magic link](/building/login#magic-links-for-logging-in-token-login) that enables them to login and start using the app.
 
 When _replacing_ a CHW, Supervisors access the existing device and provide details about the new CHW. The new CHW can start using the app immediately, even while offline, and will see all of the existing household data. Once the new CHW syncs, the records on the server will be updated to reflect the new CHWs details.
 

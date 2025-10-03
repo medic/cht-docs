@@ -34,7 +34,7 @@ If you follow these guidelines when reporting an issue to us, we commit to:
 
 ## In Scope
 
-A local CHT instance is included in the scope. Follow the [manual instructions]({{< relref "/hosting/cht/app-developer" >}}) to set up a CHT instance.
+A local CHT instance is included in the scope. Follow the [manual instructions](//hosting/cht/app-developer) to set up a CHT instance.
 
 ## Out of scope
 

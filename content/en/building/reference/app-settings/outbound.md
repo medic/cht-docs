@@ -199,7 +199,7 @@ Example: you want the system to send outbound pushes based on a cron schedule ev
 
 #### Troubleshooting
 
-By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging]({{< relref "/hosting/cht/docker/logs#setting-log-level" >}}) to get more information about the exact contents of the request/response.
+By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging](//hosting/cht/docker/logs#setting-log-level) to get more information about the exact contents of the request/response.
 
 ## How Outbound messages are sent
 
@@ -247,4 +247,4 @@ Outbound may send your request multiple times even if the user just hit save onc
 
 ## Inbound?
 
-The outbound feature is used for sending data to an external service. If you are looking to **receive** data from an external service, take a look at [the records api]({{< relref "building/reference/api#records" >}}).
+The outbound feature is used for sending data to an external service. If you are looking to **receive** data from an external service, take a look at [the records api](/building/reference/api#records).

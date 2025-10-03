@@ -70,4 +70,4 @@ Other MDM providers include [Headwind MDM](https://h-mdm.com/) and [Microsoft In
 
 ### Progressive Web App
 
-Another alternative is to install the CHT Core webapp as a Progressive Web App. This avoids building an Android application altogether. Read more on the [PWA page]({{< relref "technical-overview/concepts/pwa" >}}).
+Another alternative is to install the CHT Core webapp as a Progressive Web App. This avoids building an Android application altogether. Read more on the [PWA page](/technical-overview/concepts/pwa).

@@ -76,7 +76,7 @@ When a CHW clicks on a task, the care guide configured for that task displays. C
 {{< card link="tasks-care4.png" image="tasks-care4.png"  method="resize">}}
 {{< /cards >}}
 
-Find more information on how [care guides]({{< relref "building/care-guides" >}}) provide decision support for healthcare workers.
+Find more information on how [care guides](/building/care-guides) provide decision support for healthcare workers.
 
 When the user completes the care guide, the task will be cleared from the Tasks tab, and the report will be accessible from the Reports page or on the profile of the person or place whom the report is about.
 
@@ -86,7 +86,7 @@ When the user completes the care guide, the task will be cleared from the Tasks 
 {{< card link="tasks-household.png" image="tasks-household.png"  method="resize">}}
 {{< /cards >}}
 
-Alternatively, there is an option to configure Household Tasks. When this [permission]({{< relref "building/reference/app-settings/user-permissions" >}}) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
+Alternatively, there is an option to configure Household Tasks. When this [permission](/building/reference/app-settings/user-permissions) is enabled, once a CHW has completed a task, they are taken to the Other Household Tasks page. This page shows the CHW all the additional outstanding tasks within the same household in which the initial task was completed.
 
 CHWs are able to complete tasks directly from this page, or exit by tapping on the “X”. If the household has no additional tasks, they will return directly to the main task list.
     

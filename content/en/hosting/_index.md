@@ -10,9 +10,9 @@ aliases:
 
 This section has instructions on how to host the CHT Core starting with the most basic Application Development setup on your laptop for just one developer all the way up to large deployments which include multi-node CouchDB cluster hosted in a Cloud based deployment.
 
-New developers to the CHT should start with the [Application Developer Hosting]({{< relref "/hosting/cht/app-developer" >}}).
+New developers to the CHT should start with the [Application Developer Hosting](//hosting/cht/app-developer).
 
-System administrators looking to deploy CHT into production should understand [the requirements to host the CHT]({{< relref "/hosting/cht/requirements/" >}}) first, then read the [Docker or Kubernetes]({{< relref "/hosting/cht/kubernetes-vs-docker/" >}}) to select a style of hosting that best fits them.
+System administrators looking to deploy CHT into production should understand [the requirements to host the CHT](//hosting/cht/requirements/) first, then read the [Docker or Kubernetes](//hosting/cht/kubernetes-vs-docker/) to select a style of hosting that best fits them.
 
 {{< cards >}}
   {{< card link="cht/" title="CHT Core" icon="template" subtitle="Guides for hosting CHT applications" >}}

@@ -14,7 +14,7 @@ aliases:
 
 ## Best practices
 
-If you are deploying new [trainings cards]({{< relref "building/training/training-cards" >}}), here are some best practices to follow: 
+If you are deploying new [trainings cards](/building/training/training-cards), here are some best practices to follow: 
 
 - When deploying training cards for the first time, provide guidance in advance as to what users should expect from the cards and how to use them
 - Test training card content with a small set of users to ensure learnability and understanding before deploying to your live instance
@@ -32,7 +32,7 @@ Some examples of data to monitor include:
 
 ## Examples
 
-Below is a list of training cards that you can use in your project to train users about new updates in CHT. Read the [step by step guide]({{< relref "building/training/training-cards" >}}) to deploy the training cards.
+Below is a list of training cards that you can use in your project to train users about new updates in CHT. Read the [step by step guide](/building/training/training-cards) to deploy the training cards.
 
 ### Floating Action Button
 
@@ -58,6 +58,6 @@ Get the training card files [here](https://github.com/medic/cht-docs/tree/main/c
 
 
 
-Once you have downloaded the training card files, follow the [step by step guide]({{< relref "building/training/training-cards" >}}) to learn how to edit the `properties file` to configure: 
+Once you have downloaded the training card files, follow the [step by step guide](/building/training/training-cards) to learn how to edit the `properties file` to configure: 
 - The `roles` of users who can view the training cards 
 - The `start_date` to define the training start day (when the training cards should show)

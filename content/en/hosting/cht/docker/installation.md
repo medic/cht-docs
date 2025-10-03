@@ -17,7 +17,7 @@ aliases:
 
 ## Prerequisites
 
-Be sure you have followed [the requirements document]({{< relref "/hosting/cht/requirements" >}}) including installing Docker. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
+Be sure you have followed [the requirements document](//hosting/cht/requirements) including installing Docker. This guide assumes you're using the `ubuntu` user and that it [has `sudo-less` access to Docker](https://askubuntu.com/a/477554).
 
 ## Directory Structure
 
@@ -89,7 +89,7 @@ Note that secure passwords and UUIDs were generated on the first four calls and 
 ## Launch containers
 
 > [!IMPORTANT]
-> This section has the first use of `docker compose`.  If you get an error calling this, double check [hosting requirements]({{< relref "/hosting/cht/requirements" >}}). 
+> This section has the first use of `docker compose`.  If you get an error calling this, double check [hosting requirements](//hosting/cht/requirements). 
 
 To start your CHT instance, run the following
 
@@ -138,7 +138,7 @@ grep COUCHDB_PASSWORD /home/ubuntu/cht/upgrade-service/.env | cut -d'=' -f2
 
 ## TLS Certificates
 
-See the [TLS Certificates page]({{< relref "/hosting/cht/docker/adding-tls-certificates" >}}) for how to import your certificates.
+See the [TLS Certificates page](//hosting/cht/docker/adding-tls-certificates) for how to import your certificates.
 
 ## Upgrades
 

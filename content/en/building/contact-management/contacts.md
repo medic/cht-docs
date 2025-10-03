@@ -41,7 +41,7 @@ Because this list defaults to show the “places” below the user in the hierar
 
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage.
 
-With the [_UHC Mode_]({{< relref "building/uhc-mode" >}}) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
+With the [_UHC Mode_](/building/uhc-mode) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
 
 ## Searching
 
@@ -126,7 +126,7 @@ Health workers can use these Care Guides at any time. If the app has scheduled a
 
 ## Creating and Editing Contacts
 
-Contacts are created/modified via [contact forms]({{< relref "building/forms/contact" >}}). These forms are highly configurable and allow for specifying detailed workflows for capturing information about contacts.
+Contacts are created/modified via [contact forms](/building/forms/contact). These forms are highly configurable and allow for specifying detailed workflows for capturing information about contacts.
 
 ### Duplicate Contact Detection
 
@@ -140,6 +140,6 @@ One major challenge when collecting contact data is ensuring users do not inadve
 
  The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
 
-The matching logic for duplicate detection is [configurable]({{< relref "building/forms/contact#properties" >}}) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
+The matching logic for duplicate detection is [configurable](/building/forms/contact#properties) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
 
 
