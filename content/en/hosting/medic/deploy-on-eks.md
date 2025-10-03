@@ -25,7 +25,7 @@ Be sure you have these tools installed and repos cloned:
 * [helm](https://helm.sh/docs/intro/install/)
 * [jq](https://jqlang.github.io/jq/download/)
 * [node](https://nodejs.org/en/download) version `22` or later. Be sure that `npm` was installed as well with `node` (it normally is)
-* [medic-infra repo](git@github.com:medic/medic-infrastructure.git) - so you can run the `eks-aws-mfa-login` script
+* [medic-infra repo](https://github.com/medic/medic-infrastructure) - so you can run the `eks-aws-mfa-login` script
 
 #### Optional:  Autocomplete
 
