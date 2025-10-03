@@ -25,7 +25,6 @@ Be sure you have these tools installed and repos cloned:
 * [helm](https://helm.sh/docs/intro/install/)
 * [jq](https://jqlang.github.io/jq/download/)
 * [node](https://nodejs.org/en/download) version `22` or later. Be sure that `npm` was installed as well with `node` (it normally is)
-* [Medic Infra](https://github.com/medic/medic-infrastructure/) repo cloned
 
 #### Optional:  Autocomplete
 
@@ -95,21 +94,21 @@ After you have created a ticket per "Request permission" above, you should get a
 
 5. Create a new `values.yaml` file by [copying this one](https://github.com/medic/helm-charts/blob/main/charts/cht-chart-4x/values.yaml). Be sure to update these values after you create it:
 
-{{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
-
-  {{< tab >}}
-   * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
-   * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
-   * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
-  {{< /tab >}}
-  {{< tab >}}
-   * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
-   * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
-   * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
-   * `clusteredCouch_enabled` - set to `true`
-   {{% /tab %}}
-
-{{< /tabs >}}
+   {{< tabs items="Single node CouchDB,Multi node CouchDB" >}}
+   
+     {{< tab >}}
+      * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
+        * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
+        * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
+     {{< /tab >}}
+     {{< tab >}}
+        * `<your-project-name>` and  `<your-namespace>` - set both `USERNAME-dev` - for example `mrjones-dev`
+        * `<password-value>` - put in a strong - this instance is exposed to the Internet! \*
+        * `<subdomain>` - your `username`.  For example: `mrjones.dev.medicmobile.org`
+        * `clusteredCouch_enabled` - set to `true`
+        {{% /tab %}}
+   
+   {{< /tabs >}}
 
    _\* Note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
 6. Ensure you have the latest code of `cht-core` [repo](https://github.com/medic/cht-core):

@@ -6,26 +6,26 @@ description: >
   Setting up CHT Sync with Docker and the CHT
 relatedContent: >
   technical-overview/architecture
-  technical-overview/cht-sync
+  technical-overview/architecture/cht-sync
 aliases:
    - /apps/guides/data/analytics/setup
    - /building/guides/data/analytics/setup
 ---
 
-This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker. This path is recommended if you host the [CHT with Docker]({{< relref "hosting/4.x/docker" >}}).
+This guide will walk you through setting up a deployment of CHT Sync with the CHT using Docker. This path is recommended if you host the [CHT with Docker]({{< relref "/hosting/cht/docker" >}}).
 
 ## Prerequisites
 
 - [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [cht-sync](https://github.com/medic/cht-sync) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-sync`).
-- [A dbt project]({{< relref "hosting/analytics/building-dbt-models" >}}).
+- [A dbt project]({{< relref "/hosting/analytics/building-dbt-models" >}}).
 
 ## Setup
 
-In the `cht-sync` folder, copy the values from the `env.template` file to a `.env` file. For more information, see the references on the [Environment variables page]({{< relref "hosting/analytics/environment-variables" >}}).
+In the `cht-sync` folder, copy the values from the `env.template` file to a `.env` file. For more information, see the references on the [Environment variables page]({{< relref "/hosting/analytics/environment-variables" >}}).
 
-Configure the `COUCHDB_*` environment variables to connect to your CouchDB instance. For production CHT Core deployments, the port will most likely need to be set to `443` like this: `COUCHDB_PORT=443`. This is because CHT Core uses an `nginx` [reverse proxy]({{< relref "technical-overview/architecture#overview" >}}) on port `443`, instead of the default `5984` port used in a stand-alone CouchDB instance which the `env.template` [has]({{< relref "hosting/analytics/environment-variables" >}}).
+Configure the `COUCHDB_*` environment variables to connect to your CouchDB instance. For production CHT Core deployments, the port will most likely need to be set to `443` like this: `COUCHDB_PORT=443`. This is because CHT Core uses an `nginx` [reverse proxy]({{< relref "technical-overview/architecture#overview" >}}) on port `443`, instead of the default `5984` port used in a stand-alone CouchDB instance which the `env.template` [has]({{< relref "/hosting/analytics/environment-variables" >}}).
 
 > [!IMPORTANT]
 > The first time you run the commands from any of the sections below it will need to download many Docker images and will take a while. You'll know it's done when you see `#8 DONE 0.0s` and you are returned to the command line. Be patient!
@@ -43,7 +43,7 @@ The following profiles are available:
 
 This setup involves starting couch2pg, PostgreSQL, pgAdmin and dbt. It assumes you have a CouchDB instance running, and you updated the `.env` CouchDB variables accordingly. 
 
-The dbt container needs a project to run. To develop and test models locally, [set up a dbt project]({{< relref "hosting/analytics/building-dbt-models#setup" >}}) and set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "hosting/analytics/environment-variables" >}}) in `.env`. You must set this to a valid directory where you have your CHT Pipeline models. You can not use `--local` profile without setting this.
+The dbt container needs a project to run. To develop and test models locally, [set up a dbt project]({{< relref "/hosting/analytics/building-dbt-models#setup" >}}) and set the path to the project to the `DBT_LOCAL_PATH` [environment variable]({{< relref "/hosting/analytics/environment-variables" >}}) in `.env`. You must set this to a valid directory where you have your CHT Pipeline models. You can not use `--local` profile without setting this.
 
 When running, the dbt container then will use the local models in the path specified in `DBT_LOCAL_PATH` with out needing to query a remote git repository.
 
@@ -68,7 +68,7 @@ The dbt container will run the models in the path specified in `DBT_LOCAL_PATH`.
 
 #### Production
 
-This setup involves starting couch2pg and one dbt container. It assumes you have an external CouchDB instance and Postgres DB. The credentials and settings for these databases are configured in [.env]({{< relref "hosting/analytics/environment-variables" >}}).
+This setup involves starting couch2pg and one dbt container. It assumes you have an external CouchDB instance and Postgres DB. The credentials and settings for these databases are configured in [.env]({{< relref "/hosting/analytics/environment-variables" >}}).
 
 Run the Docker containers with profile `production` and wait for every container to be up and running:
 ```sh
@@ -79,7 +79,7 @@ You can verify this command worked by running `docker ps`. It should show three 
 
 ### Tuning dbt
 
-In production setups with large tables, it can be helpful to [tune how dbt runs]({{< relref "hosting/analytics/tuning-dbt" >}}).
+In production setups with large tables, it can be helpful to [tune how dbt runs]({{< relref "/hosting/analytics/tuning-dbt" >}}).
 
 To use threads or batching, set the corresponding environment variables in `.env`.
 ```conf
@@ -178,4 +178,4 @@ To add these columns log in to the database and run this sql.
 
 In V2, the commands for running CHT sync have changed; a profile is required as described above.
 When testinging locally and using the `local` profile, the environment variable `DBT_LOCAL_PATH` must be set.
-V2 adds new features for [tuning dbt]({{< relref "hosting/analytics/tuning-dbt" >}}); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables]({{< relref "hosting/analytics/environment-variables" >}}) in `.env` as described above.
+V2 adds new features for [tuning dbt]({{< relref "/hosting/analytics/tuning-dbt" >}}); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables]({{< relref "/hosting/analytics/environment-variables" >}}) in `.env` as described above.

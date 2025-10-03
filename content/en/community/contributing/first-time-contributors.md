@@ -10,7 +10,7 @@ description: >
 
 Documentation exists for everything from how to [compile]({{% ref "community/contributing/code/core/dev-environment" %}}) the CHT from source to how to [build](https://github.com/medic/cht-docs/blob/main/README.md) the docs site locally.  However, where do you start?  What if you've never contributed to an open source project before? This guide helps the newcomer make their first contribution.
 
-If you want the more brief steps, check out the contributors' [quick start]({{% ref "community/contributing#quick-start" %}}).
+If you want the more brief steps, check out the contributors' [quick start]({{% ref "community/contributing/code#quick-start" %}}).
 
 If this isn't you all together, head over to our [Community section]({{% ref "community" %}}) where it list out other actions for new community members who are not developers.
 
@@ -32,9 +32,7 @@ If you have never used `git` or GitHub, check out the [Get started using GitHub 
 
 ## Your first issue
 
-Issues marked [Good first issue](https://github.com/medic/cht-core/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22Good%20first%20issue%22) could be a great start if you are new to the CHT. Feel free to pick an issue that looks easy for you! An easy-looking issue will better set you up for successfully merging the code. Easy merges are our goal here!
-
-Feel free to look beyond just the CHT Core as well - we have other repositories that [also have the Good first issue label](https://github.com/search?q=org%3Amedic+label%3A%22Good+first+issue%22++&type=issues&state=open).
+Issues marked [Good first issue](https://github.com/search?q=org%3Amedic+label%3A%22Good+first+issue%22+++no%3Aassignee&type=issues&state=open) could be a great start if you are new to the CHT. Feel free to pick an issue that looks easy for you! An easy-looking issue will better set you up for successfully merging the code. Easy merges are our goal here!
 
 Make a comment on the issue asking for the issue to be assigned to you.
 

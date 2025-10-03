@@ -48,11 +48,15 @@
   --exclude "http[s]*://www.pluralsight.com/paths/using-kubernetes-as-a-developer.*" \
   --exclude "http[s]*://www.intellisoftkenya.com.*" \
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
-  --exclude "http[s]*://www.npmjs.com/org/medic/team/developers" \
+  --exclude "http[s]*://www.npmjs.com.*" \
+  --exclude "https://.*youtu.be.*" \
+  --exclude "https://.*youtube.com.*" \
   --exclude "http[s]*://docs.couchdb.org.*" \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
   --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://docs.dhis2.org.*" \
+  --exclude "http[s]*://stackoverflow.com/questions.*" \
   --exclude "http[s]*://.*udacity.com.*" \
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \

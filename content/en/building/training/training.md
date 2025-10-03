@@ -43,7 +43,7 @@ Before training is done, a training preparation checklist is prepared to ensure 
 * Identify the total number of participants. It is recommended that the ratio of facilitators to participants should be 1:10 and each training class should have a maximum of 30 participants.
 * Confirm and organize training venue. The venue should be well ventilated, have adequate lighting, good sanitation and security and be at a central location for easy access. It is recommended that the training of the CHWs takes place in a community setting such as schools, churches or mosques while training of CHAs and program teams can happen in a facility or hotel.
 * Phone preparation
-    * Procure phones for the training  with [minimum specs requirements]({{< relref "building/concepts/access" >}})
+    * Procure phones for the training  with [minimum specs requirements]({{< relref "building/login" >}})
     * Ensure phones are fully charged prior to training
     * Guide users on how to obtain and register SIM cards
     * Load airtime into phones

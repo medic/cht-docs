@@ -22,9 +22,11 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 4.19.x  | Supported | 13-May-2025  | TBA         |
+| 4.21.x  | Supported | 25-Jun-2025  | TBA         |
+| 4.20.x  | Supported | 04-Jun-2025  | 25-Sep-2025 |
+| 4.19.x  | Supported | 13-May-2025  | 04-Sep-2025 |
 | 4.18.x  | Supported | 20-Mar-2025  | 13-Aug-2025 |
-| 4.17.x  | Supported | 05-Feb-2025  | 20-Jun-2025 |
+| 4.17.x  | EOL       | 05-Feb-2025  | 20-Jun-2025 |
 | 4.16.x  | EOL       | 16-Jan-2025  | 05-May-2025 |
 | 4.15.x  | EOL       | 20-Nov-2024  | 16-Apr-2025 |
 | 4.14.x  | EOL       | 31-Oct-2024  | 20-Feb-2025 |
@@ -43,25 +45,7 @@ It is recommended that all projects update regularly multiple times a year to ge
 | 4.1.x   | EOL       | 12-Dec-2022  | 25-Aug-2023 |
 | 4.0.x   | EOL       | 03-Nov-2022  | 12-Mar-2023 |
 | 3.17.x  | EOL       | 11-Oct-2022  | 03-Nov-2023 |
-| 3.16.x  | EOL       | 3-Aug-2022   | 11-Jan-2023 |
-| 3.15.x  | EOL       | 4-May-2022   | 3-Nov-2022  |
-| 3.14.x  | EOL       | 11-Feb-2022  | 4-Aug-2022  |
-| 3.13.x  | EOL       | 29-Sep-2021  | 11-May-2022 |
-| 3.12.x  | EOL       | 28-Jul-2021  | 29-Dec-2021 |
-| 3.11.x  | EOL       | 21-Apr-2021  | 28-Oct-2021 |
-| 3.10.x  | EOL       | 9-Sep-2020   | 21-Jul-2021 |
-| 3.9.x   | EOL       | 19-Jun-2020  | 9-Dec-2020  |
-| 3.8.x   | EOL       | 11-Feb-2020  | 19-Sep-2020 |
-| 3.7.x   | EOL       | 22-Oct-2019  | 11-Jun-2020 |
-| 3.6.x   | EOL       | 17-Jul-2019  | 24-Mar-2020 |
-| 3.5.x   | EOL       | 27-Jun-2019  | 17-Oct-2019 |
-| 3.4.x   | EOL       | 27-Mar-2019  | 27-Sep-2019 |
-| 3.3.x   | EOL       | 22-Feb-2019  | 27-Jun-2019 |
-| 3.2.x   | EOL       | 23-Jan-2019  | 22-May-2019 |
-| 3.1.x   | EOL       | 21-Nov-2018  | 23-Apr-2019 |
-| 3.0.x   | EOL       | 15-Nov-2018  | 21-Feb-2019 |
 | 2.18.x  | EOL       | 30-Aug-2018  | 15-Nov-2019 |
-| earlier | EOL       | ...          | 30-Nov-2018 |
 
 ## Requirements
 
@@ -78,7 +62,7 @@ The following table shows the dependencies for deploying the CHT.
 | **2.x**          | 6+     | 1.6+    | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
 | **0.4**          | 0.12+  | 1.6+    | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
 
-{{< see-also page="hosting/requirements" title="Hosting Requirements" >}}
+{{< see-also page="/hosting/cht/requirements" title="/hosting Requirements" >}}
 
 ### Client Devices
 
@@ -103,6 +87,10 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 4.x
+- [4.21.1]({{% relref "releases/4_21_1.md" %}}) - 2025-07-30
+- [4.21.0]({{% relref "releases/4_21_0.md" %}}) - 2025-06-25
+- [4.20.1]({{% relref "releases/4_20_1.md" %}}) - 2025-07-30
+- [4.20.0]({{% relref "releases/4_20_0.md" %}}) - 2025-06-04
 - [4.19.0]({{% relref "releases/4_19_0.md" %}}) - 2025-05-13
 - [4.18.0]({{% relref "releases/4_18_0.md" %}}) - 2025-03-21
 - [4.17.0]({{% relref "releases/4_17_0.md" %}}) - 2025-02-05

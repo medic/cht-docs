@@ -7,7 +7,8 @@ description: >
 relatedContent: >
   building/tasks/simple-tasks
   building/tasks/tasks-js
-  reference-apps/anc
+  reference-apps/maternal-newborn
+  building/tasks/simple-priority-score
 aliases:
    - /building/tutorials/tasks-2
    - /apps/tutorials/tasks-2
@@ -23,11 +24,11 @@ Tasks prompt users to complete activities on a programmatic schedule. This tutor
 ## Prerequisites
 
 * [Building a simple task]({{< ref "building/tasks/simple-tasks" >}})
-* [Maternal and Newborn Health Reference App]({{< ref "reference-apps/anc" >}})
+* [Maternal and Newborn Health Reference App]({{< ref "reference-apps/maternal-newborn" >}})
 
 ## Scenario
 
-This scenario is loosely based on the _Pregnancy Visit Task_ from the [Maternal and Newborn Health Reference App]({{< ref "reference-apps/anc" >}}).
+This scenario is loosely based on the _Pregnancy Visit Task_ from the [Maternal and Newborn Health Reference App]({{< ref "reference-apps/maternal-newborn" >}}).
 
 We expectations for the task are:
 

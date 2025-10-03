@@ -5,8 +5,8 @@ weight:
 description: >
   Reference app for CHW supervisors to support performance management of CHWs
 relatedContent: >
-  building/concepts
-  building/features/supervision
+ 
+  building/supervision
   building/forms/app
   building/tasks/tasks-js
 aliases:

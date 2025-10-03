@@ -9,6 +9,7 @@ relatedContent: >
   building/tasks/tasks-js
   building/workflows/workflows-overview
   design/best-practices#anatomy-of-a-task
+  building/tasks/simple-priority-score
 aliases:
    - /building/tutorials/tasks-1
    - /apps/tutorials/tasks-1
@@ -85,7 +86,7 @@ cht --url=https://<username>:<password>@localhost compile-app-settings upload-ap
 
 ### 3. Testing the Task
 
-Tasks are only available to [offline users]({{< ref "building/concepts/users#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
+Tasks are only available to [offline users]({{< ref "building/users#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
 
 Create a new contact in the hierarchy and navigate to the `Tasks` tab. You should see the new `assessment-after-registration` task!
 

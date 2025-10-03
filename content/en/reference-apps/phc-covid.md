@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   reference-apps/training
   building/workflows/workflows-overview
-  building/concepts/care-guides
+  building/care-guides
 aliases:
    - /apps/examples/phc-covid
    - /building/examples/phc-covid

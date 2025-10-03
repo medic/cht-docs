@@ -5,9 +5,9 @@ description: >
   Dashboards to track metrics for an individual CHW or for an entire health facility
 relatedContent: >
   building/targets/targets-js
-  technical-overview/db-schema#targets
+  technical-overview/data/db-schema#targets
   building/integrations/dhis2
-  building/features/supervision/#chw-aggregate-targets
+  building/supervision/#chw-aggregate-targets
 aliases:
    - /building/features/targets/
    - /apps/features/targets/
@@ -17,12 +17,13 @@ aliases:
 
 For CHWs, the **Targets** tab provides a quick summary of their progress towards their individual goals. For Supervisors, Nurses, and facility-based users, the **Targets** tab provides important insights into how their community unit is performing.
 
-{{< cards rows="2" >}}
-{{< card link="targets-mobile.png" image="targets-mobile.png"  method="resize">}}
-{{< card link="targets-desktop.png" image="targets-desktop.png"  method="resize">}}
+{{< figure src="targets-desktop.png" link="targets-desktop.png" class="right col-6 col-lg-8 bordered-figure" >}}
+
+{{< cards rows="1" >}}
+{{< figure src="targets-mobile.png" link="targets-mobile.png" class="right col-6 col-lg-8 bordered-figure" >}}
 {{< /cards >}}
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Targets or goals can be configured for any user that has offline capabilities. A user must have access to the report in order to generate the widget with its data.
 
 ## Types of Widgets

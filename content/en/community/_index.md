@@ -15,7 +15,7 @@ aliases:
 {{< cards >}}
   {{< card link="contributing/first-time-contributors" title="Contribute for the First Time?" subtitle="Start with the first time contributors guide" icon="heart" >}}
   {{< card link="https://academy.communityhealthtoolkit.org/" title="Take Courses on the CHT?" icon="academic-cap" subtitle="Head over to the CHT Academy" >}}
-  {{< card link="contributing/" title="Contribute Code or Docs?" subtitle="Develop and contribute to the the CHT or help improve the documentation" icon="code" >}}
+  {{< card link="contributing/" title="Contribute Code or Docs?" subtitle="Develop and contribute to the CHT or help improve the documentation" icon="code" >}}
   {{< card link="contributing/code/quality-assistance" title="Test the CHT?" subtitle="Help test and report bugs and participate in QA testing for new features" icon="document-text" >}}
   {{< card link="../building" title="Build and Host a CHT App?" subtitle="Learn to build and host CHT apps and share your experience" icon="device-mobile" >}}
   {{< card link="../design" title="Explore CHT Design and UX?" subtitle="Explore design resources and contribute to UX improvements" icon="sparkles" >}}

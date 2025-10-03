@@ -5,7 +5,7 @@ weight:
 description: >
   Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
 relatedContent: >
-  building/concepts
+ 
   building/forms/app
   building/tasks/tasks-js
 aliases:
@@ -63,7 +63,7 @@ Clients are enrolled directly using the CHT D2C, 2wT app using a phone, tablet o
 
 {{< figure src="Figure1SystemArchitecture.jpg" link="Figure1SystemArchitecture.jpg" alt="Direct Messaging technical architecture" title="" caption="**Figure 1:** System architecture of direct-to-client (D2C), two-way texting (2wT) for voluntary medical male circumcision (VMMC) postoperative care. API: application programming interface; CHT: Community Health Toolkit." class="left col-10">}}
 
-The CHT core framework has  inbuilt [privacy/security features](https://docs.communityhealthtoolkit.org/building/guides/privacy/) including two- factor authentication, role based authorization, data security, and a range of protected data access endpoints. The system can be configured to manage [user roles and permissions](https://docs.communityhealthtoolkit.org/building/concepts/users/) for access of CHT applications. Responsible data practices is enforced through the  [Privacy and Data Protection Policy](https://docs.communityhealthtoolkit.org/building/guides/privacy/policy/).
+The CHT core framework has  inbuilt [privacy/security features]({{< ref "building/privacy-policies" >}}) including two- factor authentication, role based authorization, data security, and a range of protected data access endpoints. The system can be configured to manage [user roles and permissions]({{< ref "building/users" >}}) for access of CHT applications. Responsible data practices is enforced through the  [Privacy and Data Protection Policy]({{< ref "building/privacy-policies" >}}).
 
 The D2C, 2wT app incorporates the CHT security features in order to protect client data and ensure the confidentiality and privacy of client information. Users are encouraged to use password protected user accounts, the app also has full disk encryption and auto-lock screens for users’ devices (android phones and tablets) in order to minimize the risk of unwarranted access. Role based access controls also make sure that users can only view and edit information that the permissions assigned to the user role allow them to.
 

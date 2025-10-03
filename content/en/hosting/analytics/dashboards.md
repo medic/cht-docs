@@ -6,11 +6,11 @@ description: >
   Data visualization tools for CHT Sync
 relatedContent: >
   technical-overview/architecture
-  technical-overview/cht-sync
+  technical-overview/architecture/cht-sync
 ---
 
 {{< callout >}}
-  These instructions assume you are running CHT Sync, CHT Core and PostgreSQL either with [Kubernetes]({{< relref "hosting/analytics/setup-kubernetes" >}}) or [Docker]({{< relref "hosting/analytics/setup-docker-compose" >}}).
+  These instructions assume you are running CHT Sync, CHT Core and PostgreSQL either with [Kubernetes]({{< relref "/hosting/analytics/setup-kubernetes" >}}) or [Docker]({{< relref "/hosting/analytics/setup-docker-compose" >}}).
 {{< /callout >}}
 
 ## Superset

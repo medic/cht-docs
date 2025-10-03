@@ -12,9 +12,9 @@ aliases:
   - /building/guides/interoperability/openmrs
 ---
 
-[OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Integrating CHT apps with OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
+[OpenMRS](https://openmrs.org) is an open-source electronic medical record system used in dozens of countries. Data exchange between CHT apps and OpenMRS can open up opportunities to improve health outcomes for patients by promoting better coordination of care. For example, referrals by CHWs in the community can be sent electronically to health facilities using OpenMRS so that nurses and clinicians can prepare for their visit and have full access to the assessment done by a CHW.
 
-Integrating CHT apps with OpenMRS can be achieved using the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
+CHT apps can exchange data with OpenMRS using the CHT's [Interoperability Tools]({{< ref "building/interoperability/openhim" >}}) and following the guidance in the [Building interoperability with FHIR APIs documentation]({{< ref "building/interoperability/cht-config" >}}). 
 
 ## Overview
 
@@ -176,16 +176,17 @@ If all the above look OK, you should now be able to see the encounter in OpenMRS
 ```bash
 curl -X GET localhost:8090/openmrs/ws/fhir2/R4/Encounter/?identifier=[identifier] -H "Authorization: Basic $(echo -n admin:Admin123 | base64)"
 ```
+
 ## Starting the interop project
 
 Once the CHT and OpenMRS configs are ready, set up OpenHIM and install the mediators by following the instructions [here]({{< ref "building/interoperability/openhim" >}}).
 Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the necessary channel automatically.
-| Name                      | Description                                                                                     |
-|---------------------------|-------------------------------------------------------------------------------------------------|
-| `OPENMRS_HOST`            | hostname of OpenMRS instance                                                                    |
-| `OPENMRS_PORT`            | port where OpenMRS FHIR API is listening                                                        |
-| `OPENMRS_PASSWORD`        | OpenMRS password to use for basic authentication                                                |
-| `OPENMRS_USERNAME`        | OpenMRS password to use for basic authentication. Should be a special system or integration user |
+| Name                      | Description                                                                                                 |
+|---------------------------|-------------------------------------------------------------------------------------------------------------|
+| `OPENMRS_HOST`            | hostname of OpenMRS instance                                                                                |
+| `OPENMRS_PORT`            | port where OpenMRS FHIR API is listening                                                                    |
+| `OPENMRS_PASSWORD`        | OpenMRS password to use for basic authentication                                                            |
+| `OPENMRS_USERNAME`        | OpenMRS username to use for basic authentication. Should be a user created specifically for this connection |
 
 When these variables are set, a channel for OpenMRS will automatically be created on startup.
 
@@ -198,7 +199,7 @@ The interoperability project will automatically create the following resources
 {{< figure src="mediators.png" link="mediators.png" >}}
 
 * The CHT Mediator Channel contains routes to the CHT Mediator.
-* The FHIR Channel contains routes to the FHIR Server. Although it is not used by this integration, it can be used to expose any CHT documents sent to it as a FHIR API.
+* The FHIR Channel contains routes to the FHIR Server. While this implementation does not utilize it, the channel can expose any CHT documents sent to it as a FHIR API.
 * The OpenMRS Channel contains routes to the FHIR API of an external deployment of OpenMRS.
 
 {{< figure src="channels.png" link="channels.png" >}}

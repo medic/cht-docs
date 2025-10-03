@@ -127,7 +127,7 @@ curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/a
 1. Create a file named `.env` under `/mediator` folder, copy over the contents of `/mediator/.env.template` and update the `CHT_USERNAME` and `CHT_PASSWORD` values with the admin credentials of your CHT instance.
 1. Set up a proxy to your local CHT instance by running using something like [nginx-local-ip](https://github.com/medic/nginx-local-ip) or [ngrok](https://ngrok.com/) and update the `CHT_URL` value in the `.env` file with the new URL.
 1. Ensure you have [cht-conf](https://www.npmjs.com/package/cht-conf) installed and run `cht --local` to compile and upload the app settings configuration to your local CHT instance.
-1. To verify if the configuration is loaded correctly is to create a `Patient` and to access a URL like `https://*****.my.local-ip.co/#/contacts/patientUUID/report/interop_follow_up`. This should retrieve correctly the follow up form.
+1. To verify if the configuration is loaded correctly is to create a `Patient` and to access a URL like `https://*****.my.local-ip.co/#/contacts/patientUUID/report/interop_follow_up`. This should retrieve correctly the follow up form. _Only a non-admin user will be able to view this form. If you are logged in as an admin user then, check if the form `interop_follow_up` is listed in the form list in the app settings page._
 1. To verify if the configuration in CouchDB, access `http://localhost:5984/_utils/#database/medic/settings`.
 
 ### Shutdown the servers

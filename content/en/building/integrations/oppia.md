@@ -64,7 +64,7 @@ The CHT application makes use of weblinks to direct the user to the OppiaMobile 
 
 {{< figure src="weblink.png" link="weblink.png" class="left col-12 col-lg-9" >}}
 
-<br clear="all">
+
 
 ```[<span style='background-color: #648af7; color:white; padding: 1em; text-decoration: none;border-radius: 8px; '>Open Oppia Mobile</span>]``` represents the button styling and label.
 
@@ -229,7 +229,7 @@ const cards = [
 
 ```
 
-<br clear="all">
+
 
 This image shows the training card configured to show completion status of the educational modules:
 
@@ -237,7 +237,7 @@ This image shows the training card configured to show completion status of the e
 {{< card link="status.png" image="status.png"  method="resize">}}
 {{< /cards >}}
 
-<br clear="all">
+
 
 Context provides information to App Forms, which are initiated from the contact's profile page. To show an App Form on a contact’s profile, the form’s expression field in its properties file must evaluate to true for the contact. The context information from the profile is accessible as the variable `summary`.
 
@@ -251,7 +251,7 @@ const context = {
 };
 ```
 
-<br clear="all">
+
 
 The three variables `hasCompletedModuleOne`, `hasCompletedModuleTwo` and `hasCompletedModuleThree` are used in the educational modules app forms to determine whether the user will access the forms through the care guide.
 

@@ -47,7 +47,33 @@ High coverage of functionality. If measured in branch coverage percentage,  aim 
 | Extremely fast | Extremely low | Extremely stable |
 
 ### Implementation
-In cht-core unit tests are located in the `tests` directories of each app  (For example, in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp). Run them locally with: `npm run unit`.
+In cht-core unit tests are located in the `tests` directories of each module/service  (For example, in [`webapp/tests`](https://github.com/medic/cht-core/tree/master/webapp/tests) you can find unit test for the webapp).
+
+### Running Unit Tests Locally
+Run the full unit test suite locally with:
+```bash
+npm run unit
+```
+
+#### Running one module isolated
+To run unit tests for a specific module/service instead of the entire suite:
+
+```bash
+# Example: Run unit tests for admin module
+npm run unit-admin
+```
+
+To discover all available unit test commands, type `npm run unit` and press Tab to see autocomplete options.
+This will show all available unit test commands:
+```bash
+unit                      unit-couchdb              unit-sentinel
+unit-admin                unit-haproxy              unit-shared-lib
+unit-api                  unit-haproxy-healthcheck  unit-webapp
+unit-cht-deploy           unit-nginx                unit-webapp-continuous
+```
+
+#### Running individual tests within a spec
+To run only specific test suites or individual tests within a module, you can use `describe.only` or `it.only` in your test files. See the [Isolating specific tests](#isolating-specific-tests) section for examples.
 
 ## Integration Tests
 
@@ -70,7 +96,8 @@ Dramatically fewer than unit tests. The goal is not to verify all branches; it i
 Backend integration testing means testing through the entire stack of the application connected to other applications within the system. In the image below, this involves testing each application (box) and its interaction with other applications within the system.
 The tests are isolated from the webapp with necessary shortcuts to make testing more straightforward and faster. No part of the system is mocked.
 
-**Backend integration tests** are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). Run them locally with `npm run integration-all-local` and `npm run integration-sentinel-local`.
+### Backend integration tests 
+Backend integration tests are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). 
 
 ```mermaid
 flowchart LR
@@ -94,9 +121,49 @@ flowchart LR
     integration-tests <--Pouch/HTTPS--> cht-e2e
 ```
 
-**Frontend integration tests** (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
+### Running Backend Integration Tests Locally
 
-Frontend integration tests are located in [`tests/integration`](https://github.com/medic/cht-core/tree/master/tests/integration). To run them locally you need to build a cht-form Web Component with `npm run build-cht-form` and `npm run integration-cht-form` to run the web component tests.
+Run the full integration test suites locally with:
+
+```bash
+# Example: Run all backend integration tests
+npm run integration-all-local
+```
+
+To discover all available integration test commands, type `npm run integration-` and press Tab to see autocomplete options.
+This will show all available integration test commands:
+```bash
+integration-all-k3d-local       integration-cht-form
+integration-all-local           integration-sentinel-k3d-local
+integration-api                 integration-sentinel-local
+```
+
+#### Running one spec isolated
+To run a specific integration test spec instead of the entire test suite:
+
+```bash
+# Run only contact-edit tests 
+npx mocha --config tests/integration/.mocharc-base.js tests/integration/contacts/contact-edit.spec.js
+```
+
+#### Running individual tests within a spec
+To run only specific integration tests within a spec file, you can use `describe.only` or `it.only` in your test files. See the [Isolating specific tests](#isolating-specific-tests) section for examples.
+
+### Frontend integration tests 
+Frontend integration tests (or web component tests) are designed to validate form behavior (including page layout) without needing to run the whole CHT. The web component isolates the enketo form functionality from the CHT webapp. This only covers forms and not other parts of the webapp. It does not trace behavior though the whole system and the database is never involved. Instead, the whole idea of the web component is to abstract the UI functionality away from the underlying backend complexity.
+
+Frontend integration tests are located in [`tests/integration/cht-form`](https://github.com/medic/cht-core/tree/master/tests/integration/cht-form). 
+
+### Running Frontend Integration Tests Locally
+
+To run them locally you need to ***build*** a cht-form Web Component with:
+```bash
+npm run build-cht-form
+```
+And after building you can run the tests with:
+```bash
+npm run integration-cht-form
+```
 
 ## E2E Tests
 
@@ -119,10 +186,68 @@ E2e tests give the most confidence to decide if the feature is working, but must
 ### Implementation
 Our end-to-end tests are designed to test the entire system as a whole. They interact with the webapp as a user would, using [WebdriverIO](https://webdriver.io/) to control a headless browser session. They are not isolated from the rest of the system, and they do not use mocking.
 
-End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). Run them locally with the following:
+End-to-end tests are located in [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e). 
 
-- `npm run wdio-local` to run the tests for the default config
-- `npm run wdio-default-mobile-local` to run the mobile tests
+
+### Running E2E Tests Locally
+Run the full E2E test suites locally with:
+
+```bash
+# Run default E2E tests
+npm run wdio-local
+
+# Run mobile E2E tests
+npm run wdio-default-mobile-local
+
+# Run E2E tests without rebuilding Docker images (faster for repeated runs)
+npm run ci-webdriver-default
+```
+
+#### Running one spec isolated
+To run a specific E2E test spec instead of the entire test suite:
+
+```bash
+# Example: Run only the tests inside the pregnancy spec
+npm run wdio-local -- --spec=pregnancy.wdio-spec.js
+```
+
+To discover all available E2E test specs, browse the [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e) directory structure:
+
+```
+tests/e2e/
+├── default/
+|   └── enketo/
+│       ├── pregnancy.wdio-spec.js
+│       ├── repeat.wdio-spec.js
+│       └── ...
+│   └── ...
+├── mobile/
+│   └── contacts/
+│       ├── delete.wdio-spec.js
+│       └── ...
+└── ...
+```
+
+You can specify any `.wdio-spec.js` file from these directories in the `--spec` parameter.
+
+#### Running one suite isolated
+To run a specific E2E test suite:
+
+```bash
+# Run all suites (default behavior)
+npm run wdio-local -- --suite=all
+
+# Example: Run tests by suite name
+npm run wdio-local -- --suite=lowLevel
+
+# Run multiple suites
+npm run wdio-local -- --suite=core,workflows
+```
+
+To discover all available suite names, check the WebdriverIO configuration files in the corresponding [`tests/e2e`](https://github.com/medic/cht-core/tree/master/tests/e2e) directory. For example [`tests/e2e/default/suites.js`](https://github.com/medic/cht-core/blob/master/tests/e2e/default/suites.js)
+
+#### Running individual tests within a spec
+To run only specific E2E tests within a spec file, you can use `describe.only` or `it.only` in your test files. See the [Isolating specific tests](#isolating-specific-tests) section for examples.
 
 ```mermaid
 flowchart LR
@@ -151,6 +276,46 @@ flowchart LR
     e2e-tests <--wdio--> browser
     e2e-tests o--Pouch/HTTPS--o cht-e2e
 ```
+
+## Isolating specific tests
+
+For all test types (unit, integration, and e2e), you can isolate specific tests using `describe.only` or `it.only` in your test files:
+
+**Example (Unit Test):**
+```javascript
+// In your unit test file (e.g., /webapp/tests/mocha/unit/translator.spec.js)
+describe('Bootstrap Translator', () => {
+  it('Translate LOAD_ASSETS to English', () => {
+    // This test will be skipped
+  });
+
+  it('Translate to Spanish', () => {
+    // This test will be skipped
+  });
+});
+
+describe.only('Error cases', () => {
+  it('Non-existant key', () => {
+    // This test will run (part of describe.only)
+  });
+  
+  it('Non-existant locale falls back to English', () => {
+    // This test will run (part of describe.only)
+  });
+});
+
+describe('Translation Validation', () => {
+  it.only('All translations provided', () => {
+    // Only this individual test will run
+  });
+  
+  it('Validate translation keys', () => {
+    // This test will be skipped
+  });
+});
+```
+
+**Note:** Remember to remove `.only` before committing your code, as it will prevent other tests from running.
 
 ## Contributing Section
 ### Ways to Get Involved
@@ -207,10 +372,6 @@ There are logs and screenshots stored in the allure reports when a job failed on
   {{< figure src="archiveResultsSection.png" link="archiveResultsSection.png" class=" center col-12 col-lg-12" >}}
 - Extract the `.zip` file.
 - From your cht-core directory, run `npx allure open <path>/allure-report/`. Being `<path>` the location where the zip file was extracted.
-
-#### Running just the failing test
-
-Running e2e tests can be quite slow so to save time modify the `specs` property of [`/tests/e2e/**/wdio.conf.js`](https://github.com/medic/cht-core/blob/master/tests/e2e/default/wdio.conf.js#L7) so it only finds your test. You can also use `describe.skip` and `it.skip` to skip specific tests.
 
 ##### IntelliJ Based
 

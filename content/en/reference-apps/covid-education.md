@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   reference-apps/training
   reference-apps/phc-covid
-  building/concepts/access/#magic-links-for-logging-in
+  building/login/#magic-links-for-logging-in
 aliases:
    - /apps/examples/covid-education
    - /building/examples/covid-education

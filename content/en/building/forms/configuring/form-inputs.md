@@ -59,6 +59,7 @@ Available data:
 - [`inputs` data for source]({{< ref "#form-source" >}})
 - [`inputs` data for contact]({{< ref "#inputs-data-for-contact-in-app-forms" >}})
 - [`contact-summary` data]({{< ref "#contact-summary-data" >}})
+- [`user-contact-summary` data]({{< ref "#user-contact-summary-data" >}})
 - [`inputs` data from task]({{< ref "#inputs-data-from-task" >}})
 - [`inputs` data for user]({{< ref "#user-data" >}})
 - [Contact data via contact selector]({{< ref "#contact-selector" >}})
@@ -93,6 +94,17 @@ The `contact` group contains all the fields from the doc of the contact in conte
   Contact summary data is not available in `contact` forms or in forms created from the "Reports" tab.
 {{< /callout >}}
 
+### `user-contact-summary` data
+
+{{< callout >}}
+Available since 4.21.0
+{{< /callout >}}
+
+
+When the logged in user has an associated contact, `app` forms can access the contact-summary data associated with the user's contact. 
+This is done by referencing an instance named `user-contact-summary`. E.g. `instance('user-contact-summary')/context/${variable}`.  See [the reference documentation]({{< ref "building/contact-summary/contact-summary-templated#care-guides" >}}) for more information.
+
+
 ### `inputs` data from task
 
 `app` forms created via a task have access to any data [supplied by the task]({{< ref "building/tasks/managing-tasks/pass-data-to-form" >}}) in the `inputs` group. 
@@ -108,7 +120,7 @@ The following fields will also be available in the `inputs` group:
 
 ## `user` data
 
-Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "technical-overview/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
+Both `app` and `contact` forms can access the current user's data at `inputs/user`.  The data provided is simply the [`user-settings` doc for the user]({{< ref "technical-overview/data/db-schema#users" >}}) (e.g. `org.couchdb.user:username`) plus an additional `language` field that contains the user's currently selected language code.
 
 {{< callout type="info" >}}
   The `user-settings` doc for the user is _NOT_ the same as the CHT _contact_ doc for the user.
