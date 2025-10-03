@@ -52,7 +52,7 @@ All commands are run as `root` unless specified to run as `couch2pg`:
       POSTGRESQL_URL=postgres://cht_couch2pg:postgres_password@192.168.68.26:5432/cht \
       node .
    ```  
-8. Configure couch2pg in a systemd file at `/etc/systemd/system/couch2pg.service` be sure that environment variables are updated (`Environment=".."`):
+8. Configure couch2pg in a `systemd` file at `/etc/systemd/system/couch2pg.service` be sure that environment variables are updated (`Environment=".."`):
    ```shell
    [Unit]
    Description=couch2pg
