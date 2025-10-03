@@ -87,4 +87,4 @@ All commands are run as `root`:
    cd /root
    docker compose logs -f
    ```
-9. Over the next 48 hours, monitor couch2pg logs for errors. If errors are found, re-run them, updating this list to be accurate. Add any new requirements above as well, as needed. 
+9. Over the next 48 hours, monitor couch2pg logs for errors. If errors are found, re-run them and update this list to ensure accuracy. Add any new requirements above as well, as needed. 
