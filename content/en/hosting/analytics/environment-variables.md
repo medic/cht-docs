@@ -32,8 +32,8 @@ There are three groups of environment variables. One for Postgres, one for Couch
 | `COUCHDB_HOST`            | `couchdb`                                             | Host of the CouchDB instance                                                                                                 |
 | `COUCHDB_PORT`            | `5984`                                                | Port of the CouchDB instance                                                                                                 |
 | `COUCHDB_SECURE`          | `false`                                               | Does the connection to CouchDB use HTTPS? |
-| `DBT_THREAD_COUNT`          | 1                                               | [Number of threads](//hosting/analytics/tuning-dbt#threads) per DBT process |
-| `DBT_BATCH_SIZE`          | 0                                               | [Batch size](//hosting/analytics/tuning-dbt#batching) for batched incremental runs |
+| `DBT_THREAD_COUNT`          | 1                                               | [Number of threads](/hosting/analytics/tuning-dbt#threads) per DBT process |
+| `DBT_BATCH_SIZE`          | 0                                               | [Batch size](/hosting/analytics/tuning-dbt#batching) for batched incremental runs |
 | `DBT_LOCAL_PATH`          |                                                | When running DBT locally for development, the path to the models directory on the host |
-| `DBT_SELECTOR`          | ''                                               | If using separate DBT processes, the [select condition](//hosting/analytics/tuning-dbt#multiple-dbt-containers) to select a subset of the models for a single dbt process. |
+| `DBT_SELECTOR`          | ''                                               | If using separate DBT processes, the [select condition](/hosting/analytics/tuning-dbt#multiple-dbt-containers) to select a subset of the models for a single dbt process. |
 

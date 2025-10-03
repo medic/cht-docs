@@ -12,7 +12,7 @@ aliases:
     - /building/guides/data/analytics/production
 ---
 
-This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT](//hosting/cht/kubernetes).
+This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT](/hosting/cht/kubernetes).
 
 ## Prerequisites
 
@@ -87,13 +87,13 @@ If an instance has a different port, user or different CouchDB databases to be s
     password: "password3"
   ```
 
-Set the [cht-pipeline branch URL](//hosting/analytics/building-dbt-models#setup) in the `values.yaml` file.
+Set the [cht-pipeline branch URL](/hosting/analytics/building-dbt-models#setup) in the `values.yaml` file.
 
 ```yaml
 cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
 ```
 
-(Optional) You can also configure a Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in Prometheus format at a service with name `metrics` at port 9399, for use with [CHT Watchdog](//hosting/monitoring/setup) or any other monitoring service.
+(Optional) You can also configure a Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in Prometheus format at a service with name `metrics` at port 9399, for use with [CHT Watchdog](/hosting/monitoring/setup) or any other monitoring service.
 
 An HTTP ingress needs to be created to allow access from outside the cluster.
 
@@ -126,7 +126,7 @@ kubectl logs -f cht-sync-<pod-id>
 
 ### Tuning dbt
 
-In production setups with large tables, it can be helpful to [tune how dbt runs](//hosting/analytics/tuning-dbt).
+In production setups with large tables, it can be helpful to [tune how dbt runs](/hosting/analytics/tuning-dbt).
 To use threads or batching, set the corresponding values in the `values.yaml` file.
 
 ```yaml
@@ -168,4 +168,4 @@ To add these columns log in to the database and run this sql.
   CREATE INDEX IF NOT EXISTS source ON couchdb(source);
 ```
 
-V2 adds new features for [tuning dbt](//hosting/analytics/tuning-dbt); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables](//hosting/analytics/environment-variables) in `values.yml` as described above.
+V2 adds new features for [tuning dbt](/hosting/analytics/tuning-dbt); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables](/hosting/analytics/environment-variables) in `values.yml` as described above.

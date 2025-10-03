@@ -2973,7 +2973,7 @@ Content-Type: application/json
 
 ## Monitoring
 
-See the [Monitoring and alerting on the CHT](//hosting/monitoring) page for how to use this API in production.
+See the [Monitoring and alerting on the CHT](/hosting/monitoring) page for how to use this API in production.
 
 ### GET /api/v1/monitoring
 

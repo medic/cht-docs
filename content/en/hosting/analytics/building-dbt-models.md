@@ -25,7 +25,7 @@ If using the [configurable contact hierarchy]({{< ref "building/reference/app-se
 
 ## Prerequisites
 
-- An existing install of CHT Sync via [Docker](//hosting/analytics/setup-docker-compose) or [Kubernetes](//hosting/analytics/setup-kubernetes)
+- An existing install of CHT Sync via [Docker](/hosting/analytics/setup-docker-compose) or [Kubernetes](/hosting/analytics/setup-kubernetes)
 - [cht-pipeline](https://github.com/medic/cht-pipeline) GitHub repository (can be cloned via `git clone https://github.com/medic/cht-pipeline`).
 
 ## Setup
@@ -39,14 +39,14 @@ packages:
 ```
 To avoid breaking changes in downstream models, include `revision` in the dependency, which should be a version tag for `cht-pipeline`.
 
-In the CHT Sync config, set the URL of the dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable](//hosting/analytics/environment-variables), either in `.env` if using Docker compose, or in `values.yaml` if using Kubernetes.
+In the CHT Sync config, set the URL of the dbt GitHub repository to the `CHT_PIPELINE_BRANCH_URL` [environment variable](/hosting/analytics/environment-variables), either in `.env` if using Docker compose, or in `values.yaml` if using Kubernetes.
 
 > [!IMPORTANT]
 > If `CHT_PIPELINE_BRANCH_URL` is pointing to a private GitHub repository, you'll need an access token in the URL. Assuming your repository is `medic/cht-pipeline`, you would replace  `<PAT>`  with an access token: `https://<PAT>@github.com/medic/cht-pipeline.git#main`. See [GitHub's instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) on how to generate a token. If you create a fine-grained access token you need to provide read and write access to the [contents](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28#repository-permissions-for-contents) of the repository.
 
 ### Local development
 
-When creating/modifying models, you can use the Docker [local profile](//hosting/analytics/setup-docker-compose#local) to run a local test instance of CHT Sync that can reference your model configuration directly on your local machine (without needing to commit/push the changes remotely).
+When creating/modifying models, you can use the Docker [local profile](/hosting/analytics/setup-docker-compose#local) to run a local test instance of CHT Sync that can reference your model configuration directly on your local machine (without needing to commit/push the changes remotely).
 
 ### Deploying models
 
@@ -395,7 +395,7 @@ Examples of changes that are not considered breaking:
 - adding tests
  
 ## Database disk space requirements
-The disk space required for the database depends on a few things including the size the of CouchDB databases being replicated, and the [models](//hosting/analytics/building-dbt-models) defined. The database will grow over time as more data is added to CouchDB. The database should be monitored to ensure that it has enough space to accommodate the data. To get an idea of the size requirements of the database, you can replicate 10% of the data from CouchDB to Postgres and then run the following command to see disk usage:
+The disk space required for the database depends on a few things including the size the of CouchDB databases being replicated, and the [models](/hosting/analytics/building-dbt-models) defined. The database will grow over time as more data is added to CouchDB. The database should be monitored to ensure that it has enough space to accommodate the data. To get an idea of the size requirements of the database, you can replicate 10% of the data from CouchDB to Postgres and then run the following command to see disk usage:
 ```shell
 SELECT pg_size_pretty(pg_database_size('your_database_name'));
 ```
@@ -410,7 +410,7 @@ To get the percentage of documents that have synced you can run the following qu
 SELECT (COUNT(*) * 100 / (COUNT(*) + (SELECT SUM(pending) FROM v1.couchdb_progress))) AS sync_percentage FROM v1.couchdb;
 ```
 
-This query selects the total number of documents that have been synced to the `v1.couchdb` table and divides it by the total number of documents that have been synced and the number of documents that are pending to be synced. This will give you the percentage of documents that have been synced. Note that the schema and table name could differ according to the [environment variables](//hosting/analytics/environment-variables) you set so update them accordingly. Run this query periodically to monitor the progress of the sync and stop the sync process once you get to the desired percentage. It's okay if it is not exactly 10% as long as it is close enough to give you an idea of the disk space required.
+This query selects the total number of documents that have been synced to the `v1.couchdb` table and divides it by the total number of documents that have been synced and the number of documents that are pending to be synced. This will give you the percentage of documents that have been synced. Note that the schema and table name could differ according to the [environment variables](/hosting/analytics/environment-variables) you set so update them accordingly. Run this query periodically to monitor the progress of the sync and stop the sync process once you get to the desired percentage. It's okay if it is not exactly 10% as long as it is close enough to give you an idea of the disk space required.
 
 You can then multiply this figure by 10 to get an estimate of the disk space required for the full dataset and then add some extra space for indexes and other overhead as well as future growth.
 

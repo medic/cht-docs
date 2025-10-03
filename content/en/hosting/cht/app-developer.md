@@ -14,7 +14,7 @@ aliases:
 {{< callout >}}
 This guide assumes you are a CHT app developer wanting to either run concurrent instances of the CHT, or easily be able to switch between different instances without losing any data while doing so. To do development on the CHT Core Framework itself, see the [development guide](/community/contributing/code/core/dev-environment).
 
-To deploy the CHT in production, see see the [production](//hosting/cht/docker) documentation.
+To deploy the CHT in production, see see the [production](/hosting/cht/docker) documentation.
 {{< /callout >}}
 
 ## Getting started
@@ -39,7 +39,7 @@ This script brings a lot of benefits with it:
 ### Installing
 
 To get started using it:
-1. Meet all [CHT hosting requirements](//hosting/cht/requirements)
+1. Meet all [CHT hosting requirements](/hosting/cht/requirements)
 2. Clone the [CHT Core](https://github.com/medic/cht-core/) repo
 3. When you want to check for updates, just run `git pull origin` in the `cht-core` directory.
 
@@ -196,7 +196,7 @@ Here is a video of the helper being run on 1 Dec 2022. The video references `laz
 
 ## Manual `docker compose` method
 
-This process achieves the same result as Docker Helper, but is a more manual process. Be sure the [CHT hosting requirements](//hosting/cht/requirements) are all met first.
+This process achieves the same result as Docker Helper, but is a more manual process. Be sure the [CHT hosting requirements](/hosting/cht/requirements) are all met first.
 
 To avoid conflicts, ensure that all other CHT 4.x instances are stopped. To stop ALL containers, you can use
 

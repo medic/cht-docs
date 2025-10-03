@@ -17,7 +17,7 @@ relatedContent: >
 ---
 
 {{< callout >}}
- The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API](/building/reference/api#post-apiv2users) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide](//community/contributing/code/test-data/csv-to-docs).
+ The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API](/building/reference/api#post-apiv2users) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide](/community/contributing/code/test-data/csv-to-docs).
  This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.
 {{< /callout >}}
 

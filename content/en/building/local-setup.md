@@ -38,7 +38,7 @@ CHT apps can be built on your local system (with the necessary libraries install
 Before you begin, ensure you have the following tools:
 
 - [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
-- [docker and docker compose](//hosting/cht/requirements#docker).
+- [docker and docker compose](/hosting/cht/requirements#docker).
 
 ### Installing Docker
 
@@ -170,7 +170,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script](//hosting/cht/app-developer#cht-docker-helper-for-4x). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper-for-4x). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 
@@ -178,7 +178,7 @@ It is recommended to run a local CHT instance using the [CHT Docker Helper scrip
 
 Now that you have the dependent tools and software installed, you are ready to set up your local CHT environment.
 
-Refer to the [App Developer Hosting Guide](//hosting/cht/app-developer) for instructions on how to deploy a local CHT instance.
+Refer to the [App Developer Hosting Guide](/hosting/cht/app-developer) for instructions on how to deploy a local CHT instance.
 
 Note that the first time you run your CHT instance it may take a while. In case you run into issues running your docker file, ensure that the following setting in Docker is checked.
 > Settings >> General >> Use Docker Compose V2

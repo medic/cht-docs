@@ -10,7 +10,7 @@ aliases:
 ---
 
 {{< callout >}}
-Be sure to see how to deploy a solution to [monitor and alert on production CHT instances](//hosting/monitoring/setup.md).
+Be sure to see how to deploy a solution to [monitor and alert on production CHT instances](/hosting/monitoring/setup.md).
 {{< /callout >}}
 
 Each deployment will experience different stresses on its resources.  Be sure to tune any alerting levels in the case of a false positive so that you may avoid them in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a guarantee of uptime.

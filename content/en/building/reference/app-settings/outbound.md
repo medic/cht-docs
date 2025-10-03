@@ -199,7 +199,7 @@ Example: you want the system to send outbound pushes based on a cron schedule ev
 
 #### Troubleshooting
 
-By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging](//hosting/cht/docker/logs#setting-log-level) to get more information about the exact contents of the request/response.
+By default, Sentinel will log a message each time an outbound request is sent indicating if the request was successful or not. If you are having trouble getting your outbound requests to work, you can [enable debug logging](/hosting/cht/docker/logs#setting-log-level) to get more information about the exact contents of the request/response.
 
 ## How Outbound messages are sent
 
