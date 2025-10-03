@@ -5,12 +5,11 @@ description: >
      How to set up couch2pg on Ubuntu Server 22 with NodeJS
 ---
 
-{{% pageinfo %}}
-CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
-{{% /pageinfo %}}
+{{< callout type="warning" >}}
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](/hosting/analytics").
+{{< /callout >}}
 
-
-This guide is for NodeJS on Ubuntu.  See related [Docker Compose on Ubuntu]({{< ref "hosting/couch2pg/exmple-docker-deploy" >}})  guide.
+This guide is for NodeJS on Ubuntu.  See related [Docker Compose on Ubuntu](/hosting/couch2pg/exmple-docker-deploy)  guide.
 
 ## Assumptions 
 
