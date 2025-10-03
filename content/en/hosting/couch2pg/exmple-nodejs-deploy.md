@@ -14,7 +14,7 @@ This guide is for NodeJS on Ubuntu.  See related [Docker Compose on Ubuntu](/hos
 ## Assumptions 
 
 
-Since the detailed steps were written in a private ticket, we wanted to publish them in case other partners would benefit from the precise steps.  These instructions assume you're on Ubuntu server 22.04 and are running both CHT Core and Postgres on other servers.
+These instructions assume you're on Ubuntu server 22.04 and are running both CHT Core and Postgres on other servers.
 
 ## Prerequisites 
 
