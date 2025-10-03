@@ -80,4 +80,4 @@ All commands are run as `root` unless specified to run as `couch2pg`:
 10. Reload systemd: `systemctl daemon-reload`
 11. Reboot VM: `reboot`
 12. Check for errors after reboot: `systemctl status couch2pg`
-13. monitor couch2pg logs for errors. If errors are found, re-run them, updating this list to be accurate. Add any new requirements above as well, as needed: `journalctl --follow --unit=couch2pg --lines=100`
+13. Monitor couch2pg logs for errors. If errors are found, re-run them and update this list to ensure accuracy. Add any new requirements above as well, as needed: `journalctl --follow --unit=couch2pg --lines=100`
