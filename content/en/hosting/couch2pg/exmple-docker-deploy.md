@@ -82,7 +82,7 @@ All commands are run as `root`:
    docker compose up -d
    ```
 7. Wait a few minutes and reboot the entire VM: `reboot`
-8. Check for that couch2pg started and there's no errors after reboot: 
+8. Check that couch2pg started and there are no errors after reboot: 
    ```
    cd /root
    docker compose logs -f
