@@ -1,7 +1,7 @@
 ---
-title: "Including Multimedia in Forms"
+title: "Include Multimedia in Forms"
 linkTitle: "Multimedia in Forms"
-weight: 
+weight: 6
 description: >
   How to include multimedia files in forms
 relatedContent: >
@@ -15,11 +15,11 @@ aliases:
 
 ## Multimedia Formats
 
-There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "core/releases#dependencies" >}}).
+There are many supported formats for video, audio, and images. We recommend using h.264(mpeg) for video, jpeg for images, and mp3 for audio. When creating videos or images keep in mind the dimensions and storage capabilities on phones that may be used. Lower end phones have smaller storage and screen sizes. When rendering images, video, and audio the CHT uses the browser's built in rendering tools. This means you can render any media format that is supported by the [minimum version of Chrome]({{< ref "releases/#dependencies" >}}).
 
- **List of Supported formats** [video/audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
- [images](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
-
+List of Supported formats:
+- [video/audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats)
+- [images](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types)
 
 ## Configuration
 
@@ -29,19 +29,18 @@ To play multimedia from forms you need to add elements to your xml and upload th
   Add an xml element of text and another element of value. Set form equal to the type of multimedia being used(video, audio, image). The value element must contain `jr://file_name.suffix` where `file_name.suffix` is the name of your multimedia file uploaded to couchdb.
 
   Example:
-  ```
+  ```xml
   <text id="somevideo">
 	  <value form="video">jr://video.mp4</value>
 </text>
   ```
   Display Example:
 
-  ```
+  ```xml
   <input ref="q2">
 	  <label ref="jr:itext('somevideo')"/>
 </input>
   ```
-
 
   Here is a sample form that will display a video and/or image. When this form is opened a video player will be displayed so the user can watch the video. Forms support displaying of images and playing of audio files.
 
@@ -99,12 +98,15 @@ To play multimedia from forms you need to add elements to your xml and upload th
 
 The file needs to be added as an attachment with a name that matches what is defined in the form. This can be added by using curl or fauxton. Here is the structure of the curl command.
 
-
-`curl -vX PUT https://user:pass@server_name/medic/<form_doc_id>/<attachment_name.suffix>?rev=<latest_form_revision> --data-binary @<local_file_name> -H "Content-Type: <expected_mime_type>"`
+```shell 
+curl -vX PUT https://user:pass@server_name/medic/<form_doc_id>/<attachment_name.suffix>?rev=<latest_form_revision> --data-binary @<local_file_name> -H "Content-Type: <expected_mime_type>"
+```
 
 Here is an example of how it would look uploading a sample video for the form above.
 
-``` curl -vX PUT https://user:pass@localhost/medic/form:multimedia/video.mp4?rev=11-a2ebf09cb9678c031859cd2c1da4b603 -k --data-binary @sample.mp4 -H "Content-Type: video/mp4" ```
+```shell 
+curl -vX PUT https://user:pass@localhost/medic/form:multimedia/video.mp4?rev=11-a2ebf09cb9678c031859cd2c1da4b603 -k --data-binary @sample.mp4 -H "Content-Type: video/mp4" 
+```
 
 To use fauxton.
  1. Navigate to fauxton. `https://<server_name>/_utils`
@@ -116,12 +118,12 @@ To use fauxton.
 
  ### Uploading with CHT-conf
 
- Multimedia files can be uploaded when running CHT-conf to upload your forms. 
- 
+ Multimedia files can be uploaded when running CHT-conf to upload your forms.
+
  To include the files:
-  
-  1. Create a directory `{form_name}-media`. EX: `config/default/forms/app/delivery-media` 
-  1. Add multimedia files to  `{form_name}-media\image.png`.  EX: `config/default/forms/app/delivery-media/health_baby.png` 
+
+  1. Create a directory `{form_name}-media`. EX: `config/default/forms/app/delivery-media`
+  1. Add multimedia files to  `{form_name}-media\image.png`.  EX: `config/default/forms/app/delivery-media/health_baby.png`
   1. Run `cht-conf upload-app-forms`
   1. Confirm image is uploaded in CHT app.
 

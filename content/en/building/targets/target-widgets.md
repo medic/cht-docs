@@ -13,13 +13,11 @@ aliases:
    - /building/tutorials/targets
 ---
 
-{{% pageinfo %}}
 This tutorial will take you through how to build target widgets.
 
 Target widgets provide a summary or analysis of the data in submitted reports.
 
 You will be adding target widgets that will allow Community Health Workers (CHWs) to track various metrics based on assessment reports submitted.
-{{% /pageinfo %}}
 
 ## Brief Overview of Key Concepts
 
@@ -91,12 +89,14 @@ Edit the `targets.js` file and add another target widget definition object to de
   }
 ```
 
-{{% alert title="Note" %}} All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`. {{% /alert %}}
+> [!NOTE]
+> All-time widgets have the `date` property set to `now` while monthly widgets have the `date` property set to `reported`.
 
-{{< figure src="assessments_all_time_no_translation.png" link="assessments_all_time_no_translation.png" class="right col-6 col-lg-4" >}}
-{{< figure src="assessments_this_month_no_translation.png" link="assessments_this_month_no_translation.png" class="right col-6 col-lg-4" >}}
+{{< cards rows="1" >}}
+{{< figure src="assessments_all_time_this_month.png" link="assessments_all_time_this_month.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< /cards >}}
 
-The images show the `monthly` and `all-time` target widgets respectively, with the resulting figures varying depending on the number of assessment reports submitted within the respective durations.
+The image shows the `monthly` and `all-time` target widgets, respectively, with the resulting figures varying depending on the number of assessment reports submitted within the respective durations.
 
 
 ### 3. Define the Cough Count Widget
@@ -171,9 +171,10 @@ Edit the `targets.js` file and add the target widget as shown below:
     }
   },
 ```
-
-{{< figure src="household_assessments_reached_goal.png" link="household_assessments_reached_goal.png" class="right col-6 col-lg-4" >}}
-{{< figure src="household_assessments_zero_reports.png" link="household_assessments_zero_reports.png" class="right col-6 col-lg-4" >}}
+{{< cards >}}
+  {{< figure src="household_assessments_reached_goal.png" link="household_assessments_reached_goal.png" class="right col-6 col-lg-8 bordered-figure" >}}
+  {{< figure src="household_assessments_zero_reports.png" link="household_assessments_zero_reports.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< /cards >}}
 
 Note the difference in appearance on the resulting `count` target widgets based on whether the `goal` is achieved. The figures vary depending on the number of assessment reports submitted for household members.
 
@@ -223,9 +224,10 @@ const isPatient = (contact) => contact.contact && contact.contact.type === 'pers
 
 {{< see-also page="building/workflows/hierarchy" title="Hierarchies" >}}
 
-{{< figure src="households_gt2_goal_reached.png" link="households_gt2_goal_reached.png" class="right col-6 col-lg-4" >}}
-{{< figure src="households_gt2_goal_not_reached.png" link="households_gt2_goal_not_reached.png" class="right col-6 col-lg-4" >}}
-
+{{< cards >}}
+{{< figure src="households_gt2_goal_reached.png" link="households_gt2_goal_reached.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< figure src="households_gt2_goal_not_reached.png" link="households_gt2_goal_not_reached.png" class="right col-6 col-lg-8 bordered-figure" >}}
+{{< /cards >}}
 
 The images show the resulting `percent` target widgets, with the figures varying depending on the number of assessment reports submitted for household members. Note the difference in appearance based on whether the `goal` is achieved.
 
@@ -358,12 +360,13 @@ To compile and upload app settings to your local instance, run the following com
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs compile-app-settings upload-app-settings
 ```
 
-{{% alert title="Note" %}} Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance. {{% /alert %}}
+> [!IMPORTANT]
+> Be sure to replace the values `<username>` and `<password>` with the actual username and password of your test instance.
 
-{{< figure src="targets_no_translations.png" link="targets_no_translations.png" class="right col-6 col-lg-8" >}}
+{{< figure src="targets_no_translations.png" link="targets_no_translations.png" class="right col-6 col-lg-8 bordered-figure" >}}
 
 
-The image on the right-hand side shows the expected outcome on the `analytics tab`, with figures varying depending on the number of reports submitted on your instance.
+The image shows the expected outcome on the `analytics tab`, with figures varying depending on the number of reports submitted on your instance.
 
 ### 9. Upload translations
 To update the titles of the target widgets, ensure that the `translation keys` are in the translations file. Add the following translation keys and their values in the `messages-en.properties` file. You may word your translation keys and values differently.
@@ -381,11 +384,12 @@ To upload *[translations]({{< ref "building/translations/localizing" >}})* to yo
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
 ```
 
-{{< figure src="targets_with_translations.png" link="targets_with_translations.png" class="right col-6 col-lg-8" >}}
+{{< figure src="targets_with_translations.png" link="targets_with_translations.png" class="right col-6 col-lg-8 bordered-figure" >}}
 
-The image on the right-hand side shows the updated target titles. Your image may be different depending on your wording.
+The image shows the updated target titles. Your image may be different depending on your wording.
 
-{{% alert title="Note" %}} Be sure to have the correct translation key in your target widget's `translation_key` property.  {{% /alert %}}
+> [!IMPORTANT]
+> Be sure to have the correct translation key in your target widget's `translation_key` property.
 
 ### 10. Target icons
 You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library]({{< ref "design/interface/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
@@ -397,7 +401,8 @@ You may add `icons` to your target widgets to enhance their appearance and to he
   "icon-cough": "icon-condition-cough.svg"
 }
 ```
-{{% alert title="Note" %}} The `key` in the `resources.json` file is the value of the `icon` property in the target widget configuration. {{% /alert %}}
+> [!NOTE]
+> The `key` in the `resources.json` file is the value of the `icon` property in the target widget configuration.
 
 {{< see-also page="design/interface/icons" title="Icon Library" >}}
 
@@ -407,9 +412,9 @@ To upload *[resources]({{< ref "building/branding/resources#icons" >}})* to your
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources
 ```
 
-{{< figure src="final_targets.png" link="final_targets.png" class="right col-6 col-lg-8" >}}
+{{< figure src="final_targets.png" link="final_targets.png" class="right col-6 col-lg-8 bordered-figure" >}}
 
-The image on the right-hand side shows the expected final appearance of the target widgets on adding and uploading resources. The figures on the widgets will depend on the number of reports submitted for contacts and the number of contacts you have created on your instance.
+The image shows the expected final appearance of the target widgets on adding and uploading resources. The figures on the widgets will depend on the number of reports submitted for contacts and the number of contacts you have created on your instance.
 
 
 

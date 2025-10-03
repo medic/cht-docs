@@ -8,9 +8,45 @@ relatedContent: >
   building/reference/app-settings/_index.md#sms-recipient-resolution
 aliases:
    - /apps/reference/app-settings/transitions
+   - /technical-overview/transitions/
 ---
 
 When sentinel detects a document has changed it runs transitions against the doc. These transitions can be used to generate a short form patient id or assign a report to a facility.
+
+## How transitions work
+
+A transition is a Javascript code that runs when a document is changed.  A transition can edit the changed doc or do anything server-side code can do for that matter.
+
+Transitions are run in series, not in parallel:
+
+* For a given change, you can expect one transition to be finished before the next runs.
+
+* You can expect one change to be fully processed by all transitions before the next starts being processed.
+
+Transitions obey the following rules:
+
+* has a `filter({ id, doc, info })` function that accepts the changed document as an argument and returns `true` if it needs to run/be applied.
+
+* a `onMatch({ id, doc, info })` function that will run on changes that pass the filter. Should return true when the transition has run successfully.
+
+* can have an `init()` function to do any required setup and throw Errors on invalid configuration.
+
+* It is not necessary for an individual transition to save the changes made to `doc` to the DB, the doc will be saved once all the transitions have been edited.
+  If an individual transition saves the document provided at `doc`, it takes responsibility for re-attaching the newly saved document (with new seq etc) at `doc`
+
+* guarantees the consistency of a document.
+
+* runs serially and in specific order.  A transition is free to make async calls but the next transition will only run after the previous transition's match function executed. If your transition is dependent on another transition, it should be sorted so it runs after the dependee transition. 
+
+* is repeatable, it can run multiple times on the same document without negative effect.  You can use the `transitions` property on a document's infodoc to determine if a transition has run.
+
+Regardless of whether the doc is saved or not, the transitions will all be run (unless one crashes).
+
+When your transition encounters an error, there are different ways to deal with it. You can :
+- finish your transition by throwing an error that has a truthy `changed` property. This will save the error to `doc`.
+- finish your transition by throwing an error. The error will be logged to the sentinel log. This will not save the error on the `doc`, so there will be no record that this transition ran. That particular `change` will not go through transitions again, but if the same doc has another change in the future since there is no record of the erroring transition having run, it will be rerun.
+- crash sentinel. When sentinel restarts, since that `change` did not record successful processing, it will be reprocessed. Transitions that did not save anything to the `doc` will be rerun.
+
 
 ## Configuration
 
@@ -168,15 +204,14 @@ If you are providing the patient ID instead of having Sentinel generate you one,
 
 In this example the provided ID would be in `fields.external_id` on the registration document. This field **must not** be called `patient_id`.
 
-{{% alert title="Note" %}}
-The JSON passed in `"params"` should be a string. Support for raw JSON as shown below exists, but is in beta and may not always work correctly in all situations, because kanso.json does not support it:
-
-```json
-{
-    "params": {"patient_id_field": "external_id"},
-}
-```
-{{% /alert %}}
+> [!NOTE]
+> The JSON passed in `"params"` should be a string. Support for raw JSON as shown below exists, but is in beta and may not always work correctly in all situations, because kanso.json does not support it:
+> 
+> ```json
+> {
+>     "params": {"patient_id_field": "external_id"},
+> }
+> ```
 
 ###### Alternative Name Location
 
@@ -446,9 +481,8 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `validations` | List of form fields validations. All mute & unmute forms will be subjected to these validation rules. Invalid forms will not trigger muting/unmuting actions. Optional. |
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
-{{% alert title="Note" %}}
-Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "core/overview/db-schema#reports" >}})) can.
-{{% /alert %}}
+> [!IMPORTANT]
+> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "technical-overview/data/db-schema#reports" >}})) can.
 
 
 Supported `events_types` are:
@@ -462,15 +496,14 @@ Supported `events_types` are:
 | `contact_not_found` | Either mute or unmute actions when target contact is not found |
 
 
-{{% alert title="Note" %}}
-When muting events are processed both client-side and server-side, there is no guarantee that the state of the database will be the same between the two processing events. Some possible cases where the data is changed in significant ways, that will affect the final muting state are:  
-- updated muting settings between client and server processing of the same report / contact
-- editing the muting/unmuting reports before they are synced, but after the transition ran locally, that either change the target contact or change the validity of the report
-- deleting muting/unmuting reports before they are synced   
-- validation rules that depend on database data (for example using the "exists" rule, which will run over different data sets, a report could be valid for the client but invalid for the server and the other way around).
-- conflicts that overwrite `muting_history` for contacts
-- delayed sync for some docs (either contacts or reports) could exacerbate the above because of the "replay" behavior.
-{{% /alert %}}
+> [!NOTE]
+> When muting events are processed both client-side and server-side, there is no guarantee that the state of the database will be the same between the two processing events. Some possible cases where the data is changed in significant ways, that will affect the final muting state are:  
+> - updated muting settings between client and server processing of the same report / contact
+> - editing the muting/unmuting reports before they are synced, but after the transition ran locally, that either change the target contact or change the validity of the report
+> - deleting muting/unmuting reports before they are synced   
+> - validation rules that depend on database data (for example using the "exists" rule, which will run over different data sets, a report could be valid for the client but invalid for the server and the other way around).
+> - conflicts that overwrite `muting_history` for contacts
+> - delayed sync for some docs (either contacts or reports) could exacerbate the above because of the "replay" behavior.
 
 ##### Example
 
@@ -791,3 +824,47 @@ Configuration is validated when Sentinel starts. Issues with the configuration w
 Errors occurring during the client-side transition will be recorded in the browser's console. This is where problems with processing reports from the replace forms will be logged. 
 
 Errors occurring during the server-side transition will be recorded in the Sentinel logs and on the contact doc for the original user. So, if the client-side transition marks the original user for replacement, but Sentinel fails to create the new user, the failure will be recorded on the original contact doc in the `errors` array.
+
+### Resetting the sentinel sequence ID to skip a large backlog
+
+In some cases, a CHT instance may develop a very large sentinel backlog that would take too long to process, preventing new transitions from being applied to incoming reports. In these situations, you can reset the sentinel sequence ID to skip processing the backlog.
+
+Follow these steps to reset the sentinel sequence ID:
+
+1. **Confirm you have a sentinel backlog** in watchdog. This will likely be in the thousands or millions. While it may be decreasing, you'll notice that it could take weeks or months to reach zero. During this backlog processing, no new sentinel transitions will be processed:
+
+   {{< figure src="sentinel-backlog.png" link="sentinel-backlog.png" alt="Screenshot showing a sentinel backlog in watchdog" >}}
+
+2. **Get the current sequence ID** for the medic database via a `curl` call. Be sure to replace `<password>` and `<cht-url>` with the correct values:
+
+   ```
+   curl -qs https://medic:<password>@<cht-url>/medic/ | jq ".update_seq"
+   ```
+
+   This will show a long string (approximately 400 characters) starting with a number, for example:
+
+   ```
+   307933-g1AAAAO1eJyV0j1OwzAUB3CLIiEQUsXAJRiQP2I7ZoErQGsxMMV2oigqMDFzil4BUk-sTJyCKzAwMtOGZ8cLUlXJ9vCGJ__k97cXCKHjduLQiX18sq0zV4TKcwybLKC197CPXr3_hjLA6tqJQcgd3kProOSmFLzYdnQ3eKP1J5QXcBN4FEHJqeSK5oPrYfiAcg3uCNa3EaywZI0j-WDvvYfyC2664XsEi6bCWDX54Ezr5RilT-BFBJlzkjKWCZrnYdiMQS5Hzr5FjsqS1kzmcp33q2CuE_YVMaNajNtcTGs9D2Kfj5pzijMqcrFL-HRBnKV3vYuYsbUqRHZqZ5B-EDfpCabjmJRWxGWPeQq2CuPqXmSC8pCXPxCoUuHmSfqJkCVaF2Tpj9wfVKv_m
+   ```
+
+3. **In Fauxton**, go to the transitions-seq document by navigating to:
+
+   ```
+   https://your-instance-url:port/_utils/#database/medic-sentinel/_local/transitions-seq
+   ```
+
+   You'll notice that before editing, the leading integer in the "value" field is lower than what you found in step 2.
+
+4. **Stop the sentinel container**. This step is critical - if you don't stop sentinel, it may overwrite your changes to the sequence ID, and the backlog will not be cleared.
+
+5. **Edit the value field** to paste in the string you got from step 2 and click "Save Changes":
+
+   {{< figure src="sentinel-edit-sequence.png" link="sentinel-edit-sequence.png" alt="Screenshot showing the sequence ID edit in Fauxton" >}}
+
+6. **Restart the Sentinel container**.
+
+7. **Check watchdog** which should now show a sharp drop in the backlog to zero:
+
+   {{< figure src="sentinel-after-reset.png" link="sentinel-after-reset.png" alt="Screenshot showing watchdog after resetting sentinel sequence" >}}
+
+Note that this will skip processing all reports in the backlog. Only use this approach when you're confident that skipping the backlog processing is acceptable for your deployment.

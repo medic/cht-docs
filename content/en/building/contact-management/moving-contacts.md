@@ -36,9 +36,13 @@ Some constraints when moving contacts:
 ### Examples
 Move the contacts with the id `contact_1` and `contact_2` to have the parent `parent_id`. The changes will be in the local folder `my_folder` only for review. Run the second command to upload the changes after review.
 
-    cht --instance= move-contacts -- --contacts=contact_1,contact_2 --parent=parent_id --docDirectoryPath=my_folder
-    cht --local upload-docs -- --docDirectoryPath=my_folder
+```shell
+  cht --instance= move-contacts -- --contacts=contact_1,contact_2 --parent=parent_id --docDirectoryPath=my_folder
+  cht --local upload-docs -- --docDirectoryPath=my_folder
+```
 
 Move the contact with the id `contact_1` to the top of the hierarchy (no parent).
 
-    cht --local move-contacts upload-docs -- --contacts=contact_1 --parent=root
+```shell
+  cht --local move-contacts upload-docs -- --contacts=contact_1 --parent=root
+```

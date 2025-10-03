@@ -3,7 +3,6 @@ title: Muting
 weight: 10
 description: >
    Temporarily silence tasks and SMS schedules
-keywords: muting
 relatedContent: >
   building/reference/app-settings/transitions/#muting
 aliases:

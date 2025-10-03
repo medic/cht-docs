@@ -11,8 +11,8 @@
 #    the default or base branch
 on:
   schedule:
-    # runs at 3:15am every Sunday
-    - cron:  '15 3 * * 0'
+    # runs at 8:15am UTC every Monday
+    - cron:  '15 8 * * 1'
 
 name: Test site for broken links
 jobs:
@@ -29,9 +29,6 @@ jobs:
 
       - name: Install asdf & tools in .tool-versions
         uses: asdf-vm/actions/install@v2
-
-      - name: Install npm modules for Hugo
-        run: npm install
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
       - name: Serve Hugo site

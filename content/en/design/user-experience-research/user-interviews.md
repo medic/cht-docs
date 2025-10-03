@@ -25,7 +25,6 @@ Generative interviews are used in the discovery phase of the development process
 
 [Here is a scoped interview template]({{< ref "scoped" >}})
 
-
 ## Recruiting
 
 For generative interviews, recruit users on a regular cadence for continuous, wide and varied feedback.
@@ -53,14 +52,15 @@ Agree on a mutually convenient time and date – if doing remote research, make 
 
 #### Tips:
 
-* Be warm and professional
-* Listen lots, speak little
-* Focus on one question at a time
-* Don’t share your assumptions or hypotheses
-* Do not influence the user by asking leading questions
-* Give users time to think about the question and take a moment before rephrasing it if they don’t understand
-* Give users the chance to ask questions themselves
-* Record your session or have someone take notes so you can focus on being present
+> [!TIP] Tips
+> * Be warm and professional
+> * Listen lots, speak little
+> * Focus on one question at a time
+> * Don’t share your assumptions or hypotheses
+> * Do not influence the user by asking leading questions
+> * Give users time to think about the question and take a moment before rephrasing it if they don’t understand
+> * Give users the chance to ask questions themselves
+> * Record your session or have someone take notes so you can focus on being present
 
 [Here is a recording of a sample interview](https://www.google.com/url?q=https://drive.google.com/file/d/1MM4mZ8Swr2vzg9YyEuQa1sDS4619fCT1/view&sa=D&source=docs&ust=1730388599836960&usg=AOvVaw15rkBJwKrzHipwrmMeNs4x).
 

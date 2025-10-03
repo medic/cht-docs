@@ -36,7 +36,6 @@ To learn about, in as much detail as possible, the last time a CHW used the CHT
 ### Interview questions
 1. Please tell me about the last time you used the CHT in as much detail as possible
 
-
 #### Probe further to understand
 
 * How often do they open their app, and why (ex. What is their schedule)? 

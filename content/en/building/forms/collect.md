@@ -4,7 +4,6 @@ linkTitle: "collect"
 weight: 3
 description: >
   **Collect Forms**: Served to the Medic Collect application
-keywords: collect-forms collect
 aliases:
    - /building/reference/forms/collect
    - /apps/reference/forms/collect
@@ -21,18 +20,21 @@ If using a [XLSForm](http://xlsform.org/) and using [`cht-conf`](https://github.
 
 ### Manual changes in XForm
 Collect forms need `prefix` and `delimiter` values added to the XForm's XML. This is done where the form ID is declared in the instance's data model. For example, the following:
-```
+
+```xml
 <instance>
    <data id="myform" >
    ...
 ```
 
 becomes:
-```
+
+```xml
 <instance>
    <data id="myform" prefix="J1!FORM_CODE!" delimiter="#">
    ...
 ```
 
-Note that `FORM_CODE` should be replaced with the form code as defined in the JSON forms version of the form. If the form code is `ABCD` the prefix value would be `J1!ABCD!`, resulting in `prefix="J1!ABCD!"`. In case you are curious, the `J1` lets the CHT server know that version 1 of the JavaRosa parser should be used on the incoming SMS.
+> [!TIP]
+> Note that `FORM_CODE` should be replaced with the form code as defined in the JSON forms version of the form. If the form code is `ABCD` the prefix value would be `J1!ABCD!`, resulting in `prefix="J1!ABCD!"`. In case you are curious, the `J1` lets the CHT server know that version 1 of the JavaRosa parser should be used on the incoming SMS.
 

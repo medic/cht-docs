@@ -1,9 +1,9 @@
 ---
-title: "Making Calls and Sending SMS from App Forms"
+title: "Make Calls and Sending SMS from App Forms"
 linkTitle: "App Form SMS"
-weight: 
+weight: 3
 description: >
-  Trigger calls and SMS from within the form, or send an SMS once submitted.
+  Trigger calls and SMS from within the form, or send an SMS once submitted
 relatedContent: >
   building/forms/configuring/additional-docs
   building/forms/configuring/multimedia
@@ -27,7 +27,7 @@ The phone number and message can be generated from fields within the XForm. For 
 `[Send SMS to <output value=" /data/patient_name "/>](sms://<output value=" /data/patient_phone "/>?body=<output value=" /data/message "/>)`
 
 If you want to use a button to make the action more obvious, this can be done using HTML and CSS within the note:
-```
+```html
 [<span style='background-color: #CC0000; color:white; padding: 1em; text-decoration: none; '>Call the patient</span>](tel:${patient_phone})
 ```
 

@@ -1,18 +1,18 @@
 ---
 title: "CHT Sync Setup with Kubernetes"
-weight: 2
+weight: 1
 linkTitle: "Kubernetes"
 description: >
   Setting up CHT Sync with Kubernetes and the CHT
 relatedContent: >
-  core/overview/architecture
-  core/overview/cht-sync
+  technical-overview/architecture
+  technical-overview/architecture/cht-sync
 aliases:
     - /apps/guides/data/analytics/production
     - /building/guides/data/analytics/production
 ---
 
-This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT]({{< relref "hosting/4.x/production/kubernetes" >}}).
+This guide will walk you through setting up a deployment of CHT Sync with the CHT using Kubernetes. This path is recommended if you already have a Kubernetes cluster [hosting the CHT]({{< relref "/hosting/cht/kubernetes" >}}).
 
 ## Prerequisites
 
@@ -87,13 +87,13 @@ If an instance has a different port, user or different CouchDB databases to be s
     password: "password3"
   ```
 
-Set the [cht-pipeline branch URL]({{< relref "hosting/analytics/building-dbt-models#setup" >}}) in the `values.yaml` file.
+Set the [cht-pipeline branch URL]({{< relref "/hosting/analytics/building-dbt-models#setup" >}}) in the `values.yaml` file.
 
 ```yaml
 cht_pipeline_branch_url: "https://github.com/medic/cht-pipeline.git#main"
 ```
 
-(Optional) You can also configure a Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in Prometheus format at a service with name `metrics` at port 9399, for use with [CHT Watchdog]({{< relref "hosting/monitoring/setup" >}}) or any other monitoring service.
+(Optional) You can also configure a Metrics Exporter. If enabled, this will create a sql exporter that queries the database for couch2pg status, number of changes pending, and current sequence and exposes these metrics in Prometheus format at a service with name `metrics` at port 9399, for use with [CHT Watchdog]({{< relref "/hosting/monitoring/setup" >}}) or any other monitoring service.
 
 An HTTP ingress needs to be created to allow access from outside the cluster.
 
@@ -103,7 +103,7 @@ metrics_exporter:
 ```
 ## Deploy
 
-Run the command below to deploy the cht-sync helm chart. The chart is at `deploy/cht_sync`; if `values.yaml` is in a different directory, specify the path.
+Run the command below to deploy the CHT Sync helm chart. The chart is at `deploy/cht_sync`; if `values.yaml` is in a different directory, specify the path.
 
 ```shell
 cd deploy/cht_sync
@@ -123,3 +123,49 @@ Run the following command to get the logs of a pod.
 ```shell
 kubectl logs -f cht-sync-<pod-id>
 ```
+
+### Tuning dbt
+
+In production setups with large tables, it can be helpful to [tune how dbt runs]({{< relref "/hosting/analytics/tuning-dbt" >}}).
+To use threads or batching, set the corresponding values in the `values.yaml` file.
+
+```yaml
+dbt_thread_count: 3
+dbt_batch_size: 100000
+```
+
+To use multiple dbt containers, specify the different selectors in a list called `dbt_selectors`.
+
+This will create one pod running dbt for each entry, where each entry is passed to one dbt pod as a `--select` argument.
+
+```yaml
+dbt_selectors:
+  - "package:cht_pipeline_base"
+  - "tag:tag-one"
+  - "tag:tag-two"
+```
+
+### Upgrading
+
+To upgrade to a newer version of CHT Sync with kubernetes, run helm upgrade.
+If there are any database changes that require a migration script, the major version will be changed and the changes detailed below.
+After running any migrations scripts, restart containers with the new docker-compose.yml
+
+```shell
+cd deploy/cht_sync
+helm upgrade cht-sync . --values values.yaml
+```
+
+#### Upgrading V1 to V2
+
+V2 added the `source` column to the `couchdb` table, and several other columns to the metadata table.
+To add these columns log in to the database and run this sql. 
+
+```sql
+  ALTER TABLE _dataemon ADD COLUMN IF NOT EXISTS manifest jsonb;
+  ALTER TABLE _dataemon ADD COLUMN IF NOT EXISTS dbt_selector text;
+  ALTER TABLE couchdb ADD COLUMN IF NOT EXISTS source varchar;
+  CREATE INDEX IF NOT EXISTS source ON couchdb(source);
+```
+
+V2 adds new features for [tuning dbt]({{< relref "/hosting/analytics/tuning-dbt" >}}); to use batching, threads, or separate dbt processes, set the corresponding [environment_variables]({{< relref "/hosting/analytics/environment-variables" >}}) in `values.yml` as described above.

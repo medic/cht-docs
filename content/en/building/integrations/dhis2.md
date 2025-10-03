@@ -48,7 +48,7 @@ The aggregate workflow was designed specifically for CHWs, Supervisors, and Heal
 
 CHWs support patients in their community by following care guides and recording responses in the CHT. The CHT calculates aggregate DHIS2 Data Values for each CHW based on rules configured in the CHT. CHWs can view these indicators on the Targets tab and should review them and sync at the end of the month.
 
-![CHWs](chw.png "Feature Overview CHWs")
+{{< figure src="chw.png" link="chw.png" caption="CHWs" >}}
 
 {{< see-also page="building/targets/targets-overview" title="Targets" >}}
 
@@ -56,20 +56,19 @@ CHWs support patients in their community by following care guides and recording 
 
 In addition to their own targets, Supervisors can see the aggregate of each DHIS2 Data Value across *all* CHWs in their area from the *CHW Aggregate* view on the **Targets tab**. By tapping on a target, they can also see each CHW’s contribution towards that total. Supervisors can review and verify with CHWs that everyone has synced and that their data is correct. The Supervisor can communicate with the HRIO when everything has been validated.
 
-![Supervisors](supervisor.png "Feature Overview Supervisors")
+{{< figure src="supervisor.png" link="supervisor.png" caption="Feature Overview Supervisors" >}}
 
 ### Health Records Information Officers
 
 HRIOs access the **CHT App Management** tab and select the appropriate *DHIS2 Data Set, Organisation Unit,* and *Period*. They then *Export* a file that is formatted for DHIS2. HRIOs will need access to the **Import/Export** feature in DHIS2 so that they can **Import** the file. Once it has been imported into DHIS2, they review the data from the **Data Entry** screen in DHIS2.
 
-![Data Entry](data-entry-1.png "Feature Overview Data Entry 1")
-
+{{< figure src="data-entry-1.png" link="data-entry-1.png" caption="Feature Overview Data Entry 1" >}}
 
 ## DHIS2 apps
 
 The CHT also includes an [API](https://github.com/medic/cht-core/tree/master/api) that can be called from other applications that returns DHIS2 Data Sets. This means that you can build a [DHIS2 app](https://docs.dhis2.org/master/en/developer/html/apps_creating_apps.html) that pulls data from the CHT and imports it electronically into DHIS2. This would allow **Data Entry** to control the process directly from DHIS2 without having to access the CHT.
 
-![Data Entry](data-entry-2.png "Feature Overview Data Entry 2")
+{{< figure src="data-entry-2.png" link="data-entry-1.png" caption="Feature Overview Data Entry 2" >}}
 
 ## Version Notes
 

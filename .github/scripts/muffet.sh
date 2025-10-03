@@ -16,11 +16,10 @@
 # use extremely granular URLs so as not to exclude more than we need to.
 
 # when upgrading muffet, upload new binary here and rename so version is explicit in filename
-./2.10.6.muffet http://localhost:1313 \
-  --dns-resolver 9.9.9.9:9953 \
+./2.10.9.muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 255 \
-  --rate-limit 8 \
+  --rate-limit 4 \
   --max-connections-per-host 8 \
   --ignore-fragments \
   --header="User-Agent: Muffet (github.com/raviqqe/muffet) on behalf of CHT Docs (docs.communityhealthtoolkit.org)" \
@@ -49,11 +48,15 @@
   --exclude "http[s]*://www.pluralsight.com/paths/using-kubernetes-as-a-developer.*" \
   --exclude "http[s]*://www.intellisoftkenya.com.*" \
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
-  --exclude "http[s]*://www.npmjs.com/org/medic/team/developers" \
+  --exclude "http[s]*://www.npmjs.com.*" \
+  --exclude "https://.*youtu.be.*" \
+  --exclude "https://.*youtube.com.*" \
   --exclude "http[s]*://docs.couchdb.org.*" \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
   --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://docs.dhis2.org.*" \
+  --exclude "http[s]*://stackoverflow.com/questions.*" \
   --exclude "http[s]*://.*udacity.com.*" \
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \
