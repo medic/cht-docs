@@ -38,7 +38,7 @@ There are two ways to add or edit a privacy policy:
 cht --local upload-privacy-policies
 ```
 
-2. Update and view privacy policies in the [Admin Console]({{< relref "building/admin" >}}), under `Display` > `Privacy Policies`
+2. Update and view privacy policies in the [Admin Console](/building/admin), under `Display` > `Privacy Policies`
 
 > [!NOTE]
 > - Use language codes when associating HTML files to languages

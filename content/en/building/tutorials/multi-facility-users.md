@@ -20,20 +20,20 @@ This tutorial covers:
 - Creating places and assign contacts to those places
 - Assigning users to multiple places
 
-The [CHT application settings]({{< relref "building/tutorials/application-settings" >}}) allows you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
+The [CHT application settings](/building/tutorials/application-settings) allows you to both persist information that is critical to the application outside the code, and to create profiles that store the preferences for project deployments.
   
 
 ## Brief Overview of Key Concepts
 
-*[Permissions]({{< relref "building/users#permissions" >}})* are settings that control access to specific app features and functionality.
+*[Permissions](/building/users#permissions)* are settings that control access to specific app features and functionality.
 
-*[Roles]({{< relref "building/users#roles" >}})* define permissions for users to access a group of app features and functionality.
+*[Roles](/building/users#roles)* define permissions for users to access a group of app features and functionality.
 
-*[Contacts]({{< relref "building/contact-management" >}})*  are people or places that are created in the CHT application.
+*[Contacts](/building/contact-management)*  are people or places that are created in the CHT application.
 
-*[People]({{< relref "building/contact-management" >}})* are both patients in the system and users of the system, such as CHWs or Nurses.
+*[People](/building/contact-management)* are both patients in the system and users of the system, such as CHWs or Nurses.
 
-*[Places]({{< relref "building/contact-management" >}})* represent either an actual physical location such as a health facility, clinic, or a grouping such as a household or CHW Area.
+*[Places](/building/contact-management)* represent either an actual physical location such as a health facility, clinic, or a grouping such as a household or CHW Area.
 
 ## Pre-requisites
 

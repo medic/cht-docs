@@ -10,13 +10,13 @@ aliases:
 
 ## Going beyond basic setup
 
-After you have done the [setup of CHT Watchdog]({{< relref "/hosting/monitoring/setup.md" >}}) and configured it to run [with TLS and have backups enabled]({{< relref "/hosting/monitoring/production.md" >}}), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
+After you have done the [setup of CHT Watchdog](/hosting/monitoring/setup.md) and configured it to run [with TLS and have backups enabled](/hosting/monitoring/production.md), you may want to extend it to scrape other Prometheus data sources so that Grafana can send alerts on non-CHT Core metrics.
 
 This guide uses example instances of CHT Core (`cht.example.com`) and CHT Watchdog (`watchdog.example.com`). When deploying, be sure to replace with your own hostnames.
 
 ### Default Flow
 
-Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API]({{< relref "building/reference/api#get-apiv2monitoring" >}}):
+Let's look at how the default deployment of Watchdog works when configured to only gather metrics from [CHT Core's monitoring API](/building/reference/api#get-apiv2monitoring):
 
 ```mermaid
 flowchart LR
@@ -64,11 +64,11 @@ By reading this guide you should not only be able to set up cAdvisor, but also b
 
 While this is a specific example for cAdvisor, these same steps will be taken to extend Watchdog for other metrics:
 
-1. CHT Core: [Create both cAdvisor and Caddy Docker Compose files]({{< relref "#cadvisor-compose-file" >}})
-2. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core]({{< relref "#start-cadvisor-caddy-and-cht-core-with-docker" >}})
-3. CHT Watchdog: [Adding new scrape and compose configs]({{< relref "#scrape-config" >}})
-4. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts]({{< relref "#load-new-compose-files-with-existing-ones" >}})
-5. CHT Watchdog: [Importing an existing cAdvisor dashboard from `grafana.com`]({{< relref "#on-cht-watchdog-import-grafana-dashboard" >}})
+1. CHT Core: [Create both cAdvisor and Caddy Docker Compose files]cadvisor-compose-file)
+2. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core](#start-cadvisor-caddy-and-cht-core-with-docker)
+3. CHT Watchdog: [Adding new scrape and compose configs](#scrape-config)
+4. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts](#load-new-compose-files-with-existing-ones)
+5. CHT Watchdog: [Importing an existing cAdvisor dashboard from `grafana.com`](#on-cht-watchdog-import-grafana-dashboard)
 
 After completing these steps, we now have Docker metrics we can alert on:
 
@@ -111,7 +111,7 @@ services:
 
 #### Caddy Config and Compose files
 
-Like we did in the [TLS section]({{< relref "/hosting/monitoring/production#accessing-grafana-over-tls" >}}), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.
+Like we did in the [TLS section](/hosting/monitoring/production#accessing-grafana-over-tls), we'll add both a `/home/ubuntu/Caddyfile` and a `/home/ubuntu/cht/compose/caddy-compose.yml`.
 
 Starting with the `Caddyfile`, let's assume your server's DNS entry is `cht.example.com`.  We can expose cAdvisor's service running on localhost port `8443` with this compose file. This tells Caddy to reverse proxy requests to the public interface to the private Docker network interface on port `8080` where cAdvisor is running:
 
@@ -140,7 +140,7 @@ services:
 
 Now that we have all the config files in place, you need to have Docker start everything together. This is so that the containers can see each other on the same `CHT Net` Docker network.  You will need to specify each of the compose files every time you start, stop or restart CHT instance so all the services stay running and connected.
 
-Assuming you followed the [production steps]({{< relref "/hosting/cht/docker" >}}) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
+Assuming you followed the [production steps](/hosting/cht/docker) to install the CHT, you use this Compose call to first stop all containers and then start them all up, including the new services:
 
 ```shell
 cd /home/ubuntu/cht/upgrade-service
@@ -176,7 +176,7 @@ services:
 
 #### Load new Compose files with existing ones
 
-Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup]({{< relref "/hosting/monitoring/setup" >}}), this would be:
+Now that you've added the new configuration files, we can load it alongside the existing ones.  Assuming you've followed the [Watchdog Setup](/hosting/monitoring/setup), this would be:
 
 ```shell
 cd ~/cht-monitoring

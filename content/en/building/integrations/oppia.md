@@ -25,11 +25,11 @@ We provide a detailed example of the CHT<>OppiaMobile integration, including how
 This integration leverages the **remote onboarding, task & scheduling, and target features** of the CHT core framework with the **curated, multimedia educational content** available via OppiaMobile’s learning platform.
 
 The CHT Core Framework & OppiaMobile integration currently supports the following capabilities and features:
-- [Task management]({{< ref "building/tasks" >}}) for notifications on new educational modules and software updates
-- [Remote onboarding]({{< ref "reference-apps/training" >}}) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
+- [Task management](/building/tasks) for notifications on new educational modules and software updates
+- [Remote onboarding](/reference-apps/training) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
 - Optimized multimedia content with links to educational modules powered by OppiaMobile
 - Message and feedback options, to contact supervisors with questions and seek support
-- [Supervisor visibility]({{< ref "building/targets/targets-overview#supervisor-view" >}}) into CHW progress for onboarding, learning, and care
+- [Supervisor visibility](/building/targets/targets-overview#supervisor-view) into CHW progress for onboarding, learning, and care
 - Hosting options for government-led, government-owned platforms
 
 The training modules configuration consists of five main components:
@@ -41,7 +41,7 @@ The training modules configuration consists of five main components:
 
 ### App Forms
 
-The CHT application uses [XLSForms]({{< ref "building/forms/app" >}}) (app forms), which are a simplified method of setting up form configurations using Excel (or Libre Office Calc, Google sheets, etc). The forms contain the questions/content that the user will interact with, including [web links](https://oppiamobile.readthedocs.io/en/latest/implementers/integration/launch_from_other_app.html) that enable the users to navigate from the CHT application to a specific course in OppiaMobile. App forms are typically created in the `project-folder > forms > app` directory of a project. If the content requires a user to access any form of media, then a media folder for the specific form is created and named after the form. For example, to add video content for a form module_one.xlsx, save the video file to the following directory: `project-folder > forms > app > module_one-media > video`. Once the forms are set up with content, the forms are converted to XForms, which are in xml format. To limit access of App Forms to certain contacts, an App Forms must have a properties file, which defines when and for whom certain forms should be accessed. Once configured, the forms are uploaded to an instance using the CHT configurer with the following commands, which upload specific forms and all forms respectively:
+The CHT application uses [XLSForms](/building/forms/app) (app forms), which are a simplified method of setting up form configurations using Excel (or Libre Office Calc, Google sheets, etc). The forms contain the questions/content that the user will interact with, including [web links](https://oppiamobile.readthedocs.io/en/latest/implementers/integration/launch_from_other_app.html) that enable the users to navigate from the CHT application to a specific course in OppiaMobile. App forms are typically created in the `project-folder > forms > app` directory of a project. If the content requires a user to access any form of media, then a media folder for the specific form is created and named after the form. For example, to add video content for a form module_one.xlsx, save the video file to the following directory: `project-folder > forms > app > module_one-media > video`. Once the forms are set up with content, the forms are converted to XForms, which are in xml format. To limit access of App Forms to certain contacts, an App Forms must have a properties file, which defines when and for whom certain forms should be accessed. Once configured, the forms are uploaded to an instance using the CHT configurer with the following commands, which upload specific forms and all forms respectively:
 
 ```
 cht --instance=<instance> convert-app-forms upload-app-forms -- <form1> <form2>
@@ -79,7 +79,7 @@ This image shows the outcome of the button configuration:
 
 ### Tasks
 
-[Tasks]({{< ref "building/tasks/tasks-js" >}}) are a set of actions available to users from the task tab. Selecting a task opens up a specific form that completes a workflow. Tasks are available within a given timeframe, after which they expire and the user is unable to view or do them. Tasks are defined as an array of objects in a tasks.js file under the project folder, with each task following the task schema. The required properties of a task include:
+[Tasks](/building/tasks/tasks-js) are a set of actions available to users from the task tab. Selecting a task opens up a specific form that completes a workflow. Tasks are available within a given timeframe, after which they expire and the user is unable to view or do them. Tasks are defined as an array of objects in a tasks.js file under the project folder, with each task following the task schema. The required properties of a task include:
 
 - Name - unique identifier of the task;
 - Title - displays the workflow to be completed for a contact;
@@ -122,7 +122,7 @@ The code snippet below illustrates an example of a task configured for the educa
 
 ### Targets
 
-The users also have access to [targets]({{< ref "building/targets/targets-js" >}}). Targets are a visual representation of the progress and goals of the user. These are app analytics accessed through the targets tab, where the user is able to view how many modules they have completed. Similar to tasks, targets are defined as an array of objects in a targets.js file under the project folder, with each target following the targets schema. The required properties of a target object include:
+The users also have access to [targets](/building/targets/targets-js). Targets are a visual representation of the progress and goals of the user. These are app analytics accessed through the targets tab, where the user is able to view how many modules they have completed. Similar to tasks, targets are defined as an array of objects in a targets.js file under the project folder, with each target following the targets schema. The required properties of a target object include:
 
 - Id - unique identifier of the target;
 - Translation_key - title displayed for the widget;
@@ -184,7 +184,7 @@ Below is a code snippet for a target configured for the educational modules:
 
 ### Contact Summary
 
-In addition to targets, the user is able to see which specific modules they have completed, and view upcoming tasks and other general information on their profile. The section containing this information is known as the [contact summary]({{< ref "building/contact-summary/contact-summary-templated" >}}). The contact summary has 3 main outputs: cards, fields, and context. Contact summary is defined in the `contact-summary.templated.js` file under the project folder.
+In addition to targets, the user is able to see which specific modules they have completed, and view upcoming tasks and other general information on their profile. The section containing this information is known as the [contact summary](/building/contact-summary/contact-summary-templated). The contact summary has 3 main outputs: cards, fields, and context. Contact summary is defined in the `contact-summary.templated.js` file under the project folder.
 
 Cards are an array of objects which can be customized to group information viewed on a contact’s profile. The required properties of a card include:
 

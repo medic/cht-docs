@@ -17,7 +17,7 @@ CHT gateway supports Android 4.1 and above. To have it up and fully working, fol
 
 ### Step 1
 
-Install the latest APK from the [releases page](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo. This APK is not in the Play Store, you will need to side-load it [as is done with CHT Android]({{< ref "building/branding/publishing#side-loading" >}}).
+Install the latest APK from the [releases page](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo. This APK is not in the Play Store, you will need to side-load it [as is done with CHT Android](/building/branding/publishing#side-loading).
 
 ### Step 2
 

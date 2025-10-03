@@ -19,15 +19,15 @@ This guide explains the data which results from tasks and how to query it.
 
 ## Prerequisites
 
-* [Data Flows for Analytics]({{< ref "technical-overview/data/analytics/data-flows-for-analytics" >}})
+* [Data Flows for Analytics](/technical-overview/data/analytics/data-flows-for-analytics)
 
 ## Querying task data
-The task system running on each user's device is powered by [task documents]({{< ref "technical-overview/data/db-schema#tasks" >}}) and those task documents sync to the server and to PostgreSQL just like a contact or a report. Having task documents in PostgreSQL allows system administrators to analyse how users are interacting with tasks.
+The task system running on each user's device is powered by [task documents](/technical-overview/data/db-schema#tasks) and those task documents sync to the server and to PostgreSQL just like a contact or a report. Having task documents in PostgreSQL allows system administrators to analyse how users are interacting with tasks.
 
 {{< see-also page="technical-overview/data/analytics/data-flows-for-analytics" title="Data flows for analytics" >}}
 
 ### First Assessment Completion Rate
-Working with the _First Assessment_ task from the [Configuring Tasks Tutorial]({{< ref "building/tasks/simple-tasks" >}}), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
+Working with the _First Assessment_ task from the [Configuring Tasks Tutorial](/building/tasks/simple-tasks), let's try to answer the question **What percentage of the scheduled _first assessment_ events have been completed?**. 
 
 Let's query data from the last three months to see how the _first assessment_ task is behaving in production:
 
@@ -66,9 +66,9 @@ module.exports = [{
 ```
 
 **What is this code doing?**
-* `useview_task` - This is a materialized view of the data from the [task document schema]({{< ref "technical-overview/data/db-schema#tasks" >}}).
-* `task_state` - The meaning of each task state is explained in the [task document schema]({{< ref "technical-overview/data/db-schema#tasks" >}}).
-* `WHERE title` - The _name_ attribute in the [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}}) is used exclusively in the task's backend data. Here we limit the query to task documents resulting from our named task. The `title` in postgres maps to the `name` in JavaScript not the `title` in JavaScript - which is confusing.
+* `useview_task` - This is a materialized view of the data from the [task document schema](/technical-overview/data/db-schema#tasks).
+* `task_state` - The meaning of each task state is explained in the [task document schema](/technical-overview/data/db-schema#tasks).
+* `WHERE title` - The _name_ attribute in the [task.js schema](/building/tasks/tasks-js#tasksjs) is used exclusively in the task's backend data. Here we limit the query to task documents resulting from our named task. The `title` in postgres maps to the `name` in JavaScript not the `title` in JavaScript - which is confusing.
 * `WHERE duedate` - One task document is created per event and this task has one event per contact which is due 7 days after the contact's creation date. Here we limit the query to task documents which are _due in the last 3 calendar months_.
 
 ## Understanding the data

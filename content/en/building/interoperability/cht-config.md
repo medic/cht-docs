@@ -23,7 +23,7 @@ You can see more details of the tool [in the cht-interoperability repository](ht
 4. Sending health information represented as [Encounters](https://build.fhir.org/encounter.html) with [Observations](https://build.fhir.org/observation.html) from interoperating systems to CHT applications.
 
 ## Sending Data
-When sending data to an interoperating system, [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) is used to configure which documents should be sent and at what point.
+When sending data to an interoperating system, [outbound push](/building/reference/app-settings/outbound) is used to configure which documents should be sent and at what point.
 A [mediator](http://openhim.org/docs/configuration/mediators/) then converts these documents to FHIR resources and orchestrates sending them to interoperating systems.
 The default mediator makes any resources sent to it queryable via a FHIR API using [HAPI](https://hapifhir.io/).
 
@@ -172,7 +172,7 @@ In this example, a `danger signs` question is converted into `Observations` wher
 ## Inbound Patients
 
 It is also possbile to create patients in the CHT from patients that were created in external systems.
-Patients in CHT applications are represented as [contacts]({{< relref "/building/contact-management/contacts" >}}), and require a parent to be assigned to a CHW, facility, or other location. This requires a mediator to have the ids of contacts in CHT and currently cannot be done automatically by the default mediator. A custom mediator needs to be created which assigns a field to use as the `parent_id`.
+Patients in CHT applications are represented as [contacts](/building/contact-management/contacts), and require a parent to be assigned to a CHW, facility, or other location. This requires a mediator to have the ids of contacts in CHT and currently cannot be done automatically by the default mediator. A custom mediator needs to be created which assigns a field to use as the `parent_id`.
 
 To create data in CHT, a mediator converts a FHIR `Patient` to a json object that it submits as a request to [the records API](/building/reference/api/#records).
 This requires a [form](/building/reference/app-settings/forms/) to be configured in the CHT; the incoming data will be saved as a report.

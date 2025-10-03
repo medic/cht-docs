@@ -17,7 +17,7 @@ relatedContent: >
 ---
 
 {{< callout >}}
- The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API]({{< relref "building/reference/api#post-apiv2users" >}}) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide]({{< relref "/community/contributing/code/test-data/csv-to-docs" >}}).
+ The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API](/building/reference/api#post-apiv2users) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide](/community/contributing/code/test-data/csv-to-docs).
  This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.
 {{< /callout >}}
 
@@ -43,8 +43,8 @@ Click on any of the use cases below to make a copy of the spreadsheet for the us
 We will use the second use case to create user accounts and their contacts in the example below.
 ## Contact Spreadsheet Instructions
 
-The spreadsheet interfaces with the [`POST /api/v1/users` API]({{< relref "building/reference/api#get-apiv1users" >}}) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
-Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation]({{< relref "building/reference/api#post-apiv1users" >}}).
+The spreadsheet interfaces with the [`POST /api/v1/users` API](/building/reference/api#get-apiv1users) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
+Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation](/building/reference/api#post-apiv1users).
 
 Contact spreadsheets are named according to the user role, for example when creating users who are chws and others who are chw_supervisors, the following contact spreadsheets are populated respectively: "contact.chw" and "contact.chw_supervisor".
 
@@ -115,7 +115,7 @@ In this example the "Penda Ouedraogo" place has gotten an updated UUID starting 
 5. Export spreadsheet into CSV
 {{< figure src="importing-users-export-csv.png" link="importing-users-export-csv.png" caption="export spreadsheet into CSV" >}}
 
-6. Access the [Admin Console]({{< ref "building/admin/" >}}) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
+6. Access the [Admin Console](/building/admin/) of your instance, go to "Users", click "Import from file" and select your CSV file you just exported
 {{< figure src="importing-users-import-csv.png" link="importing-users-import-csv.png" caption="import CSV into CHT" >}}
 
 7. Be patient during import (testing showed ~0.4 seconds per record up to 500 records)
@@ -155,9 +155,9 @@ Add some new rows at the bottom (item 1), enter the new place name in column A (
 
 ## Configuring custom places types
 
-The third use case mentioned in the [workbook instructions section]({{< relref "#workbook-instructions" >}}) links to a Google Sheets to create user places alongside their account and their contact. This works out of the box with the `default` CHT configuration but will require adjustments to be made in the `place.type_VLOOKUP` spreadsheet when dealing with a CHT configuration with custom places types.
+The third use case mentioned in the [workbook instructions section](#workbook-instructions) links to a Google Sheets to create user places alongside their account and their contact. This works out of the box with the `default` CHT configuration but will require adjustments to be made in the `place.type_VLOOKUP` spreadsheet when dealing with a CHT configuration with custom places types.
 
-The `place.type_VLOOKUP` spreadsheet has two columns that contain the name of the places types set in the [`.contact_types[]`]({{< relref "building/reference/app-settings/hierarchy" >}}) property of your `app_settings.json` and their respective IDs. The place type name is used by the `User-Place-Type:excluded` column in the `contact.chw` spreadsheet to provide a user-friendly way to pick a place with autocompletion. You will want to keep this spreadsheet in sync with your CHT configuration to create users' places.
+The `place.type_VLOOKUP` spreadsheet has two columns that contain the name of the places types set in the [`.contact_types[]`](/building/reference/app-settings/hierarchy) property of your `app_settings.json` and their respective IDs. The place type name is used by the `User-Place-Type:excluded` column in the `contact.chw` spreadsheet to provide a user-friendly way to pick a place with autocompletion. You will want to keep this spreadsheet in sync with your CHT configuration to create users' places.
 
 ## Trouble shooting
 
@@ -167,7 +167,7 @@ If you have miss-matched contact types, you will get an error upon import:
 
 > **Wrong type, this is not a person.**
 
-As of CHT 3.7.0, you're [allowed to declare different contact types]({{< relref "building/reference/app-settings/hierarchy#app_settingsjson-contact_types" >}}) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
+As of CHT 3.7.0, you're [allowed to declare different contact types](/building/reference/app-settings/hierarchy#app_settingsjson-contact_types) in your `app_settings.json`. If you have populated the `.contact_types[]` property in your JSON, you will need to update the automatic value of the `contact.contact_type` column.  The default value is:
 
 ```shell
 =if(NOT(ISBLANK(D2)),"person","")

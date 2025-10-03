@@ -27,15 +27,15 @@ You will be building assessment workflow that allows Community Health Workers to
 
 ## Brief Overview of Key Concepts
 
-*[App forms]({{< ref "building/forms/app" >}})* serve as actions within the app.
+*[App forms](/building/forms/app)* serve as actions within the app.
 
-*[XLSForm]({{< ref "building/forms/app#xlsform" >}})* is a form [standard](http://xlsform.org/en/) created to help simplify the authoring of forms in Excel.
+*[XLSForm](/building/forms/app#xlsform)* is a form [standard](http://xlsform.org/en/) created to help simplify the authoring of forms in Excel.
 
-*[XForm]({{< ref "building/forms/app#xform" >}})* is a CHT-enhanced version of the [ODK XForm](https://getodk.github.io/xforms-spec/) standard.
+*[XForm](/building/forms/app#xform)* is a CHT-enhanced version of the [ODK XForm](https://getodk.github.io/xforms-spec/) standard.
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}) and a [project folder set up]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) already.
+You should have a [functioning CHT instance with `cht-conf` installed locally](/building/local-setup) and a [project folder set up](/building/local-setup#3-create-and-upload-a-blank-project) already.
 
 ## Implementation Steps
 
@@ -128,4 +128,4 @@ cht --url=https://<username>:<password>@localhost --accept-self-signed-certs con
 
 ## Next steps
 
-- *[Setting Form Properties]({{< ref "building/forms/form-properties/" >}})*
+- *[Setting Form Properties](/building/forms/form-properties/)*

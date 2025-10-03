@@ -114,7 +114,7 @@ Each APK will be generated and stored in `build/outputs/apk/[flavor]/[debug|rele
 
 To assemble other flavors, use the following command: `make flavour=[Flavor] assemble`. See the [Flavor selection](#flavor-selection) section for more details about `make` commands.
 
-To create the `.aab` bundle file, use `make bundle`, although signed versions are generated when [releasing]({{< ref "community/contributing/code/android/releasing" >}}), and the Play Store requires the AAB to be signed with the right key.
+To create the `.aab` bundle file, use `make bundle`, although signed versions are generated when [releasing](/community/contributing/code/android/releasing), and the Play Store requires the AAB to be signed with the right key.
 
 To clean the APKs and compiled resources: `make clean`.
 
@@ -157,13 +157,13 @@ the submodules within the cht-android folder.
 
 _Only CHT Android_
 
-Refer to the [CHT Core Developer Guide]({{< relref "community/contributing/code/core/dev-environment#nginx-local-ip" >}}).
+Refer to the [CHT Core Developer Guide](/community/contributing/code/core/dev-environment#nginx-local-ip).
 
 #### Manually testing with older Android versions
 
 _Only CHT Android_
 
-Later versions of the CHT, only support [running on Chrome/Webview 90+]({{< relref "releases/#dependencies" >}}). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
+Later versions of the CHT, only support [running on Chrome/Webview 90+](/releases/#dependencies). Some older versions of Android will not have a new enough Android System Webview to be able to run the CHT webapp. This is particularly true of emulated Android devices, which typically are configured to not receive updates. To test the CHT functionality on these devices you must manually upgrade the version of the Chrome/Webview apk used as the Android System Webview.
 
 To upgrade the necessary apk on an emulated Android device:
 

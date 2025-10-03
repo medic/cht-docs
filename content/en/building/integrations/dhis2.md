@@ -30,7 +30,7 @@ The CHT Core Framework supports integrations with DHIS2 in a variety of ways:
 6. Exposing an API for DHIS2 app developers to pull aggregate data from CHT Core
 7. Receiving data from DHIS2
 
-Sending patient, event, and pre-aggregated data can be achieved using the [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}) feature. Receiving data from DHIS2 can be achieved using the [CHT Core Web API](https://github.com/medic/cht-core/tree/master/api). 
+Sending patient, event, and pre-aggregated data can be achieved using the [Outbound push](/building/reference/app-settings/outbound) feature. Receiving data from DHIS2 can be achieved using the [CHT Core Web API](https://github.com/medic/cht-core/tree/master/api). 
 
 Aggregating data across multiple health workers requires a somewhat specific workflow and was designed with three key user personas in mind. The aggregate workflow is described in more detail below.
 

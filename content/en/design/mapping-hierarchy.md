@@ -16,7 +16,7 @@ This section will take you through mapping of users on CHT hierarchy, including:
 
 ## Brief Overview of Key Concepts
 
-A *[user persona]({{< ref "design/personas" >}})* is a generalized character that embodies a particular type of user.
+A *[user persona](/design/personas)* is a generalized character that embodies a particular type of user.
 
 *User roles* are the activities that the user personas are expected to carry out.
 
@@ -24,7 +24,7 @@ A *hierarchy* represents the reporting structure.
 
 ## Prerequisites/Required Resources
 
-[Personas.]({{< ref "design/personas" >}})
+[Personas.](/design/personas)
 
 ## Steps
 

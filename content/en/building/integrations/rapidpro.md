@@ -20,22 +20,22 @@ To learn more about the platform, check out RapidPro on [GitHub](https://rapidpr
 Coming up with a design to accommodate user needs requires a detailed understanding of the capabilities of both systems and conceptually where it makes sense to introduce interactions between them. Below we introduce some of the key concepts in RapidPro, but to learn more you can have a look at their [documentation](https://rapidpro.github.io/rapidpro/docs/).
 
 ## Overview
-CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/messaging" >}}) from the Messages tab.
+CHT-based [SMS workflows](/building/workflows/workflows-overview#sms-messaging) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging](/building/messaging) from the Messages tab.
 
 For more complex messaging workflows or to utilize other messaging platforms, you can design workflows that leverage the functionality of RapidPro and the CHT together. This enables semi-automated, direct to patient approaches to health assessments and care coordination at the community level.
 
 ## Workflows
-Integrated RapidPro/CHT workflows are very flexible and leverage the full functionality of each application; You configure RapidPro directly in RapidPro, and configure the CHT in the CHT and the two systems communicate with each other through APIs and [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}). With this architecture, you are not limited to a subset of functionality within either application.
+Integrated RapidPro/CHT workflows are very flexible and leverage the full functionality of each application; You configure RapidPro directly in RapidPro, and configure the CHT in the CHT and the two systems communicate with each other through APIs and [Outbound push](/building/reference/app-settings/outbound). With this architecture, you are not limited to a subset of functionality within either application.
 
-A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task]({{< ref "building/tasks" >}}) for a health worker in the CHT based on the patient responses from the RapidPro flow.
+A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task](/building/tasks) for a health worker in the CHT based on the patient responses from the RapidPro flow.
 
 App builders have built and deployed a number of interactive messaging workflows that integrate RapidPro and the CHT already, see below for a few examples.
 
 ### Contact Tracing
-The [COVID-19 Contact Tracing app]({{< ref "reference-apps/contact-tracing#workflow-example" >}}) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
+The [COVID-19 Contact Tracing app](/reference-apps/contact-tracing#workflow-example) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
 
 ### Remote Training
-The [Remote Training by SMS app]({{< ref "reference-apps/training#remote-training-by-sms" >}}) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
+The [Remote Training by SMS app](/reference-apps/training#remote-training-by-sms) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
 
 ### CHW Symptom and Mental Health Checks
 The [CHW Symptom and Mental Health Checks app](https://docs.google.com/document/d/19F6vOCNFKQnSyREiaBnryUmre20s5QZzYe0hWuWn-0k/edit) is used to proactively check in with health workers to screen for COVID-19 symptoms and/or the need for psychosocial counseling.
@@ -106,7 +106,7 @@ The information below focuses on specific interactions between RapidPro and the 
 
 ### Create RapidPro user in CHT
 
-For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "building/users" >}}) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management]({{< ref "building/admin/" >}}) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role]({{< ref "building/users#roles" >}}).
+For RapidPro to communicate with the CHT, you need to create a [User](/building/users) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management](/building/admin/) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role](/building/users#roles).
 
 ### Globals
 
@@ -120,7 +120,7 @@ Once you have configured a Global value, you can easily use it in your flows lik
 
 ### Start RapidPro Flow from CHT
 
-One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "building/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro.
+One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound](/building/reference/app-settings/outbound) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro.
 
 Below is an example `outbound` config in the CHT called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where `symptom = no`. It will also pass an extra date value for `self_quarantine_enrollment`.
 
@@ -162,9 +162,9 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 
 |Step |Application  |Config step |
 |-----|--|--|
-|1|CHT| Configure a [JSON Form]({{< ref "building/reference/app-settings/forms" >}}) that includes the fields from RapidPro you want to send to the CHT.|
+|1|CHT| Configure a [JSON Form](/building/reference/app-settings/forms) that includes the fields from RapidPro you want to send to the CHT.|
 |2|RapidPro|Add a *Call a Webhook* node.|
-|3|RapidPro|`POST` to the [records endpoint]({{< ref "building/reference/api#post-apiv2records" >}}) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
+|3|RapidPro|`POST` to the [records endpoint](/building/reference/api#post-apiv2records) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
 |4|RapidPro|Set a `Result Name`|
 |5|RapidPro|Configure HTTP Headers to be `Content-Type` -> `application/json`|
 |6|RapidPro|Configure the `POST Body` (see example below)|
@@ -174,7 +174,7 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 
 ### Look up CHT data from RapidPro
 
-Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone]({{< ref "building/reference/api#contacts-by-phone" >}}) API to get fully hydrated contacts associated to that phone number.
+Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone](/building/reference/api#contacts-by-phone) API to get fully hydrated contacts associated to that phone number.
 
 
 

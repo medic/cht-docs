@@ -10,7 +10,7 @@ aliases:
    - /building/guides/database/muting_in_dashboards
 ---
 
-When a contact gets muted, two of [many things]({{< ref "building/reference/app-settings/transitions#muting" >}}) happen: 
+When a contact gets muted, two of [many things](/building/reference/app-settings/transitions#muting) happen: 
 
 - The target contact and all of its descendants have a `muted` property set equal to the date they were muted
 - an entry is added to the contact's `muting_history` in sentinel's info docs

@@ -7,7 +7,7 @@ description: >
 ---
 
 {{< callout type="warning" >}}
-  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "/hosting/analytics" >}}).
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](//hosting/analytics).
 {{< /callout >}}
 
 Create read-only replicas of CouchDB data inside PostgresSQL.

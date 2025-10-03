@@ -20,7 +20,7 @@ Some CHT Core features can be enabled for specific users only. This can be parti
 
 ## Configuration
 
-If the specific CHT Core feature supports feature flagging, users can be configured to see the "old" version by means of a [permission]({{< ref "building/reference/app-settings/user-permissions" >}}). The permission can be added to existing Roles, or for more granular control and rolling out by cohorts, you can create a new Role with the one permission and add that Role to desired users. The permission will not be included in `app_settings` automatically so if you want it to be selectable from the Admin app user interface, you will need to add it to `app_settings`.
+If the specific CHT Core feature supports feature flagging, users can be configured to see the "old" version by means of a [permission](/building/reference/app-settings/user-permissions). The permission can be added to existing Roles, or for more granular control and rolling out by cohorts, you can create a new Role with the one permission and add that Role to desired users. The permission will not be included in `app_settings` automatically so if you want it to be selectable from the Admin app user interface, you will need to add it to `app_settings`.
 
 
 ## Roll-out Scenarios

@@ -137,19 +137,14 @@ Connecting readers to related content in different pages is an important aspect 
    
    Use `see-also` when referencing _related topics_  and use `read-more` when referencing the _same topic_ in more depth.
 
-### Avoid broken links
-To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/shortcodes/#article) for more details.
-
-For example,  `[Icon Library]({{</* relref "design/interface/icons" */>}})` yields "[Icon Library]({{% relref "design/interface/icons" %}})". Using the full path will avoid ambiguous references if a new page of the same is created. 
-
 ### Link paragraphs, not titles
 
-Whether using `ref` ,`relref` or inline links, do not link a title:
+Do not link a title:
 
 | Do | Don't |
 |---|---|
 | ` Read more about [InnoDB here](https://en.wikipedia.org/wiki/InnoDB).` | `## [InnoDB here](https://en.wikipedia.org/wiki/InnoDB)` |
-| `The [Icon Library]({{</* relref "design/interface/icons" */>}}) has many great icons.` | `## [Icon Library]({{</* relref "design/interface/icons" */>}})` |
+| `The [Icon Library](/design/interface/icons) has many great icons.` | `## [Icon Library](/design/interface/icons)` |
 
 ## Formatting standards
 

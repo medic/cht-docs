@@ -27,7 +27,7 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
 ## Quick Start
 
 1. Add a new client to your OIDC Provider with the redirect URL of `https://<CHT_URL>/medic/login/oidc`. You will need your client id, client secret, and the discovery URL of your OIDC Provider for the next steps. Be sure to replace `CHT_URL` with your real URL.
-2. Add the Client App ID (`APP_ID`), OIDC Provider discovery URL (`WELL_KNOWN_OIDC_URL`) and CHT URL (`CHT_URL`) to your [app_settings.json]({{< ref "building/reference/app-settings/oidc_provider" >}}) using [CHT Conf]({{< ref "technical-overview/architecture/cht-conf" >}}). Be sure to replace `APP_ID`, `WELL_KNOWN_OIDC_URL` and `CHT_URL` with your real URLs:
+2. Add the Client App ID (`APP_ID`), OIDC Provider discovery URL (`WELL_KNOWN_OIDC_URL`) and CHT URL (`CHT_URL`) to your [app_settings.json](/building/reference/app-settings/oidc_provider) using [CHT Conf](/technical-overview/architecture/cht-conf). Be sure to replace `APP_ID`, `WELL_KNOWN_OIDC_URL` and `CHT_URL` with your real URLs:
 
     ```json
     "oidc_provider": {
@@ -37,7 +37,7 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
     "app_url": "https://<CHT_URL>/"
     ```
 3. Upload the secret from step 1 to the CHT. Be sure to replace `CHT_URL` , `USER`,  `PASSWORD` and `SECRET` with the correct values: `curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-secret -H "Content-Type: text/plain" --data "<SECRET>"`
-4. Before logging into the CHT, each SSO user must have a CHT user [provisioned with an "SSO Email Address"]({{< ref "building/reference/api/#login-by-oidc" >}}) that matches the email address configured for the user with the OIDC Provider.
+4. Before logging into the CHT, each SSO user must have a CHT user [provisioned with an "SSO Email Address"](/building/reference/api/#login-by-oidc) that matches the email address configured for the user with the OIDC Provider.
 5. Use the "Login with SSO" button on the CHT login page.
 
 ## Detailed guides 

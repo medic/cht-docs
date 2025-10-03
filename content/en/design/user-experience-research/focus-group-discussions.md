@@ -19,7 +19,7 @@ Focus group discussions are a quick and convenient way to collect data from seve
     4. Location
     5. Mobile devices
 
-Here is a [focused group discussion template]({{< ref "template" >}}).
+Here is a [focused group discussion template](/template).
 
 ## Recruiting
 

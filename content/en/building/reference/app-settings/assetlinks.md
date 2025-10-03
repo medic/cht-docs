@@ -14,9 +14,9 @@ aliases:
 
 *Requires CHT Core 4.7.0+, CHT Conf 3.22.0+, and CHT Android 1.3.0+*
 
-When using a [custom flavor of cht-android]({{< ref "building/branding/android" >}}) to connect to your CHT instance, the ecosystem supports using [deep links]({{< ref "building/integrations/android#sending-a-url" >}}) to open specific content in the app. (E.g. [token login links]({{< ref "building/login#magic-links-for-logging-in-token-login" >}})). Security measures in Android require these deep links [be verified](https://developer.android.com/training/app-links/verify-android-applinks) either automatically or manually.  This `assetlinks` configuration enables auto-verification for your CHT links in your Android app. The provided JSON file will be served at `https://<your CHT instance>/.well-known/assetlinks.json`. If you do not provide this configuration, users will be prompted to manually associate the CHT domain with your app.
+When using a [custom flavor of cht-android](/building/branding/android) to connect to your CHT instance, the ecosystem supports using [deep links](/building/integrations/android#sending-a-url) to open specific content in the app. (E.g. [token login links](/building/login#magic-links-for-logging-in-token-login)). Security measures in Android require these deep links [be verified](https://developer.android.com/training/app-links/verify-android-applinks) either automatically or manually.  This `assetlinks` configuration enables auto-verification for your CHT links in your Android app. The provided JSON file will be served at `https://<your CHT instance>/.well-known/assetlinks.json`. If you do not provide this configuration, users will be prompted to manually associate the CHT domain with your app.
 
-For more information, see the [docs for building a new CHT Android flavor]({{< ref "building/branding/android#android-app-links-verification" >}}).
+For more information, see the [docs for building a new CHT Android flavor](/building/branding/android#android-app-links-verification).
 
 Specify your digital asset links in the `app_settings/assetlinks.json` file. The `compile-app-settings` action in the `cht-conf` will automatically include this configuration in your `app_settings.json` file. Then, running the `upload-app-settings` action will deploy it to the server.
 
@@ -27,8 +27,8 @@ Specify your digital asset links in the `app_settings/assetlinks.json` file. The
 | `relation[]`                      | `Array<string>`  | The array should contain only one element: the string `delegate_permission/common.handle_all_urls`.                                                                                                                                | yes      |
 | `target`                          | `object`         | Contains fields to identify associated apps.                                                                                                                                                                                       | yes      |
 | `target.namespace`                | `string`         | Must be set to `android_app`.                                                                                                                                                                                                      | yes      |
-| `target.package_name`             | `string`         | The [application ID]({{< ref "building/branding/android#2-new-brand" >}}) declared in the app's `build.gradle` file.                                                                                                            | yes      |
-| `target.sha256_cert_fingerprints` | `Array<string>`  | The SHA256 fingerprints of your app’s signing certificate. You can get it with the Java utility `keytool`, see how exactly in our [Android guide]({{< ref "building/branding/android#hosting-assetlinksjson-with-the-cht" >}}). | yes      |
+| `target.package_name`             | `string`         | The [application ID](/building/branding/android#2-new-brand) declared in the app's `build.gradle` file.                                                                                                            | yes      |
+| `target.sha256_cert_fingerprints` | `Array<string>`  | The SHA256 fingerprints of your app’s signing certificate. You can get it with the Java utility `keytool`, see how exactly in our [Android guide](/building/branding/android#hosting-assetlinksjson-with-the-cht). | yes      |
 
 ## Code Sample
 

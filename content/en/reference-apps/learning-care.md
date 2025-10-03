@@ -30,7 +30,7 @@ With the spread of COVID-19, it is imperative that access to learning, integrate
 
 The Community Health Academy and Medic set out to deliver a fully-integrated Learning and Care solution, with targeted COVID-19 learning experiences as a global public good.
 
-This integrated Learning & Care App leverages the **[remote onboarding]({{< ref "reference-apps/training" >}}), [task & scheduling]({{< ref "building/tasks" >}}), and [target]({{< ref "building/targets/targets-overview" >}}) features** of the CHT core framework with the **curated, multimedia educational content** from the Academy’s COVID-19 library.
+This integrated Learning & Care App leverages the **[remote onboarding](/reference-apps/training), [task & scheduling](/building/tasks), and [target](/building/targets/targets-overview) features** of the CHT core framework with the **curated, multimedia educational content** from the Academy’s COVID-19 library.
 
 ## Users and Hierarchy Example
 

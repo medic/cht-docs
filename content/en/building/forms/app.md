@@ -11,14 +11,14 @@ aliases:
    - /apps/reference/forms/app
 ---
 
-App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/reports" >}} ).
+App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/reports" >}}).
 
 App forms are defined by the following files:
 
 - A XML form definition using a CHT-enhanced ODK XForm format
 - A XLSForm form definition, easier to write and converts to the XForm (optional)
 - Meta information in the `{form_name}.properties.json` file (optional)
-- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "building/forms/configuring/multimedia" >}} ).
+- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "building/forms/configuring/multimedia" >}}).
 
 ## XForm
 
@@ -106,7 +106,7 @@ If you want to make the timer mandatory so users must wait for the timer to comp
 {{< /callout >}}
 
 ### Contact Selector
-A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "building/forms/configuring/form-inputs#contact-selector" >}}) for an example.
+A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide](/building/forms/configuring/form-inputs#contact-selector) for an example.
 
 ### Rapid Diagnostic Test Capture
 Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
@@ -281,7 +281,7 @@ Calculates the number of whole calendar years between two dates.
 
 _Added in 4.2.0._
 
-This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
+This function invokes a configured [extension library](/extension-libs). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
 ### `cht:strip-whitespace`
 
@@ -312,7 +312,7 @@ _Added in 3.14.0._
 
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
-See also: [Bikram Sambat Datepicker]({{< ref "building/forms/app#cht-xform-widgets" >}})
+See also: [Bikram Sambat Datepicker](/building/forms/app#cht-xform-widgets)
 
 ### `z-score`
 
@@ -349,7 +349,7 @@ The data used by this function needs to be added to CouchDB. The example below s
 
 ## Input data
 
-`app` forms have access to a variety of [input data]({{< ref "building/forms/configuring/form-inputs#app-forms" >}}) depending on the source of the form.
+`app` forms have access to a variety of [input data](/building/forms/configuring/form-inputs#app-forms) depending on the source of the form.
 
 ## CHT Special Fields
 
@@ -359,7 +359,7 @@ Some fields in app forms control specific aspects of CHT Apps, either to bring d
 The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="building/forms/configuring/wealth-quintiles" >}}
 
 ### UHC Mode
-When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "building/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="building/forms/configuring/uhc-mode" >}}
+When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode](/building/uhc-mode). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="building/forms/configuring/uhc-mode" >}}
 
 ## Uploading Binary Attachments
 
@@ -375,8 +375,8 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 
 | property | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | required |
 |---|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section]({{< relref "building/translations/localizing" >}}).                                                                                                                                                                                                                                                                                                                                      | yes |
-| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section]({{< relref "building/branding/resources#icons" >}})                                                                                                                                                                                                                                                                                                                                                              | yes |
+| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section](/building/translations/localizing).                                                                                                                                                                                                                                                                                                                                      | yes |
+| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section](/building/branding/resources#icons)                                                                                                                                                                                                                                                                                                                                                              | yes |
 | `subject_key` | Override the default report list title with a custom translation key. The translation uses a summary of the report as the evaluation context so you can include report fields in your value, for example: `Case registration {{case_id}}`. Useful properties available in the summary include: `from` (the phone number of the sender), `phone` (the phone number of the report contact), `form` (the form code), `subject.name` (the name of the subject), and `case_id` (the generated case id). Defaults to the name of the report subject. | no |
 | `hidden_fields` | Array of Strings of form fields to hide in the view report UI in the app. This is only applied to future reports and will not change how existing reports are displayed.                                                                                                                                                                                                                                                                                                                                                                       | no |
 | `context` | The context defines when and where the form should be available in the app                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | no |

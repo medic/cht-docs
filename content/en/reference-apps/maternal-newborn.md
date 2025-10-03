@@ -34,7 +34,7 @@ The maternal and newborn health workflow ensures that women receive the care tha
 
 ## Forms Hierarchy
 
-Once a [hierarchy]({{< relref "building/workflows/hierarchy" >}}) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either.
+Once a [hierarchy](/building/workflows/hierarchy) of people and places is established, forms are added at different levels. This diagram indicates the forms that can be filled about a person in the app (in this case, family members at the household level), as well as the person/user who will access these forms and make the reports (CHWs at the CHW Area level). Some forms are accessible as actions from the family member’s profile as actions, others from the CHW’s task list as tasks, and some as either.
 
 {{< figure src="forms-hierarchy.png" link="forms-hierarchy.png" class="right col-12 col-lg-12" >}}
 
@@ -102,6 +102,6 @@ Both maternal and newborn care workflows are defined to connect form actions and
 Here are a few additional resources to help get you started with the maternal and newborn health reference application.
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-core/tree/master/config/default/)
-- Install the reference app following these [easy installation instructions]({{< ref "building/local-setup" >}})
-- Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}})
+- Install the reference app following these [easy installation instructions](/building/local-setup)
+- Modify the maternal and newborn reference application for your project context using [configuration best practices](/design/best-practices)
 - Understand the basis for measuring the impact of maternal and newborn workflows by reviewing the World Health Organization's [Core Health Indicators](https://www.who.int/data/gho/data/indicators/indicators-index)
