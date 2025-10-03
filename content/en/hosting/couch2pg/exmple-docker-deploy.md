@@ -41,7 +41,7 @@ All commands are run as `root`:
    ```shell
    psql -U cht_couch2pg -h 192.168.68.26 cht
    ```
-4. Now that you've confirmed both Postgres (`psql`) and CHT Core (`curl`) tests work,create a compose file `/root/compose.yml`:
+4. Now that you've confirmed both Postgres (`psql`) and CHT Core (`curl`) tests work, create a compose file `/root/compose.yml`:
    ```yaml
    services:
       cht-couch2pg:
