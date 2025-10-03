@@ -37,7 +37,7 @@ All commands are run as `root`:
    ```shell
    curl -s https://medic:password@192-168-68-23.local-ip.medicmobile.org/medic/ | jq      
    ```
-3. Test with `psql` client on couch2pg server that it can connect and successfully authenticate  to Postgres server. Be sure to use the IP of your SQL server (`172.18.0.1`), user (`postgres_root`) and database (`cht`):
+3. Test with `psql` client on couch2pg server that it can connect and successfully authenticate to the Postgres server. Be sure to use the IP of your SQL server (`172.18.0.1`), user (`postgres_root`) and database (`cht`):
    ```shell
    psql -U cht_couch2pg -h 192.168.68.26 cht
    ```
