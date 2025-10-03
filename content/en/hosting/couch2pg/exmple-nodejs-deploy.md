@@ -36,7 +36,7 @@ All commands are run as `root` unless specified to run as `couch2pg`:
    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
    sudo apt -y install nodejs npm
    ```
-2. Test with `psql` client on couch2pg server that it can connect and successfully authenticate  to Postgres server. Be sure to use the IP of your SQL server (`172.18.0.1`), user (`postgres_root`) and database (`cht`):
+2. Test with `psql` client on couch2pg server that it can connect and successfully authenticate to Postgres server. Be sure to use the IP of your SQL server (`172.18.0.1`), user (`postgres_root`) and database (`cht`):
    ```shell
    psql -U cht_couch2pg -h 192.168.68.26 cht
    ```
