@@ -47,7 +47,7 @@ All commands are run as `root` unless specified to run as `couch2pg`:
 4. Create `couch2pg` user on the Ubuntu server
 5. As `couch2pg` user, clone couch2pg repo: `git clone https://github.com/medic/cht-couch2pg.git`
 6. As `couch2pg` user, install couch2pg dependencies: `cd cht-couch2pg && npm ci`
-7. As `couch2pg` user, test couch2pg . Be sure to use correct values for `COUCHDB_URL` and `POSTGRESQL_URL`:
+7. As `couch2pg` user, test couch2pg. Be sure to use correct values for `COUCHDB_URL` and `POSTGRESQL_URL`:
    ```shell
    COUCHDB_URL=https://medic:password@192-168-68-23.local-ip.medicmobile.org:10443/medic \
       POSTGRESQL_URL=postgres://cht_couch2pg:postgres_password@192.168.68.26:5432/cht \
