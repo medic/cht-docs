@@ -184,7 +184,7 @@ osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$'
 
     [params.search.flexsearch]
     index = "content"
-    tokenize = "forward"
+    tokenize = "full"
 
   [params.editURL]
   enable = true
