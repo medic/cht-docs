@@ -176,16 +176,17 @@ If all the above look OK, you should now be able to see the encounter in OpenMRS
 ```bash
 curl -X GET localhost:8090/openmrs/ws/fhir2/R4/Encounter/?identifier=[identifier] -H "Authorization: Basic $(echo -n admin:Admin123 | base64)"
 ```
+
 ## Starting the interop project
 
 Once the CHT and OpenMRS configs are ready, set up OpenHIM and install the mediators by following the instructions [here]({{< ref "building/interoperability/openhim" >}}).
 Set `OPENMRS_URL`, `OPENMRS_PORT`, and `OPENMRS_HOST` in .env to configure the necessary channel automatically.
-| Name                      | Description                                                                                     |
-|---------------------------|-------------------------------------------------------------------------------------------------|
-| `OPENMRS_HOST`            | hostname of OpenMRS instance                                                                    |
-| `OPENMRS_PORT`            | port where OpenMRS FHIR API is listening                                                        |
-| `OPENMRS_PASSWORD`        | OpenMRS password to use for basic authentication                                                |
-| `OPENMRS_USERNAME`        | OpenMRS password to use for basic authentication. Should be a user created specifically for this connection |
+| Name                      | Description                                                                                                 |
+|---------------------------|-------------------------------------------------------------------------------------------------------------|
+| `OPENMRS_HOST`            | hostname of OpenMRS instance                                                                                |
+| `OPENMRS_PORT`            | port where OpenMRS FHIR API is listening                                                                    |
+| `OPENMRS_PASSWORD`        | OpenMRS password to use for basic authentication                                                            |
+| `OPENMRS_USERNAME`        | OpenMRS username to use for basic authentication. Should be a user created specifically for this connection |
 
 When these variables are set, a channel for OpenMRS will automatically be created on startup.
 

@@ -12,4 +12,5 @@ aliases:
 {{< cards >}}
 {{< card link="architecture" title="Architecture" icon="library" subtitle="Explore the different components of the CHT" >}}
 {{< card link="concepts" title="Concepts and paradigms" subtitle="Discover the rules and guidelines of the CHT" icon="document-text" >}}
+{{< card link="data" title="Database" subtitle="Manage databases used by CHT applications" icon="database" >}}
 {{< /cards >}}
