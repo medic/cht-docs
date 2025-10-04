@@ -100,6 +100,38 @@ CHT 5.0 now correctly enforces this to be a boolean.  Deployments to make sure t
 Background information:
 * [Replication fails to filter out reports with `needs_signoff` set to false](https://github.com/medic/cht-core/issues/10183)
 
+### Angular 20 requires Chrome 107 or later
+
+{{< callout type="info" >}} Applies to: all instances  {{< /callout >}}
+
+CHT 5.0 includes an upgraded version of https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301 which in turn requires Chrome 107 or later. When [researching the impact of this upgrade](https://github.com/medic/cht-core/issues/10029#issuecomment-3358338361) we surveyed over 100,000 end users devices and found that less than 0.5% of users are affected.  These users are running Chrome 106 released 3 years ago at this writing. A best practice is to have users always run the latest version if possible.
+
+To check if any of your users are impacted, check the [user-devices API](/building/reference/api/#get-apiv2exportuser-devices). This is an authenticated API endpoint and will return JSON for all users for all time.  As this may include multiple entries per user, it's important to filter out duplicate users and of course filter out users who are running Chrome 107 or later. To do this, first, save the output of the API to a JSON file being sure to replace `user`, `password` and `URL` with their correct values for your production instance:
+
+```shell
+curl https://user:password:URL/api/v2/export/user-devices > devices.json 
+```
+
+**Note**: for large instances with more than 2,000 users, run the API call after hours.  It can have an adverse impact on CHT server performance.
+
+Now that you have the `devices.json` JSON file, flatten it into a CSV file with just one row per user. Note that we're only finding users of the APK (`select(.apk|length> 0)`) and the Chrome browser (`select(.browser.name == "Chrome"`). This excludes desktop and Firefox users which will show up in the JSON as well.  Finally, we're also only showing users active since `2025-04-01`, 6 months ago as of this writing (`select(.date > "2025-04-01")`).  Be sure to update this date to be a relative 6 months ago from when you run the command:
+
+```shell
+jq -r '.[] |  select(.apk|length> 0) 
+  | select(.browser.name == "Chrome")
+  | select(.date > "2025-04-01")
+  | "\(.user) \(.date) \(.browser.version)"' \
+  devices.json | sort -u -k1,2r | \
+  sort -u -k1,1 | sort -rh -k3 | sed 's/ /,/g' \
+  > devices.csv
+```
+
+The resulting file `devices.csv` will have all of your users sorted by the version of Chrome they use.  Scroll to the bottom and find any users running a version lower than `107` and ensure they update to a newer version.  The easiest way to upgrade is to open the Play Store and update any out of date software, being sure to update [WebView](https://play.google.com/store/apps/details?id=com.google.android.webview&hl=en).
+
+
+Background information:
+* [Upgrade to Angular 20](https://github.com/medic/cht-core/issues/10029)
+
 
 ## Non-Breaking Changes
 
