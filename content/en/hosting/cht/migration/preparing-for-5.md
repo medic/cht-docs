@@ -104,7 +104,9 @@ Background information:
 
 {{< callout type="info" >}} Applies to: all instances  {{< /callout >}}
 
-CHT 5.0 includes an upgraded version of https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301 which in turn requires Chrome 107 or later. When [researching the impact of this upgrade](https://github.com/medic/cht-core/issues/10029#issuecomment-3358338361) we surveyed over 100,000 end users devices and found that less than 0.5% of users are affected.  These users are running Chrome 106 released 3 years ago at this writing. A best practice is to have users always run the latest version if possible.
+CHT 5.0 includes an upgraded version of [Angular](https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301) which, in turn, requires Chrome 107 or later. When [researching the impact of this upgrade](https://github.com/medic/cht-core/issues/10029#issuecomment-3358338361) we surveyed over 100,000 end users devices and found that less than 0.5% of users are affected.  These users are running Chrome 106 released 3 years ago at this writing. A best practice is to have users always run the latest version if possible.
+
+Before starting, be sure you system has `curl`, `jq` and `sort` commands installed. For our recommended Ubuntu server, this looks like: `sudo apt update&&sudo apt install jq coreutils curl`.
 
 To check if any of your users are impacted, check the [user-devices API](/building/reference/api/#get-apiv2exportuser-devices). This is an authenticated API endpoint and will return JSON for all users for all time.  As this may include multiple entries per user, it's important to filter out duplicate users and of course filter out users who are running Chrome 107 or later. To do this, first, save the output of the API to a JSON file being sure to replace `user`, `password` and `URL` with their correct values for your production instance:
 
