@@ -43,16 +43,16 @@ When Sonar flags an issue with the code in your pull request, use this decision 
    1. Fix it and push the updated code to your PR. The PR will automatically be unblocked once the Sonar analysis succeeds.
 1. If the issue is a "false-positive" (i.e. Sonar has flagged some particular code as violating a rule, but it does not make sense to apply the rule in that context):
    1. If the rule is one that should not be applied to any CHT code:
-      1. [Remove the rule](/#removing-a-rule) from the default Quality Profile.
+      1. [Remove the rule](#removing-a-rule) from the default Quality Profile.
    1. If it does not make sense to apply the rule to this particular code, you can do one of the following:
       1. Completely ignore Sonar issues [on that line of code](https://docs.sonarsource.com/sonarqube-server/latest/user-guide/issues/managing/) by adding the `// NOSONAR` comment to the end of the line.
-      1. Completely ignore Sonar issues for [that block of code](/#ignoring-all-rules-for-a-block-of-code).
-      1. Update the `.sonarcloud.properties` to [ignore _that rule_ for that particular file](/#ignoring-a-specific-rule-for-a-file).
-      1. Update the `.sonarcloud.properties` to [ignore _all rules_ for that particular file](/#ignoring-all-rules-for-a-file) (useful if the file has been copied from an external dependency).
+      1. Completely ignore Sonar issues for [that block of code](#ignoring-all-rules-for-a-block-of-code).
+      1. Update the `.sonarcloud.properties` to [ignore _that rule_ for that particular file](#ignoring-a-specific-rule-for-a-file).
+      1. Update the `.sonarcloud.properties` to [ignore _all rules_ for that particular file](#ignoring-all-rules-for-a-file) (useful if the file has been copied from an external dependency).
 
 ### Adding a new repo to SonarCloud
 
-1. Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration](/#ignoring-all-rules-for-a-file).
+1. Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration](#ignoring-all-rules-for-a-file).
 2. In the GitHub UI, navigate to the settings for the [`medic` org > Third-party Access > GitHub Apps](https://github.com/organizations/medic/settings/installations)
 3. Find SonarCloud and click the `Configure` button.
 4. In the Repository access section, select your desired repository from the drop-down and click `Save`.

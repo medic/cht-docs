@@ -248,7 +248,7 @@ Starting with Android 12, Android supports associating an app with a domain and 
 
 Since CHT Core version 4.7.0, the CHT supports serving `assetlinks.json` by adding it to your app settings.
 All you have to do to make the CHT serve your assetlinks at `/.well-known/assetlinks.json` is to:
-1. Ensure your flavor of cht-android [has a valid keystore](/#3-generate-a-new-keystore).
+1. Ensure your flavor of cht-android [has a valid keystore](#3-generate-a-new-keystore).
 2. Use the `keytool` utility (included with your Java SDK) to get your app's cert fingerprint:
    ```shell
    keytool -list -v -keystore ./path/to/release-key.keystore

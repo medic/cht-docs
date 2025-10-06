@@ -19,9 +19,9 @@ CHT forms have access to varying amounts of input data depending on the type of 
 
 Available data:
 
-- [initial contact data](/#initial-contact-data-in-contact-forms)
-- [`inputs` data for user](/#user-data) 
-- [Contact data via contact selector](/#contact-selector)
+- [initial contact data](#initial-contact-data-in-contact-forms)
+- [`inputs` data for user](#user-data) 
+- [Contact data via contact selector](#contact-selector)
 
 ### Initial contact data in `contact` forms
 
@@ -56,13 +56,13 @@ In addition, the contact's `parent` data is hydrated so that the form has access
 
 Available data:
 
-- [`inputs` data for source](/#form-source)
-- [`inputs` data for contact](/#inputs-data-for-contact-in-app-forms)
-- [`contact-summary` data](/#contact-summary-data)
-- [`user-contact-summary` data](/#user-contact-summary-data)
-- [`inputs` data from task](/#inputs-data-from-task)
-- [`inputs` data for user](/#user-data)
-- [Contact data via contact selector](/#contact-selector)
+- [`inputs` data for source](#form-source)
+- [`inputs` data for contact](#inputs-data-for-contact-in-app-forms)
+- [`contact-summary` data](#contact-summary-data)
+- [`user-contact-summary` data](#user-contact-summary-data)
+- [`inputs` data from task](#inputs-data-from-task)
+- [`inputs` data for user](#user-data)
+- [Contact data via contact selector](#contact-selector)
 
 ### Form source
 
@@ -109,7 +109,7 @@ This is done by referencing an instance named `user-contact-summary`. E.g. `inst
 
 `app` forms created via a task have access to any data [supplied by the task](/building/tasks/managing-tasks/pass-data-to-form) in the `inputs` group. 
 
-Additionally, these forms have access to the [contact data](/#inputs-data-for-contact-in-app-forms) for the contact associated with the task.
+Additionally, these forms have access to the [contact data](#inputs-data-for-contact-in-app-forms) for the contact associated with the task.
 
 The following fields will also be available in the `inputs` group:
 
@@ -143,7 +143,7 @@ Both `app` and `contact` forms can access the current user's data at `inputs/use
 
 ### Loading the user's contact data
 
-While the `inputs/user` group does not contain the user's contact data, it does contain the user's `contact_id` which can be used to load the contact doc via a [contact selector](/#loading-contact-data-for-use-in-other-expressions).
+While the `inputs/user` group does not contain the user's contact data, it does contain the user's `contact_id` which can be used to load the contact doc via a [contact selector](#loading-contact-data-for-use-in-other-expressions).
 
 ## Contact selector
 
@@ -218,9 +218,9 @@ In the following example, we are loading the name of the current user from the a
 
 ### Conditionally selecting/loading contact data for the current contact
 
-[As noted above](/#app-forms), when opening an `app` form with a contact in context (e.g. when opening the form from the "People" tab), the contact's data will be available in the `inputs/contact` group. However, this data _is not available_ when opening the form from the "Reports" tab since there is no contact in context.
+[As noted above](#app-forms), when opening an `app` form with a contact in context (e.g. when opening the form from the "People" tab), the contact's data will be available in the `inputs/contact` group. However, this data _is not available_ when opening the form from the "Reports" tab since there is no contact in context.
 
-A common pattern for enabling consistent form behavior in this case is to use a contact selector in the `inputs/contact` group and make the `inputs` group only relevant when the default `source` value is not overridden (the `source` field is populated with specific values when the form is opened [from the "People" tab or from a task](/#form-source)). With this pattern, the contact selector will only be visible when the form is opened from the "Reports" tab and the user can select the contact they want to report on. This will ensure that the `inputs/contact` data is always available regardless of how the form is opened.
+A common pattern for enabling consistent form behavior in this case is to use a contact selector in the `inputs/contact` group and make the `inputs` group only relevant when the default `source` value is not overridden (the `source` field is populated with specific values when the form is opened [from the "People" tab or from a task](#form-source)). With this pattern, the contact selector will only be visible when the form is opened from the "Reports" tab and the user can select the contact they want to report on. This will ensure that the `inputs/contact` data is always available regardless of how the form is opened.
 
 Then, this contact data can be used to link the report created from the form to the person or place in context (or the person selected when opening the form). Getting the values for `_id` or `patient_id` and setting them to `patient_id` or `patient_uuid` on the final report will link that report to the contact. Then the report will be displayed on the contact's summary page.
 

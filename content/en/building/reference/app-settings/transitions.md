@@ -400,7 +400,7 @@ Updates the target contact and all its descendants, setting the `muted` property
 Client-side muting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
 - Sets the `muted` property on the target contact and all its descendants to the device's current `date` (the moment the report is processed). 
-- Adds/updates the [`muting_history` property](/#client-side-muting-history) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Adds/updates the [`muting_history` property](#client-side-muting-history) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 #### Server-side
@@ -408,8 +408,8 @@ Client-side muting runs offline on a user's device. Only the contacts and report
 Server-side muting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
 
 - Sets the `muted` property on the target contact and all its descendants to the moment Sentinel processed the muting action.
-  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`](/#client-side-muting-history) will have a copy of the client-side muting date.
-- Adds a [`muting_history` entry](/#server-side-muting-history) to Sentinel `info` docs for every updated contact
+  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`](#client-side-muting-history) will have a copy of the client-side muting date.
+- Adds a [`muting_history` entry](#server-side-muting-history) to Sentinel `info` docs for every updated contact
 - Updates all connected registrations (for the target contact and descendants), changing the state of all unsent `scheduled_tasks` to `muted`
   - Unsent `scheduled_tasks` have either a `scheduled` or `pending` state
 - Updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
@@ -426,17 +426,17 @@ Updates the target contact's topmost muted ancestor and all its descendants, rem
 
 Client-side unmuting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
-- Adds/updates the [`muting_history` property](/#client-side-muting-history) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Adds/updates the [`muting_history` property](#client-side-muting-history) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 #### Server-side
 
 Server-side unmuting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
 
-- Adds a [`muting_history` entry](/#server-side-muting-history) to Sentinel `info` docs for every updated contact
+- Adds a [`muting_history` entry](#server-side-muting-history) to Sentinel `info` docs for every updated contact
 - Updates all connected registrations (for the target contact and descendants), changing the state of all present/future `scheduled_tasks` (ones due today or in the future) with the `muted` state to have the `scheduled` state.
   - All `scheduled_tasks` with a due date in the past will remain unchanged.
-- Updates the contact's [client-side `muting_history`](/#client-side-muting-history) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
+- Updates the contact's [client-side `muting_history`](#client-side-muting-history) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
 - If the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report.
   - Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.
 

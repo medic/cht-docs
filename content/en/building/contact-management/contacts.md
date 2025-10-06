@@ -136,7 +136,7 @@ _(Added in CHT `4.19.0`)_
 {{< figure link="duplicate-contact-screenshot.png" src="duplicate-contact-screenshot.png" class="right col-6 col-lg-8 bordered-figure">}}
 {{< /cards >}}
 
-One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching](/#searching) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
+One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching](#searching) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
 
  The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
 
