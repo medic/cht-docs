@@ -27,11 +27,11 @@ You will be building a pregnancy registration workflow that allows Community Hea
 
 ## Brief Overview of Key Concepts
 
-*[SMS forms]({{< ref "building/reference/app-settings/forms" >}})* are structured text messages that contain a form code representing a report type and some information associated with the report.
+*[SMS forms](/building/reference/app-settings/forms)* are structured text messages that contain a form code representing a report type and some information associated with the report.
 
-SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json]({{< ref "building/reference/app-settings" >}})* file with the `compile-app-settings` action in the `cht-conf` tool, then stored in the settings doc in the database.
+SMS forms are defined in either the `base_settings.json` or the `app_settings/forms.json` file and compiled into the *[app_settings.json](/building/reference/app-settings)* file with the `compile-app-settings` action in the `cht-conf` tool, then stored in the settings doc in the database.
 
-*[SMS gateways]({{< ref "building/messaging/gateways" >}})* allow the CHT core framework to send and receive SMS transmission to or from a mobile network operator.
+*[SMS gateways](/building/messaging/gateways)* allow the CHT core framework to send and receive SMS transmission to or from a mobile network operator.
 
 *SMS aggregators* act as intermediaries between the mobile network operators and the CHT core framework. They allow for greater customization of SMS workflows in the CHT.
 
@@ -39,13 +39,13 @@ SMS forms are defined in either the `base_settings.json` or the `app_settings/fo
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}).
+You should have a [functioning CHT instance with `cht-conf` installed locally](/building/local-setup).
 
 You also need to have some [prior knowledge on `app_settings.json`]({{% ref "building/tutorials/application-settings" %}}).
 
 ## Implementation Steps
 
-SMS forms are defined [using JSON]({{< ref "building/reference/app-settings/forms#app_settingsjson-forms" >}}) in the `app_settings.json` file.
+SMS forms are defined [using JSON](/building/reference/app-settings/forms#app_settingsjson-forms) in the `app_settings.json` file.
 
 ### 1. Enable Transitions
 
@@ -145,10 +145,10 @@ To set the validation rules and autoresponses, edit the array corresponding to t
 ]
 ```
 
-You can also define your own [validation rules]({{< ref "building/reference/app-settings#validations" >}}).
+You can also define your own [validation rules](/building/reference/app-settings#validations).
 
 > [!NOTE] 
-> `translation_key` represents the message that is sent out. This will be defined in a [translations]({{< ref "building/translations/localizing" >}}) file.
+> `translation_key` represents the message that is sent out. This will be defined in a [translations](/building/translations/localizing) file.
 
 ### 3. Define a Person Registration Form
 

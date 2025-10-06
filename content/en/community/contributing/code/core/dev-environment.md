@@ -11,9 +11,9 @@ aliases:
 ---
 
 {{< callout >}}
-This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "/hosting/cht/app-developer.md" >}}).
+This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide](/hosting/cht/app-developer.md).
 
-To deploy the CHT in production, see either [hosting section]({{< relref "/hosting/cht" >}}).
+To deploy the CHT in production, see either [hosting section](/hosting/cht).
 {{< /callout >}}
 
 ## The Happy Path Installation

@@ -27,7 +27,7 @@ Use the `forms_tasks_targets` folder to find PNG and SVG icons for application c
 {{< /callout >}}
 
 {{< callout type="info" >}}
-  Check out the [best practices]({{< ref "design/best-practices#icons"  >}}) to learn more about which icons can be used for which use cases and workflows
+  Check out the [best practices](/design/best-practices#icons) to learn more about which icons can be used for which use cases and workflows
 {{< /callout >}}
 
 {{< callout type="important" icon="sparkles" >}}

@@ -21,21 +21,21 @@ You will be adding target widgets that will allow Community Health Workers (CHWs
 
 ## Brief Overview of Key Concepts
 
-*[Targets]({{< ref "building/targets/targets-overview" >}})* is the user dashboard or analytics tab.
+*[Targets](/building/targets/targets-overview)* is the user dashboard or analytics tab.
 
-*[Target widgets]({{< ref "building/targets/targets-overview#types-of-widgets" >}})* provide a summary or analysis of the data in submitted reports.
+*[Target widgets](/building/targets/targets-overview#types-of-widgets)* provide a summary or analysis of the data in submitted reports.
 
-*[Count widgets]({{< ref "building/targets/targets-overview#count-widgets" >}})* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria.
+*[Count widgets](/building/targets/targets-overview#count-widgets)* show a tally of a particular report that has been submitted or data within a report that matches a set of criteria.
 
-*[Percent widgets]({{< ref "building/targets/targets-overview#percent-widgets" >}})* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
+*[Percent widgets](/building/targets/targets-overview#percent-widgets)* display a ratio, which helps to provide insight into the proportion that matches a defined criteria.
 
-*[Target schema]({{< ref "building/targets/targets-js#targetsjs" >}})* details a set of properties for targets.
+*[Target schema](/building/targets/targets-js#targetsjs)* details a set of properties for targets.
 
 *Target instance* is an object emitted and counted or aggregated based on target configuration.
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "building/tutorials/app-forms" >}}).
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup#3-create-and-upload-a-blank-project) setup, and an [assessment form](/building/tutorials/app-forms).
 
 ## Implementation Steps
 
@@ -378,7 +378,7 @@ targets.assessments.percentage.cough.title = % Population with cough
 targets.households.with.assessments.title = Total households with assessments
 targets.households.with.gt2.assessments.title = % Household with >=2 assessments
 ```
-To upload *[translations]({{< ref "building/translations/localizing" >}})* to your local instance, run the following command:
+To upload *[translations](/building/translations/localizing)* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-custom-translations
@@ -392,7 +392,7 @@ The image shows the updated target titles. Your image may be different depending
 > Be sure to have the correct translation key in your target widget's `translation_key` property.
 
 ### 10. Target icons
-You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library]({{< ref "design/interface/icons/forms_tasks_targets" >}})*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
+You may add `icons` to your target widgets to enhance their appearance and to help users locate specific widgets more quickly. Use the icons in the *[targets icon library](/design/interface/icons/forms_tasks_targets)*, or icons of your choice for the target widgets. Add your selected icons to the `resources` folder in your project folder. In your `resources.json` *file*, add key/value pairs for your icon resources.
 
 ```json
 {
@@ -406,7 +406,7 @@ You may add `icons` to your target widgets to enhance their appearance and to he
 
 {{< see-also page="design/interface/icons" title="Icon Library" >}}
 
-To upload *[resources]({{< ref "building/branding/resources#icons" >}})* to your local instance, run the following command:
+To upload *[resources](/building/branding/resources#icons)* to your local instance, run the following command:
 
 ```zsh
 cht --url=https://<username>:<password>@localhost --accept-self-signed-certs upload-resources

@@ -19,9 +19,9 @@ aliases:
 
 “People” is the generic name used for individuals in apps built with the Core Framework. They can be patients, family members, nurses or health workers. Anyone with a profile in your app is a person.
 
-“Places” is the generic name that represents a level in the [hierarchy]({{< ref "building/workflows/hierarchy" >}}). “People” belong to “places”, and “places” belong to other higher level “places” in the hierarchy. A “place” could be a geographic area, like a district with the "people" associated to it being health officers. A "place" could also be a structure in the health system, such as a health facility, and the "people" associated to it being nurses. In deployments with CHWs, the lowest "place" in the hierarchy often represents individual households or families, and the individual members of that household are the "people" associated to it.
+“Places” is the generic name that represents a level in the [hierarchy](/building/workflows/hierarchy). “People” belong to “places”, and “places” belong to other higher level “places” in the hierarchy. A “place” could be a geographic area, like a district with the "people" associated to it being health officers. A "place" could also be a structure in the health system, such as a health facility, and the "people" associated to it being nurses. In deployments with CHWs, the lowest "place" in the hierarchy often represents individual households or families, and the individual members of that household are the "people" associated to it.
 
-Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data]({{< ref "technical-overview/data/performance/replication#contact-depth" >}}) is downloaded and stored on their device.
+Users can access their “people” and “places” from the **People** tab. The permissions set for your role and your placement in the hierarchy will determine which contacts you’re able to see. Advanced configuration options are available for a specific offline user role to manage what [level of contact data](/technical-overview/data/performance/replication#contact-depth) is downloaded and stored on their device.
 
 
 {{< figure src="people-desktop.png" link="people-desktop.png" class="right col-6 col-lg-8 bordered-figure" >}}
@@ -41,7 +41,7 @@ Because this list defaults to show the “places” below the user in the hierar
 
 New “places” can be added to this level of the hierarchy by clicking on the “Add new +” button at the bottom of the screen. This allows a CHW to add a new family to their list, or a CHW supervisor to add a new Area they manage.
 
-With the [_UHC Mode_]({{< relref "building/uhc-mode" >}}) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
+With the [_UHC Mode_](/building/uhc-mode) configured, the main list of households is displayed as shown on the rightmost screenshot to help health workers ensure that all households are visited regularly.
 
 ## Searching
 
@@ -126,7 +126,7 @@ Health workers can use these Care Guides at any time. If the app has scheduled a
 
 ## Creating and Editing Contacts
 
-Contacts are created/modified via [contact forms]({{< relref "building/forms/contact" >}}). These forms are highly configurable and allow for specifying detailed workflows for capturing information about contacts.
+Contacts are created/modified via [contact forms](/building/forms/contact). These forms are highly configurable and allow for specifying detailed workflows for capturing information about contacts.
 
 ### Duplicate Contact Detection
 
@@ -136,10 +136,10 @@ _(Added in CHT `4.19.0`)_
 {{< figure link="duplicate-contact-screenshot.png" src="duplicate-contact-screenshot.png" class="right col-6 col-lg-8 bordered-figure">}}
 {{< /cards >}}
 
-One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching]({{< ref "#searching" >}}) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
+One major challenge when collecting contact data is ensuring users do not inadvertently enter duplicate records for the same contact. It is important to train users on the [searching](/#searching) functionality described above as this will allow them to find the desired profile of a previously recorded contact instead of creating a duplicate record for the same person or place.
 
  The CHT also supports automatically detecting when a contact being created or edited by a user matches an existing contact record. If a duplicate contact is detected, the user will be given the option of proceeding to the profile of the existing contact. Alternatively, the user can choose to override the duplicate detection logic and continue creating/editing the contact as originally intended.
 
-The matching logic for duplicate detection is [configurable]({{< relref "building/forms/contact#properties" >}}) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
+The matching logic for duplicate detection is [configurable](/building/forms/contact#properties) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
 
 

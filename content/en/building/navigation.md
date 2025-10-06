@@ -39,7 +39,7 @@ Tap the menu icon in the upper right corner of the header to access other pages,
 
 {{< figure src="sync-status.png" link="sync-status.png" class="right col-6 col-lg-4" >}}
 
-Data synchronization is important for [offline users]({{< relref "building/users" >}}). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronization) is when data on the device is made to match the data on the server and requires an internet connection. The CHT app monitors the online status and attempts sync accordingly.
+Data synchronization is important for [offline users](/building/users). These users keep a copy of the data they have access to on their device. They can work from their device while disconnected from the internet (offline), by reading from and writing to their copy of the data. “Sync” (synchronization) is when data on the device is made to match the data on the server and requires an internet connection. The CHT app monitors the online status and attempts sync accordingly.
 
 #### Replication Types
 
@@ -50,7 +50,7 @@ Synchronization consists of upward replication and downward replication.
 The CHT application manages data synchronization across two types of databases:
 
 - **Main Application Database (`medic`)**: The main database that stores the primary data used by the application. It includes contacts, reports, messages, and other critical documents necessary for the core functionality of the application. This database is synchronized continuously to reflect changes to the application, such as new contact creations. Each user stores a subset of the main database which includes only the documents they're allowed to view.
-- **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including [telemetry data]({{< relref "technical-overview/data/performance/telemetry" >}}) and error messages. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
+- **User-Metadata Database(`medic-user-{username}-meta`)**: Each user has a dedicated database that stores operational metadata, including [telemetry data](/technical-overview/data/performance/telemetry) and error messages. Synchronization occurs at predefined intervals to ensure up-to-date monitoring and analysis.
 
 #### Sync Status Notification
 
@@ -92,4 +92,4 @@ Introduced in 4.20.0
 
 {{< figure src="storage_pressure_screenshot.svg" link="storage_pressure_screenshot.svg" >}}
 
-Another important factor for [offline users]({{< relref "building/users" >}}) is the amount of storage available on their device. The CHT app will not continue to function if a user runs out of storage space. The storage pressure indicator in the menu drawer shows users, at a glance, how much free disk space they have left.
+Another important factor for [offline users](/building/users) is the amount of storage available on their device. The CHT app will not continue to function if a user runs out of storage space. The storage pressure indicator in the menu drawer shows users, at a glance, how much free disk space they have left.

@@ -12,7 +12,7 @@ aliases:
    - /technical-overview/cht-watchdog/
 ---
 
-CHT Watchdog is deployed on a separate server so that you can watch for, and alert on, any critical issues with the CHT Core. Read more about [setting up CHT Watchdog]({{< relref "/hosting/monitoring/setup" >}}).
+CHT Watchdog is deployed on a separate server so that you can watch for, and alert on, any critical issues with the CHT Core. Read more about [setting up CHT Watchdog](/hosting/monitoring/setup).
 
 <!-- make updates to this diagram on the google slides:            -->
 <!-- https://docs.google.com/presentation/d/1j4jPsi-gHbiaLBfgYOyru1g_YV98PkBrx2zs7bwhoEQ/ -->
@@ -31,7 +31,7 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 ### JSON Exporter
 
-[JSON Exporter](https://github.com/prometheus-community/json_exporter) is a wrapper utility to convert a JSON API to be compatible with Prometheus scrape config. This is used to convert the CHT [Monitoring API's JSON]({{< relref "building/reference/api#get-apiv2monitoring" >}}).
+[JSON Exporter](https://github.com/prometheus-community/json_exporter) is a wrapper utility to convert a JSON API to be compatible with Prometheus scrape config. This is used to convert the CHT [Monitoring API's JSON](/building/reference/api#get-apiv2monitoring).
 
 ### Postgres Exporter
 
@@ -39,4 +39,4 @@ CHT Watchdog is deployed on a separate server so that you can watch for, and ale
 
 ### CHT Core Framework & RDBMS
 
-For more information on these technologies, see [CHT Core overview]({{< relref "technical-overview/architecture" >}}).
+For more information on these technologies, see [CHT Core overview](/technical-overview/architecture).

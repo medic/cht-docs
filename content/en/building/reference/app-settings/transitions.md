@@ -74,7 +74,7 @@ The following transitions are available and executed in order.
 | Key | Description |
 |---|---|
 | maintain_info_document | Records metadata about the document such as when it was replicated. Enabled by default. |
-| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition]({{< ref "building/reference/app-settings/forms#app_settingsjson-forms" >}}). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
+| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition](/building/reference/app-settings/forms#app_settingsjson-forms). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
 | [registration](#registration) | For registering a patient or place to a schedule. Performs some validation and creates the patient document if the patient does not already exist. Can create places (as of 3.8.x). Can assign schedules to places (as of 3.11.x) |
 | [accept_patient_reports](#accept-patient-reports) | Validates reports about a patient or place and silences relevant reminders. |
 | [accept_case_reports](#accept-case-reports) | Validates reports about a case, assigns the associated place_uuid, and silences relevant reminders. Available since 3.9.0 |
@@ -400,7 +400,7 @@ Updates the target contact and all its descendants, setting the `muted` property
 Client-side muting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
 - Sets the `muted` property on the target contact and all its descendants to the device's current `date` (the moment the report is processed). 
-- Adds/updates the [`muting_history` property]({{< ref "#client-side-muting-history" >}}) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Adds/updates the [`muting_history` property](/#client-side-muting-history) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 #### Server-side
@@ -408,8 +408,8 @@ Client-side muting runs offline on a user's device. Only the contacts and report
 Server-side muting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
 
 - Sets the `muted` property on the target contact and all its descendants to the moment Sentinel processed the muting action.
-  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`]({{< ref "#client-side-muting-history" >}}) will have a copy of the client-side muting date.
-- Adds a [`muting_history` entry]({{< ref "#server-side-muting-history" >}}) to Sentinel `info` docs for every updated contact
+  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`](/#client-side-muting-history) will have a copy of the client-side muting date.
+- Adds a [`muting_history` entry](/#server-side-muting-history) to Sentinel `info` docs for every updated contact
 - Updates all connected registrations (for the target contact and descendants), changing the state of all unsent `scheduled_tasks` to `muted`
   - Unsent `scheduled_tasks` have either a `scheduled` or `pending` state
 - Updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
@@ -426,17 +426,17 @@ Updates the target contact's topmost muted ancestor and all its descendants, rem
 
 Client-side unmuting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
-- Adds/updates the [`muting_history` property]({{< ref "#client-side-muting-history" >}}) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Adds/updates the [`muting_history` property](/#client-side-muting-history) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 #### Server-side
 
 Server-side unmuting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
 
-- Adds a [`muting_history` entry]({{< ref "#server-side-muting-history" >}}) to Sentinel `info` docs for every updated contact
+- Adds a [`muting_history` entry](/#server-side-muting-history) to Sentinel `info` docs for every updated contact
 - Updates all connected registrations (for the target contact and descendants), changing the state of all present/future `scheduled_tasks` (ones due today or in the future) with the `muted` state to have the `scheduled` state.
   - All `scheduled_tasks` with a due date in the past will remain unchanged.
-- Updates the contact's [client-side `muting_history`]({{< ref "#client-side-muting-history" >}}) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
+- Updates the contact's [client-side `muting_history`](/#client-side-muting-history) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
 - If the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report.
   - Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.
 
@@ -482,7 +482,7 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
 > [!IMPORTANT]
-> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "technical-overview/data/db-schema#reports" >}})) can.
+> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report](/technical-overview/data/db-schema#reports)) can.
 
 
 Supported `events_types` are:
@@ -732,9 +732,9 @@ Users are automatically created for certain contacts.  Both creating a new user 
 
 Several configurations are required in `app_settings` to enable the `create_user_for_contacts` transition.
 
-[Login by SMS]({{< ref "building/reference/api#login-by-sms" >}}) must be enabled by setting the `token_login` configuration.
+[Login by SMS](/building/reference/api#login-by-sms) must be enabled by setting the `token_login` configuration.
 
-The [`app_url` property]({{< ref "building/reference/app-settings#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
+The [`app_url` property](/building/reference/app-settings#app_settingsjson) must be set to the URL of the application. This is used to generate the token login link for the new user.
 
 ##### Example
 ```json

@@ -9,7 +9,7 @@ description: >
 
 The Reports tab is where you can access submitted data. Depending on how often you anticipate a user needing to access this tab, you can configure it to show in the main tabs list (preferable for admin users) or in the secondary hamburger menu (preferable for CHW users).
 
-The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the [hierarchy]({{< ref "building/workflows/hierarchy" >}}). Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs. Advanced configuration options are available for a specific off-line user role to manage what [level of report data]({{< ref "technical-overview/data/performance/replication#report-depth" >}}) is copied to their device.
+The permissions set for your role and your placement in the hierarchy will determine which reports you’re able to see on this tab. As a rule, you can only view reports submitted by yourself or those below you in the [hierarchy](/building/workflows/hierarchy). Therefore, CHWs will only see reports that they submitted on this tab, while supervisors will see reports that they submitted as well as those submitted by their CHWs. Advanced configuration options are available for a specific off-line user role to manage what [level of report data](/technical-overview/data/performance/replication#report-depth) is copied to their device.
 
 {{< figure src="reports-desktop.png" link="reports-desktop.png" class="left col-9 col-lg-9" >}}
 
@@ -46,14 +46,14 @@ Using the search box, you can search for reports by patient name, phone number, 
 
 
 > [!NOTE]
-> A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission]({{< ref "building/reference/app-settings/user-permissions" >}}) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags]({{< ref "/community/contributing/code/core/feature-flags" >}}) documentation for more info
+> A new user experience for Filter and Search was introduced in v3.17. The previous version can be re-enabled for users by adding the [permission](/building/reference/app-settings/user-permissions) `can_view_old_filter_and_search` to the user's role; however, the old version should be considered deprecated and will be completely removed in a future release. See [Feature Flags](//community/contributing/code/core/feature-flags) documentation for more info
 
 
 
 
 ## Action Buttons
 
-The action buttons at the bottom of the screen are configurable using [permissions]({{< ref "building/reference/app-settings/user-permissions" >}}). Options include submit, edit, delete, review and export reports.
+The action buttons at the bottom of the screen are configurable using [permissions](/building/reference/app-settings/user-permissions). Options include submit, edit, delete, review and export reports.
 
 Clicking on the “Export” button will download a CSV file with all the data from the reports. And clicking the “+ Submit report” button opens a menu of forms a user can choose to complete.
 
@@ -63,7 +63,7 @@ Clicking on the “Export” button will download a CSV file with all the data f
 
 ## Bulk Delete Reports
 
-Allows the user to select multiple reports and delete them. **Please Note**: This action cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature by disabling the [permission]({{< ref "building/reference/app-settings/user-permissions" >}}) `can_bulk_delete_reports`.
+Allows the user to select multiple reports and delete them. **Please Note**: This action cannot be undone. If in doubt, do not delete! You can restrict a user’s access to this feature by disabling the [permission](/building/reference/app-settings/user-permissions) `can_bulk_delete_reports`.
 
 {{< cards >}}
 {{< card link="reports-bulk-mobile.png" image="reports-bulk-mobile.png"  method="resize">}}

@@ -20,13 +20,13 @@ You will be adding a contact summary that displays information about a person's 
 
 ## Brief Overview of Key Concepts
 
-Each *field* that can be shown on a contact’s profile is defined as an object in the *[fields array]({{< ref "building/contact-summary/contact-summary-templated#contact-summarytemplatedjs-fields" >}})* of `contact-summary.templated.js`.
+Each *field* that can be shown on a contact’s profile is defined as an object in the *[fields array](/building/contact-summary/contact-summary-templated#contact-summarytemplatedjs-fields)* of `contact-summary.templated.js`.
 
 The *properties* for each object determine how and when the field is shown.
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), and completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), and completed a [project folder](/building/local-setup#3-create-and-upload-a-blank-project) setup.
 
 ## Implementation Steps
 
