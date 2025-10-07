@@ -259,7 +259,7 @@ const getResult = () =>
 
 ### Implicit Returns
 
-As [noted above](/#use-arrow-functions), implicit returns should be used for one-line arrow functions. However, for the sake of readability, they should not be used when returning a multi-line value.
+As [noted above](#use-arrow-functions), implicit returns should be used for one-line arrow functions. However, for the sake of readability, they should not be used when returning a multi-line value.
 
 *Right:*
 

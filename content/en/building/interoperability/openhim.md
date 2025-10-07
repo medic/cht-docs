@@ -52,7 +52,7 @@ See more information on the [CHT interoperability page](/building/interoperabili
 
 
 > [!NOTE]
-> Users getting errors when running the following installation steps, see the [Troubleshooting guide](/#troubleshooting).
+> Users getting errors when running the following installation steps, see the [Troubleshooting guide](#troubleshooting).
 
 ### Install & First Time Run
 

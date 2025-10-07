@@ -2770,7 +2770,7 @@ Content-Type: application/json
 
 ### POST /api/v1/users/{{username}}
 
-Allows you to change property values on a user account. [Properties listed above](/#supported-properties) are supported except for `contact.parent`. Creating or modifying people through the user is not supported, see the [People section](/#people).
+Allows you to change property values on a user account. [Properties listed above](#supported-properties) are supported except for `contact.parent`. Creating or modifying people through the user is not supported, see the [People section](#people).
 
 
 

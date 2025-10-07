@@ -49,6 +49,7 @@
   --exclude "http[s]*://www.intellisoftkenya.com.*" \
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
   --exclude "http[s]*://www.npmjs.com.*" \
+  --exclude "http[s]*://npmjs.com.*" \
   --exclude "https://.*youtu.be.*" \
   --exclude "https://.*youtube.com.*" \
   --exclude "http[s]*://docs.couchdb.org.*" \
