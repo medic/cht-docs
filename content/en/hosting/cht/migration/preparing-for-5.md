@@ -122,14 +122,15 @@ Now that you have the `devices.json` JSON file, flatten it into a CSV file with 
 jq -r '.[] |  select(.apk|length> 0) 
   | select(.browser.name == "Chrome")
   | select(.date > "2025-04-01")
-  | "\(.user) \(.date) \(.browser.version)"' \
-  devices.json | sort -u -k1,2r | \
-  sort -u -k1,1 | sort -rh -k3 | sed 's/ /,/g' \
-  > devices.csv
+  | "\(.deviceId) \(.user) \(.date) \(.browser.version)"' \
+  devices.json | sort -u -k1,2r \
+  | sort -u -k1,1 | cut -f2,3,4 -d' '| sort -rh -k3 \
+  | sed 's/ /,/g' > devices.csv
 ```
 
 The resulting file `devices.csv` will have all of your users sorted by the version of Chrome they use.  Scroll to the bottom and find any users running a version lower than `107` and ensure they update to a newer version.  The easiest way to upgrade is to open the Play Store and update any out of date software, being sure to update [WebView](https://play.google.com/store/apps/details?id=com.google.android.webview&hl=en).
 
+For instances with users who share devices, or have multiple devices they log in on, they may have multiple entries. Thi is because the CHT creates one entry per device per user. Be sure to upgrade all affected devices!
 
 Background information:
 * [Upgrade to Angular 20](https://github.com/medic/cht-core/issues/10029)
