@@ -29,7 +29,7 @@ Below are a few example integration use cases:
 3. **Contact Tracing**: Similar to Lost to Follow-Up, the EMR generates a list of contacts to be followed up with and this is sent to the CHT so that a tracer can call those contacts to see if they have symptoms.
 4. **Interactive Messaging**: Integrate with a messaging platform (such as RapidPro) to allow community members to initiate self-screening assessments, which can then be sent to the CHT for follow-up by a healthworker.
 
-As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here]({{< ref "building/integrations/rapidpro#sequence-diagrams" >}}) is an example sequence diagram for an integration use case with RapidPro.
+As you design your use cases, creating a [sequence diagram](https://www.websequencediagrams.com/) will be helpful in illustrating what the flow will look like. [Here](/building/integrations/rapidpro#sequence-diagrams) is an example sequence diagram for an integration use case with RapidPro.
 
 ## Integration Design Patterns
 
@@ -45,7 +45,7 @@ There are a number of different interactions that may occur between digital heal
 
 ## Sending data to other systems 
 
-Using the [outbound push]({{< ref "building/reference/app-settings/outbound" >}}) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
+Using the [outbound push](/building/reference/app-settings/outbound) feature, you can configure the CHT to send data to another system. Before starting, you'll want to make sure you understand the APIs of the destination system and have login credentials with adequate privileges. 
 
 To send data to other systems from the CHT, you will need to do the following:
 
@@ -56,28 +56,28 @@ To send data to other systems from the CHT, you will need to do the following:
 5. Set up credentials for the destination system
 
 ### Enable outbound
-[Enable]({{< ref "building/reference/app-settings/outbound#configuration" >}}) the `mark_for_outbound` transition in `app_settings`.
+[Enable](/building/reference/app-settings/outbound#configuration) the `mark_for_outbound` transition in `app_settings`.
 
 ### When data is sent
-Whenever a document is changed (such as submitting a form, creating a new contact, or editing an existing one) you can configure outbound to send data to another system. The `relevant_to` [property]({{< ref "building/reference/app-settings/outbound#relevant_to" >}}) in the outbound configuration is used to identify which activities will trigger the sending of data.
+Whenever a document is changed (such as submitting a form, creating a new contact, or editing an existing one) you can configure outbound to send data to another system. The `relevant_to` [property](/building/reference/app-settings/outbound#relevant_to) in the outbound configuration is used to identify which activities will trigger the sending of data.
 
 > [!TIP] 
 > Send data to the EMR whenever a CHW submits an `assessment` form where `referral = true`.
 
 ### Where data is sent
-The `destination` [property]({{< ref "building/reference/app-settings/outbound#destination" >}}) in the outbound configuration is used to specify *where* to send data. This will normally be the API endpoint of the destination system or interoperabiliy layer. 
+The `destination` [property](/building/reference/app-settings/outbound#destination) in the outbound configuration is used to specify *where* to send data. This will normally be the API endpoint of the destination system or interoperabiliy layer. 
 
 > [!TIP]
 > Send data to the `/api/v1/referral` endpoint in the destination system.
 
 ### What data is sent
-You configure *what* data is sent using the `mapping` [property]({{< ref "building/reference/app-settings/outbound#mapping" >}}). You will map data from the CHT to the format required by the destination API endpoint.
+You configure *what* data is sent using the `mapping` [property](/building/reference/app-settings/outbound#mapping). You will map data from the CHT to the format required by the destination API endpoint.
 
 > [!TIP] 
 > Map the `contact.name` field in the CHT to the `patient.name` field in the EMR. 
 
 ### Authentication
-Credentials for the destination system are [stored in CouchdDB]({{< ref "building/reference/app-settings/outbound#credentials" >}}). You will need to set this up before you can test your configuration.
+Credentials for the destination system are [stored in CouchdDB](/building/reference/app-settings/outbound#credentials). You will need to set this up before you can test your configuration.
 
 ## Requests from other systems 
 The CHT has a complete RESTful API that other systems can utilize to interact with data in the CHT.
@@ -92,12 +92,12 @@ The CHT has a number of different API endpoints that can be used to look up data
 > [!IMPORTANT] 
 > Example 1: You have a patient's phone number and you want to look up more information about that patient, such as who their CHW is or what Catchment Area they live in.
 
-You can use the `contacts_by_phone` [endpoint]({{< ref "building/reference/api#get-apiv1contacts-by-phone" >}}) will return the fully hydrated contact information for those patients.
+You can use the `contacts_by_phone` [endpoint](/building/reference/api#get-apiv1contacts-by-phone) will return the fully hydrated contact information for those patients.
 
 > [!IMPORTANT]  
 > Example 2: You just have the internal UUID of a particular contact but want to get the complete information available for that contact.
 
-You can use the `hydrate` [endpoint]({{< ref "building/reference/api#get-apiv1hydrate" >}}) to obtain this information. to look up the complete information for that contact.
+You can use the `hydrate` [endpoint](/building/reference/api#get-apiv1hydrate) to obtain this information. to look up the complete information for that contact.
 
 ### POST data to the CHT
 The CHT API also allows you to POST data. Using these endpoints, you can create new records in your CHT API. You can store activities that took place in another system on that contact's profile in the CHT, and even create tasks for CHWs in the CHT based on activities that took place in the other system.
@@ -105,9 +105,9 @@ The CHT API also allows you to POST data. Using these endpoints, you can create 
 > [!IMPORTANT]  
 > Example 1: You use RapidPro to send daily quarantine follow-up messages to a patient. You want to store the patient's responses to those messages on their profile in the CHT. 
 
-You can do this by submitting a JSON Form to the records [endpoint]({{< ref "building/reference/api#post-apiv2records" >}}).
+You can do this by submitting a JSON Form to the records [endpoint](/building/reference/api#post-apiv2records).
 
 > [!IMPORTANT] 
 > Example 2: Continuing from Example 1, create a task for a CHW in the CHT whenever a patient responds that they have developed symptoms.
 
-You would do this by simply configuring a [task]({{< ref "building/tasks" >}}) to be generated based on criteria available in the report that was created in Example 1.
+You would do this by simply configuring a [task](/building/tasks) to be generated based on criteria available in the report that was created in Example 1.

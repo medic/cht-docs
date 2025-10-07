@@ -28,7 +28,7 @@ The section includes placeholders for URLs. Replacing these placeholders with th
 ## Steps
 
 The following steps assume you have running OpenHIM and CHT instances you successfully logged into.
-See the [OpenHIM guide]({{< ref "building/interoperability/openhim" >}}) for instructions to set up a local development instance of OpenHIM.
+See the [OpenHIM guide](/building/interoperability/openhim) for instructions to set up a local development instance of OpenHIM.
 
 1.  Create an **Endpoint** and an **Organization**
 
@@ -41,7 +41,7 @@ See the [OpenHIM guide]({{< ref "building/interoperability/openhim" >}}) for ins
 
 2.  Create a **Patient**
 
-    1. **CHT** - Log in to the CHT platform using the credentials for the `chw` user. If the `chw` user does not already exist, you can [create one]({{< ref "building/contact-management/contact-and-users-1#4-create-the-chw-user" >}}).
+    1. **CHT** - Log in to the CHT platform using the credentials for the `chw` user. If the `chw` user does not already exist, you can [create one](/building/contact-management/contact-and-users-1#4-create-the-chw-user).
     1. **CHT** - Navigate to the `People` tab in the CHT dashboard. From there, select a Facility where you want to create a new `Person`. Click on the `New Person` button and fill in the required details for the Person. Make sure to select `Patient` as the `Person`'s role for this flow.
     1. **CHT** - Once you have created the new `Person`, you need to retrieve their unique identifier from the browser's URL. You can do this by copying the alphanumeric string that appears after `person/` in the URL. Keep this identifier safe as you will need it for the next steps.
     1. **OpenHIM Admin Console** - To verify that the `Patient` creation was successful, navigate to the `Transaction Log` in the OpenHIM Admin Console. You should see two successful API calls recorded in the log, one to `/mediator/patient/` and one to `/fhir/Patient/`.

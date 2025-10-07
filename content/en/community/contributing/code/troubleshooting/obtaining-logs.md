@@ -52,7 +52,7 @@ The Android log is written to from the cht-android wrapper which captures errors
 
 ### Step 1
 
-To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "community/contributing/code/android/development-setup#debug-tool-adb" >}}) section.
+To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb](/community/contributing/code/android/development-setup#debug-tool-adb) section.
 
 ### Step 2
 
@@ -84,4 +84,4 @@ adb logcat | grep MedicMobile > phone.log
 
 ## On the server
 
-Some unexpected errors are caught and stored in `feedback` docs and stored on the phone and later synced to CouchDB on the server. To access these, look for docs in the `medic-user-{username}-meta` or `medic-users-meta` databases. This is particularly useful to debug issues where you do not have physical access to the device. More information is available under [Managing Databases]({{< relref "technical-overview/data" >}}).
+Some unexpected errors are caught and stored in `feedback` docs and stored on the phone and later synced to CouchDB on the server. To access these, look for docs in the `medic-user-{username}-meta` or `medic-users-meta` databases. This is particularly useful to debug issues where you do not have physical access to the device. More information is available under [Managing Databases](/technical-overview/data).

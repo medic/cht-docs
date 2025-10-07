@@ -24,15 +24,15 @@ App settings allow you to both persist information that is critical to the appli
 
 ## Brief Overview of Key Concepts
 
-The settings which control CHT apps are defined in the *[app_settings.json]({{< relref "building/reference/app-settings" >}})* file, and stored in the settings doc in the database.
+The settings which control CHT apps are defined in the *[app_settings.json](/building/reference/app-settings)* file, and stored in the settings doc in the database.
 
-*[Permissions]({{< relref "building/users#permissions" >}})* are settings that control access to specific app features and functionality.
+*[Permissions](/building/users#permissions)* are settings that control access to specific app features and functionality.
 
-*[Roles]({{< relref "building/users#roles" >}})* define permissions for users to access a group of app features and functionality.
+*[Roles](/building/users#roles)* define permissions for users to access a group of app features and functionality.
 
-*[Replication]({{< relref "technical-overview/data/performance/replication" >}})* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
+*[Replication](/technical-overview/data/performance/replication)* is when users download a copy of the data on to their device. *Replication depth* refers to the number of levels within a hierarchy a specific user role is able to replicate.
 
-*[Transitions]({{< relref "building/reference/app-settings/transitions" >}})* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
+*[Transitions](/building/reference/app-settings/transitions)* are Javascript code that run when a document is changed. A transition can edit the changed doc or do anything server side code can do for that matter.
 
 ## Required Resources
 
@@ -104,7 +104,7 @@ In this example, the `generate_patient_id_on_people` and `death_reporting` trans
 You can configure hierarchies by editing the object corresponding to the `"contact_types"` key in `app_settings.json`. The following code sample represents the default hierarchy configuration. You can modify existing contact types by editing the objects within the array. 
 
 When configuring a new deployment, it's important to plan your hierarchy well.  While there are no limits in the CHT to the hierarchical depth or breadth it will support, there are some trade-offs and caveats:
-* While it is possible to [update the hierarchy configuration]({{< relref "building/contact-management/moving-contacts" >}}) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
+* While it is possible to [update the hierarchy configuration](/building/contact-management/moving-contacts) after launch it can be difficult and potentially disruptive to users. Try and avoid this by planning ahead as best as possible.
 * If your hierarchy is too shallow, users will download more docs than are necessary for their work which will impact the performance of the app. Taking the time to get the hierarchy configuration right makes it easy to give users access to only the docs they need.
 
 **Important Note on Creating and Editing Contacts:** The ability to create and edit contacts in the CHT, including person entities, is dependent on the presence of corresponding forms in the `forms/contact` directory. Each contact type, such as "person", "clinic", "health_center", etc., must have associated `create` and `edit` forms defined. Without these forms, the functionality to add or modify these contact types in the CHT application will not be available. Ensure that the necessary forms are created and correctly referenced in the `app_settings.json` file under their respective contact type definitions. For guidance on creating these contact forms, refer to the [CHT documentation on contact forms](https://docs.communityhealthtoolkit.org/building/reference/forms/contact/).

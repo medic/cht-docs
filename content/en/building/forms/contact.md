@@ -22,7 +22,7 @@ These forms are stored in the `forms/contact` sub-folder of the project config d
 
 ### Survey sheet
 
-To collect information about the contact, use a top-level group with the [id of the contact_type]({{< ref "building/reference/app-settings/hierarchy" >}}) as the `name` of the group (e.g. `person` when adding or editing a person contact). Information in this group will be saved to the contact's document in the database.
+To collect information about the contact, use a top-level group with the [id of the contact_type](/building/reference/app-settings/hierarchy) as the `name` of the group (e.g. `person` when adding or editing a person contact). Information in this group will be saved to the contact's document in the database.
 
 | type        | name   | label::en    |
 |-------------|--------|--------------|
@@ -40,7 +40,7 @@ The `parent`, `type`, and `name` fields are mandatory on forms that are adding c
 
 #### Input data
 
-`contact` forms have access to a variety of [input data]({{< ref "building/forms/configuring/form-inputs#app-forms" >}}).
+`contact` forms have access to a variety of [input data](/building/forms/configuring/form-inputs#app-forms).
 
 ### Settings sheet
 
@@ -55,17 +55,17 @@ The meta information in the `{contact_type_id}-{create|edit}.properties.json` fi
 | Property                     | Description                                                                                                                                                                                                                                           | required |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | `context`                    | _Added in `3.10`._ The contact form context defines when the form should be available in the app. Note: this applies only to the contact form, not the contacts themselves.                                                                           | no       |
-| `context.expression`         | A JavaScript expression evaluated when a contact profile is viewed. This can limit which users have access to the contact form. [See below]({{< relref "#context-expression" >}}) for more details.                                                   | no       |
+| `context.expression`         | A JavaScript expression evaluated when a contact profile is viewed. This can limit which users have access to the contact form. [See below](#context-expression) for more details.                                                   | no       |
 | `context.permission`         | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access.                                                                                                                        | no       |
-| `duplicate_check`            | _Added in `4.19`._ Allows for configuring or disabling the [duplicate detection logic]({{< ref "building/contact-management/contacts#duplicate-contact-detection" >}}) for a particular contact type.                                                 | no       |
-| `duplicate_check.expression` | A JavaScript expression evaluated when submitting the contact form. The expression defines the logic used for determining when a contact is considered to be a duplicate. [See below]({{< relref "#duplicate-check-expression" >}}) for more details. | no       |
+| `duplicate_check`            | _Added in `4.19`._ Allows for configuring or disabling the [duplicate detection logic](/building/contact-management/contacts#duplicate-contact-detection) for a particular contact type.                                                 | no       |
+| `duplicate_check.expression` | A JavaScript expression evaluated when submitting the contact form. The expression defines the logic used for determining when a contact is considered to be a duplicate. [See below](#duplicate-check-expression) for more details. | no       |
 | `duplicate_check.disabled`   | Boolean determining if the duplicate check should be run when submitting this contact form. Default is `false`.                                                                                                                                       | no       |
 
 #### Context Expression
 
 The contact form context expression can be used to limit which users have access to the contact form. If the expression evaluates to `true`, the form will be listed as an available action on the proper contact profiles. 
 
-In the expression, the `user` input is available. (Note that unlike in the [app form expressions]({{< ref "building/forms/app#formsappform_namepropertiesjson" >}}), the `contact` and `summary` inputs are [not currently available](https://github.com/medic/cht-core/issues/6612) for contact form expressions.)
+In the expression, the `user` input is available. (Note that unlike in the [app form expressions](/building/forms/app#formsappform_namepropertiesjson), the `contact` and `summary` inputs are [not currently available](https://github.com/medic/cht-core/issues/6612) for contact form expressions.)
 
 #### Duplicate Check Expression
 
@@ -85,7 +85,7 @@ Always consider the nature and quality of your data. As data quality improves (e
 
 ##### Customizing the duplicate contact error message
 
-The default message shown to the user when a duplicate contact is found [can be modified]({{< ref "building/translations/overview" >}}) by adding a custom translation for the `duplicate_check.contact.duplication_message` key.
+The default message shown to the user when a duplicate contact is found [can be modified](/building/translations/overview) by adding a custom translation for the `duplicate_check.contact.duplication_message` key.
 
 Additionally, different messages can be shown for different contact types by setting `duplicate_check.contact.${contact_type_id}.duplication_message` keys. This can be useful if you want to prompt the user with the likely reason the duplicate contacts matched based on your custom duplicate check expression logic.
 

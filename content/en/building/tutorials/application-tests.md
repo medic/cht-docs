@@ -19,10 +19,10 @@ This tutorial takes you through testing the various configurable components of C
 ## Prerequisites
 
 Complete the following tutorials:
-  - [Building App Forms]({{< ref "building/tutorials/app-forms" >}})
-  - [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}})
-  - [Building Target Widgets]({{< ref "building/targets/target-widgets" >}})
-  - [Building Contact Summary]({{< ref "building/contact-summary/contact-summary-overview" >}})
+  - [Building App Forms](/building/tutorials/app-forms)
+  - [Building A Simple Task](/building/tasks/simple-tasks)
+  - [Building Target Widgets](/building/targets/target-widgets)
+  - [Building Contact Summary](/building/contact-summary/contact-summary-overview)
 
 ## Importance of testing your application
 ---
@@ -39,7 +39,7 @@ Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](htt
 ## Preparation
 
 Writing tests for CHT apps requires a good understanding of the project workflows and requirements. To test using the harness, there are a few things you need to set up:
-1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}) and a [project folder set up]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}). 
+1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally](/building/local-setup) and a [project folder set up](/building/local-setup#3-create-and-upload-a-blank-project). 
 `cht-conf` which is short for CHT app configurer, is a command-line interface tool used to manage and configure your CHT apps. It is used for backup, conversion, validation, uploading and other actions which can be found by running `cht --help`.
 2. Ensure your `package.json` file has the required libraries. A `package.json` file is used to record important metadata about a project and defines functional attributes that npm uses to install dependencies and run scripts. This file should be at the root of your project folder. 
 If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
@@ -133,7 +133,7 @@ After each test run, assert that there are no errors in the console.
 
 If you want to learn more about these hooks, refer to this [Mocha resource](https://mochajs.org/#hooks). Feel free to customize the hooks as you see fit.
 
-Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "building/tutorials/app-forms" >}}):
+Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial](/building/tutorials/app-forms):
 
 ```js highlight 
   it('unit test confirming assessment with cough since 7 days', async () => {
@@ -235,7 +235,7 @@ Contact summary consists of visible components such as [cards](https://docs.comm
 
 Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
-To test the contact summary fields added in the [previous tutorial]({{< ref "building/contact-summary/contact-summary-overview#3-export-fields" >}}), use the following test case:
+To test the contact summary fields added in the [previous tutorial](/building/contact-summary/contact-summary-overview#3-export-fields), use the following test case:
 
 ```js highlight 
 const contactSummary = await harness.getContactSummary();
@@ -252,7 +252,7 @@ expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
 
 Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 
-Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "building/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
+Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial](/building/condition-cards#2-define-cards-and-add-a-condition-card-object):
 
 ```js highlight 
 // Load the assessment form and fill in 'yes' on the first page and '7' on the second page
@@ -279,7 +279,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
   ]
 );
 ```
-If you  follow [this code sample]({{< ref "building/contact-summary/contact-summary-templated#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
+If you  follow [this code sample](/building/contact-summary/contact-summary-templated#code-samples) to create the pregnancy condition card, the pregnancy context can be tested this way:
 
 ```js highlight 
 const summaryContext = harness.getContactSummary().context;
@@ -296,7 +296,7 @@ expect(summaryContext).to.include({
 |Minimum:|Trigger and resolve the task|
 |Ideal:|One test for each use scenario<br/>Code coverage for any arc with an external dependency<br/>Negative cases - confirm tasks don’t trigger|
 
-When testing the tasks [manually]({{< ref "building/tasks/simple-tasks#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
+When testing the tasks [manually](/building/tasks/simple-tasks#3-testing-the-task), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
 
 Every task has a source document (contact or report). When testing, you can mock the source document. Yet, the recommended approach is to fill the source form and then proceed with checking the associated tasks.
 
@@ -312,7 +312,7 @@ Commonly used harness methods when testing tasks are:
 
 With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/technical-overview/data/db-schema/#tasks).
 
-Let's look back at the simple task from this tutorial: [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}}).
+Let's look back at the simple task from this tutorial: [Building A Simple Task](/building/tasks/simple-tasks).
 
 According to the task configuration, these conditions need to be met for the assessment task to be visible:
 1. The `contact_type` of the subject (patient) is: `patient`
@@ -448,7 +448,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 
 Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/technical-overview/data/db-schema/#targets).
 
-To test the first two targets created in the [targets tutorial]({{< ref "building/targets/target-widgets" >}}), use this code:
+To test the first two targets created in the [targets tutorial](/building/targets/target-widgets), use this code:
 ```js highlight 
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date

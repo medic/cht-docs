@@ -34,7 +34,7 @@ The `patient_reports` key contains the actions to take when reports about people
 |`messages`|An array of automated responses to incoming reports.|no|
 |`messages[].translation_key`|Translation key for the message text associated with this event|no|
 |`messages[].event_type`|An event that will trigger sending of this message. Typical values are: `report_accepted` when the report has been successfully validated, `registration_not_found` when the shortcode (patient ID or place ID) supplied in the report doesn't match any shortcode issued by Medic. `on_mute` and `on_unmute` are used in the context of muting as described [here]({{% ref "building/reference/app-settings/transitions#muting" %}})|no|
-|`messages[].recipient`|Who the message should be sent to. Use `reporting_unit` for the sender of the report, `clinic` for clinic contact, and `parent` for the parent contact. [See SMS Recipients]({{< relref "building/reference/app-settings/_index.md#sms-recipient-resolution" >}})|no|
+|`messages[].recipient`|Who the message should be sent to. Use `reporting_unit` for the sender of the report, `clinic` for clinic contact, and `parent` for the parent contact. [See SMS Recipients](/building/reference/app-settings/_index.md#sms-recipient-resolution)|no|
 
 ## Code sample
 
