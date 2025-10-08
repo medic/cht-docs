@@ -41,7 +41,7 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
    cht_image_tag: "5.0.0"  # or "master" for latest development
    ```
 
-   #### Platform-Specific Storage Configuration
+3. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
    
 {{< tabs items="GKE,EKS,K3s-K3d" >}}
 
