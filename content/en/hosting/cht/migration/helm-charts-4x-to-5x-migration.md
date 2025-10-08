@@ -70,7 +70,7 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 
 ### Step 2: Perform the Migration
 
-1. **Run the migration upgrade** (from any directory where you have your `migration-5x-values.yaml` file):
+1. Upgrade the helm deployment form same directory as `migration-5x-values.yaml`.  As well, update `/path/to/cht-core` to be the location where CHT Core repo is checked out:
    ```bash
    helm upgrade <your-release-name> /path/to/cht-core/scripts/build/helm \
      -f migration-5x-values.yaml \
