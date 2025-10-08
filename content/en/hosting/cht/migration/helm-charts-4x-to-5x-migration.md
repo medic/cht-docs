@@ -94,9 +94,9 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
    kubectl get pods --namespace <your-namespace> | grep nouveau
    ```
 
-3. **Test data integrity**
+3. Test data integrity
 
-4. **Test application access**
+4. Test application access
 
 {{% /steps %}}
 
