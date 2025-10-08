@@ -2,11 +2,9 @@
 
 ## Overview
 
-This guide covers the migration from CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x.
+This guide covers the migration of Kubernetes based CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x. The new Helm chart require updates to your `values.yaml` file. 
 
-## Overview of Changes
-
-CHT 5.x introduces significant changes to the Helm chart structure that require updates to your `values.yaml` files. The migration steps below will guide you through the necessary changes.
+Before starting be sure you have a `git clone` of the [CHT Core repository](https://github.com/medic/cht-core/) and that you have updated it with `git pull origin` to ensure you have the latest changes locally.  
 
 ## Migration Steps
 
