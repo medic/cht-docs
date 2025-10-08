@@ -12,7 +12,7 @@ aliases:
    - /technical-overview/data/performance/telemetry
 ---
 
-_Introduced in v3.4.0_ 
+_Introduced in v3.4.0_
 
 The app collects performance data on certain user actions which is then aggregated each day and replicated to the server. This can be used to evaluate the performance of the code and configuration and to evaluate where improvements can be made.
 
@@ -59,20 +59,8 @@ Find below the list of telemetry data recorded by CHT:
 | `boot_time:purging_meta_failed`                                    | The purging of the local meta database failed. Added in 3.14.                                                                                                                                                                                                                                                                                                          | |
 | `contact_list:load`                                                | The time taken to load the list of contacts on the left hand side of the Contacts tab. Added in 4.7.                                                                                                                                                                                                                                                                   | Yes. Added in 4.7|
 | `contact_list:query`                                               | The time taken to query the People tab on initial load, when searching or sorting, this metric covers from fetching the data to preparing the data before display. Added in 4.7.                                                                                                                                                                                       | Yes. Added in 4.7|
-
 | `enketo:reports:<form>:<action>:<component>`                       | The time taken to fill in app forms that are opened from Reports Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it.               | Yes, added for `render` and `save` actions. Added in 4.7 |
-
 | `enketo:contacts:<form>:<action>:<component>`                      | The time taken to fill contact forms and app forms that are opened from People Tab. The `action` can either be "add" or "edit". The `component` is one of: "render" covers getting the form and rendering it on screen; "user_edit_time" is the time the user took to fill in and submit the form; or "save" is about converting the form into a report and saving it. |  Yes, added for `render` and `save` actions. Added in 4.7 |
-
-
-| `enketo:contacts:<contact_type>:duplicate_check`           | The time taken to perform the duplicate contact check when a user adds or edits a contact.              | Added in 4.19.0 |
-
-| `enketo:contacts:<contact_type>:duplicates_found`          | A counter that increments when the system identifies one or more potential duplicate contacts.          | Added in 4.19.0 |
-
-| `enketo:contacts:<contact_type>:duplicates_acknowledged`   | A counter that increments when a user proceeds with saving a contact, despite being shown a duplicate warning. | Added in 4.19.0 |
-
-
-
 | `enketo:tasks:<form>:<action>:<component>`                         | As above but for forms on the Tasks tab.                                                                                                                                                                                                                                                                                                                               | Yes, added for `render` and `save` actions. Added in 4.7 |
 | `message_list:load`                                                | The time taken to load the list of messages on the left hand side of the Messages tab. Added in 4.7.                                                                                                                                                                                                                                                                   | Yes. Added in 4.7 |
 | `search:contacts`                                                  | The time taken to list all contacts.                                                                                                                                                                                                                                                                                                                                   | |
@@ -137,6 +125,12 @@ Find below the list of telemetry data recorded by CHT:
 | `geolocation:success`                                              | A successful GPS response with the value showing the accuracy.                                                                                                                                                                                                                                                                                                         | |
 | `geolocation:failure:<x>`                                          | An unsuccessful GPS response. `x` is a constant matching the [GeolocationPositionError](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError/code) or with one of the following values: `-1` unknown failure, `-2` timeout, or `-3` geolocation services unavailable.                                                                             | |
 | `training_materials_list:load`                                     | On the Training Materials page, the time taken to load the list of trainings on the left hand side. Added in 4.15.0.                                                                            | Yes. Added in 4.15.0 |
+| `search_match:contacts_by_freetext:<key>`                          | Recorded when a user performs a freetext search across all contacts. <key> represents the search term or type.                                                                                  | Added in 4.15.0 |
+| `search_match:contacts_by_type_freetext:<key>`                     | Recorded when a user performs a freetext search filtered by contact type (e.g., searching only within CHWs, clinics, or households).                                                            | Added in 4.15.0 |
+| `search_match:reports_by_freetext:<key>`                           | Recorded when a user performs a freetext search in reports. Tracks how often report searches are used.                                                                                          | Added in 4.15.0 |
+| `enke.to:contacts:<contact_type>:duplicates_acknowledged`          | Recorded when a user acknowledges a duplicate contact during creation or update. Helps track how often detected duplicates are confirmed by users.                                              | Added in 4.19.0 |
+| `enke.to:contacts:<contact_type>:duplicates_found`                 | Recorded when the system finds one or more duplicate contacts while checking. Measures the frequency of detected duplicates.                                                                    | Added in 4.19.0 |
+| `enke.to:contacts:<contact_type>:duplicate_check`                  | Logged each time the duplicate-check process runs, regardless of duplicates found. Useful for monitoring how often duplicate checks occur.                                                      | Added in 4.19.0 |
 
 [1] "Dirty" indicates that the contact's task documents are not up to date. They will be refreshed before being used.    
 [2] Replication can be denied when the user doesn't have permissions to create a doc (hierarchy permissions) or when a doc fails a `validate_doc_update` check.  
@@ -147,15 +141,6 @@ Unless otherwise specified, `database` and `direction` placeholders stand for an
 | --- | --- |
 | `medic` | `from` or `to`  |
 | `meta` | `sync` |
-
-
- ### Search Telemetry
-
-| `search_match:contacts_by_freetext:<key>`          | A counter that tracks a successful match found by the freetext search feature when searching contacts. The `<key>` is the specific search term used. | Added in 4.25.0 |
-
-| `search_match:contacts_by_type_freetext:<key>`     | A counter that tracks a successful match found by the freetext search when searching contacts of a specific type. The `<key>` is the specific search term used. | Added in 4.25.0 |
-
-| `search_match:reports_by_freetext:<key>`           | A counter that tracks a successful match found by the freetext search feature when searching reports. The `<key>` is the specific search term used. | Added in 4.25.0 |
 
 ## Metadata
 
@@ -203,7 +188,7 @@ When the aggregate doc is created the Telemetry service also includes a snapshot
 
 ### Summary data via API
 
-To get summary data with one item per user, see the `/api/v2/export/user-devices` [API]({{< ref "building/reference/api#get-apiv2exportuser-devices" >}}), which was added in CHT 4.7.0. 
+To get summary data with one item per user, see the `/api/v2/export/user-devices` [API](/building/reference/api#get-apiv2exportuser-devices), which was added in CHT 4.7.0. 
 
 ### Summary data via Node script
 
