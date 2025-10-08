@@ -94,7 +94,7 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 2. **Verify new 5.x components**:
    ```bash
    # Look for the new couchdb-nouveau component
-   kubectl get pods -n <your-namespace> | grep nouveau
+   kubectl get pods --namespace <your-namespace> | grep nouveau
    ```
 
 3. **Test data integrity**
