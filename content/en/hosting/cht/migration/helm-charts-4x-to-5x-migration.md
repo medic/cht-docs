@@ -21,7 +21,6 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 
 2. Update the `migration-5x-values.yaml` file to be compliant with  5.x deployment requirements:
 
-   #### Critical Changes (Must Apply)
    ```yaml
    # Change field names
    couchdb:
