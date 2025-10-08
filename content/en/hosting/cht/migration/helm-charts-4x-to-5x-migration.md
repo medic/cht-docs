@@ -36,8 +36,8 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
        type: ClusterIP
    
    # Update image versions to 5.x
-   chtversion: "5.0.0"  # or "master" for latest development
-   cht_image_tag: "5.0.0"  # or "master" for latest development
+   chtversion: 5.0.0
+   cht_image_tag: 5.0.0
    ```
 
 3. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
