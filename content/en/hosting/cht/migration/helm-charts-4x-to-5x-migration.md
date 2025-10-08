@@ -14,7 +14,7 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 
 ### Step 1: Prepare Migration Values File
 
-1. **Get current values** from your existing 4.x deployment:
+1. Export the values from your existing 4.x deployment into the `migration-5x-values.yaml` file:
    ```bash
    helm get values <your-release-name> -n <your-namespace> > migration-5x-values.yaml
    ```
