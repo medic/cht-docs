@@ -81,7 +81,7 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 2. **Monitor the upgrade**:
    ```bash
    helm status <your-release-name> --namespace <your-namespace>
-   kubectl get pods -n <your-namespace>
+   kubectl get pods--namespace <your-namespace>
    ```
 
 ### Step 3: Verify Migration Success
