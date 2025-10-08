@@ -32,7 +32,7 @@ following formats are supported:
 > A compatible value can be generated using the `toISOString` or `toValue` method
 on a Javascript Date object.
 > 
-> ##### Examples
+> **Examples**
 > - 2011-10-10T14:48:00-0300
 > - 2016-07-01T13:48:24+00:00
 > - 2016-07-01T13:48:24Z
