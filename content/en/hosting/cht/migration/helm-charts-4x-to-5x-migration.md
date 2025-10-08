@@ -83,7 +83,7 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
 
 ### Step 3: Verify Migration Success
 
-1. **Check pod status**:
+1. Check pod status:
    ```bash
    kubectl get pods -n <your-namespace>
    ```
