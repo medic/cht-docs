@@ -43,31 +43,31 @@ CHT 5.x introduces significant changes to the Helm chart structure that require 
 
 3. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
    
-{{< tabs items="GKE,EKS,K3s-K3d" >}}
+    {{< tabs items="GKE,EKS,K3s-K3d" >}}
 
-{{< tab >}}
-```yaml
-couchdb:
-  persistent_disk:
-    size: "<size>"  # Set appropriate size for your needs
-```
-{{< /tab >}}
+        {{< tab >}}
+        ```yaml
+        couchdb:
+          persistent_disk:
+            size: <size>  # Set appropriate size for your needs
+        ```
+        {{< /tab >}}
 
-{{< tab >}}
-```yaml
-ebs:
-  preExistingEBSVolumeSize: "<size>"  # Set appropriate size for your needs
-```
-{{< /tab >}}
+        {{< tab >}}
+        ```yaml
+        ebs:
+          preExistingEBSVolumeSize: <size>  # Set appropriate size for your needs
+        ```
+        {{< /tab >}}
 
-{{< tab >}}
-```yaml
-couchdb:
-  storage_class: "local-path"  # was: "local-storage"
-```
-{{< /tab >}}
+        {{< tab >}}
+        ```yaml
+        couchdb:
+          storage_class: local-path  # was: "local-storage"
+        ```
+        {{< /tab >}}
 
-{{< /tabs >}}
+    {{< /tabs >}}
 
 ### Step 2: Perform the Migration
 
