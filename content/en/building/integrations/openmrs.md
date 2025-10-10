@@ -64,14 +64,14 @@ Another example of patient identifiers could take the form `_IdentifierType_huma
 
 A sample form definition could be as follows:
 
-| type                          | name              | label                              | required | relevant            | appearance | constraint | constraint_message  | calculation | choice_filter  | hint | default |
-| ----------------------------- | ----------------- | ---------------------------------- | -------- | ------------------- | ---------- | ---------- | ------------------- | ----------- | -------------- | ---- | ------- |
-| begin group                   | patient_demographics  | Demographic details                         |          |                     |            |            |                     |             |                |      |         |
-| string     | patient_familyName             | Family name | yes      |                     |            |            |                     |             |                |      |         |
-| string   | patient_firstName    | First name     | yes      |     |            |            |                     |             |                |      |         |
-| string   | patient_middleName    | Middle name     | yes      |     |            |            |                     |             |                |      |         |
-| string   | patient_identifierType_nationalId_49af6cdc-7968-4abb-bf46-de10d7f4859f    | National ID     | yes      |     |            |            |                     |             |                |      |         |
-| end group                     |                   |                                    |          |                     |            |            |                     |             |                |      |         |
+| type        | name                                                                   | label               | required | relevant | appearance | constraint | constraint_message | calculation | choice_filter | hint | default |
+|-------------|------------------------------------------------------------------------|---------------------|----------|----------|------------|------------|--------------------|-------------|---------------|------|---------|
+| begin group | patient_demographics                                                   | Demographic details |          |          |            |            |                    |             |               |      |         |
+| string      | patient_familyName                                                     | Family name         | yes      |          |            |            |                    |             |               |      |         |
+| string      | patient_firstName                                                      | First name          | yes      |          |            |            |                    |             |               |      |         |
+| string      | patient_middleName                                                     | Middle name         | yes      |          |            |            |                    |             |               |      |         |
+| string      | patient_identifierType_nationalId_49af6cdc-7968-4abb-bf46-de10d7f4859f | National ID         | yes      |          |            |            |                    |             |               |      |         |
+| end group   |                                                                        |                     |          |          |            |            |                    |             |               |      |         |
 
 
 A sample payload would be as follows:
@@ -104,7 +104,7 @@ The `observation` group is used to define the clinical observation variables to 
     `_5089_weight_99DC` for weight.
  
    For multi-select (obs group in OpenMRS), we can easily append `MULTISELECT` to the `humanReadableConceptName` for example:
- `_162558_disabilityTypeMULTISELECT_99DCT` for diability type with the options `blind, dumb, ...`
+ `_162558_disabilityTypeMULTISELECT_99DCT` for disability type with the options `blind, dumb, ...`
 
 - A label which is displayed to the user during form entry
 
@@ -112,26 +112,26 @@ Here is a sample form snippet followed by sample select list in the choices work
 
 ##### Data fields
 
-| type                          | name              | label                              | required | relevant            | appearance | constraint | constraint_message  | calculation | choice_filter  | hint | default |
-| ----------------------------- | ----------------- | ---------------------------------- | -------- | ------------------- | ---------- | ---------- | ------------------- | ----------- | -------------- | ---- | ------- |
-| calculate  | form_uuid   | NO_LABEL | yes      |                     |            |            |            _99DCT         |             |                |      |         |
-| calculate  | encounter_type_uuid   | NO_LABEL | yes      |                     |            |            |                     |             |                |      |         |
-| begin group                   | group_assessment  | Assessment                         |          |                     |            |            |                     |             |                |      |         |
-| select_one client_consented             | _1710_clientConsented_99DCT             | Has ${patient_name} consented? | yes      |                     |            |            |                     |             |                |      |         |
-| select_multiple disability_type   | _162558_disabilityTypeMULTISELECT_99DCT    | Disability type     | yes      |     |            |            |                     |             |                |      |         |
-| text   | _160632_Specify_99DCT    | Specify (Other)     | yes      | ${_162558_disabilityTypeMULTISELECT_99DCT} = 'other'    |            |            |                     |             |                |      |         |
-| end group                     |                   |                                    |          |                     |            |            |                     |             |                |      |         |
+| type                            | name                                    | label                          | required | relevant                                             | appearance | constraint | constraint_message | calculation | choice_filter | hint | default |
+|---------------------------------|-----------------------------------------|--------------------------------|----------|------------------------------------------------------|------------|------------|--------------------|-------------|---------------|------|---------|
+| calculate                       | form_uuid                               | NO_LABEL                       | yes      |                                                      |            |            | _99DCT             |             |               |      |         |
+| calculate                       | encounter_type_uuid                     | NO_LABEL                       | yes      |                                                      |            |            |                    |             |               |      |         |
+| begin group                     | group_assessment                        | Assessment                     |          |                                                      |            |            |                    |             |               |      |         |
+| select_one client_consented     | _1710_clientConsented_99DCT             | Has ${patient_name} consented? | yes      |                                                      |            |            |                    |             |               |      |         |
+| select_multiple disability_type | _162558_disabilityTypeMULTISELECT_99DCT | Disability type                | yes      |                                                      |            |            |                    |             |               |      |         |
+| text                            | _160632_Specify_99DCT                   | Specify (Other)                | yes      | ${_162558_disabilityTypeMULTISELECT_99DCT} = 'other' |            |            |                    |             |               |      |         |
+| end group                       |                                         |                                |          |                                                      |            |            |                    |             |               |      |         |
 
 ##### Choices
 
-| list_name         | name | label           |
-| ----------------- | ---- | --------------- |
-| client_consented            | _1065_Yes_99DCT  | Yes             |
-| client_consented            | _1066_No_99DCT   | No              |
-| disability_type            | _1058_vision_99DCT   | Vision              |
-| disability_type            | _1059_hearing_99DCT   | Hearing              |
-| disability_type            | _1060_mental_99DCT   | Mental              |
-| disability_type            | _1061_other_99DCT   | Other              |
+| list_name        | name                | label   |
+|------------------|---------------------|---------|
+| client_consented | _1065_Yes_99DCT     | Yes     |
+| client_consented | _1066_No_99DCT      | No      |
+| disability_type  | _1058_vision_99DCT  | Vision  |
+| disability_type  | _1059_hearing_99DCT | Hearing |
+| disability_type  | _1060_mental_99DCT  | Mental  |
+| disability_type  | _1061_other_99DCT   | Other   |
 
 Remember to convert and upload your forms
 ```zsh
