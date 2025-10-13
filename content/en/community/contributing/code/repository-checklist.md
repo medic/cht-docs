@@ -18,7 +18,7 @@ When creating a new CHT Product repository under [Medic's GitHub organization](h
 - [ ] Issue templates exist.
 - [ ] PR template exists.
 - [ ] PRs reference related issues.
-- [ ] Commit formats follow the [guidelines](/workflow/#commits). 
+- [ ] Commit formats follow the [guidelines](../workflow/#commits). 
 - [ ] Secrets are not part of the commit history or made public.
 - [ ] The following files exist:
     - `LICENSE` specifying AGPL-3.0 ([example](https://github.com/medic/cht-core/blob/master/LICENSE))
