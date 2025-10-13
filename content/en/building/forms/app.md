@@ -281,7 +281,7 @@ Calculates the number of whole calendar years between two dates.
 
 _Added in 4.2.0._
 
-This function invokes a configured [extension library](/extension-libs). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
+This function invokes a configured [extension library](/building/reference/extension-libs). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
 ### `cht:strip-whitespace`
 
