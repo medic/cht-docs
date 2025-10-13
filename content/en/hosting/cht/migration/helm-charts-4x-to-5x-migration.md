@@ -20,13 +20,14 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
 2. Update the `migration-5x-values.yaml` file to be compliant with  5.x deployment requirements:
 
    ```yaml
-   # Change field names
+   # Change field names - keep the same true/false value from your 4.x deployment
+   # Use true for multi-node deployments, false for single-node deployments
    couchdb:
      clusteredCouchEnabled: false  # was: clusteredCouch_enabled: false
    
-   # For most migrations, use "false". Use "true" for pre-created volumes for provisioning
+   # For most migrations, use false. Use true for pre-created volumes for provisioning
    couchdb_data:
-     preExistingDataAvailable: "false"  # Keep using dynamic storage provisioning  
+     preExistingDataAvailable: false  # Keep using dynamic storage provisioning  
    
    # Add required API service configuration
    api:
