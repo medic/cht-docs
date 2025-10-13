@@ -55,7 +55,7 @@ The following settings do not need to be specified. They should only be defined 
 
 ## SMS Workflows
 
-Workflows involving SMS are configured by defining [schedules](/building/reference/schedules), [registrations](/building/reference/registrations), [patient reports](/building/reference/patient_reports), and [case reports](/building/reference//accept_case_reports). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
+Workflows involving SMS are configured by defining [schedules](/building/reference/schedules), [registrations](/building/reference/registrations), [patient reports](/building/reference/patient_reports), and [case reports](/building/reference/accept_case_reports). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
 As of `3.11.0`, places are valid subjects for any SMS workflows.
 
 ## SMS recipient resolution
