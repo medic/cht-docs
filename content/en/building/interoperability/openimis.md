@@ -1,6 +1,6 @@
 ---
 title: "openIMIS Interoperability"
-linkTitle: "OpenIMIS"
+linkTitle: "openIMIS"
 weight: 5
 description: >
     Interoperability process between CHT and OpenIMIS for managing claims and their feedback.
