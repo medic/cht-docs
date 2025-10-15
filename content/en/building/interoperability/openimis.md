@@ -41,7 +41,7 @@ CHT and openIMIS.
 
    {{<callout type="info">}}
    Right now for each `ClaimResponse`, a new patient is created as 
-   the effort required because the work is still in POC stage. 
+  the use case is still in a proof-of-concept stage. 
    {{</callout>}}
 
 1. The task for the CHW requires the CHW to get input from the patient on the
