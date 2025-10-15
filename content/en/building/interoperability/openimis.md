@@ -1,5 +1,5 @@
 ---
-title: "OpenIMIS Interoperability"
+title: "openIMIS Interoperability"
 linkTitle: "OpenIMIS"
 weight: 5
 description: >
