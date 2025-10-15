@@ -40,7 +40,7 @@ CHT and openIMIS.
    creates the patient and creates a task for the respective CHW.
 
    {{<callout type="info">}}
-   Right now for each `ClaimResponse`, a new patient is created to minimize
+   Right now for each `ClaimResponse`, a new patient is created as 
    the effort required because the work is still in POC stage. 
    {{</callout>}}
 
