@@ -226,7 +226,9 @@ GET /api/v2/export/contacts?filters[search]=jim
 
 ### GET /api/v2/export/user-devices
 
-*Note* - This API has been deprecated because of a potential negative impact server performance.  Deployments with many users and many documents should consider not using this endpoint or consider only using it when end users will not be impacted.  An improved endpoint is [being planned](https://github.com/medic/cht-core/issues/10298) for a later date.
+{{< callout  type="warning" >}}
+`user-devices` API is deprecated as it potential negatively impacts server performance.  Deployments should consider not using this endpoint or use it only when end users will not be impacted.  An improved endpoint is [being planned](https://github.com/medic/cht-core/issues/10298) for a later date.
+{{< /callout >}}
 
 *Added in 4.7.0*
 
