@@ -15,18 +15,18 @@ relatedContent: >
 of social protection, e.g. health insurance, occupational accident
 insurance, voucher systems, cash transfers and social registries.
 
-# Use Case
+## Use Case
 
 openIMIS is a specialized system used by Nepal's social security division, which
 manages health insurance coverage. The goal of this interoperability project is
 to create an interoperable system that uses CHT's form feedback feature to gather
 information on the quality of healthcare patients receive on their insurance.
 
-#### Data exchange standard
+## Data exchange standard
 
 Data exchange between the systems has been done using [HL7 FHIR standard](https://www.hl7.org/fhir/).
 
-### Overview
+## Overview
 
 This section describes the workflow for the data exchange and integration between
 CHT and openIMIS.
@@ -51,9 +51,9 @@ CHT and openIMIS.
 
    {{< figure src="openimis_workflow.png" link="openimis_workflow.png" >}}
 
-#### Configuration
+### Configuration
 
-##### Environment variables
+#### Environment variables
 
 The CHT mediator needs to be setup with the following environment variables for
 a successful communication with openIMIS.
@@ -65,7 +65,7 @@ a successful communication with openIMIS.
 | `OPENIMIS_PASSWORD`              | openIMIS password for authentication                                                                    |
 | `CHT_OPENIMIS_CALLBACK_ENDPOINT` | The openIMIS server sends `ClaimResponse` data to this CHT mediator endpoint after a `Claim` is created |
 
-##### CHT Config
+#### CHT Config
 
 1. Add form for processing the `ClaimResponse` data in CHT. The form below is an example.
     ```json
@@ -213,7 +213,7 @@ a successful communication with openIMIS.
    } 
    ``` 
 
-#### Sample workflow
+### Sample workflow
 
 The following screenshots show a sample workflow of the interoperability between CHT and openIMIS.
 
