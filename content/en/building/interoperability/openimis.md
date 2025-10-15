@@ -33,7 +33,7 @@ CHT and openIMIS.
 
 1. CHT mediator subscribes to openIMIS for Resource type `Claim` using the FHIR standard
    `Subscription` endpoint. This means that every new `Claim` Resource that
-   is created at openIMIS, it is also sent to CHT.
+   is created at openIMIS is also sent to CHT.
 1. When a `Claim` is created at openIMIS, a `ClaimResponse` resource type is sent
    to CHT. CHT mediator extracts the Claim's UUID, Claim's ID, the Patient's ID,
    Claim Date and sends the data to CHT's records API(`/api/v2/records`) which
