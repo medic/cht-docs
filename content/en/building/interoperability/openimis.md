@@ -18,7 +18,7 @@ insurance, voucher systems, cash transfers and social registries.
 ## Use Case
 
 openIMIS is a specialized system used by Nepal's social security division, which
-manages health insurance coverage. The goal of this interoperability project is
+manages health insurance coverage. The goal of this use case is
 to create an interoperable system that uses CHT's form feedback feature to gather
 information on the quality of healthcare patients receive on their insurance.
 
