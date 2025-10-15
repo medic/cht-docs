@@ -37,7 +37,7 @@ CHT and openIMIS.
 1. When a `Claim` is created at openIMIS, a `ClaimResponse` resource type is sent
    to CHT. CHT mediator extracts the Claim's UUID, Claim's ID, the Patient's ID,
    Claim Date and sends the data to CHT's records API(`/api/v2/records`) which
-   creates the patient and also creates a task for the respective CHW as well.
+   creates the patient and creates a task for the respective CHW.
 
    {{<callout type="info">}}
    Right now for each `ClaimResponse`, a new patient is created to minimize
