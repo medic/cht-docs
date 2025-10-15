@@ -3,25 +3,21 @@ title: "openIMIS Interoperability"
 linkTitle: "openIMIS"
 weight: 5
 description: >
-    Interoperability process between CHT and OpenIMIS for managing claims and their feedback.
+    Interoperability process between CHT and openIMIS for managing claims and their feedback.
 keywords: openimis interoperability
 relatedContent: >
     building/interoperability/cht-config
     building/interoperability/openhim
     building/interoperability/openmrs
-aliases:
-    - /building/guides/interoperability/openimis
-
 ---
 
-[OpenIMIS](https://openimis.org/) is an open-source software for the administration
+[openIMIS](https://openimis.org/) is an open-source software for the administration
 of social protection, e.g. health insurance, occupational accident
 insurance, voucher systems, cash transfers and social registries.
 
-#### Use-Case
+# Use Case
 
-OpenIMIS is a specialized system used by Nepal's social security division, which
-manages health insurance coverage. The goal of this use case is to build an interoperable system that uses CHT's form feedback feature to gather information on the quality of healthcare patients receive under their insurance.
+openIMIS is a specialized system used by Nepal's social security division, which
 manages health insurance coverage. The goal of this interoperability project is
 to create an interoperable system that uses CHT's form feedback feature to gather
 information on the quality of healthcare patients receive on their insurance.
@@ -33,23 +29,25 @@ Data exchange between the systems has been done using [HL7 FHIR standard](https:
 ### Overview
 
 This section describes the workflow for the data exchange and integration between
-CHT and OpenIMIS.
+CHT and openIMIS.
 
-1. CHT mediator subscribes to OpenIMIS for Resource type `Claim` using the FHIR standard
+1. CHT mediator subscribes to openIMIS for Resource type `Claim` using the FHIR standard
    `Subscription` endpoint. This means that for every new `Claim` Resource that
-   is created at OpenIMIS, it is also sent to CHT.
-1. When a `Claim` is created at OpenIMIS, a `ClaimResponse` resource type is sent
+   is created at openIMIS, it is also sent to CHT.
+1. When a `Claim` is created at openIMIS, a `ClaimResponse` resource type is sent
    to CHT. CHT mediator extracts the Claim's UUID, Claim's ID, the Patient's ID,
    Claim Date and sends the data to CHT's records API(`/api/v2/records`) which
    creates the patient and also creates a task for the respective CHW as well.
 
-   _NOTE: right now for each `ClaimResponse`, a new patient is created to minimize_
-   _the effort required because the work is still in POC stage._
+   {{<callout type="info">}}
+   Right now for each `ClaimResponse`, a new patient is created to minimize
+   the effort required because the work is still in POC stage. 
+   {{</callout>}}
 
 1. The task for the CHW requires the CHW to get input from the patient on the
    on their experience with the insurance which is done through the CHT's feedback
    form. When the form is submitted, CHT mediator sends the questionnaire data back
-   to OpenIMIS.
+   to openIMIS.
 
    {{< figure src="openimis_workflow.png" link="openimis_workflow.png" >}}
 
@@ -58,14 +56,14 @@ CHT and OpenIMIS.
 ##### Environment variables
 
 The CHT mediator needs to be setup with the following environment variables for
-a successful communication with OpenIMIS.
+a successful communication with openIMIS.
 
 | Name                             | Description                                                                                             |
 |----------------------------------|---------------------------------------------------------------------------------------------------------|
-| `OPENIMIS_API_URL`               | URL of OpenIMIS instance                                                                                |
-| `OPENIMIS_USERNAME`              | OpenIMIS username for authentication                                                                    |
-| `OPENIMIS_PASSWORD`              | OpenIMIS password for authentication                                                                    |
-| `CHT_OPENIMIS_CALLBACK_ENDPOINT` | The OpenIMIS server sends `ClaimResponse` data to this CHT mediator endpoint after a `Claim` is created |
+| `OPENIMIS_API_URL`               | URL of openIMIS instance                                                                                |
+| `OPENIMIS_USERNAME`              | openIMIS username for authentication                                                                    |
+| `OPENIMIS_PASSWORD`              | openIMIS password for authentication                                                                    |
+| `CHT_OPENIMIS_CALLBACK_ENDPOINT` | The openIMIS server sends `ClaimResponse` data to this CHT mediator endpoint after a `Claim` is created |
 
 ##### CHT Config
 
@@ -98,10 +96,10 @@ a successful communication with OpenIMIS.
             "op_claim_id": {
                 "labels": {
                     "tiny": {
-                        "en": "openImis Claim Id"
+                        "en": "openIMIS Claim Id"
                     },
                     "short": {
-                        "en": "openImis Claim Id"
+                        "en": "openIMIS Claim Id"
                     }
                 },
                 "position": 1,
@@ -111,10 +109,10 @@ a successful communication with OpenIMIS.
             "op_claim_uuid": {
                 "labels": {
                     "tiny": {
-                        "en": "openImis Claim UUID"
+                        "en": "openIMIS Claim UUID"
                     },
                     "short": {
-                        "en": "openImis Claim UUID"
+                        "en": "openIMIS Claim UUID"
                     }
                 },
                 "position": 2,
@@ -188,7 +186,7 @@ a successful communication with OpenIMIS.
     To have the CHT send data to mediator when the feedback form is submitted, the
     following [outbound config]({{< ref "building/reference/app-settings/outbound" >}}) was added.
     It filter out all the documents with the form type to be `claims_feedback` and extracts the answers from
-    the form and sends it to OpenIMIS through the CHT mediator.
+    the form and sends it to openIMIS through the CHT mediator.
 
    ```json
    {
@@ -217,11 +215,11 @@ a successful communication with OpenIMIS.
 
 #### Sample workflow
 
-The following screenshots show a sample workflow of the interoperability between CHT and OpenIMIS.
+The following screenshots show a sample workflow of the interoperability between CHT and openIMIS.
 
-1. **Subscribe to OpenIMIS for `Claim` Resource type:**
+1. **Subscribe to openIMIS for `Claim` Resource type:**
 
-    The first step is to subscribe to OpenIMIS for `Claim` Resource type using the `Subscription` endpoint.
+    The first step is to subscribe to openIMIS for `Claim` Resource type using the `Subscription` endpoint.
     This is done by sending a `POST` request to the `Subscription` endpoint.
     ```bash
    curl --location 'https://<openimis-server>/api/api_fhir_r4/Subscription/' \
@@ -247,7 +245,7 @@ The following screenshots show a sample workflow of the interoperability between
 
 1. **Claim Request**
     
-    When a `Claim` is created at OpenIMIS, a `POST` request is sent to CHT mediator's
+    When a `Claim` is created at openIMIS, a `POST` request is sent to CHT mediator's
     callback endpoint with the `ClaimResponse` data.
     
     {{< figure src="openimis_claim_request.png" link="openimis_claim_request.png" >}}
@@ -424,8 +422,8 @@ The following screenshots show a sample workflow of the interoperability between
 
    {{< figure src="openimis_task_created.png" link="openimis_task_created.png" >}}
 
-1. Once the feedback form is submitted, the data is sent to OpenIMIS through the CHT mediator.
+1. Once the feedback form is submitted, the data is sent to openIMIS through the CHT mediator.
 
    {{< figure src="openimis_task_submitted.png" link="openimis_task_submitted.png" >}}
 
-This completes the interoperability process between CHT and OpenIMIS for managing claims.
+This completes the interoperability process between CHT and openIMIS for managing claims.
