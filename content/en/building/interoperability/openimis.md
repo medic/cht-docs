@@ -185,7 +185,7 @@ a successful communication with openIMIS.
    
     To have the CHT send data to mediator when the feedback form is submitted, the
     following [outbound config]({{< ref "building/reference/app-settings/outbound" >}}) was added.
-    It filter out all the documents with the form type to be `claims_feedback` and extracts the answers from
+    It filters out all the documents with the form type to be `claims_feedback` and extracts the answers from
     the form and sends it to openIMIS through the CHT mediator.
 
    ```json
