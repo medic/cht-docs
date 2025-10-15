@@ -413,7 +413,7 @@ The following screenshots show a sample workflow of the interoperability between
     } 
     ```
 
-1. A person is created using the form created in the CHT config section above.
+1. A person is created using the form created in the CHT Config section above.
 
    {{< figure src="openimis_claim_form.png" link="openimis_claim_form.png" >}}
    {{< figure src="openimis_new_person_created.png" link="openimis_new_person_created.png" >}}
