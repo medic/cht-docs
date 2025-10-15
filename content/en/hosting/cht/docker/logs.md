@@ -28,6 +28,34 @@ CHT has the following services running via Docker and each can have its logs que
 
 By default, the CHT server logs are set to the `info` level. To change the log level to `debug`, you can set the `NODE_ENV` environment variable to `development`.  A log level of `debug` can affect system performance and cause log files sizes to grow rapidly.  It is recommended to temporarily set the log level to `debug` only when needed for troubleshooting.
 
+### Configuring log level via environment variable
+
+From version 4.x onward, you can also set the log level explicitly using the `LOG_LEVEL` environment variable. This allows more flexibility when `NODE_ENV` alone isn’t sufficient.
+
+**Example usage:**
+
+```bash
+export LOG_LEVEL=debug
+docker compose up -d
+```
+
+Supported values include:
+
+* `error`
+* `warn`
+* `info`
+* `debug`
+
+If the `LOG_LEVEL` variable is **not set**, CHT applies the following defaults:
+
+* `debug` when `NODE_ENV=development`
+* `info` when `NODE_ENV=production`
+
+> [!NOTE]
+> Setting a lower log level (e.g., `debug`) may increase verbosity and reduce performance in production environments. Use only for troubleshooting.
+
+
+
 ## Viewing logs
 
 First, find the actual names of the containers with the  `docker ps --format '{{.Names}}'`  command which should show something like this:
