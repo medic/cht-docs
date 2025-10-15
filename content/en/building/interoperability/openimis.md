@@ -45,7 +45,7 @@ CHT and openIMIS.
    {{</callout>}}
 
 1. The task for the CHW requires the CHW to get input from the patient on the
-   on their experience with the insurance which is done through the CHT's feedback
+   experience with the insurance, which is done through the CHT's feedback
    form. When the form is submitted, CHT mediator sends the questionnaire data back
    to openIMIS.
 
