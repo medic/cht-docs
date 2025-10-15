@@ -226,6 +226,8 @@ GET /api/v2/export/contacts?filters[search]=jim
 
 ### GET /api/v2/export/user-devices
 
+*Note* - This API has been deprecated because of a potential negative impact server performance.  Deployments with many users and many documents should consider not using this endpoint or consider only using it when end users will not be impacted.  An improved endpoint is [being planned](https://github.com/medic/cht-core/issues/10298) for a later date.
+
 *Added in 4.7.0*
 
 Returns a JSON array of CHT-related software versions and device information for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
