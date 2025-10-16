@@ -3395,3 +3395,47 @@ You can also add it via Fauxton:
  - Click `Create`
  - You should then be able to see your credential in the list of configuration shown
 
+## Impact
+_Added in 5.0.0_
+
+### GET /api/v1/impact
+Returns aggregated impact metrics.
+#### Permissions
+Only available to online users.
+
+#### Examples
+```sh
+GET /api/v1/impact
+```
+```json
+{
+  "users": {
+    "count": 22
+  },
+  "contacts": {
+    "count": 200,
+    "by_type": [
+      { "type": "municipality", "count": 40 },
+      { "type": "person", "count": 160 }
+    ]
+  },
+  "reports": {
+    "count": 300,
+    "by_form": [
+      { "form": "pregnancy", "count": 180 },
+      { "form": "delivery",  "count": 120 }
+    ]
+  }
+}
+```
+
+#### Response content
+|JSON path|Type|Description|
+|--|--|--|
+|users.count|Number| Total number of users.
+|contacts.count|Number|Total number of contacts.
+|contacts.by_type[*].type|String|Name of the contact type.
+|contacts.by_type[*].count|Number|Total number of contacts with the type.
+|reports.count|Number|Total number of reports.
+|reports.by_form[*].type|String|Name of the form.
+|reports.by_form[*].count|Number|Total number of reports with the form.
