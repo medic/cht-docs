@@ -12,7 +12,7 @@ relatedContent: >
 ---
 
 [openIMIS](https://openimis.org/) is an open-source software for the administration
-of social protection, e.g. health insurance, occupational accident
+of social protection, for example health insurance, occupational accident
 insurance, voucher systems, cash transfers and social registries.
 
 ## Use Case
