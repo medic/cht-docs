@@ -3,7 +3,7 @@ title: "openIMIS Interoperability"
 linkTitle: "openIMIS"
 weight: 5
 description: >
-    Interoperability process between CHT and openIMIS for managing claims and their feedback.
+    Interoperability between CHT and openIMIS for managing claims and their feedback
 keywords: openimis interoperability
 relatedContent: >
     building/interoperability/cht-config
