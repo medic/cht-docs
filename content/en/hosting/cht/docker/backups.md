@@ -11,51 +11,36 @@ aliases:
   - /hosting/4.x/docker/backups/
 ---
 
-## Introduction 
+Assuming you have an Ubuntu server running Docker as described in our [Docker Production Hosting CHT](/hosting/cht/docker), the two main sets of files that need backing up are:
 
-As CHT 4.x uses a container per service, the only data that needs to be backed up is:
+* CouchDB directory: `/home/ubuntu/cht/couchdb`
+* `.env` file: `/home/ubuntu/cht/upgrade-service/.env`
 
-* CouchDB database
-* Docker Compose and `.env` files 
-* TLS certificates
+## Manual backup
 
-This is because Docker containers are inherently stateless so all the important binaries are already stored in [CHT's Docker images](https://gallery.ecr.aws/s5s3h4s7/).  Docker Compose files, including the `.env` file, store all of your deployment's configuration. Finally, the TLS certificates should be backed up to reduce recovery time.
+When a backup is needed in the short term, an ad hoc backup can suffice:
 
-How to backup each of these three pieces of data is covered below.
+{{% steps %}}
 
-Therefore, you do **not** need to back up the docker images for:
+### Create Directory
 
-* nginx
-* sentinel
-* api
-* haproxy
-* couchdb
-* healthcheck
-* upgrade-service
+Create a backup directory called `backup` in the `cht` directory: `mkdir /home/ubuntu/cht/backup`
 
-## Assumptions
+### Backup `.env`
 
-This guide assumes you have an Ubuntu server running CHT 4.x in Docker as described in our [Self Hosting in CHT 4.x - Single CouchDB Node](/hosting/cht/docker) guide. If you run `docker ps --format '{{.Names}}'` you should see something like this:
+Copy the `.env` to the newly created directory:  `cp /home/ubuntu/cht/upgrade-service/.env /home/ubuntu/cht/backup/`
 
-```
-cht_nginx_1
-cht_sentinel_1
-cht_api_1
-cht_haproxy_1
-cht_healthcheck_1
-cht_couchdb_1
-upgrade-service-cht-upgrade-service-1
-```
+###  Backup all CouchDB files
 
-If you run `docker volume ls` you should see something like this:
+Copy the `couchdb` directory, and all sub-directories:  `cp -r /home/ubuntu/cht/couch /home/ubuntu/cht/backup/`
 
-```
-DRIVER    VOLUME NAME
-local     cht_cht-credentials
-local     cht_cht-ssl
-```
+### Verify `.env`
 
-**Note** - In the volumes listed above, there is no volume for CouchDB data.  This is because the compose file declares this as a [bind mount](https://docs.docker.com/storage/bind-mounts/). Bind mounts use the host file system directly and do not show up in `docker volume ls` calls.  It's therefore assumed your CouchDB data location is declared in `/home/ubuntu/cht/upgrade-service/.env` which sets it with `COUCHDB_DATA=/home/ubuntu/cht/couchdb`.
+A critical part of a backup is verifying both that the backup was made to the destination, but also that a restore works.  See below for restore, but to verify
+
+{{% /steps %}}
+
+The docker compose files declares this as a [bind mount](https://docs.docker.com/storage/bind-mounts/). Bind mounts use the host file system directly and do not show up in `docker volume ls` calls.  It's therefore assumed your CouchDB data location is declared in `/home/ubuntu/cht/upgrade-service/.env` which sets it with `COUCHDB_DATA=/home/ubuntu/cht/couchdb`.
 
 You should have SSH access to the server with `root` access.
 
