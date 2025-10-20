@@ -15,6 +15,7 @@ As with all upgrades, major or minor, you should always:
 * Have [backups]({{< relref "/hosting/cht/docker/backups/" >}}) that have been tested to work
 * Ensure your [CHT Conf]({{< relref "/community/contributing/code/cht-conf/" >}}) version is up to date
 * Review the change log to understand how end users might be affected
+* Check [troubleshooting upgrades](/hosting/cht/upgrade-troubleshooting/) guide if the upgrade doesn't succeed
 
 Read though this entire document before upgrading and pay special attention to the "Breaking Changes" section to know which of of the changes are applicable.
 
