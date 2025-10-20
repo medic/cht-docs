@@ -32,7 +32,7 @@ following formats are supported:
 > A compatible value can be generated using the `toISOString` or `toValue` method
 on a Javascript Date object.
 > 
-> ##### Examples
+> **Examples**
 > - 2011-10-10T14:48:00-0300
 > - 2016-07-01T13:48:24+00:00
 > - 2016-07-01T13:48:24Z
@@ -225,6 +225,10 @@ GET /api/v2/export/contacts?filters[search]=jim
 ```
 
 ### GET /api/v2/export/user-devices
+
+{{< callout  type="warning" >}}
+`user-devices` API is deprecated as it potential negatively impacts server performance.  Deployments should consider not using this endpoint or use it only when end users will not be impacted.  An improved endpoint is [being planned](https://github.com/medic/cht-core/issues/10298) for a later date.
+{{< /callout >}}
 
 *Added in 4.7.0*
 
@@ -3391,3 +3395,47 @@ You can also add it via Fauxton:
  - Click `Create`
  - You should then be able to see your credential in the list of configuration shown
 
+## Impact
+_Added in 5.0.0_
+
+### GET /api/v1/impact
+Returns aggregated impact metrics.
+#### Permissions
+Only available to online users.
+
+#### Examples
+```sh
+GET /api/v1/impact
+```
+```json
+{
+  "users": {
+    "count": 22
+  },
+  "contacts": {
+    "count": 200,
+    "by_type": [
+      { "type": "municipality", "count": 40 },
+      { "type": "person", "count": 160 }
+    ]
+  },
+  "reports": {
+    "count": 300,
+    "by_form": [
+      { "form": "pregnancy", "count": 180 },
+      { "form": "delivery",  "count": 120 }
+    ]
+  }
+}
+```
+
+#### Response content
+|JSON path|Type|Description|
+|--|--|--|
+|users.count|Number| Total number of users.
+|contacts.count|Number|Total number of contacts.
+|contacts.by_type[*].type|String|Name of the contact type.
+|contacts.by_type[*].count|Number|Total number of contacts with the type.
+|reports.count|Number|Total number of reports.
+|reports.by_form[*].type|String|Name of the form.
+|reports.by_form[*].count|Number|Total number of reports with the form.

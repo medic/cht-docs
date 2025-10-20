@@ -22,10 +22,11 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 4.21.x  | Supported | 25-Jun-2025  | TBA         |
-| 4.20.x  | Supported | 04-Jun-2025  | 25-Sep-2025 |
-| 4.19.x  | Supported | 13-May-2025  | 04-Sep-2025 |
-| 4.18.x  | Supported | 20-Mar-2025  | 13-Aug-2025 |
+| 4.22.x  | Supported | 10-Oct-2025  | TBA         |
+| 4.21.x  | Supported | 25-Jun-2025  | 10-Jan-2026 |
+| 4.20.x  | EOL       | 04-Jun-2025  | 25-Sep-2025 |
+| 4.19.x  | EOL       | 13-May-2025  | 04-Sep-2025 |
+| 4.18.x  | EOL       | 20-Mar-2025  | 13-Aug-2025 |
 | 4.17.x  | EOL       | 05-Feb-2025  | 20-Jun-2025 |
 | 4.16.x  | EOL       | 16-Jan-2025  | 05-May-2025 |
 | 4.15.x  | EOL       | 20-Nov-2024  | 16-Apr-2025 |
@@ -53,27 +54,27 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 The following table shows the dependencies for deploying the CHT.
 
-| cht-core         | NodeJS | CouchDB | Supported browsers | SMS bridge | Android OS | cht-android | cht-sync |
-|------------------|--------|---------|----|----|----|----|---|
-| **4.16.x+**      | 22     | 3.4.2+  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
-| **4.4.x-4.15.x** | N/A    | 3.3.2+  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
-| **4.0.x-4.3.x**  | N/A    | 2.x     | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+ | 1.0+ | 1.1.0+ |
-| **3.x**          | 8.11+  | 2.x     | Chrome 53+, Firefox latest | cht-gateway | 4.4+ | 0.4.5+ | 1.1.0+ |
-| **2.x**          | 6+     | 1.6+    | Chrome 30+, Firefox latest | cht-gateway | 4.4+ | Any | N/A |
-| **0.4**          | 0.12+  | 1.6+    | Chrome 30+, Firefox latest | SMSSync | N/A | N/A | N/A |
+| cht-core         | NodeJS | CouchDB | Supported browsers                                     | SMS bridge  | Android OS | cht-android | cht-sync |
+|------------------|--------|---------|--------------------------------------------------------|-------------|------------|-------------|----------|
+| **4.16.x+**      | 22     | 3.4.2+  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
+| **4.4.x-4.15.x** | N/A    | 3.3.2+  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
+| **4.0.x-4.3.x**  | N/A    | 2.x     | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
+| **3.x**          | 8.11+  | 2.x     | Chrome 53+, Firefox latest                             | cht-gateway | 4.4+       | 0.4.5+      | 1.1.0+   |
+| **2.x**          | 6+     | 1.6+    | Chrome 30+, Firefox latest                             | cht-gateway | 4.4+       | Any         | N/A      |
+| **0.4**          | 0.12+  | 1.6+    | Chrome 30+, Firefox latest                             | SMSSync     | N/A        | N/A         | N/A      |
 
-{{< see-also page="/hosting/cht/requirements" title="/hosting Requirements" >}}
+{{< see-also page="/hosting/cht/requirements" title="hosting Requirements" >}}
 
 ### Client Devices
 
 The following is the minimum specification recommendation for smartphones to handle the typical workload of front line health workers. Users with particularly high workloads or facility or supervisor workloads will require more powerful devices.
 
-| Specification | Minimum | Recommended |
-|--|--| -- |
-| Android version | 5.0 | 9.0+ |
-| Processor | 1.0GHz dual-core |  2.0GHz quad-core |
-| RAM | 1GB | 2GB |
-| Storage | 8GB | 16GB |
+| Specification   | Minimum          | Recommended      |
+|-----------------|------------------|------------------|
+| Android version | 5.0              | 9.0+             |
+| Processor       | 1.0GHz dual-core | 2.0GHz quad-core |
+| RAM             | 1GB              | 2GB              |
+| Storage         | 8GB              | 16GB             |
 
 If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
 
@@ -87,6 +88,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 4.x
+- [4.22.0](/releases/4_22_0) - 2025-10-10
 - [4.21.1](/releases/4_21_1) - 2025-07-30
 - [4.21.0](/releases/4_21_0) - 2025-06-25
 - [4.20.1](/releases/4_20_1) - 2025-07-30
