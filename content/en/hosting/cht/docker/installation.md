@@ -102,7 +102,7 @@ Docker will start the upgrade service, which in turn pulls the required images a
 
 To follow the progress tail the log of the upgrade service container by running this:
 
-`docker logs -f upgrade-service_cht-upgrade-service_1`
+`docker logs -f upgrade-service-cht-upgrade-service-1`
 
 To make sure everything is running correctly, call `docker ps` and make sure that 7 CHT containers show:
 
