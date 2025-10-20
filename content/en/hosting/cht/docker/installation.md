@@ -107,14 +107,14 @@ To follow the progress tail the log of the upgrade service container by running 
 To make sure everything is running correctly, call `docker ps` and make sure that 7 CHT containers show:
 
 ```shell
-CONTAINER ID   IMAGE                                                         COMMAND                   CREATED          STATUS         PORTS                                                                      NAMES
-8c1c22d526f3   public.ecr.aws/s5s3h4s7/cht-nginx:4.0.1-4.0.1                 "/docker-entrypoint.…"    17 minutes ago   Up 8 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp   cht_nginx_1
-f7b596be2721   public.ecr.aws/s5s3h4s7/cht-api:4.0.1-4.0.1                   "/bin/bash /api/dock…"    17 minutes ago   Up 8 minutes   5988/tcp                                                                   cht_api_1
-029cd86ac721   public.ecr.aws/s5s3h4s7/cht-sentinel:4.0.1-4.0.1              "/bin/bash /sentinel…"    17 minutes ago   Up 8 minutes                                                                              cht_sentinel_1
-61ee1e0b377b   public.ecr.aws/s5s3h4s7/cht-haproxy-healthcheck:4.0.1-4.0.1   "/bin/sh -c \"/app/ch…"   17 minutes ago   Up 8 minutes                                                                              cht_healthcheck_1
-87415a2d91ea   public.ecr.aws/s5s3h4s7/cht-haproxy:4.0.1-4.0.1               "/entrypoint.sh -f /…"    17 minutes ago   Up 8 minutes   5984/tcp                                                                   cht_haproxy_1
-58454457467a   public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.1-4.0.1               "tini -- /docker-ent…"    17 minutes ago   Up 8 minutes   4369/tcp, 5984/tcp, 9100/tcp                                               cht_couchdb_1
-d01343658f3f   public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest            "node /app/src/index…"    17 minutes ago   Up 8 minutes                                                                              upgrade-service-cht-upgrade-service-1
+CONTAINER ID   IMAGE                                                 COMMAND                   CREATED              STATUS              PORTS                                                                          NAMES
+8fa9625929f2   public.ecr.aws/medic/cht-nginx:4.21.1                 "/docker-entrypoint.…"    About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp   cht-nginx-1
+8cffee82f5d0   public.ecr.aws/medic/cht-api:4.21.1                   "/bin/bash /service/…"    About a minute ago   Up About a minute   5988/tcp                                                                       cht-api-1
+5b7fb45ec122   public.ecr.aws/medic/cht-sentinel:4.21.1              "/bin/bash /service/…"    About a minute ago   Up About a minute                                                                                  cht-sentinel-1
+2ead8d40874f   public.ecr.aws/medic/cht-haproxy:4.21.1               "/entrypoint.sh"          About a minute ago   Up About a minute   5984/tcp                                                                       cht-haproxy-1
+6e13a4abf21e   public.ecr.aws/medic/cht-haproxy-healthcheck:4.21.1   "/bin/sh -c \"/app/ch…"   About a minute ago   Up About a minute                                                                                  cht-healthcheck-1
+fc5816b19336   public.ecr.aws/medic/cht-couchdb:4.21.1               "tini -- /docker-ent…"    About a minute ago   Up About a minute   4369/tcp, 5984/tcp, 9100/tcp                                                   cht-couchdb-1
+953ff81ce484   public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest    "node /app/src/index…"    About a minute ago   Up About a minute                                                                                  upgrade-service-cht-upgrade-service-1
 ```
 
 This should show related to the CHT core are running
