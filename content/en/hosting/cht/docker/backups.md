@@ -115,7 +115,7 @@ This example assumes a server called `backup.server` exists with a `borg` user o
 From your CHT Server, make sure your SSH [keys are shared](https://www.howtouselinux.com/post/ssh-authorized_keys-file) such that you can transparently SSH to your remote server and that `borg` executable is installed and available to your user:
 
 ```shell
-ssh backup.server "borg --version;whoami;date;hostname"
+ssh borg@backup.server "borg --version;whoami;date;hostname"
 ```
 
 This should show similar output as below:
@@ -127,12 +127,98 @@ Mon Oct 20 09:31:11 PM UTC 2025
 backup-server
 ```
 
-### Create an append only repository
+### Create a new `borg` repository
 
-As `borg` uses a push backup process, ensure that backups can only be appended.  This will prevent a malicious actor from deleting all proir backups, allowing only new backups to be appended. Replace `PASSWORD` with your real password.
+On your CHT server, create a new repository `cht` on the `backup.server` server.  Be sure to replace `PASSWORD` with your real password here and all subsequent calls:
 
 ```shell
-BORG_PASSPHRASE='PASSWORD' borg init --encryption repokey-blake2 --append-only backup.server:cht
+BORG_PASSPHRASE='PASSWORD' borg init --encryption repokey-blake2 borg@backup.server:cht
+```
+
+### Manually run `borg`
+
+To ensure our repository is working correctly, manually call `borg` from your CHT server:
+
+```shell
+BORG_PASSPHRASE='PASSWORD' borg create borg@backup.server:cht::$(date "+%y-%m-%d_%H:%M:%S") /home/ubuntu/cht/couchdb /home/ubuntu/cht/upgrade-service/.env
+```
+
+### Verify backup
+
+On your backup server, verify the manually run backup was successful:
+
+```shell
+BORG_PASSPHRASE='PASSWORD' borg list /home/borg/cht                                     
+```                                                                           
+
+This will show the backup you just ran:
+
+```shell
+25-10-20_15:21:04      Mon, 2025-10-20 22:21:05 [a7698bb7275e3e947234e3d25c3b2084c14b5fd4dd5313f6bc1fef38ecbbca41]
+```
+
+By passing in the name of the backup `25-10-20_15:21:04` to the `list` call, we can see all the files in the backup:
+
+```shell
+BORG_PASSPHRASE='PASSWORD' borg list /home/borg/cht::25-10-20_15:21:04
+```
+
+Here is a truncated version of the output
+
+```shell
+drwxr-xr-x   5984   5984        0 Mon, 2025-10-20 20:15:56 home/ubuntu/cht/couchdb      
+drwxr-xr-x   5984   5984        0 Mon, 2025-10-20 20:15:57 home/ubuntu/cht/couchdb/.delete
+-rw-r--r--   5984   5984     8389 Mon, 2025-10-20 20:15:50 home/ubuntu/cht/couchdb/_nodes.couch
+-rw-r--r--   5984   5984    49361 Mon, 2025-10-20 20:21:56 home/ubuntu/cht/couchdb/_dbs.couch
+drwxr-xr-x   5984   5984        0 Mon, 2025-10-20 20:15:54 home/ubuntu/cht/couchdb/shards
+drwxr-xr-x   5984   5984        0 Mon, 2025-10-20 20:21:56 home/ubuntu/cht/couchdb/shards/15555555-2aaaaaa9
+...
+-rw-r--r-- ubuntu ubuntu      932 Mon, 2025-10-20 20:15:37 home/ubuntu/cht/upgrade-service/.env
+```
+
+### Create a cron job
+
+Now it's time to automate the backup so it runs without human intervention. Open a cron editor on your CHT production server:
+
+```shell
+crontab -e
+```
+
+Enter in this at the bottom of the file:
+
+```shell
+# m h    dom mon dow   command
+0   */4  *   *   *     BORG_PASSPHRASE='PASSWORD' borg create borg@backup.server:cht::$(date "+%y-%m-%d_%H:%M:%S") /home/ubuntu/cht/couchdb /home/ubuntu/cht/upgrade-service/.env
+```
+
+Listing your crontab should show the above command:
+
+```shell
+crontab -l
+```
+
+### Verify cron job
+
+Wait 24 hours.  On the backup server, when you call `borg list...` you should see many entries.  Be sure to inspect them to verify that everything is as it should be.
+
+### Optional 1: Prune backups
+
+With the current set up, backups will grow forever in size eventually filling the disk of your backup server.  To prune these so the don't do this, you can set up a cronjob on the backup server to run once per day. This call will keep the past 10 days, keep 4 end of weeks and 1 monthly:
+
+```shell
+BORG_PASSPHRASE='PASSWORD' borg prune  --list --keep-within=10d --keep-weekly=4 --keep-monthly=-1 /home/borg/cht
+```
+
+See the [prune docs](https://borgbackup.readthedocs.io/en/master/usage/prune.html) for more information
+
+### Optional 2: Only allow append
+
+As configured above, an attacker who gained access to your production CHT server, could delete your productoin data and then use `borg` to remotely delete all your backups.  
+
+To prevent this, on your backup server, edit the `/home/borg/.ssh/authorized_keys` file to set a [forced command](https://stackoverflow.com/questions/12346769/ssh-forced-command-parameters).  Prepend this before the SSH Key for your `borg` user:
+
+```shell
+command="borg serve --append-only --restrict-to-path /home/borg/cht",no-pty,no-agent-forwarding,no-port-forwarding,no-X11-forwarding,no-user-rc  ssh-ed25519 AAA...
 ```
 
 {{% /steps %}}
