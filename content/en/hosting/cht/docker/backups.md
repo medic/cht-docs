@@ -11,10 +11,16 @@ aliases:
   - /hosting/4.x/docker/backups/
 ---
 
-Assuming you have an Ubuntu server running Docker as described in our [Docker Production Hosting CHT](/hosting/cht/docker), the two main sets of files that need backing up are:
+Assuming you have a CHT server based off the [Docker Hosting](/hosting/cht/docker) guide, the two main sets of files that need backing up are:
 
 * CouchDB directory: `/home/ubuntu/cht/couchdb`
 * `.env` file: `/home/ubuntu/cht/upgrade-service/.env`
+
+If you changed these paths during install, please be sure to update the paths accordingly below.
+
+Backups should be sure to follow the 3-2-1 rule:
+
+> There should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location. _- [Wikipedia](https://en.wikipedia.org/wiki/Backup)_
 
 ## Manual backup
 
@@ -24,78 +30,122 @@ When a backup is needed in the short term, an ad hoc backup can suffice:
 
 ### Create Directory
 
-Create a backup directory called `backup` in the `cht` directory: `mkdir /home/ubuntu/cht/backup`
+Create a backup directory called `backup` in the `cht` directory: 
+
+```shell
+mkdir /home/ubuntu/cht/backup
+```
 
 ### Backup `.env`
 
-Copy the `.env` to the newly created directory:  `cp /home/ubuntu/cht/upgrade-service/.env /home/ubuntu/cht/backup/`
+Copy the `.env` to the newly created directory:  
+
+```shell
+cp /home/ubuntu/cht/upgrade-service/.env /home/ubuntu/cht/backup/
+```
 
 ###  Backup all CouchDB files
 
-Copy the `couchdb` directory, and all sub-directories:  `cp -r /home/ubuntu/cht/couch /home/ubuntu/cht/backup/`
+Copy the `couchdb` directory, and all sub-directories:  
+
+```shell
+cp -r /home/ubuntu/cht/couchdb /home/ubuntu/cht/backup/
+```
 
 ### Verify `.env`
 
-A critical part of a backup is verifying both that the backup was made to the destination, but also that a restore works.  See below for restore, but to verify
+A critical part of a backup is verifying both that the backup was made to the destination, but also that a restore works.  See below for restore, but to verify files were copied we can first check the `.env` files are identical with `md5sum`:
+
+```shell
+md5sum /home/ubuntu/cht/upgrade-service/.env /home/ubuntu/cht/backup/.env
+```
+
+Ensure the resulting IDs match as seen here:
+
+```shell
+d0f3db77002732fafded733e4b4f85f0  /home/ubuntu/cht/upgrade-service/.env
+d0f3db77002732fafded733e4b4f85f0  /home/ubuntu/cht/backup/.env
+```
+
+### Verify CouchDB
+
+Check that the file count and directory sizes of `couchdb` directories matches as well:
+
+```shell
+echo "CouchDB Prod";du -h -d1 /home/ubuntu/cht/couchdb
+echo "CouchDB Backup";du -h -d1 /home/ubuntu/cht/backup/couchdb
+
+echo "CouchDB Prod";ls -R /home/ubuntu/cht/backup/couchdb |wc -l
+echo "CouchDB Backup";ls -R /home/ubuntu/cht/couchdb |wc -l
+```
+
+Running this should show a similar output to below:
+
+```shell
+CouchDB Prod
+0       /home/ubuntu/cht/couchdb/.delete
+4.7M    /home/ubuntu/cht/couchdb/shards
+1.2M    /home/ubuntu/cht/couchdb/.shards
+5.9M    /home/ubuntu/cht/couchdb
+CouchDB Backup
+0       /home/ubuntu/cht/backup/couchdb/.delete
+4.7M    /home/ubuntu/cht/backup/couchdb/shards
+1.2M    /home/ubuntu/cht/backup/couchdb/.shards
+5.9M    /home/ubuntu/cht/backup/couchdb
+
+CouchDB Prod
+174
+CouchDB Backup
+174
+```
 
 {{% /steps %}}
 
-The docker compose files declares this as a [bind mount](https://docs.docker.com/storage/bind-mounts/). Bind mounts use the host file system directly and do not show up in `docker volume ls` calls.  It's therefore assumed your CouchDB data location is declared in `/home/ubuntu/cht/upgrade-service/.env` which sets it with `COUCHDB_DATA=/home/ubuntu/cht/couchdb`.
 
-You should have SSH access to the server with `root` access.
+## Automated backup
 
-### Backup software
+The above manual process is good for a one off backup done by hand.  For ongoing backups, automation that runs regularly is key for success.  Humans often forget to run tasks like backup, where as computers will never forget. This guide will be using `borg` [software](https://borgbackup.readthedocs.io/en/stable/quickstart.html), but administrators should use the software they're most familiar with.
 
-It's assumed you are using which ever tool you're familiar with which might include [rsync](https://rsync.samba.org/examples.html), [borg](https://borgbackup.readthedocs.io/en/stable/), [duplicity](https://duplicity.gitlab.io/) or other solution. The locations of the backups should follow the 3-2-1 rule:
+This example assumes a server called `backup.server` exists with a `borg` user on it. Backing up to a remote server means that if your production server gets entirely deleted, your backups are safe.
 
-> There should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location. _- [Wikipedia](https://en.wikipedia.org/wiki/Backup)_
+{{% steps %}}
 
-Duplicity has the handy benefit of offering built in encryption using [GPG](https://gnupg.org/). Consider using this if you don't have an existing solution for encrypted backups. 
+### Verify SSH connection
 
-## CouchDB
+From your CHT Server, make sure your SSH [keys are shared](https://www.howtouselinux.com/post/ssh-authorized_keys-file) such that you can transparently SSH to your remote server and that `borg` executable is installed and available to your user:
 
-> [!CAUTION]
-> CouchDB backups, by necessity, will have PII and PHI.  They should be safely stored to prevent unauthorized access including encrypting backups. 
+```shell
+ssh backup.server "borg --version;whoami;date;hostname"
+```
 
-Assuming your CouchDB is stored in `/home/ubuntu/cht/couchdb`, you should use these steps to back it up:
+This should show similar output as below:
 
-1. While you don't need to stop CouchDB to back it up, ensure you follow best practices to back it up. See the [CouchDB site](https://docs.couchdb.org/en/stable/maintenance/backups.html) for more info. Note it is NOT recommended to use replication for backup.
-2. It is strongly recommended you encrypt your backups given the sensitivity of the contents. Do this now before copying the backup files to their long term location.
-3. Backup the CouchDB files using the [software specified above](#backup-software)
+```shell
+borg 1.2.8
+borg
+Mon Oct 20 09:31:11 PM UTC 2025
+backup-server
+```
 
+### Create an append only repository
 
-## Docker Compose files
+As `borg` uses a push backup process, ensure that backups can only be appended.  This will prevent a malicious actor from deleting all proir backups, allowing only new backups to be appended. Replace `PASSWORD` with your real password.
 
-> [!CAUTION]
-> The `.env` file contains cleartext passwords.  It should be safely stored to prevent unauthorized access.
+```shell
+BORG_PASSPHRASE='PASSWORD' borg init --encryption repokey-blake2 --append-only backup.server:cht
+```
 
-All compose files, and the corresponding `.env` file, are in these three locations:
+{{% /steps %}}
 
-* /home/ubuntu/cht/compose/*.yml
-* /home/ubuntu/cht/upgrade-service/*.yml
-* /home/ubuntu/cht/upgrade-service/.env
+## Restore
 
-While all three of these are trivial to recreate by downloading them again, they may change over time so should be archived with your CouchDB data.  Further, when there's been a critical failure of a production CHT instance, you want to be sure to make the restore process as speedy as possible.
-
-As all of these files are only read when Docker first loads a service, you can simply copy them whenever you want without stopping any of the CHT services.  They should be copied with the same frequency and put in the same location as the CouchDB data using the [backup software specified above](#backup-software).
-
-
-## TLS certificates
-
-> [!CAUTION]
-> The `.key` file is the private key for TLS certificate.  It should be safely stored to prevent unauthorized access.
-
-Like the compose files, the TLS certificate files can easily be regenerated or re-downloaded from your Certificate Authority, like Let's Encrypt for example. However, you want to have a backup of the at the ready to ease the restore process.
-
-1. Copy the cert and key files from the nginx container:
-
-   ```shell
-   docker cp cht_nginx_1:/etc/nginx/private/key.pem .
-   docker cp cht_nginx_1:/etc/nginx/private/cert.pem .
-   ```
-2. Back the up to the same location and frequency as the CouchDB data using the [backup software specified above](#backup-software).
+TK
 
 
-## Testing backups
+{{% steps %}}
 
-A backup that isn't tested, is effectively not a backup.  For a backup to be successful, a complete restore from all locations in the 3-2-1 plan need to be fully tested and documented as to how a restore works.  The more practiced and better documented the restore process, the less downtime a production CHT instance will have after data loss.
+### Step 1
+
+TK
+
+{{% /steps %}}
