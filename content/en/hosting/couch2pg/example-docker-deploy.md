@@ -9,7 +9,7 @@ description: >
   CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](/hosting/analytics).
 {{< /callout >}}
 
-This guide is for Docker Compose on Ubuntu.  See related [NodeJS on Ubuntu](/hosting/couch2pg/exmple-nodejs-deploy)  guide.
+This guide is for Docker Compose on Ubuntu.  See related [NodeJS on Ubuntu](/hosting/couch2pg/example-nodejs-deploy)  guide.
 
 ## Assumptions
 
