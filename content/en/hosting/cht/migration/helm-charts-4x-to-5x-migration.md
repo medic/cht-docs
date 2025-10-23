@@ -46,7 +46,7 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
    cht_image_tag: 5.0.0
    ```
 
-3. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
+4. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
    
   {{< tabs items="GKE,EKS,K3s-K3d" >}}
 
