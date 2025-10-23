@@ -16,6 +16,13 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
    ```bash
    helm get values <your-release-name> --namespace <your-namespace> > migration-5x-values.yaml
    ```
+2. Be sure all booleans are unquoted by running these two `sed` commands which will correct them in the `migration-5x-values.yaml` file:
+ 
+   ```
+   sed -i 's/: "false"/: false/g' migration-5x-values.yaml
+   sed -i 's/: "true"/: true/g' migration-5x-values.yaml
+   ```
+
 
 2. Update the `migration-5x-values.yaml` file to be compliant with  5.x deployment requirements:
 
