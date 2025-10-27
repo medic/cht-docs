@@ -195,7 +195,7 @@ JavaScript:
    - Disabled
       - [`S2699`](https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
          - Disabled due of rigidity of the rule when detecting `expect` imports and calls to imported functions that have assertions
-      - [`S7728`](https://rules.sonarsource.com/javascript/RSPEC-7728/) - Use "for...of" loops instead of "forEach" method calls
+      - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
           - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
 
 Python:
