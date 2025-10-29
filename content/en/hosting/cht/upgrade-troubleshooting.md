@@ -55,7 +55,7 @@ TypeError: fetch failed
 
 **Fix:**
 1. Wait until there are no more [active tasks](https://michellephung.github.io/Fauxton-Visual-Guide/#page-active-tasks).  
-2. When there's no more active tasks, start the same upgrade again from the admin UI.  It should succeed without any errors this time.
+2. When there are no more active tasks, start the same upgrade again from the admin UI.  It should succeed without any errors this time.
 
 {{< figure src="upgrade.again.png" link="upgrade.again.png" caption="Admin web GUI showing 'Error triggering update' message at the top, and an arrow pointing to 'Install' button as the next step" >}}
 
