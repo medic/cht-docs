@@ -57,7 +57,7 @@ As of [CHT 4.2.0]({{< relref "/releases/4_2_0/#technical-improvements" >}}), dep
 
 Before upgrading, ensure [your app settings]({{< relref "/building/reference/app-settings/#app_settingsjson" >}}) has the correct languages enabled. This is backwards compatible and safe to do while still on CHT 4.x. If you're unsure if this applies to you, double check your app settings.
 
-If `launguages` is not set, the login screen will show all languages.  Fix it by declaring the `launguages` per above.
+If `languages` is not set, the login screen will show all languages.  Fix it by declaring the `languages` per above.
 
 Background information:
 * [Deprecate enabling languages through generated docs](https://github.com/medic/cht-core/issues/8157)
