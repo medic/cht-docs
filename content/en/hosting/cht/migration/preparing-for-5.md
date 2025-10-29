@@ -34,14 +34,10 @@ A recurring problem seen on production deployments was that, over time, CHT admi
 
 To avoid this situation, the upgrade service has been removed from Kubernetes based deployments.
 
-<!-- 
-    todo: fix TK link to technical guide: 
-    tracking in: https://github.com/medic/cht-docs/pull/1989
-    URL will be: hosting/cht/migration/helm-charts-4x-to-5x-migration
--->
-Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository. Please see the TK technical guide on how to migrate Kubernetes based deployments to 5.0.
+Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository. Please see the [technical guide](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) on how to migrate Kubernetes based deployments to 5.0.
 
 Background information:
+* [Add documentation for migrating from 4.x medic/helm-charts to the new production charts in 5.x cht-core](https://github.com/medic/cht-docs/issues/1943)
 * [Hide upgrade button in admin app for k8s deployments, while still allowing staging upgrades](https://github.com/medic/cht-core/issues/9954)
 * [Remove upgrade service from Helm charts](https://github.com/medic/cht-core/issues/10186)
 
