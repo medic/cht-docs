@@ -67,12 +67,22 @@ Background information:
 
 ### Declarative Configuration 
 
-{{< callout type="info" >}} Applies to: All Instances {{< /callout >}}
+{{< callout type="info" >}}Applies to: All Instances{{< /callout >}}
 
-<!-- 
-    todo: add missing TK content on how to make a declarative config
--->
-tk - all the content ;)  - but upgrade your app settings to be declarative.
+Deployments that have not compiled their app settings config in a very long time with a new version of CHT Conf,  when logging in as an offline user may see, `Error: Rules Engine: Rules are not declarative. Updates are required.`
+
+Additionally, the web developer console will show:
+
+```shell
+Error selecting contact Error: Rules Engine: Rules are not declarative. Updates are required.
+ERROR Error: Uncaught (in promise): TypeError: Cannot read properties of null (reading 'doc')
+TypeError: Cannot read properties of null (reading 'doc')
+```
+
+The fix is to:
+1. Update [CHT Conf](/community/contributing/code/cht-conf/) to be current
+2. Recompile the app settings and upload them to the CHT. Be sure to replace the value of `--url` to the current password, URL and port: `cht --url=https://medic:password@example.com:12345 compile-app-settings upload-app-settings`
+
 
 Background information:
 * [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
