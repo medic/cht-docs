@@ -4,7 +4,6 @@ linkTitle: "Preparing for 5.0"
 weight: 
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 5.0 and later
-  
 ---
 
 ## Introduction
