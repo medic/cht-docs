@@ -31,9 +31,11 @@ In CHT 4.x there are two ways to upgrade a Kubernetes hosted CHT instance:
 
 A recurring problem seen on production deployments was that, over time, CHT administrators would use the CHT administration interface to upgrade.  Then, during a migration or a restore from backup, Kubernetes administrators would inadvertently downgrade a CHT instance by using an out of date Helm chart.
 
-To avoid this situation, the upgrade service has been removed from Kubernetes based deployments.
+To avoid this situation, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
 
-Kubernetes based deployments will need to follow the migration steps from the deprecated [CHT 4.x Helm Charts repository](https://github.com/medic/helm-charts/) to the new [CHT 5.x Helm Charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) in the main CHT repository. Please see the [technical guide](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) on how to migrate Kubernetes based deployments to 5.0.
+![k8s.no.upgrade.button.png](preparing-for-5/k8s.no.upgrade.button.png)
+
+Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
 
 Background information:
 * [Add documentation for migrating from 4.x medic/helm-charts to the new production charts in 5.x cht-core](https://github.com/medic/cht-docs/issues/1943)
