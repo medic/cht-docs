@@ -38,7 +38,7 @@ If you're able to, after a restart go back into the admin web GUI and try to upg
 
 **[Issue #10296](https://github.com/medic/cht-core/issues/10296)**:  Requests will fail due to fetch implementation if headers are not sent within 5 minutes
 
-API:
+API error: 
 
 ```shell
 TypeError: fetch failed
