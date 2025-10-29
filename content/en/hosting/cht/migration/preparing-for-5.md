@@ -1,5 +1,5 @@
 ---
-title: "Preparing to upgrade to CHT 5.0"
+title: "Preparing to Upgrade to CHT 5.0"
 linkTitle: "Preparing for 5.0"
 weight: 
 description: >
