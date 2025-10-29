@@ -138,7 +138,7 @@ jq -r '.[] |  select(.apk|length> 0)
 
 The resulting file `devices.csv` will have all of your users sorted by the version of Chrome they use.  Scroll to the bottom and find any users running a version lower than `107` and ensure they update to a newer version.  The easiest way to upgrade is to open the Play Store and update any out of date software, being sure to update [WebView](https://play.google.com/store/apps/details?id=com.google.android.webview&hl=en).
 
-For instances with users who share devices, or have multiple devices they log in on, they may have multiple entries. Thi is because the CHT creates one entry per device per user. Be sure to upgrade all affected devices!
+For instances with users who share devices, or have multiple devices they log in on, they may have multiple entries. This is because the CHT creates one entry per device per user. Be sure to upgrade all affected devices!
 
 Background information:
 * [Upgrade to Angular 20](https://github.com/medic/cht-core/issues/10029)
