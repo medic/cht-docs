@@ -12,9 +12,6 @@ description: >
   
 ---
 
-> [!NOTE] 
-> This guide applies to both self-hosted and Medic hosted deployments.
-
 ## Introduction
 
 Medic uses [Semantic Versioning](https://en.wikipedia.org/wiki/Semver#Semantic_versioning) (aka "SemVer") which means that the CHT upgrade from the major 3.x version to the 4.x version denotes there are breaking changes. The key to a successful upgrade will be to understand and plan for these breaking changes. Aside from the Docker hosting infrastructure (out of scope for this prep document), the two breaking changes are around CHT Android and Enketo.
