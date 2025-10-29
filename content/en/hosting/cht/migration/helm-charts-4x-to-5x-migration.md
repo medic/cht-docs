@@ -129,11 +129,4 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
 | Storage Class | `local-storage` | `local-path` | K3s-K3d | Minor |
 | Structure | Flat config | Nested couchdb configuration | All | Medium |
 
-## Getting Help
-
-If you encounter issues during migration:
-
-1. Check the [CHT Documentation](https://docs.communityhealthtoolkit.org/)
-2. Review the [CHT Forum](https://forum.communityhealthtoolkit.org/)
-3. Open an issue in the [CHT Core Repository](https://github.com/medic/cht-core/issues)
 
