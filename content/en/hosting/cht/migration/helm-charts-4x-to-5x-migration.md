@@ -1,4 +1,8 @@
-# CHT 4.x to 5.x Helm Charts Migration Guide
+---
+title: "CHT 4.x to 5.x Helm Charts Migration Guide"
+linkTitle: "Helm Charts 4.x to 5.x"
+weight: 70
+---
 
 ## Overview
 
