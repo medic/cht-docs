@@ -146,7 +146,9 @@ Background information:
 
 ## Non-Breaking Changes
 
-These changes apply to all deployments.  No specific action needs to be taken, but administrators should be aware of the changes.
+{{< callout >}}
+These changes apply to all deployments.  No specific action is required, but administrators should be aware of the changes.
+{{< /callout >}}
 
 ### CouchDB Nouveau
 
