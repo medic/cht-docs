@@ -120,7 +120,9 @@ Before starting, be sure `curl`, `jq` and `sort` are installed. In Ubuntu server
 curl https://user:password:URL/api/v2/export/user-devices > devices.json 
 ```
 
-**Note**: for large instances with more than 2,000 users, run the API call after hours.  It can have an adverse impact on CHT server performance.
+{{< callout type="warning" >}}
+For large instances with more than 2,000 users, run the API call after hours.  It can have an adverse impact on CHT server performance.
+{{< /callout >}}
 
 Now that you have the `devices.json` JSON file, flatten it into a CSV file with just one row per user. Note that we're only finding users of the APK (`select(.apk|length> 0)`) and the Chrome browser (`select(.browser.name == "Chrome"`). This excludes desktop and Firefox users which will show up in the JSON as well.  Finally, we're also only showing users active since `2025-04-01`, 6 months ago as of this writing (`select(.date > "2025-04-01")`).  Be sure to update this date to be a relative 6 months ago from when you run the command:
 
