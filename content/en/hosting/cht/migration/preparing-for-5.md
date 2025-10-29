@@ -152,7 +152,7 @@ A major feature of CHT 5.0 is replacing the old freetext search in 4.x with Couc
 
 Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 
-* Offline users' devices will have their search indexes rebuilt after the upgrade. During the rebuild, search functionality will be initially unavailable. However, once the indexing is complete, the search behavior will be unchanged from before for all users:  the search experience is the same in both CHT 4.x and CHT 5.x.
+* Offline users' devices will have their search indexes rebuilt after the upgrade. During the rebuild, search functionality will be initially unavailable. However, once indexing is complete, the search behavior will remain unchanged for all users: the search experience is the same in both CHT 4.x and CHT 5.x.
 * The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
 * The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
 
