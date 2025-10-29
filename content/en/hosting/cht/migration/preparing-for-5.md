@@ -55,7 +55,7 @@ Background information:
 
 {{< callout type="info" >}} Applies to: Instances that enable languages via web interface {{< /callout >}}
 
-As of [CHT 4.2.0]({{< relref "/releases/4_2_0/#technical-improvements" >}}), deployment administrators can enable or disable supported languages [via the settings file]({{< relref "/building/reference/app-settings/#app_settingsjson" >}}). CHT 5.0 removes this web interface to enable or disable languages and requires this to be done via App Settings.
+As of [CHT 4.2.0]({{< relref "/releases/4_2_0/#technical-improvements" >}}), deployment administrators can enable or disable supported languages [via the settings file]({{< relref "/building/reference/app-settings/#app_settingsjson" >}}). 
 
 Before upgrading, ensure [your app settings]({{< relref "/building/reference/app-settings/#app_settingsjson" >}}) has the correct languages enabled. This is backwards compatible and safe to do while still on CHT 4.x. If you're unsure if this applies to you, double check your app settings.
 
