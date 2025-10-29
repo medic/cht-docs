@@ -152,7 +152,7 @@ These changes apply to all deployments.  No specific action is required, but adm
 
 ### CouchDB Nouveau
 
-A major feature of CHT 5.0 is replacing the old freetext search in 4.x with CouchDB Nouveau. The addition of Nouveau [decreases the amount of disk space](https://github.com/medic/cht-core/issues/9898#issuecomment-2864545914) used by the CHT.  Disk space has been shown to be a major contributor to hosting costs, hence Nouveau is the first feature to [reduce Hosting Total Cost of Ownership (TCO)](https://github.com/medic/cht-roadmap/issues/171).
+A major feature of CHT 5.0 is replacing the freetext search in 4.x with CouchDB Nouveau. The addition of Nouveau [decreases the amount of disk space](https://github.com/medic/cht-core/issues/9898#issuecomment-2864545914) used by the CHT.  Disk space is a major contributor to hosting costs, hence Nouveau is a feature meant to [reduce Hosting Total Cost of Ownership (TCO)](https://github.com/medic/cht-roadmap/issues/171).
 
 Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 
