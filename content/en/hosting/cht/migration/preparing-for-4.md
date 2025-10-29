@@ -1,20 +1,16 @@
 ---
 title: "Preparing to upgrade to CHT 4.0"
-linkTitle: "Preparing to upgrade to CHT 4.0"
-weight:
+linkTitle: "Preparing for 4.0"
+weight: 60
 aliases:
   - /apps/guides/hosting/3.x/preparing-for-4.0
   - /apps/guides/updates/preparing-for-4.md
   - /apps/guides/updates/preparing-for-4/
   - /building/guides/updates/preparing-for-4/
-date: 2022-09-01
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 4.0 and later
   
 ---
-
-> [!NOTE] 
-> This guide applies to both self-hosted and Medic hosted deployments.
 
 ## Introduction
 

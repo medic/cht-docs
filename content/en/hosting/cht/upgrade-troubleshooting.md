@@ -10,10 +10,6 @@ aliases:
   - /hosting/4.x/upgrade-troubleshooting/
 ---
 
-{{< callout >}}
-  4.0.0 was released in November of 2022 so 4.x is mature and users have learned a number of important lessons on how to fix failed upgrades.  Below are some specific tips as well as general practices on upgrading.
-{{< /callout >}}
-
 There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage. An alternate possibility is that the progress bars disappear altogether. 
 
 > [!WARNING]
@@ -33,6 +29,31 @@ When troubleshooting, consider making sure there are:
 A safe fix for any upgrade getting stuck is to restart all services.  Any views that were being re-indexed will be picked up where they left off without losing any work.  This should be your first step when trouble shooting a stuck upgrade. 
 
 If you're able to, after a restart go back into the admin web GUI and try to upgrade again.  Consider trying this at least twice.
+
+## CHT 4.18.0 - 4.21.1: Error triggering update
+
+**[Issue #10296](https://github.com/medic/cht-core/issues/10296)**:  Requests will fail due to fetch implementation if headers are not sent within 5 minutes
+
+API error: 
+
+```shell
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:15445:13
+    at async /home/diana/.config/JetBrains/WebStorm2025.2/scratches/fetchtimeout.js:2:13 {
+  [cause]: HeadersTimeoutError: Headers Timeout Error
+      at FastTimer.onParserTimeout [as _onTimeout] (node:internal/deps/undici/undici:6821:32)
+      at Timeout.onTick [as _onTimeout] (node:internal/deps/undici/undici:528:17)
+      at listOnTimeout (node:internal/timers:608:17)
+      at process.processTimers (node:internal/timers:543:7) {
+    code: 'UND_ERR_HEADERS_TIMEOUT'
+}
+```
+
+**Fix:**
+1. Wait until there are no more [active tasks](https://michellephung.github.io/Fauxton-Visual-Guide/#page-active-tasks).  
+2. When there are no more active tasks, start the same upgrade again from the admin UI.  It should succeed without any errors this time.
+
+{{< figure src="upgrade.again.png" link="upgrade.again.png" caption="Admin web GUI showing 'Error triggering update' message at the top, and an arrow pointing to 'Install' button as the next step" >}}
 
 ## CHT 4.0.x - 4.3.x: CouchDB Crashes
 
