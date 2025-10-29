@@ -45,7 +45,7 @@ Background information:
 
 {{< callout type="info" >}} Applies to: Instances that use [token login]({{< relref "/building/login/#magic-links-for-logging-in-token-login" >}}) {{< /callout >}}
 
-For instances that use token login,  be sure declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.
+For instances that use token login,  be sure to declare `app_url` in your [settings file]({{< relref "/building/reference/app-settings/token_login/#app_settingsjson-token_login" >}}). This is backwards compatible and safe to do while still on CHT 4.x.
 
 Background information:
 * [Require `app_url` to be set when enabling `token_login`](https://github.com/medic/cht-core/issues/9983)
