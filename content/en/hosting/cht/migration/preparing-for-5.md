@@ -1,7 +1,7 @@
 ---
 title: "Preparing to Upgrade to CHT 5.0"
 linkTitle: "Preparing for 5.0"
-weight: 50
+weight: 10
 description: >
   Steps to ensure your CHT App will run smoothly on CHT 5.0 and later
 ---

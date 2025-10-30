@@ -1,7 +1,7 @@
 ---
 title: "Migration from Docker Compose CHT 3.x to 3-Node Clustered CHT 4.x on K3s"
-linkTitle: "To K3s Multi-node"
-weight: 1
+linkTitle: "To K3s Multi-Node"
+weight: 40
 description: >
   Guide to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x clustered K3s deployment with 3 CouchDB nodes
 aliases:
