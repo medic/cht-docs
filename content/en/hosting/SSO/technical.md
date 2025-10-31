@@ -1,5 +1,5 @@
 ---
-title: SSO technical reference
+title: SSO Technical Reference
 linkTitle: Technical
 weight: 400
 ---
@@ -8,7 +8,7 @@ weight: 400
 Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
 {{< /callout >}}
 
-CHT `4.20.0` introduced the single sign on (SSO) feature allowing deployments to use the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol to authenticate users.  Below are some key points on the SSO functionality in the CHT. See the [technical design document](https://docs.google.com/document/d/1LUn1ZRetAmYE04CtdcTmp-bEBvl37AZ0CvFXZChXqfU/edit?tab=t.0) for all the details.
+Single Sign-On (SSO) feature allows deployments to use the industry standard [OpenID Connect](https://openid.net/) (OIDC) protocol to authenticate users. Below are some key points on the SSO functionality in the CHT. See the [technical design document](https://docs.google.com/document/d/1LUn1ZRetAmYE04CtdcTmp-bEBvl37AZ0CvFXZChXqfU/edit?tab=t.0) for more details.
 
 ## Setup 
 
@@ -26,7 +26,7 @@ A user with the `oidc_username` property is only allowed to log in with SSO. Any
 
 To convert an SSO user in the CHT back to a normal CHT user (with username/password authentication), simply remove the user's `oidc_username` (by deleting the value from the "SSO Email Address" field). A new password must then be set for the user. All the user's existing sessions will be invalidated and the user must log in again (this time by using their CHT username/password).
 
-## CHT User session 
+## CHT User Session 
 
 Once an SSO user has successfully authenticated with the CHT (by completing the OIDC flow), their browser receives a valid Couch session cookie (equivalent to the session cookies provided to normal CHT users). For all subsequent operations, the CHT does not distinguish between SSO and non-SSO users since both types of users are authenticating with the same type of session cookie.
 
