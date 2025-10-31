@@ -1,24 +1,25 @@
 ---
-title: "Troubleshooting upgrades"
-linkTitle: "Troubleshooting upgrades"
+title: "Troubleshooting Upgrades"
+linkTitle: "Troubleshooting Upgrades"
 weight: 50
 description: >
   What to do when CHT upgrades don't work as planned
 relatedContent: >
-  hosting/cht/migration/migration-to-4x-docker
+  hosting/cht/migration
 aliases:
   - /hosting/4.x/upgrade-troubleshooting/
 ---
 
-There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage. An alternate possibility is that the progress bars disappear altogether. 
-
-> [!WARNING]
-> All tips apply to both [Docker](/hosting/cht/docker) and [Kubernetes](/hosting/cht/kubernetes) based deployments unless otherwise specified.
-> All upgrades are expected to succeed without issue.  Do not attempt any fixes unless you actively have a problem upgrading.
+{{< callout type="warning" >}}
+All tips apply to both [Docker](/hosting/cht/docker) and [Kubernetes](/hosting/cht/kubernetes) based deployments unless otherwise specified.
+All upgrades are expected to succeed without issue.  Do not attempt any fixes unless you actively have a problem upgrading.
+{{< /callout >}}
 
 ## Considerations
 
-When troubleshooting, consider making sure there are:
+There's a concept of upgrades "getting stuck" which mainly means that after many many hours an upgrade is not making any progress.  Most likely, this will manifest as the progress bars in the  upgrade admin web UI not increasing and "sticking" at a certain percentage. An alternate possibility is that the progress bars disappear altogether. 
+
+When troubleshooting, consider making sure that:
 
 * Backups exist and restores have been tested 
 * Extra disk space is availabe (up to 5x!)
@@ -99,7 +100,9 @@ Upgrade process stalls while trying to index staged views:
 
 ## CHT 4.0.1 - 4.9.0: CouchDB restart causes all services to go down
 
-**Note** - This is a Docker only issue.
+{{< callout type="info" >}}
+This is a Docker only issue.
+{{< /callout >}}
 
 **[Issue #9284](https://github.com/medic/cht-core/issues/9284)**:   A couchdb restart in single node docker takes down the whole instance.  The upgrade will fail and you will see the logs below when you have this issue.
 
@@ -126,7 +129,7 @@ nginx reports:
 
 ## CHT 4.x.x upgrade to 4.x.x - no more free disk space  
 
-**Issue\*:** Couch is crashing during upgrade. The upgrade will fail and you will see the logs below when you have this issue. While there's two log scenarios, both have the same fix. 
+**Issue:** Couch is crashing during upgrade. The upgrade will fail and you will see the logs below when you have this issue. While there's two log scenarios, both have the same fix. 
 
 CouchDB logs scenario 1:
 
@@ -151,9 +154,11 @@ _* See eCHIS Kenya [Issue #2578](https://github.com/moh-kenya/config-echis-2.0/i
 
 ## CHT 4.2.x upgrade to 4.11  - Kubernetes has pods stuck in indeterminate state
 
-**Note** - This is a Kubernetes only issue.
+{{< callout type="info" >}}
+This is a Kubernetes only issue.
+{{< /callout >}}
 
-**Issue\*:**  A number of pods were stuck in indeterminate state, presumably because of failed garbage collection
+**Issue:**  A number of pods were stuck in indeterminate state, presumably because of failed garbage collection
 
 API Logs:
 
@@ -173,3 +178,7 @@ kubectl delete po 'cht.service in (api, sentinel, haproxy, couchdb)'
 ```
 
 _* See eCHIS Kenya [Issue #2579](https://github.com/moh-kenya/config-echis-2.0/issues/2579#issuecomment-2455637516) - a private repo and not available to the public_
+
+
+## Related forum posts
+- ["Restoring corrupted couchdb database"](https://forum.communityhealthtoolkit.org/t/restoring-corrupted-couchdb-database/4551/1)

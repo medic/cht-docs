@@ -1,7 +1,7 @@
 ---
 title: "Migration from CHT 3.x to CHT 4.x"
 linkTitle: "To Docker Single-Node"
-weight: 3
+weight: 60
 description: >
   Guide to migrate existent data from CHT 3.x to CHT 4.x
 aliases:
@@ -10,7 +10,9 @@ aliases:
 ---
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps.
+
 This guide will present the required steps while using a migration helping tool, called `couchdb-migration`. This tool interfaces with CouchDb, to update shard maps and database metadata.
+
 By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.
 Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#moving-a-shard).
 
