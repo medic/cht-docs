@@ -171,7 +171,7 @@ webapp/online --> webapp/cht-datasource/offline/pouch -->|GET <_id>| api/router
 api/router --> |GET <_id>| couchdb
 ```
 
-#### Dataflow with cht-datasource
+#### With cht-datasource
 
 ```mermaid
 flowchart TD
