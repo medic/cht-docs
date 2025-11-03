@@ -149,3 +149,72 @@ App Management is a single page application built with [AngularJS](https://angul
   - **/modules**: Contains the vanilla JavaScript scripts.
 - **/template**: Contains the HTML templates that are used in the AngularJS components and directives.
 
+## Data Flows
+
+#### Without cht-datasource
+
+```mermaid
+flowchart TD
+subgraph webapp
+  webapp/online[/Online User\]
+  webapp/offline[/Offline User\]
+  webapp/cht-datasource/offline/pouch[PouchDB]
+end
+subgraph api
+  replication{Replication}
+  api/router(( ))
+end
+couchdb[(CouchDB)]
+replication -->|POST medic/_bulk_get| couchdb
+webapp/offline --> webapp/cht-datasource/offline/pouch -->|/api/replication| replication
+webapp/online --> webapp/cht-datasource/offline/pouch -->|GET <_id>| api/router
+api/router --> |GET <_id>| couchdb
+```
+
+#### With cht-datasource
+
+```mermaid
+flowchart TD
+subgraph webapp
+  webapp/online[/Online User\]
+  webapp/offline[/Offline User\]
+
+  subgraph webapp/cht-datasource[cht-datasource]
+    webapp/cht-datasource/online/fetch[fetch]
+    webapp/cht-datasource/offline/pouch[PouchDB]
+  end
+end
+subgraph api
+  subgraph api/cht-datasource[cht-datasource]
+    api/cht-datasource/pouch[PouchDB]
+  end
+  replication{Replication}
+end
+couchdb[(CouchDB)]
+api/cht-datasource/pouch -->|GET medic/<_id>| couchdb
+webapp/offline --> webapp/cht-datasource/offline/pouch -->|/api/replication| replication
+webapp/online --> webapp/cht-datasource/online/fetch -->|GET api/v1/person| api/cht-datasource
+replication --> |POST medic/_bulk_get| couchdb
+```
+
+#### Replication algorithm (simplified)
+
+```mermaid
+sequenceDiagram
+    participant webapp
+    participant api
+    participant couchdb
+
+    webapp ->>api: GET api/replicaiton/get-ids
+    api ->>couchdb: Query view <br />medic/docs_by_replication_key
+    couchdb ->>api: Returns docs for users hierarchy/shortcode
+    api ->>api: Filter our purged docs
+    api ->>webapp: Returns list of all doc ids/revs <br />accessible to the user
+    webapp ->>webapp: Compares with ids of all local docs
+    webapp ->>couchdb: POST medic/_bulk_get <br />(with the missing ids)
+    couchdb ->> webapp: Returns requested docs
+    webapp ->>api: POST api/v1/replication/get-deletes <br />(with local ids not returned from get-ids)
+    api <<->> couchdb: Uses allDocs to check deleted status
+    api ->>webapp: Returns list of docs to be deleted
+    webapp ->>webapp: Deletes docs
+```
