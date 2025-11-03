@@ -151,7 +151,7 @@ App Management is a single page application built with [AngularJS](https://angul
 
 ## Data Flows
 
-#### Dataflow without cht-datasource
+#### Without cht-datasource
 
 ```mermaid
 flowchart TD
