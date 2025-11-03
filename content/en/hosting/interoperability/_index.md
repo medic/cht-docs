@@ -15,7 +15,6 @@ The CHT Interoperability Stack (CHT + OpenHIM + FHIR) can be deployed to Kuberne
 The Helm chart deploys:
 
 - **CHT (Community Health Toolkit)**: API, Nginx, Sentinel, and CouchDB
-- p
 - **OpenHIM**: Health information mediator with Core API, Router, Console UI, and MongoDB
 - **HAPI FHIR**: FHIR R4 server with PostgreSQL database
 - **Custom Services**: Configurator for initial setup and Mediator for integration logic
