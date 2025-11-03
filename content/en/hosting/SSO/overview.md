@@ -45,7 +45,7 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
 For more detailed guides and requirements, see the following documents:
 
 {{< cards >}}
-  {{< card link="keycloak" title="KeyCloak" icon="key" >}}
-  {{< card link="entra" title="Microsoft Entra" icon="lock-open" >}}
-  {{< card link="technical" title="Technical Reference" icon="terminal" >}}
+  {{< card link="../keycloak" title="KeyCloak" icon="key" >}}
+  {{< card link="../entra" title="Microsoft Entra" icon="lock-open" >}}
+  {{< card link="../technical" title="Technical Reference" icon="terminal" >}}
 {{< /cards >}}
