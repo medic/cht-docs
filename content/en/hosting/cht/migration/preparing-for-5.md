@@ -88,11 +88,11 @@ The fix is to:
 Background information:
 * [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
 
-### Increase ecmaVersion ES linting to version 6
+### CHT 4.0 - 4.4 upgrade to CHT 4.5 first
 
 {{< callout type="info" >}} Applies to: CHT versions between 4.0 and 4.4  {{< /callout >}}
 
-Deployments running CHT Version 4.0 through 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x.
+Deployments running CHT Version 4.0 through 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x. This accounts for changes to ecmaVersion ES linting to version 6.
 
 Background information:
 * [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
