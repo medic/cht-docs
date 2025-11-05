@@ -1327,12 +1327,18 @@ Example response:
 }
 ```
 
-### PUT /api/v1/person
+### PUT /api/v1/person/{{uuid}}
 
 *Added in 5.0.0*
 
 #### Description
 Used to update mutable fields of a person, or delete them if they are not part of update payload.
+
+#### URL Parameters
+
+| Variable | Description                                |
+| -------- | ------------------------------------------ |
+| uuid     | ID of the person document to be updated.   |
 
 #### Supported Properties
 
@@ -1344,7 +1350,6 @@ Should have `can_edit` or both `can_view_contacts` and `can_update_people`.
 #### Required immutable fields
 | Field         | Description                                                   | Format                                                   |
 |---------------|---------------------------------------------------------------|----------------------------------------------------------|
-| _id           | ID of the person document to be updated.                       | UUID string                                              |
 | _rev          | Revision ID of the person document to be updated.              | string                                                   |
 | reported_date | Timestamp of when the record was reported or created.          | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
 | contact_type  | Required if the type of the person is `contact`.               | string                                                   |
@@ -1384,9 +1389,8 @@ Original Doc:
 
 Request Body:
 ```bash
-PUT /api/v1/person
+PUT /api/v1/person/4dcd842e813fd1bcabec03f98f004c96
 {
-    "_id": "4dcd842e813fd1bcabec03f98f004c96",
     "_rev": "1-1492a8ddf25a350cdd35c217a561f27a",
     "name": "dummyuser",
     "type": "contact",
@@ -1866,12 +1870,18 @@ Response:
 }
 ```
 
-### PUT /api/v1/place
+### PUT /api/v1/place/{{uuid}}
 
 *Added in 5.0.0*
 
 #### Description
 Used to update mutable fields of a place, or delete them if they are not part of update payload.
+
+#### URL Parameters
+
+| Variable | Description                                |
+| -------- | ------------------------------------------ |
+| uuid     | ID of the place document to be updated.    |
 
 #### Supported Properties
 
@@ -1883,7 +1893,6 @@ Should have `can_edit` or both `can_view_contacts` and `can_update_places`.
 #### Required immutable fields
 | Field         | Description                                                                                      | Format                              |
 |---------------|--------------------------------------------------------------------------------------------------|-------------------------------------|
-| _id           | ID of the place document to be updated.                                                           | UUID string                         |
 | _rev          | Revision ID of the place document to be updated.                                                  | string                              |
 | reported_date | Timestamp of when the record was reported or created.                                             | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
 | contact_type  | Required if the type of the place is `contact`.                                                   | string                              |
@@ -1921,11 +1930,10 @@ Original place object:
 
 Request:
 ```bash
-PUT /api/v1/place
+PUT /api/v1/place/36aed043a50315f00f625af18c004bcf
 Content-Type: application/json
 
 {
-    "_id": "36aed043a50315f00f625af18c004bcf",
     "_rev": "1-d29dc4cf44845f0c1842bcd57390d1d3",
     "name": "new place",
     "type": "contact",
@@ -2474,12 +2482,18 @@ Response:
 }
 ```
 
-### PUT /api/v1/report
+### PUT /api/v1/report/{{uuid}}
 
 *Added in 5.0.0*
 
 #### Description
 Used to update a report.
+
+#### URL Parameters
+
+| Variable | Description                                |
+| -------- | ------------------------------------------ |
+| uuid     | ID of the report document to be updated.   |
 
 #### Supported Properties
 
@@ -2494,7 +2508,6 @@ Should have `can_view_reports` and `can_update_records`.
 | type          | Type of the report.                                           | string                                           |
 | contact       | Contact document associated with the report.                  | Minified or hydrated contact lineage             |
 | reported_date | Timestamp of when the record was reported or created.         | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
-| _id           | ID of the report document to be updated.                      | UUID string                                      |
 | _rev          | Revision ID of the report document to be updated.             | string                                           |
 
 
@@ -2530,10 +2543,9 @@ Original Document:
 
 Request:
 ```bash
-PUT /api/v1/report
+PUT /api/v1/report/b8208fa332bf1f09b606e6efd8002a4a
 Content-type: application/json
 {
-    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
     "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
     "form": "pregnancy_danger_sign",
     "type": "data_record",
