@@ -92,7 +92,7 @@ Background information:
 
 {{< callout type="info" >}} Applies to: CHT versions between 4.0 and 4.4  {{< /callout >}}
 
-Deployments running CHT Version 4.0 and 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x.
+Deployments running CHT Version 4.0 through 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x.
 
 Background information:
 * [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
