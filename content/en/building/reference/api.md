@@ -1261,7 +1261,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/person
 
-*Added in 5.0.0*
+*Added in 5.1.0*
 
 #### Description
 Used to create a person.
@@ -1329,7 +1329,7 @@ Example response:
 
 ### PUT /api/v1/person/{{uuid}}
 
-*Added in 5.0.0*
+*Added in 5.1.0*
 
 #### Description
 Used to update mutable fields of a person, or delete them if they are not part of update payload.
@@ -1796,7 +1796,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/place
 
-*Added in 5.0.0*
+*Added in 5.1.0*
 
 #### Description
 Used to create a place.
@@ -1872,7 +1872,7 @@ Response:
 
 ### PUT /api/v1/place/{{uuid}}
 
-*Added in 5.0.0*
+*Added in 5.1.0*
 
 #### Description
 Used to update mutable fields of a place, or delete them if they are not part of update payload.
@@ -2420,7 +2420,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/report
 
-*Added in 5.0.0*
+*Added in 5.1.0*
 
 #### Description
 Used to create a report.
@@ -2484,7 +2484,7 @@ Response:
 
 ### PUT /api/v1/report/{{uuid}}
 
-*Added in 5.0.0*
+*Added in 5.1.0*
 
 #### Description
 Used to update a report.
