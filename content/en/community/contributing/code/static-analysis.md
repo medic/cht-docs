@@ -216,5 +216,5 @@ TypeScript:
       - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
    - Disabled
-       - [`S7728`](https://rules.sonarsource.com/javascript/RSPEC-7728/) - Use "for...of" loops instead of "forEach" method calls
+       - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
            - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
