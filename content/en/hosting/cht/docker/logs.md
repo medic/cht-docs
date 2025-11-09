@@ -26,13 +26,18 @@ CHT has the following services running via Docker and each can have its logs que
 
 ## Setting log level
 
-By default, the CHT server logs are set to the `info` level, regardless of the environment (`NODE_ENV`).  
+By default, the CHT server logs are set to the `info` level.
+
+> [!NOTE]
+> From version 5.1.0 onward, the `NODE_ENV` value will not affect logging verbosity.  
+> Use the `LOG_LEVEL` environment variable instead to control log detail.
+  
 
 To adjust the verbosity, you can set the `LOG_LEVEL` environment variable before starting the containers.
 
 ### Configuring log level via environment variable
 
-From version 4.x onward, the log level can be configured explicitly using the `LOG_LEVEL` environment variable. This allows admins to control log verbosity independently of the `NODE_ENV` setting.
+From version 5.1.0 onward, the log level can be configured explicitly using the `LOG_LEVEL` environment variable. This allows admins to control log verbosity independently of the `NODE_ENV` setting.
 
 **Example usage:**
 
@@ -47,12 +52,6 @@ Supported values include:
 * `warn`
 * `info`
 * `debug`
-
-If LOG_LEVEL is **not set**, , the system defaults to info.
-
-> [!NOTE]
-> The NODE_ENV variable no longer affects logging verbosity. Use LOG_LEVEL to manage log detail. Setting a lower log level (like debug) may reduce performance in production, so use it only for troubleshooting.
-
 
 
 ## Viewing logs
