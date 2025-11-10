@@ -1,5 +1,5 @@
 ---
-title: "CHT hosting requirements"
+title: "CHT Hosting Requirements"
 linkTitle: "Requirements"
 weight: 2
 description: >
@@ -55,5 +55,5 @@ Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/
 {{< /callout >}}
 
 
-## Required skills
+## Required Skills
 In addition to the hosting requirements, system administrators should have a basic understanding of command line interface, Kubernetes, Docker, container orchestration, deployment, databases (CouchDB, Postgres), networking components (TLS, IP addresses, DNS).
