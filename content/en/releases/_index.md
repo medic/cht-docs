@@ -22,7 +22,8 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 4.22.x  | Supported | 10-Oct-2025  | TBA         |
+| 5.0.x   | Supported | tk-Nov-2025  | TBA         |
+| 4.22.x  | Supported | 10-Oct-2025  | tk-Nov-2026 |
 | 4.21.x  | Supported | 25-Jun-2025  | 10-Jan-2026 |
 | 4.20.x  | EOL       | 04-Jun-2025  | 25-Sep-2025 |
 | 4.19.x  | EOL       | 13-May-2025  | 04-Sep-2025 |
@@ -89,7 +90,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 5.x
-- [5.0.0](/releases/5_0_0) - 2025-11-??
+- [5.0.0](/releases/5_0_0) - 2025-11-tk
 
 ### 4.x
 - [4.22.0](/releases/4_22_0) - 2025-10-10
