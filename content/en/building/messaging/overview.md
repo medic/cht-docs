@@ -13,15 +13,15 @@ The main list is a combination of both outgoing and incoming messages. Messages 
 The features on the Messages tab are best supported on desktop and most often used by someone in a supervisor role.
 
 {{< cards rows="4" >}}
-{{< card link="messages-mobile.png" image="messages-mobile.png"  method="resize">}}
-{{< card link="messages-desktop.png" image="messages-desktop.png"  method="resize">}}
+{{< card link="messages-mobile.png" image="messages-list-mobile.png"  method="resize">}}
+{{< card link="messages-desktop.png" image="messages-conversation-desktop.png"  method="resize">}}
 {{< /cards >}}
 
 ## Main List
 
 
 {{< cards rows="4" >}}
-{{< card link="messages-mobile.png" image="messages-mobile.png"  method="resize">}}
+{{< card link="messages-mobile.png" image="messages-list-mobile.png"  method="resize">}}
 {{< /cards >}}
 
 On the main list of messages, the first line of bold text is the name and / or phone number of the sender. The second line is an excerpt from the most recent message, and the third line, if applicable, is the place(s) that the sender belongs to. 
@@ -34,7 +34,7 @@ To send a new message that starts a brand new conversation thread, select the â€
 ## Detail Page
 
 {{< cards rows="4" >}}
-{{< card link="messages-detail.png" image="messages-detail.png"  method="resize">}}
+{{< card link="messages-detail.png" image="messages-conversation-mobile.png"  method="resize">}}
 {{< /cards >}}
 
 
