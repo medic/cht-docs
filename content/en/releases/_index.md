@@ -58,7 +58,7 @@ The following table shows the dependencies for deploying the CHT.
 | cht-core         | Supported browsers                                     | SMS bridge  | Android OS | cht-android | cht-sync |
 |------------------|--------|---------|--------------------------------------------------------|-------------|------------|-------------|----------|
 | **5.x.x+**       | Chrome 107+, Android System WebView 107+, Firefox latest | cht-gateway | 5.0+       | 1.5.2 +   | 1.1.0+   |
-| **4.20.x+ - 4.22.x**     | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.5.2 +     | 1.1.0+   |
+| **4.20.x-4.22.x**     | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.5.2 +     | 1.1.0+   |
 | **4.16.x+**      | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
 | **4.4.x-4.15.x** | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
 | **4.0.x-4.3.x**  | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
