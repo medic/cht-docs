@@ -1,6 +1,6 @@
 ---
 title: "Logging into CHT Apps"
-linkTitle: "Logging in"
+linkTitle: "Logging In"
 weight: 100
 description: >
   Different ways to log into the CHT
