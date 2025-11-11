@@ -5,17 +5,15 @@ weight: 20
 description: >
     Integration for sending and receiving messages
 aliases:
-  -    /apps/guides/messaging/rapidpro
+  - /apps/guides/messaging/rapidpro
+  - /apps/guides/messaging/gateways/rapidpro
 relatedContent: >
     building/reference/app-settings/sms
     building/forms/configuring/app-form-sms
     building/messaging/sms-states
     building/messaging/message-loops
     building/messaging/shortcodes
-aliases:
-   - /apps/guides/messaging/gateways/rapidpro
 ---
-
 
 As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/integrations/rapidpro" %}}) as a messaging gateway.
 

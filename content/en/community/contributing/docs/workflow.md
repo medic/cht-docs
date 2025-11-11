@@ -10,7 +10,7 @@ aliases:
 
 ## Getting Started
 
-Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs`](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create docs issue” links in the upper right corner and of your window, respectively bottom left corner.
+Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs`](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create Docs Issue” links in the upper right corner and of your window, respectively bottom left corner.
 
 ### Basics
 

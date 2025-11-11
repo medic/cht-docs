@@ -9,7 +9,6 @@ aliases:
   - /building/guides/integrations/fhir/
   - /building/interoperability/fhir/
   - /building/interoperability/cht-config/
-aliases:
   - /building/guides/interoperability/cht-config
 ---
 
