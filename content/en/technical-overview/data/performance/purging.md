@@ -43,7 +43,7 @@ Purging runs on the server on a configurable schedule.
 
 It will iterate over all users to generate a list of unique roles groups that represent every user. Each group will have their purged docs saved in an individual database.
 
-Then, it will iterate over all existent contacts, collecting all reports about that contact along with all sms messages that the contact has sent or received. This is similar to the scoping you may have encountered when configuring [tasks]({{<ref "building/tasks/tasks-js" >}}) and [targets]({{<ref "building/targets/targets-js" >}}).
+Then, it will iterate over all existent contacts, collecting all reports about that contact along with all sms messages that the contact has sent or received. This is similar to the scoping you may have encountered when configuring [tasks](/building/tasks/tasks-js) and [targets](/building/targets/targets-js).
 
 The configured purge function runs over all combinations of purge scope (contact + reports + messages) and user context (unique list of roles) to determine which docs should be purged.
 
@@ -115,8 +115,8 @@ This function takes six parameters:
 - `contact`, the contact document of a patient or other contact who has reports about them.
 - `reports`, an array of all reports for that subject that are present on the server.
 - `messages`, an array of sms messages that the contact has sent or received.
-- `chtScriptApi` (Optional) the CHT API that provides CHT-Core Framework's functions to other parts of the app. More info on the API can be found [here]({{<ref "building/reference/_partial_cht_api" >}}). Added in 4.3.0.
-- `permissions` (Optional) string or array of permissions that the user has. More info on permissions can be found [here]({{<ref "building/reference/app-settings/user-permissions" >}}). Added in 4.3.0.
+- `chtScriptApi` (Optional) the CHT API that provides CHT-Core Framework's functions to other parts of the app. More info on the API can be found [here](/building/reference/_partial_cht_api). Added in 4.3.0.
+- `permissions` (Optional) string or array of permissions that the user has. More info on permissions can be found [here](/building/reference/app-settings/user-permissions). Added in 4.3.0.
 
 And should return an array of `_id` values for docs you would like to be purged (or `undefined` / nothing if you don't wish to purge anything). `Only ids of docs that were passed to the function are valid for purging: you are not allowed to purge other documents.
 

@@ -3,7 +3,7 @@ title: "app_settings.json"
 linkTitle: "app_settings.json"
 weight: 5
 description: >
-  **Settings**: The primary location of settings for CHT applications
+  Primary guide of settings for CHT applications
 keywords: settings
 aliases:
    - /apps/reference/app-settings/
