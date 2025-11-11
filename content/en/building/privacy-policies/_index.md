@@ -1,6 +1,6 @@
 ---
-title: "Privacy policies"
-linkTitle: "Privacy policies"
+title: "Privacy Policies"
+linkTitle: "Privacy Policies"
 weight: 100
 description: >
   Policies and templates for privacy and responsible data use 

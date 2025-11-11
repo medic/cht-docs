@@ -11,14 +11,14 @@ aliases:
    - /apps/reference/forms/app
 ---
 
-App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/reports" >}}).
+App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports](/building/reports).
 
 App forms are defined by the following files:
 
 - A XML form definition using a CHT-enhanced ODK XForm format
 - A XLSForm form definition, easier to write and converts to the XForm (optional)
 - Meta information in the `{form_name}.properties.json` file (optional)
-- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "building/forms/configuring/multimedia" >}}).
+- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files](/building/forms/configuring/multimedia).
 
 ## XForm
 

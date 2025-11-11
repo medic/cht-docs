@@ -1,7 +1,7 @@
 ---
 title: "Local Docker Setup"
-toc_hide: true
-hide_summary: true
+sidebar:
+  exclude: true
 aliases:
    - /apps/tutorials/_partial_docker_setup
 ---

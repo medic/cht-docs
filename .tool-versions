@@ -1,2 +1,2 @@
-hugo extended_0.150.1 # Should match the version in compose.yml
+hugo extended_0.152.2 # Should match the version in compose.yml
 golang 1.21.0

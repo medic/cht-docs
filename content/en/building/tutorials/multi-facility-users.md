@@ -1,5 +1,5 @@
 ---
-title: "Setting up Multi-facility users"
+title: "Setting Up Multi-Facility Users"
 linkTitle: Multi Facility Users
 weight: 6
 description: >
