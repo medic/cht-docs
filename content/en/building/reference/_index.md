@@ -8,4 +8,8 @@ aliases:
    - /apps/reference/
 ---
 
-{{< subpages >}}
+{{< cards >}}
+{{< card link="api" title="REST API" icon="document-text">}}
+{{< card link="extension-libs" title="app_settings.json" icon="document-text" >}}
+{{< card link="app-settings/" title="extension-libs/" icon="document-text" >}}
+{{< /cards >}}

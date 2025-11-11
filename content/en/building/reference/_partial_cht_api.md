@@ -1,7 +1,5 @@
 ---
 title: "CHT API"
-toc_hide: true
-hide_summary: true
 sidebar:
   exclude: true
 aliases:
@@ -9,10 +7,10 @@ aliases:
 ---
 
 {{< callout type="info" >}}
-_Introduced in v3.12.0_
+Introduced in v3.12.0
 {{< /callout >}}
 
-Provides CHT-Core Framework's functions to contact summary, targets and tasks. The API is available in the `cht` reserved variable under the `v1` version.
+Provides CHT Core Framework's functions to contact summary, targets and tasks. The API is available in the `cht` reserved variable under the `v1` version.
 
 | Function | Arguments | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | -------- | --------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

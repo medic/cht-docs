@@ -1,7 +1,5 @@
 ---
 title: "Utils Functions"
-toc_hide: true
-hide_summary: true
 sidebar:
   exclude: true
 aliases:
