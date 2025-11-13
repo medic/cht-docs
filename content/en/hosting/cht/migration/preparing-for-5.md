@@ -162,5 +162,15 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 * The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
 * The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
 
+### Replication and online search don't work after upgrade
+
+With the addition of the both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and the [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), there are two indexes that need to be built in CouchDB Nouveau after upgrade.  As these indexes can only be created after the upgrade, this has lead to [a bug](https://github.com/medic/cht-core/issues/10460) that services which use these indexes won't work for a short period.  The services are:
+* Replication for offline users - instead of replication working, it will timeout after an hour.
+* Search for online users - when a search is run, no results will be returned.
+
+The fix is to wait until the indexes are built.  This is a one time operation happening only directly after a 4.x instance upgrades to a 5.0.  Upgrades from 5.0 to later versions will not be affected.  New 5.0 installations will not be affected.
+
+Very small deployments may not even notice this issue, as the indexes should be built quickly.  Very large deployments may need to wait up to 24 hours.  Any deployment can go to Fauxton at `/_utils/#/activetasks` (eg `https://cht.example.com/_utils/#/activetasks`) to see a list of active tasks.  When there are no more `search_indexer` tasks, the instance is OK to use.
+
 Background information:
-* [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
+* [Replcation and online freetext search fail after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)
