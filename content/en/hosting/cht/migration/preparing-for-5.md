@@ -168,7 +168,7 @@ With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hos
 * Replication for offline users - Replication will start working once the indexing jobs complete. In the meantime, requests will timeout after 1h. Users will see "sync failed" messages. 
 * Search for online users - Search functionality will return results as soon as indexing finishes.
 
-The fix is to wait until the indexes are built.  This is a one time operation happening only directly after a 4.x instance upgrades to a 5.0.  Upgrades from 5.0 to later versions will not be affected.  New 5.0 installations will not be affected.
+The indexes build automatically; no manual intervention is required. This is a one-time process that occurs only when upgrading from 4.x to 5.0. Subsequent upgrades from 5.0 to later versions and fresh 5.0 installations are unaffected.
 
 Very small deployments may not even notice this issue, as the indexes should be built quickly.  Very large deployments may need to wait up to 24 hours.  Any deployment can go to Fauxton at `/_utils/#/activetasks` (eg `https://cht.example.com/_utils/#/activetasks`) to see a list of active tasks.  When there are no more `search_indexer` tasks, the instance is OK to use.
 
