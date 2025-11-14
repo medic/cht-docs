@@ -166,7 +166,7 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 
 With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), two indexes need to be built in CouchDB Nouveau after the upgrade. While these indexes are being created, there's a brief initialization period where the following services will become available shortly: 
 * Replication for offline users - Replication will start working once the indexing jobs complete. In the meantime, requests will timeout after 1h. Users will see "sync failed" messages. 
-* Search for online users - when a search is run, no results will be returned.
+* Search for online users - Search functionality will return results as soon as indexing finishes.
 
 The fix is to wait until the indexes are built.  This is a one time operation happening only directly after a 4.x instance upgrades to a 5.0.  Upgrades from 5.0 to later versions will not be affected.  New 5.0 installations will not be affected.
 
