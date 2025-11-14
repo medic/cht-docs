@@ -181,4 +181,5 @@ Monitoring progress:
 You can track the indexing progress in real-time by navigating to Fauxton's active tasks page at `/_utils/#/activetasks` (for example, `https://cht.example.com/_utils/#/activetasks`). Once all `search_indexer` tasks have disappeared from the list, the upgrade is complete and all services are operational.
 
 Background information:
-* [Replcation and online freetext search fail after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)
+* [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
+* [Short downtime for replication and online search immediately after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)
