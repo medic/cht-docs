@@ -164,7 +164,7 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 
 ### Temporary downtime for replication and online search immediately after upgrade
 
-With the addition of the both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and the [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), there are two indexes that need to be built in CouchDB Nouveau after upgrade.  As these indexes can only be created after the upgrade, this has lead to [a bug](https://github.com/medic/cht-core/issues/10460) that services which use these indexes won't work for a short period.  The services are:
+With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), two indexes need to be built in CouchDB Nouveau after the upgrade. While these indexes are being created, there's a brief initialization period where the following services will become available shortly: 
 * Replication for offline users - instead of replication working, it will timeout after an hour.
 * Search for online users - when a search is run, no results will be returned.
 
