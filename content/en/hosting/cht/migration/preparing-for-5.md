@@ -170,7 +170,15 @@ With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hos
 
 The indexes build automatically; no manual intervention is required. This is a one-time process that occurs only when upgrading from 4.x to 5.0. Subsequent upgrades from 5.0 to later versions and fresh 5.0 installations are unaffected.
 
-Very small deployments may not even notice this issue, as the indexes should be built quickly.  Very large deployments may need to wait up to 24 hours.  Any deployment can go to Fauxton at `/_utils/#/activetasks` (eg `https://cht.example.com/_utils/#/activetasks`) to see a list of active tasks.  When there are no more `search_indexer` tasks, the instance is OK to use.
+
+What to expect:
+
+- Small deployments: Indexes typically complete within minutes, and you may not notice any service interruption.
+- Large deployments: Index building may take up to 24 hours, depending on data volume.
+- All deployments: Services automatically resume normal operation once indexing completes.
+
+Monitoring progress:
+You can track the indexing progress in real-time by navigating to Fauxton's active tasks page at `/_utils/#/activetasks` (for example, `https://cht.example.com/_utils/#/activetasks`). Once all `search_indexer` tasks have disappeared from the list, the upgrade is complete and all services are operational.
 
 Background information:
 * [Replcation and online freetext search fail after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)
