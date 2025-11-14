@@ -25,7 +25,7 @@ aliases:
     Restart your entire machine to finish initializing Docker.
   {{< /tab >}}
   {{< tab >}}
-    Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop) or [Colima](https://github.com/abiosoft/colima#readme).
+    Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
     
     Restart your entire machine to finish initializing Docker.
   {{< /tab >}}
