@@ -197,3 +197,8 @@ display = "hover"
   [params.comments]
   enable = false
   type = "giscus"
+
+  [params.banner]
+  key = "announcement"
+  message = "CHT 5.0 is here! 🎉 Discover [what's new](/releases/5_0_0/)! "
+  
