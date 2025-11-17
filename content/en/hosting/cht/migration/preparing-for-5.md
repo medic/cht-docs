@@ -182,4 +182,4 @@ You can track the indexing progress in real-time by navigating to Fauxton's acti
 
 Background information:
 * [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
-* [Short downtime for replication and online search immediately after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)
+* [Temporary downtime for replication and online search immediately after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)
