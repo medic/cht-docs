@@ -141,9 +141,16 @@ enableMissingTranslationPlaceholders = true
 
 # Output formats - REQUIRED FOR SEARCH
 [outputs]
-  home = ["HTML"]
+  home = ["HTML", "LLMS"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
+
+# https://imfing.github.io/hextra/docs/guide/configuration/#llmstxt-support
+[outputFormats.LLMS]
+  name = "llms"
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
 
 # Everything below this are Site Params
 [params]
