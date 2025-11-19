@@ -60,6 +60,7 @@ AI assistance is a tool, not a substitute for your judgment and understanding. W
 - **Review thoroughly.** Check for correctness, security implications, and performance considerations. Remove placeholders, TODO comments, or generic error messages. Ensure the code follows CHT coding conventions and style guidelines.
 - **Test comprehensively.** Add tests for edge cases, not just the happy path. If you fixed a bug, include a regression test. AI-generated tests can miss corner cases that human reviewers will catch.
 - **Own the quality.** Treat AI like a junior collaborator who needs supervision; you are the one signing off on the work. The CHT community and end users depend on the reliability of your contribution.
+- **Verify dependencies and license compatibility**. Ensure any libraries suggested by AI are appropriate for the CHT context, properly licensed, and compatible with the supported technologies.
 
 ## Why This Matters
 
