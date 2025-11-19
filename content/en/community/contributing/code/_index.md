@@ -28,7 +28,11 @@ See the [vulnerability disclosure guide]({{% ref "community/contributing/disclos
 
 ## Code of Conduct
 
-All maintainers and contributors are required to act according to our [Code of Conduct]({{% ref "../code-of-conduct" %}}). Thank you for your help building a positive community and a safe environment for everyone.
+All maintainers and contributors are required to act according to the CHT [Code of Conduct](/community/contributing/code-of-conduct). Thank you for your help building a positive community and a safe environment for everyone.
+
+{{< callout type="warning" icon="book-open" >}}
+Additionally, take some time to familiarize yourself with the [AI Assistance Guidelines](/community/contributing/ai-guidelines).
+{{< /callout >}}
 
 ## Quick Start
 
