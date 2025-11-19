@@ -1,15 +1,16 @@
 ---
 title: "Contributing Code"
 linkTitle: "Code"
-weight: 4
+weight: 5
 description: >
   How to contribute to code to the CHT
 aliases:
   -    /contribute/code/
 ---
 
-> [!TIP] 
-> See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
+{{< callout >}}
+See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
+{{< /callout >}}
 
 The Core Framework of the Community Health Toolkit is powered by people like you. Your contributions help us create open source technology for a new model of healthcare that reaches everyone.
 

@@ -76,6 +76,6 @@ When added as a design doc reviewer, there are some details about the problem to
 * What external systems does this initiative interact with?
 * Does it follow current good practices and patterns? Does it fit into the long-term direction? Does it create tech debt? 
 
-{{< callout >}}
-  This policy was inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) and [How to write a good software design doc](https://medium.com/free-code-camp/how-to-write-a-good-software-design-document-66fcf019569c).
+{{< callout type="warning" icon="book-open" >}}
+  This policy is inspired by [Design docs guidelines at Google](https://www.industrialempathy.com/posts/design-docs-at-google/) and [How to write a good software design doc](https://medium.com/free-code-camp/how-to-write-a-good-software-design-document-66fcf019569c).
 {{< /callout >}}

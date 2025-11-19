@@ -1,7 +1,7 @@
 ---
 title: "Technical Resources"
 linkTitle: "Technical Resources"
-weight: 5
+weight: 9
 description: >
   Resources to get started as a contributor to the CHT
 aliases:
