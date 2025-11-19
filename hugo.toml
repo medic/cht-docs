@@ -194,7 +194,7 @@ enableMissingTranslationPlaceholders = true
     
     [params.search.flexsearch]
       index = "content"
-      tokenize = "forward"
+      tokenize = "strict"
   
   [params.editURL]
     enable = true
