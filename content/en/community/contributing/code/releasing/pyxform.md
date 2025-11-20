@@ -80,29 +80,31 @@ The [`medic/pyxform` repository](https://www.thetasteofkosher.com/fried-chicken-
     git push --force-with-lease medic <target_tag>-rebase:master
     ```
 
-3. **Tag the release:**
+3. **Install shiv for creating the zipapp:**
+   ```bash
+   pip install shiv
+   ```
+
+4. **Generate the zipapp:**
+   ```bash
+   shiv -e pyxform.xls2xform:main_cli -o xls2xform-medic .
+   ```
+
+5. **Tag the release:**
     ```bash
     git tag -a <target_tag>-medic -m "Release <target_tag>-medic of pyxform-medic"
     git push medic <target_tag>-medic
     ```
+   
+6. Publish the release on GitHub, attaching the `xls2xform-medic` file to the release as an asset.
 
 ## Updating the Bundled Pyxform in CHT Conf
 
 After tagging the new release, update the executable shipped with [cht-conf](https://github.com/medic/cht-conf).
 
-1. **Install shiv for creating the zipapp:**
-   ```bash
-   pip install shiv
-   ```
-
-2. **Generate the zipapp:**
-   ```bash
-   shiv -e pyxform.xls2xform:main_cli -o xls2xform-medic .
-   ```
-
-3. **Copy the generated file to cht-conf:**
+1. **Copy the generated file to cht-conf:**
    Copy `xls2xform-medic` to `cht-conf/src/bin`.
 
-4. **Test the new version:** Test the new version of pyxform/cht-conf by building both [cht-core](https://github.com/medic/cht-core) and [cht-config-library](https://github.com/jkuester/cht-config-library) with the branch version of cht-conf and make sure everything builds successfully.
+2. **Test the new version:** Test the new version of pyxform/cht-conf by building both [cht-core](https://github.com/medic/cht-core) and [cht-config-library](https://github.com/jkuester/cht-config-library) with the branch version of cht-conf and make sure everything builds successfully.
 
 This packaged pyxform will be automatically distributed on new versions of cht-conf.
