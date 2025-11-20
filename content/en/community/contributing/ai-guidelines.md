@@ -10,6 +10,16 @@ relatedContent: >
 
 AI coding tools can help contributors explore unfamiliar codebases, draft solutions quickly, and learn new frameworks and technologies. In the CHT Community, we recognize that AI assistance can accelerate contributions and lower barriers to participation. These guidelines help ensure that AI-assisted contributions maintain the CHT quality standards while respecting the time and expertise of the maintainers and community members.
 
+## Why This Matters
+
+Disclosure is respectful to the humans reviewing your work, as it helps maintainers understand the context of your contribution, know how much scrutiny to apply during review and provide better feedback when needed. Maintainers have limited time and want to focus on helping you ship great contributions rather than debugging AI-generated issues.
+
+For you as a contributor, transparency sets appropriate expectations with reviewers and helps you get more relevant feedback aligned with your development process. It builds trust with the community and demonstrates your commitment to quality.
+
+{{< callout type="warning" icon="book-open" >}}
+  This document is heavily inspired by Digital Ocean's [How to Be an Open Source Hero: Contributing AI-Generated Code with Care](https://www.digitalocean.com/community/tutorials/ai-coding-tools-open-source#a-practical-guide-to-disclosure).
+{{< /callout >}}
+
 ## Disclosure Guidelines
 
 {{< callout >}}
@@ -53,13 +63,3 @@ AI assistance is a tool, not a substitute for your judgment and understanding. W
 - **Test comprehensively.** Add tests for edge cases, not just the happy path. If you fixed a bug, include a regression test. AI-generated tests can miss corner cases that human reviewers will catch.
 - **Own the quality.** Treat AI like a junior collaborator who needs supervision; you are the one signing off on the work. The CHT community and end users depend on the reliability of your contribution.
 - **Verify dependencies and license compatibility**. Ensure any libraries suggested by AI are appropriate for the CHT context, properly licensed, and compatible with the supported technologies.
-
-## Why This Matters
-
-Disclosure is respectful to the humans reviewing your work, as it helps maintainers understand the context of your contribution, know how much scrutiny to apply during review and provide better feedback when needed. Maintainers have limited time and want to focus on helping you ship great contributions rather than debugging AI-generated issues.
-
-For you as a contributor, transparency sets appropriate expectations with reviewers and helps you get more relevant feedback aligned with your development process. It builds trust with the community and demonstrates your commitment to quality.
-
-{{< callout type="warning" icon="book-open" >}}
-  This document is heavily inspired by Digital Ocean's [How to Be an Open Source Hero: Contributing AI-Generated Code with Care](https://www.digitalocean.com/community/tutorials/ai-coding-tools-open-source#a-practical-guide-to-disclosure).
-{{< /callout >}}
