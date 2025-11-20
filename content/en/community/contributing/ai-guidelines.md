@@ -10,7 +10,6 @@ relatedContent: >
 
 AI coding tools can help contributors explore unfamiliar codebases, draft solutions quickly, and learn new frameworks and technologies. In the CHT Community, we recognize that AI assistance can accelerate contributions and lower barriers to participation. These guidelines help ensure that AI-assisted contributions maintain the CHT quality standards while respecting the time and expertise of the maintainers and community members.
 
-To make the review process smooth and transparent, we ask that you follow the following guidelines.
 
 ## Disclosure Guidelines
 
