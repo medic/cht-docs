@@ -10,7 +10,6 @@ relatedContent: >
 
 AI coding tools can help contributors explore unfamiliar codebases, draft solutions quickly, and learn new frameworks and technologies. In the CHT Community, we recognize that AI assistance can accelerate contributions and lower barriers to participation. These guidelines help ensure that AI-assisted contributions maintain the CHT quality standards while respecting the time and expertise of the maintainers and community members.
 
-
 ## Disclosure Guidelines
 
 {{< callout >}}
@@ -26,22 +25,16 @@ Include:
 Examples of helpful disclosure: 
 
 **Simple:**
-```
-AI Disclosure: This PR was written primarily by Claude Code.
-```
+> AI Disclosure: This PR was written primarily by Claude Code.
 
 **Better:**
-```
-AI Disclosure: Used ChatGPT to understand the codebase structure. 
-I implemented the solution manually and wrote all tests myself.
-```
+> AI Disclosure: Used ChatGPT to understand the codebase structure. 
+> I implemented the solution manually and wrote all tests myself.
 
 **Detailed:**
-```
-AI Disclosure: GitHub Copilot suggested the initial approach. 
-I adapted it to match our project conventions, simplified the logic, 
-and added comprehensive tests including edge cases.
-```
+> AI Disclosure: GitHub Copilot suggested the initial approach. 
+> I adapted it to match our project conventions, simplified the logic, 
+> and added comprehensive tests including edge cases.
 
 ### What Needs Disclosure?
 
