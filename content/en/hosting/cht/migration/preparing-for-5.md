@@ -88,11 +88,11 @@ The fix is to:
 Background information:
 * [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
 
-### Increase ecmaVersion ES linting to version 6
+### CHT 4.0 - 4.4 upgrade to CHT 4.5 first
 
 {{< callout type="info" >}} Applies to: CHT versions between 4.0 and 4.4  {{< /callout >}}
 
-Deployments running CHT Version 4.0 and 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x.
+Deployments running CHT Version 4.0 through 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x. This accounts for changes to ecmaVersion ES linting to version 6.
 
 Background information:
 * [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
@@ -162,5 +162,24 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 * The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
 * The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
 
+### Temporary downtime for replication and online search immediately after upgrade
+
+With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), two indexes need to be built in CouchDB Nouveau after the upgrade. While these indexes are being created, there's a brief initialization period where the following services will become available shortly: 
+* Replication for offline users - Replication will start working once the indexing jobs complete. In the meantime, requests will timeout after 1h. Users will see "sync failed" messages. 
+* Search for online users - Search functionality will return results as soon as indexing finishes.
+
+The indexes build automatically; no manual intervention is required. This is a one-time process that occurs only when upgrading from 4.x to 5.0. Subsequent upgrades from 5.0 to later versions and fresh 5.0 installations are unaffected.
+
+
+What to expect:
+
+- Small deployments: Indexes typically complete within minutes, and you may not notice any service interruption.
+- Large deployments: Index building may take up to 24 hours, depending on data volume.
+- All deployments: Services automatically resume normal operation once indexing completes.
+
+Monitoring progress:
+You can track the indexing progress in real-time by navigating to Fauxton's active tasks page at `/_utils/#/activetasks` (for example, `https://cht.example.com/_utils/#/activetasks`). Once all `search_indexer` tasks have disappeared from the list, the upgrade is complete and all services are operational.
+
 Background information:
 * [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
+* [Temporary downtime for replication and online search immediately after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)

@@ -22,7 +22,8 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 4.22.x  | Supported | 10-Oct-2025  | TBA         |
+| 5.0.x   | Supported | 20-Nov-2025  | TBA         |
+| 4.22.x  | Supported | 10-Oct-2025  | 20-Nov-2026 |
 | 4.21.x  | Supported | 25-Jun-2025  | 10-Jan-2026 |
 | 4.20.x  | EOL       | 04-Jun-2025  | 25-Sep-2025 |
 | 4.19.x  | EOL       | 13-May-2025  | 04-Sep-2025 |
@@ -56,13 +57,14 @@ The following table shows the dependencies for deploying the CHT.
 
 | cht-core         | Supported browsers                                     | SMS bridge  | Android OS | cht-android | cht-sync |
 |------------------|--------|---------|--------------------------------------------------------|-------------|------------|-------------|----------|
-| **4.20.x+**      | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.5.2 +        | 1.1.0+   |
-| **4.16.x+**      | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
-| **4.4.x-4.15.x** | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
-| **4.0.x-4.3.x**  | Chrome 90+, Android System WebView 90+, Firefox latest | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
-| **3.x**          | Chrome 53+, Firefox latest                             | cht-gateway | 4.4+       | 0.4.5+      | 1.1.0+   |
-| **2.x**          | Chrome 30+, Firefox latest                             | cht-gateway | 4.4+       | Any         | N/A      |
-| **0.4**          | Chrome 30+, Firefox latest                             | SMSSync     | N/A        | N/A         | N/A      |
+| **5.x.x+**       | Chrome 107+, Android System WebView 107+, Firefox latest | cht-gateway | 5.0+       | 1.5.2 +   | 1.1.0+   |
+| **4.20.x-4.22.x**     | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.5.2 +     | 1.1.0+   |
+| **4.16.x+**      | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
+| **4.4.x-4.15.x** | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
+| **4.0.x-4.3.x**  | Chrome 90+, Android System WebView 90+, Firefox latest   | cht-gateway | 5.0+       | 1.0+        | 1.1.0+   |
+| **3.x**          | Chrome 53+, Firefox latest                               | cht-gateway | 4.4+       | 0.4.5+      | 1.1.0+   |
+| **2.x**          | Chrome 30+, Firefox latest                               | cht-gateway | 4.4+       | Any         | N/A      |
+| **0.4**          | Chrome 30+, Firefox latest                               | SMSSync     | N/A        | N/A         | N/A      |
 
 {{< see-also page="/hosting/cht/requirements" title="hosting Requirements" >}}
 
@@ -87,6 +89,9 @@ If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assis
 Devices with more navigation systems are more likely to get a more accurate location fix in varied locations. For example, Huawei Y5 has GPS specs listed on gsmarena.com as **_GPS: Yes, with A-GPS, GLONASS, BDS_** which makes it a good choice for GPS data collection.
 
 ## Release Notes
+
+### 5.x
+- [5.0.0](/releases/5_0_0) - 2025-11-20
 
 ### 4.x
 - [4.22.0](/releases/4_22_0) - 2025-10-10
