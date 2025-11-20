@@ -18,6 +18,7 @@ SMS settings are defined under the `sms` key, as an object supporting the follow
 |------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | outgoing_service | medic-gateway | Defines the service to use to send SMS messages. Currently supports "medic-gateway", "africas-talking" or "rapidpro". For more information read the documentation on ["africas-talking" configuration]({{% ref "building/messaging/gateways/africas-talking" %}}) and ["rapidpro" configuration]({{% ref "building/messaging/gateways/rapidpro" %}}). |
 | duplicate_limit  | 5             | The number of identical sms message allowed to be sent to the same recipient.
+| clear_failing_schedules | false | Sets whether messages that can not be set to `pending` state for various reasons are set to `clear` or not.
 
 ## Code sample
 
@@ -26,7 +27,8 @@ The definition takes the typical form below:
 ```json
 "sms": {
   "outgoing_service": "medic-gateway",
-  "duplicate_limit": "2"
+  "duplicate_limit": "2",
+  "clear_failing_schedules": "true"
 }
 ```
 
