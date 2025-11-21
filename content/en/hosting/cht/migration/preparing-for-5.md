@@ -37,6 +37,10 @@ To avoid this situation, the "Upgrade" button has been removed from Kubernetes b
 
 Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
 
+{{< callout type="warning" >}}
+If a 4.x deployment uses the "Upgrade" button for a 5.x version in the admin web GUI, the upgrade may appear to succeed. However the Nouveau service will not be deployed.  This means both replication and synchronization for offline users will not work.  To fix both, follow the helm upgrade per above which will ensure the Nouveau service is working as expected.
+{{< /callout >}}
+
 Background information:
 * [Add documentation for migrating from 4.x medic/helm-charts to the new production charts in 5.x cht-core](https://github.com/medic/cht-docs/issues/1943)
 * [Hide upgrade button in admin app for k8s deployments, while still allowing staging upgrades](https://github.com/medic/cht-core/issues/9954)
