@@ -8,6 +8,10 @@ aliases:
    - /contribute/code/workflow
 ---
 
+{{< callout type="warning" icon="book-open" >}}
+Before starting to write code for the CHT, take some time to familiarize yourself with the [Code of Conduct](/community/contributing/code-of-conduct) and the [AI Assistance Guidelines](/community/contributing/ai-guidelines).
+{{< /callout >}}
+
 ## Writing code
 
 Where possible, follow the [coding style guide](/community/contributing/code/style-guide).

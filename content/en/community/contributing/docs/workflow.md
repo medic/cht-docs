@@ -12,6 +12,10 @@ aliases:
 
 Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs`](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create Docs Issue” links in the upper right corner and of your window, respectively bottom left corner.
 
+{{< callout type="warning" icon="book-open" >}}
+Before starting to write documentation for the CHT, take some time to familiarize yourself with the [Code of Conduct](/community/contributing/code-of-conduct) and the [AI Assistance Guidelines](/community/contributing/ai-guidelines).
+{{< /callout >}}
+
 ### Basics
 
 * It is helpful to be comfortable with [git](https://git-scm.com/doc/ext) and [GitHub](https://github.com/) to contribute to the CHT community.
