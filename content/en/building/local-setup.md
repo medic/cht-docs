@@ -64,7 +64,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -87,7 +87,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -97,16 +97,6 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< /tab >}}
 
 {{< /tabs >}}
-
-#### `pyxform`
-
-Using python on your terminal, install `pyxform` globally using the command below. Ensure you create and activate an environment for python3.
-
-```shell
-sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-```
-
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section](/community/contributing/code/core/dev-environment#macos--123).
 
 #### `cht-conf`
 
