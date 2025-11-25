@@ -51,7 +51,7 @@ This research was based on live instances so the costs are realistic.  However, 
 
 Further, the costs in the table above only cover the variable costs.  That is, the costs incurred of actual usage with in an EKS cluster.  In a multi-tenant deployment with multiple instances (for example: Staging, User Acceptance Testing and Production), this can be critical to know what the three different deployments incurred costs are within the EKS cluster.  
 
-Importantly, all production CHT 4.x deployments have a fixed cost to run the EKS cluster or generic Kubernetes if not on AWS. This is because all clusters contain servers that are always on and fully available. This cost is not yet included in this document.
+Importantly, all production CHT deployments with version higher than 4.x have a fixed cost to run the EKS cluster or generic Kubernetes if not on AWS. This is because all clusters contain servers that are always on and fully available. This cost is not yet included in this document.
 
 ###  Production vs Development
 
