@@ -1,7 +1,7 @@
 ---
 title: "CHT 4.x to 5.x Helm Charts Migration Guide"
 linkTitle: "Helm Charts 4.x to 5.x"
-weight: 30
+weight: 20
 description: >
   Guide to migrate Helm Charts from 4.x to 5.x
 ---
