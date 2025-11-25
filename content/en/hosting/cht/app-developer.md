@@ -157,7 +157,7 @@ couchdb              running  400_deleteme_couchdb_1                  public.ecr
 ```
 
 #### Troubleshooting
-When you are starting a CHT Core instance using Docker Helper 4.x and don't have any containers created, images downloaded, or storage volumes created - the `*.local-ip.medicmobile.org` TLS certificate fails to install, which leads to a browser `Your connection is not private` message.
+When you are starting a CHT Core instance using Docker Helpe 4.x and don't have any containers created, images downloaded, or storage volumes created - the `*.local-ip.medicmobile.org` TLS certificate fails to install, which leads to a browser `Your connection is not private` message.
 
 To solve this issue, follow the steps below:
 
