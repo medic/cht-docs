@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-This guide covers the migration of Kubernetes based CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x. The new Helm chart require updates to your `values.yaml` file.
+This guide covers the migration of Kubernetes based CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [updated charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x. The new Helm chart requires updates to your `values.yaml` file.
 
 Before starting be sure you have a `git clone` of the [CHT Core repository](https://github.com/medic/cht-core/) and that you have updated it with `git pull origin` to ensure you have the latest changes locally.
 
@@ -92,7 +92,7 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
 
 ### Step 2: Perform the Migration
 
-1. Upgrade the helm deployment form same directory as `migration-5x-values.yaml`.  As well, update `/path/to/cht-core` to be the location where CHT Core repo is checked out:
+1. Upgrade the helm deployment from the same directory as `migration-5x-values.yaml`.  As well, update `/path/to/cht-core` to be the location where the CHT Core repo is checked out:
    ```bash
    helm upgrade <your-release-name> /path/to/cht-core/scripts/build/helm \
      -f migration-5x-values.yaml \
