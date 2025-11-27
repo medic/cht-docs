@@ -31,13 +31,15 @@ In CHT 4.x there are two ways to upgrade a Kubernetes hosted CHT instance:
 
 A recurring problem seen on production deployments was that, over time, CHT administrators would use the CHT administration interface to upgrade.  Then, during a migration or a restore from backup, Kubernetes administrators would inadvertently downgrade a CHT instance by using an out of date Helm chart.
 
-To avoid this situation, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
+To avoid this situation, starting with 5.0.0, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
 
 ![k8s.no.upgrade.button.png](preparing-for-5/k8s.no.upgrade.button.png)
 
-Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
+Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need to [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
 
 {{< callout type="warning" >}}
+Deployments should only use the "Stage" button when upgrading from 4.x to 5.x in Kubernetes. Once staging completes, it is safe to upgrade through helm upgrade!
+
 If a 4.x deployment uses the "Upgrade" button for a 5.x version in the admin web GUI, the upgrade may appear to succeed. However the Nouveau service will not be deployed.  This means both replication and synchronization for offline users will not work.  To fix both, follow the helm upgrade per above which will ensure the Nouveau service is working as expected.
 {{< /callout >}}
 
