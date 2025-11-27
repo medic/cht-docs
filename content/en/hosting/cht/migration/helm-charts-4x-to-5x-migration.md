@@ -58,8 +58,8 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
      builds_url: "https://staging.dev.medicmobile.org/_couch/builds_4" # DEFAULT: Good default
    
    # Update image versions to 5.x
-   chtversion: 5.0.0
-   cht_image_tag: 5.0.0
+   chtversion: 5.0.1
+   cht_image_tag: 5.0.1
    ```
 
 4. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
