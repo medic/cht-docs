@@ -91,6 +91,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 5.x
+- [5.0.1](/releases/5_0_1) - 2025-11-27
 - [5.0.0](/releases/5_0_0) - 2025-11-20
 
 ### 4.x
