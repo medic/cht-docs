@@ -171,11 +171,13 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 ### Additional disk storage required for upgrading
 
 {{< callout type="warning" >}}
-IMPORTANT: Disk Space Requirement for 5.x Upgrade
-Before upgrading to version 5.x, ensure your instance has at least 5x the current disk space used. This is a critical requirement for a successful upgrade. Insufficient disk space may cause the upgrade to fail.
+  IMPORTANT: Disk Space Requirement for 5.x Upgrade
+
+  Before upgrading to version 5.x, ensure your instance has at least 5x the current disk space used. This is a critical requirement for a successful upgrade. Insufficient disk space may cause the upgrade to fail.
 {{< /callout >}}
 
-An internal mechanism of CouchDB requires up to 5x disk space when updating views. As a side-effect of all the performance and TCO changes in 5.0.0, some views were either moved or removed, and as a result, two large design documents need reindexing.  
+An internal mechanism of CouchDB requires **up to 5x disk space** when updating views. As a side-effect of all the performance and TCO changes in 5.0.0, some views were either moved or removed, and as a result, two large design documents need reindexing.  
+
 In our testing, the total database storage size increased during indexing to 5x, as seen in this graph:
 
 {{< cards >}}
