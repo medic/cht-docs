@@ -168,6 +168,22 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 * The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
 * The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
 
+### Additional disk storage required for upgrading
+
+{{< callout type="warning" >}}
+IMPORTANT: Disk Space Requirement for 5.x Upgrade
+Before upgrading to version 5.x, ensure your instance has at least 5x the current disk space used. This is a critical requirement for a successful upgrade. Insufficient disk space may cause the upgrade to fail.
+{{< /callout >}}
+
+An internal mechanism of CouchDB requires up to 5x disk space when updating views. As a side-effect of all the performance and TCO changes in 5.0.0, some views were either moved or removed, and as a result, two large design documents need reindexing.  
+In our testing, the total database storage size increased during indexing to 5x, as seen in this graph:
+
+{{< cards >}}
+{{< card  image="/releases/images/5_0_reduction2.png"  title="Disk space storage requirement during 5.0.0 upgrade">}}
+{{< /cards >}}
+
+This issue is not limited to the upgrade to 5.0.0 alone. [Any upgrade that requires indexing new views requires additional disk space.](https://docs.communityhealthtoolkit.org/hosting/cht/requirements/#production-hosting)
+
 ### Temporary downtime for replication and online search immediately after upgrade
 
 With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), two indexes need to be built in CouchDB Nouveau after the upgrade. While these indexes are being created, there's a brief initialization period where the following services will become available shortly: 
