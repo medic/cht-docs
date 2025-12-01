@@ -184,7 +184,7 @@ In our testing, the total database storage size increased during indexing to 5x,
 {{< card  image="/releases/images/5_0_reduction2.png"  title="Disk space storage requirement during 5.0.0 upgrade">}}
 {{< /cards >}}
 
-This issue is not limited to the upgrade to 5.0.0 alone. [Any upgrade that requires indexing new views requires additional disk space.](https://docs.communityhealthtoolkit.org/hosting/cht/requirements/#production-hosting)
+This issue is not limited to the upgrade to 5.0.0 alone. [Any upgrade that requires indexing new views requires additional disk space.](/hosting/cht/requirements/#production-hosting)
 
 ### Temporary downtime for replication and online search immediately after upgrade
 
