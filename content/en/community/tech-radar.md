@@ -17,7 +17,7 @@ A Technology Radar provides an easy-to-grasp visual representation of tools, lan
 While reflecting on the audience of such a tool, we’ve identified the need to build two separate versions: a **CHT Technology Radar for Implementers** and a **CHT Technology Radar for Contributors**. We leverage existing open-source tools by [ThoughtWorks](https://github.com/thoughtworks/build-your-own-radar) and [AOE](https://github.com/AOEpeople/aoe_technology_radar) to implement the user interface. Due to our commitment to open-source, all the content of the Technology Radars is public on GitHub and open to the community to provide comments and suggestions.
 
 ## For Implementers
-The [CHT Technology Radar for Implementers](https://docs.communityhealthtoolkit.org/cht-tech-radar-implementers/index.html) provides a view of all CHT-related tools and components so that CHT implementers and application developers can decide which to use when designing, developing, and hosting their CHT applications.
+The [CHT Technology Radar for Implementers](/cht-tech-radar-implementers/index.html) provides a view of all CHT-related tools and components so that CHT implementers and application developers can decide which to use when designing, developing, and hosting their CHT applications.
 
 We categorized this radar’s content into four quadrants:
 
@@ -35,7 +35,7 @@ We classify each of the items above in one of these rings:
 You can learn how to contribute to the CHT Technical Radar for Implementers in the related [GitHub repository](https://github.com/medic/cht-tech-radar-implementers).
 
 ## For Contributors
-The [CHT Technology Radar for Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/index.html) provides a helpful view for developers to know what languages, tools, platforms, or techniques to use while contributing to CHT tools.
+The [CHT Technology Radar for Contributors](/cht-tech-radar-contributors/index.html) provides a helpful view for developers to know what languages, tools, platforms, or techniques to use while contributing to CHT tools.
 
 We categorized this radar’s content into four quadrants:
 

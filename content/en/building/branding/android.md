@@ -32,7 +32,7 @@ Adding a new _"brand"_ or _"flavor"_ requires the following steps:
 
 3. **[Generate a new keystore](#3-generate-a-new-keystore)** if there is no one.
 
-4. **[Test locally](#4-test-locally-the-keystore)** and create a pull request with the changes.
+4. **[Test locally](#4-test-the-keystore-locally)** and create a pull request with the changes.
 
 5. **[Release](#5-release-the-new-flavor)** the new flavor.
 

@@ -35,7 +35,7 @@ You will be building assessment workflow that allows Community Health Workers to
 
 ## Required Resources
 
-You should have a [functioning CHT instance with `cht-conf` installed locally](/building/local-setup) and a [project folder set up](/building/local-setup#3-create-and-upload-a-blank-project) already.
+You should have a [functioning CHT instance with `cht-conf` installed locally](/building/local-setup) and a [project folder set up](/building/local-setup/#deploy-local-cht-instance) already.
 
 ## Implementation Steps
 

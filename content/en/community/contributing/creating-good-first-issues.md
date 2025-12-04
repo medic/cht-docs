@@ -27,7 +27,7 @@ Use this content to paste into a GitHub ticket.  Then add the steps needed to so
 ```markdown
 ## Good first issue
 
-This ticket has the [Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)! This means it's been especially curated by other CHT contributors to be easy to work on for first time contributors [per the docs](https://docs.communityhealthtoolkit.org/community/contributing/creating-good-first-issues/).
+This ticket has the [Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)! This means it's been especially curated by other CHT contributors to be easy to work on for first time contributors [per the docs](/community/contributing/creating-good-first-issues/).
 
 To succeed on this ticket, please:
 1. step one
@@ -46,10 +46,10 @@ Taken from [#9869](https://github.com/medic/cht-core/issues/9869) opened Apr 202
 > CHWs can run out of disk space and not know why their device is not performing as expected.  Giving administrators an easy way to monitor this would be really helpful
 > 
 > **Describe the solution you'd like**
-> Right now there's a [user-devices API](https://docs.communityhealthtoolkit.org/building/reference/api/#get-apiv2exportuser-devices) which has per user information, but does not include used and total storage space on the device.  If we add this to this report, it would make an easy way to find this data!
+> Right now there's a [user-devices API](/building/reference/api/#get-apiv2exportuser-devices) which has per user information, but does not include used and total storage space on the device.  If we add this to this report, it would make an easy way to find this data!
 > 
 > **Describe alternatives you've considered**
-> Administrators could either manually check telemetry documents per user in Couch ([see](https://docs.communityhealthtoolkit.org/technical-overview/data/performance/telemetry/#metadata) `deviceInfo.storage.free`) or they could set up a process like CHT Sync or couch2pg to sync this data to a Postgres database.
+> Administrators could either manually check telemetry documents per user in Couch ([see](/technical-overview/data/performance/telemetry/#metadata) `deviceInfo.storage.free`) or they could set up a process like CHT Sync or couch2pg to sync this data to a Postgres database.
 > 
 > These are either slow (manually checking) or hard to set up (syncing data), where as the API is built in.
 > 
@@ -62,7 +62,7 @@ Taken from [#9869](https://github.com/medic/cht-core/issues/9869) opened Apr 202
 > This ticket has the [Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)! This means it's been especially curated by other CHT contributors to be easy to work on for first time contributors.
 > 
 > To succeed on this ticket, please:
-> 1. set up your [development environment](https://docs.communityhealthtoolkit.org/contribute/code/core/dev-environment/) - and ensure it works by logging in to you CHT instance
+> 1. set up your [development environment](/contribute/code/core/dev-environment/) - and ensure it works by logging in to you CHT instance
 > 2. create an offline user called `test` in the administrative interface
 > 3. log in as this user to ensure a unique device ID in the CHT  is created
 > 4. go to [fauxton](http://localhost:5984/_utils/#database/medic-users-meta/) and create a document based on the JSON below

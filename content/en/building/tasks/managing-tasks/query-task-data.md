@@ -110,7 +110,7 @@ Completed | true | true
 Cancelled | false | -
 
 ### Testing task document data
-The [medic-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/) is useful for making assertions about the expected behaviour of tasks in different user scenarios. The [countTaskDocsByState](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#countTaskDocsByState) interface is relevant for making assertions about task document creation and state.
+The [medic-conf-test-harness](http://docs.communityhealthtoolkit.org/cht-conf-test-harness/) is useful for making assertions about the expected behaviour of tasks in different user scenarios. The [countTaskDocsByState](/cht-conf-test-harness/Harness.html#countTaskDocsByState) interface is relevant for making assertions about task document creation and state.
 
 ## Frequently Asked Questions
 

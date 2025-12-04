@@ -18,7 +18,7 @@ If this isn't you all together, head over to our [Community section]({{% ref "co
 
 Before you write a line of code or help improve the documentation, it's important to understand the larger picture of the CHT. Read up on why you [might use the CHT]({{% ref "why-the-cht" %}}) and visit the [CHT home page](https://communityhealthtoolkit.org/). If you've never seen or used the CHT, it can be really helpful to [sign up for a demo](https://communityhealthtoolkit.org/contact).
 
-Diving more into the technical aspects of what the CHT is, see the [technologies and tools]({{% ref "technical-resources" %}}) used by the CHT. Additionally, the [Technology Radar for CHT Contributors](https://docs.communityhealthtoolkit.org/cht-tech-radar-contributors/) gives an overview of the technologies used to build the CHT tools.
+Diving more into the technical aspects of what the CHT is, see the [technologies and tools]({{% ref "technical-resources" %}}) used by the CHT. Additionally, the [Technology Radar for CHT Contributors](/cht-tech-radar-contributors/) gives an overview of the technologies used to build the CHT tools.
 
 The CHT is [open source](https://en.wikipedia.org/wiki/Open_source). Any code you commit will be freely available for other CHT users and they can improve and customize it just as you might choose to do so with the code others have written.
 

@@ -35,7 +35,7 @@ You will be adding target widgets that will allow Community Health Workers (CHWs
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup#3-create-and-upload-a-blank-project) setup, and an [assessment form](/building/tutorials/app-forms).
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup/#deploy-local-cht-instance) setup, and an [assessment form](/building/tutorials/app-forms).
 
 ## Implementation Steps
 

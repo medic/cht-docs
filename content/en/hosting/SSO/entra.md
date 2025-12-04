@@ -96,7 +96,7 @@ cht --url=https://medic:password@<CHT_URL> compile-app-settings upload-app-setti
 
 ### Client Secret in CHT
 
-Use the [`/api/v1/credentials` REST api](https://docs.communityhealthtoolkit.org/building/reference/api/#put-apiv1credentials) to set the client secret as the `oidc:client-secret` credential.
+Use the [`/api/v1/credentials` REST api](/building/reference/api/#put-apiv1credentials) to set the client secret as the `oidc:client-secret` credential.
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
