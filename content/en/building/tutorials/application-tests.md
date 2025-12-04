@@ -231,7 +231,7 @@ it(`Throws validation error when birth date is in future`, async () => {
 |Minimum:|Fill a contact form and count the number of fields in the contact summary|
 |Ideal:|Targeted tests for calculations of context, fields, cards, etc.|
 
-Contact summary consists of visible components such as [cards](/building/reference/contact-page/#condition-cards), [fields](/building/reference/contact-page/#contact-summary) and a hidden component: [context](/building/reference/contact-page/#care-guides). All these can be tested with the test harness.
+Contact summary consists of visible components such as [cards](/building/contact-summary/contact-summary-templated/#condition-cards), [fields](/building/contact-summary/contact-summary-templated/#contact-summary) and a hidden component: [context](/building/contact-summary/contact-summary-templated/#care-guides). All these can be tested with the test harness.
 
 Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
