@@ -76,7 +76,7 @@ If your `package.json` file does not already have them, add `cht-conf-test-harne
 4. Create a folder in the project root where you keep the tests. You can name the folder yourself. In this case it is named 'test'.
 {{< figure src="test-folder-placement.png" link="test-folder-placement.png" class="col-9 col-lg-12" >}}
 
-5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](/cht-conf-test-harness/global.html#HarnessInputs).
+5. Create a file `harness.defaults.json` at the root of your project. This is the default configuration file for the harness. Here you can specify the default user, preloaded contacts and reports, and add other settings. Here's an [example](https://github.com/medic/cht-conf-test-harness/blob/master/harness.defaults.json.example) file to get you started. You can read more about it [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 {{< figure src="harness-json-file-placement.png" link="harness-json-file-placement.png" class="col-9 col-lg-12" >}}
 
 ## Writing a test for CHT App
@@ -103,7 +103,7 @@ Other useful options are:
 1. `{ headless: false }` -  Passed to [puppeteer](https://pptr.dev/guides/getting-started), launches browser with GUI. Helpful to see how the form is getting filled.
 2. `{ harnessDataPath: 'harness.clinic.json'}`: Specify different harness configuration
 
-You can find more harness options and examples [here](/cht-conf-test-harness/Harness.html).
+You can find more harness options and examples [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html).
 
 
 You need to start the harness before running tests and stop it after the use. To handle start and stop of harness, place following statements in `before()` and `after()` hooks of the test suite.
@@ -154,7 +154,7 @@ Let's look at a more detailed example. <a name="assessment-form-test">Here</a> i
   });
 ```
 
-In line 4 above, the method [harness.fillForm()](/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
+In line 4 above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
 
 Depending on the form design, the number of inputs to be filled can be large. The inputs are often repeated within a single test or across multiple tests with little or no variation. It is a good idea to keep them in a separate file and refer them from the tests as required. You can also introduce some variations in the inputs using function parameters.
 
@@ -193,7 +193,7 @@ The test files are usually grouped in folders to read and run them easily. One w
 
 [Previous example](/building/tutorials/application-tests/#assessment-form-test) demonstrates test for the app form. More test cases can be added by changing the inputs.
 
-You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
+You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
 
 Example:
 ```js highlight 
@@ -233,7 +233,7 @@ it(`Throws validation error when birth date is in future`, async () => {
 
 Contact summary consists of visible components such as [cards](/building/reference/contact-page/#condition-cards), [fields](/building/reference/contact-page/#contact-summary) and a hidden component: [context](/building/reference/contact-page/#care-guides). All these can be tested with the test harness.
 
-Use [harness.getContactSummary()](/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
+Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
 To test the contact summary fields added in the [previous tutorial](/building/contact-summary/contact-summary-overview#3-export-fields), use the following test case:
 
@@ -250,7 +250,7 @@ expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
   );
 ```
 
-Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](/cht-conf-test-harness/global.html#HarnessInputs).
+Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 
 Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial](/building/condition-cards#2-define-cards-and-add-a-condition-card-object):
 
@@ -302,15 +302,15 @@ Every task has a source document (contact or report). When testing, you can mock
 
 Commonly used harness methods when testing tasks are:
 
-- [`harness.setNow()`](/cht-conf-test-harness/Harness.html#setNow): Set the current mock-time of the harness.
+- [`harness.setNow()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#setNow): Set the current mock-time of the harness.
 
-- [`harness.flush()`](/cht-conf-test-harness/Harness.html#flush): Increment the current time by an amount
+- [`harness.flush()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#flush): Increment the current time by an amount
 
-- [`harness.getTasks()`](/cht-conf-test-harness/Harness.html#getTasks): Check which tasks are visible
+- [`harness.getTasks()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTasks): Check which tasks are visible
 
-- [`harness.loadAction()`](/cht-conf-test-harness/Harness.html#loadAction): Simulates the user clicking on an action
+- [`harness.loadAction()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#loadAction): Simulates the user clicking on an action
 
-With `getTasks()`, you get an array of [`Task`](/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](/technical-overview/data/db-schema/#tasks).
+With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](/technical-overview/data/db-schema/#tasks).
 
 Let's look back at the simple task from this tutorial: [Building A Simple Task](/building/tasks/simple-tasks).
 
@@ -446,7 +446,7 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 |Ideal:|One test for each user scenario<br/>Ensure proper deduplication (particularly for those with emitCustom)|
 
 
-Use [`harness.getTargets`](/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](/technical-overview/data/db-schema/#targets).
+Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](/technical-overview/data/db-schema/#targets).
 
 To test the first two targets created in the [targets tutorial](/building/targets/target-widgets), use this code:
 ```js highlight 
