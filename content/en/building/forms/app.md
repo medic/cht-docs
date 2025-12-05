@@ -87,7 +87,7 @@ Some XForm widgets have been added or modified for use in CHT applications. The 
 
 ### Bikram Sambat Datepicker
 
-Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
+Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
 {{< see-also page="building/forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
 
 ### Countdown Timer

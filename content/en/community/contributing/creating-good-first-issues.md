@@ -62,7 +62,7 @@ Taken from [#9869](https://github.com/medic/cht-core/issues/9869) opened Apr 202
 > This ticket has the [Good first issue label](https://github.com/medic/cht-core/issues?q=state%3Aopen%20label%3A%22Good%20first%20issue%22)! This means it's been especially curated by other CHT contributors to be easy to work on for first time contributors.
 > 
 > To succeed on this ticket, please:
-> 1. set up your [development environment](/contribute/code/core/dev-environment/) - and ensure it works by logging in to you CHT instance
+> 1. set up your [development environment](/community/contributing/code/core/dev-environment/) - and ensure it works by logging in to you CHT instance
 > 2. create an offline user called `test` in the administrative interface
 > 3. log in as this user to ensure a unique device ID in the CHT  is created
 > 4. go to [fauxton](http://localhost:5984/_utils/#database/medic-users-meta/) and create a document based on the JSON below

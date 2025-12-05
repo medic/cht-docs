@@ -53,7 +53,7 @@ docker compose up -d
 
 The Keycloak instance is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
 
-Now create an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper-for-4x).
+Now create an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper).
 
 {{< /tab >}}
 {{< /tabs >}}

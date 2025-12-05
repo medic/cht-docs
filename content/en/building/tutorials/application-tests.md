@@ -498,7 +498,7 @@ For targets with `type: 'percent'`, you might want to check for more properties:
 ```
 ---
 ### Tests for helper functions
-If you have added [helper functions](/building/reference/tasks/#tasks-with-functions), they can be tested separately.
+If you have added [helper functions](/building/tasks/tasks-js/#tasks-with-functions), they can be tested separately.
 
 Example:
 ```js
