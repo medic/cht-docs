@@ -133,7 +133,9 @@ After each test run, assert that there are no errors in the console.
 
 If you want to learn more about these hooks, refer to this [Mocha resource](https://mochajs.org/#hooks). Feel free to customize the hooks as you see fit.
 
-Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial](/building/tutorials/app-forms):
+#### Assessment form test
+
+Let's look at a more detailed example. Below is a test case for the Assessment form that was covered in the [previous tutorial](/building/tutorials/app-forms):
 
 ```js highlight 
   it('unit test confirming assessment with cough since 7 days', async () => {
