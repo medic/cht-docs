@@ -78,8 +78,8 @@ The following transitions are available and executed in order.
 | [registration](#registration) | For registering a patient or place to a schedule. Performs some validation and creates the patient document if the patient does not already exist. Can create places (as of 3.8.x). Can assign schedules to places (as of 3.11.x) |
 | [accept_patient_reports](/building/reference/app-settings/transitions/#accept_patient_reports) | Validates reports about a patient or place and silences relevant reminders. |
 | [accept_case_reports](/building/reference/app-settings/transitions/#accept_patient_reports) | Validates reports about a case, assigns the associated place_uuid, and silences relevant reminders. Available since 3.9.0 |
-| [generate_shortcode_on_contacts](#generate-shortcode-on-contacts) | Automatically generates the `patient_id` on all person documents and the `place_id` on all place documents. Available since 3.8.x. |
-| [generate_patient_id_on_people](#generate-patient-id-on-people) | **Deprecated in 3.8.x** Automatically generates the `patient_id` on all person documents. As of 3.8.x, also generates the `place_id` on all place documents and is an alias for `generate_shortcode_on_contacts`. |
+| [generate_shortcode_on_contacts](/building/reference/app-settings/transitions/#generate_shortcode_on_contacts) | Automatically generates the `patient_id` on all person documents and the `place_id` on all place documents. Available since 3.8.x. |
+| [generate_patient_id_on_people](/building/reference/app-settings/transitions/#generate_patient_id_on_people) | **Deprecated in 3.8.x** Automatically generates the `patient_id` on all person documents. As of 3.8.x, also generates the `place_id` on all place documents and is an alias for `generate_shortcode_on_contacts`. |
 | default_responses | Responds to the message with a confirmation or validation error. |
 | update_sent_by | Sets the sent_by field of the report based on the sender's phone number. |
 | update_sent_forms | **Deprecated in 3.7.x** Update sent_forms property on facilities so we can setup reminders for specific forms. *As of 3.7.x, reminders no longer require this transition*|

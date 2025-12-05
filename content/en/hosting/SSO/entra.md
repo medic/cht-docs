@@ -100,7 +100,7 @@ Use the [`/api/v1/credentials` REST api](/building/reference/api/#put-apiv1crede
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
-Be sure to replace `SECRET` with the value from [step 3 above](#copy-secret). As well, replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
+Be sure to replace `SECRET` with the value from [step 3 above](/hosting/sso/entra/#copy-secret). As well, replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
 ```shell
 curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-secret \
      -H "Content-Type: text/plain" \
@@ -109,7 +109,7 @@ curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-s
 
 {{< /tab >}}
 {{< tab >}}
-Be sure to replace `SECRET` with the value from [step 3 above](#copy-secret). As well, replace `CHT_URL` with the docker helper URL, including port:
+Be sure to replace `SECRET` with the value from [step 3 above](/hosting/sso/entra/#copy-secret). As well, replace `CHT_URL` with the docker helper URL, including port:
 ```shell
 curl -X PUT https://medic:password@<CHT_URL>/api/v1/credentials/oidc:client-secret \
      -H "Content-Type: text/plain" \

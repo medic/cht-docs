@@ -22,7 +22,7 @@ By the end of the tutorial you should be able to:
 - Set up a couch2pg service
 - Run the couch2pg service
 
-[CHT Couch2pg](https://github.com/medic/cht-couch2pg) is a background process that moves data from Couchdb to Postgres through one way replication. It therefore, needs to have full read and write access to both the Postgres Database and Couchdb upstream.  It is built in nodejs and can be set up as a background process using systemd. Review this [architecture diagram](/technical-overview/architecture#overview) to get a conceptual understanding of how couch2pg works.
+[CHT Couch2pg](https://github.com/medic/cht-couch2pg) is a background process that moves data from Couchdb to Postgres through one way replication. It therefore, needs to have full read and write access to both the Postgres Database and Couchdb upstream.  It is built in nodejs and can be set up as a background process using systemd. 
 
 ## Brief Overview of key environmental variables
 

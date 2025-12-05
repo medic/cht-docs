@@ -191,7 +191,7 @@ The test files are usually grouped in folders to read and run them easily. One w
 |Minimum:|Filling a form with the most common options should not result in any error.|
 |Ideal:|All input combinations and constraints are tested with the report fields.|
 
-[Previous example](/building/tutorials/application-tests/#assessment-form-test) demonstrates test for the app form. More test cases can be added by changing the inputs.
+[Previous example](/building/tutorials/application-tests/#writing-a-test-for-cht-app) demonstrates test for the app form. More test cases can be added by changing the inputs.
 
 You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
 
