@@ -91,7 +91,8 @@ either of these shortcodes in conjunction with this render hook.
 {{- $errorLevel := or site.Params.linkErrorLevel site.Params.render_hooks.link.errorLevel "ignore" | lower }}
 
 {{- /* If true, adds "broken" class to broken links. Applicable in development environment when errorLevel is warning. */}}
-{{- $highlightBrokenLinks := or site.Params.render_hooks.link.highlightBroken false }}
+{{- /* MODIFIED: Check site.Params.highlightBroken first to reuse existing config, then fall back to site.Params.render_hooks.link.highlightBroken */}}
+{{- $highlightBrokenLinks := or site.Params.highlightBroken site.Params.render_hooks.link.highlightBroken false }}
 
 {{- /* Validate error level. */}}
 {{- if not (in (slice "ignore" "warning" "error") $errorLevel) }}
