@@ -13,7 +13,7 @@ aliases:
 In a production environment, the CHT costs are estimated at USD$0.10 per active user per month to run. What exactly does this mean? Let's dive into some specifics which importantly cover what is include and excluded and how these costs can vary with each deployment.
 
 {{< callout type="warning" >}}
-  Be sure to read the [Accuracy section](#accuracy) so you understand what the costs on these page mean for your deployment.
+  Be sure to read the [Accuracy section](/hosting/cht/costs/#accuracy) so you understand what the costs on these page mean for your deployment.
 {{< /callout >}}
 
 ## How the number was calculated
@@ -64,10 +64,10 @@ When analyzing the hosting total cost of ownership (TCO), only production instan
 
 ## Small deployment example costs
 
-In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs](/hosting/requirements).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
+In order to get a better idea of fixed monthly costs, let's look at the smallest Kubernetes deployment per the [requirements docs](/hosting/cht/requirements/).  These estimates use Amazon's [EC2 pricing](https://aws.amazon.com/ec2/pricing/on-demand/) and [EBS pricing](https://aws.amazon.com/ebs/pricing/) in Paris (`eu-west2`) availability zone.  Note that different [types of EC2 pricing](https://aws.amazon.com/compare/the-difference-between-on-demand-instances-and-reserved-instances/) may have different costs along with other cloud providers which will have different costs as well.
 
 {{< callout >}}
-For more examples of deployments, but without costs, see [Kubernetes vs Docker](/hosting/kubernetes-vs-docker/#example-deployments).
+For more examples of deployments, but without costs, see [Kubernetes vs Docker](/hosting/cht/kubernetes-vs-docker/#example-deployments).
 {{< /callout >}}
 
 ### Monthly costs 

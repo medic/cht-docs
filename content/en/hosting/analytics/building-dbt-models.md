@@ -60,7 +60,7 @@ When it is necessary to update the base models, update the version tag in the de
 
 ### Testing models and dashboards
 
-It is highly encouraged to write [dbt tests](//hosting/analytics/testing-dbt-models) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
+It is highly encouraged to write [dbt tests](/hosting/analytics/testing-dbt-models) for application-specific models to ensure that they are accurate and to avoid releasing broken models. Examples can be found in the [cht-pipeline repository](https://github.com/medic/cht-pipeline/tree/main/tests).
 
 
 ## Base Models

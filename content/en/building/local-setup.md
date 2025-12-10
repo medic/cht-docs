@@ -110,7 +110,7 @@ Using python on your terminal, install `pyxform` globally using the command belo
 sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
 ```
 
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section](/community/contributing/code/core/dev-environment#macos--123).
+If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section](/community/contributing/code/core/dev-environment/#other-path-troubleshooting).
 
 #### `cht-conf`
 
@@ -174,7 +174,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper-for-4x). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 

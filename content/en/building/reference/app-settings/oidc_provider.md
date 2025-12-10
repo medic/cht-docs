@@ -16,7 +16,7 @@ relatedContent: >
 Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
 {{< /callout >}}
 
-To support [authenticating users with Single Sign-On](//hosting/sso) (SSO) credentials (instead of CHT-specific usernames/passwords), the CHT can integrate with an external authorization server that supports the [OpenID Connect](https://openid.net/) (OIDC) protocol. Configure the OIDC Provider connection settings under the `oidc_provider` key:
+To support [authenticating users with Single Sign-On](/hosting/sso) (SSO) credentials (instead of CHT-specific usernames/passwords), the CHT can integrate with an external authorization server that supports the [OpenID Connect](https://openid.net/) (OIDC) protocol. Configure the OIDC Provider connection settings under the `oidc_provider` key:
 
 ## `app_settings.json .oidc_provider`
 | property                | type    | required | description                                                                                                                                          |
