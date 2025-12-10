@@ -67,7 +67,7 @@ An outgoing SMS message configuration has the following fields:
 |-------|---------|----------|
 |`translation_key`|The translation key of the message to send out. Available in 2.15+.|yes|
 |`messages`| (**deprecated**) Array of message objects, each with `content` and `locale` properties. From 2.15 on use `translation_key` instead.|no|
-|`recipient`| Recipient of the message. Starting 5.1.0, you can pass multiple recipients in an array and first existing recipient will be resolved. |no|
+|`recipient`| Specifies the intended recipient of the message. As of 5.1.0, an array of multiple recipients may be provided, in which case the first existing recipient will be resolved. |no|
 
 ### `recipient` values and resolutions:
 
@@ -87,7 +87,7 @@ An outgoing SMS message configuration has the following fields:
 | *valid phone number* | requested phone number |
 
 > [!NOTE]
-> - when recipient is an array of multiple recipients, it will try to resolve first existing recipient from an array.
+> - when recipient is an array, the first resolved recipient from the array will be selected. 
 > - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number. This behavior can be changed with [default_to_sender]({{% ref "building/reference/app-settings/sms/#app_settingsjson-sms" %}}) paramter.
 > - if there is no submitter phone number available or `default_to_sender` is `false`, the actual `recipient` property value will be used. When recipient is an array, first field of an array will be used.
 > - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`.
