@@ -352,7 +352,7 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 ### Capture
 
 {{< callout type="info" >}}
-  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).
+  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](/reference-apps/covid-rdt-reference-app/#base64-image-extraction).
 {{< /callout >}}
 
 
