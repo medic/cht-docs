@@ -50,12 +50,87 @@ You can start your local CHT Docs instance by:
 
 Any users who experience errors running `hugo server`, please see our [Troubleshooting guide](./troubleshooting.md).
 
-## Link Checking [Optional]
+## Link Checking
 
-We have two types of link checking:
+We have automatic link validation built into Hugo that checks all internal markdown links at build time, plus two optional external link checking tools:
 
-* All links - tests all links within docs and outbound
-* Internal links - takes all internal links from [production site](https://docs.communityhealthtoolkit.org/) and tests them on your branch
+* **Automatic internal link validation** - Hugo validates all markdown links during build (enabled by default)
+* **All links** - tests all links within docs and outbound using Muffet
+* **Internal links** - takes all internal links from [production site](https://docs.communityhealthtoolkit.org/) and tests them on your branch
+
+### Automatic Internal Link Validation
+
+The site uses a custom Hugo render hook that automatically validates all internal markdown links during the build process. This ensures that links to other pages, headings, and resources are correct before deployment.
+
+#### Configuration
+
+Link validation is controlled by two parameters in `hugo.toml`:
+
+```toml
+[params]
+linkErrorLevel = "ERROR"    # ERROR, WARNING, or IGNORE
+highlightBroken = true      # true or false (default: false)
+```
+
+**`linkErrorLevel`** - Controls what happens when a broken link is found:
+- `"ERROR"` - Build fails with an error message. This project uses ERROR for production/CI.
+- `"WARNING"` - Build succeeds but shows warning messages. Use this during development.
+- `"IGNORE"` - Broken links are silently ignored (this is the render hook's default, but not recommended).
+
+**`highlightBroken`** - When enabled, broken links are visually highlighted in development:
+- Only works when `linkErrorLevel = "WARNING"` AND running in development mode
+- Broken links get a yellow background with red border
+- Makes it easy to spot broken links while fixing them
+
+#### Development Workflow for Fixing Broken Links
+
+When fixing multiple broken links, use this workflow to avoid restarting Hugo after each fix:
+
+1. **Enable warning mode** in `hugo.toml`:
+   ```toml
+   [params]
+   linkErrorLevel = "WARNING"
+   highlightBroken = true
+   ```
+
+> ⚠️ **Never commit `linkErrorLevel = "WARNING"` to the main branch!** The CI build should always fail on broken links to maintain link integrity. Always revert to `"ERROR"` before committing.
+
+2. **Start Hugo** (if not already running):
+   ```bash
+   docker compose up
+   # or
+   hugo server
+   ```
+   - Observe the terminal output - you'll see WARN messages for each broken link
+   - The build will complete successfully despite the warnings
+
+3. **Visit your local site** at http://localhost:1313/
+   - Broken links will have a yellow background with red border
+   - Hugo will continue running despite broken links
+
+4. **Fix the links** in your markdown files:
+   - Hugo will automatically reload as you save changes
+   - The yellow highlighting will disappear as links are fixed
+   - No need to restart Hugo between fixes
+
+5. **Verify all links are fixed**:
+   - Check that no yellow-highlighted links remain
+   - Review the terminal output for any remaining warnings
+
+6. **Revert to error mode** in `hugo.toml`:
+   ```toml
+   [params]
+   linkErrorLevel = "ERROR"
+   highlightBroken = true
+   ```
+
+> ⚠️ **Don't forget this step!** The build must fail on broken links in CI to maintain link integrity.
+
+7. **Test the build**:
+   - Restart Hugo to verify the build succeeds with no errors
+   - If the build fails, return to step 3
+
+8. **Commit your changes**
 
 ### All links, including outbound 
 
