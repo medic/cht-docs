@@ -46,7 +46,7 @@ To get started using it:
 An alternate to steps 2 and 3 above, if a more stand-alone version is desired, the bash script can be `curl`ed directly, but you can't use `git` to easily update it then:
 
 ```shell
-curl -s -o cht-docker-compose.sh https://raw.githubusercontent.com/medic/cht-core/refs/heads/master/scripts/docker-helper/cht-docker-compose.sh
+curl -s -o cht-docker-compose.sh https://raw.githubusercontent.com/medic/cht-core/master/scripts/docker-helper/cht-docker-compose.sh
 ```
 
 ### Usage
