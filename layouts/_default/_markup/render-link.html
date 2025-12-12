@@ -162,12 +162,12 @@ either of these shortcodes in conjunction with this render hook.
       {{- $ctx := dict
         "contentPath" $contentPath
         "errorLevel" $errorLevel
-        "page" $.Page
+        "page" $.PageInner
         "parsedURL" $u
         "renderHookName" $renderHookName
       }}
       {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
-      {{- $attrs = dict "href" (printf "%s#%s" $.Page.RelPermalink .) }}
+      {{- $attrs = dict "href" (printf "%s#%s" $.PageInner.RelPermalink .) }}
     {{- else }}
       {{- if eq $errorLevel "warning" }}
         {{- warnf $msg }}
