@@ -121,38 +121,19 @@ either of these shortcodes in conjunction with this render hook.
   {{- with $u.Path }}
     {{- with $p := or ($.PageInner.GetPage .) ($.PageInner.GetPage (strings.TrimRight "/" .)) }}
       {{- /* Destination is a page. */}}
-      {{- if eq $p.RelPermalink $.Page.RelPermalink }}
+      {{- $href := .RelPermalink }}
+      {{- with $u.RawQuery }}
+        {{- $href = printf "%s?%s" $href . }}
+      {{- end }}
+      {{- with $u.Fragment }}
         {{- /*
-        Self-referencing link detected. Normalize to fragment-only format to allow validation.
+        Skip fragment validation for self-referencing links to prevent Hugo from hanging.
         When a page links to itself with a fragment (e.g., /current-page/#heading), accessing
-        $p.Fragments on the page object returned by .GetPage causes Hugo to hang. However,
-        using $.Page (the current page context) works fine. So we normalize self-referencing
-        links to fragment-only format and validate using $.Page instead of $p.
+        $p.Fragments on the page object returned by .GetPage causes Hugo to hang indefinitely.
+        The exact internal cause is unclear, but skipping validation when the target page is the
+        current page prevents the hang. Cross-page fragment validation still works normally.
         */}}
-        {{- $href := $.Page.RelPermalink }}
-        {{- with $u.RawQuery }}
-          {{- $href = printf "%s?%s" $href . }}
-        {{- end }}
-        {{- with $u.Fragment }}
-          {{- /* Validate fragment using $.Page context (works for self-references) */}}
-          {{- $ctx := dict
-            "contentPath" $contentPath
-            "errorLevel" $errorLevel
-            "page" $.Page
-            "parsedURL" $u
-            "renderHookName" $renderHookName
-          }}
-          {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
-          {{- $href = printf "%s#%s" $href . }}
-        {{- end }}
-        {{- $attrs = dict "href" $href }}
-      {{- else }}
-        {{- /* Cross-page link - use normal validation with $p */}}
-        {{- $href := .RelPermalink }}
-        {{- with $u.RawQuery }}
-          {{- $href = printf "%s?%s" $href . }}
-        {{- end }}
-        {{- with $u.Fragment }}
+        {{- if ne $p.RelPermalink $.Page.RelPermalink }}
           {{- $ctx := dict
             "contentPath" $contentPath
             "errorLevel" $errorLevel
@@ -161,10 +142,10 @@ either of these shortcodes in conjunction with this render hook.
             "renderHookName" $renderHookName
           }}
           {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
-          {{- $href = printf "%s#%s" $href . }}
         {{- end }}
-        {{- $attrs = dict "href" $href }}
+        {{- $href = printf "%s#%s" $href . }}
       {{- end }}
+      {{- $attrs = dict "href" $href }}
     {{- else with $.PageInner.Resources.Get $u.Path }}
       {{- /* Destination is a page resource; drop query and fragment. */}}
       {{- $attrs = dict "href" .RelPermalink }}
