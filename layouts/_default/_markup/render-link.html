@@ -126,23 +126,14 @@ either of these shortcodes in conjunction with this render hook.
         {{- $href = printf "%s?%s" $href . }}
       {{- end }}
       {{- with $u.Fragment }}
-        {{- /*
-        Skip fragment validation for self-referencing links to prevent Hugo from hanging.
-        When a page links to itself with a fragment (e.g., /current-page/#heading), accessing
-        $p.Fragments on the page object returned by .GetPage causes Hugo to hang indefinitely.
-        The exact internal cause is unclear, but skipping validation when the target page is the
-        current page prevents the hang. Cross-page fragment validation still works normally.
-        */}}
-        {{- if ne $p.RelPermalink $.Page.RelPermalink }}
-          {{- $ctx := dict
-            "contentPath" $contentPath
-            "errorLevel" $errorLevel
-            "page" $p
-            "parsedURL" $u
-            "renderHookName" $renderHookName
-          }}
-          {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
-        {{- end }}
+        {{- $ctx := dict
+          "contentPath" $contentPath
+          "errorLevel" $errorLevel
+          "page" $p
+          "parsedURL" $u
+          "renderHookName" $renderHookName
+        }}
+        {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
         {{- $href = printf "%s#%s" $href . }}
       {{- end }}
       {{- $attrs = dict "href" $href }}
