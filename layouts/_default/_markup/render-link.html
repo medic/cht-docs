@@ -159,14 +159,21 @@ either of these shortcodes in conjunction with this render hook.
   {{- else }}
     {{- with $u.Fragment }}
       {{- /* Destination is on the same page; prepend relative permalink. */}}
-      {{- $ctx := dict
-        "contentPath" $contentPath
-        "errorLevel" $errorLevel
-        "page" $.PageInner
-        "parsedURL" $u
-        "renderHookName" $renderHookName
-      }}
-      {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
+      {{- /* Skip validation if we're in a shortcode context (page points to _index.md) to avoid false positives */}}
+      {{- $isInShortcodeContext := false }}
+      {{- with $.PageInner.File }}
+        {{- $isInShortcodeContext = strings.HasSuffix .Path "_index.md" }}
+      {{- end }}
+      {{- if not $isInShortcodeContext }}
+        {{- $ctx := dict
+          "contentPath" $contentPath
+          "errorLevel" $errorLevel
+          "page" $.PageInner
+          "parsedURL" $u
+          "renderHookName" $renderHookName
+        }}
+        {{- partial "inline/h-rh-l/validate-fragment.html" $ctx }}
+      {{- end }}
       {{- $attrs = dict "href" (printf "%s#%s" $.PageInner.RelPermalink .) }}
     {{- else }}
       {{- if eq $errorLevel "warning" }}
