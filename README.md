@@ -62,6 +62,19 @@ We have automatic link validation built into Hugo that checks all internal markd
 
 The site uses a custom Hugo render hook that automatically validates all internal markdown links during the build process. This ensures that links to other pages, headings, and resources are correct before deployment.
 
+#### Known Limitations
+
+**Fragment-only links in shortcodes and `_index.md` files** - Avoid full-path self-references (like `[link](/current-page/#heading)`) inside `{{< tab >}}` shortcodes as they cause builds to hang.
+
+Fragment-only self-references (like `[link](#heading)`) skip validation in two scenarios due to Hugo context limitations:
+
+1. Inside certain shortcodes (like `{{< tab >}}` and `{{< callout >}}`)
+2. In `_index.md` section landing pages
+
+These links still work correctly, but broken fragments won't be caught at build time.
+
+**Error message source file** - When validation errors occur for full-path links (like `[link](/other-page/#bad-heading)`)  inside shortcodes, the error message may show `_index.md` as the source file instead of the actual markdown file. The target file and error detection remain correct. Fragment-only self-references inside shortcodes skip validation entirely to avoid false positives.
+
 #### Configuration
 
 Link validation is controlled by two parameters in `hugo.toml`:
