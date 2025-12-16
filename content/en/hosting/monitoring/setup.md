@@ -190,7 +190,7 @@ No matter which way you set up your SQL exporter, follow these steps to tell you
 
 #### Prometheus Retention and Storage
 
-By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data.  However, this will increase the size of the Prometheus data volume.  
+By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data. However, this will increase the size of the Prometheus data volume. 
 
 Alternatively, to limit the maximum storage used, set `PROMETHEUS_RETENTION_SIZE` to a value like `10GB` or `500MB`. This defaults to `0` which means no limit. When both time and size limits are configured, whichever threshold is reached first will trigger data removal.
 
