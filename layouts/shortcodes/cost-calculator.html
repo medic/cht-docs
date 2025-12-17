@@ -8,160 +8,128 @@
 <script src="/js/cost-calculator.js"></script>
 
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
-  <div class="calc-loading" id="loading-{{ $id }}">
-    Loading Chart.js...
-  </div>
-
   <div class="calc-grid">
     <!-- Input Controls -->
     <div class="calc-inputs">
-      <h3>Configuration</h3>
+      <h3>Deployment Parameters</h3>
 
       <div class="input-group">
         <label class="label-with-value">
-          <span>Active Users</span>
-          <span class="input-value" id="active-users-value-{{ $id }}">661</span>
+          <span>Age of Deployment (years)</span>
+          <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
         </label>
         <input type="range"
                class="calc-input"
-               id="active-users-{{ $id }}"
+               id="deployment-age-{{ $id }}"
                min="1"
-               max="5000"
-               value="661"
+               max="10"
+               value="1"
                step="1">
       </div>
 
       <div class="input-group">
-        <label for="doc-growth-{{ $id }}">Document Growth (per month)</label>
-        <input type="number"
+        <label class="label-with-value">
+          <span>Number of Workflows</span>
+          <span class="input-value" id="workflow-count-value-{{ $id }}">5</span>
+        </label>
+        <input type="range"
                class="calc-input"
-               id="doc-growth-{{ $id }}"
-               value="248000"
-               min="0"
+               id="workflow-count-{{ $id }}"
+               min="1"
+               max="25"
+               value="5"
+               step="1">
+      </div>
+
+      <div class="input-group">
+        <label class="label-with-value">
+          <span>Population Served</span>
+          <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
+        </label>
+        <input type="range"
+               class="calc-input"
+               id="population-count-{{ $id }}"
+               min="1000"
+               max="1000000"
+               value="20000"
                step="1000">
-      </div>
-
-      <div class="input-group">
-        <label for="db-size-{{ $id }}">Current Database Size (million documents)</label>
-        <input type="number"
-               class="calc-input"
-               id="db-size-{{ $id }}"
-               value="10.7"
-               min="0"
-               step="0.1">
-      </div>
-
-      <div class="input-group">
-        <label for="deployment-type-{{ $id }}">Deployment Type</label>
-        <select class="calc-input" id="deployment-type-{{ $id }}">
-          <option value="small" selected>Small (1 control + 3 workers)</option>
-          <option value="medium">Medium (1 control + 5 workers)</option>
-          <option value="large">Large (1 control + 10 workers)</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label for="cloud-provider-{{ $id }}">Cloud Provider / Region</label>
-        <select class="calc-input" id="cloud-provider-{{ $id }}">
-          <option value="1.0" selected>AWS Paris (eu-west-2)</option>
-          <option value="0.95">AWS US East (us-east-1)</option>
-          <option value="1.1">AWS Asia Pacific (ap-south-1)</option>
-          <option value="0.8">Self-hosted Datacenter</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label class="label-with-value">
-          <span>Over-provisioning Buffer</span>
-          <span class="input-value" id="overprovision-value-{{ $id }}">20%</span>
-        </label>
-        <input type="range"
-               class="calc-input"
-               id="overprovision-{{ $id }}"
-               min="0"
-               max="50"
-               value="20"
-               step="1">
-      </div>
-
-      <div class="input-group">
-        <label class="label-with-value">
-          <span>Backup Storage Multiplier</span>
-          <span class="input-value" id="backup-mult-value-{{ $id }}">2x</span>
-        </label>
-        <input type="range"
-               class="calc-input"
-               id="backup-mult-{{ $id }}"
-               min="1"
-               max="5"
-               value="2"
-               step="0.5">
-      </div>
-
-      <div class="input-group">
-        <label class="checkbox-label">
-          <input type="checkbox"
-                 class="calc-input"
-                 id="include-backups-{{ $id }}">
-          Include Backup Costs
-        </label>
-      </div>
-
-      <div class="input-group">
-        <label class="checkbox-label">
-          <input type="checkbox"
-                 class="calc-input"
-                 id="include-monitoring-{{ $id }}"
-                 checked>
-          Include Monitoring Costs
-        </label>
-      </div>
-
-      <div class="input-group">
-        <label for="projection-period-{{ $id }}">Growth Projection Period</label>
-        <select class="calc-input" id="projection-period-{{ $id }}">
-          <option value="3">3 months</option>
-          <option value="6">6 months</option>
-          <option value="12" selected>12 months</option>
-          <option value="24">24 months</option>
-        </select>
       </div>
     </div>
 
-    <!-- Charts -->
+    <!-- Results Summary -->
     <div class="calc-charts">
       <div class="chart-container">
-        <h3>Cost Breakdown</h3>
-        <canvas id="pie-chart-{{ $id }}" class="chart-canvas"></canvas>
+        <h3>Annual Cost Estimate</h3>
+        <div style="padding: 1rem 0;">
+          <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.5rem;" id="total-cost-{{ $id }}">$0.00</div>
+          <div style="font-size: 0.9rem; color: var(--calc-text-light);">Total cost per year</div>
+        </div>
       </div>
 
       <div class="chart-container">
-        <h3>Growth Projection</h3>
-        <canvas id="bar-chart-{{ $id }}" class="chart-canvas"></canvas>
+        <h3>Instance Selection</h3>
+        <div style="padding: 0.5rem 0;">
+          <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">t3.medium</div>
+          <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
+          <div style="font-size: 1.1rem; font-weight: 600;" id="instance-cost-{{ $id }}">$0.00</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Detailed Table -->
+  <!-- Detailed Breakdown Table -->
   <div class="calc-table">
-    <h3>Detailed Cost Breakdown</h3>
+    <h3>Detailed Breakdown</h3>
     <table class="cost-breakdown-table">
       <thead>
         <tr>
-          <th>Cost Component</th>
-          <th>Details</th>
-          <th class="cost-amount">Monthly Cost</th>
+          <th>Metric</th>
+          <th>Description</th>
+          <th class="cost-amount">Value</th>
         </tr>
       </thead>
-      <tbody id="cost-table-body-{{ $id }}">
-        <!-- Populated by JavaScript -->
-      </tbody>
-      <tfoot>
+      <tbody>
         <tr>
-          <td colspan="2">Total Monthly Cost</td>
-          <td class="cost-amount" id="total-cost-{{ $id }}">$0.00</td>
+          <td><strong>Disk Cost</strong></td>
+          <td>Storage cost per year</td>
+          <td class="cost-amount" id="disk-cost-{{ $id }}">$0.00</td>
         </tr>
-      </tfoot>
+        <tr>
+          <td><strong>User Count</strong></td>
+          <td>Estimated number of users</td>
+          <td class="cost-amount" id="user-count-{{ $id }}">0</td>
+        </tr>
+        <tr>
+          <td><strong>Contact Count</strong></td>
+          <td>Total contacts in database</td>
+          <td class="cost-amount" id="contact-count-{{ $id }}">0</td>
+        </tr>
+        <tr>
+          <td><strong>Report Count</strong></td>
+          <td>Total reports generated</td>
+          <td class="cost-amount" id="report-count-{{ $id }}">0</td>
+        </tr>
+        <tr>
+          <td><strong>Place Count</strong></td>
+          <td>Number of places tracked</td>
+          <td class="cost-amount" id="place-count-{{ $id }}">0</td>
+        </tr>
+        <tr>
+          <td><strong>Total Documents</strong></td>
+          <td>All documents in database</td>
+          <td class="cost-amount" id="total-doc-count-{{ $id }}">0</td>
+        </tr>
+        <tr>
+          <td><strong>Disk Size</strong></td>
+          <td>Required disk space</td>
+          <td class="cost-amount" id="disk-size-{{ $id }}">0 GB</td>
+        </tr>
+        <tr>
+          <td><strong>Load Factor</strong></td>
+          <td>System load metric</td>
+          <td class="cost-amount" id="load-factor-{{ $id }}">0</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>
