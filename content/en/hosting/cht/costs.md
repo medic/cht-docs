@@ -126,3 +126,13 @@ There are many assumptions about what else is needed to run the CHT. While impor
 * Mobile Device Management - optional.
 * Cellphone telecom services - Users actually uploading/downloading data
 * Setup and/or transfer of hosting provider
+
+## Interactive Cost Calculator
+
+Use this calculator to estimate hosting costs for your specific CHT deployment. Adjust the inputs to match your expected usage and see how costs change in real-time.
+
+{{< cost-calculator >}}
+
+{{< callout type="info" >}}
+The calculator uses real-world data from production CHT instances. Your actual costs may vary based on specific usage patterns, regional pricing, and deployment optimization.
+{{< /callout >}}
