@@ -74,11 +74,18 @@
   <!-- Instance Details -->
   <div class="calc-table" style="margin-bottom: 1.5rem;">
     <h3>Recommended Host</h3>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 1rem 0;">
       <div>
+        <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Instance</div>
         <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
         <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">t3.medium</div>
         <div style="font-size: 1.5rem; font-weight: 600; color: #3b82f6;" id="instance-cost-{{ $id }}">$0.00</div>
+      </div>
+      <div>
+        <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Disk</div>
+        <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="disk-size-{{ $id }}">0 GB</div>
+        <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Block Volume Storage</div>
+        <div style="font-size: 1.5rem; font-weight: 600; color: #10b981;" id="disk-cost-{{ $id }}">$0.00</div>
       </div>
     </div>
   </div>

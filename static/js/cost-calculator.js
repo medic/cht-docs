@@ -144,7 +144,7 @@ function initCostCalculator(calcId) {
     const colors = getChartColors();
 
     const data = {
-      labels: ['Instance Cost', 'Disk Cost'],
+      labels: ['Instance', 'Disk'],
       datasets: [{
         data: [metrics.instance.cost, metrics.diskCost],
         backgroundColor: colors.colors,
