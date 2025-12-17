@@ -15,16 +15,16 @@
 
       <div class="input-group">
         <label class="label-with-value">
-          <span>Age of Deployment (years)</span>
-          <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
+          <span>Population Served</span>
+          <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
         </label>
         <input type="range"
                class="calc-input"
-               id="deployment-age-{{ $id }}"
-               min="1"
-               max="10"
-               value="1"
-               step="1">
+               id="population-count-{{ $id }}"
+               min="1000"
+               max="1000000"
+               value="20000"
+               step="1000">
       </div>
 
       <div class="input-group">
@@ -43,16 +43,16 @@
 
       <div class="input-group">
         <label class="label-with-value">
-          <span>Population Served</span>
-          <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
+          <span>Age of Deployment (years)</span>
+          <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
         </label>
         <input type="range"
                class="calc-input"
-               id="population-count-{{ $id }}"
-               min="1000"
-               max="1000000"
-               value="20000"
-               step="1000">
+               id="deployment-age-{{ $id }}"
+               min="1"
+               max="10"
+               value="1"
+               step="1">
       </div>
     </div>
 
