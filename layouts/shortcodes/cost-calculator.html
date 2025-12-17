@@ -62,18 +62,26 @@
         <h3>Annual Cost Estimate</h3>
         <div style="padding: 1rem 0;">
           <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.5rem;" id="total-cost-{{ $id }}">$0.00</div>
-          <div style="font-size: 0.9rem; color: var(--calc-text-light);">Total cost per year</div>
-        </div>
-      </div>
+          <div style="font-size: 0.9rem; color: var(--calc-text-light); margin-bottom: 1.5rem;">Total cost per year</div>
 
-      <div class="chart-container">
-        <h3>Instance Selection</h3>
-        <div style="padding: 0.5rem 0;">
-          <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">t3.medium</div>
-          <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
-          <div style="font-size: 1.1rem; font-weight: 600;" id="instance-cost-{{ $id }}">$0.00</div>
+          <div class="calc-loading" id="loading-{{ $id }}">
+            Loading Chart.js...
+          </div>
+          <canvas id="cost-pie-chart-{{ $id }}" class="chart-canvas" style="max-height: 250px;"></canvas>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Instance Details -->
+  <div class="calc-table" style="margin-bottom: 1.5rem;">
+    <h3>Instance Selection</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+      <div>
+        <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">t3.medium</div>
+        <div style="font-size: 0.95rem; color: var(--calc-text-light);" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
+      </div>
+      <div style="font-size: 1.5rem; font-weight: 600; color: #3b82f6;" id="instance-cost-{{ $id }}">$0.00</div>
     </div>
   </div>
 

@@ -5,6 +5,31 @@
 
 // Initialize the calculator for a given container ID
 function initCostCalculator(calcId) {
+  // Load Chart.js from CDN
+  const loadChartJS = () => {
+    return new Promise((resolve, reject) => {
+      if (typeof Chart !== 'undefined') {
+        resolve();
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+      script.integrity = 'sha256-6UWtgTSKKPXhqKgDHb2lWjX6RZxQqfSP4rN0vK91Y14=';
+      script.crossOrigin = 'anonymous';
+      script.onload = resolve;
+      script.onerror = () => {
+        // Fallback to unpkg
+        const fallbackScript = document.createElement('script');
+        fallbackScript.src = 'https://unpkg.com/chart.js@4.4.0/dist/chart.umd.js';
+        fallbackScript.onload = resolve;
+        fallbackScript.onerror = reject;
+        document.head.appendChild(fallbackScript);
+      };
+      document.head.appendChild(script);
+    });
+  };
+
   // Constants
   const INSTANCES = [
     { name: 't3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 2500 },
@@ -18,6 +43,7 @@ function initCostCalculator(calcId) {
 
   // State
   let debounceTimer = null;
+  let pieChart = null;
 
   // Get elements
   const els = {
@@ -40,7 +66,11 @@ function initCostCalculator(calcId) {
     placeCount: document.getElementById(`place-count-${calcId}`),
     totalDocCount: document.getElementById(`total-doc-count-${calcId}`),
     diskSize: document.getElementById(`disk-size-${calcId}`),
-    loadFactor: document.getElementById(`load-factor-${calcId}`)
+    loadFactor: document.getElementById(`load-factor-${calcId}`),
+
+    // Chart elements
+    pieChartCanvas: document.getElementById(`cost-pie-chart-${calcId}`),
+    loading: document.getElementById(`loading-${calcId}`)
   };
 
   // Calculation functions
@@ -91,6 +121,74 @@ function initCostCalculator(calcId) {
     return num.toLocaleString('en-US');
   }
 
+  function getChartColors() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      return {
+        colors: ['#60a5fa', '#34d399'],
+        text: '#f9fafb',
+        grid: '#374151'
+      };
+    } else {
+      return {
+        colors: ['#3b82f6', '#10b981'],
+        text: '#1f2937',
+        grid: '#e5e7eb'
+      };
+    }
+  }
+
+  function updatePieChart(metrics) {
+    if (!els.pieChartCanvas) return;
+
+    const colors = getChartColors();
+
+    const data = {
+      labels: ['Instance Cost', 'Disk Cost'],
+      datasets: [{
+        data: [metrics.instance.cost, metrics.diskCost],
+        backgroundColor: colors.colors,
+        borderWidth: 0
+      }]
+    };
+
+    if (pieChart) {
+      pieChart.data = data;
+      pieChart.options.plugins.legend.labels.color = colors.text;
+      pieChart.update('none');
+    } else {
+      pieChart = new Chart(els.pieChartCanvas, {
+        type: 'pie',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: colors.text,
+                padding: 15,
+                font: { size: 12 }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: (context) => {
+                  const label = context.label || '';
+                  const value = formatCurrency(context.parsed);
+                  const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                  const percent = ((context.parsed / total) * 100).toFixed(1);
+                  return `${label}: ${value} (${percent}%)`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
   // Update displays
   function updateOutputs() {
     const metrics = calculateMetrics();
@@ -110,6 +208,11 @@ function initCostCalculator(calcId) {
     if (els.totalDocCount) els.totalDocCount.textContent = formatNumber(metrics.totalDocCount);
     if (els.diskSize) els.diskSize.textContent = metrics.diskSizeGb.toFixed(2) + ' GB';
     if (els.loadFactor) els.loadFactor.textContent = formatNumber(metrics.loadFactor);
+
+    // Update pie chart
+    if (pieChart || els.pieChartCanvas) {
+      updatePieChart(metrics);
+    }
   }
 
   function debouncedUpdate() {
@@ -138,7 +241,40 @@ function initCostCalculator(calcId) {
     });
   }
 
+  // Dark mode observer
+  function setupDarkModeObserver() {
+    const observer = new MutationObserver(() => {
+      if (pieChart) {
+        updateOutputs();
+      }
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+
   // Initialize
-  attachListeners();
-  updateOutputs();
+  if (els.loading) {
+    els.loading.style.display = 'block';
+  }
+
+  loadChartJS()
+    .then(() => {
+      if (els.loading) {
+        els.loading.style.display = 'none';
+      }
+      attachListeners();
+      setupDarkModeObserver();
+      updateOutputs();
+    })
+    .catch((error) => {
+      if (els.loading) {
+        els.loading.textContent = 'Error loading Chart.js. Calculator will work without charts.';
+      }
+      console.error('Failed to load Chart.js:', error);
+      // Still initialize without charts
+      attachListeners();
+      updateOutputs();
+    });
 }
