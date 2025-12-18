@@ -40,6 +40,10 @@ function initCostCalculator(calcId) {
   ];
 
   const DISK_COST_PER_GB = 1.0;
+  const CONTACTS_PER_PLACE = 5;
+  const WORKFLOW_YEARLY_DOCS_PER_CONTACT = 12;
+  const DOCS_PER_GB = 12000;
+  const DB_OVERPROVISION_FACTOR = 2;
 
   // State
   let debounceTimer = null;
@@ -75,11 +79,11 @@ function initCostCalculator(calcId) {
     const populationCount = parseInt(els.populationCount.value);
 
     // Calculate derived values
-    const placeCount = Math.floor((populationCount - 1) / (5 - 1));
+    const placeCount = Math.floor((populationCount - 1) / (CONTACTS_PER_PLACE - 1));
     const contactCount = placeCount * 2 + populationCount;
-    const reportCount = workflowCount * 12 * populationCount * deploymentAge;
+    const reportCount = workflowCount * WORKFLOW_YEARLY_DOCS_PER_CONTACT * populationCount * deploymentAge;
     const totalDocCount = contactCount + reportCount;
-    const diskSizeGb = (totalDocCount / 10000) * 5;
+    const diskSizeGb = (totalDocCount / DOCS_PER_GB) * DB_OVERPROVISION_FACTOR;
     const diskCost = DISK_COST_PER_GB * diskSizeGb;
     const userCount = Math.floor(populationCount / 200);
     const loadFactor = userCount * workflowCount;
