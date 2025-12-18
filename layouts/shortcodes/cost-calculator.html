@@ -225,7 +225,30 @@
           <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Disk</div>
           <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="disk-size-{{ $id }}">0 GB</div>
           <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Block Volume Storage</div>
-          <div style="font-size: 1.5rem; font-weight: 600; color: #10b981;" id="disk-cost-{{ $id }}">$0.00</div>
+          <div style="font-size: 1.5rem; font-weight: 600; color: #10b981; margin-bottom: 1rem;" id="disk-cost-{{ $id }}">$0.00</div>
+
+          <!-- Disk Usage Breakdown -->
+          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
+            <div style="font-size: 0.75rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Storage Breakdown</div>
+
+            <!-- Used Storage -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+              <div style="font-size: 0.7rem; color: var(--calc-text-light);">Used</div>
+              <div style="font-size: 0.9rem; font-weight: 600; color: #3b82f6;" id="disk-used-{{ $id }}">0 GB</div>
+            </div>
+
+            <!-- Overprovisioned Storage -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <div style="font-size: 0.7rem; color: var(--calc-text-light);">Overprovisioned</div>
+              <div style="font-size: 0.9rem; font-weight: 600; color: #f59e0b;" id="disk-overprovision-{{ $id }}">0 GB</div>
+            </div>
+
+            <!-- Visual Bar -->
+            <div style="position: relative; height: 20px; border-radius: 4px; overflow: hidden; margin-top: 0.5rem;">
+              <div id="disk-used-bar-{{ $id }}" style="position: absolute; left: 0; top: 0; height: 100%; background: #3b82f6; transition: width 0.3s ease;"></div>
+              <div id="disk-overprovision-bar-{{ $id }}" style="position: absolute; right: 0; top: 0; height: 100%; background: #f59e0b; transition: width 0.3s ease;"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

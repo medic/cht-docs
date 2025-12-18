@@ -79,6 +79,10 @@ function initCostCalculator(calcId) {
     instanceSize: document.getElementById(`instance-size-${calcId}`),
     instanceCost: document.getElementById(`instance-cost-${calcId}`),
     diskSize: document.getElementById(`disk-size-${calcId}`),
+    diskUsed: document.getElementById(`disk-used-${calcId}`),
+    diskOverprovision: document.getElementById(`disk-overprovision-${calcId}`),
+    diskUsedBar: document.getElementById(`disk-used-bar-${calcId}`),
+    diskOverprovisionBar: document.getElementById(`disk-overprovision-bar-${calcId}`),
     popPerUser: document.getElementById(`pop-per-user-${calcId}`),
     popPerUserMarker: document.getElementById(`pop-per-user-marker-${calcId}`),
     docsPerUser: document.getElementById(`docs-per-user-${calcId}`),
@@ -110,7 +114,9 @@ function initCostCalculator(calcId) {
     const contactCount = placeCount * 2 + populationCount;
     const reportCount = workflowCount * workflowDocsPerContact * populationCount * deploymentAge;
     const totalDocCount = contactCount + reportCount;
-    const diskSizeGb = (totalDocCount / DOCS_PER_GB) * dbOverprovisionFactor;
+    const diskUsedGb = totalDocCount / DOCS_PER_GB;
+    const diskOverprovisionGb = (diskUsedGb * dbOverprovisionFactor) - diskUsedGb;
+    const diskSizeGb = diskUsedGb + diskOverprovisionGb;
     const diskCost = DISK_COST_PER_GB * diskSizeGb;
     const userCount = parseInt(els.userCountInput.value);
     const loadFactor = userCount * workflowCount;
@@ -133,6 +139,8 @@ function initCostCalculator(calcId) {
       contactCount,
       reportCount,
       totalDocCount,
+      diskUsedGb,
+      diskOverprovisionGb,
       diskSizeGb,
       diskCost,
       userCount,
@@ -232,6 +240,18 @@ function initCostCalculator(calcId) {
     els.instanceSize.textContent = `${metrics.instance.ram} GB RAM + ${metrics.instance.cpu} CPU`;
     els.instanceCost.textContent = formatCurrency(metrics.instance.cost);
     els.diskSize.textContent = metrics.diskSizeGb.toFixed(2) + ' GB';
+
+    // Update disk breakdown visualization
+    if (els.diskUsed && els.diskOverprovision && els.diskUsedBar && els.diskOverprovisionBar) {
+      els.diskUsed.textContent = metrics.diskUsedGb.toFixed(2) + ' GB';
+      els.diskOverprovision.textContent = metrics.diskOverprovisionGb.toFixed(2) + ' GB';
+
+      // Calculate percentages for the visual bars
+      const usedPct = (metrics.diskUsedGb / metrics.diskSizeGb) * 100;
+      const overprovisionPct = (metrics.diskOverprovisionGb / metrics.diskSizeGb) * 100;
+      els.diskUsedBar.style.width = usedPct + '%';
+      els.diskOverprovisionBar.style.width = overprovisionPct + '%';
+    }
 
     // Update people per user visualization
     if (els.popPerUser && els.popPerUserMarker) {
