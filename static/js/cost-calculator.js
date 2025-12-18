@@ -51,12 +51,24 @@ function initCostCalculator(calcId) {
 
   // Get elements
   const els = {
+    // Basic parameters
     deploymentAge: document.getElementById(`deployment-age-${calcId}`),
     deploymentAgeValue: document.getElementById(`deployment-age-value-${calcId}`),
     workflowCount: document.getElementById(`workflow-count-${calcId}`),
     workflowCountValue: document.getElementById(`workflow-count-value-${calcId}`),
     populationCount: document.getElementById(`population-count-${calcId}`),
     populationCountValue: document.getElementById(`population-count-value-${calcId}`),
+
+    // Advanced parameters
+    contactsPerPlace: document.getElementById(`contacts-per-place-${calcId}`),
+    workflowDocs: document.getElementById(`workflow-docs-${calcId}`),
+    dbOverprovision: document.getElementById(`db-overprovision-${calcId}`),
+
+    // View toggles
+    basicParams: document.getElementById(`basic-params-${calcId}`),
+    advancedParams: document.getElementById(`advanced-params-${calcId}`),
+    showAdvanced: document.getElementById(`show-advanced-${calcId}`),
+    showBasic: document.getElementById(`show-basic-${calcId}`),
 
     // Output elements
     totalCost: document.getElementById(`total-cost-${calcId}`),
@@ -78,12 +90,17 @@ function initCostCalculator(calcId) {
     const workflowCount = parseInt(els.workflowCount.value);
     const populationCount = parseInt(els.populationCount.value);
 
+    // Get advanced parameters (use custom values if available, otherwise use defaults)
+    const contactsPerPlace = els.contactsPerPlace ? parseFloat(els.contactsPerPlace.value) : CONTACTS_PER_PLACE;
+    const workflowDocsPerContact = els.workflowDocs ? parseFloat(els.workflowDocs.value) : WORKFLOW_YEARLY_DOCS_PER_CONTACT;
+    const dbOverprovisionFactor = els.dbOverprovision ? parseFloat(els.dbOverprovision.value) : DB_OVERPROVISION_FACTOR;
+
     // Calculate derived values
-    const placeCount = Math.floor((populationCount - 1) / (CONTACTS_PER_PLACE - 1));
+    const placeCount = Math.floor((populationCount - 1) / (contactsPerPlace - 1));
     const contactCount = placeCount * 2 + populationCount;
-    const reportCount = workflowCount * WORKFLOW_YEARLY_DOCS_PER_CONTACT * populationCount * deploymentAge;
+    const reportCount = workflowCount * workflowDocsPerContact * populationCount * deploymentAge;
     const totalDocCount = contactCount + reportCount;
-    const diskSizeGb = (totalDocCount / DOCS_PER_GB) * DB_OVERPROVISION_FACTOR;
+    const diskSizeGb = (totalDocCount / DOCS_PER_GB) * dbOverprovisionFactor;
     const diskCost = DISK_COST_PER_GB * diskSizeGb;
     const userCount = Math.floor(populationCount / 200);
     const loadFactor = userCount * workflowCount;
@@ -212,6 +229,17 @@ function initCostCalculator(calcId) {
     debounceTimer = setTimeout(updateOutputs, 250);
   }
 
+  // Toggle between basic and advanced views
+  function toggleAdvanced(showAdvanced) {
+    if (showAdvanced) {
+      els.basicParams.style.display = 'none';
+      els.advancedParams.style.display = 'block';
+    } else {
+      els.basicParams.style.display = 'block';
+      els.advancedParams.style.display = 'none';
+    }
+  }
+
   // Event listeners
   function attachListeners() {
     // Deployment age slider
@@ -231,6 +259,25 @@ function initCostCalculator(calcId) {
       els.populationCountValue.textContent = formatNumber(parseInt(e.target.value));
       debouncedUpdate();
     });
+
+    // Advanced parameter inputs
+    if (els.contactsPerPlace) {
+      els.contactsPerPlace.addEventListener('input', updateOutputs);
+    }
+    if (els.workflowDocs) {
+      els.workflowDocs.addEventListener('input', updateOutputs);
+    }
+    if (els.dbOverprovision) {
+      els.dbOverprovision.addEventListener('input', updateOutputs);
+    }
+
+    // Toggle buttons
+    if (els.showAdvanced) {
+      els.showAdvanced.addEventListener('click', () => toggleAdvanced(true));
+    }
+    if (els.showBasic) {
+      els.showBasic.addEventListener('click', () => toggleAdvanced(false));
+    }
   }
 
   // Dark mode observer
