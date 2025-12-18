@@ -56,7 +56,7 @@ A limitation of this technique is that CHWs who have not synchronized their devi
 
 ### CHT based supervisor tasks
 
-[Tasks for supervisors](/building/supervision#supervisor-tasks) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
+[Tasks for supervisors](/building/supervision/) can also be used for the CHWs that report to them. This can be used to trigger a task when a CHW hasn't submitted a task within a given period on production.
 
 ## Remediation
 

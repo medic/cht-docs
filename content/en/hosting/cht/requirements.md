@@ -23,7 +23,7 @@ This leverages Docker and requires:
 
 * 4 GB RAM  / 2 CPU / 8 GB SSD
 * Root Access
-* TLS certificates - if using  [Docker Helper](/hosting/cht/app-developer#cht-docker-helper-for-4x) these are provided for you.
+* TLS certificates - if using  [Docker Helper](/hosting/cht/app-developer#cht-docker-helper) these are provided for you.
 * [Current version](https://docs.docker.com/engine/install/) of `docker` or current version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) both of which include `docker compose`. Note that the older `docker-compose` is [no longer supported](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 
 ##  Production Hosting

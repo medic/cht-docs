@@ -12,7 +12,7 @@ Single Sign-On (SSO) feature allows deployments to use the industry standard [Op
 
 ## Setup 
 
-Follow the [setup steps](//hosting/sso) to [configure your CHT instance](/building/reference/app-settings/oidc_provider) for SSO Login. Once the server has been properly configured, the "Login with SSO" button will be visible on the CHT Login page. CHT users with the [`oidc_username` property](/building/reference/api/#login-by-oidc) will be able to log in with their SSO credentials. The "SSO Email Address" field will be also be visible in the create/update users modal in the [App Management interface](/building/admin/admin-overview). 
+Follow the [setup steps](/hosting/sso) to [configure your CHT instance](/building/reference/app-settings/oidc_provider) for SSO Login. Once the server has been properly configured, the "Login with SSO" button will be visible on the CHT Login page. CHT users with the [`oidc_username` property](/building/reference/api/#login-by-oidc) will be able to log in with their SSO credentials. The "SSO Email Address" field will be also be visible in the create/update users modal in the [App Management interface](/building/admin/admin-overview). 
 
 ## User Mapping
 

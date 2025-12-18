@@ -53,7 +53,7 @@ docker compose up -d
 
 The Keycloak instance is accessible on your Docker Helper URL, but on port `8443`. For example `https://192-168-68-26.local-ip.medicmobile.org:8443`. The username is `medic` and the password is `password`.
 
-Now create an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper-for-4x).
+Now create an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper).
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -137,11 +137,11 @@ cht --url=https://medic:password@<CHT_URL> compile-app-settings upload-app-setti
 
 ### Client Secret in CHT
 
-Use the [`/api/v1/credentials` REST api](https://docs.communityhealthtoolkit.org/building/reference/api/#put-apiv1credentials) to set the client secret as the `oidc:client-secret` credential.
+Use the [`/api/v1/credentials` REST api](/building/reference/api/#put-apiv1credentials) to set the client secret as the `oidc:client-secret` credential.
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
-Be sure to replace `SECRET` with the value from [step 5 above](#copy-secret). As well, replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
+Be sure to replace `SECRET` with the value from the step above. As well, replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
 ```shell
 curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-secret \
      -H "Content-Type: text/plain" \
@@ -150,7 +150,7 @@ curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-s
 
 {{< /tab >}}
 {{< tab >}}
-Be sure to replace `SECRET` with the value from [step 5 above](#copy-secret). As well, replace `CHT_URL` with the docker helper URL, including port:
+Be sure to replace `SECRET` with the value from the step above. As well, replace `CHT_URL` with the docker helper URL, including port:
 ```shell
 curl -X PUT https://medic:password@<CHT_URL>/api/v1/credentials/oidc:client-secret \
      -H "Content-Type: text/plain" \

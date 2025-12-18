@@ -329,7 +329,7 @@ Which should look like this:
 
 After running the above `docker ps` command and you see your containers running, the CHT is accessible on [https://localhost:8443](https://localhost:8443). The username is `medic` and password is `password`.
 
-The first time you connect in a browser, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](/building/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
+The first time you connect in a browser, an error will be shown, "Your connection is not private" with `NET::ERR_CERT_AUTHORITY_INVALID` (see [screenshot](https://docs.communityhealthtoolkit.org/building/local-setup/privacy.error.png)). To get past this, click "Advanced" and then click "Proceed to localhost".
 
 To stop this instance run:
 

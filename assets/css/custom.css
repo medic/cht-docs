@@ -246,3 +246,13 @@ html[class~="dark"] .hextra-feature-card {
   border: 1px solid #3333339d;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+
+/* -----------------------------------------------
+Broken link highlighting for development
+Used by the link render hook when highlightBroken = true
+--------------------------------------------------*/
+a.broken {
+  background: #ff0;
+  border: 2px solid #f00;
+  padding: 0.1em 0.2em;
+}

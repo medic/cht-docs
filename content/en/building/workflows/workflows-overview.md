@@ -37,5 +37,5 @@ Workflows can include notifications and interactions with CHWs, nurses, supervis
 
 ## Interoperability 
 
-Workflows can incorporate other digital tools, such as a facility-based electronic medical record system for referral workflows. New contacts or reports can trigger an interoperabilty workflow using the [outbound push]() feature. Data can be received as reports using the [CHT API](https://github.com/medic/cht-core/tree/master/api)
+Workflows can incorporate other digital tools, such as a facility-based electronic medical record system for referral workflows. New contacts or reports can trigger an interoperabilty workflow using the [outbound push](/building/reference/app-settings/outbound/) feature. Data can be received as reports using the [CHT API](https://github.com/medic/cht-core/tree/master/api)
 {{< see-also page="building/reference/app-settings/outbound" title="Outbound Push" >}}.
