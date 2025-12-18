@@ -52,7 +52,7 @@ Any users who experience errors running `hugo server`, please see our [Troublesh
 
 ## Link Checking
 
-We have automatic link validation built into Hugo that checks all internal markdown links at build time, plus two optional external link checking tools:
+This repository has automatic link validation built into Hugo that checks all internal markdown links at build time, plus two optional external link checking tools:
 
 * **Automatic internal link validation** - Hugo validates all markdown links during build (enabled by default)
 * **All links** - tests all links within docs and outbound using Muffet
