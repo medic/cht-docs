@@ -9,7 +9,7 @@
 
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
   <div class="calc-grid">
-    <!-- Input Controls - Basic -->
+    <!-- Basic Parameters -->
     <div class="calc-inputs" id="basic-params-{{ $id }}">
       <h3>Deployment Parameters</h3>
 
@@ -18,13 +18,8 @@
           <span>Population Served</span>
           <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
         </label>
-        <input type="range"
-               class="calc-input"
-               id="population-count-{{ $id }}"
-               min="1000"
-               max="1000000"
-               value="20000"
-               step="1000">
+        <input type="range" class="calc-input" id="population-count-{{ $id }}"
+               min="1000" max="1000000" value="20000" step="1000">
       </div>
 
       <div class="input-group">
@@ -32,13 +27,8 @@
           <span>Number of Workflows</span>
           <span class="input-value" id="workflow-count-value-{{ $id }}">5</span>
         </label>
-        <input type="range"
-               class="calc-input"
-               id="workflow-count-{{ $id }}"
-               min="1"
-               max="25"
-               value="5"
-               step="1">
+        <input type="range" class="calc-input" id="workflow-count-{{ $id }}"
+               min="1" max="25" value="5" step="1">
       </div>
 
       <div class="input-group">
@@ -46,13 +36,8 @@
           <span>Age of Deployment (years)</span>
           <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
         </label>
-        <input type="range"
-               class="calc-input"
-               id="deployment-age-{{ $id }}"
-               min="1"
-               max="10"
-               value="1"
-               step="1">
+        <input type="range" class="calc-input" id="deployment-age-{{ $id }}"
+               min="1" max="10" value="1" step="1">
       </div>
 
       <div class="input-group">
@@ -60,141 +45,85 @@
           <span>Number of Users</span>
           <span class="input-value" id="user-count-input-value-{{ $id }}">100</span>
         </label>
-        <input type="range"
-               class="calc-input"
-               id="user-count-input-{{ $id }}"
-               min="1"
-               max="15000"
-               value="100"
-               step="1">
+        <input type="range" class="calc-input" id="user-count-input-{{ $id }}"
+               min="1" max="15000" value="100" step="1">
       </div>
 
-      <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
-        <a href="#"
-           id="show-advanced-{{ $id }}"
-           style="color: #3b82f6; text-decoration: none; font-size: 0.9rem; font-weight: 500;"
-           onclick="event.preventDefault();">
-          Advanced →
-        </a>
+      <div class="section-divider">
+        <a href="#" id="show-advanced-{{ $id }}" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
       </div>
     </div>
 
-    <!-- Input Controls - Advanced -->
+    <!-- Advanced Parameters -->
     <div class="calc-inputs" id="advanced-params-{{ $id }}" style="display: none;">
       <h3>Advanced Parameters</h3>
 
       <div class="input-group">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-          <label for="contacts-per-place-{{ $id }}" style="margin: 0; flex: 1;">Average Household Size</label>
-          <input type="number"
-                 class="calc-input"
-                 id="contacts-per-place-{{ $id }}"
-                 value="5"
-                 min="2"
-                 step="1"
-                 style="width: 100px; flex: 0 0 auto;">
+        <div class="advanced-input">
+          <label for="contacts-per-place-{{ $id }}">Average Household Size</label>
+          <input type="number" class="calc-input" id="contacts-per-place-{{ $id }}"
+                 value="5" min="2" step="1">
         </div>
-        <div style="font-size: 0.8rem; color: var(--calc-text-light); margin-top: 0.25rem;">
-          Number of contacts in each geographic location
-        </div>
+        <div class="helper-text">Number of contacts in each geographic location</div>
       </div>
 
       <div class="input-group">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-          <label for="workflow-docs-{{ $id }}" style="margin: 0; flex: 1;">Workflow Docs Per Contact</label>
-          <input type="number"
-                 class="calc-input"
-                 id="workflow-docs-{{ $id }}"
-                 value="12"
-                 min="1"
-                 step="1"
-                 style="width: 100px; flex: 0 0 auto;">
+        <div class="advanced-input">
+          <label for="workflow-docs-{{ $id }}">Workflow Docs Per Contact</label>
+          <input type="number" class="calc-input" id="workflow-docs-{{ $id }}"
+                 value="12" min="1" step="1">
         </div>
-        <div style="font-size: 0.8rem; color: var(--calc-text-light); margin-top: 0.25rem;">
-          Documents generated per contact per workflow per year
-        </div>
+        <div class="helper-text">Documents generated per contact per workflow per year</div>
       </div>
 
       <div class="input-group">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
-          <label for="db-overprovision-{{ $id }}" style="margin: 0; flex: 1;">Database Over-provisioning Factor</label>
-          <input type="number"
-                 class="calc-input"
-                 id="db-overprovision-{{ $id }}"
-                 value="2"
-                 min="1"
-                 max="10"
-                 step="0.5"
-                 style="width: 100px; flex: 0 0 auto;">
+        <div class="advanced-input">
+          <label for="db-overprovision-{{ $id }}">Database Over-provisioning Factor</label>
+          <input type="number" class="calc-input" id="db-overprovision-{{ $id }}"
+                 value="2" min="1" max="10" step="0.5">
         </div>
-        <div style="font-size: 0.8rem; color: var(--calc-text-light); margin-top: 0.25rem;">
-          Multiplier for database storage headroom
-        </div>
+        <div class="helper-text">Multiplier for database storage headroom</div>
       </div>
 
-      <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
-        <a href="#"
-           id="show-basic-{{ $id }}"
-           style="color: #3b82f6; text-decoration: none; font-size: 0.9rem; font-weight: 500;"
-           onclick="event.preventDefault();">
-          ← Back to Basic
-        </a>
+      <div class="section-divider">
+        <a href="#" id="show-basic-{{ $id }}" class="calc-link" onclick="event.preventDefault();">← Back to Basic</a>
       </div>
     </div>
 
-    <!-- Results Summary -->
-    <div class="calc-charts">
-      <div class="chart-container">
-        <h3>Annual Cost Estimate</h3>
-        <div style="text-align: center;">
-          <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.25rem;" id="total-cost-{{ $id }}">$0.00</div>
-          <div style="font-size: 1rem; color: var(--calc-text-light); margin-bottom: 1rem;">
-            <span id="monthly-cost-{{ $id }}">$0.00</span>/month
-          </div>
-          <div class="calc-loading" id="loading-{{ $id }}">
-            Loading Chart.js...
-          </div>
-          <canvas id="cost-pie-chart-{{ $id }}" class="chart-canvas" style="max-height: 250px;"></canvas>
-        </div>
+    <!-- Annual Cost Estimate -->
+    <div class="chart-container">
+      <h3>Annual Cost Estimate</h3>
+      <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.25rem;" id="total-cost-{{ $id }}">$0.00</div>
+      <div style="font-size: 1rem; color: var(--calc-text-light); margin-bottom: 1rem;">
+        <span id="monthly-cost-{{ $id }}">$0.00</span>/month
       </div>
+      <div class="calc-loading" id="loading-{{ $id }}">Loading Chart.js...</div>
+      <canvas id="cost-pie-chart-{{ $id }}" style="max-height: 250px;"></canvas>
     </div>
   </div>
 
-  <!-- Host and User Info Row -->
+  <!-- Results Row -->
   <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-
-    <!-- User Count -->
+    <!-- Users -->
     <div class="calc-table" style="flex: 0.75;">
       <h3>Users</h3>
       <div style="padding: 1rem 0; text-align: center;">
-        <!-- People per User Visualization -->
-        <div style="margin-bottom: 1.5rem;">
-          <div style="font-size: 0.8rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">People per User</div>
-          <div style="font-size: 1.5rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="pop-per-user-{{ $id }}">0</div>
-
-          <!-- Range indicator -->
-          <div style="position: relative; height: 30px; background: linear-gradient(to right, #10b981, #f59e0b, #ef4444); border-radius: 4px; margin-bottom: 0.25rem;">
-            <div id="pop-per-user-marker-{{ $id }}" style="position: absolute; top: -5px; width: 3px; height: 40px; background: white; border: 2px solid #1f2937; transition: left 0.3s ease;"></div>
+        <div class="viz-section">
+          <div class="viz-label">People per User</div>
+          <div class="viz-value" style="color: #f59e0b;" id="pop-per-user-{{ $id }}">0</div>
+          <div class="range-bar">
+            <div class="range-marker" id="pop-per-user-marker-{{ $id }}"></div>
           </div>
-          <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--calc-text-light);">
-            <span>1</span>
-            <span>250</span>
-          </div>
+          <div class="range-labels"><span>1</span><span>250</span></div>
         </div>
 
-        <!-- Docs per User Visualization -->
-        <div style="padding-top: 1.5rem; border-top: 1px solid var(--calc-border);">
-          <div style="font-size: 0.8rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Docs per User</div>
-          <div style="font-size: 1.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.5rem;" id="docs-per-user-{{ $id }}">0</div>
-
-          <!-- Range indicator -->
-          <div style="position: relative; height: 30px; background: linear-gradient(to right, #10b981, #f59e0b, #ef4444); border-radius: 4px; margin-bottom: 0.25rem;">
-            <div id="docs-per-user-marker-{{ $id }}" style="position: absolute; top: -5px; width: 3px; height: 40px; background: white; border: 2px solid #1f2937; transition: left 0.3s ease;"></div>
+        <div class="viz-section viz-divider">
+          <div class="viz-label">Docs per User</div>
+          <div class="viz-value" style="color: #3b82f6;" id="docs-per-user-{{ $id }}">0</div>
+          <div class="range-bar">
+            <div class="range-marker" id="docs-per-user-marker-{{ $id }}"></div>
           </div>
-          <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--calc-text-light);">
-            <span>1</span>
-            <span>20,000</span>
-          </div>
+          <div class="range-labels"><span>1</span><span>20,000</span></div>
         </div>
       </div>
     </div>
@@ -202,54 +131,44 @@
     <!-- Recommended Host -->
     <div class="calc-table" style="flex: 2;">
       <h3>Recommended Host</h3>
-      <div style="display: grid; grid-template-columns: 1.5fr 1fr; ">
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr;">
+        <!-- Instance -->
         <div>
           <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Instance</div>
           <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
           <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">EC2: t3.medium</div>
           <div style="font-size: 1.5rem; font-weight: 600; color: #3b82f6; margin-bottom: 1rem;" id="instance-cost-{{ $id }}">$0.00</div>
 
-          <!-- Resource Utilization Visualization -->
-          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
-            <div style="font-size: 0.75rem; color: var(--calc-text-light); margin-bottom: 0.25rem;">Resource Utilization</div>
+          <div class="viz-divider">
+            <div class="viz-label">Resource Utilization</div>
             <div style="font-size: 1.25rem; font-weight: bold; color: #8b5cf6; margin-bottom: 0.5rem;" id="resource-util-{{ $id }}">0%</div>
-
-            <!-- Range indicator -->
             <div style="position: relative; height: 20px; background: linear-gradient(to right, #10b981, #f59e0b, #ef4444); border-radius: 4px; margin-bottom: 0.25rem;">
               <div id="resource-util-marker-{{ $id }}" style="position: absolute; top: -3px; width: 2px; height: 26px; background: white; border: 2px solid #1f2937; transition: left 0.3s ease;"></div>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--calc-text-light);">
-              <span>0%</span>
-              <span>100%</span>
-            </div>
+            <div class="range-labels"><span>0%</span><span>100%</span></div>
           </div>
         </div>
+
+        <!-- Disk -->
         <div>
           <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Disk</div>
           <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="disk-size-{{ $id }}">0 GB</div>
           <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Block Volume Storage</div>
           <div style="font-size: 1.5rem; font-weight: 600; color: #10b981; margin-bottom: 1rem;" id="disk-cost-{{ $id }}">$0.00</div>
 
-          <!-- Disk Usage Breakdown -->
-          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
-            <div style="font-size: 0.75rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Storage Breakdown</div>
-
-            <!-- Used Storage -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-              <div style="font-size: 0.7rem; color: var(--calc-text-light);">Used</div>
-              <div style="font-size: 0.9rem; font-weight: 600; color: #3b82f6;" id="disk-used-{{ $id }}">0 GB</div>
+          <div class="viz-divider">
+            <div class="viz-label">Storage Breakdown</div>
+            <div class="breakdown-row">
+              <div class="breakdown-label">Used</div>
+              <div class="breakdown-value" style="color: #3b82f6;" id="disk-used-{{ $id }}">0 GB</div>
             </div>
-
-            <!-- Overprovisioned Storage -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <div style="font-size: 0.7rem; color: var(--calc-text-light);">Overprovisioned</div>
-              <div style="font-size: 0.9rem; font-weight: 600; color: #f59e0b;" id="disk-overprovision-{{ $id }}">0 GB</div>
+            <div class="breakdown-row">
+              <div class="breakdown-label">Overprovisioned</div>
+              <div class="breakdown-value" style="color: #f59e0b;" id="disk-overprovision-{{ $id }}">0 GB</div>
             </div>
-
-            <!-- Visual Bar -->
-            <div style="position: relative; height: 20px; border-radius: 4px; overflow: hidden; margin-top: 0.5rem;">
-              <div id="disk-used-bar-{{ $id }}" style="position: absolute; left: 0; top: 0; height: 100%; background: #3b82f6; transition: width 0.3s ease;"></div>
-              <div id="disk-overprovision-bar-{{ $id }}" style="position: absolute; right: 0; top: 0; height: 100%; background: #f59e0b; transition: width 0.3s ease;"></div>
+            <div class="disk-bar">
+              <div id="disk-used-bar-{{ $id }}" style="left: 0; background: #3b82f6;"></div>
+              <div id="disk-overprovision-bar-{{ $id }}" style="right: 0; background: #f59e0b;"></div>
             </div>
           </div>
         </div>
@@ -259,6 +178,5 @@
 </div>
 
 <script>
-  // Initialize the calculator for this instance
   initCostCalculator('{{ $id }}');
 </script>
