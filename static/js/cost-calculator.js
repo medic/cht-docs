@@ -32,11 +32,11 @@ function initCostCalculator(calcId) {
 
   // Constants
   const INSTANCES = [
-    { name: 'EC2: t3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 2500 },
-    { name: 'EC2: c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 2500, maxLoad: 5000 },
-    { name: 'EC2: c6g.2xlarge', ram: 16, cpu: 8, cost: 2525.52, minLoad: 5000, maxLoad: 10000 },
-    { name: 'EC2: c6g.4xlarge', ram: 32, cpu: 16, cost: 5051.04, minLoad: 10000, maxLoad: 20000 },
-    { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 20000, maxLoad: Infinity }
+    { name: 'EC2: t3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 13000 },
+    { name: 'EC2: c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 13000, maxLoad: 25000 },
+    { name: 'EC2: c6g.2xlarge', ram: 16, cpu: 8, cost: 2525.52, minLoad: 25000, maxLoad: 50000 },
+    { name: 'EC2: c6g.4xlarge', ram: 32, cpu: 16, cost: 5051.04, minLoad: 50000, maxLoad: 100000 },
+    { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 100000, maxLoad: Infinity }
   ];
 
   const DISK_COST_PER_GB = 1.0;
@@ -78,10 +78,11 @@ function initCostCalculator(calcId) {
     instanceName: document.getElementById(`instance-name-${calcId}`),
     instanceSize: document.getElementById(`instance-size-${calcId}`),
     instanceCost: document.getElementById(`instance-cost-${calcId}`),
-    userCount: document.getElementById(`user-count-${calcId}`),
     diskSize: document.getElementById(`disk-size-${calcId}`),
     popPerUser: document.getElementById(`pop-per-user-${calcId}`),
     popPerUserMarker: document.getElementById(`pop-per-user-marker-${calcId}`),
+    docsPerUser: document.getElementById(`docs-per-user-${calcId}`),
+    docsPerUserMarker: document.getElementById(`docs-per-user-marker-${calcId}`),
 
     // Chart elements
     pieChartCanvas: document.getElementById(`cost-pie-chart-${calcId}`),
@@ -119,6 +120,7 @@ function initCostCalculator(calcId) {
 
     const totalCost = diskCost + instance.cost;
     const popPerUser = userCount > 0 ? populationCount / userCount : 0;
+    const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
 
     return {
       deploymentAge,
@@ -134,7 +136,8 @@ function initCostCalculator(calcId) {
       loadFactor,
       instance,
       totalCost,
-      popPerUser
+      popPerUser,
+      docsPerUser
     };
   }
 
@@ -224,7 +227,6 @@ function initCostCalculator(calcId) {
     els.instanceName.textContent = metrics.instance.name;
     els.instanceSize.textContent = `${metrics.instance.ram} GB RAM + ${metrics.instance.cpu} CPU`;
     els.instanceCost.textContent = formatCurrency(metrics.instance.cost);
-    els.userCount.textContent = formatNumber(metrics.userCount);
     els.diskSize.textContent = metrics.diskSizeGb.toFixed(2) + ' GB';
 
     // Update people per user visualization
@@ -237,6 +239,18 @@ function initCostCalculator(calcId) {
       const clampedValue = Math.max(minRange, Math.min(maxRange, metrics.popPerUser));
       const percentage = ((clampedValue - minRange) / (maxRange - minRange)) * 100;
       els.popPerUserMarker.style.left = `calc(${percentage}% - 1.5px)`;
+    }
+
+    // Update docs per user visualization
+    if (els.docsPerUser && els.docsPerUserMarker) {
+      els.docsPerUser.textContent = formatNumber(Math.round(metrics.docsPerUser));
+
+      // Calculate marker position (0-100% based on 1-20000 range)
+      const minRange = 1;
+      const maxRange = 20000;
+      const clampedValue = Math.max(minRange, Math.min(maxRange, metrics.docsPerUser));
+      const percentage = ((clampedValue - minRange) / (maxRange - minRange)) * 100;
+      els.docsPerUserMarker.style.left = `calc(${percentage}% - 1.5px)`;
     }
 
     // Update pie chart
