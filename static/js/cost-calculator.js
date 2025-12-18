@@ -91,9 +91,12 @@ function initCostCalculator(calcId) {
     const populationCount = parseInt(els.populationCount.value);
 
     // Get advanced parameters (use custom values if available, otherwise use defaults)
-    const contactsPerPlace = els.contactsPerPlace ? parseFloat(els.contactsPerPlace.value) : CONTACTS_PER_PLACE;
-    const workflowDocsPerContact = els.workflowDocs ? parseFloat(els.workflowDocs.value) : WORKFLOW_YEARLY_DOCS_PER_CONTACT;
-    const dbOverprovisionFactor = els.dbOverprovision ? parseFloat(els.dbOverprovision.value) : DB_OVERPROVISION_FACTOR;
+    const contactsPerPlace = els.contactsPerPlace ? Math.max(2, Number.parseFloat(els.contactsPerPlace.value)) : CONTACTS_PER_PLACE;
+    els.contactsPerPlace.value = contactsPerPlace;
+    const workflowDocsPerContact = els.workflowDocs ? Math.max(1, Number.parseFloat(els.workflowDocs.value)) : WORKFLOW_YEARLY_DOCS_PER_CONTACT;
+    els.workflowDocs.value = workflowDocsPerContact;
+    const dbOverprovisionFactor = els.dbOverprovision ? Math.max(1, Number.parseFloat(els.dbOverprovision.value)) : DB_OVERPROVISION_FACTOR;
+    els.dbOverprovision.value = dbOverprovisionFactor;
 
     // Calculate derived values
     const placeCount = Math.floor((populationCount - 1) / (contactsPerPlace - 1));
