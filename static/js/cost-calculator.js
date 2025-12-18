@@ -61,12 +61,7 @@ function initCostCalculator(calcId) {
     instanceSize: document.getElementById(`instance-size-${calcId}`),
     instanceCost: document.getElementById(`instance-cost-${calcId}`),
     userCount: document.getElementById(`user-count-${calcId}`),
-    contactCount: document.getElementById(`contact-count-${calcId}`),
-    reportCount: document.getElementById(`report-count-${calcId}`),
-    placeCount: document.getElementById(`place-count-${calcId}`),
-    totalDocCount: document.getElementById(`total-doc-count-${calcId}`),
     diskSize: document.getElementById(`disk-size-${calcId}`),
-    loadFactor: document.getElementById(`load-factor-${calcId}`),
 
     // Chart elements
     pieChartCanvas: document.getElementById(`cost-pie-chart-${calcId}`),
@@ -200,14 +195,7 @@ function initCostCalculator(calcId) {
     els.instanceSize.textContent = `${metrics.instance.ram} GB RAM + ${metrics.instance.cpu} CPU`;
     els.instanceCost.textContent = formatCurrency(metrics.instance.cost);
     els.userCount.textContent = formatNumber(metrics.userCount);
-    els.contactCount.textContent = formatNumber(metrics.contactCount);
-    els.reportCount.textContent = formatNumber(metrics.reportCount);
-
-    // Additional calculated values
-    if (els.placeCount) els.placeCount.textContent = formatNumber(metrics.placeCount);
-    if (els.totalDocCount) els.totalDocCount.textContent = formatNumber(metrics.totalDocCount);
-    if (els.diskSize) els.diskSize.textContent = metrics.diskSizeGb.toFixed(2) + ' GB';
-    if (els.loadFactor) els.loadFactor.textContent = formatNumber(metrics.loadFactor);
+    els.diskSize.textContent = metrics.diskSizeGb.toFixed(2) + ' GB';
 
     // Update pie chart
     if (pieChart || els.pieChartCanvas) {

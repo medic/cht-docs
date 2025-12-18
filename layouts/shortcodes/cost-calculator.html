@@ -76,7 +76,7 @@
     <!-- Recommended Host -->
     <div class="calc-table" style="flex: 2;">
       <h3>Recommended Host</h3>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 1rem 0;">
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; ">
         <div>
           <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Instance</div>
           <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
@@ -93,69 +93,13 @@
     </div>
 
     <!-- User Count -->
-    <div class="calc-table" style="flex: 1;">
+    <div class="calc-table" style="flex: 0.75;">
       <h3>Estimated Users</h3>
       <div style="padding: 1rem 0; text-align: center;">
         <div style="font-size: 3rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="user-count-{{ $id }}">0</div>
         <div style="font-size: 0.9rem; color: var(--calc-text-light);">Number of users</div>
       </div>
     </div>
-  </div>
-
-  <!-- Detailed Breakdown Table -->
-  <div class="calc-table">
-    <h3>Detailed Breakdown</h3>
-    <table class="cost-breakdown-table">
-      <thead>
-        <tr>
-          <th>Metric</th>
-          <th>Description</th>
-          <th class="cost-amount">Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Disk Cost</strong></td>
-          <td>Storage cost per year</td>
-          <td class="cost-amount" id="disk-cost-{{ $id }}">$0.00</td>
-        </tr>
-        <tr>
-          <td><strong>User Count</strong></td>
-          <td>Estimated number of users</td>
-          <td class="cost-amount" id="user-count-{{ $id }}">0</td>
-        </tr>
-        <tr>
-          <td><strong>Contact Count</strong></td>
-          <td>Total contacts in database</td>
-          <td class="cost-amount" id="contact-count-{{ $id }}">0</td>
-        </tr>
-        <tr>
-          <td><strong>Report Count</strong></td>
-          <td>Total reports generated</td>
-          <td class="cost-amount" id="report-count-{{ $id }}">0</td>
-        </tr>
-        <tr>
-          <td><strong>Place Count</strong></td>
-          <td>Number of places tracked</td>
-          <td class="cost-amount" id="place-count-{{ $id }}">0</td>
-        </tr>
-        <tr>
-          <td><strong>Total Documents</strong></td>
-          <td>All documents in database</td>
-          <td class="cost-amount" id="total-doc-count-{{ $id }}">0</td>
-        </tr>
-        <tr>
-          <td><strong>Disk Size</strong></td>
-          <td>Required disk space</td>
-          <td class="cost-amount" id="disk-size-{{ $id }}">0 GB</td>
-        </tr>
-        <tr>
-          <td><strong>Load Factor</strong></td>
-          <td>System load metric</td>
-          <td class="cost-amount" id="load-factor-{{ $id }}">0</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
 
