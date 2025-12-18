@@ -53,20 +53,9 @@ html.dark {
 
 .calc-card h3 {
   margin: 0 0 1.25rem 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--calc-text);
 }
 
-/* Input controls */
-.calc-inputs {
-  background: var(--calc-card-bg);
-  border: 1px solid var(--calc-border);
-  border-radius: 8px;
-  padding: 1.5rem;
-}
-
-.input-group {
+.advanced-input-group {
   margin-bottom: 1.25rem;
 }
 
@@ -232,32 +221,8 @@ html.dark {
   border-top: 1px solid var(--calc-border);
 }
 
-/* Results */
-.chart-container {
-  background: var(--calc-card-bg);
-  border: 1px solid var(--calc-border);
-  border-radius: 8px;
-  padding: 1.5rem;
+.cost-card {
   text-align: center;
-}
-
-.chart-container h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.calc-table {
-  background: var(--calc-card-bg);
-  border: 1px solid var(--calc-border);
-  border-radius: 8px;
-  padding: 1.5rem;
-}
-
-.calc-table h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.25rem;
-  font-weight: 600;
 }
 
 .calc-loading {

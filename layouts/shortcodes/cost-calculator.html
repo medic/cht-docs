@@ -1,53 +1,42 @@
 {{ $id := .Get "id" | default (now.UnixNano) }}
 
-<!-- Load external CSS -->
 {{ $css := resources.Get "css/cost-calculator.css" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
-<!-- Load external JavaScript -->
 <script src="/js/cost-calculator.js"></script>
 
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
   <div class="calc-grid">
-    <!-- Basic Parameters -->
-    <div class="calc-inputs" id="basic-params-{{ $id }}">
+    <div class="calc-card" id="basic-params-{{ $id }}">
       <h3>Deployment Parameters</h3>
 
-      <div class="input-group">
-        <label class="label-with-value">
-          <span>Population Served</span>
-          <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
-        </label>
-        <input type="range" class="calc-input" id="population-count-{{ $id }}"
-               min="1000" max="1000000" value="20000" step="1000">
-      </div>
+      <label class="label-with-value">
+        <span>Population Served</span>
+        <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
+      </label>
+      <input type="range" class="calc-input" id="population-count-{{ $id }}"
+             min="1000" max="1000000" value="20000" step="1000">
 
-      <div class="input-group">
-        <label class="label-with-value">
-          <span>Number of Workflows</span>
-          <span class="input-value" id="workflow-count-value-{{ $id }}">5</span>
-        </label>
-        <input type="range" class="calc-input" id="workflow-count-{{ $id }}"
-               min="1" max="25" value="5" step="1">
-      </div>
+      <label class="label-with-value">
+        <span>Number of Workflows</span>
+        <span class="input-value" id="workflow-count-value-{{ $id }}">5</span>
+      </label>
+      <input type="range" class="calc-input" id="workflow-count-{{ $id }}"
+             min="1" max="25" value="5" step="1">
 
-      <div class="input-group">
-        <label class="label-with-value">
-          <span>Age of Deployment (years)</span>
-          <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
-        </label>
-        <input type="range" class="calc-input" id="deployment-age-{{ $id }}"
-               min="1" max="10" value="1" step="1">
-      </div>
+      <label class="label-with-value">
+        <span>Age of Deployment (years)</span>
+        <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
+      </label>
+      <input type="range" class="calc-input" id="deployment-age-{{ $id }}"
+             min="1" max="10" value="1" step="1">
 
-      <div class="input-group">
-        <label class="label-with-value">
-          <span>Number of Users</span>
-          <span class="input-value" id="user-count-input-value-{{ $id }}">100</span>
-        </label>
-        <input type="range" class="calc-input" id="user-count-input-{{ $id }}"
-               min="1" max="15000" value="100" step="1">
-      </div>
+      <label class="label-with-value">
+        <span>Number of Users</span>
+        <span class="input-value" id="user-count-input-value-{{ $id }}">100</span>
+      </label>
+      <input type="range" class="calc-input" id="user-count-input-{{ $id }}"
+             min="1" max="15000" value="100" step="1">
 
       <div class="section-divider">
         <a href="#" id="show-advanced-{{ $id }}" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
@@ -55,10 +44,10 @@
     </div>
 
     <!-- Advanced Parameters -->
-    <div class="calc-inputs" id="advanced-params-{{ $id }}" style="display: none;">
+    <div class="calc-card" id="advanced-params-{{ $id }}" style="display: none;">
       <h3>Advanced Parameters</h3>
 
-      <div class="input-group">
+      <div class="advanced-input-group">
         <div class="advanced-input">
           <label for="contacts-per-place-{{ $id }}">Average Household Size</label>
           <input type="number" class="calc-input" id="contacts-per-place-{{ $id }}"
@@ -67,7 +56,7 @@
         <div class="helper-text">Number of contacts in each geographic location</div>
       </div>
 
-      <div class="input-group">
+      <div class="advanced-input-group">
         <div class="advanced-input">
           <label for="workflow-docs-{{ $id }}">Workflow Docs Per Contact</label>
           <input type="number" class="calc-input" id="workflow-docs-{{ $id }}"
@@ -76,7 +65,7 @@
         <div class="helper-text">Documents generated per contact per workflow per year</div>
       </div>
 
-      <div class="input-group">
+      <div class="advanced-input-group">
         <div class="advanced-input">
           <label for="db-overprovision-{{ $id }}">Database Over-provisioning Factor</label>
           <input type="number" class="calc-input" id="db-overprovision-{{ $id }}"
@@ -91,7 +80,7 @@
     </div>
 
     <!-- Annual Cost Estimate -->
-    <div class="chart-container">
+    <div class="calc-card cost-card">
       <h3>Annual Cost Estimate</h3>
       <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.25rem;" id="total-cost-{{ $id }}">$0.00</div>
       <div style="font-size: 1rem; color: var(--calc-text-light); margin-bottom: 1rem;">
@@ -105,7 +94,7 @@
   <!-- Results Row -->
   <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
     <!-- Users -->
-    <div class="calc-table" style="flex: 0.75;">
+    <div class="calc-card" style="flex: 0.75;">
       <h3>Users</h3>
       <div style="padding: 1rem 0; text-align: center;">
         <div class="viz-section">
@@ -129,7 +118,7 @@
     </div>
 
     <!-- Recommended Host -->
-    <div class="calc-table" style="flex: 2;">
+    <div class="calc-card" style="flex: 2;">
       <h3>Recommended Host</h3>
       <div style="display: grid; grid-template-columns: 1.5fr 1fr;">
         <!-- Instance -->
