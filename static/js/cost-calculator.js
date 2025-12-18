@@ -32,11 +32,11 @@ function initCostCalculator(calcId) {
 
   // Constants
   const INSTANCES = [
-    { name: 't3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 2500 },
-    { name: 'c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 2500, maxLoad: 5000 },
-    { name: 'c6g.2xlarge', ram: 16, cpu: 8, cost: 2525.52, minLoad: 5000, maxLoad: 10000 },
-    { name: 'c6g.4xlarge', ram: 32, cpu: 16, cost: 5051.04, minLoad: 10000, maxLoad: 20000 },
-    { name: 'c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 20000, maxLoad: Infinity }
+    { name: 'EC2: t3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 2500 },
+    { name: 'EC2: c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 2500, maxLoad: 5000 },
+    { name: 'EC2: c6g.2xlarge', ram: 16, cpu: 8, cost: 2525.52, minLoad: 5000, maxLoad: 10000 },
+    { name: 'EC2: c6g.4xlarge', ram: 32, cpu: 16, cost: 5051.04, minLoad: 10000, maxLoad: 20000 },
+    { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 20000, maxLoad: Infinity }
   ];
 
   const DISK_COST_PER_GB = 1.0;
