@@ -73,6 +73,16 @@
 
   <!-- Host and User Info Row -->
   <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+
+    <!-- User Count -->
+    <div class="calc-table" style="flex: 0.75;">
+      <h3>Estimated Users</h3>
+      <div style="padding: 1rem 0; text-align: center;">
+        <div style="font-size: 3rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="user-count-{{ $id }}">0</div>
+        <div style="font-size: 0.9rem; color: var(--calc-text-light);">Number of users</div>
+      </div>
+    </div>
+
     <!-- Recommended Host -->
     <div class="calc-table" style="flex: 2;">
       <h3>Recommended Host</h3>
@@ -89,15 +99,6 @@
           <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Block Volume Storage</div>
           <div style="font-size: 1.5rem; font-weight: 600; color: #10b981;" id="disk-cost-{{ $id }}">$0.00</div>
         </div>
-      </div>
-    </div>
-
-    <!-- User Count -->
-    <div class="calc-table" style="flex: 0.75;">
-      <h3>Estimated Users</h3>
-      <div style="padding: 1rem 0; text-align: center;">
-        <div style="font-size: 3rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="user-count-{{ $id }}">0</div>
-        <div style="font-size: 0.9rem; color: var(--calc-text-light);">Number of users</div>
       </div>
     </div>
   </div>
