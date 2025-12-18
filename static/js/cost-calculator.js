@@ -74,6 +74,7 @@ function initCostCalculator(calcId) {
 
     // Output elements
     totalCost: document.getElementById(`total-cost-${calcId}`),
+    monthlyCost: document.getElementById(`monthly-cost-${calcId}`),
     diskCost: document.getElementById(`disk-cost-${calcId}`),
     instanceName: document.getElementById(`instance-name-${calcId}`),
     instanceSize: document.getElementById(`instance-size-${calcId}`),
@@ -235,6 +236,7 @@ function initCostCalculator(calcId) {
 
     // Update all output fields
     els.totalCost.textContent = formatCurrency(metrics.totalCost);
+    els.monthlyCost.textContent = formatCurrency(metrics.totalCost / 12);
     els.diskCost.textContent = formatCurrency(metrics.diskCost);
     els.instanceName.textContent = metrics.instance.name;
     els.instanceSize.textContent = `${metrics.instance.ram} GB RAM + ${metrics.instance.cpu} CPU`;

@@ -147,7 +147,10 @@
       <div class="chart-container">
         <h3>Annual Cost Estimate</h3>
         <div style="text-align: center;">
-          <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.5rem;" id="total-cost-{{ $id }}">$0.00</div>
+          <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.25rem;" id="total-cost-{{ $id }}">$0.00</div>
+          <div style="font-size: 1rem; color: var(--calc-text-light); margin-bottom: 1rem;">
+            <span id="monthly-cost-{{ $id }}">$0.00</span>/month
+          </div>
           <div class="calc-loading" id="loading-{{ $id }}">
             Loading Chart.js...
           </div>
