@@ -165,7 +165,22 @@
       <h3>Users</h3>
       <div style="padding: 1rem 0; text-align: center;">
         <div style="font-size: 3rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="user-count-{{ $id }}">0</div>
-        <div style="font-size: 0.9rem; color: var(--calc-text-light);">Number of users</div>
+        <div style="font-size: 0.9rem; color: var(--calc-text-light); margin-bottom: 1rem;">Number of users</div>
+
+        <!-- People per User Visualization -->
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
+          <div style="font-size: 0.8rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">People per User</div>
+          <div style="font-size: 1.5rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="pop-per-user-{{ $id }}">0</div>
+
+          <!-- Range indicator -->
+          <div style="position: relative; height: 30px; background: linear-gradient(to right, #10b981, #f59e0b, #ef4444); border-radius: 4px; margin-bottom: 0.25rem;">
+            <div id="pop-per-user-marker-{{ $id }}" style="position: absolute; top: -5px; width: 3px; height: 40px; background: white; border: 2px solid #1f2937; transition: left 0.3s ease;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--calc-text-light);">
+            <span>1</span>
+            <span>250</span>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -80,6 +80,8 @@ function initCostCalculator(calcId) {
     instanceCost: document.getElementById(`instance-cost-${calcId}`),
     userCount: document.getElementById(`user-count-${calcId}`),
     diskSize: document.getElementById(`disk-size-${calcId}`),
+    popPerUser: document.getElementById(`pop-per-user-${calcId}`),
+    popPerUserMarker: document.getElementById(`pop-per-user-marker-${calcId}`),
 
     // Chart elements
     pieChartCanvas: document.getElementById(`cost-pie-chart-${calcId}`),
@@ -116,6 +118,7 @@ function initCostCalculator(calcId) {
     ) || INSTANCES[INSTANCES.length - 1];
 
     const totalCost = diskCost + instance.cost;
+    const popPerUser = userCount > 0 ? populationCount / userCount : 0;
 
     return {
       deploymentAge,
@@ -130,7 +133,8 @@ function initCostCalculator(calcId) {
       userCount,
       loadFactor,
       instance,
-      totalCost
+      totalCost,
+      popPerUser
     };
   }
 
@@ -222,6 +226,18 @@ function initCostCalculator(calcId) {
     els.instanceCost.textContent = formatCurrency(metrics.instance.cost);
     els.userCount.textContent = formatNumber(metrics.userCount);
     els.diskSize.textContent = metrics.diskSizeGb.toFixed(2) + ' GB';
+
+    // Update people per user visualization
+    if (els.popPerUser && els.popPerUserMarker) {
+      els.popPerUser.textContent = metrics.popPerUser.toFixed(1);
+
+      // Calculate marker position (0-100% based on 1-250 range)
+      const minRange = 1;
+      const maxRange = 250;
+      const clampedValue = Math.max(minRange, Math.min(maxRange, metrics.popPerUser));
+      const percentage = ((clampedValue - minRange) / (maxRange - minRange)) * 100;
+      els.popPerUserMarker.style.left = `calc(${percentage}% - 1.5px)`;
+    }
 
     // Update pie chart
     if (pieChart || els.pieChartCanvas) {
