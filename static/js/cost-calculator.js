@@ -58,6 +58,8 @@ function initCostCalculator(calcId) {
     workflowCountValue: document.getElementById(`workflow-count-value-${calcId}`),
     populationCount: document.getElementById(`population-count-${calcId}`),
     populationCountValue: document.getElementById(`population-count-value-${calcId}`),
+    userCountInput: document.getElementById(`user-count-input-${calcId}`),
+    userCountInputValue: document.getElementById(`user-count-input-value-${calcId}`),
 
     // Advanced parameters
     contactsPerPlace: document.getElementById(`contacts-per-place-${calcId}`),
@@ -105,7 +107,7 @@ function initCostCalculator(calcId) {
     const totalDocCount = contactCount + reportCount;
     const diskSizeGb = (totalDocCount / DOCS_PER_GB) * dbOverprovisionFactor;
     const diskCost = DISK_COST_PER_GB * diskSizeGb;
-    const userCount = Math.floor(populationCount / 200);
+    const userCount = parseInt(els.userCountInput.value);
     const loadFactor = userCount * workflowCount;
 
     // Select appropriate instance
@@ -260,6 +262,12 @@ function initCostCalculator(calcId) {
     // Population count slider
     els.populationCount.addEventListener('input', (e) => {
       els.populationCountValue.textContent = formatNumber(parseInt(e.target.value));
+      debouncedUpdate();
+    });
+
+    // User count slider
+    els.userCountInput.addEventListener('input', (e) => {
+      els.userCountInputValue.textContent = formatNumber(parseInt(e.target.value));
       debouncedUpdate();
     });
 

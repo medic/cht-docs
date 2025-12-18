@@ -55,6 +55,20 @@
                step="1">
       </div>
 
+      <div class="input-group">
+        <label class="label-with-value">
+          <span>Number of Users</span>
+          <span class="input-value" id="user-count-input-value-{{ $id }}">100</span>
+        </label>
+        <input type="range"
+               class="calc-input"
+               id="user-count-input-{{ $id }}"
+               min="1"
+               max="20000"
+               value="100"
+               step="1">
+      </div>
+
       <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
         <a href="#"
            id="show-advanced-{{ $id }}"
@@ -148,7 +162,7 @@
 
     <!-- User Count -->
     <div class="calc-table" style="flex: 0.75;">
-      <h3>Estimated Users</h3>
+      <h3>Users</h3>
       <div style="padding: 1rem 0; text-align: center;">
         <div style="font-size: 3rem; font-weight: bold; color: #f59e0b; margin-bottom: 0.5rem;" id="user-count-{{ $id }}">0</div>
         <div style="font-size: 0.9rem; color: var(--calc-text-light);">Number of users</div>
