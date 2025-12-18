@@ -204,7 +204,22 @@
           <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Instance</div>
           <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
           <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">EC2: t3.medium</div>
-          <div style="font-size: 1.5rem; font-weight: 600; color: #3b82f6;" id="instance-cost-{{ $id }}">$0.00</div>
+          <div style="font-size: 1.5rem; font-weight: 600; color: #3b82f6; margin-bottom: 1rem;" id="instance-cost-{{ $id }}">$0.00</div>
+
+          <!-- Resource Utilization Visualization -->
+          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--calc-border);">
+            <div style="font-size: 0.75rem; color: var(--calc-text-light); margin-bottom: 0.25rem;">Resource Utilization</div>
+            <div style="font-size: 1.25rem; font-weight: bold; color: #8b5cf6; margin-bottom: 0.5rem;" id="resource-util-{{ $id }}">0%</div>
+
+            <!-- Range indicator -->
+            <div style="position: relative; height: 20px; background: linear-gradient(to right, #10b981, #f59e0b, #ef4444); border-radius: 4px; margin-bottom: 0.25rem;">
+              <div id="resource-util-marker-{{ $id }}" style="position: absolute; top: -3px; width: 2px; height: 26px; background: white; border: 2px solid #1f2937; transition: left 0.3s ease;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--calc-text-light);">
+              <span>0%</span>
+              <span>100%</span>
+            </div>
+          </div>
         </div>
         <div>
           <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Disk</div>

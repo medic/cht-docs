@@ -36,7 +36,7 @@ function initCostCalculator(calcId) {
     { name: 'EC2: c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 13000, maxLoad: 25000 },
     { name: 'EC2: c6g.2xlarge', ram: 16, cpu: 8, cost: 2525.52, minLoad: 25000, maxLoad: 50000 },
     { name: 'EC2: c6g.4xlarge', ram: 32, cpu: 16, cost: 5051.04, minLoad: 50000, maxLoad: 100000 },
-    { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 100000, maxLoad: Infinity }
+    { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 100000, maxLoad: 375000 }
   ];
 
   const DISK_COST_PER_GB = 1.0;
@@ -83,6 +83,8 @@ function initCostCalculator(calcId) {
     popPerUserMarker: document.getElementById(`pop-per-user-marker-${calcId}`),
     docsPerUser: document.getElementById(`docs-per-user-${calcId}`),
     docsPerUserMarker: document.getElementById(`docs-per-user-marker-${calcId}`),
+    resourceUtil: document.getElementById(`resource-util-${calcId}`),
+    resourceUtilMarker: document.getElementById(`resource-util-marker-${calcId}`),
 
     // Chart elements
     pieChartCanvas: document.getElementById(`cost-pie-chart-${calcId}`),
@@ -121,6 +123,7 @@ function initCostCalculator(calcId) {
     const totalCost = diskCost + instance.cost;
     const popPerUser = userCount > 0 ? populationCount / userCount : 0;
     const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
+    const resourceUtilizationPct = (loadFactor - instance.minLoad) / (instance.maxLoad - instance.minLoad);
 
     return {
       deploymentAge,
@@ -137,7 +140,8 @@ function initCostCalculator(calcId) {
       instance,
       totalCost,
       popPerUser,
-      docsPerUser
+      docsPerUser,
+      resourceUtilizationPct
     };
   }
 
@@ -251,6 +255,16 @@ function initCostCalculator(calcId) {
       const clampedValue = Math.max(minRange, Math.min(maxRange, metrics.docsPerUser));
       const percentage = ((clampedValue - minRange) / (maxRange - minRange)) * 100;
       els.docsPerUserMarker.style.left = `calc(${percentage}% - 1.5px)`;
+    }
+
+    // Update resource utilization visualization
+    if (els.resourceUtil && els.resourceUtilMarker) {
+      const utilPct = metrics.resourceUtilizationPct * 100;
+      els.resourceUtil.textContent = utilPct.toFixed(1) + '%';
+
+      // Calculate marker position (0-100% range)
+      const clampedValue = Math.max(0, Math.min(100, utilPct));
+      els.resourceUtilMarker.style.left = `calc(${clampedValue}% - 1px)`;
     }
 
     // Update pie chart
