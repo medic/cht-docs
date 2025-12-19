@@ -7,7 +7,7 @@
 
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
   <div class="calc-grid">
-    <div class="calc-card" id="basic-params-{{ $id }}">
+    <div class="calc-card params" id="basic-params-{{ $id }}">
       <h3>Deployment Parameters</h3>
 
       <label class="label-with-value">
@@ -38,13 +38,13 @@
       <input type="range" class="calc-input" id="user-count-input-{{ $id }}"
              min="1" max="15000" value="100" step="1">
 
-      <div class="section-divider">
+      <div class="viz-divider">
         <a href="#" id="show-advanced-{{ $id }}" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
       </div>
     </div>
 
     <!-- Advanced Parameters -->
-    <div class="calc-card" id="advanced-params-{{ $id }}" style="display: none;">
+    <div class="calc-card params" id="advanced-params-{{ $id }}" style="display: none;">
       <h3>Advanced Parameters</h3>
 
       <div class="advanced-input-group">
@@ -74,16 +74,16 @@
         <div class="helper-text">Multiplier for database storage headroom</div>
       </div>
 
-      <div class="section-divider">
+      <div class="viz-divider">
         <a href="#" id="show-basic-{{ $id }}" class="calc-link" onclick="event.preventDefault();">← Back to Basic</a>
       </div>
     </div>
 
     <!-- Annual Cost Estimate -->
-    <div class="calc-card cost-card">
+    <div class="calc-card cost">
       <h3>Annual Cost Estimate</h3>
-      <div style="font-size: 2.5rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.25rem;" id="total-cost-{{ $id }}">$0.00</div>
-      <div style="font-size: 1rem; color: var(--calc-text-light); margin-bottom: 1rem;">
+      <div class="total-cost" id="total-cost-{{ $id }}">$0.00</div>
+      <div class="monthly-cost">
         <span id="monthly-cost-{{ $id }}">$0.00</span>/month
       </div>
       <div class="calc-loading" id="loading-{{ $id }}">Loading Chart.js...</div>
@@ -91,31 +91,29 @@
     </div>
 
     <!-- Users -->
-    <div class="calc-card">
+    <div class="calc-card users">
       <h3>Users</h3>
-      <div style="padding: 1rem 0; text-align: center;">
-        <div class="viz-section">
-          <div class="viz-label">People per User</div>
-          <div class="viz-value" style="color: #f59e0b;" id="pop-per-user-{{ $id }}">0</div>
-          <div class="range-bar">
-            <div class="range-marker" id="pop-per-user-marker-{{ $id }}"></div>
-          </div>
-          <div class="range-labels"><span>1</span><span>250</span></div>
+      <div class="viz-section">
+        <div class="viz-label">People per User</div>
+        <div class="viz-value" style="color: #f59e0b;" id="pop-per-user-{{ $id }}">0</div>
+        <div class="range-bar">
+          <div class="range-marker" id="pop-per-user-marker-{{ $id }}"></div>
         </div>
+        <div class="range-labels"><span>1</span><span>250</span></div>
+      </div>
 
-        <div class="viz-section viz-divider">
-          <div class="viz-label">Docs per User</div>
-          <div class="viz-value" style="color: #3b82f6;" id="docs-per-user-{{ $id }}">0</div>
-          <div class="range-bar">
-            <div class="range-marker" id="docs-per-user-marker-{{ $id }}"></div>
-          </div>
-          <div class="range-labels"><span>1</span><span>20,000</span></div>
+      <div class="viz-section viz-divider">
+        <div class="viz-label">Docs per User</div>
+        <div class="viz-value" style="color: #3b82f6;" id="docs-per-user-{{ $id }}">0</div>
+        <div class="range-bar">
+          <div class="range-marker" id="docs-per-user-marker-{{ $id }}"></div>
         </div>
+        <div class="range-labels"><span>1</span><span>20,000</span></div>
       </div>
     </div>
 
     <!-- Recommended Host -->
-    <div class="calc-card">
+    <div class="calc-card host">
       <h3>Recommended Host</h3>
       <div style="display: grid; grid-template-columns: 1.5fr 1fr;">
         <!-- Instance -->
