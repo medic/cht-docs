@@ -220,6 +220,65 @@ html.dark {
     gap: 1rem;
   }
 
+  .host-section-header {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--calc-text-light);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .host-value-large {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .host-description {
+    font-size: 0.95rem;
+    color: var(--calc-text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .host-cost-primary {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--calc-link);
+    margin-bottom: 1rem;
+  }
+
+  .host-cost-secondary {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--calc-grad-start);
+    margin-bottom: 1rem;
+  }
+
+  .resource-util-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #8b5cf6;
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-util-bar {
+    position: relative;
+    height: 20px;
+    background: linear-gradient(to right, var(--calc-grad-start), var(--calc-grad-mid), var(--calc-grad-end));
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+  }
+
+  .resource-util-marker {
+    position: absolute;
+    top: -3px;
+    width: 2px;
+    height: 26px;
+    background: white;
+    border: 2px solid var(--calc-text);
+    transition: left 0.3s ease;
+  }
+
   .breakdown-row {
     display: flex;
     justify-content: space-between;
@@ -234,6 +293,7 @@ html.dark {
     font-size: 0.9rem;
     font-weight: 600;
   }
+
   .disk-bar {
     position: relative;
     height: 20px;
@@ -241,16 +301,36 @@ html.dark {
     overflow: hidden;
     margin-top: 0.5rem;
   }
-  .disk-bar > div {
+  .disk-bar-segment {
     position: absolute;
     top: 0;
     height: 100%;
     transition: width 0.3s ease;
   }
+  .disk-bar-segment-used {
+    left: 0;
+    background: var(--calc-link);
+  }
+  .disk-bar-segment-overprovision {
+    right: 0;
+    background: var(--calc-grad-mid);
+  }
 }
 
 
 /* Reusable */
+.hidden {
+  display: none;
+}
+
+.text-blue {
+  color: var(--calc-link);
+}
+
+.text-orange {
+  color: var(--calc-grad-mid);
+}
+
 .viz-divider {
   padding-top: 1.5rem;
   border-top: 1px solid var(--calc-border);

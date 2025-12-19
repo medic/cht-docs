@@ -40,7 +40,7 @@
     </div>
 
     <!-- Advanced Parameters -->
-    <div class="calc-card params" id="advanced-params-{{ $id }}" style="display: none;">
+    <div class="calc-card params hidden" id="advanced-params-{{ $id }}">
       <h3>Advanced Parameters</h3>
 
       <div class="advanced-input-group">
@@ -111,16 +111,16 @@
       <div class="host-grid">
         <!-- Instance -->
         <div>
-          <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Instance</div>
-          <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
-          <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;" id="instance-name-{{ $id }}">EC2: t3.medium</div>
-          <div style="font-size: 1.5rem; font-weight: 600; color: #3b82f6; margin-bottom: 1rem;" id="instance-cost-{{ $id }}">$0.00</div>
+          <div class="host-section-header">Instance</div>
+          <div class="host-value-large" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
+          <div class="host-description" id="instance-name-{{ $id }}">EC2: t3.medium</div>
+          <div class="host-cost-primary" id="instance-cost-{{ $id }}">$0.00</div>
 
           <div class="viz-divider">
             <div class="viz-label">Resource Utilization</div>
-            <div style="font-size: 1.25rem; font-weight: bold; color: #8b5cf6; margin-bottom: 0.5rem;" id="resource-util-{{ $id }}">0%</div>
-            <div style="position: relative; height: 20px; background: linear-gradient(to right, #10b981, #f59e0b, #ef4444); border-radius: 4px; margin-bottom: 0.25rem;">
-              <div id="resource-util-marker-{{ $id }}" style="position: absolute; top: -3px; width: 2px; height: 26px; background: white; border: 2px solid #1f2937; transition: left 0.3s ease;"></div>
+            <div class="resource-util-value" id="resource-util-{{ $id }}">0%</div>
+            <div class="resource-util-bar">
+              <div class="resource-util-marker" id="resource-util-marker-{{ $id }}"></div>
             </div>
             <div class="range-labels"><span>0%</span><span>100%</span></div>
           </div>
@@ -128,24 +128,24 @@
 
         <!-- Disk -->
         <div>
-          <div style="font-size: 0.875rem; font-weight: 600; color: var(--calc-text-light); margin-bottom: 0.5rem; text-transform: uppercase;">Disk</div>
-          <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;" id="disk-size-{{ $id }}">0 GB</div>
-          <div style="font-size: 0.95rem; color: var(--calc-text-light); margin-bottom: 0.5rem;">Block Volume Storage</div>
-          <div style="font-size: 1.5rem; font-weight: 600; color: #10b981; margin-bottom: 1rem;" id="disk-cost-{{ $id }}">$0.00</div>
+          <div class="host-section-header">Disk</div>
+          <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
+          <div class="host-description">Block Volume Storage</div>
+          <div class="host-cost-secondary" id="disk-cost-{{ $id }}">$0.00</div>
 
           <div class="viz-divider">
             <div class="viz-label">Storage Breakdown</div>
             <div class="breakdown-row">
               <div class="breakdown-label">Used</div>
-              <div class="breakdown-value" style="color: #3b82f6;" id="disk-used-{{ $id }}">0 GB</div>
+              <div class="breakdown-value text-blue" id="disk-used-{{ $id }}">0 GB</div>
             </div>
             <div class="breakdown-row">
               <div class="breakdown-label">Overprovisioned</div>
-              <div class="breakdown-value" style="color: #f59e0b;" id="disk-overprovision-{{ $id }}">0 GB</div>
+              <div class="breakdown-value text-orange" id="disk-overprovision-{{ $id }}">0 GB</div>
             </div>
             <div class="disk-bar">
-              <div id="disk-used-bar-{{ $id }}" style="left: 0; background: #3b82f6;"></div>
-              <div id="disk-overprovision-bar-{{ $id }}" style="right: 0; background: #f59e0b;"></div>
+              <div class="disk-bar-segment disk-bar-segment-used" id="disk-used-bar-{{ $id }}"></div>
+              <div class="disk-bar-segment disk-bar-segment-overprovision" id="disk-overprovision-bar-{{ $id }}"></div>
             </div>
           </div>
         </div>
