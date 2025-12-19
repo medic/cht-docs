@@ -77,7 +77,6 @@ const updateCostPie = (els, metrics) => {
   const instancePct = (metrics.instance.cost / total) * 100;
   const diskPct = (metrics.diskCost / total) * 100;
 
-  // Update conic-gradient
   const isDark = document.documentElement.classList.contains('dark');
   const instanceColor = isDark ? '#60a5fa' : 'var(--calc-link)';
   const diskColor = isDark ? '#34d399' : 'var(--calc-grad-start)';
@@ -87,7 +86,6 @@ const updateCostPie = (els, metrics) => {
     ${diskColor} ${instancePct}% 100%
   )`;
 
-  // Update percentage labels
   if (els.costPctInstance) {
     els.costPctInstance.textContent = instancePct.toFixed(1) + '%';
   }
@@ -127,7 +125,6 @@ const updateOutputElements = (els) => () => {
 };
 
 const attachListeners = (els, updateOutputs) => {
-  // Helper: Attach slider listener
   const addSlider = (input, display, formatter = (v) => v) => {
     input.addEventListener('input', (e) => {
       display.textContent = formatter(e.target.value);
