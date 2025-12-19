@@ -201,13 +201,27 @@ html.dark {
 
   .viz-section {
     margin-bottom: 1.5rem;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .viz-label {
+      font-size: 1rem;
+      color: var(--calc-text-light);
+      margin-bottom: 0.5rem;
+    }
 
     .viz-value {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
+
+    .range-bar {
+      width: 100%;
+    }
+
     &.people-per .viz-value {
       color: var(--calc-grad-mid);
     }
