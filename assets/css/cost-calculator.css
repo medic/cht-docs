@@ -359,6 +359,7 @@ html.dark {
   margin-bottom: 0.5rem;
 }
 .range-labels {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 0.7rem;
