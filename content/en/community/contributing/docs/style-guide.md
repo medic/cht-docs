@@ -123,10 +123,14 @@ considered new in a few months.
 ## Cross-referencing content
 
 Connecting readers to related content in different pages is an important aspect of documentation. There are three ways this can be done in the doc site:
-1. **Inline links**: a portion of any narrative text can link to another page. This should done using the markdown link notation. 
-   
+
+1. **Inline links**: a portion of any narrative text can link to another page or to a heading on the same page. This should done using the markdown link notation.
+
    For example, the text `linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!` yields: "linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!"
-   
+
+   > [!TIP]
+   > When linking to a heading on the same page, always use fragment-only links like `[link](#heading)` instead of full-path links like `[link](/current-page/#heading)`. This allows the automatic link checker to validate your links correctly. Links with full paths on the same page can sometimes fail to be validated correctly.
+
 1. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
    
    For example, `{{</* see-also page="design/interface/icons" */>}}` will show as seen here: {{< see-also page="design/interface/icons" >}}
