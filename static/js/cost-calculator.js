@@ -1,3 +1,5 @@
+let debounceTimer = null;
+
 const INSTANCES = [
   { name: 'EC2: t3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 13000 },
   { name: 'EC2: c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 13000, maxLoad: 25000 },
@@ -11,28 +13,6 @@ const DEFAULTS = {
   WORKFLOW_YEARLY_DOCS_PER_CONTACT: 12,
   DOCS_PER_GB: 12000,
   DB_OVERPROVISION_FACTOR: 2
-};
-
-const loadChartJS = () => {
-  if (typeof Chart !== 'undefined') {
-    return Promise.resolve();
-  }
-
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js';
-    script.integrity = 'sha256-6UWtgTSKKPXhqKgDHb2lWjX6RZxQqfSP4rN0vK91Y14=';
-    script.crossOrigin = 'anonymous';
-    script.onload = resolve;
-    script.onerror = () => {
-      const fallback = document.createElement('script');
-      fallback.src = 'https://unpkg.com/chart.js@4.5.0/dist/chart.umd.js';
-      fallback.onload = resolve;
-      fallback.onerror = reject;
-      document.head.appendChild(fallback);
-    };
-    document.head.appendChild(script);
-  });
 };
 
 const formatCurrency = (amount) => '$' + amount.toFixed(2);
@@ -88,45 +68,31 @@ const calculateMetrics = (els) => {
   };
 };
 
-const updatePieChart = (els, metrics) => {
-  if (!els.pieChartCanvas) {
+const updateCostPie = (els, metrics) => {
+  if (!els.costPie) {
     return;
   }
 
+  const total = metrics.instance.cost + metrics.diskCost;
+  const instancePct = (metrics.instance.cost / total) * 100;
+  const diskPct = (metrics.diskCost / total) * 100;
+
+  // Update conic-gradient
   const isDark = document.documentElement.classList.contains('dark');
-  const colors = isDark ? ['#60a5fa', '#34d399'] : ['#3b82f6', '#10b981'];
-  const textColor = isDark ? '#f9fafb' : '#1f2937';
+  const instanceColor = isDark ? '#60a5fa' : 'var(--calc-link)';
+  const diskColor = isDark ? '#34d399' : 'var(--calc-grad-start)';
 
-  const data = {
-    labels: ['Instance', 'Disk'],
-    datasets: [{ data: [metrics.instance.cost, metrics.diskCost], backgroundColor: colors, borderWidth: 0 }]
-  };
+  els.costPie.style.background = `conic-gradient(
+    ${instanceColor} 0% ${instancePct}%,
+    ${diskColor} ${instancePct}% 100%
+  )`;
 
-  if (els.pieChart) {
-    els.pieChart.data = data;
-    els.pieChart.options.plugins.legend.labels.color = textColor;
-    els.pieChart.update('none');
-  } else {
-    els.pieChart = new Chart(els.pieChartCanvas, {
-      type: 'pie',
-      data,
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: { position: 'bottom', labels: { color: textColor, padding: 15, font: { size: 12 } } },
-          tooltip: {
-            callbacks: {
-              label: (ctx) => {
-                const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-                const pct = ((ctx.parsed / total) * 100).toFixed(1);
-                return `${ctx.label}: ${formatCurrency(ctx.parsed)} (${pct}%)`;
-              }
-            }
-          }
-        }
-      }
-    });
+  // Update percentage labels
+  if (els.costPctInstance) {
+    els.costPctInstance.textContent = instancePct.toFixed(1) + '%';
+  }
+  if (els.costPctDisk) {
+    els.costPctDisk.textContent = diskPct.toFixed(1) + '%';
   }
 };
 
@@ -157,10 +123,10 @@ const updateOutputElements = (els) => () => {
   els.resourceUtil.textContent = utilPct.toFixed(1) + '%';
   updateRangeMarker(els.resourceUtilMarker, utilPct, 0, 100, 1);
 
-  updatePieChart(els, m);
+  updateCostPie(els, m);
 };
 
-const attachListeners = (els) => {
+const attachListeners = (els, updateOutputs) => {
   // Helper: Attach slider listener
   const addSlider = (input, display, formatter = (v) => v) => {
     input.addEventListener('input', (e) => {
@@ -190,7 +156,6 @@ const attachListeners = (els) => {
 };
 
 const initCostCalculator = (calcId) => {
-  let debounceTimer = null;
 
   const el = (id) => document.getElementById(`${id}-${calcId}`);
 
@@ -231,26 +196,18 @@ const initCostCalculator = (calcId) => {
     docsPerUserMarker: el('docs-per-user-marker'),
     resourceUtil: el('resource-util'),
     resourceUtilMarker: el('resource-util-marker'),
-    pieChartCanvas: el('cost-pie-chart'),
-    loading: el('loading'),
-    pieChart: undefined
+    costPie: el('cost-pie'),
+    costPctInstance: el('cost-pct-instance'),
+    costPctDisk: el('cost-pct-disk')
   };
 
   const updateOutputs = updateOutputElements(els);
 
-  if (els.loading) els.loading.style.display = 'block';
-  loadChartJS()
-    .then(() => {
-      if (els.loading) els.loading.style.display = 'none';
-      attachListeners(els);
-      // Dark mode observer
-      new MutationObserver(() => els.pieChart && updateOutputs())
-        .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    })
-    .catch((error) => {
-      if (els.loading) els.loading.textContent = 'Error loading Chart.js. Calculator will work without charts.';
-      console.error('Failed to load Chart.js:', error);
-      attachListeners(els);
-    })
-    .finally(updateOutputs);
+  attachListeners(els, updateOutputs);
+
+  // Dark mode observer to update colors
+  new MutationObserver(() => updateOutputs())
+    .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  updateOutputs();
 }

@@ -79,8 +79,17 @@
       <div class="monthly-cost">
         <span id="monthly-cost-{{ $id }}">$0.00</span>/month
       </div>
-      <div class="calc-loading" id="loading-{{ $id }}">Loading Chart.js...</div>
-      <canvas id="cost-pie-chart-{{ $id }}" />
+      <div class="cost-pie" id="cost-pie-{{ $id }}"></div>
+      <div class="cost-legend">
+        <div class="cost-legend-item">
+          <span class="cost-legend-color cost-legend-instance"></span>
+          <span>Instance: <strong id="cost-pct-instance-{{ $id }}">0%</strong></span>
+        </div>
+        <div class="cost-legend-item">
+          <span class="cost-legend-color cost-legend-disk"></span>
+          <span>Disk: <strong id="cost-pct-disk-{{ $id }}">0%</strong></span>
+        </div>
+      </div>
     </div>
 
     <!-- Users -->

@@ -157,15 +157,44 @@ html.dark {
     margin-bottom: 1rem;
   }
 
-  .calc-loading {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-    color: var(--calc-text-light);
+  .cost-pie {
+    width: 12rem;
+    height: 12rem;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--calc-link) 0% 50%,
+      var(--calc-grad-start) 50% 100%
+    );
   }
 
-  canvas {
-    max-height: 16rem;
+  .cost-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .cost-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cost-legend-color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+
+  .cost-legend-instance {
+    background: var(--calc-link);
+  }
+
+  .cost-legend-disk {
+    background: var(--calc-grad-start);
   }
 }
 
