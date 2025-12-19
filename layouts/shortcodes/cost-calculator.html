@@ -8,7 +8,7 @@
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
   <div class="calc-grid">
     <div class="calc-card params" id="basic-params-{{ $id }}">
-      <h3>Deployment Parameters</h3>
+      <h3>Parameters</h3>
 
       <label class="label-with-value">
         <span>Population Served</span>
@@ -74,10 +74,10 @@
 
     <!-- Annual Cost Estimate -->
     <div class="calc-card cost">
-      <h3>Annual Cost Estimate</h3>
-      <div class="total-cost" id="total-cost-{{ $id }}">$0.00</div>
+      <h3>Cost Estimate</h3>
+      <div class="total-cost"><span id="total-cost-{{ $id }}">$0.00</span>/yr</div>
       <div class="monthly-cost">
-        <span id="monthly-cost-{{ $id }}">$0.00</span>/month
+        <span id="monthly-cost-{{ $id }}">$0.00</span>/mo
       </div>
       <div class="cost-pie" id="cost-pie-{{ $id }}"></div>
       <div class="cost-legend">
@@ -95,7 +95,11 @@
     <!-- Users -->
     <div class="calc-card users">
       <h3>Users</h3>
-      <div class="viz-section people-per">
+      <div class="cost-per-user">
+        <span class="cost-per-user-label">Cost Per User</span>
+        <div class="cost-per-user-value"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
+      </div>
+      <div class="viz-section viz-divider people-per">
         <div class="viz-label">People per User</div>
         <div class="viz-value " id="pop-per-user-{{ $id }}">0</div>
         <div class="range-bar">
@@ -123,7 +127,7 @@
           <div class="host-section-header">Instance</div>
           <div class="host-value-large" id="instance-size-{{ $id }}">4 GB RAM + 2 CPU</div>
           <div class="host-description" id="instance-name-{{ $id }}">EC2: t3.medium</div>
-          <div class="host-cost-primary" id="instance-cost-{{ $id }}">$0.00</div>
+          <div class="host-cost-primary"><span id="instance-cost-{{ $id }}">$0.00</span>/yr</div>
 
           <div class="viz-divider">
             <div class="viz-label">Resource Utilization</div>
@@ -140,7 +144,7 @@
           <div class="host-section-header">Disk</div>
           <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
           <div class="host-description">Block Volume Storage</div>
-          <div class="host-cost-secondary" id="disk-cost-{{ $id }}">$0.00</div>
+          <div class="host-cost-secondary"><span id="disk-cost-{{ $id }}">$0.00</span>/yr</div>
 
           <div class="viz-divider">
             <div class="viz-label">Storage Breakdown</div>

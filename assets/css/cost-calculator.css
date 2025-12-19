@@ -199,6 +199,24 @@ html.dark {
 .calc-card.users {
   max-width: 16rem;
 
+  .cost-per-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+
+    .cost-per-user-label {
+      font-size: 1rem;
+      color: var(--calc-text-light);
+    }
+
+    .cost-per-user-value {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--calc-link);
+    }
+  }
+
   .viz-section {
     margin-bottom: 1.5rem;
     display: flex;

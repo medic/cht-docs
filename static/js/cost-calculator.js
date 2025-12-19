@@ -111,6 +111,10 @@ const updateOutputElements = (els) => () => {
   els.diskUsedBar.style.width = (m.diskUsedGb / m.diskSizeGb * 100) + '%';
   els.diskOverprovisionBar.style.width = (m.diskOverprovisionGb / m.diskSizeGb * 100) + '%';
 
+  const userCount = Number.parseInt(els.userCountInput.value);
+  const monthlyCostPerUser = userCount > 0 ? (m.totalCost / userCount) / 12 : 0;
+  els.costPerUser.textContent = formatCurrency(monthlyCostPerUser);
+
   els.popPerUser.textContent = m.popPerUser.toFixed(1);
   updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
 
@@ -191,6 +195,7 @@ const initCostCalculator = (calcId) => {
     popPerUserMarker: el('pop-per-user-marker'),
     docsPerUser: el('docs-per-user'),
     docsPerUserMarker: el('docs-per-user-marker'),
+    costPerUser: el('cost-per-user'),
     resourceUtil: el('resource-util'),
     resourceUtilMarker: el('resource-util-marker'),
     costPie: el('cost-pie'),
