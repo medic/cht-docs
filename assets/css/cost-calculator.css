@@ -1,6 +1,5 @@
 /* CSS Variables for theming */
 :root {
-  --calc-bg: #ffffff;
   --calc-border: #e5e7eb;
   --calc-text: #1f2937;
   --calc-text-light: #6b7280;
@@ -8,10 +7,14 @@
   --calc-input-border: #d1d5db;
   --calc-card-bg: #f9fafb;
   --calc-label-bg: #f3f4f6;
+
+  --calc-link: #3b82f6;
+  --calc-grad-start: #10b981;
+  --calc-grad-mid: #f59e0b;
+  --calc-grad-end: #ef4444;
 }
 
 html.dark {
-  --calc-bg: #1f2937;
   --calc-border: #374151;
   --calc-text: #f9fafb;
   --calc-text-light: #9ca3af;
@@ -100,7 +103,7 @@ html.dark {
   }
   .calc-input:focus {
     outline: none;
-    border-color: #3b82f6;
+    border-color: var(--calc-link);
   }
   .calc-input[type="range"] {
     padding: 0;
@@ -143,7 +146,7 @@ html.dark {
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #3b82f6;
+    color: var(--calc-link);
     margin-bottom: 0.25rem;
   }
 
@@ -160,6 +163,10 @@ html.dark {
     padding: 2rem;
     color: var(--calc-text-light);
   }
+
+  canvas {
+    max-height: 16rem;
+  }
 }
 
 .calc-card.users {
@@ -174,21 +181,27 @@ html.dark {
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
+    &.people-per .viz-value {
+      color: var(--calc-grad-mid);
+    }
+    &.docs-per .viz-value {
+      color: var(--calc-link);
+    }
 
     .range-bar {
       position: relative;
-      height: 30px;
-      background: linear-gradient(to right, #10b981, #f59e0b, #ef4444);
+      height: 1rem;
+      background: linear-gradient(to right, var(--calc-grad-start), var(--calc-grad-mid), var(--calc-grad-end));
       border-radius: 4px;
       margin-bottom: 0.25rem;
 
       .range-marker {
         position: absolute;
-        top: -5px;
+        top: -0.25rem;
         width: 3px;
-        height: 40px;
+        height: 1.5rem;
         background: white;
-        border: 2px solid #1f2937;
+        border: 2px solid var(--calc-text);
         transition: left 0.3s ease;
       }
     }
@@ -200,6 +213,12 @@ html.dark {
 
 .calc-card.host {
   max-width: 32rem;
+
+  .host-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+  }
 
   .breakdown-row {
     display: flex;
@@ -237,7 +256,7 @@ html.dark {
   border-top: 1px solid var(--calc-border);
 }
 .viz-label {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--calc-text-light);
   margin-bottom: 0.5rem;
 }
@@ -248,7 +267,7 @@ html.dark {
   color: var(--calc-text-light);
 }
 .calc-link {
-  color: #3b82f6;
+  color: var(--calc-link);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
