@@ -47,8 +47,8 @@
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
   --exclude "http[s]*://www.npmjs.com.*" \
   --exclude "http[s]*://npmjs.com.*" \
-  --exclude "https://.*youtu.be.*" \
-  --exclude "https://.*youtube.com.*" \
+  --exclude "http[s]*://.*youtu.be.*" \
+  --exclude "http[s]*://.*youtube.com.*" \
   --exclude "http[s]*://docs.couchdb.org.*" \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
@@ -64,6 +64,9 @@
   --exclude "http[s]*://askubuntu.com/a/477554" \
   --exclude "http[s]*://medium.com.*" \
   --exclude "http[s]*://www.pih.org.*" \
+  --exclude "http[s]*://scientyficworld.org/how-to-avoid-local-port-conflicts-in-docker/" \
+  --exclude "http[s]*://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/" \
+  --exclude "http[s]*://news.ycombinator.com/item?id=1547647" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
   --exclude "http[s]*://127.*"
