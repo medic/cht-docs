@@ -1,16 +1,16 @@
 ---
 title: "CHT 4.x to 5.x Helm Charts Migration Guide"
 linkTitle: "Helm Charts 4.x to 5.x"
-weight: 30
+weight: 20
 description: >
   Guide to migrate Helm Charts from 4.x to 5.x
 ---
 
 ## Overview
 
-This guide covers the migration of Kubernetes based CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [new charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x. The new Helm chart require updates to your `values.yaml` file. 
+This guide covers the migration of Kubernetes based CHT 4.x deployments using the [legacy Helm charts](https://github.com/medic/helm-charts) to the [updated charts](https://github.com/medic/cht-core/tree/master/scripts/build/helm) introduced in CHT 5.x. The new Helm chart requires updates to your `values.yaml` file.
 
-Before starting be sure you have a `git clone` of the [CHT Core repository](https://github.com/medic/cht-core/) and that you have updated it with `git pull origin` to ensure you have the latest changes locally.  
+Before starting be sure you have a `git clone` of the [CHT Core repository](https://github.com/medic/cht-core/) and that you have updated it with `git pull origin` to ensure you have the latest changes locally.
 
 ## Migration Steps
 
@@ -23,7 +23,7 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
    helm get values <your-release-name> --namespace <your-namespace> > migration-5x-values.yaml
    ```
 2. Be sure all booleans are unquoted by running these two `sed` commands which will correct them in the `migration-5x-values.yaml` file:
- 
+
    ```
    sed -i 's/: "false"/: false/g' migration-5x-values.yaml
    sed -i 's/: "true"/: true/g' migration-5x-values.yaml
@@ -38,51 +38,61 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
    couchdb:
      clusteredCouchEnabled: false  # was: clusteredCouch_enabled: false
    
-   # For most migrations, use false. Use true for pre-created volumes for provisioning
+   # For most migrations, use "preExistingDataAvailable" false. Use true for pre-created volumes for provisioning
+   # For most migrations, use "dataPathOnDiskForCouchDB": "data". Double-check this is the correct path.  
    couchdb_data:
      preExistingDataAvailable: false  # Keep using dynamic storage provisioning  
+     dataPathOnDiskForCouchDB: "data" # This is the path where couchdb data will be stored. Leave it as data if you don't have pre-existing data.
+    # To mount to a specific subpath (If data is from an old 3.x instance for example): dataPathOnDiskForCouchDB: "storage/medic-core/couchdb/data"
+    # To mount to the root of the volume: dataPathOnDiskForCouchDB: ""
+    # To use the default "data" subpath, remove the subPath line entirely from values.yaml or name it "data" or use null.
    
    # Add required API service configuration
    api:
      service:
        type: ClusterIP
    
+   # Upstream server configuration
+   upstream_servers:
+     docker_registry: "public.ecr.aws/medic" # DEFAULT: Good default
+     builds_url: "https://staging.dev.medicmobile.org/_couch/builds_4" # DEFAULT: Good default
+   
    # Update image versions to 5.x
-   chtversion: 5.0.0
-   cht_image_tag: 5.0.0
+   chtversion: 5.0.1
+   cht_image_tag: 5.0.1
    ```
 
 4. Depending on the hosting environment, make a final edit to `migration-5x-values.yaml` file:
-   
-  {{< tabs items="GKE,EKS,K3s-K3d" >}}
 
-  {{< tab >}}
+{{< tabs items="GKE,EKS,K3s-K3d" >}}
+
+{{< tab >}}
   ```yaml
   couchdb:
     persistent_disk:
       size: <size>  # Set appropriate size for your needs
   ```
-  {{< /tab >}}
+{{< /tab >}}
 
-  {{< tab >}}
+{{< tab >}}
   ```yaml
   ebs:
     preExistingEBSVolumeSize: <size>  # Set appropriate size for your needs
   ```
-  {{< /tab >}}
+{{< /tab >}}
 
-  {{< tab >}}
+{{< tab >}}
   ```yaml
   couchdb:
     storage_class: local-path  # was: "local-storage"
   ```
-  {{< /tab >}}
+{{< /tab >}}
 
-  {{< /tabs >}}
+{{< /tabs >}}
 
 ### Step 2: Perform the Migration
 
-1. Upgrade the helm deployment form same directory as `migration-5x-values.yaml`.  As well, update `/path/to/cht-core` to be the location where CHT Core repo is checked out:
+1. Upgrade the helm deployment from the same directory as `migration-5x-values.yaml`.  As well, update `/path/to/cht-core` to be the location where the CHT Core repo is checked out:
    ```bash
    helm upgrade <your-release-name> /path/to/cht-core/scripts/build/helm \
      -f migration-5x-values.yaml \
@@ -124,15 +134,15 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
 
 ## Breaking Changes Reference
 
-| Change Type | Old (4.x) | New (5.x) | Platform | Impact |
-|-------------|-----------|-----------|----------|---------|
-| Field Rename | `clusteredCouch_enabled` | `couchdb.clusteredCouchEnabled` | All | Critical |
-| Field Rename | `local.diskPath` | `local_storage.preExistingDiskPath-1` | All | Critical |
-| New Field | - | `api.service.type: ClusterIP` | All | Critical |
-| Storage Config | Default sizes | `couchdb.couchdb_node_storage_size` required | All | Critical |
-| Storage Config | Default sizes | `couchdb.persistent_disk.size` required | GKE | Critical |
-| Storage Config | Default sizes | `ebs.preExistingEBSVolumeSize` required | EKS | Critical |
-| Storage Class | `local-storage` | `local-path` | K3s-K3d | Minor |
-| Structure | Flat config | Nested couchdb configuration | All | Medium |
+| Change Type    | Old (4.x)                | New (5.x)                                   | Platform | Impact |
+|----------------|--------------------------|---------------------------------------------|----------|---------|
+| Field Rename   | `clusteredCouch_enabled` | `couchdb.clusteredCouchEnabled`             | All | Critical |
+| Field Rename   | `local.diskPath`         | `local_storage.preExistingDiskPath-1`       | All | Critical |
+| New Field      | -                        | `api.service.type: ClusterIP`               | All | Critical |
+| Storage Config | Default sizes            | `couchdb.couchdb_node_storage_size` required | All | Critical |
+| Storage Config | Default sizes            | `couchdb.persistent_disk.size` required     | GKE | Critical |
+| Storage Config | Default sizes            | `ebs.preExistingEBSVolumeSize` required     | EKS | Critical |
+| Storage Class  | `local-storage`          | `local-path`                                | K3s-K3d | Minor |
+| Structure      | Flat config              | Nested couchdb configuration                | All | Medium |
 
 

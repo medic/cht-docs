@@ -68,7 +68,7 @@ While this is a specific example for cAdvisor, these same steps will be taken to
 2. CHT Core: [Start the Caddy and a cAdvisor containers along with the CHT Core](#start-cadvisor-caddy-and-cht-core-with-docker)
 3. CHT Watchdog: [Adding new scrape and compose configs](#scrape-config)
 4. CHT Watchdog: [Restart the Prometheus and Grafana server to include the new scrape config mounts](#load-new-compose-files-with-existing-ones)
-5. CHT Watchdog: [Importing an existing cAdvisor dashboard from `grafana.com`](#on-cht-watchdog-import-grafana-dashboard)
+5. CHT Watchdog: [Importing an existing cAdvisor dashboard from `grafana.com`](/hosting/monitoring/integration/#import-grafana-dashboard)
 
 After completing these steps, we now have Docker metrics we can alert on:
 

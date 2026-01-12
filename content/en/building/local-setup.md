@@ -3,7 +3,7 @@ title: "Getting Started Building a CHT App"
 linkTitle: Getting Started
 weight: 2
 description: >
-  Set up a local environment to build and test CHT 4.x applications
+  Set up a local environment to build and test CHT applications
 relatedContent: >
   community/contributing/code/core/using-windows
   hosting/
@@ -12,7 +12,11 @@ aliases:
    - /apps/tutorials/local-setup
 ---
 
-This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
+{{< callout type="info" >}}
+  This tutorial is designed for CHT version 4.x and higher.
+{{< /callout >}}
+
+This tutorial will take you through setting up a local environment to build and test CHT applications on CHT for version 4.x and higher. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
@@ -160,7 +164,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper-for-4x). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 

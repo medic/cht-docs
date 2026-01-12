@@ -31,13 +31,15 @@ In CHT 4.x there are two ways to upgrade a Kubernetes hosted CHT instance:
 
 A recurring problem seen on production deployments was that, over time, CHT administrators would use the CHT administration interface to upgrade.  Then, during a migration or a restore from backup, Kubernetes administrators would inadvertently downgrade a CHT instance by using an out of date Helm chart.
 
-To avoid this situation, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
+To avoid this situation, starting with 5.0.0, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
 
 ![k8s.no.upgrade.button.png](preparing-for-5/k8s.no.upgrade.button.png)
 
-Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
+Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need to [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
 
 {{< callout type="warning" >}}
+Deployments should only use the "Stage" button when upgrading from 4.x to 5.x in Kubernetes. Once staging completes, it is safe to upgrade through helm upgrade!
+
 If a 4.x deployment uses the "Upgrade" button for a 5.x version in the admin web GUI, the upgrade may appear to succeed. However the Nouveau service will not be deployed.  This means both replication and synchronization for offline users will not work.  To fix both, follow the helm upgrade per above which will ensure the Nouveau service is working as expected.
 {{< /callout >}}
 
@@ -165,6 +167,24 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 * Offline users' devices will have their search indexes rebuilt after the upgrade. During the rebuild, search functionality will be initially unavailable. However, once indexing is complete, the search behavior will remain unchanged for all users: the search experience is the same in both CHT 4.x and CHT 5.x.
 * The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
 * The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
+
+### Additional disk storage required for upgrading
+
+{{< callout type="warning" >}}
+  IMPORTANT: Disk Space Requirement for 5.x Upgrade
+
+  Before upgrading to version 5.x, ensure your instance has at least 5x the current disk space used. This is a critical requirement for a successful upgrade. Insufficient disk space may cause the upgrade to fail.
+{{< /callout >}}
+
+An internal mechanism of CouchDB requires **up to 5x disk space** when updating views. As a side-effect of all the performance and TCO changes in 5.0.0, some views were either moved or removed, and as a result, two large design documents need reindexing.  
+
+In our testing, the total database storage size increased during indexing to 5x, as seen in this graph:
+
+{{< cards >}}
+{{< card  image="/releases/images/5_0_reduction2.png"  title="Disk space storage requirement during 5.0.0 upgrade">}}
+{{< /cards >}}
+
+This issue is not limited to the upgrade to 5.0.0 alone. [Any upgrade that requires indexing new views requires additional disk space.](/hosting/cht/requirements/#production-hosting)
 
 ### Temporary downtime for replication and online search immediately after upgrade
 

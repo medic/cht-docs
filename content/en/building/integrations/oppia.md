@@ -29,7 +29,7 @@ The CHT Core Framework & OppiaMobile integration currently supports the followin
 - [Remote onboarding](/reference-apps/training) to new apps, software features, and workflows when they are updated, without relying on face-to-face training
 - Optimized multimedia content with links to educational modules powered by OppiaMobile
 - Message and feedback options, to contact supervisors with questions and seek support
-- [Supervisor visibility](/building/targets/targets-overview#supervisor-view) into CHW progress for onboarding, learning, and care
+- [Supervisor visibility](/building/supervision/chw-aggregate-targets/) into CHW progress for onboarding, learning, and care
 - Hosting options for government-led, government-owned platforms
 
 The training modules configuration consists of five main components:

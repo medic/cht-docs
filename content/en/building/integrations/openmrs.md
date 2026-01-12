@@ -27,7 +27,7 @@ The CHT Core Framework supports integrations with OpenMRS in a variety of ways:
 3. Exposing an API for OpenMRS developers to pull data from CHT Core
 4. Receiving data from OpenMRS
 
-Sending patients, patient contacts, and reports data can be achieved using the [Outbound push](/building/reference/app-settings/outbound). Receiving data from OpenMRS can be achieved using the CHT Core Web [API](https://docs.communityhealthtoolkit.org/building/reference/api/).
+Sending patients, patient contacts, and reports data can be achieved using the [Outbound push](/building/reference/app-settings/outbound). Receiving data from OpenMRS can be achieved using the CHT Core Web [API](/building/reference/api/).
 
 Common OpenMRS use cases include:
 
@@ -193,7 +193,7 @@ Data handlers are responsible for persisting the data in OpenMRS. The handler ca
  - Create a scheduler to start the queue processor above. The queue processor shall get to the handler for processing.
  - Closely monitor the errors log for prompt action where necessary.
 
-You may want to further configure a service that relays feedback to the CHT. Feel free to utilize in-app text messages, which can be triggered via the [sms endpoint](https://docs.communityhealthtoolkit.org/building/reference/api/#post-apisms) of CHT. The health workers would receive these feedback messages on their phones as well as access via the Messages tab in-app.
+You may want to further configure a service that relays feedback to the CHT. Feel free to utilize in-app text messages, which can be triggered via the [sms endpoint](/building/reference/api/#post-apisms) of CHT. The health workers would receive these feedback messages on their phones as well as access via the Messages tab in-app.
 
 #### Error Handling
 

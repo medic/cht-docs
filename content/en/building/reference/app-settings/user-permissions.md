@@ -76,8 +76,8 @@ Permissions can be assigned to user roles either directly in `base_settings.json
 
 |Property| Description | Removed |
 |-------|-------------|---------|
-| `can_view_old_filter_and_search` | Allows users to see the old filter and search in Reports Tab and Contact Tab which is considered deprecated. Admin user will always see the new redesigned filter. See [Feature Flags](//community/contributing/code/core/feature-flags) for more info. | 4.12.0 |
-| `can_view_old_action_bar` | Allows users to see the old action bar in Message Tab, Reports Tab and Contact Tab which is considered deprecated. The More Options menu will be hidden when this permission is enabled. The Admin user will always see the new More Options menu. See [Feature Flags](//community/contributing/code/core/feature-flags) for more info. | 4.12.0 |
+| `can_view_old_filter_and_search` | Allows users to see the old filter and search in Reports Tab and Contact Tab which is considered deprecated. Admin user will always see the new redesigned filter. See [Feature Flags](/community/contributing/code/core/feature-flags) for more info. | 4.12.0 |
+| `can_view_old_action_bar` | Allows users to see the old action bar in Message Tab, Reports Tab and Contact Tab which is considered deprecated. The More Options menu will be hidden when this permission is enabled. The Admin user will always see the new More Options menu. See [Feature Flags](/community/contributing/code/core/feature-flags) for more info. | 4.12.0 |
 
 ### Code sample
 This sample shows how to define the `permissions` object in the `base_settings.json` file. Observe how `can_edit` permission has been associated to `supervisor_role` and `chw_role` user roles.
