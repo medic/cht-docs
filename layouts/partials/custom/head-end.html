@@ -134,11 +134,20 @@
   }
 
   /**
-   * Handle Ctrl+K / Cmd+K globally to open Kapa search
+   * Handle keyboard shortcuts globally
+   * Ctrl+K / Cmd+K → Ask AI modal
+   * Ctrl+L / Cmd+L → Search modal
    */
-  function setupCtrlKHandler() {
+  function setupKeyboardShortcuts() {
     document.addEventListener('keydown', function(e) {
+      // Ctrl+K / Cmd+K → Ask AI
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        e.stopPropagation();
+        openKapa(KAPA_MODE.AI);
+      }
+      // Ctrl+L / Cmd+L → Search
+      if ((e.metaKey || e.ctrlKey) && e.key === 'l') {
         e.preventDefault();
         e.stopPropagation();
         openKapa(KAPA_MODE.SEARCH);
@@ -147,13 +156,15 @@
   }
 
   /**
-   * Intercept search input to use Kapa semantic search instead of FlexSearch
+   * Attach Kapa intercept handlers to a single search input
+   * @param {HTMLInputElement} searchInput - The search input element
    */
-  function setupKapaSearchIntercept() {
-    var searchInput = document.querySelector('.hextra-search-input');
-    if (!searchInput) {
+  function attachSearchIntercept(searchInput) {
+    // Mark as processed to avoid duplicate handlers
+    if (searchInput.dataset.kapaIntercepted) {
       return;
     }
+    searchInput.dataset.kapaIntercepted = 'true';
 
     // Intercept mousedown to prevent FlexSearch from initializing
     searchInput.addEventListener('mousedown', function(e) {
@@ -183,6 +194,37 @@
   }
 
   /**
+   * Intercept all search inputs (desktop + mobile) to use Kapa semantic search
+   */
+  function setupKapaSearchIntercept() {
+    // Find all search inputs (desktop navbar + mobile menu)
+    var searchInputs = document.querySelectorAll('.hextra-search-input');
+    searchInputs.forEach(attachSearchIntercept);
+
+    // Also observe for dynamically added search inputs (e.g., mobile menu)
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            // Check if the added node is a search input
+            if (node.classList && node.classList.contains('hextra-search-input')) {
+              attachSearchIntercept(node);
+            }
+            // Check for search inputs within added nodes
+            var inputs = node.querySelectorAll ? node.querySelectorAll('.hextra-search-input') : [];
+            inputs.forEach(attachSearchIntercept);
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  /**
    * Initialize all Kapa integrations
    */
   function init() {
@@ -190,8 +232,8 @@
     setupKapaSearchIntercept();
   }
 
-  // Set up Ctrl+K handler immediately (capture phase)
-  setupCtrlKHandler();
+  // Set up keyboard shortcuts immediately (capture phase)
+  setupKeyboardShortcuts();
 
   // Initialize DOM-dependent features
   if (document.readyState === 'loading') {
