@@ -1,6 +1,6 @@
 ---
 title: "CouchDB Authentication"
-linkTitle: "CouchDB Authentication"
+linkTitle: "Invalidating sessions"
 weight: 5
 description: >
   Invalidating Sessions
