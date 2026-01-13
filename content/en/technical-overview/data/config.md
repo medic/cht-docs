@@ -1,32 +1,32 @@
 ---
-title: "CHT CouchDb configuration"
+title: "CHT CouchDB configuration"
 linkTitle: "Configuration"
 weight: 1
 description: >
-    Overview of CouchDb configuration used by default by CHT-CouchDB
+    CHT specific changes to default CouchDB configurations
 keywords: config, configuration
 ---
 
-Due to CHT particularities, several changes have been made to CouchDb configuration. These changes are designed to improve performance, reliability, and to better support the CHT workflows. The configuration is bundled with the CouchDb docker image and can be found in the [CHT repository](https://github.com/medic/cht-core/blob/master/couchdb/10-docker-default.ini).
+Due to CHT particularities, several changes have been made to default CouchDB configuration. These changes are designed to improve performance, reliability, and to better support the CHT workflows. The configuration is bundled with the CouchDB Docker image and can be found in the [CHT repository](https://github.com/medic/cht-core/blob/master/couchdb/10-docker-default.ini).
 
-For more information about CouchDb configuration options, see the [CouchDb documentation](https://docs.couchdb.org/en/stable/config/index.html).
+For more information about CouchDB configuration options, see the [CouchDB documentation](https://docs.couchdb.org/en/stable/config/index.html).
 
 {{< callout >}}
 **Note:**
-Some CHT configuration values are the same as the default CouchDb values. This is due to changes that can occur depending on the CouchDb version, while the CHT needs the configuration value fixed.
+Some CHT configuration values are the same as the default CouchDB values. This is intention and ensures when changes occur in CouchDB version over time, the CHT still has the value it needs.
 {{< /callout >}}
 
 #### Configuration Field Explanations
 | [Section] Field = value                                                                                  | Description                                                                              | Default value                                                                                                                                           |
 |----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `[fabric]`<br>`request_timeout = 31536000`                                                               | Sets internal Cluster CouchDb request timeout in seconds.                                | 60000. Not documented.                                                                                                                                  |
-| `[query_server_config]`<br>`os_process_limit = 1000`                                                      | Sets the maximum number of OS processes that can be spawned by CouchDb.                  | [100](https://docs.couchdb.org/en/stable/config/query-servers.html#query_server_config/os_process_limit)                                                |
+| `[fabric]`<br>`request_timeout = 31536000`                                                               | Sets internal Cluster CouchDB request timeout in seconds.                                | 60000. Not documented.                                                                                                                                  |
+| `[query_server_config]`<br>`os_process_limit = 1000`                                                      | Sets the maximum number of OS processes that can be spawned by CouchDB.                  | [100](https://docs.couchdb.org/en/stable/config/query-servers.html#query_server_config/os_process_limit)                                                |
 | `[couchdb]`<br>`os_process_timeout = 60000`                                                              | Sets the maximum time in milliseconds that an OS process can run before being terminated. | [5000](https://docs.couchdb.org/en/stable/config/couchdb.html#couchdb/os_process_timeout)                                                               |
 | `[couchdb]`<br>`max_dbs_open = 5000`                                                                     | Sets the maximum number of databases that can be open simultaneously.                    | [100](https://docs.couchdb.org/en/stable/config/couchdb.html#couchdb/max_dbs_open)                                                                      |
 | `[couchdb]`<br>`attachment_stream_buffer_size = 16384`                                                   | Sets the size of the buffer used to stream attachments.                                  | [4096](https://docs.couchdb.org/en/stable/config/couchdb.html#couchdb/attachment_stream_buffer_size)                                                    |
 | `[couchdb]`<br>`max_document_size = 4294967296`                                                          | Limit maximum document body size.                                                        | [8000000](https://docs.couchdb.org/en/stable/config/couchdb.html#couchdb/max_document_size)                                                             |
 | `[couchdb]`<br>`changes_doc_ids_optimization_threshold = 40000`                                          | Change requests with docs ids optimization treshold                                      | 100. Not documented.                                                                                                                                    |
-| `[chttpd]`<br>`port = 5984`                                                                              | Sets the port on which CouchDb listens for HTTP requests.                                | [5984](https://docs.couchdb.org/en/stable/config/http.html#chttpd/port)                                                                                 |
+| `[chttpd]`<br>`port = 5984`                                                                              | Sets the port on which CouchDB listens for HTTP requests.                                | [5984](https://docs.couchdb.org/en/stable/config/http.html#chttpd/port)                                                                                 |
 | `[chttpd]`<br>`bind_address = 0.0.0.0`                                                                   | HTTP port IP address binding                                                             | [127.0.0.1](https://docs.couchdb.org/en/stable/config/http.html#chttpd/bind_address)                                                                    |
 | `[chttpd]`<br>`require_valid_user = true`                                                                | Require authentication for all requests                                                  | [false](https://docs.couchdb.org/en/stable/config/auth.html#chttpd/require_valid_user)                                                                  |
 | `[httpd]`<br>`secure_rewrites = false`                                                                   | This option allow to isolate databases via subdomains                                    | [true](https://docs.couchdb.org/en/stable/config/http.html#chttpd/secure_rewrites)                                                                      |

@@ -11,11 +11,8 @@ aliases:
 
 ## CouchDB
 
-CouchDb is free and open source NoSQL database used as the primary store for all app data and configuration. CouchDB is offers out-of-the-box replication, which is the process of sending the data to another database and back again, which makes it ideal for replicating data to the phone for offline access. See more at the [CouchDB](https://couchdb.apache.org) site.
-The CHT bundles a version of CouchDB with specific [configuration](/technical-overview/data/config) changes to improve performance, reliability, and is tailored for use with the CHT workflows.
-
-
-The CHT has a range of CouchDB databases for storing different types of data. By default, databases all start with the prefix "medic".
+[CouchDB](https://couchdb.apache.org) is free and open source [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database used as the primary store for all CHT data and configuration. With out-of-the-box replication, CouchDB is ideal for for offline access. This allows mobile handsets to work offline and trivially replicate data when back online. The CHT bundled CouchDB has specific [configuration changes](/technical-overview/data/config) for performance and reliability which are tailored for CHT workflows.
+Note that all 7 CHT databases in CouchDB start with the prefix `medic` as shown below. Database that start with `_`, like `_users` are native CouchDB databases.
 
 ### medic
 
