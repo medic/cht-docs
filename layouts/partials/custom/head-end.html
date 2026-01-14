@@ -85,18 +85,9 @@
   /**
    * Open Kapa modal in specified mode
    * @param {string} mode - 'ai' or 'search'
-   * @param {string} [query] - Optional search query
-   * @param {boolean} [submit] - Whether to auto-submit the query
    */
-  const openKapa = (mode, query, submit) => {
-    const options = { mode };
-    if (query !== undefined) {
-      options.query = query;
-    }
-    if (submit !== undefined) {
-      options.submit = submit;
-    }
-    window.Kapa('open', options);
+  const openKapa = mode => {
+    window.Kapa('open', { mode });
   };
 
   /**
@@ -165,24 +156,13 @@
     searchInput.addEventListener('mousedown', e => {
       e.preventDefault();
       e.stopPropagation();
-      openKapa(KAPA_MODE.SEARCH, searchInput.value || '', false);
+      openKapa(KAPA_MODE.SEARCH);
     });
 
     // Handle keyboard focus (Tab key)
     searchInput.addEventListener('focus', () => {
-      const query = searchInput.value || '';
       searchInput.blur();
-      openKapa(KAPA_MODE.SEARCH, query, false);
-    });
-
-    // Handle Enter key
-    searchInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        openKapa(KAPA_MODE.SEARCH, searchInput.value || '', true);
-        searchInput.value = '';
-        searchInput.blur();
-      }
+      openKapa(KAPA_MODE.SEARCH);
     });
 
     searchInput.placeholder = 'Search...';
