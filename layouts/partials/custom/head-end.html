@@ -1,19 +1,20 @@
 <!-- kapa.ai Assistant Integration. Documentation: https://docs.kapa.ai/integrations/website-widget/installation/general -->
 
-<!-- Preinitialize Kapa to queue calls until widget is ready -->
+<!-- Preinitialize Kapa to queue calls until widget is ready.
+     This sets window.Kapa which is used by the integration scripts below. -->
 <script>
 (function () {
   'use strict';
-  var k = window.Kapa;
-  if (!k) {
-    var i = function () {
-      i.c(arguments);
+  const existingKapa = window.Kapa;
+  if (!existingKapa) {
+    const kapaStub = function () {
+      kapaStub.enqueue(arguments);
     };
-    i.q = [];
-    i.c = function (args) {
-      i.q.push(args);
+    kapaStub.queue = [];
+    kapaStub.enqueue = callArgs => {
+      kapaStub.queue.push(callArgs);
     };
-    window.Kapa = i;
+    window.Kapa = kapaStub;
   }
 })();
 </script>
@@ -76,7 +77,7 @@
 (function() {
   'use strict';
 
-  var KAPA_MODE = {
+  const KAPA_MODE = {
     AI: 'ai',
     SEARCH: 'search'
   };
@@ -87,8 +88,8 @@
    * @param {string} [query] - Optional search query
    * @param {boolean} [submit] - Whether to auto-submit the query
    */
-  function openKapa(mode, query, submit) {
-    var options = { mode: mode };
+  const openKapa = (mode, query, submit) => {
+    const options = { mode };
     if (query !== undefined) {
       options.query = query;
     }
@@ -96,28 +97,28 @@
       options.submit = submit;
     }
     window.Kapa('open', options);
-  }
+  };
 
   /**
    * Inject "Ask AI" button into the navbar
    */
-  function injectKapaButton() {
-    var navbar = document.querySelector('nav.hextra-max-navbar-width');
+  const injectKapaButton = () => {
+    const navbar = document.querySelector('nav.hextra-max-navbar-width');
     if (!navbar || document.getElementById('kapa-navbar-btn')) {
       return;
     }
 
-    var searchWrapper = navbar.querySelector('.hextra-search-wrapper');
-    var kapaBtn = document.createElement('button');
+    const searchWrapper = navbar.querySelector('.hextra-search-wrapper');
+    const kapaBtn = document.createElement('button');
 
     kapaBtn.id = 'kapa-navbar-btn';
     kapaBtn.type = 'button';
     kapaBtn.title = 'Ask AI';
     kapaBtn.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
-        '<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>' +
-        '<path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>' +
-        '<path d="M19 11h2m-1 -1v2"></path>' +
+      '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>' +
+        '<path d="M20 3v4"/>' +
+        '<path d="M22 5h-4"/>' +
       '</svg>' +
       '<span class="hx-sr-only">Ask AI</span>';
 
@@ -127,19 +128,19 @@
       navbar.appendChild(kapaBtn);
     }
 
-    kapaBtn.addEventListener('click', function(e) {
+    kapaBtn.addEventListener('click', e => {
       e.preventDefault();
       openKapa(KAPA_MODE.AI);
     });
-  }
+  };
 
   /**
    * Handle keyboard shortcuts globally
    * Ctrl+K / Cmd+K → Ask AI modal
    * Ctrl+L / Cmd+L → Search modal
    */
-  function setupKeyboardShortcuts() {
-    document.addEventListener('keydown', function(e) {
+  const setupKeyboardShortcuts = () => {
+    document.addEventListener('keydown', e => {
       // Ctrl+K / Cmd+K → Ask AI
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
@@ -153,13 +154,13 @@
         openKapa(KAPA_MODE.SEARCH);
       }
     }, true); // Capture phase to intercept before Hextra
-  }
+  };
 
   /**
    * Attach Kapa intercept handlers to a single search input
    * @param {HTMLInputElement} searchInput - The search input element
    */
-  function attachSearchIntercept(searchInput) {
+  const attachSearchIntercept = searchInput => {
     // Mark as processed to avoid duplicate handlers
     if (searchInput.dataset.kapaIntercepted) {
       return;
@@ -167,21 +168,21 @@
     searchInput.dataset.kapaIntercepted = 'true';
 
     // Intercept mousedown to prevent FlexSearch from initializing
-    searchInput.addEventListener('mousedown', function(e) {
+    searchInput.addEventListener('mousedown', e => {
       e.preventDefault();
       e.stopPropagation();
       openKapa(KAPA_MODE.SEARCH, searchInput.value || '', false);
     });
 
     // Handle keyboard focus (Tab key)
-    searchInput.addEventListener('focus', function() {
-      var query = searchInput.value || '';
+    searchInput.addEventListener('focus', () => {
+      const query = searchInput.value || '';
       searchInput.blur();
       openKapa(KAPA_MODE.SEARCH, query, false);
     });
 
     // Handle Enter key
-    searchInput.addEventListener('keydown', function(e) {
+    searchInput.addEventListener('keydown', e => {
       if (e.key === 'Enter') {
         e.preventDefault();
         openKapa(KAPA_MODE.SEARCH, searchInput.value || '', true);
@@ -190,29 +191,38 @@
       }
     });
 
-    searchInput.placeholder = 'Search docs (AI-powered)...';
-  }
+    searchInput.placeholder = 'Search...';
+
+    // Update keyboard shortcut hint from Ctrl+K to Ctrl+L
+    const searchWrapper = searchInput.closest('.hextra-search-wrapper') || searchInput.parentElement;
+    if (searchWrapper) {
+      const shortcutHint = searchWrapper.querySelector('kbd');
+      if (shortcutHint && shortcutHint.textContent.includes('K')) {
+        shortcutHint.textContent = shortcutHint.textContent.replace('K', 'L');
+      }
+    }
+  };
 
   /**
    * Intercept all search inputs (desktop + mobile) to use Kapa semantic search
    */
-  function setupKapaSearchIntercept() {
+  const setupKapaSearchIntercept = () => {
     // Find all search inputs (desktop navbar + mobile menu)
-    var searchInputs = document.querySelectorAll('.hextra-search-input');
+    const searchInputs = document.querySelectorAll('.hextra-search-input');
     searchInputs.forEach(attachSearchIntercept);
 
     // Also observe for dynamically added search inputs (e.g., mobile menu)
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        mutation.addedNodes.forEach(function(node) {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
           if (node.nodeType === Node.ELEMENT_NODE) {
             // Check if the added node is a search input
             if (node.classList && node.classList.contains('hextra-search-input')) {
               attachSearchIntercept(node);
             }
             // Check for search inputs within added nodes
-            var inputs = node.querySelectorAll ? node.querySelectorAll('.hextra-search-input') : [];
-            inputs.forEach(attachSearchIntercept);
+            const nestedInputs = node.querySelectorAll ? node.querySelectorAll('.hextra-search-input') : [];
+            nestedInputs.forEach(attachSearchIntercept);
           }
         });
       });
@@ -222,15 +232,15 @@
       childList: true,
       subtree: true
     });
-  }
+  };
 
   /**
    * Initialize all Kapa integrations
    */
-  function init() {
+  const init = () => {
     injectKapaButton();
     setupKapaSearchIntercept();
-  }
+  };
 
   // Set up keyboard shortcuts immediately (capture phase)
   setupKeyboardShortcuts();
