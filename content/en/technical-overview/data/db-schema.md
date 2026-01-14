@@ -1,7 +1,7 @@
 ---
 title: "Database schema conventions"
-linkTitle: "Database Schema"
-weight: 1
+linkTitle: "Schema"
+weight: 6
 description: >
   Schema for CHT database objects
 relatedContent: >

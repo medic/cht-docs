@@ -11,7 +11,8 @@ aliases:
 
 ## CouchDB
 
-The CHT has a range of CouchDB databases for storing different types of data. By default, databases all start with the prefix "medic".
+[CouchDB](https://couchdb.apache.org) is free and open source [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database used as the primary store for all CHT data and configuration. With out-of-the-box replication, CouchDB is ideal for for offline access. This allows mobile handsets to work offline and trivially replicate data when back online. The CHT bundled CouchDB has specific [configuration changes](/technical-overview/data/config) for performance and reliability which are tailored for CHT workflows.
+Note that all 7 CHT databases in CouchDB start with the prefix `medic` as shown below. Database that start with `_`, like `_users` are native CouchDB databases.
 
 ### medic
 

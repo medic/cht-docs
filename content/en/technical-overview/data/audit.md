@@ -1,7 +1,7 @@
 ---
 title: "Database document auditing"
-linkTitle: "Document auditing"
-weight: 3
+linkTitle: "Auditing"
+weight: 1
 description: >
     Overview of document change auditing 
 keywords: audit
