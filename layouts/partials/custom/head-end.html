@@ -38,8 +38,9 @@
   data-modal-disclaimer-text-color="#000000"
   data-modal-ask-ai-input-placeholder="Ask me a question about the CHT..."
   data-consent-required="true"
-  data-consent-screen-disclaimer="By clicking &quot;I agree, let's chat&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
-  data-modal-open-on-command-k="true"
+  data-consent-screen-disclaimer="Search and Ask AI are powered by Kapa - please agree to their terms to continue. By clicking &quot;I agree!&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's and Google's privacy policies."
+  data-consent-screen-accept-button-text="I agree!"
+  data-modal-open-on-command-k="false"
   data-modal-border-radius="6px"
   data-search-mode-enabled="true"
   data-button-hide="true"
@@ -149,11 +150,17 @@
 
   /**
    * Handle keyboard shortcuts globally
-   * Ctrl+K / Cmd+K → Ask AI modal (handled natively by Kapa via data-modal-open-on-command-k)
-   * Ctrl+L / Cmd+L → Search modal (custom handler)
+   * Ctrl+K / Cmd+K → Ask AI modal
+   * Ctrl+L / Cmd+L → Search modal
    */
   const setupKeyboardShortcuts = () => {
     document.addEventListener('keydown', e => {
+      // Ctrl+K / Cmd+K → Ask AI
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        e.stopPropagation();
+        openKapa(KAPA_MODE.AI);
+      }
       // Ctrl+L / Cmd+L → Search
       if ((e.metaKey || e.ctrlKey) && e.key === 'l') {
         e.preventDefault();
