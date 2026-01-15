@@ -329,27 +329,7 @@ const fetchData = callback => {
 - Return early to avoid nesting
 - Keep functions under ~15 lines
 
-### Real Example: PR #2106 Feedback
-
-This code was flagged in a docs PR review:
-
-```js
-// Wrong: var, single-letter names, unclear purpose
-var k = window.Kapa;
-if (!k) {
-  var i = function () {
-    i.c(arguments);
-  };
-  i.q = [];
-  i.c = function (args) {
-    i.q.push(args);
-  };
-  window.Kapa = i;
-}
-```
-
-Should be:
-
+Good code example:
 ```js
 // Right: const, descriptive names, clear intent
 const kapaInstance = window.Kapa;
@@ -541,6 +521,7 @@ Overview paragraph.
 ### MCP Server Integration
 
 This project can use the CHT Docs MCP server for:
+- You are inside the docs repository
 - Semantic search across all CHT documentation
 - Context about CHT concepts and architecture
 - Validation of technical accuracy
