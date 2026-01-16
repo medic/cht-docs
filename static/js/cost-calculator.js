@@ -15,7 +15,7 @@ const DEFAULTS = {
   DB_OVERPROVISION_FACTOR: 2
 };
 
-const formatCurrency = (amount) => '$' + amount.toFixed(2);
+const formatCurrency = (amount) => `$${amount.toFixed()}`;
 const formatNumber = (num) => num.toLocaleString();
 const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
@@ -87,10 +87,10 @@ const updateCostPie = (els, metrics) => {
   )`;
 
   if (els.costPctInstance) {
-    els.costPctInstance.textContent = instancePct.toFixed(1) + '%';
+    els.costPctInstance.textContent = `${instancePct.toFixed()}%`;
   }
   if (els.costPctDisk) {
-    els.costPctDisk.textContent = diskPct.toFixed(1) + '%';
+    els.costPctDisk.textContent = `${diskPct.toFixed()}%`;
   }
 };
 
@@ -105,24 +105,24 @@ const updateOutputElements = (els) => () => {
   els.instanceName.textContent = m.instance.name;
   els.instanceSize.textContent = `${m.instance.ram} GB RAM + ${m.instance.cpu} CPU`;
 
-  els.diskSize.textContent = m.diskSizeGb.toFixed(2) + ' GB';
-  els.diskUsed.textContent = m.diskUsedGb.toFixed(2) + ' GB';
-  els.diskOverprovision.textContent = m.diskOverprovisionGb.toFixed(2) + ' GB';
+  els.diskSize.textContent = `${m.diskSizeGb.toFixed()} GB`;
+  els.diskUsed.textContent = `${m.diskUsedGb.toFixed()} GB`;
+  els.diskOverprovision.textContent = `${m.diskOverprovisionGb.toFixed()} GB`;
   els.diskUsedBar.style.width = (m.diskUsedGb / m.diskSizeGb * 100) + '%';
   els.diskOverprovisionBar.style.width = (m.diskOverprovisionGb / m.diskSizeGb * 100) + '%';
 
   const userCount = Number.parseInt(els.userCountInput.value);
   const monthlyCostPerUser = userCount > 0 ? (m.totalCost / userCount) / 12 : 0;
-  els.costPerUser.textContent = formatCurrency(monthlyCostPerUser);
+  els.costPerUser.textContent = `$${monthlyCostPerUser.toFixed(2)}`;
 
-  els.popPerUser.textContent = m.popPerUser.toFixed(1);
+  els.popPerUser.textContent = m.popPerUser.toFixed();
   updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
 
   els.docsPerUser.textContent = formatNumber(Math.round(m.docsPerUser));
   updateRangeMarker(els.docsPerUserMarker, m.docsPerUser, 1, 20000);
 
   const utilPct = m.resourceUtilizationPct * 100;
-  els.resourceUtil.textContent = utilPct.toFixed(1) + '%';
+  els.resourceUtil.textContent = `${utilPct.toFixed()}%`;
   updateRangeMarker(els.resourceUtilMarker, utilPct, 0, 100, 1);
 
   updateCostPie(els, m);
