@@ -1,7 +1,7 @@
 ---
 title: "Deploy CHT Core on Medic hosted EKS"
 weight: 600
-linkTitle: "At Medic"
+linkTitle: "Medic hosted EKS"
 description: >
    Setting up a cloud hosted deployment of CHT Core on Medic's AWS EKS infrastructure
 aliases:
