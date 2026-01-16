@@ -129,31 +129,28 @@ After you have created a ticket per "Request permission" above, you should get a
 
    _\* Note some characters are unsupported in `password`: `:`, `@`, `"`, `'`, etc. Be sure to enclose it in quotes `""` and do not use spaces in your password. Your deployment will succeed but you won't be able to log into the CHT instance._
 
-8. Add the helm chart for the CHT.  This is OK to rerun if you're not sure if you've already added it:
+8. Add the helm chart for the CHT.  This is OK to rerun if you're not sure if you've already added it, you'll just see a `already exists` warning:
    ```shell
    helm repo add medic https://docs.communityhealthtoolkit.org/helm-charts
    ```
-9. In case you already had the helm chart, make sure it is up to date:
+9. Make sure it is up to date:
    ```shell
    helm repo update medic
    ```
-10. Now to deploy the site with `helm`. We'll use the `medic/cht-chart-4x` chart which applies to both CHT `4.x` and `5.x`.  Be sure to update `<username>` and specify a valid CHT version in `cht_image_tag` and be sure to call this in the same directory where you created `values.yml`:
-   ```shell
-   helm install mrjones-dev medic/cht-chart-4x --version "1.*.*" \
-                 --namespace "mrjones-dev" --values "./values.yml" \
-                 --set cht_image_tag="5.0.0"
-   ```
-11. If you get an error `cannot reuse a name` this is because the instance was already deployed.  If you want to upgrade it, you can call:
 
-   ```shell
-   helm upgrade mrjones-dev medic/cht-chart-4x --version "1.*.*" \
-              --namespace "mrjones-dev" --values "./values.yml" \
-              --set cht_image_tag="5.0.0"
-   ```
-12. While there's now way to stop an instance, you should delete it when you're done:
-   ```shell
-   helm delete USERNAME-dev --namespace USERNAME-dev
-   ```
+10. Now to deploy the site with `helm`. We'll use the `medic/cht-chart-4x` chart which applies to both CHT `4.x` and `5.x`.  Be sure to update `<username>` and specify a valid CHT version in `cht_image_tag` and be sure to call this in the same directory where you created `values.yml`:
+    ```shell
+    helm install <username>-dev medic/cht-chart-4x --version "1.*.*" \
+        --namespace "<username>-dev" --values "./values.yml" \
+        --set cht_image_tag="5.0.0"
+    ```
+
+11. Your instance should now be available at `https://<username>.dev.medicmobile.org`
+
+12. While there's now way to stop an instance, you should delete it when you're done. As always, update `<username>` to be your username:
+    ```shell
+    helm delete <username>-dev --namespace <username>-dev
+    ```
 
 ## Cloning a Medic hosted instance
 
@@ -307,10 +304,10 @@ And then follow these steps:
 
 10. Now that no resources are using the volume, you should delete it.  If you created a snapshot, you should delete that as well.  Be sure to replace `vol-f9dsa0f9sad09f0dsa` and `snap-432490821280432092` with your actual IDs. You only need to delete the snapshot if you created it above, **do no delete snapshots you did not create**:
 
-```shell
-aws ec2 delete-volume --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa
-aws ec2 delete-snapshot --snapshot-id snap-432490821280432092
-```
+    ```shell
+    aws ec2 delete-volume --region eu-west-2 --volume-id vol-f9dsa0f9sad09f0dsa
+    aws ec2 delete-snapshot --snapshot-id snap-432490821280432092
+    ```
 
 ## References and Debugging
 
@@ -320,10 +317,9 @@ More information on `cht-deploy` script is available in the [CHT Core GitHub rep
 
 A summary of the utilities in `cht-core/scripts/deploy` directory, assuming `mrjones-dev` namespace:
 
-* list all resources: `./troubleshooting/list-all-resources mrjones-dev`
-* view logs, assuming `cht-couchdb-1` returned from prior command: `./troubleshooting/view-logs mrjones-dev cht-couchdb-1`
-* describe deployment, assuming `cht-couchdb-1` returned from 1st command: `./troubleshooting/describe-deployment mrjones-dev cht-couchdb-1`
-* list all deployments: `./troubleshooting/list-all-resources mrjones-dev`
+* list all resources: `kubectl -n mrjones-dev get all`
+* view logs, assuming `cht-couchdb-6cccc45db8-nm52z` returned in `pod/*` from prior command: `kubectl -n mrjones-dev logs `cht-couchdb-6cccc45db8-nm52z
+* describe deployment, assuming `cht-couchdb` returned in `deployments/*` from 1st command: `kubectl -n mrjones-dev describe deployment cht-couchdb`
 
 ### Getting shell
 
