@@ -38,7 +38,8 @@
   data-modal-disclaimer-text-color="#000000"
   data-modal-ask-ai-input-placeholder="Ask me a question about the CHT..."
   data-consent-required="true"
-  data-consent-screen-disclaimer="Search and Ask AI are powered by Kapa - please agree to their terms to continue. By clicking &quot;I agree!&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's and Google's privacy policies."
+  data-consent-screen-title="Search and Ask AI are powered by Kapa"
+  data-consent-screen-disclaimer="By clicking &quot;I agree&quot;, you consent to the use of search and the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
   data-consent-screen-accept-button-text="I agree!"
   data-modal-open-on-command-k="false"
   data-modal-border-radius="6px"
@@ -71,6 +72,18 @@
   #kapa-navbar-btn:active {
     transform: scale(0.95);
   }
+
+  #kapa-navbar-btn span {
+    padding-left: 5px;
+  }
+
+  /* Hide "Ask AI" text on mobile to reduce header crowding */
+  @media (max-width: 767px) {
+    #kapa-navbar-btn span {
+      display: none;
+    }
+  }
+
 </style>
 
 <!-- Kapa Integration: Navbar Button + Search Intercept -->
@@ -130,7 +143,6 @@
     svg.appendChild(path3);
 
     const span = document.createElement('span');
-    span.className = 'hx-sr-only';
     span.textContent = 'Ask AI';
 
     kapaBtn.appendChild(svg);
