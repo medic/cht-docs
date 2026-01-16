@@ -97,7 +97,7 @@
     <div class="calc-card users">
       <h3>Users</h3>
       <div class="cost-per-user">
-        <span class="cost-per-user-label">Cost Per User</span>
+        <span class="cost-per-user-label">Per User</span>
         <div class="cost-per-user-value"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
       </div>
       <div class="viz-section viz-divider people-per">
@@ -144,7 +144,7 @@
         <div>
           <div class="host-section-header">Disk</div>
           <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
-          <div class="host-description">Block Volume Storage</div>
+          <div class="host-description">&nbsp;</div>
           <div class="host-cost-secondary"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>
 
           <div class="viz-divider">
@@ -154,7 +154,7 @@
               <div class="breakdown-value text-blue" id="disk-used-{{ $id }}">0 GB</div>
             </div>
             <div class="breakdown-row">
-              <div class="breakdown-label">Overprov</div>
+              <div class="breakdown-label">Over-provisioned</div>
               <div class="breakdown-value text-orange" id="disk-overprovision-{{ $id }}">0 GB</div>
             </div>
             <div class="disk-bar">

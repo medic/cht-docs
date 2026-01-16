@@ -155,6 +155,19 @@ const addSliderWithInput = (slider, numberInput, updateOutputs) => {
     updateOutputs();
   });
 };
+const addAdvancedInput = (input, updateOutputs) => {
+  const min = Number.parseFloat(input.min) || 1;
+  const max = Number.parseFloat(input.max) || Infinity;
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(updateOutputs, 250);
+  });
+  input.addEventListener('blur', (e) => {
+    e.target.value = clamp(Number.parseFloat(e.target.value) || min, min, max);;
+    updateOutputs();
+  });
+};
 
 const attachListeners = (els, updateOutputs) => {
 
@@ -163,10 +176,9 @@ const attachListeners = (els, updateOutputs) => {
   addSliderWithInput(els.deploymentAge, els.deploymentAgeValue, updateOutputs);
   addSliderWithInput(els.userCountInput, els.userCountInputValue, updateOutputs);
 
-  // Advanced parameters
-  [els.contactsPerPlace, els.workflowDocs, els.dbOverprovision].forEach(el => {
-    el?.addEventListener('input', updateOutputs);
-  });
+  addAdvancedInput(els.contactsPerPlace, updateOutputs);
+  addAdvancedInput(els.workflowDocs, updateOutputs);
+  addAdvancedInput(els.dbOverprovision, updateOutputs);
 
   // View toggles
   const toggle = (showAdvanced) => {
