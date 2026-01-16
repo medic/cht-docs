@@ -23,7 +23,7 @@ Backups should be sure to follow the 3-2-1 rule:
 > There should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location. _- [Wikipedia](https://en.wikipedia.org/wiki/Backup)_
 
 {{< callout  type="warning"  >}}
-A backup is not function until the restore is tested.  Be sure to [test the restore](/hosting/cht/docker/backups/#restore) regularly!
+A backup is not functional until the restore is tested.  Be sure to [test the restore](/hosting/cht/docker/backups/#restore) regularly!
 {{< /callout >}}
 
 
