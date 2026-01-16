@@ -175,6 +175,12 @@ const attachListeners = (els, updateOutputs) => {
   };
   els.showAdvanced?.addEventListener('click', () => toggle(true));
   els.showBasic?.addEventListener('click', () => toggle(false));
+  els.resetAdvanced?.addEventListener('click', () => {
+    els.contactsPerPlace.value = DEFAULTS.CONTACTS_PER_PLACE;
+    els.workflowDocs.value = DEFAULTS.WORKFLOW_YEARLY_DOCS_PER_CONTACT;
+    els.dbOverprovision.value = DEFAULTS.DB_OVERPROVISION_FACTOR;
+    updateOutputs();
+  });
 };
 
 const initCostCalculator = (calcId) => {
@@ -195,6 +201,7 @@ const initCostCalculator = (calcId) => {
     contactsPerPlace: el('contacts-per-place'),
     workflowDocs: el('workflow-docs'),
     dbOverprovision: el('db-overprovision'),
+    resetAdvanced: el('reset-advanced'),
     // View toggles
     basicParams: el('basic-params'),
     advancedParams: el('advanced-params'),

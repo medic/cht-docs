@@ -388,3 +388,8 @@ html.dark {
   font-size: 0.9rem;
   font-weight: 500;
 }
+.advanced-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
