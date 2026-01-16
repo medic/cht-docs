@@ -145,7 +145,7 @@ After you have created a ticket per "Request permission" above, you should get a
         --set cht_image_tag="5.0.0"
     ```
 
-11. Your instance should now be available at `https://<username>.dev.medicmobile.org`
+11. Your instance should now be available at `https://<username>.dev.medicmobile.org` after a while.
 
 12. While there's now way to stop an instance, you should delete it when you're done. As always, update `<username>` to be your username:
     ```shell
