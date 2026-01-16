@@ -12,25 +12,25 @@
 
       <label class="label-with-value">
         <span>Population Served</span>
-        <span class="input-value" id="population-count-value-{{ $id }}">20,000</span>
+        <input type="number" class="input-value" id="population-count-value-{{ $id }}" value="20000" min="1000" max="1000000">
       </label>
       <input type="range" class="calc-input" id="population-count-{{ $id }}" min="1000" max="1000000" value="20000" step="1000">
 
       <label class="label-with-value">
         <span>Number of Workflows</span>
-        <span class="input-value" id="workflow-count-value-{{ $id }}">5</span>
+        <input type="number" class="input-value" id="workflow-count-value-{{ $id }}" value="5" min="1" max="25">
       </label>
       <input type="range" class="calc-input" id="workflow-count-{{ $id }}" min="1" max="25" value="5" step="1">
 
       <label class="label-with-value">
         <span>Age of Deployment (years)</span>
-        <span class="input-value" id="deployment-age-value-{{ $id }}">1</span>
+        <input type="number" class="input-value" id="deployment-age-value-{{ $id }}" value="1" min="1" max="10">
       </label>
       <input type="range" class="calc-input" id="deployment-age-{{ $id }}" min="1" max="10" value="1" step="1">
 
       <label class="label-with-value">
         <span>Number of Users</span>
-        <span class="input-value" id="user-count-input-value-{{ $id }}">100</span>
+        <input type="number" class="input-value" id="user-count-input-value-{{ $id }}" value="100" min="1" max="15000">
       </label>
       <input type="range" class="calc-input" id="user-count-input-{{ $id }}" min="1" max="15000" value="100" step="1">
 
@@ -46,7 +46,7 @@
       <div class="advanced-input-group">
         <div class="advanced-input">
           <label for="contacts-per-place-{{ $id }}">Average Household Size</label>
-          <input type="number" class="calc-input" id="contacts-per-place-{{ $id }}" value="5" min="2" step="1">
+          <input type="number" class="input-value" id="contacts-per-place-{{ $id }}" value="5" min="2">
         </div>
         <div class="helper-text">Number of contacts in each geographic location</div>
       </div>
@@ -54,7 +54,7 @@
       <div class="advanced-input-group">
         <div class="advanced-input">
           <label for="workflow-docs-{{ $id }}">Workflow Docs Per Contact</label>
-          <input type="number" class="calc-input" id="workflow-docs-{{ $id }}" value="12" min="1" step="1">
+          <input type="number" class="input-value" id="workflow-docs-{{ $id }}" value="12" min="1">
         </div>
         <div class="helper-text">Documents generated per contact per workflow per year</div>
       </div>
@@ -62,7 +62,7 @@
       <div class="advanced-input-group">
         <div class="advanced-input">
           <label for="db-overprovision-{{ $id }}">Database Over-provisioning Factor</label>
-          <input type="number" class="calc-input" id="db-overprovision-{{ $id }}" value="2" min="1" max="10" step="0.5">
+          <input type="number" class="input-value" id="db-overprovision-{{ $id }}" value="2" min="1" max="10">
         </div>
         <div class="helper-text">Multiplier for database storage headroom</div>
       </div>

@@ -128,19 +128,40 @@ const updateOutputElements = (els) => () => {
   updateCostPie(els, m);
 };
 
-const attachListeners = (els, updateOutputs) => {
-  const addSlider = (input, display, formatter = (v) => v) => {
-    input.addEventListener('input', (e) => {
-      display.textContent = formatter(e.target.value);
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(updateOutputs, 250);
-    });
-  };
+// Bidirectional sync between slider and number input
+const addSliderWithInput = (slider, numberInput, updateOutputs) => {
+  const min = Number.parseFloat(slider.min);
+  const max = Number.parseFloat(slider.max);
 
-  addSlider(els.deploymentAge, els.deploymentAgeValue);
-  addSlider(els.workflowCount, els.workflowCountValue);
-  addSlider(els.populationCount, els.populationCountValue, (v) => formatNumber(Number.parseInt(v)));
-  addSlider(els.userCountInput, els.userCountInputValue, (v) => formatNumber(Number.parseInt(v)));
+  // Slider changes -> update number input
+  slider.addEventListener('input', (e) => {
+    numberInput.value = e.target.value;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(updateOutputs, 250);
+  });
+
+  // Number input changes -> update slider (clamped to range)
+  numberInput.addEventListener('input', (e) => {
+    slider.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(updateOutputs, 250);
+  });
+
+  // On blur, clamp the number input value to valid range
+  numberInput.addEventListener('blur', (e) => {
+    const val = clamp(Number.parseFloat(e.target.value) || min, min, max);
+    e.target.value = val;
+    slider.value = val;
+    updateOutputs();
+  });
+};
+
+const attachListeners = (els, updateOutputs) => {
+
+  addSliderWithInput(els.populationCount, els.populationCountValue, updateOutputs);
+  addSliderWithInput(els.workflowCount, els.workflowCountValue, updateOutputs);
+  addSliderWithInput(els.deploymentAge, els.deploymentAgeValue, updateOutputs);
+  addSliderWithInput(els.userCountInput, els.userCountInputValue, updateOutputs);
 
   // Advanced parameters
   [els.contactsPerPlace, els.workflowDocs, els.dbOverprovision].forEach(el => {

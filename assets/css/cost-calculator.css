@@ -79,31 +79,35 @@ html.dark {
     margin-bottom: 0.5rem;
     font-weight: 500;
     font-size: 0.9rem;
+  }
 
-    .input-value {
-      background: var(--calc-label-bg);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
+  .input-value {
+    background: var(--calc-label-bg);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--calc-input-border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--calc-text);
+    width: 4rem;
+    text-align: right;
+  }
+  .input-value:focus {
+    outline: none;
+    border-color: var(--calc-link);
+  }
+  /* Hide spin buttons for number inputs */
+  .input-value::-webkit-outer-spin-button,
+  .input-value::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .input-value[type=number] {
+    -moz-appearance: textfield;
   }
 
   .calc-input {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid var(--calc-input-border);
-    border-radius: 4px;
-    background: var(--calc-input-bg);
-    color: var(--calc-text);
-    font-size: 0.95rem;
-    transition: border-color 0.2s;
-  }
-  .calc-input:focus {
-    outline: none;
-    border-color: var(--calc-link);
-  }
-  .calc-input[type="range"] {
     padding: 0;
     height: 2rem;
     cursor: pointer;
@@ -122,10 +126,6 @@ html.dark {
       label {
         margin: 0;
         flex: 1;
-      }
-      input {
-        width: 100px;
-        flex: 0 0 auto;
       }
     }
 
