@@ -69,7 +69,7 @@ This will show all available unit test commands:
 unit                      unit-couchdb              unit-sentinel
 unit-admin                unit-haproxy              unit-shared-lib
 unit-api                  unit-haproxy-healthcheck  unit-webapp
-unit-cht-deploy           unit-nginx                unit-webapp-continuous
+unit-nginx                unit-webapp-continuous
 ```
 
 #### Running individual tests within a spec
