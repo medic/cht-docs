@@ -21,7 +21,7 @@ When a community-proposed improvement shows potential for broad impact, we invit
 - Help shape the future of the CHT
 
 ## Where to find active squads?
-See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
+See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
 
 ## How do squads form?
 The journey to forming a squad begins with a community need and a conversation about it. Here’s how it typically works:
@@ -49,7 +49,7 @@ A need sparks! The community identifies a feature or improvement with broad pote
   **Outputs**:
   - A squad kick-off message is shared on the forum 
   - Community members volunteer to participate in the squad
-  - The [Code of Conduct](https://docs.communityhealthtoolkit.org/community/contributing/code-of-conduct/) is shared with all squad members.
+  - The [Code of Conduct](/community/contributing/code-of-conduct/) is shared with all squad members.
   - A squad kick-off call is scheduled with the interested contributors. 
 
 ### 2. 🧑🏼‍🎨 Early Design Discussion
@@ -63,7 +63,7 @@ Teams explore technical requirements, timelines, and design approaches.
 Turning ideas into action. 
 
   **Outputs**:
-  - The squad should collaboratively work on a [design document](https://docs.communityhealthtoolkit.org/community/contributing/code/design-docs/) based on the requirements. Once the first iteration is complete, pause to incorporate feedback by announcing it on the forum for broad community review before proceeding.
+  - The squad should collaboratively work on a [design document](/community/contributing/code/design-docs/) based on the requirements. Once the first iteration is complete, pause to incorporate feedback by announcing it on the forum for broad community review before proceeding.
   - If needed, UI mockups are created.
 
 ### 4. 🧑🏽‍💻 Development/Building

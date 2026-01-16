@@ -68,7 +68,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -91,7 +91,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -101,16 +101,6 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< /tab >}}
 
 {{< /tabs >}}
-
-#### `pyxform`
-
-Using python on your terminal, install `pyxform` globally using the command below. Ensure you create and activate an environment for python3.
-
-```shell
-sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-```
-
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section](/community/contributing/code/core/dev-environment#macos--123).
 
 #### `cht-conf`
 
@@ -174,7 +164,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper-for-4x). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 

@@ -77,7 +77,7 @@ You configure *what* data is sent using the `mapping` [property](/building/refer
 > Map the `contact.name` field in the CHT to the `patient.name` field in the EMR. 
 
 ### Authentication
-Credentials for the destination system are [stored in CouchdDB](/building/reference/app-settings/outbound#credentials). You will need to set this up before you can test your configuration.
+Credentials for the destination system are [stored in CouchdDB](/building/reference/api/#put-apiv1credentials). You will need to set this up before you can test your configuration.
 
 ## Requests from other systems 
 The CHT has a complete RESTful API that other systems can utilize to interact with data in the CHT.

@@ -37,7 +37,7 @@ Next, save the `at-api-key` in your CHT Core configuration as covered below.
 
 The Africa's Talking integration uses the CHT Credentials service to retrieve the API keys using the IDs `africastalking.com:incoming` and `africastalking.com:outgoing`. 
 
-Use the [CHT credentials API](/apps/reference/api#put-apiv1credentials) to securely store the credentials by running the commands below.
+Use the [CHT credentials API](/building/reference/api/#put-apiv1credentials) to securely store the credentials by running the commands below.
 
 - `curl -X PUT -H "Content-Type: text/plain" https://<user>:<pass>@<hostname>/api/v1/credentials/africastalking.com:incoming -d 'cht-api-key'`
 

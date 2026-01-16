@@ -24,7 +24,7 @@ You will be adding meta-data and context to an assessment workflow that allows C
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup#3-create-and-upload-a-blank-project) setup, and an [assessment form](/building/tutorials/app-forms).
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup/#deploy-local-cht-instance) setup, and an [assessment form](/building/tutorials/app-forms).
 
 ## Implementation Steps
 

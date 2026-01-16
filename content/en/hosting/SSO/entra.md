@@ -16,7 +16,7 @@ These steps document how to configure Microsoft Entra as the Single Sign On (SSO
 ## Prerequisites
 
 * [Microsoft Entra](https://entra.microsoft.com) business account with credit card added. Free trial accounts work, but require a credit card.
-* CHT server - ensure you are running version `4.20.0` or later. This can be an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper-for-4x).
+* CHT server - ensure you are running version `4.20.0` or later. This can be an instance of [Docker Helper](/hosting/cht/app-developer/#cht-docker-helper).
 * DNS Entries and TLS enabled on CHT
 
 
@@ -96,11 +96,11 @@ cht --url=https://medic:password@<CHT_URL> compile-app-settings upload-app-setti
 
 ### Client Secret in CHT
 
-Use the [`/api/v1/credentials` REST api](https://docs.communityhealthtoolkit.org/building/reference/api/#put-apiv1credentials) to set the client secret as the `oidc:client-secret` credential.
+Use the [`/api/v1/credentials` REST api](/building/reference/api/#put-apiv1credentials) to set the client secret as the `oidc:client-secret` credential.
 
 {{< tabs items="Production,Development" >}}
 {{< tab >}}
-Be sure to replace `SECRET` with the value from [step 3 above](#copy-secret). As well, replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
+Be sure to replace `SECRET` with the value from step 3 above. As well, replace `CHT_URL` with the production URL of your CHT instance, `USER` with your admin user and `PASSWORD` with your password:
 ```shell
 curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-secret \
      -H "Content-Type: text/plain" \
@@ -109,7 +109,7 @@ curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-s
 
 {{< /tab >}}
 {{< tab >}}
-Be sure to replace `SECRET` with the value from [step 3 above](#copy-secret). As well, replace `CHT_URL` with the docker helper URL, including port:
+Be sure to replace `SECRET` with the value from step 3 above . As well, replace `CHT_URL` with the docker helper URL, including port:
 ```shell
 curl -X PUT https://medic:password@<CHT_URL>/api/v1/credentials/oidc:client-secret \
      -H "Content-Type: text/plain" \

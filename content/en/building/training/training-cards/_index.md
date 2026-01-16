@@ -35,11 +35,11 @@ Training materials can also be accessed in the training page found in the auxili
 
 ## Completing
 
-Health workers read through each card one by one in a predefined sequence, tapping “Next” on each card. When they are finished reading all cards, they tap “Submit” on the last card. The training set is now considered complete and they can continue using their app. Completed training sets show up on the [main list](/building/reports/#main-list) of the Reports tab and they won’t be asked to complete this set again. If there are additional training sets to complete, they will be shown the next day the app is opened.
+Health workers read through each card one by one in a predefined sequence, tapping “Next” on each card. When they are finished reading all cards, they tap “Submit” on the last card. The training set is now considered complete and they can continue using their app. Completed training sets show up on the [main list](/building/reports/reports-overview/#main-list) of the Reports tab and they won’t be asked to complete this set again. If there are additional training sets to complete, they will be shown the next day the app is opened.
 
 ## Monitoring
 
-As mentioned above, completed training sets will show up on the [main list](/building/reports/#main-list) of the Reports tab. These reports are available in [analytics](/building/supervision/#supervisor-dashboards), [aggregate targets](/building/supervision/#chw-aggregate-targets) , and can trigger supervision workflows and [tasks](/building/supervision/#supervisor-tasks).
+As mentioned above, completed training sets will show up on the [main list](/building/reports/reports-overview/#main-list) of the Reports tab. These reports are available in [analytics](/building/supervision/dashboards-reporting/), [aggregate targets](/building/supervision/chw-aggregate-targets/) , and can trigger supervision workflows and [tasks](/building/supervision/).
 
 ## Configurability
 Training cards can be shown to any user associated to a contact. A “set” of training cards represents a collection of individual training cards, generally covering a single training topic. The list below highlights some of the key areas of customization:

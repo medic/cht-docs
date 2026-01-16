@@ -39,7 +39,7 @@ Your instance of CHT needs to be on v3.13+ which has features developed to suppo
   * **Android App Launcher** - integrate with third party apps like the RD-Toolkit
   * **Parse Timestamp to Date** -  convert epoch time stamps (`1628945040308`) to your desired format (`Sun Mar 19 13:25:08`).
 
-For more information on these features, see the ["Related Content"](#related-content).
+For more information on these features, see the "Related Content" at the bottom of the page.
 
 Additional requirements for this application beyond CHT 3.13, include [CHT Android 0.10.0](https://github.com/medic/cht-android) or later and Dimagi's [RD-Toolkit 0.9.8](https://github.com/dimagi/rd-toolkit/) or later.
 
@@ -352,7 +352,7 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 ### Capture
 
 {{< callout type="info" >}}
-  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).
+  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](/reference-apps/covid-rdt-reference-app/#base64-image-extraction).
 {{< /callout >}}
 
 
