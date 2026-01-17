@@ -3,16 +3,17 @@
 <!-- Preinitialize Kapa to queue calls until widget is ready.
      This sets window.Kapa which is used by the integration scripts below. -->
 <script>
-(function () {
+(function() {
   'use strict';
   const existingKapa = window.Kapa;
   if (!existingKapa) {
+    // Kapa's widget expects these specific property names (.q for queue, .c for enqueue)
     const kapaStub = function () {
-      kapaStub.enqueue(arguments);
+      kapaStub.c(arguments);
     };
-    kapaStub.queue = [];
-    kapaStub.enqueue = callArgs => {
-      kapaStub.queue.push(callArgs);
+    kapaStub.q = [];
+    kapaStub.c = callArgs => {
+      kapaStub.q.push(callArgs);
     };
     window.Kapa = kapaStub;
   }
@@ -83,7 +84,6 @@
       display: none;
     }
   }
-
 </style>
 
 <!-- Kapa Integration: Navbar Button + Search Intercept -->
@@ -120,6 +120,7 @@
     kapaBtn.type = 'button';
     kapaBtn.title = 'Ask AI';
 
+    // Create sparkle icon (Lucide "sparkles" icon)
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('width', '20');
     svg.setAttribute('height', '20');
@@ -250,11 +251,118 @@
   };
 
   /**
+   * Sync Kapa's dark mode with site theme.
+   * Kapa uses Shadow DOM which blocks external CSS, so we must:
+   * 1. Set data-mantine-color-scheme attribute for Mantine's built-in dark mode
+   * 2. Inject CSS overrides directly into the shadow root for elements Mantine doesn't handle
+   */
+  const syncKapaDarkMode = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    const colorScheme = isDark ? 'dark' : 'light';
+
+    const kapaContainer = document.querySelector('#kapa-widget-container');
+    if (kapaContainer && kapaContainer.shadowRoot) {
+      const shadowRoot = kapaContainer.shadowRoot;
+      const kapaWidgetRoot = shadowRoot.querySelector('#kapa-widget-root');
+      if (kapaWidgetRoot) {
+        kapaWidgetRoot.setAttribute('data-mantine-color-scheme', colorScheme);
+      }
+
+      // Inject dark mode CSS overrides into shadow DOM
+      const styleId = 'kapa-dark-mode-overrides';
+      let styleEl = shadowRoot.querySelector(`#${styleId}`);
+
+      if (isDark) {
+        if (!styleEl) {
+          styleEl = document.createElement('style');
+          styleEl.id = styleId;
+          shadowRoot.appendChild(styleEl);
+        }
+        styleEl.textContent = `
+          /* Dark mode: Question title */
+          [data-mantine-color-scheme="dark"] .mantine-Title-root {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: Answer content text */
+          [data-mantine-color-scheme="dark"] .mantine-Text-root {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: List items */
+          [data-mantine-color-scheme="dark"] .mantine-List-root,
+          [data-mantine-color-scheme="dark"] .mantine-List-item,
+          [data-mantine-color-scheme="dark"] .mantine-List-itemLabel,
+          [data-mantine-color-scheme="dark"] .mantine-List-itemWrapper {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: Input/textarea text */
+          [data-mantine-color-scheme="dark"] .mantine-Input-input,
+          [data-mantine-color-scheme="dark"] .mantine-Textarea-input {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: Links */
+          [data-mantine-color-scheme="dark"] a {
+            color: #5cc8c8 !important;
+          }
+          /* Keep disclaimer text dark (teal background) */
+          [data-mantine-color-scheme="dark"] .mantine-tilrau,
+          [data-mantine-color-scheme="dark"] .mantine-tilrau * {
+            color: #000000 !important;
+          }
+          [data-mantine-color-scheme="dark"] .mantine-tilrau a {
+            color: #0066cc !important;
+          }
+        `;
+      } else if (styleEl) {
+        styleEl.remove();
+      }
+    }
+  };
+
+  /**
+   * Set up observer for theme changes and Kapa widget initialization
+   */
+  const setupDarkModeSync = () => {
+    // Sync when theme changes on <html>
+    const themeObserver = new MutationObserver(() => {
+      syncKapaDarkMode();
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // Watch for Kapa widget container to be added to DOM
+    const widgetObserver = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.id === 'kapa-widget-container' || node.querySelector?.('#kapa-widget-container')) {
+              // Wait for shadow DOM to initialize
+              setTimeout(syncKapaDarkMode, 100);
+              setTimeout(syncKapaDarkMode, 500);
+            }
+          }
+        }
+      }
+    });
+
+    widgetObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    // Try to sync immediately in case widget is already loaded
+    syncKapaDarkMode();
+  };
+
+  /**
    * Initialize all Kapa integrations
    */
   const init = () => {
     injectKapaButton();
     setupKapaSearchIntercept();
+    setupDarkModeSync();
   };
 
   // Set up keyboard shortcuts immediately (capture phase)
