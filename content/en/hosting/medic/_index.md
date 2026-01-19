@@ -262,11 +262,11 @@ And then follow these steps:
        }
    ]
    ```
-5. Switch to the production cluster and then find the `subPath` of the deployment you made the snapshot from. The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1` (check `./troubleshooting/list-deployments <your-namespace>` if you still don't know).  Including the `use-context`, the two calls are below.  Note that `troubleshooting` directory is in the [CHT Core repo](https://github.com/medic/cht-core/tree/master/scripts/deploy/troubleshooting):
+5. Switch to the production cluster and then find the `subPath` of the deployment you made the snapshot from. The `COUCH-DB-NAME` is usually `cht-couchdb`. But, it can sometimes be `cht-couchdb-1` (check `helm list -n <your-namespace>` if you still don't know).  Including the `use-context`, the two calls are below:
 
    ```shell
    kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/prod-cht-eks
-   ./troubleshooting/get-volume-binding <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'
+   ./cht-core/scripts/medic-eks-get-volume-binding.sh <DEPLOYMENT> <COUCH-DB-NAME> | jq '.subPath'
    ```
 
    Which shows the path like this:
@@ -292,7 +292,7 @@ And then follow these steps:
     * `preExistingEBSVolumeID-1` - set this to be the ID from step 2. For example `vol-f9dsa0f9sad09f0dsa`
     * `preExistingEBSVolumeSize`  - use the same size as the volume you just cloned
 
-7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - **Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call** `./cht-deploy`! Always create test instances on the dev cluster.
+7. Deploy this to development per the [steps above](#starting-and-stopping-aka-deleting). NB - **Be sure to call `kubectl config use-context arn:aws:eks:eu-west-2:720541322708:cluster/dev-cht-eks` before you call** `helm install` or `helm upgrade`! Always create test instances on the dev cluster.
 
 8. Login using the `user` and `password` set above, which should match the production instance.
 
@@ -311,8 +311,6 @@ And then follow these steps:
 
 ## References and Debugging
 
-More information on `cht-deploy` script is available in the [CHT Core GitHub repository](https://github.com/medic/cht-core/blob/master/scripts/deploy/README.md) which includes specifics of the `values.yaml` file and more details about the debugging utilities listed below.
-
 ### Debugging
 
 A summary of the utilities in `cht-core/scripts/deploy` directory, assuming `mrjones-dev` namespace:
@@ -323,7 +321,7 @@ A summary of the utilities in `cht-core/scripts/deploy` directory, assuming `mrj
 
 ### Getting shell
 
-Sometimes you need to look at files and other key pieces of data that are not available with [the current](https://github.com/medic/cht-core/blob/master/scripts/deploy/troubleshooting/view-logs) `troubleshooting/view-logs` script.  In this case, getting an interactive shell on the pod can be helpful.
+Sometimes getting an interactive shell on the pod can be helpful:
 
 1. First, get a list pods for your namespace: `kubectl -n NAMESPACE get pods`
 2. After finding the pod you're interested, connect to the pod to get a shell: `kubectl -n NAMESPACE exec -it PODNAME/CONTAINERNAME -- /bin/bash`
