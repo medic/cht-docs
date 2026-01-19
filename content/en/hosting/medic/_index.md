@@ -313,7 +313,7 @@ And then follow these steps:
 
 ### Debugging
 
-A summary of the utilities in `cht-core/scripts/deploy` directory, assuming `mrjones-dev` namespace:
+A summary of `kubectl` calls, assuming `mrjones-dev` namespace:
 
 * list all resources: `kubectl -n mrjones-dev get all`
 * view logs, assuming `cht-couchdb-6cccc45db8-nm52z` returned in `pod/*` from prior command: `kubectl -n mrjones-dev logs `cht-couchdb-6cccc45db8-nm52z
