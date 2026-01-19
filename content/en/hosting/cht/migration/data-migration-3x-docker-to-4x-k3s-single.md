@@ -1,6 +1,6 @@
 ---
 title: "Migration from 3.x Docker Compose to 4.x K3s (Single Node)"
-linkTitle: "To K3s Single-Node"
+linkTitle: "Docker 3.x to 4.x"
 weight: 50
 description: >
   Guide on how to migrate existing data from CHT 3.x Docker Compose deployment to CHT 4.x single-node K3s deployment
