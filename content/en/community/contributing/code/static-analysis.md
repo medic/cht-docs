@@ -14,7 +14,7 @@ All code must pass an eslint check which runs early in the CI cycle and uses the
 
 ### Linting
 
-You should always lint your code locally before pushign it up the GitHub. Choose one of:
+You should always lint your code locally before pushing it up the GitHub. Choose one of:
 
 * ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
 * CHT Core has a script to run at the command line, by calling `npm run lint` while in the `cht-core` repository.  Be sure you've run the [Core dev setup first](/community/contributing/code/core/dev-environment)! Note that the first time you run this it might be slow, as it needs to download and cache some files.  Subsequent runs should be quite fast.
