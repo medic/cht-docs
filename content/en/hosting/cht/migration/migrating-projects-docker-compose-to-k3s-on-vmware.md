@@ -1,7 +1,7 @@
 ---
 title: "Migrating projects on VMware that were installed via docker-compose to k3s"
-linkTitle: "To to k3s (from VMWare)"
-weight: 20
+linkTitle: "Docker 4.x to k3s 4.x"
+weight: 30
 
 ---
 {{< hextra/hero-subtitle >}}
@@ -9,7 +9,7 @@ Here we will outline the process for migrating projects that were installed on V
 
 ### Prerequisites 
 
-This doc will assume you have followed or read over our guides to [self hosting K3s](/hosting/4.x/production/kubernetes/self-hosting-k3s-multinode/) and the [trouble shooting section below](#troubleshooting). Please ensure your terminal is authenticated to your vCenter datacenter by following the govc or curl authentication steps in those docs.
+This doc will assume you have followed or read over our guides to [self hosting K3s](/hosting/cht/kubernetes/self-hosting-k3s-multinode/) and the [trouble shooting section below](#troubleshooting). Please ensure your terminal is authenticated to your vCenter datacenter by following the govc or curl authentication steps in those docs.
 
 ### Current cht-core installation setup
 
