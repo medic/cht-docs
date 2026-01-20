@@ -1,21 +1,18 @@
 ---
 title: "CHT Watchdog Setup"
 linkTitle: "Setup"
-weight: 2
+weight: 100
+description: >
+   Setting up Grafana and Prometheus with the CHT
+relatedContent: >  
+   technical-overview/architecture
+   technical-overview/architecture/cht-watchdog
 aliases:  
   - /building/guides/hosting/monitoring/setup
   - /apps/guides/hosting/monitoring/setup
 ---
 
-{{< hextra/hero-subtitle >}}
-  Setting up Grafana and Prometheus with the CHT
-{{< /hextra/hero-subtitle >}}
-
-{{< callout >}}
-  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
-
-Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x.  By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
+Medic maintains CHT Watchdog which is an opinionated configuration of [Prometheus](https://prometheus.io/) (including [json_exporter](https://github.com/prometheus-community/json_exporter)) and [Grafana](https://grafana.com/grafana/) which can easily be deployed using Docker. It is supported on CHT 3.12 and later, including CHT 4.x and 5.x. By using this solution a CHT deployment can easily get longitudinal monitoring and push alerts using Email, Slack or other mechanisms.  All tools are open source and have no licensing fees.
 
 The solution provides both an overview dashboard as well as a detail dashboard.  Here is a portion of the overview dashboard:
 
@@ -118,7 +115,7 @@ docker compose up -d
 
 #### CHT Sync Data (Local)
 
-With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync]({{< relref "hosting/analytics" >}}) data read in from a Postgres database (supports Postgres `>= 9.x`).
+With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1.1.0), Watchdog now supports easily ingesting [CHT Sync](/hosting/analytics) data read in from a Postgres database (supports Postgres `>= 9.x`).
 
 1. Copy the example config file, so you can add the correct contents in them:
    ```shell
@@ -143,7 +140,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 
 #### CHT Sync Data (Remote)
 
-While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API]({{< relref "building/reference/api#get-apiv2monitoring" >}}), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API](/building/reference/api#get-apiv2monitoring), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
 
 This section has two steps. The first is to expose the password-less metrics endpoint and the second is to scrape it with Prometheus.   Here's documentation on how to set up a Kubernetes or Docker endpoint for CHT Sync.
 
@@ -193,7 +190,11 @@ No matter which way you set up your SQL exporter, follow these steps to tell you
 
 #### Prometheus Retention and Storage
 
-By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data.  However, this will increase the size of the Prometheus data volume.  See the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/storage/) for more information.
+By default, historical monitoring data will be stored in Prometheus (`PROMETHEUS_DATA` directory) for 60 days (configurable by `PROMETHEUS_RETENTION_TIME`). A longer retention time can be configured to allow for longer-term analysis of the data. However, this will increase the size of the Prometheus data volume. 
+
+Alternatively, to limit the maximum storage used, set `PROMETHEUS_RETENTION_SIZE` to a value like `10GB` or `500MB`. This defaults to `0` which means no limit. When both time and size limits are configured, whichever threshold is reached first will trigger data removal.
+
+See the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/storage/) for more information.
 
 Local storage is not suitable for storing large amounts of monitoring data. If you intend to store multiple years worth of metrics, you should consider integrating Prometheus with a [Remote Storage](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage/).
 
@@ -230,7 +231,7 @@ The provisioned alert rules cannot be modified directly. Instead, you can copy t
 
 1. Open the alert rule you would like to modify in the Grafana alert rules UI and select the "Copy" button.
 2. Update the copied alert rule with the desired changes and save it into a new Evaluation group.
-3. [Remove the provisioned alert]({{< relref "#deleting-provisioned-alert-rules" >}}).
+3. [Remove the provisioned alert](#deleting-provisioned-alert-rules).
 
 ##### Configuring Contact Points
 
@@ -244,33 +245,7 @@ To support sending email alerts from Grafana, you must update the `smtp` section
 
 Slack alerts can be configured within the Grafana web GUI for the specific rules you would like to alert on.
 
-### Configuration Reference
 
-#### Environment Variables
+### Environment Variables
 
 See the [example .env file](https://github.com/medic/cht-watchdog/blob/main/.env.example) for a list of all environment variables that can be set.
-
-#### CHT Metrics
-
-All CHT metrics in Prometheus:
-
-| OpenMetrics name                      | Type    | label(s)                   | Description                                                                                                                                                                                                                                                                                        |
-|---------------------------------------|---------|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cht_api_*`                           | N/A     |                            | API server metrics (see [prometheus-api-metrics](https://www.npmjs.com/package/prometheus-api-metrics)). Requires CHT Core 4.3.0 or later. Includes stats like server response time in seconds and response size in bytes.                                                                         |
-| `cht_conflict_count`                  | Gauge   |                            | Number of doc conflicts which need to be resolved manually.                                                                                                                                                                                                                                        |
-| `cht_connected_users_count`           | Gauge   |                            | Number of users that have connected to the api recently. By default the time interval is 7 days. Otherwise it is equal to the connected_user_interval parameter value used when making the /monitoring request.                                                                                    |
-| `cht_couchdb_doc_del_total`           | Counter | `db`                       | The number of deleted docs in the db.                                                                                                                                                                                                                                                              |
-| `cht_couchdb_doc_total`               | Counter | `db`                       | The number of docs in the db.                                                                                                                                                                                                                                                                      |
-| `cht_couchdb_fragmentation`           | Gauge   | `db`                       | The fragmentation of the entire db (including view indexes) as stored on disk. A lower value is better. `1` is no fragmentation.                                                                                                                                                                   |
-| `cht_couchdb_size_bytes`              | Gauge   | `db`, `type`               | The size in bytes of the database. This includes documents, metadata, and attachments, but does not include view indexes. Type: `active` is the size of the live data inside the database, while type: `file` value is the size of the database file on disk. Requires CHT Core `4.11.0` or later. |
-| `cht_couchdb_update_sequence`         | Counter | `db`                       | The number of changes in the db.                                                                                                                                                                                                                                                                   |
-| `cht_couchdb_view_index_size_bytes`   | Gauge   | `db`, `type`, `view_index` | The size in bytes of the view index. Type: `active` is the size of the live data inside the view, while type: `file` value is the size of the view as stored on disk. Requires CHT Core `4.11.0` or later.                                                                                         |
-| `cht_date_current_millis`             | Counter |                            | The current server date in millis since the epoch, useful for ensuring the server time is correct.                                                                                                                                                                                                 |
-| `cht_date_uptime_seconds`             | Counter |                            | How long API has been running.                                                                                                                                                                                                                                                                     |
-| `cht_feedback_total`                  | Counter |                            | Number of feedback docs created usually indicative of client side errors.                                                                                                                                                                                                                          |
-| `cht_messaging_outgoing_last_hundred` | Gauge   | `group`, `status`          | Counts of last 100 messages that have received status updates.                                                                                                                                                                                                                                     |
-| `cht_messaging_outgoing_total`        | Counter | `status`                   | Counts of the total number of messages.                                                                                                                                                                                                                                                            |
-| `cht_outbound_push_backlog_count`     | Gauge   |                            | Number of changes yet to be processed by Outbound Push.                                                                                                                                                                                                                                            |
-| `cht_replication_limit_count`         | Gauge   |                            | Number of users that exceeded the replication limit of documents.                                                                                                                                                                                                                                  |
-| `cht_sentinel_backlog_count`          | Gauge   |                            | Number of changes yet to be processed by Sentinel.                                                                                                                                                                                                                                                 |
-| `cht_version`                         | N/A     | `app`, `node`, `couchdb`   | Version information for the CHT instance (recorded in labels)                                                                                                                                                                                                                                      |

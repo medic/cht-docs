@@ -17,7 +17,7 @@ CHT gateway supports Android 4.1 and above. To have it up and fully working, fol
 
 ### Step 1
 
-Install the latest APK from the [releases page](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo. This APK is not in the Play Store, you will need to side-load it [as is done with CHT Android]({{< ref "building/guides/android/publishing#side-loading" >}}).
+Install the latest APK from the [releases page](https://github.com/medic/cht-gateway/releases) in the `cht-gateway` repo. This APK is not in the Play Store, you will need to side-load it [as is done with CHT Android](/building/branding/publishing#side-loading).
 
 ### Step 2
 
@@ -40,7 +40,7 @@ Password: `topSecret`(_This should be the password for the `gateway` username as
 > [!NOTE]
 > If you're configuring cht-gateway (v0.6.2 and below - recommended if you have a non-_Medic_ hosted instance) you will need to use the generic build of cht-gateway - links to download are [here](https://github.com/medic/cht-gateway/releases). Find out the value for webapp URL from your tech support then configure as below:
 >
-> **WebappUrl**: ```https://gateway:topSecret@myproject.some-subdomain.mydomain.org```
+> **WebappUrl**: ```https://gateway:topSecret@myproject.some-subdomain.mydomain.org/api/sms```
 
  # Power Saving
 

@@ -5,10 +5,7 @@
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
 # You'll need:
-# - install go - https://golang.org/doc/install
-# - install muffet - https://github.com/raviqqe/muffet
-# - make sure muffet is in your PATH
-# - cd ti: ./.github/scripts/
+# - cd to: ./.github/scripts/
 # - run script: ./muffet.sh
 #
 # If we have errors from this script being too aggressive (see how large downloads on
@@ -16,11 +13,10 @@
 # use extremely granular URLs so as not to exclude more than we need to.
 
 # when upgrading muffet, upload new binary here and rename so version is explicit in filename
-./2.10.6.muffet http://localhost:1313 \
-  --dns-resolver 9.9.9.9:9953 \
+./2.11.1.muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 255 \
-  --rate-limit 8 \
+  --rate-limit 4 \
   --max-connections-per-host 8 \
   --ignore-fragments \
   --header="User-Agent: Muffet (github.com/raviqqe/muffet) on behalf of CHT Docs (docs.communityhealthtoolkit.org)" \
@@ -49,15 +45,28 @@
   --exclude "http[s]*://www.pluralsight.com/paths/using-kubernetes-as-a-developer.*" \
   --exclude "http[s]*://www.intellisoftkenya.com.*" \
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
-  --exclude "http[s]*://www.npmjs.com/org/medic/team/developers" \
+  --exclude "http[s]*://www.npmjs.com.*" \
+  --exclude "http[s]*://npmjs.com.*" \
+  --exclude "http[s]*://.*youtu.be.*" \
+  --exclude "http[s]*://.*youtube.com.*" \
   --exclude "http[s]*://docs.couchdb.org.*" \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
   --exclude "http[s]*://.*udemy.com.*" \
+  --exclude "http[s]*://docs.dhis2.org.*" \
+  --exclude "http[s]*://stackoverflow.com/questions.*" \
   --exclude "http[s]*://.*udacity.com.*" \
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \
   --exclude "http[s]*://cht.domain.com.*" \
+  --exclude "http[s]*://www.docker.com.*" \
+  --exclude "http[s]*://blog.angular.dev/announcing-angular-v20-b5c9c06cf301" \
+  --exclude "http[s]*://askubuntu.com/a/477554" \
+  --exclude "http[s]*://medium.com.*" \
+  --exclude "http[s]*://www.pih.org.*" \
+  --exclude "http[s]*://scientyficworld.org/how-to-avoid-local-port-conflicts-in-docker/" \
+  --exclude "http[s]*://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/" \
+  --exclude "http[s]*://news.ycombinator.com/item?id=1547647" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
   --exclude "http[s]*://127.*"

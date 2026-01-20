@@ -2,17 +2,17 @@
 title: "Local couch2pg Setup"
 linkTitle: Local Setup
 weight: 3
+description: >
+  Setting up a Couch2pg service to download data from CouchDB to Postgres database
+relatedContent: >
+  building/local-setup
 aliases:
    - /apps/tutorials/couch2pg-setup
    - /building/tutorials/couch2pg-setup
 ---
 
-{{< hextra/hero-subtitle >}}
-   Setting up a Couch2pg service to download data from CouchDB to Postgres database
-{{< /hextra/hero-subtitle >}}
-
 {{< callout type="warning" >}}
-  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](/hosting/analytics).
 {{< /callout >}}
 
 This tutorial will take you through setting up a couch2pg service.
@@ -22,7 +22,7 @@ By the end of the tutorial you should be able to:
 - Set up a couch2pg service
 - Run the couch2pg service
 
-[CHT Couch2pg](https://github.com/medic/cht-couch2pg) is a background process that moves data from Couchdb to Postgres through one way replication. It therefore, needs to have full read and write access to both the Postgres Database and Couchdb upstream.  It is built in nodejs and can be set up as a background process using systemd. Review this [architecture diagram]({{< relref "technical-overview/architecture#overview" >}}) to get a conceptual understanding of how couch2pg works.
+[CHT Couch2pg](https://github.com/medic/cht-couch2pg) is a background process that moves data from Couchdb to Postgres through one way replication. It therefore, needs to have full read and write access to both the Postgres Database and Couchdb upstream.  It is built in nodejs and can be set up as a background process using systemd. 
 
 ## Brief Overview of key environmental variables
 
@@ -49,7 +49,7 @@ Before you begin, you need to have some useful software and tools that are requi
 * [PostgreSQL](https://www.postgresql.org/) 9.4 or later
 
 ## Prerequisites
-You should have a functioning [CHT instance installed locally]({{< ref "building/local-setup" >}})
+You should have a functioning [CHT instance installed locally](/building/local-setup)
 
 You should have a working database with a user that has full creation rights on the database. A database `POSTGRES_DB_NAME` and `couch2pg` user can be created and access granted using the following query:
 ```

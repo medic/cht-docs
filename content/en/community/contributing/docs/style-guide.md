@@ -2,13 +2,11 @@
 title: "Documentation Style Guide"
 linkTitle: "Style Guide"
 weight: 2
+description: >
+  Editorial guidelines for writing documentation
 aliases:
   -  /contribute/docs/style-guide
 ---
-
-{{< hextra/hero-subtitle >}}
-  Editorial guidelines for writing documentation
-{{< /hextra/hero-subtitle >}}
 
 This style guide provides a set of editorial guidelines for anyone writing documentation for Community Health Toolkit projects. These are guidelines, not rules. Use your best judgment. 
 
@@ -125,10 +123,14 @@ considered new in a few months.
 ## Cross-referencing content
 
 Connecting readers to related content in different pages is an important aspect of documentation. There are three ways this can be done in the doc site:
-1. **Inline links**: a portion of any narrative text can link to another page. This should done using the markdown link notation. 
-   
+
+1. **Inline links**: a portion of any narrative text can link to another page or to a heading on the same page. This should done using the markdown link notation.
+
    For example, the text `linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!` yields: "linking documents is a [foundational reason for the web existing in the first place](https://en.wikipedia.org/wiki/Hypertext)!"
-   
+
+   > [!TIP]
+   > When linking to a heading on the same page, always use fragment-only links like `[link](#heading)` instead of full-path links like `[link](/current-page/#heading)`. This allows the automatic link checker to validate your links correctly. Links with full paths on the same page can sometimes fail to be validated correctly.
+
 1. **See Also**: the `see-also` shortcode is available to connect to an important concept within the documentation site. The link will be more prominent to the reader by having a common prefix and shown on a separate line.
    
    For example, `{{</* see-also page="design/interface/icons" */>}}` will show as seen here: {{< see-also page="design/interface/icons" >}}
@@ -139,19 +141,14 @@ Connecting readers to related content in different pages is an important aspect 
    
    Use `see-also` when referencing _related topics_  and use `read-more` when referencing the _same topic_ in more depth.
 
-### Avoid broken links
-To avoid broken links always use `ref` or `relref` shortcodes for internal references with the full path for the page. Check out the [Hugo documentation for cross-references](https://gohugo.io/content-management/shortcodes/#article) for more details.
-
-For example,  `[Icon Library]({{</* relref "design/interface/icons" */>}})` yields "[Icon Library]({{% relref "design/interface/icons" %}})". Using the full path will avoid ambiguous references if a new page of the same is created. 
-
 ### Link paragraphs, not titles
 
-Whether using `ref` ,`relref` or inline links, do not link a title:
+Do not link a title:
 
 | Do | Don't |
 |---|---|
 | ` Read more about [InnoDB here](https://en.wikipedia.org/wiki/InnoDB).` | `## [InnoDB here](https://en.wikipedia.org/wiki/InnoDB)` |
-| `The [Icon Library]({{</* relref "design/interface/icons" */>}}) has many great icons.` | `## [Icon Library]({{</* relref "design/interface/icons" */>}})` |
+| `The [Icon Library](/design/interface/icons) has many great icons.` | `## [Icon Library](/design/interface/icons)` |
 
 ## Formatting standards
 
@@ -192,6 +189,39 @@ To achieve this use a markdown table with the letter X (`X`) to mark events, lea
 
 > [!TIP] 
 > The opening `{{%/* schedule */%}}` and closing  `{{%/* /schedule */%}}` shortcode must come before and after the  markdown table respectively in order for it to correctly style the table.
+
+### Copy-paste-friendly Tables
+
+You can include a visual table in your documentation with a **"Copy table" button** that makes it easy for users to copy the table contents (as TSV – tab-separated values). This is useful for sharing structured data that users may want to paste into a spreadsheet like Google Sheets or another tool.
+
+Use the following shortcode format:
+
+    {{</* copytable id="example" label="Copy table" >}}
+    Column A Column B Column C
+    Value-1 A1 B1
+    Value-2 A2 B2
+    {{</ copytable */>}}
+
+This will render:
+
+- A nicely styled HTML table.
+- A **Copy** button above the table.
+- When clicked, the button copies the table content (as plain text) to the clipboard.
+- A small “Copied!” message briefly appears to confirm the action.
+
+#### Example output
+
+{{< copytable id="tsv" label="Copy TSV" >}}
+Name	Role	Region  
+Fatou	CEO	Senegal  
+Jose	Developer	Costa Rica  
+{{</ copytable >}}
+
+#### Notes
+
+- The copied content uses **tab-separated values**, which work well in spreadsheets or plain text files.
+- The button adapts automatically to **light and dark themes**.
+- You can customize the button label with the `label` parameter (default: `"Copy table"`).
 
 ### Grammar and punctuation in headers
 

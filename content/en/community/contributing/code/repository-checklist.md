@@ -2,13 +2,11 @@
 title: "CHT Product Repository Checklist"
 linkTitle: "Repository Checklist"
 weight: 8
+description: >
+  Checklist to consider when creating CHT Product repositories
 aliases: >
   /contribute/code/repository-checklist
 ---
-
-{{< hextra/hero-subtitle >}}
-  Checklist to consider when creating CHT Product repositories
-{{< /hextra/hero-subtitle >}}
 
 ## Repository Creation Checklist
 When creating a new CHT Product repository under [Medic's GitHub organization](https://github.com/medic), the contributor(s) should use the [cht-repo-template](https://github.com/medic/cht-repo-template) repository containing the following configurations:
@@ -20,7 +18,7 @@ When creating a new CHT Product repository under [Medic's GitHub organization](h
 - [ ] Issue templates exist.
 - [ ] PR template exists.
 - [ ] PRs reference related issues.
-- [ ] Commit formats follow the [guidelines]({{< ref "workflow/#commits" >}}). 
+- [ ] Commit formats follow the [guidelines](/community/contributing/code/workflow/#commits). 
 - [ ] Secrets are not part of the commit history or made public.
 - [ ] The following files exist:
     - `LICENSE` specifying AGPL-3.0 ([example](https://github.com/medic/cht-core/blob/master/LICENSE))

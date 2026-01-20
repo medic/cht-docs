@@ -2,22 +2,20 @@
 title: "Apdex Automated Tests"
 linkTitle: "Apdex Automated Tests"
 weight: 13
+description: >
+  Automated test execution for creating telemetry data and calculating the Apdex scores
 aliases: >
   /core/guides/fixing-e2e-tests
   /contribute/code/core/fixing-e2e-tests
   /contribute/code/core/apdex-automation-tests
 ---
 
-{{< hextra/hero-subtitle >}}
-  Automated test execution for creating telemetry data and calculating the Apdex scores
-{{< /hextra/hero-subtitle >}}
-
 This documentation will guide you on how to setup and configure automation to run performance tests for your CHT Applications.
 
 ## Prerequisites
 
 Before continuing with the steps below, ensure:
-1. You have a [cht instance deployed]({{< ref "hosting/4.x/app-developer" >}}) and running either locally or globally.
+1. You have a [cht instance deployed](/hosting/cht/app-developer) and running either locally or globally.
 
 1. You have some pre-existing users and data already loaded on the app. Use the [test-data-generator](https://github.com/medic/test-data-generator) tool to achieve this.
 

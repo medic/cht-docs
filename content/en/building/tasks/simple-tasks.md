@@ -9,21 +9,22 @@ relatedContent: >
   building/tasks/tasks-js
   building/workflows/workflows-overview
   design/best-practices#anatomy-of-a-task
+  building/tasks/simple-priority-score
 aliases:
    - /building/tutorials/tasks-1
    - /apps/tutorials/tasks-1
 ---
 
-Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form]({{< ref "building/tutorials/app-forms" >}}) for new patients within 7 days of registration.
+Tasks prompt users to complete activities on a programmatic schedule. This guide will explain how to write a task which prompts CHW users to complete an _assessment_ [app form](/building/tutorials/app-forms) for new patients within 7 days of registration.
 
 - Creating a straight-forward task
 - Running and testing that task
 
 ## Prerequisites
 
-* Complete the [App Forms Tutorial]({{< ref "building/tutorials/app-forms" >}}) - Tasks prompt users to _complete activities_ by opening an app form. The app forms tutorial produces an _assessment_ app form which we will use here. You can also elect to substitute that with any [example app form](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
-* Complete the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-2" >}}) to create a hierarchy of contacts and an offline CHW user. 
-* Read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}})
+* Complete the [App Forms Tutorial](/building/tutorials/app-forms) - Tasks prompt users to _complete activities_ by opening an app form. The app forms tutorial produces an _assessment_ app form which we will use here. You can also elect to substitute that with any [example app form](https://github.com/medic/cht-core/tree/master/config/default/forms/app).
+* Complete the [Contact and User Management - Part 1 Tutorial](/building/contact-management/contact-and-users-2) to create a hierarchy of contacts and an offline CHW user. 
+* Read [Understanding the data available in tasks and targets](/building/tasks/managing-tasks/task-schema-parameters)
 
 ## Implementation Steps
 
@@ -52,14 +53,14 @@ module.exports = [{
 
 **What is this code doing?**
 
-The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema]({{< ref "building/tasks/tasks-js#tasksjs" >}})*. In the code above, the `tasks.js` file is exporting one task object with the following:
+The `tasks.js` file follows the JavaScript ES6 Module syntax and _exports_ an array of objects matching the [task.js schema](/building/tasks/tasks-js#tasksjs)*. In the code above, the `tasks.js` file is exporting one task object with the following:
 
 * `name` - This is used exclusively in the task's backend data. The _name_ isn't controlling any element of the tasks's behaviour, appearance, or schedule.
-* `title` - This is controlling the "Task title" as defined in the [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
-* `icon` - This references a [resource]({{< ref "building/branding/resources" >}}) to be used as the task's icon. Refer to [anatomy of a task]({{< ref "design/best-practices#anatomy-of-a-task" >}}).
-* `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}}).
+* `title` - This is controlling the "Task title" as defined in the [anatomy of a task](/design/best-practices#anatomy-of-a-task).
+* `icon` - This references a [resource](/building/branding/resources) to be used as the task's icon. Refer to [anatomy of a task](/design/best-practices#anatomy-of-a-task).
+* `appliesTo` - We use `contacts` because we want one task _per contact_. For more details, read [Understanding the data available in tasks and targets](/building/tasks/managing-tasks/task-schema-parameters).
 * `appliesToType` - The task should only show for contacts with `contact_type` equal to `patient`. This `appliesToType` is a _short-hand_ equivalent to `appliesIf: c => c.contact.contact_type === 'patient'`.
-* `appliesIf` - A predicate which gates the creation of the task's event schedule. For more details, read [Understanding the data available in tasks and targets]({{< ref "building/tasks/managing-tasks/task-schema-parameters" >}}).
+* `appliesIf` - A predicate which gates the creation of the task's event schedule. For more details, read [Understanding the data available in tasks and targets](/building/tasks/managing-tasks/task-schema-parameters).
   * `user.parent.contact_type` - The user is a CHW iff their parent is of type `chw_area`. The user object is hydrated.
   * `!c.contact.date_of_death` - The contact must be alive
   * `!c.contact.muted` - The contact must be unmuted
@@ -85,7 +86,7 @@ cht --url=https://<username>:<password>@localhost compile-app-settings upload-ap
 
 ### 3. Testing the Task
 
-Tasks are only available to [offline users]({{< ref "building/concepts/users#offline-users" >}}). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial]({{< ref "building/contact-management/contact-and-users-1" >}}). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
+Tasks are only available to [offline users](/building/users#offline-users). To view and test this simple task, you'll need to login as an offline user like the CHW-level user created in the [Contact and User Management - Part 1 Tutorial](/building/contact-management/contact-and-users-1). Once logged in, sync to make sure you have the latest configuration. You may be prompted to reload the application. 
 
 Create a new contact in the hierarchy and navigate to the `Tasks` tab. You should see the new `assessment-after-registration` task!
 
@@ -99,7 +100,7 @@ Next, test a few of the expected behaviours for the task:
 * Move your system clock forward 8 days and reload the tasks tab. The task should disappear since the 7 day window has expired.
 * Login as a supervisor user. You should not be able to see the task.
 * The task should not appear only for patients - not for places or CHWs.
-* If you mute a contact or [report the contact dead]({{< ref "building/workflows/death-reporting" >}}), the task should disappear.
+* If you mute a contact or [report the contact dead](/building/workflows/death-reporting), the task should disappear.
 
 > [!IMPORTANT] 
 > Remember to reset your system clock to be accurate when you are done testing.

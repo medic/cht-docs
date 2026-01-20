@@ -2,14 +2,15 @@
 title: Condition Cards
 linkTitle: Condition Cards
 weight: 6
+description: >
+  Build CHT condition cards
+relatedContent: >
+  building/contact-management
+  building/contact-summary/contact-summary-templated#condition-cards
 aliases:
    - /building/tutorials/condition-cards
    - /apps/tutorials/condition-cards
 ---
-
-{{< hextra/hero-subtitle >}}
-  Build CHT condition cards
-{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through building a condition card for CHT applications.
 
@@ -31,7 +32,7 @@ Condition cards have several configurable elements including:
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "building/tutorials/app-forms" >}}).
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup/#deploy-local-cht-instance) setup, and an [assessment form](/building/tutorials/app-forms).
 
 ## Implementation Steps
 
@@ -39,7 +40,7 @@ Create a `contact-summary.templated.js` file if it doesn't exist. (This may have
 
 ### 1. Add Dependencies and Variable Definitions
 
-Add the following dependencies and variable definitions at the top of the file (some of them may have been added from the [contact summary tutorial]({{< ref "building/contact-summary/contact-summary-overview" >}})):
+Add the following dependencies and variable definitions at the top of the file (some of them may have been added from the [contact summary tutorial](/building/contact-summary/contact-summary-overview)):
 
 ```javascript
 const thisContact = contact;

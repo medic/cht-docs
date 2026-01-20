@@ -2,17 +2,19 @@
 title: "Documentation Workflow"
 linkTitle: "Workflow"
 weight: 1
+description: >
+  How to contribute to the CHT tools and documentation
 aliases:
   -    /contribute/docs/workflow
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to contribute to the CHT documentation
-{{< /hextra/hero-subtitle >}}
-
 ## Getting Started
 
-Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs`](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create docs issue” links in the upper right corner and of your window, respectively bottom left corner.
+Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs`](https://github.com/medic/cht-docs/issues) repo or by using the “Edit this page” or “Create Docs Issue” links in the upper right corner and of your window, respectively bottom left corner.
+
+{{< callout type="warning" icon="book-open" >}}
+Before starting to write documentation for the CHT, take some time to familiarize yourself with the [Code of Conduct](/community/contributing/code-of-conduct) and the [AI Assistance Guidelines](/community/contributing/ai-guidelines).
+{{< /callout >}}
 
 ### Basics
 
@@ -23,7 +25,7 @@ Anyone can contribute to CHT documentation by opening an issue in the [`cht-docs
 
 ## Writing Documentation
 
-A high degree of importance is put on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide]({{< ref "community/contributing/docs/style-guide" >}}) will help to write documentation in the most consistent and useful way.
+A high degree of importance is put on consistency and usability of CHT documentation so that it is accessible and understood by a wide audience. The CHT [documentation style guide](/community/contributing/docs/style-guide) will help to write documentation in the most consistent and useful way.
 
 ## Commits to GitHub
 
@@ -55,7 +57,7 @@ In general, reviewers should:
 7. Once all comments have been resolved, or changes are satisfactory, **Merge pull request** to complete the updates, and delete the branch.
 
 > [!TIP] Additional Tips for Reviewers:
-> * Use the [Style Guide]({{< ref "community/contributing/docs/style-guide" >}}) to maintain documentation quality
+> * Use the [Style Guide](/community/contributing/docs/style-guide) to maintain documentation quality
 > * Compare content to pages within the same section and encourage consistency
 > * Be empathetic to the author, commenting on positive aspects of PRs as well as changes
 > * Ask clarifying questions where needed to avoid further confusion

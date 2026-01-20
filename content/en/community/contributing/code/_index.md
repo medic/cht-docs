@@ -1,17 +1,16 @@
 ---
 title: "Contributing Code"
 linkTitle: "Code"
-weight: 4
+weight: 5
+description: >
+  How to contribute to code to the CHT
 aliases:
   -    /contribute/code/
 ---
 
-{{< hextra/hero-subtitle >}}
-  How to contribute to code to the CHT
-{{< /hextra/hero-subtitle >}}
-
-> [!TIP] 
-> See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
+{{< callout >}}
+See the [CHT Core Developer Setup guide]({{% ref "community/contributing/code/core/dev-environment" %}}) for detailed instructions on how to setup your development environment. 
+{{< /callout >}}
 
 The Core Framework of the Community Health Toolkit is powered by people like you. Your contributions help us create open source technology for a new model of healthcare that reaches everyone.
 
@@ -29,7 +28,11 @@ See the [vulnerability disclosure guide]({{% ref "community/contributing/disclos
 
 ## Code of Conduct
 
-All maintainers and contributors are required to act according to our [Code of Conduct]({{% ref "../code-of-conduct" %}}). Thank you for your help building a positive community and a safe environment for everyone.
+All maintainers and contributors are required to act according to the CHT [Code of Conduct](/community/contributing/code-of-conduct). Thank you for your help building a positive community and a safe environment for everyone.
+
+{{< callout type="warning" icon="book-open" >}}
+Additionally, take some time to familiarize yourself with the [AI Assistance Guidelines](/community/contributing/ai-guidelines).
+{{< /callout >}}
 
 ## Quick Start
 

@@ -2,14 +2,12 @@
 title: Migration
 linkTitle: Migration
 weight: 2
+description: >
+     Migrating from one couch2pg instance to another, including Postgres data
 ---
 
-{{< hextra/hero-subtitle >}}
-   Migrating from one couch2pg instance to another, including Postgres data
-{{< /hextra/hero-subtitle >}}
-
 {{< callout type="warning" >}}
-  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync]({{< ref "hosting/analytics" >}}).
+  CHT couch2pg is deprecated. For data synchronization, refer to [CHT Sync](/hosting/analytics).
 {{< /callout >}}
 
 ## Assumptions & Prerequisites
@@ -26,7 +24,7 @@ Further, be sure you meet the following prerequisites:
 * Have access to couch2pg instance, including the CHT Core credentials it's using
 * Have 3x the disk space as your data on both the old and new server - see below
 
-**Note:** If you don't mind waiting and don't want to deal with the trouble of copying large data files around as documented on this page, it will be easier to set up a clean [install of couch2pg]({{< ref "hosting/couch2pg/setup-and-devlopment" >}})
+**Note:** If you don't mind waiting and don't want to deal with the trouble of copying large data files around as documented on this page, it will be easier to set up a clean [install of couch2pg](/hosting/couch2pg/setup-and-devlopment)
 
 ### Time to copy
 

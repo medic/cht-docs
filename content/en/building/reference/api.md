@@ -1,6 +1,6 @@
 ---
-title: "API to interact with CHT Applications"
-linkTitle: "API"
+title: "REST API to interact with CHT Applications"
+linkTitle: "REST API"
 weight: 1
 description: >
   RESTful Application Programming Interfaces for integrating with CHT applications
@@ -14,7 +14,7 @@ aliases:
 }
 </style>
 
-This page covers the endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database]({{< ref "technical-overview/data-flows-for-analytics" >}}) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
+This page covers the REST endpoints to use when integrating with the CHT server. If there isn't an endpoint that provides the function or data you need, direct access to the database is possible via the [CouchDB API](https://docs.couchdb.org/en/stable/api/index.html). Access to the [PostgreSQL database](/technical-overview/data/analytics/data-flows-for-analytics) may also prove useful for data analysis. If additional endpoints would be helpful, make suggestions via a [GitHub issue](https://github.com/medic/cht-core/issues/new/choose).
 
 {{< toc >}}
 
@@ -32,7 +32,7 @@ following formats are supported:
 > A compatible value can be generated using the `toISOString` or `toValue` method
 on a Javascript Date object.
 > 
-> ##### Examples
+> **Examples**
 > - 2011-10-10T14:48:00-0300
 > - 2016-07-01T13:48:24+00:00
 > - 2016-07-01T13:48:24Z
@@ -226,23 +226,51 @@ GET /api/v2/export/contacts?filters[search]=jim
 
 ### GET /api/v2/export/user-devices
 
+{{< callout  type="warning" >}}
+`user-devices` API is deprecated as it potential negatively impacts server performance.  Deployments should consider not using this endpoint or use it only when end users will not be impacted.  An improved endpoint is [being planned](https://github.com/medic/cht-core/issues/10298) for a later date.
+{{< /callout >}}
+
 *Added in 4.7.0*
 
-Returns a JSON array of CHT-related software versions for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
+Returns a JSON array of CHT-related software versions and device information for each user device. This information is derived from the latest telemetry entry for each user device. If a particular user has used multiple devices, an entry will be included for _each_ device. You can reference the `date` value to determine which devices have been _recently_ used. If multiple users used the same physical device (e.g. they were logged into the same phone at different times), an entry will be included for _each_ user.
 
 #### Output
 
-| Column          | Description                                                                                                                              |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| user            | The user's name.                                                                                                                         |
-| deviceId        | The unique key for the user's device.                                                                                                    |
-| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs]({{< relref "building/guides/performance/telemetry" >}}).           |
-| browser.name    | The name of the browser used.                                                                                                            |
-| browser.version | The version of the browser used.                                                                                                         |
-| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. |
-| android         | The version of Android OS.                                                                                                               |
-| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            |
-| settings        | The revision of the App Settings document stored in CouchDB.                                                                             |
+| Column          | Description                                                                                                                              | Added in    |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| user            | The user's name.                                                                                                                         | CHT 4.7.0   |
+| deviceId        | The unique key for the user's device.                                                                                                    | CHT 4.7.0   |
+| date            | The date the telemetry entry was taken in YYYY-MM-DD, see [relevant docs](/technical-overview/data/performance/telemetry).           | CHT 4.7.0   |
+| browser.name    | The name of the browser used.                                                                                                            | CHT 4.7.0   |
+| browser.version | The version of the browser used.                                                                                                         | CHT 4.7.0   |
+| apk             | The Internal [version code](https://developer.android.com/reference/android/R.styleable#AndroidManifest_versionCode) of the Android app. | CHT 4.7.0   |
+| android         | The version of Android OS.                                                                                                               | CHT 4.7.0   |
+| cht             | The version of CHT the user was on at time the telemetry entry was generated.                                                            | CHT 4.7.0   |
+| settings        | The revision of the App Settings document stored in CouchDB.                                                                             | CHT 4.7.0   |
+| storageFree     | The amount of free storage space on the device in bytes.                                                                | CHT 5.0.0   |
+| storageTotal    | The total storage capacity of the device in bytes.                                                                      | CHT 5.0.0   |
+
+#### Example response
+
+```json
+[
+  {
+    "user": "org.couchdb.user:demo",
+    "deviceId": "8d2acf57-202d-4359-9abe-9ff7b78ed328",
+    "date": "2025-09-11",
+    "browser": {
+      "name": "Chrome",
+      "version": "109.0.0.0"
+    },
+    "android": "11",
+    "apk": "v1.9.0-local",
+    "cht": "5.0.0",
+    "settings": "4-75d6279cd125fc47d86eb30c1fcc748f",
+    "storageFree": 16713310208,
+    "storageTotal": 26544680960
+  }
+]
+```
 
 ## Forms
 
@@ -437,7 +465,7 @@ All property names will be lowercased.
 Creating new record using message field.
 
 ```
-POST /api/v1/records
+POST /api/v2/records
 Content-Type: application/x-www-form-urlencoded
 
 message=1!YYYZ!Sam#23#2015#ANC&from=+5511943348031&sent_timestamp=1352399720000
@@ -456,7 +484,7 @@ Content-Type: application/json; charset=utf-8
 Creating new record with JSON.
 
 ```
-POST /api/v1/records
+POST /api/v2/records
 Content-Type: application/json
 
 {
@@ -497,7 +525,7 @@ Endpoint used by cht-gateway to send sms messages. More documentation in the [ch
 
 ### POST /api/v1/sms/{aggregator}/{endpoint}
 
-Endpoint for integration with SMS aggregators. More details on the [RapidPro]({{< relref "building/messaging/gateways/rapidpro" >}}) and [Africa's Talking]({{< relref "building/messaging/gateways/africas-talking" >}}) pages.
+Endpoint for integration with SMS aggregators. More details on the [RapidPro](/building/messaging/gateways/rapidpro) and [Africa's Talking](/building/messaging/gateways/africas-talking) pages.
 
 ## Contact
 
@@ -1799,6 +1827,12 @@ Returns a report's data in JSON format.
 
 `can_view_reports`
 
+#### Query parameters
+
+| Name         | Required | Description                                                                                                                                  |
+|--------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| with_lineage | false    | Added in `4.22.0`. If "true", the report's contact, patient, and/or place lineage will be included in the returned data. Default is "false". |
+
 #### Examples
 
 Get a report by uuid:
@@ -1855,6 +1889,119 @@ Content-Type: application/json; charset=utf-8
             }
         }
     }
+}
+```
+
+Get a report by uuid with lineage:
+
+```
+GET /api/v1/report/232a3938-9b1c-4d88-bbd8-8ebd6a688b2d?with_lineage=true
+```
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "_id": "232a3938-9b1c-4d88-bbd8-8ebd6a688b2d",
+    "_rev": "1-68ec4e77bbba238ef09dab5e8c8131e7",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "content_type": "xml",
+    "reported_date": 1742380956176,
+    "fields": {
+        "patient_id": "74615",
+        "place_id": "54380",
+        "patient_age_in_years": 34,
+        "t_danger_signs_referral_follow_up_date": "2025-03-18T13:14:08.030Z",
+        "t_danger_signs_referral_follow_up": "yes",
+        "danger_signs": {
+            "danger_signs_note": "",
+            "danger_signs_question_note": "",
+            "vaginal_bleeding": "yes",
+            "fits": "no",
+            "severe_abdominal_pain": "yes",
+            "severe_headache": "no",
+            "very_pale": "yes",
+            "fever": "yes",
+            "reduced_or_no_fetal_movements": "yes",
+            "breaking_water": "yes",
+            "easily_tired": "no",
+            "face_hand_swelling": "yes",
+            "breathlessness": "no",
+            "r_danger_sign_present": "yes",
+            "refer_patient_note_1": "",
+            "refer_patient_note_2": ""
+        }
+    },
+	"contact": {
+		"_id": "f512e1d8-841b-4bc1-8154-b6794755f45b",
+		"_rev": "3-9dbc362b262f88d63f270fe06a94dfe8",
+		"type": "person",
+		"name": "Example CHW",
+		"date_of_birth": "2002-02-20",
+		"phone": "+254712345679",
+		"sex": "female",
+		"role": "chw",
+		"reported_date": 1708453778059,
+		"parent": {
+			"_id": "d9153705-4574-43c3-b945-71aa2164d1d6",
+			"parent": {
+				"_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+			}
+		}
+	},
+    "patient": {
+        "_id": "0c9cc77d-7858-44dd-bf44-a25b14334801",
+        "_rev": "1-5fd1e08353c3d102e9b6710eed98dd65",
+        "type": "person",
+        "name": "A",
+        "date_of_birth": "1961-09-15",
+        "sex": "male",
+        "reported_date": 1722840232495,
+		"patient_id": "74615",
+        "parent": {
+            "_id": "d828971b-d796-45b5-ab1a-943622d906a1",
+            "_rev": "1-1c8e9ae54655e1892686e854e7d404ea",
+            "type": "health_center",
+            "name": "Health Center",
+            "external_id": "GlghB",
+            "notes": "Turbo amor utilis surgo vomica cedo.\nAlveus tabella tondeo itaque.",
+            "reported_date": 1742160968002,
+            "parent": {
+                "_id": "3bb8af4d-ee91-4889-9e11-5ba09a833b2e",
+                "_rev": "1-6b109ceccdfcd13f9f78968262d8c82a",
+                "type": "district_hospital",
+                "name": "Hospital",
+                "external_id": "Xge4N",
+                "notes": "Attonbitus sperno cernuus.\nVarius temeritas suadeo cimentarius tum.",
+                "reported_date": 1741973509708
+            }
+        }
+    },
+    "place": {
+        "_id": "b935ef10-0339-4263-99fc-34d4f8d72891",
+        "_rev": "2-bdea703bfec184085c31a6bab022764f",
+        "parent": "",
+        "type": "district_hospital",
+        "name": "Example Health Facility",
+        "contact": {
+            "_id": "e5237f20-2d28-4272-8006-c4903e032ab4",
+            "_rev": "3-5a0a8e95cef8bafc186a9494c75afb3c",
+            "type": "person",
+            "name": "Example Supervisor",
+            "date_of_birth": "2002-02-20",
+            "phone": "+254712345678",
+            "sex": "female",
+            "role": "chw_supervisor",
+            "reported_date": 1708453756441,
+            "parent": {
+                "_id": "b935ef10-0339-4263-99fc-34d4f8d72891"
+            }
+        },
+        "reported_date": 1708453756440,
+        "place_id": "54380"
+	},
 }
 ```
 
@@ -1942,18 +2089,20 @@ Use JSON in the request body to specify user details. Any properties submitted
 that are not on the list below will be ignored. Any properties not included
 will be undefined.
 
-| Name | Required | Type | Description | Version |
-| ---- | -------- | ---- | ----------- | ------ |
-| username | yes | String | identifier used for authentication |
-| roles  | yes | Array | |
-| place | yes, if the roles contain an offline role | string or object | Place identifier string (UUID) or object this user resides in. |
-| contact | yes, if the roles contain an offline role | string or object | A person identifier string (UUID) or object based on the form configured in the app. |
-| password | yes, if `token_login` is not enabled for the user | String | Password string used for authentication. Only allowed to be set, not retrieved. |
-| phone |  yes, if `token_login` is enabled for the user | String | Valid phone number |
-| token_login | no | Boolean | A boolean representing whether or not the Login by SMS should be enabled for this user. | 3.10.0 |
-| fullname | no | String | Full name  |
-| email | no | String | Email address  |
-| known | no | Boolean | Boolean to define if the user has logged in before. |
+| Name                     | Required                                                         | Type             | Description                                                                                                                                                              | Version |
+|--------------------------|------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| username                 | yes                                                              | String           | identifier used for authentication                                                                                                                                       |         |
+| roles                    | yes                                                              | Array            |                                                                                                                                                                          |         | 
+| place                    | yes, if the roles contain an offline role                        | string or object | Place identifier string (UUID) or object this user resides in.                                                                                                           |         | 
+| contact                  | yes, if the roles contain an offline role                        | string or object | A person identifier string (UUID) or object based on the form configured in the app.                                                                                     |         |
+| password                 | yes, if `token_login` or `oidc_username` is not set for the user | String           | Password string used for authentication. Only allowed to be set, not retrieved.                                                                                          |         |
+| phone                    | yes, if `token_login` is enabled for the user                    | String           | Valid phone number                                                                                                                                                       |         |
+| token_login              | no                                                               | Boolean          | A boolean representing whether or not the Login by SMS should be enabled for this user.                                                                                  | 3.10.0  |
+| fullname                 | no                                                               | String           | Full name                                                                                                                                                                |         |
+| email                    | no                                                               | String           | Email address                                                                                                                                                            |         |
+| known                    | no                                                               | Boolean          | Boolean to define if the user has logged in before.                                                                                                                      |         |
+| password_change_required | no                                                               | Boolean          | Set `false` to avoid the user being prompted to [reset their password](/building/login/#password-reset-on-first-login) the next time they log in. | 4.17.0  |
+| oidc_username            | no                                                               | String           | A unique username for [authenticating via OIDC](#login-by-oidc). This value must match the `email` claim returned for the user by the OIDC provider.                     | 4.20.0  |
 
 #### Login by SMS
 
@@ -1983,10 +2132,30 @@ To regenerate the token, update the user sending `token_login` with a `true` val
 | false | existent, no token | None. |
 | false | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. Existent sessions are invalidated. |
 
-This feature uses [`app_settings.app_url`]({{< relref "building/reference/app-settings/#app_settingsjson" >}}) and [`app_settings.token_login`]({{< relref "building/reference/app-settings/token_login.md" >}}) to be defined and enabled.
+This feature uses [`app_settings.app_url`](/building/reference/app-settings/#app_settingsjson) and [`app_settings.token_login`](/building/reference/app-settings/token_login.md) to be defined and enabled.
 If `app_settings.app_url` is not defined, the generated token-login URL will use the `Host` request header, which may not always be correct.
 
-{{< see-also page="building/concepts/access" anchor="remote-login" >}}
+{{< see-also page="building/login" anchor="remote-login" >}}
+
+#### Login by OIDC
+
+{{< callout >}}
+Introduced in 4.20.0. This feature is only compatible with cht-android version `v1.5.2` or greater.
+{{< /callout >}}
+
+When [SSO Login](/hosting/sso) is enabled (by configuring the [`oidc_provider` settings](/building/reference/app-settings/oidc_provider)), a CHT user must be provisioned for each SSO user prior to them logging in.  The CHT user's `oidc_username` property must be set to the value of the user's `email` claim from the OIDC Provider.
+
+Two CHT users cannot share the same `oidc_username` value. Setting the `oidc_username` property for a user will cause the user's password (in the CHT) to be set to a random value, preventing them from logging in with other authentication methods. Instead, the user must log in using the "Login with SSO" button.
+
+When creating/editing users via the [App Management interface](/building/admin/admin-overview), the "SSO Email Address" field is used to set the `oidc_username` property.
+
+(Note: it is possible to have a mixed environment where some users log in with SSO and others log in with other authentication methods. In this case, the `oidc_username` property is only set for those users who log in with SSO.)
+
+##### Locale for SSO users
+
+When a user logs in via SSO, the CHT app will attempt to localize the interface based on the `locale` claim returned by the OIDC Provider (otherwise it will fall back to the default locale configured as the first `languages` entry in the [`app_settings.json`](/building/reference/app-settings/#app_settingsjson)).
+
+{{< see-also page="/hosting/sso" anchor="remote-login" >}}
 
 ### GET /api/v1/users
 
@@ -2086,6 +2255,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2124,6 +2294,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2162,6 +2333,7 @@ Content-Type: application/json; charset=utf-8
     "roles": [ "district_admin", "data_user" ],
     "fullname": "Example User",
     "username": "demo",
+    "oidc_username": "demo@email.com",
     "place": {
       "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
       "type": "district_hospital",
@@ -2211,6 +2383,7 @@ Content-Type: application/json; charset=utf-8
   "type": "district-manager",
   "fullname": "Example User",
   "username": "demo",
+  "oidc_username": "demo@email.com",
   "place": {
     "_id": "eeb17d6d-5dde-c2c0-62c4a1a0ca17d38b",
     "type": "district_hospital",
@@ -2239,7 +2412,7 @@ Create new users with a place and a contact.
 All users need to meet the following requirements before any of them are created:
 - All required fields are filled in
 - The password is at least 8 characters long and difficult to guess
-- The phone number is valid when [`token_login`]({{< ref "building/reference/app-settings/token_login" >}}) is enabled
+- The phone number is valid when [`token_login`](/building/reference/app-settings/token_login) is enabled
 
 Users are created in parallel and the creation is not aborted even if one of the users fails to be created.
 
@@ -2461,21 +2634,21 @@ Content-Type: application/json
 
 Create new users with a place and a contact from a CSV file.
 
-Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`]({{< ref "building/reference/api#post-apiv1users" >}})
+Creating users from a CSV file behaves the same as passing a JSON array of users into the [`POST /api/v1/users`](/building/reference/api#post-apiv1users)
 where a row represents a user object and a column represents a user object property.
 Columns with a `:excluded` suffix will be ignored, this allows providing a more user-friendly experience with
 autocompletion on fields or dealing with names instead of long, unreadable ids.
 
 In order to facilitate this process, we have made available a spreadsheet compatible with the `default` configuration of the CHT.
 [Click here](https://docs.google.com/spreadsheets/d/1yUenFP-5deQ0I9c-OYDTpbKYrkl3juv9djXoLLPoQ7Y/copy) to make a copy of the spreadsheet in Google Sheets.
-[A guide]({{< ref "building/guides/data/users-bulk-load" >}}) on how to import users with this spreadsheet from within the Admin Console is available
+[A guide](/building/training/users-bulk-load) on how to import users with this spreadsheet from within the Admin Console is available
 in case you don't want to interact with this API yourself.
 
 #### Logging
 
 A log entry is created with each bulk import that contains the import status for each user and the import progress status
 that gets updated throughout the import and finalized upon completion.
-These entries are saved in the [`medic-logs`]({{< ref "building/guides/database#medic-logs" >}}) database and you can access them
+These entries are saved in the [`medic-logs`](/technical-overview/data#medic-logs) database and you can access them
 by querying documents with a key that starts with `bulk-user-upload-`.
 
 #### Headers
@@ -2601,7 +2774,7 @@ Content-Type: application/json
 
 ### POST /api/v1/users/{{username}}
 
-Allows you to change property values on a user account. [Properties listed above]({{< ref "#supported-properties" >}}) are supported except for `contact.parent`. Creating or modifying people through the user is not supported, see the [People section]({{< ref "#people" >}}).
+Allows you to change property values on a user account. [Properties listed above](#supported-properties) are supported except for `contact.parent`. Creating or modifying people through the user is not supported, see the [People section](#people).
 
 
 
@@ -2804,7 +2977,7 @@ Content-Type: application/json
 
 ## Monitoring
 
-See the [Monitoring and alerting on the CHT]({{< relref "hosting/monitoring" >}}) page for how to use this API in production.
+See the [Monitoring and alerting on the CHT](/hosting/monitoring) page for how to use this API in production.
 
 ### GET /api/v1/monitoring
 
@@ -2959,7 +3132,7 @@ _Requires CHT Core `4.11.0` or later._
 
 *Added in 4.3.0*
 
-Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog]({{< ref "/technical-overview/cht-watchdog" >}}).
+Used to retrieve a range of metrics for monitoring CHT API's performance and internals. This API is used by [CHT Watchdog](/technical-overview/architecture/cht-watchdog).
 
 The response is formatted for the [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/). The metrics exposed are defined by the [prometheus-api-metrics package](https://www.npmjs.com/package/prometheus-api-metrics) and include optional default metrics and garbage collection metrics.
 
@@ -3222,3 +3395,47 @@ You can also add it via Fauxton:
  - Click `Create`
  - You should then be able to see your credential in the list of configuration shown
 
+## Impact
+_Added in 5.0.0_
+
+### GET /api/v1/impact
+Returns aggregated impact metrics.
+#### Permissions
+Only available to online users.
+
+#### Examples
+```sh
+GET /api/v1/impact
+```
+```json
+{
+  "users": {
+    "count": 22
+  },
+  "contacts": {
+    "count": 200,
+    "by_type": [
+      { "type": "municipality", "count": 40 },
+      { "type": "person", "count": 160 }
+    ]
+  },
+  "reports": {
+    "count": 300,
+    "by_form": [
+      { "form": "pregnancy", "count": 180 },
+      { "form": "delivery",  "count": 120 }
+    ]
+  }
+}
+```
+
+#### Response content
+|JSON path|Type|Description|
+|--|--|--|
+|users.count|Number| Total number of users.
+|contacts.count|Number|Total number of contacts.
+|contacts.by_type[*].type|String|Name of the contact type.
+|contacts.by_type[*].count|Number|Total number of contacts with the type.
+|reports.count|Number|Total number of reports.
+|reports.by_form[*].type|String|Name of the form.
+|reports.by_form[*].count|Number|Total number of reports with the form.

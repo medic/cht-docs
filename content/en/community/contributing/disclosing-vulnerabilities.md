@@ -1,12 +1,10 @@
 ---
 title: "Disclose Vulnerabilities"
 linkTitle: "Disclose Vulnerabilities"
-weight: 6
----
-
-{{< hextra/hero-subtitle >}}
+weight: 10
+description: >
   How to help the CHT stay secure
-{{< /hextra/hero-subtitle >}}
+---
 
 In the CHT Community, we take the security of our systems seriously and value the security community. Disclosure of security vulnerabilities helps us ensure the security and privacy of the CHT users
 
@@ -36,7 +34,7 @@ If you follow these guidelines when reporting an issue to us, we commit to:
 
 ## In Scope
 
-A local CHT instance is included in the scope. Follow the [manual instructions]({{< relref "hosting/4.x/app-developer" >}}) to set up a CHT instance.
+A local CHT instance is included in the scope. Follow the [manual instructions](/hosting/cht/app-developer) to set up a CHT instance.
 
 ## Out of scope
 

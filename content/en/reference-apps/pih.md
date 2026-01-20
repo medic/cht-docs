@@ -2,15 +2,13 @@
 title: "YendaNafe CHT app by PIH in Malawi"
 linkTitle: "PIH Malawi"
 weight:
+description: >
+  Reference app co-designed by PIH Malawi and Medic
 aliases:
    - /apps/examples/pih
    - /building/examples/pih
    - /exploring/pih
 ---
-
-{{< hextra/hero-subtitle >}}
-  Reference app co-designed by PIH Malawi and Medic
-{{< /hextra/hero-subtitle >}}
 
 Since 2017, [Partners in Health (PIH) Malawi](https://www.pih.org/country/malawi) and [Medic](https://medic.org/) have collaboratively co-designed and developed YendaNafe, a digital health app for community based service provision. In the spirit of openness, Medic and PIH have coordinated the release of the full application source code of Yendanafe app as first of kind ‘‘Integrated CHT Reference app’’. This Reference app provides an example that CHT Implementers can learn how they can design and configure integrated workflows.
 
@@ -288,7 +286,7 @@ The Human Immunodeficiency Virus (HIV) workflow is designed to guide CHWs in HIV
 Here are a few additional resources to help get you started with the integrated health reference application.
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-pih-malawi-app)
-- Install the reference app following these [easy installation instructions]({{< ref "building/local-setup" >}})
-- Modify the maternal and newborn reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}})
+- Install the reference app following these [easy installation instructions](/building/local-setup)
+- Modify the maternal and newborn reference application for your project context using [configuration best practices](/design/best-practices)
 
 The open sharing of digital health apps used by CHWs is a monumental milestone in the digital health space, and for the CHT Community. Reach out on the [forum](https://forum.communityhealthtoolkit.org/) to share how you will leverage these resources, along with your feedback and continued innovations that could benefit the larger community.

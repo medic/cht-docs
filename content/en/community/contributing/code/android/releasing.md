@@ -2,14 +2,15 @@
 title: "Releasing"
 linkTitle: "Releasing"
 weight: 2
+description: >
+  Instructions for releasing Android Apps
+relatedContent: >
+  building/branding/publishing
+  building/branding/android
 aliases: >
   /core/guides/android/releasing
   /contribute/code/android/releasing
 ---
-
-{{< hextra/hero-subtitle >}}
-  Instructions for releasing Android Apps
-{{< /hextra/hero-subtitle >}}
 
 All Medic's Android projects automatically build, sign, and release builds via GitHub Actions. The following guide applies to any of these apps, although the last 2 are in maintenance mode (links pointing to the release sections):
 
@@ -31,5 +32,5 @@ All Medic's Android projects automatically build, sign, and release builds via G
 1. Update the CHANGELOG with the details of what's in this release.
 1. Repeat steps 2-3 from the above [alpha release section](#alpha-for-release-testing) with the naming convention `v<major>.<minor>.<patch>`.
 1. The CI build for the tag will create a new draft release on GitHub.  Include the release notes from the CHANGELOG in the description of the release and publish the release on GitHub.
-1. [Publish]({{< ref "building/guides/android/publishing" >}}) in the Play Store. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store. Other channels such as F-Droid can also be used to publish the app.
+1. [Publish](/building/branding/publishing) in the Play Store. For the CHT-Android app, the "reference" apps (`medicmobilegamma` and `unbranded`) must be published in the Play Store. Other channels such as F-Droid can also be used to publish the app.
 1. Announce the release on the [CHT forum](https://forum.communityhealthtoolkit.org), under the "Product - Releases" category.

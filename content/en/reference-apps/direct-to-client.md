@@ -2,15 +2,17 @@
 title: "Direct-to-client, Two-way Texting Workflows with CHT and RapidPro"
 linkTitle: "Direct-to-client, Two-way Texting Workflows"
 weight:
+description: >
+  Reference for Direct-to-client, two-way texting workflows with CHT and RapidPro
+relatedContent: >
+ 
+  building/forms/app
+  building/tasks/tasks-js
 aliases:
    - /apps/examples/direct-to-client
    - /building/examples/direct-to-client
    - /exploring/direct-to-client
 ---
-
-{{< hextra/hero-subtitle >}}
-  Reference app for Direct-to-client, two-way texting workflows with CHT and RapidPro
-{{< /hextra/hero-subtitle >}}
 
 <!-- Force tables on this page to have columns same width -->
 <!-- somewhat brittle b/c it's tied to the header ID , but allows us to hit one table only -->
@@ -24,7 +26,7 @@ aliases:
 
 This documentation provides a guide for designing and deploying direct-to-client (D2C), two-way texting (2wT) workflows to support client follow-up care using the community health toolkit (CHT). 2wT is a mobile text messaging system built on open-source, CHT tools to engage clients in their health care; to facilitate  prompt client - healthcare provider interactions; to provide low-cost telehealth; and, to improve health care outcomes through the early identification of, and referral for,  potential complications.
 
-The hybrid 2wT system is used for relaying automated health education and check in messages to clients, generating tasks to improve client follow-up and health provider reporting, while also allowing for free text interaction between clients and healthcare providers. This document describes the hybrid 2wT system features and its functionalities. It also provides an opportunity for digital health implementers to explore and learn how direct-to-client communication can be achieved through integrating app features within the CHT, with messaging technologies such as  [RapidPro](https://docs.communityhealthtoolkit.org/building/integrations/rapidpro/) and SMS aggregators.
+The hybrid 2wT system is used for relaying automated health education and check in messages to clients, generating tasks to improve client follow-up and health provider reporting, while also allowing for free text interaction between clients and healthcare providers. This document describes the hybrid 2wT system features and its functionalities. It also provides an opportunity for digital health implementers to explore and learn how direct-to-client communication can be achieved through integrating app features within the CHT, with messaging technologies such as  [RapidPro](/building/integrations/rapidpro/) and SMS aggregators.
 
 
 
@@ -47,7 +49,7 @@ Furthermore, CHT allows integration with other health information systems includ
 
 ## CHT SMS workflow technical overview
 
-The SMS workflows in CHT can integrate with [RapidPro](https://docs.communityhealthtoolkit.org/building/integrations/rapidpro/) flows to support two way interactive messaging between healthcare providers and household members. RapidPro is an open source tool that has the capability to support conversational messaging flows via SMS, Interactive Voice Response (IVR), Telegram, Facebook Messenger and WhatsApp. With the CHT-RapidPro integration, it is possible to design and configure SMS workflows in the two systems. Data is shared between CHT and Rapidpro via the APIs; and the information from the interactive texting is used to update clients details on CHT through CouchDB which can trigger tasks on CHT.
+The SMS workflows in CHT can integrate with [RapidPro](/building/integrations/rapidpro/) flows to support two way interactive messaging between healthcare providers and household members. RapidPro is an open source tool that has the capability to support conversational messaging flows via SMS, Interactive Voice Response (IVR), Telegram, Facebook Messenger and WhatsApp. With the CHT-RapidPro integration, it is possible to design and configure SMS workflows in the two systems. Data is shared between CHT and Rapidpro via the APIs; and the information from the interactive texting is used to update clients details on CHT through CouchDB which can trigger tasks on CHT.
 
 CHT-RapidPro SMS workflows allows for automated visit scheduling, replying and routing to an SMS based gateway based on preconfigured SMS logic, thus eliminating the need for a healthcare worker (clerk or clinician, depending on the intervention specifics) to send, monitor and reply to each text. To use SMS workflows with CHT, you will need a texting channel (a service that enables you to send or receive messages or a phone call). CHT can be integrated with a texting channel like an SMS aggregator which provides a reliable cloud based platform to send and receive an unlimited number of SMSs to and from clients or household members.
 
@@ -61,7 +63,7 @@ Clients are enrolled directly using the CHT D2C, 2wT app using a phone, tablet o
 
 {{< figure src="Figure1SystemArchitecture.jpg" link="Figure1SystemArchitecture.jpg" alt="Direct Messaging technical architecture" title="" caption="**Figure 1:** System architecture of direct-to-client (D2C), two-way texting (2wT) for voluntary medical male circumcision (VMMC) postoperative care. API: application programming interface; CHT: Community Health Toolkit." class="left col-10">}}
 
-The CHT core framework has  inbuilt [privacy/security features](https://docs.communityhealthtoolkit.org/building/guides/privacy/) including two- factor authentication, role based authorization, data security, and a range of protected data access endpoints. The system can be configured to manage [user roles and permissions](https://docs.communityhealthtoolkit.org/building/concepts/users/) for access of CHT applications. Responsible data practices is enforced through the  [Privacy and Data Protection Policy](https://docs.communityhealthtoolkit.org/building/guides/privacy/policy/).
+The CHT core framework has  inbuilt [privacy/security features](/building/privacy-policies) including two- factor authentication, role based authorization, data security, and a range of protected data access endpoints. The system can be configured to manage [user roles and permissions](/building/users) for access of CHT applications. Responsible data practices is enforced through the  [Privacy and Data Protection Policy](/building/privacy-policies).
 
 The D2C, 2wT app incorporates the CHT security features in order to protect client data and ensure the confidentiality and privacy of client information. Users are encouraged to use password protected user accounts, the app also has full disk encryption and auto-lock screens for users’ devices (android phones and tablets) in order to minimize the risk of unwarranted access. Role based access controls also make sure that users can only view and edit information that the permissions assigned to the user role allow them to.
 

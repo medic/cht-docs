@@ -3,13 +3,13 @@ title: "app_settings.json"
 linkTitle: "app_settings.json"
 weight: 5
 description: >
-  **Settings**: The primary location of settings for CHT applications
+  Primary guide of settings for CHT applications
 keywords: settings
 aliases:
    - /apps/reference/app-settings/
 ---
 
-The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{% ref "building/features/admin" %}}) app, which updates the same settings file in the database. 
+The settings which control CHT apps are defined in the `app_settings.json` file, and stored in the `settings` doc in the database. Some settings can be modified in the [**App Management**]({{% ref "building/admin" %}}) app, which updates the same settings file in the database.
 
 The settings get compiled into the `app_settings.json` file with the `compile-app-settings` action in the `cht-conf` tool.
 Manually configurable settings are added to the `app_settings` folder at the root of the config folder.
@@ -19,7 +19,7 @@ and [`assetlinks`]({{% ref "building/reference/app-settings/assetlinks" %}}) sec
 `app_settings/forms.json`, `app_settings/schedules.json`, and `app_settings/assetlinks.json` respectively with the settings
 in the files overriding what might be already present in the `app_settings/base_settings.json` or `app_settings.json` files.
 
-Most sections are described on their own in the [Reference Documentation]({{< ref "building/reference" >}}).
+Most sections are described on their own in the [Reference Documentation](/building/reference).
 
 ## Build
 
@@ -51,11 +51,13 @@ The following settings do not need to be specified. They should only be defined 
 | task_days_overdue                | Display number of overdue days in tasks list                                                                                                                                                                                                                                                                                                                                                                                                                                          | false   | 3.13.0  |
 | languages                        | Array of objects with `locale` and `enabled` properties representing respectively the 2 or 3 letter language code and whether that language should be enabled.  <br/>If unset it falls back to the previous behavior of relying on the `enabled` property of each translation document `messages-XX.properties`. This fallback behavior is now deprecated and will be removed in the next major version (5.0). This `languages` configuration property will be required for CHT 5.0+. |         | 4.2.0   |
 | place_hierarchy_types            | Array of contact types' IDs, should match the ones defined in `contact_types`. This is used to define the Place Filter's options in Reports tab.                                                                                                                                                                                                                                                                                                                                      |         | 2.15.0  |
-| assetlinks                       | Array of [Digital Asset Links]({{< relref "assetlinks" >}}) definitions. This is used to associate your CHT instance's domain to your Android app to verify app links.                                                                                                                                                                                                                                                                                                                |         | 4.7.0   |
+| assetlinks                       | Array of [Digital Asset Links](/building/reference/app-settings/assetlinks) definitions. This is used to associate your CHT instance's domain to your Android app to verify app links.                                                                                                                                                                                                                                                                                                                |         | 4.7.0   |
+|sms.clear_failing_schedules            | When `true`, scheduled messages that fail to be generated or sent for various reasons (e.g., empty messages, template issues, or general generation failures) are cleared from the instance's processing queue. This ensures that past messages that were unable to be sent do not perpetually remain scheduled. | false | 5.1.0 |
+|sms.default_to_sender            | When `true`, messages without valid recipients are sent to the sender. When `false`, messages without valid recipients are not sent to the sender if they fail to resolve. They remain in scheduled state. | true | 5.1.0 | 
 
 ## SMS Workflows
 
-Workflows involving SMS are configured by defining [schedules]({{% relref "schedules" %}}), [registrations]({{% relref "registrations" %}}), [patient reports]({{% relref "patient_reports" %}}), and [case reports]({{% relref "accept_case_reports" %}}). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
+Workflows involving SMS are configured by defining [schedules](/building/reference/app-settings/schedules), [registrations](/building/reference/app-settings/registrations), [patient reports](/building/reference/app-settings/patient_reports), and [case reports](/building/reference/app-settings/accept_case_reports). Schedules of automated messages can be sent from the server at specified times in the future, and reports can be associated to contacts. Forms can also be configured to clear the schedule, or silence it for a period of time.
 As of `3.11.0`, places are valid subjects for any SMS workflows.
 
 ## SMS recipient resolution
@@ -66,30 +68,31 @@ An outgoing SMS message configuration has the following fields:
 |-------|---------|----------|
 |`translation_key`|The translation key of the message to send out. Available in 2.15+.|yes|
 |`messages`| (**deprecated**) Array of message objects, each with `content` and `locale` properties. From 2.15 on use `translation_key` instead.|no|
-|`recipient`| Recipient of the message.|no|
+|`recipient`| Specifies the intended recipient of the message. As of 5.1.0, an array of multiple recipients may be provided, in which case the first existing recipient will be resolved. |no|
 
 ### `recipient` values and resolutions:
 
 |value|resolves to|
 |-----|-----------|
 |*empty*| submitter |
-|`reporting_unit`| submitter | 
-|`parent`| primary contact of the subject's/submitter's place's parent (`patient.parent.parent.contact`) | 
+|`reporting_unit`| submitter |
+|`parent`| primary contact of the subject's/submitter's place's parent (`patient.parent.parent.contact`) |
 |`grandparent`| primary contact of the subject's/submitter's place's grandparent (`patient.parent.parent.parent.contact`) |
-|`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage | 
-|`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage | 
+|`clinic`| primary contact of the `clinic` in the subject's/submitter's lineage |
+|`health_center`| primary contact of the `health_center` in the subject's/submitter's lineage |
 |`district`| primary contact of the `district_hospital` in the subject's/submitter's lineage |
 |`ancestor:<contact_type>`| Walks up the subject's/submitter's hierarchy to find the **primary contact** of a place with the given contact type. |
 |`link:<tag>`| Tries to find a **directly linked document** with the given tag; if not found, walks up the lineage (but not limited to primary contact). *Available since v3.10.x* |
-|`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* | 
-| *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` | 
+|`link:<contact_type>`| primary contact of the place of the requested `contact_type` in the subject's/submitter's lineage. *As of 3.10.x* |
+| *custom object path* | a direct object path in the [message context object](#message-context) eg: `patient.parent.contact.other_phone` |
 | *valid phone number* | requested phone number |
 
 > [!NOTE]
-> - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
-> - if there is no submitter phone number available, the actual `recipient` property value will be used
-> - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`. 
-> - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available. 
+> - when recipient is an array, the first resolved recipient from the array will be selected. 
+> - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number. This behavior can be changed with [default_to_sender]({{% ref "building/reference/app-settings/sms/#app_settingsjson-sms" %}}) paramter.
+> - if there is no submitter phone number available or `default_to_sender` is `false`, the actual `recipient` property value will be used. When recipient is an array, first field of an array will be used.
+> - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`.
+> - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available.
 
 
 ### Message context
@@ -100,9 +103,9 @@ The message context object consists of:
 |*every property from the original report* | unchanged unless specified below |
 |*every `fields` property from the original report* | eg: if the report has `fields.test = 'test'` then `context.test = 'test'` |
 | patient | deeply hydrated patient contact (resolved from `patient_id`, `fields.patient_id` or `fields.patient_uuid`) |
-| patient_name | patient's name |  
+| patient_name | patient's name |
 | place | deeply hydrated place document (resolved from `place_id` or `fields.place_id`) |
-| contact | deeply hydrated submitter contact | 
+| contact | deeply hydrated submitter contact |
 | parent | deeply hydrated `health_center` type document from the subject's or submitter's lineage |
 | grandparent | deeply hydrated `district_hospital` type document from the subject's or submitter's lineage |
 | clinic | deeply hydrated `clinic` type document from the subject's or submitter's lineage |

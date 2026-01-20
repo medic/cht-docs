@@ -5,17 +5,15 @@ weight: 20
 description: >
     Integration for sending and receiving messages
 aliases:
-  -    /apps/guides/messaging/rapidpro
+  - /apps/guides/messaging/rapidpro
+  - /apps/guides/messaging/gateways/rapidpro
 relatedContent: >
     building/reference/app-settings/sms
     building/forms/configuring/app-form-sms
     building/messaging/sms-states
     building/messaging/message-loops
     building/messaging/shortcodes
-aliases:
-   - /apps/guides/messaging/gateways/rapidpro
 ---
-
 
 As of v3.11.0, messages can be sent and received using [RapidPro]({{% ref "building/integrations/rapidpro" %}}) as a messaging gateway.
 
@@ -27,12 +25,16 @@ Generate a long unique key to use as the `cht_api_key`.
 
 Log in to your RapidPro dashboard, go to the globals page (`/global/`) and create two globals with the following data:
 
-- name: `cht_url`, value: `https://<your-cht-instance-host>/api/v2/sms/rapidpro/incoming-messages`. For security the instance host **must not** include basic authentication. (NB: This endpoint was added in CHT 4.1.0. If integrating with an earlier version you will need to use the earlier version with a typo in the URL: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`)
-- name: `cht_api_key`, value: `<cht_api_key>`
+- name: `cht url`, value: `https://<your-cht-instance-host>/api/v2/sms/rapidpro/incoming-messages`. For security the instance host **must not** include basic authentication. (NB: This endpoint was added in CHT 4.1.0. If integrating with an earlier version you will need to use the earlier version with a typo in the URL: `https://<your-cht-instance-host>/api/v1/sms/radpidpro/incoming-messages`)
+- name: `cht api key`, value: `<cht_api_key>`
 
-The names of these two global variables are arbitrary, but in this document we will keep referring to the names defined above.
+> [!Note]
+> Please note that only letters, numbers, and hyphens are accepted when naming a global variable in RapidPro. However, any space(s) in the name will be replaced with underscore(s) when saved.
+> For example, `cht url` will be saved as `cht_url`.
+> 
+> The names of these two global variables are arbitrary, but in this document we will keep referring to the names defined above.
 
-Then visit the RapidPro workspace settings page (`/org/home/`) and check your RapidPro API token (we'll refer to this as the `rapidpro_api_key`).
+Now visit the RapidPro workspace settings page (`/org/home/`) and check your RapidPro API token (we'll refer to this as the `rapidpro_api_key`). We will use it later.
 
 ### Create a new flow
 
@@ -58,7 +60,7 @@ Configure the new webhook:
 )))
 ```
 
-{{< figure src="flow_webhook_body.png" link="flow_webhook_hflow_webhook_bodyeaders.png" caption="flow_webhook_body" >}}
+{{< figure src="flow_webhook_body.png" link="flow_webhook_body.png" caption="flow_webhook_body" >}}
 
 ### Create a new trigger
 Create a trigger (`/trigger/`) to start the new flow when a message is not handled elsewhere.

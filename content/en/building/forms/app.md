@@ -2,29 +2,29 @@
 title: "app"
 linkTitle: "app"
 weight: 1
+description: >
+  **App Forms**: Used to complete reports, tasks, and actions in the app
+relatedContent: >
+  building/forms/configuring/form-inputs
 aliases:
    - /building/reference/forms/app
    - /apps/reference/forms/app
 ---
 
-{{< hextra/hero-subtitle >}}
-  **App Forms**: Used to complete reports, tasks, and actions in the app
-{{< /hextra/hero-subtitle >}}
-
-App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports]( {{< ref "building/features/reports" >}} ).
+App forms are used for care guides within the web app, whether accessed in browser or via the Android app. When a user completes an app form, the contents are saved in the database with the type `data_record`. These docs are known in the app as [Reports](/building/reports).
 
 App forms are defined by the following files:
 
 - A XML form definition using a CHT-enhanced ODK XForm format
 - A XLSForm form definition, easier to write and converts to the XForm (optional)
 - Meta information in the `{form_name}.properties.json` file (optional)
-- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files]( {{< ref "building/forms/configuring/multimedia" >}} ).
+- Media files in the `{form_name}-media` directory (optional). How to [include multimedia files](/building/forms/configuring/multimedia).
 
 ## XForm
 
 A CHT-enhanced version of the ODK XForm standard is supported.
 
-Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact. 
+Data needed during the completion of the form (eg patient's name, prior information) is passed into the `inputs` group. Reports that have at least one of `place_id`, `patient_id`, and `patient_uuid` at the top level will be associated with that contact.
 
 {{< see-also page="building/contact-summary/contact-summary-templated" anchor="care-guides" title="Passing contact data to care guides" >}}
 
@@ -48,12 +48,12 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 | string      | _id | Patient ID |  | select-contact type-person |
 | string      | patient_id | Medic ID |  | hidden |
 | string      | name | Patient Name |  | hidden |
-| end group   
-| end group   
+| end group
+| end group
 | calculate   | _id | | | | ../inputs/contact/_id |
 | calculate   | patient_id | | | | ../inputs/contact/patient_id |
 | calculate   | name | | | | ../inputs/contact/name |
-| ...         
+| ...
 | begin group | group_summary | Summary |  | field-list summary |
 | note        | r_patient_info | \*\*${patient_name}\*\* ID: ${r_patient_id} |
 | note        | r_followup | Follow Up \<i class="fa fa-flag"\>\</i\> |
@@ -68,17 +68,17 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 ### Supported XLSForm Meta Fields
 [XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
 
-| element | description |
-|---|---|
-| `start` | A timestamp of when the form entry was started, which occurs when the form is fully loaded. |
-| `end` | A timestamp of when the form entry ended, which is when the user hits the Submit button. |
-| `today` | Day on which the form entry was started. |
+| element | description                                                                                                                                                                                                                                          |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `start` | A timestamp of when the form entry was started, which occurs when the form is fully loaded.                                                                                                                                                          |
+| `end`   | A timestamp of when the form entry ended, which is when the user hits the Submit button. (There is an [active issue](https://github.com/medic/cht-core/issues/8974) filed for this field. Currently it is populated with the same value as `start`.) |
+| `today` | Day on which the form entry was started.                                                                                                                                                                                                             |
 
 ## XPath
 Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`openrosa-xpath-evaluator`](https://github.com/enketo/enketo/tree/main/packages/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
 
 {{< callout type="warning" >}}
-  The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead. 
+  The `+` operator for string concatenation is deprecated and will be removed in a future version. You are strongly encouraged to use the [`concat()`](https://getodk.github.io/xforms-spec/#fn:concat) function instead.
 {{< /callout >}}
 
 ## CHT XForm Widgets
@@ -92,7 +92,7 @@ Calendar widget using Bikram Sambat calendar, which is used by default for appro
 
 ### Countdown Timer
 
-A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, you can add the timer as a `trigger` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in a column named _instance::cht:duration_ (the default value is `60`). 
+A visual timer widget that starts when tapped/clicked, and has an audible alert when done. To use it, first make sure you have the [`namespaces` column](https://getodk.github.io/xforms-spec/#namespaces) in the "settings" tab of your XLSForm populated with a value that includes `cht=https://communityhealthtoolkit.org`. Then, you can add the timer as a `trigger` field with the _appearance_ set to `countdown-timer`. The duration of the timer (in seconds) can be set in a column named _instance::cht:duration_ (the default value is `60`).
 
 | type    | appearance      | instance::cht:duration |
 |---------|-----------------|------------------------|
@@ -106,7 +106,7 @@ If you want to make the timer mandatory so users must wait for the timer to comp
 {{< /callout >}}
 
 ### Contact Selector
-A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide]({{< ref "building/forms/configuring/form-inputs#contact-selector" >}}) for an example.
+A dropdown field to search and select a person or place, and save their UUID in the report. The contact's data will also be mapped to fields with matching names within the containing group. If the contact selector's appearance includes `bind-id-only`, the associated data fields are not mapped. See [the form input guide](/building/forms/configuring/form-inputs#contact-selector) for an example.
 
 ### Rapid Diagnostic Test Capture
 Take a picture of a Rapid Diagnotistic Test and save it with the report. Works with [rdt-capture Android application](https://github.com/medic/rdt-capture/). To use create a string field with appearance `mrdt-verify`.
@@ -232,7 +232,7 @@ A validation failure, either for an invalid or duplicate phone number will preve
 
 
 {{< callout type="info" >}}
-Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact. 
+Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact.
 {{< /callout >}}
 
 ## CHT XPath Functions
@@ -241,7 +241,7 @@ Configuring a phone input as a `string` field with the `tel` _appearance_ is onl
 
 _Added in 4.0.0._
 
-Adds the provided number of years/months/days/hours/minutes to a date value. 
+Adds the provided number of years/months/days/hours/minutes to a date value.
 
 ```
 add-date(date, years, months, days, hours, minutes)
@@ -281,7 +281,7 @@ Calculates the number of whole calendar years between two dates.
 
 _Added in 4.2.0._
 
-This function invokes a configured [extension library]({{< ref "extension-libs" >}}). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
+This function invokes a configured [extension library](/building/reference/extension-libs). The first parameter is a string with the name of the library to execute, and any remaining parameters are passed through as is. For example, to calculate an average of two numbers, the xpath could be: `cht:extension-lib('average.js', /data/first, /data/second )`.
 
 ### `cht:strip-whitespace`
 
@@ -312,13 +312,13 @@ _Added in 3.14.0._
 
 This function converts a `date` to a `string` containing the value of the date formatted according to the [Bikram Sambat](https://en.wikipedia.org/wiki/Vikram_Samvat) calendar.
 
-See also: [Bikram Sambat Datepicker]({{< ref "building/forms/app#cht-xform-widgets" >}})
+See also: [Bikram Sambat Datepicker](/building/forms/app#cht-xform-widgets)
 
 ### `z-score`
 
 In Enketo forms you have access to an XPath function to calculate the z-score value for a patient. The function accesses table data stored in CouchDB.
 
-The `z-score` function takes four parameters: 
+The `z-score` function takes four parameters:
 - The name of z-score table to use, which corresponds to value of the database document's `_id` attribute.
 - Patient's sex, which corresponds to the data object's name. In the example below `male` for this parameter corresponds to `charts[].data.male` in the database document.
 - First parameter for the table lookup, such as age. Value maps to the `key` value in the database document.
@@ -349,17 +349,17 @@ The data used by this function needs to be added to CouchDB. The example below s
 
 ## Input data
 
-`app` forms have access to a variety of [input data]({{< ref "building/forms/configuring/form-inputs#app-forms" >}}) depending on the source of the form.
+`app` forms have access to a variety of [input data](/building/forms/configuring/form-inputs#app-forms) depending on the source of the form.
 
 ## CHT Special Fields
 
 Some fields in app forms control specific aspects of CHT Apps, either to bring data into forms or for a feature outside of the form.
 
 ### Quintiles
-The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="building/forms/configuring/wealth-quintiles" >}} 
+The `NationalQuintile` and `UrbanQuintile` fields on a form will be assigned to all people belonging to the place. This is helpful when household surveys have quintile information which could be used to target health services for individuals. {{< see-also prefix="Read More" page="building/forms/configuring/wealth-quintiles" >}}
 
 ### UHC Mode
-When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode]({{< relref "building/features/uhc-mode" >}}). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="building/forms/configuring/uhc-mode" >}} 
+When the `visited_contact_uuid` field is set at the top level of a form, this form is counted as a household visit in [UHC Mode](/building/uhc-mode). This field must be a `calculate` field with the place UUID of the visited contact. You may run into performance issues if you configure this to look at forms submitted very frequently. {{< see-also prefix="Read More" page="building/forms/configuring/uhc-mode" >}}
 
 ## Uploading Binary Attachments
 
@@ -373,17 +373,17 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 
 ### `forms/app/{form_name}.properties.json`
 
-| property | description | required |
-|---|---|---|
-| `title`| The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section]({{< relref "building/translations/localizing" >}}). | yes |
-| `icon` | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section]({{< relref "building/branding/resources#icons" >}}) | yes |
-| `subject_key` | Override the default report list title with a custom translation key. The translation uses a summary of the report as the evaluation context so you can include report fields in your value, for example: `Case registration {{case_id}}`. Useful properties available in the summary include: `from` (the phone number of the sender), `phone` (the phone number of the report contact), `form` (the form code), `subject.name` (the name of the subject), and `case_id` (the generated case id). Defaults to the name of the report subject. | no |
-| `hidden_fields` | Array of Strings of form fields to hide in the view report UI in the app. This is only applied to future reports and will not change how existing reports are displayed. | no |
-| `context` | The context defines when and where the form should be available in the app | no |
-| `context.person` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
-| `context.place` | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`. | no |
-| `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `user`, and `summary` are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario. | no |
-| `context.permission` | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access. | no |
+| property             | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | required |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `title`              | The form's title seen in the app. Uses a localization array using the 2-letter code, not the translation keys discussed in the [Localization section](/building/translations/localizing).                                                                                                                                                                                                                                                                                                                                                      | yes      |
+| `icon`               | Icon associated with the form. The value is the image's key in the `resources.json` file, as described in the [Icons section](/building/branding/resources#icons)                                                                                                                                                                                                                                                                                                                                                                              | yes      |
+| `subject_key`        | Override the default report list title with a custom translation key. The translation uses a summary of the report as the evaluation context so you can include report fields in your value, for example: `Case registration {{case_id}}`. Useful properties available in the summary include: `from` (the phone number of the sender), `phone` (the phone number of the report contact), `form` (the form code), `subject.name` (the name of the subject), and `case_id` (the generated case id). Defaults to the name of the report subject. | no       |
+| `hidden_fields`      | Array of Strings of form fields to hide in the view report UI in the app. See the [translation section](/building/translations/overview#hiding-report-fields) for more information.                                                                                                                                                                                                                                                                                                                                                            | no       |
+| `context`            | The context defines when and where the form should be available in the app                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | no       |
+| `context.person`     | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`.                                                                                                                                                                                                                                                                                                                                                                                                              | no       |
+| `context.place`      | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`.                                                                                                                                                                                                                                                                                                                                                                                                              | no       |
+| `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `summary`, `user` and `userSummary` (**as of 4.21.0**) are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario.                                                                                           | no       |
+| `context.permission` | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access.                                                                                                                                                                                                                                                                                                                                                                                                                 | no       |
 
 ### Expression functions
 
@@ -418,7 +418,7 @@ In this sample properties file, the associated form would only show on a person'
 ```
 
 ## Build
-    
+
 Convert and build the app forms into your application using the `convert-app-forms` and `upload-app-forms` actions in `cht-conf`.
 
 ```shell

@@ -8,9 +8,45 @@ relatedContent: >
   building/reference/app-settings/_index.md#sms-recipient-resolution
 aliases:
    - /apps/reference/app-settings/transitions
+   - /technical-overview/transitions/
 ---
 
 When sentinel detects a document has changed it runs transitions against the doc. These transitions can be used to generate a short form patient id or assign a report to a facility.
+
+## How transitions work
+
+A transition is a Javascript code that runs when a document is changed.  A transition can edit the changed doc or do anything server-side code can do for that matter.
+
+Transitions are run in series, not in parallel:
+
+* For a given change, you can expect one transition to be finished before the next runs.
+
+* You can expect one change to be fully processed by all transitions before the next starts being processed.
+
+Transitions obey the following rules:
+
+* has a `filter({ id, doc, info })` function that accepts the changed document as an argument and returns `true` if it needs to run/be applied.
+
+* a `onMatch({ id, doc, info })` function that will run on changes that pass the filter. Should return true when the transition has run successfully.
+
+* can have an `init()` function to do any required setup and throw Errors on invalid configuration.
+
+* It is not necessary for an individual transition to save the changes made to `doc` to the DB, the doc will be saved once all the transitions have been edited.
+  If an individual transition saves the document provided at `doc`, it takes responsibility for re-attaching the newly saved document (with new seq etc) at `doc`
+
+* guarantees the consistency of a document.
+
+* runs serially and in specific order.  A transition is free to make async calls but the next transition will only run after the previous transition's match function executed. If your transition is dependent on another transition, it should be sorted so it runs after the dependee transition. 
+
+* is repeatable, it can run multiple times on the same document without negative effect.  You can use the `transitions` property on a document's infodoc to determine if a transition has run.
+
+Regardless of whether the doc is saved or not, the transitions will all be run (unless one crashes).
+
+When your transition encounters an error, there are different ways to deal with it. You can :
+- finish your transition by throwing an error that has a truthy `changed` property. This will save the error to `doc`.
+- finish your transition by throwing an error. The error will be logged to the sentinel log. This will not save the error on the `doc`, so there will be no record that this transition ran. That particular `change` will not go through transitions again, but if the same doc has another change in the future since there is no record of the erroring transition having run, it will be rerun.
+- crash sentinel. When sentinel restarts, since that `change` did not record successful processing, it will be reprocessed. Transitions that did not save anything to the `doc` will be rerun.
+
 
 ## Configuration
 
@@ -38,12 +74,12 @@ The following transitions are available and executed in order.
 | Key | Description |
 |---|---|
 | maintain_info_document | Records metadata about the document such as when it was replicated. Enabled by default. |
-| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition]({{< ref "building/reference/app-settings/forms#app_settingsjson-forms" >}}). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
+| [update_clinics](#update_clinics) | Adds a contact's info to a new data record. This is used to attribute an incoming SMS message or report to the appropriate contact. The `rc_code` value on the contact is used to match to the value of the form field set as the `facility_reference` in the [JSON form definition](/building/reference/app-settings/forms#app_settingsjson-forms). This matching is useful when reports are sent on behalf of a facility by unknown or various phone numbers. If `facility_reference` is not set for a form, the contact match is attempted using the sender's phone number. If a form is not public and a match is not found then the `sys.facility_not_found` error is raised. A message will be sent out whenever this error is raised. |
 | [registration](#registration) | For registering a patient or place to a schedule. Performs some validation and creates the patient document if the patient does not already exist. Can create places (as of 3.8.x). Can assign schedules to places (as of 3.11.x) |
-| [accept_patient_reports](#accept-patient-reports) | Validates reports about a patient or place and silences relevant reminders. |
-| [accept_case_reports](#accept-case-reports) | Validates reports about a case, assigns the associated place_uuid, and silences relevant reminders. Available since 3.9.0 |
-| [generate_shortcode_on_contacts](#generate-shortcode-on-contacts) | Automatically generates the `patient_id` on all person documents and the `place_id` on all place documents. Available since 3.8.x. |
-| [generate_patient_id_on_people](#generate-patient-id-on-people) | **Deprecated in 3.8.x** Automatically generates the `patient_id` on all person documents. As of 3.8.x, also generates the `place_id` on all place documents and is an alias for `generate_shortcode_on_contacts`. |
+| [accept_patient_reports](/building/reference/app-settings/transitions/#accept_patient_reports) | Validates reports about a patient or place and silences relevant reminders. |
+| [accept_case_reports](/building/reference/app-settings/transitions/#accept_patient_reports) | Validates reports about a case, assigns the associated place_uuid, and silences relevant reminders. Available since 3.9.0 |
+| [generate_shortcode_on_contacts](/building/reference/app-settings/transitions/#generate_shortcode_on_contacts) | Automatically generates the `patient_id` on all person documents and the `place_id` on all place documents. Available since 3.8.x. |
+| [generate_patient_id_on_people](/building/reference/app-settings/transitions/#generate_patient_id_on_people) | **Deprecated in 3.8.x** Automatically generates the `patient_id` on all person documents. As of 3.8.x, also generates the `place_id` on all place documents and is an alias for `generate_shortcode_on_contacts`. |
 | default_responses | Responds to the message with a confirmation or validation error. |
 | update_sent_by | Sets the sent_by field of the report based on the sender's phone number. |
 | update_sent_forms | **Deprecated in 3.7.x** Update sent_forms property on facilities so we can setup reminders for specific forms. *As of 3.7.x, reminders no longer require this transition*|
@@ -364,7 +400,7 @@ Updates the target contact and all its descendants, setting the `muted` property
 Client-side muting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
 - Sets the `muted` property on the target contact and all its descendants to the device's current `date` (the moment the report is processed). 
-- Adds/updates the [`muting_history` property]({{< ref "#client-side-muting-history" >}}) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Adds/updates the [`muting_history` property](#client-side-muting-history) on every updated contact, to keep track of all the updates that have been processed client-side, as well as the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 #### Server-side
@@ -372,8 +408,8 @@ Client-side muting runs offline on a user's device. Only the contacts and report
 Server-side muting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
 
 - Sets the `muted` property on the target contact and all its descendants to the moment Sentinel processed the muting action.
-  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`]({{< ref "#client-side-muting-history" >}}) will have a copy of the client-side muting date.
-- Adds a [`muting_history` entry]({{< ref "#server-side-muting-history" >}}) to Sentinel `info` docs for every updated contact
+  - If the contact was already muted by a client, the `muted` date will be overwritten. The [client-side `muting_history`](#client-side-muting-history) will have a copy of the client-side muting date.
+- Adds a [`muting_history` entry](#server-side-muting-history) to Sentinel `info` docs for every updated contact
 - Updates all connected registrations (for the target contact and descendants), changing the state of all unsent `scheduled_tasks` to `muted`
   - Unsent `scheduled_tasks` have either a `scheduled` or `pending` state
 - Updates the contact's client-side `muting_history` to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state. 
@@ -390,17 +426,17 @@ Updates the target contact's topmost muted ancestor and all its descendants, rem
 
 Client-side unmuting runs offline on a user's device. Only the contacts and reports available on the device will be updated.
 
-- Adds/updates the [`muting_history` property]({{< ref "#client-side-muting-history" >}}) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
+- Adds/updates the [`muting_history` property](#client-side-muting-history) on every updated contact, sets the last known server-side state of the contact and sets the `last_update` property to `client_side`
 - Updates the report doc to add a `client_side_transitions` property to track which transitions have run client-side
 
 #### Server-side
 
 Server-side unmuting runs as a typical Sentinel transition. Contacts that are already in the correct state are skipped. This applies to updates to the contact itself, updates to the Sentinel `muting_history` and to the connected registrations (registrations of a contact that is already in the correct state will not be updated).
 
-- Adds a [`muting_history` entry]({{< ref "#server-side-muting-history" >}}) to Sentinel `info` docs for every updated contact
+- Adds a [`muting_history` entry](#server-side-muting-history) to Sentinel `info` docs for every updated contact
 - Updates all connected registrations (for the target contact and descendants), changing the state of all present/future `scheduled_tasks` (ones due today or in the future) with the `muted` state to have the `scheduled` state.
   - All `scheduled_tasks` with a due date in the past will remain unchanged.
-- Updates the contact's [client-side `muting_history`]({{< ref "#client-side-muting-history" >}}) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
+- Updates the contact's [client-side `muting_history`](#client-side-muting-history) to set the `last_update` property to `server_side` and update the `server_side` section with the current date and muted state.
 - If the report was processed client-side, all "following" muting/unmuting events that have affected the same contacts will be replayed. This means the transition _could_ end up running multiple times over the same report.
   - Replaying is required due to how PouchDB <-> CouchDB synchronization does not respect the order in which the documents have been created, to ensure that contacts end up in the correct muted state.
 
@@ -446,7 +482,7 @@ Configuration is stored in the `muting` field of `app_settings.json`.
 | `messages` | List of tasks/errors that will be created, determined by `event_type`. Optional. |
 
 > [!IMPORTANT]
-> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report]({{< ref "technical-overview/db-schema#reports" >}})) can.
+> Contact forms cannot trigger muting or unmuting, but any `data_record` that has a `form` property (typically a [Report](/technical-overview/data/db-schema#reports)) can.
 
 
 Supported `events_types` are:
@@ -696,9 +732,9 @@ Users are automatically created for certain contacts.  Both creating a new user 
 
 Several configurations are required in `app_settings` to enable the `create_user_for_contacts` transition.
 
-[Login by SMS]({{< ref "building/reference/api#login-by-sms" >}}) must be enabled by setting the `token_login` configuration.
+[Login by SMS](/building/reference/api#login-by-sms) must be enabled by setting the `token_login` configuration.
 
-The [`app_url` property]({{< ref "building/reference/app-settings#app_settingsjson" >}}) must be set to the URL of the application. This is used to generate the token login link for the new user.
+The [`app_url` property](/building/reference/app-settings#app_settingsjson) must be set to the URL of the application. This is used to generate the token login link for the new user.
 
 ##### Example
 ```json
@@ -788,3 +824,47 @@ Configuration is validated when Sentinel starts. Issues with the configuration w
 Errors occurring during the client-side transition will be recorded in the browser's console. This is where problems with processing reports from the replace forms will be logged. 
 
 Errors occurring during the server-side transition will be recorded in the Sentinel logs and on the contact doc for the original user. So, if the client-side transition marks the original user for replacement, but Sentinel fails to create the new user, the failure will be recorded on the original contact doc in the `errors` array.
+
+### Resetting the sentinel sequence ID to skip a large backlog
+
+In some cases, a CHT instance may develop a very large sentinel backlog that would take too long to process, preventing new transitions from being applied to incoming reports. In these situations, you can reset the sentinel sequence ID to skip processing the backlog.
+
+Follow these steps to reset the sentinel sequence ID:
+
+1. **Confirm you have a sentinel backlog** in watchdog. This will likely be in the thousands or millions. While it may be decreasing, you'll notice that it could take weeks or months to reach zero. During this backlog processing, no new sentinel transitions will be processed:
+
+   {{< figure src="sentinel-backlog.png" link="sentinel-backlog.png" alt="Screenshot showing a sentinel backlog in watchdog" >}}
+
+2. **Get the current sequence ID** for the medic database via a `curl` call. Be sure to replace `<password>` and `<cht-url>` with the correct values:
+
+   ```
+   curl -qs https://medic:<password>@<cht-url>/medic/ | jq ".update_seq"
+   ```
+
+   This will show a long string (approximately 400 characters) starting with a number, for example:
+
+   ```
+   307933-g1AAAAO1eJyV0j1OwzAUB3CLIiEQUsXAJRiQP2I7ZoErQGsxMMV2oigqMDFzil4BUk-sTJyCKzAwMtOGZ8cLUlXJ9vCGJ__k97cXCKHjduLQiX18sq0zV4TKcwybLKC197CPXr3_hjLA6tqJQcgd3kProOSmFLzYdnQ3eKP1J5QXcBN4FEHJqeSK5oPrYfiAcg3uCNa3EaywZI0j-WDvvYfyC2664XsEi6bCWDX54Ezr5RilT-BFBJlzkjKWCZrnYdiMQS5Hzr5FjsqS1kzmcp33q2CuE_YVMaNajNtcTGs9D2Kfj5pzijMqcrFL-HRBnKV3vYuYsbUqRHZqZ5B-EDfpCabjmJRWxGWPeQq2CuPqXmSC8pCXPxCoUuHmSfqJkCVaF2Tpj9wfVKv_m
+   ```
+
+3. **In Fauxton**, go to the transitions-seq document by navigating to:
+
+   ```
+   https://your-instance-url:port/_utils/#database/medic-sentinel/_local/transitions-seq
+   ```
+
+   You'll notice that before editing, the leading integer in the "value" field is lower than what you found in step 2.
+
+4. **Stop the sentinel container**. This step is critical - if you don't stop sentinel, it may overwrite your changes to the sequence ID, and the backlog will not be cleared.
+
+5. **Edit the value field** to paste in the string you got from step 2 and click "Save Changes":
+
+   {{< figure src="sentinel-edit-sequence.png" link="sentinel-edit-sequence.png" alt="Screenshot showing the sequence ID edit in Fauxton" >}}
+
+6. **Restart the Sentinel container**.
+
+7. **Check watchdog** which should now show a sharp drop in the backlog to zero:
+
+   {{< figure src="sentinel-after-reset.png" link="sentinel-after-reset.png" alt="Screenshot showing watchdog after resetting sentinel sequence" >}}
+
+Note that this will skip processing all reports in the backlog. Only use this approach when you're confident that skipping the backlog processing is acceptable for your deployment.

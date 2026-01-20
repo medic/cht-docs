@@ -2,15 +2,15 @@
 title: "Learning and Care"
 linkTitle: "Learning & Care"
 weight:
+description: >
+  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19
+relatedContent: >
+  building/integrations/oppia
 aliases:
    - /apps/examples/learning-care
    - /building/examples/learning-care
    - /exploring/learning-care
 ---
-
-{{< hextra/hero-subtitle >}}
-  An integration built to pilot the integrated workflows focused on CHW remote learning and care support for COVID-19
-{{< /hextra/hero-subtitle >}}
 
 The Learning & Care Apps in the Community Health Toolkit are designed to onboard community health workers remotely to new digital training tools, and help them learn new information and care delivery responsibilities through customized educational modules.
 
@@ -30,7 +30,7 @@ With the spread of COVID-19, it is imperative that access to learning, integrate
 
 The Community Health Academy and Medic set out to deliver a fully-integrated Learning and Care solution, with targeted COVID-19 learning experiences as a global public good.
 
-This integrated Learning & Care App leverages the **[remote onboarding]({{< ref "reference-apps/training" >}}), [task & scheduling]({{< ref "building/tasks" >}}), and [target]({{< ref "building/targets/targets-overview" >}}) features** of the CHT core framework with the **curated, multimedia educational content** from the Academy’s COVID-19 library.
+This integrated Learning & Care App leverages the **[remote onboarding](/reference-apps/training), [task & scheduling](/building/tasks), and [target](/building/targets/targets-overview) features** of the CHT core framework with the **curated, multimedia educational content** from the Academy’s COVID-19 library.
 
 ## Users and Hierarchy Example
 
@@ -52,7 +52,7 @@ This integrated Learning & Care App leverages the **[remote onboarding]({{< ref 
 
 {{< youtube WOE5QlPye0k >}}
 
-<br clear="all">
+
 
 More background information can be found in this [summary deck](https://docs.google.com/presentation/d/1fsf0bpF6jdngwwj1VUqpR2QxONS7fEP88GQMWHr10Jc/edit#slide=id.g5fbe124551_2_36)
 

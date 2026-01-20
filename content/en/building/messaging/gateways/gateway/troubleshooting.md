@@ -48,7 +48,7 @@ cd /srv/storage/gardener/logs/
 ls -lt
 grep api/sms medic_medic_medic-api4.log
 ```
-If the above steps don't yield the problem, read the [Obtaining Logs]({{< ref "building/guides/debugging/obtaining-logs#android-logs" >}}) page, note the make/model/android version their gateway handset is and escalate with those details to the PM/project techlead.
+If the above steps don't yield the problem, read the [Obtaining Logs](/community/contributing/code/troubleshooting/obtaining-logs#android-logs) page, note the make/model/android version their gateway handset is and escalate with those details to the PM/project techlead.
 
 **Verifying the SMS Gateway via a Test Message**
 

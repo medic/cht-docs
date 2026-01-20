@@ -1,19 +1,16 @@
 ---
 title: "Introduction to monitoring and alerting"
-weight: 1
+weight: 50
 linkTitle: "Introduction"
+description: >
+  High level approach to monitoring and alerting with CHT applications
 aliases:
     - /apps/guides/hosting/monitoring/introduction
     - /apps/guides/hosting/monitoring
 ---
 
-{{< hextra/hero-subtitle >}}
-  High level approach to monitoring and alerting with CHT applications
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
-This guide applies to all production instances of the CHT for both 3.x (beyond 3.9) and 4.x.
-Be sure to see how to deploy a solution to [monitor and alert on production CHT instances]({{< relref "hosting/monitoring/setup.md" >}}).
+Be sure to see how to deploy a solution to [monitor and alert on production CHT instances](/hosting/monitoring/setup.md).
 {{< /callout >}}
 
 Each deployment will experience different stresses on its resources.  Be sure to tune any alerting levels in the case of a false positive so that you may avoid them in the future. Any thresholds for alerts, and even what is alerted on, is just a guideline, not a guarantee of uptime.
@@ -41,7 +38,7 @@ Be sure to monitor important items that the CHT depends on in order to be health
 
 ## Inside the CHT
 
-The [monitoring API]({{< relref "building/reference/api#get-apiv2monitoring" >}}) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
+The [monitoring API](/building/reference/api#get-apiv2monitoring) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
 
 All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. 
 

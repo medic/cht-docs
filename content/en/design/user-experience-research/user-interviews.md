@@ -2,13 +2,11 @@
 title: "User Interviews"
 linkTitle: "User Interviews"
 weight: 1
+description: >
+  How to conduct User Interviews
 aliases:
    - /design/guides/designing-interviews
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to conduct user interviews
-{{< /hextra/hero-subtitle >}}
 
 User interviews serve the purpose of uncovering opportunities for innovation and for illuminating solutions to problems.
 
@@ -23,9 +21,9 @@ Generative interviews are used in the discovery phase of the development process
     2. Personnel
     3. Location, or connectivity if remote
 
-[Here is a generative interview template]({{< ref "generative-template" >}})
+[Here is a generative interview template](/design/user-experience-research/generative-template/)
 
-[Here is a scoped interview template]({{< ref "scoped" >}})
+[Here is a scoped interview template](/design/user-experience-research/scoped/)
 
 ## Recruiting
 

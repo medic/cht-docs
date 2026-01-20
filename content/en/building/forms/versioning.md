@@ -2,14 +2,14 @@
 title: Versioning forms
 linkTitle: Versioning
 weight: 6
+description: >
+  Record the version of the form when creating reports
+relatedContent: >
+  building/reports
 aliases:
    - /building/guides/forms/versioning
    - /apps/guides/forms/versioning
 ---
-
-{{< hextra/hero-subtitle >}}
-  Record the version of the form when creating reports
-{{< /hextra/hero-subtitle >}}
 
 {{< callout >}}
   Added in cht-core 3.15.0 and cht-conf 3.10.0

@@ -2,13 +2,13 @@
 title: "Feature Releases"
 linkTitle: "Feature Releases"
 weight: 1
+description: >
+    Feature Releases for the CHT Core Framework
 aliases:
   - /community/contributing/core/releases/feature_releases/
+relatedContent: >
+    releases/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Feature Releases for the CHT Core Framework
-{{< /hextra/hero-subtitle >}}
 
 To build and iterate on new features at a pace that is faster than our regular release cycle, some features are released in a _Feature Release_. Feature Releases (FRs) are based on the most recent release and only include improvements related to a feature being developed. These releases are tested to be production-ready so that new features can be studied with CHT partners in a live deployment, with the aim of getting the feature ready for wider use in an upcoming release.
 

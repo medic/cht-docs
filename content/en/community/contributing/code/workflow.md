@@ -2,25 +2,27 @@
 title: "Development Workflow"
 linkTitle: "Workflow"
 weight: 1
+description: >
+  Overview of the development workflow
 aliases:
-   -    /contribute/code/workflow
+   - /contribute/code/workflow
 ---
 
-{{< hextra/hero-subtitle >}}
-  Overview of the development workflow
-{{< /hextra/hero-subtitle >}}
+{{< callout type="warning" icon="book-open" >}}
+Before starting to write code for the CHT, take some time to familiarize yourself with the [Code of Conduct](/community/contributing/code-of-conduct) and the [AI Assistance Guidelines](/community/contributing/ai-guidelines).
+{{< /callout >}}
 
 ## Writing code
 
-Where possible, follow the [coding style guide]({{< ref "community/contributing/code/style-guide" >}}).
+Where possible, follow the [coding style guide](/community/contributing/code/style-guide).
 
 Aim for self-documenting code. Where code cannot be made self-documenting add commenting. Usually comments are useful when they explain why some code exists, and should not be explaining what some code is doing. 
 
 ### Code Quality
 
-Several [static analysis tools]({{< ref "community/contributing/code/static-analysis" >}}) are used to support code quality. These tools are run automatically on every pull request and will fail the build if they find any issues.
+Several [static analysis tools](/community/contributing/code/static-analysis) are used to support code quality. These tools are run automatically on every pull request and will fail the build if they find any issues.
 
-For a more efficient feedback loop, developers should run linting scripts locally before pushing code to the repository. Additionally, both [ESLint]({{< ref "community/contributing/code/static-analysis#eslint" >}}) and [Sonar]({{< ref "community/contributing/code/static-analysis#during-development" >}}) have IDE plugins that show code issues in real-time. 
+For a more efficient feedback loop, developers should run linting scripts locally before pushing code to the repository. Additionally, both [ESLint](/community/contributing/code/static-analysis#eslint) and [Sonar](/community/contributing/code/static-analysis#during-development) have IDE plugins that show code issues in real-time. 
 
 ## Issues
 
@@ -54,7 +56,7 @@ Issues in this column are complete, all code has been merged into the main branc
 
 The main branch is `main` (or `master`) which must be kept stable so as not to impact other developers and so a release branch can be created as needed. To achieve this, development should be done in a branch (only possible for maintaners) or fork and submitted via a PR for code review. This means the CI runs and another developer has signed off on the change before it is included in the `main` branch.
 
-Create a branch following the guideline below and push [commits]({{< ref "#commits" >}}) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows community members to see the latest changes and work together more effectively.
+Create a branch following the guideline below and push [commits](#commits) at least once a day to a remote repository. This ensures that the code is always backed up and safe, protects against accidental deletes, and allows community members to see the latest changes and work together more effectively.
 
 - The main branch is `main` or `master` and is the GitHub default branch and contains the latest code.
 - Release branches have the form `<major>.<minor>.x` and should be stable.
@@ -109,7 +111,7 @@ Once your pull request has been approved, it can be merged to the main branch by
 
 When merging a PR, avoid the "Create a merge commit" option. Merge commits in the main branch cause the history of the branch to be non-linear and make it more difficult to understand exactly when a code change was introduced. Instead, use the "Squash and merge" option to combine the commits in the PR into a single commit on the main branch. Alternatively, you can use the "Rebase and merge" option if you want _all_ the commits in the PR to be preserved in the main branch (this should only be used in special cases). 
 
-See above for instructions on [how to format your commit messages]({{< ref "#commit-message-format" >}}). 
+See above for instructions on [how to format your commit messages](#commit-message-format). 
 
 #### Opening Pull Requests 
 
@@ -118,7 +120,7 @@ Create a Draft Pull Request to facilitate discussion and collaboration with qual
 Once you are confident that the change is complete and ready to be merged:
 
 1. Change the Pull Request from `Draft` to `Ready for review`.
-2. The Pull Request title will be the commit message, it is important to follow the [commit message format]({{< ref "#commit-message-format" >}}) to name the Pull Request title properly. 
+2. The Pull Request title will be the commit message, it is important to follow the [commit message format](#commit-message-format) to name the Pull Request title properly. 
 3. Add a Pull Request description:
 
    - Add a description of changes, decisions, backstory, thinking process, and any extra information to facilitate the review process and reduce follow-ups. 
@@ -132,7 +134,7 @@ Once you are confident that the change is complete and ready to be merged:
    
 6. Follow up on your PR to keep momentum; the review should happen in 24h business days. If you haven't received feedback from the reviewers after that time, check if they are available. Otherwise, it's okay to request a review from another person.
 7. Once the PR has been approved, wait for the GitHub Actions to succeed and ensure there are no conflicts with the main branch.
-8. Double-check the [commit message format]({{< ref "#commit-message-format" >}}) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <GitHub user>`.
+8. Double-check the [commit message format](#commit-message-format) is correct. Make sure to recognize collaboration in the commit description: `Co-authored-by: <GitHub user>`.
 9. Merge your work by selecting `Squash and merge`. This will compress all the commits into one, keeping the repository's commit history clean.
    - If a backport is required, cherry-pick the merged commit back to the release branches it is required in.
 
@@ -192,7 +194,7 @@ Code reviews should be completed within 24 hours of assignment (excluding weeken
 
 ### Testing
 
-Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance]({{< ref "community/contributing/code/quality-assistance" >}}) dedicated page).
+Reach out to the Quality Assurance Engineers with the work to be done as early as possible in the development process to ensure they are informed and can guide development (see more in the [Quality Assistance](/community/contributing/code/quality-assistance) dedicated page).
 
 Before asking for testing support from the QA Engineers, you should test your work after performing it. Correcting a small code error, such as a typo, or adding a missing step in the testing instructions could save QA Engineers hours of work. Also, by testing your code, you may get a better sense of why you make certain common mistakes, and learn to avoid repeating them in the future.
 

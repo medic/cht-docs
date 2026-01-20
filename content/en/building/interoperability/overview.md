@@ -60,6 +60,9 @@ The flexibility of mediators also means the CHT is future-proof and can be confi
 3. [Subscription](https://build.fhir.org/subscription.html)
 4. [Organization](https://build.fhir.org/organization.html)
 5. [Endpoint](https://build.fhir.org/endpoint.html)
+6. [Claim](https://build.fhir.org/claim.html)
+7. [ClaimResponse](https://build.fhir.org/claimresponse.html)
+8. [Communication](https://build.fhir.org/communication.html)
 
-You can find additional information and instructions for setting up [cht-interoperability](https://github.com/medic/cht-interoperability) in the [dedicated guidelines]({{< ref "building/interoperability/openhim" >}}) .
+You can find additional information and instructions for setting up [cht-interoperability](https://github.com/medic/cht-interoperability) in the [dedicated guidelines](/building/interoperability/openhim) .
 

@@ -2,28 +2,26 @@
 title: "CHT Core dev environment setup"
 linkTitle: "Dev Environment Setup"
 weight: 1
+description: >
+  Get your local machine ready to do development work on CHT Core
 aliases:
   - /apps/guides/hosting/core-developer
-  - /apps/guides/hosting/hosting/4.x/app-developer
+  - /apps/guides/hosting/hosting/cht/app-developer
   - /contribute/code/core/dev-environment
 ---
 
-{{< hextra/hero-subtitle >}}
-  Getting your local machine ready to do development work on CHT Core
-{{< /hextra/hero-subtitle >}}
-
 {{< callout >}}
-This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide]({{< relref "hosting/3.x/app-developer.md" >}}).
+This guide assumes you are a CHT Core developer wanting to run the CHT Core from source code to make commits to the [public GitHub repository](https://github.com/medic/cht-core). To set up your environment for developing apps, see the [app guide](/hosting/cht/app-developer.md).
 
-To deploy the CHT in production, see either [AWS hosting]({{< relref "hosting/3.x/ec2-setup-guide.md" >}}) or [Self hosting]({{< relref "hosting/3.x/self-hosting.md" >}}).
+To deploy the CHT in production, see either [hosting section](/hosting/cht).
 {{< /callout >}}
-
-> [!IMPORTANT]
-> These steps apply to both 3.x and 4.x CHT core development, unless stated otherwise.
 
 ## The Happy Path Installation
 
 CHT Core development can be done on Linux, macOS, or Windows (using the [Windows Subsystem for Linux (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install)). This CHT Core developer guide will have you install NodeJS, npm, and CouchDB (via Docker) on your local workstation.
+
+> [!TIP]
+> Ensure you have at least 8GB RAM, 50GB Free disk and 4 cores.  However, more is for sure better here - you'll see real speed improvements with more RAM and more cores.
 
 ### Install NodeJS, npm, and Docker
 
@@ -167,6 +165,18 @@ That's it!  Now when you edit code in your IDE, it will automatically reload.  Y
 
 When you're done with development you can `ctrl + c` in the three terminals and stop the CouchDB container with `docker stop medic-couchdb`.  When you want to resume development later, run `docker start medic-couchdb` and re-run the three terminal commands.
 
+### Adding and accessing data
+
+When you first start your CHT instance, it has no data in it.  If you would like to populate it with some sample data, you can check out the [Test Data Generator](https://github.com/medic/test-data-generator/) (TDG) which has a "[Quick Start](https://github.com/medic/test-data-generator/?tab=readme-ov-file#quick-start)" option to easily add data. After you have installed TDG, you can quickly add data with this call:
+
+```shell
+COUCH_URL=http://medic:password@localhost:5984 tdg ./sample-designs/easy-mode.js
+```
+
+When you log into the CHT web front end in a browser at [http://localhost:5988/](http://localhost:5988/), you should now see newly added contacts and reports.  
+
+If you would like to explore the raw data, be sure to check out [Fauxton](https://couchdb.apache.org/fauxton-visual-guide/).  This is a pre-installed NoSQL web client that allows you to browse all raw documents and indexes in CouchDB.  It is accessed at `/_utils`, so if you've just followed this guide you can go to [http://localhost:5984/_utils](http://localhost:5984/_utils) to use Fauxton. If you are prompted to log in, it is Username `medic` and Password `password`.
+
 ## Other Path Troubleshooting
 
 If you weren't able to follow [the happy path above](#the-happy-path-installation), here are some details about the developer install that may help you troubleshoot what went wrong.
@@ -181,6 +191,10 @@ If you had issues with following the above steps, check out these links for how 
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
 * [bzip2])(https://sourceware.org/bzip2/downloads.html) - if you're on Ubuntu call: `sudo apt install bzip2`
+
+### Windows WSL2
+
+While this document covers the happy path to set up your environment, there's [a great forum post](https://forum.communityhealthtoolkit.org/t/help-needed-for-local-setup-of-the-project-using-docker/4900/18) which covers challenges developers running Windows with WSL2 may face.  Be sure to read up on it if you're having WSL2 issue like `bash: docker: command not found` and others. 
 
 ### Ubuntu 18.04
 
@@ -203,26 +217,6 @@ As well, after you install docker, and go to run the rootless script `dockerd-ro
 ```
 
 The workaround, unfortunately, is to just start your CouchDB Docker container with sudo: `sudo docker run...`.
-
-### CouchDB on Docker Details
-
-Breaking down the command from [the above section]({{< relref "#couchdb" >}}), here's a generic version that doesn't include hard coded paths:
-
-```shell
-docker run -d -p 5984:5984 -p 5986:5986 --name medic-couchdb -e COUCHDB_USER=medic -e COUCHDB_PASSWORD=password -v <data path>:/opt/couchdb/data -v <config path>:/opt/couchdb/etc/local.d apache/couchdb:2
-```
-
-Parts of the command:
-- `--name` creates a container called `medic-couchdb`. You can name it whatever you want, but this is how you refer to it later
-- `-e` sets an environment variable inside the container. Two are set here, for a user and password for the initial admin user.
-- `-v` maps where couchdb stores data to your local file system to ensure persistence without depending on the container, using the path *before* the `:` (the path after the colon is the internal path inside the docker image). This should be somewhere you have write access to, and want this data to be stored. The second mounted volume is for the couch configuration, which will retain settings if your container is removed. This is especially important after running the command to secure the instance (done in steps below).
-- `apache/couchdb:2` will install the latest package for CouchDB 2.x
-
-Once this downloads and starts, you will need to [initialise CouchDB](http://localhost:5984/_utils/#/setup) as noted in [their install instructions](https://docs.couchdb.org/en/stable/setup/index.html#setup).
-
-You can use `docker stop medic-couchdb` to stop it and `docker start medic-couchdb` to start it again. Remember that you'll need to start it whenever you restart your OS, which might not be the case if you use a normal OS package. `docker rm medic-couchdb` will totally remove the container.
-
-Medic recommends you familiarise yourself with other Docker commands to make docker image and container management clearer.
 
 ### Required environment variables
 

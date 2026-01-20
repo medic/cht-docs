@@ -32,7 +32,7 @@ Adding a new _"brand"_ or _"flavor"_ requires the following steps:
 
 3. **[Generate a new keystore](#3-generate-a-new-keystore)** if there is no one.
 
-4. **[Test locally](#4-test-locally-the-keystore)** and create a pull request with the changes.
+4. **[Test locally](#4-test-the-keystore-locally)** and create a pull request with the changes.
 
 5. **[Release](#5-release-the-new-flavor)** the new flavor.
 
@@ -49,7 +49,7 @@ To proceed you need to have ready the following:
 - The app logo and title.
 - Translations for your supported languages (most flavors don't need to customize translations though).
 
-Also be sure to have a working **[Development Environment]({{< ref "community/contributing/code/android/development-setup" >}})**.
+Also be sure to have a working **[Development Environment](/community/contributing/code/android/development-setup)**.
 
 While you should use your own branding, the [CHT logo](./CHT.logo.512.png) is available to use if so desired.
 
@@ -233,11 +233,11 @@ Releasing a new flavor requires the following steps:
 1. Make a pull request to the release branch in the CHT Android repository.
 2. Once approved it's recommended to create an alpha version to do final tests.
 3. Merge the pull request.
-4. [Release the flavor]({{< ref "community/contributing/code/android/releasing" >}}).
+4. [Release the flavor](/community/contributing/code/android/releasing).
 
 ### 6. Publish the app
 
-The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing]({{< ref "building/guides/android/publishing" >}}) page to see all the options available and instructions.
+The last step is to publish it in the Play Store, or whatever option best suit your needs. Checkout the [Publishing](/building/branding/publishing) page to see all the options available and instructions.
 
 ## Android App Links verification
 *Supported for CHT Core 4.7.0+ and CHT Android 1.3.0+*
@@ -248,14 +248,14 @@ Starting with Android 12, Android supports associating an app with a domain and 
 
 Since CHT Core version 4.7.0, the CHT supports serving `assetlinks.json` by adding it to your app settings.
 All you have to do to make the CHT serve your assetlinks at `/.well-known/assetlinks.json` is to:
-1. Ensure your flavor of cht-android [has a valid keystore]({{< ref "#3-generate-a-new-keystore" >}}).
+1. Ensure your flavor of cht-android [has a valid keystore](#3-generate-a-new-keystore).
 2. Use the `keytool` utility (included with your Java SDK) to get your app's cert fingerprint:
    ```shell
    keytool -list -v -keystore ./path/to/release-key.keystore
    # or alternatively:
    keytool -printcert -jarfile ./path/to/project.apk
    ```
-3. Set the cert fingerprint in the [`assetlinks` configuration]({{< ref "building/reference/app-settings/assetlinks" >}}) for your CHT instance and deploy it to your server with cht-conf.
+3. Set the cert fingerprint in the [`assetlinks` configuration](/building/reference/app-settings/assetlinks) for your CHT instance and deploy it to your server with cht-conf.
 
 #### Note for Apps Using Google Play Signing
 
@@ -277,7 +277,7 @@ There are different ways to verify your setup works and we'll go through a few o
 
 #### Using Android Debug Bridge `adb`
 
-1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb]({{< ref "community/contributing/code/android/development-setup#debug-tool-adb" >}}) section.
+1. To install the `adb` command, follow the instructions under the [Development Environment > Debug tool adb](/community/contributing/code/android/development-setup#debug-tool-adb) section.
 2. With the phone connected to your computer, open a command line session and write the following command: `adb shell pm get-app-links <package_name>` where `<package_name>` is your application ID.
 
 The output of this command should look like this:

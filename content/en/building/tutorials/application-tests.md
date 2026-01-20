@@ -19,10 +19,10 @@ This tutorial takes you through testing the various configurable components of C
 ## Prerequisites
 
 Complete the following tutorials:
-  - [Building App Forms]({{< ref "building/tutorials/app-forms" >}})
-  - [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}})
-  - [Building Target Widgets]({{< ref "building/targets/target-widgets" >}})
-  - [Building Contact Summary]({{< ref "building/contact-summary/contact-summary-overview" >}})
+  - [Building App Forms](/building/tutorials/app-forms)
+  - [Building A Simple Task](/building/tasks/simple-tasks)
+  - [Building Target Widgets](/building/targets/target-widgets)
+  - [Building Contact Summary](/building/contact-summary/contact-summary-overview)
 
 ## Importance of testing your application
 ---
@@ -39,7 +39,7 @@ Using `cht-conf-test-harness`, you can write tests and run them with [Mocha](htt
 ## Preparation
 
 Writing tests for CHT apps requires a good understanding of the project workflows and requirements. To test using the harness, there are a few things you need to set up:
-1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}) and a [project folder set up]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}). 
+1. From the previous tutorials, you should have a [functioning CHT instance with `cht-conf` installed locally](/building/local-setup) and a [project folder set up](/building/local-setup/#deploy-local-cht-instance). 
 `cht-conf` which is short for CHT app configurer, is a command-line interface tool used to manage and configure your CHT apps. It is used for backup, conversion, validation, uploading and other actions which can be found by running `cht --help`.
 2. Ensure your `package.json` file has the required libraries. A `package.json` file is used to record important metadata about a project and defines functional attributes that npm uses to install dependencies and run scripts. This file should be at the root of your project folder. 
 If your `package.json` file does not already have them, add `cht-conf-test-harness`, `chai`, and `mocha` by running this in your command-line:
@@ -133,7 +133,9 @@ After each test run, assert that there are no errors in the console.
 
 If you want to learn more about these hooks, refer to this [Mocha resource](https://mochajs.org/#hooks). Feel free to customize the hooks as you see fit.
 
-Let's look at a more detailed example. <a name="assessment-form-test">Here</a> is a test case for the Assessment form that was covered in the [previous tutorial]({{< ref "building/tutorials/app-forms" >}}):
+#### Assessment form test
+
+Let's look at a more detailed example. Below is a test case for the Assessment form that was covered in the [previous tutorial](/building/tutorials/app-forms):
 
 ```js highlight 
   it('unit test confirming assessment with cough since 7 days', async () => {
@@ -154,7 +156,7 @@ Let's look at a more detailed example. <a name="assessment-form-test">Here</a> i
   });
 ```
 
-In [line 4](#assessment-form-test-3) above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
+In line 4 above, the method [harness.fillForm()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillForm) fills the specified form with the given input (answers).
 
 Depending on the form design, the number of inputs to be filled can be large. The inputs are often repeated within a single test or across multiple tests with little or no variation. It is a good idea to keep them in a separate file and refer them from the tests as required. You can also introduce some variations in the inputs using function parameters.
 
@@ -191,7 +193,7 @@ The test files are usually grouped in folders to read and run them easily. One w
 |Minimum:|Filling a form with the most common options should not result in any error.|
 |Ideal:|All input combinations and constraints are tested with the report fields.|
 
-[Previous example](#assessment-form-test) demonstrates test for the app form. More test cases can be added by changing the inputs.
+[Previous example](/building/tutorials/application-tests/#writing-a-test-for-cht-app) demonstrates test for the app form. More test cases can be added by changing the inputs.
 
 You can also test contact forms using test harness. To fill a contact form, use <code>[fillContactForm(contactType, …answers)](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#fillContactForm)</code>.
 
@@ -231,11 +233,11 @@ it(`Throws validation error when birth date is in future`, async () => {
 |Minimum:|Fill a contact form and count the number of fields in the contact summary|
 |Ideal:|Targeted tests for calculations of context, fields, cards, etc.|
 
-Contact summary consists of visible components such as [cards](https://docs.communityhealthtoolkit.org/building/reference/contact-page/#condition-cards), [fields](https://docs.communityhealthtoolkit.org/building/reference/contact-page/#contact-summary) and a hidden component: [context](https://docs.communityhealthtoolkit.org/building/reference/contact-page/#care-guides). All these can be tested with the test harness.
+Contact summary consists of visible components such as [cards](/building/contact-summary/contact-summary-templated/#condition-cards), [fields](/building/contact-summary/contact-summary-templated/#contact-summary) and a hidden component: [context](/building/contact-summary/contact-summary-templated/#care-guides). All these can be tested with the test harness.
 
 Use [harness.getContactSummary()](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getContactSummary) method to get the [ContactSummary ](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#ContactSummary)object, which has these properties: `fields`, `cards`, and `context`.
 
-To test the contact summary fields added in the [previous tutorial]({{< ref "building/contact-summary/contact-summary-overview#3-export-fields" >}}), use the following test case:
+To test the contact summary fields added in the [previous tutorial](/building/contact-summary/contact-summary-overview#3-export-fields), use the following test case:
 
 ```js highlight 
 const contactSummary = await harness.getContactSummary();
@@ -252,7 +254,7 @@ expect(contactSummary.fields.filter(f => f.filter !== 'lineage')).to.deep.equal(
 
 Here, the contact summary being tested represents the contact that is being "acted on" or the "subject of the test". To learn more about this, look at the `subject` property [here](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#HarnessInputs).
 
-Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial]({{< ref "building/condition-cards#2-define-cards-and-add-a-condition-card-object" >}}):
+Similarly, you can test the condition cards too. Here is an example for testing the assessment condition card added in this [tutorial](/building/condition-cards#2-define-cards-and-add-a-condition-card-object):
 
 ```js highlight 
 // Load the assessment form and fill in 'yes' on the first page and '7' on the second page
@@ -279,7 +281,7 @@ expect(contactSummary.cards[0].fields).to.deep.equal(
   ]
 );
 ```
-If you  follow [this code sample]({{< ref "building/contact-summary/contact-summary-templated#code-samples" >}}) to create the pregnancy condition card, the pregnancy context can be tested this way:
+If you  follow [this code sample](/building/contact-summary/contact-summary-templated#code-samples) to create the pregnancy condition card, the pregnancy context can be tested this way:
 
 ```js highlight 
 const summaryContext = harness.getContactSummary().context;
@@ -296,7 +298,7 @@ expect(summaryContext).to.include({
 |Minimum:|Trigger and resolve the task|
 |Ideal:|One test for each use scenario<br/>Code coverage for any arc with an external dependency<br/>Negative cases - confirm tasks don’t trigger|
 
-When testing the tasks [manually]({{< ref "building/tasks/simple-tasks#3-testing-the-task" >}}), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
+When testing the tasks [manually](/building/tasks/simple-tasks#3-testing-the-task), you need to fill a form. Then to see the task, you need to either change the system date to move forward in time or change the reported date of the document accordingly. These are very tedious and unreliable methods. Using the test harness, you can quickly test the tasks under different scenarios and at different simulated dates.
 
 Every task has a source document (contact or report). When testing, you can mock the source document. Yet, the recommended approach is to fill the source form and then proceed with checking the associated tasks.
 
@@ -310,23 +312,23 @@ Commonly used harness methods when testing tasks are:
 
 - [`harness.loadAction()`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#loadAction): Simulates the user clicking on an action
 
-With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](https://docs.communityhealthtoolkit.org/technical-overview/db-schema/#tasks).
+With `getTasks()`, you get an array of [`Task`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Task) objects which corresponds to the [tasks schema](/technical-overview/data/db-schema/#tasks).
 
-Let's look back at the simple task from this tutorial: [Building A Simple Task]({{< ref "building/tasks/simple-tasks" >}}).
+Let's look back at the simple task from this tutorial: [Building A Simple Task](/building/tasks/simple-tasks).
 
 According to the task configuration, these conditions need to be met for the assessment task to be visible:
 1. The `contact_type` of the subject (patient) is: `patient`
 2. The `contact_type` of the user's parent is: `chw_area`
 3. The current time is between the start and end dates of the task event.
 
-When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. See the lines [31](#harness-defaults-json-31) and [26](#harness-defaults-json-26) respectively in the sample file further below.
+When testing with harness, the conditions 1 and 2 above can be set in the `harness.defaults.json` file. See the lines [31]/building/tutorials/application-tests/#harness-defaults-json-31) and [26]/building/tutorials/application-tests/#harness-defaults-json-26) respectively in the sample file further below.
 
 For the condition 3, let's look at the task event window in the task definition. As mentioned in the earlier tutorial, the task event is:
 - Due 7 days after the contact’s creation date.
 - Should appear 7 days before the due date, or immediately when the contact is created.
 - Should disappear the day after the due date.
 
-So, to see the task, the contact should be created within the last 7 days. You can easily set the contact's reported date so that it falls within the last 7 days (see line [36](#harness-defaults-json-36) below).
+So, to see the task, the contact should be created within the last 7 days. You can easily set the contact's reported date so that it falls within the last 7 days (see line [36]/building/tutorials/application-tests/#harness-defaults-json-36) below).
 
 **harness.defaults.json**:
 {{< highlight json "linenos=table,hl_lines=26 31 36,anchorlinenos=true,lineanchors=harness-defaults-json" >}}
@@ -425,7 +427,7 @@ it('followup schedule', async () => {
 });
 ```
 
-You may [pass other data](https://docs.communityhealthtoolkit.org/building/tasks/managing-tasks/pass-data-to-form/) from a task to the action form using [modifyContent ](https://docs.communityhealthtoolkit.org/building/tasks/managing-tasks/pass-data-to-form/#modifycontent)attribute of a task. You can also verify that these data are present in the task.
+You may [pass other data](/building/tasks/managing-tasks/pass-data-to-form/) from a task to the action form using [modifyContent ](/building/tasks/managing-tasks/pass-data-to-form/#modifycontent)attribute of a task. You can also verify that these data are present in the task.
 
 
 ```js
@@ -446,9 +448,9 @@ Testing a target is relatively straightforward. Add a report or contact that inc
 |Ideal:|One test for each user scenario<br/>Ensure proper deduplication (particularly for those with emitCustom)|
 
 
-Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](https://docs.communityhealthtoolkit.org/technical-overview/db-schema/#targets).
+Use [`harness.getTargets`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/Harness.html#getTargets) to check the state of targets. It returns a [`Target`](https://docs.communityhealthtoolkit.org/cht-conf-test-harness/global.html#Target) object which corresponds to the [targets schema](/technical-overview/data/db-schema/#targets).
 
-To test the first two targets created in the [targets tutorial]({{< ref "building/targets/target-widgets" >}}), use this code:
+To test the first two targets created in the [targets tutorial](/building/targets/target-widgets), use this code:
 ```js highlight 
 it('assessment this month and all time assessments should show correct counts', async () => {
     //set the current date
@@ -498,7 +500,7 @@ For targets with `type: 'percent'`, you might want to check for more properties:
 ```
 ---
 ### Tests for helper functions
-If you have added [helper functions](https://docs.communityhealthtoolkit.org/building/reference/tasks/#tasks-with-functions), they can be tested separately.
+If you have added [helper functions](/building/tasks/tasks-js/#tasks-with-functions), they can be tested separately.
 
 Example:
 ```js

@@ -1,18 +1,12 @@
 ---
 title: "Production CHT Watchdog"
 linkTitle: "Production"
-weight: 3
+weight: 110
+description: >
+  Production considerations for CHT Watchdog
 aliases:  
   - /apps/guides/hosting/monitoring/production
 ---
-
-{{< hextra/hero-subtitle >}}
-  Production considerations for CHT Watchdog
-{{< /hextra/hero-subtitle >}}
-
-{{< callout >}}
-  These instructions apply to both CHT 3.x (beyond 3.12) and CHT 4.x.  
-{{< /callout >}}
 
 ## What it means to run in production
 
@@ -23,7 +17,7 @@ When you run CHT Watchdog in production, and it is publicly accessible on the In
 * ensuring if the server were to fail, you can recover the data
 
 
-This guide assumes you have already [set up TLS]({{< relref "hosting/4.x/production/docker/adding-tls-certificates" >}}) on your CHT instance and have gone through [the Setup steps]({{< relref "hosting/monitoring/setup" >}}) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
+This guide assumes you have already [set up TLS](/hosting/cht/docker/adding-tls-certificates) on your CHT instance and have gone through [the Setup steps](/hosting/monitoring/setup) to deploy an instance of CHT Watchdog on server with a static IP and DNS entry, `monitor.example.com` for example.
 
 > [!WARNING]
 > Always run Watchdog on a different server than the CHT Core.  This ensures Watchdog doesn't fail if the CHT Core server fails and alerts will always be sent. The instructions assume you're connecting over the public Internet and no special VPN or routing is required.
@@ -33,7 +27,7 @@ All monitoring should happen over TLS.  This means the `cht-instances.yml` file 
 
 ## Accessing Grafana over TLS
 
-By default, the `docker-compose.yml` has the service bind to `127.0.0.1`.  This means if you deploy it on a remote server you can not access Grafana's web UI because you are not on the localhost.  The best solution to expose it to the Internet is to use a reverse proxy.  Medic recommends using [Caddy](https://caddyserver.com/) for this, but any reverse proxy will suffice. A big benefit with Caddy is that with just two files you ensure all traffic, and critically, all login credentials, are always encrypted when being sent and it handles all TLS certificate management tasks for you.
+By default, the `docker-compose.yml` has the service bind to `127.0.0.1`.  This means if you deploy it on a remote server you can not access Grafana's web UI because you are not on the localhost.  The best solution to expose it to the Internet is to use a reverse proxy.  You can use [Caddy](https://caddyserver.com/) for this, but any reverse proxy will suffice. A big benefit with Caddy is that with just two files you ensure all traffic, and critically, all login credentials, are always encrypted when being sent and it handles all TLS certificate management tasks for you.
 
 ### Reverse Proxy and Docker files
 

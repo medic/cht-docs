@@ -2,11 +2,9 @@
 title: "Partner Personas"
 linkTitle: "Partners"
 weight: 8
----
-
-{{< hextra/hero-subtitle >}}
+description: >
   An overview of CHT Partner Personas
-{{< /hextra/hero-subtitle >}}
+---
 
 {{< cards cols="1" >}}
   {{< card link="implementers" title="Implementing Partners" icon="cursor-click" subtitle="Implementing partners aim to build a new model of care with demonstrated evidence for impact and scalability. They are interested in pioneering data-driven approaches to achieve the desired community health outcomes." >}}

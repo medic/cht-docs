@@ -2,14 +2,12 @@
 title: "Using NPM"
 linkTitle: "Using NPM"
 weight: 10
+description: >
+  Quick guide to using NPM
 aliases: >
   /core/guides/using-npm
   /contribute/code/using-npm
 ---
-
-{{< hextra/hero-subtitle >}}
-  Quick guide to using NPM
-{{< /hextra/hero-subtitle >}}
 
 ## npm Orgs
 

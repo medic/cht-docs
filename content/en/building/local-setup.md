@@ -2,29 +2,30 @@
 title: "Getting Started Building a CHT App"
 linkTitle: Getting Started
 weight: 2
+description: >
+  Set up a local environment to build and test CHT applications
+relatedContent: >
+  community/contributing/code/core/using-windows
+  hosting/
 aliases:
    - /building/tutorials/local-setup
    - /apps/tutorials/local-setup
 ---
 
-{{< hextra/hero-subtitle >}}
-  Set up a local environment to build and test CHT 4.x applications
-{{< /hextra/hero-subtitle >}}
+{{< callout type="info" >}}
+  This tutorial is designed for CHT version 4.x and higher.
+{{< /callout >}}
 
-This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
+This tutorial will take you through setting up a local environment to build and test CHT applications on CHT for version 4.x and higher. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
 - View the login page to CHT webapp on localhost
 - Upload default settings to localhost
 
-{{< callout type="info" >}}
-  This guide will only work with CHT 4.x instances. See the [3.x App Developer Hosting]({{< ref "hosting/3.x/app-developer" >}}) for setting up comparable 3.x instances.
-{{< /callout >}}
-
 ## Brief Overview of Key Concepts
 
-The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First]({{< ref "technical-overview/offline-first" >}}), and work on basic phones (via SMS), smartphones, tablets, and computers.
+The *CHT Core Framework* makes it faster to build full-featured, scalable digital health apps by providing a foundation developers can build on. These apps can support most languages, are [Offline-First](/technical-overview/concepts/offline-first), and work on basic phones (via SMS), smartphones, tablets, and computers.
 
 [*CHT Project Configurer*](https://github.com/medic/cht-conf) also known as ***cht-conf*** is a command-line interface tool to manage and configure CHT apps.
 
@@ -41,7 +42,7 @@ CHT apps can be built on your local system (with the necessary libraries install
 Before you begin, ensure you have the following tools:
 
 - [git](https://git-scm.com/downloads) or the [Github Desktop](https://desktop.github.com/)
-- [docker and docker compose]({{< relref "hosting/requirements#docker" >}}).
+- [docker and docker compose](/hosting/cht/requirements#docker).
 
 ### Installing Docker
 
@@ -67,7 +68,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -90,7 +91,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -100,16 +101,6 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< /tab >}}
 
 {{< /tabs >}}
-
-#### `pyxform`
-
-Using python on your terminal, install `pyxform` globally using the command below. Ensure you create and activate an environment for python3.
-
-```shell
-sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-```
-
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section]({{< relref "community/contributing/code/core/dev-environment#macos--123" >}}).
 
 #### `cht-conf`
 
@@ -173,7 +164,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script]({{< relref "hosting/4.x/app-developer#cht-docker-helper-for-4x" >}}). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 
@@ -181,7 +172,7 @@ It is recommended to run a local CHT instance using the [CHT Docker Helper scrip
 
 Now that you have the dependent tools and software installed, you are ready to set up your local CHT environment.
 
-Refer to the [App Developer Hosting Guide]({{< relref "hosting/4.x/app-developer" >}}) for instructions on how to deploy a local CHT instance.
+Refer to the [App Developer Hosting Guide](/hosting/cht/app-developer) for instructions on how to deploy a local CHT instance.
 
 Note that the first time you run your CHT instance it may take a while. In case you run into issues running your docker file, ensure that the following setting in Docker is checked.
 > Settings >> General >> Use Docker Compose V2
@@ -196,13 +187,13 @@ If you are using macOS you will not be able to find the "Proceed to localhost" l
 
 This error can be fixed by [installing a TLS certificate](#optional-install-valid-tls-certificate) as described below.
 
-If you encounter an error `bind: address already in use`, see the [Port Conflicts section]({{< relref "hosting/3.x/self-hosting#port-conflicts" >}}) in the Docker Setup guide.
+If you encounter an error `bind: address already in use`, check for [port conflicts section](https://scientyficworld.org/how-to-avoid-local-port-conflicts-in-docker/) in the Docker Setup guide.
 
 This CHT instance is empty and has no data in it. While you're free to explore and add your own data, in step 3 below we will upload sample data. Proceed to step 2 to install `cht-conf` which is needed to upload the test data.
 
 ### Upload Test Data
 
-By default, the CHT will have the [Maternal & Newborn Health Reference Application]({{< ref "reference-apps/anc" >}}) installed. To upload demo data you can use `cht-conf`:
+By default, the CHT will have the [Maternal & Newborn Health Reference Application](/reference-apps/maternal-newborn) installed. To upload demo data you can use `cht-conf`:
 
 {{< figure src="test.data.png" link="test.data.png" class="right col-3 col-lg-6" >}}
 
@@ -267,10 +258,10 @@ With the blank project deployed to your CHT instance, you're ready to start writ
 To install a valid certificate, open a terminal in the `cht-core` directory. Ensure the CHT instance is running and make this call:
 
 ```shell
-./scripts/add-local-ip-certs-to-docker-4.x.sh cht_nginx_1
+./scripts/add-local-ip-certs-to-docker.sh cht_nginx_1
 ```
 
-If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/master/scripts/add-local-ip-certs-to-docker-4.x.sh).
+If `add-local-ip-certs-to-docker-4.x.sh` is not in your scripts directory, be sure to use `git` or GitHub Desktop to update your local repository with the latest changes.  If you can't update for some reason, you can [download it directly](https://raw.githubusercontent.com/medic/cht-core/refs/heads/master/scripts/add-local-ip-certs-to-docker.sh).
 
 To see what a before and after looks like, note the screenshot to the left which uses `curl` to test the certificate validity.
 

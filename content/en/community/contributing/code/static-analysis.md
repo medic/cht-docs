@@ -2,13 +2,11 @@
 title: "Static Analysis"
 linkTitle: "Static Analysis"
 weight: 11
+description: >
+  Guidelines for static analysis of CHT code
 aliases: >
   /contribute/code/static-analysis
 ---
-
-{{< hextra/hero-subtitle >}}
-  Guidelines for static analysis of CHT code
-{{< /hextra/hero-subtitle >}}
 
 ## ESLint
 
@@ -16,7 +14,7 @@ All code must pass an eslint check which runs early in the CI cycle and uses the
 
 ### Linting
 
-You should always lint your code locally before pushign it up the GitHub. Choose one of:
+You should always lint your code locally before pushing it up the GitHub. Choose one of:
 
 * ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
 * CHT Core has a script to run at the command line, by calling `npm run lint` while in the `cht-core` repository.  Be sure you've run the [Core dev setup first](/community/contributing/code/core/dev-environment)! Note that the first time you run this it might be slow, as it needs to download and cache some files.  Subsequent runs should be quite fast.
@@ -45,16 +43,16 @@ When Sonar flags an issue with the code in your pull request, use this decision 
    1. Fix it and push the updated code to your PR. The PR will automatically be unblocked once the Sonar analysis succeeds.
 1. If the issue is a "false-positive" (i.e. Sonar has flagged some particular code as violating a rule, but it does not make sense to apply the rule in that context):
    1. If the rule is one that should not be applied to any CHT code:
-      1. [Remove the rule]({{< ref "#removing-a-rule" >}}) from the default Quality Profile.
+      1. [Remove the rule](#removing-a-rule) from the default Quality Profile.
    1. If it does not make sense to apply the rule to this particular code, you can do one of the following:
-      1. Completely ignore Sonar issues [on that line of code](https://docs.sonarsource.com/sonarqube/latest/user-guide/issues/managing/) by adding the `// NOSONAR` comment to the end of the line.
-      1. Completely ignore Sonar issues for [that block of code]({{< ref "#ignoring-all-rules-for-a-block-of-code" >}}).
-      1. Update the `.sonarcloud.properties` to [ignore _that rule_ for that particular file]({{< ref "#ignoring-a-specific-rule-for-a-file" >}}).
-      1. Update the `.sonarcloud.properties` to [ignore _all rules_ for that particular file]({{< ref "#ignoring-all-rules-for-a-file" >}}) (useful if the file has been copied from an external dependency).
+      1. Completely ignore Sonar issues [on that line of code](https://docs.sonarsource.com/sonarqube-server/latest/user-guide/issues/managing/) by adding the `// NOSONAR` comment to the end of the line.
+      1. Completely ignore Sonar issues for [that block of code](#ignoring-all-rules-for-a-block-of-code).
+      1. Update the `.sonarcloud.properties` to [ignore _that rule_ for that particular file](#ignoring-a-specific-rule-for-a-file).
+      1. Update the `.sonarcloud.properties` to [ignore _all rules_ for that particular file](#ignoring-all-rules-for-a-file) (useful if the file has been copied from an external dependency).
 
 ### Adding a new repo to SonarCloud
 
-1. Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration]({{< ref "#ignoring-all-rules-for-a-file" >}}).
+1. Add a `.sonarcloud.properties` file to the repository with your desired [repo-level configuration](#ignoring-all-rules-for-a-file).
 2. In the GitHub UI, navigate to the settings for the [`medic` org > Third-party Access > GitHub Apps](https://github.com/organizations/medic/settings/installations)
 3. Find SonarCloud and click the `Configure` button.
 4. In the Repository access section, select your desired repository from the drop-down and click `Save`.
@@ -67,7 +65,7 @@ When Sonar flags an issue with the code in your pull request, use this decision 
 
 When setting up a new repository in SonarCloud, you will be asked to define what is considered to be "new code". This is used to determine which code in the default branch is considered "new" (affects reporting of issues, etc). The new code definition is not applied to Sonar analysis of a PR. In that case, only the changes in the PR are considered "new".
 
-Consult [the documentation](https://docs.sonarcloud.io/improving/new-code-definition/) for more details on the options available. For projects that do not use Gradle or Maven for version management, the `Number of days` option is recommended (since `Previous version` would require maintaining a version number in the `.sonarcloud.properties` file).
+Consult [the documentation](https://docs.sonarsource.com/sonarqube-cloud/standards/about-new-code/) for more details on the options available. For projects that do not use Gradle or Maven for version management, the `Number of days` option is recommended (since `Previous version` would require maintaining a version number in the `.sonarcloud.properties` file).
 
 If you are using the `CHT Way` quality gate (or a similar zero-tolerance quality gate) it is recommended to set `Number of days = 1`. With a zero-tolerance quality gate, only issue-free code can be merged to the default branch. So, there is no need to check for issues accumulated over time. Also, having a higher `Number of days` opens up a greater opportunity for Sonar to introduce a _new rule_ that will fail some code previously added to the default branch (code that is only included in the latest analysis because of the configured `Number of days`).
 
@@ -197,6 +195,8 @@ JavaScript:
    - Disabled
       - [`S2699`](https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
          - Disabled due of rigidity of the rule when detecting `expect` imports and calls to imported functions that have assertions
+      - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
+          - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
 
 Python:
 
@@ -215,3 +215,6 @@ TypeScript:
          - `threshold` 7 -> 4
       - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
+   - Disabled
+       - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
+           - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)

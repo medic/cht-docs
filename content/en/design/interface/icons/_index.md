@@ -2,13 +2,11 @@
 title: "Icon Library"
 linkTitle: "Icon Library"
 weight: 2
+description: >
+  Icons for use in CHT application based on human centered design principles
 aliases: 
   - /design/icons/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Icons for use in CHT applications based on human centered design principles
-{{< /hextra/hero-subtitle >}}
 
 We believe in making our simple but strong visual iconography open and accessible to all. We have assembled and designed these icons for use with the Community Health Toolkit based on human centered design principles.
 
@@ -24,12 +22,14 @@ Use the `forms_tasks_targets` folder to find PNG and SVG icons for application c
   {{< card link="people_and_places" title="Icons for People and Places" icon="map-pin"  >}}
 {{< /cards >}}
 
-> [!TIP] 
-> For those using cht-conf to upload resources, make sure you add the correct icons for people and places to your `resources.json` file. Otherwise, uploading resources will inadvertently remove your people and place icons. An issue is being raised in cht-conf to solve this. You'll need to define `medic-clinic`, `medic-health-center`, `medic-district-hospital` and `medic-person` in your `resources.json` and set them to the appropriate SVG files.
-
-> [!NOTE] 
-> Check out the [best practices]({{< ref "design/best-practices#icons"  >}}) to learn more about which icons can be used for which use cases and workflows.
-
 {{< callout >}}
-  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+  For those using cht-conf to upload resources, make sure you add the correct icons for people and places to your `resources.json` file. Otherwise, uploading resources will inadvertently remove your people and place icons. An issue is being raised in cht-conf to solve this. You'll need to define `medic-clinic`, `medic-health-center`, `medic-district-hospital` and `medic-person` in your `resources.json` and set them to the appropriate SVG files
+{{< /callout >}}
+
+{{< callout type="info" >}}
+  Check out the [best practices](/design/best-practices#icons) to learn more about which icons can be used for which use cases and workflows
+{{< /callout >}}
+
+{{< callout type="important" icon="sparkles" >}}
+  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>.
 {{< /callout >}}

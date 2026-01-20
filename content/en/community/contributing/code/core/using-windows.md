@@ -2,14 +2,12 @@
 title: "Developing on Windows"
 linkTitle: "Windows Development"
 weight: 15
+description: >
+  Notes for developing on Windows
 aliases: >
   /core/guides/using-windows
   /contribute/code/core/using-windows
 ---
-
-{{< hextra/hero-subtitle >}}
-  Notes for developing on Windows
-{{< /hextra/hero-subtitle >}}
 
 We don't actively support development on Windows, instead preferring MacOS or Linux.
 
@@ -91,7 +89,7 @@ $: npm ci
 $: npm run build-dev-watch
 ```
 
-From this point, follow the `harden couch` section in [Core Developer Setup]({{< relref "community/contributing/code/core/dev-environment#cht-core-cloning-and-setup" >}}).
+From this point, follow the `harden couch` section in [Core Developer Setup](/community/contributing/code/core/dev-environment#cht-core-cloning-and-setup).
 
 
 To get multiple linux terminals (so you can run `npm run`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.

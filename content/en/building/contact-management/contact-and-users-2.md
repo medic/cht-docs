@@ -2,14 +2,17 @@
 title: "Contact and User Management - Part 2"
 linkTitle: Contacts + Users 2
 weight: 3
+description: >
+  Create and edit contacts and users with cht-conf
+relatedContent: >
+  building/contact-management/contact-and-users-1
+  technical-overview/data/db-schema
+  building/training/users-bulk-load
+  building/users
 aliases:
    - /building/tutorials/contact-and-users-2/
    - /apps/tutorials/contact-and-users-2
 ---
-
-{{< hextra/hero-subtitle >}}
-  Create and edit contacts and users with cht-conf
-{{< /hextra/hero-subtitle >}}
 
 In this tutorial you will learn how to create and edit contacts and their associated users in the CHT application using cht-conf. If you haven't already, have a look at [part 1]({{% ref "building/contact-management/contact-and-users-1" %}}) of this tutorial for a useful overview of key concepts.
 
@@ -72,7 +75,7 @@ Create a CSV file named `users.csv` and add the details of the Users, CHW contac
 | mmutiso | q3Z5-vH5 | district_admin | Mary Mutiso | 0712345678 | Mary Mutiso | 0712345678 | Female | 36 | health_center | Mary Mutiso's Area | `<facility uuid>` |
 
 
-{{< figure src="facility-uuid.png" link="facility-uuid.png" class="right col-6 col-lg-8" >}}	
+{{< figure src="facility-uuid.png" link="facility-uuid.png" class="right col-6 col-lg-8 bordered-figure" >}}
 
 The value `place.parent` is the uuid of the Facility to which the CHW Area belongs to. You can get this value by selecting the Health Facility in the webapp and copying the last portion of the url.
 

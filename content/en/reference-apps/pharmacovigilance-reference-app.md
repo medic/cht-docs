@@ -2,15 +2,13 @@
 title: "Pharmacovigilance"
 linkTitle: "Pharmacovigilance"
 weight:
+description: >
+ CHT example application that supports pharmacovigilance in a community setting
 aliases:
    - /apps/examples/pharmacovigilance-reference-app
    - /building/examples/pharmacovigilance-reference-app
    - /exploring/pharmacovigilance-reference-app
 ---
-
-{{< hextra/hero-subtitle >}}
-  CHT example application that supports pharmacovigilance in a community setting
-{{< /hextra/hero-subtitle >}}
 
 ## Problem Being Addressed
 Self-medication, unregulated medical products, and counterfeit drugs have led to a significant increase in the prevalence of adverse drug reactions (ADRs), adverse effects following Immunization (AEFI), and the proliferation of poor-quality health products and technologies. ADRs are a common cause of hospital admissions and contribute to patient mortality, placing a substantial economic burden on resource-limited healthcare systems, especially in African countries.
@@ -62,8 +60,8 @@ A CHP uses the assessment form to report a death caused by an adverse drug react
 Here are a few additional resources to help get you started with the pharmacovigilance health reference application.
 
 - View the [configuration code for this reference app](https://github.com/medic/cht-accelerator/tree/main/IntelliSOFT/Example%20CHT%20application/cht_pvers)
-- Install the reference app following these [easy installation instructions]({{< ref "building/local-setup" >}})
-- Modify the pharmacovigilance reference application for your project context using [configuration best practices]({{< ref "design/best-practices" >}})
+- Install the reference app following these [easy installation instructions](/building/local-setup)
+- Modify the pharmacovigilance reference application for your project context using [configuration best practices](/design/best-practices)
 
 The open sharing of digital health apps used by CHWs is a monumental milestone in the digital health space, and for the CHT Community. Reach out on the [forum](https://forum.communityhealthtoolkit.org/) to share how you will leverage these resources, along with your feedback and continued innovations that could benefit the larger community.
 

@@ -2,14 +2,15 @@
 title: "Setting Form Properties"
 linkTitle: Properties
 weight: 5
+description: >
+ How to set form properties that contain meta information related to App forms
+relatedContent: >
+  building/forms/app/#formsappform_namepropertiesjson
+  design/best-practices
 aliases:
    - /building/tutorials/form-properties
    - /apps/tutorials/form-properties
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to set form properties that contain meta information related to App forms
-{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through how to write the `<form_name>.properties.json` file.
 
@@ -19,11 +20,11 @@ You will be adding meta-data and context to an assessment workflow that allows C
 
 ## Brief Overview of Key Concepts
 
-*[Form context]({{< ref "building/forms/app#formsappform_namepropertiesjson" >}})* defines when and where the form should be available in the app.
+*[Form context](/building/forms/app#formsappform_namepropertiesjson)* defines when and where the form should be available in the app.
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup, and an [assessment form]({{< ref "building/tutorials/app-forms" >}}).
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), completed a [project folder](/building/local-setup/#deploy-local-cht-instance) setup, and an [assessment form](/building/tutorials/app-forms).
 
 ## Implementation Steps
 

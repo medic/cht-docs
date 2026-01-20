@@ -50,12 +50,100 @@ You can start your local CHT Docs instance by:
 
 Any users who experience errors running `hugo server`, please see our [Troubleshooting guide](./troubleshooting.md).
 
-## Link Checking [Optional]
+## Link Checking
 
-We have two types of link checking:
+This repository has automatic link validation built into Hugo that checks all internal markdown links at build time, plus two optional external link checking tools:
 
-* All links - tests all links within docs and outbound
-* Internal links - takes all internal links from [production site](https://docs.communityhealthtoolkit.org/) and tests them on your branch
+* **Automatic internal link validation** - Hugo validates all markdown links during build (enabled by default)
+* **All links** - tests all links within docs and outbound using Muffet
+* **Internal links** - takes all internal links from [production site](https://docs.communityhealthtoolkit.org/) and tests them on your branch
+
+### Automatic Internal Link Validation
+
+The site uses a custom Hugo render hook that automatically validates all internal markdown links during the build process. This ensures that links to other pages, headings, and resources are correct before deployment.
+
+#### Known Limitations
+
+**Fragment-only links in shortcodes and `_index.md` files** - Avoid full-path self-references (like `[link](/current-page/#heading)`) inside `{{< tab >}}` shortcodes as they cause builds to hang.
+
+Fragment-only self-references (like `[link](#heading)`) skip validation in two scenarios due to Hugo context limitations:
+
+1. Inside certain shortcodes (like `{{< tab >}}` and `{{< callout >}}`)
+2. In `_index.md` section landing pages
+
+These links still work correctly, but broken fragments won't be caught at build time.
+
+**Error message source file** - When validation errors occur for full-path links (like `[link](/other-page/#bad-heading)`)  inside shortcodes, the error message may show `_index.md` as the source file instead of the actual markdown file. The target file and error detection remain correct. Fragment-only self-references inside shortcodes skip validation entirely to avoid false positives.
+
+#### Configuration
+
+Link validation is controlled by two parameters in `hugo.toml`:
+
+```toml
+[params]
+linkErrorLevel = "ERROR"    # ERROR, WARNING, or IGNORE
+highlightBroken = true      # true or false (default: false)
+```
+
+**`linkErrorLevel`** - Controls what happens when a broken link is found:
+- `"ERROR"` - Build fails with an error message. This project uses ERROR for production/CI.
+- `"WARNING"` - Build succeeds but shows warning messages. Use this during development.
+- `"IGNORE"` - Broken links are silently ignored (this is the render hook's default, but not recommended).
+
+**`highlightBroken`** - When enabled, broken links are visually highlighted in development:
+- Only works when `linkErrorLevel = "WARNING"` AND running in development mode
+- Broken links get a yellow background with red border
+- Makes it easy to spot broken links while fixing them
+
+#### Development Workflow for Fixing Broken Links
+
+When fixing multiple broken links, use this workflow to avoid restarting Hugo after each fix:
+
+1. **Enable warning mode** in `hugo.toml`:
+   ```toml
+   [params]
+   linkErrorLevel = "WARNING"
+   highlightBroken = true
+   ```
+
+> ⚠️ **Never commit `linkErrorLevel = "WARNING"` to the main branch!** The CI build should always fail on broken links to maintain link integrity. Always revert to `"ERROR"` before committing.
+
+2. **Start Hugo** (if not already running):
+   ```bash
+   docker compose up
+   # or
+   hugo server
+   ```
+   - Observe the terminal output - you'll see WARN messages for each broken link
+   - The build will complete successfully despite the warnings
+
+3. **Visit your local site** at http://localhost:1313/
+   - Broken links will have a yellow background with red border
+   - Hugo will continue running despite broken links
+
+4. **Fix the links** in your markdown files:
+   - Hugo will automatically reload as you save changes
+   - The yellow highlighting will disappear as links are fixed
+   - No need to restart Hugo between fixes
+
+5. **Verify all links are fixed**:
+   - Check that no yellow-highlighted links remain
+   - Review the terminal output for any remaining warnings
+
+6. **Revert to error mode** in `hugo.toml`:
+   ```toml
+   [params]
+   linkErrorLevel = "ERROR"
+   highlightBroken = true
+   ```
+
+> ⚠️ **Don't forget this step!** The build must fail on broken links in CI to maintain link integrity.
+
+7. **Test the build**:
+   - Restart Hugo to verify the build succeeds with no errors
+   - If the build fails, return to step 3
+
+8. **Commit your changes**
 
 ### All links, including outbound 
 
@@ -81,7 +169,7 @@ $ docker exec  cht-hugo sh -c "cd .github/scripts/; ./muffet.sh"
 
 http://localhost:1313/hosting/4.x/production/docker/adding-tls-certificates/
         lookup letsencrypt.org: i/o timeout     https://letsencrypt.org/
-http://localhost:1313/technical-overview/offline-first/
+http://localhost:1313/technical-overview/concepts/offline-first/
         lookup blog.couchdb.org: i/o timeout    https://blog.couchdb.org/2017/09/19/couchdb-takes-medic-mobile-to-the-front-lines-of-healthcare-work/
 http://localhost:1313/hosting/monitoring/production/
         lookup letsencrypt.org: i/o timeout     https://letsencrypt.org/

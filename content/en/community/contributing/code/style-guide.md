@@ -2,13 +2,11 @@
 title: "Coding Style Guide"
 linkTitle: "Style Guide"
 weight: 2
+description: >
+  Guidelines for writing code
 aliases: >
   - /contribute/code/style-guide
 ---
-
-{{< hextra/hero-subtitle >}}
-  Guidelines for writing code
-{{< /hextra/hero-subtitle >}}
 
 ## Language
 
@@ -261,7 +259,7 @@ const getResult = () =>
 
 ### Implicit Returns
 
-As [noted above]({{< ref "#use-arrow-functions" >}}), implicit returns should be used for one-line arrow functions. However, for the sake of readability, they should not be used when returning a multi-line value.
+As [noted above](#use-arrow-functions), implicit returns should be used for one-line arrow functions. However, for the sake of readability, they should not be used when returning a multi-line value.
 
 *Right:*
 

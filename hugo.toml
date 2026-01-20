@@ -130,8 +130,9 @@ privacy_policy = "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCY
 nodeVersion = "22"
 npmVersion = "10"
 
-# Custom shortcodes and partial will error on broken references unless set to "WARNING"  
+# Custom shortcodes and partial will error on broken references unless set to "WARNING"
 linkErrorLevel = "ERROR"
+highlightBroken = true
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
@@ -184,7 +185,7 @@ osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|HOME|ASDF_DIR)$'
 
     [params.search.flexsearch]
     index = "content"
-    tokenize = "forward"
+    tokenize = "full"
 
   [params.editURL]
   enable = true
@@ -197,3 +198,7 @@ display = "hover"
   [params.comments]
   enable = false
   type = "giscus"
+
+  [params.banner]
+  key = "announcement"
+  message = "CHT 5.0 is here! 🎉 Discover [what's new](/releases/5_0_0/)! "

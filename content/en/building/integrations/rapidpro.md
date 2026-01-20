@@ -20,22 +20,22 @@ To learn more about the platform, check out RapidPro on [GitHub](https://rapidpr
 Coming up with a design to accommodate user needs requires a detailed understanding of the capabilities of both systems and conceptually where it makes sense to introduce interactions between them. Below we introduce some of the key concepts in RapidPro, but to learn more you can have a look at their [documentation](https://rapidpro.github.io/rapidpro/docs/).
 
 ## Overview
-CHT-based [SMS workflows]({{< ref "building/workflows/workflows-overview#sms-messaging" >}}) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging]({{< ref "building/messaging" >}}) from the Messages tab.
+CHT-based [SMS workflows](/building/workflows/workflows-overview#sms-messaging) can be configured to support registering of new patients or pregnancies, recording outcomes of visits, confirmation via auto-responses, and scheduling reminders. Some projects are designed entirely around SMS workflows. The CHT also supports person to person SMS [messaging](/building/messaging) from the Messages tab.
 
 For more complex messaging workflows or to utilize other messaging platforms, you can design workflows that leverage the functionality of RapidPro and the CHT together. This enables semi-automated, direct to patient approaches to health assessments and care coordination at the community level.
 
 ## Workflows
-Integrated RapidPro/CHT workflows are very flexible and leverage the full functionality of each application; You configure RapidPro directly in RapidPro, and configure the CHT in the CHT and the two systems communicate with each other through APIs and [Outbound push]({{< ref "building/reference/app-settings/outbound" >}}). With this architecture, you are not limited to a subset of functionality within either application.
+Integrated RapidPro/CHT workflows are very flexible and leverage the full functionality of each application; You configure RapidPro directly in RapidPro, and configure the CHT in the CHT and the two systems communicate with each other through APIs and [Outbound push](/building/reference/app-settings/outbound). With this architecture, you are not limited to a subset of functionality within either application.
 
-A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task]({{< ref "building/tasks" >}}) for a health worker in the CHT based on the patient responses from the RapidPro flow.
+A simple RapidPro/CHT integration might include triggering an interactive SMS messaging flow in RapidPro whenever a new patient is registered in the CHT and then storing the responses of that messaging flow in the CHT. You could then conditionally trigger a [Task](/building/tasks) for a health worker in the CHT based on the patient responses from the RapidPro flow.
 
 App builders have built and deployed a number of interactive messaging workflows that integrate RapidPro and the CHT already, see below for a few examples.
 
 ### Contact Tracing
-The [COVID-19 Contact Tracing app]({{< ref "reference-apps/contact-tracing#workflow-example" >}}) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
+The [COVID-19 Contact Tracing app](/reference-apps/contact-tracing#workflow-example) uses RapidPro to send messages to quarantined COVID-19 patients. Messages are sent to the patients daily asking whether or not they developed new symptoms.  If so, a health worker will be notified by SMS and receive a CHT task. All responses to the RapidPro workflow are recorded in the CHT and can be queried in analytics.
 
 ### Remote Training
-The [Remote Training by SMS app]({{< ref "reference-apps/training#remote-training-by-sms" >}}) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
+The [Remote Training by SMS app](/reference-apps/training#remote-training-by-sms) uses RapidPro to train health workers on Antenatal Care in the language of their choice. If the health worker answers a training question incorrectly, a task can be created for their supervisor to follow up with them.
 
 ### CHW Symptom and Mental Health Checks
 The [CHW Symptom and Mental Health Checks app](https://docs.google.com/document/d/19F6vOCNFKQnSyREiaBnryUmre20s5QZzYe0hWuWn-0k/edit) is used to proactively check in with health workers to screen for COVID-19 symptoms and/or the need for psychosocial counseling.
@@ -106,7 +106,7 @@ The information below focuses on specific interactions between RapidPro and the 
 
 ### Create RapidPro user in CHT
 
-For RapidPro to communicate with the CHT, you need to create a [User]({{< ref "building/concepts/users" >}}) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management]({{< ref "building/features/admin/" >}}) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role]({{< ref "building/concepts/users#roles" >}}).
+For RapidPro to communicate with the CHT, you need to create a [User](/building/users) in the CHT that will be used by RapidPro when calling the CHT’s APIs.  This can be done from the [App Management](/building/admin/) page in the CHT.  When adding the user in the CHT, be sure to select the `Gateway - Limited access user for Medic Gateway` [Role](/building/users#roles).
 
 ### Globals
 
@@ -120,7 +120,7 @@ Once you have configured a Global value, you can easily use it in your flows lik
 
 ### Start RapidPro Flow from CHT
 
-One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound]({{< ref "building/reference/app-settings/outbound" >}}) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro.
+One of the most common activities you'll want to do is trigger a Flow in RapidPro based on something that occurred in the CHT. For example... whenever a specific form is submitted in the CHT with some conditional value, start a flow in RapidPro. To do this, you will use the [Outbound](/building/reference/app-settings/outbound) feature in the CHT, invoking the [Flow Starts Endpoint](https://rapidpro.io/api/v2/explorer/) in RapidPro.
 
 Below is an example `outbound` config in the CHT called `textit-self-quarantine` that will trigger a flow in RapidPro whenever a `covid_trace_follow_up` form is submitted in the CHT where `symptom = no`. It will also pass an extra date value for `self_quarantine_enrollment`.
 
@@ -162,9 +162,9 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 
 |Step |Application  |Config step |
 |-----|--|--|
-|1|CHT| Configure a [JSON Form]({{< ref "building/reference/app-settings/forms" >}}) that includes the fields from RapidPro you want to send to the CHT.|
+|1|CHT| Configure a [JSON Form](/building/reference/app-settings/forms) that includes the fields from RapidPro you want to send to the CHT.|
 |2|RapidPro|Add a *Call a Webhook* node.|
-|3|RapidPro|`POST` to the [records endpoint]({{< ref "building/reference/api#post-apiv2records" >}}) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
+|3|RapidPro|`POST` to the [records endpoint](/building/reference/api#post-apiv2records) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
 |4|RapidPro|Set a `Result Name`|
 |5|RapidPro|Configure HTTP Headers to be `Content-Type` -> `application/json`|
 |6|RapidPro|Configure the `POST Body` (see example below)|
@@ -174,7 +174,7 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 
 ### Look up CHT data from RapidPro
 
-Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone]({{< ref "building/reference/api#contacts-by-phone" >}}) API to get fully hydrated contacts associated to that phone number.
+Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone](/building/reference/api#contacts-by-phone) API to get fully hydrated contacts associated to that phone number.
 
 
 
@@ -220,9 +220,9 @@ Ensure that you install the maximum number of SMS packs (available in the  Rapid
 
 Android channels can be [used with a bulk sender](http://web.archive.org/web/20220126134411/https://help.nyaruka.com/en/article/using-a-bulk-sender-sk27hz/) to get past the 330 outgoing messages per hour.
 
-Medic recommends that you use shared or dedicated shortcodes for SMS messaging. Dedicated shortcodes are preferred because recipients do not have to include the keyword with each response submitted. Shortcode procurement can be a lengthy process, so make arrangements for the shortcode in advance. It is possible but inconvenient to migrate to a shortcode after deployment.
+Use shared or dedicated shortcodes for SMS messaging. Dedicated shortcodes are preferred because recipients do not have to include the keyword with each response submitted. Shortcode procurement can be a lengthy process, so make arrangements for the shortcode in advance. It is possible but inconvenient to migrate to a shortcode after deployment.
 
-Medic recommends that SMS costs be zero-rated so that respondents do not incur charges. This motivates them to respond.
+It is recommended that SMS costs be zero-rated so that respondents do not incur charges. This motivates them to respond.
 
 ### Flow design
 
@@ -232,7 +232,7 @@ Tips and best practices are listed below:
 - Avoid sensitive questions since privacy cannot be guaranteed over SMS and where it is common to share phones.
 - Include intro and outro messages. Intro messages serve the purpose of giving the survey details such as the background of the survey, the number of questions, data protection, whether there shall be follow up, SMS billing, etc. Outro messages are helpful to notify respondents that they survey is over and commonly include thank you notes.
 - Include questions that give the respondent an opportunity to opt-in or out of the survey. If they opt out, do not send a follow-up text.
-- Keep it short, to the size of one SMS (160 characters). Longer messages will be split and may not display well on the recipients’ devices since Mobile Network Operators (MNOs) cannot guarantee that the multi-parts shall be delivered in the desired order. Medic recommends that you retain the same message length as you localize to multiple languages. Truncate appropriately if long contact names included in the message push the length beyond the limit.
+- Keep it short, to the size of one SMS (160 characters). Longer messages will be split and may not display well on the recipients’ devices since Mobile Network Operators (MNOs) cannot guarantee that the multi-parts shall be delivered in the desired order. Retain the same message length as you localize to multiple languages. Truncate appropriately if long contact names included in the message push the length beyond the limit.
 
 ### Flow programming
 
@@ -243,7 +243,7 @@ Tips and best practices are listed below:
 - Translate all messages, especially when deploying in a multi-lingual environment. This ensures that respondents fully understand the survey in their language.
 - Beware of the timing of the surveys that directly affects response rates. From experience, sending questions when respondents are busy with their errands during the day ultimately leads to low response rates as opposed to evenings when they are done for the day.
 - Make sure you handle unsolicited responses by redirecting such to, for example, a flow that eventually alerts concerned individuals such as reports of an outbreak.
-- Medic recommends that you use [timeouts](https://help.nyaruka.com/en/article/adding-timeouts-to-a-flow-1e2oodi/) or [pauses](https://web.archive.org/web/20210927110029/https://blog.textit.com/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows.
+- Use [timeouts](https://help.nyaruka.com/en/article/adding-timeouts-to-a-flow-1e2oodi/) or [pauses](https://web.archive.org/web/20210927110029/https://blog.textit.com/feature-update-add-timeouts-pauses-to-flows) to send automatic messages after a period of inactivity during a survey. This helps nudge the respondents to complete their flows.
 
 ### Configuration
 
@@ -259,8 +259,8 @@ Testing includes manual and scripted.
 
 _Manual testing_
    - Telegram is an effective, free, convenient tool for testing that is great for developers and quick testing.
-   - Prior to release, it is crucial that you test the workflow as close to production as possible. Medic recommends that you use the production messaging channels, to especially check messaging fidelity.
-   - Medic recommends that you run a pilot prior to scaling a deployment. Remember, this shall expose the flows to real respondents and be helpful towards uncovering details such as text display among others.
+   - Prior to release, it is crucial that you test the workflow as close to production as possible. Use the production messaging channels, to especially check messaging fidelity.
+   - It is recommended to run a pilot prior to scaling a deployment. Remember, this shall expose the flows to real respondents and be helpful towards uncovering details such as text display among others.
    - In order to prevent breakages in flows, run full end-to-end tests as edits/changes can have unpredictable impacts. Check that the entire flow is not impacted by the change prior to releasing in production.
 
 _Scripted testing_
@@ -279,7 +279,7 @@ These tests cover the parts that are inaccessible via manual tests. They include
 ### Deployment
 
 - Make sure all your flows are in source control. For every change, no matter how small (fixing a typo, etc), at the very least, document and commit the JSON for the flows to Github. This makes flows restorable, auditable, and releasable across environments
-- Medic recommends that you use an automated deployment process when pushing changes to an instance - either staging or production. A CI/CD reduces manual errors and ensures your production state is tested and reproducible.
+- Use an automated deployment process when pushing changes to an instance - either staging or production. A CI/CD reduces manual errors and ensures your production state is tested and reproducible.
 - Remember to set up the [rapidpro2pg](https://github.com/medic/rapidpro2pg) service to get your RapidPro workspace data over to the Postgres database.
 
 ### Monitoring

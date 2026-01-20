@@ -5,7 +5,7 @@ weight: 1
 description: >
   Branding and configuring CHT Application graphics
 relatedContent: >
-  building/features/admin
+  building/admin
   design/interface/icons
 aliases:
    - /apps/tutorials/application-graphics
@@ -18,7 +18,7 @@ You will cover site branding, partner logos, header tab icons, and app icons (us
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}) and completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup) and completed a [project folder](/building/local-setup/#deploy-local-cht-instance) setup.
 
 ## Implementation Steps
 
@@ -71,7 +71,7 @@ Log in to your instance and navigate to `Menu > App Settings > Images > Icons`
 
 {{< figure src="images.png" link="images.png" >}}
 
-> [!NOTE] 
+> [!NOTE]
 > If your changes are not reflected on the browser, you will have to clear browser data to get rid of the already cached resources.
 
 ### 2. Partner logos
@@ -223,6 +223,6 @@ To modify the icon used in contacts, you will need to edit the icon subkey in ap
 
 Finally run the command: `cht --local upload-app-settings`
 
-To customise the icons used in tasks or the action bar, you will need to edit a form properties file and add an icon property as outline in [form properties]({{< ref "building/forms/form-properties" >}}) tutorial.
+To customise the icons used in tasks or the action bar, you will need to edit a form properties file and add an icon property as outline in [form properties](/building/forms/form-properties) tutorial.
 
-To customise the icons used in targets, you will need to add an icon property in a target's definition as shown in the [targets]({{< ref "building/targets/target-widgets" >}}) tutorial.
+To customise the icons used in targets, you will need to add an icon property in a target's definition as shown in the [targets](/building/targets/target-widgets) tutorial.

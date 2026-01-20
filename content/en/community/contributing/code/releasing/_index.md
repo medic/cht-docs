@@ -2,14 +2,12 @@
 title: "Releasing"
 linkTitle: "Releasing"
 weight: 7
+description: >
+  Instructions for releasing CHT tools
 aliases: >
   /core/guides/releasing
   /contribute/code/releasing/
 ---
-
-{{< hextra/hero-subtitle >}}
-  Instructions for releasing CHT tools
-{{< /hextra/hero-subtitle >}}
 
 ## CHT Core
 
@@ -66,4 +64,4 @@ Follow the [instructions in the readme](https://github.com/medic/cht-conf/#user-
 
 ## Android apps
 
-Follow the instructions in the [Android > Releasing]({{< ref "community/contributing/code/android/releasing" >}}) section.
+Follow the instructions in the [Android > Releasing](/community/contributing/code/android/releasing) section.

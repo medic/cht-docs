@@ -2,14 +2,14 @@
 title: contact-summary.templated.js
 linkTitle: contact-summary.templated.js
 weight: 2
+description: >
+  Customize fields, cards, and actions on profile pages
+relatedContent: >
+  building/forms/configuring/form-inputs
 aliases:
    - /building/reference/contact-page
    - /apps/reference/contact-page
 ---
-
-{{< hextra/hero-subtitle >}}
-  Customize fields, cards, and actions on profile pages
-{{< /hextra/hero-subtitle >}}
 
 Contact profile pages display basic information about the contact along with their history and upcoming tasks.
 A contact's profile page is defined by the [Fields](#contact-summary), [Cards](#condition-cards), and [Care Guides](#care-guides) available.
@@ -21,15 +21,15 @@ Helper variables and functions for the contact summary can be defined in `contac
 | `contact` | The currently selected contact. This has minimal stubs for the `contact.parent`, so if you want to refer to a property on the parent use `lineage` below.| 
 | `reports` | An array of reports for the contact or for any of the contact's `person` children. Note that if the contact has more than 500 reports, only the 500 with the latest `reported_date` values will be provided. Prior to version `4.7.0`, only 50 reports were provided. |
 | `lineage` | An array of the contact's parents (2.13+), eg `lineage[0]` is the parent, `lineage[1]` is the grandparent, etc. Each lineage entry has full information for the contact, so you can use `lineage[1].contact.phone`. `lineage` will include only those contacts which are visible to the logged in profile | 
-| `targetDoc` | Doc with [`target`]({{< ref "technical-overview/db-schema#targets" >}} ) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
+| `targetDoc` | Doc with [`target`](/technical-overview/data/db-schema#targets) document of the contact, hydrated with the config information of every target it contains a value for. If there is no target document available (for example when viewing a contact that does not upload targets), this value will be `undefined`. This value might also be `undefined` if the contact has not yet synced the current target document. Added in `3.9.0`. |
 | `uhcStats` | Object containing UHC stats information. Added in `v3.12.0` |
-| `uhcStats.uhcInterval` | Object containing the start and end date of UHC reporting period, it is calculated from the `uhc.visit_count.month_start_date` defined in the [app settings]({{< ref "/building/reference/app-settings/#app_settingsjson" >}}). |
+| `uhcStats.uhcInterval` | Object containing the start and end date of UHC reporting period, it is calculated from the `uhc.visit_count.month_start_date` defined in the [app settings](/building/reference/app-settings/#app_settingsjson). |
 | `uhcStats.uhcInterval.start` | Timestamp, start date of the UHC reporting period. |
 | `uhcStats.uhcInterval.end` | Timestamp, end date of the UHC reporting period. |
-| `uhcStats.homeVisits` | Object containing the contact's home visits stats. The [contact's type]({{< ref "/building/reference/app-settings/hierarchy.md#app_settingsjson-contact_types" >}}) should have `count_visits` enabled and the [UHC visit count settings]({{< ref "/building/reference/app-settings/#app_settingsjson" >}}) should be defined, additionally this information is only available for users that have `can_view_uhc_stats` permission and that are not System Administrators. |
+| `uhcStats.homeVisits` | Object containing the contact's home visits stats. The [contact's type](/building/reference/app-settings/hierarchy.md#app_settingsjson-contact_types) should have `count_visits` enabled and the [UHC visit count settings](/building/reference/app-settings/#app_settingsjson) should be defined, additionally this information is only available for users that have `can_view_uhc_stats` permission and that are not System Administrators. |
 | `uhcStats.homeVisits.lastVisitedDate` | Timestamp, date of contact's last home visit. |
 | `uhcStats.homeVisits.count` | Number of contact's home visits in the current reporting interval. |
-| `uhcStats.homeVisits.countGoal` | Number, home visits goal, defined in the [UHC visit count settings]({{< ref "/building/reference/app-settings/#app_settingsjson" >}}). |
+| `uhcStats.homeVisits.countGoal` | Number, home visits goal, defined in the [UHC visit count settings](/building/reference/app-settings/#app_settingsjson). |
 | `cht` | Object containing the [CHT API](#cht-api) for contact summary, targets and tasks. Added in `v3.12.0` |
 
 ## CHT API
@@ -83,7 +83,7 @@ Each condition card is defined as a card object in the `cards` array of `contact
 
 ## Care Guides
 
-Each care guide accessible from a contact profile is defined as an [App Form]({{< ref "building/forms/app" >}}). Context information can be provided to forms via the `context` object of `contact-summary.templated.js`.
+Each care guide accessible from a contact profile is defined as an [App Form](/building/forms/app). Context information can be provided to forms via the `context` object of `contact-summary.templated.js`.
 
 To show an App Form on a contact's profile, the form's `expression` field in its properties file must evaluate to true for that contact. The context information from the profile is accessible as the variable `summary`.
 

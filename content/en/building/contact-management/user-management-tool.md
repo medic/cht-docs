@@ -2,14 +2,15 @@
 title: "CHT User Management tool"
 linkTitle: User management tool
 weight: 5
+description: >
+  How to use and configure a user management tool for a CHT project
+relatedContent: >
+  building/contact-management/contact-and-users-1
+  building/training/users-bulk-load
 aliases:
    - /building/tutorials/user-management-tool/
    - /apps/tutorials/user-management-tool
 ---
-
-{{< hextra/hero-subtitle >}}
-  How to use and configure a user management tool for a CHT project
-{{< /hextra/hero-subtitle >}}
 
 The Community Health Toolkit (CHT) is highly configurable and can be customized to support multiple hierarchies and users in the health care system. The CHT user management tool is a user friendly web application that works with the CHT to decentralize the user management process to the subnational levels, increasing efficiency and accuracy. This guide highlights steps for setting up and configuring the user management tool. 
 The guide has been tailored for specific CHT-supported national community health information systems. Partners and ministries of health are advised to customize the tool to fit their specific needs.
@@ -36,11 +37,11 @@ The user management tool has various features and fuctionalities including:
 `domains.domain` | string | Hostname for the instance (eg. "migori-echis.health.go.ke")
 `domains.useHttp` | boolean | Whether to make an insecure connection (http) to the hostname (defaults to false)
 `contact_types` | Array | One element for each type of user which can be created by the system
-`contact_types.name` | string | The name of the contact_type as it [appears in the app's base_settings.json](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/hierarchy/)
+`contact_types.name` | string | The name of the contact_type as it [appears in the app's base_settings.json](/building/reference/app-settings/hierarchy/)
 `contact_types.friendly` | string | Friendly name of the contact type
-`contact_types.contact_type` | string | The contact_type of the primary contact. [As defined in base_settings.json](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/hierarchy/)
+`contact_types.contact_type` | string | The contact_type of the primary contact. [As defined in base_settings.json](/building/reference/app-settings/hierarchy/)
 `contact_types.contact_friendly` | string | Friendly name of the primary contact type
-`contact_types.user_role` | string[] | A list of allowed [user roles](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/user-roles/). If only one is provided, it will be used by default.
+`contact_types.user_role` | string[] | A list of allowed [user roles](/building/reference/app-settings/user-roles/). If only one is provided, it will be used by default.
 `contact_types.username_from_place` | boolean | When true, the username is generated from the place's name. When false, the username is generated from the primary contact's name. Default is false.
 `contact_types.hierarchy` | Array<ConfigProperty> | Defines how this `contact_type` is connected into the hierarchy. An element with `level:1` (parent) is required and additional elements can be provided to support disambiguation. See [ConfigProperty](#configproperty).
 `contact_types.hierarchy.level` | integer | The hierarchy element with `level:1` is the parent, `level:3` is the great grandparent.

@@ -2,14 +2,15 @@
 title: Building Contact Summary
 linkTitle: Building
 weight: 1
+description: >
+  Build CHT Application contact summary
+relatedContent: >
+  building/contact-management#contact-summary
+  building/contact-summary/contact-summary-templated#contact-summary
 aliases:
    - /building/tutorials/contact-summary
    - /apps/tutorials/contact-summary
 ---
-
-{{< hextra/hero-subtitle >}}
-  Build CHT Application contact summary
-{{< /hextra/hero-subtitle >}}
 
 This tutorial will take you through building a contact summary for CHT applications.
 
@@ -19,13 +20,13 @@ You will be adding a contact summary that displays information about a person's 
 
 ## Brief Overview of Key Concepts
 
-Each *field* that can be shown on a contact’s profile is defined as an object in the *[fields array]({{< ref "building/contact-summary/contact-summary-templated#contact-summarytemplatedjs-fields" >}})* of `contact-summary.templated.js`.
+Each *field* that can be shown on a contact’s profile is defined as an object in the *[fields array](/building/contact-summary/contact-summary-templated#contact-summarytemplatedjs-fields)* of `contact-summary.templated.js`.
 
 The *properties* for each object determine how and when the field is shown.
 
 ## Required Resources
 
-You should have a functioning [CHT instance with `cht-conf` installed locally]({{< ref "building/local-setup" >}}), and completed a [project folder]({{< ref "building/local-setup#3-create-and-upload-a-blank-project" >}}) setup.
+You should have a functioning [CHT instance with `cht-conf` installed locally](/building/local-setup), and completed a [project folder](/building/local-setup/#deploy-local-cht-instance) setup.
 
 ## Implementation Steps
 
