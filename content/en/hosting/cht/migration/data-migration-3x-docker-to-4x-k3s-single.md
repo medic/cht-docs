@@ -7,6 +7,7 @@ description: >
 aliases:
   - /hosting/cht/migration/_partial_migration_3x_docker_to_4x_k3s
   - /hosting/4.x/migration/data-migration-3x-docker-to-4x-k3s-single/
+  - /hosting/cht/migration/migration-to-4x-docker
 ---
 
 The hosting architecture differs entirely between CHT Core 3.x and CHT Core 4.x. When migrating from Docker Compose to K3s, specific steps are required using the [couchdb-migration](https://github.com/medic/couchdb-migration) tool. This tool interfaces with CouchDB to update shard maps and database metadata.
