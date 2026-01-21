@@ -164,7 +164,7 @@
   /**
    * Handle keyboard shortcuts globally
    * Ctrl+K / Cmd+K → Ask AI modal
-   * Ctrl+L / Cmd+L → Search modal
+   * Ctrl+/ / Cmd+/ → Search modal
    */
   const setupKeyboardShortcuts = () => {
     document.addEventListener('keydown', e => {
@@ -174,8 +174,8 @@
         e.stopPropagation();
         openKapa(KAPA_MODE.AI);
       }
-      // Ctrl+L / Cmd+L → Search
-      if ((e.metaKey || e.ctrlKey) && e.key === 'l') {
+      // Ctrl+/ / Cmd+/ → Search
+      if ((e.metaKey || e.ctrlKey) && e.key === '/') {
         e.preventDefault();
         e.stopPropagation();
         openKapa(KAPA_MODE.SEARCH);
@@ -209,12 +209,12 @@
 
     searchInput.placeholder = 'Search...';
 
-    // Update keyboard shortcut hint from Ctrl+K to Ctrl+L
+    // Update keyboard shortcut hint from Ctrl+K to Ctrl+/
     const searchWrapper = searchInput.closest('.hextra-search-wrapper') || searchInput.parentElement;
     if (searchWrapper) {
       const shortcutHint = searchWrapper.querySelector('kbd');
       if (shortcutHint && shortcutHint.textContent.includes('K')) {
-        shortcutHint.textContent = shortcutHint.textContent.replace('K', 'L');
+        shortcutHint.textContent = shortcutHint.textContent.replace('K', '/');
       }
     }
   };
@@ -303,13 +303,36 @@
           [data-mantine-color-scheme="dark"] a {
             color: #5cc8c8 !important;
           }
-          /* Keep disclaimer text dark (teal background) */
-          [data-mantine-color-scheme="dark"] .mantine-tilrau,
+          /* Dark mode: Disclaimer/consent boxes */
+          [data-mantine-color-scheme="dark"] .mantine-tilrau {
+            background-color: #2e2e2e !important;
+            color: #ffffff !important;
+          }
           [data-mantine-color-scheme="dark"] .mantine-tilrau * {
-            color: #000000 !important;
+            color: #ffffff !important;
           }
           [data-mantine-color-scheme="dark"] .mantine-tilrau a {
-            color: #0066cc !important;
+            color: #5cc8c8 !important;
+          }
+          /* Dark mode: Search result text highlights */
+          [data-mantine-color-scheme="dark"] mark,
+          [data-mantine-color-scheme="dark"] .mantine-Mark-root,
+          [data-mantine-color-scheme="dark"] .mantine-Highlight-root mark {
+            background-color: #1a4040 !important;
+            color: #b0b0b0 !important;
+          }
+          /* Dark mode: Search result row - base state and hover */
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root {
+            background-color: transparent !important;
+            transition: background-color 0.1s ease !important;
+          }
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover,
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus {
+            background-color: #404040 !important;
+          }
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover *,
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus * {
+            color: #e0e0e0 !important;
           }
         `;
       } else if (styleEl) {
