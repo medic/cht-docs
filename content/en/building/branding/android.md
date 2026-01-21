@@ -47,6 +47,7 @@ To proceed you need to have ready the following:
 
 - The URL of your CHT server so users don't have to type it in post install.
 - The app logo and title.
+- Notification icon.
 - Translations for your supported languages (most flavors don't need to customize translations though).
 
 Also be sure to have a working **[Development Environment]({{< ref "community/contributing/code/android/development-setup" >}})**.
