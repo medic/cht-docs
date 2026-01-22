@@ -521,7 +521,6 @@ Overview paragraph.
 ### MCP Server Integration
 
 This project can use the CHT Docs MCP server for:
-- You are inside the docs repository
 - Semantic search across all CHT documentation
 - Context about CHT concepts and architecture
 - Validation of technical accuracy

@@ -79,51 +79,7 @@ Follow these CHT style guide rules strictly:
 
 ## Step 5: Write Code Examples (if needed)
 
-When documentation includes JavaScript/TypeScript code, follow the CHT Coding Style Guide:
-
-**Variable declarations:**
-```js
-// Right: const by default, let when needed
-const config = { timeout: 5000 };
-let counter = 0;
-
-// Wrong: never use var
-var config = { timeout: 5000 };
-```
-
-**Naming:**
-```js
-// Right: descriptive lowerCamelCase
-const adminUser = db.query();
-const isValidPassword = password.length >= 4;
-
-// Wrong: single-letter or unclear names
-const a = db.query();
-const x = password.length >= 4;
-```
-
-**Functions:**
-```js
-// Right: arrow functions, omit parens for single param
-const double = x => x * 2;
-const add = (a, b) => a + b;
-
-// Wrong: unnecessary parens, function keyword
-const double = (x) => x * 2;
-const add = function(a, b) { return a + b; };
-```
-
-**Async code:**
-```js
-// Right: async/await
-const fetchData = async () => {
-  const response = await request.get();
-  return response.data;
-};
-
-// Wrong: promise chains or callbacks
-const fetchData = () => request.get().then(r => r.data);
-```
+When documentation includes JavaScript/TypeScript code, you MUST understand the examples and check out the code style guide located in: content/en/community/contributing/code/style-guide.md
 
 **Other rules:**
 - Use `===` not `==`
