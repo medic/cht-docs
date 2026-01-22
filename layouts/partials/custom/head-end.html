@@ -1,25 +1,401 @@
 <!-- kapa.ai Assistant Integration. Documentation: https://docs.kapa.ai/integrations/website-widget/installation/general -->
-<script async=""
+
+<!-- Preinitialize Kapa to queue calls until widget is ready.
+     This sets window.Kapa which is used by the integration scripts below. -->
+<script>
+(function() {
+  'use strict';
+  const existingKapa = window.Kapa;
+  if (!existingKapa) {
+    // Kapa's widget expects these specific property names (.q for queue, .c for enqueue)
+    const kapaStub = function () {
+      kapaStub.c(arguments);
+    };
+    kapaStub.q = [];
+    kapaStub.c = callArgs => {
+      kapaStub.q.push(callArgs);
+    };
+    window.Kapa = kapaStub;
+  }
+})();
+</script>
+
+<!-- Kapa Widget Configuration -->
+<script
+  async
   src="https://widget.kapa.ai/kapa-widget.bundle.js"
   data-website-id="de260d96-3c0b-4ddd-a7e5-8013809dfb12"
   data-project-name="Community Health Toolkit"
   data-project-color="#41AFAF"
   data-project-logo="https://docs.communityhealthtoolkit.org/logo.png"
   data-font-family="Noto Sans,sans-serif"
-  data-modal-disclaimer="This is a custom LLM for Community Health Toolkit (CHT) with access to all [Documentation](https://docs.communityhealthtoolkit.org), [GitHub Issues and READMEs](https://github.com/medic/cht-core) and the [CHT Forum](https://forum.communityhealthtoolkit.org). Rate the answers to let us know what you think!" 
-  data-modal-example-questions="How do I run the CHT locally?,How can I contribute to the CHT?" 
-  data-button-text-color="#FFFFFF" 
-  data-modal-header-bg-color="#41AFAF" 
-  data-modal-title-color="#FFFFFF" 
-  data-modal-title="CHT Docs AI" 
-  data-modal-disclaimer-bg-color="#DFEAEA" 
-  data-modal-disclaimer-text-color="#000000" 
+  data-modal-disclaimer="This is a custom LLM for Community Health Toolkit (CHT) with access to all [Documentation](https://docs.communityhealthtoolkit.org), [GitHub Issues and READMEs](https://github.com/medic/cht-core) and the [CHT Forum](https://forum.communityhealthtoolkit.org). Rate the answers to let us know what you think!"
+  data-modal-example-questions="How do I run the CHT locally?,How can I contribute to the CHT?"
+  data-button-text-color="#FFFFFF"
+  data-modal-header-bg-color="#41AFAF"
+  data-modal-title-color="#FFFFFF"
+  data-modal-title="CHT Docs AI"
+  data-modal-disclaimer-bg-color="#DFEAEA"
+  data-modal-disclaimer-text-color="#000000"
   data-modal-ask-ai-input-placeholder="Ask me a question about the CHT..."
   data-consent-required="true"
-  data-consent-screen-disclaimer="By clicking &quot;I agree, let's chat&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
-  data-modal-open-on-command-k="true" 
+  data-consent-screen-title="Search and Ask AI are powered by Kapa"
+  data-consent-screen-disclaimer="By clicking &quot;I agree&quot;, you consent to the use of search and the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
+  data-consent-screen-accept-button-text="I agree!"
+  data-modal-open-on-command-k="false"
   data-modal-border-radius="6px"
   data-search-mode-enabled="true"
-  data-button-animation-enabled="false"
-  data-button-hover-animation-enabled="false"
+  data-button-hide="true"
 ></script>
+
+<!-- Custom Kapa AI Button Styles -->
+<style>
+  #kapa-navbar-btn {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    color: currentColor;
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+  }
+
+  #kapa-navbar-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .dark #kapa-navbar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  #kapa-navbar-btn:active {
+    transform: scale(0.95);
+  }
+
+  #kapa-navbar-btn span {
+    padding-left: 5px;
+  }
+
+  /* Hide "Ask AI" text on mobile to reduce header crowding */
+  @media (max-width: 767px) {
+    #kapa-navbar-btn span {
+      display: none;
+    }
+  }
+</style>
+
+<!-- Kapa Integration: Navbar Button + Search Intercept -->
+<script>
+(function() {
+  'use strict';
+
+  const KAPA_MODE = {
+    AI: 'ai',
+    SEARCH: 'search'
+  };
+
+  /**
+   * Open Kapa modal in specified mode
+   * @param {string} mode - 'ai' or 'search'
+   */
+  const openKapa = mode => {
+    window.Kapa('open', { mode });
+  };
+
+  /**
+   * Inject "Ask AI" button into the navbar
+   */
+  const injectKapaButton = () => {
+    const navbar = document.querySelector('nav.hextra-max-navbar-width');
+    if (!navbar || document.getElementById('kapa-navbar-btn')) {
+      return;
+    }
+
+    const searchWrapper = navbar.querySelector('.hextra-search-wrapper');
+    const kapaBtn = document.createElement('button');
+
+    kapaBtn.id = 'kapa-navbar-btn';
+    kapaBtn.type = 'button';
+    kapaBtn.title = 'Ask AI';
+
+    // Create sparkle icon (Lucide "sparkles" icon)
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '20');
+    svg.setAttribute('height', '20');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+
+    const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path1.setAttribute('d', 'M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z');
+
+    const path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path2.setAttribute('d', 'M20 3v4');
+    const path3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path3.setAttribute('d', 'M22 5h-4');
+
+    svg.appendChild(path1);
+    svg.appendChild(path2);
+    svg.appendChild(path3);
+
+    const span = document.createElement('span');
+    span.textContent = 'Ask AI';
+
+    kapaBtn.appendChild(svg);
+    kapaBtn.appendChild(span);
+
+    if (searchWrapper) {
+      navbar.insertBefore(kapaBtn, searchWrapper);
+    } else {
+      navbar.appendChild(kapaBtn);
+    }
+
+    kapaBtn.addEventListener('click', e => {
+      e.preventDefault();
+      openKapa(KAPA_MODE.AI);
+    });
+  };
+
+  /**
+   * Handle keyboard shortcuts globally
+   * Ctrl+K / Cmd+K → Ask AI modal
+   * Ctrl+/ / Cmd+/ → Search modal
+   */
+  const setupKeyboardShortcuts = () => {
+    document.addEventListener('keydown', e => {
+      // Ctrl+K / Cmd+K → Ask AI
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        e.stopPropagation();
+        openKapa(KAPA_MODE.AI);
+      }
+      // Ctrl+/ / Cmd+/ → Search
+      if ((e.metaKey || e.ctrlKey) && e.key === '/') {
+        e.preventDefault();
+        e.stopPropagation();
+        openKapa(KAPA_MODE.SEARCH);
+      }
+    }, true); // Capture phase to intercept before Hextra
+  };
+
+  /**
+   * Attach Kapa intercept handlers to a single search input
+   * @param {HTMLInputElement} searchInput - The search input element
+   */
+  const attachSearchIntercept = searchInput => {
+    // Mark as processed to avoid duplicate handlers
+    if (searchInput.dataset.kapaIntercepted) {
+      return;
+    }
+    searchInput.dataset.kapaIntercepted = 'true';
+
+    // Intercept mousedown to prevent FlexSearch from initializing
+    searchInput.addEventListener('mousedown', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      openKapa(KAPA_MODE.SEARCH);
+    });
+
+    // Handle keyboard focus (Tab key)
+    searchInput.addEventListener('focus', () => {
+      searchInput.blur();
+      openKapa(KAPA_MODE.SEARCH);
+    });
+
+    searchInput.placeholder = 'Search...';
+
+    // Update keyboard shortcut hint from Ctrl+K to Ctrl+/
+    const searchWrapper = searchInput.closest('.hextra-search-wrapper') || searchInput.parentElement;
+    if (searchWrapper) {
+      const shortcutHint = searchWrapper.querySelector('kbd');
+      if (shortcutHint && shortcutHint.textContent.includes('K')) {
+        shortcutHint.textContent = shortcutHint.textContent.replace('K', '/');
+      }
+    }
+  };
+
+  /**
+   * Intercept all search inputs (desktop + mobile) to use Kapa semantic search
+   */
+  const setupKapaSearchIntercept = () => {
+    // Find all search inputs (desktop navbar + mobile menu)
+    const searchInputs = document.querySelectorAll('.hextra-search-input');
+    searchInputs.forEach(attachSearchIntercept);
+
+    // Also observe for dynamically added search inputs (e.g., mobile menu)
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            // Check if the added node is a search input
+            if (node.classList && node.classList.contains('hextra-search-input')) {
+              attachSearchIntercept(node);
+            }
+            // Check for search inputs within added nodes
+            const nestedInputs = node.querySelectorAll ? node.querySelectorAll('.hextra-search-input') : [];
+            nestedInputs.forEach(attachSearchIntercept);
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  };
+
+  /**
+   * Sync Kapa's dark mode with site theme.
+   * Kapa uses Shadow DOM which blocks external CSS, so we must:
+   * 1. Set data-mantine-color-scheme attribute for Mantine's built-in dark mode
+   * 2. Inject CSS overrides directly into the shadow root for elements Mantine doesn't handle
+   */
+  const syncKapaDarkMode = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    const colorScheme = isDark ? 'dark' : 'light';
+
+    const kapaContainer = document.querySelector('#kapa-widget-container');
+    if (kapaContainer && kapaContainer.shadowRoot) {
+      const shadowRoot = kapaContainer.shadowRoot;
+      const kapaWidgetRoot = shadowRoot.querySelector('#kapa-widget-root');
+      if (kapaWidgetRoot) {
+        kapaWidgetRoot.setAttribute('data-mantine-color-scheme', colorScheme);
+      }
+
+      // Inject dark mode CSS overrides into shadow DOM
+      const styleId = 'kapa-dark-mode-overrides';
+      let styleEl = shadowRoot.querySelector(`#${styleId}`);
+
+      if (isDark) {
+        if (!styleEl) {
+          styleEl = document.createElement('style');
+          styleEl.id = styleId;
+          shadowRoot.appendChild(styleEl);
+        }
+        styleEl.textContent = `
+          /* Dark mode: Question title */
+          [data-mantine-color-scheme="dark"] .mantine-Title-root {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: Answer content text */
+          [data-mantine-color-scheme="dark"] .mantine-Text-root {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: List items */
+          [data-mantine-color-scheme="dark"] .mantine-List-root,
+          [data-mantine-color-scheme="dark"] .mantine-List-item,
+          [data-mantine-color-scheme="dark"] .mantine-List-itemLabel,
+          [data-mantine-color-scheme="dark"] .mantine-List-itemWrapper {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: Input/textarea text */
+          [data-mantine-color-scheme="dark"] .mantine-Input-input,
+          [data-mantine-color-scheme="dark"] .mantine-Textarea-input {
+            color: #e0e0e0 !important;
+          }
+          /* Dark mode: Links */
+          [data-mantine-color-scheme="dark"] a {
+            color: #5cc8c8 !important;
+          }
+          /* Dark mode: Disclaimer/consent boxes */
+          [data-mantine-color-scheme="dark"] .mantine-tilrau {
+            background-color: #2e2e2e !important;
+            color: #ffffff !important;
+          }
+          [data-mantine-color-scheme="dark"] .mantine-tilrau * {
+            color: #ffffff !important;
+          }
+          [data-mantine-color-scheme="dark"] .mantine-tilrau a {
+            color: #5cc8c8 !important;
+          }
+          /* Dark mode: Search result text highlights */
+          [data-mantine-color-scheme="dark"] mark,
+          [data-mantine-color-scheme="dark"] .mantine-Mark-root,
+          [data-mantine-color-scheme="dark"] .mantine-Highlight-root mark {
+            background-color: #1a4040 !important;
+            color: #b0b0b0 !important;
+          }
+          /* Dark mode: Search result row - base state and hover */
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root {
+            background-color: transparent !important;
+            transition: background-color 0.1s ease !important;
+          }
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover,
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus {
+            background-color: #404040 !important;
+          }
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover *,
+          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus * {
+            color: #e0e0e0 !important;
+          }
+        `;
+      } else if (styleEl) {
+        styleEl.remove();
+      }
+    }
+  };
+
+  /**
+   * Set up observer for theme changes and Kapa widget initialization
+   */
+  const setupDarkModeSync = () => {
+    // Sync when theme changes on <html>
+    const themeObserver = new MutationObserver(() => {
+      syncKapaDarkMode();
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // Watch for Kapa widget container to be added to DOM
+    const widgetObserver = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.id === 'kapa-widget-container' || node.querySelector?.('#kapa-widget-container')) {
+              // Wait for shadow DOM to initialize
+              setTimeout(syncKapaDarkMode, 100);
+              setTimeout(syncKapaDarkMode, 500);
+            }
+          }
+        }
+      }
+    });
+
+    widgetObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    // Try to sync immediately in case widget is already loaded
+    syncKapaDarkMode();
+  };
+
+  /**
+   * Initialize all Kapa integrations
+   */
+  const init = () => {
+    injectKapaButton();
+    setupKapaSearchIntercept();
+    setupDarkModeSync();
+  };
+
+  // Set up keyboard shortcuts immediately (capture phase)
+  setupKeyboardShortcuts();
+
+  // Initialize DOM-dependent features
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
