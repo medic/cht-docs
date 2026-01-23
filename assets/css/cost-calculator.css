@@ -1,10 +1,10 @@
 :root {
-  --calc-border: #e5e7eb;
+  --calc-border: #a4a4a4;
   --calc-text: #1f2937;
   --calc-text-light: #6b7280;
   --calc-input-bg: #f9fafb;
   --calc-input-border: #d1d5db;
-  --calc-card-bg: #f9fafb;
+  --calc-card-bg: #f6f6f6;
   --calc-label-bg: #f3f4f6;
 
   --calc-link: #3b82f6;
