@@ -65,6 +65,23 @@ html.dark {
 }
 
 .calc-card.params {
+  display: flex;
+  flex-direction: column;
+
+  .advanced-inputs-scroll {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    max-height: 19rem;
+    margin-right: -0.75rem;
+    padding-right: 0.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    &:hover {
+      scrollbar-color: var(--calc-border) transparent;
+    }
+  }
+
   .label-with-value {
     display: flex;
     justify-content: space-between;
@@ -334,7 +351,7 @@ html.dark {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 .text-blue {
   color: var(--calc-link);

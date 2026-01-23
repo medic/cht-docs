@@ -183,8 +183,8 @@ const attachListeners = (els, updateOutputs) => {
 
   // View toggles
   const toggle = (showAdvanced) => {
-    els.basicParams.style.display = showAdvanced ? 'none' : 'block';
-    els.advancedParams.style.display = showAdvanced ? 'block' : 'none';
+    els.basicParams.classList.toggle('hidden', showAdvanced);
+    els.advancedParams.classList.toggle('hidden', !showAdvanced);
   };
   els.showAdvanced?.addEventListener('click', () => toggle(true));
   els.showBasic?.addEventListener('click', () => toggle(false));

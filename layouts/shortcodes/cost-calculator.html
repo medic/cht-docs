@@ -40,36 +40,38 @@
     <div class="calc-card params hidden" id="advanced-params-{{ $id }}">
       <h3>Advanced Parameters</h3>
 
-      <div class="advanced-input-group">
-        <div class="advanced-input">
-          <label for="deployment-age-{{ $id }}">Age of Deployment</label>
-          <input type="number" class="input-value" id="deployment-age-value-{{ $id }}" value="1" min="1" max="10">
+      <div class="advanced-inputs-scroll">
+        <div class="advanced-input-group">
+          <div class="advanced-input">
+            <label for="deployment-age-{{ $id }}">Age of Deployment</label>
+            <input type="number" class="input-value" id="deployment-age-value-{{ $id }}" value="1" min="1" max="10">
+          </div>
+          <div class="helper-text">Years of data collected</div>
         </div>
-        <div class="helper-text">Years of data collected</div>
-      </div>
 
-      <div class="advanced-input-group">
-        <div class="advanced-input">
-          <label for="contacts-per-place-{{ $id }}">Average Household Size</label>
-          <input type="number" class="input-value" id="contacts-per-place-{{ $id }}" value="5" min="2">
+        <div class="advanced-input-group">
+          <div class="advanced-input">
+            <label for="contacts-per-place-{{ $id }}">Average Household Size</label>
+            <input type="number" class="input-value" id="contacts-per-place-{{ $id }}" value="5" min="2">
+          </div>
+          <div class="helper-text">Number of contacts in each geographic location</div>
         </div>
-        <div class="helper-text">Number of contacts in each geographic location</div>
-      </div>
 
-      <div class="advanced-input-group">
-        <div class="advanced-input">
-          <label for="workflow-docs-{{ $id }}">Workflow Docs Per Contact</label>
-          <input type="number" class="input-value" id="workflow-docs-{{ $id }}" value="12" min="1">
+        <div class="advanced-input-group">
+          <div class="advanced-input">
+            <label for="workflow-docs-{{ $id }}">Workflow Docs Per Contact</label>
+            <input type="number" class="input-value" id="workflow-docs-{{ $id }}" value="12" min="1">
+          </div>
+          <div class="helper-text">Documents generated per contact per workflow per year</div>
         </div>
-        <div class="helper-text">Documents generated per contact per workflow per year</div>
-      </div>
 
-      <div class="advanced-input-group">
-        <div class="advanced-input">
-          <label for="db-overprovision-{{ $id }}">Database Over-provisioning Factor</label>
-          <input type="number" class="input-value" id="db-overprovision-{{ $id }}" value="2" min="1" max="10">
+        <div class="advanced-input-group">
+          <div class="advanced-input">
+            <label for="db-overprovision-{{ $id }}">Database Over-provisioning Factor</label>
+            <input type="number" class="input-value" id="db-overprovision-{{ $id }}" value="2" min="1" max="10">
+          </div>
+          <div class="helper-text">Multiplier for database storage headroom</div>
         </div>
-        <div class="helper-text">Multiplier for database storage headroom</div>
       </div>
 
       <div class="viz-divider advanced-footer">
