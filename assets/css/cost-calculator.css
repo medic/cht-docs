@@ -4,7 +4,7 @@
   --calc-text-light: #6b7280;
   --calc-input-bg: #f9fafb;
   --calc-input-border: #d1d5db;
-  --calc-card-bg: #f6f6f6;
+  --calc-card-bg: #efefef;
   --calc-label-bg: #f3f4f6;
 
   --calc-link: #3b82f6;
@@ -30,33 +30,18 @@ html.dark {
 
 .calc-grid {
   display: grid;
-  grid-template-columns: repeat(12, [col-start] 1fr);
   gap: 1rem;
-  min-width: 28rem;
   max-width: 48rem;
 }
 
-.calc-grid > * {
-  grid-column: col-start / span 12;
-}
-
 @media (min-width: 1024px) {
-  .calc-card.params {
-    grid-column: col-start / span 6;
-    grid-row: 1;
+  .calc-grid {
+    grid-template-columns: repeat(12, 1fr);
   }
-  .calc-card.cost {
-    grid-column: col-start 7 / span 6;
-    grid-row: 1;
-  }
-  .calc-card.users {
-    grid-column: col-start / span 4;
-    grid-row: 2;
-  }
-  .calc-card.host {
-    grid-column: col-start 5 / span 8;
-    grid-row: 2;
-  }
+  .calc-card.params { grid-column: span 6; }
+  .calc-card.cost { grid-column: span 6; }
+  .calc-card.users { grid-column: span 4; }
+  .calc-card.host { grid-column: span 8; }
 }
 
 .calc-card {
