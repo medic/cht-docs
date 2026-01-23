@@ -106,6 +106,12 @@ html.dark {
     cursor: pointer;
   }
 
+  .helper-text {
+    font-size: 0.8rem;
+    color: var(--calc-text-light);
+    margin-top: 0.25rem;
+  }
+
   .advanced-input-group {
     margin-bottom: 1.25rem;
 
@@ -120,12 +126,6 @@ html.dark {
         margin: 0;
         flex: 1;
       }
-    }
-
-    .helper-text {
-      font-size: 0.8rem;
-      color: var(--calc-text-light);
-      margin-top: 0.25rem;
     }
   }
 }
