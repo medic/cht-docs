@@ -40,8 +40,14 @@ html.dark {
   }
   .calc-card.params { grid-column: span 6; }
   .calc-card.cost { grid-column: span 6; }
-  .calc-card.users { grid-column: span 4; }
-  .calc-card.host { grid-column: span 8; }
+  .calc-card.users {
+    grid-column: span 4;
+    max-width: 16rem;
+  }
+  .calc-card.host {
+    grid-column: span 8;
+    max-width: 32rem;
+  }
   .calc-card.host .host-grid {
     grid-template-columns: 1.5fr 1fr;
   }
@@ -52,14 +58,13 @@ html.dark {
   border: 1px solid var(--calc-border);
   border-radius: 8px;
   padding: 1.5rem;
+  max-width: 24rem;
 }
 .calc-card h3 {
   margin: 0 0 1.25rem 0;
 }
 
 .calc-card.params {
-  max-width: 24rem;
-
   .label-with-value {
     display: flex;
     justify-content: space-between;
@@ -126,8 +131,6 @@ html.dark {
 }
 
 .calc-card.cost {
-  max-width: 24rem;
-
   .total-cost {
     text-align: center;
     font-size: 2.5rem;
@@ -185,8 +188,6 @@ html.dark {
 }
 
 .calc-card.users {
-  max-width: 16rem;
-
   .cost-per-user {
     display: flex;
     justify-content: space-between;
@@ -241,8 +242,6 @@ html.dark {
 }
 
 .calc-card.host {
-  max-width: 32rem;
-
   .host-grid {
     display: grid;
     gap: 1rem;
