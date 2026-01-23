@@ -23,12 +23,6 @@
       <input type="range" class="calc-input" id="workflow-count-{{ $id }}" min="1" max="25" value="5" step="1">
 
       <label class="label-with-value">
-        <span>Age of Deployment (years)</span>
-        <input type="number" class="input-value" id="deployment-age-value-{{ $id }}" value="1" min="1" max="10">
-      </label>
-      <input type="range" class="calc-input" id="deployment-age-{{ $id }}" min="1" max="10" value="1" step="1">
-
-      <label class="label-with-value">
         <span>Number of Users</span>
         <input type="number" class="input-value" id="user-count-input-value-{{ $id }}" value="100" min="10" max="15000">
       </label>
@@ -42,6 +36,14 @@
     <!-- Advanced Parameters -->
     <div class="calc-card params hidden" id="advanced-params-{{ $id }}">
       <h3>Advanced Parameters</h3>
+
+      <div class="advanced-input-group">
+        <div class="advanced-input">
+          <label for="deployment-age-{{ $id }}">Age of Deployment</label>
+          <input type="number" class="input-value" id="deployment-age-value-{{ $id }}" value="1" min="1" max="10">
+        </div>
+        <div class="helper-text">Years of data collected</div>
+      </div>
 
       <div class="advanced-input-group">
         <div class="advanced-input">

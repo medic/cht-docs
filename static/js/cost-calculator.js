@@ -8,6 +8,7 @@ const INSTANCES = [
   { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 100000, maxLoad: 375000 }
 ];
 const DEFAULTS = {
+  DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB: 1,
   CONTACTS_PER_PLACE: 5,
   WORKFLOW_YEARLY_DOCS_PER_CONTACT: 12,
@@ -26,7 +27,7 @@ const updateRangeMarker = (marker, value, minRange, maxRange, offset = 1.5) => {
 };
 
 const calculateMetrics = (els) => {
-  const deploymentAge = Number.parseInt(els.deploymentAge.value);
+  const deploymentAge = Number.parseInt(els.deploymentAgeValue.value);
   const workflowCount = Number.parseInt(els.workflowCount.value);
   const populationCount = Number.parseInt(els.populationCount.value);
   const userCount = Number.parseInt(els.userCountInput.value);
@@ -173,9 +174,9 @@ const attachListeners = (els, updateOutputs) => {
 
   addSliderWithInput(els.populationCount, els.populationCountValue, updateOutputs);
   addSliderWithInput(els.workflowCount, els.workflowCountValue, updateOutputs);
-  addSliderWithInput(els.deploymentAge, els.deploymentAgeValue, updateOutputs);
   addSliderWithInput(els.userCountInput, els.userCountInputValue, updateOutputs);
 
+  addAdvancedInput(els.deploymentAgeValue, updateOutputs);
   addAdvancedInput(els.contactsPerPlace, updateOutputs);
   addAdvancedInput(els.workflowDocs, updateOutputs);
   addAdvancedInput(els.dbOverprovision, updateOutputs);
@@ -188,6 +189,7 @@ const attachListeners = (els, updateOutputs) => {
   els.showAdvanced?.addEventListener('click', () => toggle(true));
   els.showBasic?.addEventListener('click', () => toggle(false));
   els.resetAdvanced?.addEventListener('click', () => {
+    els.deploymentAgeValue.value = DEFAULTS.DEPLOYMENT_AGE;
     els.contactsPerPlace.value = DEFAULTS.CONTACTS_PER_PLACE;
     els.workflowDocs.value = DEFAULTS.WORKFLOW_YEARLY_DOCS_PER_CONTACT;
     els.dbOverprovision.value = DEFAULTS.DB_OVERPROVISION_FACTOR;
@@ -201,8 +203,6 @@ const initCostCalculator = (calcId) => {
 
   const els = {
     // Basic parameters
-    deploymentAge: el('deployment-age'),
-    deploymentAgeValue: el('deployment-age-value'),
     workflowCount: el('workflow-count'),
     workflowCountValue: el('workflow-count-value'),
     populationCount: el('population-count'),
@@ -210,6 +210,7 @@ const initCostCalculator = (calcId) => {
     userCountInput: el('user-count-input'),
     userCountInputValue: el('user-count-input-value'),
     // Advanced parameters
+    deploymentAgeValue: el('deployment-age-value'),
     contactsPerPlace: el('contacts-per-place'),
     workflowDocs: el('workflow-docs'),
     dbOverprovision: el('db-overprovision'),
