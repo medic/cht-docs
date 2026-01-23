@@ -42,6 +42,9 @@ html.dark {
   .calc-card.cost { grid-column: span 6; }
   .calc-card.users { grid-column: span 4; }
   .calc-card.host { grid-column: span 8; }
+  .calc-card.host .host-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
 }
 
 .calc-card {
@@ -242,7 +245,6 @@ html.dark {
 
   .host-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
     gap: 1rem;
   }
 
