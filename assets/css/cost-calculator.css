@@ -69,7 +69,6 @@ html.dark {
   flex-direction: column;
 
   .advanced-inputs-scroll {
-    flex: 1;
     overflow-y: auto;
     min-height: 0;
     max-height: 19rem;
@@ -82,11 +81,15 @@ html.dark {
     }
   }
 
+  > .viz-divider {
+    margin-top: auto;
+  }
+
   .label-with-value {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
     font-weight: 500;
     font-size: 0.9rem;
   }
@@ -398,8 +401,6 @@ html.dark {
   font-size: 0.9rem;
   font-weight: 500;
 }
-.advanced-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.advanced-footer > :last-child {
+  float: right;
 }
