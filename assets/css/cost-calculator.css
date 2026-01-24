@@ -219,10 +219,19 @@ html.dark {
       color: var(--calc-text-light);
     }
 
+    .cost-per-user-values {
+      text-align: right;
+    }
+
     .cost-per-user-value {
       font-size: 1.25rem;
       font-weight: bold;
       color: var(--calc-link);
+    }
+
+    .cost-per-user-monthly {
+      font-size: 0.75rem;
+      color: var(--calc-text-light);
     }
   }
 

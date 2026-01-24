@@ -113,7 +113,9 @@ const updateOutputElements = (els) => () => {
   els.diskOverprovisionBar.style.width = (m.diskOverprovisionGb / m.diskSizeGb * 100) + '%';
 
   const userCount = Number.parseInt(els.userCountInput.value);
-  const monthlyCostPerUser = userCount > 0 ? (m.totalCost / userCount) / 12 : 0;
+  const yearlyCostPerUser = userCount > 0 ? m.totalCost / userCount : 0;
+  const monthlyCostPerUser = yearlyCostPerUser / 12;
+  els.costPerUserYearly.textContent = `$${yearlyCostPerUser.toFixed(2)}`;
   els.costPerUser.textContent = `$${monthlyCostPerUser.toFixed(2)}`;
 
   els.popPerUser.textContent = m.popPerUser.toFixed();
@@ -236,6 +238,7 @@ const initCostCalculator = (calcId) => {
     popPerUserMarker: el('pop-per-user-marker'),
     docsPerUser: el('docs-per-user'),
     docsPerUserMarker: el('docs-per-user-marker'),
+    costPerUserYearly: el('cost-per-user-yearly'),
     costPerUser: el('cost-per-user'),
     resourceUtil: el('resource-util'),
     resourceUtilMarker: el('resource-util-marker'),

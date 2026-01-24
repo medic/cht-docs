@@ -105,7 +105,10 @@
       <h3>Users</h3>
       <div class="cost-per-user">
         <span class="cost-per-user-label">Per User</span>
-        <div class="cost-per-user-value"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
+        <div class="cost-per-user-values">
+          <div class="cost-per-user-value"><span id="cost-per-user-yearly-{{ $id }}">$0</span>/yr</div>
+          <div class="cost-per-user-monthly"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
+        </div>
       </div>
       <div class="viz-section viz-divider people-per">
         <div class="viz-label">People per User</div>
