@@ -214,9 +214,9 @@ This is a Docker only issue.
 
 **Issue:**  When a VM has been upgraded but the CHT Upgrade Service is out of date, an error can occur.
 
-{{< figure src="error.fetching.progress.png" link="error.fetching.progress.png" caption="CHT Core admin UI showing the error `Error feching upgrade progress`" >}}
+{{< figure src="error.fetching.progress.png" link="error.fetching.progress.png" caption="CHT Core admin UI showing the error `Error fetching upgrade progress`" >}}
 
-CHT Upgrade Service Logs:
+There's multiple reasons `Error fetching upgrade progress` to occur, so verify in CHT Upgrade Service logs show:
 
 ```shell
 2024-04-04T19:30:44.955097611Z ERROR: for healthcheck  'ContainerConfig'
