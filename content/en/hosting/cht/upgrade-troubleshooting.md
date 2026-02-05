@@ -179,6 +179,61 @@ kubectl delete po 'cht.service in (api, sentinel, haproxy, couchdb)'
 
 _* See eCHIS Kenya [Issue #2579](https://github.com/moh-kenya/config-echis-2.0/issues/2579#issuecomment-2455637516) - a private repo and not available to the public_
 
+## CHT 4.x & 5.x: Docker reports "client version is too old"
+
+{{< callout type="info" >}}
+This is a Docker only issue.
+{{< /callout >}}
+
+**Issue:**  When a VM has been upgraded but the CHT Upgrade Service is out of date, an error can occur.
+
+CHT Upgrade Service Logs:
+
+```shell
+Error response from daemon: client version 1.41 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version
+
+Error while starting containers Error: Error response from daemon: client version 1.41 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version
+
+    at ChildProcess.<anonymous> (/app/src/docker-compose-cli.js:35:25)
+    at ChildProcess.emit (node:events:513:28)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:293:12)
+```
+
+**Fix:** Download the latest version of the upgrade service, restart the upgrade service and retry the upgrade:
+
+```shell
+docker pull public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest
+docker compose up -d  # reloads services with updated images 
+```
+
+## CHT 4.x & 5.x: Error fetching upgrade progress
+
+{{< callout type="info" >}}
+This is a Docker only issue.
+{{< /callout >}}
+
+**Issue:**  When a VM has been upgraded but the CHT Upgrade Service is out of date, an error can occur.
+
+{{< figure src="error.fetching.progress.png" link="error.fetching.progress.png" caption="CHT Core admin UI showing the error `Error fetching upgrade progress`" >}}
+
+There's multiple reasons `Error fetching upgrade progress` to occur, so verify in CHT Upgrade Service logs show:
+
+```shell
+2024-04-04T19:30:44.955097611Z ERROR: for healthcheck  'ContainerConfig'
+2024-04-04T19:30:44.955101343Z 
+2024-04-04T19:30:44.955105243Z ERROR: for haproxy  'ContainerConfig'
+2024-04-04T19:30:44.955109269Z Traceback (most recent call last):
+2024-04-04T19:30:44.955112702Z   File "/usr/bin/docker-compose", line 33, in <module>
+2024-04-04T19:30:44.955116901Z     sys.exit(load_entry_point('docker-compose==1.29.2', 'console_scripts', 'docker-compose')())
+```
+
+**Fix:** Download the latest version of the upgrade service, restart the upgrade service and retry the upgrade: 
+
+```shell
+docker pull public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest
+docker compose up -d  # reloads services with updated images 
+```
+
 
 ## Related forum posts
-- ["Restoring corrupted couchdb database"](https://forum.communityhealthtoolkit.org/t/restoring-corrupted-couchdb-database/4551/1)
+- ["Upgrade docker client API >1.44, be compatible with docker 29+"](https://github.com/medic/cht-upgrade-service/issues/50)
