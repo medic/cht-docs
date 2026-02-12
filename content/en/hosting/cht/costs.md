@@ -126,3 +126,7 @@ There are many assumptions about what else is needed to run the CHT. While impor
 * Mobile Device Management - optional.
 * Cellphone telecom services - Users actually uploading/downloading data
 * Setup and/or transfer of hosting provider
+
+## Interactive Cost Calculator
+
+{{< cost-calculator >}}
