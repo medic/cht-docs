@@ -7,7 +7,7 @@ description: >
 
 ---
 
-The `medic` username and password play a special role: not only can CHT administrators use it in the web GUI or for API calls, but all docker services also use it internally when talking to CouchDB.
+The `medic` username and password play a special role: not only can CHT administrators use it in the web GUI or for API calls, but all docker services also use it internally when connecting to CouchDB.
 
 To change the password, first update it in CouchDB, then update your settings file and finally restart. A down time of less than 10 minutes will be incurred, so plan accordingly. 
 
