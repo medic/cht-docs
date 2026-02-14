@@ -11,6 +11,8 @@ The `medic` username and password play a special role: not only can CHT administ
 
 To change the password, first update it in CouchDB, then update your environment file and finally restart. A down time of less than 10 minutes will be incurred, so plan accordingly. 
 
+For users wanting to only use the command line, see the CouchDB docs [to change the password](https://docs.couchdb.org/en/stable/intro/security.html#password-changing) and then [proceed to step #4](/hosting/cht/docker/password/#update-environment-variable).
+
 ## CHT is running, current password is known
 
 {{% steps %}}
