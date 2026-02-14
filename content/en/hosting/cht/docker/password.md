@@ -27,7 +27,11 @@ Every CHT instance ships with the default CouchDB web GUI called [Fauxton](https
 
 ###  Change the password in Fauxton
 
-Click the user icon in the lower left, enter the new password in "Password" and in "Verify Password" and click "Change".  Your CHT instance is now no longer accessible because API is locked out (Error 503). The following steps fix API's access.
+
+> [!IMPORTANT]
+> After this step, the CHT instance will no longer be accessible because API is locked out (Error 503). The following steps fix API's access.
+
+Click the user icon in the lower left, enter the new password in "Password" and in "Verify Password" and click "Change".  
 
 ![Fauxton.png](password/Fauxton.png)
 
