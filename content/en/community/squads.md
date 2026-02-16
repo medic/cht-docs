@@ -67,7 +67,7 @@ Turning ideas into action.
   - If needed, UI mockups are created.
 
 ### 4. 🧑🏽‍💻 Development/Building
-Once the design doc is accepted, development can begin. If multiple orgs are codeveloping the functionality, then agree on a single communal branch/workspace for the developers to contribute to. Ensure work is pushed to the public repositories early and often. Ensure coding best practices are being followed, such as automated testing, code quality, and documentation. Ensure manual testing is happening throughout to find issues early.
+Once the design doc is accepted, development can begin. If multiple orgs are codeveloping the functionality, then agree on a single communal branch/workspace for the developers to contribute to. Ensure work is pushed to the public repositories early and often. Ensure coding best practices are being followed, such as automated testing, code quality, and documentation. Ensure rigorous manual testing is happening throughout to find issues early and avoid regressions.
 
   **Output**:
   - Working software
