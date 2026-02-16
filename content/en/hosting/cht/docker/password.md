@@ -19,7 +19,7 @@ For users wanting to only use the command line, see the CouchDB docs [to change 
 
 ### Log in
 
-Using the CHT URL the the `medic` user, log into the CHT. Assuming a URL of `cht.example.com` go to the login page at `https://cht.example.com/medic/login`.
+Using the CHT URL and the `medic` user, log into the CHT. Assuming a URL of `cht.example.com` go to the login page at `https://cht.example.com/medic/login`.
 
 If there is already an active session, the CHT will redirect you to `/admin/` - there is then no need to login.
 
