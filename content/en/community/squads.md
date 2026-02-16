@@ -72,27 +72,20 @@ Once the design doc is accepted, development can begin. If multiple orgs are cod
   **Output**:
   - Working software
 
-### 5. 📲 Testing
-Ensuring quality. Rigorous manual/automated testing verifies functionality.
-
-  **Outputs**:
-  - Test reports
-  - Verified software
-
-### 6. 🛋️ Review
+### 5. 🛋️ Review
 When the squad confirms that the solution meets the requirements, submit a pull request for code review. Nominate a CHT maintainer to work on the review. Post the PR and instructions on how to run it, on the forum so other community members can try it out. After passing both technical review and allowing a few days for community feedback, merge the approved code.
 
 **Outputs**: 
 - PR posted with testing instructions in the forum for community validation.
 - Merged contribution with documented community input.
 
-### 7. 💪🏼 Release
+### 6. 💪🏼 Release
 The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
   **Output**:
   - Software release
 
-### 8. ✅ Done
+### 7. ✅ Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
 The most important thing now is to recognise the efforts of everyone involved in this process. This cannot be understated. Do this loudly, repeatedly, in private, and in public, calling out specific people and organisations.
