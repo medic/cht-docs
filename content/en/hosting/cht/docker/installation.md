@@ -53,8 +53,8 @@ The following 3 `curl` commands download CHT version `4.21.1` compose files, whi
 
 ```shell
 cd /home/ubuntu/cht/
-curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:5.0.1/docker-compose/cht-core.yml
-curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:5.0.1/docker-compose/cht-couchdb.yml
+curl -s -o ./compose/cht-core.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:5.0.2/docker-compose/cht-core.yml
+curl -s -o ./compose/cht-couchdb.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:5.0.2/docker-compose/cht-couchdb.yml
 curl -s -o ./upgrade-service/docker-compose.yml https://raw.githubusercontent.com/medic/cht-upgrade-service/main/docker-compose.yml
 ```
 
@@ -108,12 +108,12 @@ To make sure everything is running correctly, call `docker ps` and make sure tha
 
 ```shell
 CONTAINER ID   IMAGE                                                COMMAND                  CREATED         STATUS         PORTS                                                                          NAMES
-8bfee612ba86   public.ecr.aws/medic/cht-nginx:5.0.1                 "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp   cht-nginx-1
-1ad8cf5bec41   public.ecr.aws/medic/cht-sentinel:5.0.1              "/bin/bash /service/…"   2 minutes ago   Up 2 minutes                                                                                  cht-sentinel-1
-f1e010d2fc89   public.ecr.aws/medic/cht-api:5.0.1                   "/bin/bash /service/…"   2 minutes ago   Up 2 minutes   5988/tcp                                                                       cht-api-1
-9c8aec267d92   public.ecr.aws/medic/cht-couchdb:5.0.1               "tini -- /docker-ent…"   2 minutes ago   Up 2 minutes   4369/tcp, 5984/tcp, 9100/tcp                                                   cht-couchdb-1
-93a10e4a0647   public.ecr.aws/medic/cht-haproxy:5.0.1               "/entrypoint.sh"         2 minutes ago   Up 2 minutes   5984/tcp                                                                       cht-haproxy-1
-0547be8b167f   public.ecr.aws/medic/cht-couchdb-nouveau:5.0.1       "/usr/bin/java -serv…"   2 minutes ago   Up 2 minutes   5987-5988/tcp                                                                  cht-nouveau-1
+8bfee612ba86   public.ecr.aws/medic/cht-nginx:5.0.2                 "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp   cht-nginx-1
+1ad8cf5bec41   public.ecr.aws/medic/cht-sentinel:5.0.2              "/bin/bash /service/…"   2 minutes ago   Up 2 minutes                                                                                  cht-sentinel-1
+f1e010d2fc89   public.ecr.aws/medic/cht-api:5.0.2                   "/bin/bash /service/…"   2 minutes ago   Up 2 minutes   5988/tcp                                                                       cht-api-1
+9c8aec267d92   public.ecr.aws/medic/cht-couchdb:5.0.2               "tini -- /docker-ent…"   2 minutes ago   Up 2 minutes   4369/tcp, 5984/tcp, 9100/tcp                                                   cht-couchdb-1
+93a10e4a0647   public.ecr.aws/medic/cht-haproxy:5.0.2               "/entrypoint.sh"         2 minutes ago   Up 2 minutes   5984/tcp                                                                       cht-haproxy-1
+0547be8b167f   public.ecr.aws/medic/cht-couchdb-nouveau:5.0.2       "/usr/bin/java -serv…"   2 minutes ago   Up 2 minutes   5987-5988/tcp                                                                  cht-nouveau-1
 24ed6b558a8a   public.ecr.aws/s5s3h4s7/cht-upgrade-service:latest   "node /app/src/index…"   2 minutes ago   Up 2 minutes                                                                                  upgrade-service-cht-upgrade-service-1
 ```
 
