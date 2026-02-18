@@ -46,6 +46,42 @@ The `parent`, `type`, and `name` fields are mandatory on forms that are adding c
 
 The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where CONTACT_TYPE_ID is the contact_type id for the contact and ACTION is `create` or `edit`. (e.g. `contact:clinic:create`)
 
+## Uploading Binary Attachments
+
+_Added in 5.1._
+
+Contact forms can include binary data, such as photos or other files, which are submitted and saved as attachments on the contact document. Attachment uploads are supported in both create and edit contact forms. Note that attachment uploads are only supported for the main contact document; any file attachments defined within sibling or repeat groups will also be attached to the main document.
+
+To add an image upload field, use the `image` type in XLSForm. For a generic file upload, use the `file` type. Alternatively, to mark any element as having binary data, add an `instance::type` column to the XLSForm and specify `binary` in the element's row.
+
+The following example adds a photo field to a person contact form:
+
+| type  | name  | label::en | hint::en                            |
+|-------|-------|-----------|-------------------------------------|
+| image | photo | Photo     | Take a photo or select from gallery |
+
+The equivalent XForm XML for the above example is:
+
+```xml
+<!-- Model -->
+<photo/>
+
+<!-- Bind -->
+<bind nodeset="/data/person/photo" type="binary"/>
+
+<!-- Body -->
+<upload ref="/data/person/photo" mediatype="image/*">
+  <label>Photo</label>
+  <hint>Take a photo or select from gallery</hint>
+</upload>
+```
+
+**Note:** If the contact form is accessed via CHT Android and uses a file picker to upload files, include the `READ_EXTERNAL_STORAGE` permission to allow access to files on the device. Add the following line to the branded app's `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
+
 ## Properties
 
 The meta information in the `{contact_type_id}-{create|edit}.properties.json` file defines additional configuration controlling when the form is available and checks that will be performed when submitting the form.
