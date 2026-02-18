@@ -198,7 +198,7 @@ VMMC code can be accessed using the following link [D2C messaging app for post-o
 
 ##### Publications
 
-  - 2wT is safe and improves efficiency over routine visits: Evidence from [South Africa](https://www.jmir.org/2023/1/e42111/) and from [Zimbabwe](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6903365/)
+  - 2wT is safe and improves efficiency over routine visits: Evidence from [South Africa](https://www.jmir.org/2023/1/e42111/) and from [Zimbabwe](https://pmc.ncbi.nlm.nih.gov/articles/PMC6903365/)
   - 2wT is highly usable among clients: Evidence from [South Africa](https://journals.sagepub.com/doi/full/10.1177/20552076231194924) and from [Zimbabwe](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233234)
   - 2wT saves program costs: Evidence from [South Africa](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0294449) and from [Zimbabwe](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239915)
   - 2wT is usable for healthcare workers: Evidence from [South Africa](https://formative.jmir.org/2023/1/e44122)
