@@ -48,7 +48,7 @@ The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where C
 
 ## Uploading Binary Attachments
 
-_Added in 5.1._
+_Added in 5.1.0._
 
 Contact forms can include binary data, such as photos or other files, which are submitted and saved as attachments on the contact document. Attachment uploads are supported in both create and edit contact forms. Note that attachment uploads are only supported for the main contact document; any file attachments defined within sibling or repeat groups will also be attached to the main document.
 
