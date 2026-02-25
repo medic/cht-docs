@@ -180,6 +180,11 @@
         e.stopPropagation();
         openKapa(KAPA_MODE.SEARCH);
       }
+      // Block bare "/" from reaching Hextra's search focus handler
+      if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     }, true); // Capture phase to intercept before Hextra
   };
 
