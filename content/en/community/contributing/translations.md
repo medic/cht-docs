@@ -28,6 +28,7 @@ CHT Core currently has built-in support for the following languages:
 | Indonesian | `id`          | Incomplete |
 | Nepali     | `ne`          | Complete   |
 | Swahili    | `sw`          | Complete   |
+| Portuguese | `pt`          | Complete   |
 
 Languages marked as "Complete" are fully translated and any new user-facing text will always be translated into these languages. Languages marked as "Incomplete" may be missing translations for some keys and/or the CHT community needs additional volunteers to help support this language by translating new keys. 
 
