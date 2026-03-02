@@ -79,7 +79,7 @@ Bug fixes | Change code that wasn't working as intended.                        
 Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules                    | patch
 Refactoring | A code change that neither fixes a bug nor adds a feature.                                            | refactor(#123): remove unused code                           | patch
 Test | Adding missing tests or correcting existing tests.                                                    | test(#123): add unit test for login component | none | 
-Non-code | A change that user won't notice, like a change in a README file etc.                                  | chore(#123): update README                                   | none
+Non-code | A change that user won't notice, like a change in a README file, updating dependencies etc.                                | chore(#123): update README                                   | none
 
 > [!NOTE]
 > Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
