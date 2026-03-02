@@ -71,16 +71,20 @@ Create a branch following the guideline below and push [commits](#commits) at le
 
 The commit format should follow the [conventional-changelog angular preset](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular). This means that some of the release process can be automated. See the list of commit types and examples below:
 
-Type | Description | Example commit message | Release type
--- | -- | -- | --
-Bug fixes | Change code that wasn't working as intended. | fix(#123): infinite spinner when clicking contacts tab twice | patch
-Performance | A code change that improves performance. Measure the performance improvement to inform the community. | perf(#789): lazily loaded angular modules | patch
-Features | A new feature or improvement that users will notice. | feat(#456): add home tab | minor
-Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README | none
+Type | Description                                                                                                                          | Example commit message                                       | Release type
+-- |--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------| --
+Build | Changes that affect the build system or external dependencies, or continuous integration                                             | build(#123): build admin before webapp                       | none
+Docs | Documentation only changes                                                                                                           | docs(#323): update readme | none
+Features | A new feature or improvement that users will notice.                                                                                 | feat(#456): add home tab                                     | minor
+Bug fixes | Change code that wasn't working as intended.                                                                                         | fix(#123): infinite spinner when clicking contacts tab twice | patch
+Performance | A code change that improves performance. Measure the performance improvement to inform the community.                                | perf(#789): lazily loaded angular modules                    | patch
+Refactoring | A code change that neither fixes a bug nor adds a feature.                                                                           | refactor(#123): remove unused code                           | patch
+Test | Adding missing tests or correcting existing tests.                                                                                   | test(#123): add unit test for login component | none | 
+Non-code | A change that user won't notice, like a change in a README file, adding e2e tests, updating dependencies, removing unused code, etc. | chore(#123): update README                                   | none
 
 > [!NOTE]
 > Breaking changes should be explained under the commit type (feat, fix and perf) using the prefix `BREAKING CHANGE`. 
-> onsider the following example:
+> consider the following example:
 > 
 > ```
 >   perf(#2): remove reporting rates feature
