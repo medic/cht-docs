@@ -200,5 +200,5 @@ display = "hover"
   type = "giscus"
 
   [params.banner]
-  key = "announcement"
-  message = "CHT 5.0 is here! 🎉 Discover [what's new](/releases/5_0_0/)! "
+  key = "announcement-5.1"
+  message = "Android notifications 🔔, contact attachments 🖼️ and more 🎉 [CHT 5.1](/releases/5_1_0/) is here! "
