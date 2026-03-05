@@ -39,7 +39,7 @@ This leverages Docker and requires:
 
 This guide refers to "Kubernetes", and a lightweight orchestrator called [K3s](https://docs.k3s.io/) can be used for bare-metal hosts. The requirements below refer to K3s deployments but can be translated to other Kubernetes hosting. For example, for cloud hosting, CHT is widely deployed with Amazon [Elastic Kubernetes Service](https://aws.amazon.com/eks/) (EKS). Additionally, the CHT is succesfully deployed in a [large K3s deployment based on VMWare](/hosting/cht/kubernetes/self-hosting-k3s-multinode).
 
-Be sure to see the `cht-deploy` [script](https://github.com/medic/cht-core/tree/master/scripts/deploy) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
+Be sure to see the [CHT Helm Charts](https://github.com/medic/helm-charts) that leverage the `helm` [application](https://helm.sh/docs/intro/install/).
 
 * 1 x HA control-plane nodes: 2 GB RAM / 2 CPU / 20 GB SSD
 * 3 x worker servers: 16 GB RAM / 8 CPU / 50 GB SSD

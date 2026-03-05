@@ -14,7 +14,7 @@ All code must pass an eslint check which runs early in the CI cycle and uses the
 
 ### Linting
 
-You should always lint your code locally before pushign it up the GitHub. Choose one of:
+You should always lint your code locally before pushing it up the GitHub. Choose one of:
 
 * ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
 * CHT Core has a script to run at the command line, by calling `npm run lint` while in the `cht-core` repository.  Be sure you've run the [Core dev setup first](/community/contributing/code/core/dev-environment)! Note that the first time you run this it might be slow, as it needs to download and cache some files.  Subsequent runs should be quite fast.
@@ -148,7 +148,7 @@ The quality profiles are the lists of rules that will be applied for the various
 
 ###### Modifying rule parameters
 
-To modify a rule parameter (e.g. change the allowed level of complexity for a function [according to `javascript:S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/)):
+To modify a rule parameter (e.g. change the allowed level of complexity for a function [according to `javascript:S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/)):
 
 1. Open a cht-docs PR to record your rule modification in the list below. This allows us to track the history of rule changes and record for posterity the discussions about them.
 1. If not already using a custom quality profile, use the SonarCloud UI to create one that _extends_ the `Sonar Way` profile.
@@ -179,42 +179,42 @@ Java:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
   - Modified:
-    - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+    - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
       - `threshold` 7 -> 4
-    - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+    - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
       - `threshold` 15 -> 5
 
 JavaScript:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
    - Modified:
-      - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+      - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
          - `threshold` 7 -> 4
-      - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+      - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
    - Disabled
-      - [`S2699`](https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
+      - [`S2699`](https://web.archive.org/web/20251017003858/https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
          - Disabled due of rigidity of the rule when detecting `expect` imports and calls to imported functions that have assertions
-      - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
-          - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
+      - [`S7728`](https://community.sonarsource.com/t/use-for-of-instead-of-foreach-typescript-s7728/151980/5) - Use "for...of" loops instead of "forEach" method calls
+          - Disabled because the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
 
 Python:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
    - Modified:
-      - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+      - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
          - `threshold` 7 -> 4
-      - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+      - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
 
 TypeScript:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
    - Modified:
-      - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+      - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
          - `threshold` 7 -> 4
-      - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+      - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
    - Disabled
-       - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
+       - [`S7728`](https://community.sonarsource.com/t/use-for-of-instead-of-foreach-typescript-s7728/151980/5) - Use "for...of" loops instead of "forEach" method calls
            - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)

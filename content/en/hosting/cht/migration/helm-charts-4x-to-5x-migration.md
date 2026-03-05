@@ -114,8 +114,8 @@ Before starting be sure you have a `git clone` of the [CHT Core repository](http
 
 2. Verify new 5.x components:
    ```bash
-   # Look for the new couchdb-nouveau component
-   kubectl get pods --namespace <your-namespace> | grep nouveau
+   # Look for the new couchdb-nouveau service
+   kubectl get services --namespace <your-namespace> | grep nouveau
    ```
 
 3. Test data integrity
