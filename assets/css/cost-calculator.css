@@ -297,12 +297,6 @@ html.dark {
     margin-bottom: 0.5rem;
   }
 
-  .host-description {
-    font-size: 0.95rem;
-    color: var(--calc-text-light);
-    margin-bottom: 0.5rem;
-  }
-
   .host-cost-primary {
     font-size: 1.5rem;
     font-weight: 600;
