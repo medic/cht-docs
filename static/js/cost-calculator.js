@@ -90,7 +90,8 @@ const updateOutputElements = (els) => () => {
   els.instanceCostMonthly.textContent = formatCurrency(m.instanceCost / 12);
   els.diskCostMonthly.textContent = formatCurrency(m.diskCost / 12);
 
-  els.instanceSize.textContent = `${m.ramGb} GB RAM + ${m.cpuCount} CPU`;
+  els.instanceCpu.textContent = `${m.cpuCount} CPU`;
+  els.instanceRam.textContent = `${m.ramGb} GB RAM`;
 
   els.diskSize.textContent = `${m.diskSizeGb.toFixed()} GB`;
   els.diskUsed.textContent = `${m.diskUsedGb.toFixed()} GB`;
@@ -202,7 +203,8 @@ const initCostCalculator = (calcId) => {
     totalCost: el('total-cost'),
     monthlyCost: el('monthly-cost'),
     diskCost: el('disk-cost'),
-    instanceSize: el('instance-size'),
+    instanceCpu: el('instance-cpu'),
+    instanceRam: el('instance-ram'),
     instanceCost: el('instance-cost'),
     diskSize: el('disk-size'),
     diskUsed: el('disk-used'),

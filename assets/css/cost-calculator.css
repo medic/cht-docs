@@ -209,11 +209,6 @@ html.dark {
     align-items: baseline;
     margin-bottom: 1.5rem;
 
-    .cost-per-user-label {
-      font-size: 1rem;
-      color: var(--calc-text-light);
-    }
-
     .cost-per-user-values {
       text-align: right;
     }
@@ -266,6 +261,11 @@ html.dark {
 }
 
 .calc-card.host {
+
+  .host-section {
+    margin-bottom: 0.5rem;
+  }
+
   .host-section-header {
     font-size: 0.875rem;
     font-weight: 600;
@@ -275,34 +275,29 @@ html.dark {
   }
 
   .host-value-large {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
 
-  .host-cost {
+  .host-section-row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1rem;
+  }
+
+  .host-cost {
+    text-align: right;
   }
 
   .host-cost-value {
     font-size: 1.25rem;
     font-weight: bold;
+    color: var(--calc-link);
   }
 
   .host-cost-monthly {
     font-size: 0.75rem;
     color: var(--calc-text-light);
-  }
-
-  .host-section:first-of-type .host-cost-value {
-    color: var(--calc-link);
-  }
-
-  .host-section:last-of-type .host-cost-value {
-    color: var(--calc-grad-start);
   }
 
   .breakdown-row {
@@ -318,6 +313,12 @@ html.dark {
   .breakdown-value {
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+  .disk-section {
+    .host-cost-value {
+      padding-top: 1rem;
+    }
   }
 
   .disk-bar {

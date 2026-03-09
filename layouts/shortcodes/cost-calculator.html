@@ -88,7 +88,7 @@
     <div class="calc-card users">
       <h3>Users</h3>
       <div class="cost-per-user">
-        <span class="cost-per-user-label">Per User</span>
+        <span class="viz-label">Per User</span>
         <div class="cost-per-user-values">
           <div class="cost-per-user-value"><span id="cost-per-user-yearly-{{ $id }}">$0</span>/yr</div>
           <div class="cost-per-user-monthly"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
@@ -120,20 +120,29 @@
       <!-- Instance section -->
       <div class="host-section">
         <div class="host-section-header">Instance</div>
-        <div class="host-value-large" id="instance-size-{{ $id }}">2 GB RAM + 1 CPU</div>
-        <div class="host-cost">
-          <div class="host-cost-value"><span id="instance-cost-{{ $id }}">$0</span>/yr</div>
-          <div class="host-cost-monthly"><span id="instance-cost-monthly-{{ $id }}">$0</span>/mo</div>
+        <div class="host-section-row">
+          <div class="host-section-details">
+            <div class="host-value-large" id="instance-cpu-{{ $id }}">1 CPU</div>
+            <div class="host-value-large" id="instance-ram-{{ $id }}">2 GB RAM</div>
+          </div>
+          <div class="host-cost">
+            <div class="host-cost-value"><span id="instance-cost-{{ $id }}">$0</span>/yr</div>
+            <div class="host-cost-monthly"><span id="instance-cost-monthly-{{ $id }}">$0</span>/mo</div>
+          </div>
         </div>
       </div>
 
       <!-- Disk section -->
-      <div class="host-section viz-divider">
-        <div class="host-section-header">Disk</div>
-        <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
-        <div class="host-cost">
-          <div class="host-cost-value"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>
-          <div class="host-cost-monthly"><span id="disk-cost-monthly-{{ $id }}">$0</span>/mo</div>
+      <div class="viz-divider disk-section">
+        <div class="host-section-row">
+          <div class="host-section-details">
+            <div class="host-section-header">Disk</div>
+            <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
+          </div>
+          <div class="host-cost">
+            <div class="host-cost-value"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>
+            <div class="host-cost-monthly"><span id="disk-cost-monthly-{{ $id }}">$0</span>/mo</div>
+          </div>
         </div>
         <div class="breakdown-row">
           <div class="breakdown-label">Used</div>
