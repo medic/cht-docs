@@ -209,6 +209,10 @@ html.dark {
     align-items: baseline;
     margin-bottom: 1.5rem;
 
+    .viz-label {
+      font-size: 1.25rem;
+    }
+
     .cost-per-user-values {
       text-align: right;
     }
@@ -267,10 +271,6 @@ html.dark {
   }
 
   .host-section-header {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--calc-text-light);
-    margin-bottom: 0.5rem;
     text-transform: uppercase;
   }
 
@@ -300,19 +300,17 @@ html.dark {
     color: var(--calc-text-light);
   }
 
-  .breakdown-row {
+  .breakdown-legend {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.25rem;
-    font-size: 0.7rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
   }
   .breakdown-label {
     color: var(--calc-text-light);
-  }
-  .breakdown-value {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: normal;
+    margin-right: 0.25rem;
   }
 
   .disk-section {
@@ -358,7 +356,8 @@ html.dark {
   border-top: 1px solid var(--calc-border);
 }
 .viz-label {
-  font-size: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--calc-text-light);
   margin-bottom: 0.5rem;
 }

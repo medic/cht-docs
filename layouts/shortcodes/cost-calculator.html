@@ -88,7 +88,7 @@
     <div class="calc-card users">
       <h3>Users</h3>
       <div class="cost-per-user">
-        <span class="viz-label">Per User</span>
+        <span class="viz-label">Cost Per User</span>
         <div class="cost-per-user-values">
           <div class="cost-per-user-value"><span id="cost-per-user-yearly-{{ $id }}">$0</span>/yr</div>
           <div class="cost-per-user-monthly"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
@@ -103,7 +103,7 @@
         <div class="range-labels"><span>1</span><span>250</span></div>
       </div>
 
-      <div class="viz-section viz-divider docs-per">
+      <div class="viz-section docs-per">
         <div class="viz-label">Docs per User</div>
         <div class="viz-value" id="docs-per-user-{{ $id }}">0</div>
         <div class="range-bar">
@@ -119,7 +119,7 @@
 
       <!-- Instance section -->
       <div class="host-section">
-        <div class="host-section-header">Instance</div>
+        <div class="viz-label host-section-header">Instance</div>
         <div class="host-section-row">
           <div class="host-section-details">
             <div class="host-value-large" id="instance-cpu-{{ $id }}">1 CPU</div>
@@ -136,7 +136,7 @@
       <div class="viz-divider disk-section">
         <div class="host-section-row">
           <div class="host-section-details">
-            <div class="host-section-header">Disk</div>
+            <div class="viz-label host-section-header">Disk</div>
             <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
           </div>
           <div class="host-cost">
@@ -144,17 +144,13 @@
             <div class="host-cost-monthly"><span id="disk-cost-monthly-{{ $id }}">$0</span>/mo</div>
           </div>
         </div>
-        <div class="breakdown-row">
-          <div class="breakdown-label">Used</div>
-          <div class="breakdown-value text-blue" id="disk-used-{{ $id }}">0 GB</div>
-        </div>
-        <div class="breakdown-row">
-          <div class="breakdown-label">Over-provisioned</div>
-          <div class="breakdown-value text-orange" id="disk-overprovision-{{ $id }}">0 GB</div>
-        </div>
         <div class="disk-bar">
           <div class="disk-bar-segment disk-bar-segment-used" id="disk-used-bar-{{ $id }}"></div>
           <div class="disk-bar-segment disk-bar-segment-overprovision" id="disk-overprovision-bar-{{ $id }}"></div>
+        </div>
+        <div class="breakdown-legend">
+          <div class="breakdown-item text-blue"><span class="breakdown-label">Used</span> <span id="disk-used-{{ $id }}">0 GB</span></div>
+          <div class="breakdown-item text-orange"><span class="breakdown-label">Over-provisioned</span> <span id="disk-overprovision-{{ $id }}">0 GB</span></div>
         </div>
       </div>
     </div>
