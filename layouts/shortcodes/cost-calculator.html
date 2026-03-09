@@ -116,44 +116,36 @@
     <!-- Recommended Host -->
     <div class="calc-card host">
       <h3>Recommended Host</h3>
-      <div class="host-grid">
-        <!-- Instance -->
-        <div>
-          <div class="host-section-header">Instance</div>
-          <div class="host-value-large" id="instance-size-{{ $id }}">2 GB RAM + 1 CPU</div>
-          <div class="host-cost-primary"><span id="instance-cost-{{ $id }}">$0</span>/yr</div>
 
-          <div class="viz-divider">
-            <div class="viz-label">Resource Utilization</div>
-            <div class="resource-util-value" id="resource-util-{{ $id }}">0%</div>
-            <div class="range-bar">
-              <div class="range-marker" id="resource-util-marker-{{ $id }}"></div>
-            </div>
-            <div class="range-labels"><span>0%</span><span>100%</span></div>
-          </div>
+      <!-- Instance section -->
+      <div class="host-section">
+        <div class="host-section-header">Instance</div>
+        <div class="host-value-large" id="instance-size-{{ $id }}">2 GB RAM + 1 CPU</div>
+        <div class="host-cost">
+          <div class="host-cost-value"><span id="instance-cost-{{ $id }}">$0</span>/yr</div>
+          <div class="host-cost-monthly"><span id="instance-cost-monthly-{{ $id }}">$0</span>/mo</div>
         </div>
+      </div>
 
-        <!-- Disk -->
-        <div>
-          <div class="host-section-header">Disk</div>
-          <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
-          <div class="host-cost-secondary"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>
-
-          <div class="viz-divider">
-            <div class="viz-label">Storage Breakdown</div>
-            <div class="breakdown-row">
-              <div class="breakdown-label">Used</div>
-              <div class="breakdown-value text-blue" id="disk-used-{{ $id }}">0 GB</div>
-            </div>
-            <div class="breakdown-row">
-              <div class="breakdown-label">Over-provisioned</div>
-              <div class="breakdown-value text-orange" id="disk-overprovision-{{ $id }}">0 GB</div>
-            </div>
-            <div class="disk-bar">
-              <div class="disk-bar-segment disk-bar-segment-used" id="disk-used-bar-{{ $id }}"></div>
-              <div class="disk-bar-segment disk-bar-segment-overprovision" id="disk-overprovision-bar-{{ $id }}"></div>
-            </div>
-          </div>
+      <!-- Disk section -->
+      <div class="host-section viz-divider">
+        <div class="host-section-header">Disk</div>
+        <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
+        <div class="host-cost">
+          <div class="host-cost-value"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>
+          <div class="host-cost-monthly"><span id="disk-cost-monthly-{{ $id }}">$0</span>/mo</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-label">Used</div>
+          <div class="breakdown-value text-blue" id="disk-used-{{ $id }}">0 GB</div>
+        </div>
+        <div class="breakdown-row">
+          <div class="breakdown-label">Over-provisioned</div>
+          <div class="breakdown-value text-orange" id="disk-overprovision-{{ $id }}">0 GB</div>
+        </div>
+        <div class="disk-bar">
+          <div class="disk-bar-segment disk-bar-segment-used" id="disk-used-bar-{{ $id }}"></div>
+          <div class="disk-bar-segment disk-bar-segment-overprovision" id="disk-overprovision-bar-{{ $id }}"></div>
         </div>
       </div>
     </div>

@@ -48,11 +48,9 @@ const calculateMetrics = (els) => {
   const totalCost = diskCost + instanceCost;
   const popPerUser = userCount > 0 ? populationCount / userCount : 0;
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
-  const resourceUtilizationPct = userCount / (cpuCount * DEFAULTS.USERS_PER_CPU);
-
   return {
     cpuCount, ramGb, instanceCost, diskUsedGb, diskOverprovisionGb, diskSizeGb,
-    diskCost, totalCost, popPerUser, docsPerUser, resourceUtilizationPct
+    diskCost, totalCost, popPerUser, docsPerUser
   };
 };
 
@@ -89,6 +87,8 @@ const updateOutputElements = (els) => () => {
   els.monthlyCost.textContent = formatCurrency(m.totalCost / 12);
   els.diskCost.textContent = formatCurrency(m.diskCost);
   els.instanceCost.textContent = formatCurrency(m.instanceCost);
+  els.instanceCostMonthly.textContent = formatCurrency(m.instanceCost / 12);
+  els.diskCostMonthly.textContent = formatCurrency(m.diskCost / 12);
 
   els.instanceSize.textContent = `${m.ramGb} GB RAM + ${m.cpuCount} CPU`;
 
@@ -109,10 +109,6 @@ const updateOutputElements = (els) => () => {
 
   els.docsPerUser.textContent = formatNumber(Math.round(m.docsPerUser));
   updateRangeMarker(els.docsPerUserMarker, m.docsPerUser, 1, 20000);
-
-  const utilPct = m.resourceUtilizationPct * 100;
-  els.resourceUtil.textContent = `${utilPct.toFixed()}%`;
-  updateRangeMarker(els.resourceUtilMarker, utilPct, 0, 100, 1);
 
   updateCostPie(els, m);
 };
@@ -219,8 +215,8 @@ const initCostCalculator = (calcId) => {
     docsPerUserMarker: el('docs-per-user-marker'),
     costPerUserYearly: el('cost-per-user-yearly'),
     costPerUser: el('cost-per-user'),
-    resourceUtil: el('resource-util'),
-    resourceUtilMarker: el('resource-util-marker'),
+    instanceCostMonthly: el('instance-cost-monthly'),
+    diskCostMonthly: el('disk-cost-monthly'),
     costPie: el('cost-pie'),
     costPctInstance: el('cost-pct-instance'),
     costPctDisk: el('cost-pct-disk')
