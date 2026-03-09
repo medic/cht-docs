@@ -50,7 +50,7 @@ const calculateMetrics = (els) => {
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
   return {
     cpuCount, ramGb, instanceCost, diskUsedGb, diskOverprovisionGb, diskSizeGb,
-    diskCost, totalCost, popPerUser, docsPerUser
+    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser
   };
 };
 
@@ -94,6 +94,7 @@ const updateOutputElements = (els) => () => {
   els.instanceRam.textContent = `${m.ramGb} GB RAM`;
 
   els.diskSize.textContent = `${m.diskSizeGb.toFixed()} GB`;
+  els.diskSize.title = `Docs in medic DB: ${formatNumber(m.totalDocCount)}`;
   els.diskUsed.textContent = `${m.diskUsedGb.toFixed()} GB`;
   els.diskOverprovision.textContent = `${m.diskOverprovisionGb.toFixed()} GB`;
   els.diskUsedBar.style.width = (m.diskUsedGb / m.diskSizeGb * 100) + '%';
