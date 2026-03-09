@@ -1,18 +1,14 @@
 let debounceTimer = null;
 
-const INSTANCES = [
-  { name: 'EC2: t3.medium', ram: 4, cpu: 2, cost: 386.28, minLoad: 0, maxLoad: 13000 },
-  { name: 'EC2: c6g.xlarge', ram: 8, cpu: 4, cost: 1263.24, minLoad: 13000, maxLoad: 25000 },
-  { name: 'EC2: c6g.2xlarge', ram: 16, cpu: 8, cost: 2525.52, minLoad: 25000, maxLoad: 50000 },
-  { name: 'EC2: c6g.4xlarge', ram: 32, cpu: 16, cost: 5051.04, minLoad: 50000, maxLoad: 100000 },
-  { name: 'EC2: c6g.8xlarge', ram: 64, cpu: 32, cost: 10102.92, minLoad: 100000, maxLoad: 375000 }
-];
 const DEFAULTS = {
   DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB: 1,
   DOCS_PER_GB: 63566,
   DB_OVERPROVISION_FACTOR: 2,
   PLACES_PER_POP: 0.36,
+  USERS_PER_CPU: 211,
+  RAM_PER_CPU: 2,
+  COST_PER_CPU_MONTH: 20.85,
 };
 
 const formatCurrency = (amount) => `$${amount.toFixed()}`;
@@ -45,18 +41,18 @@ const calculateMetrics = (els) => {
   const diskOverprovisionGb = diskUsedGb * (dbOverprovisionFactor - 1);
   const diskSizeGb = diskUsedGb + diskOverprovisionGb;
   const diskCost = DEFAULTS.DISK_COST_PER_GB * diskSizeGb;
-  const loadFactor = userCount * workflowCount;
+  const cpuCount = Math.max(1, Math.ceil(userCount / DEFAULTS.USERS_PER_CPU));
+  const ramGb = cpuCount * DEFAULTS.RAM_PER_CPU;
+  const instanceCost = cpuCount * DEFAULTS.COST_PER_CPU_MONTH * 12;
 
-  const instance = INSTANCES.find(inst => loadFactor >= inst.minLoad && loadFactor < inst.maxLoad) || INSTANCES.at(-1);
-
-  const totalCost = diskCost + instance.cost;
+  const totalCost = diskCost + instanceCost;
   const popPerUser = userCount > 0 ? populationCount / userCount : 0;
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
-  const resourceUtilizationPct = (loadFactor - instance.minLoad) / (instance.maxLoad - instance.minLoad);
+  const resourceUtilizationPct = userCount / (cpuCount * DEFAULTS.USERS_PER_CPU);
 
   return {
-    instance, diskUsedGb, diskOverprovisionGb, diskSizeGb, diskCost, totalCost,
-    popPerUser, docsPerUser, resourceUtilizationPct
+    cpuCount, ramGb, instanceCost, diskUsedGb, diskOverprovisionGb, diskSizeGb,
+    diskCost, totalCost, popPerUser, docsPerUser, resourceUtilizationPct
   };
 };
 
@@ -65,8 +61,8 @@ const updateCostPie = (els, metrics) => {
     return;
   }
 
-  const total = metrics.instance.cost + metrics.diskCost;
-  const instancePct = (metrics.instance.cost / total) * 100;
+  const total = metrics.instanceCost + metrics.diskCost;
+  const instancePct = (metrics.instanceCost / total) * 100;
   const diskPct = (metrics.diskCost / total) * 100;
 
   const isDark = document.documentElement.classList.contains('dark');
@@ -92,9 +88,9 @@ const updateOutputElements = (els) => () => {
   els.totalCost.textContent = formatCurrency(m.totalCost);
   els.monthlyCost.textContent = formatCurrency(m.totalCost / 12);
   els.diskCost.textContent = formatCurrency(m.diskCost);
-  els.instanceCost.textContent = formatCurrency(m.instance.cost);
+  els.instanceCost.textContent = formatCurrency(m.instanceCost);
 
-  els.instanceSize.textContent = `${m.instance.ram} GB RAM + ${m.instance.cpu} CPU`;
+  els.instanceSize.textContent = `${m.ramGb} GB RAM + ${m.cpuCount} CPU`;
 
   els.diskSize.textContent = `${m.diskSizeGb.toFixed()} GB`;
   els.diskUsed.textContent = `${m.diskUsedGb.toFixed()} GB`;
