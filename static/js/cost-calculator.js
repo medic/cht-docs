@@ -10,9 +10,9 @@ const INSTANCES = [
 const DEFAULTS = {
   DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB: 1,
-  CONTACTS_PER_PLACE: 5,
   DOCS_PER_GB: 63566,
-  DB_OVERPROVISION_FACTOR: 2
+  DB_OVERPROVISION_FACTOR: 2,
+  PLACES_PER_POP: 0.36,
 };
 
 const formatCurrency = (amount) => `$${amount.toFixed()}`;
@@ -31,18 +31,14 @@ const calculateMetrics = (els) => {
   const populationCount = Number.parseInt(els.populationCount.value);
   const userCount = Number.parseInt(els.userCountInput.value);
 
-  const contactsPerPlace = Math.max(2, Number.parseFloat(els.contactsPerPlace?.value || DEFAULTS.CONTACTS_PER_PLACE));
   const dbOverprovisionFactor = Math.max(1, Number.parseFloat(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR));
 
-  if (els.contactsPerPlace) {
-    els.contactsPerPlace.value = contactsPerPlace;
-  }
   if (els.dbOverprovision) {
     els.dbOverprovision.value = dbOverprovisionFactor;
   }
 
-  const placeCount = Math.floor((populationCount - 1) / (contactsPerPlace - 1));
-  const contactCount = placeCount * 2 + populationCount;
+  const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
+  const contactCount = userCount + populationCount + placeCount;
   const reportCount = workflowCount * populationCount * deploymentAge;
   const totalDocCount = contactCount + reportCount;
   const diskUsedGb = totalDocCount / DEFAULTS.DOCS_PER_GB;
@@ -174,7 +170,6 @@ const attachListeners = (els, updateOutputs) => {
   addSliderWithInput(els.userCountInput, els.userCountInputValue, updateOutputs);
 
   addAdvancedInput(els.deploymentAgeValue, updateOutputs);
-  addAdvancedInput(els.contactsPerPlace, updateOutputs);
   addAdvancedInput(els.dbOverprovision, updateOutputs);
 
   // View toggles
@@ -186,7 +181,6 @@ const attachListeners = (els, updateOutputs) => {
   els.showBasic?.addEventListener('click', () => toggle(false));
   els.resetAdvanced?.addEventListener('click', () => {
     els.deploymentAgeValue.value = DEFAULTS.DEPLOYMENT_AGE;
-    els.contactsPerPlace.value = DEFAULTS.CONTACTS_PER_PLACE;
     els.dbOverprovision.value = DEFAULTS.DB_OVERPROVISION_FACTOR;
     updateOutputs();
   });
@@ -206,7 +200,6 @@ const initCostCalculator = (calcId) => {
     userCountInputValue: el('user-count-input-value'),
     // Advanced parameters
     deploymentAgeValue: el('deployment-age-value'),
-    contactsPerPlace: el('contacts-per-place'),
     dbOverprovision: el('db-overprovision'),
     resetAdvanced: el('reset-advanced'),
     // View toggles
