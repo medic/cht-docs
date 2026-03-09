@@ -15,10 +15,27 @@ const formatCurrency = (amount) => `$${amount.toFixed()}`;
 const formatNumber = (num) => num.toLocaleString();
 const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
+const lerpColor = (a, b, t) => [
+  Math.round(a[0] + (b[0] - a[0]) * t),
+  Math.round(a[1] + (b[1] - a[1]) * t),
+  Math.round(a[2] + (b[2] - a[2]) * t),
+];
+
+const gradientColor = (pct) => {
+  const green = [16, 185, 129];  // --calc-grad-start
+  const amber = [245, 158, 11];  // --calc-grad-mid
+  const red = [239, 68, 68];     // --calc-grad-end
+  if (pct <= 50) {
+    return lerpColor(green, amber, pct / 50);
+  }
+  return lerpColor(amber, red, (pct - 50) / 50);
+};
+
 const updateRangeMarker = (marker, value, minRange, maxRange, offset = 1.5) => {
   const clamped = clamp(value, minRange, maxRange);
   const pct = ((clamped - minRange) / (maxRange - minRange)) * 100;
   marker.style.left = `calc(${pct}% - ${offset}px)`;
+  return pct;
 };
 
 const calculateMetrics = (els) => {
@@ -107,10 +124,14 @@ const updateOutputElements = (els) => () => {
   els.costPerUser.textContent = `$${monthlyCostPerUser.toFixed(2)}`;
 
   els.popPerUser.textContent = m.popPerUser.toFixed();
-  updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
+  const popPct = updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
+  const [pr, pg, pb] = gradientColor(popPct);
+  els.popPerUser.style.color = `rgb(${pr}, ${pg}, ${pb})`;
 
   els.docsPerUser.textContent = formatNumber(Math.round(m.docsPerUser));
-  updateRangeMarker(els.docsPerUserMarker, m.docsPerUser, 1, 20000);
+  const docsPct = updateRangeMarker(els.docsPerUserMarker, m.docsPerUser, 1, 20000);
+  const [dr, dg, db] = gradientColor(docsPct);
+  els.docsPerUser.style.color = `rgb(${dr}, ${dg}, ${db})`;
 
   updateCostPie(els, m);
 };

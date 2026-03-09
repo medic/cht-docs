@@ -252,12 +252,6 @@ html.dark {
       width: 100%;
     }
 
-    &.people-per .viz-value {
-      color: var(--calc-grad-mid);
-    }
-    &.docs-per .viz-value {
-      color: var(--calc-link);
-    }
   }
   .viz-section:last-child {
     margin-bottom: 0;
