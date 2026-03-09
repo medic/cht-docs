@@ -11,7 +11,6 @@ const DEFAULTS = {
   DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB: 1,
   CONTACTS_PER_PLACE: 5,
-  WORKFLOW_YEARLY_DOCS_PER_CONTACT: 12,
   DOCS_PER_GB: 12000,
   DB_OVERPROVISION_FACTOR: 2
 };
@@ -33,14 +32,10 @@ const calculateMetrics = (els) => {
   const userCount = Number.parseInt(els.userCountInput.value);
 
   const contactsPerPlace = Math.max(2, Number.parseFloat(els.contactsPerPlace?.value || DEFAULTS.CONTACTS_PER_PLACE));
-  const workflowDocsPerContact = Math.max(1, Number.parseFloat(els.workflowDocs?.value || DEFAULTS.WORKFLOW_YEARLY_DOCS_PER_CONTACT));
   const dbOverprovisionFactor = Math.max(1, Number.parseFloat(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR));
 
   if (els.contactsPerPlace) {
     els.contactsPerPlace.value = contactsPerPlace;
-  }
-  if (els.workflowDocs) {
-    els.workflowDocs.value = workflowDocsPerContact;
   }
   if (els.dbOverprovision) {
     els.dbOverprovision.value = dbOverprovisionFactor;
@@ -48,7 +43,7 @@ const calculateMetrics = (els) => {
 
   const placeCount = Math.floor((populationCount - 1) / (contactsPerPlace - 1));
   const contactCount = placeCount * 2 + populationCount;
-  const reportCount = workflowCount * workflowDocsPerContact * populationCount * deploymentAge;
+  const reportCount = workflowCount * populationCount * deploymentAge;
   const totalDocCount = contactCount + reportCount;
   const diskUsedGb = totalDocCount / DEFAULTS.DOCS_PER_GB;
   const diskOverprovisionGb = diskUsedGb * (dbOverprovisionFactor - 1);
@@ -180,7 +175,6 @@ const attachListeners = (els, updateOutputs) => {
 
   addAdvancedInput(els.deploymentAgeValue, updateOutputs);
   addAdvancedInput(els.contactsPerPlace, updateOutputs);
-  addAdvancedInput(els.workflowDocs, updateOutputs);
   addAdvancedInput(els.dbOverprovision, updateOutputs);
 
   // View toggles
@@ -193,7 +187,6 @@ const attachListeners = (els, updateOutputs) => {
   els.resetAdvanced?.addEventListener('click', () => {
     els.deploymentAgeValue.value = DEFAULTS.DEPLOYMENT_AGE;
     els.contactsPerPlace.value = DEFAULTS.CONTACTS_PER_PLACE;
-    els.workflowDocs.value = DEFAULTS.WORKFLOW_YEARLY_DOCS_PER_CONTACT;
     els.dbOverprovision.value = DEFAULTS.DB_OVERPROVISION_FACTOR;
     updateOutputs();
   });
@@ -214,7 +207,6 @@ const initCostCalculator = (calcId) => {
     // Advanced parameters
     deploymentAgeValue: el('deployment-age-value'),
     contactsPerPlace: el('contacts-per-place'),
-    workflowDocs: el('workflow-docs'),
     dbOverprovision: el('db-overprovision'),
     resetAdvanced: el('reset-advanced'),
     // View toggles
