@@ -314,30 +314,32 @@ html.dark {
   }
 
   .disk-bar {
-    position: relative;
+    display: flex;
     height: 20px;
     border-radius: 4px;
     overflow: hidden;
     margin-top: 0.5rem;
   }
   .disk-bar-segment {
-    position: absolute;
-    top: 0;
     height: 100%;
     transition: width 0.3s ease;
   }
-  .disk-bar-segment-used {
-    left: 0;
+  .disk-bar-segment-root {
+    background: var(--calc-text-light);
+  }
+  .disk-bar-segment-db {
     background: var(--calc-link);
   }
   .disk-bar-segment-overprovision {
-    right: 0;
     background: var(--calc-grad-mid);
   }
 }
 
 .hidden {
   display: none !important;
+}
+.text-muted {
+  color: var(--calc-text-light);
 }
 .text-blue {
   color: var(--calc-link);

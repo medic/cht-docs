@@ -9,7 +9,8 @@ const DEFAULTS = {
   USERS_PER_CPU: 211,
   RAM_PER_CPU: 2,
   COST_PER_CPU_MONTH: 20.85,
-  DOCS_PER_POP_WORKFLOW_YEAR: 1
+  DOCS_PER_POP_WORKFLOW_YEAR: 1,
+  ROOT_VOLUME_GB: 50
 };
 
 const formatCurrency = (amount) => `$${amount.toFixed()}`;
@@ -55,9 +56,10 @@ const calculateMetrics = (els) => {
   const contactCount = userCount + populationCount + placeCount;
   const reportCount = workflowCount * populationCount * deploymentAge * DEFAULTS.DOCS_PER_POP_WORKFLOW_YEAR;
   const totalDocCount = contactCount + reportCount;
-  const diskUsedGb = Math.max(1, Math.ceil(totalDocCount / DEFAULTS.MEDIC_DOCS_PER_GB));
-  const diskOverprovisionGb = diskUsedGb * (dbOverprovisionFactor - 1);
-  const diskSizeGb = diskUsedGb + diskOverprovisionGb;
+  const dbDiskGb = Math.max(1, Math.ceil(totalDocCount / DEFAULTS.MEDIC_DOCS_PER_GB));
+  const diskOverprovisionGb = dbDiskGb * (dbOverprovisionFactor - 1);
+  const rootVolumeGb = DEFAULTS.ROOT_VOLUME_GB;
+  const diskSizeGb = dbDiskGb + diskOverprovisionGb + rootVolumeGb;
   const diskCost = DEFAULTS.DISK_COST_PER_GB * diskSizeGb;
   const cpuCount = Math.max(1, Math.ceil(userCount / DEFAULTS.USERS_PER_CPU));
   const ramGb = cpuCount * DEFAULTS.RAM_PER_CPU;
@@ -67,7 +69,7 @@ const calculateMetrics = (els) => {
   const popPerUser = userCount > 0 ? populationCount / userCount : 0;
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
   return {
-    cpuCount, ramGb, instanceCost, diskUsedGb, diskOverprovisionGb, diskSizeGb,
+    cpuCount, ramGb, instanceCost, dbDiskGb, diskOverprovisionGb, rootVolumeGb, diskSizeGb,
     diskCost, totalCost, totalDocCount, popPerUser, docsPerUser
   };
 };
@@ -113,10 +115,12 @@ const updateOutputElements = (els) => () => {
 
   els.diskSize.textContent = `${m.diskSizeGb.toFixed()} GB`;
   els.diskSize.title = `Docs in medic DB: ${formatNumber(m.totalDocCount)}`;
-  els.diskUsed.textContent = `${m.diskUsedGb.toFixed()} GB`;
-  els.diskOverprovision.textContent = `${m.diskOverprovisionGb.toFixed()} GB`;
-  els.diskUsedBar.style.width = (m.diskUsedGb / m.diskSizeGb * 100) + '%';
+  els.dbDisk.textContent = `${m.dbDiskGb} GB`;
+  els.diskOverprovision.textContent = `${m.diskOverprovisionGb} GB`;
+  els.rootVolume.textContent = `${m.rootVolumeGb} GB`;
+  els.dbDiskBar.style.width = (m.dbDiskGb / m.diskSizeGb * 100) + '%';
   els.diskOverprovisionBar.style.width = (m.diskOverprovisionGb / m.diskSizeGb * 100) + '%';
+  els.rootVolumeBar.style.width = (m.rootVolumeGb / m.diskSizeGb * 100) + '%';
 
   const userCount = Number.parseInt(els.userCountInput.value);
   const yearlyCostPerUser = userCount > 0 ? m.totalCost / userCount : 0;
@@ -230,10 +234,12 @@ const initCostCalculator = (calcId) => {
     instanceRam: el('instance-ram'),
     instanceCost: el('instance-cost'),
     diskSize: el('disk-size'),
-    diskUsed: el('disk-used'),
+    dbDisk: el('db-disk'),
     diskOverprovision: el('disk-overprovision'),
-    diskUsedBar: el('disk-used-bar'),
+    rootVolume: el('root-volume'),
+    dbDiskBar: el('db-disk-bar'),
     diskOverprovisionBar: el('disk-overprovision-bar'),
+    rootVolumeBar: el('root-volume-bar'),
     popPerUser: el('pop-per-user'),
     popPerUserMarker: el('pop-per-user-marker'),
     docsPerUser: el('docs-per-user'),

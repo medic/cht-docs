@@ -145,12 +145,14 @@
           </div>
         </div>
         <div class="disk-bar">
-          <div class="disk-bar-segment disk-bar-segment-used" id="disk-used-bar-{{ $id }}"></div>
+          <div class="disk-bar-segment disk-bar-segment-root" id="root-volume-bar-{{ $id }}"></div>
+          <div class="disk-bar-segment disk-bar-segment-db" id="db-disk-bar-{{ $id }}"></div>
           <div class="disk-bar-segment disk-bar-segment-overprovision" id="disk-overprovision-bar-{{ $id }}"></div>
         </div>
         <div class="breakdown-legend">
-          <div class="breakdown-item text-blue"><span class="breakdown-label">Used</span> <span id="disk-used-{{ $id }}">0 GB</span></div>
-          <div class="breakdown-item text-orange"><span class="breakdown-label">Over-provisioned</span> <span id="disk-overprovision-{{ $id }}">0 GB</span></div>
+          <div class="breakdown-item text-muted"><span class="breakdown-label">Root</span> <span id="root-volume-{{ $id }}">0 GB</span></div>
+          <div class="breakdown-item text-blue"><span class="breakdown-label">DB</span> <span id="db-disk-{{ $id }}">0 GB</span></div>
+          <div class="breakdown-item text-orange"><span class="breakdown-label">Free</span> <span id="disk-overprovision-{{ $id }}">0 GB</span></div>
         </div>
       </div>
     </div>
