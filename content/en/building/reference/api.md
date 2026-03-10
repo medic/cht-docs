@@ -1289,7 +1289,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/person
 
-*Added in 5.1.0*
+*Added in 5.2.0*
 
 #### Description
 Used to create a person.
@@ -1299,7 +1299,7 @@ Used to create a person.
 Use JSON in the request body to specify a person’s details.
 
 #### Permissions
-Should have `can_edit` or both `can_view_contacts` and `can_create_people`.
+Should have `can_create_people` or `can_edit`.
 
 #### Required
 | Field  | Description                                                                                                                       | Format     |
@@ -1313,11 +1313,12 @@ Should have `can_edit` or both `can_view_contacts` and `can_create_people`.
 | Field         | Description                                                                 | Format                                           |
 |---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
 | reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
-| _id           | ID of the new person document to be created.                                | UUID string                                      |
 | short_name    | Short name of the person.                                                   | string                                           |
 | phone         | Phone number of the person (string format).                                 | string                                           |
 | role          | Role of the person (string format).                                         | string                                           |
-
+| sex           | Sex of the person.                                                          | string                                           |
+| date_of_birth | Date of birth.                                                              | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or Date |
+| patient_id    | Patient ID for the person.                                                  | string                                           |
 
 
 #### Examples
@@ -1357,7 +1358,7 @@ Example response:
 
 ### PUT /api/v1/person/{{uuid}}
 
-*Added in 5.1.0*
+*Added in 5.2.0*
 
 #### Description
 Used to update mutable fields of a person, or delete them if they are not part of update payload.
@@ -1373,13 +1374,13 @@ Used to update mutable fields of a person, or delete them if they are not part o
 Use JSON in the request body to specify a person’s details.
 
 #### Permissions
-Should have `can_edit` or both `can_view_contacts` and `can_update_people`.
+Should have `can_update_people` or `can_edit`.
 
 #### Required immutable fields
 | Field         | Description                                                   | Format                                                   |
 |---------------|---------------------------------------------------------------|----------------------------------------------------------|
 | _rev          | Revision ID of the person document to be updated.              | string                                                   |
-| reported_date | Timestamp of when the record was reported or created.          | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| reported_date | Timestamp of when the record was reported or created. Must match the stored value exactly (unix epoch). | unix epoch |
 | contact_type  | Required if the type of the person is `contact`.               | string                                                   |
 | type          | The type of the person.                                       | string                                                   |
 | parent        | The parent lineage of the person to be updated.                | Minified or hydrated parent lineage                      |
@@ -1824,7 +1825,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/place
 
-*Added in 5.1.0*
+*Added in 5.2.0*
 
 #### Description
 Used to create a place.
@@ -1834,24 +1835,24 @@ Used to create a place.
 Use JSON in the request body to specify the details of a place.
 
 #### Permissions
-Should have `can_edit` or both `can_view_contacts` and `can_create_places`.
+Should have `can_create_places` or `can_edit`.
 
 #### Required
 | Field  | Description                                                                                                          | Format     |
 |--------|----------------------------------------------------------------------------------------------------------------------|------------|
 | name   | Name of the place.                                                                                                   | string     |
 | type   | ID of the `contact_type` for the new place. Use `place` for older versions.                                          | string     |
-| parent | ID of the parent document. The parent’s type must match one of the allowed `parents` in the settings configuration.  | UUID string |
-
-*Note: Places that are at the top of the hierarchy, should not have a `parent`. Doing so will result in an "Unexpected parent for {placePayload} error."*
 
 #### Optional
 
 | Field         | Description                                                                 | Format                                           |
 |---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| parent        | ID of the parent document. The parent’s type must match one of the allowed `parents` in the settings configuration. Required for place types that have `parents` defined in the settings. | UUID string |
 | reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
-| _id           | ID of the new place document to be created.                                 | UUID string                                      |
-| contact       | ID of the primary person contact to be linked with the created place.       | UUID string                                      |
+| contact       | ID of the primary contact to be linked with the created place.              | UUID string                                      |
+| place_id      | Place ID for the place.                                                     | string                                           |
+
+*Note: Places that are at the top of the hierarchy should not have a `parent`. Place types that have `parents` defined in the settings configuration require a `parent` to be provided.*
 
 #### Examples
 
@@ -1900,7 +1901,7 @@ Response:
 
 ### PUT /api/v1/place/{{uuid}}
 
-*Added in 5.1.0*
+*Added in 5.2.0*
 
 #### Description
 Used to update mutable fields of a place, or delete them if they are not part of update payload.
@@ -1916,17 +1917,21 @@ Used to update mutable fields of a place, or delete them if they are not part of
 Use JSON in the request body to specify the details of a place.
 
 #### Permissions
-Should have `can_edit` or both `can_view_contacts` and `can_update_places`.
+Should have `can_update_places` or `can_edit`.
 
 #### Required immutable fields
 | Field         | Description                                                                                      | Format                              |
 |---------------|--------------------------------------------------------------------------------------------------|-------------------------------------|
 | _rev          | Revision ID of the place document to be updated.                                                  | string                              |
-| reported_date | Timestamp of when the record was reported or created.                                             | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| reported_date | Timestamp of when the record was reported or created. Must match the stored value exactly (unix epoch). | unix epoch                          |
 | contact_type  | Required if the type of the place is `contact`.                                                   | string                              |
 | type          | The type of the place.                                                                            | string                              |
 | parent        | The parent lineage of the place to be updated. Not required if the place is at the top of the hierarchy. | Minified or hydrated parent lineage |
-| contact       | The contact lineage linked with the place. This can be added during update if not already present. | Minified or hydrated lineage        |
+
+#### Optional mutable fields
+| Field   | Description                                                                                        | Format                       |
+|---------|----------------------------------------------------------------------------------------------------|------------------------------|
+| contact | The contact linked with the place. Can be added, changed, or removed during update. Pass the contact's ID or omit the field to remove. | UUID string or minified/hydrated lineage |
 
 #### Required mutable fields
 | Field | Description          | Format |
@@ -1951,7 +1956,7 @@ Original place object:
             "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
         }
     },
-    "reported_date": "2025-08-19T14:48:16.436Z",
+    "reported_date": 1755614896436,
     "contact_type": "clinic"
 }
 ```
@@ -1983,7 +1988,7 @@ Content-Type: application/json
             }
         }
     },
-    "reported_date": "2025-08-19T14:48:16.436Z",
+    "reported_date": 1755614896436,
     "contact_type": "clinic"
 }
 ```
@@ -2448,7 +2453,7 @@ Content-Type: application/json; charset=utf-8
 
 ### POST /api/v1/report
 
-*Added in 5.1.0*
+*Added in 5.2.0*
 
 #### Description
 Used to create a report.
@@ -2458,24 +2463,23 @@ Used to create a report.
 Use JSON in the request body to specify a report’s details.
 
 #### Permissions
-Should have `can_view_reports` and `can_create_records`.
+Should have `can_create_records` or `can_edit`.
 
 #### Required
 | Field   | Description                                                                                                      | Format     |
 |---------|------------------------------------------------------------------------------------------------------------------|------------|
 | form    | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with `key=["form"]`). | string     |
-| type    | Type of the report.                                                                                              | string     |
 | contact | ID of the contact document (can be either a person or a place) for the new report.                               | UUID string |
-
-*Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.*
 
 #### Optional
 
 | Field         | Description                                                                 | Format                                           |
 |---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| type          | Type of the report. Defaults to `data_record`. If provided, must be `data_record`. | string                                           |
 | reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
-| _id           | ID of the new report document to be created.                                | UUID string                                      |
 | fields        | Fields containing the report data.                                          | Object                                           |
+
+*Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.*
 
 #### Examples
 Request:
@@ -2512,7 +2516,7 @@ Response:
 
 ### PUT /api/v1/report/{{uuid}}
 
-*Added in 5.1.0*
+*Added in 5.2.0*
 
 #### Description
 Used to update a report.
@@ -2528,16 +2532,20 @@ Used to update a report.
 Use JSON in the request body to specify a report’s details.
 
 #### Permissions
-Should have `can_view_reports` and `can_update_records`.
+Should have `can_update_reports` or `can_edit`.
 
 #### Required immutable fields
 | Field         | Description                                                   | Format                                           |
 |---------------|---------------------------------------------------------------|--------------------------------------------------|
 | type          | Type of the report.                                           | string                                           |
-| contact       | Contact document associated with the report.                  | Minified or hydrated contact lineage             |
-| reported_date | Timestamp of when the record was reported or created.         | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| reported_date | Timestamp of when the record was reported or created. Must match the stored value exactly (unix epoch). | unix epoch                                       |
 | _rev          | Revision ID of the report document to be updated.             | string                                           |
 
+#### Optional mutable fields
+| Field   | Description                                                                    | Format                               |
+|---------|--------------------------------------------------------------------------------|--------------------------------------|
+| contact | Contact associated with the report. Can be changed to a different valid contact. | UUID string or minified/hydrated lineage |
+| fields  | Fields containing the report data.                                             | Object                               |
 
 #### Required mutable fields
 | Field | Description                                                                                                      | Format |
@@ -2565,7 +2573,7 @@ Original Document:
             }
         }
     },
-    "reported_date": "2025-08-24T11:37:06.815Z"
+    "reported_date": 1755490087000
 }
 ```
 
@@ -2586,7 +2594,7 @@ Content-type: application/json
             }
         }
     },
-    "reported_date": "2025-08-24T11:37:06.815Z"
+    "reported_date": 1755490087000
 }
 
 ```
