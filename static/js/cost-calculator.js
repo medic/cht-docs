@@ -9,6 +9,7 @@ const DEFAULTS = {
   USERS_PER_CPU: 211,
   RAM_PER_CPU: 2,
   COST_PER_CPU_MONTH: 20.85,
+  DOCS_PER_POP_WORKFLOW_YEAR: 1
 };
 
 const formatCurrency = (amount) => `$${amount.toFixed()}`;
@@ -52,7 +53,7 @@ const calculateMetrics = (els) => {
 
   const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
   const contactCount = userCount + populationCount + placeCount;
-  const reportCount = workflowCount * populationCount * deploymentAge;
+  const reportCount = workflowCount * populationCount * deploymentAge * DEFAULTS.DOCS_PER_POP_WORKFLOW_YEAR;
   const totalDocCount = contactCount + reportCount;
   const diskUsedGb = Math.max(1, Math.ceil(totalDocCount / DEFAULTS.MEDIC_DOCS_PER_GB));
   const diskOverprovisionGb = diskUsedGb * (dbOverprovisionFactor - 1);

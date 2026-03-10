@@ -12,24 +12,24 @@
 
       <label class="label-with-value">
         <span>Population Served</span>
-        <input type="number" class="input-value" id="population-count-value-{{ $id }}" value="20000" min="1000" max="1000000">
+        <input type="number" class="input-value" id="population-count-value-{{ $id }}" value="100000" min="1000" max="2000000">
       </label>
       <div class="helper-text">How many people are registered</div>
-      <input type="range" class="calc-input" id="population-count-{{ $id }}" min="1000" max="1000000" value="20000" step="1000">
+      <input type="range" class="calc-input" id="population-count-{{ $id }}" min="1000" max="2000000" value="100000" step="1000">
 
       <label class="label-with-value">
         <span>Number of Workflows</span>
-        <input type="number" class="input-value" id="workflow-count-value-{{ $id }}" value="4" min="1" max="25">
+        <input type="number" class="input-value" id="workflow-count-value-{{ $id }}" value="10" min="1" max="40">
       </label>
       <div class="helper-text">How many different use-cases are supported</div>
-      <input type="range" class="calc-input" id="workflow-count-{{ $id }}" min="1" max="25" value="4" step="1">
+      <input type="range" class="calc-input" id="workflow-count-{{ $id }}" min="1" max="40" value="10" step="1">
 
       <label class="label-with-value">
         <span>Number of Users</span>
-        <input type="number" class="input-value" id="user-count-input-value-{{ $id }}" value="100" min="10" max="15000">
+        <input type="number" class="input-value" id="user-count-input-value-{{ $id }}" value="1000" min="10" max="15000">
       </label>
       <div class="helper-text">How many people will use with the app</div>
-      <input type="range" class="calc-input" id="user-count-input-{{ $id }}" min="10" max="15000" value="100" step="10">
+      <input type="range" class="calc-input" id="user-count-input-{{ $id }}" min="10" max="15000" value="1000" step="10">
 
       <div class="viz-divider">
         <a href="#" id="show-advanced-{{ $id }}" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
