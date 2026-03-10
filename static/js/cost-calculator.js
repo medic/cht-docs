@@ -3,8 +3,8 @@ let debounceTimer = null;
 const DEFAULTS = {
   DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB: 0.96,
-  MEDIC_DOCS_PER_GB: 63566,
-  DB_OVERPROVISION_FACTOR: 2,
+  MEDIC_DOCS_PER_GB: 76111,
+  DB_OVERPROVISION_FACTOR: 3,
   PLACES_PER_POP: 0.36,
   USERS_PER_CPU: 211,
   RAM_PER_CPU: 2,
@@ -57,7 +57,7 @@ const calculateMetrics = (els) => {
   const reportCount = workflowCount * populationCount * deploymentAge * DEFAULTS.DOCS_PER_POP_WORKFLOW_YEAR;
   const totalDocCount = contactCount + reportCount;
   const dbDiskGb = Math.max(1, Math.ceil(totalDocCount / DEFAULTS.MEDIC_DOCS_PER_GB));
-  const diskOverprovisionGb = dbDiskGb * (dbOverprovisionFactor - 1);
+  const diskOverprovisionGb = dbDiskGb * dbOverprovisionFactor;
   const rootVolumeGb = DEFAULTS.ROOT_VOLUME_GB;
   const diskSizeGb = dbDiskGb + diskOverprovisionGb + rootVolumeGb;
   const diskCost = DEFAULTS.DISK_COST_PER_GB * diskSizeGb;
