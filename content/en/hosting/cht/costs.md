@@ -59,46 +59,69 @@ There are many additional costs to successfully hosting a CHT instance that are 
 
 ## Calculation details
 
-Following are details regarding the inner workings of the interactive cost calculator.
+The calculator estimates hosting costs based on data collected from production CHT deployments. All values below were derived from [Watchdog metrics](/technical-overview/architecture/cht-watchdog/) and real-world pricing.
 
-Disk: 
-- `$0.08`/GB/month - Standard [Amazon EBS](https://aws.amazon.com/ebs/) price for `gp3` (General Purpose SSD) storage.
-- Docs-per-gb - calculated to be `76111` based on data recorded from production.
-  - DB disk space used was measured from Node Exporter metrics using
-  ```promql
-  (node_filesystem_size_bytes{ mountpoint="/" } - node_filesystem_avail_bytes{ mountpoint="/" }) 
-  / 1073741824 # Bytes per GB
-  - 25 # Subtract 25GB for OS and other non-CHT data
-  ```
-  - `medic` doc count was retrieved via
-  ```promql
-  cht_couchdb_doc_total{ db="medic" }
-  ```
-  - Docs-per-gb = Medic Doc Count / DB Disk space used
-- This value is a useful approximation for determining the _whole size of the db on disk_ (including view indexes and other non-`medic` database). The goal is not to determine the actual _size_ of the `medic` db, but to use the expected number of `medic` docs to estimate the total size of the whole DB.
-- `medic` docs count - estimated by taking the estimated number of contacts + the estimated number of data records (anything that is not a contact). 
-  - The [`/impact`](/building/reference/api/#get-apiv1impact) api endpoint can be used to get the breakdown/totals of the contact counts for an instance.
-  - Using this data, plus the total `medic` doc count, I was able to estimate the following:
-    - Average number of places per person: `0.36` - covers the entire place hierarchy.
-    - Average number of data records per person per workflow per year: `1` - can vary widely depending on workflow (and how much of the population is targetted by the workflow).
-- DB Overprovisioning factor - by default, targetting `3x` disk space free as the minimum for a production instance to give suffcient head-room for upgrades and future DB growth.
-- Also including `50GB` for the root volume containing the OS and other software necessary to run the CHT. 
+### Estimating document count
 
-CPU:
-- Measured the current CPU allocation with
+The `medic` database document count drives the disk size estimate. It is calculated as:
+
+`medic docs = contacts + data records`
+
+Where:
+- **Contacts** = users + population + places
+- **Places** = population x `0.36` (average places per person, covering the full place hierarchy)
+- **Data records** = population x workflows x deployment age x `1` (average docs per person per workflow per year)
+
+The places-per-person and data-records-per-person ratios were derived from the [`/impact`](/building/reference/api/#get-apiv1impact) API endpoint data across production instances.
+
+> [!NOTE]
+> The data-records-per-person-per-workflow-per-year value (`1`) can vary widely depending on the workflow and how much of the population is targeted by that workflow.
+
+### Disk sizing
+
+The total disk size has three components:
+
+| Component             | Description                                        |
+|-----------------------|----------------------------------------------------|
+| **DB disk**           | Estimated `medic` doc count / `76,111` docs-per-GB |
+| **Over-provisioning** | DB disk x over-provisioning factor (default `3x`)  |
+| **Root volume**       | `50` GB for the OS and CHT software                |
+
+The _docs-per-GB_ value (`76,111`) is a ratio of `medic` doc count to total database disk usage (including CouchDB view indexes and non-`medic` databases). It was measured from production by getting the total disk space used (from Node Exporter metrics) with:
+
 ```promql
-count(node_cpu_seconds_total{ mode="idle" }) by (instance)
+# DB disk space used (GB)
+(node_filesystem_size_bytes{ mountpoint="/" } - node_filesystem_avail_bytes{ mountpoint="/" })
+/ 1073741824
+- 25  # Subtract OS and non-CHT data
 ```
-- Measured the average CPU utilization percentage for the last 14 days with:
-```promql
-(1 - avg(rate(node_cpu_seconds_total{ mode="idle" }[14d])) by (instance)) * 100
-```
-- Got the active user count with:
-```promql
-cht_connected_users_count
-```
-- Calculated the target CPU count (to reach `50%` utilization) by `cpu_count + (cpu_count * ((cpu_usage_pct - 50) / 100))`
-- Calculated the average users per CPU by `active_user_count / target_cpu_count`.
-- This resulted in an average users per CPU of `211`.
-- For RAM, I just went with `2GB` of RAM per CPU core. This matches the [recommended values](/hosting/cht/requirements/#production-hosting) for a CHT deployment as well as the standard AWS values for "Compute optimized" instances.
-- The Cost Per CPU Month (`$20.85`) was taken from the average "Linux Reserved" cost per-CPU of AWS "Compute optimized" EC2 instances in the US East (N. Virginia) region (data was collected via https://instances.vantage.sh/).
+
+Then the total doc count for the `medic` database can be retrieved with `cht_couchdb_doc_total{ db="medic" }`. When this value was divided by the GBs of used disk space, the average result for the measured instances was `76,111` docs per GB.
+
+The goal is not to determine the actual size of the `medic` database, but to use the expected `medic` doc count to estimate the total disk footprint of all databases.
+
+The over-provisioning factor (default `3x`) provides headroom for CouchDB compaction, upgrades, and future growth.
+
+### Disk cost
+
+Disk is priced at `$0.08`/GB/month based on standard [Amazon EBS](https://aws.amazon.com/ebs/) `gp3` (General Purpose SSD) pricing.
+
+### CPU and RAM sizing
+
+CPU count is determined by the number of users:
+
+`CPUs = users / 211` (rounded up, minimum 1)
+
+The _users-per-CPU_ value (`211`) was calculated from production instances by:
+
+1. Measuring CPU allocation: `count(node_cpu_seconds_total{ mode="idle" }) by (instance)`
+2. Measuring average utilization over 14 days: `(1 - avg(rate(node_cpu_seconds_total{ mode="idle" }[14d])) by (instance)) * 100`
+3. Getting active user count: `cht_connected_users_count`
+4. Calculating the target CPU count to reach `50%` utilization: `cpu_count + (cpu_count * ((cpu_usage_pct - 50) / 100))`
+5. Dividing active users by target CPU count
+
+RAM is allocated at `2` GB per CPU core. This matches the [recommended values](/hosting/cht/requirements/#production-hosting) for CHT deployments and the standard AWS sizing for "Compute optimized" instances.
+
+### Instance cost
+
+Instance cost is `$20.85` per CPU per month, based on the average "Linux Reserved" per-CPU cost of AWS "Compute optimized" EC2 instances in the US East (N. Virginia) region (collected via [instances.vantage.sh](https://instances.vantage.sh/)).
