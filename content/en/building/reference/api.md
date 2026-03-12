@@ -1287,6 +1287,179 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /api/v1/person
+
+*Added in 5.2.0*
+
+#### Description
+Used to create a person.
+
+#### Supported Properties
+
+Use JSON in the request body to specify a person’s details.
+
+#### Permissions
+Should have `can_create_people` or `can_edit`.
+
+#### Required
+| Field  | Description                                                                                                                       | Format     |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------|------------|
+| name   | Name of the person.                                                                                                               | string     |
+| type   | ID of the `contact_type` for the new person. Use `person` for older versions.                                                     | string     |
+| parent | ID of the parent document (a place) for the new person. The parent’s type must match one of the allowed `parents` in the settings. | UUID string |
+
+#### Optional
+
+| Field         | Description                                                                 | Format                                           |
+|---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| short_name    | Short name of the person.                                                   | string                                           |
+| phone         | Phone number of the person (string format).                                 | string                                           |
+| role          | Role of the person (string format).                                         | string                                           |
+| sex           | Sex of the person.                                                          | string                                           |
+| date_of_birth | Date of birth.                                                              | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or Date |
+| patient_id    | Patient ID for the person.                                                  | string                                           |
+
+
+#### Examples
+Create a person with a clinic as its parent place.
+
+```bash
+POST /api/v1/person
+Content-type: application/json
+
+{
+    "name": "dummyuser",
+    "type": "person",
+    "parent":"01992f01-f155-4386-8538-5080c3155585"
+}
+```
+
+Example response:
+```json
+{
+    "_id": "4dcd842e813fd1bcabec03f98f002a98",
+    "_rev": "1-bf4ecb779a3a369f6162a149853cbb02",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "reported_date": 1755519112122,
+    "contact_type": "person"
+}
+```
+
+### PUT /api/v1/person/{{uuid}}
+
+*Added in 5.2.0*
+
+#### Description
+Used to update mutable fields of a person, or delete them if they are not part of update payload.
+
+#### URL Parameters
+
+| Variable | Description                                |
+| -------- | ------------------------------------------ |
+| uuid     | ID of the person document to be updated.   |
+
+#### Supported Properties
+
+Use JSON in the request body to specify a person’s details.
+
+#### Permissions
+Should have `can_update_people` or `can_edit`.
+
+#### Required immutable fields
+| Field         | Description                                                   | Format                                                   |
+|---------------|---------------------------------------------------------------|----------------------------------------------------------|
+| _rev          | Revision ID of the person document to be updated.              | string                                                   |
+| reported_date | Timestamp of when the record was reported or created. Must match the stored value exactly (unix epoch). | unix epoch |
+| contact_type  | Required if the type of the person is `contact`.               | string                                                   |
+| type          | The type of the person.                                       | string                                                   |
+| parent        | The parent lineage of the person to be updated.                | Minified or hydrated parent lineage                      |
+
+#### Required mutable fields
+| Field | Description            |
+|-------|------------------------|
+| name  | Name of the person.    |
+
+#### Examples
+Updating `sex` from "male" to "female" and deleting the `short_name` field
+
+Original Doc: 
+```json
+{
+    "_id": "4dcd842e813fd1bcabec03f98f004c96",
+    "_rev": "1-1492a8ddf25a350cdd35c217a561f27a",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "sex": "male",
+    "short_name": "userX",
+    "reported_date": 1755519752958,
+    "contact_type": "person"
+}
+```
+
+Request Body:
+```bash
+PUT /api/v1/person/4dcd842e813fd1bcabec03f98f004c96
+{
+    "_rev": "1-1492a8ddf25a350cdd35c217a561f27a",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "sex": "female",
+    "reported_date": 1755519752958,
+    "contact_type": "person"
+}
+```
+
+Response:
+```json
+{
+    "_id": "4dcd842e813fd1bcabec03f98f004c96",
+    "_rev": "2-3100df4acfd79b641173ff7d0d53e871",
+    "name": "dummyuser",
+    "type": "contact",
+    "parent": {
+        "_id": "01992f01-f155-4386-8538-5080c3155585",
+        "parent": {
+            "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+            "parent": {
+                "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+            }
+        }
+    },
+    "sex": "female",
+    "reported_date": 1755519752958,
+    "contact_type": "person"
+}
+```
+
 ## People
 
 ### Supported Properties
@@ -1650,6 +1823,205 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /api/v1/place
+
+*Added in 5.2.0*
+
+#### Description
+Used to create a place.
+
+#### Supported Properties
+
+Use JSON in the request body to specify the details of a place.
+
+#### Permissions
+Should have `can_create_places` or `can_edit`.
+
+#### Required
+| Field  | Description                                                                                                          | Format     |
+|--------|----------------------------------------------------------------------------------------------------------------------|------------|
+| name   | Name of the place.                                                                                                   | string     |
+| type   | The contact type for the new place.                                                                                  | string     |
+
+#### Optional
+
+| Field         | Description                                                                 | Format                                           |
+|---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| parent        | ID of the parent document. The parent’s type must match one of the allowed `parents` in the settings configuration. Required for place types that have `parents` defined in the settings. | UUID string |
+| reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| contact       | ID of the primary contact to be linked with the created place.              | UUID string                                      |
+| place_id      | Place ID for the place.                                                     | string                                           |
+
+*Note: Places that are at the top of the hierarchy should not have a `parent`. Place types that have `parents` defined in the settings configuration require a `parent` to be provided.*
+
+#### Examples
+
+Request:
+```bash
+POST /api/v1/place
+Content-Type: application/json
+
+{
+    "name": "test place",
+    "type": "clinic",
+    "parent": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+    "contact": "00058058-e637-4e65-b5db-cd4b2da4375e"
+}
+```
+
+Response:
+```json
+{
+    "_id": "36aed043a50315f00f625af18c0043af",
+    "_rev": "1-9ffb5015e3ec6a800e8f70d6c9ea12ee",
+    "name": "test place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "contact": {
+        "_id": "00058058-e637-4e65-b5db-cd4b2da4375e",
+        "parent": {
+            "_id": "0fc7c7c4-76c0-4c1b-8eac-43ee5b42f646",
+            "parent": {
+                "_id": "c79e489a-1ee0-4537-a618-bfab496a7e29",
+                "parent": {
+                    "_id": "a177578c-a2a2-4731-931c-2bbff842d0f4"
+                }
+            }
+        }
+    },
+    "reported_date": 1756120037741,
+    "contact_type": "clinic"
+}
+```
+
+### PUT /api/v1/place/{{uuid}}
+
+*Added in 5.2.0*
+
+#### Description
+Used to update mutable fields of a place, or delete them if they are not part of update payload.
+
+#### URL Parameters
+
+| Variable | Description                                |
+| -------- | ------------------------------------------ |
+| uuid     | ID of the place document to be updated.    |
+
+#### Supported Properties
+
+Use JSON in the request body to specify the details of a place.
+
+#### Permissions
+Should have `can_update_places` or `can_edit`.
+
+#### Required immutable fields
+| Field         | Description                                                                                      | Format                              |
+|---------------|--------------------------------------------------------------------------------------------------|-------------------------------------|
+| _rev          | Revision ID of the place document to be updated.                                                  | string                              |
+| reported_date | Timestamp of when the record was reported or created. Must match the stored value exactly (unix epoch). | unix epoch                          |
+| contact_type  | Required if the type of the place is `contact`.                                                   | string                              |
+| type          | The type of the place.                                                                            | string                              |
+| parent        | The parent lineage of the place to be updated. Not required if the place is at the top of the hierarchy. | Minified or hydrated parent lineage |
+
+#### Optional mutable fields
+| Field   | Description                                                                                        | Format                       |
+|---------|----------------------------------------------------------------------------------------------------|------------------------------|
+| contact | The contact linked with the place. Can be added, changed, or removed during update. Pass the contact's ID or omit the field to remove. | UUID string or minified/hydrated lineage |
+
+#### Required mutable fields
+| Field | Description          | Format |
+|-------|----------------------|--------|
+| name  | The name of the place. | string |
+
+
+#### Examples
+
+Adding `contact` field as a part of the update and changing `name` of the place.
+
+Original place object:
+```json
+{
+    "_id": "36aed043a50315f00f625af18c004bcf",
+    "_rev": "1-d29dc4cf44845f0c1842bcd57390d1d3",
+    "name": "test place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "reported_date": 1755614896436,
+    "contact_type": "clinic"
+}
+```
+
+Request:
+```bash
+PUT /api/v1/place/36aed043a50315f00f625af18c004bcf
+Content-Type: application/json
+
+{
+    "_rev": "1-d29dc4cf44845f0c1842bcd57390d1d3",
+    "name": "new place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "contact": {
+        "_id": "00058058-e637-4e65-b5db-cd4b2da4375e",
+        "parent": {
+            "_id": "0fc7c7c4-76c0-4c1b-8eac-43ee5b42f646",
+            "parent": {
+                "_id": "c79e489a-1ee0-4537-a618-bfab496a7e29",
+                "parent": {
+                    "_id": "a177578c-a2a2-4731-931c-2bbff842d0f4"
+                }
+            }
+        }
+    },
+    "reported_date": 1755614896436,
+    "contact_type": "clinic"
+}
+```
+
+Response:
+```json
+{
+    "_id": "36aed043a50315f00f625af18c004bcf",
+    "_rev": "2-7d9114d21f80451b436d6d25d8ac5a75",
+    "name": "new place",
+    "type": "contact",
+    "parent": {
+        "_id": "35a2f31e-705c-4833-b385-efd069b1ce3f",
+        "parent": {
+            "_id": "29368c93-d267-4e80-8fbe-6543f702ff30"
+        }
+    },
+    "contact": {
+        "_id": "00058058-e637-4e65-b5db-cd4b2da4375e",
+        "parent": {
+            "_id": "0fc7c7c4-76c0-4c1b-8eac-43ee5b42f646",
+            "parent": {
+                "_id": "c79e489a-1ee0-4537-a618-bfab496a7e29",
+                "parent": {
+                    "_id": "a177578c-a2a2-4731-931c-2bbff842d0f4"
+                }
+            }
+        }
+    },
+    "reported_date": 1756277807624,
+    "contact_type": "clinic"
+}
+```
 
 ## Places
 
@@ -2079,6 +2451,170 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### POST /api/v1/report
+
+*Added in 5.2.0*
+
+#### Description
+Used to create a report.
+
+#### Supported Properties
+
+Use JSON in the request body to specify a report’s details.
+
+#### Permissions
+Should have `can_create_records` or `can_edit`.
+
+#### Required
+| Field   | Description                                                                                                      | Format     |
+|---------|------------------------------------------------------------------------------------------------------------------|------------|
+| form    | Must be a valid form id.                                                                                             | string     |
+| contact | The identifier of the contact associated with the user submitting the report.                                        | UUID string |
+
+#### Optional
+
+| Field         | Description                                                                 | Format                                           |
+|---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
+| reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
+| fields        | Fields containing the report data.                                          | Object                                           |
+
+#### Examples
+Request:
+```bash
+POST /api/v1/report
+Content-type: application/json
+
+{
+    "form":"pregnancy_home_visit",
+    "type":"data_record",
+    "contact":"00ba941a-a052-4e45-ada7-c32f59542133"
+}
+```
+
+Response:
+```json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
+    "form": "pregnancy_home_visit",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": 1755490087000
+}
+```
+
+### PUT /api/v1/report/{{uuid}}
+
+*Added in 5.2.0*
+
+#### Description
+Used to update a report.
+
+#### URL Parameters
+
+| Variable | Description                                |
+| -------- | ------------------------------------------ |
+| uuid     | ID of the report document to be updated.   |
+
+#### Supported Properties
+
+Use JSON in the request body to specify a report’s details.
+
+#### Permissions
+Should have `can_update_reports` or `can_edit`.
+
+#### Required immutable fields
+| Field         | Description                                                   | Format                                           |
+|---------------|---------------------------------------------------------------|--------------------------------------------------|
+| type          | Type of the report.                                           | string                                           |
+| reported_date | Timestamp of when the record was reported or created. Must match the stored value exactly (unix epoch). | unix epoch                                       |
+| _rev          | Revision ID of the report document to be updated.             | string                                           |
+
+#### Optional mutable fields
+| Field   | Description                                                                    | Format                               |
+|---------|--------------------------------------------------------------------------------|--------------------------------------|
+| contact | The identifier of the contact associated with the user submitting the report. Can be changed to a different valid contact. | UUID string or minified/hydrated lineage |
+| fields  | Fields containing the report data.                                             | Object                               |
+
+#### Required mutable fields
+| Field | Description                                                                                                      | Format |
+|-------|------------------------------------------------------------------------------------------------------------------|--------|
+| form  | Must be a valid form id.                                                                                                 | string |
+
+
+#### Examples
+
+Changing form value from `pregnancy_home_visit` to `pregnancy_danger_sign`
+
+Original Document:
+```json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
+    "form": "pregnancy_home_visit",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": 1755490087000
+}
+```
+
+Request:
+```bash
+PUT /api/v1/report/b8208fa332bf1f09b606e6efd8002a4a
+Content-type: application/json
+{
+    "_rev": "1-9ffca0e670bcc111de86f68ae8f47d3b",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": 1755490087000
+}
+
+```
+
+Response:
+```json
+{
+    "_id": "b8208fa332bf1f09b606e6efd8002a4a",
+    "_rev": "2-82b274ab67cf5fbab0ea870cbb62ab48",
+    "form": "pregnancy_danger_sign",
+    "type": "data_record",
+    "contact": {
+        "_id": "00ba941a-a052-4e45-ada7-c32f59542133",
+        "parent": {
+            "_id": "4583e5aa-b1c1-40d4-9f65-ce63610b8c52",
+            "parent": {
+                "_id": "f0d44e4c-bd37-44a2-a7a5-dd38de32d9a2"
+            }
+        }
+    },
+    "reported_date": 1755490087000
+}
+```
 ## Users
 
 All user related requests are limited to users with admin privileges by default.
