@@ -1841,7 +1841,7 @@ Should have `can_create_places` or `can_edit`.
 | Field  | Description                                                                                                          | Format     |
 |--------|----------------------------------------------------------------------------------------------------------------------|------------|
 | name   | Name of the place.                                                                                                   | string     |
-| type   | ID of the `contact_type` for the new place. Use `place` for older versions.                                          | string     |
+| type   | The contact type for the new place.                                                                                  | string     |
 
 #### Optional
 
@@ -2468,18 +2468,15 @@ Should have `can_create_records` or `can_edit`.
 #### Required
 | Field   | Description                                                                                                      | Format     |
 |---------|------------------------------------------------------------------------------------------------------------------|------------|
-| form    | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with `key=["form"]`). | string     |
-| contact | ID of the contact document (can be either a person or a place) for the new report.                               | UUID string |
+| form    | Must be a valid form id.                                                                                             | string     |
+| contact | The identifier of the contact associated with the user submitting the report.                                        | UUID string |
 
 #### Optional
 
 | Field         | Description                                                                 | Format                                           |
 |---------------|-----------------------------------------------------------------------------|--------------------------------------------------|
-| type          | Type of the report. Defaults to `data_record`. If provided, must be `data_record`. | string                                           |
 | reported_date | Timestamp of when the record was reported or created. Defaults to `now`.    | `YYYY-MM-DDTHH:mm:ssZ`, `YYYY-MM-DDTHH:mm:ss.SSSZ`, or unix epoch |
 | fields        | Fields containing the report data.                                          | Object                                           |
-
-*Note: A valid `form` value, `type` being `data_record` and having a valid `contact` is necessary for the report to appear in the webapp.*
 
 #### Examples
 Request:
@@ -2544,13 +2541,13 @@ Should have `can_update_reports` or `can_edit`.
 #### Optional mutable fields
 | Field   | Description                                                                    | Format                               |
 |---------|--------------------------------------------------------------------------------|--------------------------------------|
-| contact | Contact associated with the report. Can be changed to a different valid contact. | UUID string or minified/hydrated lineage |
+| contact | The identifier of the contact associated with the user submitting the report. Can be changed to a different valid contact. | UUID string or minified/hydrated lineage |
 | fields  | Fields containing the report data.                                             | Object                               |
 
 #### Required mutable fields
 | Field | Description                                                                                                      | Format |
 |-------|------------------------------------------------------------------------------------------------------------------|--------|
-| form  | Must be a valid form value from the forms available in the `medic-client/doc_by_type` view (queried with `key=["form"]`). | string |
+| form  | Must be a valid form id.                                                                                                 | string |
 
 
 #### Examples
