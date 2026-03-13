@@ -262,6 +262,48 @@ html[class~="dark"] .swagger-ui .json-schema-2020-12-accordion {
   background-color: transparent;
 }
 
+/* --- x-permissions badges --- */
+
+.x-permissions {
+  margin: 0.75rem 1.25rem 1rem;
+  padding: 0.625rem 0.875rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #1e3a8a;
+}
+
+.x-permissions__line {
+  display: block;
+}
+
+.x-permissions__label {
+  font-weight: 600;
+}
+
+.swagger-ui .x-permissions__pill {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  margin: 0.1em 0.25em;
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html[class~="dark"] .x-permissions {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+}
+
+html[class~="dark"] .swagger-ui .x-permissions__pill {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
 /* --- Links --- */
 
 html[class~="dark"] .swagger-ui a {

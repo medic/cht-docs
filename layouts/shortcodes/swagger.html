@@ -19,17 +19,64 @@
 <script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-bundle.js" crossorigin></script>
 <script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-standalone-preset.js" crossorigin></script>
 <script>
+
+  const buildPermissionsLine = (items, label) => {
+    const line = document.createElement('span');
+    line.className = 'x-permissions__line';
+    line.innerHTML = `<span class="x-permissions__label">${label}</span>`
+      + items.map(p => `<code class="x-permissions__pill">${p}</code>`).join('');
+    return line;
+  };
+
+  const buildPermissionsBadge = (perms) => {
+    const badge = document.createElement('div');
+    badge.className = 'x-permissions';
+    badge.appendChild(buildPermissionsLine(perms.hasAll ?? [], 'Permissions: '));
+    if (perms.hasAny) {
+      badge.appendChild(buildPermissionsLine(perms.hasAny, 'Any of: '));
+    }
+
+    return badge;
+  };
+
+  const XPermissionsPlugin = () => ({
+    wrapComponents: {
+      operation: (Original, system) => (props) => {
+        const h = system.React.createElement;
+        const propOperation = props.operation.get('op')
+        const perms = propOperation.get?.('x-permissions')?.toJS();
+
+        if (!perms || (!perms.hasAny && !perms.hasAll)) {
+          return h(Original, props);
+        }
+
+        const ref = (node) => {
+          const descWrapper = node?.querySelector('.opblock-description-wrapper');
+          if (!descWrapper || descWrapper.querySelector('.x-permissions')) {
+            return;
+          }
+
+          const badge = buildPermissionsBadge(perms);
+          descWrapper.prepend(badge);
+        };
+
+        return h('div', { ref }, h(Original, props));
+      }
+    }
+  });
+
   window.addEventListener('DOMContentLoaded', () => {
     SwaggerUIBundle({
       dom_id: '#{{ $id }}',
       url: {{ $url }},
       presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+      plugins: [XPermissionsPlugin],
       filter: {{ $filter }},
       operationsSorter: {{ $operationsSorter }},
       tagsSorter: {{ $tagsSorter }},
       docExpansion: {{ $docExpansion }},
       deepLinking: true,
-      supportedSubmitMethods: [],
+      supportedSubmitMethods: []
     });
   });
 </script>
