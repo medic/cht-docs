@@ -1,5 +1,4 @@
 ---
-title: "OpenAPI Documentation"
 linkTitle: "OpenAPI"
 weight: 2
 toc: false
