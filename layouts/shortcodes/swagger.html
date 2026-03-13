@@ -1,0 +1,32 @@
+{{- $url := .Get "url" | default "/openapi.json" -}}
+{{- $filter := .Get "filter" | default "true" -}}
+{{- $operationsSorter := .Get "operationsSorter" | default "alpha" -}}
+{{- $tagsSorter := .Get "tagsSorter" | default "alpha" -}}
+{{- $docExpansion := .Get "docExpansion" | default "list" -}}
+{{- $id := .Get "id" | default "swagger-ui" -}}
+
+<!-- Collapse the TOC sidebar to give Swagger UI more width -->
+<style>.hextra-toc { width: 0; overflow: hidden; padding: 0; }</style>
+
+<!-- Swagger UI CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui.css" />
+
+<div id="{{ $id }}"></div>
+
+<!-- Swagger UI JavaScript -->
+<script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-bundle.js" crossorigin></script>
+<script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-standalone-preset.js" crossorigin></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    SwaggerUIBundle({
+      dom_id: '#{{ $id }}',
+      url: {{ $url }},
+      presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+      filter: {{ $filter }},
+      operationsSorter: {{ $operationsSorter }},
+      tagsSorter: {{ $tagsSorter }},
+      docExpansion: {{ $docExpansion }},
+      deepLinking: true,
+    });
+  });
+</script>
