@@ -94,17 +94,13 @@ html[class~="dark"] .swagger-ui .parameters-container {
   background: transparent;
 }
 
-/* Code blocks and inline examples */
-html[class~="dark"] .swagger-ui .opblock-body pre.microlight {
-  background: #0a0a0a !important;
-  color: #d1d5db !important;
-  border: 1px solid #262626;
-}
-
-html[class~="dark"] .swagger-ui .highlight-code,
-html[class~="dark"] .swagger-ui .highlight-code .hljs {
-  background: #0a0a0a;
-  color: #d1d5db;
+/* Code blocks — prevent hextra's pre/code styles from interfering
+   with Swagger's own microlight syntax highlighting */
+.swagger-ui pre,
+.swagger-ui code {
+  background-color: unset;
+  border: unset;
+  color: unset;
 }
 
 /* --- Borders --- */
@@ -194,6 +190,71 @@ html[class~="dark"] .swagger-ui .tab li button.tablinks {
 
 html[class~="dark"] .swagger-ui button:focus {
   outline: 1px solid #404040;
+}
+
+/* --- JSON Schema 2020-12 (schema view in Swagger UI) --- */
+
+/* Container background */
+html[class~="dark"] .swagger-ui .json-schema-2020-12 {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+html[class~="dark"] .swagger-ui .model-box .json-schema-2020-12,
+html[class~="dark"] .swagger-ui .json-schema-2020-12--embedded {
+  background-color: transparent;
+}
+
+/* Titles and labels */
+html[class~="dark"] .swagger-ui .json-schema-2020-12__title,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-expand-deep-button {
+  color: #f3f4f6;
+}
+
+/* Primary text (property names, values) */
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__name--primary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__value--primary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__name--primary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__value--primary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12__attribute,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-property .json-schema-2020-12__title {
+  color: #d1d5db;
+}
+
+/* Secondary / muted text */
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__name--secondary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__value,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__value--secondary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__name--secondary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__value,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__value--secondary,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword--description {
+  color: #9ca3af;
+}
+
+/* Extension text */
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__name--extension,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__value--extension,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__name--extension,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__value--extension {
+  color: #6b7280;
+}
+
+/* Primary attribute (type labels) */
+html[class~="dark"] .swagger-ui .json-schema-2020-12__attribute--primary {
+  color: #60a5fa;
+}
+
+/* Dashed borders */
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword__children,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-json-viewer__children,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-body,
+html[class~="dark"] .swagger-ui .json-schema-2020-12-keyword--$vocabulary ul {
+  border-left-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Accordion buttons */
+html[class~="dark"] .swagger-ui .json-schema-2020-12-accordion {
+  background-color: transparent;
 }
 
 /* --- Links --- */
