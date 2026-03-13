@@ -20,22 +20,18 @@
 <script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-standalone-preset.js" crossorigin></script>
 <script>
 
-  const buildPermissionsLine = (items, label) => {
-    const line = document.createElement('span');
-    line.className = 'x-permissions__line';
-    line.innerHTML = `<span class="x-permissions__label">${label}</span>`
-      + items.map(p => `<code class="x-permissions__pill">${p}</code>`).join('');
-    return line;
-  };
+  const buildPermissionsPills = (items = []) => items.map(p => `<code class="x-permissions__pill">${p}</code>`).join('');
 
   const buildPermissionsBadge = (perms) => {
     const badge = document.createElement('div');
     badge.className = 'x-permissions';
-    badge.appendChild(buildPermissionsLine(perms.hasAll ?? [], 'Permissions: '));
-    if (perms.hasAny) {
-      badge.appendChild(buildPermissionsLine(perms.hasAny, 'Any of: '));
-    }
-
+    const hasAllPills = buildPermissionsPills(perms.hasAll);
+    const hasAnyPills = buildPermissionsPills(perms.hasAny);
+    const hasAnyContent = hasAnyPills ? ` any of: (${hasAnyPills})` : '';
+    const line = document.createElement('span');
+    line.className = 'x-permissions__line';
+    line.innerHTML = `<span class="x-permissions__label">Permissions - </span>${hasAllPills}${hasAnyContent}`;
+    badge.appendChild(line);
     return badge;
   };
 
