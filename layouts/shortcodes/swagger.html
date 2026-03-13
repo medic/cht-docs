@@ -10,6 +10,8 @@
 
 <!-- Swagger UI CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui.css" />
+{{- $swaggerCss := resources.Get "css/swagger.css" -}}
+<link rel="stylesheet" href="{{ $swaggerCss.RelPermalink }}" />
 
 <div id="{{ $id }}"></div>
 
