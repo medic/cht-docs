@@ -190,6 +190,12 @@ html[class~="dark"] .swagger-ui .tab li button.tablinks {
   background: transparent;
 }
 
+/* --- Button focus outline --- */
+
+html[class~="dark"] .swagger-ui button:focus {
+  outline: 1px solid #404040;
+}
+
 /* --- Links --- */
 
 html[class~="dark"] .swagger-ui a {
