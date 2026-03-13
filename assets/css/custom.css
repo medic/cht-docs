@@ -262,8 +262,6 @@ a.broken {
 ------------------------- */
 
 #swagger-ui {
-    height: calc(100vh - var(--navbar-height));
-    min-height: 600px;
     width: 100%;
   }
 
