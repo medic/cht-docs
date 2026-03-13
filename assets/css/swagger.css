@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+/* Hide info */
+#swagger-ui .information-container,.scheme-container,.filter-container {
+  display: none;
+}
+
 /* --- Base text --- */
 
 html[class~="dark"] .swagger-ui {
