@@ -134,6 +134,11 @@ html[class~="dark"] .swagger-ui .opblock.opblock-put .opblock-summary-method { b
 html[class~="dark"] .swagger-ui .opblock.opblock-delete .opblock-summary-method { background: #dc2626; }
 html[class~="dark"] .swagger-ui .opblock.opblock-patch .opblock-summary-method { background: #9333ea; }
 
+/* Deprecated method badge — darker gray for better contrast */
+.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
+  background: #525252;
+}
+
 /* --- Form controls --- */
 
 html[class~="dark"] .swagger-ui select,
