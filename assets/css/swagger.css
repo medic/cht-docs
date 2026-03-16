@@ -262,10 +262,33 @@ html[class~="dark"] .swagger-ui .json-schema-2020-12-accordion {
   background-color: transparent;
 }
 
-/* --- x-permissions badges --- */
+/* --- x-extensions badges --- */
+
+.x-extensions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.75rem 1.25rem 1rem;
+}
+
+.x-since {
+  padding: 0.625rem 0.875rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+html[class~="dark"] .x-since {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
 
 .x-permissions {
-  margin: 0.75rem 1.25rem 1rem;
   padding: 0.625rem 0.875rem;
   background: #eff6ff;
   border: 1px solid #bfdbfe;

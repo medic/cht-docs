@@ -35,25 +35,40 @@
     return badge;
   };
 
-  const XPermissionsPlugin = () => ({
+  const buildSinceBadge = (version) => {
+    const badge = document.createElement('div');
+    badge.className = 'x-since';
+    badge.textContent = `Added in ${version}`;
+    return badge;
+  };
+
+  const XExtensionsPlugin = () => ({
     wrapComponents: {
       operation: (Original, system) => (props) => {
         const h = system.React.createElement;
-        const propOperation = props.operation.get('op')
-        const perms = propOperation.get?.('x-permissions')?.toJS();
+        const op = props.operation.get('op');
+        const perms = op.get?.('x-permissions')?.toJS();
+        const since = op.get?.('x-since');
 
-        if (!perms || (!perms.hasAny && !perms.hasAll)) {
+        if (!perms && !since) {
           return h(Original, props);
         }
 
         const ref = (node) => {
           const descWrapper = node?.querySelector('.opblock-description-wrapper');
-          if (!descWrapper || descWrapper.querySelector('.x-permissions')) {
+          if (!descWrapper?.querySelector('.x-extensions')) {
             return;
           }
 
-          const badge = buildPermissionsBadge(perms);
-          descWrapper.prepend(badge);
+          const container = document.createElement('div');
+          container.className = 'x-extensions';
+          if (since) {
+            container.appendChild(buildSinceBadge(since));
+          }
+          if (perms) {
+            container.appendChild(buildPermissionsBadge(perms));
+          }
+          descWrapper.prepend(container);
         };
 
         return h('div', { ref }, h(Original, props));
@@ -66,7 +81,7 @@
       dom_id: '#{{ $id }}',
       url: {{ $url }},
       presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
-      plugins: [XPermissionsPlugin],
+      plugins: [XExtensionsPlugin],
       filter: {{ $filter }},
       operationsSorter: {{ $operationsSorter }},
       tagsSorter: {{ $tagsSorter }},
