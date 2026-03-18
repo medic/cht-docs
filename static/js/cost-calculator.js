@@ -13,7 +13,9 @@ const DEFAULTS = {
   ROOT_VOLUME_GB: 50
 };
 
-const formatCurrency = (amount) => `$${amount.toFixed()}`;
+const formatCurrency = (amount, opts = {}) => amount.toLocaleString(undefined, {
+  style: 'currency', currency: 'USD', maximumFractionDigits: 0, ...opts
+});
 const formatNumber = (num) => num.toLocaleString();
 const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
@@ -113,11 +115,11 @@ const updateOutputElements = (els) => () => {
   els.instanceCpu.textContent = `${m.cpuCount} CPU`;
   els.instanceRam.textContent = `${m.ramGb} GB RAM`;
 
-  els.diskSize.textContent = `${m.diskSizeGb.toFixed()} GB`;
+  els.diskSize.textContent = `${formatNumber(Math.round(m.diskSizeGb))} GB`;
   els.diskSize.title = `Docs in medic DB: ${formatNumber(m.totalDocCount)}`;
-  els.dbDisk.textContent = `${m.dbDiskGb} GB`;
-  els.diskOverprovision.textContent = `${m.diskOverprovisionGb} GB`;
-  els.rootVolume.textContent = `${m.rootVolumeGb} GB`;
+  els.dbDisk.textContent = `${formatNumber(m.dbDiskGb)} GB`;
+  els.diskOverprovision.textContent = `${formatNumber(m.diskOverprovisionGb)} GB`;
+  els.rootVolume.textContent = `${formatNumber(m.rootVolumeGb)} GB`;
   els.dbDiskBar.style.width = (m.dbDiskGb / m.diskSizeGb * 100) + '%';
   els.diskOverprovisionBar.style.width = (m.diskOverprovisionGb / m.diskSizeGb * 100) + '%';
   els.rootVolumeBar.style.width = (m.rootVolumeGb / m.diskSizeGb * 100) + '%';
@@ -125,8 +127,8 @@ const updateOutputElements = (els) => () => {
   const userCount = Number.parseInt(els.userCountInput.value);
   const yearlyCostPerUser = userCount > 0 ? m.totalCost / userCount : 0;
   const monthlyCostPerUser = yearlyCostPerUser / 12;
-  els.costPerUserYearly.textContent = `$${yearlyCostPerUser.toFixed(2)}`;
-  els.costPerUser.textContent = `$${monthlyCostPerUser.toFixed(2)}`;
+  els.costPerUserYearly.textContent = formatCurrency(yearlyCostPerUser, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  els.costPerUser.textContent = formatCurrency(monthlyCostPerUser, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   els.popPerUser.textContent = m.popPerUser.toFixed();
   const popPct = updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
