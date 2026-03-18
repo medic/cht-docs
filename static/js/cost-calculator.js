@@ -13,10 +13,11 @@ const DEFAULTS = {
   ROOT_VOLUME_GB: 50
 };
 
-const formatCurrency = (amount, opts = {}) => amount.toLocaleString(undefined, {
+const locale = navigator.language;
+const formatCurrency = (amount, opts = {}) => amount.toLocaleString(locale, {
   style: 'currency', currency: 'USD', maximumFractionDigits: 0, ...opts
 });
-const formatNumber = (num) => num.toLocaleString();
+const formatNumber = (num) => num.toLocaleString(locale);
 const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
 const lerpColor = (a, b, t) => [
@@ -208,7 +209,6 @@ const attachListeners = (els, updateOutputs) => {
 };
 
 const initCostCalculator = (calcId) => {
-
   const el = (id) => document.getElementById(`${id}-${calcId}`);
 
   const els = {
