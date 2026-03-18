@@ -29,7 +29,7 @@ Where:
 - **Places** = population x `0.36` (average places per person, covering the full place hierarchy)
 - **Data records** = population x workflows x deployment age x `1` (average docs per person per workflow per year)
 
-The places-per-person and data-records-per-person ratios were derived from the [`/impact`](/building/reference/api/#get-apiv1impact) API endpoint data across production instances.
+The places-per-person and data-records-per-person-per-workflow-per-year ratios were derived from the [`/impact`](/building/reference/api/#get-apiv1impact) API endpoint data across production instances.
 
 > [!NOTE]
 > The data-records-per-person-per-workflow-per-year value (`1`) can vary widely depending on the workflow and how much of the population is targeted by that workflow.

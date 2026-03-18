@@ -75,7 +75,7 @@
       <div class="cost-legend">
         <div class="cost-legend-item">
           <span class="cost-legend-color cost-legend-instance"></span>
-          <span>Instance: <strong id="cost-pct-instance-{{ $id }}">0%</strong></span>
+          <span>CPU + RAM: <strong id="cost-pct-instance-{{ $id }}">0%</strong></span>
         </div>
         <div class="cost-legend-item">
           <span class="cost-legend-color cost-legend-disk"></span>
@@ -117,7 +117,6 @@
 
       <!-- Instance section -->
       <div class="host-section">
-        <div class="viz-label host-section-header">Instance</div>
         <div class="host-section-row">
           <div class="host-section-details">
             <div class="host-value-large" id="instance-cpu-{{ $id }}">1 CPU</div>
@@ -134,8 +133,7 @@
       <div class="viz-divider disk-section">
         <div class="host-section-row">
           <div class="host-section-details">
-            <div class="viz-label host-section-header">Disk</div>
-            <div class="host-value-large" id="disk-size-{{ $id }}">0 GB</div>
+            <div class="host-value-large" id="disk-size-{{ $id }}">50 GB Disk</div>
           </div>
           <div class="host-cost">
             <div class="host-cost-value"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>

@@ -264,10 +264,6 @@ html.dark {
     margin-bottom: 0.5rem;
   }
 
-  .host-section-header {
-    text-transform: uppercase;
-  }
-
   .host-value-large {
     font-size: 1.25rem;
     font-weight: bold;
@@ -305,12 +301,6 @@ html.dark {
     color: var(--calc-text-light);
     font-weight: normal;
     margin-right: 0.25rem;
-  }
-
-  .disk-section {
-    .host-cost-value {
-      padding-top: 1rem;
-    }
   }
 
   .disk-bar {

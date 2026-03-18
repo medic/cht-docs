@@ -116,7 +116,7 @@ const updateOutputElements = (els) => () => {
   els.instanceCpu.textContent = `${m.cpuCount} CPU`;
   els.instanceRam.textContent = `${m.ramGb} GB RAM`;
 
-  els.diskSize.textContent = `${formatNumber(Math.round(m.diskSizeGb))} GB`;
+  els.diskSize.textContent = `${formatNumber(Math.round(m.diskSizeGb))} GB Disk`;
   els.diskSize.title = `Docs in medic DB: ${formatNumber(m.totalDocCount)}`;
   els.dbDisk.textContent = `${formatNumber(m.dbDiskGb)} GB`;
   els.diskOverprovision.textContent = `${formatNumber(m.diskOverprovisionGb)} GB`;
