@@ -11,16 +11,18 @@ const DEFAULTS = {
   ROOT_VOLUME_GB: 50
 };
 
-const locale = navigator.language;
-const formatCurrency = (amount, opts = {}) => amount.toLocaleString(locale, {
+const formatCurrency = (amount, opts = {}) => amount.toLocaleString(navigator.language, {
   style: 'currency', currency: 'USD', maximumFractionDigits: 0, ...opts
 });
-const formatNumber = (num) => num.toLocaleString(locale);
+const formatNumber = (num) => num.toLocaleString(navigator.language);
 const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
 const debouncedUpdate = (fn, delay = 250) => {
   let timer;
-  return () => { clearTimeout(timer); timer = setTimeout(fn, delay); };
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(fn, delay);
+  };
 };
 
 // Colors match CSS variables --calc-grad-start/mid/end
@@ -29,7 +31,6 @@ const lerpColor = (a, b, t) => [
   Math.round(a[1] + (b[1] - a[1]) * t),
   Math.round(a[2] + (b[2] - a[2]) * t),
 ];
-
 const gradientColor = (pct) => {
   const green = [16, 185, 129];
   const amber = [245, 158, 11];
@@ -52,13 +53,10 @@ const calculateMetrics = (els) => {
   const workflowCount = Number.parseFloat(els.workflowCount.value);
   const populationCount = Number.parseFloat(els.populationCount.value);
   const userCount = Number.parseFloat(els.userCountInput.value);
-
-  const dbOverprovisionFactor = Math.max(1, Number.parseFloat(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR));
-
-  if (els.dbOverprovision) {
-    els.dbOverprovision.value = dbOverprovisionFactor;
-  }
-
+  const dbOverprovisionFactor = Math.max(
+    1,
+    Number.parseFloat(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR)
+  );
   const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
   const contactCount = userCount + populationCount + placeCount;
   const reportCount = workflowCount * populationCount * deploymentAge * DEFAULTS.DOCS_PER_POP_WORKFLOW_YEAR;
@@ -71,13 +69,12 @@ const calculateMetrics = (els) => {
   const cpuCount = Math.max(1, Math.ceil(userCount / DEFAULTS.USERS_PER_CPU));
   const ramGb = cpuCount * DEFAULTS.RAM_PER_CPU;
   const instanceCost = cpuCount * DEFAULTS.COST_PER_CPU_MONTH * 12;
-
   const totalCost = diskCost + instanceCost;
   const popPerUser = userCount > 0 ? populationCount / userCount : 0;
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
   return {
     cpuCount, ramGb, instanceCost, dbDiskGb, diskOverprovisionGb, rootVolumeGb, diskSizeGb,
-    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser
+    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor
   };
 };
 
@@ -106,8 +103,14 @@ const updateOutputElements = (els) => () => {
   const userCount = Number.parseInt(els.userCountInput.value);
   const yearlyCostPerUser = userCount > 0 ? m.totalCost / userCount : 0;
   const monthlyCostPerUser = yearlyCostPerUser / 12;
-  els.costPerUserYearly.textContent = formatCurrency(yearlyCostPerUser, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  els.costPerUser.textContent = formatCurrency(monthlyCostPerUser, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  els.costPerUserYearly.textContent = formatCurrency(
+    yearlyCostPerUser,
+    { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+  );
+  els.costPerUser.textContent = formatCurrency(
+    monthlyCostPerUser,
+    { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+  );
 
   els.popPerUser.textContent = m.popPerUser.toFixed();
   const popPct = updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
@@ -130,22 +133,21 @@ const updateOutputElements = (els) => () => {
       els.costPctDisk.textContent = `${(100 - instancePct).toFixed()}%`;
     }
   }
+
+  els.dbOverprovision.value = m.dbOverprovisionFactor;
 };
 
 const addSliderWithInput = (slider, numberInput, debounced, updateOutputs) => {
   const min = Number.parseFloat(slider.min);
   const max = Number.parseFloat(slider.max);
-
   slider.addEventListener('input', (e) => {
     numberInput.value = e.target.value;
     debounced();
   });
-
   numberInput.addEventListener('input', (e) => {
     slider.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
     debounced();
   });
-
   numberInput.addEventListener('blur', (e) => {
     const val = clamp(Number.parseFloat(e.target.value) || min, min, max);
     e.target.value = val;
@@ -157,7 +159,6 @@ const addSliderWithInput = (slider, numberInput, debounced, updateOutputs) => {
 const addAdvancedInput = (input, debounced, updateOutputs) => {
   const min = Number.parseFloat(input.min) || 1;
   const max = Number.parseFloat(input.max) || Infinity;
-
   input.addEventListener('input', () => debounced());
   input.addEventListener('blur', (e) => {
     e.target.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
@@ -173,12 +174,12 @@ const attachListeners = (els, debounced, updateOutputs) => {
   addAdvancedInput(els.deploymentAgeValue, debounced, updateOutputs);
   addAdvancedInput(els.dbOverprovision, debounced, updateOutputs);
 
-  const toggle = (showAdvanced) => {
+  const toggleParameters = (showAdvanced) => {
     els.basicParams.classList.toggle('calc-hidden', showAdvanced);
     els.advancedParams.classList.toggle('calc-hidden', !showAdvanced);
   };
-  els.showAdvanced?.addEventListener('click', () => toggle(true));
-  els.showBasic?.addEventListener('click', () => toggle(false));
+  els.showAdvanced?.addEventListener('click', () => toggleParameters(true));
+  els.showBasic?.addEventListener('click', () => toggleParameters(false));
   els.resetAdvanced?.addEventListener('click', () => {
     els.deploymentAgeValue.value = DEFAULTS.DEPLOYMENT_AGE;
     els.dbOverprovision.value = DEFAULTS.DB_OVERPROVISION_FACTOR;
