@@ -21,11 +21,65 @@ html.dark {
   --calc-input-border: #4b5563;
   --calc-card-bg: #111827;
   --calc-label-bg: #374151;
+
+  --calc-link: #60a5fa;
+  --calc-grad-start: #34d399;
 }
 
 .cht-cost-calculator {
   width: 100%;
   margin-top: 2rem;
+
+  .calc-hidden {
+    display: none !important;
+  }
+
+  .calc-text-muted {
+    color: var(--calc-text-light);
+  }
+  .calc-text-blue {
+    color: var(--calc-link);
+  }
+  .calc-text-orange {
+    color: var(--calc-grad-mid);
+  }
+
+  .viz-divider {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--calc-border);
+  }
+  .viz-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--calc-text-light);
+    margin-bottom: 0.5rem;
+  }
+  .range-bar {
+    position: relative;
+    height: 1rem;
+    background: linear-gradient(to right, var(--calc-grad-start), var(--calc-grad-mid), var(--calc-grad-end));
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+
+    .range-marker {
+      position: absolute;
+      top: -0.25rem;
+      width: 3px;
+      height: 1.5rem;
+      background: white;
+      border: 2px solid var(--calc-text);
+      transition: left 0.3s ease;
+    }
+  }
+  .calc-link {
+    color: var(--calc-link);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .advanced-footer > :last-child {
+    float: right;
+  }
 }
 
 .calc-grid {
@@ -40,12 +94,8 @@ html.dark {
   }
   .calc-card.params { grid-column: span 6; }
   .calc-card.cost { grid-column: span 6; }
-  .calc-card.users {
-    grid-column: span 6;
-  }
-  .calc-card.host {
-    grid-column: span 6;
-  }
+  .calc-card.users { grid-column: span 6; }
+  .calc-card.host { grid-column: span 6; }
 }
 
 .calc-card {
@@ -162,13 +212,14 @@ html.dark {
   }
 
   .cost-pie {
+    --instance-pct: 50;
     width: 12rem;
     height: 12rem;
     margin: 0 auto 1rem;
     border-radius: 50%;
     background: conic-gradient(
-      var(--calc-link) 0% 50%,
-      var(--calc-grad-start) 50% 100%
+      var(--calc-link) 0% calc(var(--instance-pct) * 1%),
+      var(--calc-grad-start) calc(var(--instance-pct) * 1%) 100%
     );
   }
 
@@ -251,7 +302,6 @@ html.dark {
     .range-bar {
       width: 100%;
     }
-
   }
   .viz-section:last-child {
     margin-bottom: 0;
@@ -323,53 +373,4 @@ html.dark {
   .disk-bar-segment-overprovision {
     background: var(--calc-grad-mid);
   }
-}
-
-.hidden {
-  display: none !important;
-}
-.text-muted {
-  color: var(--calc-text-light);
-}
-.text-blue {
-  color: var(--calc-link);
-}
-.text-orange {
-  color: var(--calc-grad-mid);
-}
-.viz-divider {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--calc-border);
-}
-.viz-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--calc-text-light);
-  margin-bottom: 0.5rem;
-}
-.range-bar {
-  position: relative;
-  height: 1rem;
-  background: linear-gradient(to right, var(--calc-grad-start), var(--calc-grad-mid), var(--calc-grad-end));
-  border-radius: 4px;
-  margin-bottom: 0.25rem;
-
-  .range-marker {
-    position: absolute;
-    top: -0.25rem;
-    width: 3px;
-    height: 1.5rem;
-    background: white;
-    border: 2px solid var(--calc-text);
-    transition: left 0.3s ease;
-  }
-}
-.calc-link {
-  color: var(--calc-link);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-.advanced-footer > :last-child {
-  float: right;
 }

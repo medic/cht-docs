@@ -8,79 +8,79 @@
 
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
   <div class="calc-grid">
-    <div class="calc-card params" id="basic-params-{{ $id }}">
+    <div class="calc-card params" data-calc="basic-params">
       <h3>Parameters</h3>
 
       <label class="label-with-value">
         <span>Population Served</span>
-        <input type="number" class="input-value" id="population-count-value-{{ $id }}" value="100000" min="1000" max="2000000">
+        <input type="number" class="input-value" data-calc="population-count-value" value="100000" min="1000" max="2000000">
       </label>
       <div class="helper-text">How many people are registered</div>
-      <input type="range" class="calc-input" id="population-count-{{ $id }}" min="1000" max="2000000" value="100000" step="1000">
+      <input type="range" class="calc-input" data-calc="population-count" min="1000" max="2000000" value="100000" step="1000">
 
       <label class="label-with-value">
         <span>Number of Workflows</span>
-        <input type="number" class="input-value" id="workflow-count-value-{{ $id }}" value="10" min="1" max="40">
+        <input type="number" class="input-value" data-calc="workflow-count-value" value="10" min="1" max="40">
       </label>
       <div class="helper-text">How many different use-cases are supported</div>
-      <input type="range" class="calc-input" id="workflow-count-{{ $id }}" min="1" max="40" value="10" step="1">
+      <input type="range" class="calc-input" data-calc="workflow-count" min="1" max="40" value="10" step="1">
 
       <label class="label-with-value">
         <span>Number of Users</span>
-        <input type="number" class="input-value" id="user-count-input-value-{{ $id }}" value="1000" min="10" max="15000">
+        <input type="number" class="input-value" data-calc="user-count-input-value" value="1000" min="10" max="15000">
       </label>
       <div class="helper-text">How many people will use with the app</div>
-      <input type="range" class="calc-input" id="user-count-input-{{ $id }}" min="10" max="15000" value="1000" step="10">
+      <input type="range" class="calc-input" data-calc="user-count-input" min="10" max="15000" value="1000" step="10">
 
       <div class="viz-divider">
-        <a href="#" id="show-advanced-{{ $id }}" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
+        <a href="#" data-calc="show-advanced" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
       </div>
     </div>
 
     <!-- Advanced Parameters -->
-    <div class="calc-card params hidden" id="advanced-params-{{ $id }}">
+    <div class="calc-card params calc-hidden" data-calc="advanced-params">
       <h3>Advanced Parameters</h3>
 
       <div class="advanced-inputs-scroll">
         <div class="advanced-input-group">
           <div class="advanced-input">
-            <label for="deployment-age-{{ $id }}">Age of Deployment</label>
-            <input type="number" class="input-value" id="deployment-age-value-{{ $id }}" value="1" min="1" max="10">
+            <label>Age of Deployment</label>
+            <input type="number" class="input-value" data-calc="deployment-age-value" value="1" min="1" max="10">
           </div>
           <div class="helper-text">Years of data collected</div>
         </div>
 
         <div class="advanced-input-group">
           <div class="advanced-input">
-            <label for="db-overprovision-{{ $id }}">Database Over-provisioning Factor</label>
-            <input type="number" class="input-value" id="db-overprovision-{{ $id }}" value="3" min="1" max="10">
+            <label>Database Over-provisioning Factor</label>
+            <input type="number" class="input-value" data-calc="db-overprovision" value="3" min="1" max="10">
           </div>
           <div class="helper-text">Multiplier for database storage headroom</div>
         </div>
       </div>
 
       <div class="viz-divider advanced-footer">
-        <a href="#" id="show-basic-{{ $id }}" class="calc-link" onclick="event.preventDefault();">← Back to Basic</a>
-        <a href="#" id="reset-advanced-{{ $id }}" class="calc-link" onclick="event.preventDefault();">Reset</a>
+        <a href="#" data-calc="show-basic" class="calc-link" onclick="event.preventDefault();">← Back to Basic</a>
+        <a href="#" data-calc="reset-advanced" class="calc-link" onclick="event.preventDefault();">Reset</a>
       </div>
     </div>
 
     <!-- Annual Cost Estimate -->
     <div class="calc-card cost">
       <h3>Cost Estimate</h3>
-      <div class="total-cost"><span id="total-cost-{{ $id }}">$0</span>/yr</div>
+      <div class="total-cost"><span data-calc="total-cost">$0</span>/yr</div>
       <div class="monthly-cost">
-        <span id="monthly-cost-{{ $id }}">$0</span>/mo
+        <span data-calc="monthly-cost">$0</span>/mo
       </div>
-      <div class="cost-pie" id="cost-pie-{{ $id }}"></div>
+      <div class="cost-pie" data-calc="cost-pie"></div>
       <div class="cost-legend">
         <div class="cost-legend-item">
           <span class="cost-legend-color cost-legend-instance"></span>
-          <span>CPU + RAM: <strong id="cost-pct-instance-{{ $id }}">0%</strong></span>
+          <span>CPU + RAM: <strong data-calc="cost-pct-instance">0%</strong></span>
         </div>
         <div class="cost-legend-item">
           <span class="cost-legend-color cost-legend-disk"></span>
-          <span>Disk: <strong id="cost-pct-disk-{{ $id }}">0%</strong></span>
+          <span>Disk: <strong data-calc="cost-pct-disk">0%</strong></span>
         </div>
       </div>
     </div>
@@ -91,23 +91,23 @@
       <div class="cost-per-user">
         <span class="viz-label">Cost Per User</span>
         <div class="cost-per-user-values">
-          <div class="cost-per-user-value"><span id="cost-per-user-yearly-{{ $id }}">$0</span>/yr</div>
-          <div class="cost-per-user-monthly"><span id="cost-per-user-{{ $id }}">$0.00</span>/mo</div>
+          <div class="cost-per-user-value"><span data-calc="cost-per-user-yearly">$0</span>/yr</div>
+          <div class="cost-per-user-monthly"><span data-calc="cost-per-user">$0.00</span>/mo</div>
         </div>
       </div>
       <div class="viz-section viz-divider people-per">
         <div class="viz-label">People per User</div>
-        <div class="viz-value " id="pop-per-user-{{ $id }}">0</div>
+        <div class="viz-value" data-calc="pop-per-user">0</div>
         <div class="range-bar">
-          <div class="range-marker" id="pop-per-user-marker-{{ $id }}"></div>
+          <div class="range-marker" data-calc="pop-per-user-marker"></div>
         </div>
       </div>
 
       <div class="viz-section docs-per">
         <div class="viz-label">Docs per User</div>
-        <div class="viz-value" id="docs-per-user-{{ $id }}">0</div>
+        <div class="viz-value" data-calc="docs-per-user">0</div>
         <div class="range-bar">
-          <div class="range-marker" id="docs-per-user-marker-{{ $id }}"></div>
+          <div class="range-marker" data-calc="docs-per-user-marker"></div>
         </div>
       </div>
     </div>
@@ -120,12 +120,12 @@
       <div class="host-section">
         <div class="host-section-row">
           <div class="host-section-details">
-            <div class="host-value-large" id="instance-cpu-{{ $id }}">1 CPU</div>
-            <div class="host-value-large" id="instance-ram-{{ $id }}">2 GB RAM</div>
+            <div class="host-value-large" data-calc="instance-cpu">1 CPU</div>
+            <div class="host-value-large" data-calc="instance-ram">2 GB RAM</div>
           </div>
           <div class="host-cost">
-            <div class="host-cost-value"><span id="instance-cost-{{ $id }}">$0</span>/yr</div>
-            <div class="host-cost-monthly"><span id="instance-cost-monthly-{{ $id }}">$0</span>/mo</div>
+            <div class="host-cost-value"><span data-calc="instance-cost">$0</span>/yr</div>
+            <div class="host-cost-monthly"><span data-calc="instance-cost-monthly">$0</span>/mo</div>
           </div>
         </div>
       </div>
@@ -134,22 +134,22 @@
       <div class="viz-divider disk-section">
         <div class="host-section-row">
           <div class="host-section-details">
-            <div class="host-value-large" id="disk-size-{{ $id }}">50 GB Disk</div>
+            <div class="host-value-large" data-calc="disk-size">50 GB Disk</div>
           </div>
           <div class="host-cost">
-            <div class="host-cost-value"><span id="disk-cost-{{ $id }}">$0</span>/yr</div>
-            <div class="host-cost-monthly"><span id="disk-cost-monthly-{{ $id }}">$0</span>/mo</div>
+            <div class="host-cost-value"><span data-calc="disk-cost">$0</span>/yr</div>
+            <div class="host-cost-monthly"><span data-calc="disk-cost-monthly">$0</span>/mo</div>
           </div>
         </div>
         <div class="disk-bar">
-          <div class="disk-bar-segment disk-bar-segment-root" id="root-volume-bar-{{ $id }}"></div>
-          <div class="disk-bar-segment disk-bar-segment-db" id="db-disk-bar-{{ $id }}"></div>
-          <div class="disk-bar-segment disk-bar-segment-overprovision" id="disk-overprovision-bar-{{ $id }}"></div>
+          <div class="disk-bar-segment disk-bar-segment-root" data-calc="root-volume-bar"></div>
+          <div class="disk-bar-segment disk-bar-segment-db" data-calc="db-disk-bar"></div>
+          <div class="disk-bar-segment disk-bar-segment-overprovision" data-calc="disk-overprovision-bar"></div>
         </div>
         <div class="breakdown-legend">
-          <div class="breakdown-item text-muted"><span class="breakdown-label">Root</span> <span id="root-volume-{{ $id }}">0 GB</span></div>
-          <div class="breakdown-item text-blue"><span class="breakdown-label">DB</span> <span id="db-disk-{{ $id }}">0 GB</span></div>
-          <div class="breakdown-item text-orange"><span class="breakdown-label">Free</span> <span id="disk-overprovision-{{ $id }}">0 GB</span></div>
+          <div class="breakdown-item calc-text-muted"><span class="breakdown-label">Root</span> <span data-calc="root-volume">0 GB</span></div>
+          <div class="breakdown-item calc-text-blue"><span class="breakdown-label">DB</span> <span data-calc="db-disk">0 GB</span></div>
+          <div class="breakdown-item calc-text-orange"><span class="breakdown-label">Free</span> <span data-calc="disk-overprovision">0 GB</span></div>
         </div>
       </div>
     </div>

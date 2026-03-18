@@ -1,5 +1,3 @@
-let debounceTimer = null;
-
 const DEFAULTS = {
   DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB: 0.96,
@@ -20,6 +18,12 @@ const formatCurrency = (amount, opts = {}) => amount.toLocaleString(locale, {
 const formatNumber = (num) => num.toLocaleString(locale);
 const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
 
+const debouncedUpdate = (fn, delay = 250) => {
+  let timer;
+  return () => { clearTimeout(timer); timer = setTimeout(fn, delay); };
+};
+
+// Colors match CSS variables --calc-grad-start/mid/end
 const lerpColor = (a, b, t) => [
   Math.round(a[0] + (b[0] - a[0]) * t),
   Math.round(a[1] + (b[1] - a[1]) * t),
@@ -27,9 +31,9 @@ const lerpColor = (a, b, t) => [
 ];
 
 const gradientColor = (pct) => {
-  const green = [16, 185, 129];  // --calc-grad-start
-  const amber = [245, 158, 11];  // --calc-grad-mid
-  const red = [239, 68, 68];     // --calc-grad-end
+  const green = [16, 185, 129];
+  const amber = [245, 158, 11];
+  const red = [239, 68, 68];
   if (pct <= 50) {
     return lerpColor(green, amber, pct / 50);
   }
@@ -77,32 +81,6 @@ const calculateMetrics = (els) => {
   };
 };
 
-const updateCostPie = (els, metrics) => {
-  if (!els.costPie) {
-    return;
-  }
-
-  const total = metrics.instanceCost + metrics.diskCost;
-  const instancePct = (metrics.instanceCost / total) * 100;
-  const diskPct = (metrics.diskCost / total) * 100;
-
-  const isDark = document.documentElement.classList.contains('dark');
-  const instanceColor = isDark ? '#60a5fa' : 'var(--calc-link)';
-  const diskColor = isDark ? '#34d399' : 'var(--calc-grad-start)';
-
-  els.costPie.style.background = `conic-gradient(
-    ${instanceColor} 0% ${instancePct}%,
-    ${diskColor} ${instancePct}% 100%
-  )`;
-
-  if (els.costPctInstance) {
-    els.costPctInstance.textContent = `${instancePct.toFixed()}%`;
-  }
-  if (els.costPctDisk) {
-    els.costPctDisk.textContent = `${diskPct.toFixed()}%`;
-  }
-};
-
 const updateOutputElements = (els) => () => {
   const m = calculateMetrics(els);
 
@@ -141,29 +119,33 @@ const updateOutputElements = (els) => () => {
   const [dr, dg, db] = gradientColor(docsPct);
   els.docsPerUser.style.color = `rgb(${dr}, ${dg}, ${db})`;
 
-  updateCostPie(els, m);
+  // Pie chart: set percentage custom property, CSS handles colors
+  if (els.costPie) {
+    const instancePct = (m.instanceCost / (m.instanceCost + m.diskCost)) * 100;
+    els.costPie.style.setProperty('--instance-pct', instancePct);
+    if (els.costPctInstance) {
+      els.costPctInstance.textContent = `${instancePct.toFixed()}%`;
+    }
+    if (els.costPctDisk) {
+      els.costPctDisk.textContent = `${(100 - instancePct).toFixed()}%`;
+    }
+  }
 };
 
-// Bidirectional sync between slider and number input
-const addSliderWithInput = (slider, numberInput, updateOutputs) => {
+const addSliderWithInput = (slider, numberInput, debounced, updateOutputs) => {
   const min = Number.parseFloat(slider.min);
   const max = Number.parseFloat(slider.max);
 
-  // Slider changes -> update number input
   slider.addEventListener('input', (e) => {
     numberInput.value = e.target.value;
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(updateOutputs, 250);
+    debounced();
   });
 
-  // Number input changes -> update slider (clamped to range)
   numberInput.addEventListener('input', (e) => {
     slider.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(updateOutputs, 250);
+    debounced();
   });
 
-  // On blur, clamp the number input value to valid range
   numberInput.addEventListener('blur', (e) => {
     const val = clamp(Number.parseFloat(e.target.value) || min, min, max);
     e.target.value = val;
@@ -171,33 +153,29 @@ const addSliderWithInput = (slider, numberInput, updateOutputs) => {
     updateOutputs();
   });
 };
-const addAdvancedInput = (input, updateOutputs) => {
+
+const addAdvancedInput = (input, debounced, updateOutputs) => {
   const min = Number.parseFloat(input.min) || 1;
   const max = Number.parseFloat(input.max) || Infinity;
 
-  input.addEventListener('input', () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(updateOutputs, 250);
-  });
+  input.addEventListener('input', () => debounced());
   input.addEventListener('blur', (e) => {
-    e.target.value = clamp(Number.parseFloat(e.target.value) || min, min, max);;
+    e.target.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
     updateOutputs();
   });
 };
 
-const attachListeners = (els, updateOutputs) => {
+const attachListeners = (els, debounced, updateOutputs) => {
+  addSliderWithInput(els.populationCount, els.populationCountValue, debounced, updateOutputs);
+  addSliderWithInput(els.workflowCount, els.workflowCountValue, debounced, updateOutputs);
+  addSliderWithInput(els.userCountInput, els.userCountInputValue, debounced, updateOutputs);
 
-  addSliderWithInput(els.populationCount, els.populationCountValue, updateOutputs);
-  addSliderWithInput(els.workflowCount, els.workflowCountValue, updateOutputs);
-  addSliderWithInput(els.userCountInput, els.userCountInputValue, updateOutputs);
+  addAdvancedInput(els.deploymentAgeValue, debounced, updateOutputs);
+  addAdvancedInput(els.dbOverprovision, debounced, updateOutputs);
 
-  addAdvancedInput(els.deploymentAgeValue, updateOutputs);
-  addAdvancedInput(els.dbOverprovision, updateOutputs);
-
-  // View toggles
   const toggle = (showAdvanced) => {
-    els.basicParams.classList.toggle('hidden', showAdvanced);
-    els.advancedParams.classList.toggle('hidden', !showAdvanced);
+    els.basicParams.classList.toggle('calc-hidden', showAdvanced);
+    els.advancedParams.classList.toggle('calc-hidden', !showAdvanced);
   };
   els.showAdvanced?.addEventListener('click', () => toggle(true));
   els.showBasic?.addEventListener('click', () => toggle(false));
@@ -209,26 +187,23 @@ const attachListeners = (els, updateOutputs) => {
 };
 
 const initCostCalculator = (calcId) => {
-  const el = (id) => document.getElementById(`${id}-${calcId}`);
+  const container = document.getElementById(`calc-container-${calcId}`);
+  const el = (name) => container.querySelector(`[data-calc="${name}"]`);
 
   const els = {
-    // Basic parameters
     workflowCount: el('workflow-count'),
     workflowCountValue: el('workflow-count-value'),
     populationCount: el('population-count'),
     populationCountValue: el('population-count-value'),
     userCountInput: el('user-count-input'),
     userCountInputValue: el('user-count-input-value'),
-    // Advanced parameters
     deploymentAgeValue: el('deployment-age-value'),
     dbOverprovision: el('db-overprovision'),
     resetAdvanced: el('reset-advanced'),
-    // View toggles
     basicParams: el('basic-params'),
     advancedParams: el('advanced-params'),
     showAdvanced: el('show-advanced'),
     showBasic: el('show-basic'),
-    // Outputs
     totalCost: el('total-cost'),
     monthlyCost: el('monthly-cost'),
     diskCost: el('disk-cost'),
@@ -256,12 +231,8 @@ const initCostCalculator = (calcId) => {
   };
 
   const updateOutputs = updateOutputElements(els);
+  const debounced = debouncedUpdate(updateOutputs);
 
-  attachListeners(els, updateOutputs);
-
-  // Dark mode observer to update colors
-  new MutationObserver(() => updateOutputs())
-    .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-
+  attachListeners(els, debounced, updateOutputs);
   updateOutputs();
-}
+};
