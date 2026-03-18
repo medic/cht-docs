@@ -3,7 +3,8 @@
 {{ $css := resources.Get "css/cost-calculator.css" }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
-<script src="/js/cost-calculator.js"></script>
+{{ $js := resources.Get "js/cost-calculator.js" }}
+<script src="{{ $js.RelPermalink }}"></script>
 
 <div class="cht-cost-calculator" id="calc-container-{{ $id }}">
   <div class="calc-grid">
