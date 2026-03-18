@@ -357,13 +357,6 @@ html.dark {
   color: var(--calc-text-light);
   margin-bottom: 0.5rem;
 }
-.range-labels {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  color: var(--calc-text-light);
-}
 .range-bar {
   position: relative;
   height: 1rem;
