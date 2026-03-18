@@ -6,8 +6,7 @@
 {{ $js := resources.Get "js/cost-calculator.js" }}
 <script src="{{ $js.RelPermalink }}"></script>
 
-<div class="cht-cost-calculator" id="calc-container-{{ $id }}">
-  <div class="calc-grid">
+<div class="cht-cost-calculator calc-grid" id="calc-container-{{ $id }}">
     <div class="calc-card params" data-calc="basic-params">
       <h3>Parameters</h3>
 
@@ -29,7 +28,7 @@
         <span>Number of Users</span>
         <input type="number" class="input-value" data-calc="user-count-input-value" value="1000" min="10" max="15000">
       </label>
-      <div class="helper-text">How many people will use with the app</div>
+      <div class="helper-text">How many people will use the app</div>
       <input type="range" class="calc-input" data-calc="user-count-input" min="10" max="15000" value="1000" step="10">
 
       <div class="viz-divider">
@@ -153,7 +152,6 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <script>

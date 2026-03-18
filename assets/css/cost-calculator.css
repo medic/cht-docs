@@ -29,6 +29,9 @@ html.dark {
 .cht-cost-calculator {
   width: 100%;
   margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
 
   .calc-hidden {
     display: none !important;
@@ -82,14 +85,8 @@ html.dark {
   }
 }
 
-.calc-grid {
-  display: grid;
-  gap: 1rem;
-  max-width: 48rem;
-}
-
 @media (min-width: 1024px) {
-  .calc-grid {
+  .cht-cost-calculator {
     grid-template-columns: repeat(12, 1fr);
   }
   .calc-card.params { grid-column: span 6; }

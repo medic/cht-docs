@@ -98,7 +98,7 @@ These estimated costs are for a properly provisioned production deployment with 
 
 ## What's included in the estimated cost
 
-This document covers hosting cost and does not cover Total Cost of Ownership (TCO).  Below is a list of what's included in the hosting casts above and what is excluded.
+This document covers hosting cost and does not cover Total Cost of Ownership (TCO).  Below is a list of what's included in the hosting costs above and what is excluded.
 
 ### Included
 
@@ -120,7 +120,7 @@ There are many additional costs to successfully hosting a CHT instance that are 
 * App Development – Each deployment needs to have the default CHT app customized for the required workflows.
 * Smartphones – Device purchase, setup, and distribution for users.
 * Analog → Digital Workflow conversion – The process of documenting paper processes the CHT will replace.
-* [SMS](building/messaging/gateways/) – Some projects need the ability to send SMS to users from the CHT.
+* [SMS](/building/messaging/gateways/) – Some projects need the ability to send SMS to users from the CHT.
 * [Interoperability](/building/interoperability/) – While the CHT supports this out-of-the-box - development work can be necessary to ensure data exchange with specific third party systems.
 * Mobile Device Management - optional.
 * Cellphone telecom data services - Users actually uploading/downloading data

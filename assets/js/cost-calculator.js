@@ -1,6 +1,6 @@
 const DEFAULTS = {
   DEPLOYMENT_AGE: 1,
-  DISK_COST_PER_GB: 0.96,
+  DISK_COST_PER_GB_YEAR: 0.96,
   MEDIC_DOCS_PER_GB: 76111,
   DB_OVERPROVISION_FACTOR: 3,
   PLACES_PER_POP: 0.36,
@@ -48,10 +48,10 @@ const updateRangeMarker = (marker, value, minRange, maxRange, offset = 1.5) => {
 };
 
 const calculateMetrics = (els) => {
-  const deploymentAge = Number.parseInt(els.deploymentAgeValue.value);
-  const workflowCount = Number.parseInt(els.workflowCount.value);
-  const populationCount = Number.parseInt(els.populationCount.value);
-  const userCount = Number.parseInt(els.userCountInput.value);
+  const deploymentAge = Number.parseFloat(els.deploymentAgeValue.value);
+  const workflowCount = Number.parseFloat(els.workflowCount.value);
+  const populationCount = Number.parseFloat(els.populationCount.value);
+  const userCount = Number.parseFloat(els.userCountInput.value);
 
   const dbOverprovisionFactor = Math.max(1, Number.parseFloat(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR));
 
@@ -67,7 +67,7 @@ const calculateMetrics = (els) => {
   const diskOverprovisionGb = dbDiskGb * dbOverprovisionFactor;
   const rootVolumeGb = DEFAULTS.ROOT_VOLUME_GB;
   const diskSizeGb = dbDiskGb + diskOverprovisionGb + rootVolumeGb;
-  const diskCost = DEFAULTS.DISK_COST_PER_GB * diskSizeGb;
+  const diskCost = DEFAULTS.DISK_COST_PER_GB_YEAR * diskSizeGb;
   const cpuCount = Math.max(1, Math.ceil(userCount / DEFAULTS.USERS_PER_CPU));
   const ramGb = cpuCount * DEFAULTS.RAM_PER_CPU;
   const instanceCost = cpuCount * DEFAULTS.COST_PER_CPU_MONTH * 12;
