@@ -31,7 +31,7 @@
       <div class="helper-text">How many people will use the app</div>
       <input type="range" class="calc-input" data-calc="user-count-input" min="10" max="15000" value="1000" step="10">
 
-      <div class="viz-divider">
+      <div class="calc-divider">
         <a href="#" data-calc="show-advanced" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
       </div>
     </div>
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="viz-divider advanced-footer">
+      <div class="calc-divider advanced-footer">
         <a href="#" data-calc="show-basic" class="calc-link" onclick="event.preventDefault();">← Back to Basic</a>
         <a href="#" data-calc="reset-advanced" class="calc-link" onclick="event.preventDefault();">Reset</a>
       </div>
@@ -88,14 +88,14 @@
     <div class="calc-card users">
       <h3>Users</h3>
       <div class="cost-per-user">
-        <span class="viz-label">Cost Per User</span>
-        <div class="cost-per-user-values">
-          <div class="cost-per-user-value"><span data-calc="cost-per-user-yearly">$0</span>/yr</div>
-          <div class="cost-per-user-monthly"><span data-calc="cost-per-user">$0.00</span>/mo</div>
+        <span class="calc-label">Cost Per User</span>
+        <div class="inline-cost">
+          <div class="inline-cost-yearly"><span data-calc="cost-per-user-yearly">$0</span>/yr</div>
+          <div class="inline-cost-monthly"><span data-calc="cost-per-user">$0.00</span>/mo</div>
         </div>
       </div>
-      <div class="viz-section viz-divider people-per">
-        <div class="viz-label">People per User</div>
+      <div class="viz-section calc-divider people-per">
+        <div class="calc-label">People per User</div>
         <div class="viz-value" data-calc="pop-per-user">0</div>
         <div class="range-bar">
           <div class="range-marker" data-calc="pop-per-user-marker"></div>
@@ -103,7 +103,7 @@
       </div>
 
       <div class="viz-section docs-per">
-        <div class="viz-label">Docs per User</div>
+        <div class="calc-label">Docs per User</div>
         <div class="viz-value" data-calc="docs-per-user">0</div>
         <div class="range-bar">
           <div class="range-marker" data-calc="docs-per-user-marker"></div>
@@ -116,40 +116,36 @@
       <h3>Recommended Host</h3>
 
       <!-- Instance section -->
-      <div class="host-section">
-        <div class="host-section-row">
-          <div class="host-section-details">
-            <div class="host-value-large" data-calc="instance-cpu">1 CPU</div>
-            <div class="host-value-large" data-calc="instance-ram">2 GB RAM</div>
-          </div>
-          <div class="host-cost">
-            <div class="host-cost-value"><span data-calc="instance-cost">$0</span>/yr</div>
-            <div class="host-cost-monthly"><span data-calc="instance-cost-monthly">$0</span>/mo</div>
-          </div>
+      <div class="host-section-row">
+        <div class="host-section-details">
+          <div class="host-value-large" data-calc="instance-cpu">1 CPU</div>
+          <div class="host-value-large" data-calc="instance-ram">2 GB RAM</div>
+        </div>
+        <div class="inline-cost">
+          <div class="inline-cost-yearly"><span data-calc="instance-cost">$0</span>/yr</div>
+          <div class="inline-cost-monthly"><span data-calc="instance-cost-monthly">$0</span>/mo</div>
         </div>
       </div>
 
       <!-- Disk section -->
-      <div class="viz-divider disk-section">
-        <div class="host-section-row">
-          <div class="host-section-details">
-            <div class="host-value-large" data-calc="disk-size">50 GB Disk</div>
-          </div>
-          <div class="host-cost">
-            <div class="host-cost-value"><span data-calc="disk-cost">$0</span>/yr</div>
-            <div class="host-cost-monthly"><span data-calc="disk-cost-monthly">$0</span>/mo</div>
-          </div>
+      <div class="calc-divider host-section-row">
+        <div class="host-section-details">
+          <div class="host-value-large" data-calc="disk-size">50 GB Disk</div>
         </div>
-        <div class="disk-bar">
-          <div class="disk-bar-segment disk-bar-segment-root" data-calc="root-volume-bar"></div>
-          <div class="disk-bar-segment disk-bar-segment-db" data-calc="db-disk-bar"></div>
-          <div class="disk-bar-segment disk-bar-segment-overprovision" data-calc="disk-overprovision-bar"></div>
+        <div class="inline-cost">
+          <div class="inline-cost-yearly"><span data-calc="disk-cost">$0</span>/yr</div>
+          <div class="inline-cost-monthly"><span data-calc="disk-cost-monthly">$0</span>/mo</div>
         </div>
-        <div class="breakdown-legend">
-          <div class="breakdown-item calc-text-muted"><span class="breakdown-label">Root</span> <span data-calc="root-volume">0 GB</span></div>
-          <div class="breakdown-item calc-text-blue"><span class="breakdown-label">DB</span> <span data-calc="db-disk">0 GB</span></div>
-          <div class="breakdown-item calc-text-orange"><span class="breakdown-label">Free</span> <span data-calc="disk-overprovision">0 GB</span></div>
-        </div>
+      </div>
+      <div class="disk-bar">
+        <div class="disk-bar-segment disk-bar-segment-root" data-calc="root-volume-bar"></div>
+        <div class="disk-bar-segment disk-bar-segment-db" data-calc="db-disk-bar"></div>
+        <div class="disk-bar-segment disk-bar-segment-overprovision" data-calc="disk-overprovision-bar"></div>
+      </div>
+      <div class="breakdown-legend host-section-row">
+        <div><span class="breakdown-label">Root</span> <span data-calc="root-volume" class="calc-text-muted">0 GB</span></div>
+        <div><span class="breakdown-label">DB</span> <span data-calc="db-disk" class="calc-text-blue">0 GB</span></div>
+        <div><span class="breakdown-label">Free</span> <span data-calc="disk-overprovision" class="calc-text-orange">0 GB</span></div>
       </div>
     </div>
 </div>
