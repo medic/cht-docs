@@ -1,6 +1,5 @@
 ---
 title: "Hosting Costs"
-title: "Hosting Costs"
 linkTitle: "Costs"
 weight: 3
 description: >
