@@ -1,10 +1,3 @@
-{{- $url := .Get "url" | default "/openapi.json" -}}
-{{- $filter := .Get "filter" | default "true" -}}
-{{- $operationsSorter := .Get "operationsSorter" | default "alpha" -}}
-{{- $tagsSorter := .Get "tagsSorter" | default "alpha" -}}
-{{- $docExpansion := .Get "docExpansion" | default "list" -}}
-{{- $id := .Get "id" | default "swagger-ui" -}}
-
 <!-- Collapse the TOC sidebar to give Swagger UI more width -->
 <style>.hextra-toc { width: 0; overflow: hidden; padding: 0; }</style>
 
@@ -13,12 +6,7 @@
 {{- $swaggerCss := resources.Get "css/swagger.css" -}}
 <link rel="stylesheet" href="{{ $swaggerCss.RelPermalink }}" />
 
-<div id="{{ $id }}" data-swagger-ui
-  data-url="{{ $url }}"
-  data-filter="{{ $filter }}"
-  data-operations-sorter="{{ $operationsSorter }}"
-  data-tags-sorter="{{ $tagsSorter }}"
-  data-doc-expansion="{{ $docExpansion }}"></div>
+<div id="swagger-ui"></div>
 
 <!-- Swagger UI JavaScript -->
 <script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-bundle.js" crossorigin></script>

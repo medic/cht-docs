@@ -55,17 +55,18 @@ const XExtensionsPlugin = () => ({
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const el = document.querySelector('[data-swagger-ui]');
   SwaggerUIBundle({
-    dom_id: `#${el.id}`,
-    url: el.dataset.url,
+    dom_id: '#swagger-ui',
+    url: 'https://gist.githubusercontent.com/jkuester/a738de6aa6f96e5957b1f4ce56a3692a/raw/openapi.json',
     presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
     plugins: [XExtensionsPlugin],
-    filter: el.dataset.filter === 'true',
-    operationsSorter: el.dataset.operationsSorter,
-    tagsSorter: el.dataset.tagsSorter,
-    docExpansion: el.dataset.docExpansion,
+    filter: true,
+    operationsSorter: 'alpha',
+    tagsSorter: 'alpha',
+    docExpansion: 'none',
     deepLinking: true,
-    supportedSubmitMethods: []
+    supportedSubmitMethods: [],
+    defaultModelsExpandDepth: -1,
+    defaultModelExpandDepth: 3
   });
 });

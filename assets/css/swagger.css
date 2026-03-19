@@ -139,6 +139,12 @@ html[class~="dark"] .swagger-ui .opblock.opblock-patch .opblock-summary-method {
   background: #525252;
 }
 
+/* Hide parameter inputs (no live server connection) */
+.swagger-ui .parameters-container input,
+.swagger-ui .parameters-container select {
+  display: none;
+}
+
 /* --- Form controls --- */
 
 html[class~="dark"] .swagger-ui select,
