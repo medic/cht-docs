@@ -123,7 +123,7 @@ Assuming your CHT instance is **already running with the default self-signed cer
     ```
 7. Attempt to renew your certificates once a week by adding this cronjob via `crontab -e`.  Certbot will only renew them as needed.  Per prior step, be sure to check that the name of your container is `cht_nginx_1` from two steps ago:
    ```shell
-   0 0 * * 0 cd /home/ubuntu/cht/certbot && docker compose up && docker exec -it cht_nginx_1 nginx -s reload
+   0 0 * * 0 cd /home/ubuntu/cht/certbot && docker compose up --abort-on-container-exit --exit-code-from certbot && docker exec cht_nginx_1 nginx -s reload
    ```
 
 ## Troubleshooting
