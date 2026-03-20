@@ -1,8 +1,6 @@
 const DEFAULTS = {
-  DEPLOYMENT_AGE: 1,
   DISK_COST_PER_GB_YEAR: 0.96,
   MEDIC_DOCS_PER_GB: 76111,
-  DB_OVERPROVISION_FACTOR: 3,
   PLACES_PER_POP: 0.36,
   USERS_PER_CPU: 211,
   RAM_PER_CPU: 2,
@@ -14,7 +12,12 @@ const DEFAULTS = {
 const UI_CONSTANTS = {
   POP_PER_USER_BAR_MAX: 250,
   DOCS_PER_USER_BAR_MAX: 20000,
-}
+  POPULATION: { value: 100000, min: 1000, max: 2000000, step: 1000 },
+  WORKFLOWS: { value: 10, min: 1, max: 40, step: 1 },
+  USERS: { value: 1000, min: 10, max: 15000, step: 10 },
+  DEPLOYMENT_AGE: { value: 1, min: 1, max: 10 },
+  DB_OVERPROVISION: { value: 3, min: 1, max: 10 },
+};
 
 const formatCurrency = (amount, opts = {}) => amount.toLocaleString(navigator.language, {
   style: 'currency', currency: 'USD', maximumFractionDigits: 0, ...opts
@@ -60,7 +63,7 @@ const calculateMetrics = (els) => {
   const userCount = Number.parseInt(els.userCountInput.value);
   const dbOverprovisionFactor = Math.max(
     1,
-    Number.parseInt(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR)
+    Number.parseInt(els.dbOverprovision?.value || UI_CONSTANTS.DB_OVERPROVISION.value)
   );
   const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
   const contactCount = userCount + populationCount + placeCount;
@@ -142,6 +145,13 @@ const updateOutputElements = (els) => () => {
   els.dbOverprovision.value = m.dbOverprovisionFactor;
 };
 
+const applyInputConfig = ({ value, ...attrs }, ...inputs) => {
+  for (const input of inputs) {
+    Object.assign(input, attrs);
+    input.value = value;
+  }
+};
+
 const addSliderWithInput = (slider, numberInput, debounced, updateOutputs) => {
   const min = Number.parseInt(slider.min);
   const max = Number.parseInt(slider.max);
@@ -186,8 +196,8 @@ const attachListeners = (els, debounced, updateOutputs) => {
   els.showAdvanced?.addEventListener('click', () => toggleParameters(true));
   els.showBasic?.addEventListener('click', () => toggleParameters(false));
   els.resetAdvanced?.addEventListener('click', () => {
-    els.deploymentAgeValue.value = DEFAULTS.DEPLOYMENT_AGE;
-    els.dbOverprovision.value = DEFAULTS.DB_OVERPROVISION_FACTOR;
+    els.deploymentAgeValue.value = UI_CONSTANTS.DEPLOYMENT_AGE.value;
+    els.dbOverprovision.value = UI_CONSTANTS.DB_OVERPROVISION.value;
     updateOutputs();
   });
 };
@@ -235,6 +245,12 @@ const initCostCalculator = (calcId) => {
     costPctInstance: el('cost-pct-instance'),
     costPctDisk: el('cost-pct-disk')
   };
+
+  applyInputConfig(UI_CONSTANTS.POPULATION, els.populationCount, els.populationCountValue);
+  applyInputConfig(UI_CONSTANTS.WORKFLOWS, els.workflowCount, els.workflowCountValue);
+  applyInputConfig(UI_CONSTANTS.USERS, els.userCountInput, els.userCountInputValue);
+  applyInputConfig(UI_CONSTANTS.DEPLOYMENT_AGE, els.deploymentAgeValue);
+  applyInputConfig(UI_CONSTANTS.DB_OVERPROVISION, els.dbOverprovision);
 
   const updateOutputs = updateOutputElements(els);
   const debounced = debouncedUpdate(updateOutputs);
