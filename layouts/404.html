@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class='hx:mx-auto hx:flex hextra-max-page-width'>
+  {{ partial "sidebar.html" (dict "context" .) }}
+  {{ partial "toc.html" . }}
+  <article
+    class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 hx:md:px-12">
+      {{ partial "breadcrumb.html" . }}
+      <div class="content">
+        <h1>404 - Page Not Found</h1>
+        <p class="not-prose hx:text-xl hx:text-gray-600 dark:hx:text-gray-400 sm:hx:text-xl">
+          Sorry, we couldn't find the page you're looking for.
+        </p>
+        <p>
+          Here are some helpful links to get you back on track:
+        </p>
+        <ul>
+          <li><a href="/">Return to the documentation home</a></li>
+          <li><a href="/contributing/">Contributing to CHT</a></li>
+          <li><a href="/apps/">CHT Apps</a></li>
+          <li><a href="/core/">CHT Core</a></li>
+        </ul>
+        <p>
+          If you were looking for a specific page, try using the search feature in the top navigation bar.
+        </p>
+        {{ partial "components/feedback.html" . }}
+      </div>
+    </main>
+  </article>
+</div>
+{{ end }}
