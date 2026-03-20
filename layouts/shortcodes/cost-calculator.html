@@ -1,0 +1,155 @@
+{{ $id := .Get "id" | default (now.UnixNano) }}
+
+{{ $css := resources.Get "css/cost-calculator.css" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+{{ $js := resources.Get "js/cost-calculator.js" }}
+<script src="{{ $js.RelPermalink }}"></script>
+
+<div class="cht-cost-calculator" id="calc-container-{{ $id }}">
+    <div class="calc-card params" data-calc="basic-params">
+      <h3>Parameters</h3>
+
+      <label class="label-with-value">
+        <span>Population Served</span>
+        <input type="number" class="input-value" data-calc="population-count-value">
+      </label>
+      <div class="helper-text">How many people are registered</div>
+      <input type="range" class="calc-input" data-calc="population-count">
+
+      <label class="label-with-value">
+        <span>Number of Workflows</span>
+        <input type="number" class="input-value" data-calc="workflow-count-value">
+      </label>
+      <div class="helper-text">How many different use-cases are supported</div>
+      <input type="range" class="calc-input" data-calc="workflow-count">
+
+      <label class="label-with-value">
+        <span>Number of Users</span>
+        <input type="number" class="input-value" data-calc="user-count-input-value">
+      </label>
+      <div class="helper-text">How many people will use the app</div>
+      <input type="range" class="calc-input" data-calc="user-count-input">
+
+      <div class="calc-divider">
+        <button type="button" data-calc="show-advanced" class="calc-link">Advanced →</button>
+      </div>
+    </div>
+
+    <!-- Advanced Parameters -->
+    <div class="calc-card params calc-hidden" data-calc="advanced-params">
+      <h3>Advanced Parameters</h3>
+
+      <div class="advanced-inputs-scroll">
+        <div class="advanced-input-group">
+          <div class="advanced-input">
+            <label>Age of Deployment</label>
+            <input type="number" class="input-value" data-calc="deployment-age-value">
+          </div>
+          <div class="helper-text">Years of data collected</div>
+        </div>
+
+        <div class="advanced-input-group">
+          <div class="advanced-input">
+            <label>Database Over-provisioning Factor</label>
+            <input type="number" class="input-value" data-calc="db-overprovision">
+          </div>
+          <div class="helper-text">Multiplier for database storage headroom</div>
+        </div>
+      </div>
+
+      <div class="calc-divider advanced-footer">
+        <button type="button" data-calc="show-basic" class="calc-link">← Back to Basic</button>
+        <button type="button" data-calc="reset-advanced" class="calc-link">Reset</button>
+      </div>
+    </div>
+
+    <!-- Annual Cost Estimate -->
+    <div class="calc-card cost">
+      <h3>Cost Estimate</h3>
+      <div class="total-cost"><span data-calc="total-cost">$0</span>/yr</div>
+      <div class="monthly-cost">
+        <span data-calc="monthly-cost">$0</span>/mo
+      </div>
+      <div class="cost-pie" data-calc="cost-pie"></div>
+      <div class="cost-legend">
+        <div class="cost-legend-item">
+          <span class="cost-legend-color cost-legend-instance"></span>
+          <span>CPU + RAM: <strong data-calc="cost-pct-instance">0%</strong></span>
+        </div>
+        <div class="cost-legend-item">
+          <span class="cost-legend-color cost-legend-disk"></span>
+          <span>Disk: <strong data-calc="cost-pct-disk">0%</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users -->
+    <div class="calc-card users">
+      <h3>Users</h3>
+      <div class="cost-per-user">
+        <span class="calc-label">Cost Per User</span>
+        <div class="inline-cost">
+          <div class="inline-cost-yearly"><span data-calc="cost-per-user-yearly">$0</span>/yr</div>
+          <div class="inline-cost-monthly"><span data-calc="cost-per-user">$0.00</span>/mo</div>
+        </div>
+      </div>
+      <div class="viz-section calc-divider people-per">
+        <div class="calc-label">People per User</div>
+        <div class="viz-value" data-calc="pop-per-user">0</div>
+        <div class="range-bar">
+          <div class="range-marker" data-calc="pop-per-user-marker"></div>
+        </div>
+      </div>
+
+      <div class="viz-section docs-per">
+        <div class="calc-label">Docs per User</div>
+        <div class="viz-value" data-calc="docs-per-user">0</div>
+        <div class="range-bar">
+          <div class="range-marker" data-calc="docs-per-user-marker"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended Host -->
+    <div class="calc-card host">
+      <h3>Recommended Host</h3>
+
+      <!-- Instance section -->
+      <div class="host-section-row">
+        <div class="host-section-details">
+          <div class="host-value-large" data-calc="instance-cpu">1 CPU</div>
+          <div class="host-value-large" data-calc="instance-ram">2 GB RAM</div>
+        </div>
+        <div class="inline-cost">
+          <div class="inline-cost-yearly"><span data-calc="instance-cost">$0</span>/yr</div>
+          <div class="inline-cost-monthly"><span data-calc="instance-cost-monthly">$0</span>/mo</div>
+        </div>
+      </div>
+
+      <!-- Disk section -->
+      <div class="calc-divider host-section-row">
+        <div class="host-section-details">
+          <div class="host-value-large" data-calc="disk-size">50 GB Disk</div>
+        </div>
+        <div class="inline-cost">
+          <div class="inline-cost-yearly"><span data-calc="disk-cost">$0</span>/yr</div>
+          <div class="inline-cost-monthly"><span data-calc="disk-cost-monthly">$0</span>/mo</div>
+        </div>
+      </div>
+      <div class="disk-bar">
+        <div class="disk-bar-segment disk-bar-segment-root" data-calc="root-volume-bar"></div>
+        <div class="disk-bar-segment disk-bar-segment-db" data-calc="db-disk-bar"></div>
+        <div class="disk-bar-segment disk-bar-segment-overprovision" data-calc="disk-overprovision-bar"></div>
+      </div>
+      <div class="breakdown-legend host-section-row">
+        <div><span class="breakdown-label">Root</span> <span data-calc="root-volume" class="calc-text-muted">0 GB</span></div>
+        <div><span class="breakdown-label">DB</span> <span data-calc="db-disk" class="calc-text-blue">0 GB</span></div>
+        <div><span class="breakdown-label">Free</span> <span data-calc="disk-overprovision" class="calc-text-orange">0 GB</span></div>
+      </div>
+    </div>
+</div>
+
+<script>
+  initCostCalculator('{{ $id }}');
+</script>
