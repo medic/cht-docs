@@ -85,11 +85,11 @@ Instance cost is `$20.85` per CPU per month, based on the average "Linux Reserve
 
 ## Accuracy
 
-This research was based on live instances, so the costs are realistic.  However, since not all programs use the CHT in the exact same way, and not all deployments have the same type of workflows, these numbers are still subject to some fluctuation.
+This research was based on live instances, so the costs are realistic. However, since not all programs use the CHT in the exact same way, and not all deployments have the same type of workflows, these numbers are still subject to some fluctuation.
 
-Additionally, the costs given reflect typical costs for hosting in a public cloud (e.g., Amazon AWS or Google Cloud).  If you are hosting in a different environment, such as on-premises or in a private cloud, your costs may differ.
+Additionally, the costs given reflect typical costs for hosting in a public cloud (such as Amazon AWS or Google Cloud). If you are hosting in a different environment, such as on-premises or in a private cloud, your costs may differ.
 
-##  Production vs Development
+## Production vs Development
 
 These estimated costs are for a properly provisioned production deployment with a cloud provider. Hosting the CHT in a cloud datacenter ensures the instance has quality connectivity and reliable power and cooling, minimizing service interruptions.
 
@@ -98,21 +98,21 @@ These estimated costs are for a properly provisioned production deployment with 
 
 ## What's included in the estimated cost
 
-This document covers hosting cost and does not cover Total Cost of Ownership (TCO).  Below is a list of what's included in the hosting costs above and what is excluded.
+This document covers hosting cost and does not cover Total Cost of Ownership (TCO). Below is a list of what's included in the hosting costs above and what is excluded.
 
 ### Included
 
 Items that are included in the basic costs of hosting the CHT:
 
 * Servers for hosting the CHT
-* Built in overprovisioning to allow for bursts and a bit of growth (targetting `50%` CPU utilization and including `3x` disk space for DB expansion)
+* Built in overprovisioning to allow for bursts and a bit of growth (targeting `50%` CPU utilization and including `3x` disk space for DB expansion)
 
 ### Excluded
 
 There are many additional costs to successfully hosting a CHT instance that are not included in this estimation:
 
-* Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware.  This takes up a disk space which should be accounted for when budgeting to host the CHT.
-* [Monitoring and Alerting](/technical-overview/architecture/cht-watchdog/) - Since all software fails eventually, you need to be prepared to defend against this with aggressive monitoring and alerting.  The goal will be to fix the problem before any users notice.
+* Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware. This takes up a disk space which should be accounted for when budgeting to host the CHT.
+* [Monitoring and Alerting](/technical-overview/architecture/cht-watchdog/) - Since all software fails eventually, you need to be prepared to defend against this with aggressive monitoring and alerting. The goal will be to fix the problem before any users notice.
 * Training of Systems Administrators/IT - System administrator IT systems that have not hosted the CHT will need to be trained.
 * Training of Trainers (ToT) and user Training
 * Data Warehousing & Dashboards – Many deployments require a data warehouse ([CHT Sync](/technical-overview/architecture/cht-sync/) + Postgres) and dashboards (Superset/Klipfolio). However, this is not strictly required to host a CHT instance and can be added at a later date.

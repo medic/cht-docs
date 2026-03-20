@@ -6,7 +6,7 @@
 {{ $js := resources.Get "js/cost-calculator.js" }}
 <script src="{{ $js.RelPermalink }}"></script>
 
-<div class="cht-cost-calculator calc-grid" id="calc-container-{{ $id }}">
+<div class="cht-cost-calculator" id="calc-container-{{ $id }}">
     <div class="calc-card params" data-calc="basic-params">
       <h3>Parameters</h3>
 
@@ -32,7 +32,7 @@
       <input type="range" class="calc-input" data-calc="user-count-input" min="10" max="15000" value="1000" step="10">
 
       <div class="calc-divider">
-        <a href="#" data-calc="show-advanced" class="calc-link" onclick="event.preventDefault();">Advanced →</a>
+        <button type="button" data-calc="show-advanced" class="calc-link">Advanced →</button>
       </div>
     </div>
 
@@ -59,8 +59,8 @@
       </div>
 
       <div class="calc-divider advanced-footer">
-        <a href="#" data-calc="show-basic" class="calc-link" onclick="event.preventDefault();">← Back to Basic</a>
-        <a href="#" data-calc="reset-advanced" class="calc-link" onclick="event.preventDefault();">Reset</a>
+        <button type="button" data-calc="show-basic" class="calc-link">← Back to Basic</button>
+        <button type="button" data-calc="reset-advanced" class="calc-link">Reset</button>
       </div>
     </div>
 

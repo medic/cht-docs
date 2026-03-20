@@ -11,6 +11,11 @@ const DEFAULTS = {
   ROOT_VOLUME_GB: 50
 };
 
+const UI_CONSTANTS = {
+  POP_PER_USER_BAR_MAX: 250,
+  DOCS_PER_USER_BAR_MAX: 20000,
+}
+
 const formatCurrency = (amount, opts = {}) => amount.toLocaleString(navigator.language, {
   style: 'currency', currency: 'USD', maximumFractionDigits: 0, ...opts
 });
@@ -49,13 +54,13 @@ const updateRangeMarker = (marker, value, minRange, maxRange, offset = 1.5) => {
 };
 
 const calculateMetrics = (els) => {
-  const deploymentAge = Number.parseFloat(els.deploymentAgeValue.value);
-  const workflowCount = Number.parseFloat(els.workflowCount.value);
-  const populationCount = Number.parseFloat(els.populationCount.value);
-  const userCount = Number.parseFloat(els.userCountInput.value);
+  const deploymentAge = Number.parseInt(els.deploymentAgeValue.value);
+  const workflowCount = Number.parseInt(els.workflowCount.value);
+  const populationCount = Number.parseInt(els.populationCount.value);
+  const userCount = Number.parseInt(els.userCountInput.value);
   const dbOverprovisionFactor = Math.max(
     1,
-    Number.parseFloat(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR)
+    Number.parseInt(els.dbOverprovision?.value || DEFAULTS.DB_OVERPROVISION_FACTOR)
   );
   const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
   const contactCount = userCount + populationCount + placeCount;
@@ -113,12 +118,12 @@ const updateOutputElements = (els) => () => {
   );
 
   els.popPerUser.textContent = m.popPerUser.toFixed();
-  const popPct = updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, 250);
+  const popPct = updateRangeMarker(els.popPerUserMarker, m.popPerUser, 1, UI_CONSTANTS.POP_PER_USER_BAR_MAX);
   const [pr, pg, pb] = gradientColor(popPct);
   els.popPerUser.style.color = `rgb(${pr}, ${pg}, ${pb})`;
 
   els.docsPerUser.textContent = formatNumber(Math.round(m.docsPerUser));
-  const docsPct = updateRangeMarker(els.docsPerUserMarker, m.docsPerUser, 1, 20000);
+  const docsPct = updateRangeMarker(els.docsPerUserMarker, m.docsPerUser, 1, UI_CONSTANTS.DOCS_PER_USER_BAR_MAX);
   const [dr, dg, db] = gradientColor(docsPct);
   els.docsPerUser.style.color = `rgb(${dr}, ${dg}, ${db})`;
 
@@ -138,18 +143,18 @@ const updateOutputElements = (els) => () => {
 };
 
 const addSliderWithInput = (slider, numberInput, debounced, updateOutputs) => {
-  const min = Number.parseFloat(slider.min);
-  const max = Number.parseFloat(slider.max);
+  const min = Number.parseInt(slider.min);
+  const max = Number.parseInt(slider.max);
   slider.addEventListener('input', (e) => {
     numberInput.value = e.target.value;
     debounced();
   });
   numberInput.addEventListener('input', (e) => {
-    slider.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
+    slider.value = clamp(Number.parseInt(e.target.value) || min, min, max);
     debounced();
   });
   numberInput.addEventListener('blur', (e) => {
-    const val = clamp(Number.parseFloat(e.target.value) || min, min, max);
+    const val = clamp(Number.parseInt(e.target.value) || min, min, max);
     e.target.value = val;
     slider.value = val;
     updateOutputs();
@@ -157,11 +162,11 @@ const addSliderWithInput = (slider, numberInput, debounced, updateOutputs) => {
 };
 
 const addAdvancedInput = (input, debounced, updateOutputs) => {
-  const min = Number.parseFloat(input.min) || 1;
-  const max = Number.parseFloat(input.max) || Infinity;
+  const min = Number.parseInt(input.min) || 1;
+  const max = Number.parseInt(input.max) || Infinity;
   input.addEventListener('input', () => debounced());
   input.addEventListener('blur', (e) => {
-    e.target.value = clamp(Number.parseFloat(e.target.value) || min, min, max);
+    e.target.value = clamp(Number.parseInt(e.target.value) || min, min, max);
     updateOutputs();
   });
 };

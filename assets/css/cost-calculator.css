@@ -76,9 +76,12 @@ html.dark {
   }
   .calc-link {
     color: var(--calc-link);
-    text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
   .advanced-footer > :last-child {
     float: right;
