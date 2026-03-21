@@ -13,12 +13,85 @@ aliases: >
 ## Requirements
 - nodejs 18 or later
 - python 3
-- Docker(optional)
+- Docker (optional)
 
 ## Installation
 
-```shell
+```bash
   npm install -g cht-conf
+```
+## Usage
+
+By default, `cht` will upload the configuration from your current directory.
+
+### Specifying the server to configure
+If you are using the default actionset, or performing any actions that require a CHT instance to function (e.g. `upload-xyz` or `backup-xyz` actions) you must specify the server you'd like to function against.
+
+
+#### Local instance
+
+```bash
+cht --local
+```
+### Supported commands
+
+CHT Conf supports various actions for managing configurations. Use the command below to see the full list of supported actions:
+
+To see all available commands:
+
+```bash
+cht --help
+```
+
+
+#### A specific Medic-hosted instance
+For configuring Medic-hosted instances.
+```bash
+cht --instance=instance-name.dev
+```
+
+Username `admin` is used. A prompt is shown for entering password.
+If a different username is required, add the `--user` switch:
+```bash
+cht --user user-name --instance=instance-name.dev
+```
+
+#### An arbitrary URL
+```bash
+cht --url=https://username:password@example.com:12345
+```
+**NB** - When specifying the URL with `--url`, be sure not to specify the CouchDB database name in the URL. The CHT API will find the correct database.
+
+#### Using a session token for authentication
+CHT Conf supports authentication using a session token by adding `--session-token` parameter:
+```bash
+cht --url=https://example.com:12345 --session-token=*my_token*
+```
+
+The `my_token` can be obtained by doing a POST request to `/_session` [endpoint](https://docs.couchdb.org/en/stable/api/server/authn.html#cookie-authentication) with `name` and `password` as form parameters.  
+
+For example, if your CHT instance is `my.cht.com`, you could use this `curl` call to specify your user `medic` and your password `secret123` to retrieve the header with the `AuthSession` value which is the token:
+
+```bash
+curl -v  -H 'Content-Type: application/json' -d '{"name":"medic","password":"secret123"}'  https://my.cht.com/_session 2>&1 | grep AuthSession 
+< set-cookie: AuthSession=bWVkaWM6NjdBRTM4MkE6EguRnzpSiK0t8wFaOQ_jgkZE8UWcgNWgpyStzbbHreI; Version=1; Expires=Fri, 13-Feb-2026 18:21:30 GMT; Max-Age=31536000; Path=/; HttpOnly
+```
+
+#### Into an archive to be uploaded later
+```bash
+cht --archive
+```
+The resulting archive is consumable by CHT API >v3.7 to create default configurations.
+
+### Perform specific action(s)
+```bash
+cht <--archive|--local|--instance=instance-name|--url=url> <...action>
+```
+The list of available actions can be seen via `cht --help`.
+
+### Perform actions for specific forms
+```bash
+cht <--local|--instance=instance-name|--url=url> <...action> -- <...form>
 ```
 
 ### Using Docker
@@ -38,7 +111,7 @@ Look through [Developing with VS Code Dev Container Documentation](/building/loc
 If you are not using VS Code, you can use the Docker image as a standalone utility from the command line. Instead of using the `cht ...` command, you can run `docker run -it --rm -v "$PWD":/workdir medicmobile/cht-app-ide ....` This will create an ephemeral container with access to your current directory that will run the given cht command. (Do not include the `cht` part of the command, just your desired actions/parameters.)
 
 Run the following command inside the project directory to bootstrap your new CHT project:
-```shell
+```bash
 docker run -it --rm -v "$PWD":/workdir medicmobile/cht-app-ide initialise-project-layout
 ```
 
@@ -49,76 +122,15 @@ It is recommended to run a local CHT instance using the [CHT Docker Helper scrip
 
 ### Bash completion
 To enable tab completion in bash, add the following to your `.bashrc`/`.bash_profile`:
-```shell
+```bash
 eval "$(cht-conf --shell-completion=bash)"
 ```
 
+
 ### Upgrading
 To upgrade to the latest version, run the command below. To view changes made to CHT Conf, view the [CHANGELOG](/hosting/cht/migration/preparing-for-4/#cht-conf).
-```shell
+```bash
 npm update -g cht-conf
-```
-
-## Usage
-`cht` will upload the configuration **from your current directory**.
-
-### Specifying the server to configure
-If you are using the default actionset, or performing any actions that require a CHT instance to function (e.g. `upload-xyz` or `backup-xyz` actions) you must specify the server you'd like to function against.
-
-#### localhost
-For developers, this is the instance defined in your `COUCH_URL` environment variable.
-```shell
-cht --local
-```
-
-#### A specific Medic-hosted instance
-For configuring Medic-hosted instances.
-```shell
-cht --instance=instance-name.dev
-```
-
-Username `admin` is used. A prompt is shown for entering password.
-If a different username is required, add the `--user` switch:
-```shell
---user user-name --instance=instance-name.dev
-```
-
-#### An arbitrary URL
-```shell
-cht --url=https://username:password@example.com:12345
-```
-**NB** - When specifying the URL with `--url`, be sure not to specify the CouchDB database name in the URL. The CHT API will find the correct database.
-
-#### Using a session token for authentication
-CHT Conf supports authentication using a session token by adding `--session-token` parameter:
-```shell
-cht --url=https://example.com:12345 --session-token=*my_token*
-```
-
-The `my_token` can be obtained by doing a POST request to `/_session` [endpoint](https://docs.couchdb.org/en/stable/api/server/authn.html#cookie-authentication) with `name` and `password` as form parameters.  
-
-For example, if your CHT instance is `my.cht.com`, you could use this `curl` call to specify your user `medic` and your password `secret123` to retrieve the header with the `AuthSession` value which is the token:
-
-```shell
-curl -v  -H 'Content-Type: application/json' -d '{"name":"medic","password":"secret123"}'  https://my.cht.com/_session 2>&1 | grep AuthSession 
-< set-cookie: AuthSession=bWVkaWM6NjdBRTM4MkE6EguRnzpSiK0t8wFaOQ_jgkZE8UWcgNWgpyStzbbHreI; Version=1; Expires=Fri, 13-Feb-2026 18:21:30 GMT; Max-Age=31536000; Path=/; HttpOnly
-```
-
-#### Into an archive to be uploaded later
-```shell
-cht --archive
-```
-The resulting archive is consumable by CHT API >v3.7 to create default configurations.
-
-### Perform specific action(s)
-```shell
-cht <--archive|--local|--instance=instance-name|--url=url> <...action>
-```
-The list of available actions can be seen via `cht --help`.
-
-### Perform actions for specific forms
-```shell
-cht <--local|--instance=instance-name|--url=url> <...action> -- <...form>
 ```
 
 ### Protecting against configuration overwriting
