@@ -43,6 +43,12 @@ To see all available commands:
 cht --help
 ```
 
+You can also list supported actions directly using:
+
+```bash
+cht --supported-actions
+```
+
 
 #### A specific Medic-hosted instance
 For configuring Medic-hosted instances.
