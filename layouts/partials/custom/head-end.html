@@ -402,5 +402,20 @@
   } else {
     init();
   }
+
+  // Override "Create Docs Issue" link dynamically
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll('a[href="https://github.com/medic/cht-docs/issues/new"]');
+
+    links.forEach(link => {
+      const rawTitle = document.querySelector('h1')?.innerText || document.title;
+      const pageTitle = rawTitle.replace(" – Community Health Toolkit", "");
+      const pageUrl = window.location.href;
+
+      const newUrl = `https://github.com/medic/cht-docs/issues/new?title=Improve ${encodeURIComponent(pageTitle)}&body=Page: ${encodeURIComponent(pageUrl)}`;
+
+      link.href = newUrl;
+    });
+  });
 })();
 </script>
