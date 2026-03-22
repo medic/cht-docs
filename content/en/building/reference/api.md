@@ -3306,6 +3306,131 @@ Content-Type: application/json
     "error": "Failed to find place."
   }
 ]
+
+```
+
+### POST /api/v3/users
+
+*Added in 4.9.0*
+
+Create a new user using a JSON payload. This endpoint supports assigning a user to one or more places (multi-facility users).
+
+#### Headers
+
+| Key          | Value              | Description                                  |
+|--------------|--------------------|----------------------------------------------|
+| Content-Type | application/json   | Processes request body as JSON.              |
+
+#### Permissions
+
+[`can_edit`, `can_create_users`]
+
+Multiple places are only supported if the user role has the `can_have_multiple_places` permission.
+
+
+#### Request Body
+
+- `username` (string, required): Unique username for authentication.
+- `password` (string, required unless using token_login or oidc): Password for the user.
+- `roles` (array, required): List of roles assigned to the user.
+- `place` (string or array, required for offline users):  
+  - A single place ID (string), or  
+  - An array of place IDs (for multi-facility users).  
+  Multiple places require the `can_have_multiple_places` permission.
+- `contact` (string or object, required for offline users): Contact associated with the user.
+- `phone` (string, required if `token_login` is enabled): Phone number for SMS login.
+- `token_login` (boolean, optional): Enable login via SMS.
+- `oidc_username` (string, optional): External identity provider username.
+- `fullname` (string, optional): Full name of the user.
+- `email` (string, optional): Email address.
+- `known` (boolean, optional): Indicates if the user has logged in before.
+
+#### Example
+
+Create a user assigned to multiple places:
+
+```http
+POST /api/v3/users
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "StrongPass123!",
+  "roles": ["chw_supervisor"],
+  "place": [
+    "fe4da0f9-7d65-4834-bb42-88a5239bbd3b",
+    "a12bc34d-5678-90ef-gh12-ijkl34567890"
+  ],
+  "contact": "65416b8ceb53ff88ac1847654501aeb3",
+  "fullname": "John Doe"
+}
+```
+
+#### Response
+
+```
+HTTP/1.1 200
+Content-Type: application/json
+
+{
+  "user": {
+    "id": "org.couchdb.user:john",
+    "rev": "1-abc123"
+  },
+  "user-settings": {
+    "id": "org.couchdb.user:john",
+    "rev": "1-def456"
+  }
+}
+```
+
+#### Errors
+
+##### Missing required fields
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "error": "Missing required fields: username, password"
+}
+```
+
+
+##### Invalid password
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "error": "The password is too easy to guess."
+}
+```
+
+
+##### Multiple places not allowed
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "error": "This user cannot have multiple places"
+}
+```
+
+
+##### Invalid contact or place
+
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "error": "Contact is not within place."
+}
 ```
 
 ### POST /api/v1/users/{{username}}
