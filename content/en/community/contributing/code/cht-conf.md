@@ -62,6 +62,9 @@ npm update -g cht-conf
 ## Usage
 `cht` will upload the configuration **from your current directory**.
 
+> [!WARNING]
+> Running `cht` without specifying an action (such as `upload-forms` or `backup-all`), but providing a server environment (`--local`, `--instance`, or `--url`), immediately uploads the configuration from the current directory to the connected instance, overwriting its configuration. This can cause unintentional and disruptive changes. Use `cht` without parameters with caution.
+
 ### Specifying the server to configure
 If you are using the default actionset, or performing any actions that require a CHT instance to function (e.g. `upload-xyz` or `backup-xyz` actions) you must specify the server you'd like to function against.
 
