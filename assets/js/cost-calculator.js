@@ -82,7 +82,7 @@ const calculateMetrics = (els) => {
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
   return {
     cpuCount, ramGb, instanceCost, dbDiskGb, diskOverprovisionGb, rootVolumeGb, diskSizeGb,
-    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor
+    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor, userCount
   };
 };
 
@@ -108,8 +108,7 @@ const updateOutputElements = (els) => () => {
   els.diskOverprovisionBar.style.width = (m.diskOverprovisionGb / m.diskSizeGb * 100) + '%';
   els.rootVolumeBar.style.width = (m.rootVolumeGb / m.diskSizeGb * 100) + '%';
 
-  const userCount = Number.parseInt(els.userCountInput.value);
-  const yearlyCostPerUser = userCount > 0 ? m.totalCost / userCount : 0;
+  const yearlyCostPerUser = m.userCount > 0 ? m.totalCost / m.userCount : 0;
   const monthlyCostPerUser = yearlyCostPerUser / 12;
   els.costPerUserYearly.textContent = formatCurrency(
     yearlyCostPerUser,
