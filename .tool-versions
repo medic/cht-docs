@@ -1,6 +1,2 @@
-<<<<<<< Updated upstream
-hugo extended_0.152.2 # Should match the version in compose.yml
-=======
-hugo extended_0.158.0 # Should match the hugo version in compose.yml and Dockerfile
->>>>>>> Stashed changes
+hugo extended_0.152.2 # Should match the hugo version in compose.yml and Dockerfile
 golang 1.21.0

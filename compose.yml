@@ -1,13 +1,9 @@
 services:
   hugo:
     container_name: cht-hugo
-<<<<<<< Updated upstream
-    image: docker.io/hugomods/hugo:0.152.2 # Should match the version in .tool-versions
-=======
-    image: cht-hugo:0.158.0 # Should match the hugo version in .tool-versions
+    image: cht-hugo:0.152.2 # Should match the hugo version in .tool-versions
     build:
       context: .
->>>>>>> Stashed changes
     ports:
       - 1313:1313
     volumes:
