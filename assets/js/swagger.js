@@ -1,4 +1,6 @@
-const buildPermissionsPills = (items = []) => items.map(p => `<code class="x-permissions__pill">${p}</code>`).join('');
+const buildPermissionsPills = (items = []) => items
+  .map(p => `<code class="x-permissions__pill">${p}</code>`)
+  .join('');
 
 const buildPermissionsBadge = (perms) => {
   const badge = document.createElement('div');
@@ -20,6 +22,23 @@ const buildSinceBadge = (version) => {
   return badge;
 };
 
+const extendDescriptionBlock = (perms, since) => (node) => {
+  const descWrapper = node?.querySelector('.opblock-description-wrapper');
+  if (!descWrapper || descWrapper.querySelector('.x-extensions')) {
+    return;
+  }
+
+  const container = document.createElement('div');
+  container.className = 'x-extensions';
+  if (since) {
+    container.appendChild(buildSinceBadge(since));
+  }
+  if (perms) {
+    container.appendChild(buildPermissionsBadge(perms));
+  }
+  descWrapper.prepend(container);
+};
+
 const XExtensionsPlugin = () => ({
   wrapComponents: {
     operation: (Original, system) => (props) => {
@@ -32,24 +51,7 @@ const XExtensionsPlugin = () => ({
         return h(Original, props);
       }
 
-      const ref = (node) => {
-        const descWrapper = node?.querySelector('.opblock-description-wrapper');
-        if (!descWrapper || descWrapper.querySelector('.x-extensions')) {
-          return;
-        }
-
-        const container = document.createElement('div');
-        container.className = 'x-extensions';
-        if (since) {
-          container.appendChild(buildSinceBadge(since));
-        }
-        if (perms) {
-          container.appendChild(buildPermissionsBadge(perms));
-        }
-        descWrapper.prepend(container);
-      };
-
-      return h('div', { ref }, h(Original, props));
+      return h('div', { ref: extendDescriptionBlock(perms, since) }, h(Original, props));
     }
   }
 });
@@ -57,6 +59,7 @@ const XExtensionsPlugin = () => ({
 window.addEventListener('DOMContentLoaded', () => {
   SwaggerUIBundle({
     dom_id: '#swagger-ui',
+    // TODO Update
     url: 'https://gist.githubusercontent.com/jkuester/a738de6aa6f96e5957b1f4ce56a3692a/raw/openapi.json',
     presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
     plugins: [XExtensionsPlugin],
