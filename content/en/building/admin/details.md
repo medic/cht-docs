@@ -17,7 +17,6 @@ These sections of the App can be configured from within the Admin Console:
 - **Upgrade Instance**: Install a newer app version
 - **Users**: View and edit users of the system
 - **Icons**: View and edit icons used in the app
-- **Targets**: Modify performance or activity targets
 - **Roles & Permissions**: Fine tuned control of user roles and permissions
 
 ### Admin Console vs Command Line Tools

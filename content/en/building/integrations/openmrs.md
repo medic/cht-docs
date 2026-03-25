@@ -201,7 +201,7 @@ Exceptions thrown during processing can be added to a queue and presented on an 
 
 Sample OpenMRS handler scripts include:
 1. [PIH Malawi's EMR handler](https://github.com/PIH/openmrs-module-emr)
-2. [KenyaEMR handler](https://github.com/palladiumkenya/openmrs-module-afyastat)
+2. [KenyaEMR handler](https://openmrs.atlassian.net/wiki/spaces/docs/pages/25475417/KenyaEMR+Distribution)
 
 ### OpenMRS to CHT
 
