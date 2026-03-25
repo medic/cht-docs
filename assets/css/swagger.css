@@ -27,19 +27,15 @@
 .dark .swagger-ui .opblock-delete { --method: 220, 38, 38; }
 .dark .swagger-ui .opblock-patch  { --method: 147, 51, 234; }
 
-/* --- Layout & hidden sections --- */
-
-#swagger-ui {
-  width: 100%;
+/* Deprecated method badge — darker gray for better contrast */
+.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
+  background: #525252;
 }
 
+/* --- Hidden elements (no live server connection) --- */
 #swagger-ui .information-container,
 .scheme-container,
-.filter-container {
-  display: none;
-}
-
-/* Hide parameter inputs (no live server connection) */
+.filter-container,
 .swagger-ui .parameters-container input,
 .swagger-ui .parameters-container select {
   display: none;
@@ -52,11 +48,6 @@
   background-color: unset;
   border: unset;
   color: unset;
-}
-
-/* Deprecated method badge — darker gray for better contrast */
-.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
-  background: #525252;
 }
 
 /* --- Dark mode (nested) --- */
