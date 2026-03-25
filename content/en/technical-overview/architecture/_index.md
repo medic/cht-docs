@@ -3,9 +3,6 @@ title: "CHT Architecture"
 linkTitle: "Architecture"
 weight: 1
 description: Components of the CHT Ecosystem
-aliases:
-   - /core
-   - /core/overview/
 ---
 
 

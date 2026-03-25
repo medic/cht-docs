@@ -4,9 +4,6 @@ linkTitle: "Technical Overview"
 description: >
   Overview and architecture of CHT components
 weight: 3
-aliases:
-   - /core
-   - /core/overview/
 ---
 
 {{< cards >}}
