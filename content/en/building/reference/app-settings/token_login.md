@@ -11,11 +11,11 @@ aliases:
    - /apps/reference/app-settings/token_login
 ---
 
-When creating or updating a user, sending a truthy value for the field `token_login` will enable Login by SMS for this user.
-This action resets the user's password to an unknown string and generates a complex 64 character token, that is used to generate a token-login URL.
+When creating or updating a user, sending a truthy value for the field `token_login` enables Login by SMS for this user.
+This action resets the user's password to an unknown string and generates a complex 64-character token, used to generate a token-login URL.
 The URL is sent to the user's phone number by SMS, along with another (configurable) SMS that can contain additional information.
-Accessing this link, before its expiration time, will log the user in directly - without the need of any other credentials.
-The link can only be accessed once, the token becomes invalid after being used for one login.
+Accessing this link before its expiration time logs the user in directly - without the need of any other credentials.
+The link can only be accessed once, and the token becomes invalid after one login.
 The token expires in 24 hours, after which logging in is only possible by either generating a new token, or disabling `token_login` and manually setting a password.
 
 The SMS messages are stored in a doc of type `login_token`. These docs cannot be viewed as reports from the webapp, and can only be edited by admins, but their messages are visible in the Admin Message Queue page.
@@ -23,18 +23,17 @@ The SMS messages are stored in a doc of type `login_token`. These docs cannot be
 To disable login by SMS for a user, update the user sending `token_login` with a `false` value.
 To regenerate the token, update the user sending `token_login` with a `true` value.
 
-| `token_login` | user state           | action                                                                                                                                    |
-|---------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| undefined     | new                  | None                                                                                                                                      |
-| undefined     | existent, no token   | None                                                                                                                                      |
-| undefined     | existent, with token | None. Login by SMS remains enabled. Token is unchanged.                                                                                   |
-| true          | new                  | Login by SMS enabled. Token is generated and SMS is sent.                                                                                 |
-| true          | existent, no token   | Password is reset. Login by SMS enabled. Token is generated and SMS is sent. Existent sessions are invalidated.                           |
-| true          | existent, with token | Password is reset. Login by SMS enabled. New token is generated and SMS is sent. Old token is invalid. Existent sessions are invalidated. |
-| false         | new                  | None.                                                                                                                                     |
-| false         | existent, no token   | None.                                                                                                                                     |
-| false         | existent, with token | Request requires a password. Login by SMS is disabled. Old token is invalidated. Existent sessions are invalidated.                       |
-
+| `token_login` | user state           | action                                                                                                                 |
+|---------------|----------------------|------------------------------------------------------------------------------------------------------------------------|
+| undefined     | new                  | None                                                                                                                   |
+| undefined     | existing, no token   | None                                                                                                                   |
+| undefined     | existing, with token | None. Login by SMS remains enabled. Token is unchanged.                                                                |
+| true          | new                  | Enables Login by SMS. Generates token and sends SMS.                                                                   |
+| true          | existing, no token   | Resets password. Enables Login by SMS. Generates token and sends SMS. Invalidates existing sessions.                   |
+| true          | existing, with token | Resets password. Enables Login by SMS. Generates new token and sends SMS. Invalidates old token and existing sessions. |
+| false         | new                  | None                                                                                                                   |
+| false         | existing, no token   | None                                                                                                                   |
+| false         | existing, with token | Requires a password. Disables Login by SMS. Invalidates old token and existing sessions.                               |
 
 {{< see-also page="building/login" anchor="remote-login" >}}
 

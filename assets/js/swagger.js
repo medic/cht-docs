@@ -1,16 +1,29 @@
-const buildPermissionsPills = (items = []) => items
-  .map(p => `<code class="x-permissions__pill">${p}</code>`)
-  .join('');
+const buildPermissionPill = (text) => {
+  const pill = document.createElement('code');
+  pill.className = 'x-permissions__pill';
+  pill.textContent = text;
+  return pill;
+};
 
 const buildPermissionsBadge = (perms) => {
   const badge = document.createElement('div');
   badge.className = 'x-permissions';
-  const hasAllPills = buildPermissionsPills(perms.hasAll);
-  const hasAnyPills = buildPermissionsPills(perms.hasAny);
-  const hasAnyContent = hasAnyPills ? ` any of: (${hasAnyPills})` : '';
   const line = document.createElement('span');
   line.className = 'x-permissions__line';
-  line.innerHTML = `<span class="x-permissions__label">Permissions - </span>${hasAllPills}${hasAnyContent}`;
+
+  const label = document.createElement('span');
+  label.className = 'x-permissions__label';
+  label.textContent = 'Permissions - ';
+  line.appendChild(label);
+
+  (perms.hasAll || []).forEach(p => line.appendChild(buildPermissionPill(p)));
+
+  if (perms.hasAny?.length) {
+    line.appendChild(document.createTextNode(' any of: ('));
+    perms.hasAny.forEach(p => line.appendChild(buildPermissionPill(p)));
+    line.appendChild(document.createTextNode(')'));
+  }
+
   badge.appendChild(line);
   return badge;
 };
