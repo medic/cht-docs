@@ -206,10 +206,27 @@ git clone https://github.com/medic/cht-core.git
 - Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
 - Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
+{{< tabs items="Local,Dev Container" >}}
+
+  {{< tab >}}
 ```shell
-cht --url=https://medic:password@localhost --accept-self-signed-certs
-cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
+  # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
+  cht --url=https://medic:password@localhost --accept-self-signed-certs
+  cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
 ```
+  
+  {{< /tab >}}
+
+  {{< tab >}}
+
+```shell
+  # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
+  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
+  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url> csv-to-docs upload-docs
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
 
