@@ -256,3 +256,11 @@ a.broken {
   border: 2px solid #f00;
   padding: 0.1em 0.2em;
 }
+
+/* -----------------------------------------------
+Fix card vertical aligning
+See https://github.com/medic/cht-docs/pull/2152#issuecomment-4092760195
+--------------------------------------------------*/
+.hextra-cards>a>div.hx\:mt-auto {
+    margin-top: unset;
+}
