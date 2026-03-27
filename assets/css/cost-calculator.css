@@ -246,15 +246,15 @@ html.dark {
     }
   }
   .calc-card.users {
+    .calc-label {
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
     .cost-per-user {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 1.5rem;
-
-      .calc-label {
-        font-size: 1.25rem;
-      }
     }
 
     .viz-section {
@@ -263,12 +263,6 @@ html.dark {
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: baseline;
-
-      .calc-label {
-        font-size: 1rem;
-        color: var(--calc-text-light);
-        margin-bottom: 0.5rem;
-      }
 
       .viz-value {
         font-size: 1.5rem;

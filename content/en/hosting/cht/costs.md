@@ -38,13 +38,13 @@ The places-per-person and data-records-per-person-per-workflow-per-year ratios w
 
 The total disk size has three components:
 
-| Component             | Description                                        |
-|-----------------------|----------------------------------------------------|
-| **DB disk**           | Estimated `medic` doc count / `76,111` docs-per-GB |
-| **Over-provisioning** | DB disk x over-provisioning factor (default `3x`)  |
-| **Root volume**       | `50` GB for the OS and CHT software                |
+| Component             | Description                                         |
+|-----------------------|-----------------------------------------------------|
+| **DB disk**           | Estimated `medic` doc count / `186,089` docs-per-GB |
+| **Over-provisioning** | DB disk x over-provisioning factor (default `5x`)   |
+| **Root volume**       | `50` GB for the OS and CHT software                 |
 
-The _docs-per-GB_ value (`76,111`) is a ratio of `medic` doc count to total database disk usage (including CouchDB view indexes and non-`medic` databases). It was measured from production by getting the total disk space used (from Node Exporter metrics) with:
+The _docs-per-GB_ value (`186,089`) is a ratio of `medic` doc count to total database disk usage (including CouchDB view indexes and non-`medic` databases). It was measured from production by getting the total disk space used (from Node Exporter metrics) with:
 
 ```promql
 # DB disk space used (GB)
@@ -53,11 +53,11 @@ The _docs-per-GB_ value (`76,111`) is a ratio of `medic` doc count to total data
 - 25  # Subtract OS and non-CHT data
 ```
 
-Then the total doc count for the `medic` database can be retrieved with `cht_couchdb_doc_total{ db="medic" }`. When this value was divided by the GBs of used disk space, the average result for the measured instances was `76,111` docs per GB.
+Then the total doc count for the `medic` database can be retrieved with `cht_couchdb_doc_total{ db="medic" }`. When this value was divided by the GBs of used disk space, the average result for the measured instances was `186,089` docs per GB.
 
 The goal is not to determine the actual size of the `medic` database, but to use the expected `medic` doc count to estimate the total disk footprint of all databases.
 
-The over-provisioning factor (default `3x`) provides headroom for CouchDB compaction, upgrades, and future growth.
+The over-provisioning factor (default `5x`) provides headroom for CouchDB compaction, upgrades, and future growth.
 
 #### Disk cost
 
@@ -67,9 +67,9 @@ Disk is priced at `$0.08`/GB/month based on standard [Amazon EBS](https://aws.am
 
 CPU count is determined by the number of users:
 
-`CPUs = users / 211` (rounded up, minimum 1)
+`CPUs = users / 288` (rounded up, minimum 1)
 
-The _users-per-CPU_ value (`211`) was calculated from production instances by:
+The _users-per-CPU_ value (`288`) was calculated from production instances by:
 
 1. Measuring CPU allocation: `count(node_cpu_seconds_total{ mode="idle" }) by (instance)`
 2. Measuring average utilization over 14 days: `(1 - avg(rate(node_cpu_seconds_total{ mode="idle" }[14d])) by (instance)) * 100`
@@ -105,7 +105,7 @@ This document covers hosting cost and does not cover Total Cost of Ownership (TC
 Items that are included in the basic costs of hosting the CHT:
 
 * Servers for hosting the CHT
-* Built in overprovisioning to allow for bursts and a bit of growth (targeting `50%` CPU utilization and including `3x` disk space for DB expansion)
+* Built in overprovisioning to allow for bursts and a bit of growth (targeting `50%` CPU utilization and including `5x` disk space for DB expansion)
 
 ### Excluded
 

@@ -1,8 +1,8 @@
 const DEFAULTS = {
   DISK_COST_PER_GB_YEAR: 0.96,
-  MEDIC_DOCS_PER_GB: 76111,
+  MEDIC_DOCS_PER_GB: 186089,
   PLACES_PER_POP: 0.36,
-  USERS_PER_CPU: 211,
+  USERS_PER_CPU: 288,
   RAM_PER_CPU: 2,
   COST_PER_CPU_MONTH: 20.85,
   DOCS_PER_POP_WORKFLOW_YEAR: 1,
@@ -16,7 +16,7 @@ const UI_CONSTANTS = {
   WORKFLOWS: { value: 10, min: 1, max: 40, step: 1 },
   USERS: { value: 1000, min: 10, max: 15000, step: 10 },
   DEPLOYMENT_AGE: { value: 1, min: 1, max: 10 },
-  DB_OVERPROVISION: { value: 3, min: 1, max: 10 },
+  DB_OVERPROVISION: { value: 5, min: 1, max: 10 },
 };
 
 const formatCurrency = (amount, opts = {}) => amount.toLocaleString(navigator.language, {
