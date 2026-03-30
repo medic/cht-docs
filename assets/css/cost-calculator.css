@@ -93,6 +93,7 @@ html.dark {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--calc-link);
+    white-space: nowrap;
   }
   .inline-cost-monthly {
     font-size: 0.75rem;
