@@ -26,6 +26,11 @@
   --exclude "http[s]*://github.com/medic/cht-docs/edit/main.*" \
   --exclude "http[s]*://github.com/medic/medic-infrastructure.*" \
   --exclude "http[s]*://github.com/moh-kenya/config-echis-2.0.*" \
+  --exclude "http[s]*://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml" \
+  --exclude "http[s]*://github.com/medic/cht-core/blob/master/scripts/deploy/README.md" \
+  --exclude "http[s]*://github.com/medic/cht-core/tree/master/scripts/deploy" \
+  --exclude "http[s]*://github.com/palladiumkenya/openmrs-module-afyastat" \
+  --exclude "http[s]*://github.com/signup" \
   --exclude "http[s]*://.*google.com/.*12345ABCDEF.*" \
   --exclude "http[s]*://.*google.com/.*14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0.*" \
   --exclude "http[s]*://.*google.com/.*1pPk6FAuLUPKUYnCRgruPk6Lh5IeWzu6IPD1KTFOi6YQ.*" \
@@ -67,6 +72,8 @@
   --exclude "http[s]*://scientyficworld.org/how-to-avoid-local-port-conflicts-in-docker/" \
   --exclude "http[s]*://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/" \
   --exclude "http[s]*://news.ycombinator.com/item?id=1547647" \
+  --exclude "http[s]*://pmc.ncbi.nlm.nih.gov/articles/PMC6903365/" \
+  --exclude "http[s]*://ruky.me/hacking-cht-user-interface-with-javascript-to-format-content/" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
   --exclude "http[s]*://127.*"
