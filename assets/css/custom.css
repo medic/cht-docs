@@ -264,3 +264,10 @@ See https://github.com/medic/cht-docs/pull/2152#issuecomment-4092760195
 .hextra-cards>a>div.hx\:mt-auto {
     margin-top: unset;
 }
+
+/* -----------------------------------------------
+Fix content too tight around video HTML tags
+--------------------------------------------------*/
+video {
+    padding-top: 25px;
+}
