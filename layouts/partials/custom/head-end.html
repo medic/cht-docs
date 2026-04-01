@@ -32,7 +32,6 @@
   data-modal-disclaimer="This is a custom LLM for Community Health Toolkit (CHT) with access to all [Documentation](https://docs.communityhealthtoolkit.org), [GitHub Issues and READMEs](https://github.com/medic/cht-core) and the [CHT Forum](https://forum.communityhealthtoolkit.org). Rate the answers to let us know what you think!
 
 ⚠️ NOTICE: Do not share any PII, PHI or passwords. Chat logs are archived and accessible by both Medic and Kapa."
-  data-search-disclaimer="⚠️ NOTICE: Do not share any PII, PHI or passwords. Chat logs are archived and accessible by both Medic and Kapa."
   data-modal-example-questions="How do I run the CHT locally?,How can I contribute to the CHT?"
   data-button-text-color="#FFFFFF"
   data-modal-header-bg-color="#41AFAF"
@@ -43,7 +42,6 @@
   data-modal-ask-ai-input-placeholder="Ask me a question about the CHT..."
   data-consent-required="true"
   data-consent-screen-title="Search and Ask AI are powered by Kapa"
-  data-consent-screen-body="NOTICE: Do not share any PII, PHI or passwords. Chat logs are archived and accessible by both Medic and Kapa."
   data-consent-screen-disclaimer="By clicking &quot;I agree&quot;, you consent to the use of search and the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
   data-consent-screen-accept-button-text="I agree!"
   data-modal-open-on-command-k="false"
@@ -99,6 +97,10 @@
     AI: 'ai',
     SEARCH: 'search'
   };
+
+  const SEARCH_NOTICE_ID = 'cht-search-notice';
+
+  const NOTICE_TEXT = '⚠️ NOTICE: Do not share any PII, PHI or passwords. Chat logs are archived and accessible by both Medic and Kapa.';
 
   /**
    * Open Kapa modal in specified mode
@@ -259,6 +261,59 @@
     });
   };
 
+  const injectSearchNotice = () => {
+    const kapaContainer = document.querySelector('#kapa-widget-container');
+    if (!kapaContainer || !kapaContainer.shadowRoot) return;
+
+    const shadowRoot = kapaContainer.shadowRoot;
+
+    const isDark = document.documentElement.classList.contains('dark');
+
+    const buildNotice = () => {
+      const notice = document.createElement('div');
+      notice.id = SEARCH_NOTICE_ID;
+      notice.style.cssText = [
+        'font-size: 13px',
+        'padding: 10px 14px',
+        'margin: 8px 0 4px 0',
+        'border-radius: 4px',
+        'line-height: 1.5',
+        'background-color: ' + (isDark ? '#2e2e2e' : '#DFEAEA'),
+        'color: ' + (isDark ? '#ffffff' : '#000000'),
+      ].join(';');
+      notice.textContent = NOTICE_TEXT;
+      return notice;
+    };
+
+    const tryInject = () => {
+      const existing = shadowRoot.querySelector('#' + SEARCH_NOTICE_ID);
+
+      const searchInput = shadowRoot.querySelector('input[type="text"]')
+                       || shadowRoot.querySelector('input[placeholder*="earch"]');
+
+      if (!searchInput) {
+
+        if (existing) existing.remove();
+        return;
+      }
+
+      if (existing) return;
+
+      const inputRoot = searchInput.closest('[class*="Input-wrapper"]')
+                     || searchInput.closest('[class*="input-wrapper"]')
+                     || searchInput.parentElement;
+
+      if (!inputRoot) return;
+
+      inputRoot.insertAdjacentElement('afterend', buildNotice());
+    };
+
+    const observer = new MutationObserver(tryInject);
+    observer.observe(shadowRoot, { childList: true, subtree: true });
+
+    tryInject();
+  };
+
   /**
    * Sync Kapa's dark mode with site theme.
    * Kapa uses Shadow DOM which blocks external CSS, so we must:
@@ -270,84 +325,136 @@
     const colorScheme = isDark ? 'dark' : 'light';
 
     const kapaContainer = document.querySelector('#kapa-widget-container');
-    if (kapaContainer && kapaContainer.shadowRoot) {
-      const shadowRoot = kapaContainer.shadowRoot;
-      const kapaWidgetRoot = shadowRoot.querySelector('#kapa-widget-root');
-      if (kapaWidgetRoot) {
-        kapaWidgetRoot.setAttribute('data-mantine-color-scheme', colorScheme);
+    if (!kapaContainer || !kapaContainer.shadowRoot) return;
+
+    const shadowRoot = kapaContainer.shadowRoot;
+    const kapaWidgetRoot = shadowRoot.querySelector('#kapa-widget-root');
+    if (kapaWidgetRoot) {
+      kapaWidgetRoot.setAttribute('data-mantine-color-scheme', colorScheme);
+    }
+
+    const styleId = 'kapa-dark-mode-overrides';
+    let styleEl = shadowRoot.querySelector('#' + styleId);
+
+    if (isDark) {
+      if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = styleId;
+        shadowRoot.appendChild(styleEl);
       }
+      styleEl.textContent = `
 
-      // Inject dark mode CSS overrides into shadow DOM
-      const styleId = 'kapa-dark-mode-overrides';
-      let styleEl = shadowRoot.querySelector(`#${styleId}`);
-
-      if (isDark) {
-        if (!styleEl) {
-          styleEl = document.createElement('style');
-          styleEl.id = styleId;
-          shadowRoot.appendChild(styleEl);
+        [data-mantine-color-scheme="dark"] .mantine-Title-root {
+          color: #e0e0e0 !important;
         }
-        styleEl.textContent = `
-          /* Dark mode: Question title */
-          [data-mantine-color-scheme="dark"] .mantine-Title-root {
-            color: #e0e0e0 !important;
-          }
-          /* Dark mode: Answer content text */
-          [data-mantine-color-scheme="dark"] .mantine-Text-root {
-            color: #e0e0e0 !important;
-          }
-          /* Dark mode: List items */
-          [data-mantine-color-scheme="dark"] .mantine-List-root,
-          [data-mantine-color-scheme="dark"] .mantine-List-item,
-          [data-mantine-color-scheme="dark"] .mantine-List-itemLabel,
-          [data-mantine-color-scheme="dark"] .mantine-List-itemWrapper {
-            color: #e0e0e0 !important;
-          }
-          /* Dark mode: Input/textarea text */
-          [data-mantine-color-scheme="dark"] .mantine-Input-input,
-          [data-mantine-color-scheme="dark"] .mantine-Textarea-input {
-            color: #e0e0e0 !important;
-          }
-          /* Dark mode: Links */
-          [data-mantine-color-scheme="dark"] a {
-            color: #5cc8c8 !important;
-          }
-          /* Dark mode: Disclaimer/consent boxes */
-          [data-mantine-color-scheme="dark"] .mantine-tilrau {
-            background-color: #2e2e2e !important;
-            color: #ffffff !important;
-          }
-          [data-mantine-color-scheme="dark"] .mantine-tilrau * {
-            color: #ffffff !important;
-          }
-          [data-mantine-color-scheme="dark"] .mantine-tilrau a {
-            color: #5cc8c8 !important;
-          }
-          /* Dark mode: Search result text highlights */
-          [data-mantine-color-scheme="dark"] mark,
-          [data-mantine-color-scheme="dark"] .mantine-Mark-root,
-          [data-mantine-color-scheme="dark"] .mantine-Highlight-root mark {
-            background-color: #1a4040 !important;
-            color: #b0b0b0 !important;
-          }
-          /* Dark mode: Search result row - base state and hover */
-          [data-mantine-color-scheme="dark"] a.mantine-Paper-root {
-            background-color: transparent !important;
-            transition: background-color 0.1s ease !important;
-          }
-          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover,
-          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus {
-            background-color: #404040 !important;
-          }
-          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover *,
-          [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus * {
-            color: #e0e0e0 !important;
-          }
-        `;
-      } else if (styleEl) {
-        styleEl.remove();
+
+        [data-mantine-color-scheme="dark"] .mantine-Text-root {
+          color: #e0e0e0 !important;
+        }
+        /* Dark mode: List items */
+        [data-mantine-color-scheme="dark"] .mantine-List-root,
+        [data-mantine-color-scheme="dark"] .mantine-List-item,
+        [data-mantine-color-scheme="dark"] .mantine-List-itemLabel,
+        [data-mantine-color-scheme="dark"] .mantine-List-itemWrapper {
+          color: #e0e0e0 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] p,
+        [data-mantine-color-scheme="dark"] h1,
+        [data-mantine-color-scheme="dark"] h2,
+        [data-mantine-color-scheme="dark"] h3,
+        [data-mantine-color-scheme="dark"] h4,
+        [data-mantine-color-scheme="dark"] h5,
+        [data-mantine-color-scheme="dark"] h6,
+        [data-mantine-color-scheme="dark"] li,
+        [data-mantine-color-scheme="dark"] ul,
+        [data-mantine-color-scheme="dark"] ol,
+        [data-mantine-color-scheme="dark"] td,
+        [data-mantine-color-scheme="dark"] th,
+        [data-mantine-color-scheme="dark"] tr,
+        [data-mantine-color-scheme="dark"] table,
+        [data-mantine-color-scheme="dark"] thead,
+        [data-mantine-color-scheme="dark"] tbody,
+        [data-mantine-color-scheme="dark"] blockquote,
+        [data-mantine-color-scheme="dark"] span:not([class*="mantine"]) {
+          color: #e0e0e0 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] code {
+          color: #c8e6c9 !important;
+          background-color: #1e2a1e !important;
+        }
+
+        [data-mantine-color-scheme="dark"] pre {
+          background-color: #1a1a1a !important;
+          color: #c8e6c9 !important;
+        }
+        [data-mantine-color-scheme="dark"] pre code {
+          background-color: transparent !important;
+          color: #c8e6c9 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] td,
+        [data-mantine-color-scheme="dark"] th {
+          border-color: #444 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] .mantine-Input-input,
+        [data-mantine-color-scheme="dark"] .mantine-Textarea-input {
+          color: #e0e0e0 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] a {
+          color: #5cc8c8 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] .mantine-tilrau {
+          background-color: #2e2e2e !important;
+          color: #ffffff !important;
+        }
+        [data-mantine-color-scheme="dark"] .mantine-tilrau * {
+          color: #ffffff !important;
+        }
+        [data-mantine-color-scheme="dark"] .mantine-tilrau a {
+          color: #5cc8c8 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] mark,
+        [data-mantine-color-scheme="dark"] .mantine-Mark-root,
+        [data-mantine-color-scheme="dark"] .mantine-Highlight-root mark {
+          background-color: #1a4040 !important;
+          color: #b0b0b0 !important;
+        }
+
+        [data-mantine-color-scheme="dark"] a.mantine-Paper-root {
+          background-color: transparent !important;
+          transition: background-color 0.1s ease !important;
+        }
+        [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover,
+        [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus {
+          background-color: #404040 !important;
+        }
+        [data-mantine-color-scheme="dark"] a.mantine-Paper-root:hover *,
+        [data-mantine-color-scheme="dark"] a.mantine-Paper-root:focus * {
+          color: #e0e0e0 !important;
+        }
+
+        #cht-search-notice {
+          background-color: #2e2e2e !important;
+          color: #ffffff !important;
+        }
+      `;
+    } else {
+      if (styleEl) styleEl.remove();
+
+      const notice = shadowRoot.querySelector('#' + SEARCH_NOTICE_ID);
+      if (notice) {
+        notice.style.backgroundColor = '#DFEAEA';
+        notice.style.color = '#000000';
       }
     }
+
+    injectSearchNotice();
   };
 
   /**
@@ -370,9 +477,10 @@
         for (const node of mutation.addedNodes) {
           if (node.nodeType === Node.ELEMENT_NODE) {
             if (node.id === 'kapa-widget-container' || node.querySelector?.('#kapa-widget-container')) {
-              // Wait for shadow DOM to initialize
               setTimeout(syncKapaDarkMode, 100);
               setTimeout(syncKapaDarkMode, 500);
+              setTimeout(injectSearchNotice, 300);
+              setTimeout(injectSearchNotice, 800);
             }
           }
         }
@@ -395,9 +503,9 @@
     injectKapaButton();
     setupKapaSearchIntercept();
     setupDarkModeSync();
+    injectSearchNotice();
   };
 
-  // Set up keyboard shortcuts immediately (capture phase)
   setupKeyboardShortcuts();
 
   // Initialize DOM-dependent features
