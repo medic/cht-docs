@@ -47,7 +47,7 @@ docker compose up -d
 
 **Supported values:**
 
-- `error` — Only error messages (production use)
+- `error` — Only error messages
 - `warn` — Warnings and errors
 - `info` — General information (default, recommended for production)
 - `debug` — Detailed diagnostic information (troubleshooting only)
