@@ -90,7 +90,7 @@ An outgoing SMS message configuration has the following fields:
 > [!NOTE]
 > - when recipient is an array, the first resolved recipient from the array will be selected. 
 > - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number. This behavior can be changed with [default_to_sender]({{% ref "building/reference/app-settings/sms/#app_settingsjson-sms" %}}) parameter.
-> - if there is no submitter phone number available or `default_to_sender` is `false`, the actual `recipient` property value will be used. When recipient is an array, the first field of an array will be used.
+> - if there is no submitter phone number available or `default_to_sender` is `false`, the actual `recipient` property value will be used. When recipient is an array, the first field of the array will be used.
 > - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`.
 > - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available.
 
