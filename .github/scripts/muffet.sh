@@ -16,8 +16,8 @@
 ./2.11.1.muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 255 \
-  --rate-limit 4 \
-  --max-connections-per-host 8 \
+  --rate-limit 3 \
+  --max-connections-per-host 6 \
   --ignore-fragments \
   --header="User-Agent: Muffet (github.com/raviqqe/muffet) on behalf of CHT Docs (docs.communityhealthtoolkit.org)" \
   --exclude "http[s]*://.*africastalking.com.*" \
@@ -74,6 +74,7 @@
   --exclude "http[s]*://news.ycombinator.com/item?id=1547647" \
   --exclude "http[s]*://pmc.ncbi.nlm.nih.gov/articles/PMC6903365/" \
   --exclude "http[s]*://ruky.me/hacking-cht-user-interface-with-javascript-to-format-content/" \
+  --exclude "http[s]*://www.sonarsource.com/" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
   --exclude "http[s]*://127.*"
