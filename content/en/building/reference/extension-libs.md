@@ -1,6 +1,6 @@
 ---
-title: "extension-libs/"
-linkTitle: "extension-libs/"
+title: "extension-libs"
+linkTitle: "extension-libs"
 weight: 5
 description: >
   Used for providing custom scripts for execution in CHT apps
@@ -89,6 +89,10 @@ The function will now be available via the CHT API for [tasks](/building/tasks/t
 #### CHT xPath functions
 
 To execute the function from within an xform use the [`cht:extension-lib` xpath function](/building/forms/app#chtextension-lib).
+
+#### Expression functions
+
+Use the `extensionLib(name, ...args)` function to execute an extension-lib from with a [contact duplicate check expression](/building/forms/contact#duplicate-check-expression) or a [form context expression](/building/forms/app#expression-functions).
 
 ## Advanced usage
 
