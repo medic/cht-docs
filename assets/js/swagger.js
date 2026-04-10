@@ -110,6 +110,13 @@ const ScrollOffsetPlugin = () => ({
   }
 });
 
+// Sync Hextra's .dark class to Swagger UI's expected .dark-mode class
+const syncDarkMode = () => {
+  document.documentElement.classList.toggle('dark-mode', document.documentElement.classList.contains('dark'));
+};
+syncDarkMode();
+new MutationObserver(syncDarkMode).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
 window.addEventListener('DOMContentLoaded', () => {
   SwaggerUIBundle({
     dom_id: '#swagger-ui',

@@ -1,37 +1,3 @@
-/* -------------------------
-       OpenAPI / Swagger UI
-   Hextra dark: #111 bg, neutral grays
-------------------------- */
-
-/* --- Color palette (dark mode) --- */
-.dark .swagger-ui {
-  --sw-text: #d1d5db;
-  --sw-text-bright: #f3f4f6;
-  --sw-text-muted: #9ca3af;
-  --sw-text-faint: #6b7280;
-  --sw-bg-panel: #171717;
-  --sw-bg-deep: #111;
-  --sw-bg-raised: #1a1a1a;
-  --sw-bg-input: #0a0a0a;
-  --sw-border: #262626;
-  --sw-border-faint: #1a1a1a;
-  --sw-border-strong: #404040;
-  --sw-accent: #2563eb;
-  --sw-accent-hover: #1d4ed8;
-}
-
-/* --- Per-method colors --- */
-.dark .swagger-ui .opblock-get    { --method: 22, 163, 74; }
-.dark .swagger-ui .opblock-post   { --method: 37, 99, 235; }
-.dark .swagger-ui .opblock-put    { --method: 217, 119, 6; }
-.dark .swagger-ui .opblock-delete { --method: 220, 38, 38; }
-.dark .swagger-ui .opblock-patch  { --method: 147, 51, 234; }
-
-/* Deprecated method badge — darker gray for better contrast */
-.swagger-ui .opblock.opblock-deprecated .opblock-summary-method {
-  background: #525252;
-}
-
 /* --- Hidden elements (no live server connection) --- */
 #swagger-ui .information-container,
 .scheme-container,
@@ -40,6 +6,9 @@
 .swagger-ui .parameters-container select {
   display: none;
 }
+
+/* Collapse the unused TOC sidebar */
+.hextra-toc { width: 0; overflow: hidden; padding: 0; }
 
 /* Code blocks — prevent Hextra's pre/code styles from interfering
    with Swagger's own microlight syntax highlighting */
@@ -50,279 +19,19 @@
   color: unset;
 }
 
-/* --- Dark mode (nested) --- */
-
-.dark .swagger-ui {
-  color: var(--sw-text);
-
-  /* Bright text — headings, labels, active tabs */
-  & .info .title,
-  & .opblock-tag,
-  & .opblock-section-header h4,
-  & .opblock-section-header label,
-  & .parameter__name,
-  & .response-col_status,
-  & .model-title,
-  & table thead tr th,
-  & table thead tr td,
-  & section.models h4,
-  & .tab li.active {
-    color: var(--sw-text-bright);
-  }
-
-  /* Muted text — types, secondary info, inactive tabs */
-  & .info .base-url,
-  & .parameter__type,
-  & .parameter__in,
-  & .prop-type,
-  & .tab li {
-    color: var(--sw-text-muted);
-  }
-
-  /* Body text — override Swagger's dark-on-light defaults */
-  & .opblock-summary-description,
-  & .opblock-summary-path,
-  & .opblock-description-wrapper p,
-  & .renderedMarkdown p,
-  & .renderedMarkdown li,
-  & .markdown p,
-  & .markdown li,
-  & .markdown pre,
-  & .response-col_description,
-  & .model,
-  & table tbody tr td {
-    color: var(--sw-text);
-  }
-
-  /* --- Backgrounds --- */
-
-  & .opblock {
-    background: var(--sw-bg-panel);
-    border-color: var(--sw-border);
-  }
-
-  & .opblock-body {
-    background: var(--sw-bg-deep);
-  }
-
-  & .opblock-section-header {
-    background: var(--sw-bg-raised);
-    border-bottom: 1px solid var(--sw-border);
-    box-shadow: none;
-  }
-
-  /* Tinted per-method backgrounds */
-  & .opblock.opblock-get,
-  & .opblock.opblock-post,
-  & .opblock.opblock-put,
-  & .opblock.opblock-delete,
-  & .opblock.opblock-patch {
-    background: rgba(var(--method), 0.05);
-    border-color: rgba(var(--method), 0.3);
-  }
-
-  /* Containers sharing the same treatment */
-  & .scheme-container,
-  & .model-box,
-  & section.models .model-container,
-  & .filter-container {
-    background: var(--sw-bg-panel);
-    border-color: var(--sw-border);
-  }
-
-  & section.models {
-    border-color: var(--sw-border);
-  }
-
-  /* Clear default white backgrounds */
-  & .responses-wrapper,
-  & .responses-inner,
-  & .parameters-container {
-    background: transparent;
-  }
-
-  /* --- Borders --- */
-
-  & .opblock-tag,
-  & .opblock .opblock-summary,
-  & table thead tr th,
-  & table thead tr td {
-    border-bottom-color: var(--sw-border);
-  }
-
-  & table tbody tr td,
-  & .response {
-    border-bottom-color: var(--sw-border-faint);
-  }
-
-  /* --- HTTP method badges --- */
-
-  & .opblock .opblock-summary-method {
-    color: var(--sw-text-bright);
-  }
-
-  & .opblock.opblock-get .opblock-summary-method,
-  & .opblock.opblock-post .opblock-summary-method,
-  & .opblock.opblock-put .opblock-summary-method,
-  & .opblock.opblock-delete .opblock-summary-method,
-  & .opblock.opblock-patch .opblock-summary-method {
-    background: rgb(var(--method));
-  }
-
-  /* --- Form controls --- */
-
-  & select,
-  & textarea,
-  & input[type=text],
-  & input[type=password],
-  & input[type=search] {
-    background: var(--sw-bg-input);
-    color: var(--sw-text);
-    border: 1px solid var(--sw-border);
-  }
-
-  & select {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23D1D5DB' d='m8 10.293 3.146-3.147.708.708L8 11.707 4.146 7.854l.708-.708L8 10.293z'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: right 16px center !important;
-    background-size: 14px 14px !important;
-    padding-right: 40px !important;
-  }
-
-  /* --- Buttons --- */
-
-  & .btn {
-    background: var(--sw-border);
-    color: var(--sw-text-bright);
-    border: 1px solid var(--sw-border-strong);
-  }
-
-  & .btn:hover {
-    background: var(--sw-border-strong);
-  }
-
-  & .btn.authorize {
-    background: var(--sw-accent);
-    border-color: var(--sw-accent);
-    color: #fff;
-  }
-
-  & .btn.authorize:hover {
-    background: var(--sw-accent-hover);
-  }
-
-  /* --- SVG icons & tab buttons --- */
-
-  & svg {
-    fill: var(--sw-text);
-  }
-
-  & .btn svg {
-    fill: currentColor;
-  }
-
-  & .tab li button.tablinks {
-    color: inherit;
-    background: transparent;
-  }
-
-  /* --- Button focus outline --- */
-
-  & button:focus {
-    outline: 1px solid var(--sw-border-strong);
-  }
-
-  /* --- JSON Schema 2020-12 --- */
-
-  & .json-schema-2020-12 {
-    background-color: rgba(255, 255, 255, 0.03);
-  }
-
-  & .model-box .json-schema-2020-12,
-  & .json-schema-2020-12--embedded {
-    background-color: transparent;
-  }
-
-  /* Titles and labels */
-  & .json-schema-2020-12__title,
-  & .json-schema-2020-12-expand-deep-button {
-    color: var(--sw-text-bright);
-  }
-
-  /* Primary text (property names, values) */
-  & .json-schema-2020-12-keyword__name--primary,
-  & .json-schema-2020-12-keyword__value--primary,
-  & .json-schema-2020-12-json-viewer__name--primary,
-  & .json-schema-2020-12-json-viewer__value--primary,
-  & .json-schema-2020-12__attribute,
-  & .json-schema-2020-12-property .json-schema-2020-12__title {
-    color: var(--sw-text);
-  }
-
-  /* Secondary / muted text */
-  & .json-schema-2020-12-keyword__name--secondary,
-  & .json-schema-2020-12-keyword__value,
-  & .json-schema-2020-12-keyword__value--secondary,
-  & .json-schema-2020-12-json-viewer__name--secondary,
-  & .json-schema-2020-12-json-viewer__value,
-  & .json-schema-2020-12-json-viewer__value--secondary,
-  & .json-schema-2020-12-keyword--description {
-    color: var(--sw-text-muted);
-  }
-
-  /* Extension text */
-  & .json-schema-2020-12-keyword__name--extension,
-  & .json-schema-2020-12-keyword__value--extension,
-  & .json-schema-2020-12-json-viewer__name--extension,
-  & .json-schema-2020-12-json-viewer__value--extension {
-    color: var(--sw-text-faint);
-  }
-
-  /* Primary attribute (type labels) */
-  & .json-schema-2020-12__attribute--primary {
-    color: #60a5fa;
-  }
-
-  /* Dashed borders */
-  & .json-schema-2020-12-keyword__children,
-  & .json-schema-2020-12-json-viewer__children,
-  & .json-schema-2020-12-body,
-  & .json-schema-2020-12-keyword--$vocabulary ul {
-    border-left-color: rgba(255, 255, 255, 0.1);
-  }
-
-  /* Accordion buttons */
-  & .json-schema-2020-12-accordion {
-    background-color: transparent;
-  }
-
-  /* --- Links --- */
-
-  & a {
-    color: hsl(var(--primary-hue) var(--primary-saturation) var(--primary-lightness));
-  }
-
-  /* --- x-extensions (dark) --- */
-
-  & .x-since {
-    background: rgba(34, 197, 94, 0.08);
-    border-color: rgba(34, 197, 94, 0.25);
-    color: #86efac;
-  }
-
-  & .x-permissions {
-    background: rgba(99, 102, 241, 0.08);
-    border-color: rgba(99, 102, 241, 0.25);
-    color: #c7d2fe;
-  }
-
-  & .x-permissions__pill {
-    background: rgba(99, 102, 241, 0.15);
-    border-color: rgba(99, 102, 241, 0.3);
-  }
+/* --- Dark mode overrides (Hextra-specific) --- */
+/* Fix missing li color in Swagger UI's dark mode (https://github.com/swagger-api/swagger-ui/issues/10790) */
+html.dark-mode .swagger-ui .markdown li,
+html.dark-mode .swagger-ui .renderedMarkdown li {
+  color: #e4e6e6;
+}
+/* Prevent swagger-dark-mode.css from overriding Hextra's page background */
+html.dark-mode,
+html.dark-mode .swagger-ui {
+  background: unset;
 }
 
-/* --- x-extensions (light) --- */
+/* --- x-extensions (light mode base) --- */
 
 .x-extensions {
   display: flex;
@@ -367,4 +76,23 @@
   border: 1px solid #93c5fd;
   border-radius: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* --- x-extensions (dark mode) --- */
+
+html.dark-mode .swagger-ui .x-since {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+
+html.dark-mode .swagger-ui .x-permissions {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+}
+
+html.dark-mode .swagger-ui .x-permissions__pill {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
 }
