@@ -5,7 +5,7 @@ weight: 1
 description: Getting Started with Single Sign-On and the CHT
 relatedContent: >
   building/login/#single-sign-on-oidc-login
-  building/reference/openapi/#/User/v3UsersPost
+  building/reference/api/#/User/v3UsersPost
   building/reference/app-settings/oidc_provider
 ---
 
@@ -37,7 +37,7 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
     "app_url": "https://<CHT_URL>/"
     ```
 3. Upload the secret from step 1 to the CHT. Be sure to replace `CHT_URL` , `USER`,  `PASSWORD` and `SECRET` with the correct values: `curl -X PUT https://<USER>:<PASSWORD>@<CHT_URL>/api/v1/credentials/oidc:client-secret -H "Content-Type: text/plain" --data "<SECRET>"`
-4. Before logging into the CHT, each SSO user must have a CHT user [provisioned with an "SSO Email Address"](/building/reference/openapi/#/User/v3UsersPost) that matches the email address configured for the user with the OIDC Provider.
+4. Before logging into the CHT, each SSO user must have a CHT user [provisioned with an "SSO Email Address"](/building/reference/api/#/User/v3UsersPost) that matches the email address configured for the user with the OIDC Provider.
 5. Use the "Login with SSO" button on the CHT login page.
 
 ## Detailed Guides 

@@ -5,7 +5,7 @@ weight: 5
 description: >
   **Token login**: Instructions and schema for Login by SMS
 relatedContent: >
-  building/reference/openapi/#/User/v3UsersPost
+  building/reference/api/#/User/v3UsersPost
   building/reference/app-settings/oidc_provider
 aliases:
    - /apps/reference/app-settings/token_login

@@ -28,7 +28,7 @@ The default mediator makes any resources sent to it queryable via a FHIR API usi
 
 ## Receiving data
 When receiving data from an interoperating system in a CHT application, [forms](/building/reference/app-settings/forms/) and [transitions](/building/reference/app-settings/transitions/) are configured to map the incoming data to CHT documents.
-A mediator is responsible for getting these resources from an interoperating system (either by exposing API endpoints or pulling them from an API), and converting from FHIR resources to a format that can be submitted to [the records API](/building/reference/openapi/#/SMS/v2RecordsPost).
+A mediator is responsible for getting these resources from an interoperating system (either by exposing API endpoints or pulling them from an API), and converting from FHIR resources to a format that can be submitted to [the records API](/building/reference/api/#/SMS/v2RecordsPost).
 
 ## Outbound Patients
 
@@ -173,7 +173,7 @@ In this example, a `danger signs` question is converted into `Observations` wher
 It is also possbile to create patients in the CHT from patients that were created in external systems.
 Patients in CHT applications are represented as [contacts](/building/contact-management/contacts), and require a parent to be assigned to a CHW, facility, or other location. This requires a mediator to have the ids of contacts in CHT and currently cannot be done automatically by the default mediator. A custom mediator needs to be created which assigns a field to use as the `parent_id`.
 
-To create data in CHT, a mediator converts a FHIR `Patient` to a json object that it submits as a request to [the records API](/building/reference/openapi/#/SMS/v2RecordsPost).
+To create data in CHT, a mediator converts a FHIR `Patient` to a json object that it submits as a request to [the records API](/building/reference/api/#/SMS/v2RecordsPost).
 This requires a [form](/building/reference/app-settings/forms/) to be configured in the CHT; the incoming data will be saved as a report.
 Then, the actual patient document is created by assigning a [create patient transition](/building/reference/app-settings/transitions/#add_patient) to the form.
 

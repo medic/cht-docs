@@ -164,7 +164,7 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 |-----|--|--|
 |1|CHT| Configure a [JSON Form](/building/reference/app-settings/forms) that includes the fields from RapidPro you want to send to the CHT.|
 |2|RapidPro|Add a *Call a Webhook* node.|
-|3|RapidPro|`POST` to the [records endpoint](/building/reference/openapi/#/SMS/v2RecordsPost) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
+|3|RapidPro|`POST` to the [records endpoint](/building/reference/api/#/SMS/v2RecordsPost) in the CHT.  If you used the Global value mentioned above, the POST will look something like `@globals.api/v2/records`.|
 |4|RapidPro|Set a `Result Name`|
 |5|RapidPro|Configure HTTP Headers to be `Content-Type` -> `application/json`|
 |6|RapidPro|Configure the `POST Body` (see example below)|
@@ -174,7 +174,7 @@ Once a user has completed a Flow in RapidPro, it is likely you will want to reco
 
 ### Look up CHT data from RapidPro
 
-Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone](/building/reference/openapi/#/Contact/v1ContactsByPhoneGet) API to get fully hydrated contacts associated to that phone number.
+Another common action you will likely need to perform in RapidPro is getting information from the CHT about a user or patient based on their phone number. You can use the [contacts-by-phone](/building/reference/api/#/Contact/v1ContactsByPhoneGet) API to get fully hydrated contacts associated to that phone number.
 
 
 

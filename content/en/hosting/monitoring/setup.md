@@ -140,7 +140,7 @@ With the [release of 1.1.0](https://github.com/medic/cht-watchdog/releases/tag/1
 
 #### CHT Sync Data (Remote)
 
-While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API](/building/reference/openapi/#/Monitoring/v2MonitoringGet), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
+While not the default setup, and not what most deployments need, you may want to set up a way to monitor CHT Sync data without sharing any Postgres credentials. Instead of sharing credentials, you expose an HTTP endpoint that requires no login or password.  Of course, similar to  CHT Core's [Monitoring API](/building/reference/api/#/Monitoring/v2MonitoringGet), this endpoint should be configured to not share sensitive information (since it will be publicly accessible).
 
 This section has two steps. The first is to expose the password-less metrics endpoint and the second is to scrape it with Prometheus.   Here's documentation on how to set up a Kubernetes or Docker endpoint for CHT Sync.
 

@@ -77,7 +77,7 @@ You configure *what* data is sent using the `mapping` [property](/building/refer
 > Map the `contact.name` field in the CHT to the `patient.name` field in the EMR. 
 
 ### Authentication
-Credentials for the destination system are [stored in CouchdDB](/building/reference/openapi/#/Config/v1CredentialsKeyPut). You will need to set this up before you can test your configuration.
+Credentials for the destination system are [stored in CouchdDB](/building/reference/api/#/Config/v1CredentialsKeyPut). You will need to set this up before you can test your configuration.
 
 ## Requests from other systems 
 The CHT has a complete RESTful API that other systems can utilize to interact with data in the CHT.
@@ -92,12 +92,12 @@ The CHT has a number of different API endpoints that can be used to look up data
 > [!IMPORTANT] 
 > Example 1: You have a patient's phone number and you want to look up more information about that patient, such as who their CHW is or what Catchment Area they live in.
 
-You can use the `contacts_by_phone` [endpoint](/building/reference/openapi/#/Contact/v1ContactsByPhoneGet) will return the fully hydrated contact information for those patients.
+You can use the `contacts_by_phone` [endpoint](/building/reference/api/#/Contact/v1ContactsByPhoneGet) will return the fully hydrated contact information for those patients.
 
 > [!IMPORTANT]  
 > Example 2: You just have the internal UUID of a particular contact but want to get the complete information available for that contact.
 
-You can use the `hydrate` [endpoint](/building/reference/openapi/#/Bulk/v1HydrateGet) to obtain this information. to look up the complete information for that contact.
+You can use the `hydrate` [endpoint](/building/reference/api/#/Bulk/v1HydrateGet) to obtain this information. to look up the complete information for that contact.
 
 ### POST data to the CHT
 The CHT API also allows you to POST data. Using these endpoints, you can create new records in your CHT API. You can store activities that took place in another system on that contact's profile in the CHT, and even create tasks for CHWs in the CHT based on activities that took place in the other system.
@@ -105,7 +105,7 @@ The CHT API also allows you to POST data. Using these endpoints, you can create 
 > [!IMPORTANT]  
 > Example 1: You use RapidPro to send daily quarantine follow-up messages to a patient. You want to store the patient's responses to those messages on their profile in the CHT. 
 
-You can do this by submitting a JSON Form to the records [endpoint](/building/reference/openapi/#/SMS/v2RecordsPost).
+You can do this by submitting a JSON Form to the records [endpoint](/building/reference/api/#/SMS/v2RecordsPost).
 
 > [!IMPORTANT] 
 > Example 2: Continuing from Example 1, create a task for a CHW in the CHT whenever a patient responds that they have developed symptoms.

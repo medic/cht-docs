@@ -40,7 +40,7 @@ mediator_b -- Channelfa:fa-arrow-left --- openhim
 
 CHT Interoperability uses OpenHIM as the middleware component with [Mediators](http://openhim.org/docs/configuration/mediators/) to do the conversion. [Outbound Push](/building/reference/app-settings/outbound) is configured to make a request to the middleware when relevant documents are created or modified in the CHT. A Mediator then creates a FHIR resource which is then routed to OpenHIM. OpenHIM routes the resource to any other configured systems.
 
-Conversely, to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs](/building/reference/openapi/) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
+Conversely, to bring data into the CHT, OpenHIM is configured to route the updated resource to the Mediator, which then calls the relevant [CHT APIs](/building/reference/api/) to update the document in the CHT database. This will then be replicated to users’ devices as per usual.
 
 See more information on the [CHT interoperability page](/building/interoperability/overview).
 
@@ -99,7 +99,7 @@ The following steps apply when running CHT via the Docker setup provided in the 
 
 1. CHT can be accessed via [http://localhost:5988](http://localhost:5988), and the credentials are `admin`/`password`.
 2. Create a new user in the CHT instance with the username `interop-client` using these [instructions](/building/contact-management/contact-and-users-1#4-create-the-chw-user). For the role you can select `Data entry` and `Analytics` roles. Note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
-3. Securely save the `interop-client` user's password to the database using the instructions [here](/building/reference/openapi/#/Config/v1CredentialsKeyPut). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curl request is below:
+3. Securely save the `interop-client` user's password to the database using the instructions [here](/building/reference/api/#/Config/v1CredentialsKeyPut). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curl request is below:
 
 ```bash
 curl -X PUT -H "Content-Type: text/plain" http://admin:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'
@@ -113,7 +113,7 @@ The following steps apply when running CHT locally in development mode and when 
 
 1. Set up a local CHT instance using [these instructions](/building/local-setup).
 2. Create a new user in the CHT instance with the username `interop-client` using these [instructions](/building/contact-management/contact-and-users-1#4-create-the-chw-user). For the role you can select `Data entry` and `Analytics` roles. Note that you can use any username you prefer but you would have to update the config with the new username. You can do that by editing the `cht-config/app_settings.json` file and updating the `username` value in the `outbound` object e.g. on this [line](https://github.com/medic/interoperability/blob/main/cht-config/app_settings.json#L452).
-3. Securely save the `interop-client` user's password to the database using the instructions [here](/building/reference/openapi/#/Config/v1CredentialsKeyPut). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curls request is below:
+3. Securely save the `interop-client` user's password to the database using the instructions [here](/building/reference/api/#/Config/v1CredentialsKeyPut). Change the values `mykey` and `my pass` to `openhim1` and your user's password respectively. An example of the curls request is below:
 
 ```bash
 curl -X PUT -H "Content-Type: text/plain" http://medic:password@localhost:5988/api/v1/credentials/openhim1 -d 'interop-password'

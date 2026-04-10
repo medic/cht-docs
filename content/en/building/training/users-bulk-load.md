@@ -11,13 +11,13 @@ aliases:
   - /building/guides/data/users-bulk-load/
 relatedContent: >
   /community/contributing/code/test-data/csv-to-docs
-  building/reference/openapi/#/User/v2UsersPost
+  building/reference/api/#/User/v2UsersPost
   building/admin
 
 ---
 
 {{< callout >}}
- The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API](/building/reference/openapi/#/User/v2UsersPost) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide](/community/contributing/code/test-data/csv-to-docs).
+ The bulk user upload feature is available in 3.16.0 and later versions of the CHT. As of CHT 3.17.0, when creating both a contact and a place, the contact will be set as the default contact of the place. User creation can be scripted using the [CHT API](/building/reference/api/#/User/v2UsersPost) directly or using the [`cht-conf` tool](https://github.com/medic/cht-conf), which is detailed in the [CSV-to-Docs guide](/community/contributing/code/test-data/csv-to-docs).
  This feature can be used to load as many users as possible but works optimally with chunks of 1,000 users or less.
 {{< /callout >}}
 
@@ -43,8 +43,8 @@ Click on any of the use cases below to make a copy of the spreadsheet for the us
 We will use the second use case to create user accounts and their contacts in the example below.
 ## Contact Spreadsheet Instructions
 
-The spreadsheet interfaces with the [`POST /api/v1/users` API](/building/reference/openapi/#/User/v1UsersGet) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
-Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation](/building/reference/openapi/#/User/v1UsersPost).
+The spreadsheet interfaces with the [`POST /api/v1/users` API](/building/reference/api/#/User/v1UsersGet) which works as though passing a JSON array of users. Rows in the spreadsheet represent a user while columns represent properties of the user.
+Each column in the spreadsheet maps to an object property understood by the API to insert the users into the database. These properties can be found in [the Users API documentation](/building/reference/api/#/User/v1UsersPost).
 
 Contact spreadsheets are named according to the user role, for example when creating users who are chws and others who are chw_supervisors, the following contact spreadsheets are populated respectively: "contact.chw" and "contact.chw_supervisor".
 
