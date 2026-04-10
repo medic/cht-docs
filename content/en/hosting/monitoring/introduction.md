@@ -38,7 +38,7 @@ Be sure to monitor important items that the CHT depends on in order to be health
 
 ## Inside the CHT
 
-The [monitoring API](/building/reference/api#get-apiv2monitoring) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
+The [monitoring API](/building/reference/openapi/#/Monitoring/v2MonitoringGet) was added in 3.9.0 and does not require any authentication and so can easily be used with third party tools as they do not need a CHT user account.
 
 All metrics need to be monitored over time so that you can easily see longitudinal patterns when debugging an outage or slow down. 
 

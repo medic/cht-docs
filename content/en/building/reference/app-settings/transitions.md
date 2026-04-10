@@ -732,7 +732,7 @@ Users are automatically created for certain contacts.  Both creating a new user 
 
 Several configurations are required in `app_settings` to enable the `create_user_for_contacts` transition.
 
-[Login by SMS](/building/reference/api#login-by-sms) must be enabled by setting the `token_login` configuration.
+[Login by SMS](/building/reference/openapi/#/User/v3UsersPost) must be enabled by setting the `token_login` configuration.
 
 The [`app_url` property](/building/reference/app-settings#app_settingsjson) must be set to the URL of the application. This is used to generate the token login link for the new user.
 

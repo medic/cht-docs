@@ -4,6 +4,7 @@ description: RESTful Application Programming Interfaces for integrating with CHT
 linkTitle: "OpenAPI"
 weight: 2
 toc: false
+skipIncomingLinkValidation: true
 ---
 
 {{< swagger >}}

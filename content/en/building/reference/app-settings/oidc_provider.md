@@ -7,7 +7,7 @@ description: >
 relatedContent: >
   hosting/sso
   building/login/#single-sign-on-oidc-login
-  building/reference/api/#login-by-oidc
+  building/reference/openapi/#/User/v3UsersPost
   building/reference/app-settings/#app_settingsjson
   building/reference/app-settings/token_login
 ---
@@ -25,9 +25,9 @@ To support [authenticating users with Single Sign-On](/hosting/sso) (SSO) creden
 | discovery_url           | String  | yes      | The URL to the `.well-known` OIDC configuration discovery endpoint for your OIDC Provider. Must be HTTPS unless `allow_insecure_requests` is `true`. |
 | allow_insecure_requests | Boolean | no       | Optional configuration (NOT for production use). If `true`, the `discovery_url` can use the HTTP protocol (instead of HTTPS). Default is `false`.    |
 
-When using SSO Login, the [`app_url` setting](/building/reference/app-settings/#app_settingsjson) must also be defined. Also, your CHT application's _client secret_ from the OIDC Provider must be securely configured in your CHT instance with the [Credentials API](/building/reference/api/#credentials) using the key `oidc:client-secret`.
+When using SSO Login, the [`app_url` setting](/building/reference/app-settings/#app_settingsjson) must also be defined. Also, your CHT application's _client secret_ from the OIDC Provider must be securely configured in your CHT instance with the [Credentials API](/building/reference/openapi/#/Config/v1CredentialsKeyPut) using the key `oidc:client-secret`.
 
-Only users with the [`oidc_username` property](/building/reference/api/#login-by-oidc) can log in with SSO.
+Only users with the [`oidc_username` property](/building/reference/openapi/#/User/v3UsersPost) can log in with SSO.
 
 ## Code sample
 

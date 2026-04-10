@@ -45,7 +45,7 @@ Stores a record of when a user last attempted to replicate and how many docs the
 
 ### medic-vault
 
-Stores CHT credentials for authenticating with third party services. These credentials are encrypted for safety, and can only be updated using the [Credentials API](/building/reference/api#put-apiv1credentials).
+Stores CHT credentials for authenticating with third party services. These credentials are encrypted for safety, and can only be updated using the [Credentials API](/building/reference/openapi/#/Config/v1CredentialsKeyPut).
 
 ### medic-user-{username}-meta
 

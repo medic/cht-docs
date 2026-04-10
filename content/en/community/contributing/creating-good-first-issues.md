@@ -46,7 +46,7 @@ Taken from [#9869](https://github.com/medic/cht-core/issues/9869) opened Apr 202
 > CHWs can run out of disk space and not know why their device is not performing as expected.  Giving administrators an easy way to monitor this would be really helpful
 > 
 > **Describe the solution you'd like**
-> Right now there's a [user-devices API](/building/reference/api/#get-apiv2exportuser-devices) which has per user information, but does not include used and total storage space on the device.  If we add this to this report, it would make an easy way to find this data!
+> Right now there's a [user-devices API](/building/reference/openapi/#/Export/v2ExportUserDevicesGet) which has per user information, but does not include used and total storage space on the device.  If we add this to this report, it would make an easy way to find this data!
 > 
 > **Describe alternatives you've considered**
 > Administrators could either manually check telemetry documents per user in Couch ([see](/technical-overview/data/performance/telemetry/#metadata) `deviceInfo.storage.free`) or they could set up a process like CHT Sync or couch2pg to sync this data to a Postgres database.
