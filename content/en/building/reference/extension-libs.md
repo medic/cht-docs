@@ -92,7 +92,7 @@ To execute the function from within an xform use the [`cht:extension-lib` xpath 
 
 #### Expression functions
 
-Use the `extensionLib(name, ...args)` function to execute an extension-lib from with a [contact duplicate check expression](/building/forms/contact#duplicate-check-expression) or a [form context expression](/building/forms/app#expression-functions).
+Use the `extensionLib(name, ...args)` function to execute an extension-lib from within a [contact duplicate check expression](/building/forms/contact#duplicate-check-expression) or a [form context expression](/building/forms/app#expression-functions).
 
 ## Advanced usage
 
