@@ -41,7 +41,7 @@ As you design your usecases, bear in mind that at the heart of OpenMRS is the [C
 
 ## Getting started
 
-The [CHT API](/building/reference/api/) and [OpenMRS API](https://rest.openmrs.org/#openmrs-rest-api) are used for integration. However, the APIs do not do data cleaning and formatting out-of-the-box. Therefore, both systems require custom solutions that ochestrate the functionality to transform exchanged data to be accepted. In the following sections, we focus more on the general procedure for setting up custom modules and services. 
+The [CHT API](/building/reference/api) and [OpenMRS API](https://rest.openmrs.org/#openmrs-rest-api) are used for integration. However, the APIs do not do data cleaning and formatting out-of-the-box. Therefore, both systems require custom solutions that ochestrate the functionality to transform exchanged data to be accepted. In the following sections, we focus more on the general procedure for setting up custom modules and services. 
 
 ### CHT to OpenMRS
 

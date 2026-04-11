@@ -1,6 +1,7 @@
 /*
   Compiled from swagger-ui v5.27.1 https://github.com/swagger-api/swagger-ui/blob/master/src/style/_dark-mode.scss
   We have to pull this in manually because the swagger-ui-dist bundle css does not include the dark-mode.
+  https://github.com/swagger-api/swagger-ui/issues/10663
 */
 html.dark-mode {
   background: #1c2022;
