@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
     dom_id: '#swagger-ui',
     // TODO Update
     url: 'https://gist.githubusercontent.com/jkuester/a738de6aa6f96e5957b1f4ce56a3692a/raw/openapi.json',
-    presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+    presets: [SwaggerUIBundle.presets.apis],
     plugins: [XExtensionsPlugin, ScrollOffsetPlugin],
     filter: true,
     operationsSorter: 'alpha',

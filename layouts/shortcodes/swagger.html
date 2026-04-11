@@ -9,6 +9,5 @@
 
 <!-- Swagger UI JavaScript -->
 <script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-bundle.js" integrity="sha384-5pEDYOWQic3ejKOvYt1kQ5QWoglLXBxyqM5/7vL8NrQW4YHiKCswfiHxxBp77KJN" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-standalone-preset.js" integrity="sha384-Zc0myuwGRY+wF+Mppj70Hoq/w2OticNP92nkFTlghzBS/OxDNlYummEqqmcOCyAX" crossorigin="anonymous"></script>
 {{- $swaggerJs := resources.Get "js/swagger.js" -}}
 <script src="{{ $swaggerJs.RelPermalink }}"></script>
