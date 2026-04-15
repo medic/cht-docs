@@ -17,13 +17,13 @@ jobs:
     steps:
 
       - name: All Branches - Git checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
       - name: All Branches - Install asdf & tools in .tool-versions
-        uses: asdf-vm/actions/install@v4
+        uses: asdf-vm/actions/install@b7bcd026f18772e44fe1026d729e1611cc435d47 # v4.0.1
 
       # Run "build" to catch errors as early as possible in CI
       - name: All Branches - Test For Broken Builds in Hugo
@@ -35,7 +35,7 @@ jobs:
 
       - name: Main Branch Only - Deploy to GH pages
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
         with:
           personal_token: ${{ secrets.DEPOLY_TO_SITE}}
           external_repository: medic/medic.github.io
@@ -46,7 +46,7 @@ jobs:
 
       - name: Main Branch Only - Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
-        uses: rtCamp/action-slack-notify@v2.0.2
+        uses: rtCamp/action-slack-notify@96d5e2a64fc78a6b7ac13265f55bee296869967a # v2.0.2
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
           SLACK_CHANNEL: '#cht-doc-site'
