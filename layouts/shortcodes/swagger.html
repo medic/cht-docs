@@ -9,13 +9,13 @@
 
 <!-- Swagger UI JavaScript -->
 <script src="https://unpkg.com/swagger-ui-dist@5.27.1/swagger-ui-bundle.js" integrity="sha384-5pEDYOWQic3ejKOvYt1kQ5QWoglLXBxyqM5/7vL8NrQW4YHiKCswfiHxxBp77KJN" crossorigin="anonymous"></script>
-{{- $deployedUrl := "https://gist.githubusercontent.com/jkuester/a738de6aa6f96e5957b1f4ce56a3692a/raw/openapi.json" -}}
+{{- $publishedUrl := "https://docs.communityhealthtoolkit.org/cht-datasource/openapi.json" -}}
 {{- $specUrl := .Get "url" -}}
 {{- if not $specUrl -}}
   {{- with resources.Get "openapi.json" -}}
     {{- $specUrl = .RelPermalink -}}
   {{- else -}}
-    {{- $specUrl = $deployedUrl -}}
+    {{- $specUrl = $publishedUrl -}}
   {{- end -}}
 {{- end -}}
 {{- $swaggerJs := resources.Get "js/swagger.js" | resources.ExecuteAsTemplate "js/swagger.js" (dict "SpecUrl" $specUrl) -}}
