@@ -120,8 +120,7 @@ new MutationObserver(syncDarkMode).observe(document.documentElement, { attribute
 window.addEventListener('DOMContentLoaded', () => {
   SwaggerUIBundle({
     dom_id: '#swagger-ui',
-    // TODO Update
-    url: 'https://gist.githubusercontent.com/jkuester/a738de6aa6f96e5957b1f4ce56a3692a/raw/openapi.json',
+    url: '{{ .SpecUrl }}',
     presets: [SwaggerUIBundle.presets.apis],
     plugins: [XExtensionsPlugin, ScrollOffsetPlugin],
     filter: true,
