@@ -202,3 +202,6 @@ display = "hover"
   [params.banner]
   key = "announcement-5.1"
   message = "Android notifications 🔔, contact attachments 🖼️ and more 🎉 [CHT 5.1](/releases/5_1_0/) is here! "
+
+[params.imageZoom]
+enable = true

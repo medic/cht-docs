@@ -1,7 +1,7 @@
 module github.com/medic/cht-docs
 
-go 1.13
+go 1.21
 
-require (
-	github.com/imfing/hextra v0.11.1 // indirect
-)
+toolchain go1.21.0
+
+require github.com/imfing/hextra v0.12.1 // indirect
