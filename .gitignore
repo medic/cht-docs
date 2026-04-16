@@ -9,3 +9,4 @@ tech-doc-hugo
 .idea
 .hugo_build.lock
 _vendor/
+assets/openapi.json

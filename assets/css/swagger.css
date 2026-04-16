@@ -1,0 +1,98 @@
+/* --- Hidden elements (no live server connection) --- */
+#swagger-ui .information-container,
+.scheme-container,
+.filter-container,
+.swagger-ui .parameters-container input,
+.swagger-ui .parameters-container select {
+  display: none;
+}
+
+/* Collapse the unused TOC sidebar */
+.hextra-toc { width: 0; overflow: hidden; padding: 0; }
+
+/* Code blocks — prevent Hextra's pre/code styles from interfering
+   with Swagger's own microlight syntax highlighting */
+.swagger-ui pre,
+.swagger-ui code {
+  background-color: unset;
+  border: unset;
+  color: unset;
+}
+
+/* --- Dark mode overrides (Hextra-specific) --- */
+/* Fix missing li color in Swagger UI's dark mode (https://github.com/swagger-api/swagger-ui/issues/10790) */
+html.dark-mode .swagger-ui .markdown li,
+html.dark-mode .swagger-ui .renderedMarkdown li {
+  color: #e4e6e6;
+}
+/* Prevent swagger-dark-mode.css from overriding Hextra's page background */
+html.dark-mode,
+html.dark-mode .swagger-ui {
+  background: unset;
+}
+
+/* --- x-extensions (light mode base) --- */
+
+.x-extensions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.75rem 1.25rem 1rem;
+}
+
+.x-since {
+  padding: 0.625rem 0.875rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+.x-permissions {
+  padding: calc(0.625rem - 1px) 0.875rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #1e3a8a;
+}
+
+.x-permissions__line {
+  display: block;
+}
+
+.x-permissions__label {
+  font-weight: 600;
+}
+
+.swagger-ui .x-permissions__pill {
+  display: inline-block;
+  padding: 0 0.5em;
+  margin: 0 0.25em;
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* --- x-extensions (dark mode) --- */
+
+html.dark-mode .swagger-ui .x-since {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+
+html.dark-mode .swagger-ui .x-permissions {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+}
+
+html.dark-mode .swagger-ui .x-permissions__pill {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
