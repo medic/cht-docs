@@ -142,6 +142,8 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
 
+#### Basic input/output
+
 To define the widget's input fields and send data as Android Intent's `extras`, create a group inside the widget with the appearance `android-app-inputs`. In order to assign the app's response to the widget's output fields, create a group with the appearance `android-app-outputs`.
 
 > [!IMPORTANT]
@@ -161,6 +163,8 @@ To define the widget's input fields and send data as Android Intent's `extras`, 
 | end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
+
+#### Serializing/Deserializing structured data
 
 To instruct the widget to process nested data objects, create a new group inside the input or the output group with the appearance `android-app-object`. Objects cannot be assigned to a field, it should be a group with fields to map the properties to fields that share the same name.
 
@@ -185,7 +189,15 @@ To instruct the widget to process nested data objects, create a new group inside
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
 
-To instruct the widget to process an array of strings or numbers, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. To process an array of objects, use the appearance `android-app-object-list` instead.
+##### Arrays of primitive values
+
+Output from the app in the form of an array of primitive values (e.g. strings or numbers) can be deserialized into a simple `text` field where it will be stored as a _space-delimited array._ These "node sets" match the data format produced by normal `select_multiple` questions. So, [xPath functions](https://docs.getodk.org/form-operators-functions/#selected-at) like `selected_at` and `count-selected` can be used to parse data from these fields.  
+
+To provide an array of primitive values as input, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. 
+
+##### Arrays of structured data
+
+To process an array of objects, use the appearance `android-app-object-list` instead.
 
 > [!IMPORTANT]
 > The `repeat`'s name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the array.
