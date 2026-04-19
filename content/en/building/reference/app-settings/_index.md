@@ -137,6 +137,32 @@ The following filter functions are available for formatting dates.
 |`datetime` | Displays dates according to the `reported_date_format` specified in app_settings. See [doc for Moment.js format](https://momentjs.com/docs/#/parsing/string-format/) for details.|
 |`bikram_sambat_date` | Displays dates in Bikram Sambat calendar (most commonly used calendar in Nepal). Currently display format is hardcoded to e.g. "१५ चैत २०७३".|
 
+### Phone Format Helpers
+
+The following helper functions are available for formatting phone numbers in outgoing SMS messages.
+
+**Note:** The `local_phone` helper is available from **CHT 5.2.0+**.
+
+|helper|description|
+|-------|---------|
+|`local_phone` | Strips the country code prefix from a phone number. Requires `default_country_code` to be set in `app_settings`. If the number does not start with the configured country code, it is returned unchanged.|
+
+#### Usage
+
+```
+Contact {{#local_phone}}{{facility_phone}}{{/local_phone}} for help.
+```
+
+#### Example
+
+If `default_country_code` is set to `977` and `facility_phone` is `+9779841234567`, the rendered output will be `9841234567`.
+
+| Scenario | Input | Output |
+|----------|-------|--------|
+| Matching country code | `+9779841234567` | `9841234567` |
+| Non-matching country code | `+12025551234` | `+12025551234` (unchanged) |
+| Already in local format | `9841234567` | `9841234567` (unchanged) |
+| No `default_country_code` set | `+9779841234567` | `+9779841234567` (unchanged) |
 
 ## Validations
 
