@@ -80,10 +80,12 @@ Install Docker:
 
 ### CHT Core Cloning and Setup
 
-Clone the main CHT Core repo from GitHub and change directories into it:
+Fork the main CHT Core repository through GitHub [here](https://github.com/medic/cht-core/fork). 
+
+Clone your fork of the CHT Core repo from GitHub and change directories into it:
 
 ```shell
-git clone https://github.com/medic/cht-core ~/cht-core
+git clone https://github.com/<forking alias>/cht-core ~/cht-core
 cd ~/cht-core
 ```
 
