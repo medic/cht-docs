@@ -85,7 +85,7 @@ Fork the main CHT Core repository [through GitHub](https://github.com/medic/cht-
 Clone your fork of the CHT Core repo and change directories into it. Be sure to replace `<github-username>` with your GitHub username:
 
 ```shell
-git clone https://github.com/<forking alias>/cht-core ~/cht-core
+git clone https://github.com/<github-username>/cht-core ~/cht-core
 cd ~/cht-core
 ```
 
