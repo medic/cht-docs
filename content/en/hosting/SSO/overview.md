@@ -40,10 +40,17 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
 4. Before logging into the CHT, each SSO user must have a CHT user [provisioned with an "SSO Email Address"](/building/reference/api/#/User/v3UsersPost) that matches the email address configured for the user with the OIDC Provider.
 5. Use the "Login with SSO" button on the CHT login page.
 
+### Require re-authentication
+
+By default, SSO Authentication will use the user's current session with the OIDC Provider (if one exists). If the user is already logged in and has an active session with the OIDC Provider, the user may be automatically logged in to the CHT when clicking the "Login with SSO" button (without actually needing to re-authenticate).
+
+In some cases, this behavior is not desired and the user should be required to re-authenticate with the OIDC provider. You can define the maximum allowed age of the user's current session with the OIDC Provider, after which the user will be required to re-authenticate when logging into the CHT even if their session is still active. Set the `oidc_provider.max_age` setting to the allowable elapsed time in seconds since the last time the user was actively authenticated by the OIDC Provider. If the elapsed time is greater than this value, the user will be required to re-authenticate.
+
+Setting `max_age: 0` will always require re-authenticating with the OIDC Provider when logging into the CHT.
+
 ## Detailed Guides 
 
 For more detailed guides and requirements, see the following documents:
-
 {{< cards >}}
   {{< card link="../keycloak" title="KeyCloak" icon="key" >}}
   {{< card link="../entra" title="Microsoft Entra" icon="lock-open" >}}
