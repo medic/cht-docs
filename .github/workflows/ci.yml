@@ -46,7 +46,7 @@ jobs:
 
       - name: Main Branch Only - Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
-        uses: rtCamp/action-slack-notify@96d5e2a64fc78a6b7ac13265f55bee296869967a # v2.0.2
+        uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2.3.3
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
           SLACK_CHANNEL: '#cht-doc-site'
