@@ -23,12 +23,12 @@ jobs:
     steps:
 
       - name: Git checkout cht-docs repos
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
       - name: Install asdf & tools in .tool-versions
-        uses: asdf-vm/actions/install@v2
+        uses: asdf-vm/actions/install@6a442392015fbbdd8b48696d41e0051b2698b2e4 # v2.2.0
 
       # run in background so CI doesn't hang waiting for "ctrl + c".  Sleep ensures server is ready in next step
       - name: Serve Hugo site
@@ -45,7 +45,7 @@ jobs:
 
       - name: Report errors to Slack, if any
         if: ${{ github.ref == 'refs/heads/main' && failure() }}
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2.3.3
         env:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEB_HOOK }}'
           SLACK_CHANNEL: '#cht-doc-site'

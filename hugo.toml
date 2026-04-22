@@ -39,15 +39,87 @@ privacyEnhanced = true
       noClasses = false
 
 [[menu.main]]
-name = "Search"
+identifier = "referenceApps"
+name = "Reference Apps"
+weight = 1
+pageRef = "/reference-apps"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "technicalOverview"
+name = "Technical Overview"
+weight = 2
+pageRef = "/technical-overview"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "aiCht"
+name = "AI & CHT"
+weight = 3
+pageRef = "/ai"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "design"
+name = "Design"
 weight = 4
+pageRef = "/design"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "build"
+name = "Build"
+weight = 5
+pageRef = "/building"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "host"
+name = "Host"
+weight = 6
+pageRef = "/hosting"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "community"
+name = "Community"
+weight = 7
+pageRef = "/community"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+identifier = "releases"
+name = "Releases"
+weight = 8
+pageRef = "/releases"
+
+  [menu.main.params]
+  hideInNavbar = true
+
+[[menu.main]]
+name = "Search"
+weight = 20
 
   [menu.main.params]
   type = "search"
 
 [[menu.main]]
 name = "GitHub"
-weight = 5
+weight = 30
 url = "https://github.com/medic"
 
   [menu.main.params]
@@ -55,7 +127,7 @@ url = "https://github.com/medic"
 
 [[menu.main]]
 name = "Website"
-weight = 6
+weight = 40
 url = "https://communityhealthtoolkit.org/"
 
   [menu.main.params]
