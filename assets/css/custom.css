@@ -271,3 +271,32 @@ Fix content too tight around video HTML tags
 video {
     padding-top: 25px;
 }
+
+/* -----------------------------------------------
+Fix prevent sidebar-only takeover around tablet width + zoom 
+--------------------------------------------------*/
+@media (max-width: 1023.98px) {
+  .hextra-sidebar-container {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: min(20rem, 100vw);
+    height: calc(100vh - var(--navbar-height));
+    z-index: 30;
+    background-color: var(--hx-color-white);
+    transform: translate3d(0, -100%, 0) !important;
+  }
+
+  :where(.dark, .dark *) .hextra-sidebar-container {
+    background-color: var(--hx-color-dark);
+  }
+
+  .hextra-sidebar-container.hx\:max-md\:\[transform\:translate3d\(0\,0\,0\)\] {
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  article {
+    width: 100%;
+    min-width: 0;
+  }
+}
