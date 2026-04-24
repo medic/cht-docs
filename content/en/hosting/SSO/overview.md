@@ -42,9 +42,15 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
 
 ### Require re-authentication
 
-By default, SSO Authentication will use the user's current session with the OIDC Provider (if one exists). If the user is already logged in and has an active session with the OIDC Provider, the user may be automatically logged in to the CHT when clicking the "Login with SSO" button (without actually needing to re-authenticate).
+{{< callout >}}
+Added in TODO
+{{< /callout >}}
 
-In some cases, this behavior is not desired and the user should be required to re-authenticate with the OIDC provider. You can define the maximum allowed age of the user's current session with the OIDC Provider, after which the user will be required to re-authenticate when logging into the CHT even if their session is still active. Set the `oidc_provider.max_age` setting to the allowable elapsed time in seconds since the last time the user was actively authenticated by the OIDC Provider. If the elapsed time is greater than this value, the user will be required to re-authenticate.
+By default, SSO Authentication will use the user's current session with the OIDC provider (if one exists). If the user has already authenticated with the OIDC provider and has an active session on the device, the user may be automatically logged in to the CHT when clicking the "Login with SSO" button (without actually needing to re-authenticate with the OIDC provider).
+
+In some cases, this behavior is not desired and the user should be required to re-authenticate with the OIDC provider. For example, if you have multiple users sharing the same device, it may be challenging for an SSO user to log out of the CHT and have a different user log in to the CHT. The previous user's active session with the OIDC provider might get used during the SSO login flow (even though the previous user's _CHT session_ was ended when they logged out). This results in the new user being logged into the CHT account for the previous user.
+
+To avoid this behavior, you can define the maximum allowed age of the user's current session with the OIDC Provider, after which the user will be required to re-authenticate when logging into the CHT even if their session is still active. Set the `oidc_provider.max_age` setting to the allowable elapsed time in seconds since the last time the user was actively authenticated by the OIDC Provider. If the elapsed time is greater than this value, the user will be required to re-authenticate.
 
 Setting `max_age: 0` will always require re-authenticating with the OIDC Provider when logging into the CHT.
 
