@@ -29,32 +29,47 @@ First, follow Microsoft's [instructions on enabling and installing linux](https:
 
 ## CouchDB
 
-As of writing CouchDB wouldn't autostart (due to systemd not existing?), and wasn't manually starting due to erlang errors.
+The CouchDB Windows installer links on couchdb.apache.org are no longer reliable. Instead, use the Docker-based CouchDB images that CHT releases, which also include the required Nouveau search engine.
 
-Luckily, there is a perfectly working CouchDB installation for Windows:
- - Download from [CouchDB](https://couchdb.apache.org/#download) and install the Windows version. This will create a Windows service.
- - Run it either by directly executing `C:\CouchDB\bin\couchdb.cmd` or by starting the service
+Make sure Docker Desktop is installed and WSL integration is enabled (Docker Desktop → Settings → Resources → WSL Integration → enable Ubuntu).
 
-Then go to `http://localhost:5984/_utils/#/setup` in Windows and do the single node setup. Once done head back to linux and confirm it works:
+In your WSL terminal, run:
 
 ```bash
-$: curl http://localhost:5984/
-{"couchdb":"Welcome","version":"2.3.1","git_sha":"c298091a4","uuid":"5f60350abaaa11c0131a5630e83ae979","features":["pluggable-storage-engines","scheduler"],"vendor":{"name":"The Apache Software Foundation"}}
+mkdir -p ~/cht-docker
+curl -s -o ~/cht-docker/docker-compose.yml https://staging.dev.medicmobile.org/_couch/builds_4/medic:medic:master/docker-compose/cht-couchdb.yml
+
+cat > ~/cht-docker/couchdb-override.yml << EOF
+services:
+    couchdb:
+        ports:
+          - "5984:5984"
+          - "5986:5986"
+EOF
+
+cd ~/cht-docker
+COUCHDB_USER=medic COUCHDB_PASSWORD=password docker compose -f docker-compose.yml -f couchdb-override.yml up -d
+```
+
+Confirm CouchDB is running:
+
+```bash
+curl http://localhost:5984/
 ```
 
 ## Installing NPM
-Start your WSL instance (Ubuntu), not WSL as they take you to two different default directories. 
+
+Start your WSL instance (Ubuntu), not WSL as they take you to two different default directories.
 
 The default `npm` in linux is really old and doesn't have `npm ci`, which we need.
 
-Instead use [nvm](https://github.com/nvm-sh/nvm) to install  `nvm install 11.3` .
-
+Instead use [nvm](https://github.com/nvm-sh/nvm) to install `nvm install 22`.
 
 ## Checking out the code
 
 We used git that's preinstalled with Ubuntu to check out the code.
 
-You can checkout cht code inside WSL itself. You can checkout anywhere you have write access. We'll checkout inside /home/username/medic directory. 
+You can checkout cht code inside WSL itself. You can checkout anywhere you have write access. We'll checkout inside /home/username/medic directory.
 
 ```bash
 $: mkdir ~/medic && cd ~/medic
@@ -67,21 +82,22 @@ Using `.bashrc` works as expected, and so is a good place to put exports:
 
 ```bash
 # Medic stuff
-export COUCH_URL=http://admin:pass@localhost:5984/medic
-export COUCH_NODE_NAME=couchdb@localhost
+export COUCH_URL=http://medic:password@localhost:5984/medic
+export COUCH_NODE_NAME=nonode@nohost
 ```
 
 ## Everything else
 
 `npm ci` should just work once you've installed a latest version of node via nvm as noted above.
 
-Also install xstproc in your WSL:
+Also install xsltproc in your WSL:
+
 ```bash
 $: sudo apt-get update
 $: sudo apt-get install xsltproc
 ```
 
-Now you can build the web app. 
+Now you can build the web app.
 
 ```bash
 $: cd ~/medic/cht-core/
@@ -91,13 +107,13 @@ $: npm run build-dev-watch
 
 From this point, follow the `harden couch` section in [Core Developer Setup](/community/contributing/code/core/dev-environment#cht-core-cloning-and-setup).
 
-
 To get multiple linux terminals (so you can run `npm run`, `api` and `sentinel` at the same time) either install and use something like Tmux, or if you click `Ubuntu` in the Windows start menu again it will open up a new terminal in the same linux instance.
 
 Once you're done with the default instructions and have api running, check if it works by going to http://localhost:5988 in Chrome or Firefox.
 
 ## Editing Code
-If you want to make changes to your code or contribute to our community health toolkit, you can do so by editing code from your favorite editor. If you editor supports UNC path, you can access and edit files inside WSL from `\\wsl$\Ubuntu\<cht-core-location>`. If you use Visual Studio Code, it's even easier to edit your code. Just navigate to where you have checked out cht-core and type `code .` This will download VS Code Server for Ubuntu and open the project in Visual Studio Code in windows. 
+
+If you want to make changes to your code or contribute to our community health toolkit, you can do so by editing code from your favorite editor. If you editor supports UNC path, you can access and edit files inside WSL from `\\wsl$\Ubuntu\<cht-core-location>`. If you use Visual Studio Code, it's even easier to edit your code. Just navigate to where you have checked out cht-core and type `code .` This will download VS Code Server for Ubuntu and open the project in Visual Studio Code in windows.
 
 ```bash
 $: cd ~/medic/cht-core
@@ -105,9 +121,11 @@ $: code .
 ```
 
 ## Default port and credentials for cht-core web
+
 The default launch port for cht-core is 5988, which can be changed by providing the environment variable at runtime `API_PORT`, for example: `API_PORT=6000 node server.js`.
 
 The deployed web app's default user name and password is the username and password we set for CouchDB in the initial steps.
 
 ## Problems?
-As none of CHT maintainers use Windows as a development environment daily this solution may not be as stable as directly using MacOS or Linux. If you encounter issues let a developer know
+
+As none of CHT maintainers use Windows as a development environment daily this solution may not be as stable as directly using MacOS or Linux. If you encounter issues let a developer know.
