@@ -273,7 +273,7 @@ video {
 }
 
 /* -----------------------------------------------
-Close subpixel gap between max-md (767px) and md (768px) breakpoints 
+Fix #2198: Close subpixel gap between max-md (767px) and md (768px) breakpoints
 --------------------------------------------------*/
 @media (min-width: 767.01px) and (max-width: 767.99px) {
   .hextra-sidebar-container:not(.hx\:max-md\:\[transform\:translate3d\(0\,0\,0\)\]) {
