@@ -273,10 +273,18 @@ video {
 }
 
 /* -----------------------------------------------
-Fix Close subpixel gap between max-md (767px) and md (768px) breakpoints
+Fix Resolve conflict between Hextra's 48rem and Tailwind's 768px breakpoints
 --------------------------------------------------*/
-@media (min-width: 767.01px) and (max-width: 767.99px) {
-  .hextra-sidebar-container:not(.hx\:max-md\:\[transform\:translate3d\(0\,0\,0\)\]) {
+@media (min-width: 768px) {
+  aside.hextra-sidebar-container {
+    position: sticky !important;
+    width: 16rem !important; 
+    transform: none !important; 
+  }
+}
+
+@media (max-width: 767.98px) {
+  aside.hextra-sidebar-container:not(.hx\:max-md\:\[transform\:translate3d\(0\,0\,0\)\]) {
     transform: translate3d(0, -100%, 0) !important;
   }
 }
