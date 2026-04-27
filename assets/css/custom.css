@@ -271,3 +271,14 @@ Fix content too tight around video HTML tags
 video {
     padding-top: 25px;
 }
+
+/* -----------------------------------------------
+Fix Resolve conflict between Hextra's 48rem and Tailwind's 768px breakpoints
+--------------------------------------------------*/
+@media (min-width: 768px) {
+  aside.hextra-sidebar-container {
+    position: sticky !important;
+    width: 16rem !important; 
+    transform: none !important; 
+  }
+}
