@@ -8,6 +8,7 @@ aliases:
   - /apps/guides/hosting/core-developer
   - /apps/guides/hosting/hosting/cht/app-developer
   - /contribute/code/core/dev-environment
+  - /community/contributing/code/core/using-windows/
 ---
 
 {{< callout >}}
