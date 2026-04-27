@@ -282,9 +282,3 @@ Fix Resolve conflict between Hextra's 48rem and Tailwind's 768px breakpoints
     transform: none !important; 
   }
 }
-
-@media (max-width: 767.98px) {
-  aside.hextra-sidebar-container:not(.hx\:max-md\:\[transform\:translate3d\(0\,0\,0\)\]) {
-    transform: translate3d(0, -100%, 0) !important;
-  }
-}
