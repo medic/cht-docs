@@ -15,7 +15,7 @@ aliases:
 > [!TIP]
 > Open [an issue](https://github.com/medic/cht-core/issues/new) if you are interested in translating the CHT into a different language, and make it available to the community.
 
-CHT Core currently has built-in support for the following languages:
+CHT Core has built-in support for the following languages:
 
 | Language   | Language Code | Status     |
 |------------|---------------|------------|
@@ -32,7 +32,7 @@ CHT Core currently has built-in support for the following languages:
 
 Languages marked as "Complete" are fully translated and any new user-facing text will always be translated into these languages. Languages marked as "Incomplete" may be missing translations for some keys and/or the CHT community needs additional volunteers to help support this language by translating new keys. 
 
-If you are interested in helping to support any of these languages, please come introduce yourself in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum! (No technical knowledge/experience is needed to help with translations.)
+If you are interested in helping to support any of these languages, come introduce yourself in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum! (No technical knowledge/experience is needed to help with translations.)
 
 See the [localization documentation](/building/translations/overview) for more information on how to manage custom translations for a particular CHT instance.
 
@@ -59,12 +59,17 @@ In the cht-core repository, the translations are stored in [`api/resources/trans
 - First check if an appropriate key already exists in [`messages-en.properties`](https://github.com/medic/cht-core/blob/master/api/resources/translations/messages-en.properties). Using existing keys when possible reduces the effort required to translate the app into a new language.
 - Create a unique key to identify the translation string. The key should accurately describe the string's purpose/usage.
 - Add the key to each of the files contained in `api/resources/translations`.
-- Include an English translation string for your key (and strings for any other languages you are proficient in). Leave the string empty for the other languages.
-    - Note the [translation linting](#linting-translations) will fail for any empty strings in translation files for the languages marked as "Supported" in the table above. This is expected and the check should continue to fail until translations from the community are added (as described below).
-- When you have completed the implementation of your new feature (and you are confident you know which translation strings are needed), make a new post in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum requesting help from the community to translate the new strings. 
-    - Include the key(s) and the English string(s) in your post, with a link to the issue/PR you are working on. You can also include any context/screenshots that may help the translators understand the string's purpose.
-- Add the additional translations from the community into the proper files in `api/resources/translations`.
-    - Translations are required for all the languages above marked as "Supported".
+- Include an English translation string for your key in `messages-en.properties`.
+- For all other supported languages, use an AI tool to generate translations.
+
+> [!TIP]
+> Claude, Gemini, and ChatGPT produce sufficient translation quality for CHT. Google Translate is not recommended — its output has been found insufficient for CHT's needs. You do not need to know the target language yourself.
+
+- Add all AI-generated translations to the appropriate `messages-xx.properties` files. Do not leave strings empty — the [translation linting](#linting-translations) check fails for empty strings in files for languages marked as "Supported" in the table above, and this must be resolved before merging.
+- When your implementation is complete, make a post in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum announcing the new strings and that they were AI-generated. Include the key(s), the English value(s), and a link to your PR. Ask the community to review for accuracy.
+
+> [!NOTE]
+> The forum post is required but does not block the feature from shipping. The feature can be released with AI-generated translations in place. If community members provide corrections after the feature has shipped, incorporate those corrections into the translation files in a follow-up contribution.
 
 
 ### Translating static text
@@ -79,7 +84,7 @@ Much of the app is configurable (eg: forms and schedules). Because the specifics
 
 ## Modifying any existing translation values
 
-To modify a translation string value, update the default English value and then follow the same basic steps [outlined above](#adding-new-keys) to request translations from the community.
+To modify a translation string value, update the default English value and then follow the same basic steps [outlined above](#adding-new-keys) to update translations across all supported languages.
 
 ## Removing translation keys
 

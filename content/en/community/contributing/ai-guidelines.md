@@ -48,7 +48,9 @@ Examples of helpful disclosure:
 
 ### What Needs Disclosure?
 
-Disclose code generation or significant rewrites, help with debugging or understanding architecture, documentation or comment writing. No disclosure needed for simple tab-completion, minor syntax fixes or refactoring suggested by your IDE. 
+Disclose code generation or significant rewrites, help with debugging or understanding architecture, documentation or comment writing. No disclosure needed for simple tab-completion, minor syntax fixes or refactoring suggested by your IDE.
+
+AI-generated translations for CHT Core strings are accepted — see the [translations workflow](/community/contributing/translations#adding-new-keys) for details.
 
 {{< callout type="warning" icon="users" >}}
 **When in doubt, disclose.** It takes a moment and helps reviewers understand your contribution. 
