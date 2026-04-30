@@ -8,6 +8,7 @@ aliases:
   - /apps/guides/hosting/core-developer
   - /apps/guides/hosting/hosting/cht/app-developer
   - /contribute/code/core/dev-environment
+  - /community/contributing/code/core/using-windows/
 ---
 
 {{< callout >}}
@@ -34,7 +35,7 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install xsltproc curl uidmap jq python3 git make g++
+  sudo apt -y install xsltproc curl uidmap jq python3 git make
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -46,7 +47,7 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
 ```shell
   # Uses Homebrew: https://brew.sh/
   brew update
-  brew install curl jq pyenv git make node@{{< param nodeVersion >}} gcc
+  brew install curl jq pyenv git make node@{{< param nodeVersion >}}
   # Python no longer included by default in macOS >12.3 
   pyenv install 2.7.18
   pyenv global 2.7.18
@@ -57,7 +58,7 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install xsltproc curl uidmap jq python2 git make g++
+  sudo apt -y install xsltproc curl uidmap jq python3 git make
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -80,10 +81,12 @@ Install Docker:
 
 ### CHT Core Cloning and Setup
 
-Clone the main CHT Core repo from GitHub and change directories into it:
+Fork the main CHT Core repository [through GitHub](https://github.com/medic/cht-core/fork) so you have your own copy of the CHT Core code.
+
+Clone your fork of the CHT Core repo and change directories into it. Be sure to replace `<github-username>` with your GitHub username:
 
 ```shell
-git clone https://github.com/medic/cht-core ~/cht-core
+git clone https://github.com/<github-username>/cht-core ~/cht-core
 cd ~/cht-core
 ```
 

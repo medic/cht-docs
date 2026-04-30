@@ -193,7 +193,7 @@ Data handlers are responsible for persisting the data in OpenMRS. The handler ca
  - Create a scheduler to start the queue processor above. The queue processor shall get to the handler for processing.
  - Closely monitor the errors log for prompt action where necessary.
 
-You may want to further configure a service that relays feedback to the CHT. Feel free to utilize in-app text messages, which can be triggered via the [sms endpoint](/building/reference/api/#post-apisms) of CHT. The health workers would receive these feedback messages on their phones as well as access via the Messages tab in-app.
+You may want to further configure a service that relays feedback to the CHT. Feel free to utilize in-app text messages, which can be triggered via the [sms endpoint](/building/reference/api/#/SMS/smsPost) of CHT. The health workers would receive these feedback messages on their phones as well as access via the Messages tab in-app.
 
 #### Error Handling
 
@@ -212,7 +212,7 @@ The CHT API can be used to process incoming reports. For custom payloads, the [{
 #### Listener script in the CHT
 
 This is a service that would help shift information in the CHT [hierarchy](/building/reference/app-settings/hierarchy) to support the usecases of interest. Through {db}/bulk_docs, OpenMRS posts a data record that contains data objects such as observations and contact list (if available) details. The service obtains the record, and unpacks it into a contact in CHT and parented under the correct hierarchy level based on the metadata received from OpenMRS. The script should:
-1. Do patient matching to avoid duplicate details. Querying can be achieved via available endpoints such as `contacts_by_phone` [endpoint](/building/reference/api#get-apiv1contacts-by-phone) and `hydrate` [endpoint](/building/reference/api#get-apiv1hydrate) among others/
+1. Do patient matching to avoid duplicate details. Querying can be achieved via available endpoints such as `contacts_by_phone` [endpoint](/building/reference/api/#/Contact/v1ContactsByPhoneGet) and `hydrate` [endpoint](/building/reference/api/#/Bulk/v1HydrateGet) among others/
 2. If the incoming data matches what exists, update the contact found in CHT.
 3. Process all reports payloads and append them to the linked contact’s profile. Note that the `<report type>` xml or JSON form has to be defined in the CHT. 
 4. Delete the payload that is received from OpenMRS after it is processed since it will have been used to create CHT data structures.

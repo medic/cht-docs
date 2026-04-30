@@ -5,7 +5,6 @@ weight: 2
 description: >
   Set up a local environment to build and test CHT applications
 relatedContent: >
-  community/contributing/code/core/using-windows
   hosting/
 aliases:
    - /building/tutorials/local-setup

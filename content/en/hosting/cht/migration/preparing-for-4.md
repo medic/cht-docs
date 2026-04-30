@@ -72,7 +72,7 @@ Note that each user can submit many telemetry docs (`count_telemetry`), so the q
 
 ### Active user counts
 
-You can check the [monitoring API](/building/reference/api#monitoring) with `curl` to check active users for the last `30` days.  Remember that the users can send a telemetry report once per day, so this active user count will be less than the counts from the query above. 
+You can check the [monitoring API](/building/reference/api/#/Monitoring/v2MonitoringGet) with `curl` to check active users for the last `30` days.  Remember that the users can send a telemetry report once per day, so this active user count will be less than the counts from the query above. 
 
 We'll [use `jq` to filter](https://stedolan.github.io/jq/) out the unrelated metrics.  Be sure to replace `CHT-URL-HERE` with your production CHT URL:
 
