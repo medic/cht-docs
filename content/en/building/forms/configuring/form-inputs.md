@@ -8,6 +8,7 @@ relatedContent: >
   building/forms
   building/contact-summary/contact-summary-templated
   building/tasks/managing-tasks/pass-data-to-form  
+  building/forms/configuring/hiding-form-content
 aliases:
    - /building/guides/forms/form-inputs
    - /apps/guides/forms/form-inputs
@@ -213,8 +214,11 @@ In the following example, we are loading the name of the current user from the a
 | note        | welcome      | Welcome ${user_name}! |                                   |                      |
 | end group   | intro        |                       |                                   |                      |
 
-> [!NOTE]
-> When loading "hidden" contact data, it is recommended to nest the group inside an existing page (created by a group with the `field-list` appearance). This is because there is [a known issue](https://github.com/medic/cht-core/issues/8226) that results in an empty page being added to the form when a top-level group had no visible questions.
+{{< callout type="info" >}}
+When loading contact data, [`hidden` type](/building/forms/configuring/hiding-form-content/#hidden-type) fields can be used to capture contact properties that should be stored when the form is saved, but not shown to the user.
+
+Alternatively, to hide all the contact data when the form is rendered, simply add the [`hidden` appearance](/building/forms/configuring/hiding-form-content/#hidden-appearance) to the group containing the contact selector and associated fields.
+{{< /callout >}}
 
 ### Conditionally selecting/loading contact data for the current contact
 
