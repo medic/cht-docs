@@ -59,13 +59,11 @@ In the cht-core repository, the translations are stored in [`api/resources/trans
 - First check if an appropriate key already exists in [`messages-en.properties`](https://github.com/medic/cht-core/blob/master/api/resources/translations/messages-en.properties). Using existing keys when possible reduces the effort required to translate the app into a new language.
 - Create a unique key to identify the translation string. The key should accurately describe the string's purpose/usage.
 - Add the key to each of the files contained in `api/resources/translations`.
-- Include an English translation string for your key (and strings for any other languages you are proficient in). Leave the string empty for the other languages.
-    - Note the [translation linting](#linting-translations) will fail for any empty strings in translation files for the languages marked as "Supported" in the table above. This is expected and the check should continue to fail until translations from the community are added (as described below).
-- When you have completed the implementation of your new feature (and you are confident you know which translation strings are needed), make a new post in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum requesting help from the community to translate the new strings. 
-    - Include the key(s) and the English string(s) in your post, with a link to the issue/PR you are working on. You can also include any context/screenshots that may help the translators understand the string's purpose.
-- Add the additional translations from the community into the proper files in `api/resources/translations`.
-    - Translations are required for all the languages above marked as "Supported".
+- Add translations for your key and strings in English and any other languages you are proficient in. For languages you're not proficient in, use an LLM like Claude, Gemini or ChatGPT to generate the translations.
+- Translations are required for all the languages above marked as "Supported".
+- Once all the required launguages are added and [translation linting](/community/contributing/translations/#linting-translations) passes, the CHT Core PR can be merged.
 
+If an LLM translated strings where used, make a forum post in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) requesting validation. This way any native speakers from the community can ensure LLM translations are accurate.  Include a link to the PR so that corrections can easily be requested.
 
 ### Translating static text
 
