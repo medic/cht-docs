@@ -215,9 +215,9 @@ In the following example, we are loading the name of the current user from the a
 | end group   | intro        |                       |                                   |                      |
 
 {{< callout type="info" >}}
-When loading contact data, [`hidden` type](/building/forms/configuring/hiding-form-content/#hidden-type) fields can be used to capture contact properties that should be stored when the form is saved, but not shown to the user.
+When loading contact data, `hidden` [type](/building/forms/configuring/hiding-form-content/#hidden-type fields) can be used to capture contact properties that should be stored when the form is saved, but not shown to the user.
 
-Alternatively, to hide all the contact data when the form is rendered, simply add the [`hidden` appearance](/building/forms/configuring/hiding-form-content/#hidden-appearance) to the group containing the contact selector and associated fields.
+Alternatively, to hide all the contact data when the form is rendered, simply add the `hidden` [appearance](/building/forms/configuring/hiding-form-content/#hidden-appearance) to the group containing the contact selector and associated fields.
 {{< /callout >}}
 
 ### Conditionally selecting/loading contact data for the current contact

@@ -14,17 +14,17 @@ There are several different ways to control visibility of questions and other co
 
 ## Conditionally hiding fields
 
-Expressions in the [`relevant` column](https://docs.getodk.org/form-logic/#conditionally-showing-questions) can be used to dynamically control the visibility of questions, groups, etc. When the expression evaluates to `true`, the content is shown; when it evaluates to `false`, the content is hidden. This allows for showing/hiding content based on previous answers or other data in the form. The relevancy of a group is inherited by the fields it contains. So, when a group is non-relevant, all of its contents will also be considered non-relevant.
+Expressions in the `relevant` [column](https://docs.getodk.org/form-logic/#conditionally-showing-questions) can be used to dynamically control the visibility of questions, groups, etc. When the expression evaluates to `true`, the content is shown; when it evaluates to `false`, the content is hidden. This allows for showing/hiding content based on previous answers or other data in the form. The relevancy of a group is inherited by the fields it contains so, when a group is non-relevant, all of its contents will also be considered non-relevant.
 
 When the form is completed, values for non-relevant fields will _NOT be stored in the database._
 
 ## Fields hidden by default
 
-[Several types of fields](https://docs.getodk.org/form-question-types/#hidden-questions) are never visible to the user. 
+For a complete list of hidden fields, see [ODKs site](https://docs.getodk.org/form-question-types/#hidden-questions), otherwise see CHT relevant fields below. 
 
 ### `calculate` type
 
-[`calculate` fields](https://docs.getodk.org/form-logic/#calculations) are useful for storing data the user does not need to see but are referenced/used elsewhere in the form. The value contained in a `calcuate` field will be stored in the database when the form is completed.
+`calculate` [fields](https://docs.getodk.org/form-logic/#calculations) are useful for storing data the user does not need to see but are referenced/used elsewhere in the form. The value contained in a `calcuate` field will be stored in the database when the form is completed.
 
 The `calcuate` type is appropriate for fields with a defined initial value or whose value is calculated by the form logic. When a `calculate` field is definied in a form, it must have a value set in either the `calculation` or the `default` column.
 
