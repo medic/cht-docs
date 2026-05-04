@@ -59,7 +59,7 @@ In the cht-core repository, the translations are stored in [`api/resources/trans
 - First check if an appropriate key already exists in [`messages-en.properties`](https://github.com/medic/cht-core/blob/master/api/resources/translations/messages-en.properties). Using existing keys when possible reduces the effort required to translate the app into a new language.
 - Create a unique key to identify the translation string. The key should accurately describe the string's purpose/usage.
 - Add the key to each of the files contained in `api/resources/translations`.
-- Add translations for your key and strings in English and any other languages you are proficient in. For languages you're not proficient in, use an LLM like Claude, Gemini or ChatGPT to generate the translations.
+- Add translations for your key and strings in English and any other languages you are proficient in. For languages you're not proficient in, you may use translation tools (e.g. LLMs like Claude, Gemini, or ChatGPT; translation services; or help from fluent speakers) to draft them.
 - Translations are required for all the languages above marked as "Supported".
 - Once all the required launguages are added and [translation linting](/community/contributing/translations/#linting-translations) passes, the CHT Core PR can be merged.
 
