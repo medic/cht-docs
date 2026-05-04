@@ -43,6 +43,8 @@ Count widgets show a tally of a particular report that has been submitted or dat
 
 A count without a goal displays a simple green number count. A count with a goal displays the value of the goal on the right side and a colored count in the center indicating progress towards achieving the goal. Progress is displayed in green if the count is equal to or above the goal, or in black if the count is below the goal.
 
+When `limit_count_to_goal` is set to `true` in the target configuration, the displayed count is capped at the goal value once the actual count meets or exceeds it. This is useful when, for example, a CHW is paid based on completing a set number of visits — displaying a count above the goal may cause confusion. The actual count is still recorded; only the display is affected.
+
 ### Percent Widgets
 
 {{< cards >}}
