@@ -73,8 +73,8 @@ Check that the file count and directory sizes of `couchdb` directories matches a
 echo "CouchDB Prod";du -h -d1 /home/ubuntu/cht/couchdb
 echo "CouchDB Backup";du -h -d1 /home/ubuntu/cht/backup/couchdb
 
-echo "CouchDB Prod";ls -R /home/ubuntu/cht/backup/couchdb |wc -l
-echo "CouchDB Backup";ls -R /home/ubuntu/cht/couchdb |wc -l
+echo "CouchDB Prod";ls -R /home/ubuntu/cht/couchdb |wc -l
+echo "CouchDB Backup";ls -R /home/ubuntu/cht/backup/couchdb |wc -l
 ```
 
 Running the lines should show a similar output to below. Be sure that `Prod` and `Backup` sections exactly match:
@@ -271,7 +271,7 @@ BORG_PASSPHRASE='PASSWORD' borg extract \
     --list \
     borg@backup.server:cht::25-10-21_11:15:24
 mv home/ubuntu/cht/couchdb . 
-mv home/ubuntu/cht/upgrade-service/.env 
+mv home/ubuntu/cht/upgrade-service/.env .
 rm -r home
 ```
 {{< /tab >}}
@@ -302,7 +302,7 @@ Copy the staged files into place:
 ```shell
 cd /home/ubuntu/cht/restore
 cp --archive .env /home/ubuntu/cht/upgrade-service/.env
-sudo cp --archive couchdb/* /home/ubuntu/cht/couchdb/.
+sudo cp --archive couchdb/. /home/ubuntu/cht/couchdb/.
 ```
 
 Start up the CHT:

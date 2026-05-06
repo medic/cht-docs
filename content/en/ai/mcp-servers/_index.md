@@ -10,4 +10,5 @@ description: >
 
 {{< cards >}}
   {{< card link="cht-docs-mcp-server" title="CHT Docs MCP Server" icon="document-search" subtitle="Query CHT documentation via Kapa AI integration" >}}
+  {{< card link="cht-code-context-mcp-server" title="CHT Code Context MCP Server" icon="document-search" subtitle="Explore CHT source code architecture, module relationships, and design patterns" >}}
 {{< /cards >}}

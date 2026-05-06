@@ -228,7 +228,7 @@ either of these shortcodes in conjunction with this render hook.
           {{- errorf $msg }}
         {{- end }}
       {{- end }}
-    {{- else }}
+    {{- else if not $p.Params.skipIncomingLinkValidation }}
       {{- /* Determine target path for warning and error message. */}}
       {{- $targetPath := "" }}
       {{- with $p.File }}

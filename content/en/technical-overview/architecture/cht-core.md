@@ -8,6 +8,8 @@ relatedContent: >
   technical-overview/architecture/cht-watchdog
   technical-overview/architecture/cht-sync
 aliases:
+   - /core
+   - /core/overview/
    - /core/overview/architecture
    - /technical-overview/cht-core/
 ---
