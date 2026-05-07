@@ -61,7 +61,7 @@ In the cht-core repository, the translations are stored in [`api/resources/trans
 - Add the key to each of the files contained in `api/resources/translations`.
 - Add translations for your key and strings in English and any other languages you are proficient in. For languages you're not proficient in, you may use translation tools (e.g. LLMs like Claude, Gemini, or ChatGPT; translation services; or help from fluent speakers) to draft them.
 - Translations are required for all the languages marked as "Supported" in the table above.
-- For any translations you didn't author as a fluent speaker, make a post in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum requesting validation from native speakers. Include a link to the PR so that corrections can be suggested easily.
+- For any translations you didn't author as a fluent speaker, make a post in the [Translation category](https://forum.communityhealthtoolkit.org/c/product/translations/35) on the CHT Community Forum requesting validation from fluent speakers. Include a link to the PR so that corrections can be suggested easily.
 - Once all the required languages are added, any non-fluent translations have been validated by community members and [translation linting](/community/contributing/translations/#linting-translations) passes, the CHT Core PR can be merged.
 
 
