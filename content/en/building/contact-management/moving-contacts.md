@@ -20,6 +20,10 @@ Contacts are organized into a hierarchy. It is not straight-forward to move cont
 
 Also impactful, but less serious - this script can cause significant amounts of changes to the database and offline users who have contacts moved into their visible hierarchy may experience lengthy and bandwidth-intensive synchronizations.
 
+## Programmatic API (In Progress)
+
+The [CHT Core DMP 2026 project](https://github.com/medic/cht-core/issues/10706) is adding REST API endpoints to `cht-core` for advanced contact management operations, including move, merge, and recursive delete. Once implemented, these operations will be available via HTTP without requiring `cht-conf` or CLI access to the server. This will make it easier to integrate contact management into automated workflows and external systems. A webapp UI for these operations remains out of scope.
+
 Parameter | Description | Required
 -- | -- | --
 contacts | Comma delimited list of contact IDs which will be moved | Yes
