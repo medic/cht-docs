@@ -24,6 +24,8 @@ Extensions with the `header_tab` type are included in the webapp interface as a 
 
 TODO Talk about how properties are used.
 
+The `weight` property helps determine the ordering of the UI Extensions in relation to the other visible [header tabs](/building/reference/app-settings/header_tabs/).
+
 #### Sidebar tab extensions
 
 Extensions with the `sidebar_tab` type are included in the webapp interface as new tabs available from the sidebar menu (along with "Training Materials", "About", etc).
@@ -102,6 +104,7 @@ The `.properties.json` file contains the configuration for each UI Extension.
 | `icon`          |          | The FontAwesome class (beginning with `fa-`) to use as the extension icon. Must not be combined with `resource_icon`.                                                                                                                                                          |
 | `resource_icon` |          | The [resources key](/building/branding/resources/) for the image to use as the extension icon. Must not be combined with `icon`.                                                                                                                                               |
 | `accent_color`  |          | A [CSS color value](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_values) to use as the accent color for the extension.                                                                                                                                 |
+| `weight`        |          | The numerical "weight" used to determine the extension ordering. Lower values come first.                                                                                                                                                                                      |
 | `config`        |          | Custom object containing any properties that should be passed to the constructed web component via `this.inputs.config`.                                                                                                                                                       |
 
 ## Uploading/deleting UI Extensions
