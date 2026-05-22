@@ -8,27 +8,27 @@ keywords: extension UI extensibility user interface web component
 
 _Introduced in v5.2.0_
 
-## Introduction
-
 UI Extensions are [custom web components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) that can extend the functionality/content of the CHT web application. This is an advanced feature and requires an app developer with some software development experience.
 
-An example of a use for this feature is TODO
+An example of a use for this feature is a custom landing page for users containing content specific to a deployment.  
 
-### Types
+## Types
 
-Currently there are two supported types of UI Extensions.
+Currently, there are two supported types of UI Extensions.
 
-#### Header tab extensions
+### Header tab extensions
 
 Extensions with the `header_tab` type are included in the webapp interface as a new top-level tab (along with "People", "Tasks", etc).
 
-TODO Talk about how properties are used.
+Use the `weight` property to control the placement of the UI Extensions in relation to the other visible [header tabs](/building/reference/app-settings/header_tabs/). Tabs with a lower weight will be listed first and the first tab will be the default landing page when the app first opens.
 
-The `weight` property helps determine the ordering of the UI Extensions in relation to the other visible [header tabs](/building/reference/app-settings/header_tabs/).
+Use the `accent_color` property to control the color of the tool-bar at the top of the interface.  
 
-#### Sidebar tab extensions
+### Sidebar tab extensions
 
 Extensions with the `sidebar_tab` type are included in the webapp interface as new tabs available from the sidebar menu (along with "Training Materials", "About", etc).
+
+Use the `accent_color` property to control the color of the tool-bar at the top of the interface.
 
 ## Building
 
