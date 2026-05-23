@@ -20,15 +20,15 @@ Currently, there are two supported types of UI Extensions.
 
 Extensions with the `header_tab` type are included in the webapp interface as a new top-level tab (along with "People", "Tasks", etc).
 
-Use the `weight` property to control the placement of the UI Extensions in relation to the other visible [header tabs](/building/reference/app-settings/header_tabs/). Tabs with a lower weight will be listed first and the first tab will be the default landing page when the app first opens.
+Use the `weight` [property](#ui-extension-properties) to control the placement of the UI Extensions in relation to the other visible [header tabs](/building/reference/app-settings/header_tabs/). Tabs with a lower weight will be listed first and the first tab will be the default landing page when the app first opens.
 
-Use the `accent_color` property to control the color of the tool-bar at the top of the interface.  
+Use the `accent_color` [property](#ui-extension-properties) to control the color of the tool-bar at the top of the interface.  
 
 ### Sidebar tab extensions
 
 Extensions with the `sidebar_tab` type are included in the webapp interface as new tabs available from the sidebar menu (along with "Training Materials", "About", etc).
 
-Use the `accent_color` property to control the color of the tool-bar at the top of the interface.
+Use the `accent_color` [property](#ui-extension-properties) to control the color of the tool-bar at the top of the interface.
 
 ## Building
 
@@ -40,6 +40,21 @@ The configuration for a UI Extension consists of a JavaScript file which exports
     - my-extension.js
     - my-extension.properties.json
 ```
+
+### UI Extension Properties
+
+The `.properties.json` file contains the configuration for each UI Extension.
+
+| Property        | Required | Description                                                                                                                                                                                                                                                                    |
+|-----------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`          | Yes      | The type of the extension (`header_tab`, `sidebar_tab`).                                                                                                                                                                                                                       |
+| `title`         | Yes      | The translation key for the title of the UI Extension.                                                                                                                                                                                                                         |
+| `roles`         |          | An array of [user role names](/building/reference/app-settings/user-roles/) that have access to the extension. Only users with one (or more) of the specified roles will be able to access the extension. If no `roles` are set, the extension will be available to all users. |
+| `icon`          |          | The FontAwesome class (beginning with `fa-`) to use as the extension icon. Must not be combined with `resource_icon`.                                                                                                                                                          |
+| `resource_icon` |          | The [resources key](/building/branding/resources/) for the image to use as the extension icon. Must not be combined with `icon`.                                                                                                                                               |
+| `accent_color`  |          | A [CSS color value](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_values) to use as the accent color for the extension.                                                                                                                                 |
+| `weight`        |          | The numerical "weight" used to determine the extension ordering. Lower values come first.                                                                                                                                                                                      |
+| `config`        |          | Custom object containing any properties that should be passed to the constructed web component via `this.inputs.config`.                                                                                                                                                       |
 
 ### Web component class
 
@@ -90,22 +105,12 @@ Input data is available to the component logic in the `this.inputs` root level p
 
 ##### CHT Data model
 
-The `cht` API can also be used to interact directly with the CHT data model to read/create/update data. See [the cht-datasource docs](https://docs.communityhealthtoolkit.org/cht-datasource/) for more details about the available functionality. 
+The `cht` API can also be used to interact directly with the CHT data model to read/create/update data for contacts, reports, etc. See [the cht-datasource docs](https://docs.communityhealthtoolkit.org/cht-datasource/) for more details. 
 
-### UI Extension Properties
-
-The `.properties.json` file contains the configuration for each UI Extension.
-
-| Property        | Required | Description                                                                                                                                                                                                                                                                    |
-|-----------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `type`          | Yes      | The type of the extension (`header_tab`, `sidebar_tab`).                                                                                                                                                                                                                       |
-| `title`         | Yes      | The translation key for the title of the UI Extension.                                                                                                                                                                                                                         |
-| `roles`         |          | An array of [user role names](/building/reference/app-settings/user-roles/) that have access to the extension. Only users with one (or more) of the specified roles will be able to access the extension. If no `roles` are set, the extension will be available to all users. |
-| `icon`          |          | The FontAwesome class (beginning with `fa-`) to use as the extension icon. Must not be combined with `resource_icon`.                                                                                                                                                          |
-| `resource_icon` |          | The [resources key](/building/branding/resources/) for the image to use as the extension icon. Must not be combined with `icon`.                                                                                                                                               |
-| `accent_color`  |          | A [CSS color value](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_values) to use as the accent color for the extension.                                                                                                                                 |
-| `weight`        |          | The numerical "weight" used to determine the extension ordering. Lower values come first.                                                                                                                                                                                      |
-| `config`        |          | Custom object containing any properties that should be passed to the constructed web component via `this.inputs.config`.                                                                                                                                                       |
+```.js
+const contactId = this.inputs.userContactSummary.contact_id;
+const userContact = await this.cht.v1.person.getByUuid(contactId);
+```
 
 ## Uploading/deleting UI Extensions
 
