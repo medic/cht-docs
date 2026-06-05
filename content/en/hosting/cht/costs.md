@@ -12,6 +12,8 @@ aliases:
 
 This calculator provides an estimate of the monthly hosting costs for a CHT deployment. It is based on real-world data from production deployments and typical costs for hosting in a public cloud environment. See the details below for more information about how the costs are calculated.
 
+Note the ratios shown on the "Health Workers" panel. Tuning the calculator with unrealistic values (e.g., too large of a population for the number of health workers) will result in extreme numbers of people/docs per health worker. A sustainable CHT instance (both from a technical and a human perspective) should target realistic ratio values. 
+
 {{< cost-calculator >}}
 
 ### Calculation details
@@ -111,15 +113,23 @@ Items that are included in the basic costs of hosting the CHT:
 
 There are many additional costs to successfully hosting a CHT instance that are not included in this estimation:
 
-* Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware. This takes up a disk space which should be accounted for when budgeting to host the CHT.
-* [Monitoring and Alerting](/technical-overview/architecture/cht-watchdog/) - Since all software fails eventually, you need to be prepared to defend against this with aggressive monitoring and alerting. The goal will be to fix the problem before any users notice.
-* Training of Systems Administrators/IT - System administrator IT systems that have not hosted the CHT will need to be trained.
-* Training of Trainers (ToT) and user Training
+Hardware:
+
 * Data Warehousing & Dashboards – Many deployments require a data warehouse ([CHT Sync](/technical-overview/architecture/cht-sync/) + Postgres) and dashboards (Superset/Klipfolio). However, this is not strictly required to host a CHT instance and can be added at a later date.
 * Upfront Purchase of Hardware – It is assumed that a deployment will either be using cloud-based solutions or using managed bare metal, so these costs are not included.
-* App Development – Each deployment needs to have the default CHT app customized for the required workflows.
 * Smartphones – Device purchase, setup, and distribution for users.
+
+Training/Maintenance:
+
+* Training of Systems Administrators/IT - System administrator IT systems that have not hosted the CHT will need to be trained.
+* Training of Trainers (ToT) and user Training
+* App Development – Each deployment needs to have the default CHT app customized for the required workflows.
 * Analog → Digital Workflow conversion – The process of documenting paper processes the CHT will replace.
+
+Services:
+
+* Backups - Regular snapshots of the production data will need to be taken to ensure there is no data loss in case of catastrophic failure of server hardware. This takes up a disk space which should be accounted for when budgeting to host the CHT.
+* [Monitoring and Alerting](/technical-overview/architecture/cht-watchdog/) - Since all software fails eventually, you need to be prepared to defend against this with aggressive monitoring and alerting. The goal will be to fix the problem before any users notice.
 * [SMS](/building/messaging/gateways/) – Some projects need the ability to send SMS to users from the CHT.
 * [Interoperability](/building/interoperability/) – While the CHT supports this out-of-the-box - development work can be necessary to ensure data exchange with specific third party systems.
 * Mobile Device Management - optional.
