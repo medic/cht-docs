@@ -6,7 +6,6 @@ const DEFAULTS = {
   USERS_PER_CPU: 288,
   RAM_PER_CPU: 2,
   COST_PER_CPU_MONTH: 20.85,
-  DOCS_PER_POP_WORKFLOW_YEAR: 1,
   ROOT_VOLUME_GB: 50
 };
 
@@ -18,6 +17,7 @@ const UI_CONSTANTS = {
   USERS: { value: 1000, min: 10, max: 15000, step: 10 },
   DEPLOYMENT_AGE: { value: 1, min: 1, max: 10 },
   DB_OVERPROVISION: { value: 5, min: 1, max: 10 },
+  DOCS_PER_WORKFLOW: { value: 1, min: 1, max: 100 },
 };
 
 const formatCurrency = (amount, opts = {}) => amount.toLocaleString(navigator.language, {
@@ -66,9 +66,13 @@ const calculateMetrics = (els) => {
     1,
     Number.parseInt(els.dbOverprovision?.value || UI_CONSTANTS.DB_OVERPROVISION.value)
   );
+  const docsPerWorkflowYear = Math.max(
+    1,
+    Number.parseInt(els.docsPerWorkflow?.value || UI_CONSTANTS.DOCS_PER_WORKFLOW.value)
+  );
   const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
   const contactCount = userCount + populationCount + placeCount;
-  const reportCount = workflowCount * populationCount * deploymentAge * DEFAULTS.DOCS_PER_POP_WORKFLOW_YEAR;
+  const reportCount = workflowCount * populationCount * deploymentAge * docsPerWorkflowYear;
   const totalDocCount = contactCount + reportCount;
   const dbDiskGb = Math.max(1, Math.ceil(totalDocCount / DEFAULTS.MEDIC_DOCS_PER_GB));
   const diskOverprovisionGb = dbDiskGb * dbOverprovisionFactor;
@@ -84,7 +88,8 @@ const calculateMetrics = (els) => {
   const popPerUser = userCount > 0 ? populationCount / userCount : 0;
   return {
     cpuCount, ramGb, instanceCost, dbDiskGb, diskOverprovisionGb, rootVolumeGb, diskSizeGb,
-    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor, userCount
+    diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor,
+    docsPerWorkflowYear, userCount
   };
 };
 
@@ -144,6 +149,7 @@ const updateOutputElements = (els) => () => {
   }
 
   els.dbOverprovision.value = m.dbOverprovisionFactor;
+  els.docsPerWorkflow.value = m.docsPerWorkflowYear;
 };
 
 const applyInputConfig = ({ value, ...attrs }, ...inputs) => {
@@ -189,6 +195,7 @@ const attachListeners = (els, debounced, updateOutputs) => {
 
   addAdvancedInput(els.deploymentAgeValue, debounced, updateOutputs);
   addAdvancedInput(els.dbOverprovision, debounced, updateOutputs);
+  addAdvancedInput(els.docsPerWorkflow, debounced, updateOutputs);
 
   const toggleParameters = (showAdvanced) => {
     els.basicParams.classList.toggle('calc-hidden', showAdvanced);
@@ -199,6 +206,7 @@ const attachListeners = (els, debounced, updateOutputs) => {
   els.resetAdvanced?.addEventListener('click', () => {
     els.deploymentAgeValue.value = UI_CONSTANTS.DEPLOYMENT_AGE.value;
     els.dbOverprovision.value = UI_CONSTANTS.DB_OVERPROVISION.value;
+    els.docsPerWorkflow.value = UI_CONSTANTS.DOCS_PER_WORKFLOW.value;
     updateOutputs();
   });
 };
@@ -216,6 +224,7 @@ const initCostCalculator = (calcId) => {
     userCountInputValue: el('user-count-input-value'),
     deploymentAgeValue: el('deployment-age-value'),
     dbOverprovision: el('db-overprovision'),
+    docsPerWorkflow: el('docs-per-workflow'),
     resetAdvanced: el('reset-advanced'),
     basicParams: el('basic-params'),
     advancedParams: el('advanced-params'),
@@ -252,6 +261,7 @@ const initCostCalculator = (calcId) => {
   applyInputConfig(UI_CONSTANTS.USERS, els.userCountInput, els.userCountInputValue);
   applyInputConfig(UI_CONSTANTS.DEPLOYMENT_AGE, els.deploymentAgeValue);
   applyInputConfig(UI_CONSTANTS.DB_OVERPROVISION, els.dbOverprovision);
+  applyInputConfig(UI_CONSTANTS.DOCS_PER_WORKFLOW, els.docsPerWorkflow);
 
   const updateOutputs = updateOutputElements(els);
   const debounced = debouncedUpdate(updateOutputs);
