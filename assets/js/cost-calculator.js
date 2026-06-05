@@ -1,6 +1,7 @@
 const DEFAULTS = {
   DISK_COST_PER_GB_YEAR: 0.96,
   MEDIC_DOCS_PER_GB: 186089,
+  MEDIC_DOCS_PER_USER_BASELINE: 8717,
   PLACES_PER_POP: 0.36,
   USERS_PER_CPU: 288,
   RAM_PER_CPU: 2,
@@ -74,12 +75,13 @@ const calculateMetrics = (els) => {
   const rootVolumeGb = DEFAULTS.ROOT_VOLUME_GB;
   const diskSizeGb = dbDiskGb + diskOverprovisionGb + rootVolumeGb;
   const diskCost = DEFAULTS.DISK_COST_PER_GB_YEAR * diskSizeGb;
-  const cpuCount = Math.max(1, Math.ceil(userCount / DEFAULTS.USERS_PER_CPU));
+  const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
+  const cpuCountFactor = Math.max(1, docsPerUser / DEFAULTS.MEDIC_DOCS_PER_USER_BASELINE);
+  const cpuCount = Math.max(1, Math.ceil((userCount * cpuCountFactor) / DEFAULTS.USERS_PER_CPU));
   const ramGb = cpuCount * DEFAULTS.RAM_PER_CPU;
   const instanceCost = cpuCount * DEFAULTS.COST_PER_CPU_MONTH * 12;
   const totalCost = diskCost + instanceCost;
   const popPerUser = userCount > 0 ? populationCount / userCount : 0;
-  const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
   return {
     cpuCount, ramGb, instanceCost, dbDiskGb, diskOverprovisionGb, rootVolumeGb, diskSizeGb,
     diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor, userCount
