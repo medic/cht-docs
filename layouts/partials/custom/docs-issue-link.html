@@ -1,0 +1,4 @@
+{{- $issueTitle := urlquery (printf "Improve: %s" .Title) -}}
+{{- $issueBody := urlquery (printf "Page: %s" .Permalink) -}}
+{{- $link := printf "https://github.com/medic/cht-docs/issues/new?title=%s&body=%s" $issueTitle $issueBody -}}
+<a href="{{ $link }}" target="_blank" rel="noreferrer">Create Docs Issue ↗</a>
