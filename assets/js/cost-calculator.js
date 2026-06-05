@@ -3,7 +3,6 @@ const DEFAULTS = {
   MEDIC_DOCS_PER_GB: 186089,
   MEDIC_DOCS_PER_USER_BASELINE: 8717,
   PLACES_PER_POP: 0.36,
-  USERS_PER_CPU: 288,
   RAM_PER_CPU: 2,
   COST_PER_CPU_MONTH: 20.85,
   ROOT_VOLUME_GB: 50
@@ -18,6 +17,7 @@ const UI_CONSTANTS = {
   DEPLOYMENT_AGE: { value: 1, min: 1, max: 10 },
   DB_OVERPROVISION: { value: 5, min: 1, max: 10 },
   DOCS_PER_WORKFLOW: { value: 1, min: 1, max: 100 },
+  USERS_PER_CPU: { value: 288, min: 1, max: 1000 },
 };
 
 const formatCurrency = (amount, opts = {}) => amount.toLocaleString(navigator.language, {
@@ -70,6 +70,10 @@ const calculateMetrics = (els) => {
     1,
     Number.parseInt(els.docsPerWorkflow?.value || UI_CONSTANTS.DOCS_PER_WORKFLOW.value)
   );
+  const usersPerCpu = Math.max(
+    1,
+    Number.parseInt(els.usersPerCpu?.value || UI_CONSTANTS.USERS_PER_CPU.value)
+  );
   const placeCount = Math.floor(populationCount * DEFAULTS.PLACES_PER_POP);
   const contactCount = userCount + populationCount + placeCount;
   const reportCount = workflowCount * populationCount * deploymentAge * docsPerWorkflowYear;
@@ -81,7 +85,7 @@ const calculateMetrics = (els) => {
   const diskCost = DEFAULTS.DISK_COST_PER_GB_YEAR * diskSizeGb;
   const docsPerUser = userCount > 0 ? totalDocCount / userCount : 0;
   const cpuCountFactor = Math.max(1, docsPerUser / DEFAULTS.MEDIC_DOCS_PER_USER_BASELINE);
-  const cpuCount = Math.max(1, Math.ceil((userCount * cpuCountFactor) / DEFAULTS.USERS_PER_CPU));
+  const cpuCount = Math.max(1, Math.ceil((userCount * cpuCountFactor) / usersPerCpu));
   const ramGb = cpuCount * DEFAULTS.RAM_PER_CPU;
   const instanceCost = cpuCount * DEFAULTS.COST_PER_CPU_MONTH * 12;
   const totalCost = diskCost + instanceCost;
@@ -89,7 +93,7 @@ const calculateMetrics = (els) => {
   return {
     cpuCount, ramGb, instanceCost, dbDiskGb, diskOverprovisionGb, rootVolumeGb, diskSizeGb,
     diskCost, totalCost, totalDocCount, popPerUser, docsPerUser, dbOverprovisionFactor,
-    docsPerWorkflowYear, userCount
+    docsPerWorkflowYear, usersPerCpu, userCount
   };
 };
 
@@ -150,6 +154,7 @@ const updateOutputElements = (els) => () => {
 
   els.dbOverprovision.value = m.dbOverprovisionFactor;
   els.docsPerWorkflow.value = m.docsPerWorkflowYear;
+  els.usersPerCpu.value = m.usersPerCpu;
 };
 
 const applyInputConfig = ({ value, ...attrs }, ...inputs) => {
@@ -196,6 +201,7 @@ const attachListeners = (els, debounced, updateOutputs) => {
   addAdvancedInput(els.deploymentAgeValue, debounced, updateOutputs);
   addAdvancedInput(els.dbOverprovision, debounced, updateOutputs);
   addAdvancedInput(els.docsPerWorkflow, debounced, updateOutputs);
+  addAdvancedInput(els.usersPerCpu, debounced, updateOutputs);
 
   const toggleParameters = (showAdvanced) => {
     els.basicParams.classList.toggle('calc-hidden', showAdvanced);
@@ -207,6 +213,7 @@ const attachListeners = (els, debounced, updateOutputs) => {
     els.deploymentAgeValue.value = UI_CONSTANTS.DEPLOYMENT_AGE.value;
     els.dbOverprovision.value = UI_CONSTANTS.DB_OVERPROVISION.value;
     els.docsPerWorkflow.value = UI_CONSTANTS.DOCS_PER_WORKFLOW.value;
+    els.usersPerCpu.value = UI_CONSTANTS.USERS_PER_CPU.value;
     updateOutputs();
   });
 };
@@ -225,6 +232,7 @@ const initCostCalculator = (calcId) => {
     deploymentAgeValue: el('deployment-age-value'),
     dbOverprovision: el('db-overprovision'),
     docsPerWorkflow: el('docs-per-workflow'),
+    usersPerCpu: el('users-per-cpu'),
     resetAdvanced: el('reset-advanced'),
     basicParams: el('basic-params'),
     advancedParams: el('advanced-params'),
@@ -262,6 +270,7 @@ const initCostCalculator = (calcId) => {
   applyInputConfig(UI_CONSTANTS.DEPLOYMENT_AGE, els.deploymentAgeValue);
   applyInputConfig(UI_CONSTANTS.DB_OVERPROVISION, els.dbOverprovision);
   applyInputConfig(UI_CONSTANTS.DOCS_PER_WORKFLOW, els.docsPerWorkflow);
+  applyInputConfig(UI_CONSTANTS.USERS_PER_CPU, els.usersPerCpu);
 
   const updateOutputs = updateOutputElements(els);
   const debounced = debouncedUpdate(updateOutputs);
