@@ -116,16 +116,13 @@ html.dark {
     flex-direction: column;
 
     .advanced-inputs-scroll {
-      overflow-y: auto;
+      overflow-y: scroll;
       min-height: 0;
       max-height: 19rem;
       margin-right: -0.75rem;
       padding-right: 0.25rem;
       scrollbar-width: thin;
-      scrollbar-color: transparent transparent;
-      &:hover {
-        scrollbar-color: var(--calc-border) transparent;
-      }
+      scrollbar-color: var(--calc-border) transparent;
     }
 
     > .calc-divider {
