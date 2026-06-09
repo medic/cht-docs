@@ -82,6 +82,14 @@ The equivalent XForm XML for the above example is:
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
+## Capturing GPS Location
+
+_Added in CHT `TBD`._
+
+Contact forms can capture the device's GPS location when a contact is created or edited. The widget stores coordinates on the contact document and maintains a geolocation log across edits. An optional context question records where the CHW is relative to the beneficiary at capture time.
+
+{{< see-also page="building/forms/configuring/contact-geolocation" >}}
+
 ## Properties
 
 The meta information in the `{contact_type_id}-{create|edit}.properties.json` file defines additional configuration controlling when the form is available and checks that will be performed when submitting the form.
