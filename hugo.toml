@@ -272,8 +272,8 @@ display = "hover"
   type = "giscus"
 
   [params.banner]
-  key = "announcement-5.1"
-  message = "Android notifications 🔔, contact attachments 🖼️ and more 🎉 [CHT 5.1](/releases/5_1_0/) is here! "
+  key = "announcement-5.2"
+  message = "UI extensions, tab customizations and more 🎉 [CHT 5.2](/releases/5_2_0/) is here! "
 
 [params.imageZoom]
 enable = true
