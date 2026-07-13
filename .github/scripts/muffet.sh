@@ -13,7 +13,7 @@
 # use extremely granular URLs so as not to exclude more than we need to.
 
 # when upgrading muffet, upload new binary here and rename so version is explicit in filename
-./2.11.1.muffet http://localhost:1313 \
+./2.11.5.muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 255 \
   --rate-limit 3 \
@@ -77,4 +77,5 @@
   --exclude "http[s]*://www.sonarsource.com/" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
-  --exclude "http[s]*://127.*"
+  --exclude "http[s]*://127.*" \
+  --exclude "http[s]*://.*\.mp4"
