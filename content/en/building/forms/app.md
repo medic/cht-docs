@@ -379,6 +379,10 @@ Forms can include arbitrary binary data which is submitted and included in the d
 
 To mark an element as having binary data add an extra column in the XLSForm called `instance::type` and specify `binary` in the element's row.
 
+From 5.2.0, when a form creates [additional docs](/building/forms/configuring/additional-docs), each attachment is stored on the doc that owns its field — the nearest enclosing `db-doc="true"` section, or the report itself. Previously every attachment was stored on the report doc.
+
+Also from 5.2.0, a binary field's attachment is named `user-file-` followed by the field's path relative to the doc that owns it — for example `user-file-my_group/my_image`, or `user-file-my_repeat[2]/my_image` for the second instance of a repeat — and the saved doc's field value holds that same relative path. In earlier versions the attachment was named after the field's absolute path in the form (for example `user-file/<form_id>/my_group/my_image`) and the field value was left empty. Existing documents are not migrated and keep their original attachment names. Files captured with an upload widget keep the `user-file-<filename>` naming, with the filename stored as the field value.
+
 ## Properties
 
 The meta information in the `{form_name}.properties.json` file defines the form's title and icon, as well as when and where the form should be available.
