@@ -72,6 +72,8 @@ Beneath that, you will find tasks for this person or place. At the very bottom i
 
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
 
+From 5.2.0, the profile header can display the contact's photo instead of the type icon. Set [`photo_field`](/building/reference/app-settings/hierarchy#app_settingsjson-contact_types) on the contact type to the contact field that stores the photo's filename; the type icon is used as a fallback.
+
 ## Fields
 
 ### Contact Summary

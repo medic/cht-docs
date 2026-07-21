@@ -203,3 +203,7 @@ It is also possible to create additional contacts as children of the new place u
 | text         | name   | Member Name           |            |         |             |
 | end_repeat   | child  |                       |            |         |             |
 | end_group    | repeat |                       |            |         |             |  
+
+### Capturing photos and files on child contacts
+
+From 5.2.0, a binary upload field placed inside the `contact` group or the `child` repeat is attached to that person's doc rather than to the place. Attachment ownership is resolved by the section the field sits in. Combined with the contact type's [`photo_field`](/building/reference/app-settings/hierarchy#app_settingsjson-contact_types), this is how a child contact created in the form gets its profile photo.
