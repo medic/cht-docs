@@ -142,6 +142,52 @@ services:
 docker compose --profile tags --profile production -f docker-compose.yml -f docker-compose.dbt-tags.yml up -d
 ```
 
+You can verify this command worked by running `docker ps`. It should show 2 containers running: couch2pg and dbt.
+
+```shell
+docker ps --format "table {{.Image}}\t{{.Status}}\t{{.Names}}" --filter "name=cht-sync*" 
+IMAGE               STATUS              NAMES
+cht-sync-couch2pg   Up 59 seconds       cht-sync-couch2pg-1
+cht-sync-dbt        Up About a minute   cht-sync-dbt-1
+```
+
+### PostgreSQL access
+
+By default, the PostgreSQL server is only accessible to `dbt` and `couch2pg` via the Docker network. This is an intentional secure by default design. If you need to have remote access to PostgreSQL, you have two options:
+
+1. Development: Run [pgAdmin](https://www.pgadmin.org/) and also expose PostgreSQL ports 
+2. Production: Run a bastion host and use SSH tunnels 
+
+#### PGAdmin + PostgreSQL ports
+
+pgAdmin is a web GUI client for PostgreSQL. Run it with the following compose call:
+
+```sh
+docker compose -f docker-compose.pgadmin.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
+```
+
+Be aware that this exposes an the pgAdmin app with no password. Always secure this immediately after deploying by logging in and it will request you to set a password. The pgadmin app will be accessible at `http://your-server.com:5050`.
+
+Additionally, `docker-compose.pgadmin.yml` file extends the PostgreSQL Docker service to expose it on the standard `5432` port.  Using any PostgreSQL client, you can connect using the IP of your server.
+
+#### Bastion host
+
+The more secure and production ready option is to run a bastion host.  First start by copying the `./bastion/authorized_keys.example` file to `./bastion/authorized_keys`.  Add the SSH keys of users who need access, one per line, in the `authorized_keys` you just created.
+
+Start the bastion host, along with other services, with the following compose call:
+
+```sh
+docker compose -f docker-compose.bastion.yml -f docker-compose.postgres.yml -f docker-compose.yml up -d
+```
+
+You can then set up an SSH tunnel with the following shell command, being sure to replace `YOUR-SERVER-ADDRESS` with your real server address:
+
+```sh
+ssh -N -L 5432:cht-sync-postgres-1:5432 bastion@YOUR-SERVER-ADDRESS -p 22222
+```
+
+Then point your PostgreSQL client of choice to `YOUR-SERVER-ADDRESS:5432` to access the database, again being sure to replace `YOUR-SERVER-ADDRESS` with your real server address.
+
 ### Cleanup
 
 When you are done using the services, you can clean everything by running `down`.
