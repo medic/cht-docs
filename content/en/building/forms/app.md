@@ -247,6 +247,38 @@ A validation failure, either for an invalid or duplicate phone number will preve
 Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact.
 {{< /callout >}}
 
+### Select choice from file
+
+_Added in 5.3.0_
+
+The choices for a [select question](https://docs.getodk.org/form-question-types/#select-widgets) can be attached as an external dataset instead of being included directly in the XLSForm's `choices` sheet. This allows for central management of a dataset shared between multiple forms and more efficient processing of the form configuration since the dataset is stored separate from the xform definition.
+
+Being sure to follow  [the ODK specification](https://docs.getodk.org/form-datasets/#building-selects-from-xml-files), add a line in your `resources.json` file which declares your new resource (eg, `"colors.xml": "colors.xml"`). 
+
+Then add the new XML file to the CHT's config's `./resources/` folder (eg  `./resources/colors.xml`) and upload it to the server with [CHT Conf](/community/contributing/code/cht-conf/).   See [resources configuration](/building/branding/resources)) for more info.
+
+Below is a example XML that could be put in `./resources/colors.xml`:
+
+```xml
+<root>
+  <item><name>red</name><label>Red</label></item>
+  <item><name>green</name><label>Green</label></item>
+  <item><name>blue</name><label>Blue</label></item>
+</root>
+```
+
+{{< callout type="info" >}}
+Though the ODK spec allows for CSV and XML files, the CHT currently only supports XML files.
+{{< /callout >}}
+
+In the form configuration use `select_one_from_file` or `select_many_from_file` for the `type` value and use the resource key for your XML file (eg `select_one_from_file colors.xml`) as the instance name for the selection.  The data from the specified XML resource will be automatically loaded into the form and available for the user to select from. 
+
+Future updates to the contents of the resource XML file will be reflected in the form when the new version of the resource file is uploaded (without needing to make any updates to the form configuration).
+
+| type                            | name           | label                      |
+|---------------------------------|----------------|----------------------------|
+| select_one_from_file colors.xml | favorite_color | Select your favorite color |
+
 ## CHT XPath Functions
 
 ### `add-date`
