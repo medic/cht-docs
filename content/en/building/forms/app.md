@@ -251,9 +251,13 @@ Configuring a phone input as a `string` field with the `tel` _appearance_ is onl
 
 _Added in 5.3.0_
 
-The choices for a [select question](https://docs.getodk.org/form-question-types/#select-widgets) can be attached as an external dataset instead of being included directly in the XLSForm's `choices` sheet. This allows for central management of a dataset shared between multiple forms and more efficient processing of the form configuration (since the dataset is stored separate from the xform definition).
+The choices for a [select question](https://docs.getodk.org/form-question-types/#select-widgets) can be attached as an external dataset instead of being included directly in the XLSForm's `choices` sheet. This allows for central management of a dataset shared between multiple forms and more efficient processing of the form configuration since the dataset is stored separate from the xform definition.
 
-Define an XML resource file following [the ODK specification](https://docs.getodk.org/form-datasets/#building-selects-from-xml-files).  Add the file to your CHT [resources configuration](/building/branding/resources) and upload it to the server.
+Being sure to follow  [the ODK specification](https://docs.getodk.org/form-datasets/#building-selects-from-xml-files), add a line in your `resources.json` file which declares your new resource (eg, `"colors.xml": "colors.xml"`). 
+
+Then add the new XML file to the CHT's config's `./resources/` folder (eg  `./resources/colors.xml`) and upload it to the server with [CHT Conf](/community/contributing/code/cht-conf/).   See [resources configuration](/building/branding/resources)) for more info.
+
+Below is a example XML that could be put in `./resources/colors.xml`:
 
 ```xml
 <root>
@@ -264,10 +268,12 @@ Define an XML resource file following [the ODK specification](https://docs.getod
 ```
 
 {{< callout type="info" >}}
-Though the ODK spec includes definitions for CSV files. However, the CHT currently only supports loading instance data from XML files.
+Though the ODK spec allows for CSV and XML files, the CHT currently only supports XML files.
 {{< /callout >}}
 
-In the form configuration use `select_one_from_file` or `select_many_from_file` and use the resource key for your XML file as the instance name for the selection. The data from the specified XML resource will be automatically loaded into the form and available for the user to select from. Future updates to the contents of the resource XML file will be reflected in the form when the new version of the resource file is uploaded (without needing to make any updates to the form configuration).
+In the form configuration use `select_one_from_file` or `select_many_from_file` for the `type` value and use the resource key for your XML file (eg `select_one_from_file colors.xml`) as the instance name for the selection.  The data from the specified XML resource will be automatically loaded into the form and available for the user to select from. 
+
+Future updates to the contents of the resource XML file will be reflected in the form when the new version of the resource file is uploaded (without needing to make any updates to the form configuration).
 
 | type                            | name           | label                      |
 |---------------------------------|----------------|----------------------------|
