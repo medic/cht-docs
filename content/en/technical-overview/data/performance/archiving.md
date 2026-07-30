@@ -13,12 +13,20 @@ relatedContent: >
 
 *Only available in 5.3.0 and above*
 
-Archiving moves outdated documents from the primary `medic` database to a separate `medic-archive` database. This keeps the primary database small, which improves indexing, replication, and overall server performance, while the archived documents remain available for analytics and audit purposes.
+Archiving moves outdated documents from the primary `medic` database to a separate `medic-archive` database. This keeps the primary database small while the archived documents remain available for analytics and audit purposes.
 
 Archiving differs from [purging](/technical-overview/data/performance/purging) in an important way: purging removes documents from user devices while keeping them in the `medic` database, whereas archiving removes documents from the `medic` database entirely. Archived documents are copied to `medic-archive` and then purged from `medic`, leaving no trace in the changes feed.
 
 > [!WARNING]
 > Archived documents are no longer available to the CHT application. They cannot be viewed in the app, used in [tasks](/building/tasks/tasks-js), [targets](/building/targets/targets-js), or contact summaries, and they are deleted from user devices on the next sync. Make sure the documents you archive are no longer needed before submitting them.
+
+## Benefits
+
+- **Improved overall server performance.** A smaller `medic` database means less work for CouchDB across the board: reads, writes, compaction, and backups all get faster as the database shrinks.
+- **Faster indexing.** Every document in `medic` is processed by every view and search index. With fewer documents, indexes build and update faster, both in day-to-day operation and after upgrades, when views are rebuilt from scratch.
+- **Faster replication.** Calculating which documents each user can replicate is proportional to the size of the `medic` database. Removing outdated documents speeds up initial replication and routine syncs for all users.
+- **Reduced disk usage.** The `medic-archive` database has no indexes, so archived documents cost only their raw storage. The same documents occupy dramatically less disk space in `medic-archive` than they did in `medic`, where every document also carries its share of view and search index storage.
+- **Data is retained.** Unlike deleting documents, archiving keeps the full document, including attachments, along with an audit entry recording when it was archived. The data stays available for compliance and analytics purposes.
 
 ## How it works
 
@@ -106,6 +114,31 @@ Depending on the number of documents queued, archiving can be a lengthy and reso
 }
 ```
 
+The same schedule expressed as a text expression:
+
+```json
+{
+  "//": "other app_settings settings",
+  "archive": {
+    "text_expression": "at 10:00 pm",
+    "duration": "4 hours"
+  }
+}
+```
+
+Some examples of valid text expressions:
+
+| text expression | runs |
+|-------|---------|
+| `"at 10:00 pm"` | Every day at 10:00 pm |
+| `"at 00:00 on Sunday"` | Every Sunday at midnight |
+| `"at 11:00 pm on Fri and Sat"` | Every Friday and Saturday at 11:00 pm |
+
+Text expressions are evaluated in the server's local time.
+
+> [!WARNING]
+> Avoid `12:00 am` when scheduling around midnight: the parser reads `"at 12:00 am"` as noon and rejects `"at 12 am"` entirely. Use the 24-hour form `"at 00:00"` for midnight.
+
 | property | description | required |
 |-------|---------|----------|
 | `text_expression` | Any valid text expression to describe when archiving runs. For more information, see [LaterJS](https://bunkat.github.io/later/parsers.html#text) | no |
@@ -145,4 +178,4 @@ On their next sync, users with access to the document download it again with its
 - **Archiving is meant to be permanent.** Archived documents live on in `medic-archive` and [restoring one](#restoring-archived-documents) is a manual, per-document process. Do not archive documents you expect to need again.
 - **Rules may break.** As with purging, any tasks or targets that depend on an archived document lose access to it. For example, archiving a report that completed a task reopens that task unless the document that created the task is also archived.
 - **Users may be confused.** Documents disappear from devices without notification. Work with your users to ensure documents are only archived once there is no use for them.
-- **The `medic-archive` database grows.** Archived documents, including attachments, accumulate in `medic-archive`. Account for this in your [hosting](/hosting/) disk capacity planning.
+- **The `medic-archive` database grows.** Archived documents, including attachments, accumulate in `medic-archive`. Because the database has no indexes, its size is dramatically smaller than the footprint the same documents had in `medic`, but account for it in your [hosting](/hosting/) disk capacity planning all the same.
