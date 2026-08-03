@@ -15,7 +15,10 @@ relatedContent: >
 
 Archiving moves outdated documents from the primary `medic` database to a separate `medic-archive` database. This keeps the primary database small while the archived documents remain available for analytics and audit purposes.
 
-Archiving differs from [purging](/technical-overview/data/performance/purging) in an important way: purging removes documents from user devices while keeping them in the `medic` database, whereas archiving removes documents from the `medic` database entirely. Archived documents are copied to `medic-archive` and then purged from `medic`, leaving no trace in the changes feed.
+Archiving differs from [purging](/technical-overview/data/performance/purging) in two important ways:
+
+- Purging removes documents from user devices while keeping them in the `medic` database, whereas archiving removes documents from the `medic` database entirely. Archived documents are copied to `medic-archive` and then purged from `medic`, leaving no trace in the changes feed.
+- Purging is conditional on user roles: the purge function decides per roles group, so a document can be purged for one user and not for another. Archiving is unconditional: an archived document is removed for all users.
 
 > [!WARNING]
 > Archived documents are no longer available to the CHT application. They cannot be viewed in the app, used in [tasks](/building/tasks/tasks-js), [targets](/building/targets/targets-js), or contact summaries, and they are deleted from user devices on the next sync. Make sure the documents you archive are no longer needed before submitting them.
@@ -135,9 +138,6 @@ Some examples of valid text expressions:
 | `"at 11:00 pm on Fri and Sat"` | Every Friday and Saturday at 11:00 pm |
 
 Text expressions are evaluated in the server's local time.
-
-> [!WARNING]
-> Avoid `12:00 am` when scheduling around midnight: the parser reads `"at 12:00 am"` as noon and rejects `"at 12 am"` entirely. Use the 24-hour form `"at 00:00"` for midnight.
 
 | property | description | required |
 |-------|---------|----------|
