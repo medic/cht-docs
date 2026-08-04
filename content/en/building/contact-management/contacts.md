@@ -146,6 +146,6 @@ The matching logic for duplicate detection is [configurable](/building/forms/con
 
 _Added in CHT `TBD`._
 
-Contact forms can optionally capture the device's GPS location when a contact is created or edited. When configured, the CHW sees a capture widget that shows progress, success, and failure states, with the option to retry or continue without a location. Coordinates are stored on the contact document and a log of all capture events is maintained across subsequent edits.
+Household contact forms can optionally capture the device's GPS location when a household is created or edited. When configured, the CHW sees a capture widget that shows progress, success, and failure states, with the option to retry or continue without a location. Coordinates are stored on the contact document and a log of all capture events is maintained across subsequent edits. This widget is written specifically for households and isn't intended for other contact types.
 
 {{< see-also page="building/forms/configuring/contact-geolocation" title="Configuring GPS Location Capture" >}}
