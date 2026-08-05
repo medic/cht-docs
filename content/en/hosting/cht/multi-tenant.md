@@ -1,37 +1,70 @@
 ---
-title: Multi-tenant
-linkTitle: Multi-tenant
+title: Multi-tenancy in the CHT
+linkTitle: Multi-tenancy
 weight: 30
 description: >
-  How to run multiple instances of the CHT on one server
+  What "multi-tenancy" can mean for a CHT deployment, what the CHT supports today, and why
 relatedContent: >
+  hosting/cht/requirements
+  hosting/cht/considerations
   hosting/cht/kubernetes
   hosting/cht/docker
+  hosting/cht/kubernetes-vs-docker
   hosting/cht/docker/backups
   hosting/monitoring
   hosting/analytics
-
 ---
 
-While the CHT has no built-in features to support multi-tenant, there are viable work arounds using existing hosting, backup, monitoring and reporting solutions.
+The CHT does not have built-in multi-tenancy features. Because "multi-tenant" is an umbrella term covering several very different setups, this page describes the most common scenarios the community asks about, what is and isn't possible in each, and why.
 
-## What is multi-tenant
+If your scenario isn't covered here, please describe it on the [CHT Forum](https://forum.communityhealthtoolkit.org/). The more specific you can be about what a "tenant" means in your context, the better the guidance you'll get.
 
-To clarify what this document covers, "multi-tenant" is defined as the ability to host multiple CHT instances on a single server, physical or virtualized.  There is no graphical interface to deploy these instances, so technical staff will be needed to configure each instance per the linked documentation below.
+## Why the CHT is not multi-tenant
 
-It is the responsibility of each multi-tenant host to ensure all [requirements](/hosting/cht/requirements/) and [considerations](hosting/cht/considerations/) are met.  
+A CHT instance is designed as **one stack, one configuration, one admin scope**. Each instance is a fixed set of services pointed at a single CouchDB server:
 
-## Hosting
+- **api** – REST API and replication endpoint
+- **sentinel** – background processor (transitions, scheduled messages, purging)
+- **couchdb** – the data store (single-node or a 3+ node cluster)
+- **haproxy** – database load balancer
+- **nginx** – TLS termination and static assets
 
-Both production [Docker](/hosting/cht/docker/) and production [Kubernetes](/hosting/cht/kubernetes/) CHT deployments can safely be configured to be multi-tenant. Each instance will silo all the it's own data and not allow any unauthenticated access from instances hosted on the same server.  
+All organizational data lives in a handful of databases on that one CouchDB server, and the entire deployment shares a single app configuration (forms, hierarchy, tasks, targets) and a single admin scope. There is no mechanism to divide an instance into independently configured or independently administered partitions.
 
-See the [Kubernetes vs Docker](/hosting/cht/kubernetes-vs-docker/) for more information on which technology to use.
+See related [forum discussion](https://forum.communityhealthtoolkit.org/t/does-cht-support-muti-tenant-architecture-and-how-much-load-a-single-tenant-can-take/5652).
 
-## Backup, Monitoring and Reporting
+## Scenario 1: Separate organizations, each with their own configuration and data
 
-Each multi-tenant deployment can choose to have unique [backup](/hosting/cht/docker/backups/), [monitoring](/hosting/monitoring/) and [reporting](/hosting/analytics/).  This would allow a 1:1 mapping of an instances data, with no cross pollination of the data.
+*Example: several implementing partners each want their own forms, hierarchy, and data, fully isolated from one another.*
 
-Alternately, these same systems can be configured to have a single shared solution. These will be allowed to aggregate backup, monitoring and reporting into a single, global solution. This can be done in addition to or in place of a 1:1 setup as mentioned above.
+This is not possible within a single CHT instance. The supported pattern is **instance-per-tenant**: deploy a separate CHT stack for each organization. Each instance fully silos its own data; there is no shared access between instances.
 
-The benefit of a global solution is that statistics from all deployments can be aggregated together for reporting purposes, which could be desired in a national deployment, for example. 
+Running multiple independent CHT instances on shared infrastructure is standard containerization, not a CHT feature. Each instance is deployed and operated exactly as documented for a single instance:
 
+- On Kubernetes, each tenant is its own Helm release with its own project name, namespace, and CouchDB. Multiple releases can run on a shared cluster. See [Kubernetes hosting](/hosting/cht/kubernetes/).
+- With Docker, multiple instances can run on one host using separate Compose projects. See [Docker hosting](/hosting/cht/docker/).
+- See [Kubernetes vs Docker](/hosting/cht/kubernetes-vs-docker/) to choose between them.
+
+Note that the operator of the shared infrastructure is responsible for ensuring every instance independently meets all [requirements](/hosting/cht/requirements/) and [considerations](/hosting/cht/considerations/), including [backups](/hosting/cht/docker/backups/) and [monitoring](/hosting/monitoring/) for each instance. Sizing, port allocation, TLS, and resource isolation across instances are general infrastructure concerns every CHT deployment should own.
+
+## Scenario 2: Multiple groups sharing one instance, with separated data access
+
+*Example: several implementers work in different regions of the same district and each should only see their own contacts and reports.*
+
+This is only **partially** possible, and the limits are the following:
+
+- **Offline users** are scoped by the contact hierarchy and replication depth, so they can be partitioned: each offline user only replicates and sees the part of the hierarchy they belong to.
+- **Online users and the API have read access to all data in the instance.** There is no mechanism to restrict this.
+- **Configuration is shared.** All groups in the instance use the same forms, tasks, targets, and hierarchy definitions. One group cannot have its own variant of the app.
+
+If the groups need isolated online/admin access or their own configuration, this scenario becomes Scenario 1: run separate instances.
+
+## Scenario 3: Self-service or white-label provisioning
+
+*Example: a host organization wants a graphical interface where third parties can spin up their own customized CHT deployment under a shared umbrella.*
+
+There is no graphical interface for deploying or provisioning CHT instances; every instance is deployed by technical staff following the hosting documentation above.
+
+## Scale of a single instance
+
+Multi-tenancy questions are sometimes really scale questions: "do we need to split into tenants to handle our load?" Usually not. Single CHT instances run in production at national and sub-national scale, comfortably serving tens of thousands of users. The real constraint is replication load — how many offline users sync and how many documents each replicates — rather than raw user count. See [scalability considerations](/hosting/cht/considerations/) before assuming you need multiple instances for capacity reasons.
