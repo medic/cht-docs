@@ -38,7 +38,7 @@ Add a bind for the capture field:
 <bind nodeset="/data/contact/geo_capture" type="string" required="true()"/>
 ```
 
-Replace `/data/contact/` with the actual nodeset path for the contact group in your form. The `required="true()"` attribute is recommended. The widget independently prevents the CHW from proceeding without a result, so this acts as a belt-and-suspenders fallback at submission.
+Replace `/data/contact/` with the actual nodeset path for the contact group in your form. Set the `required="true()"` attribute if you want to require the CHW to submit the geolocation data when creating or editing a household. The widget itself does not independently required this, so omitting the required bind means the field can be left empty on submission.
 
 ### 3. Body
 
@@ -140,7 +140,7 @@ As soon as the edit form opens, GPS starts acquiring silently in the background.
 
 ## What gets stored
 
-When the form is submitted, CHT writes the following fields to the contact document. The capture field itself (`geo_capture` in the examples above; the name is arbitrary) is never saved — CHT strips it from the document before saving, since it exists only to drive the widget and the save logic.
+When the form is submitted, CHT writes the following fields to the contact document.
 
 | Field | Value | Notes |
 |-------|-------|-------|
@@ -157,7 +157,7 @@ Each entry in `geolocation_log` has this shape:
 }
 ```
 
-`is_home` is `true` for home captures and `false` for other-context captures. On GPS failure, `recording` is an error object (`{ "code": 2, "message": "..." }`) and `is_home` is not present. `geolocation` itself never holds an error; on failure it's simply left untouched.
+`is_home` is `true` for home captures and `false` for other-context captures. On GPS failure, `recording` is an error object (`{ "code": 2, "message": "..." }`) and `is_home` is not present. `geolocation` itself never holds an error. On failure it's left untouched.
 
 > [!NOTE]
-> A failed GPS attempt is only logged to `geolocation_log` when the contact had no prior location — that is, the create-flow "Save without location" path, or editing a contact with no existing location. Choosing **Remove household location** in edit mode never attempts a capture and never appends a log entry; it's a pure delete of `geolocation`.
+> A failed GPS attempt is only logged to `geolocation_log` when the contact had no prior location — that is, the create-flow "Save without location" path, or editing a contact with no existing location. Choosing **Remove household location** in edit mode never attempts a capture and never appends a log entry.
