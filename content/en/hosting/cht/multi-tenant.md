@@ -21,15 +21,15 @@ If your scenario isn't covered here, please describe it on the [CHT Forum](https
 
 ## Why the CHT is not multi-tenant
 
-A CHT instance is designed as **one stack, one configuration, one admin scope**. Each instance is a fixed set of services pointed at a single CouchDB server:
+A CHT instance is designed as only one stack, one configuration, one admin scope. Per [the architecture page](/technical-overview/architecture/cht-core/), each instance is a fixed set of services pointed at a single CouchDB server:
 
-- **api** – REST API and replication endpoint
-- **sentinel** – background processor (transitions, scheduled messages, purging)
-- **couchdb** – the data store (single-node or a 3+ node cluster)
-- **haproxy** – database load balancer
-- **nginx** – TLS termination and static assets
+- **API** – main application service 
+- **Sentinel** – background processor for transitions, scheduled messages, purging
+- **CouchDB** – data store
+- **HAProxy** – logging and reverse proxy for CouchDB
+- **nginx** – TLS termination and reverse proxy
 
-All organizational data lives in a handful of databases on that one CouchDB server, and the entire deployment shares a single app configuration (forms, hierarchy, tasks, targets) and a single admin scope. There is no mechanism to divide an instance into independently configured or independently administered partitions.
+All organizational data lives in the single CouchDB server, and the entire deployment shares a single app configuration (forms, hierarchy, tasks, targets) and a single admin scope. There is no mechanism to divide an instance into independently configured or independently administered partitions.
 
 See related [forum discussion](https://forum.communityhealthtoolkit.org/t/does-cht-support-muti-tenant-architecture-and-how-much-load-a-single-tenant-can-take/5652).
 
@@ -39,11 +39,7 @@ See related [forum discussion](https://forum.communityhealthtoolkit.org/t/does-c
 
 This is not possible within a single CHT instance. The supported pattern is **instance-per-tenant**: deploy a separate CHT stack for each organization. Each instance fully silos its own data; there is no shared access between instances.
 
-Running multiple independent CHT instances on shared infrastructure is standard containerization, not a CHT feature. Each instance is deployed and operated exactly as documented for a single instance:
-
-- On Kubernetes, each tenant is its own Helm release with its own project name, namespace, and CouchDB. Multiple releases can run on a shared cluster. See [Kubernetes hosting](/hosting/cht/kubernetes/).
-- With Docker, multiple instances can run on one host using separate Compose projects. See [Docker hosting](/hosting/cht/docker/).
-- See [Kubernetes vs Docker](/hosting/cht/kubernetes-vs-docker/) to choose between them.
+Running multiple independent CHT instances on shared infrastructure is standard [containerization](https://en.wikipedia.org/wiki/Containerization_(computing)), not a CHT feature. Each CHT instance is deployed in either [Kubernetes](/hosting/cht/kubernetes/) or [Docker hosting](/hosting/cht/docker/). See [Kubernetes vs Docker](/hosting/cht/kubernetes-vs-docker/) to choose between them.
 
 Note that the operator of the shared infrastructure is responsible for ensuring every instance independently meets all [requirements](/hosting/cht/requirements/) and [considerations](/hosting/cht/considerations/), including [backups](/hosting/cht/docker/backups/) and [monitoring](/hosting/monitoring/) for each instance. Sizing, port allocation, TLS, and resource isolation across instances are general infrastructure concerns every CHT deployment should own.
 
@@ -53,11 +49,11 @@ Note that the operator of the shared infrastructure is responsible for ensuring 
 
 This is only **partially** possible, and the limits are the following:
 
-- **Offline users** are scoped by the contact hierarchy and replication depth, so they can be partitioned: each offline user only replicates and sees the part of the hierarchy they belong to.
+- **Offline users** are scoped by the contact hierarchy and replication depth, so they can be partitioned: each [offline user](/technical-overview/concepts/offline-first/) only replicates and sees the part of the hierarchy they belong to.
 - **Online users and the API have read access to all data in the instance.** There is no mechanism to restrict this.
 - **Configuration is shared.** All groups in the instance use the same forms, tasks, targets, and hierarchy definitions. One group cannot have its own variant of the app.
 
-If the groups need isolated online/admin access or their own configuration, this scenario becomes Scenario 1: run separate instances.
+If the groups need isolated online/admin access or their own configuration, this scenario becomes Scenario 1: [run separate instances](#scenario-1-separate-organizations-each-with-their-own-configuration-and-data).
 
 ## Scenario 3: Self-service or white-label provisioning
 
