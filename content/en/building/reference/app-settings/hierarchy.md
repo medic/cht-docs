@@ -32,6 +32,7 @@ From 3.7.0 it is possible to configure what types of places and people are avail
 | `edit_form` | The string ID for the xform used to edit contacts of this type. | No, defaults to the create_form. |
 | `count_visits` | Whether or not to show a count of visits for contacts of this type. Requires UHC to be enabled. | No, defaults to `false`. |
 | `sort_by_dob`         | Whether or not to sort contacts by date of birth in the contact detail page. By default, contacts are sorted alphabetically. | No, defaults to `false`. |
+| `photo_field` | From 5.2.0. The name of the contact field holding the photo's filename. The contact's profile header displays the matching `user-file-<value>` attachment as a circular photo, falling back to the type `icon` when no photo is present. The photo is captured by an upload field in the contact's create/edit form. | No, defaults to `photo`. |
 | `person` | Whether this is a person type or a place type. | No, defaults to `false`. |
  
 ### Forms
