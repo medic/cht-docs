@@ -26,6 +26,7 @@ To host a production instance of CHT, use the [Production Hosting in CHT](/hosti
   {{< card link="migration/" title="Migration Guides" icon="arrow-circle-right" subtitle="Guides for migrating CHT applications" >}}
   {{< card link="/hosting/cht/docker/" title="Production Docker" subtitle="Details for hosting the CHT on Docker" icon="docker" >}}
   {{< card link="/hosting/cht/kubernetes/" title="Production Kubernetes" subtitle="Details for hosting the CHT on Kubernetes" icon="kubernetes" >}}
+  {{< card link="multi-tenant" title="Multi-tenancy" subtitle="Multi-tenancy in the context of CHT deployments" icon="users" >}}
   {{< card link="upgrade-troubleshooting" title="Troubleshooting upgrades" subtitle="What to do when CHT upgrades don't work as planned" icon="search-circle" >}}
 {{< /cards >}}
 
