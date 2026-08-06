@@ -203,3 +203,7 @@ It is also possible to create additional contacts as children of the new place u
 | text         | name   | Member Name           |            |         |             |
 | end_repeat   | child  |                       |            |         |             |
 | end_group    | repeat |                       |            |         |             |  
+
+### Capturing photos and files for child contacts
+
+From 5.2.0, a photo or file-upload field is attached to the doc of the contact it was captured for, resolved by the form section the field sits in: fields in the place's top-level group attach to the place, fields inside the `contact` group attach to the primary contact's person doc, and fields inside the `child` repeat attach to that repeat entry's doc. In earlier versions every upload was attached to the doc the form created at the top level. Also from 5.2.0, saving a contact fails with an error if any single doc's attachments exceed the maximum attachment size, matching the existing behavior of report forms.
