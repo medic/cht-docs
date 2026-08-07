@@ -20,6 +20,30 @@ _Added in CHT `TBD`._
 >
 > The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically: it activates on any form field with `appearance="geolocation-capture"`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type — otherwise the household-specific default text shows through.
 
+## What gets stored
+
+When the form is submitted, CHT writes the following fields to the contact document.
+
+| Field | Value | Notes |
+|-------|-------|-------|
+| `geolocation` | GPS coordinates object | Written by CHT at save time. Set to the new coordinates only after a successful home capture; left unchanged in every other case (Keep, a non-home capture, or a failed capture). Cleared only by Remove |
+| `geolocation_log` | Array of capture events | Append-only; grows on subsequent edits |
+
+Each entry in `geolocation_log` has this shape:
+
+```json
+{
+  "timestamp": 1234567890000,
+  "recording": { "latitude": 1.23, "longitude": 4.56, "accuracy": 10 },
+  "is_home": true
+}
+```
+
+`is_home` is `true` for home captures and `false` for other-context captures. On GPS failure, `recording` is an error object (`{ "code": 2, "message": "..." }`) and `is_home` is not present. `geolocation` itself never holds an error. On failure it's left untouched.
+
+> [!NOTE]
+> A failed GPS attempt is only logged to `geolocation_log` when the contact had no prior location: the create-flow "Save without location" path, or editing a contact with no existing location. Choosing **Remove household location** in edit mode never attempts a capture and never appends a log entry.
+
 ## Configuration
 
 {{< tabs items="XLSForm,XForm XML" >}}
@@ -149,27 +173,3 @@ As soon as the edit form opens, GPS starts acquiring silently in the background.
 **Contacts with no location recorded:**
 
 - Editing a contact that has never had a location recorded shows the standard create-mode UI, plus a message that no GPS location has been recorded for the household yet
-
-## What gets stored
-
-When the form is submitted, CHT writes the following fields to the contact document.
-
-| Field | Value | Notes |
-|-------|-------|-------|
-| `geolocation` | GPS coordinates object | Written by CHT at save time. Set to the new coordinates only after a successful home capture; left unchanged in every other case (Keep, a non-home capture, or a failed capture). Cleared only by Remove |
-| `geolocation_log` | Array of capture events | Append-only; grows on subsequent edits |
-
-Each entry in `geolocation_log` has this shape:
-
-```json
-{
-  "timestamp": 1234567890000,
-  "recording": { "latitude": 1.23, "longitude": 4.56, "accuracy": 10 },
-  "is_home": true
-}
-```
-
-`is_home` is `true` for home captures and `false` for other-context captures. On GPS failure, `recording` is an error object (`{ "code": 2, "message": "..." }`) and `is_home` is not present. `geolocation` itself never holds an error. On failure it's left untouched.
-
-> [!NOTE]
-> A failed GPS attempt is only logged to `geolocation_log` when the contact had no prior location — that is, the create-flow "Save without location" path, or editing a contact with no existing location. Choosing **Remove household location** in edit mode never attempts a capture and never appends a log entry.
