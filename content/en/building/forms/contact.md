@@ -86,9 +86,7 @@ The equivalent XForm XML for the above example is:
 
 _Added in CHT `TBD`._
 
-Household contact forms can capture the device's GPS location when a household is created or edited. The widget stores coordinates on the contact document and maintains a geolocation log across edits. After a successful capture, a context question records whether the CHW is at the household or somewhere else.
-
-This widget is written specifically for household contacts and isn't intended for other contact types.
+Contact forms can capture the device's GPS location when a contact is created or edited. The widget stores coordinates on the contact document and maintains a geolocation log across edits. After a successful capture, a context question records whether the CHW is at the household or somewhere else.
 
 {{< see-also page="building/forms/configuring/contact-geolocation" >}}
 

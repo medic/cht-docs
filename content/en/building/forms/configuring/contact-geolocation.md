@@ -1,26 +1,28 @@
 ---
-title: "Capture GPS Location in Household Contact Forms"
+title: "Capture GPS Location in Contact Forms"
 linkTitle: "GPS Location Capture"
 weight: 9
 description: >
-  Configure a geolocation widget in household contact forms to capture GPS coordinates when a household is created or edited
+  Configure a geolocation widget in contact forms to capture GPS coordinates when a contact is created or edited
 relatedContent: >
   building/forms/contact
   building/contact-management/contacts
 ---
 
-Household contact forms can capture the device's GPS location at the time a household is created or edited. The geolocation widget handles the full capture experience automatically: it starts acquiring a position the instant the form renders, then shows progress, success, and failure states. It stores the result on the contact document.
+Contact forms can capture the device's GPS location at the time a contact is created or edited. The geolocation widget handles the full capture experience automatically: it starts acquiring a position the instant the form renders, then shows progress, success, and failure states. It stores the result on the contact document.
 
 After a successful capture, the widget asks whether the CHW is at the household or somewhere else, and records the answer alongside the coordinates. This context question is part of the widget and requires no additional XForm fields.
 
 _Added in CHT `TBD`._
 
 > [!CAUTION]
-> This widget is designed for household contact forms only. Adding it to a report form is unsupported and may produce unexpected behavior. It's also written specifically for households: the badge and option labels use household-specific wording ("Household location already saved", "Change household location", and so on). Adding it to a form for another contact type shows that same wording, which won't make sense outside a household context.
+> This widget is designed for contact forms only. Adding it to a report form is unsupported and may produce unexpected behavior.
+>
+> The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically: it activates on any form field with `appearance="geolocation-capture"`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type — otherwise the household-specific default text shows through.
 
 ## XForm configuration
 
-Three changes are required in the household contact form XML: a model field, a bind, and a body element.
+Three changes are required in the contact form XML: a model field, a bind, and a body element.
 
 ### 1. Model instance
 
@@ -38,7 +40,7 @@ Add a bind for the capture field:
 <bind nodeset="/data/contact/geo_capture" type="string" required="true()"/>
 ```
 
-Replace `/data/contact/` with the actual nodeset path for the contact group in your form. Set the `required="true()"` attribute if you want to require the CHW to submit the geolocation data when creating or editing a household. The widget itself does not independently required this, so omitting the required bind means the field can be left empty on submission.
+Replace `/data/contact/` with the actual nodeset path for the contact group in your form. Set the `required="true()"` attribute if you want to require the CHW to submit the geolocation data when creating or editing the contact. The widget itself does not independently require this, so omitting the required bind means the field can be left empty on submission.
 
 ### 3. Body
 
