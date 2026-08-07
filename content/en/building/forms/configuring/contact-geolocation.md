@@ -11,7 +11,7 @@ relatedContent: >
 
 Contact forms can capture the device's GPS location at the time a contact is created or edited. The geolocation widget handles the full capture experience automatically: it starts acquiring a position the instant the form renders, then shows progress, success, and failure states. It stores the result on the contact document.
 
-After a successful capture, the widget asks whether the CHW is at the household or somewhere else, and records the answer alongside the coordinates. This context question is part of the widget and requires no additional XForm fields.
+After a successful capture, the widget asks whether the CHW is at the household or somewhere else, and records the answer alongside the coordinates.
 
 _Added in CHT `TBD`._
 
@@ -20,9 +20,26 @@ _Added in CHT `TBD`._
 >
 > The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically: it activates on any form field with `appearance="geolocation-capture"`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type — otherwise the household-specific default text shows through.
 
-## XForm configuration
+## Configuration
 
-Three changes are required in the contact form XML: a model field, a bind, and a body element.
+{{< tabs items="XLSForm,XForm XML" >}}
+
+  {{< tab >}}
+Add the following row to the **survey** sheet, within the existing contact group:
+
+| type   | name        | label::en            | appearance          | required |
+|--------|-------------|----------------------|---------------------|----------|
+| string | geo_capture | Capture GPS location | geolocation-capture | yes      |
+
+The field name (`geo_capture` in this example) can be anything; only the `appearance` value (`geolocation-capture`) is the contract between the form and CHT. Set `required` to `yes` if you want to require the CHW to submit the geolocation data before continuing — the widget itself does not independently require this, so leaving it blank means the field can be left empty on submission.
+
+For additional languages, add a `label::<lang>` column for each language your deployment supports (for example, `label::fr`).
+
+Convert and upload the form with `cht-conf` as usual.
+  {{< /tab >}}
+
+  {{< tab >}}
+Here's the same configuration as raw XForm XML. Three changes are required: a model field, a bind, and a body element.
 
 ### 1. Model instance
 
@@ -68,16 +85,9 @@ Add a label for the capture field in the `<itext>` section for each language you
 </translation>
 ```
 
-## XLSForm equivalent
+  {{< /tab >}}
 
-> [!WARNING]
-> This section has not been tested against a real cht-conf XLSForm conversion. Verify the output before using it in a deployment.
-
-For forms built with XLSForm, add the following row to the **survey** sheet within the existing contact group:
-
-| type   | name        | label::en            | appearance          | required |
-|--------|-------------|----------------------|---------------------|----------|
-| string | geo_capture | Capture GPS location | geolocation-capture | yes      |
+{{< /tabs >}}
 
 ## Widget behavior
 
@@ -114,7 +124,7 @@ Once the form is configured, GPS acquisition starts automatically the moment the
 
 ## Edit mode
 
-When a contact already has a valid location on record (`geolocation` set from an earlier successful capture), editing that contact activates a different widget state. No additional XForm configuration is required.
+When a contact already has a valid location on record (`geolocation` set from an earlier successful capture), editing that contact activates a different widget state. No additional configuration is required.
 
 As soon as the edit form opens, GPS starts acquiring silently in the background. There's no progress bar to watch; the CHW finds out whether it succeeded by trying to select one of the capture options below.
 
