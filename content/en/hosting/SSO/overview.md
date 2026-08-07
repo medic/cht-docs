@@ -40,14 +40,6 @@ SSO authentication is implemented with the industry standard [OpenID Connect](ht
 4. Before logging into the CHT, each SSO user must have a CHT user [provisioned with an "SSO Email Address"](/building/reference/api/#/User/v3UsersPost) that matches the email address configured for the user with the OIDC Provider.
 5. Use the "Login with SSO" button on the CHT login page.
 
-<!--
-
-mrjones shipped this too early!  commenting out below section for the time being.
-see https://github.com/medic/cht-docs/pull/2197 
--->
-
-<!-- 
-
 
 ### Require re-authentication
 
@@ -62,7 +54,6 @@ In some cases, this behavior is not desired and the user should be required to r
 To avoid this behavior, you can define the maximum allowed age of the user's current session with the OIDC Provider, after which the user will be required to re-authenticate when logging into the CHT even if their session is still active. Set the `oidc_provider.max_age` setting to the allowable elapsed time in seconds since the last time the user was actively authenticated by the OIDC Provider. If the elapsed time is greater than this value, the user will be required to re-authenticate.
 
 Setting `max_age: 0` will always require re-authenticating with the OIDC Provider when logging into the CHT.
--->
 
 ## Detailed Guides 
 
