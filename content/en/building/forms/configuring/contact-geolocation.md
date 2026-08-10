@@ -18,7 +18,7 @@ _Added in CHT `TBD`._
 > [!CAUTION]
 > This widget is designed for contact forms only. Adding it to a report form is unsupported and may produce unexpected behavior.
 >
-> The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically: it activates on any form field with `appearance="geolocation-capture"`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type — otherwise the household-specific default text shows through.
+> The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically. It activates on any form field with `appearance="geolocation-capture"`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type. Otherwise the household-specific default text shows through.
 
 ## What gets stored
 
@@ -26,7 +26,7 @@ When the form is submitted, CHT writes the following fields to the contact docum
 
 | Field | Value | Notes |
 |-------|-------|-------|
-| `geolocation` | GPS coordinates object | Written by CHT at save time. Set to the new coordinates only after a successful home capture; left unchanged in every other case (Keep, a non-home capture, or a failed capture). Cleared only by Remove |
+| `geolocation` | GPS coordinates object | Written by CHT at save time. Set to the new coordinates only after a successful home capture; left unchanged in every other case (when keeping an existing location, when adding a non-home capture, or a failed capture). Cleared only when removing an existing location. |
 | `geolocation_log` | Array of capture events | Append-only; grows on subsequent edits |
 
 Each entry in `geolocation_log` has this shape:
@@ -39,7 +39,7 @@ Each entry in `geolocation_log` has this shape:
 }
 ```
 
-`is_home` is `true` for home captures and `false` for other-context captures. On GPS failure, `recording` is an error object (`{ "code": 2, "message": "..." }`) and `is_home` is not present. `geolocation` itself never holds an error. On failure it's left untouched.
+`is_home` is set to `true` for home captures and `false` for other-context captures. On GPS failure, `recording` is an error object (`{ "code": 2, "message": "..." }`) and `is_home` is not present. `geolocation` itself never holds an error. On failure, any existing `geolocation` field on the contact is left untouched.
 
 > [!NOTE]
 > A failed GPS attempt is only logged to `geolocation_log` when the contact had no prior location: the create-flow "Save without location" path, or editing a contact with no existing location. Choosing **Remove household location** in edit mode never attempts a capture and never appends a log entry.
@@ -55,7 +55,7 @@ Add the following row to the **survey** sheet, within the existing contact group
 |--------|-------------|----------------------|---------------------|----------|
 | string | geo_capture | Capture GPS location | geolocation-capture | yes      |
 
-The field name (`geo_capture` in this example) can be anything; only the `appearance` value (`geolocation-capture`) is the contract between the form and CHT. Set `required` to `yes` if you want to require the CHW to submit the geolocation data before continuing — the widget itself does not independently require this, so leaving it blank means the field can be left empty on submission.
+The field name (`geo_capture` in this example) can be anything; only the `appearance` value (`geolocation-capture`) is the contract between the form and CHT. Set `required` to `yes` if you want to require the CHW to submit the geolocation data before continuing. The widget itself does not independently require this, so leaving it blank means the field can be left empty on submission.
 
 For additional languages, add a `label::<lang>` column for each language your deployment supports (for example, `label::fr`).
 
@@ -119,57 +119,71 @@ Once the form is configured, GPS acquisition starts automatically the moment the
 
 **While GPS is acquiring:**
 
-- A progress bar fills over up to 30 seconds while the widget waits for a position
+- A progress bar fills over up to 30 seconds while the widget waits for a position.
+
+{{< figure src="gps-acquiring.png" link="gps-acquiring.png" alt="The geolocation widget showing a progress bar mid-fill while GPS is acquiring" >}}
 
 **On success:**
 
-- The progress bar is replaced by a success message
-- The widget shows a context question with two options: "I'm at the household" and "I'm somewhere else"
-- Selecting either option sets `geo_capture` to `"captured"`, records the choice, and lets the CHW proceed to the next page
+- The progress bar is replaced by a success message.
+- The widget shows a context question with two options: "I'm at the household" and "I'm somewhere else".
+- Selecting either option records the choice and lets the CHW proceed to the next page.
+
+{{< figure src="success.png" link="success.png" alt="The geolocation widget showing a success message with the 'I'm at the household' and 'I'm somewhere else' context question" >}}
 
 **On failure (weak or unavailable GPS signal):**
 
-- The progress bar is replaced by a failure message
-- If the failure is due to a weak or unreliable signal, a message prompts the CHW to move to an area with better reception
-- A retry button and a checkbox labeled **Save without location** appear
-- Tapping the retry button clears the failure state and starts a new capture attempt
-- Checking **Save without location** immediately sets `geo_capture` to `"skipped"` and cancels the in-progress capture; unchecking it clears the field, and the CHW can then tap Retry to try again
+- The progress bar is replaced by a failure message.
+- If the failure is due to a weak or unreliable signal, a message prompts the CHW to move to an area with better reception.
+- A retry button and a checkbox labeled **Save without location** appear.
+- Tapping the retry button clears the failure state and starts a new capture attempt.
+- Checking **Save without location** immediately cancels the in-progress capture. Unchecking it lets the CHW tap Retry to try again.
+
+{{< figure src="failure-weak-signal.png" link="failure-weak-signal.png" alt="The geolocation widget showing a failure message, weak-signal message, Retry button, and the Save without location checkbox" >}}
 
 **When location permission is denied:**
 
-- No progress bar or context question is shown. Instead, the widget displays a message telling the CHW that location access is turned off and directing them to their device settings
-- A **Save without location** checkbox appears; there's no retry button, since there's nothing to retry until permission changes
-- This check covers a real browser or PWA permission denial, not only the Android-specific permission setting. No form configuration is required
-- If the CHW grants permission while the form is still open, the widget detects the change automatically and drops back into the normal capture flow — no page reload or form restart needed
+- No progress bar or context question is shown. Instead, the widget displays a message telling the CHW that location access is turned off and directing them to their device settings.
+- A **Save without location** checkbox appears. There's no retry button, since there's nothing to retry until permission changes.
+- This check covers a real browser or PWA permission denial, not only the Android-specific permission setting. No form configuration is required.
+- If the CHW grants permission while the form is still open, the widget detects the change automatically and drops back into the normal capture flow. No page reload or form restart is needed.
+
+{{< figure src="permission-denied.png" link="permission-denied.png" alt="The geolocation widget showing a permission-denied message and the Save without location checkbox, with no Retry button" >}}
 
 **When GPS is unavailable on the device:**
 
-- The widget shows a message that GPS isn't available on the device, along with the **Save without location** checkbox
+- The widget shows a message that GPS isn't available on the device, along with the **Save without location** checkbox.
+
+{{< figure src="gps-unavailable.png" link="gps-unavailable.png" alt="The geolocation widget showing a GPS-unavailable message and the Save without location checkbox" >}}
 
 ## Edit mode
 
 When a contact already has a valid location on record (`geolocation` set from an earlier successful capture), editing that contact activates a different widget state. No additional configuration is required.
 
-As soon as the edit form opens, GPS starts acquiring silently in the background. There's no progress bar to watch; the CHW finds out whether it succeeded by trying to select one of the capture options below.
+As soon as the edit form opens, GPS starts acquiring silently in the background. There's no progress bar to watch. The CHW finds out whether it succeeded by trying to select one of the capture options below.
 
 **Edit mode UI:**
 
-- A badge reading "Household location already saved" confirms a location is on record. It's static text — it doesn't show the capture context or how long ago the location was captured
+- A badge reading "Household location already saved" confirms a location is on record. It's static text. It doesn't show the capture context or how long ago the location was captured.
 - Four radio options let the CHW choose what to do:
 
 | Option | Effect |
 |---|---|
-| Keep saved household location (pre-selected) | `geolocation` and `geolocation_log` are left exactly as they are |
-| Change household location | Starts a home capture, the same as the create flow's home context |
-| I am not at the household | Starts an "other" capture — logged to `geolocation_log`, but doesn't overwrite `geolocation` |
-| Remove household location | Clears `geolocation` entirely; no GPS capture is attempted |
+| Keep saved household location (pre-selected) | `geolocation` and `geolocation_log` are left exactly as they are. |
+| Change household location | Starts a home capture, the same as the create flow's home context. |
+| I am not at the household | Starts an "other" capture, logged to `geolocation_log`, but doesn't overwrite `geolocation`. |
+| Remove household location | Clears `geolocation` entirely. No GPS capture is attempted. |
 
-- **Change household location** and **I am not at the household** stay disabled until the background GPS read succeeds. If that read fails, both re-disable and, if either was selected, the choice reverts to **Keep saved household location** — a CHW can never select a capture option without a live, successful GPS read backing it
+{{< figure src="edit-mode-disabled.png" link="edit-mode-disabled.png" alt="Edit mode showing the saved-location badge and 4 radio options, with Change household location and I am not at the household disabled" >}}
+
+- **Change household location** and **I am not at the household** stay disabled until the background GPS read succeeds. If that read fails, both re-disable and, if either was selected, the choice reverts to **Keep saved household location**. A CHW can never select a capture option without a live, successful GPS read backing it.
+
+{{< figure src="edit-mode-enabled.png" link="edit-mode-enabled.png" alt="Edit mode showing the saved-location badge and 4 radio options, with Change household location and I am not at the household enabled" >}}
 
 **Contacts with only failed captures:**
 
-- A contact whose prior captures all failed (for example, permission denied every time) is treated the same as a contact with no location; the standard create-mode UI is shown instead of the badge and radio options
+- A contact whose prior captures all failed (for example, permission denied every time) is treated the same as a contact with no location. The standard create-mode UI is shown instead of the badge and radio options.
 
 **Contacts with no location recorded:**
 
-- Editing a contact that has never had a location recorded shows the standard create-mode UI, plus a message that no GPS location has been recorded for the household yet
+- Editing a contact that has never had a location recorded shows the standard create-mode UI, plus a message that no GPS location has been recorded for the household yet.
