@@ -10,18 +10,15 @@ relatedContent: >
   hosting/cht/kubernetes
   hosting/cht/docker
   hosting/cht/kubernetes-vs-docker
-  hosting/cht/docker/backups
-  hosting/monitoring
-  hosting/analytics
 ---
 
 The CHT does not have built-in multi-tenancy features. Because "multi-tenant" is an umbrella term covering several very different setups, this page describes the most common scenarios the community asks about, what is and isn't possible in each, and why.
 
 If your scenario isn't covered here, please describe it on the [CHT Forum](https://forum.communityhealthtoolkit.org/). The more specific you can be about what a "tenant" means in your context, the better the guidance you'll get.
 
-## Why the CHT is not multi-tenant
+## How a CHT instance is structured
 
-A CHT instance is designed as only one stack, one configuration, one admin scope. Per [the architecture page](/technical-overview/architecture/cht-core/), each instance is a fixed set of services pointed at a single CouchDB server:
+A CHT instance is designed as one stack, one configuration, one admin scope. Per [the architecture page](/technical-overview/architecture/cht-core/), each instance is a fixed set of services pointed at a single CouchDB server:
 
 - **API** – main application service 
 - **Sentinel** – background processor for transitions, scheduled messages, purging
@@ -29,7 +26,7 @@ A CHT instance is designed as only one stack, one configuration, one admin scope
 - **HAProxy** – logging and reverse proxy for CouchDB
 - **nginx** – TLS termination and reverse proxy
 
-All organizational data lives in the single CouchDB server, and the entire deployment shares a single app configuration (forms, hierarchy, tasks, targets) and a single admin scope. There is no mechanism to divide an instance into independently configured or independently administered partitions.
+All organizational data lives in the single CouchDB server, and the entire deployment shares a single app configuration (forms, hierarchy, tasks, targets) and a single admin scope. There is currently no mechanism to divide an instance into independently configured or independently administered partitions.
 
 See related [forum discussion](https://forum.communityhealthtoolkit.org/t/does-cht-support-muti-tenant-architecture-and-how-much-load-a-single-tenant-can-take/5652).
 
@@ -37,7 +34,7 @@ See related [forum discussion](https://forum.communityhealthtoolkit.org/t/does-c
 
 *Example: several implementing partners each want their own forms, hierarchy, and data, fully isolated from one another.*
 
-This is not possible within a single CHT instance. The supported pattern is **instance-per-tenant**: deploy a separate CHT stack for each organization. Each instance fully silos its own data; there is no shared access between instances.
+This is not currently possible within a single CHT instance. The supported pattern is **instance-per-tenant**: deploy a separate CHT stack for each organization. Each instance fully silos its own data; there is no shared access between instances.
 
 Running multiple independent CHT instances on shared infrastructure is standard [containerization](https://en.wikipedia.org/wiki/Containerization_(computing)), not a CHT feature. Each CHT instance is deployed in either [Kubernetes](/hosting/cht/kubernetes/) or [Docker hosting](/hosting/cht/docker/). See [Kubernetes vs Docker](/hosting/cht/kubernetes-vs-docker/) to choose between them.
 
@@ -63,4 +60,4 @@ There is no graphical interface for deploying or provisioning CHT instances; eve
 
 ## Scale of a single instance
 
-Multi-tenancy questions are sometimes really scale questions: "do we need to split into tenants to handle our load?" Usually not. Single CHT instances run in production at national and sub-national scale, comfortably serving tens of thousands of users. The real constraint is replication load — how many offline users sync and how many documents each replicates — rather than raw user count. See [scalability considerations](/hosting/cht/considerations/) before assuming you need multiple instances for capacity reasons.
+Multi-tenancy questions are sometimes really scale questions: "do we need to split into tenants to handle our load?". Usually not. Single CHT instances run in production at national and sub-national scale, comfortably serving tens of thousands of users. The real constraint is replication load — how many offline users sync and how many documents each replicates — rather than raw user count. See [scalability considerations](/hosting/cht/considerations/) before assuming you need multiple instances for capacity reasons.
