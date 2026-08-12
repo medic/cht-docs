@@ -41,7 +41,9 @@ Archiving is a pipeline with three stages:
 
 ## Queueing documents for archiving
 
-Determining _which_ documents to archive is up to you. For example, you can use analytics queries to find reports older than a retention threshold, or contacts that have been inactive for years.
+Determining _which_ documents to archive is currently a manual process. For example, you can use analytics queries to find reports older than a retention threshold, or contacts that have been inactive for years.
+
+A good place to start when considering which documents to archive is to evaluate your current purge configuration and see which documents are already marked as purged for all user roles.
 
 Submit the document IDs to the archive endpoint:
 
