@@ -67,7 +67,7 @@ curl -X POST \
   https://<admin>:<password>@<host>/api/v1/archive
 ```
 
-The endpoint splits the IDs into archive job documents of at most {{< format-number 100_000 >}} IDs each, stored in the `medic-sentinel` database, and responds with `202 Accepted` and the list of created jobs:
+The endpoint splits the IDs into archive jobs and responds with `202 Accepted` and the list of created jobs:
 
 ```json
 {
