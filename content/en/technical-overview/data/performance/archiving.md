@@ -21,7 +21,7 @@ Archiving differs from [purging](/technical-overview/data/performance/purging) i
 - Purging is conditional on user roles: the purge function decides per roles group, so a document can be purged for one user and not for another. Archiving is unconditional: an archived document is removed for all users.
 
 > [!WARNING]
-> Archived documents are no longer available to the CHT application. They cannot be viewed in the app, used in [tasks](/building/tasks/tasks-js), [targets](/building/targets/targets-js), or contact summaries, and they are deleted from user devices on the next sync. Make sure the documents you archive are no longer needed before submitting them.
+> Archived documents are no longer available to the CHT application. They cannot be viewed in the app, used in [tasks](/building/tasks/tasks-js), [targets](/building/targets/targets-js), or contact summaries, and they are deleted from user devices on the next sync. Make sure the documents are no longer needed before archiving them.
 
 ## Benefits
 
