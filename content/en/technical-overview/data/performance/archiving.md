@@ -35,7 +35,7 @@ Archiving differs from [purging](/technical-overview/data/performance/purging) i
 
 Archiving is a pipeline with three stages:
 
-1. You submit a list of document IDs to the [archive API endpoint](#queueing-documents-for-archiving). API validates the payload and stores archive jobs in the `medic-sentinel` database.
+1. You submit a list of document IDs to the [archive API endpoint](#queueing-documents-for-archiving). API validates the payload and queues the job for Sentinel.
 2. Sentinel processes the queued jobs, either on a [configurable schedule](#configuration) or immediately when no schedule is configured. Each document is copied to `medic-archive` and then purged from `medic`.
 3. When users sync, archived documents are treated as deleted and are removed from their devices.
 
