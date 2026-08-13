@@ -36,7 +36,7 @@ Archiving differs from [purging](/technical-overview/data/performance/purging) i
 Archiving is a pipeline with three stages:
 
 1. You submit a list of document IDs to the [archive API endpoint](#queueing-documents-for-archiving). API validates the payload and queues the job for Sentinel.
-2. Sentinel processes the queued jobs, either on a [configurable schedule](#configuration) or immediately when no schedule is configured. Each document is copied to `medic-archive` and then purged from `medic`.
+2. Sentinel processes the queued jobs, either on a [configurable schedule](#configuration) or immediately (within the next Sentinel 5-minute job queue cycle) when no schedule is configured. Each document is copied to `medic-archive` and then purged from `medic`.
 3. When users sync, archived documents are treated as deleted and are removed from their devices.
 
 ## Queueing documents for archiving
@@ -79,21 +79,6 @@ The endpoint splits the IDs into archive jobs and responds with `202 Accepted` a
 ```
 
 Jobs are persisted while the payload streams in, so a mid-payload failure can leave some jobs queued even though the request returns an error. Retrying the full payload is safe because archiving is idempotent; duplicate jobs only cost redundant processing.
-
-## Server-side processing
-
-Sentinel processes queued jobs in creation order, working through each job's IDs in batches of {{< format-number 1_000 >}}. For each batch, Sentinel:
-
-1. Copies the documents, including attachments, to the `medic-archive` database. An `archive_date` timestamp is added to each archived document.
-2. Records an audit entry for each archived document.
-3. Purges the documents' metadata documents (`<id>-info`) from `medic-sentinel`.
-4. Purges the documents from `medic`, including all conflicting revisions, so they leave no trace in the changes feed.
-
-Only contacts, reports, tasks, and targets can be archived. IDs of documents that are missing or of any other type, such as forms or settings, are silently skipped.
-
-Every 10 batches, Sentinel queries the critical view indexes so that indexing keeps pace with the purges.
-
-A job that fails is retried on the next run, resuming from the last completed batch. After 10 failed attempts the job is removed from the queue so it cannot block other jobs; its record remains in `medic-logs`.
 
 ## Replication
 
@@ -164,6 +149,12 @@ A job whose log has `status: "failed"` has exhausted its 10 attempts and was rem
 
 Each archived document also has an audit entry recording that it was archived and when.
 
+## Considerations
+
+- **Archiving is meant to be permanent.** Archived documents live on in `medic-archive` and [restoring one](#restoring-archived-documents) is a manual, per-document process. Do not archive documents you expect to need again.
+- **Rules may break.** As with purging, any tasks or targets that depend on an archived document lose access to it. For example, archiving a report that completed a task reopens that task unless the document that created the task is also archived.
+- **Users may be confused.** Documents disappear from devices without notification. Work with your users to ensure documents are only archived once there is no use for them.
+
 ## Restoring archived documents
 
 There is no automated way to restore an archived document, but you can restore one manually:
@@ -175,9 +166,18 @@ There is no automated way to restore an archived document, but you can restore o
 
 On their next sync, users with access to the document download it again with its original content.
 
-## Considerations
 
-- **Archiving is meant to be permanent.** Archived documents live on in `medic-archive` and [restoring one](#restoring-archived-documents) is a manual, per-document process. Do not archive documents you expect to need again.
-- **Rules may break.** As with purging, any tasks or targets that depend on an archived document lose access to it. For example, archiving a report that completed a task reopens that task unless the document that created the task is also archived.
-- **Users may be confused.** Documents disappear from devices without notification. Work with your users to ensure documents are only archived once there is no use for them.
-- **The `medic-archive` database grows.** Archived documents, including attachments, accumulate in `medic-archive`. Because the database has no indexes, its size is dramatically smaller than the footprint the same documents had in `medic`, but account for it in your [hosting](/hosting/) disk capacity planning all the same.
+## Server-side processing
+
+Sentinel processes queued jobs in creation order, working through each job's IDs in batches of {{< format-number 1_000 >}}. For each batch, Sentinel:
+
+1. Copies the documents, including attachments, to the `medic-archive` database. An `archive_date` timestamp is added to each archived document.
+2. Records an audit entry for each archived document.
+3. Purges the documents' metadata documents (`<id>-info`) from `medic-sentinel`.
+4. Purges the documents from `medic`, including all conflicting revisions, so they leave no trace in the changes feed.
+
+Only contacts, reports, tasks, and targets can be archived. IDs of documents that are missing or of any other type, such as forms or settings, are silently skipped.
+
+Every 10 batches, Sentinel queries the critical view indexes so that indexing keeps pace with the purges.
+
+A job that fails is retried on the next run, resuming from the last completed batch. After 10 failed attempts the job is removed from the queue so it cannot block other jobs; its record remains in `medic-logs`.
