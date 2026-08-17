@@ -62,6 +62,8 @@ Example: you want to send a referral to a facility's EMR system when a CHW refer
 
 A complex property that defines the details of the connection to the external service. It currently supports several authentication types: basic authentication, HTTP authorization request header, and a custom authentication mode for Muso SIH.
 
+It can also include extra HTTP `headers` and an optional `proxy`.
+
 Basic auth example:
 
 ```json
@@ -84,6 +86,8 @@ If you don't provide an authentication parameter then the request will be sent w
 
 As of 3.9, the `header` type is also supported, which sends authentication credentials via a HTTP request header: `Authorization: '<value>'`. The value is set in CHT credentials configuration, and referred to by the `value_key`, similarly to the `password_key`. The value must match the credentials needed for the third party tool, and is generally formatted as `<type> <credentials>`. For instance, to send data to RapidPro, the value in the configuration would be set to the complete RapidPro API Token: eg `Token 123456789abcdef`.
 
+`auth.type: "header"` only supports `name: "Authorization"`. For other headers (for example `x-api-key`), use `destination.headers`.
+
 Header auth example:
 ```json
 {
@@ -95,6 +99,47 @@ Header auth example:
       "value_key": "example.com"
     },
     "path": "/api/v1/referral"
+  }
+}
+```
+
+#### headers
+An optional object of extra HTTP headers to send with the request. Each key is the header name. Each value must be an object with exactly one of:
+- `value`: a plain string sent as-is
+- `value_key`: a key used to find the value in CHT credentials (same as `password_key`)
+
+#### proxy
+An optional proxy for the outbound request. A string URL is typical, for example `http://proxy.example.com:3128`.
+
+Example with extra headers and a proxy (no `auth`):
+```json
+{
+  "destination": {
+    "base_url": "https://example.com",
+    "path": "/api/v1/referral",
+    "proxy": "http://proxy.example.com:3128",
+    "headers": {
+      "Content-Type": { "value": "application/json" },
+      "X-Source": { "value": "CHT" },
+      "x-api-key": { "value_key": "example.com-api-key" }
+    }
+  }
+}
+```
+Example with `Authorization` auth plus an extra header:
+```json
+{
+  "destination": {
+    "base_url": "https://example.com",
+    "path": "/api/v1/referral",
+    "auth": {
+      "type": "header",
+      "name": "Authorization",
+      "value_key": "example.com"
+    },
+    "headers": {
+      "X-Source": { "value": "CHT" }
+    }
   }
 }
 ```
