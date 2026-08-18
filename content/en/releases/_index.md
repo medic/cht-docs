@@ -20,36 +20,37 @@ Once a version is no longer supported it will not receive any further patch rele
 
 It is recommended that all projects update regularly multiple times a year to get the benefits of bug fixes, security patches, and performance improvements. Being on a supported version also makes it easy to start using features coming in future releases. Most upgrades are quick, reliable, and easily adopted by users. Whenever an upgrade does require additional effort this will be outlined in the release notes.
 
-| Version | Status    | Release date | End of life |
-|---------|-----------|--------------|-------------|
-| 5.2.x   | Supported | 26-Jun-2026  | TBA         |
-| 5.1.x   | Supported | 26-Feb-2026  | 26-Sep-2026 |
-| 5.0.x   | EOL       | 20-Nov-2025  | 26-May-2026 |
-| 4.22.x  | Supported | 10-Oct-2025  | 20-Nov-2026 |
-| 4.21.x  | EOL       | 25-Jun-2025  | 10-Jan-2026 |
-| 4.20.x  | EOL       | 04-Jun-2025  | 25-Sep-2025 |
-| 4.19.x  | EOL       | 13-May-2025  | 04-Sep-2025 |
-| 4.18.x  | EOL       | 20-Mar-2025  | 13-Aug-2025 |
-| 4.17.x  | EOL       | 05-Feb-2025  | 20-Jun-2025 |
-| 4.16.x  | EOL       | 16-Jan-2025  | 05-May-2025 |
-| 4.15.x  | EOL       | 20-Nov-2024  | 16-Apr-2025 |
-| 4.14.x  | EOL       | 31-Oct-2024  | 20-Feb-2025 |
-| 4.13.x  | EOL       | 22-Oct-2024  | 31-Jan-2025 |
-| 4.12.x  | EOL       | 02-Oct-2024  | 22-Jan-2025 |
-| 4.11.x  | EOL       | 26-Sep-2024  | 02-Jan-2025 |
-| 4.10.x  | EOL       | 15-Aug-2024  | 26-Dec-2024 |
-| 4.9.x   | EOL       | 25-Jun-2024  | 15-Nov-2024 |
-| 4.8.x   | EOL       | 22-May-2024  | 25-Sep-2024 |
-| 4.7.x   | EOL       | 07-May-2024  | 22-Aug-2024 |
-| 4.6.x   | EOL       | 20-Mar-2024  | 10-Aug-2024 |
-| 4.5.x   | EOL       | 20-Nov-2023  | 20-Jun-2024 |
-| 4.4.x   | EOL       | 20-Sep-2023  | 20-Feb-2024 |
-| 4.3.x   | EOL       | 18-Aug-2023  | 20-Dec-2023 |
-| 4.2.x   | EOL       | 25-May-2023  | 18-Nov-2023 |
-| 4.1.x   | EOL       | 12-Dec-2022  | 25-Aug-2023 |
-| 4.0.x   | EOL       | 03-Nov-2022  | 12-Mar-2023 |
-| 3.17.x  | EOL       | 11-Oct-2022  | 03-Nov-2023 |
-| 2.18.x  | EOL       | 30-Aug-2018  | 15-Nov-2019 |
+| Version | Status    | Release date | End of life  |
+|---------|-----------|--------------|--------------|
+| 5.3.x   | Supported | 26-Aug-2026  | TBA          |
+| 5.2.x   | Supported | 26-Jun-2026  | 26-Sep-2026  |
+| 5.1.x   | Supported | 26-Feb-2026  | 26-Sep-2026  |
+| 5.0.x   | EOL       | 20-Nov-2025  | 26-May-2026  |
+| 4.22.x  | Supported | 10-Oct-2025  | 20-Nov-2026  |
+| 4.21.x  | EOL       | 25-Jun-2025  | 10-Jan-2026  |
+| 4.20.x  | EOL       | 04-Jun-2025  | 25-Sep-2025  |
+| 4.19.x  | EOL       | 13-May-2025  | 04-Sep-2025  |
+| 4.18.x  | EOL       | 20-Mar-2025  | 13-Aug-2025  |
+| 4.17.x  | EOL       | 05-Feb-2025  | 20-Jun-2025  |
+| 4.16.x  | EOL       | 16-Jan-2025  | 05-May-2025  |
+| 4.15.x  | EOL       | 20-Nov-2024  | 16-Apr-2025  |
+| 4.14.x  | EOL       | 31-Oct-2024  | 20-Feb-2025  |
+| 4.13.x  | EOL       | 22-Oct-2024  | 31-Jan-2025  |
+| 4.12.x  | EOL       | 02-Oct-2024  | 22-Jan-2025  |
+| 4.11.x  | EOL       | 26-Sep-2024  | 02-Jan-2025  |
+| 4.10.x  | EOL       | 15-Aug-2024  | 26-Dec-2024  |
+| 4.9.x   | EOL       | 25-Jun-2024  | 15-Nov-2024  |
+| 4.8.x   | EOL       | 22-May-2024  | 25-Sep-2024  |
+| 4.7.x   | EOL       | 07-May-2024  | 22-Aug-2024  |
+| 4.6.x   | EOL       | 20-Mar-2024  | 10-Aug-2024  |
+| 4.5.x   | EOL       | 20-Nov-2023  | 20-Jun-2024  |
+| 4.4.x   | EOL       | 20-Sep-2023  | 20-Feb-2024  |
+| 4.3.x   | EOL       | 18-Aug-2023  | 20-Dec-2023  |
+| 4.2.x   | EOL       | 25-May-2023  | 18-Nov-2023  |
+| 4.1.x   | EOL       | 12-Dec-2022  | 25-Aug-2023  |
+| 4.0.x   | EOL       | 03-Nov-2022  | 12-Mar-2023  |
+| 3.17.x  | EOL       | 11-Oct-2022  | 03-Nov-2023  |
+| 2.18.x  | EOL       | 30-Aug-2018  | 15-Nov-2019  |
 
 ## Requirements
 
@@ -93,6 +94,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 5.x
+- [5.3.0](/releases/5_3_0) - 2026-08-26
 - [5.2.0](/releases/5_2_0) - 2026-06-26
 - [5.1.3](/releases/5_1_3) - 2026-06-05
 - [5.1.2](/releases/5_1_2) - 2026-04-30
