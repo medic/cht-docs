@@ -9,10 +9,12 @@ keywords: ai agents llm claude code-generation
 
 [CHT Agent](https://github.com/medic/cht-agent) is an experimental multi-agent system that assists with cht-core development. You give it a development ticket, and it researches the issue against CHT documentation and the cht-core codebase, proposes an implementation plan for your approval, and generates code changes for your review. A human approves the output at every phase boundary; the agent never commits or pushes on its own.
 
+{{< callout type="info" >}}
 CHT Agent runs on Anthropic Claude models only, through the Claude API or the [Claude Code CLI](https://code.claude.com/docs/en/overview). Support for other model providers is a goal for a later phase: all model calls go through a single provider interface, so adding a provider means implementing that interface rather than rewriting the agents.
+{{< /callout >}}
 
 {{< callout type="warning" >}}
-CHT Agent is a proof of concept under active development. Interfaces and workflows change frequently. Check the [repository](https://github.com/medic/cht-agent) for the latest status before relying on it.
+CHT Agent is a proof of concept under active development. Interfaces and workflows change frequently. Check the [repository](https://github.com/medic/cht-agent) for the latest status before relying on it. Do not include patient data or other PHI in tickets: ticket content is sent to the model provider and to community services during a run.
 {{< /callout >}}
 
 ## How it works
@@ -42,7 +44,7 @@ The repository also contains a *memory distillation pipeline* that mines merged 
 ## Prerequisites
 
 - Node.js 22.x
-- A local [cht-core](https://github.com/medic/cht-core) checkout on a clean branch
+- A local [cht-core](https://github.com/medic/cht-core) checkout with a clean working tree
 - One of two LLM credentials:
   - the [Claude Code CLI](https://code.claude.com/docs/en/overview) installed and logged in, or
   - an Anthropic API key
@@ -112,7 +114,7 @@ At checkpoint 2 the agent shows unified diffs of every proposed file change. Not
 
 The knowledge files under `agent-memory/domains/` record how past cht-core issues were solved: the problem, the root cause, the fix, the files involved, and reusable patterns. Each entry is keyed to the cht-core issue it resolves and is reviewed by a human before promotion into the corpus.
 
-To regenerate or extend the corpus, the pipeline scrapes merged cht-core pull requests, filters them, and distills drafts for review:
+To regenerate or extend the corpus, the pipeline scrapes merged cht-core pull requests, filters them, and distills drafts for review. These commands need the [GitHub CLI](https://cli.github.com/) installed and authenticated, since the pipeline reads pull requests from GitHub:
 
 ```bash
 npm run run-pipeline -- --pr <number>     # one PR
