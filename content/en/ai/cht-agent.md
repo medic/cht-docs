@@ -9,6 +9,8 @@ keywords: ai agents llm claude code-generation
 
 [CHT Agent](https://github.com/medic/cht-agent) is an experimental multi-agent system that assists with cht-core development. You give it a development ticket, and it researches the issue against CHT documentation and the cht-core codebase, proposes an implementation plan for your approval, and generates code changes for your review. A human approves the output at every phase boundary; the agent never commits or pushes on its own.
 
+CHT Agent runs on Anthropic Claude models only, through the Claude API or the [Claude Code CLI](https://code.claude.com/docs/en/overview). Support for other model providers is a goal for a later phase: all model calls go through a single provider interface, so adding a provider means implementing that interface rather than rewriting the agents.
+
 {{< callout type="warning" >}}
 CHT Agent is a proof of concept under active development. Interfaces and workflows change frequently. Check the [repository](https://github.com/medic/cht-agent) for the latest status before relying on it.
 {{< /callout >}}
