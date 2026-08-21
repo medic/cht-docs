@@ -428,10 +428,7 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.place`      | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`.                                                                                                                                                                                                                                                                                                                                                                                                              | no       |
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `summary`, `user` and `userSummary` (**as of 4.21.0**) are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario.                                                                                           | no       |
 | `context.permission` | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access.                                                                                                                                                                                                                                                                                                                                                                                                                 | no       |
-
-### Expression functions
-
-{{< read-content file="_partial_expression_functions.md" >}}
+| `field_path_linting` | [Linting rules](#field-path-linting) applied to the form's field paths during validation.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |          |
 
 ### Code sample
 
@@ -460,6 +457,14 @@ In this sample properties file, the associated form would only show on a person'
     }
   }
 ```
+
+### Expression functions
+
+{{< read-content file="_partial_expression_functions.md" >}}
+
+### Field Path Linting
+
+{{< read-content file="_partial_field_path_linting.md" >}}
 
 ## Build
 
