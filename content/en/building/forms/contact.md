@@ -96,7 +96,7 @@ The meta information in the `{contact_type_id}-{create|edit}.properties.json` fi
 | `duplicate_check`            | _Added in `4.19`._ Allows for configuring or disabling the [duplicate detection logic](/building/contact-management/contacts#duplicate-contact-detection) for a particular contact type.                                             | no       |
 | `duplicate_check.expression` | A JavaScript expression evaluated when submitting the contact form. The expression defines the logic used for determining when a contact is considered to be a duplicate. [See below](#duplicate-check-expression) for more details. | no       |
 | `duplicate_check.disabled`   | Boolean determining if the duplicate check should be run when submitting this contact form. Default is `false`.                                                                                                                      | no       |
-| `field_path_linting`         | [Linting rules](#field-path-linting) applied to the form's field paths during validation.                                                                                                                                            |          |
+| `field_path_linting`         | [Linting rules](#field-path-linting) applied to the form's field paths during validation. Added in `cht-conf` `6.6.0`.                                                                                                               | no       |
 
 ### Code sample
 
