@@ -1,6 +1,6 @@
 ---
 title: "Capture GPS Location in Contact Forms"
-linkTitle: "GPS Location Capture"
+linkTitle: "Contact GPS Location Capture"
 weight: 9
 description: >
   Configure a geolocation widget in contact forms to capture GPS coordinates when a contact is created or edited
@@ -18,7 +18,7 @@ _Added in CHT `TBD`._
 > [!CAUTION]
 > This widget is designed for contact forms only. Adding it to a report form is unsupported and may produce unexpected behavior.
 >
-> The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically. It activates on any form field with `appearance="geolocation-capture"`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type. Otherwise the household-specific default text shows through.
+> The widget's default copy is written for households ("Household location already saved", "Change household location"... ). Nothing in the widget restricts it to household contacts specifically. It activates on any form field with an `appearance` column value of `geolocation-capture`, regardless of contact type. To use it on another contact type, override the `geolocation.edit.*`, `geolocation.at.household`, and `geolocation.somewhere.else` translation keys with wording appropriate to that contact type. Otherwise the household-specific default text shows through.
 
 ## What gets stored
 
