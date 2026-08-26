@@ -87,7 +87,31 @@ Some XForm widgets have been added or modified for use in CHT applications. The 
 
 ### Bikram Sambat Datepicker
 
-Calendar widget using Bikram Sambat calendar, which is used by default for appropriate languages. The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
+The CHT supports the official Nepali calendar, **Bikram Sambat (BS)**, natively. The calendar UI widget is powered by the [`bikram-sambat-calendar` package](https://github.com/medic/bikram-sambat/tree/master/calendar) which delegates calculations to the core `bikram-sambat` library, preventing month-boundary errors and grid crashes.
+
+#### Where the Datepicker Appears
+
+1. **Enketo Web Forms**: When a user's active language is set to Nepali (`ne`), Enketo replaces the default datepicker with the Bikram Sambat widget for any standard `date` question. The widget injects a date input group (numeric day field, month dropdown, numeric year field, and a calendar icon button). Clicking the calendar icon button opens the month grid as a popup calendar.
+   - **Under the Hood**: The widget displays the BS date to the user, but saves the standardized Gregorian ISO date (e.g. `2026-08-20`) in the report doc. This ensures targets, schedules, and calculations function correctly using standard Gregorian date engines.
+2. **Reports Filter Sidebar**: In the Reports page filter sidebar, clicking the "From" (बाट) or "To" (सम्म) date filters opens the calendar month grid popup. This filter is automatically active for any active locale that uses the Devanagari script.
+
+#### XLSForm Configuration
+
+Configure a standard `date` type question in the XLSForm:
+
+| type | name | label | hint |
+| :--- | :--- | :--- | :--- |
+| `date` | `date_of_delivery` | सुत्केरी भएको मिति | सुत्केरी भएको मिति छान्नुहोस् |
+
+##### Forcing the Widget
+By default, the widget activates when the user's active language is Nepali (`ne`). To force the widget to display regardless of the user's current locale, add `bikram-sambat` to the `appearance` column.
+
+| type | name | label | appearance |
+| :--- | :--- | :--- | :--- |
+| `date` | `date_of_birth` | Date of Birth | bikram-sambat |
+
+The CHT documentation includes a [conversion tool](https://docs.communityhealthtoolkit.org/bikram-sambat/) to check the conversion between Gregorian and Bikram Sambat dates.
+
 {{< see-also page="building/forms/app" title="`to-bikram-sambat` XPath function" anchor="to-bikram-sambat" >}}
 
 ### Countdown Timer
