@@ -75,12 +75,14 @@ The following table shows the dependencies for deploying the CHT.
 
 The following is the minimum specification recommendation for smartphones to handle the typical workload of front line health workers. Users with particularly high workloads or facility or supervisor workloads will require more powerful devices.
 
-| Specification   | Minimum          | Recommended      |
+| Specification   | Minimum          | Recommended*     |
 |-----------------|------------------|------------------|
 | Android version | 5.0              | 9.0+             |
 | Processor       | 1.0GHz dual-core | 2.0GHz quad-core |
-| RAM             | 1GB              | 2GB              |
-| Storage         | 8GB              | 16GB             |
+| RAM             | 1GB              | 4GB              |
+| Storage         | 8GB              | 32GB             |
+
+_\* Recommended specs increased in CHT [5.3](/releases/5_3_0).  This is not due to 5.3 changes, but reflect [suggestions from Google](https://www.androidauthority.com/android-15-minimum-storage-requirement-3543169/) and [the CHT Community](https://forum.communityhealthtoolkit.org/t/android-device-specifications-to-run-cht/5336) at the time of the 5.3 release._
 
 If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
 
