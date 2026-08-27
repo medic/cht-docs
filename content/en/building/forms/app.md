@@ -93,7 +93,7 @@ The CHT supports the official Nepali calendar, **Bikram Sambat (BS)**, natively.
 
 1. **Enketo Web Forms**: When a user's active language is set to Nepali (`ne`), Enketo replaces the default datepicker with the Bikram Sambat widget for any standard `date` question. The widget injects a date input group (numeric day field, month dropdown, numeric year field, and a calendar icon button). Clicking the calendar icon button opens the month grid as a popup calendar.
    - **Under the Hood**: The widget displays the BS date to the user, but saves the standardized Gregorian ISO date (e.g. `2026-08-20`) in the report doc. This ensures targets, schedules, and calculations function correctly using standard Gregorian date engines.
-2. **Reports Filter Sidebar**: In the Reports page filter sidebar, clicking the "From" (बाट) or "To" (सम्म) date filters opens the calendar month grid popup. This filter is automatically active for any active locale that uses the Devanagari script.
+2. **Reports Filter Sidebar**: In the Reports page filter sidebar, clicking the "From" (बाट) or "To" (सम्म) date filters opens the calendar month grid popup. This filter is automatically active when the active language is Nepali (`ne`).
 
 #### XLSForm Configuration
 
