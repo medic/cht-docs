@@ -7,10 +7,12 @@ description: >
 keywords: ai agents llm claude code-generation
 ---
 
-[CHT Agent](https://github.com/medic/cht-agent) is an experimental multi-agent system that assists with cht-core development. You give it a development ticket, and it researches the issue against CHT documentation and the cht-core codebase, proposes an implementation plan for your approval, and generates code changes for your review. A human approves the output at every phase boundary; the agent never commits or pushes on its own.
+[CHT Agent](https://github.com/medic/cht-agent) is an experimental multi-agent system that assists with CHT development. You give it a development ticket, and it researches the issue against CHT documentation and the cht-core codebase, proposes an implementation plan for your approval, and generates code changes for your review. A human approves the output at every phase boundary; the agent never commits or pushes on its own.
 
 {{< callout type="info" >}}
 CHT Agent runs on Anthropic Claude models only, through the Claude API or the [Claude Code CLI](https://code.claude.com/docs/en/overview). Support for other model providers is a goal for a later phase: all model calls go through a single provider interface, so adding a provider means implementing that interface rather than rewriting the agents.
+
+The agent works on a cht-core checkout. Support for app configuration projects built with `cht-conf` is in progress; see [cht-agent#134](https://github.com/medic/cht-agent/issues/134).
 {{< /callout >}}
 
 {{< callout type="warning" >}}
@@ -24,12 +26,12 @@ The system runs as a pipeline of supervised phases, each built on [LangGraph](ht
 ```mermaid
 flowchart TD
     T([Development ticket]) --> R
-    R["Research phase<br/>documentation, code context, memory corpus"] --> P[/"Implementation plan"/]
-    P --> C1{"Checkpoint 1<br/>you review the plan"}
+    R["1. Research phase<br/>documentation, code context, memory corpus"] --> P[/"Implementation plan"/]
+    P --> C1{"2. Checkpoint 1<br/>you review the plan"}
     C1 -->|approve| D
     C1 -->|reject with feedback| R
-    D["Development phase<br/>code generation and compile validation"] --> S[/"Staged diffs"/]
-    S --> C2{"Checkpoint 2<br/>you review the diffs"}
+    D["3. Development phase<br/>code generation and compile validation"] --> S[/"Staged diffs"/]
+    S --> C2{"4. Checkpoint 2<br/>you review the diffs"}
     C2 -->|approve| W(["Changes written to your cht-core checkout"])
     C2 -->|reject with feedback| D
 ```
