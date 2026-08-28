@@ -72,6 +72,10 @@ Beneath that, you will find tasks for this person or place. At the very bottom i
 
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
 
+{{< callout type="info" >}}
+Starting in CHT 5.3.0, the profile header can display [the contact's profile image](/building/forms/contact/#profile-image) instead of the type icon.
+{{< /callout >}}
+
 ## Fields
 
 ### Contact Summary
