@@ -13,7 +13,7 @@ Contact forms can capture the device's GPS location at the time a contact is cre
 
 After a successful capture, the widget asks whether the CHW is at the household or somewhere else, and records the answer alongside the coordinates.
 
-_Added in CHT `TBD`._
+_Added in CHT 5.3._
 
 > [!CAUTION]
 > This widget is designed for contact forms only. Adding it to a report form is unsupported and may produce unexpected behavior.
