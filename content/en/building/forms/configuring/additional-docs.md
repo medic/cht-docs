@@ -63,11 +63,9 @@ Other doc:
 }
 ```
 
-## Binary Attachments on Additional Docs
+### Attachments
 
-A binary or file-upload field placed inside a `db-doc="true"` section is attached to that sub-document rather than to the parent report. Ownership is resolved by the nearest enclosing `db-doc="true"` element, so each additional doc - including those created inside a `repeat` - keeps its own uploads. Fields outside any `db-doc="true"` section attach to the report, as before.  Added in CHT 5.3.0.
-
-See [Uploading Binary Attachments](/building/forms/app#uploading-binary-attachments) for more info.
+As of CHT `5.3.0`, a photo or file uploaded for a field inside a `db-doc="true"` section is attached to that sub-document rather than to the parent report. Ownership is resolved by the nearest enclosing `db-doc="true"` section. So each additional doc, including those created inside a `repeat`, is assigned its own attachments. Fields outside any `db-doc="true"` sections attach to the main report.  Previous versions of the CHT would attach all files collected in an `app` form to the main report for the form regardless of whether they were enclosed by a `db-doc="true"` section.
 
 ## Linked Docs
 

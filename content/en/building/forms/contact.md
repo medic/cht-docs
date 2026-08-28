@@ -209,6 +209,6 @@ It is also possible to create additional contacts as children of the new place u
 | end_repeat   | child  |                       |            |         |             |
 | end_group    | repeat |                       |            |         |             |  
 
-### Capturing photos and files for child contacts
+### Capturing attachments for child contacts
 
-A photo or file-upload field is attached to the doc of the contact it was captured for, resolved by the form section the field sits in: fields in the place's top-level group attach to the place, fields inside the `contact` group attach to the primary contact's person doc, and fields inside the `child` repeat attach to that repeat entry's doc. In earlier versions every upload was attached to the doc the form created at the top level. Saving a contact fails with an error if any single doc's attachments exceed the maximum attachment size, matching the existing behavior of report forms. Child attachments and saving contacts both added in 5.3.0.
+As of CHT `5.3.0`, a photo or file uploaded in a contact form is attached to the document of the contact associated with the attachment's field in the form. For example, uploading a photo to an `image` field in the `contact` group will result in the file being attached to the place's primary contact (and not to the main place contact). The same applies to the `parent` and `child` contacts. Previous versions of the CHT would attach all files collected in a `contact` form to the main contact for the form regardless of which group contained the field.
