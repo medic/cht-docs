@@ -148,7 +148,7 @@ The matching logic for duplicate detection is [configurable](/building/forms/con
 
 ### GPS location capture
 
-_Added in CHT `5.3`._
+_Added in CHT 5.3._
 
 Contact forms can optionally capture the device's GPS location when a contact is created or edited. When configured, the CHW sees a capture widget that shows progress, success, and failure states, with the option to retry or continue without a location. Coordinates are stored on the contact document and a log of all capture events is maintained across subsequent edits.
 
