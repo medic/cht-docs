@@ -1,7 +1,7 @@
 ---
 title: "Database Conflicts"
-linkTitle: "Database Conflicts"
-weight: 4
+linkTitle: "Conflicts"
+weight: 3
 description: >
   How to handle conflicts with CouchDB documents
 relevantLinks: >

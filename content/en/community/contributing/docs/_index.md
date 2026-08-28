@@ -1,7 +1,7 @@
 ---
 title: "Contributing to the CHT Documentation"
 linkTitle: "Documentation"
-weight: 4
+weight: 6
 description: >
   How to contribute to documentation for the CHT
 aliases:

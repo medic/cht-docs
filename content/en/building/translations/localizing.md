@@ -24,7 +24,7 @@ By the end of the section you should be able to:
 ## Prerequisites
 
 - A local CHT instance [with `cht-conf` installed locally](/building/local-setup)
-- A [project folder](/building/local-setup#3-create-and-upload-a-blank-project)
+- A [project folder](/building/local-setup/#deploy-local-cht-instance)
 - CHT Swahili translations in a `messages-sw.properties` file.
 
 ## Localization Steps

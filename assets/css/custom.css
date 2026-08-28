@@ -246,3 +246,39 @@ html[class~="dark"] .hextra-feature-card {
   border: 1px solid #3333339d;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+
+/* -----------------------------------------------
+Broken link highlighting for development
+Used by the link render hook when highlightBroken = true
+--------------------------------------------------*/
+a.broken {
+  background: #ff0;
+  border: 2px solid #f00;
+  padding: 0.1em 0.2em;
+}
+
+/* -----------------------------------------------
+Fix card vertical aligning
+See https://github.com/medic/cht-docs/pull/2152#issuecomment-4092760195
+--------------------------------------------------*/
+.hextra-cards>a>div.hx\:mt-auto {
+    margin-top: unset;
+}
+
+/* -----------------------------------------------
+Fix content too tight around video HTML tags
+--------------------------------------------------*/
+video {
+    padding-top: 25px;
+}
+
+/* -----------------------------------------------
+Fix Resolve conflict between Hextra's 48rem and Tailwind's 768px breakpoints
+--------------------------------------------------*/
+@media (min-width: 768px) {
+  aside.hextra-sidebar-container {
+    position: sticky !important;
+    width: 16rem !important; 
+    transform: none !important; 
+  }
+}

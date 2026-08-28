@@ -8,13 +8,66 @@ aliases: >
   /contribute/code/static-analysis
 ---
 
+## Zizmor
+
+[Zizmor](https://github.com/woodruffw/zizmor) is a static analysis tool for GitHub Actions workflows. It catches security issues that code-focused linters miss, including:
+
+- **Unpinned action references** — actions pinned by tag (for example, `actions/checkout@v4`) can silently change if the tag is moved; pinning to a full 40-character commit SHA prevents this
+- **Missing or overly permissive `permissions` blocks** — restricting each workflow's token permissions limits the blast radius of a compromised workflow
+- **Script injection** — GitHub context values (for example, `${{ github.event.pull_request.title }}`) used directly in `run:` steps can be exploited; moving them to environment variables neutralises the risk
+- **Cache poisoning** — workflows triggered by pull requests that use caching can be exploited by a malicious fork PR to poison the cache
+
+### CI workflow
+
+Zizmor runs automatically on every pull request and push to `master`:
+
+| Trigger | Mode | Output |
+|---------|------|--------|
+| Pull request | `--offline` (no GitHub API calls) | Workflow annotations |
+| Push to `master` | Online | SARIF report uploaded to the repository **Security** tab |
+
+The CI configuration lives in `.github/workflows/zizmor.yml` and the suppression config in `.github/zizmor.yml`.
+
+### Keeping action hashes current
+
+All action references in CHT Core are pinned to a full 40-character commit SHA with the human-readable version in a comment, for example:
+
+```yaml
+- uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+```
+
+[Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot) keeps these hashes current automatically. It is configured in `.github/dependabot.yml` for the `github-actions` ecosystem and opens pull requests on a weekly schedule (Saturdays) when new action versions are released. A cooldown is configured so patch updates are applied after 3 days, minor after 7 days, and major after 14 days — all Dependabot PRs go through normal code review before merging.
+
+### Running locally
+
+```bash
+pip install zizmor
+zizmor --offline .github/workflows/
+```
+
+Running in `--offline` mode does not require a GitHub token and is sufficient to catch most issues.
+
+### Handling findings
+
+When zizmor flags an issue in your pull request:
+
+1. **If the issue is a genuine concern**: fix it before merging. Common fixes are:
+   - Pin an action to a commit SHA (see [Keeping action hashes current](#keeping-action-hashes-current))
+   - Add a `permissions` block scoped to only what the job needs
+   - Move a `${{ github.* }}` expression to an `env:` variable so it is never interpolated directly in a shell command
+1. **If the finding is an accepted low-risk exception**, suppress it using one of two methods:
+   - **Inline comment** (preferred for a single line): add `# zizmor: ignore[rule-name]` at the end of the flagged line in the workflow file
+   - **Config file** (preferred for an entire file): add an entry to `.github/zizmor.yml` under the relevant rule's `ignore:` list
+
+   In both cases, add a comment explaining why the finding is acceptable and the date the risk was accepted, so the reasoning is preserved for future reviewers.
+
 ## ESLint
 
 All code must pass an eslint check which runs early in the CI cycle and uses the [standard Medic ESLint configuration](https://github.com/medic/eslint-config).
 
 ### Linting
 
-You should always lint your code locally before pushign it up the GitHub. Choose one of:
+You should always lint your code locally before pushing it up the GitHub. Choose one of:
 
 * ESLint has [plugins/integrations](https://eslint.org/docs/latest/use/integrations) for many IDEs that will report linting issues in real-time.
 * CHT Core has a script to run at the command line, by calling `npm run lint` while in the `cht-core` repository.  Be sure you've run the [Core dev setup first](/community/contributing/code/core/dev-environment)! Note that the first time you run this it might be slow, as it needs to download and cache some files.  Subsequent runs should be quite fast.
@@ -148,7 +201,7 @@ The quality profiles are the lists of rules that will be applied for the various
 
 ###### Modifying rule parameters
 
-To modify a rule parameter (e.g. change the allowed level of complexity for a function [according to `javascript:S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/)):
+To modify a rule parameter (e.g. change the allowed level of complexity for a function [according to `javascript:S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/)):
 
 1. Open a cht-docs PR to record your rule modification in the list below. This allows us to track the history of rule changes and record for posterity the discussions about them.
 1. If not already using a custom quality profile, use the SonarCloud UI to create one that _extends_ the `Sonar Way` profile.
@@ -179,42 +232,42 @@ Java:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
   - Modified:
-    - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+    - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
       - `threshold` 7 -> 4
-    - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+    - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
       - `threshold` 15 -> 5
 
 JavaScript:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
    - Modified:
-      - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+      - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
          - `threshold` 7 -> 4
-      - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+      - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
    - Disabled
-      - [`S2699`](https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
+      - [`S2699`](https://web.archive.org/web/20251017003858/https://rules.sonarsource.com/javascript/RSPEC-2699/) - Tests should include assertions
          - Disabled due of rigidity of the rule when detecting `expect` imports and calls to imported functions that have assertions
-      - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
-          - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
+      - [`S7728`](https://community.sonarsource.com/t/use-for-of-instead-of-foreach-typescript-s7728/151980/5) - Use "for...of" loops instead of "forEach" method calls
+          - Disabled because the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)
 
 Python:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
    - Modified:
-      - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+      - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
          - `threshold` 7 -> 4
-      - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+      - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
 
 TypeScript:
 
 - **CHT Way**  _(default)_ extends **Sonar Way**
    - Modified:
-      - [`S107`](https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
+      - [`S107`](https://web.archive.org/web/20251113054741/https://rules.sonarsource.com/javascript/RSPEC-107/) - Functions should not have too many parameters
          - `threshold` 7 -> 4
-      - [`S3776`](https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
+      - [`S3776`](https://web.archive.org/web/20250720035236/https://rules.sonarsource.com/javascript/RSPEC-3776/) - Cognitive Complexity of functions should not be too high
          - `threshold` 15 -> 5
    - Disabled
-       - [`S7728`](https://github.com/SonarSource/rspec/blob/master/rules/S7728/javascript/rule.adoc) - Use "for...of" loops instead of "forEach" method calls
+       - [`S7728`](https://community.sonarsource.com/t/use-for-of-instead-of-foreach-typescript-s7728/151980/5) - Use "for...of" loops instead of "forEach" method calls
            - Disabled beacuse the readability benefits of `forEach` typically outweigh the downsides (especially when chaining with `map` and `filter`)

@@ -11,7 +11,8 @@ aliases:
 
 ## CouchDB
 
-The CHT has a range of CouchDB databases for storing different types of data. By default, databases all start with the prefix "medic".
+[CouchDB](https://couchdb.apache.org) is free and open source [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database used as the primary store for all CHT data and configuration. With out-of-the-box replication, CouchDB is ideal for for offline access. This allows mobile handsets to work offline and trivially replicate data when back online. The CHT bundled CouchDB has specific [configuration changes](/technical-overview/data/config) for performance and reliability which are tailored for CHT workflows.
+Note that all 8 CHT databases in CouchDB start with the prefix `medic` as shown below. Database that start with `_`, like `_users` are native CouchDB databases.
 
 ### medic
 
@@ -38,13 +39,19 @@ For example:
 }
 ```
 
+### medic-archive
+
+Stores documents that have been archived from the "medic" database. Archived documents are kept for analytics and audit purposes but are no longer available to the CHT application.
+
+{{< see-also page="technical-overview/data/performance/archiving" >}}
+
 ### medic-logs
 
 Stores a record of when a user last attempted to replicate and how many docs they have access to. This can be useful when trying to diagnose issues with users getting too much access, or being unable to complete replication because their access is too broad.
 
 ### medic-vault
 
-Stores CHT credentials for authenticating with third party services. These credentials are encrypted for safety, and can only be updated using the [Credentials API](/building/reference/api#put-apiv1credentials).
+Stores CHT credentials for authenticating with third party services. These credentials are encrypted for safety, and can only be updated using the [Credentials API](/building/reference/api/#/Config/v1CredentialsKeyPut).
 
 ### medic-user-{username}-meta
 

@@ -32,7 +32,7 @@ Adding a new _"brand"_ or _"flavor"_ requires the following steps:
 
 3. **[Generate a new keystore](#3-generate-a-new-keystore)** if there is no one.
 
-4. **[Test locally](#4-test-locally-the-keystore)** and create a pull request with the changes.
+4. **[Test locally](#4-test-the-keystore-locally)** and create a pull request with the changes.
 
 5. **[Release](#5-release-the-new-flavor)** the new flavor.
 
@@ -47,6 +47,7 @@ To proceed you need to have ready the following:
 
 - The URL of your CHT server so users don't have to type it in post install.
 - The app logo and title.
+- Notification icon.
 - Translations for your supported languages (most flavors don't need to customize translations though).
 
 Also be sure to have a working **[Development Environment](/community/contributing/code/android/development-setup)**.
