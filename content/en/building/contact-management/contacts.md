@@ -72,6 +72,10 @@ Beneath that, you will find tasks for this person or place. At the very bottom i
 
 From profiles, users can edit contact information, take actions, and, if viewing a place profile, add new people and assign a primary contact person. If a place is not at the bottom of the hierarchy, a user can add new places to the level below this.
 
+{{< callout type="info" >}}
+Starting in CHT 5.3.0, the profile header can display [the contact's profile image](/building/forms/contact/#profile-image) instead of the type icon.
+{{< /callout >}}
+
 ## Fields
 
 ### Contact Summary
@@ -142,4 +146,10 @@ One major challenge when collecting contact data is ensuring users do not inadve
 
 The matching logic for duplicate detection is [configurable](/building/forms/contact#properties) and can be tuned to the specific needs and data structures of a particular project. The algorithm compares the created/edited contact _to its sibling contacts._ These are other contacts of the same type that share the same parent contact. By default, contacts are considered duplicates if they have very similar names AND (for persons) if they are the same age (in years). This default logic can be overridden with custom logic for each type of contact.
 
+### GPS location capture
 
+_Added in CHT `TBD`._
+
+Contact forms can optionally capture the device's GPS location when a contact is created or edited. When configured, the CHW sees a capture widget that shows progress, success, and failure states, with the option to retry or continue without a location. Coordinates are stored on the contact document and a log of all capture events is maintained across subsequent edits.
+
+{{< see-also page="building/forms/configuring/contact-geolocation" title="Configuring GPS Location Capture" >}}

@@ -46,41 +46,45 @@ The `parent`, `type`, and `name` fields are mandatory on forms that are adding c
 
 The `form_id` should follow the pattern `contact:CONTACT_TYPE_ID:ACTION` where CONTACT_TYPE_ID is the contact_type id for the contact and ACTION is `create` or `edit`. (e.g. `contact:clinic:create`)
 
-## Uploading Binary Attachments
+## Attachments
 
 _Added in 5.1.0._
 
-Contact forms can include binary data, such as photos or other files, which are submitted and saved as attachments on the contact document. Attachment uploads are supported in both create and edit contact forms. Note that attachment uploads are only supported for the main contact document; any file attachments defined within sibling or repeat groups will also be attached to the main document.
+Contact forms can include binary data, such as photos or other files, which are submitted and saved as attachments on the contact document. Attachment uploads are supported in both create and edit contact forms via the standard [ODK file upload questions](https://docs.getodk.org/form-question-types/#image-widgets) as well as the [Android App launcher](/building/forms/app/#android-app-launcher).
 
-To add an image upload field, use the `image` type in XLSForm. For a generic file upload, use the `file` type. Alternatively, to mark any element as having binary data, add an `instance::type` column to the XLSForm and specify `binary` in the element's row.
+[See below](#capturing-attachments-for-child-contacts) for more information about capturing attachments for child contacts.
 
-The following example adds a photo field to a person contact form:
-
-| type  | name  | label::en | hint::en                            |
-|-------|-------|-----------|-------------------------------------|
-| image | photo | Photo     | Take a photo or select from gallery |
-
-The equivalent XForm XML for the above example is:
-
-```xml
-<!-- Model -->
-<photo/>
-
-<!-- Bind -->
-<bind nodeset="/data/person/photo" type="binary"/>
-
-<!-- Body -->
-<upload ref="/data/person/photo" mediatype="image/*">
-  <label>Photo</label>
-  <hint>Take a photo or select from gallery</hint>
-</upload>
-```
-
-**Note:** If the contact form is accessed via CHT Android and uses a file picker to upload files, include the `READ_EXTERNAL_STORAGE` permission to allow access to files on the device. Add the following line to the branded app's `AndroidManifest.xml`:
+{{< callout type="info" >}}
+If the contact form is accessed via CHT Android and uses a file picker to upload files, include the `READ_EXTERNAL_STORAGE` permission to allow access to files on the device. Add the following line to the branded app's `AndroidManifest.xml`:
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
+{{< /callout >}}
+
+### Profile image
+
+_Added in 5.3.0_
+
+{{< figure src="/building/contact-management/contacts/profile4.png" link="/building/contact-management/contacts/profile4.png" alt="Contact profile header displaying the contact's photo" width="220" class="bordered-figure" >}}
+
+The header on a contact's profile page will display the profile image (if one exists) for a contact. By default, the photo is loaded from the `profile_image` field on the contact. A different field can be specified for each contact type by setting the [`profile_image_field`](/building/reference/app-settings/hierarchy#app_settingsjson-contact_types) config property.  
+
+If the contact does not have a photo attachment for the profile image field, the contact type `icon` will be displayed on the profile page.
+
+{{< callout type="info" >}}
+Image files are quite large (compared to text data). They require more bandwidth to upload and more disk space to store (both on the user's device and the server). Recording a large number of high-resolution images could negatively impact performance. 
+
+It is _highly recommended_ to set the [`max-pixels` parameter](https://docs.getodk.org/form-question-types/#scaling-down-images) in form configuration when accepting image uploads.
+{{< /callout >}}
+
+## Capturing GPS Location
+
+_Added in CHT `TBD`._
+
+Contact forms can capture the device's GPS location when a contact is created or edited. The widget stores coordinates on the contact document and maintains a geolocation log across edits. After a successful capture, a context question records whether the CHW is at the household or somewhere else.
+
+{{< see-also page="building/forms/configuring/contact-geolocation" >}}
 
 ## Properties
 
