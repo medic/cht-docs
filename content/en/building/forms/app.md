@@ -68,11 +68,11 @@ Since writing raw XML can be tedious, we suggest creating the forms using the [X
 ### Supported XLSForm Meta Fields
 [XLSForm](http://xlsform.org/) has a number of [data type options](https://xlsform.org/en/#metadata) available for meta data collection, of which the following are supported in CHT app forms:
 
-| element | description                                                                                                                                                                                                                                          |
-|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `start` | A timestamp of when the form entry was started, which occurs when the form is fully loaded.                                                                                                                                                          |
-| `end`   | A timestamp of when the form entry ended, which is when the user hits the Submit button. (There is an [active issue](https://github.com/medic/cht-core/issues/8974) filed for this field. Currently it is populated with the same value as `start`.) |
-| `today` | Day on which the form entry was started.                                                                                                                                                                                                             |
+| element | description                                                                                 |
+|---------|---------------------------------------------------------------------------------------------|
+| `start` | A timestamp of when the form entry was started, which occurs when the form is fully loaded. |
+| `end`   | A timestamp of when the form entry ended, which is when the user hits the Submit button.    |
+| `today` | Day on which the form entry was started.                                                    |
 
 ## XPath
 Calculations are achieved within app forms using XPath statements in the "calculate" field of XForms and XLSForms. CHT apps support XPath from the [ODK XForm spec](https://getodk.github.io/xforms-spec), which is based on a subset of [XPath 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/), and is evaluated by [`openrosa-xpath-evaluator`](https://github.com/enketo/enketo/tree/main/packages/openrosa-xpath-evaluator). The ODK XForm documentation provides useful notes about the available [operators](https://getodk.github.io/xforms-spec/#xpath-operators) and [functions](https://getodk.github.io/xforms-spec/#xpath-functions). Additionally, [CHT specific functions](#cht-xpath-functions) are available for forms in CHT apps.
@@ -142,6 +142,8 @@ To define the widget, create a `group` with the appearance `android-app-launcher
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
 
+#### Basic input/output
+
 To define the widget's input fields and send data as Android Intent's `extras`, create a group inside the widget with the appearance `android-app-inputs`. In order to assign the app's response to the widget's output fields, create a group with the appearance `android-app-outputs`.
 
 > [!IMPORTANT]
@@ -161,6 +163,8 @@ To define the widget's input fields and send data as Android Intent's `extras`, 
 | end group | camera-app-outputs |  |  |  |  | ... |
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
+
+#### Serializing/Deserializing structured data
 
 To instruct the widget to process nested data objects, create a new group inside the input or the output group with the appearance `android-app-object`. Objects cannot be assigned to a field, it should be a group with fields to map the properties to fields that share the same name.
 
@@ -185,7 +189,15 @@ To instruct the widget to process nested data objects, create a new group inside
 | ... | ... | ... | ... | ... | ... | ... |
 | end group | camera-app |  |  |  |  | ... |
 
-To instruct the widget to process an array of strings or numbers, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. To process an array of objects, use the appearance `android-app-object-list` instead.
+##### Arrays of primitive values
+
+Output from the app in the form of an array of primitive values (e.g. strings or numbers) can be deserialized into a simple `text` field where it will be stored as a _space-delimited array._ These "node sets" match the data format produced by normal `select_multiple` questions. So, [xPath functions](https://docs.getodk.org/form-operators-functions/#selected-at) like `selected_at` and `count-selected` can be used to parse data from these fields.  
+
+To provide an array of primitive values as input, create a new `repeat` with fix size in the `repeat_count` column and place it inside the input or the output group with the appearance `android-app-value-list`, then create 1 field type `text` to store every array's value, _only 1 field is allowed_. 
+
+##### Arrays of structured data
+
+To process an array of objects, use the appearance `android-app-object-list` instead.
 
 > [!IMPORTANT]
 > The `repeat`'s name should match in name and location to what the Android app receives and returns, otherwise it won't be able to find the array.
@@ -234,6 +246,38 @@ A validation failure, either for an invalid or duplicate phone number will preve
 {{< callout type="info" >}}
 Configuring a phone input as a `string` field with the `tel` _appearance_ is only supported for CHT versions `4.11.0+`.  For older CHT versions, a phone input can be configured by setting `tel` in the _type_ column (without any _appearance_ value). This deprecated implementation cannot be configured via the `instance::cht:unique_tel` column and instead will always reject numbers that match the `phone` field on an existing contact.
 {{< /callout >}}
+
+### Select choice from file
+
+_Added in 5.3.0_
+
+The choices for a [select question](https://docs.getodk.org/form-question-types/#select-widgets) can be attached as an external dataset instead of being included directly in the XLSForm's `choices` sheet. This allows for central management of a dataset shared between multiple forms and more efficient processing of the form configuration since the dataset is stored separate from the xform definition.
+
+Being sure to follow  [the ODK specification](https://docs.getodk.org/form-datasets/#building-selects-from-xml-files), add a line in your `resources.json` file which declares your new resource (eg, `"colors.xml": "colors.xml"`). 
+
+Then add the new XML file to the CHT's config's `./resources/` folder (eg  `./resources/colors.xml`) and upload it to the server with [CHT Conf](/community/contributing/code/cht-conf/).   See [resources configuration](/building/branding/resources)) for more info.
+
+Below is a example XML that could be put in `./resources/colors.xml`:
+
+```xml
+<root>
+  <item><name>red</name><label>Red</label></item>
+  <item><name>green</name><label>Green</label></item>
+  <item><name>blue</name><label>Blue</label></item>
+</root>
+```
+
+{{< callout type="info" >}}
+Though the ODK spec allows for CSV and XML files, the CHT currently only supports XML files.
+{{< /callout >}}
+
+In the form configuration use `select_one_from_file` or `select_many_from_file` for the `type` value and use the resource key for your XML file (eg `select_one_from_file colors.xml`) as the instance name for the selection.  The data from the specified XML resource will be automatically loaded into the form and available for the user to select from. 
+
+Future updates to the contents of the resource XML file will be reflected in the form when the new version of the resource file is uploaded (without needing to make any updates to the form configuration).
+
+| type                            | name           | label                      |
+|---------------------------------|----------------|----------------------------|
+| select_one_from_file colors.xml | favorite_color | Select your favorite color |
 
 ## CHT XPath Functions
 
@@ -388,10 +432,7 @@ The meta information in the `{form_name}.properties.json` file defines the form'
 | `context.place`      | Boolean determining if the form can be seen in the Action list for a person's profile. This is still subject to the `expression`.                                                                                                                                                                                                                                                                                                                                                                                                              | no       |
 | `context.expression` | A JavaScript expression which is evaluated when a contact profile or the reports tab is viewed. If the expression evaluates to true, the form will be listed as an available action. The inputs `contact`, `summary`, `user` and `userSummary` (**as of 4.21.0**) are available. By default, forms are not shown on the reports tab, use `"expression": "!contact"` to show the form on the Reports tab since there is no contact for this scenario.                                                                                           | no       |
 | `context.permission` | String permission key required to allow the user to view and submit this form. If blank, this defaults to allowing all access.                                                                                                                                                                                                                                                                                                                                                                                                                 | no       |
-
-### Expression functions
-
-{{< read-content file="_partial_expression_functions.md" >}}
+| `field_path_linting` | [Linting rules](#field-path-linting) applied to the form's field paths during validation. Added in `cht-conf` `6.6.0`.                                                                                                                                                                                                                                                                                                                                                                                                                         | no       |
 
 ### Code sample
 
@@ -420,6 +461,14 @@ In this sample properties file, the associated form would only show on a person'
     }
   }
 ```
+
+### Expression functions
+
+{{< read-content file="_partial_expression_functions.md" >}}
+
+### Field Path Linting
+
+{{< read-content file="_partial_field_path_linting.md" >}}
 
 ## Build
 

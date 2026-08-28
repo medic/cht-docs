@@ -1,7 +1,7 @@
 ---
 title: "Disclose Vulnerabilities"
 linkTitle: "Disclose Vulnerabilities"
-weight: 6
+weight: 10
 description: >
   How to help the CHT stay secure
 ---

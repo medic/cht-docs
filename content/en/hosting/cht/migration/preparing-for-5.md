@@ -31,11 +31,17 @@ In CHT 4.x there are two ways to upgrade a Kubernetes hosted CHT instance:
 
 A recurring problem seen on production deployments was that, over time, CHT administrators would use the CHT administration interface to upgrade.  Then, during a migration or a restore from backup, Kubernetes administrators would inadvertently downgrade a CHT instance by using an out of date Helm chart.
 
-To avoid this situation, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
+To avoid this situation, starting with 5.0.0, the "Upgrade" button has been removed from Kubernetes based deployments, so only the "Stage" button will show.  Here is a mockup of what it look like:
 
 ![k8s.no.upgrade.button.png](preparing-for-5/k8s.no.upgrade.button.png)
 
-Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
+Deployments which used the now deprecated [CHT 4.x Helm Charts](https://github.com/medic/helm-charts/),  will need to [migrate](/hosting/cht/migration/helm-charts-4x-to-5x-migration/) to the  [5.x charts](/hosting/cht/migration/helm-charts-4x-to-5x-migration/), now moved to the CHT Core repository. 
+
+{{< callout type="warning" >}}
+Deployments should only use the "Stage" button when upgrading from 4.x to 5.x in Kubernetes. Once staging completes, it is safe to upgrade through helm upgrade!
+
+If a 4.x deployment uses the "Upgrade" button for a 5.x version in the admin web GUI, the upgrade may appear to succeed. However the Nouveau service will not be deployed.  This means both replication and synchronization for offline users will not work.  To fix both, follow the helm upgrade per above which will ensure the Nouveau service is working as expected.
+{{< /callout >}}
 
 Background information:
 * [Add documentation for migrating from 4.x medic/helm-charts to the new production charts in 5.x cht-core](https://github.com/medic/cht-docs/issues/1943)
@@ -88,11 +94,11 @@ The fix is to:
 Background information:
 * [Make declarative config mandatory](https://github.com/medic/cht-core/issues/5906)
 
-### Increase ecmaVersion ES linting to version 6
+### CHT 4.0 - 4.4 upgrade to CHT 4.5 first
 
 {{< callout type="info" >}} Applies to: CHT versions between 4.0 and 4.4  {{< /callout >}}
 
-Deployments running CHT Version 4.0 and 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x.
+Deployments running CHT Version 4.0 through 4.4 must upgrade to version 4.5 or later before upgrading to version 5.x. This accounts for changes to ecmaVersion ES linting to version 6.
 
 Background information:
 * [Increase ecmaversion linting for ddocs](https://github.com/medic/cht-core/issues/9202)
@@ -114,7 +120,7 @@ Background information:
 
 CHT 5.0 is preparing for an upgrade to [Angular 20](https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301). As this version of Angular will require Chrome 107 or later, we're making this a requirement in 5.0 as a breaking change to pave the path for the upgrade later. When [researching the impact of this upgrade](https://github.com/medic/cht-core/issues/10029#issuecomment-3358338361) we surveyed over 100,000 end users devices and found that less than 0.5% of users are affected.  These users are running Chrome 106 released 3 years ago at this writing. A best practice is to have users always run the latest version if possible.
 
-To check if any of your users are impacted, check the [user-devices API](/building/reference/api/#get-apiv2exportuser-devices). This is an authenticated API endpoint and will return JSON for all users for all time.  As this may include multiple entries per user, it's important to filter out duplicate users and those running Chrome 107 or later. 
+To check if any of your users are impacted, check the [user-devices API](/building/reference/api/#/Export/v2ExportUserDevicesGet). This is an authenticated API endpoint and will return JSON for all users for all time.  As this may include multiple entries per user, it's important to filter out duplicate users and those running Chrome 107 or later. 
 
 Before starting, be sure `curl`, `jq` and `sort` are installed. In Ubuntu server, this looks like: `sudo apt update&&sudo apt install jq coreutils curl`. After confirming these tools are installed, save the output of the API to a JSON file being sure to replace `user`, `password` and `URL` with their correct values for your production instance:
 
@@ -162,5 +168,42 @@ Nouveau has the following impact on all CHT deployments upgrading to 5.0:
 * The Nouveau index data on the server will be stored in `${COUCHDB_DATA}/nouveau` for single-node CouchDBs and in `${DB1_DATA}/nouveau` for clustered CouchDBs.
 * The following `medic-client` views no longer exist. Be sure to update any custom scripts which use them:  `contacts_by_freetext`,  `contacts_by_type_freetext` and  `reports_by_freetext` .
 
+### Additional disk storage required for upgrading
+
+{{< callout type="warning" >}}
+  IMPORTANT: Disk Space Requirement for 5.x Upgrade
+
+  Before upgrading to version 5.x, ensure your instance has at least 5x the current disk space used. This is a critical requirement for a successful upgrade. Insufficient disk space may cause the upgrade to fail.
+{{< /callout >}}
+
+An internal mechanism of CouchDB requires **up to 5x disk space** when updating views. As a side-effect of all the performance and TCO changes in 5.0.0, some views were either moved or removed, and as a result, two large design documents need reindexing.  
+
+In our testing, the total database storage size increased during indexing to 5x, as seen in this graph:
+
+{{< cards >}}
+{{< card  image="/releases/images/5_0_reduction2.png"  title="Disk space storage requirement during 5.0.0 upgrade">}}
+{{< /cards >}}
+
+This issue is not limited to the upgrade to 5.0.0 alone. [Any upgrade that requires indexing new views requires additional disk space.](/hosting/cht/requirements/#production-hosting)
+
+### Temporary downtime for replication and online search immediately after upgrade
+
+With the addition of both [the disk use reduction](/releases/5_0_0/#reducing-hosting-total-cost-of-ownership) feature and [replication speed improvements](/releases/5_0_0/#seconds-to-synchronize-lower-is-better), two indexes need to be built in CouchDB Nouveau after the upgrade. While these indexes are being created, there's a brief initialization period where the following services will become available shortly: 
+* Replication for offline users - Replication will start working once the indexing jobs complete. In the meantime, requests will timeout after 1h. Users will see "sync failed" messages. 
+* Search for online users - Search functionality will return results as soon as indexing finishes.
+
+The indexes build automatically; no manual intervention is required. This is a one-time process that occurs only when upgrading from 4.x to 5.0. Subsequent upgrades from 5.0 to later versions and fresh 5.0 installations are unaffected.
+
+
+What to expect:
+
+- Small deployments: Indexes typically complete within minutes, and you may not notice any service interruption.
+- Large deployments: Index building may take up to 24 hours, depending on data volume.
+- All deployments: Services automatically resume normal operation once indexing completes.
+
+Monitoring progress:
+You can track the indexing progress in real-time by navigating to Fauxton's active tasks page at `/_utils/#/activetasks` (for example, `https://cht.example.com/_utils/#/activetasks`). Once all `search_indexer` tasks have disappeared from the list, the upgrade is complete and all services are operational.
+
 Background information:
 * [Reduce disk space with CouchDB Nouveau (TCO)](https://github.com/medic/cht-core/issues/9542)
+* [Temporary downtime for replication and online search immediately after 5.0 upgrade](https://github.com/medic/cht-core/issues/10460)

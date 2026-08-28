@@ -45,13 +45,15 @@ The following settings do not need to be specified. They should only be defined 
 | outgoing_deny_list               | All outgoing messages will be denied (unsent) if the recipient phone number starts with an entry in this list. A comma delimited list. (eg. `outgoing_deny_list="253,ORANGE"` will deny all messages sent to `253 543 4448` and `ORANGE NET`)                                                                                                                                                                                                                                         | ""      |         |
 | outgoing_deny_shorter_than       | Deny all messages to recipient phone numbers which are shorter than this value. Intended to avoid [message loops]({{% ref "building/messaging/message-loops" %}}) with short codes used by gateways (eg. `60396`). An integer.                                                                                                                                                                                                                                                     | 6       | 3.3.0   |
 | outgoing_deny_with_alphas        | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "building/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean.                                                                                                                                                                                                                                            | true    | 3.3.0   |
-| outgoing_deny_with_alphas        | When `true`, deny all messages to recipient phone numbers containing letters (eg. `Safaricom`). Intended to avoid [message loops]({{% ref "building/messaging/message-loops" %}}) with non-numeric senders used by gateways. A boolean.                                                                                                                                                                                                                                            | true    | 3.3.0   |
 | task_day_limit                   | The number of days before a task is due to show the due date.                                                                                                                                                                                                                                                                                                                                                                                                                         | 4       | 3.9.0   |
+| tasks.max_task_notifications                   | The maximum number of task notifications to show at once.                                                                                                                                                                                                                                                                                                                                                                                                                         | 8       | 5.1.0   |
 | app_url                          | The URL of the app, eg: "https://demo.app.medicmobile.org"                                                                                                                                                                                                                                                                                                                                                                                                                            |         | 3.10.0  |
 | task_days_overdue                | Display number of overdue days in tasks list                                                                                                                                                                                                                                                                                                                                                                                                                                          | false   | 3.13.0  |
 | languages                        | Array of objects with `locale` and `enabled` properties representing respectively the 2 or 3 letter language code and whether that language should be enabled.  <br/>If unset it falls back to the previous behavior of relying on the `enabled` property of each translation document `messages-XX.properties`. This fallback behavior is now deprecated and will be removed in the next major version (5.0). This `languages` configuration property will be required for CHT 5.0+. |         | 4.2.0   |
 | place_hierarchy_types            | Array of contact types' IDs, should match the ones defined in `contact_types`. This is used to define the Place Filter's options in Reports tab.                                                                                                                                                                                                                                                                                                                                      |         | 2.15.0  |
 | assetlinks                       | Array of [Digital Asset Links](/building/reference/app-settings/assetlinks) definitions. This is used to associate your CHT instance's domain to your Android app to verify app links.                                                                                                                                                                                                                                                                                                                |         | 4.7.0   |
+|sms.clear_failing_schedules            | When `true`, scheduled messages that fail to be generated or sent for various reasons (e.g., empty messages, template issues, or general generation failures) are cleared from the instance's processing queue. This ensures that past messages that were unable to be sent do not perpetually remain scheduled. | false | 5.1.0 |
+|sms.default_to_sender            | When `true`, messages without valid recipients are sent to the sender. When `false`, messages without valid recipients are not sent to the sender if they fail to resolve. They remain in scheduled state. | true | 5.1.0 | 
 
 ## SMS Workflows
 
@@ -66,7 +68,7 @@ An outgoing SMS message configuration has the following fields:
 |-------|---------|----------|
 |`translation_key`|The translation key of the message to send out. Available in 2.15+.|yes|
 |`messages`| (**deprecated**) Array of message objects, each with `content` and `locale` properties. From 2.15 on use `translation_key` instead.|no|
-|`recipient`| Recipient of the message.|no|
+|`recipient`| Specifies the intended recipient of the message. As of 5.1.0, an array of multiple recipients may be provided, in which case the first existing recipient will be resolved. |no|
 
 ### `recipient` values and resolutions:
 
@@ -86,8 +88,9 @@ An outgoing SMS message configuration has the following fields:
 | *valid phone number* | requested phone number |
 
 > [!NOTE]
-> - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number
-> - if there is no submitter phone number available, the actual `recipient` property value will be used
+> - when recipient is an array, the first resolved recipient from the array will be selected. 
+> - if `recipient` resolution does not yield a phone number, it will default to submitter's phone number. This behavior can be changed with [default_to_sender]({{% ref "building/reference/app-settings/sms/#app_settingsjson-sms" %}}) parameter.
+> - if there is no submitter phone number available or `default_to_sender` is `false`, the actual `recipient` property value will be used. When recipient is an array, the first field of the array will be used.
 > - when mapping a contact phone number, subject (`patient` and/or `place`) lineage and `linked_docs` take precedence over `submitter` lineage and `linked_docs`.
 > - except for `link:<tag>`, phone numbers are resolved to the primary contacts of the requested places. `linked_docs` hydration is shallow, so the primary contact of the linked doc will not be available.
 
@@ -133,6 +136,32 @@ The following filter functions are available for formatting dates.
 |`datetime` | Displays dates according to the `reported_date_format` specified in app_settings. See [doc for Moment.js format](https://momentjs.com/docs/#/parsing/string-format/) for details.|
 |`bikram_sambat_date` | Displays dates in Bikram Sambat calendar (most commonly used calendar in Nepal). Currently display format is hardcoded to e.g. "१५ चैत २०७३".|
 
+### Phone Format Helpers
+
+The following helper functions are available for formatting phone numbers in outgoing SMS messages.
+
+**Note:** The `local_phone` helper is available from **CHT 5.2.0+**.
+
+|helper|description|
+|-------|---------|
+|`local_phone` | Strips the country code prefix from a phone number. Requires `default_country_code` to be set in `app_settings`. If the number does not start with the configured country code, it is returned unchanged.|
+
+#### Usage
+
+```
+Contact {{#local_phone}}{{facility_phone}}{{/local_phone}} for help.
+```
+
+#### Example
+
+If `default_country_code` is set to `977` and `facility_phone` is `+9779841234567`, the rendered output will be `9841234567`.
+
+| Scenario | Input | Output |
+|----------|-------|--------|
+| Matching country code | `+9779841234567` | `9841234567` |
+| Non-matching country code | `+12025551234` | `+12025551234` (unchanged) |
+| Already in local format | `9841234567` | `9841234567` (unchanged) |
+| No `default_country_code` set | `+9779841234567` | `+9779841234567` (unchanged) |
 
 ## Validations
 
@@ -195,7 +224,7 @@ The following functions are available by default:
 | `regex` |  A custom regular expression |
 | `equalsTo` | Compare to another field by its key |
 | `unique(*fields)` | Returns `true` if no existing valid report has the same value for all of the listed fields. Fields are compared to those at the top level and within `fields` for every report doc. To include the form type use `'form'` as one of the fields. Eg `unique('form', 'patient_id')` checks that this form was never submitted for this patient. |
-| `uniquePhone(field)` | Returns `true` if contact with the phone number already exists. _Added in 4.3.0_ |
+| `uniquePhone(field)` | Returns `true` if a contact with the phone number already exists. _Added in 4.3.0_ |
 | `validPhone(field)` | Returns `true` if the field is a valid phone number else returns false. _Added in 4.3.1_ |
 | `uniqueWithin(*fields, time_period)` | Same as `unique` but the last argument is the time period in which to search. Eg `uniqueWithin('form', 'patient_id', '1 week')` checks that the same form wasn't submitted for this patient in the past week. |
 | `exists(form_id, field)` | Returns `true` if a report matches the `form_id` and value for `field`. This is useful to check that a patient was registered for a service before reporting about it. Eg `exists('REG', 'patient_id')` checks that a `REG` form was already submitted for a patient. As of 2.12 most uses of this function are obsolete because checking for a valid `patient_id` is done automatically by the `accept_patient_report` transition using `registration_not_found` in the `messages.event_type`. |

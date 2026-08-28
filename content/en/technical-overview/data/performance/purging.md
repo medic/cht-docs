@@ -115,7 +115,7 @@ This function takes six parameters:
 - `contact`, the contact document of a patient or other contact who has reports about them.
 - `reports`, an array of all reports for that subject that are present on the server.
 - `messages`, an array of sms messages that the contact has sent or received.
-- `chtScriptApi` (Optional) the CHT API that provides CHT-Core Framework's functions to other parts of the app. More info on the API can be found [here](/building/reference/_partial_cht_api). Added in 4.3.0.
+- `chtScriptApi` (Optional) the CHT API that provides CHT-Core Framework's functions to other parts of the app. More info on the API can be found [below](#cht-api). Added in 4.3.0.
 - `permissions` (Optional) string or array of permissions that the user has. More info on permissions can be found [here](/building/reference/app-settings/user-permissions). Added in 4.3.0.
 
 And should return an array of `_id` values for docs you would like to be purged (or `undefined` / nothing if you don't wish to purge anything). `Only ids of docs that were passed to the function are valid for purging: you are not allowed to purge other documents.
@@ -124,6 +124,19 @@ In the cases of reports that do not have subjects or their subjects are not foun
 
 As of **3.9.0**, `task` documents that are in a terminal state (`Cancelled`, `Completed`, `Failed`) are purged if their `end_date` is more than 60 days ago (relative to server date).
 As of **3.9.0**, `target` documents are purged if their reporting period is more than 6 months ago (relative to server date). Purging `task` and `target` documents happens automatically on every purge run. The intervals and required states are not configurable.
+
+#### CHT API
+
+{{< callout type="info" >}}
+This API for the purge configuration includes a _subset_ of the functions available in the [CHT API for the webapp](/building/reference/_partial_cht_api/) (used by client-side configurations such as contact-summary or tasks).  
+{{< /callout >}}
+
+Provides functions for checking permissions for the user in context. The API is available in the `cht` reserved variable under the `v1` version.
+
+| Function                                       | Arguments                                                                                                                                                                                                                                                                                                                   | Description                                                                                              |
+|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| hasPermissions(permissions, userRoles)         | `permissions`: String or array of permission name(s).<br>`userRoles`: (Optional) Array of user roles. Default to the current logged in user.<br>`chtPermissionsSettings`: (Optional as of `5.2.0`) Object of configured permissions in CHT-Core's settings. Default is the current instance's configured permissions.       | Returns true if the user has the permission(s), otherwise returns false.                                 |
+| hasAnyPermission(permissionsGroups, userRoles) | `permissionsGroups`: Array of groups of permission name(s).<br>`userRoles`: (Optional) Array of user roles. Default to the current logged in user.<br>`chtPermissionsSettings`: (Optional as of `5.2.0`) Object of configured permissions in CHT-Core's settings. Default is the current instance's configured permissions. | Returns true if the user has all the permissions of any of the provided groups, otherwise returns false. |
 
 ### Schedule configuration
 

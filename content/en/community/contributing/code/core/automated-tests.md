@@ -69,7 +69,7 @@ This will show all available unit test commands:
 unit                      unit-couchdb              unit-sentinel
 unit-admin                unit-haproxy              unit-shared-lib
 unit-api                  unit-haproxy-healthcheck  unit-webapp
-unit-cht-deploy           unit-nginx                unit-webapp-continuous
+unit-nginx                unit-webapp-continuous
 ```
 
 #### Running individual tests within a spec
@@ -327,7 +327,7 @@ You can contribute to the CHT testing in various ways:
 - Suggesting test scenarios
 
 ### Getting Started
-1. Set up your [development environment](https://docs.communityhealthtoolkit.org/contribute/code/core/dev-environment/)
+1. Set up your [development environment](/community/contributing/code/core/dev-environment/)
 2. Run existing tests to familiarize yourself
 3. Join the CHT community channels for support
 4. Start with small, manageable changes

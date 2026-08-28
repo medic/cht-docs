@@ -1,7 +1,7 @@
 ---
 title: "Database document hydration"
-linkTitle: "Document hydration"
-weight: 2
+linkTitle: "Hydration"
+weight: 4
 description: >
     Overview of database document hydration
 keywords: hydration schema  

@@ -102,6 +102,14 @@ Medic is committed to data security. In addition to adhering to data security st
 
 We work with every partner to make sure they are trained and equipped to handle their data. This includes advising partners on how to create secure passwords and PINs, how to secure hardware, and how to safely transport data.
 
+## Data retention and deletion
+
+Medic retains Data for as long as it is necessary to fulfill the purposes described in this policy, to comply with applicable legal obligations, or as otherwise agreed upon with the relevant Partner(s) acting as data controlling entities. Retention periods may vary depending on the nature of the Data and the requirements of applicable data protection regulations and Partner agreements.
+
+Users who wish to request deletion of their personal data from Medic-controlled systems should [contact Medic’s Data Protection Officer](#inquiries-with-medics-data-protection-officer). Upon receiving a valid deletion request, Medic will take reasonable steps to delete the requested data from its systems, subject to any legal or contractual obligations that may require continued retention.
+
+In deployments where a Partner serves as the data controlling entity, data deletion requests may need to be directed to the Partner in accordance with their own data handling policies. Medic will work with Partners to facilitate such requests where applicable.
+
 ## Inquiries with Medic’s Data Protection Officer
 
-For any inquiries, reach out to Medic’s Data Protection Officer, by emailing support@medic.org with the words “Data Protection” in the subject line. 
+For any inquiries, reach out to Medic’s Data Protection Officer, by emailing support@medic.org with the words “Data Protection” in the subject line.

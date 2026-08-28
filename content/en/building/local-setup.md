@@ -3,16 +3,19 @@ title: "Getting Started Building a CHT App"
 linkTitle: Getting Started
 weight: 2
 description: >
-  Set up a local environment to build and test CHT 4.x applications
+  Set up a local environment to build and test CHT applications
 relatedContent: >
-  community/contributing/code/core/using-windows
   hosting/
 aliases:
    - /building/tutorials/local-setup
    - /apps/tutorials/local-setup
 ---
 
-This tutorial will take you through setting up a local environment to build and test CHT applications on CHT version 4.x. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
+{{< callout type="info" >}}
+  This tutorial is designed for CHT version 4.x and higher.
+{{< /callout >}}
+
+This tutorial will take you through setting up a local environment to build and test CHT applications on CHT for version 4.x and higher. This includes setting up the necessary tools to download and run the CHT public docker image as well as a command line interface tool to manage and build CHT apps.
 
 By the end of the tutorial you should be able to:
 
@@ -64,7 +67,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -87,7 +90,7 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install python3-pip python3-setuptools python3-wheel xsltproc
+  sudo apt -y install xsltproc
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -97,16 +100,6 @@ To build CHT apps on your local system, you need to have some additional tools:
   {{< /tab >}}
 
 {{< /tabs >}}
-
-#### `pyxform`
-
-Using python on your terminal, install `pyxform` globally using the command below. Ensure you create and activate an environment for python3.
-
-```shell
-sudo python3 -m pip install git+https://github.com/medic/pyxform.git@medic-conf-1.17#egg=pyxform-medic
-```
-
-If you encounter the error `npm ERR! gyp ERR verb find Python Python is not set` while installing pyxform and are running macOS, see [this troubleshooting section](/community/contributing/code/core/dev-environment#macos--123).
 
 #### `cht-conf`
 
@@ -170,7 +163,7 @@ To open a terminal running on you _host environment_ in VS Code, open the Comman
 
 When using `cht-conf` within a Docker container to connect to a CHT instance that is running on your local machine (e.g. a development instance), you cannot use the `--local` flag or `localhost` in your `--url` parameter (since these will be interpreted as "local to the container").
 
-It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper-for-4x). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
+It is recommended to run a local CHT instance using the [CHT Docker Helper script](/hosting/cht/app-developer#cht-docker-helper). You can connect to the resulting `...local-ip.medicmobile.org` URL from the Docker container (or the VS Code terminal). (Just make sure the port your CHT instance is hosted on is not blocked by your firewall).
 
 ---
 
@@ -212,10 +205,27 @@ git clone https://github.com/medic/cht-core.git
 - Navigate your terminal to the `cht-core/config/default` directory. This is where the reference application is stored.
 - Run the following `cht-conf` command to compile and upload default test data to your local instance:
 
+{{< tabs items="Local,Dev Container" >}}
+
+  {{< tab >}}
 ```shell
-cht --url=https://medic:password@localhost --accept-self-signed-certs
-cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
+  # accept-self-signed-certs bypasses normal SSL certificate verification. This is necessary when connecting to a local CHT instance.
+  cht --url=https://medic:password@localhost --accept-self-signed-certs
+  cht --url=https://medic:password@localhost --accept-self-signed-certs csv-to-docs upload-docs
 ```
+  
+  {{< /tab >}}
+
+  {{< tab >}}
+
+```shell
+  # Requires instance started with CHT Docker Helper (accessible via a local-ip.medicmobile.org URL)
+  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url>
+  cht --url=https://medic:password@<your-local-ip.medicmobile.org-url> csv-to-docs upload-docs
+```
+  {{< /tab >}}
+
+{{< /tabs >}}
 
 With the test data uploaded, log back into your CHT instance and note the "Test Health Facility" and related data.
 

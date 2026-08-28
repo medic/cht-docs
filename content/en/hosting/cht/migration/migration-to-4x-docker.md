@@ -1,12 +1,13 @@
 ---
 title: "Migration from CHT 3.x to CHT 4.x"
-linkTitle: "To Docker Single-Node"
+linkTitle: "Docker 3.x to 4.x"
 weight: 60
 description: >
-  Guide to migrate existent data from CHT 3.x to CHT 4.x
+    Guide to migrate existent data from CHT 3.x to CHT 4.x
 aliases:
-  - /apps/guides/hosting/cht/data-migration
-  - /hosting/4.x/migration/migration-to-4x-docker/
+    - /apps/guides/hosting/cht/data-migration
+    - /hosting/4.x/migration/migration-to-4x-docker/
+    - /hosting/cht/migration/migration-to-4x-docker
 ---
 
 The hosting architecture differs entirely between CHT-Core 3.x and CHT-Core 4.x. Migrating data from an existing instance running CHT 3.x requires a few manual steps.
@@ -16,7 +17,7 @@ This guide will present the required steps while using a migration helping tool,
 By the end of this guide, your CHT-Core 3.x CouchDb will be down and CHT-Core 4.x ready to be used.
 Using this tool is not required, and the same result can be achieved by calling CouchDb endpoints directly. [Consult CouchDB documentation for details about moving shards](https://docs.couchdb.org/en/stable/cluster/sharding.html#moving-a-shard).
 
-> [!TIP] 
+> [!TIP]
 > If after upgrading you get an error, `Cannot convert undefined or null to object` - please see [issue #8040](https://github.com/medic/cht-core/issues/8040) for a work around.  This only affects CHT 4.0.0, 4.0.1, 4.1.0 and 4.1.1.  It was fixed in CHT 4.2.0.
 
 ### 1. Install CHT data migration tool
@@ -61,8 +62,8 @@ docker compose run couch-migration pre-index-views <desired CHT version>
 
 Once view indexing is finished, proceed with the next step.
 
-> [!CAUTION] 
-> If this step is omitted, 4.x API will fail to respond to requests until all views are indexed. Depending on the size of the database, this could take many hours, or even days. 
+> [!CAUTION]
+> If this step is omitted, 4.x API will fail to respond to requests until all views are indexed. Depending on the size of the database, this could take many hours, or even days.
 
 ### 3. Save existent CouchDb configuration
 
@@ -88,7 +89,7 @@ b) If running a custom installation of CouchDb, data would be typically stored a
 Depending on your project scalability needs and technical possibilities, you must decide whether you will deploy CouchDb in a single node or in a cluster with multiple nodes.
 Consult this guide about clustering and horizontal scalability to make an informed decision. <insert link>
 
-> [!NOTE] 
+> [!NOTE]
 > You can start with single node and then change to a cluster. This involves running the migration tool again to distribute shards from the existent node to the new nodes.
 
 Depending on your choice, follow the instructions that match your deployment below:

@@ -21,7 +21,7 @@ When a community-proposed improvement shows potential for broad impact, we invit
 - Help shape the future of the CHT
 
 ## Where to find active squads?
-See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](https://docs.communityhealthtoolkit.org/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
+See the active squads on the [CHT roadmap](https://github.com/orgs/medic/projects/112/views/24) and subscribe to the [CHT calendar](/community/events/) to stay up to date with all the CHT events, including the regular squad meetings.
 
 ## How do squads form?
 The journey to forming a squad begins with a community need and a conversation about it. Here’s how it typically works:
@@ -49,7 +49,7 @@ A need sparks! The community identifies a feature or improvement with broad pote
   **Outputs**:
   - A squad kick-off message is shared on the forum 
   - Community members volunteer to participate in the squad
-  - The [Code of Conduct](https://docs.communityhealthtoolkit.org/community/contributing/code-of-conduct/) is shared with all squad members.
+  - The [Code of Conduct](/community/contributing/code-of-conduct/) is shared with all squad members.
   - A squad kick-off call is scheduled with the interested contributors. 
 
 ### 2. 🧑🏼‍🎨 Early Design Discussion
@@ -63,36 +63,29 @@ Teams explore technical requirements, timelines, and design approaches.
 Turning ideas into action. 
 
   **Outputs**:
-  - The squad should collaboratively work on a [design document](https://docs.communityhealthtoolkit.org/community/contributing/code/design-docs/) based on the requirements. Once the first iteration is complete, pause to incorporate feedback by announcing it on the forum for broad community review before proceeding.
+  - The squad should collaboratively work on a [design document](/community/contributing/code/design-docs/) based on the requirements. Once the first iteration is complete, pause to incorporate feedback by announcing it on the forum for broad community review before proceeding.
   - If needed, UI mockups are created.
 
 ### 4. 🧑🏽‍💻 Development/Building
-Once the design doc is accepted, development can begin. If multiple orgs are codeveloping the functionality, then agree on a single communal branch/workspace for the developers to contribute to. Ensure work is pushed to the public repositories early and often. Ensure coding best practices are being followed, such as automated testing, code quality, and documentation. Ensure manual testing is happening throughout to find issues early.
+Once the design doc is accepted, development can begin. If multiple orgs are codeveloping the functionality, then agree on a single communal branch/workspace for the developers to contribute to. Ensure work is pushed to the public repositories early and often. Ensure coding best practices are being followed, such as automated testing, code quality, and documentation. Ensure rigorous manual testing is happening throughout to find issues early and avoid regressions.
 
   **Output**:
   - Working software
 
-### 5. 📲 Testing
-Ensuring quality. Rigorous manual/automated testing verifies functionality.
-
-  **Outputs**:
-  - Test reports
-  - Verified software
-
-### 6. 🛋️ Review
+### 5. 🛋️ Review
 When the squad confirms that the solution meets the requirements, submit a pull request for code review. Nominate a CHT maintainer to work on the review. Post the PR and instructions on how to run it, on the forum so other community members can try it out. After passing both technical review and allowing a few days for community feedback, merge the approved code.
 
 **Outputs**: 
 - PR posted with testing instructions in the forum for community validation.
 - Merged contribution with documented community input.
 
-### 7. 💪🏼 Release
+### 6. 💪🏼 Release
 The functionality is released and ready to create an impact in the real world. Features can be deployed to users.
 
   **Output**:
   - Software release
 
-### 8. ✅ Done
+### 7. ✅ Done
 Mission accomplished. The project meets all goals and the related tasks are marked complete.
 
 The most important thing now is to recognise the efforts of everyone involved in this process. This cannot be understated. Do this loudly, repeatedly, in private, and in public, calling out specific people and organisations.

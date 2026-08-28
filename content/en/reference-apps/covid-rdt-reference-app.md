@@ -39,7 +39,7 @@ Your instance of CHT needs to be on v3.13+ which has features developed to suppo
   * **Android App Launcher** - integrate with third party apps like the RD-Toolkit
   * **Parse Timestamp to Date** -  convert epoch time stamps (`1628945040308`) to your desired format (`Sun Mar 19 13:25:08`).
 
-For more information on these features, see the ["Related Content"](#related-content).
+For more information on these features, see the "Related Content" at the bottom of the page.
 
 Additional requirements for this application beyond CHT 3.13, include [CHT Android 0.10.0](https://github.com/medic/cht-android) or later and Dimagi's [RD-Toolkit 0.9.8](https://github.com/dimagi/rd-toolkit/) or later.
 
@@ -91,7 +91,7 @@ This second video shows the right side of the workflow above to capture RDT resu
 Like all applications written for the CHT, there are built-in mechanisms to retrieve raw and aggregate data to generate reports and dashboards. Here are some ways that the data can be accessed:
 
  * **[In app targets](/building/targets/targets-overview):** Gives the CHW or their supervisor an aggregate view of any of the form fields. Since targets rely on the data on the device, if targets include data from other users then permissions must be set on the relevant forms so that the data can be replicated and synchronized accordingly.
- * **API Calls:** Given that all form submissions are captured in JSON and that we know the data model well, you can easily do API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports](/building/reference/api#get-apiv2exportreports) as well as [monitoring metadata](/building/reference/api#get-apiv2monitoring).
+ * **API Calls:** Given that all form submissions are captured in JSON and that we know the data model well, you can easily do API calls to a CHT server instance and use some custom code (node, python etc) to gather and show stats on a daily basis. You can export to either JSON or CSV. See API docs [for reports](/building/reference/api/#/Export/v2ExportReportsGet) as well as [monitoring metadata](/building/reference/api/#/Monitoring/v2MonitoringGet).
  * **[PostgreSQL queries](https://github.com/medic/cht-sync):** CHT ships with a utility to export all the data that the API has to a relational database, Postgres. You have all the raw data the API has, but can now use the power of joins and groupings to come up with totally customizable stats by day, week, month etc. Data can be synched near real time from the CHT.
  * **Dashboards:** Medic has used both [Klipfolio](https://www.klipfolio.com/) and, more recently, [Superset](https://superset.incubator.apache.org/) to create more complex yet still user-friendly dashboards. This is particular useful for those who need to view the data but wouldn't otherwise be logging in to CHT apps. These dashboards generally access the relational data in the Postgres database as the back end.
   * **Third-Party Applications:** Connecting to third-party applications can be done using built-in [integrations](/building/integrations), or building a workflow with [custom integrations](/building/integrations/custom).
@@ -99,7 +99,7 @@ Like all applications written for the CHT, there are built-in mechanisms to retr
 
 ### Sample API call
 
-Start with finding out the names of the forms you can get reports from. If you had deployed this application without any customizations, you would have these forms available as seen by calling the [forms API](/building/reference/api#get-apiv1forms):
+Start with finding out the names of the forms you can get reports from. If you had deployed this application without any customizations, you would have these forms available as seen by calling the [forms API](/building/reference/api/#/Config/v1FormsGet):
 
 ```shell
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v1/forms" | jq
@@ -122,7 +122,7 @@ The resulting JSON is formatted by `jq` for you to get an easy to read list.
 ]
 ```
 
-The last two forms can be used to query [the reports API ](/building/reference/api#get-apiv2exportreports) to get RDT provions and captures.  To get all the capture reports into a file called `output.csv`, you would use this call:
+The last two forms can be used to query [the reports API ](/building/reference/api/#/Export/v2ExportReportsGet) to get RDT provions and captures.  To get all the capture reports into a file called `output.csv`, you would use this call:
 
 ```shell
 curl "http://LOGIN:PASSWORD@HOSTNAME/api/v2/export/reports?filters[search]=&filters[forms][selected][0][code]=covid19_rdt_capture" > output.csv
@@ -352,7 +352,7 @@ While likely too verbose for humans to read, these unredacted sample JSON docume
 ### Capture
 
 {{< callout type="info" >}}
-  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](#base64-image-extraction).
+  The `rdt_session_result_extra_images.cropped` field is truncated as it normally exceeds [10,000 characters](/reference-apps/covid-rdt-reference-app/#base64-image-extraction).
 {{< /callout >}}
 
 

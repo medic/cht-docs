@@ -1,7 +1,7 @@
 ---
 title: "Preparing to Upgrade to CHT 4.0"
 linkTitle: "Preparing for 4.0"
-weight: 20
+weight: 15
 aliases:
   - /apps/guides/hosting/3.x/preparing-for-4.0
   - /apps/guides/updates/preparing-for-4.md
@@ -72,7 +72,7 @@ Note that each user can submit many telemetry docs (`count_telemetry`), so the q
 
 ### Active user counts
 
-You can check the [monitoring API](/building/reference/api#monitoring) with `curl` to check active users for the last `30` days.  Remember that the users can send a telemetry report once per day, so this active user count will be less than the counts from the query above. 
+You can check the [monitoring API](/building/reference/api/#/Monitoring/v2MonitoringGet) with `curl` to check active users for the last `30` days.  Remember that the users can send a telemetry report once per day, so this active user count will be less than the counts from the query above. 
 
 We'll [use `jq` to filter](https://stedolan.github.io/jq/) out the unrelated metrics.  Be sure to replace `CHT-URL-HERE` with your production CHT URL:
 
@@ -221,7 +221,7 @@ After pushing your app config (see "CHT Conf" above), you can proceed to go thro
 
 ##### Active
 
-* [A regression](https://github.com/medic/cht-core/issues/8225) added in `4.6.0`, causes the [contact selector functionality](https://docs.communityhealthtoolkit.org/building/guides/forms/form-inputs/#contact-selector) to not work as expected when loading contact data into the `inputs` group _when the group is non-relevant._ More details, including a viable workaround, are documented on the  [issue](https://github.com/medic/cht-core/issues/8225).
+* [A regression](https://github.com/medic/cht-core/issues/8225) added in `4.6.0`, causes the [contact selector functionality](/building/forms/configuring/form-inputs/#contact-selector) to not work as expected when loading contact data into the `inputs` group _when the group is non-relevant._ More details, including a viable workaround, are documented on the  [issue](https://github.com/medic/cht-core/issues/8225).
 
 ##### Resolved
 

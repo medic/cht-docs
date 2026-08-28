@@ -1,6 +1,6 @@
 ---
-title: "Backups in CHT"
-linkTitle: "Backups"
+title: "Backup and Restore a CHT instance"
+linkTitle: "Backup & Restore"
 weight: 4
 description: >
     Which data to backup when hosting the CHT
@@ -21,6 +21,11 @@ If you changed these paths during install, please be sure to update the paths ac
 Backups should be sure to follow the 3-2-1 rule:
 
 > There should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location. _- [Wikipedia](https://en.wikipedia.org/wiki/Backup)_
+
+{{< callout  type="warning"  >}}
+A backup is not functional until the restore is tested.  Be sure to [test the restore](/hosting/cht/docker/backups/#restore) regularly!
+{{< /callout >}}
+
 
 ## Manual backup
 
@@ -68,8 +73,8 @@ Check that the file count and directory sizes of `couchdb` directories matches a
 echo "CouchDB Prod";du -h -d1 /home/ubuntu/cht/couchdb
 echo "CouchDB Backup";du -h -d1 /home/ubuntu/cht/backup/couchdb
 
-echo "CouchDB Prod";ls -R /home/ubuntu/cht/backup/couchdb |wc -l
-echo "CouchDB Backup";ls -R /home/ubuntu/cht/couchdb |wc -l
+echo "CouchDB Prod";ls -R /home/ubuntu/cht/couchdb |wc -l
+echo "CouchDB Backup";ls -R /home/ubuntu/cht/backup/couchdb |wc -l
 ```
 
 Running the lines should show a similar output to below. Be sure that `Prod` and `Backup` sections exactly match:
@@ -266,7 +271,7 @@ BORG_PASSPHRASE='PASSWORD' borg extract \
     --list \
     borg@backup.server:cht::25-10-21_11:15:24
 mv home/ubuntu/cht/couchdb . 
-mv home/ubuntu/cht/upgrade-service/.env 
+mv home/ubuntu/cht/upgrade-service/.env .
 rm -r home
 ```
 {{< /tab >}}
@@ -297,7 +302,7 @@ Copy the staged files into place:
 ```shell
 cd /home/ubuntu/cht/restore
 cp --archive .env /home/ubuntu/cht/upgrade-service/.env
-sudo cp --archive couchdb/* /home/ubuntu/cht/couchdb/.
+sudo cp --archive couchdb/. /home/ubuntu/cht/couchdb/.
 ```
 
 Start up the CHT:

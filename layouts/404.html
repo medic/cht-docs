@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class='hx:mx-auto hx:flex hextra-max-page-width'>
+  {{ partial "sidebar.html" (dict "context" .) }}
+  <article
+    class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 hx:md:px-12">
+
+      <div class="content">
+        <h1 class="hx:text-8xl md:hx:text-9xl hx:font-extrabold hx:tracking-tight">
+          404
+        </h1>
+	<p> 
+          The page you are looking for doesn't exist. Please use the search bar or the 
+	  navigation menu to locate the page you are looking for.
+        </p>
+      </div>
+    </main>
+  </article>
+</div>
+{{ end }}

@@ -81,7 +81,7 @@ The screenshots here represent some of the smallest phones our users have. As yo
 
 ### Icons
 
-The Community Health Toolkit includes a collection of [60+ free icons](//design/interface/icons) that represent key elements of different community health workflows and protocols. Review the recommended usages that follow.
+The Community Health Toolkit includes a collection of [60+ free icons](/design/interface/icons) that represent key elements of different community health workflows and protocols. Review the recommended usages that follow.
 
 
 |Icon | People and Places Hierarchies |

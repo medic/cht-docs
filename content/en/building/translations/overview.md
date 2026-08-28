@@ -28,7 +28,7 @@ Translations for XForms are defined within the forms themselves. The XLSForm not
 
 ### Reports
 
-Submitted forms are shown on the Reports tab, with each value in the report displayed alongside a label. The label for each value is represented by a key in the `report.{form-name}.{field-name}` format, which can be translated by including the key and translation in the [language files](#translations). If the label is omitted in the translation the full key will show in the app.
+Submitted forms are shown on the Reports tab, with each value in the report displayed alongside a label. The label for each value is represented by a key in the `report.{form-name}.{field-name}` format, which can be translated by including the key and translation in the [language files](/community/contributing/translations/#overview). If the label is omitted in the translation the full key will show in the app.
 
 #### Hiding report fields
 

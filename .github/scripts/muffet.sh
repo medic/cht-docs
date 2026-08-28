@@ -5,10 +5,7 @@
 #
 # If you're doing local development and want to run link checkers locally, please use this script!
 # You'll need:
-# - install go - https://golang.org/doc/install
-# - install muffet - https://github.com/raviqqe/muffet
-# - make sure muffet is in your PATH
-# - cd ti: ./.github/scripts/
+# - cd to: ./.github/scripts/
 # - run script: ./muffet.sh
 #
 # If we have errors from this script being too aggressive (see how large downloads on
@@ -16,11 +13,11 @@
 # use extremely granular URLs so as not to exclude more than we need to.
 
 # when upgrading muffet, upload new binary here and rename so version is explicit in filename
-./2.10.9.muffet http://localhost:1313 \
+./2.11.5.muffet http://localhost:1313 \
   --buffer-size 50000 \
   --timeout 255 \
-  --rate-limit 4 \
-  --max-connections-per-host 8 \
+  --rate-limit 3 \
+  --max-connections-per-host 6 \
   --ignore-fragments \
   --header="User-Agent: Muffet (github.com/raviqqe/muffet) on behalf of CHT Docs (docs.communityhealthtoolkit.org)" \
   --exclude "http[s]*://.*africastalking.com.*" \
@@ -29,6 +26,11 @@
   --exclude "http[s]*://github.com/medic/cht-docs/edit/main.*" \
   --exclude "http[s]*://github.com/medic/medic-infrastructure.*" \
   --exclude "http[s]*://github.com/moh-kenya/config-echis-2.0.*" \
+  --exclude "http[s]*://github.com/medic/cht-android/blob/master/.github/workflows/publish.yml" \
+  --exclude "http[s]*://github.com/medic/cht-core/blob/master/scripts/deploy/README.md" \
+  --exclude "http[s]*://github.com/medic/cht-core/tree/master/scripts/deploy" \
+  --exclude "http[s]*://github.com/palladiumkenya/openmrs-module-afyastat" \
+  --exclude "http[s]*://github.com/signup" \
   --exclude "http[s]*://.*google.com/.*12345ABCDEF.*" \
   --exclude "http[s]*://.*google.com/.*14AuJ7SerLuOPESBjQlJqpBtzwSAoVf5ykTT7fjyJBT0.*" \
   --exclude "http[s]*://.*google.com/.*1pPk6FAuLUPKUYnCRgruPk6Lh5IeWzu6IPD1KTFOi6YQ.*" \
@@ -50,8 +52,8 @@
   --exclude "http[s]*://demo.app.medicmobile.org.*" \
   --exclude "http[s]*://www.npmjs.com.*" \
   --exclude "http[s]*://npmjs.com.*" \
-  --exclude "https://.*youtu.be.*" \
-  --exclude "https://.*youtube.com.*" \
+  --exclude "http[s]*://.*youtu.be.*" \
+  --exclude "http[s]*://.*youtube.com.*" \
   --exclude "http[s]*://docs.couchdb.org.*" \
   --exclude "http[s]*://oppiamobile.readthedocs.io*." \
   --exclude "http[s]*://borgbackup.readthedocs.io.*" \
@@ -62,6 +64,18 @@
   --exclude "http[s]*://.*my.local-ip.co.*" \
   --exclude "http[s]*://.*local-ip.medicmobile.org.*" \
   --exclude "http[s]*://cht.domain.com.*" \
+  --exclude "http[s]*://www.docker.com.*" \
+  --exclude "http[s]*://blog.angular.dev/announcing-angular-v20-b5c9c06cf301" \
+  --exclude "http[s]*://askubuntu.com/a/477554" \
+  --exclude "http[s]*://medium.com.*" \
+  --exclude "http[s]*://www.pih.org.*" \
+  --exclude "http[s]*://scientyficworld.org/how-to-avoid-local-port-conflicts-in-docker/" \
+  --exclude "http[s]*://www.geeksforgeeks.org/ulimit-soft-limits-and-hard-limits-in-linux/" \
+  --exclude "http[s]*://news.ycombinator.com/item?id=1547647" \
+  --exclude "http[s]*://pmc.ncbi.nlm.nih.gov/articles/PMC6903365/" \
+  --exclude "http[s]*://ruky.me/hacking-cht-user-interface-with-javascript-to-format-content/" \
+  --exclude "http[s]*://www.sonarsource.com/" \
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
-  --exclude "http[s]*://127.*"
+  --exclude "http[s]*://127.*" \
+  --exclude "http[s]*://.*\.mp4"

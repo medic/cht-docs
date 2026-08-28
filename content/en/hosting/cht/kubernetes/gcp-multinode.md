@@ -12,7 +12,7 @@ aliases:
 
 ## Audience
 
-This page is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, see our guide [here for setting up a simpler installation](../../docker).
+This page is intended for system administrators who are setting up a CHT Core system that has millions of documents, 400+ users and requires high performance. If you are interested in setting up a smaller scale CHT Core, see our guide [here for setting up a simpler installation](/hosting/cht/docker/).
 
 ## Prerequisites
 
