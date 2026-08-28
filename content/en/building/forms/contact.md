@@ -80,7 +80,7 @@ It is _highly recommended_ to set the [`max-pixels` parameter](https://docs.geto
 
 ## Capturing GPS Location
 
-_Added in CHT `5.3`._
+_Added in CHT 5.3._
 
 Contact forms can capture the device's GPS location when a contact is created or edited. The widget stores coordinates on the contact document and maintains a geolocation log across edits. After a successful capture, a context question records whether the CHW is at the household or somewhere else.
 
