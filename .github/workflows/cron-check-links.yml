@@ -19,7 +19,7 @@ jobs:
   BuildLinkCheckPushLive:
     name:
     runs-on: ubuntu-22.04
-    timeout-minutes: 15
+    timeout-minutes: 60
     steps:
 
       - name: Git checkout cht-docs repos
