@@ -48,9 +48,11 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
   # Uses Homebrew: https://brew.sh/
   brew update
   brew install curl jq pyenv git make node@{{< param nodeVersion >}}
-  # Python no longer included by default in macOS >12.3 
-  pyenv install 2.7.18
-  pyenv global 2.7.18
+  # node@{{< param nodeVersion >}} is keg-only, so Homebrew does not symlink it onto your PATH.
+  echo "export PATH=\"\$(brew --prefix node@{{< param nodeVersion >}})/bin:\$PATH\"" >> ~/.$(basename $SHELL)rc
+  # Python is no longer included by default in macOS >12.3
+  pyenv install 3.10.13
+  pyenv global 3.10.13
   echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
   . ~/.$(basename $SHELL)rc
 ```
@@ -74,6 +76,10 @@ Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >
 ```shell
 node -v && npm -v
 ```
+
+{{< callout type="warning" >}}
+On macOS, `node@{{< param nodeVersion >}}` is [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean) — installing it does not put it on your PATH. If the command above reports any version other than {{< param nodeVersion >}}.x.x, the `export PATH` line from the macOS tab has not taken effect; open a new shell, or re-run it, before continuing. Everything below will otherwise silently build and run against the wrong version of Node.
+{{< /callout >}}
 
 Install Docker:
 
@@ -166,7 +172,14 @@ cd ~/cht-core && npm run dev-sentinel
 
 That's it!  Now when you edit code in your IDE, it will automatically reload.  You can see the CHT running locally here: [http://localhost:5988/](http://localhost:5988/)
 
-When you're done with development you can `ctrl + c` in the three terminals and stop the CouchDB container with `docker stop medic-couchdb`.  When you want to resume development later, run `docker start medic-couchdb` and re-run the three terminal commands.
+When you're done with development you can `ctrl + c` in the three terminals and stop the CouchDB containers with:
+
+```shell
+cd ~/cht-docker
+COUCHDB_USER=medic COUCHDB_PASSWORD=password docker compose -f docker-compose.yml -f couchdb-override.yml stop
+```
+
+When you want to resume development later, run the same command with `start` in place of `stop`, then re-run the three terminal commands. The `COUCHDB_*` variables are required because `docker-compose.yml` declares `COUCHDB_PASSWORD` as mandatory; without them `docker compose` aborts before it reaches the container.
 
 ### Adding and accessing data
 
@@ -190,10 +203,10 @@ If you had issues with following the above steps, check out these links for how 
 
 * [Node.js {{< param nodeVersion >}}.x](https://nodejs.org/) & [npm {{< param npmVersion >}}.x.x](https://npmjs.com/) - Both of which we recommend installing [via `nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
 * [xsltproc](https://github.com/ilyar/xsltproc) 
-* [python 2.7](https://www.python.org/downloads/)
+* [python 3](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
-* [bzip2])(https://sourceware.org/bzip2/downloads.html) - if you're on Ubuntu call: `sudo apt install bzip2`
+* [bzip2](https://sourceware.org/bzip2/downloads.html) - if you're on Ubuntu call: `sudo apt install bzip2`
 
 ### Windows WSL2
 
