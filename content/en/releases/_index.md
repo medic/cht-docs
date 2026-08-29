@@ -22,7 +22,8 @@ It is recommended that all projects update regularly multiple times a year to ge
 
 | Version | Status    | Release date | End of life |
 |---------|-----------|--------------|-------------|
-| 5.2.x   | Supported | 26-Jun-2026  | TBA         |
+| 5.3.x   | Supported | 26-Aug-2026  | TBA         |
+| 5.2.x   | Supported | 26-Jun-2026  | 26-Nov-2026 |
 | 5.1.x   | Supported | 26-Feb-2026  | 26-Sep-2026 |
 | 5.0.x   | EOL       | 20-Nov-2025  | 26-May-2026 |
 | 4.22.x  | Supported | 10-Oct-2025  | 20-Nov-2026 |
@@ -74,12 +75,14 @@ The following table shows the dependencies for deploying the CHT.
 
 The following is the minimum specification recommendation for smartphones to handle the typical workload of front line health workers. Users with particularly high workloads or facility or supervisor workloads will require more powerful devices.
 
-| Specification   | Minimum          | Recommended      |
+| Specification   | Minimum          | Recommended*     |
 |-----------------|------------------|------------------|
 | Android version | 5.0              | 9.0+             |
 | Processor       | 1.0GHz dual-core | 2.0GHz quad-core |
-| RAM             | 1GB              | 2GB              |
-| Storage         | 8GB              | 16GB             |
+| RAM             | 1GB              | 4GB              |
+| Storage         | 8GB              | 32GB             |
+
+_\* Recommended specs increased in CHT [5.3](/releases/5_3_0).  This is not due to 5.3 changes, but reflect [suggestions from Google](https://www.androidauthority.com/android-15-minimum-storage-requirement-3543169/) and [the CHT Community](https://forum.communityhealthtoolkit.org/t/android-device-specifications-to-run-cht/5336) at the time of the 5.3 release._
 
 If CHWs will be collecting GPS data, autonomous GPS sensors in addition to assisted GPS (A-GPS) for areas with poor GSM network connectivity will enhance the quality of GPS data collected. Autonomous GPS is usually labeled in terms of the supported navigation satellite system:
 
@@ -93,6 +96,7 @@ Devices with more navigation systems are more likely to get a more accurate loca
 ## Release Notes
 
 ### 5.x
+- [5.3.0](/releases/5_3_0) - 2026-08-31
 - [5.2.0](/releases/5_2_0) - 2026-06-26
 - [5.1.3](/releases/5_1_3) - 2026-06-05
 - [5.1.2](/releases/5_1_2) - 2026-04-30
