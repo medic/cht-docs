@@ -272,8 +272,8 @@ display = "hover"
   type = "giscus"
 
   [params.banner]
-  key = "announcement-5.2"
-  message = "UI extensions, tab customizations and more 🎉 [CHT 5.2](/releases/5_2_0/) is here! "
+  key = "announcement-5.3"
+  message = "Archiving, contact card photos and more 🎉 [CHT 5.3](/releases/5_3_0/) is here! "
 
 [params.imageZoom]
 enable = true
