@@ -35,7 +35,7 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install xsltproc curl uidmap jq python3 git make
+  sudo apt -y install xsltproc curl uidmap jq python3 git make bzip2
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -60,7 +60,7 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
   {{< tab >}}
 ```shell
   sudo apt update && sudo apt -y dist-upgrade
-  sudo apt -y install xsltproc curl uidmap jq python3 git make
+  sudo apt -y install xsltproc curl uidmap jq python3 git make bzip2
   # Use NVM to install NodeJS:
   export nvm_version=`curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r .name`
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$nvm_version/install.sh | $SHELL
@@ -78,7 +78,7 @@ node -v && npm -v
 ```
 
 {{< callout type="warning" >}}
-On macOS, `node@{{< param nodeVersion >}}` is [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean) — installing it does not put it on your PATH. If the command above reports any version other than {{< param nodeVersion >}}.x.x, the `export PATH` line from the macOS tab has not taken effect; open a new shell, or re-run it, before continuing. Everything below will otherwise silently build and run against the wrong version of Node.
+On macOS, `node@{{< param nodeVersion >}}` is [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean) so it doesn't end up in your `PATH`. If `node -v` shows a different version than {{< param nodeVersion >}}.x.x, the `export PATH` line from the macOS tab has not taken effect. To fix this,  open a new shell, or re-run `export PATH`, before continuing.
 {{< /callout >}}
 
 Install Docker:
@@ -206,7 +206,6 @@ If you had issues with following the above steps, check out these links for how 
 * [python 3](https://www.python.org/downloads/)
 * [Docker](https://docs.docker.com/engine/install/)
 * [CouchDB](https://docs.couchdb.org/en/stable/install/index.html) - OS package instead of in Docker - you **MUST** use CouchDB 2.x for CHT < 4.4! We still strongly recommend using Docker.
-* [bzip2](https://sourceware.org/bzip2/downloads.html) - if you're on Ubuntu call: `sudo apt install bzip2`
 
 ### Windows WSL2
 
