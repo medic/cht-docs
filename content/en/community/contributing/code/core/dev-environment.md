@@ -56,6 +56,9 @@ _(Node {{< param nodeVersion >}} is the environment used to run the CHT server i
   echo "eval \"\$(pyenv init --path)\"" >> ~/.$(basename $SHELL)rc
   . ~/.$(basename $SHELL)rc
 ```
+  {{< callout type="warning" >}}
+  On macOS, `node@{{< param nodeVersion >}}` is [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean) so it doesn't end up in your `PATH`. If `node -v` call below shows a different version than {{< param nodeVersion >}}.x.x, the `export PATH` line from the macOS tab has not taken effect. To fix this,  open a new shell, or re-run `export PATH`, before continuing.
+  {{< /callout >}}
   {{< /tab >}}
   {{< tab >}}
 ```shell
@@ -77,9 +80,6 @@ Now let's ensure NodeJS {{< param nodeVersion >}} and npm {{< param npmVersion >
 node -v && npm -v
 ```
 
-{{< callout type="warning" >}}
-On macOS, `node@{{< param nodeVersion >}}` is [keg-only](https://docs.brew.sh/FAQ#what-does-keg-only-mean) so it doesn't end up in your `PATH`. If `node -v` shows a different version than {{< param nodeVersion >}}.x.x, the `export PATH` line from the macOS tab has not taken effect. To fix this,  open a new shell, or re-run `export PATH`, before continuing.
-{{< /callout >}}
 
 Install Docker:
 
