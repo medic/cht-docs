@@ -62,6 +62,8 @@ Example: you want to send a referral to a facility's EMR system when a CHW refer
 
 A complex property that defines the details of the connection to the external service. It currently supports several authentication types: basic authentication, HTTP authorization request header, and a custom authentication mode for Muso SIH.
 
+It can also include extra HTTP `headers` and an optional `proxy`.
+
 Basic auth example:
 
 ```json
@@ -84,6 +86,10 @@ If you don't provide an authentication parameter then the request will be sent w
 
 As of 3.9, the `header` type is also supported, which sends authentication credentials via a HTTP request header: `Authorization: '<value>'`. The value is set in CHT credentials configuration, and referred to by the `value_key`, similarly to the `password_key`. The value must match the credentials needed for the third party tool, and is generally formatted as `<type> <credentials>`. For instance, to send data to RapidPro, the value in the configuration would be set to the complete RapidPro API Token: eg `Token 123456789abcdef`.
 
+{{< callout type="info" >}}
+`auth.type: "header"` only supports `name: "Authorization"`. For other headers (for example `x-api-key`), use `destination.headers`.
+{{< /callout >}}
+
 Header auth example:
 ```json
 {
@@ -95,6 +101,53 @@ Header auth example:
       "value_key": "example.com"
     },
     "path": "/api/v1/referral"
+  }
+}
+```
+
+#### headers
+
+_Added in 5.4.0_
+
+An optional object of extra HTTP headers to send with the request. Each key is the header name. Each value must be an object with exactly one of:
+- `value`: a plain string sent as-is
+- `value_key`: a key used to find the value in [CHT credentials](/building/reference/api/#/Config/v1CredentialsKeyPut)
+
+Example with custom auth header (and no `auth` config):
+
+```json
+{
+  "destination": {
+    "base_url": "https://example.com",
+    "path": "/api/v1/referral",
+    "headers": {
+      "Content-Type": { "value": "application/json" },
+      "X-Source": { "value": "CHT" },
+      "x-api-key": { "value_key": "example.com-api-key" }
+    }
+  }
+}
+```
+
+#### proxy
+
+_Added in 5.4.0_
+
+An optional proxy for the outbound request. A string URL is typical, for example `http://proxy.example.com:3128`. However, any valid [constructor parameters](https://undici.nodejs.org/api/ProxyAgent) for `ProxyAgent` are accepted.
+
+Example with `proxy`:
+
+```json
+{
+  "destination": {
+    "base_url": "https://example.com",
+    "path": "/api/v1/referral", 
+    "proxy": "http://proxy.example.com:3128",
+    "auth": {
+      "type": "header",
+      "name": "Authorization",
+      "value_key": "example.com"
+    }
   }
 }
 ```
