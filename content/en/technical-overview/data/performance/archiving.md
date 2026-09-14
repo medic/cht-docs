@@ -20,8 +20,9 @@ Archiving differs from [purging](/technical-overview/data/performance/purging) i
 - Purging removes documents from user devices while keeping them in the `medic` database, whereas archiving removes documents from the `medic` database entirely. Archived documents are copied to `medic-archive` and then purged from `medic`, leaving no trace in the changes feed.
 - Purging is conditional on user roles: the purge function decides per roles group, so a document can be purged for one user and not for another. Archiving is unconditional: an archived document is removed for all users.
 
-> [!WARNING]
-> Archived documents are no longer available to the CHT application. They cannot be viewed in the app, used in [tasks](/building/tasks/tasks-js), [targets](/building/targets/targets-js), or contact summaries, and they are deleted from user devices on the next sync. Make sure the documents are no longer needed before archiving them.
+{{< callout type="warning" >}}
+**Warning**: Archived documents are no longer available to the CHT application. They cannot be viewed in the app, used in [tasks](/building/tasks/tasks-js), [targets](/building/targets/targets-js), or contact summaries, and they are deleted from user devices on the next sync. Make sure the documents are no longer needed before archiving them.
+{{< /callout >}}
 
 ## Benefits
 
@@ -38,6 +39,10 @@ Archiving is a pipeline with three stages:
 1. You submit a list of document IDs to the [archive API endpoint](#queueing-documents-for-archiving). API validates the payload and queues the job for Sentinel.
 2. Sentinel processes the queued jobs, either on a [configurable schedule](#configuration) or immediately (within the next Sentinel 5-minute job queue cycle) when no schedule is configured. Each document is copied to `medic-archive` and then purged from `medic`.
 3. When users sync, archived documents are treated as deleted and are removed from their devices.
+
+{{< callout type="info" >}}
+Archiving will cause CouchDB to become fragmented until  [compaction](https://docs.couchdb.org/en/stable/maintenance/compaction.html) can run. In extreme cases of archiving millions of documents, fragmentation can cause disk use to be double the current CouchDB database.  To avoid this disk space use, consider archiving in smaller batches over a longer period of time so compaction can run to offset fragmentation caused by archiving.  
+{{< /callout >}}
 
 ## Queueing documents for archiving
 
