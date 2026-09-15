@@ -78,4 +78,5 @@
   --exclude "http[s]*://localhost:[3000|8443|5984]+" \
   --exclude "http[s]*://localhost$" \
   --exclude "http[s]*://127.*" \
-  --exclude "http[s]*://.*\.mp4"
+  --exclude "http[s]*://.*\.mp4" \
+  --exclude "http[s]*://.*\.js"
