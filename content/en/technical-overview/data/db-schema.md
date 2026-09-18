@@ -253,6 +253,7 @@ Users then, can be represented by up to 3 docs:
 * updated only after the data for their emitting contact changes or every 7 days
 * created in the database for any task due within the last 60 days
 * immutable once their state is "terminal" (Cancelled, Completed, Failed)
+* [archived automatically](/technical-overview/data/performance/archiving/#automatic-archiving) once terminal and more than 60 days past their `emission.endDate`, as of 5.4.0
 
 State | Description
 -- | --
@@ -309,6 +310,7 @@ To understand the difference between a task requester and a task owner, kindly s
 * one per analytics reporting period
 * updated when the user loads the application or when they view the targets tab 
 * updated a maximum of once per day
+* [archived automatically](/technical-overview/data/performance/archiving/#automatic-archiving) once their reporting period is more than 6 months old, as of 5.4.0
 
 ```json
 {
