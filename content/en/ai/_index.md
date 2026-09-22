@@ -12,4 +12,5 @@ Below are current tools that enhance the CHT for agentic assistance:
 
 {{< cards >}}
   {{< card link="mcp-servers" title="MCP Servers" icon="server" subtitle="Model Context Protocol servers for AI agent integration" >}}
+  {{< card link="cht-agent" title="CHT Agent" icon="cog" subtitle="Multi-agent system that researches, plans, and generates code for CHT issues" >}}
 {{< /cards >}}
