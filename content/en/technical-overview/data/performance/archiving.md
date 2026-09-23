@@ -46,7 +46,11 @@ Archiving will cause CouchDB to become fragmented until  [compaction](https://do
 
 ## Queueing documents for archiving
 
-Determining _which_ documents to archive is currently a manual process. For example, you can use analytics queries to find reports older than a retention threshold, or contacts that have been inactive for years.
+{{< callout type="info" >}}
+Expired tasks and targets are [archived automatically](#automatic-archiving).
+{{< /callout >}}
+
+Determining _which_ documents to archive via the API is a manual process. For example, you can use analytics queries to find reports older than a retention threshold, or contacts that have been inactive for years.
 
 A good place to start when considering which documents to archive is to evaluate your current purge configuration and see which documents are already marked as purged for all user roles.
 
@@ -84,6 +88,22 @@ The endpoint splits the IDs into archive jobs and responds with `202 Accepted` a
 ```
 
 Jobs are persisted while the payload streams in, so a mid-payload failure can leave some jobs queued even though the request returns an error. Retrying the full payload is safe because archiving is idempotent; duplicate jobs only cost redundant processing.
+
+## Automatic archiving
+
+_Added in `5.4.0`_
+
+Task and target documents expire on their own, and Sentinel archives them without any manual queueing:
+
+| document | archived when                                                                                                                        |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Tasks    | The task is in a terminal state (`Cancelled`, `Completed`, or `Failed`) and its `emission.endDate` is more than 60 days in the past. |
+| Targets  | The target's reporting period is more than 6 months in the past.                                                                     |
+
+
+{{< callout type="info" >}}
+Before `5.4.0`, the same documents were [purged](/technical-overview/data/performance/purging/) instead. Archiving replaces that purge and removes the documents from `medic` as well as from user devices.
+{{< /callout >}}
 
 ## Replication
 
@@ -149,6 +169,7 @@ Each archive job writes a log document to the `medic-logs` database with the sam
 | `start_date` | Number | Timestamp of when processing started |
 | `updated_date` | Number | Timestamp of the last progress update |
 | `errors` | Array | The last 10 errors, each with a `date` and `message` |
+| `automatic` | Boolean | `true` for jobs created by [automatic archiving](#automatic-archiving). Absent on jobs submitted through the API. |
 
 A job whose log has `status: "failed"` has exhausted its 10 attempts and was removed from the queue. Review the `errors` entries, resolve the underlying problem, and resubmit the remaining IDs to the archive endpoint.
 
@@ -174,7 +195,7 @@ On their next sync, users with access to the document download it again with its
 
 ## Server-side processing
 
-Sentinel processes queued jobs in creation order, working through each job's IDs in batches of {{< format-number 1_000 >}}. For each batch, Sentinel:
+Sentinel processes queued jobs in creation order, working through each job's IDs in batches of {{< format-number 1_000 >}}. The [automatic archiving](#automatic-archiving) will only run when there are no other jobs to process. For each batch, Sentinel:
 
 1. Copies the documents, including attachments, to the `medic-archive` database. An `archive_date` timestamp is added to each archived document.
 2. Records an audit entry for each archived document.

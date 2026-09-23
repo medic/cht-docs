@@ -6,6 +6,7 @@ description: >
   Remove unneeded documents from offline users devices
 keywords:
 relatedContent: >
+  technical-overview/data/performance/archiving
   design/personas/chw-janet
   building/reports
   community/contributing/code/troubleshooting/invalid-reports
@@ -122,8 +123,7 @@ And should return an array of `_id` values for docs you would like to be purged 
 
 In the cases of reports that do not have subjects or their subjects are not found, the `purge` function will receive an empty object as `contact`. In the cases of reports about deleted contacts, the `purge` function will receive a `{ _deleted: true }` object as the `contact`.
 
-As of **3.9.0**, `task` documents that are in a terminal state (`Cancelled`, `Completed`, `Failed`) are purged if their `end_date` is more than 60 days ago (relative to server date).
-As of **3.9.0**, `target` documents are purged if their reporting period is more than 6 months ago (relative to server date). Purging `task` and `target` documents happens automatically on every purge run. The intervals and required states are not configurable.
+From **3.9.0** to **5.3.x**, every purge run also purges `task` documents in a terminal state (`Cancelled`, `Completed`, `Failed`) whose `end_date` is more than 60 days ago, and `target` documents whose reporting period is more than 6 months ago (both relative to server date). As of **5.4.0**, Sentinel [archives these documents automatically](/technical-overview/data/performance/archiving/#automatic-archiving) instead, which removes them from user devices and from the `medic` database.
 
 #### CHT API
 
