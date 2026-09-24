@@ -63,3 +63,54 @@ AI assistance is a tool, not a substitute for your judgment and understanding. W
 - **Test comprehensively.** Add tests for edge cases, not just the happy path. If you fixed a bug, include a regression test. AI-generated tests can miss corner cases that human reviewers will catch.
 - **Own the quality.** Treat AI like a junior collaborator who needs supervision; you are the one signing off on the work. The CHT community and end users depend on the reliability of your contribution.
 - **Verify dependencies and license compatibility**. Ensure any libraries suggested by AI are appropriate for the CHT context, properly licensed, and compatible with the supported technologies.
+
+## Running AI Agents in a Sandbox
+
+AI agents, such as Claude Code, can run shell commands, install packages, edit files, and make network requests on your behalf. By default, they do this _with the same privileges as your user account._ Running an agent inside a sandbox limits what it can access, especially when it is working semi-anonymously. Unattended modes include [Claude Code's auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) (its default mode) or any setting that skips permission prompts.
+
+### Why Sandboxing Matters
+
+- **Agents can access everything you can.** Without a sandbox, an agent can read SSH keys, cloud credentials, GitHub tokens, `.env` files, browser data, etc. For CHT contributors and community members, this can include credentials for CHT instances and exported data that contains personal health information.
+- **Agents read untrusted content.** Issues, pull request comments, web pages, package READMEs, and MCP tool results can all contain hidden instructions. This is called _prompt injection_. A successful injection can direct the agent to leak secrets or run harmful commands, and the agent cannot reliably tell these instructions apart from yours.
+- **Agents make mistakes.** An agent that misreads a task can delete files, overwrite uncommitted work, force-push a branch, or remove the Docker volumes that hold your local CouchDB data.
+
+#### Threat model
+
+When using an agent for normal development work, it is appropriate to limit the scope of the agent's access (limited trust), but it is not typically necessary to treat the agent as _adversarial_ (completely untrusted). Access to the host toolchain and to the network help the agent be more productive (without the need to curate an isolated environment for every task). However, giving a semi-autonomous agent complete user-level access to your host machine is unnecessary and imprudent. 
+
+Built-in agent guardrails are not a security boundary. Permission rules built into an agent are enforced by the agent itself. On the other hand, a sandbox enforced by the operating system applies to the agent and to every process it starts, no matter what the model decides to do.
+
+### Recommended Sandbox: `nono`
+
+The [nono](https://nono.sh/) sandboxing utility offers a good balance of simplicity, functionality, and configurability. To get started with `nono`, follow the [installation guide](https://nono.sh/docs/cli/getting_started/installation) for your platform.
+
+Once `nono` has been installed, running Claude inside the sandbox is as simple as:
+
+```bash
+nono pull nolabs-ai/claude
+nono run --profile nolabs-ai/claude --allow-cwd -- claude
+```
+
+This starts Claude with the `nolabs-ai/claude` profile which gives access to the various necessary Claude configuration directories, full read/write access to the contents of the current directory, and access to the network. Access to sensitive locations such as your SSH keys and cloud credentials is blocked. This is a reasonable default sandbox that balances functionality with security.   
+
+`nono` also makes it easy to [create a custom profile](https://nono.sh/docs/cli/features/profiles-groups#profiles) (e.g. one that extends `nolabs-ai/claude`) with additional configurations.
+
+{{< callout type="warning" >}}
+Even inside a sandbox, keep production credentials and personal health information out of the directories you give your agent access to. By default, `nono` gives the agent access to your user's environment variables.
+
+Avoid storing sensitive information such as API keys or passwords on disk or in environment variables. Instead, leverage `nono`'s [credential injection](https://nono.sh/docs/cli/features/credential-injection) to load the necessary credentials from a secure store such as your system keyring or 1Password.
+{{< /callout >}}
+
+#### Shell Alias
+
+To avoid typing the full `nono` command every time, add an alias to your shell configuration file. For Bash, add this line to `~/.bashrc`:
+
+```bash
+alias claude-sbx='nono run --profile nolabs-ai/claude --allow-cwd -- claude'
+```
+
+Reload your configuration with `source ~/.bashrc`, or open a new terminal. Then start a sandboxed Claude session from your project directory:
+
+```bash
+claude-sbx
+```
