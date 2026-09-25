@@ -66,17 +66,24 @@ AI assistance is a tool, not a substitute for your judgment and understanding. W
 
 ## Running AI Agents in a Sandbox
 
-AI agents, such as Claude Code, can run shell commands, install packages, edit files, and make network requests on your behalf. By default, they do this _with the same privileges as your user account._ Running an agent inside a sandbox limits what it can access, especially when it is working semi-anonymously. Unattended modes include [Claude Code's auto mode](https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode) (its default mode) or any setting that skips permission prompts.
+Whether you contribute code, build CHT apps, host CHT instances, or work with program data, you probably have access to information worth protecting. This can include logins for CHT instances and servers, ssh credentials, and data exports that contain personal health information. Communities trust the health programs that use the CHT to protect this information.
 
-### Why Sandboxing Matters
+AI agents, such as Claude Code, can run commands, install packages, edit files, and connect to the internet on your behalf. Unless you set them up otherwise, they do all of this with the same permissions you have.
 
-- **Agents can access everything you can.** Without a sandbox, an agent can read SSH keys, cloud credentials, GitHub tokens, `.env` files, browser data, etc. For CHT contributors and community members, this can include credentials for CHT instances and exported data that contains personal health information.
+> [!NOTE]
+> **Remember: AI agents can access everything you can.**
+
+### What could go wrong
+
+Most of the time, agents do what you ask. But because they have the same access as you, a few things can go wrong:
+
+- **Agents can see things you didn't mean to share.** An agent can read your SSH keys, cloud and GitHub credentials, `.env` files, browser data, and any data exports saved on your computer.
 - **Agents read untrusted content.** Issues, pull request comments, web pages, package READMEs, and MCP tool results can all contain hidden instructions. This is called _prompt injection_. A successful injection can direct the agent to leak secrets or run harmful commands, and the agent cannot reliably tell these instructions apart from yours.
 - **Agents make mistakes.** An agent that misreads a task can delete files, overwrite uncommitted work, force-push a branch, or remove the Docker volumes that hold your local CouchDB data.
 
-#### Threat model
+#### Why use a sandbox
 
-When using an agent for normal development work, it is appropriate to limit the scope of the agent's access (limited trust), but it is not typically necessary to treat the agent as _adversarial_ (completely untrusted). Access to the host toolchain and to the network help the agent be more productive (without the need to curate an isolated environment for every task). However, giving a semi-autonomous agent complete user-level access to your host machine is unnecessary and imprudent. 
+You could manage these risks by being extra careful: approving every command yourself, keeping sensitive files off the computer you use with agents, and following a security checklist every session. That takes a lot of effort, and it's easy to make a mistake. CHT maintainers have found it quicker and easier to work alongside agents in a _sandbox_. A sandbox lets an agent work freely on your project but blocks it from reaching your credentials and other files unless you allow it.
 
 Built-in agent guardrails are not a security boundary. Permission rules built into an agent are enforced by the agent itself. On the other hand, a sandbox enforced by the operating system applies to the agent and to every process it starts, no matter what the model decides to do.
 
