@@ -6,6 +6,7 @@ description: >
   Settings for downloading copies of data onto a user's device
 keywords: 
 relatedContent: >
+  building/reference/app-settings/
   building/reference/app-settings/replication_depth
   community/contributing/code/troubleshooting/replicating-production-data-locally
 aliases:
@@ -14,6 +15,14 @@ aliases:
 ---
 
 Replication is what we call it when users download a copy of the data on to their device.
+
+## Replication interval
+
+Users with offline roles attempt to download data every five minutes by default. You can increase this interval with the [`replication_interval_minutes` app setting](/building/reference/app-settings/#replication-interval). The setting applies to all offline users and accepts numbers from `5` to `1440` minutes, including fractions.
+
+A shorter interval within this range gives users fresher data but increases server load. A longer interval reduces the number of periodic replication requests and can ease CPU pressure in deployments with many users. For example, a 30-minute interval schedules periodic syncs less often than the five-minute default, but users may wait longer to receive updates from other users (especially users who keep saving changes, because each local change restarts the periodic timer). Consider how quickly your workflows need those updates before increasing the interval.
+
+The metadata sync interval also increases when the configured interval exceeds 30 minutes. Manual sync and immediate uploads after local changes remain available. Clients use the configured interval after they download the updated settings and reload.
 
 ## Restricting replication
 

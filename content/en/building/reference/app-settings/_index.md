@@ -54,6 +54,27 @@ The following settings do not need to be specified. They should only be defined 
 | assetlinks                       | Array of [Digital Asset Links](/building/reference/app-settings/assetlinks) definitions. This is used to associate your CHT instance's domain to your Android app to verify app links.                                                                                                                                                                                                                                                                                                                |         | 4.7.0   |
 |sms.clear_failing_schedules            | When `true`, scheduled messages that fail to be generated or sent for various reasons (e.g., empty messages, template issues, or general generation failures) are cleared from the instance's processing queue. This ensures that past messages that were unable to be sent do not perpetually remain scheduled. | false | 5.1.0 |
 |sms.default_to_sender            | When `true`, messages without valid recipients are sent to the sender. When `false`, messages without valid recipients are not sent to the sender if they fail to resolve. They remain in scheduled state. | true | 5.1.0 | 
+| replication_interval_minutes | Interval in minutes for periodic replication by offline users. Accepts numbers from `5` to `1440`, including fractions. See [Replication interval](#replication-interval). | 5 | |
+
+### Replication interval
+
+Set `replication_interval_minutes` to control how often users with offline roles attempt to download data from the server. This is one setting for all offline users, regardless of role. Users with online-only roles do not use periodic replication.
+
+Use a number from `5` to `1440` minutes (one day), inclusive. Fractional minutes, such as `7.5`, are supported. If you omit the setting or set it to `null`, the interval is five minutes. Other values, including numbers outside the range, strings such as `"30"`, and booleans, use the five-minute default and produce a browser console warning.
+
+For example, add this setting to `app_settings/base_settings.json` to use a 30-minute interval:
+
+```json
+{
+  "replication_interval_minutes": 30
+}
+```
+
+[Compile and upload the settings](#build), then synchronize and reload each client to apply the configured interval. Until a client downloads the updated settings and reloads, it continues using its previous interval. You can use **Sync now** to download the settings without waiting for the periodic sync.
+
+The user metadata database syncs every 30 minutes or at the configured replication interval, whichever is longer. For example, a 60-minute interval makes both databases sync every 60 minutes. Startup sync, manual sync, and uploads after local changes still happen as before. Each upload after a local change restarts the periodic timer, so a user who saves changes more often than the interval only gets a periodic download after a full interval without changes. They still get updates on startup, after a reload, and with **Sync now**.
+
+See [Replication interval](/technical-overview/data/performance/replication/#replication-interval) for the tradeoffs between data freshness and server load.
 
 ## SMS Workflows
 
