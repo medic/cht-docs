@@ -7,6 +7,7 @@ description: >
 aliases:
    - /apps/reference/api
 skipIncomingLinkValidation: true
+displayUpdatedDate: false
 ---
 
 {{< swagger >}}

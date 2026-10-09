@@ -14,7 +14,11 @@
         {{ .Content }}
         {{ partial "components/related.html" . }}
       </div>
-      {{ partial "components/last-updated.html" . }}
+      {{ if (default true .Params.displayUpdatedDate) }}
+        {{ partial "components/last-updated.html" . }}
+      {{ else }}
+        <div class="hx:mt-16"></div>
+      {{ end }}
       {{ partial "components/feedback.html" . }}
       {{ partial "components/pager.html" . }}
       {{ partial "components/comments.html" . }}
