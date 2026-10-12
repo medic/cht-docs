@@ -71,7 +71,7 @@ Triggering a manual sync by clicking the "Sync now" button will provide feedback
 #### Synchronization Triggers
 - **On Login**: Synchronization is automatically initiated upon successful user login if the app is connected to the internet.
 - **Manual**: Clicking the "Sync now" button.
-- **Periodic Sync**: The application performs regular checks and attempts to synchronize. The main application database syncs every five minutes by default. You can configure this interval with [`replication_interval_minutes`](/building/reference/app-settings/#replication-interval). The user metadata database syncs every 30 minutes or at the configured replication interval, whichever is longer.
+- **Periodic Sync**: The application performs regular checks and attempts to synchronize. The main application database syncs every 5 minutes, while the user metadata database syncs every 30 minutes (configurable with [`replication_interval_minutes`](/technical-overview/data/performance/replication/#replication-interval)).
 - **On Reload**: Synchronization is automatically initiated when the user reloads the application, refreshes the page, or clicks the reload button in the "Update available" modal.
 - **On Connect**: The app also detects when an internet connection becomes available and attempts to sync immediately.
 
