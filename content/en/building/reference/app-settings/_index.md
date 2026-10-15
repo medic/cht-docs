@@ -54,6 +54,7 @@ The following settings do not need to be specified. They should only be defined 
 | assetlinks                       | Array of [Digital Asset Links](/building/reference/app-settings/assetlinks) definitions. This is used to associate your CHT instance's domain to your Android app to verify app links.                                                                                                                                                                                                                                                                                                                |         | 4.7.0   |
 |sms.clear_failing_schedules            | When `true`, scheduled messages that fail to be generated or sent for various reasons (e.g., empty messages, template issues, or general generation failures) are cleared from the instance's processing queue. This ensures that past messages that were unable to be sent do not perpetually remain scheduled. | false | 5.1.0 |
 |sms.default_to_sender            | When `true`, messages without valid recipients are sent to the sender. When `false`, messages without valid recipients are not sent to the sender if they fail to resolve. They remain in scheduled state. | true | 5.1.0 | 
+| replication_interval_minutes | Interval in minutes for periodic replication by offline users. Accepts numbers from `5` to `1440`. See the [replication documentation](/technical-overview/data/performance/replication/#replication-interval) for more information. | 5 | 5.4.0 |
 
 ## SMS Workflows
 
