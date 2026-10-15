@@ -16,14 +16,6 @@ aliases:
 
 Replication is what we call it when users download a copy of the data on to their device.
 
-## Replication interval
-
-Users with offline roles attempt to download data every five minutes by default. You can increase this interval with the [`replication_interval_minutes` app setting](/building/reference/app-settings/#optional-settings). The setting applies to all offline users and accepts numbers from `5` to `1440` minutes.
-
-A shorter interval within this range gives users fresher data but increases server load. A longer interval reduces the number of periodic replication requests and can ease CPU pressure in deployments with many users. For example, a 30-minute interval schedules periodic syncs less often than the five-minute default, but users may wait longer to receive updates from other users. Consider how quickly your workflows need those updates before increasing the interval.
-
-The metadata sync interval also increases when the configured interval exceeds 30 minutes. Manual sync and immediate uploads after local changes remain available.
-
 ## Restricting replication
 
 If the user has an online role they can access all the data, otherwise they will get restricted access to the data.
@@ -212,3 +204,11 @@ Some reports need to be signed off by a supervisor even though that supervisor d
 ### Sensitive documents
 
 We won't replicate reports that are `private` and are about the user when the sender is someone the user can't access. A report is private when it has a property `doc.fields.private` with a value of `true`. For example, if a supervisor submits a private report about one of their CHPs, that CHP won't be able to see it.
+
+## Replication interval
+
+_Added in 5.4.0_
+
+Users with offline roles attempt to download data every five minutes by default. You can increase this interval with the [`replication_interval_minutes` app setting](/building/reference/app-settings/#optional-settings). The setting applies to all offline users and accepts numbers from `5` to `1440` minutes.
+
+A shorter interval within this range gives users fresher data but increases server load. A longer interval reduces the number of periodic replication requests and can ease CPU pressure in deployments with many users. For example, a 30-minute interval schedules periodic syncs less often than the five-minute default, but users may wait longer to receive updates from other users. Consider how quickly your workflows need those updates before increasing the interval.
