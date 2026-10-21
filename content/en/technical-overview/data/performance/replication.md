@@ -209,6 +209,6 @@ We won't replicate reports that are `private` and are about the user when the se
 
 _Added in 5.4.0_
 
-Users with offline roles attempt to download data every five minutes by default. You can increase this interval with the [`replication_interval_minutes` app setting](/building/reference/app-settings/#optional-settings). The setting applies to all offline users and accepts numbers from `5` to `1440` minutes.
+Users with offline roles attempt to download data every five minutes by default. You can increase this interval with the [`replication_interval_minutes` app setting](/building/reference/app-settings/#optional-settings). The setting applies to all offline users and accepts numbers from `5` to `60` minutes.
 
 A shorter interval within this range gives users fresher data but increases server load. A longer interval reduces the number of periodic replication requests and can ease CPU pressure in deployments with many users. For example, a 30-minute interval schedules periodic syncs less often than the five-minute default, but users may wait longer to receive updates from other users. Consider how quickly your workflows need those updates before increasing the interval.
