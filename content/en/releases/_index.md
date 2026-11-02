@@ -24,7 +24,7 @@ It is recommended that all projects update regularly multiple times a year to ge
 |---------|-----------|--------------|-------------|
 | 5.3.x   | Supported | 26-Aug-2026  | TBA         |
 | 5.2.x   | Supported | 26-Jun-2026  | 26-Nov-2026 |
-| 5.1.x   | Supported | 26-Feb-2026  | 26-Sep-2026 |
+| 5.1.x   | EOL       | 26-Feb-2026  | 26-Sep-2026 |
 | 5.0.x   | EOL       | 20-Nov-2025  | 26-May-2026 |
 | 4.22.x  | Supported | 10-Oct-2025  | 20-Nov-2026 |
 | 4.21.x  | EOL       | 25-Jun-2025  | 10-Jan-2026 |
