@@ -110,12 +110,12 @@ npm run build-dev
 Every time you run any `npm` or `node` commands, it will expect `COUCH_NODE_NAME` and `COUCH_URL` environment variables to be set:
 
 ```shell
-echo "export COUCH_NODE_NAME=nonode@nohost">> ~/.$(basename $SHELL)rc
+echo "export COUCH_NODE_NAME=couchdb@127.0.0.1">> ~/.$(basename $SHELL)rc
 echo "export COUCH_URL=http://medic:password@localhost:5984/medic">> ~/.$(basename $SHELL)rc
 . ~/.$(basename $SHELL)rc
 ```
 
-To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `nonode@nohost` and `http://medic:password@localhost:5984/medic`:
+To ensure these to exports and sourcing your rc file worked, echo the values back out. You should see `couchdb@127.0.0.1` and `http://medic:password@localhost:5984/medic`:
 
 ```shell
 echo $COUCH_NODE_NAME && echo $COUCH_URL
@@ -237,7 +237,7 @@ The workaround, unfortunately, is to just start your CouchDB Docker container wi
 
 Medic needs the following environment variables to be declared:
 - `COUCH_URL`: the full authenticated url to the `medic` DB. Locally this would be  `http://medic:password@localhost:5984/medic`
-- `COUCH_NODE_NAME`: the name of your CouchDB's node. The Docker image default is `nonode@nohost`. Other installations may use `couchdb@127.0.0.1`. You can find out by querying [CouchDB's membership API](https://docs.couchdb.org/en/stable/api/server/common.html#membership)
+- `COUCH_NODE_NAME`: the name of your CouchDB's node. The CHT CouchDB Docker image uses `couchdb@127.0.0.1`. Other installations may use `nonode@nohost`. You can find out by querying [CouchDB's membership API](https://docs.couchdb.org/en/stable/api/server/common.html#membership)
 - (optional) `COUCHDB_USER`: the name of your CouchDB's user. The Docker image default is `medic`
 - (optional) `COUCHDB_PASSWORD`: the credentials of your CouchDB user. The Docker image default is `password`
 - (optional) `API_PORT`: the port API will run on. If not defined, the port defaults to `5988`
@@ -246,7 +246,7 @@ Medic needs the following environment variables to be declared:
 How to permanently define environment variables depends on your OS and shell (e.g. for bash you can put them `~/.bashrc`). You can temporarily define them with `export`:
 
 ```shell
-export COUCH_NODE_NAME=nonode@nohost
+export COUCH_NODE_NAME=couchdb@127.0.0.1
 export COUCH_URL=http://medic:password@localhost:5984/medic
 ```
 
