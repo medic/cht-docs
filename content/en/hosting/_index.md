@@ -21,4 +21,5 @@ System administrators looking to deploy CHT into production should understand [t
   {{< card link="couch2pg/" title="couch2pg" subtitle="Guides for using couch2pg" icon="presentation-chart-line" tag="deprecated" tagIcon="warning" tagType="warning" >}}
   {{< card link="sso" title="SSO" subtitle="Setting up Single Sign On" icon="key"  >}}
   {{< card link="medic" title="At Medic" subtitle="Guidelines internal to Medic-hosted CHT instances" icon="briefcase" tag="medic internal" tagIcon="key" >}}
+  {{< card link="interoperability" title="Interoperability Stack Hosting" subtitle="Guides for hosting CHT Interoperability components" icon="puzzle" >}}
 {{< /cards >}}

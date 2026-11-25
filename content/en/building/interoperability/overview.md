@@ -65,4 +65,3 @@ The flexibility of mediators also means the CHT is future-proof and can be confi
 8. [Communication](https://build.fhir.org/communication.html)
 
 You can find additional information and instructions for setting up [cht-interoperability](https://github.com/medic/cht-interoperability) in the [dedicated guidelines](/building/interoperability/openhim) .
-
