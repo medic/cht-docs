@@ -1,7 +1,7 @@
 ---
 title: "CHT User Management tool"
 linkTitle: User management tool
-weight: 5
+weight: 6
 description: >
   How to use and configure a user management tool for a CHT project
 relatedContent: >
